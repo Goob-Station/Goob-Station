@@ -1,0 +1,34 @@
+- type: job
+  id: PrisonGuard
+  name: job-name-guard
+  description: job-description-guard
+  playTimeTracker: JobSecurityOfficer
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 18000
+  startingGear: PrisonGuardGear
+#  alwaysUseSpawner: true
+  canBeAntag: false
+  icon: "JobIconPrisonGuard"
+  supervisors: job-supervisors-warden
+  setPreference: true
+#  whitelistRequired: true
+  access:
+  - Security
+  - Brig
+  - Maintenance
+
+- type: startingGear
+  id: PrisonGuardGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisonGuard
+    back: ClothingBackpackSecurityFilled
+    shoes: ClothingShoesBootsJack
+    eyes: ClothingEyesGlassesSecurity
+    head: ClothingHeadPrisonGuard
+    id: PrisonGuardPDA
+    ears: ClothingHeadsetSecurity
+    belt: ClothingBeltSecurityFilled
+  innerclothingskirt: ClothingUniformJumpsuitPrisonGuard
+  satchel: ClothingBackpackSatchelSecurityFilled
+  duffelbag: ClothingBackpackDuffelSecurityFilled

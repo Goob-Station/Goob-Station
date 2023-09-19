@@ -133,6 +133,8 @@
   - Visitor
   - Zookeeper
   - ServiceWorker
+  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
+  - Prisoner # Nyanotrasen - Prisoner, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/prisoner.yml
 
 - type: department
   id: CentralCommand
@@ -228,6 +230,7 @@
   - Detective
   - Warden
   - Brigmedic # Goob
+  - PrisonGuard # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
 
 - type: department
   id: Science
@@ -259,4 +262,5 @@
   - Reporter
   - Zookeeper
   - Psychologist
+  - MartialArtist # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
   primary: false

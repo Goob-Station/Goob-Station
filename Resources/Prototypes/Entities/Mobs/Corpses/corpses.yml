@@ -20,6 +20,7 @@
       - ChefGear
       - ChaplainGear
       - PassengerGear
+      - MartialArtistGear # Nyanotrasen - MartialArtist, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Wildcards/martialartist.yml
 
 - type: entity
   parent: SalvageHumanCorpse
@@ -75,6 +76,7 @@
     - SecurityOfficerGear
     - DetectiveGear
     - WardenGear
+    - PrisonGuardGear # Nyanotrasen - PrisonGuard, see Resources/Prototypes/Nyanotrasen/Roles/Jobs/Security/prisonguard.yml
 
 - type: entity
   parent: SalvageHumanCorpse

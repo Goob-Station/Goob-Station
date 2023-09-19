@@ -1,0 +1,26 @@
+- type: entity
+  parent: IDCardStandard
+  id: PrisonGuardIDCard
+  name: prison guard ID card
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: nyanoprisonguard
+  - type: PresetIdCard
+    job: PrisonGuard
+
+- type: entity
+  parent: IDCardStandard
+  id: MartialArtistIDCard
+  name: martial artist ID card
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Misc/id_cards.rsi
+    layers:
+    - state: default
+    - state: nyanomartialartist
+  - type: PresetIdCard
+    job: MartialArtist
+g

@@ -1,0 +1,23 @@
+- type: job
+  id: Prisoner
+  name: job-name-prisoner
+  description: job-description-prisoner
+  playTimeTracker: JobPrisoner
+  startingGear: PrisonerGear
+#  alwaysUseSpawner: true
+  canBeAntag: false
+#  whitelistRequired: true
+  icon: "JobIconPrisoner"
+  supervisors: job-supervisors-security
+  requirements:
+    - !type:OverallPlaytimeRequirement
+      time: 3600
+
+- type: startingGear
+  id: PrisonerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPrisoner
+    shoes: ClothingShoesColorBlack
+    id: PrisonerPDA
+    ears: ClothingHeadsetGrey
+  innerclothingskirt: ClothingUniformJumpsuitPrisoner
