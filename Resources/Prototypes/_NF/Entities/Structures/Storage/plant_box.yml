@@ -1,0 +1,84 @@
+﻿- type: entity
+  id: PlantBox
+  name: plant box
+  description: A large storage container for holding plants and seeds.
+  parent: BaseStructureDynamic
+  components:
+  - type: StaticPrice
+    price: 625
+  - type: Anchorable
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 450
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:EmptyAllContainersBehaviour
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MaterialWoodPlank1:
+            min: 3
+            max: 5
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Climbable
+
+  # plantbox-specific
+  - type: Sprite
+    noRot: true
+    sprite: _NF/Structures/Storage/plantbox.rsi
+    layers:
+    - state: plantbox
+    - state: plantbox-top
+      map: [ top ]
+      visible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        top:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Storage
+    grid:
+    - 0,0,9,5
+    maxItemSize: Normal
+    storageOpenSound: /Audio/Effects/closetopen.ogg
+    storageCloseSound: /Audio/Effects/closetclose.ogg
+    whitelist:
+      components:
+        - Produce
+        - Seed
+  - type: UserInterface
+    interfaces:
+    - key: enum.StorageUiKey.Key
+      type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: Dumpable
+  - type: MagnetPickup
+    range: 1.5  # plant bag has a range of 1.0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        # very not dense to make it easy to pull
+        density: 20
+        mask:
+        - SmallMobMask
+        layer:
+        - MachineLayer
