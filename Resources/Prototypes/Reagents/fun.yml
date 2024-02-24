@@ -207,6 +207,35 @@
         probability: 0.3
 
 - type: reagent
+  id: Ratherium #I'd rather drink Ratherium.
+  name: reagent-name-ratherium
+  group: Toxins
+  slippery: true
+  desc: reagent-desc-ratherium
+  physicalDesc: reagent-physical-desc-reflective
+  flavor: sharp
+  color: "#ff0033"
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Blunt: -1
+      - !type:Emote
+        emote: Scream
+        probability: 1
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 1.50
+        sprintSpeedModifier: 1.50
+
+- type: reagent
   id: Fresium
   name: reagent-name-fresium
   group: Toxins

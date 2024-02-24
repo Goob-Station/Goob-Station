@@ -25,3 +25,6 @@ reagent-desc-fresium = A mysterious compound that slows the vibration of atoms a
 reagent-name-laughter = Laughter
 reagent-desc-laughter = Some say that this is the best medicine, but recent studies have proven that to be untrue.
 
+reagent-name-ratherium = Ratherium
+reagent-desc-ratherium = Nah, rather fuck it. I'd rather drink Ratherium and rather rather, rather.
+
