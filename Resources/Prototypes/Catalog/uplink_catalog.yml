@@ -1633,8 +1633,8 @@
 
 - type: listing
   id: UplinkThrongler
-  name: The Throngler
-  description: "You're never gonna get it. You're never gonna get it. Please don't get it..."
+  name: uplink-throngler-name
+  description: uplink-throngler-desc
   productEntity: Throngler
   cost:
     Telecrystal: 100
