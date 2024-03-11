@@ -295,7 +295,11 @@
     transferAmount: 2
     fixtureId: "throw-fixture"
     blockSlots: NONE
-  
+
+- type: entity
+  parent: Pen
+  id: PenEmbeddable
+  abstract: true
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
