@@ -1,0 +1,76 @@
+- type: entity
+  name: security PDA box
+  parent: BoxPDA
+  id: BoxPDASecurity
+  description: A box of spare PDA microcomputers for the security department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SecurityPDA
+        amount: 2
+      - id: DetectivePDA
+      - id: WardenPDA
+
+- type: entity
+  name: prisoner PDA box
+  parent: BoxPDA
+  id: BoxPDAPrisoner
+  description: A box of spare PDA microcomputers for the warden to use for prisoners.
+  components:
+  - type: StorageFill
+    contents:
+      - id: PrisonerPDA
+        amount: 4
+
+- type: entity
+  name: medical PDA box
+  parent: BoxPDA
+  id: BoxPDAMedical
+  description: A box of spare PDA microcomputers for the medical department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicalPDA
+        amount: 2
+      - id: ChemistryPDA
+      - id: ParamedicPDA
+
+- type: entity
+  name: epistemics PDA box
+  parent: BoxPDA
+  id: BoxPDAScience
+  description: A box of spare PDA microcomputers for the epistemics department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SciencePDA
+        amount: 2
+      - id: ForensicMantisPDA
+      - id: ChaplainPDA
+
+- type: entity
+  name: engineering PDA box
+  parent: BoxPDA
+  id: BoxPDAEngineering
+  description: A box of spare PDA microcomputers for the engineering department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EngineerPDA
+        amount: 3
+      - id: AtmosPDA
+
+- type: entity
+  name: logistics PDA box
+  parent: BoxPDA
+  id: BoxPDACargo
+  description: A box of spare PDA microcomputers for the logistics department.
+  components:
+  - type: StorageFill
+    contents:
+      - id: CargoPDA
+        amount: 2
+      - id: SalvagePDA
+        amount: 1
+      - id: MailCarrierPDA
+        amount: 1

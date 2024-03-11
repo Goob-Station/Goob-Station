@@ -1,0 +1,18 @@
+- type: entity
+  name: Prisoner encryption key box
+  parent: BoxCardboard
+  id: BoxEncryptionKeyPrisoner
+  description: A box of spare encryption keys.
+  components:
+  - type: StorageFill
+    contents:
+      - id: EncryptionKeyPrison
+        amount: 4
+  - type: Sprite
+    layers:
+      - state: box
+      - state: encryptokey
+  - type: Storage
+    whitelist:
+      components:
+      - EncryptionKey

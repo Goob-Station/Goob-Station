@@ -1,0 +1,63 @@
+- type: entity
+  id: XenoVents
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    startAnnouncement: station-event-xeno-vent-start-announcement
+    startAudio:
+      path: /Audio/Announcements/aliens.ogg
+    earliestStart: 20
+    minimumPlayers: 15
+    weight: 1
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobXeno
+      prob: 0.01
+    - id: MobXenoRouny
+      prob: 0.005
+    - id: MobXenoDrone
+      prob: 0.005
+    - id: MobXenoSpitter
+      prob: 0.005
+    - id: MobXenoRunner
+      prob: 0.005
+    - id: MobXenoPraetorian
+      prob: 0.005
+    - id: MobXenoRavager
+      prob: 0.005
+    - id: MobXenoQueen
+      prob: 0.005
+
+- type: entity
+  id: MothroachSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    id: VentCritters
+    earliestStart: 15
+    minimumPlayers: 15
+    weight: 4
+    duration: 60
+  - type: VentCrittersRule
+    entries:
+    - id: MobMothroach
+      prob: 0.05
+
+- type: entity # Delta-V : Midround Syndie Listening Station Spawn
+  id: PirateRadioSpawn
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 5
+    minimumPlayers: 25
+    maxOccurrences: 1
+    duration: 1
+  - type: PirateRadioSpawnRule
+    debrisCount: 6
+    distanceModifier: 13
+    debrisDistanceModifier: 3

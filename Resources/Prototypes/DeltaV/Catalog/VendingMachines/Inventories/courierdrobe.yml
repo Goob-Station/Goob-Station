@@ -1,0 +1,14 @@
+- type: vendingMachineInventory
+  id: CourierDrobeInventory
+  startingInventory:
+    ClothingUniformCourier: 2
+    ClothingUniformSkirtCourier: 2
+    ClothingHeadCourier: 2
+    CourierBag: 2
+    ClothingHeadsetCargo: 2
+    ClothingOuterWinterCargo: 2
+    ClothingUniformMailCarrier: 2 # Nyanotrasen - Mail Carrier old gear
+    ClothingUniformSkirtMailCarrier: 2 # Nyanotrasen - Mail Carrier old gear
+    ClothingHeadMailCarrier: 2 # Nyanotrasen - Mail Carrier old gear
+    MailBag: 2 # Nyanotrasen - Mail Carrier old gear
+    ClothingOuterWinterCoatMail: 2 # Nyanotrasen - Mail Carrier old gear
