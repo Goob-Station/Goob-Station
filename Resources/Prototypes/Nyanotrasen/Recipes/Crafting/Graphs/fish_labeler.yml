@@ -1,0 +1,21 @@
+- type: constructionGraph
+  id: fishlabeler
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: fishlabeler
+      steps:
+      - tag: HandLabeler
+        icon:
+          sprite: Objects/Tools/hand_labeler.rsi
+          state: hand_labeler
+        name: hand labeler
+      - tag: PlushieCarp
+        icon:
+          sprite: Objects/Fun/toys.rsi
+          state: carpplush
+        name: carp plushie
+        doAfter: 2
+  - node: fishlabeler
+    entity: FishLabeler

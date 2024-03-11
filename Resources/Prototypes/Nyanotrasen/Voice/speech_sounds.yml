@@ -1,0 +1,8 @@
+- type: speechSounds
+  id: Chitter
+  saySound:
+    path: /Audio/Voice/Moth/moth_chitter.ogg
+  askSound:
+    path: /Audio/Voice/Moth/moth_chitter.ogg
+  exclaimSound:
+    path: /Audio/Voice/Moth/moth_chitter.ogg

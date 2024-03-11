@@ -1,0 +1,9 @@
+- type: weightedRandom
+  id: MetempsychoticNonhumanoidPool # Entity prototypes
+  weights:
+    MobMonkey: 1
+    MobGorilla: 1
+    # MobKangaroo: 0.5 # Mobs here need to be either VERY funny or up to standard.
+    MobXenoQueen: 0.01
+    MobCrab: 0.01
+    MobPenguin: 1 #ODJ's orders

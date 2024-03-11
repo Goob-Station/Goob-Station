@@ -1,0 +1,258 @@
+- type: constructionGraph
+  id: Altar
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: nanotrasen
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: chaos
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: druid
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: toolbox
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: spacechristian
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: satana
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: technology
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: festival
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: maint
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: blue
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: burden
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: convert
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: orange
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: red
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: white
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: yellow
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: heaven
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+        - to: fanged
+          completed:
+            - !type:SnapToGrid
+          steps:
+            - material: Plasteel
+              amount: 10
+            - material: Bluespace
+              amount: 3
+            - material: Gold
+              amount: 4
+              doAfter: 5
+
+    - node: nanotrasen
+      entity: AltarNanotrasen
+
+    - node: chaos
+      entity: AltarChaos
+
+    - node: druid
+      entity: AltarDruid
+
+    - node: toolbox
+      entity: AltarToolbox
+
+    - node: spacechristian
+      entity: AltarSpaceChristian
+
+    - node: satana
+      entity: AltarSatana
+
+    - node: technology
+      entity: AltarTechnology
+
+    - node: festival
+      entity: AltarConvertFestival
+
+    - node: maint
+      entity: AltarConvertMaint
+
+    - node: blue
+      entity: AltarConvertBlue
+
+    - node: burden
+      entity: AltarConvertBurden
+
+    - node: convert
+      entity: AltarConvert
+
+    - node: orange
+      entity: AltarConvertOrange
+
+    - node: red
+      entity: AltarConvertRed
+
+    - node: white
+      entity: AltarConvertWhite
+
+    - node: yellow
+      entity: AltarConvertYellow
+
+    - node: heaven
+      entity: AltarHeaven
+
+    - node: fanged
+      entity: AltarFangs

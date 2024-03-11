@@ -1,0 +1,21 @@
+- type: latheRecipe
+  id: ClothingOuterHardsuitSyndieReverseEngineered
+  result: ClothingOuterHardsuitSyndieReverseEngineered
+  completetime: 25
+  materials:
+     Steel: 6000
+     Glass: 1500
+     Uranium: 100
+     Plastic: 100
+     Gold: 200
+
+- type: latheRecipe
+  id: ClothingOuterHardsuitJuggernautReverseEngineered
+  result: ClothingOuterHardsuitJuggernautReverseEngineered
+  completetime: 25
+  materials:
+     Steel: 12000
+     Glass: 3000
+     Uranium: 500
+     Plastic: 500
+     Gold: 250

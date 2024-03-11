@@ -1,0 +1,13 @@
+- type: weightedRandom
+  id: MetempsychoticHumanoidPool # Species prototypes
+  weights:
+    Human: 1
+    Felinid: 1
+    Oni: 1
+    Arachnid: 1
+    Harpy: 1
+    Moth: 1
+    Diona: 0.5
+    Reptilian: 0.5
+    SlimePerson: 0.5
+    Vulpkanin: 0.5

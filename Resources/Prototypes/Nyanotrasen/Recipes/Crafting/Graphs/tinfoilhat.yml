@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: TinfoilHat
+  start: start
+  graph:
+    - node: start
+      edges:
+      - to: tinfoilhat
+        steps:
+        - material: Steel
+          amount: 1
+          doAfter: 10
+    - node: tinfoilhat
+      entity: ClothingHeadTinfoil

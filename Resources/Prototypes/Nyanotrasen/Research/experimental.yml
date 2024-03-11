@@ -1,0 +1,45 @@
+# Tier 2
+
+- type: technology
+  id: PsionicCountermeasures
+  name: research-technology-psionic-countermeasures
+  icon:
+    sprite: Nyanotrasen/Clothing/Head/Helmets/insulative_skullcap.rsi # DeltaV - Change the icon to the insulative skullcap
+    state: icon
+  discipline: Experimental
+  tier: 2
+  cost: 7500
+  recipeUnlocks:
+  - ClothingHeadHelmetInsulated
+  - ClothingHeadCage
+  # - ShellSoulbreaker # DeltaV - Placing it under Exotic Ammunition because that's what it is.
+
+- type: technology
+  id: Metempsychosis
+  name: research-technology-metempsychosis
+  icon:
+    sprite: Nyanotrasen/Structures/Machines/metempsychotic.rsi
+    state: pod_0
+  discipline: Experimental
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+    - BiomassReclaimerMachineCircuitboard
+    - CloningConsoleComputerCircuitboard
+    - MedicalScannerMachineCircuitboard
+    - MetempsychoticMachineCircuitboard
+
+
+# Tier 3
+
+# - type: technology
+#   id: Teleportation
+#   name: research-technology-teleportation
+#   icon:
+#     sprite: Nyanotrasen/Objects/Devices/QSI.rsi
+#     state: icon
+#   discipline: Experimental
+#   tier: 3
+#   cost: 15000
+#   recipeUnlocks:
+#   - CoreSilver

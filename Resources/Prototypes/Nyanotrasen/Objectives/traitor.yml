@@ -1,0 +1,70 @@
+- type: entity
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: MantisKnifeStealObjective
+  components:
+  - type: NotJobRequirement
+    job: ForensicMantis
+  - type: StealCondition
+    stealGroup: AntiPsychicKnife
+    owner: job-name-mantis
+
+- type: entity
+  id: BecomePsionicObjective
+  parent: BaseTraitorObjective
+  name: Become psionic
+  description: We need you to acquire psionics and keep them until your mission is complete.
+  noSpawn: true
+  components:
+  - type: NotJobsRequirement
+    jobs:
+      - Mime
+      - ForensicMantis
+  - type: Objective
+    difficulty: 2.5
+    #unique: false
+    icon:
+      sprite: Nyanotrasen/Icons/psi.rsi
+      state: psi
+  - type: ObjectiveBlacklistRequirement
+    blacklist:
+      components:
+      - BecomeGolemCondition
+  - type: BecomePsionicCondition
+
+#- type: entity
+#  id: BecomeGolemObjective
+#  parent: BaseTraitorObjective
+#  name: objective-condition-become-golem-title
+#  description: objective-condition-become-golem-description.
+#  noSpawn: true
+#  components:
+#  - type: NotJobRequirement
+#    job: Chaplain
+#  - type: Objective
+#    difficulty: 3.5
+#    #unique: false
+#    icon:
+#      sprite: Nyanotrasen/Mobs/Species/Golem/cult.rsi
+#      state: full
+#  - type: ObjectiveBlacklistRequirement
+#    blacklist:
+#      components:
+#      - BecomePsionicCondition
+#  - type: BecomeGolemCondition
+
+- type: entity
+  id: RaiseGlimmerObjective
+  parent: BaseTraitorObjective
+  noSpawn: true
+  name: Raise Glimmer.
+  description: Get the glimmer above the specified amount.
+  components:
+  - type: Objective
+    difficulty: 2.5
+    #unique: false
+    icon:
+      sprite: Nyanotrasen/Icons/psi.rsi
+      state: psi
+  - type: RaiseGlimmerCondition
+    target: 500
