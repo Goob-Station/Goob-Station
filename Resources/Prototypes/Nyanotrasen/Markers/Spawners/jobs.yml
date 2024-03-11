@@ -1,0 +1,76 @@
+- type: entity
+  id: SpawnPointGladiator
+  parent: SpawnPointJobBase
+  name: gladiator
+  components:
+  - type: SpawnPoint
+    job_id: Gladiator
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanogladiator
+
+- type: entity
+  id: SpawnPointPrisoner
+  parent: SpawnPointJobBase
+  name: prisoner
+  components:
+  - type: SpawnPoint
+    job_id: Prisoner
+  - type: Sprite
+    layers:
+      - state: green
+      - state: prisoner
+
+- type: entity
+  id: SpawnPointPrisonGuard
+  parent: SpawnPointJobBase
+  name: prison guard
+  components:
+  - type: SpawnPoint
+    job_id: PrisonGuard
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanoprisonguard
+
+- type: entity
+  id: SpawnPointMailCarrier
+  parent: SpawnPointJobBase
+  name: courier # Delta V - Mail Carrier to Courier replacement
+  components:
+  - type: SpawnPoint
+    job_id: MailCarrier
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: courier # Delta V - Mail Carrier to Courier replacement
+
+- type: entity
+  id: SpawnPointMartialArtist
+  parent: SpawnPointJobBase
+  name: martial artist
+  components:
+  - type: SpawnPoint
+    job_id: MartialArtist
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanomartialartist
+
+- type: entity
+  id: SpawnPointForensicMantis
+  parent: SpawnPointJobBase
+  name: psionic mantis # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  components:
+  - type: SpawnPoint
+    job_id: ForensicMantis
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: DeltaV/Markers/jobs.rsi
+        state: nyanomantis

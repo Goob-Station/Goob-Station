@@ -1,0 +1,52 @@
+- type: entity
+  parent: ClothingHeadHelmetHardsuitRd
+  id: ClothingHeadHelmetHardsuitMystagogue
+  noSpawn: true
+  name: mystagogue's hardsuit helmet
+  description: Lightweight hardsuit helmet that has a galaxy-first psionic passthrough system.
+  components:
+  - type: Psionic
+  - type: TinfoilHat
+    passthrough: true
+    destroyOnFry: false
+  - type: ClothingGrantPsionicPower
+    power: MetapsionicPower
+  - type: GuideHelp
+    guides:
+    - Psionics
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitSyndie
+  id: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  noSpawn: true
+  name: SA-123 combat hardsuit helmet
+  description: An advanced hardsuit helmet designed for work in special operations.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/syndicate.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCybersun
+  id: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
+  noSpawn: true
+  name: SA-127 combat hardsuit helmet
+  description: An assault hardsuit helmet featuring a top-secret translucent polymer.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/ReverseEngineering/juggernaut.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitERTLeader
+  id: ClothingHeadHelmetHardsuitERTCentcomm
+  name: CentCom hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Head/Hardsuits/ERThelmets/ertcentcomm.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Head/Hardsuits/ERThelmets/ertcentcomm.rsi
+  - type: PointLight
+    color: "#00aa5c"

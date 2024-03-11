@@ -1,0 +1,66 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesTelegnosisSpectacles
+  name: strange spectacles
+  description: A pair of spectacular and strange spectacles with lenses constructed of an unknown material.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/glasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/glasses.rsi
+  - type: VisionCorrection
+  - type: ClothingGrantPsionicPower
+    power: TelegnosisPower
+  - type: Psionic
+
+- type: entity
+  id: BedsheetInvisibilityCloak
+  parent: BedsheetBase
+  name: tattered bedsheet
+  description: A tattered bedsheet, It looks like its been through hell and back.
+  components:
+  - type: Sprite
+    state: sheetblack
+  - type: Clothing
+    sprite: Clothing/Neck/Bedsheets/black.rsi
+  - type: ClothingGrantPsionicPower
+    power: PsionicInvisibilityPower
+  - type: Psionic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsDispelGloves
+  name: patchwork gloves
+  description: These leather gloves are heavily worn, however they have been repaired in several places.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/leather.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/leather.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-brown
+  - type: FingerprintMask
+  - type: ClothingGrantPsionicPower
+    power: DispelPower
+  - type: Psionic
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesColorYellowUnsulated
+  name: unsulated gloves
+  description: Flimsy synthrubber work gloves styled in a drab yellow color. They are not electrically insulated, and provide no protection against any shocks.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/yellow.rsi
+  - type: Fiber
+    fiberMaterial: fibers-insulative
+    fiberColor: fibers-yellow
+  - type: FingerprintMask
+  - type: ClothingGrantPsionicPower
+    power: NoosphericZapPower
+  - type: Psionic

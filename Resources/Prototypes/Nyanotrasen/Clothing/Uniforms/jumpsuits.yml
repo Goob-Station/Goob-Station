@@ -1,0 +1,169 @@
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMailCarrier
+  name: mail carrier's uniform
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mailman.rsi
+#  - type: ClothingAddFaction
+#    faction: Mailman
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtMailCarrier
+  name: mail carrier's jumpskirt
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mailman.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mailman.rsi
+#  - type: ClothingAddFaction
+#    faction: Mailman
+
+- type: entity
+  parent: ClothingUniformJumpsuitResearchDirector
+  id: ClothingUniformJumpsuitMystagogue
+  name: mystagogue's turtleneck
+  description: It's a turtleneck worn by those with the holy aura to achieve the role of Mystagogue. You can practically feel the psychic energies radiating from this thing, not to mention the actual radiation.
+
+- type: entity
+  parent: ClothingUniformJumpskirtResearchDirector
+  id: ClothingUniformJumpskirtMystagogue
+  name: mystagogue's turtleneck
+  description: It's a turtleneck worn by those with the holy aura to achieve the role of Mystagogue. You can practically feel the psychic energies radiating from this thing, not to mention the actual radiation.
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeans
+  name: white t-shirt and jeans
+  description: Even in space, this combo is still in style.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeans.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeans.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeansGray
+  name: gray t-shirt and jeans
+  description: Even though there are no forests in space, this combo is still practical.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeansgray.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeansgray.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitTshirtJeansPeach
+  name: peach t-shirt and jeans
+  description: Even though your favorite emo clothing store is back at home, this combo is still edgy.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirtjeanspeach.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitMantis
+  name: psionic mantis' uniform # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  description: Modeled after an ancient infantry uniform, this uniform has superior mobility for tense situations.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mantis_uniform.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/mantis_uniform.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtMantis
+  name: psionic mantis' jumpskirt # DeltaV - Rename Forensic Mantis to Psionic Mantis
+  description: Adapted from an ancient infantry uniform, this jumpskirt has superior mobility for tense situations.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mantis_jumpskirt.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpskirt/mantis_jumpskirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitPrisonGuard
+  name: prison guard's uniform
+  description: A comfortable, durable, waterproof uniform made to keep prison staff comfortable and safe.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/prisonguard.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/prisonguard.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGalaxyRed
+  name: red galaxy suit
+  description: Red lawsuit for those that conduct business on a galactic scale.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyred.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyred.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitGalaxyBlue
+  name: blue galaxy suit
+  description: Blue lawsuit or those that conduct business on a galactic scale.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/lawyergalaxyblue.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitSecSummer
+  name: summer security uniform
+  description: A loose-fitting and casual variant of the standard security uniform.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/summer_security.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/summer_security.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitExplorer
+  name: explorer's uniform
+  description: A rugged set of overalls for trekking across the stars.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/explorer.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/explorer.rsi
+
+- type: entity
+  parent: ClothingOuterStorageBase
+  id: ClothingOuterExplorerCoat
+  name: explorer's labcoat
+  description: Looks like it's seen its fair share of dusty trails.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Coats/explorer_coat.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Coats/explorer_coat.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformTShirtKhakiPants
+  name: drab t-shirt and khaki pants
+  description: Some drab but functional clothing.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirt_khaki.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/Uniforms/Jumpsuit/tshirt_khaki.rsi

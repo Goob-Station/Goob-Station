@@ -1,0 +1,51 @@
+- type: entity
+  parent: ClothingOuterHardsuitRd
+  id: ClothingOuterHardsuitMystagogue
+  name: mystagogue's hardsuit
+  description: Lightweight hardsuit that has a helmet with a galaxy-first psionic passthrough system.
+  components:
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitMystagogue
+
+- type: entity
+  parent: ClothingOuterHardsuitSyndie
+  id: ClothingOuterHardsuitSyndieReverseEngineered
+  suffix: reverse-engineered
+  name: SA-122 combat hardsuit
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+  - type: Clothing
+    sprite:  Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/syndicate.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitSyndieReverseEngineered
+  - type: ReverseEngineering
+    newItem: null
+
+- type: entity
+  parent: ClothingOuterHardsuitJuggernaut
+  id: ClothingOuterHardsuitJuggernautReverseEngineered
+  suffix: reverse-engineered
+  name: SA-126 assault hardsuit
+  description: A suit made by the special acquisitions department of Nanotrasen to be hyper resilient.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
+  - type: Clothing
+    sprite:  Nyanotrasen/Clothing/OuterClothing/ReverseEngineering/juggernaut.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitJuggernautReverseEngineered
+  - type: ReverseEngineering
+    newItem: null
+
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitERTCentcomm
+  name: CentCom hardsuit
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
+  - type: Clothing
+    sprite: Nyanotrasen/Clothing/OuterClothing/Hardsuits/ERTSuits/ertcentcomm.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitERTCentcomm

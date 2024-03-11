@@ -1,0 +1,24 @@
+- type: entity
+  name: Schoolgirl Uniform Spawner
+  id: SchoolgirlUniformSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Nyanotrasen/Clothing/Uniforms/Costume/Schoolgirl/blue.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+        - UniformSchoolgirlRed
+        - UniformSchoolgirlBlack
+        - UniformSchoolgirlBlue
+        - UniformSchoolgirlCyan
+        - UniformSchoolgirlGreen
+        - UniformSchoolgirlOrange
+        - UniformSchoolgirlPink
+        - UniformSchoolgirlPurple
+      chance: 0.85
+      rarePrototypes:
+        - ClothingOuterSuitShrineMaiden
+      rareChance: 0.05
