@@ -1,0 +1,78 @@
+- type: entity
+  parent: BaseMachinePowered
+  id: ReverseEngineeringMachine
+  name: reverse engineering machine
+  description: Destructively analyses pieces of technology in the hopes that we can retrieve information from them.
+  components:
+  - type: ReverseEngineeringMachine
+  - type: Sprite
+    sprite: Nyanotrasen/Structures/Machines/reverse_engineering.rsi
+    snapCardinals: true
+    layers:
+    - state: open
+      map: ["open"]
+    - state: unlit
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    noRot: true
+  - type: ActivatableUI
+    key: enum.ReverseEngineeringMachineUiKey.Key
+  - type: UserInterface
+    interfaces:
+    - key: enum.ReverseEngineeringMachineUiKey.Key
+      type: ReverseEngineeringMachineBoundUserInterface
+  - type: ActivatableUIRequiresPower
+  - type: ItemSlots
+    slots:
+      target_slot:
+        name: ReverseEngineeringTarget
+        whitelist:
+          components:
+          - ReverseEngineering
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+      machine_parts: !type:Container
+      target_slot: !type:ContainerSlot
+  - type: EmptyOnMachineDeconstruct
+    containers:
+      - target_slot
+  - type: Machine
+    board: ReverseEngineeringMachineCircuitboard
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: SpriteFade
+  - type: AmbientSound
+    enabled: false
+    volume: -5
+    range: 5
+    sound:
+      path: /Audio/Ambience/Objects/revMachine_ambience.ogg
+  - type: GuideHelp
+    guides:
+    - ReverseEngineering
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+      enum.ReverseEngineeringVisuals.ChamberOpen:
+        open:
+          True: { state: open }
+          False: { state: closed }

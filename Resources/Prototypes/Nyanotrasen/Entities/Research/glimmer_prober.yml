@@ -1,0 +1,172 @@
+- type: entity
+  parent: BaseResearchAndDevelopmentPointSource
+  id: GlimmerProber
+  name: glimmer prober
+  description: Probes the noösphere to generate research points. Might be worth turning off if glimmer is a problem.
+  components:
+  - type: Psionic
+  - type: GlimmerSource
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerProber
+  - type: ResearchPointSource
+    pointspersecond: 20
+    active: true
+  - type: Sprite
+    sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
+    noRot: true
+    layers:
+    - state: base
+    - state: prober
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+    - state: prober_glimmer_fx_1
+      shader: unshaded
+      visible: false
+      map: ["enum.GlimmerReactiveVisualLayers.GlimmerEffect"]
+  - type: GenericVisualizer
+    visuals:
+      enum.GlimmerReactiveVisuals.GlimmerTier:
+        enum.GlimmerReactiveVisualLayers.GlimmerEffect:
+          Minimal:
+            visible: false
+          Low:
+            state: prober_glimmer_fx_1
+            visible: true
+          Moderate:
+            state: prober_glimmer_fx_2
+            visible: true
+          High:
+            state: prober_glimmer_fx_3
+            visible: true
+          Dangerous:
+            state: prober_glimmer_fx_4
+            visible: true
+          Critical:
+            state: prober_glimmer_fx_5
+            visible: true
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.6
+    color: "#9b77e2"
+  - type: GlimmerReactive
+    requiresApcPower: true
+    modulatesPointLight: true
+    glimmerToLightEnergyFactor: 2.0
+    glimmerToLightRadiusFactor: 1.3
+  - type: PowerSwitch
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: ShockAbsorber
+  - type: CargoSellBlacklist
+  - type: GuideHelp
+    guides:
+    - Psionics
+  - type: AmbientSound
+    range: 6
+    volume: -6
+    sound: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
+  - type: AmbientOnPowered
+  - type: GlimmerSound
+    glimmerTier:
+      Minimal:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
+      Low:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_low.ogg
+      Moderate:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_moderate.ogg
+      High:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_high.ogg
+      Dangerous:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_dangerous.ogg
+      Critical:
+        path: /Audio/Nyanotrasen/Ambience/Objects/prober_hum_dangerous.ogg
+
+- type: entity
+  parent: BaseMachinePowered
+  id: GlimmerDrain
+  name: glimmer drain
+  description: Uses electricity to try and sort out the noösphere, reducing its level of entropy.
+  components:
+  - type: Psionic
+  - type: GlimmerSource
+    addToGlimmer: false
+  - type: Construction
+    graph: GlimmerDevices
+    node: glimmerDrain
+  - type: Sprite
+    sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
+    noRot: true
+    layers:
+    - state: base
+    - state: drain
+    - state: powered
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: {visible: true}
+          False: {visible: false}
+  - type: PowerSwitch
+  - type: CargoSellBlacklist
+  - type: GuideHelp
+    guides:
+    - Psionics
+  - type: NpcFactionMember
+    factions:
+    - PsionicInterloper # :^)
+
+- type: entity
+  id: GlimmerDeviceFrame
+  name: glimmer device frame
+  description: A frame for a glimmer drain or glimmer prober.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: Physics
+      bodyType: Static
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.5,0.25,0.5"
+          density: 190
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Anchorable
+    - type: Rotatable
+    - type: Pullable
+    - type: Construction #Files are in place, but commented out
+      graph: GlimmerDevices
+      node: frame
+    - type: Damageable
+      damageContainer: Inorganic
+      damageModifierSet: Metallic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+        - !type:DoActsBehavior
+          acts: ["Destruction"]
+    - type: Sprite
+      sprite: DeltaV/Structures/Machines/glimmer_machines.rsi # DeltaV reskin
+      noRot: true
+      layers:
+      - state: base
+      - state: intermediate
+    - type: CargoSellBlacklist

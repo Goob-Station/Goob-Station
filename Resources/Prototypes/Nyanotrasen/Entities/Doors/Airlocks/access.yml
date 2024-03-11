@@ -1,0 +1,15 @@
+- type: entity
+  parent: AirlockCargo
+  id: AirlockMailLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
+
+- type: entity
+  parent: AirlockCargoGlass
+  id: AirlockMailGlassLocked
+  suffix: Mail, Locked
+  components:
+  - type: AccessReader
+    access: [["Mail"]]
