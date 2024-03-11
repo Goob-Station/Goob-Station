@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseItem
+  id: GlimmerMonitorCartridge
+  name: glimmer monitor cartridge
+  description: A cartridge that keeps track of glimmer.
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: Icon
+    sprite: Nyanotrasen/Objects/Devices/cartridge.rsi
+    state: cart-psi
+  - type: UIFragment
+    ui: !type:GlimmerMonitorUi
+  - type: Cartridge
+    programName: glimmer-monitor-program-name
+    icon:
+      sprite: Nyanotrasen/Icons/psi.rsi
+      state: psi
+  - type: GlimmerMonitorCartridge

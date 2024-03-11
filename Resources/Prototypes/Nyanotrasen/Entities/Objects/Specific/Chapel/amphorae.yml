@@ -1,0 +1,76 @@
+- type: entity
+  parent: BaseItem
+  id: BaseAmphora
+  name: amphora
+  description: It's an earthenware jar suitable for carrying liquids, an example of ancient technology.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Objects/Specific/Chapel/amphorae.rsi
+  - type: Item
+    size: Small
+    sprite: Nyanotrasen/Objects/Specific/Chapel/amphorae.rsi
+  - type: StaticPrice
+    price: 50
+  - type: SolutionContainerManager
+    solutions:
+      jar:
+        maxVol: 120
+  - type: Drink
+    isOpen: true
+    solution: jar
+  - type: Spillable
+    solution: jar
+  - type: RefillableSolution
+    solution: jar
+  - type: DrainableSolution
+    solution: jar
+  - type: ExaminableSolution
+    solution: jar
+  - type: DrawableSolution
+    solution: jar
+  - type: InjectableSolution
+    solution: jar
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+    - key: enum.TransferAmountUiKey.Key
+      type: TransferAmountBoundUserInterface
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 5
+      behaviors:
+      # TODO: Spawn potsherds.
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+      - !type:SpillBehavior
+        solution: jar
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnLand
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Blunt: 5
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 2
+    damage:
+      types:
+        Blunt: 5
+
+- type: entity
+  parent: BaseAmphora
+  id: Amphora
+  components:
+  - type: Sprite
+    layers:
+      - state: amphora3

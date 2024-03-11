@@ -1,0 +1,9 @@
+- type: entity
+  parent: SeedBase
+  name: packet of killer tomato seeds
+  id: KillerTomatoSeeds
+  components:
+    - type: Seed
+      seedId: killertomato
+    - type: Sprite
+      sprite: Nyanotrasen/Mobs/Mutants/killer_tomato.rsi

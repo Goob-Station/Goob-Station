@@ -1,0 +1,1891 @@
+# Antennas
+- type: marking
+  id: MothAntennasClassicAspen
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: aspen
+
+- type: marking
+  id: MothAntennasClassicBrown
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: brown
+
+- type: marking
+  id: MothAntennasClassicDeathshead
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: deathshead
+
+- type: marking
+  id: MothAntennasClassicFeathery
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: feathery
+
+- type: marking
+  id: MothAntennasClassicFirewatch
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: firewatch
+
+- type: marking
+  id: MothAntennasClassicGothic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: gothic
+
+- type: marking
+  id: MothAntennasClassicJungle
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: jungle
+
+- type: marking
+  id: MothAntennasClassicLovers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: lovers
+
+- type: marking
+  id: MothAntennasClassicMint
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: mint
+
+- type: marking
+  id: MothAntennasClassicMoffra
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: moffra
+
+- type: marking
+  id: MothAntennasClassicMoonfly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: moonfly
+
+- type: marking
+  id: MothAntennasClassicOakworm
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: oakworm
+
+- type: marking
+  id: MothAntennasClassicPlain
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: plain
+
+- type: marking
+  id: MothAntennasClassicPlasmafire
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: plasmafire
+
+- type: marking
+  id: MothAntennasClassicPoison
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: poison
+
+- type: marking
+  id: MothAntennasClassicReddish
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: reddish
+
+- type: marking
+  id: MothAntennasClassicRegal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: regal
+
+- type: marking
+  id: MothAntennasClassicRosy
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: rosy
+
+- type: marking
+  id: MothAntennasClassicRoyal
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: royal
+
+- type: marking
+  id: MothAntennasClassicSnow
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: snow
+
+- type: marking
+  id: MothAntennasClassicWhitefly
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: whitefly
+
+- type: marking
+  id: MothAntennasClassicWitchking
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_antennas.rsi
+    state: witchking
+
+# Wings
+- type: marking
+  id: MothWingsClassicAspen
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: aspen
+
+- type: marking
+  id: MothWingsClassicAtlas
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: atlas
+
+- type: marking
+  id: MothWingsClassicBrown
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: brown
+
+- type: marking
+  id: MothWingsClassicDeathshead
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: deathshead
+
+- type: marking
+  id: MothWingsClassicFeathery
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: feathery
+
+- type: marking
+  id: MothWingsClassicFirewatch
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: firewatch
+
+- type: marking
+  id: MothWingsClassicGothic
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: gothic
+
+- type: marking
+  id: MothWingsClassicJungle
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: jungle
+
+- type: marking
+  id: MothWingsClassicLovers
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: lovers
+
+- type: marking
+  id: MothWingsClassicLuna
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: luna
+
+- type: marking
+  id: MothWingsClassicMint
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: mint
+
+- type: marking
+  id: MothWingsClassicMoffra
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: moffra
+
+- type: marking
+  id: MothWingsClassicMonarch
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: monarch
+
+- type: marking
+  id: MothWingsClassicMoonfly
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: moonfly
+
+- type: marking
+  id: MothWingsClassicOakworm
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: oakworm
+
+- type: marking
+  id: MothWingsClassicPlain
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: plain
+
+- type: marking
+  id: MothWingsClassicPlasmafire
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: plasmafire
+
+- type: marking
+  id: MothWingsClassicPoison
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: poison
+
+- type: marking
+  id: MothWingsClassicRagged
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: ragged
+
+- type: marking
+  id: MothWingsClassicReddish
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: reddish
+
+- type: marking
+  id: MothWingsClassicRosy
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: rosy
+
+- type: marking
+  id: MothWingsClassicRoyal
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: royal
+
+- type: marking
+  id: MothWingsClassicSnow
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: snow
+
+- type: marking
+  id: MothWingsClassicWhitefly
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: whitefly
+
+- type: marking
+  id: MothWingsClassicWitchking
+  bodyPart: Tail
+  markingCategory: Tail
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_wings.rsi
+    state: witchking
+
+# Body Markings
+# Deathshead
+- type: marking
+  id: MothHeadClassicDeathshead
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-head
+
+- type: marking
+  id: MothChestClassicDeathshead
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-chest
+
+- type: marking
+  id: MothLArmClassicDeathshead
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-leftarm
+
+- type: marking
+  id: MothRArmClassicDeathshead
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-rightarm
+
+- type: marking
+  id: MothLLegClassicDeathshead
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-leftleg
+
+- type: marking
+  id: MothRLegClassicDeathshead
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: deathshead-rightleg
+
+
+# Firewatch
+- type: marking
+  id: MothHeadClassicFirewatch
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-head
+
+- type: marking
+  id: MothChestClassicFirewatch
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-chest
+
+- type: marking
+  id: MothLArmClassicFirewatch
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-leftarm
+
+- type: marking
+  id: MothRArmClassicFirewatch
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-rightarm
+
+- type: marking
+  id: MothLLegClassicFirewatch
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-leftleg
+
+- type: marking
+  id: MothRLegClassicFirewatch
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: firewatch-rightleg
+
+# Gothic
+- type: marking
+  id: MothHeadClassicGothic
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-head
+
+- type: marking
+  id: MothChestClassicGothic
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-chest
+
+- type: marking
+  id: MothLArmClassicGothic
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-leftarm
+
+- type: marking
+  id: MothRArmClassicGothic
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-rightarm
+
+- type: marking
+  id: MothLLegClassicGothicL
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-leftleg
+
+- type: marking
+  id: MothRLegClassicGothic
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: gothic-rightleg
+
+# Jungle
+- type: marking
+  id: MothHeadClassicJungle
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-head
+
+- type: marking
+  id: MothChestClassicJungle
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-chest
+
+- type: marking
+  id: MothLArmClassicJungle
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-leftarm
+
+- type: marking
+  id: MothRArmClassicJungle
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-rightarm
+
+- type: marking
+  id: MothLLegClassicJungle
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-leftleg
+
+- type: marking
+  id: MothRLegClassicJungle
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: jungle-rightleg
+
+# Lovers
+- type: marking
+  id: MothHeadClassicLovers
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-head
+
+- type: marking
+  id: MothChestClassicLovers
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-chest
+
+- type: marking
+  id: MothLArmClassicLovers
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-leftarm
+
+- type: marking
+  id: MothRArmClassicLovers
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-rightarm
+
+- type: marking
+  id: MothLLegClassicLovers
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-leftleg
+
+- type: marking
+  id: MothRLegClassicLovers
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: lovers-rightleg
+
+# Moonfly
+- type: marking
+  id: MothHeadClassicMoonfly
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-head
+
+- type: marking
+  id: MothChestClassicMoonfly
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-chest
+
+- type: marking
+  id: MothLArmClassicMoonfly
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-leftarm
+
+- type: marking
+  id: MothRArmClassicMoonfly
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-rightarm
+
+- type: marking
+  id: MothLLegClassicMoonfly
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-leftleg
+
+- type: marking
+  id: MothRLegClassicMoonfly
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: moonfly-rightleg
+
+# Oakworm
+- type: marking
+  id: MothHeadClassicOakworm
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-head
+
+- type: marking
+  id: MothChestClassicOakworm
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-chest
+
+- type: marking
+  id: MothLArmClassicOakworm
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-leftarm
+
+- type: marking
+  id: MothRArmClassicOakworm
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-rightarm
+
+- type: marking
+  id: MothLLegClassicOakworm
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-leftleg
+
+- type: marking
+  id: MothRLegClassicOakworm
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: oakworm-rightleg
+
+# Poison
+- type: marking
+  id: MothHeadClassicPoison
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-head
+
+- type: marking
+  id: MothChestClassicPoison
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-chest
+
+- type: marking
+  id: MothLArmClassicPoison
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-leftarm
+
+- type: marking
+  id: MothRArmClassicPoison
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-rightarm
+
+- type: marking
+  id: MothLLegClassicPoison
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-leftleg
+
+- type: marking
+  id: MothRLegClassicPoison
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: poison-rightleg
+
+# Ragged
+- type: marking
+  id: MothHeadClassicRagged
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-head
+
+- type: marking
+  id: MothChestClassicRagged
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-chest
+
+- type: marking
+  id: MothLArmClassicRagged
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-leftarm
+
+- type: marking
+  id: MothRArmClassicRagged
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-rightarm
+
+- type: marking
+  id: MothLLegClassicRagged
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-leftleg
+
+- type: marking
+  id: MothRLegClassicRagged
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: ragged-rightleg
+
+# Reddish
+- type: marking
+  id: MothHeadClassicReddish
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-head
+
+- type: marking
+  id: MothChestClassicReddish
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-chest
+
+- type: marking
+  id: MothLArmClassicReddish
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-leftarm
+
+- type: marking
+  id: MothRArmClassicReddish
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-rightarm
+
+- type: marking
+  id: MothLLegClassicReddish
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-leftleg
+
+- type: marking
+  id: MothRLegClassicReddish
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: reddish-rightleg
+
+# Royal
+- type: marking
+  id: MothHeadClassicRoyal
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-head
+
+- type: marking
+  id: MothChestClassicRoyal
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-chest
+
+- type: marking
+  id: MothLArmClassicRoyal
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-leftarm
+
+- type: marking
+  id: MothRArmClassicRoyal
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-rightarm
+
+- type: marking
+  id: MothLLegClassicRoyal
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-leftleg
+
+- type: marking
+  id: MothRLegClassicRoyal
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: royal-rightleg
+
+# Whitefly
+- type: marking
+  id: MothHeadClassicWhitefly
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-head
+
+- type: marking
+  id: MothChestClassicWhitefly
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-chest
+
+- type: marking
+  id: MothLArmClassicWhitefly
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-leftarm
+
+- type: marking
+  id: MothRArmClassicWhitefly
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-rightarm
+
+- type: marking
+  id: MothLLegClassicWhitefly
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-leftleg
+
+- type: marking
+  id: MothRLegClassicWhitefly
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: whitefly-rightleg
+
+# Witchking
+- type: marking
+  id: MothHeadClassicWitchking
+  bodyPart: Head
+  markingCategory: Head
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-head
+
+- type: marking
+  id: MothChestClassicWitchking
+  bodyPart: Chest
+  markingCategory: Chest
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-chest
+
+- type: marking
+  id: MothLArmClassicWitchking
+  bodyPart: LArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-leftarm
+
+- type: marking
+  id: MothRArmClassicWitchking
+  bodyPart: RArm
+  markingCategory: Arms
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-rightarm
+
+- type: marking
+  id: MothLLegClassicWitchking
+  bodyPart: LLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-leftleg
+
+- type: marking
+  id: MothRLegClassicWitchking
+  bodyPart: RLeg
+  markingCategory: Legs
+  forcedColoring: true
+  speciesRestriction: [Moth]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: Nyanotrasen/Mobs/Customization/Moth/moth_markings.rsi
+    state: witchking-rightleg

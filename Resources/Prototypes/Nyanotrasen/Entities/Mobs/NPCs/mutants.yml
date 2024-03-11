@@ -1,0 +1,356 @@
+- type: entity
+  name: killer tomato
+  id: MobTomatoKiller
+  parent: SimpleSpaceMobBase
+  description: This is really going to let you own some vegans in your next online debate.
+  components:
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: produce
+      sprite: Nyanotrasen/Mobs/Mutants/killer_tomato.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.5
+        density: 63
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      60: Dead
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: produce
+      Critical:
+        Base: produce_dead
+      Dead:
+        Base: produce_dead
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatTomato
+      amount: 3
+    - id: KillerTomatoSeeds
+      amount: 1
+  - type: Bloodstream
+    bloodReagent: DemonsBlood
+    bloodMaxVolume: 100
+  - type: CombatMode
+  - type: Temperature
+    heatDamageThreshold: 500
+    coldDamageThreshold: 200
+  - type: MeleeWeapon
+    hidden: true
+    animation: WeaponArcBite
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    damage:
+      types:
+        Piercing: 3
+        Slash: 5
+  - type: ReplacementAccent
+    accent: genericAggressive
+  - type: Produce
+  - type: NoSlip
+
+# - type: entity
+#   name: oneirophage
+#   parent: SimpleMobBase
+#   id: MobGiantSpiderVampire
+#   description: The 'dream-eater' spider, rumored to be one of the potential genetic sources for arachne.
+#   components:
+#   - type: Sprite
+#     drawdepth: Mobs
+#     layers:
+#     - map: ["enum.DamageStateVisualLayers.Base"]
+#       state: viper
+#       sprite: Mobs/Animals/spider.rsi
+#   - type: Physics
+#   - type: Fixtures
+#     fixtures:
+#       fix1:
+#         shape:
+#           !type:PhysShapeCircle
+#           radius: 0.35
+#         density: 130
+#         mask:
+#         - SmallMobMask
+#         layer:
+#         - SmallMobLayer
+#   - type: Appearance
+#   - type: DamageStateVisuals
+#     states:
+#       Alive:
+#         Base: viper
+#       Critical:
+#         Base: viper_dead
+#       Dead:
+#         Base: viper_dead
+#   - type: Butcherable
+#     spawned:
+#     - id: FoodMeatSpider
+#       amount: 2
+#   - type: CombatMode
+#   - type: ReplacementAccent
+#     accent: xeno
+#   - type: InteractionPopup
+#     successChance: 0.5
+#     interactSuccessString: petting-success-tarantula
+#     interactFailureString: petting-failure-generic
+#   - type: Puller
+#     needsHands: false
+#   - type: Arachne
+#     cocoonDelay: 8
+#   - type: SolutionContainerManager
+#     solutions:
+#       melee:
+#         reagents:
+#         - ReagentId: Nocturine
+#           Quantity: 20
+#   - type: MeleeChemicalInjector
+#     solution: melee
+#     transferAmount: 3.5
+#   - type: SolutionRegeneration
+#     solution: melee
+#     generated:
+#       reagents:
+#         - ReagentId: Nocturine
+#           Quantity: 0.15
+#   - type: BloodSucker
+#     unitsToSucc: 35
+#     injectWhenSucc: true
+#     injectReagent: Cryptobiolin
+#     unitsToInject: 10
+#     webRequired: true
+#   - type: Bloodstream
+#     bloodReagent: DemonsBlood
+#   - type: Body
+#     prototype: VampiricAnimalLarge
+#   - type: PotentialPsionic
+#   - type: Psionic
+#     removable: false
+#   - type: MetapsionicPower
+#   - type: MeleeWeapon
+#     hidden: true
+#     angle: 0
+#     animation: WeaponArcBite
+#     damage:
+#       types:
+#         Piercing: 8
+#   - type: AntiPsionicWeapon
+#     punish: false
+#     modifiers:
+#       coefficients:
+#         Piercing: 2.25
+#   - type: Damageable
+#     damageContainer: HalfSpirit
+#     damageModifierSet: HalfSpirit
+#   - type: StatusEffects
+#     allowed:
+#       - Stun
+#       - KnockedDown
+#       - SlowedDown
+#       - Stutter
+#       - SeeingRainbows
+#       - Electrocution
+#       - Drunk
+#       - SlurredSpeech
+#       - PressureImmunity
+#       - Muted
+#       - ForcedSleep
+#       - TemporaryBlindness
+#       - Pacified
+#       - PsionicsDisabled
+#       - PsionicallyInsulated
+#   - type: Tag
+#     tags:
+#       - Oneirophage
+#   - type: MovementAlwaysTouching
+#   - type: PsionicInvisibleContacts
+#     whitelist:
+#       tags:
+#         - ArachneWeb
+
+# - type: entity
+#   name: oneirophage
+#   parent: MobGiantSpiderVampire
+#   id: MobGiantSpiderVampireAngry
+#   suffix: Angry
+#   components:
+#     - type: NpcFactionMember
+#       factions:
+#         - SimpleHostile
+#     - type: InputMover
+#     - type: MobMover
+#     - type: HTN
+#       rootTask: SimpleHostileCompound
+#     - type: GhostRole
+#       makeSentient: true
+#       name: ghost-role-information-giant-spider-vampire-name
+#       description: ghost-role-information-giant-spider-vampire-description
+#       rules: No antagonist restrictions. Just don't talk in emote; you have telepathic chat.
+#     - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SimpleMobBase
+  id: MobMouseCancer
+  name: Cancer Mouse
+  description: Oh hey Civvie...
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: Mobs/Animals/mouse.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mouse-0
+      color: greenyellow
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: mouse-0
+      Critical:
+        Base: dead-0
+      Dead:
+        Base: splat-0
+  - type: PointLight
+    color: greenyellow
+  - type: RadiationSource
+    intensity: 5
+    slope: 0.5
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: CancerMouse
+  - type: GhostRole
+    makeSentient: true
+    name: ghost-role-information-cancer-mouse-name
+    description: ghost-role-information-cancer-mouse-description
+  - type: GhostTakeoverAvailable
+  - type: CombatMode
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3.5
+    baseSprintSpeed : 3.5
+  - type: InputMover
+  - type: MobMover
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 30 #Bulky by mouse standards...
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      40: Critical
+      80: Dead
+  - type: Item
+    size: Normal
+  - type: Stamina
+    critThreshold: 80
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 5
+        Piercing: 3
+  - type: Body
+    prototype: Rat
+    requiredLegs: 1 # TODO: More than 1 leg
+  - type: Hunger # probably should be prototyped
+    thresholds:
+      Overfed: 200
+      Okay: 150
+      Peckish: 100
+      Starving: 50
+      Dead: 0
+    baseDecayRate: 0.01666666666
+  - type: Thirst
+    thresholds:
+      OverHydrated: 600
+      Okay: 450
+      Thirsty: 300
+      Parched: 150
+      Dead: 0
+    baseDecayRate: 0.1
+  - type: Appearance
+  - type: Puller
+    needsHands: false
+  - type: Vocal
+    # mice are gender neutral who cares
+    maleScream: /Audio/Animals/mouse_squeak.ogg
+    femaleScream: /Audio/Animals/mouse_squeak.ogg
+    wilhelmProbability: 0.001
+  - type: Tag
+    tags:
+      - CannotSuicide
+      - DoorBumpOpener
+      - FootstepSound
+      - Recyclable
+  - type: NoSlip
+  - type: MobPrice
+    price: 100 # rat wealth
+  - type: FelinidFood
+  - type: CanEscapeInventory
+  - type: Extractable
+    grindableSolutionName: food
+  - type: Bloodstream
+    bloodReagent: Radium
+    bloodMaxVolume: 70
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Radium
+          Quantity: 70
+  - type: Butcherable
+    spawned:
+    - id: FoodMeatRat
+      amount: 1
+  - type: Grammar
+    attributes:
+      proper: true
+      gender: male
+  - type: IntrinsicRadioReceiver
+    channels:
+    - Common
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Common
+  - type: ActiveRadio
+    channels:
+    - Common

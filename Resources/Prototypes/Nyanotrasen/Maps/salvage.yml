@@ -1,0 +1,97 @@
+﻿# "Medium"-class maps - Max size square: 15x15, indicated size: 7.5
+
+- type: salvageMap
+  id: AnimalFarm
+  mapPath: /Maps/Salvage/DeltaV/DV-animalfarm.yml
+  size: medium
+
+- type: salvageMap
+  id: MediumChunk01
+  mapPath: /Maps/Salvage/DeltaV/DV-med-chunk-01.yml
+  size: medium
+
+- type: salvageMap
+  id: MediumMiningOutpost01
+  mapPath: /Maps/Salvage/DeltaV/DV-mining-outpost-01.yml
+  size: medium
+
+- type: salvageMap
+  id: AtlasPerma
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-perma.yml
+  size: medium
+
+- type: salvageMap
+  id: AtlasCells
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-jailcells.yml
+  size: medium
+
+- type: salvageMap
+  id: AtlasSalvage
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-salvage.yml
+  size: medium
+
+- type: salvageMap
+  id: AtlasAtmos
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-atmos.yml
+  size: medium
+
+- type: salvageMap
+  id: AtlasCargo
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-cargo.yml
+  size: medium
+
+- type: salvageMap
+  id: ServiceChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-med-service-chunk-01.yml
+  size: medium
+
+# """Large""" maps
+
+- type: salvageMap
+  id: ResearchPost
+  mapPath: /Maps/Salvage/DeltaV/DV-research-outpost-01.yml
+  size: large
+
+- type: salvageMap
+  id: LargeEngineerChunk
+  mapPath: /Maps/Salvage/DeltaV/DV-large-engineer-chunk.yml
+  size: large
+
+- type: salvageMap
+  id: AtlasConferenceRoom
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-conference-room.yml
+  size: large
+
+- type: salvageMap
+  id: AtlasDorms
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-dorms.yml
+  size: large
+
+- type: salvageMap
+  id: AtlasEpistemics
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-epi.yml
+  size: large
+
+- type: salvageMap
+  id: AtlasMedbay
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-medical.yml
+  size: large
+
+- type: salvageMap
+  id: AtlasService
+  mapPath: /Maps/Salvage/DeltaV/DV-atlas-salvage.yml
+  size: large
+
+# Asteroids 30x30
+
+- type: salvageMap
+  id: LargeAsteroid_1
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-01.yml
+
+- type: salvageMap
+  id: LargeAsteroid_2
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-02.yml
+
+- type: salvageMap
+  id: LargeAsteroid_3
+  mapPath: /Maps/Salvage/DeltaV/DV-asteroid-large-03.yml

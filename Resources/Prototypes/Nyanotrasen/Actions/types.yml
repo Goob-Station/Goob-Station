@@ -1,0 +1,179 @@
+- type: entity
+  id: ActionEatMouse
+  name: action-name-eat-mouse
+  description: action-description-eat-mouse
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Icons/verbiconfangs.png
+    event: !type:EatMouseActionEvent
+
+- type: entity
+  id: ActionHairball
+  name: action-name-hairball
+  description: action-description-hairball
+  noSpawn: true
+  components:
+  - type: InstantAction
+    charges: 1
+    icon: { sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi, state: icon }
+    useDelay: 30
+    event: !type:HairballActionEvent
+
+- type: entity
+  id: ActionDispel
+  name: action-name-dispel
+  description: action-description-dispel
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon: Nyanotrasen/Interface/VerbIcons/dispel.png
+    useDelay: 45
+    checkCanAccess: false
+    range: 6
+    itemIconStyle: BigAction
+    canTargetSelf: false
+    event: !type:DispelPowerActionEvent
+
+- type: entity
+  id: ActionMassSleep
+  name: action-name-mass-sleep
+  description: action-description-mass-sleep
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    icon: Nyanotrasen/Interface/VerbIcons/mass_sleep.png
+    useDelay: 60
+    checkCanAccess: false
+    range: 8
+    itemIconStyle: BigAction
+    event: !type:MassSleepPowerActionEvent
+
+- type: entity
+  id: ActionMindSwap
+  name: action-name-mind-swap
+  description: action-description-mind-swap
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon: Nyanotrasen/Interface/VerbIcons/mind_swap.png
+    useDelay: 240
+    checkCanAccess: false
+    range: 8
+    itemIconStyle: BigAction
+    event: !type:MindSwapPowerActionEvent
+
+- type: entity
+  id: ActionMindSwapReturn
+  name: action-name-mind-swap-return
+  description: action-description-mind-swap-return
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/mind_swap_return.png
+    useDelay: 20
+    checkCanInteract: false
+    event: !type:MindSwapPowerReturnActionEvent
+
+- type: entity
+  id: ActionNoosphericZap
+  name: action-name-noospheric-zap
+  description: action-description-noospheric-zap
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon: Nyanotrasen/Interface/VerbIcons/noospheric_zap.png
+    useDelay: 100
+    range: 5
+    itemIconStyle: BigAction
+    event: !type:NoosphericZapPowerActionEvent
+
+- type: entity
+  id: ActionPyrokinesis
+  name: action-name-pyrokinesis
+  description: action-description-pyrokinesis
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    icon: Nyanotrasen/Interface/VerbIcons/pyrokinesis.png
+    useDelay: 50
+    range: 6
+    checkCanAccess: false
+    itemIconStyle: BigAction
+    event: !type:PyrokinesisPowerActionEvent
+
+- type: entity
+  id: ActionMetapsionic
+  name: action-name-metapsionic
+  description: action-description-metapsionic
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/metapsionic.png
+    useDelay: 45
+    event: !type:MetapsionicPowerActionEvent
+
+- type: entity
+  id: ActionPsionicRegeneration
+  name: action-name-psionic-regeneration
+  description: action-description-psionic-regeneration
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/psionic_regeneration.png
+    useDelay: 120
+    event: !type:PsionicRegenerationPowerActionEvent
+
+- type: entity
+  id: ActionTelegnosis
+  name: action-name-telegnosis
+  description: action-description-telegnosis
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/telegnosis.png
+    useDelay: 150
+    event: !type:TelegnosisPowerActionEvent
+
+- type: entity
+  id: ActionPsionicInvisibility
+  name: action-name-psionic-invisibility
+  description: action-description-psionic-invisibility
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility.png
+    useDelay: 120
+    event: !type:PsionicInvisibilityPowerActionEvent
+
+- type: entity
+  id: ActionPsionicInvisibilityUsed
+  name: action-name-psionic-invisibility-off
+  description: action-description-psionic-invisibility-off
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: Nyanotrasen/Interface/VerbIcons/psionic_invisibility_off.png
+    event: !type:RemovePsionicInvisibilityOffPowerActionEvent
+
+- type: entity
+  id: ActionFabricateLollipop
+  name: action-name-fabricate-lollipop
+  description: action-description-fabricate-lollipop
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: lollipop }
+    useDelay: 120
+    event: !type:FabricateLollipopActionEvent
+
+- type: entity
+  id: ActionFabricateGumball
+  name: action-name-fabricate-gumball
+  description: action-description-fabricate-gumball
+  noSpawn: true
+  components:
+  - type: InstantAction
+    icon: { sprite: Nyanotrasen/Objects/Consumable/Food/candy.rsi, state: gumball }
+    useDelay: 40
+    event: !type:FabricateGumballActionEvent

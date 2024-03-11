@@ -1,0 +1,63 @@
+- type: entity
+  name: dark grass tile
+  parent: FloorTileItemBase
+  id: FloorTileItemGrassDark
+  components:
+  - type: Sprite
+    sprite: /Textures/Nyanotrasen/Objects/Tiles/tiles.rsi
+    state: grassdark
+  - type: Item
+    heldPrefix: grassdark
+  - type: FloorTile
+    outputs:
+      - FloorGrassDark
+  - type: Stack
+    stackType: FloorTileGrassDark
+
+- type: entity
+  name: light grass tile
+  parent: FloorTileItemBase
+  id: FloorTileItemGrassLight
+  components:
+  - type: Sprite
+    sprite: /Textures/Nyanotrasen/Objects/Tiles/tiles.rsi
+    state: grasslight
+  - type: Item
+    heldPrefix: grasslight
+  - type: FloorTile
+    outputs:
+      - FloorGrassLight
+  - type: Stack
+    stackType: FloorTileGrassLight
+
+- type: entity
+  name: dirt tile
+  parent: FloorTileItemBase
+  id: FloorTileItemDirt
+  components:
+  - type: Sprite
+    sprite: /Textures/Nyanotrasen/Objects/Tiles/tiles.rsi
+    state: dirt
+  - type: Item
+    heldPrefix: dirt
+  - type: FloorTile
+    outputs:
+      - FloorDirt
+  - type: Stack
+    stackType: FloorTileDirt
+
+- type: entity
+  name: bedrock tile
+  parent: FloorTileItemBase
+  id: FloorTileItemBedrock
+  components:
+  - type: Sprite
+    sprite: /Textures/Nyanotrasen/Objects/Tiles/tiles.rsi
+    state: bedrock
+  - type: Item
+    heldPrefix: bedrock
+  - type: FloorTile
+    outputs:
+      - FloorBedrock
+  - type: Stack
+    stackType: FloorTileBedrock

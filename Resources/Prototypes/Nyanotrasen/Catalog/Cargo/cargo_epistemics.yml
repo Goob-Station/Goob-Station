@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: EpistemicsHolyWaterKit
+  icon:
+    sprite: Nyanotrasen/Objects/Consumable/Drinks/flaskholywater.rsi
+    state: icon
+  product: CrateHolyWaterKit
+  cost: 1000
+  category: Epistemics
+  group: market

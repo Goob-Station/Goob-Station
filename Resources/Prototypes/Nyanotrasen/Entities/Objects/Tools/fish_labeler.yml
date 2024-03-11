@@ -1,0 +1,15 @@
+- type: entity
+  parent: HandLabeler
+  id: FishLabeler
+  name: fish labeler
+  description: A hand labeler modified for naming your fish.
+  components:
+  - type: HandLabeler
+    whitelist:
+      tags:
+      - Carp
+  - type: Tag
+    tags: []
+  - type: Construction
+    graph: fishlabeler
+    node: fishlabeler

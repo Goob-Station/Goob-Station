@@ -1,0 +1,27 @@
+- type: entity
+  name: mindbreaker toxin
+  parent: Pill
+  id: PillMindbreakerToxin
+  description: Removes psionics when ingested. Mildly poisonous.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: MindbreakerToxin
+          Quantity: 20
+
+- type: entity
+  name: cryptobiolin
+  parent: Pill
+  id: PillCryptobiolin
+  description: A long-lasting drug which causes mild confusion, but renders you psionically insulated.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Cryptobiolin
+          Quantity: 20

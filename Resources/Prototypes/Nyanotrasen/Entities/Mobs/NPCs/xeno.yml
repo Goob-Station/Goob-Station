@@ -1,0 +1,149 @@
+# GhostTakeover
+
+# Snakes
+- type: entity
+  parent: MobPurpleSnake
+  id: MobPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
+
+- type: entity
+  parent: MobSmallPurpleSnake
+  id: MobSmallPurpleSnakeGhost
+  components:
+  - type: GhostTakeoverAvailable
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: salvage snake
+    description: You are a salvage snake hunting for a meal.
+    rules: You are an antagonist, kill!
+  - type: SalvageMobRestrictions
+
+# Delta V variants of Xenos to allow ghost takeover again
+
+- type: entity
+  name: Burrower
+  id: MobXenoPlayer
+  parent: MobXeno
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Praetorian
+  parent: MobXenoPraetorianNPC
+  id: MobXenoPraetorian
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Drone
+  parent: MobXenoDroneNPC
+  id: MobXenoDrone
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Queen
+  parent: MobXenoQueenNPC
+  id: MobXenoQueen
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Ravager
+  parent: MobXenoRavagerNPC
+  id: MobXenoRavager
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Runner
+  parent: MobXenoRunnerNPC
+  id: MobXenoRunner
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Rouny
+  parent: MobXenoRounyNPC
+  id: MobXenoRouny
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  name: Spitter
+  parent: MobXenoSpitterNPC
+  id: MobXenoSpitter
+  suffix: Player
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghost-role-information-xeno-name
+    description: ghost-role-information-xeno-description
+    rules: ghost-role-information-xeno-rules
+  - type: GhostTakeoverAvailable

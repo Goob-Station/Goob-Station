@@ -1,0 +1,29 @@
+- type: entity
+  id: PelletShotgunSoulbreaker
+  name: pellet (.50 soulbreaker)
+  noSpawn: true
+  parent: BaseBulletPractice
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: buckshot
+  - type: Projectile
+    damage:
+      types:
+        Blunt: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 15
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnCollide
+    transferAmount: 15
+    blockSlots: NONE #tranquillizer darts shouldn't be blocked by a mask
+  - type: InjectableSolution
+    solution: ammo
+  - type: GuideHelp
+    guides:
+    - Psionics

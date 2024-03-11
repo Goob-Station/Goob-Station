@@ -1,0 +1,11 @@
+- type: entity
+  parent: GunSafe
+  id: GunSafeSubMachineGunVector
+  name: vector safe
+  components:
+  - type: StorageFill
+    contents:
+    - id: WeaponSubMachineGunVector
+      amount: 2
+    - id: MagazineMagnumSubMachineGun
+      amount: 4

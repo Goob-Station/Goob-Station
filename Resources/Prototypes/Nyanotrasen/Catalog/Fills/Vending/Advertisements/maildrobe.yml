@@ -1,0 +1,5 @@
+- type: advertisementsPack
+  id: MailDrobeAds
+  advertisements:
+    - advertisement-maildrobe-1
+    - advertisement-maildrobe-2

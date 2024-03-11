@@ -1,0 +1,8 @@
+- type: entity
+  id: CrateHolyWaterKit
+  parent: CrateScienceSecure
+  components:
+    - type: StorageFill
+      contents:
+        - id: BoxHolyWater
+          amount: 1
