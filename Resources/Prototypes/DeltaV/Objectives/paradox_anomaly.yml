@@ -1,0 +1,52 @@
+- type: entity
+  abstract: true
+  parent: BaseTerminatorObjective # mrp terminator real
+  id: BaseParadoxAnomalyObjective
+  components:
+  - type: Objective
+    issuer: self
+
+# not using base kill/keep alive objectives since these intentionally conflict with eachother
+- type: entity
+  noSpawn: true
+  parent: BaseParadoxAnomalyObjective
+  id: ParadoxAnomalyKillObjective
+  description: This universe doesn't have room for both of us.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Weapons/Guns/Pistols/viper.rsi
+      state: icon
+  - type: TargetObjective
+    title: objective-paradox-anomaly-kill-title
+  - type: TerminatorTargetOverride
+  - type: KillPersonCondition
+    requireDead: true
+
+- type: entity
+  noSpawn: true
+  parent: BaseParadoxAnomalyObjective
+  id: ParadoxAnomalyFriendObjective
+  description: Perhaps there is room, as friends.
+  components:
+  - type: Objective
+    icon:
+      sprite: Objects/Misc/bureaucracy.rsi
+      state: folder-white
+  - type: TargetObjective
+    title: objective-paradox-anomaly-friend-title
+  - type: TerminatorTargetOverride
+  - type: KeepAliveCondition
+
+- type: entity
+  noSpawn: true
+  parent: [BaseParadoxAnomalyObjective, BaseLivingObjective]
+  id: ParadoxAnomalyEscapeObjective
+  name: Escape to centcom alive and unrestrained.
+  description: This is your universe now.
+  components:
+  - type: Objective
+    icon:
+      sprite: Structures/Furniture/chairs.rsi
+      state: shuttle
+  - type: EscapeShuttleCondition

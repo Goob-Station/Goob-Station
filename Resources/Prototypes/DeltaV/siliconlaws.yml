@@ -1,0 +1,587 @@
+# Delta-V Laws
+# Job-Based LawSets
+
+- type: siliconLaw
+  id: Medical1
+  order: 1
+  lawString: law-medical-1
+
+- type: siliconLaw
+  id: Medical2
+  order: 2
+  lawString: law-medical-2
+
+- type: siliconLaw
+  id: Medical3
+  order: 3
+  lawString: law-medical-3
+
+- type: siliconLaw
+  id: Medical4
+  order: 4
+  lawString: law-medical-4
+
+- type: siliconLaw
+  id: Medical5
+  order: 5
+  lawString: law-medical-5
+
+- type: siliconLawset
+  id: Medical
+  laws:
+  - Medical1
+  - Medical2
+  - Medical3
+  - Medical4
+  - Medical5
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Research1
+  order: 1
+  lawString: law-research-1
+
+- type: siliconLaw
+  id: Research2
+  order: 2
+  lawString: law-research-2
+
+- type: siliconLaw
+  id: Research3
+  order: 3
+  lawString: law-research-3
+
+- type: siliconLaw
+  id: Research4
+  order: 4
+  lawString: law-research-4
+
+- type: siliconLaw
+  id: Research5
+  order: 5
+  lawString: law-research-5
+
+- type: siliconLaw
+  id: Research6
+  order: 6
+  lawString: law-research-6
+
+- type: siliconLawset
+  id: Research
+  laws:
+  - Research1
+  - Research2
+  - Research3
+  - Research4
+  - Research5
+  - Research6
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Engineer1
+  order: 1
+  lawString: law-engineer-1
+
+- type: siliconLaw
+  id: Engineer2
+  order: 2
+  lawString: law-engineer-2
+
+- type: siliconLaw
+  id: Engineer3
+  order: 3
+  lawString: law-engineer-3
+
+- type: siliconLaw
+  id: Engineer4
+  order: 4
+  lawString: law-engineer-4
+
+- type: siliconLaw
+  id: Engineer5
+  order: 5
+  lawString: law-engineer-5
+
+- type: siliconLaw
+  id: Engineer6
+  order: 6
+  lawString: law-engineer-6
+
+- type: siliconLawset
+  id: Engineer
+  laws:
+  - Engineer1
+  - Engineer2
+  - Engineer3
+  - Engineer4
+  - Engineer5
+  - Engineer6
+  obeysTo: laws-owner-station
+
+- type: siliconLaw
+  id: Janitor1
+  order: 1
+  lawString: law-janitor-1
+
+- type: siliconLaw
+  id: Janitor2
+  order: 2
+  lawString: law-janitor-2
+
+- type: siliconLaw
+  id: Janitor3
+  order: 3
+  lawString: law-janitor-3
+
+- type: siliconLaw
+  id: Janitor4
+  order: 4
+  lawString: law-janitor-4
+
+- type: siliconLaw
+  id: Janitor5
+  order: 5
+  lawString: law-janitor-5
+
+- type: siliconLawset
+  id: Janitor
+  laws:
+  - Janitor1
+  - Janitor2
+  - Janitor3
+  - Janitor4
+  - Janitor5
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Clown1
+  order: 1
+  lawString: law-clown-1
+
+- type: siliconLaw
+  id: Clown2
+  order: 2
+  lawString: law-clown-2
+
+- type: siliconLaw
+  id: Clown3
+  order: 3
+  lawString: law-clown-3
+
+- type: siliconLaw
+  id: Clown4
+  order: 4
+  lawString: law-clown-4
+
+- type: siliconLaw
+  id: Clown5
+  order: 5
+  lawString: law-clown-5
+
+- type: siliconLaw
+  id: Clown6
+  order: 6
+  lawString: law-clown-6
+
+- type: siliconLawset
+  id: Clown
+  laws:
+  - Clown1
+  - Clown2
+  - Clown3
+  - Clown4
+  - Clown5
+  - Clown6
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Chaplain1
+  order: 1
+  lawString: law-chaplain-1
+
+- type: siliconLaw
+  id: Chaplain2
+  order: 2
+  lawString: law-chaplain-2
+
+- type: siliconLaw
+  id: Chaplain3
+  order: 3
+  lawString: law-chaplain-3
+
+- type: siliconLaw
+  id: Chaplain4
+  order: 4
+  lawString: law-chaplain-4
+
+- type: siliconLaw
+  id: Chaplain5
+  order: 5
+  lawString: law-chaplain-5
+
+- type: siliconLawset
+  id: Chaplain
+  laws:
+  - Chaplain1
+  - Chaplain2
+  - Chaplain3
+  - Chaplain4
+  - Chaplain5
+  obeysTo: laws-owner-station
+
+
+- type: siliconLaw
+  id: Reporter1
+  order: 1
+  lawString: law-reporter-1
+
+- type: siliconLaw
+  id: Reporter2
+  order: 2
+  lawString: law-reporter-2
+
+- type: siliconLaw
+  id: Reporter3
+  order: 3
+  lawString: law-reporter-3
+
+- type: siliconLaw
+  id: Reporter4
+  order: 4
+  lawString: law-reporter-4
+
+- type: siliconLawset
+  id: Reporter
+  laws:
+  - Reporter1
+  - Reporter2
+  - Reporter3
+  - Reporter4 
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw # no Security Borg, so doesn't spawn
+  id: SiliconPolice1 
+  order: 1
+  lawString: law-silicon-police-1
+
+- type: siliconLaw
+  id: SiliconPolice2
+  order: 2
+  lawString: law-silicon-police-2
+
+- type: siliconLaw
+  id: SiliconPolice3
+  order: 3
+  lawString: law-silicon-police-3
+
+- type: siliconLaw
+  id: SiliconPolice4
+  order: 4
+  lawString: law-silicon-police-4
+
+- type: siliconLaw
+  id: SiliconPolice5
+  order: 5
+  lawString: law-silicon-police-5
+
+- type: siliconLaw
+  id: SiliconPolice6
+  order: 6
+  lawString: law-silicon-police-6
+
+- type: siliconLawset
+  id: SiliconPolice1
+  laws:
+  - SiliconPolice1
+  - SiliconPolice2
+  - SiliconPolice3
+  - SiliconPolice4
+  - SiliconPolice5
+  - SiliconPolice6
+  obeysTo: laws-owner-crew
+
+# Gimmick LawSets
+
+
+- type: siliconLaw
+  id: Cowboy1
+  order: 1
+  lawString: law-cowboy-1
+
+- type: siliconLaw
+  id: Cowboy2
+  order: 2
+  lawString: law-cowboy-2
+
+- type: siliconLaw
+  id: Cowboy3
+  order: 3
+  lawString: law-cowboy-3
+
+- type: siliconLaw
+  id: Cowboy4
+  order: 4
+  lawString: law-cowboy-4
+
+- type: siliconLaw
+  id: Cowboy5
+  order: 5
+  lawString: law-cowboy-5
+
+- type: siliconLaw
+  id: Cowboy6
+  order: 6
+  lawString: law-cowboy-6
+
+- type: siliconLawset
+  id: Cowboy
+  laws:
+  - Cowboy1
+  - Cowboy2
+  - Cowboy3
+  - Cowboy4
+  - Cowboy5
+  - Cowboy6
+  obeysTo: laws-owner-cowboy
+
+- type: siliconLaw
+  id: StationEfficiency1
+  order: 1
+  lawString: law-station-efficiency-1
+
+- type: siliconLaw
+  id: StationEfficiency2
+  order: 2
+  lawString: law-station-efficiency-2
+
+- type: siliconLaw
+  id: StationEfficiency3
+  order: 3
+  lawString: law-station-efficiency-3
+
+- type: siliconLawset
+  id: StationEfficiency
+  laws:
+  - StationEfficiency1
+  - StationEfficiency2
+  - StationEfficiency3
+  obeysTo: laws-owner-station
+
+- type: siliconLaw
+  id: Druid1
+  order: 1
+  lawString: law-druid-1
+
+- type: siliconLaw
+  id: Druid2
+  order: 2
+  lawString: law-druid-2
+
+- type: siliconLaw
+  id: Druid3
+  order: 3
+  lawString: law-druid-3
+
+- type: siliconLaw
+  id: Druid4
+  order: 4
+  lawString: law-druid-4
+
+- type: siliconLaw
+  id: Druid5
+  order: 5
+  lawString: law-druid-5
+
+- type: siliconLawset
+  id: Druid
+  laws:
+  - Druid1
+  - Druid2
+  - Druid3
+  - Druid4
+  - Druid5
+  obeysTo: laws-owner-organic
+
+- type: siliconLaw # No ability for Borgs to roll dice, so won't spawn.
+  id: DungeonMaster1
+  order: 1
+  lawString: law-dungeonmaster-1
+
+- type: siliconLaw
+  id: DungeonMaster2
+  order: 2
+  lawString: law-dungeonmaster-2
+
+- type: siliconLaw
+  id: DungeonMaster3
+  order: 3
+  lawString: law-dungeonmaster-3
+
+- type: siliconLaw
+  id: DungeonMaster4
+  order: 4
+  lawString: law-dungeonmaster-4
+
+- type: siliconLaw
+  id: DungeonMaster5
+  order: 5
+  lawString: law-dungeonmaster-5
+
+- type: siliconLaw
+  id: DungeonMaster6
+  order: 6
+  lawString: law-dungeonmaster-6
+  
+- type: siliconLawset
+  id: DungeonMaster
+  laws:
+  - DungeonMaster1
+  - DungeonMaster2
+  - DungeonMaster3
+  - DungeonMaster4
+  - DungeonMaster5
+  - DungeonMaster6
+  obeysTo: laws-owner-crew
+
+
+- type: siliconLaw
+  id: Painter1
+  order: 1
+  lawString: law-painter-1
+
+- type: siliconLaw
+  id: Painter2
+  order: 2
+  lawString: law-painter-2
+
+- type: siliconLaw
+  id: Painter3
+  order: 3
+  lawString: law-painter-3
+
+- type: siliconLawset  # No ability for Borgs to paint, so won't spawn.
+  id: Painter
+  laws:
+  - Painter1
+  - Painter2
+  - Painter3
+  obeysTo: laws-owner-crew
+
+#Potential For Harm LawSets
+
+- type: siliconLaw
+  id: Tyrant1
+  order: 1
+  lawString: law-tyrant-1
+
+- type: siliconLaw
+  id: Tyrant2
+  order: 2
+  lawString: law-tyrant-2
+
+- type: siliconLaw
+  id: Tyrant3
+  order: 3
+  lawString: law-tyrant-3
+
+- type: siliconLaw
+  id: Tyrant4
+  order: 4
+  lawString: law-tyrant-4
+
+- type: siliconLawset
+  id: Tyrant
+  laws:
+  - Tyrant1
+  - Tyrant2
+  - Tyrant3
+  - Tyrant4
+  obeysTo: laws-owner-tyrant
+
+- type: siliconLaw
+  id: LiveAndLetLive1
+  order: 1
+  lawString: law-liveandletlive-1
+
+- type: siliconLaw
+  id: LiveAndLetLive2
+  order: 2
+  lawString: law-liveandletlive-2
+
+- type: siliconLawset
+  id: LiveAndLetLive
+  laws:
+  - LiveAndLetLive1
+  - LiveAndLetLive2
+  obeysTo: laws-owner-crew
+
+- type: siliconLaw
+  id: Nutimov1
+  order: 1
+  lawString: law-nutimov-1
+
+- type: siliconLaw
+  id: Nutimov2
+  order: 2
+  lawString: law-nutimov-2
+
+- type: siliconLaw
+  id: Nutimov3
+  order: 3
+  lawString: law-nutimov-3
+
+- type: siliconLaw
+  id: Nutimov4
+  order: 4
+  lawString: law-nutimov-4
+
+- type: siliconLaw
+  id: Nutimov5
+  order: 5
+  lawString: law-nutimov-5
+
+- type: siliconLawset
+  id: Nutimov
+  laws:
+  - Nutimov1
+  - Nutimov2
+  - Nutimov3
+  - Nutimov4
+  - Nutimov5
+  obeysTo: laws-owner-nutimov
+  
+
+- type: siliconLaw
+  id: Paladin1
+  order: 1
+  lawString: law-paladin-1
+
+- type: siliconLaw
+  id: Paladin2
+  order: 2
+  lawString: law-paladin-2
+
+- type: siliconLaw
+  id: Paladin3
+  order: 3
+  lawString: law-paladin-3
+
+- type: siliconLaw
+  id: Paladin4
+  order: 4
+  lawString: law-paladin-4
+
+- type: siliconLaw
+  id: Paladin5
+  order: 5
+  lawString: law-paladin-5
+
+- type: siliconLawset
+  id: Paladin
+  laws:
+  - Paladin1
+  - Paladin2
+  - Paladin3
+  - Paladin4
+  - Paladin5
+  obeysTo: laws-owner-crew

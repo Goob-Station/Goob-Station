@@ -1,0 +1,63 @@
+- type: constructionGraph
+  id: PrescriptionMedHud
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: prescmedhud
+          steps:
+            - tag: HudMedical
+              name: medical hud
+              icon:
+                sprite: Clothing/Eyes/Hud/med.rsi
+                state: icon
+              doAfter: 5
+            - tag: GlassesNearsight
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: DrinkSpaceGlue
+              name: space glue
+              icon:
+                sprite: Objects/Consumable/Drinks/glue-tube.rsi
+                state: icon
+              doAfter: 5
+    - node: prescmedhud
+      entity: ClothingEyesPrescriptionMedHud
+
+- type: constructionGraph
+  id: PrescriptionSecHud
+  start: start
+  graph:
+    - node: start
+      edges:
+        - to: prescsechud
+          steps:
+            - tag: HudSecurity
+              name: security hud
+              icon:
+                sprite: Clothing/Eyes/Hud/med.rsi
+                state: icon
+              doAfter: 5
+            - tag: GlassesNearsight
+              name: glasses
+              icon:
+                sprite: Clothing/Eyes/Glasses/glasses.rsi
+                state: icon
+              doAfter: 5
+            - material: Cable
+              amount: 5
+              doAfter: 5
+            - tag: DrinkSpaceGlue
+              name: space glue
+              icon:
+                sprite: Objects/Consumable/Drinks/glue-tube.rsi
+                state: icon
+              doAfter: 5
+    - node: prescsechud
+      entity: ClothingEyesPrescriptionHudSecurity

@@ -1,0 +1,45 @@
+- type: job
+  id: Brigmedic
+  name: job-name-brigmedic
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 21600 # 6 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 18000 # 4 hrs
+  startingGear: CorpsmanGear
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Medical
+  - Security
+  #- Brig #Delta V: Removed brig access
+  - Maintenance
+  - External
+  extendedAccess:
+  - Chemistry
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: CorpsmanGear # see Prototypes/Roles/Jobs/Fun/misc_startinggear.yml for "BrigmedicGear"
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitBrigmedic
+    outerClothing: ClothingOuterArmorPlateCarrier
+    back: ClothingBackpackBrigmedicDeltaVFilled
+    shoes: ClothingShoesBootsCombatFilled
+    gloves: ClothingHandsGlovesNitrile
+    eyes: ClothingEyesHudMedical
+    head: ClothingHeadHatBeretCorpsman
+    id: CorpsmanPDA
+    ears: ClothingHeadsetBrigmedic
+    belt: ClothingBeltCorpsmanWebbingFilled
+    pocket1: WeaponPistolMk58Nonlethal
+  innerClothingSkirt: ClothingUniformJumpskirtBrigmedic
+  satchel: ClothingBackpackSatchelBrigmedicDeltaVFilled
+  duffelbag: ClothingBackpackDuffelBrigmedicDeltaVFilled

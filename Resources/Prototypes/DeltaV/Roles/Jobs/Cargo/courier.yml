@@ -1,0 +1,13 @@
+- type: startingGear
+  id: CourierGear
+  equipment:
+    head: ClothingHeadCourier
+    jumpsuit: ClothingUniformCourier
+    back: ClothingBackpackFilled
+    shoes: ClothingShoesColorBlack
+    id: MailCarrierPDA
+    ears: ClothingHeadsetCargo
+    belt: CourierBag
+  innerClothingSkirt: ClothingUniformSkirtCourier
+  satchel: ClothingBackpackSatchelFilled
+  duffelbag: ClothingBackpackDuffelFilled

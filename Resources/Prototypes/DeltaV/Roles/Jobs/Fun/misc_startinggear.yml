@@ -1,0 +1,102 @@
+#Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
+#Misc outfit startingGear definitions.
+
+# Laika sec glasses
+
+- type: startingGear
+  id: MobSecDogLaikaGear
+  equipment:
+    eyes: ClothingEyesGlassesSunglasses
+
+#Oldstation Roles
+
+- type: startingGear
+  id: OldstationMedic
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMedicalDoctor
+    neck: ClothingNeckStethoscope
+    shoes: ClothingShoesColorWhite
+    id: MedicalIDCard
+    pocket1: Brutepack
+    pocket2: GlowstickBase
+    belt: ClothingBeltMedical
+
+
+- type: startingGear
+  id: OldstationGuard
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSec
+    shoes: ClothingShoesBootsJack
+    id: SecurityIDCard
+    pocket1: Flash
+    pocket2: GlowstickBase
+
+- type: startingGear
+  id: OldstationEngi
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitEngineering
+    shoes: ClothingShoesBootsWork
+    id: EngineeringIDCard
+    mask: ClothingMaskBreath
+    gloves: ClothingHandsGlovesColorYellowBudget
+    pocket1: EmergencyOxygenTankFilled
+    pocket2: GlowstickBase
+    belt: ClothingBeltUtility
+
+- type: startingGear
+  id: OldstationScientist
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitScientist
+    shoes: ClothingShoesColorWhite
+    id: ResearchIDCard
+    pocket1: Pen
+    pocket2: GlowstickBase
+
+#Syndicate Pirate Radio Listener
+
+- type: startingGear
+  id: SyndicateListenerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitPyjamaSyndicateBlack
+    head: ClothingHeadPyjamaSyndicateBlack
+    ears: ClothingHeadsetAltSyndicateListening
+    gloves: ClothingHandsGlovesCombat
+    shoes: ClothingShoesSlippers
+    id: SyndiListeningPostPDA
+  innerClothingSkirt: ClothingUniformJumpsuitPyjamaSyndicatePink
+
+# Mobsters
+
+- type: startingGear
+  id: MobsterGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBlackMob
+    back: ClothingBackpackMafiaFilled
+    head: ClothingHeadHatFedoraBlack
+    shoes: ClothingShoesBootsLaceup
+    neck: ClothingNeckTieBlack
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: PassengerPDA
+    belt: ClothingBeltHolster
+  innerClothingSkirt: ClothingUniformJumpsuitSuitBlackMob
+  satchel: ClothingBackpackMafiaFilled
+  duffelbag: ClothingBackpackMafiaFilled
+
+- type: startingGear
+  id: MobsterGearAlt
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitSuitBrown
+    back: ClothingBackpackMafiaFilled
+    head: ClothingHeadHatFlatBrown
+    shoes: ClothingShoesLeather
+    neck: ClothingNeckTieBrown
+    outerClothing: ClothingOuterArmorBasicSlim
+    id: PassengerPDA
+    belt: ClothingBeltSuspendersBlack
+    pocket1: CombatKnife
+  innerClothingSkirt: ClothingUniformJumpsuitSuitBrown
+  satchel: ClothingBackpackMafiaFilled
+  duffelbag: ClothingBackpackMafiaFilled

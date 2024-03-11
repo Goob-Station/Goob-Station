@@ -1,0 +1,34 @@
+- type: entity # Logistics Officer steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: LOLuckyBillStealObjective
+  components:
+  - type: NotJobRequirement
+    job: Quartermaster
+  - type: StealCondition
+    stealGroup: SpaceCashLuckyBill
+    # owner: job-name-qm
+
+- type: entity # Head of Personnel steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HoPBookIanDossierStealObjective
+  components:
+  - type: NotJobRequirement
+    job: HeadOfPersonnel
+  - type: StealCondition
+    stealGroup: BookIanDossier
+    # owner: job-name-hop
+
+- type: entity # Head of Security steal objective.
+  noSpawn: true
+  parent: BaseTraitorStealObjective
+  id: HoSGunStealObjective
+  components:
+  - type: Objective
+    difficulty: 3 # HoS will mostly be using the gun to stop you from stealing it
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponEnergyGunMultiphase
+    owner: job-name-hos
