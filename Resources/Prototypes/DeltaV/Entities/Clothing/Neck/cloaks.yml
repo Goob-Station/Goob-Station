@@ -1,0 +1,33 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakMystagogue
+  name: mystagogue's cloak
+  suffix: Delta-V
+  description: A comfy white and purple cloak, perfect for those sleepless nights when you're haunted by the yet unsolved mysteries of the universe.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/mystacloak.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Neck/Cloaks/mystacloak.rsi
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckCloakBoat
+  name: NanoTrasen boat cloak
+  description: A regal blue durathread boat cloak with a red felt lining and gold trim. Somehow, it's even more expensive than it looks.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/boatcloak.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Neck/Cloaks/boatcloak.rsi    
+
+- type: entity
+  parent: ClothingNeckBase
+  id: ClothingNeckSalvager
+  name: salvager's cloak
+  description: Worn by dangerous people who've deconstructed stations with ease.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Neck/Cloaks/salvage.rsi 
+  - type: Clothing
+    sprite: DeltaV/Clothing/Neck/Cloaks/salvage.rsi  

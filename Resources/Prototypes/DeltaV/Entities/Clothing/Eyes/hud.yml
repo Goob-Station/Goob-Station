@@ -1,0 +1,58 @@
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionMedHud
+  name: prescription medical hud
+  description: A poorly done and rushed mix between half of a pair of prescription glasses and a medical HUD allowing you to see clearly out of one eye and view the health of people out of the other!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Hud/prescmedhud.rsi
+  - type: Construction
+    graph: PrescriptionMedHud
+    node: prescmedhud
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+  - type: Tag
+    tags:
+    - HudMedical
+    - GlassesNearsight
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesPrescriptionHudSecurity
+  name: prescription security hud
+  description: A poorly done and rushed mix between half of a pair of prescription glasses and a security HUD allowing you to see clearly out of one eye and inspect the employee's ID and warning status in the other!
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Hud/prescsechud.rsi
+  - type: ShowSecurityIcons
+  - type: Construction
+    graph: PrescriptionSecHud
+    node: prescsechud
+  - type: Tag
+    tags:
+    - HudSecurity
+    - GlassesNearsight
+    
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesHudSyndicateMed
+  name: syndicate medical visor
+  description: An upgraded syndicate visor with automatic health readings, designed for better detection of humanoids and their subsequent elimination.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Eyes/Hud/syndmed.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Eyes/Hud/syndmed.rsi
+  - type: ShowSyndicateIcons
+  - type: ShowSecurityIcons
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological

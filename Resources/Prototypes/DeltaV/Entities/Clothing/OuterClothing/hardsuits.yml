@@ -1,0 +1,175 @@
+# Standard Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCombatStandard
+  name: combat hardsuit
+  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/standard.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.50
+  - type: Armor # Good armour resistance across the board, comparable to the standard security hardsuit.
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.60
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatStandard
+
+- type: entity
+  parent: ClothingOuterHardsuitCombatStandard
+  id: ClothingOuterHardsuitCombatOfficer
+  name: security combat hardsuit
+  description: A purpose-built combat suit designed to protect its user against all manner of enemy combatants in low pressure environments. This one has station security markings.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/officer.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatOfficer
+
+# Medical Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCombatMedical
+  name: medical combat hardsuit
+  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/medical.rsi
+  - type: PressureProtection # Less protective from high pressure than a standard hardsuit due to less plating.
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.60
+  - type: Armor # Slightly less armour than the standard hardsuit, but far higher mobility.
+    modifiers:
+      coefficients:
+        Blunt: 0.65
+        Slash: 0.65
+        Piercing: 0.65
+        Radiation: 0.80
+        Caustic: 0.80
+        Heat: 0.80
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatMedical
+
+- type: entity
+  parent: ClothingOuterHardsuitCombatMedical
+  id: ClothingOuterHardsuitCombatCorpsman
+  name: corpsman combat hardsuit
+  description: A purpose-built combat suit designed to allow its user greater mobility for superior support of friendly units in active combat zones. This one has station security markings.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/corpsman.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/corpsman.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatCorpsman
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCombatRiot
+  name: riot combat hardsuit
+  description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/riot.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.40
+  - type: Armor # More protective than a standard security hardsuit, but far slower.
+    modifiers:
+      coefficients:
+        Blunt: 0.50
+        Slash: 0.50
+        Piercing: 0.50
+        Radiation: 0.70
+        Caustic: 0.70
+        Heat: 0.70
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatRiot
+
+- type: entity
+  parent: ClothingOuterHardsuitCombatRiot
+  id: ClothingOuterHardsuitCombatWarden
+  name: warden's riot combat hardsuit
+  description: A purpose-built combat suit designed for crowd control against armed combatants in low pressure environments. This one has station security and warden's rank markings.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/warden.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/warden.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatWarden
+
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitCombatAdvanced
+  name: advanced combat hardsuit
+  description: A purpose-built combat suit of second-generation design, providing unparalleled protection against all manner of kinetic forces in low pressure environments.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/advanced.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/advanced.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.40
+  - type: Armor # About as protective as a riot hardsuit but with far less movement penalty.
+    modifiers:
+      coefficients:
+        Blunt: 0.50
+        Slash: 0.50
+        Piercing: 0.50
+        Radiation: 0.75
+        Caustic: 0.75
+        Heat: 0.75
+  - type: ClothingSpeedModifier
+    walkModifier: 0.80
+    sprintModifier: 0.80
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatAdvanced
+
+- type: entity
+  parent: ClothingOuterHardsuitCombatAdvanced
+  id: ClothingOuterHardsuitCombatHoS
+  name: head of security's advanced combat hardsuit
+  description: A purpose-built combat suit of second-generation design, providing unparalleled protection against all manner of kinetic forces in low pressure environments. This one has station security and commander's rank markings.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/hos.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/OuterClothing/Hardsuits/Combat/hos.rsi
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitCombatHoS

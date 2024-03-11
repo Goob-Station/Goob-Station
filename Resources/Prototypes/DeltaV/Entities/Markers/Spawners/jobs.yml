@@ -1,0 +1,15 @@
+
+- type: entity
+  id: SpawnPointMedicalBorg
+  parent: SpawnPointJobBase
+  name: medical cyborg
+  components:
+  - type: SpawnPoint
+    job_id: MedicalBorg
+  - type: Sprite
+    layers:
+    - state: green
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical
+    - sprite: Mobs/Silicon/chassis.rsi
+      state: medical_e

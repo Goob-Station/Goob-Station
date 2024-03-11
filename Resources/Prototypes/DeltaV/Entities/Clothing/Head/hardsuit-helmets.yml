@@ -1,0 +1,141 @@
+# Standard Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatStandard
+  noSpawn: true
+  name: combat hardsuit helmet
+  description: An armoured helmet with a yellow visor and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/standard.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.50
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.90
+        Heat: 0.90
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatStandard
+  id: ClothingHeadHelmetHardsuitCombatOfficer
+  name: security combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/officer.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/officer.rsi
+
+# Medical Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatMedical
+  noSpawn: true
+  name: medical combat hardsuit helmet
+  description: A lightweight armoured helmet with full-face blue visor and head-mounted light.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/medical.rsi
+  - type: PointLight
+    color: "#00FFFF"
+  - type: PressureProtection
+    highPressureMultiplier: 0.60
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatMedical
+  id: ClothingHeadHelmetHardsuitCombatCorpsman
+  name: corpsman combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/corpsman.rsi
+
+# Riot Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatRiot
+  noSpawn: true
+  name: riot combat hardsuit helmet
+  description: A heavy armoured helmet with a sealed visor with yellow slits and dual head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/riot.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.45
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatRiot
+  id: ClothingHeadHelmetHardsuitCombatWarden
+  name: warden's riot combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/warden.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/warden.rsi
+
+# Advanced Combat Hardsuits
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitCombatAdvanced
+  noSpawn: true
+  name: advanced combat hardsuit helmet
+  description: A light but durable helmet with full-face protection and four head-mounted lights.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/advanced.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/advanced.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.40
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.85
+        Heat: 0.85
+  - type: FlashImmunity # Counterpoint: the HoS can't see
+  - type: EyeProtection # They're blind as hell
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitCombatAdvanced
+  id: ClothingHeadHelmetHardsuitCombatHoS
+  name: head of security's advanced combat hardsuit helmet
+  components:
+  - type: Sprite
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/hos.rsi
+  - type: Clothing
+    sprite: DeltaV/Clothing/Head/Hardsuits/Combat/hos.rsi

@@ -1,0 +1,32 @@
+- type: entity
+  name: glimmer mite
+  parent: MobCockroach
+  id: MobGlimmerMite
+  description: A strange pest from a world beyond the noosphere.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Ghosts/glimmermite.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: mite
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mite
+      Dead:
+        Base: mite_dead
+    baseDecayRate: 0.25
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        reagents:
+        - ReagentId: Ectoplasm
+          Quantity: 15
+  - type: PotentialPsionic
+  - type: Psionic
+  - type: GlimmerSource
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound: /Audio/DeltaV/Glimmer_Creatures/mite.ogg
+  - type: AmbientOnPowered

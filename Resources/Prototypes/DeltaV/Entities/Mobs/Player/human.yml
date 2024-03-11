@@ -1,0 +1,17 @@
+- type: entity # Delta-V : Part of a mid-round PirateRadioSpawn
+  noSpawn: true
+  parent: MobHumanSyndicateAgent
+  id: MobHumanSyndicateListener
+  name: Syndicate Listener
+  components:
+    - type: Loadout
+      prototypes: [SyndicateListenerGear]
+    - type: NpcFactionMember
+      factions:
+      - Syndicate
+    - type: AutoTraitor
+      giveUplink: false
+      giveObjectives: false
+    - type: AutoImplant
+      implants:
+      - DeathAcidifierImplant
