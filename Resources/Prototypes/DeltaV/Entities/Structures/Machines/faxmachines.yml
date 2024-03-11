@@ -1,0 +1,20 @@
+#Delta-V - This file is licensed under AGPLv3
+# Copyright (c) 2024 Delta-V Contributors
+# See AGPLv3.txt for details.
+
+- type: entity
+  parent: FaxMachineBase
+  id: FaxMachineListeningSyndie
+  name: listening post long range fax machine
+  suffix: Syndicate
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Machines/syndicate_fax_machine.rsi
+    layers:
+      - state: icon
+        map: [ "base" ]
+        color: "#a3a3a3"
+  - type: FaxMachine
+    name: "Unknown?"
+    responsePings: false
+  - type: Emagged

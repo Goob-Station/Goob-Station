@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalLogistics
+  name: logistics sign
+  description:  A direction sign, pointing out which way the Logistics department is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_logi
+
+- type: entity
+  parent: BaseSignDirectional
+  id: SignDirectionalMail
+  name: mailroom sign
+  description:  A direction sign, pointing out which way the mailroom is.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Structures/Wallmounts/signs.rsi
+    state: direction_mail
