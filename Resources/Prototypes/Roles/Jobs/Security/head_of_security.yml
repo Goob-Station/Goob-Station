@@ -4,17 +4,11 @@
   description: job-description-hos
   playTimeTracker: JobHeadOfSecurity
   requirements:
-    - !type:RoleTimeRequirement
-      role: JobWarden
-      time: 5400 #1.5 hrs
-    - !type:RoleTimeRequirement
-      role: JobSecurityOfficer
-      time: 18000 #5 hrs
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hrs
+      time: 34200 # 9.5 hours
     - !type:OverallPlaytimeRequirement
-      time: 72000 #20 hrs <---- Wizden what the fuck is wrong with your role timers
+      time: 18000 #5 hours <---- Wizden what the fuck is wrong with your role timers  <------ Updated, was 20, now 5.
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"
