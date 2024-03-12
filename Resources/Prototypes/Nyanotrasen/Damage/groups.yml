@@ -1,4 +1,0 @@
-- type: damageGroup
-  id: Immaterial
-  damageTypes:
-  - Holy
