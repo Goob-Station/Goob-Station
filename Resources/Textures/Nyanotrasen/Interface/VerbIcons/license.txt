@@ -1,0 +1,13 @@
+The eleven files below are licensed under CC-BY-SA 4.0 by the author who can be found on GitHub @Vordenburg.
+
+dispel.png
+mass_sleep.png
+metapsionic.png
+mind_swap.png
+mind_swap_return.png
+noospheric_zap.png
+psionic_invisibility.png
+psionic_invisibility_off.png
+psionic_regeneration.png
+pyrokinesis.png
+telegnosis.png
