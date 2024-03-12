@@ -1,9 +1,0 @@
-﻿- type: entity
-  parent: CryogenicSleepUnit
-  id: CryogenicSleepUnitSpawnerPrisoner
-  suffix: Spawner, Prisoner
-  components:
-    - type: ContainerSpawnPoint
-      containerId: storage
-      spawnType: Job
-      job: Prisoner

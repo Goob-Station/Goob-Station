@@ -1,8 +1,0 @@
-- type: latheRecipe
-  id: SalvageExpeditionsComputerCircuitboard
-  result: SalvageExpeditionsComputerCircuitboard
-  completetime: 4
-  materials:
-     Steel: 100
-     Glass: 900
-     Silver: 100

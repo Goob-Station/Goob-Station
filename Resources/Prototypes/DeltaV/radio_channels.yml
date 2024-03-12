@@ -1,6 +1,0 @@
-- type: radioChannel
-  id: Prison
-  name: chat-radio-prison
-  keycode: 'p'
-  frequency: 1601
-  color: "#FFA500"
