@@ -1,0 +1,14 @@
+- type: entity
+  parent: BaseItem
+  id: SyndieBoombox
+  name: Syndicate Boombox
+  description: For when you really need to kick on some tunes
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/boombox.rsi
+    state: icon
+  - type: Item
+  - type: EmitSoundOnUse
+    sound: /Audio/Misc/Versus.ogg
+  - type: UseDelay
+    delay: 240.0
