@@ -1573,6 +1573,16 @@
   - UplinkPointless
 
 - type: listing
+  id: UplinkBoombox
+  name: Syndicate Boombox
+  description: For when you really need to kick on some tunes.
+  productEntity: SyndicateBoombox
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkPointless
+
+- type: listing
   id: UplinkCarpSuitBundle
   name: uplink-carp-suit-bundle-name
   description: uplink-carp-suit-bundle-desc
