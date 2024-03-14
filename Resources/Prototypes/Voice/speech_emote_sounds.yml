@@ -310,7 +310,8 @@
         volume: -6
     Salute:
       collection: Salutes
-
+    Fart:
+      collection: Farts
 - type: emoteSounds
   id: DionaBodyEmotes
   sounds:
