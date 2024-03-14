@@ -28,6 +28,22 @@
     - yells!
     - yelled
     - yelling
+- type: emote
+  id: Fart
+  category: Hands
+  chatMessages: [screams!]
+  chatTriggers:
+    - fart
+    - farts
+    - farts.
+    - farts!
+    - shit
+    - shits
+    - shits.
+    - shits!
+    - shits themself
+    - shits themself.
+    - shits themself!
 
 - type: emote
   id: Fart

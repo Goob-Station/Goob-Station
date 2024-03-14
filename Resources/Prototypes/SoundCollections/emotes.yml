@@ -18,6 +18,10 @@
     - /Audio/Effects/Emotes/clap4.ogg
 
 - type: soundCollection
+  id: Farts
+  files:
+    - /Audio/Effects/Emotes/parp1.ogg
+- type: soundCollection
   id: Snaps
   files:
     - /Audio/Effects/Emotes/snap1.ogg
