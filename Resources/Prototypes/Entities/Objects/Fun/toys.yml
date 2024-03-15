@@ -279,15 +279,6 @@
       reagents:
       - ReagentId: JuiceThatMakesYouWeh
         Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 10
 
 - type: entity
   parent: PlushieLizard
@@ -331,15 +322,6 @@
       reagents:
       - ReagentId: JuiceThatMakesYouWeh
         Quantity: 30
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 20
-        reagents:
-        - ReagentId: Fiber
-          Quantity: 10
-        - ReagentId: JuiceThatMakesYouWeh
-          Quantity: 10
 
 - type: entity
   parent: BasePlushie

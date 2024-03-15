@@ -304,8 +304,6 @@
   sounds:
     Clap:
       collection: Claps
-    Fart:
-      collection: Farts
     Snap:
       collection: Snaps
       params:
