@@ -284,23 +284,26 @@
     damage:
       types:
         Piercing: 3
+  - type: Sharp
   - type: SolutionContainerManager
     solutions:
       melee:
-        maxVol: 10
+        maxVol: 3
         reagents:
         - ReagentId: SpaceDrugs
           Quantity: 3
   - type: MeleeChemicalInjector
     solution: melee
+  - type: RefillableSolution
+    solution: melee
   - type: InjectableSolution
     solution: melee
   - type: SolutionInjectOnCollide
-    transferAmount: 5
+    transferAmount: 3
     fixtureId: "throw-fixture"
     blockSlots: NONE
   - type: SolutionTransfer
-    maxTransferAmount: 5
+    maxTransferAmount: 3
 
 - type: entity
   parent: Pen
