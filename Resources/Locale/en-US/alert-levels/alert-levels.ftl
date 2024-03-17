@@ -32,8 +32,8 @@ alert-level-delta-announcement = The station is currently under threat of immine
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
 alert-level-epsilon = Epsilon
-alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.
-alert-level-epsilon-instructions = Consider all contracts terminated.
+alert-level-epsilon-announcement = You should kill yourself, NOW!
+alert-level-epsilon-instructions = Ask yourself, "Am I cooked?"
 
 alert-level-zeta = Zeta
 alert-level-zeta-announcement = Central Command has ordered a ERT team to come and save the day.
