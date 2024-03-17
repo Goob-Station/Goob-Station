@@ -275,12 +275,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 25
-
-- type: entity
-  parent: Pen
-  id: PenEmbeddable
-  abstract: true
-  components:
   - type: EmbeddableProjectile
     offset: 0.3,0.0
     removalTime: 0.0
@@ -290,6 +284,26 @@
     damage:
       types:
         Piercing: 3
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+        reagents:
+        - ReagentId: SpaceDrugs
+          Quantity: 3
+  - type: InjectableSolution
+    solution: melee
+  - type: SolutionInjectOnCollide
+    transferAmount: 5
+    fixtureId: "throw-fixture"
+    blockSlots: NONE
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+
+- type: entity
+  parent: Pen
+  id: PenEmbeddable
+  abstract: true
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -306,7 +320,7 @@
 
 - type: entity
   name: Cybersun pen
-  parent: PenEmbeddable
+  parent: Pen
   id: CyberPen
   description: A high-tech pen straight from Cybersun's legal department, capable of refracting hard-light at impossible angles through its diamond tip in order to write. So powerful, it's even able to rewrite officially stamped documents should the need arise.
   components:
@@ -332,10 +346,17 @@
     sprite: Objects/Misc/bureaucracy.rsi
     heldPrefix: overpriced_pen
     size: Tiny
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 10
+        reagents:
+        - ReagentId: Licoxide
+          Quantity: 10
 
 - type: entity
   name: captain's fountain pen
-  parent: PenEmbeddable
+  parent: Pen
   id: PenCap
   description: 'A luxurious fountain pen for the captain of the station.'
   components:
@@ -343,6 +364,26 @@
     sprite: Objects/Misc/bureaucracy.rsi
     state: pen_cap
 
+- type: entity
+  name: clown pen
+  parent: Pen
+  id: PenClown
+  description: 'An ancient honkmotherian artifact used for bureaucratic clownery and the invoking of honk curses.'
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/bureaucracy.rsi
+    state: clown_pen
+  - type: Item
+    sprite: Objects/Misc/bureaucracy.rsi
+    heldPrefix: clown_pen
+  - type: SolutionContainerManager
+    solutions:
+      melee:
+        maxVol: 1000
+        reagents:
+        - ReagentId: Honk
+          Quantity: 1000
+    
 - type: entity
   name: CentCom pen
   parent: CyberPen
@@ -358,7 +399,7 @@
 
 - type: entity
   name: hop's fountain pen
-  parent: PenEmbeddable
+  parent: Pen
   id: PenHop
   description: 'A luxurious fountain pen for the hop of the station.'
   components:
@@ -670,7 +711,6 @@
     - key: enum.StorageUiKey.Key
       type: StorageBoundUserInterface
   - type: MeleeWeapon
-    wideAnimationRotation: 180
     damage:
       types:
         Blunt: 10

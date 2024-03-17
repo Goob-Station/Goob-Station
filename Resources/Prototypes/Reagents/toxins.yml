@@ -548,7 +548,7 @@
   desc: reagent-desc-honk
   physicalDesc: reagent-physical-desc-pungent
   flavor: bitter
-  color: "#F2E9D2"
+  color: "#ffb1ff"
   metabolisms:
     Poison:
       metabolismRate: 0.05
@@ -563,9 +563,13 @@
           min: 1
         - !type:OrganType
           type: Animal
+    Medicine:
+      effects:
+      - !type:HealthChange
         damage:
           types:
-            Poison: 0.06
+            Brute: -0.5
+            Poison: -0.5
 
 
 - type: reagent
