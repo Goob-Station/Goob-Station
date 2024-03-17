@@ -31,10 +31,6 @@ alert-level-delta = Delta
 alert-level-delta-announcement = The station is currently under threat of imminent destruction. Crewmembers are advised to listen to heads of staff for more information.
 alert-level-delta-instructions = Crewmembers are advised to listen to heads of staff for more information.
 
-alert-level-epsilon = Epsilon
-alert-level-epsilon-announcement = You should kill yourself, NOW!
-alert-level-epsilon-instructions = Ask yourself, "Am I cooked?"
-
 alert-level-zeta = Zeta
 alert-level-zeta-announcement = Central Command has ordered a ERT team to come and save the day.
 alert-level-zeta-instructions = Cooperate with ERT.
@@ -46,3 +42,7 @@ alert-level-shitters-instructions = Kill all tiders. Protect the armory and engi
 alert-level-skill-issue = Skill Issue
 alert-level-skill-issue-announcement = Your station got skill issue'd. Deal with all of the shit by yourself.
 alert-level-skill-issue-instructions = Deal with all of the shit by yourself.
+
+alert-level-epsilon = Epsilon
+alert-level-epsilon-announcement = You should kill yourself, NOW!
+alert-level-epsilon-instructions = Ask yourself, "Am I cooked?"
