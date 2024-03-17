@@ -63,3 +63,31 @@
       emergencyLightColor: DarkViolet
       forceEnableEmergencyLights: true
       shuttleTime: 1200
+    zeta:
+      announcement: alert-level-zeta-announcement
+      selectable: false
+      sound:
+        path: /Audio/Announcements/alert.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: DodgerBlue
+      emergencyLightColor: DodgerBlue
+      forceEnableEmergencyLights: true
+      shuttleTime: 1200
+    shitters:
+      announcement: alert-level-shitters-announcement
+      selectable: false
+      sound:
+        path: /Audio/Misc/epsilon.ogg
+        params:
+          volume: -2
+      disableSelection: true
+      color: DarkViolet
+      emergencyLightColor: DarkViolet
+      forceEnableEmergencyLights: true
+      shuttleTime: 150
+    skill-issue:
+      announcement: alert-level-skill-issue-announcement
+      color: Green
+      shuttleTime: 1200

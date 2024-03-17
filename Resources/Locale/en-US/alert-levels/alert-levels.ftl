@@ -34,3 +34,15 @@ alert-level-delta-instructions = Crewmembers are advised to listen to heads of s
 alert-level-epsilon = Epsilon
 alert-level-epsilon-announcement = Central Command has ordered the Epsilon security level on the station. Consider all contracts terminated.
 alert-level-epsilon-instructions = Consider all contracts terminated.
+
+alert-level-zeta = Zeta
+alert-level-zeta-announcement = Central Command has ordered a ERT team to come and save the day.
+alert-level-zeta-instructions = Cooperate with ERT.
+
+alert-level-shitters = Shitters
+alert-level-shitters-announcement = Shitters are coming. Kill all tiders.
+alert-level-shitters-instructions = Kill all tiders. Protect the armory and engineering.
+
+alert-level-skill-issue = Skill Issue
+alert-level-skill-issue-announcement = Your station got skill issue'd. Deal with all of the shit by yourself.
+alert-level-skill-issue-instructions = Deal with all of the shit by yourself.
