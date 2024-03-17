@@ -291,6 +291,8 @@
         reagents:
         - ReagentId: SpaceDrugs
           Quantity: 3
+  - type: MeleeChemicalInjector
+    solution: melee
   - type: InjectableSolution
     solution: melee
   - type: SolutionInjectOnCollide
