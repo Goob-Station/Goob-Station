@@ -67,7 +67,7 @@
       announcement: alert-level-zeta-announcement
       selectable: false
       sound:
-        path: /Audio/Announcements/alert.ogg
+        path: /Audio/Effects/alert.ogg
         params:
           volume: -2
       disableSelection: true
