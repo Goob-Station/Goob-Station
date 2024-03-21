@@ -418,6 +418,3 @@ uplink-throngler-desc = You're never gonna get it. You're never gonna get it. Pl
 
 uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = Lightweight explosion-proof а backpack for holding various traitor goods
-
-uplink-warhorn-name = Syndicate Warhorn
-uplink-warhorn-desc = A tool that releases an intimidating sound, great for letting the station know you're nearby.
