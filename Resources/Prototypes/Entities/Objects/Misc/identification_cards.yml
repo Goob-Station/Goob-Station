@@ -22,8 +22,10 @@
     tags:
     - DoorBumpOpener
     - WhitelistChameleon
+    - GreyCard
   - type: StealTarget
     stealGroup: IDCard
+    
 
 #IDs with layers
 
@@ -117,6 +119,7 @@
     - DoorBumpOpener
     - WhitelistChameleon
     - HighRiskItem
+    - GoldCard
   - type: StealTarget
     stealGroup: CaptainIDCard
 
@@ -227,6 +230,9 @@
         - state: idquartermaster
     - type: Item
       heldPrefix: silver
+    - type: Tag
+      tags:
+      - SilverCard
     - type: PresetIdCard
       job: Quartermaster
 
@@ -374,6 +380,9 @@
     - state: idheadofpersonnel
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - SilverCard
   - type: PresetIdCard
     job: HeadOfPersonnel
 
@@ -388,6 +397,9 @@
     - state: idchiefengineer
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - SilverCard
   - type: PresetIdCard
     job: ChiefEngineer
 
@@ -402,6 +414,9 @@
     - state: idchiefmedicalofficer
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - SilverCard
   - type: PresetIdCard
     job: ChiefMedicalOfficer
 
@@ -416,6 +431,9 @@
     - state: idresearchdirector
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - SilverCard
   - type: PresetIdCard
     job: ResearchDirector
 
@@ -430,6 +448,9 @@
     - state: idheadofsecurity
   - type: Item
     heldPrefix: silver
+  - type: Tag
+    tags:
+    - SilverCard
   - type: PresetIdCard
     job: HeadOfSecurity
 
@@ -454,6 +475,9 @@
     - state: idcentcom
   - type: Item
     heldPrefix: blue
+  - type: Tag
+    tags:
+    - BlueCard
   - type: IdCard
     jobTitle: Central Commander
     jobIcon: JobIconNanotrasen
@@ -476,6 +500,9 @@
     jobTitle: ERT Company Commander
   - type: Item
     heldPrefix: gold
+  - type: Tag
+    tags:
+    - GoldCard
 
 - type: entity
   parent: ERTLeaderIDCard
@@ -490,6 +517,9 @@
     jobTitle: ERT Soul Officer
   - type: Item
     heldPrefix: blue
+  - type: Tag
+    tags:
+    - BlueCard
 
 - type: entity
   parent: ERTChaplainIDCard
@@ -551,6 +581,9 @@
     - state: idcentcom
   - type: Item
     heldPrefix: blue
+  - type: Tag
+    tags:
+    - BlueCard
   - type: IdCard
     jobTitle: Central Commander
   - type: Access
@@ -695,6 +728,9 @@
   - type: Sprite
     layers:
     - state: syndie
+  - type: Tag
+    tags:
+    - BlackCard
   - type: Access
     tags:
     - NuclearOperative

@@ -2,7 +2,7 @@
   parent: BaseItem
   id: BasicWallet
   name: wallet
-  description: Broke ass mf.
+  description: Broke ass mf. #Broke ass mf.
   components:
   - type: Sprite
     sprite: Objects/Economy/wallets.rsi
@@ -12,10 +12,48 @@
     size: Small
   - type: Clothing
     slots: [belt]
+    quickEquip: false
   - type: Storage
     grid:
     - 0,0,3,1
+    whitelist:
+      components:
+        - IdCard
+        - Cash
+      tags:
+        - Matchstick
+        - Figurine
+        - Paper
+        - Document
+        - Trash
+        - Knife
+        - Screwdriver
+        - Cigarette
+        - Pill
+        - FoodSnack
     maxItemSize: Small
+  - type: ItemMapper
+    mapLayers:
+      basicidwallet:
+        whitelist:
+          tags:
+          - GreyCard
+      hopidwallet:
+        whitelist:
+          tags:
+          - SilverCard
+      capidwallet:
+        whitelist:
+          tags:
+          - GoldCard
+      syndieidwallet:
+        whitelist:
+          tags:
+          - BlackCard
+      centcomidwallet:
+        whitelist:
+          tags:
+          - BlueCard
   - type: ContainerContainer
     containers:
       storagebase: !type:Container

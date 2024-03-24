@@ -44,6 +44,14 @@
         mask:
         - ItemMask
   - type: Appearance
+  - type: Flammable
+    fireSpread: true
+    canResistFire: true
+    alwaysCombustible: true
+    canExtinguish: false #goober suggested this he is a communist
+    damage:
+      types:
+        Heat: 5
 
 - type: material
   id: Credit
