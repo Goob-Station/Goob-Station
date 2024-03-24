@@ -409,3 +409,32 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsButcherable
+  id: ClothingHandsGlovesGorilla
+  name: gorilla glove
+  description: skinned from a gorilla! perfect for ripping the flesh off of someone like that one gorilla...
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/gorilla.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/gorilla.rsi
+  - type: MeleeWeapon
+    autoAttack: true
+    attackRate: .6
+    damage:
+      types:
+       Blunt: 12
+       Structural: 175
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+  - type: Fiber
+    fiberMaterial: fibers-gorrila
+    fiberColor: fibers-gorilla
+  - type: FingerprintMask
+  - type: AddAccentClothing
+    accent: MonkeyAccent
+  - type: StaticPrice
+    price: 0

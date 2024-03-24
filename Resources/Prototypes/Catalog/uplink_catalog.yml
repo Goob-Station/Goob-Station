@@ -87,6 +87,16 @@
   - UplinkWeaponry
 
 - type: listing
+  id: UplinkGlovesGorilla
+  name: uplink-gloves-gorilla-name
+  description: uplink-gloves-gorilla-desc
+  productEntity: ClothingHandsGlovesGorilla
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkDisposableTurret
   name: uplink-disposable-turret-name
   description: uplink-disposable-turret-desc
