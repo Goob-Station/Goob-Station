@@ -54,6 +54,16 @@
         whitelist:
           tags:
           - BlueCard
+      moneywallet1:
+        minCount: 500
+        whitelist:
+          tags:
+          - Cash
+      moneywallet2:
+        minCount: 1000
+        whitelist:
+          tags:
+          - Cash
     sprite: Objects/Economy/wallets.rsi
   - type: Appearance
   - type: ContainerContainer
