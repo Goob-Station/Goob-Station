@@ -425,7 +425,7 @@
     attackRate: .6
     damage:
       types:
-       Blunt: 12
+       Blunt: 18
        Structural: 175
     soundHit:
       collection: Punch
