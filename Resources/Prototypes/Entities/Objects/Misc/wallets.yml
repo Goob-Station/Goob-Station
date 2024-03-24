@@ -57,12 +57,12 @@
       moneywallet1:
         minCount: 500
         whitelist:
-          tags:
+          components:
           - Cash
       moneywallet2:
         minCount: 1000
         whitelist:
-          tags:
+          components:
           - Cash
     sprite: Objects/Economy/wallets.rsi
   - type: Appearance
