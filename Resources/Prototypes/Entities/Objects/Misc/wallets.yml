@@ -58,9 +58,15 @@
           tags:
           - BlueCard
       moneywallet1:
+        minCount: 2
         whitelist:
-          tags:
-          - SpaceCash5000
+          components:
+          - Cash
+      moneywallet2:
+        minCount: 4
+        whitelist:
+          components:
+          - Cash
     sprite: Objects/Economy/wallets.rsi
   - type: Appearance
   - type: ContainerContainer

@@ -132,9 +132,6 @@
     state: cash_1000
   - type: Stack
     count: 5000
-  - type: Tag
-    tags:
-      - SpaceCash5000
 
 - type: entity
   parent: SpaceCash
