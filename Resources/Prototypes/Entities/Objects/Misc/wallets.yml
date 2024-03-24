@@ -22,6 +22,7 @@
       components:
         - IdCard
         - Cash
+        - EncryptionKey
       tags:
         - Matchstick
         - Figurine
@@ -33,6 +34,8 @@
         - Cigarette
         - Pill
         - FoodSnack
+        - Pen
+        - PowerCell
     maxItemSize: Small
   - type: ItemMapper
     mapLayers:
@@ -60,6 +63,9 @@
   - type: StorageContainerVisuals
     maxFillLevels: 4
     fillBaseName: moneywallet
+    whitelist:
+      components:
+        - Cash
   - type: Appearance
   - type: ContainerContainer
     containers:
