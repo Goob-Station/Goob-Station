@@ -5,7 +5,7 @@
   description: Broke ass mf.
   components:
   - type: Sprite
-    sprite: Clothing/Economy/wallets.rsi
+    sprite: Objects/Economy/wallets.rsi
     layers:
     - state: basicwallet
   - type: Item
@@ -35,7 +35,7 @@
   description: It's a backpack made by Honk! Co.
   components:
   - type: Sprite
-    sprite: Clothing/Economy/wallets.rsi
+    sprite: Objects/Economy/wallets.rsi
     layers:
     - state: clownwallet
   - type: Storage
