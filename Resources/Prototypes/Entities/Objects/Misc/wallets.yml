@@ -55,6 +55,7 @@
           tags:
           - BlueCard
     sprite: Objects/Economy/wallets.rsi
+  - type: Appearance
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
