@@ -27,7 +27,7 @@ uplink-gloves-north-star-name = Gloves of the North Star
 uplink-gloves-north-star-desc = A pair of gloves that reduce your punching cooldown drastically, allowing you to beat people to death in a flurry of punches.
 
 uplink-gloves-gorilla-name = Gorilla Gloves
-uplink-gloves-gorilla-desc = The yang to the North Star's yin. Slow heavy punches that can shread through heavy materials. Side effect include monke noises
+uplink-gloves-gorilla-desc = The yang to the North Star's yin. Slow heavy punches that can shred through heavy materials. Side effect include monke noises
 
 # Explosives
 uplink-explosive-grenade-name = Explosive Grenade
