@@ -54,6 +54,7 @@
         whitelist:
           tags:
           - BlueCard
+    sprite: Objects/Economy/wallets.rsi
   - type: ContainerContainer
     containers:
       storagebase: !type:Container
