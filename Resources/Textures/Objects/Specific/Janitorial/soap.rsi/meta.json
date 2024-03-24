@@ -80,6 +80,18 @@
       "name": "syndie-4"
     },
     {
+      "name": "sdas-1"
+    },
+    {
+      "name": "sdas-2"
+    },
+    {
+      "name": "sdas-3"
+    },
+    {
+      "name": "sdas-4"
+    },
+    {
       "name": "syndie-soaplet"
     },
     {
@@ -120,6 +132,14 @@
     },
     {
       "name": "omega-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "sdas-inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "sdas-inhand-right",
       "directions": 4
     },
     {

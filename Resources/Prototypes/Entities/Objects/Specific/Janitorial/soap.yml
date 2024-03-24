@@ -236,3 +236,31 @@
   - type: Residue
     residueAdjective: residue-slippery
     residueColor: residue-blue
+
+- type: entity
+  name: super duper awesome soap
+  id: sdas
+  parent: Soap
+  description: SUPER DUPER AWESOME SOAP MADE BY CLOWNS FOR CLOWNS
+  components:
+  - type: Sprite
+    layers:
+    - state: sdas-4
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    fillBaseName: sdas-
+  - type: Slippery
+    paralyzeTime: 3
+    launchForwardsMultiplier: 12
+  - type: Item
+    heldPrefix: sdas
+  - type: SolutionContainerManager
+    solutions:
+      soap:
+        maxVol: 80085 #boobs number
+        reagents:
+        - ReagentId: sdachem
+          Quantity: 50
+  - type: Residue
+    residueAdjective: residue-awesome
+    residueColor: residue-pink

@@ -659,3 +659,19 @@
           types:
             Cellular: 1.5
 
+- type: reagent
+  id: sdachem
+  name: reagent-name-sdac
+  group: Toxins
+  desc: reagent-desc-sdac
+  flavor: sdac
+  color: "#e079df"
+  physicalDesc: reagent-physical-desc-awesome
+  metabolisms:
+    Poison:
+      effects:
+        - !type:ChemVomit
+          conditions:
+          - !type:ReagentThreshold
+            min: 2
+          probability: 1
