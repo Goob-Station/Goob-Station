@@ -6,7 +6,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Economy/wallets.rsi
-    state: basicwallet
+    layers:
+    - state: basicwallet
   - type: Item
     size: Small
   - type: Clothing
@@ -35,7 +36,8 @@
   components:
   - type: Sprite
     sprite: Clothing/Economy/wallets.rsi
-    state: clownwallet
+    layers:
+    - state: clownwallet
   - type: Storage
     storageOpenSound:
       collection: BikeHorn
