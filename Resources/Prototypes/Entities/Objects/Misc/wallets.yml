@@ -8,6 +8,8 @@
     sprite: Objects/Economy/wallets.rsi
     layers:
     - state: basicwallet
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false
   - type: Item
     size: Small
   - type: Clothing
@@ -54,17 +56,10 @@
         whitelist:
           tags:
           - BlueCard
-      moneywallet1:
-        minCount: 500
-        whitelist:
-          components:
-          - Cash
-      moneywallet2:
-        minCount: 1000
-        whitelist:
-          components:
-          - Cash
     sprite: Objects/Economy/wallets.rsi
+  - type: StorageContainerVisuals
+    maxFillLevels: 4
+    fillBaseName: moneywallet
   - type: Appearance
   - type: ContainerContainer
     containers:
