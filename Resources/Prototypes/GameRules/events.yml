@@ -87,8 +87,8 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    earliestStart: 45
-    reoccurrenceDelay: 60
+    earliestStart: 30
+    reoccurrenceDelay: 45
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: SpawnPointGhostDragon
@@ -99,11 +99,11 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10
-    duration: 1
-    earliestStart: 30
-    reoccurrenceDelay: 60
-    minimumPlayers: 40
+    weight: 15
+    duration: 2
+    earliestStart: 15
+    reoccurrenceDelay: 30
+    minimumPlayers: 25
   - type: NinjaSpawnRule
 
 - type: entity
@@ -112,9 +112,9 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 10
     duration: 1
-    earliestStart: 45
+    earliestStart: 20
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -164,8 +164,8 @@
   noSpawn: true
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 7.5
+    earliestStart: 20
+    weight: 10
     minimumPlayers: 10 #Enough to hopefully have at least one engineering guy
     startAnnouncement: station-event-meteor-swarm-start-announcement
     endAnnouncement: station-event-meteor-swarm-end-announcement
@@ -188,20 +188,20 @@
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
     earliestStart: 30
-    minimumPlayers: 35
-    weight: 5
+    minimumPlayers: 10
+    weight: 15
     duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobMouse
-      prob: 0.02
+      prob: 0.0195
     - id: MobMouse1
-      prob: 0.02
+      prob: 0.0195
     - id: MobMouse2
-      prob: 0.02
+      prob: 0.0195
     specialEntries:
     - id: SpawnPointGhostRatKing
-      prob: 0.005
+      prob: 0.25 #ratz ratz, we are da ratz
 
 - type: entity
   id: CockroachMigration
@@ -213,14 +213,16 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     startDelay: 10
-    weight: 5
+    weight: 7.5
     duration: 50
   - type: VentCrittersRule
     entries:
     - id: MobCockroach
       prob: 0.03
     - id: MobMothroach
-      prob: 0.008
+      prob: 0.015
+    - id: MobGlockroach
+      prob: 0.005
 
 - type: entity
   id: PowerGridCheck
