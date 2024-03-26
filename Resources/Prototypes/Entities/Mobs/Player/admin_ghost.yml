@@ -4,6 +4,14 @@
   name: admin observer
   noSpawn: true
   components:
+  - type: Sprite
+    overrideContainerOcclusion: true # Ghosts always show up regardless of where they're contained.
+    drawdepth: Ghosts
+    sprite: Objects/Fun/toys.rsi
+    color: "#fff8"
+    layers:
+    - state: plushie_lizard
+      shader: unshaded
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
   - type: Tag
