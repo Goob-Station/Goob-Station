@@ -1,0 +1,8 @@
+- type: marking
+  id: GingerbreadTopGumdrop
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Gingerbread]
+  sprites:
+  - sprite: Mobs/Customization/gingerbread.rsi
+    state: gumdroptop
