@@ -11,6 +11,8 @@
           state: icon-super
     - type: RandomSpawner
       rarePrototypes:
+        - PlyushieBlackburna
+        - PlushieBlackburna
         - ClothingUniformJumpsuitFamilyGuy
         - CigarGold
         - ClothingNeckCloakHerald
