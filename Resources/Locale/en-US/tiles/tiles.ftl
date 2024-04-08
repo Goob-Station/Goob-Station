@@ -3,6 +3,7 @@ tiles-plating = plating
 tiles-lattice = lattice
 tiles-lattice-train = train lattice
 tiles-steel-floor = steel tile
+tiles-engineer-gaming = engineer gaming (too many of them in one line break the sound barrier and crash the client, so pls dont thanks haha)
 tiles-steel-floor-mini = steel mini-tile
 tiles-steel-floor-pavement = steel pavement
 tiles-steel-floor-diagonal = steel diagonal tile

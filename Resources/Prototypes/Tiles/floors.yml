@@ -17,6 +17,25 @@
   heatCapacity: 10000
 
 - type: tile
+  id: FloorEngineerGaming
+  name: tiles-engineer-gaming 
+  suffix: dont spawn in groups # Engineer engineer'd so fucking hard that his sounds crash clients
+  sprite: /Textures/Tiles/engineer.png 
+  variants: 1
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: Engineer
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 100000 
+
+- type: tile
   id: FloorSteelCheckerLight
   name: tiles-steel-floor-checker-light
   sprite: /Textures/Tiles/cafeteria.png
