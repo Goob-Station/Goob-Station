@@ -5,7 +5,7 @@
   description: A stuffed toy that resembles a typical non-altered blackburna.
   components:
   - type: Sprite
-    sprite:
+    sprite: Caldera/objects/BKPlushie.rsi
     state: plushie_Bkv1
 
 - type: entity
@@ -15,5 +15,5 @@
   description: A stuffed toy that resembles a sub-species of blackburn created for trench clearing and cannon fodder.
   components:
   - type: Sprite
-    sprite:
+    sprite: Caldera/objects/BKPlushie.rsi
     state: plushie_Bkv2
