@@ -149,10 +149,10 @@
     path: /Audio/Jukebox/Mr__Sandman.ogg
     
 - type: jukebox
-  id: live Branch Original Lackadaisy Animated Short Soundtrack.ogg
+  id: Olive Branch Original Lackadaisy Animated Short Soundtrack.ogg
   name: hmeister - Lackadaisy soundtrack 1
   path:
-    path: /Audio/Jukebox/live Branch Original Lackadaisy Animated Short Soundtrack.ogg
+    path: /Audio/Jukebox/Olive Branch Original Lackadaisy Animated Short Soundtrack.ogg
     
 - type: jukebox
   id: Orange Colored Sky.ogg
