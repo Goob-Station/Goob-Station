@@ -93,3 +93,111 @@
   name: Jimmy Van Heusen - hmeister - Ain't That A Kick In The Head
   path:
     path: /Audio/Jukebox/Ain_t_That_A_Kick_In_The_Head.ogg
+
+- type: jukebox
+  id: Atom_Bomb_Baby.ogg
+  name: hmeister - Atom Bomb Baby
+  path:
+    path: /Audio/Jukebox/Atom_Bomb_Baby.ogg
+
+- type: jukebox
+  id: Bloons Disco Party (Dance Theme) - Bloons TD 5 Deluxe.ogg
+  name: hmeister - Bloons Disco Party (BTD 5)
+  path:
+    path: /Audio/Jukebox/Bloons Disco Party (Dance Theme) - Bloons TD 5 Deluxe.ogg
+    
+- type: jukebox
+  id: Electric Light Orchestra  Mr  Blue Sky Lyrics.ogg
+  name: hmeister - Mr Blue Sky
+  path:
+    path: /Audio/Jukebox/Electric Light Orchestra  Mr  Blue Sky Lyrics.ogg
+    
+- type: jukebox
+  id: I_Don_t_Want_To_Set_The_World_On_Fire.ogg
+  name: hmeister - I don't want to set the world on fire
+  path:
+    path: /Audio/Jukebox/I_Don_t_Want_To_Set_The_World_On_Fire.ogg
+    
+- type: jukebox
+  id: I_m_Tickled_Pink.ogg
+  name: hmeister - I_m_Tickled_Pink.ogg
+  path:
+    path: /Audio/Jukebox/I_m_Tickled_Pink.ogg
+    
+- type: jukebox
+  id: It_s_A_Man.ogg
+  name: hmeister - It's a Man
+  path:
+    path: /Audio/Jukebox/It_s_A_Man.ogg
+    
+- type: jukebox
+  id: Jake Chudnow  Moon Men Instrumental.ogg
+  name: hmeister - Moon Men
+  path:
+    path: /Audio/Jukebox/Jake Chudnow  Moon Men Instrumental.ogg
+    
+- type: jukebox
+  id: Lone_Star.ogg
+  name: hmeister - Lone Star
+  path:
+    path: /Audio/Jukebox/Lone_Star.ogg
+    
+- type: jukebox
+  id: Mr__Sandman.ogg
+  name: hmeister - Mr Sandman
+  path:
+    path: /Audio/Jukebox/Mr__Sandman.ogg
+    
+- type: jukebox
+  id: live Branch Original Lackadaisy Animated Short Soundtrack.ogg
+  name: hmeister - Lackadaisy soundtrack 1
+  path:
+    path: /Audio/Jukebox/live Branch Original Lackadaisy Animated Short Soundtrack.ogg
+    
+- type: jukebox
+  id: Orange Colored Sky.ogg
+  name: hmeister - Orange Colored Sky
+  path:
+    path: /Audio/Jukebox/Orange Colored Sky.ogg
+    
+- type: jukebox
+  id: Rocket_69.ogg
+  name: hmeister - Rocket 69
+  path:
+    path: /Audio/Jukebox/Rocket_69.ogg
+    
+- type: jukebox
+  id: Space Station 13 Music  Title2 Robocop Theme.ogg
+  name: hmeister - Title2 Robocop Theme
+  path:
+    path: /Audio/Jukebox/Space Station 13 Music  Title2 Robocop Theme.ogg
+    
+- type: jukebox
+  id: Stars_Of_The_Midnight_Range.ogg
+  name: hmeister - Stars of the Midnight Ranger
+  path:
+    path: /Audio/Jukebox/Stars_Of_The_Midnight_Range.ogg
+    
+- type: jukebox
+  id: Sunset Rose Cocktail Original Lackadaisy Animated Short Soundtrack.ogg
+  name: hmeister - Lackadaisy Sunset Rose
+  path:
+    path: /Audio/Jukebox/Sunset Rose Cocktail Original Lackadaisy Animated Short Soundtrack.ogg
+    
+- type: jukebox
+  id: Sunshine Lollipops And Rainbows.ogg
+  name: hmeister - Sunshine, Lollipops and Rainbows
+  path:
+    path: /Audio/Jukebox/Sunshine Lollipops And Rainbows.ogg
+    
+- type: jukebox
+  id: The Office Main Theme.ogg
+  name: hmeister - The Office Intro
+  path:
+    path: /Audio/Jukebox/The Office Main Theme.ogg
+    
+- type: jukebox
+  id: Vera Lynn  Well Meet Again.ogg
+  name: hmeister - We'll Meet Again
+  path:
+    path: /Audio/Jukebox/Vera Lynn  Well Meet Again.ogg
