@@ -119,7 +119,7 @@
     path: /Audio/Jukebox/It_s_A_Man.ogg
     
 - type: jukebox
-  id: Jake Chudnow  Moon Men Instrumental.ogg
+  id: Jake Chudnow_Moon_Men_Instrumental.ogg
   name: hmeister - Moon Men
   path:
     path: /Audio/Jukebox/Jake Chudnow  Moon Men Instrumental.ogg
@@ -137,13 +137,13 @@
     path: /Audio/Jukebox/Mr__Sandman.ogg
     
 - type: jukebox
-  id: Olive Branch Original Lackadaisy Animated Short Soundtrack.ogg
+  id: Olive_Branch_Original_Lackadaisy_Animated_Short_Soundtrack.ogg
   name: hmeister - Lackadaisy soundtrack 1
   path:
     path: /Audio/Jukebox/Olive Branch Original Lackadaisy Animated Short Soundtrack.ogg
     
 - type: jukebox
-  id: Orange Colored Sky.ogg
+  id: Orange_Colored Sky.ogg
   name: hmeister - Orange Colored Sky
   path:
     path: /Audio/Jukebox/Orange Colored Sky.ogg
@@ -155,7 +155,7 @@
     path: /Audio/Jukebox/Rocket_69.ogg
     
 - type: jukebox
-  id: Space Station 13 Music  Title2 Robocop Theme.ogg
+  id: Space Station_13_Music_Title2_Robocop_Theme.ogg
   name: hmeister - Title2 Robocop Theme
   path:
     path: /Audio/Jukebox/Space Station 13 Music  Title2 Robocop Theme.ogg
@@ -167,13 +167,13 @@
     path: /Audio/Jukebox/Stars_Of_The_Midnight_Range.ogg
     
 - type: jukebox
-  id: Sunset Rose Cocktail Original Lackadaisy Animated Short Soundtrack.ogg
+  id: Sunset_Rose_Cocktail_Original_Lackadaisy_Animated_Short_Soundtrack.ogg
   name: hmeister - Lackadaisy Sunset Rose
   path:
     path: /Audio/Jukebox/Sunset Rose Cocktail Original Lackadaisy Animated Short Soundtrack.ogg
     
 - type: jukebox
-  id: Sunshine Lollipops And Rainbows.ogg
+  id: Sunshine_Lollipops_And_Rainbows.ogg
   name: hmeister - Sunshine, Lollipops and Rainbows
   path:
     path: /Audio/Jukebox/Sunshine Lollipops And Rainbows.ogg
