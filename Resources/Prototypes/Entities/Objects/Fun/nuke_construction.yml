@@ -249,7 +249,7 @@
   - type: Construction
     graph: ImprovisedNukeCraft
     node: evilbomb
-    defaultTarget: evilbomb
+    defaultTarget: painted
   - type: Fixtures
     fixtures:
       fix1:
@@ -271,7 +271,7 @@
   - type: Construction
     graph: ImprovisedNukeCraft
     node: evilbombdone
-    defaultTarget: evilbomb
+    defaultTarget: painted
   - type: Fixtures
     fixtures:
       fix1:
@@ -317,4 +317,4 @@
     state: nukecraft_6
   - type: Construction
     graph: ImprovisedNukeCraft
-    node: evilbomb
+    node: painted
