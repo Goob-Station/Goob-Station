@@ -190,7 +190,7 @@
       steps:
       - tool: Prying
         doAfter: 10
-    - to: evilbombpainted
+    - to: painted
       steps:
       - tag: Crayon
         name: a crayon
