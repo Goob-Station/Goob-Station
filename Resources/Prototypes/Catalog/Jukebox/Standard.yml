@@ -101,18 +101,6 @@
     path: /Audio/Jukebox/Atom_Bomb_Baby.ogg
 
 - type: jukebox
-  id: Bloons Disco Party (Dance Theme) - Bloons TD 5 Deluxe.ogg
-  name: hmeister - Bloons Disco Party (BTD 5)
-  path:
-    path: /Audio/Jukebox/Bloons Disco Party (Dance Theme) - Bloons TD 5 Deluxe.ogg
-    
-- type: jukebox
-  id: Electric Light Orchestra  Mr  Blue Sky Lyrics.ogg
-  name: hmeister - Mr Blue Sky
-  path:
-    path: /Audio/Jukebox/Electric Light Orchestra  Mr  Blue Sky Lyrics.ogg
-    
-- type: jukebox
   id: I_Don_t_Want_To_Set_The_World_On_Fire.ogg
   name: hmeister - I don't want to set the world on fire
   path:
@@ -189,15 +177,3 @@
   name: hmeister - Sunshine, Lollipops and Rainbows
   path:
     path: /Audio/Jukebox/Sunshine Lollipops And Rainbows.ogg
-    
-- type: jukebox
-  id: The Office Main Theme.ogg
-  name: hmeister - The Office Intro
-  path:
-    path: /Audio/Jukebox/The Office Main Theme.ogg
-    
-- type: jukebox
-  id: Vera Lynn  Well Meet Again.ogg
-  name: hmeister - We'll Meet Again
-  path:
-    path: /Audio/Jukebox/Vera Lynn  Well Meet Again.ogg
