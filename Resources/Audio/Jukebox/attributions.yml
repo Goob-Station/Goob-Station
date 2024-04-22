@@ -41,8 +41,6 @@
   copyright: " "
   source: "https://x329436.invisionservice.com/"
 
-  #I just got told that the jukebox is frozen on upstream so all songs past this point are for goobstation and copyright does NOT matter (yay)
-
 - files: ["Yankee_Doodle.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: " "
@@ -72,8 +70,6 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: " "
   source: "https://x329436.invisionservice.com/"
-
-#marker for hmooster
 
 - files: ["Atom_Bomb_Baby.ogg"]
   license: "CC-BY-NC-SA-3.0"
