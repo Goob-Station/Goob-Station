@@ -42,4 +42,10 @@ public sealed partial class BatteryWeaponFireMode
     /// </summary>
     [DataField]
     public float FireCost = 100;
+
+    /// <summary>
+    /// The magazine sprite associated with this firing mode
+    /// </summary>
+    [DataField]
+    public string? MagSprite;
 }
