@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise Station and modified by CatMagic",
+  "size": {
+    "x": 32,
+    "y": 32
+	},
+	"states": [
+		{
+			"name": "base"
+		},
+		{
+			"name": "redmag-unshaded-0"
+		},
+		{
+			"name": "redmag-unshaded-1"
+		},
+		{
+			"name": "redmag-unshaded-2"
+		},
+		{
+			"name": "redmag-unshaded-3"
+		},
+		{
+			"name": "bluemag-unshaded-0"
+		},
+		{
+			"name": "bluemag-unshaded-1"
+		},
+		{
+			"name": "bluemag-unshaded-2"
+		},
+		{
+			"name": "bluemag-unshaded-3"
+		}
+	]
+}
