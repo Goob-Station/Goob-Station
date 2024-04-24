@@ -109,10 +109,10 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
                 _popupSystem.PopupClient(Loc.GetString("gun-set-fire-mode", ("mode", prototype.Name)), uid, user.Value);
             }
 
-        if (MagSprite != null)
+        if (component.MagSprite != null)
         {
             if (TryComp<MagazineVisuals>(uid, out var magVisuals)){
-                        magVisuals.MagState = MagSprite;
+                        magVisuals.MagState = component.MagSprite;
             }
         }
         }
