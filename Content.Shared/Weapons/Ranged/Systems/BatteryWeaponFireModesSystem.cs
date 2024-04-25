@@ -13,7 +13,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    private var MagazineVisuals;
+    private var? MagazineVisuals;
     public override void Initialize()
     {
         base.Initialize();
