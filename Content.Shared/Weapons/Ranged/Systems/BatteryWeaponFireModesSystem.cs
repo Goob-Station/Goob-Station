@@ -13,7 +13,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    private var MagazineVisuals;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -95,6 +95,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         var fireMode = component.FireModes[index];
         component.CurrentFireMode = index;
         Dirty(uid, component);
+        private var? MagazineVisuals;
 
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
         {
