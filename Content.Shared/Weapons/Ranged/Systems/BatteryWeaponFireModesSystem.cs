@@ -96,7 +96,6 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         component.CurrentFireMode = index;
         Dirty(uid, component);
         private var? MagazineVisuals;
-
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
         {
             if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
@@ -109,13 +108,13 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
             {
                 _popupSystem.PopupClient(Loc.GetString("gun-set-fire-mode", ("mode", prototype.Name)), uid, user.Value);
             }
+        }
 
         if (fireMode.MagSprite != null)
         {
             if (TryComp<MagazineVisuals>(uid, out var magVisuals)){
-                        magVisuals.MagState = fireMode.MagSprite;
+                magVisuals.MagState = fireMode.MagSprite;
             }
-        }
         }
     }
 }
