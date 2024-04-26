@@ -95,7 +95,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         var fireMode = component.FireModes[index];
         component.CurrentFireMode = index;
         Dirty(uid, component);
-        private var? MagazineVisuals;
+
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
         {
             if (!_prototypeManager.TryIndex<EntityPrototype>(fireMode.Prototype, out var prototype))
