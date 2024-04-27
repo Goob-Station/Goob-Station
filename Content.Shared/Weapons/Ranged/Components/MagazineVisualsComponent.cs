@@ -1,4 +1,4 @@
-using Content.Client.Weapons.Ranged.Systems;
+using Content.Shared.Weapons.Ranged.Systems;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
