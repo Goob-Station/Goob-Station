@@ -203,6 +203,28 @@
         components:
         - HumanoidAppearance # syndies cant turn hamlet into a human
 
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindslaveImplant
+  name: syndicate brain chip
+  description: Wills you to follow the syndicate.
+  noSpawn: true
+  components:
+    - type: SubdermalImplant
+      blacklist:
+        tags:
+        - MindShield
+    - type: IntrinsicRadioReceiver
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Syndicate
+    - type: ActiveRadio
+      channels:
+      - Syndicate
+    - type: AutoTraitor
+      giveUplink: false
+      giveObjectives: false
+
 #Nuclear Operative/Special Exclusive implants
 
 - type: entity
@@ -322,7 +344,6 @@
   noSpawn: true
   components:
    - type: SubdermalImplant
-     permanent: true
    - type: Tag
      tags:
        - MindShield

@@ -208,6 +208,14 @@
     - type: Implanter
       implant: DnaScramblerImplant
 
+- type: entity
+  id: MindslaveImplanter
+  name: syndicate brain chip
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+    - type: Implanter
+      implant: MindslaveImplant
+
 #Nuclear Operative/Special implanters
 
 - type: entity
