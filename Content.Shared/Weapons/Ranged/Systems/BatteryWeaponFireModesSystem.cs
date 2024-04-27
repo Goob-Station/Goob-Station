@@ -13,8 +13,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly MagazineVisualsComponent _magazineVisualsComponent = default!;
-
+    private var MagazineVisualsComponent;
 
     public override void Initialize()
     {
@@ -114,7 +113,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         if (fireMode.MagSprite != null)
         {
-            if (TryComp<_magazineVisualsComponent>(uid, out var magVisuals))
+            if (TryComp<MagazineVisualsComponent>(uid, out var magVisuals))
                 magVisuals.MagState = fireMode.MagSprite;
         }
     }
