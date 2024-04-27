@@ -54,6 +54,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
+        SubscribeLocalEvent<SharedSubdermalImplantSystem, ImplantImplantedEvent>(OnMindslaveImplant);
 
     }
 
@@ -221,5 +222,10 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 
         args.Handled = true;
         QueueDel(uid);
+    }
+
+    private void OnMindslaveImplant(EntityUid? component.ImplantedEntity)
+    {
+        AddComp<AutoTraitorComponent>(component.ImplantedEntity);
     }
 }
