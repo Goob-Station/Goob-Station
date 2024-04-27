@@ -225,8 +225,11 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         QueueDel(uid);
     }
 
-    private void OnMindslaveImplant(EntityUid? uid)
+    private void OnMindslaveImplant()
     {
-        AddComp<AutoTraitorComponent>(uid);
+        if (Implant == "MindslaveImplant")
+        {
+            AddComp<AutoTraitorComponent>(component.ImplantedEntity);
+        }
     }
 }
