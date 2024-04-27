@@ -227,9 +227,9 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 
     private void OnMindslaveImplant()
     {
-        if (Implant == "MindslaveImplant")
+        if (ImplantImplantedEvent.Implant == "MindslaveImplant")
         {
-            AddComp<AutoTraitorComponent>(component.ImplantedEntity);
+            AddComp<AutoTraitorComponent>(ImplantImplantedEvent.Implanted);
         }
     }
 }
