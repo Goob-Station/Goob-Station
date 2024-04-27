@@ -204,7 +204,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitClown
   name: clown suit
-  description: HONK!
+  description: A suit designed with maxium humor and funny! Made on the clown plannet it delivers extra pranks!
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/clown.rsi
@@ -422,7 +422,7 @@
   parent: ClothingUniformBase
   id: ClothingUniformJumpsuitMime
   name: mime suit
-  description: ...
+  description: Truely a suit for a mime of great skills!
   components:
   - type: Sprite
     sprite: Clothing/Uniforms/Jumpsuit/mime.rsi
