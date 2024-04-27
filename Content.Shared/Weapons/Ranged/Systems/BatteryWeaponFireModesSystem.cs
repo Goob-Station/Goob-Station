@@ -95,7 +95,6 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
         var fireMode = component.FireModes[index];
         component.CurrentFireMode = index;
         Dirty(uid, component);
-        var MagazineVisualsComponent;
 
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
         {
