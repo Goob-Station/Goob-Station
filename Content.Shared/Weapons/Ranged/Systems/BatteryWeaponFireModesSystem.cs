@@ -114,7 +114,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         if (fireMode.MagSprite != null)
         {
-            if (TryComp<MagazineVisualsComponent>(uid, out var magVisuals))
+            if (TryComp<_magazineVisualsComponent>(uid, out var magVisuals))
                 magVisuals.MagState = fireMode.MagSprite;
         }
     }
