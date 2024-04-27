@@ -6,6 +6,7 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
+using Content.Client.Weapons.Ranged.Components;
 
 namespace Content.Shared.Weapons.Ranged.Systems;
 

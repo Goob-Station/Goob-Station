@@ -1,6 +1,6 @@
-using Content.Shared.Weapons.Ranged.Systems;
+using Content.Client.Weapons.Ranged.Systems;
 
-namespace Content.Shared.Weapons.Ranged.Components;
+namespace Content.Client.Weapons.Ranged.Components;
 
 /// <summary>
 /// Visualizer for gun mag presence; can change states based on ammo count or toggle visibility entirely.
