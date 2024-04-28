@@ -233,7 +233,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     {
         if (_tag.HasTag(ev.Implant, MindSlaveTag) && ev.Implanted != null)
         {
-            AddComp<AutoTraitorComponent>(ev.Implanted);
+            AddComp<AutoTraitorComponent>(ev.Implanted.Value);
         }
     }
 }
