@@ -888,6 +888,9 @@
   id: MindShield
 
 - type: Tag
+  id: MindSlave
+
+- type: Tag
   id: MindTransferTarget
 
 - type: Tag

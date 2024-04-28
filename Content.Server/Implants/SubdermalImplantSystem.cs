@@ -40,9 +40,13 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
+
+    [ValidatePrototypeId<TagPrototype>]
+    public const string MindSlaveTag = "MindSlave";
 
     public override void Initialize()
     {
@@ -225,11 +229,11 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         QueueDel(uid);
     }
 
-    private void OnMindslaveImplant()
+    public void OnMindslaveImplant(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (ImplantImplantedEvent.Implant == "MindslaveImplant")
+        if (_tag.HasTag(ev.Implant, MindSlaveTag) && ev.Implanted != null)
         {
-            AddComp<AutoTraitorComponent>(ImplantImplantedEvent.Implanted);
+            AddComp<AutoTraitorComponent>(ev.Implanted);
         }
     }
 }

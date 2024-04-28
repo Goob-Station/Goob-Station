@@ -214,16 +214,9 @@
       blacklist:
         tags:
         - MindShield
-    - type: IntrinsicRadioReceiver
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Syndicate
-    - type: ActiveRadio
-      channels:
-      - Syndicate
-    - type: AutoTraitor
-      giveUplink: false
-      giveObjectives: false
+    - type: Tag
+      tags:
+        - MindSlave
 
 #Nuclear Operative/Special Exclusive implants
 
