@@ -73,7 +73,7 @@
   - type: Transform
     anchored: true
   - type: Sprite
-    sprite: Structures/conveyor.rsi
+    sprite: _NF/Structures/conveyor.rsi # Frontier
     state: conveyor_stopped_cw
     drawdepth: HighFloorObjects
   - type: ApcPowerReceiver
