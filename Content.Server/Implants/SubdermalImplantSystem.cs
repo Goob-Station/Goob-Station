@@ -23,6 +23,7 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
+using Content.Shared.Tag;
 
 namespace Content.Server.Implants;
 
