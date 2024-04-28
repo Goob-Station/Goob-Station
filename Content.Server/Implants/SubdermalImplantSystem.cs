@@ -229,7 +229,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         QueueDel(uid);
     }
 
-    public void OnMindslaveImplant(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
+    public void OnMindslaveImplant(EntityUid? uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
         if (_tag.HasTag(ev.Implant, MindSlaveTag) && ev.Implanted != null)
         {
