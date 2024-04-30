@@ -112,7 +112,7 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         if (fireMode.MagSprite != null)
         {
-            RaiseLocalEvent(uid, FireModeSetEvent(component.CurrentFireMode, fireMode.MagSprite););
+            RaiseLocalEvent(uid, FireModeSetEvent(component.CurrentFireMode, fireMode.MagSprite));
         }
     }
 }
