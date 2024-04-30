@@ -20,6 +20,6 @@ public sealed partial class BatteryGunFireModeVisuals : byte
 
     public void OnFireModeSet(ref FireModeSetEvent ev)
     {
-        _magazineVisualsComponent.MagState = ev.ModeMagSprite
+        _magazineVisualsComponent.MagState = ev.ModeMagSprite;
     }
 }
