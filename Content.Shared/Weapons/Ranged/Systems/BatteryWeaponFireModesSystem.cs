@@ -112,8 +112,20 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 
         if (fireMode.MagSprite != null)
         {
-            if (TryComp<MagazineVisualsComponent>(uid, out var magVisuals))
-                magVisuals.MagState = fireMode.MagSprite;
+
         }
+    }
+}
+
+[ByRefEvent]
+public readonly struct FireModeSetEvent
+{
+    public readonly string Mode;
+    public readonly string ModeMagSprite;
+
+    public FireModeSetEvent(string mode, string modeMagSprite)
+    {
+        Mode = mode;
+        ModeMagSprite = modeMagSprite;
     }
 }
