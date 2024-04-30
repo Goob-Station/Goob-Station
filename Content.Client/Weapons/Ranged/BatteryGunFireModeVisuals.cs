@@ -9,10 +9,17 @@ namespace Content.Client.Weapons.Ranged;
 [RegisterComponent, Access(typeof(GunSystem))]
 public sealed partial class BatteryGunFireModeVisuals : byte
 {
+    [Dependency] private readonly MagazineVisualsComponent _magazineVisualsComponent = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<BatteryWeaponFireModesSystem, FireModeSetEvent>(OnFireModeSet);
+    }
+
+    public void OnFireModeSet(ref FireModeSetEvent ev)
+    {
+        _magazineVisualsComponent.MagState = ev.ModeMagSprite
     }
 }
