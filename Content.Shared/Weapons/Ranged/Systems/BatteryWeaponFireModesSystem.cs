@@ -121,10 +121,10 @@ public sealed class BatteryWeaponFireModesSystem : EntitySystem
 [ByRefEvent]
 public readonly struct FireModeSetEvent
 {
-    public readonly string Mode;
+    public readonly int Mode;
     public readonly string ModeMagSprite;
 
-    public FireModeSetEvent(string mode, string modeMagSprite)
+    public FireModeSetEvent(int mode, string modeMagSprite)
     {
         Mode = mode;
         ModeMagSprite = modeMagSprite;
