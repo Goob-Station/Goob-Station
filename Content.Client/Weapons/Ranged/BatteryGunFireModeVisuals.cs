@@ -10,8 +10,6 @@ namespace Content.Client.Weapons.Ranged;
 public sealed partial class BatteryGunFireModeVisuals : EntitySystem
 
 {
-    [Dependency] private readonly MagazineVisualsComponent _magazineVisualsComponent = default!;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -21,6 +19,6 @@ public sealed partial class BatteryGunFireModeVisuals : EntitySystem
 
     public void OnFireModeSet(ref FireModeSetEvent ev)
     {
-        _magazineVisualsComponent.MagState = ev.ModeMagSprite;
+        MagazineVisualsComponent.MagState = ev.ModeMagSprite;
     }
 }
