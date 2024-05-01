@@ -8,6 +8,7 @@ namespace Content.Client.Weapons.Ranged;
 /// Visualizer for gun mag presence; can change states based on ammo count or toggle visibility entirely.
 /// </summary>
 public sealed partial class BatteryGunFireModeVisuals : EntitySystem
+
 {
     [Dependency] private readonly MagazineVisualsComponent _magazineVisualsComponent = default!;
 
