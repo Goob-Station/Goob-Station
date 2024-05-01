@@ -6,11 +6,20 @@ using Robust.Client.GameObjects;
 namespace Content.Client.Weapons.Ranged.Systems;
 
 public sealed partial class GunSystem
+
 {
+    [Dependency] private readonly MagazineVisualsComponent _magazineVisualsComponent = default!;
+
     private void InitializeMagazineVisuals()
     {
         SubscribeLocalEvent<MagazineVisualsComponent, ComponentInit>(OnMagazineVisualsInit);
         SubscribeLocalEvent<MagazineVisualsComponent, AppearanceChangeEvent>(OnMagazineVisualsChange);
+        SubscribeLocalEvent<BatteryWeaponFireModesSystem, FireModeSetEvent>(OnFireModeSet);
+    }
+
+    public void OnFireModeSet(ref FireModeSetEvent ev)
+    {
+        _magazineVisualsComponent.MagState = ev.ModeMagSprite;
     }
 
     private void OnMagazineVisualsInit(EntityUid uid, MagazineVisualsComponent component, ComponentInit args)
