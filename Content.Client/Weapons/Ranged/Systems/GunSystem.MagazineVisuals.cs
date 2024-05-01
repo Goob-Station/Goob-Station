@@ -14,7 +14,7 @@ public sealed partial class GunSystem
     {
         SubscribeLocalEvent<MagazineVisualsComponent, ComponentInit>(OnMagazineVisualsInit);
         SubscribeLocalEvent<MagazineVisualsComponent, AppearanceChangeEvent>(OnMagazineVisualsChange);
-        SubscribeLocalEvent<BatteryWeaponFireModesSystem, FireModeSetEvent>(OnFireModeSet);
+        SubscribeLocalEvent<BatteryWeaponFireModesComponent, FireModeSetEvent>(OnFireModeSet);
     }
 
     public void OnFireModeSet(ref FireModeSetEvent ev)
