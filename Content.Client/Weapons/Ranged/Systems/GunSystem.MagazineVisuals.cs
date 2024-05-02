@@ -18,7 +18,7 @@ public sealed partial class GunSystem
         SubscribeLocalEvent<BatteryWeaponFireModesComponent, FireModeSetEvent>(OnFireModeSet);
     }
 
-    public void OnFireModeSet(ref FireModeSetEvent ev)
+    private void OnFireModeSet(uid, ref FireModeSetEvent ev)
     {
         _magazineVisualsComponent.MagState = ev.ModeMagSprite;
     }
