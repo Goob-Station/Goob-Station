@@ -8,6 +8,7 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
+using Content.Server.Implants;
 
 namespace Content.Server.Mindshield;
 
