@@ -93,3 +93,93 @@
   name: Jimmy Van Heusen - hmeister - Ain't That A Kick In The Head
   path:
     path: /Audio/Jukebox/Ain_t_That_A_Kick_In_The_Head.ogg
+
+- type: jukebox
+  id: Atom_Bomb_Baby
+  name: hmeister - Atom Bomb Baby 
+  path: 
+    path: /Audio/Jukebox/Atom_Bomb_Baby.ogg 
+
+- type: jukebox 
+  id: I_Don_t_Want_To_Set_The_World_On_Fire 
+  name: hmeister - I don't want to set the world on fire 
+  path: 
+    path: /Audio/Jukebox/I_Don_t_Want_To_Set_The_World_On_Fire.ogg 
+
+- type: jukebox 
+  id: I_m_Tickled_Pink 
+  name: hmeister - I'm Tickled Pink 
+  path: 
+    path: /Audio/Jukebox/I_m_Tickled_Pink.ogg 
+
+- type: jukebox 
+  id: It_s_A_Man 
+  name: hmeister - It's a Man 
+  path: 
+    path: /Audio/Jukebox/It_s_A_Man.ogg 
+
+- type: jukebox 
+  id: Jake_Chudnow_Moon_Men_Instrumental 
+  name: hmeister - Moon Men 
+  path: 
+    path: /Audio/Jukebox/Jake_Chudnow_Moon_Men_Instrumental.ogg 
+
+- type: jukebox 
+  id: Lone_Star 
+  name: hmeister - Lone Star 
+  path: 
+    path: /Audio/Jukebox/Lone_Star.ogg 
+
+- type: jukebox 
+  id: Mr__Sandman 
+  name: hmeister - Mr Sandman 
+  path: 
+    path: /Audio/Jukebox/Mr__Sandman.ogg 
+
+- type: jukebox 
+  id: Olive_Branch_Original_Lackadaisy_Animated_Short_Soundtrack 
+  name: hmeister - Lackadaisy soundtrack 1 
+  path: 
+    path: /Audio/Jukebox/Olive_Branch_Original_Lackadaisy_Animated_Short_Soundtrack.ogg 
+
+- type: jukebox 
+  id: Orange_Colored_Sky 
+  name: hmeister - Orange Colored Sky 
+  path: 
+    path: /Audio/Jukebox/Orange_Colored_Sky.ogg 
+
+- type: jukebox 
+  id: Rocket_69 
+  name: hmeister - Rocket 69
+  path: 
+    path: /Audio/Jukebox/Rocket_69.ogg 
+
+- type: jukebox 
+  id: Space_Station_13_Music_Title2_Robocop_Theme 
+  name: hmeister - Title2 Robocop Theme 
+  path: 
+    path: /Audio/Jukebox/Space_Station_13_Music_Title2_Robocop_Theme.ogg 
+
+- type: jukebox 
+  id: Stars_Of_The_Midnight_Range 
+  name: hmeister - Stars of the Midnight Ranger 
+  path: 
+    path: /Audio/Jukebox/Stars_Of_The_Midnight_Range.ogg 
+
+- type: jukebox 
+  id: Sunset_Rose_Cocktail_Original_Lackadaisy_Animated_Short_Soundtrack 
+  name: hmeister - Lackadaisy Sunset Rose 
+  path: 
+    path: /Audio/Jukebox/Sunset_Rose_Cocktail_Original_Lackadaisy_Animated_Short_Soundtrack.ogg 
+
+- type: jukebox 
+  id: Sunshine_Lollipops_And_Rainbows 
+  name: hmeister - Sunshine, Lollipops and Rainbows 
+  path: 
+    path: /Audio/Jukebox/Sunshine_Lollipops_And_Rainbows.ogg 
+
+- type: jukebox 
+  id: Vera_Lynn_Well_Meet_Again 
+  name: hmeister - We'll meet again 
+  path: 
+    path: /Audio/Jukebox/Vera_Lynn_Well_Meet_Again.ogg 
