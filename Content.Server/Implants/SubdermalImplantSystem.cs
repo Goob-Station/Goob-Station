@@ -60,7 +60,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         SubscribeLocalEvent<SubdermalImplantComponent, ActivateImplantEvent>(OnActivateImplantEvent);
         SubscribeLocalEvent<SubdermalImplantComponent, UseScramImplantEvent>(OnScramImplant);
         SubscribeLocalEvent<SubdermalImplantComponent, UseDnaScramblerImplantEvent>(OnDnaScramblerImplant);
-        SubscribeLocalEvent<SharedSubdermalImplantSystem, ImplantImplantedEvent>(OnMindslaveImplant);
+        SubscribeLocalEvent<SubdermalImplantComponent, ImplantImplantedEvent>(OnMindslaveImplant);
     }
 
     private void OnStoreRelay(EntityUid uid, StoreComponent store, ImplantRelayEvent<AfterInteractUsingEvent> implantRelay)
