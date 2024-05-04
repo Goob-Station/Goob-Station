@@ -1,0 +1,19 @@
+- type: marking
+  id: FoxTail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Human]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:CategoryColoring
+          category: FacialHair
+        - !type:SkinColoring
+  sprites:
+  - sprite: Caldera/customization/fox_parts.rsi
+    state: fox_primary
+  - sprite: Caldera/customization/fox_parts.rsi
+    state: fox_secondary
