@@ -8,6 +8,18 @@
   },
   "states": [
     {
+      "name": "bananasoap-1"
+    },
+    {
+      "name": "bananasoap-2"
+    },
+    {
+      "name": "bananasoap-3"
+    },
+    {
+      "name": "bananasoap-4"
+    },
+    {
       "name": "soap-1"
     },
     {
@@ -106,6 +118,14 @@
       "name": "gibs-inhand-right",
       "directions": 4
     },
+    {
+        "name": "banana-inhand-left",
+        "directions": 4
+      },
+      {
+        "name": "banana-inhand-right",
+        "directions": 4
+      },
     {
       "name": "nt-inhand-left",
       "directions": 4
