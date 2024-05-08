@@ -31,6 +31,7 @@
     fireStacks: 0.35
 
 - type: entity
+<<<<<<< HEAD
   id: ProjectileFireballNuke
   name: nuclear fireball
   description: Guh oh.
@@ -45,11 +46,24 @@
     damage:
       types:
         Heat: 1000
+=======
+  noSpawn: true
+  parent: BaseBulletTrigger
+  id: ProjectileDragonsBreath
+  name: dragon's breath
+  description: Try not to get toasted.
+  components:
+  - type: PointLight
+    color: "#E25822"
+    radius: 3.0
+    energy: 5.0
+>>>>>>> 5203e7600f9d6621edf35745abb746d1be818c30
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
     - state: fireball
       shader: unshaded
+<<<<<<< HEAD
   - type: Explosive
     explosionType: Default
     maxIntensity: 50
@@ -104,6 +118,24 @@
       shader: unshaded
   - type: StaminaDamageOnHit
     damage: 25
+=======
+  - type: IgnitionSource
+    temperature: 1000
+    ignited: true
+  - type: RepeatingTrigger
+    delay: 0.5 # line of fire as well as if it hits something
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: FireBomb
+    totalIntensity: 5 # low intensity, the point is to burn attackers not to break open walls, dragons can just eat them
+    intensitySlope: 1
+    maxIntensity: 3
+    canCreateVacuum: false
+    deleteAfterExplosion: false
+    repeatable: true
+  - type: TimedDespawn
+    lifetime: 5
+>>>>>>> 5203e7600f9d6621edf35745abb746d1be818c30
 
 - type: entity
   id: ProjectileAnomalyFireball
