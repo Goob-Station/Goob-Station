@@ -1,4 +1,4 @@
-<p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/assets/28298836/1bced642-16c9-456e-bb16-0b0ae42b7db7" /></p>
+<p align="center"> <img alt="Goob Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/assets/28298836/1bced642-16c9-456e-bb16-0b0ae42b7db7" /></p>
 
 This is a fork from the primary repo for Space Station 14 called Goob Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
 
@@ -29,7 +29,7 @@ We are not currently accepting translations of the game on our main repository. 
 
 ## License
 
-All code for the content repository is licensed under [MIT](https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT).
+All code for the content repository is licensed under [AGPLv3](https://github.com/Goob-Station/Goob-Station/blob/master/LICENSE.TXT).
 
 Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
