@@ -10,9 +10,9 @@
   - type: Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: _ds14/Structures/Specific/barbershop.rsi
+    sprite: Structures/Specific/barbershop.rsi
     state: barberchair
-    
+
 - type: entity
   parent: BaseSign
   id: BarberSignPole
@@ -20,9 +20,9 @@
   description: Hypnotic.
   components:
   - type: Sprite
-    sprite: _ds14/Structures/Specific/barbershop.rsi
+    sprite: Structures/Specific/barbershop.rsi
     state: pole
-    
+
 - type: entity
   parent: BarberSignPole
   id: BarberSignThesnip

@@ -626,3 +626,533 @@
     - Trash
   - type: Sprite
     state: mre-wrapper
+
+# Snacks
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackProteinbar
+  name: protein bar
+  description: SwoleMAX brand protein bars, guaranteed to get you feeling perfectly overconfident.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chalky
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: proteinbar
+  - type: Item
+  - type: Food
+    trash: FoodPacketProteinbarTrash
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+        - ReagentId: Protein
+          Quantity: 4
+        - ReagentId: CocoaPowder
+          Quantity: 1
+        - ReagentId: Theobromine
+          Quantity: 1
+
+# Sol Vend / Mars Mart
+- type: entity
+  parent: BaseItem
+  id: FoodSnackLunacakeWrapped
+  name: wrapped lunacake
+  description: Now with 20% less lawsuit enabling rhegolith!
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: lunacake_wrapped
+  - type: Item
+    heldPrefix: lunacake_wrapped
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketLunacakeTrash
+      - id: FoodSnackLunacake
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackLunacake
+  name: lunacake
+  description: Now with 20% less lawsuit enabling rhegolith!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - vanilla
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: lunacake
+  - type: Item
+
+- type: entity
+  parent: BaseItem
+  id: FoodSnackMochicakeWrapped
+  name: wrapped mochicake
+  description: Konnichiwa! Many go lucky rice cakes in future!
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: mochicake_wrapped
+  - type: Item
+    heldPrefix: mochicake_wrapped
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketMochicakeTrash
+      - id: FoodSnackMochicake
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackMochicake
+  name: mochicake
+  description: Konnichiwa! Many go lucky rice cakes in future!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: lunacake
+  - type: Item
+
+- type: entity
+  parent: BaseItem
+  id: FoodSnackMooncakeWrapped
+  name: wrapped mooncake
+  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: mooncake_wrapped
+  - type: Item
+    heldPrefix: mooncake_wrapped
+    size: Tiny
+  - type: Tag
+    tags:
+      - FoodSnack
+  - type: SpawnItemsOnUse
+    items:
+      - id: FoodPacketMooncakeTrash
+      - id: FoodSnackMooncake
+    sound:
+      path: /Audio/Effects/unwrap.ogg
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackMooncake
+  name: mooncake
+  description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: lunacake
+  - type: Item
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackTidegobs
+  name: tide gobs
+  description: Contains over 9000% of your daily recommended intake of salt.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - salty
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: tidegobs
+  - type: Item
+  - type: Food
+    trash: FoodPacketTidegobsTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackSaturnos
+  name: saturn-os
+  description: A day ration of salt, styrofoam and possibly sawdust.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - salty
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: saturno
+  - type: Item
+  - type: Food
+    trash: FoodPacketSaturnosTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackJoveGello
+  name: jove gello
+  description: By Joove! It's some kind of gel.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: jupiter
+  - type: Item
+  - type: Food
+    trash: FoodPacketJoveGelloTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackPlutoniumrods
+  name: plutonium rods
+  description: Baseless tasteless nutrithick rods to get you through the day. Now even less rash inducing!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - chalky
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: pluto
+  - type: Item
+  - type: Food
+    trash: FoodPacketPlutoniumrodsTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackMarsFrouka
+  name: frouka
+  description: Celebrate founding day with a steaming self-heated bowl of sweet eggs and taters!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - egg
+      - potatoes
+      - mustard
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: mars
+  - type: Item
+  - type: Food
+    trash: FoodPacketMarsFroukaTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackVenusianhotcakes
+  name: venusian hot cakes
+  description: Hot takes on hot cakes, a timeless classic now finally fit for human consumption!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: venus
+  - type: Item
+  - type: Food
+    trash: FoodPacketVenusTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackOortrocks
+  name: oort cloud rocks
+  description: Pop rocks themed on the most important industrial sector in Sol, new formula guarantees fewer shrapnel induced oral injury.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - fizzy
+      - sweet
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: oort
+  - type: Item
+  - type: Food
+    trash: FoodPacketOortrocksTrash
+
+# Weeb Vend
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackRedalertnuts
+  name: red alert nuts
+  description: A bag of Red Alert! brand spicy nuts. Goes well with your beer!
+  components:
+  - type: FlavorProfile
+    flavors:
+      - spicy
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: weebonuts
+  - type: Item
+  - type: Food
+    trash: FoodPacketRedalertnutsTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackRicecake
+  name: rice cake
+  description: Ancient earth snack food made from balled up rice.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: ricecake
+  - type: Item
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackPokeysticks
+  name: pokey sticks
+  description: A bundle of chocolate coated bisquit sticks.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: pokeys
+  - type: Item
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackChocobanana
+  name: chocobanana
+  description: A chocolate and sprinkles coated banana. On a stick
+  components:
+  - type: FlavorProfile
+    flavors:
+      - sweet
+      - chocolate
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: chocobanana
+  - type: Item
+  - type: Food
+    trash: FoodPacketStickTrash
+
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackDango
+  name: dango
+  description: Food dyed rice dumplings on a stick.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - rice
+      - sweet
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: dango
+  - type: Item
+  - type: Food
+    trash: FoodPacketStickTrash
+
+# Old food
+- type: entity
+  parent: FoodSnackBase
+  id: FoodSnackAncientBurger
+  name: space burger
+  suffix: ancient
+  description: At some point in time this probably looked delicious.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - terrible
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_food.rsi
+    state: ancient_burger
+  - type: Item
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: RandomFillSolution
+    solution: food
+    weightedRandomId: RandomFillSpaceshroom
+
+- type: entity
+  parent: FoodSnackAncientBurger
+  id: FoodSnackAncientPizza
+  name: space pizza
+  description: At some point in time this probably looked delicious.
+  components:
+  - type: Sprite
+    state: ancient_pizza
+
+- type: entity
+  parent: FoodSnackAncientBurger
+  id: FoodSnackAncientFries
+  name: space fries
+  description: The salt appears to have preserved these, still stale and gross.
+  components:
+  - type: Sprite
+    state: ancient_fries
+
+- type: entity
+  parent: FoodSnackAncientBurger
+  id: FoodSnackAncientHotdog
+  name: space dog
+  description: This one is probably only marginally less safe to eat than when it was first created..
+  components:
+  - type: Sprite
+    state: ancient_hotdog
+
+- type: entity
+  parent: FoodSnackAncientBurger
+  id: FoodSnackAncientTaco
+  name: space taco
+  description: Interestingly, the shell has gone soft and the contents have gone stale.
+  components:
+  - type: Sprite
+    state: ancient_taco
+
+# trash
+- type: entity
+  noSpawn: true
+  parent: FoodPacketTrash
+  id: FoodPacketLunacakeTrash
+  name: lunacake wrapper
+  components:
+  - type: Sprite
+    sprite: Objects/Consumable/Food/bay_trash.rsi
+    state: cakewrap
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketMochicakeTrash
+  name: mochicake wrapper
+  components:
+  - type: Sprite
+    state: mochicakewrap
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketMooncakeTrash
+  name: mooncake wrapper
+  components:
+  - type: Sprite
+    state: mooncakewrap
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketTidegobsTrash
+  name: tidegobs trash
+  components:
+  - type: Sprite
+    state: tidegobs
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketSaturnosTrash
+  name: saturn-os trash
+  components:
+  - type: Sprite
+    state: saturno
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketJoveGelloTrash
+  name: jove gello trash
+  components:
+  - type: Sprite
+    state: jupiter
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketPlutoniumrodsTrash
+  name: plutonium rods trash
+  components:
+  - type: Sprite
+    state: pluto
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketMarsFroukaTrash
+  name: mars frouka trash
+  components:
+  - type: Sprite
+    state: mars
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketVenusTrash
+  name: venus hot cakes trash
+  components:
+  - type: Sprite
+    state: venus
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketOortrocksTrash
+  name: oort rocks trash
+  components:
+  - type: Sprite
+    state: oort
+  - type: Item
+
+# weebo vend
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketRedalertnutsTrash
+  name: red alert nuts packet
+  components:
+  - type: Sprite
+    state: weebonuts
+  - type: Item
+
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketStickTrash
+  name: stick
+  components:
+  - type: Sprite
+    state: stick
+  - type: Item
+
+#
+- type: entity
+  noSpawn: true
+  parent: FoodPacketLunacakeTrash
+  id: FoodPacketProteinbarTrash
+  name: protein bar wrapper
+  components:
+  - type: Sprite
+    state: proteinbar
+  - type: Item

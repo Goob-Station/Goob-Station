@@ -15,10 +15,11 @@
   - type: Sprite
     sprite: Structures/Machines/VendingMachines/empty.rsi
     snapCardinals: true
+    noRot: true
   - type: Physics
     bodyType: Static
   - type: Transform
-    noRot: true
+    noRot: false
   - type: Fixtures
     fixtures:
       fix1:
@@ -2101,3 +2102,102 @@
   - type: AccessReader
     access: [["SyndicateAgent"]]
 
+- type: entity
+  id: VendingMachineFitness
+  parent: VendingMachine
+  name: SweatMAX
+  description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/fitness.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: FitnessVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: FitnessVendAds
+
+- type: entity
+  id: VendingMachineHotfood
+  parent: VendingMachine
+  name: hot foods
+  description: An old vending machine promising 'hot foods'. You doubt any of its contents are still edible.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/hotfood.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: HotfoodInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: HotfoodAds
+
+- type: entity
+  id: VendingMachineSolsnack
+  parent: VendingMachine
+  name: Mars Mart
+  description: A SolCentric vending machine dispensing treats from home.
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/VendingMachines/solsnack.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: SolsnackInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: SolsnackAds
+
+- type: entity
+  id: VendingMachineWeeb
+  parent: VendingMachine
+  name: Nippon-tan
+  description: A distressingly ethnic vending machine loaded with high sucrose low calorie for lack of better words snacks.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: Structures/Machines/VendingMachines/weeb.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: WeebVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: WeebVendAds
