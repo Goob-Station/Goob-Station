@@ -1,0 +1,14 @@
+- type: advertisementsPack
+  id: FitnessVendAds
+  advertisements:
+  - advertisement-fitness-1
+  - advertisement-fitness-2
+  - advertisement-fitness-3
+  - advertisement-fitness-4
+  - advertisement-fitness-5
+  - advertisement-fitness-6
+  - advertisement-fitness-7
+  - advertisement-fitness-8
+  - advertisement-fitness-9
+  thankyous:
+  - vending-machine-thanks

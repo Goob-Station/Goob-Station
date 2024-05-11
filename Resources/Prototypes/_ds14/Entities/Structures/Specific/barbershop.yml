@@ -1,0 +1,33 @@
+- type: entity
+  parent: SeatBase
+  id: ChairBarber
+  name: barbers chair
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: _ds14/Structures/Specific/barbershop.rsi
+    state: barberchair
+    
+- type: entity
+  parent: BaseSign
+  id: BarberSignPole
+  name: barber pole
+  description: Hypnotic.
+  components:
+  - type: Sprite
+    sprite: _ds14/Structures/Specific/barbershop.rsi
+    state: pole
+    
+- type: entity
+  parent: BarberSignPole
+  id: BarberSignThesnip
+  name: the snip
+  description: Let's hope it's not a medical practice...
+  components:
+  - type: Sprite
+    state: thesnip

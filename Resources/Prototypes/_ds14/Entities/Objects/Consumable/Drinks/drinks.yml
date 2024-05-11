@@ -1,0 +1,38 @@
+- type: entity
+  parent: DrinkBase
+  id: DrinkBasePlastic
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+    
+- type: entity
+  parent: DrinkBasePlastic
+  id: DrinkFitnessShakerBlack
+  name: fitness shaker
+  description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+  components:
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/shakerblack.rsi
+    state: icon
+    
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerRed
+  components:
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/shakerred.rsi
+    state: icon
+    
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerBlue
+  components:
+  - type: Sprite
+    sprite: _ds14/Objects/Consumable/Drinks/shakerblue.rsi
+    state: icon

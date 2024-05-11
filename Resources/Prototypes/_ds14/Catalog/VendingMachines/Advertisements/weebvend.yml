@@ -1,0 +1,8 @@
+- type: advertisementsPack
+  id: WeebVendAds
+  advertisements:
+  - advertisement-weebvend-1
+  - advertisement-weebvend-2
+  - advertisement-weebvend-3
+  thankyous:
+  - vending-machine-thanks

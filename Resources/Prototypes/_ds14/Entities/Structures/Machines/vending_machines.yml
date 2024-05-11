@@ -1,0 +1,572 @@
+# DS14 Vending machines
+
+# Unused currently
+# ADH = adherent tool. Species specific tools? No use currently.
+# Drying Rack
+# Fridges
+# nutri.rsi
+# seeds.rsi
+# uniform
+
+- type: entity
+  id: VendingMachineDS14
+  parent: VendingMachine
+  suffix: DS14
+  abstract: true
+  components:
+  - type: Sprite
+    noRot: true
+  - type: Transform
+    noRot: false
+  - type: Speech
+
+- type: entity
+  id: VendingMachineCigsDS14
+  parent: VendingMachineCigs
+  suffix: DS14
+  description: A specialized vending machine designed to contribute to your slow and uncomfortable death.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/cigs.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+
+- type: entity
+  id: VendingMachineCoffeeDS14
+  parent: VendingMachineCoffee
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/coffee.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineColaDS14
+  parent: VendingMachineCola
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/cola.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+    
+- type: entity
+  id: VendingMachineDinnerwareDS14
+  parent: VendingMachineDinnerware
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/dinnerware.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+
+- type: entity
+  id: VendingMachineEngivendDS14
+  parent: VendingMachineEngivend
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/engivend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+
+- type: entity
+  id: VendingMachineVendomatDS14
+  parent: VendingMachineVendomat
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/engivend_green.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineFitnessDS14
+  parent: VendingMachineDS14
+  name: SweatMAX
+  description: An exercise aid and nutrition supplement vendor that preys on your inadequacy.
+  components:
+  - type: Sprite
+    sprite: _ds14/Structures/Machines/VendingMachines/fitness.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: FitnessVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: FitnessVendAds
+  
+- type: entity
+  id: VendingMachineGamesDS14
+  parent: VendingMachineGames
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/games.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineHotfoodDS14
+  parent: VendingMachineDS14
+  name: hot foods
+  description: An old vending machine promising 'hot foods'. You doubt any of its contents are still edible.
+  components:
+  - type: Sprite
+    sprite: _ds14/Structures/Machines/VendingMachines/hotfood.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: HotfoodInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: HotfoodAds
+      
+- type: entity
+  id: VendingMachineCartDS14 # Laptop vendor actually
+  parent: VendingMachineCart # DS14:TODO: Placeholder
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/laptop.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineJanitorDS14 # Lavatory vendor actually, for bathrooms.
+  parent: VendingMachineJaniDrobe # DS14:TODO: Placeholder
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/lavatory.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineMagivendDS14
+  parent: VendingMachineMagivend
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/magivend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineMedicalDS14
+  parent: VendingMachineMedical
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/medivend.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineNutrimaxDS14
+  parent: VendingMachineNutri
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/nutri_green.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineRoboticsDS14
+  parent: VendingMachineRobotics
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/robotics.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSectechDS14
+  parent: VendingMachineSec
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/security.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSeedsUnlockedDS14
+  parent: VendingMachineSeedsUnlocked
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/seeds_green.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  parent: VendingMachineSeedsUnlockedDS14
+  id: VendingMachineSeedsDS14
+  suffix: DS14, Hydroponics
+  components:
+  - type: AccessReader
+    access: [["Hydroponics"]]
+    
+- type: entity
+  id: VendingMachineSnackDS14
+  parent: VendingMachineSnack
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/snack.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSnixDS14
+  parent: VendingMachineSnack # DS14:TODO: Placeholder
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/snack.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSolsnackDS14
+  parent: VendingMachineDS14
+  name: Mars Mart
+  description: A SolCentric vending machine dispensing treats from home.
+  components:
+  - type: Sprite
+    sprite: _ds14/Structures/Machines/VendingMachines/solsnack.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: SolsnackInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: SolsnackAds
+      
+- type: entity
+  id: VendingMachineSodaDS14
+  parent: VendingMachineSoda
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/soda.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSodaFoxDS14
+  parent: VendingMachineSoda
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/soda2.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineSovietSodaDS14
+  parent: VendingMachineSovietSoda
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/sodasoviet.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineTheaterDS14
+  parent: VendingMachineTheater
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/theater.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: "screen"
+      map: ["enum.VendingMachineVisualLayers.Screen"]
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineWallMedicalDS14
+  parent: VendingMachineWallMedical
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/wallmed.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
+      
+- type: entity
+  id: VendingMachineWeebDS14
+  parent: VendingMachineDS14
+  name: Nippon-tan
+  description: A distressingly ethnic vending machine loaded with high sucrose low calorie for lack of better words snacks.
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/weeb.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: VendingMachine
+    pack: WeebVendInventory
+    offState: off
+    brokenState: broken
+    normalState: normal-unshaded
+  - type: Advertise
+    pack: WeebVendAds
+      
+- type: entity
+  id: VendingMachineYoutoolDS14
+  parent: VendingMachineYouTool
+  suffix: DS14
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _ds14/Structures/Machines/VendingMachines/youtool.rsi
+    layers:
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: "off"
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      shader: unshaded
+    - state: panel
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Transform
+    noRot: false
