@@ -1486,7 +1486,6 @@
     pack: ChangGoodbyes
   - type: Speech
   - type: Sprite
-    noRot: true
     sprite: Structures/Machines/VendingMachines/snix.rsi
     layers:
     - state: "off"
