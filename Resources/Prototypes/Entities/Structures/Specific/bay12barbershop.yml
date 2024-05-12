@@ -22,6 +22,7 @@
   - type: Sprite
     sprite: Structures/Specific/barbershop.rsi
     state: pole
+    snapCardinals: false
 
 - type: entity
   parent: BarberSignPole
@@ -32,3 +33,4 @@
   - type: Sprite
     sprite: Strucures/Specific/barbershop.rsi
     state: thesnip
+    snapCardinals: false
