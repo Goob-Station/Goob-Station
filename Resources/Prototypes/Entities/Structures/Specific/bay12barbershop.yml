@@ -30,4 +30,5 @@
   description: Let's hope it's not a medical practice...
   components:
   - type: Sprite
+    sprite: Strucures/Specific/barbershop.rsi
     state: thesnip
