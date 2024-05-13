@@ -955,6 +955,7 @@ public sealed class EntitySpokeEvent : EntityEventArgs
     {
         Source = source;
         Message = message;
+        OriginalMessage = originalMessage;
         Channel = channel;
         ObfuscatedMessage = obfuscatedMessage;
     }

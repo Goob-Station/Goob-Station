@@ -220,6 +220,7 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # WD EDIT
+  - type: TTS
 
 - type: entity
   save: false

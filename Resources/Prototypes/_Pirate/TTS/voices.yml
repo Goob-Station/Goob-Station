@@ -1,0 +1,18 @@
+- type: ttsVoice
+  id: TEST
+  name: tts-voice-name-test1
+  sex: Male
+  speaker: test
+
+- type: ttsVoice
+  id: TEST2
+  name: tts-voice-name-test2
+  sex: Female
+  speaker: test2
+
+- type: ttsVoice
+  id: TEST3
+  name: tts-voice-name-test3
+  sex: Unsexed
+  speaker: test3
+

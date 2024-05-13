@@ -444,6 +444,17 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
 
         /*
+         * TTS
+         */
+
+        public static readonly CVarDef<float> TTSVolume =
+            CVarDef.Create("tts.volume", 0.5f, CVar.CLIENTONLY);
+
+        public static readonly CVarDef<bool> TTSEnabled =
+            CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
+
+
+        /*
          * Discord
          */
 

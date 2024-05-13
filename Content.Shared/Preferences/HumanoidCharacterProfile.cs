@@ -13,6 +13,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
+using Content.Shared.TTS;
 using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Player;
@@ -81,6 +82,9 @@ namespace Content.Shared.Preferences
         /// </summary>
         [DataField]
         public ProtoId<SpeciesPrototype> Species { get; set; } = SharedHumanoidAppearanceSystem.DefaultSpecies;
+
+        [DataField]
+        public string Voice { get; set; } = "TEST";
 
         [DataField]
         public int Age { get; set; } = 18;
@@ -279,6 +283,11 @@ namespace Content.Shared.Preferences
                 Species = species,
                 Appearance = HumanoidCharacterAppearance.Random(species, sex),
             };
+
+            var voiceId = random.Pick(prototypeManager
+                .EnumeratePrototypes<TTSVoicePrototype>()
+                .Where(o => CanHaveVoice(o, sex)).ToArray()
+            ).ID;
         }
 
         public HumanoidCharacterProfile WithName(string name)
@@ -547,7 +556,9 @@ namespace Content.Shared.Preferences
             {
                 name = Name;
             }
-
+            prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
+            if (voice is null || !CanHaveVoice(voice, Sex))
+                Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex]; _loadoutPreferences.Clear();
             name = name.Trim();
 
 
@@ -690,6 +701,12 @@ namespace Content.Shared.Preferences
             }
         }
 
+        public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
+        {
+            return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
+        }
+
+
         /// <summary>
         /// Takes in an IEnumerable of traits and returns a List of the valid traits.
         /// </summary>
@@ -770,12 +787,13 @@ namespace Content.Shared.Preferences
             // #Goobstation - Borg Preferred Name
             hashCode.Add(BorgName);
             hashCode.Add(Species);
+            hashCode.Add(Voice);
             hashCode.Add(Age);
-            hashCode.Add((int) Sex);
-            hashCode.Add((int) Gender);
+            hashCode.Add((int)Sex);
+            hashCode.Add((int)Gender);
             hashCode.Add(Appearance);
-            hashCode.Add((int) SpawnPriority);
-            hashCode.Add((int) PreferenceUnavailable);
+            hashCode.Add((int)SpawnPriority);
+            hashCode.Add((int)PreferenceUnavailable);
             return hashCode.ToHashCode();
         }
 
