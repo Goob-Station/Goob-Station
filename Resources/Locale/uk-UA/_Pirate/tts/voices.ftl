@@ -1,3 +1,3 @@
-tts-voice-name-test1 = тест 1
-tts-voice-name-test2 = тест 2
-tts-voice-name-test3 = тест 3
+tts-voice-name-test1 = Лада
+tts-voice-name-test2 = Микита
+tts-voice-name-test3 = Тетяна

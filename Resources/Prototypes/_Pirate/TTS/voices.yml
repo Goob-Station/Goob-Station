@@ -1,18 +1,18 @@
 - type: ttsVoice
-  id: TEST
+  id: Lada
   name: tts-voice-name-test1
-  sex: Male
-  speaker: test
-
-- type: ttsVoice
-  id: TEST2
-  name: tts-voice-name-test2
-  sex: Female
-  speaker: test2
-
-- type: ttsVoice
-  id: TEST3
-  name: tts-voice-name-test3
   sex: Unsexed
-  speaker: test3
+  speaker: 0
+
+- type: ttsVoice
+  id: Mykyta
+  name: tts-voice-name-test2
+  sex: Male
+  speaker: 1
+
+- type: ttsVoice
+  id: Tetiana
+  name: tts-voice-name-test3
+  sex: Female
+  speaker: 2
 
