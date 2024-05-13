@@ -51,3 +51,6 @@
 
 - files: ["oasis.yml"]
   authors: CptJeanLuc
+
+- files: ["phobos.yml"]
+  authors: DarkDan and RoboFloof
