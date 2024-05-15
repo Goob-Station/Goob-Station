@@ -70944,11 +70944,6 @@ entities:
     - type: Transform
       pos: 24.5,37.5
       parent: 2
-  - uid: 13937
-    components:
-    - type: Transform
-      pos: 21.5,47.5
-      parent: 2
 - proto: VendingMachineSecDrobe
   entities:
   - uid: 4883
