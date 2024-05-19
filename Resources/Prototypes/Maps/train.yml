@@ -2,7 +2,7 @@
   id: Train
   mapName: 'Train'
   mapPath: /Maps/train.yml
-  minPlayers: 100
+  minPlayers: 1
   maxPlayers: 100
   stations:
     Train:
