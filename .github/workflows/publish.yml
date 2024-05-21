@@ -49,14 +49,6 @@ jobs:
         mkdir "release/${{ github.sha }}"
         mv release/*.zip "release/${{ github.sha }}"
 
-    - name: Update Build Info
-      run: Tools/gen_build_info.py
-
-    - name: Shuffle files around
-      run: |
-        mkdir "release/${{ github.sha }}"
-        mv release/*.zip "release/${{ github.sha }}"
-
     - name: Upload files to CDN
       uses: rexlmanu/pterodactyl-upload-action@v2.1
       with:
