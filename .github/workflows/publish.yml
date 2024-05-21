@@ -48,6 +48,7 @@ jobs:
       run: |
         mkdir "release/${{ github.sha }}"
         mv release/*.zip "release/${{ github.sha }}"
+        tar czf release/${{ github.sha }}.tar.gz release/${{ github.sha }}
 
     - name: Upload files to CDN
       uses: rexlmanu/pterodactyl-upload-action@v2.1
@@ -55,12 +56,11 @@ jobs:
         panel-host: ${{ secrets.PANEL_HOST }}
         api-key: ${{ secrets.PANEL_KEY }}
         server-id: "5b64f907"
-        source: "release/${{ github.sha }}"
+        source: "release/${{ github.sha }}.tar.gz"
         target: "/home/container/data/builds"
         # If you want to restart the servers after successful upload
         # restart: true
-        # If you want to decompress the files after successful upload
-        # decompress-target: true
+        decompress-target: true
 
     - name: request filecheck
       run: | 
