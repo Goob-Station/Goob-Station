@@ -57,7 +57,7 @@ jobs:
         username: ${{ secrets.SCPUSERNAME }}
         password: ${{ secrets.SCPKEY }} 
         localDir: 'release/${{ github.sha }}'
-        remoteDir: '/home/container/data/builds'
+        remoteDir: '/data/builds'
       
       
 
