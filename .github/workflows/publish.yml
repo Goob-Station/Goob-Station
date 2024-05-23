@@ -51,7 +51,7 @@ jobs:
         tar czf release/${{ github.sha }}.tar.gz release/${{ github.sha }}
 
     - name: Upload files to CDN
-      uses: rexlmanu/pterodactyl-upload-action@v2.1
+      uses: rexlmanu/pterodactyl-upload-action@v2.4
       with:
         panel-host: ${{ secrets.PANEL_HOST }}
         api-key: ${{ secrets.PANEL_KEY }}
