@@ -57,10 +57,10 @@
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
     layers:
-    - state: old-radio
+    - state: radio
   - type: Item
     sprite: Objects/Devices/communication.rsi
-    heldPrefix: old-radio
+    heldPrefix: radio
   - type: UserInterface
     interfaces:
       enum.StoreUiKey.Key:
