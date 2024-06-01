@@ -531,3 +531,34 @@
       maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
       weight: 5
     - type: MobReplacementRule
+
+# GoobStation - *spawns a random smuggler's satchel filled whit ligth contraband somwhere on the station
+- type: entity
+  id: SmugglerStashSpawnQuiet
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10 #normal , its a little hige as its only one satchel, TODO: needs balancing
+    startDelay: 5
+    duration: 1
+    reoccurrenceDelay: 10 # can happen evry 10 minutes
+  - type: RandomSpawnRule   #TODO make a new spawnrule for picking among different fills and spawning more at once. and make sure it only spawns under floorboards
+    prototype: ClothingBackpackSatchelSmugglerAnchoredFilled
+
+
+
+# GoobStation -not all smuggeling goes unnoticed
+- type: entity
+  id: SmugglerStashSpawn
+  parent: SmugglerStashSpawnQuiet
+  noSpawn: true
+  components:
+  - type: StationEvent
+    reoccurrenceDelay: 30
+    startAnnouncement: Unsanctioned use of bluespace technology detected. A note thas been made. #TODO: localisation
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+
+
+
