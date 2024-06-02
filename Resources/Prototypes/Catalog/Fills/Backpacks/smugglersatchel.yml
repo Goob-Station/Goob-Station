@@ -93,11 +93,11 @@
       - id: PillAmbuzol             # cant change the round in a meaningfull way
         prob: 0.1
       - id: GatfruitSeeds           # can be obtained from anomaly
-        prob: 0.01
+        prob: 0.1
       - id: ThrowingKnife           # single knife can be found in some boot
         prob: 0.3
       - id: DehydratedSpaceCarp     # can be found by salvage
-        prob: 0.01
+        prob: 0.1
       - id: MaterialBananium        # use a geigercounter to find the satchel
         prob: 0.1
 
