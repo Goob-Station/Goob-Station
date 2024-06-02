@@ -442,3 +442,7 @@ uplink-backpack-syndicate-desc = Lightweight explosion-proof а backpack for hol
 
 uplink-warhorn-name = Syndicate Warhorn
 uplink-warhorn-desc = A tool that releases an intimidating sound, great for letting the station know you're nearby.
+
+## Goobstation
+uplink-smuggler-satchel-name = Smugglers Satchel
+uplink-smuggler-satchel-desc = A satchel that can be hidden underneet floorboard

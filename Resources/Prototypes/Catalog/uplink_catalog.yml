@@ -1354,6 +1354,18 @@
   categories:
     - UplinkWearables
 
+#Goobstation - smuggler stachel for traitors and nukies
+- type: listing
+  id: UplinkClothingBackpackSatchelSmuggler
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmuggler
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkWearables
+
+
  # Pointless
 
 - type: listing

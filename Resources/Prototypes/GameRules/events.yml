@@ -556,7 +556,7 @@
   components:
   - type: StationEvent
     reoccurrenceDelay: 30
-    startAnnouncement: Unsanctioned use of bluespace technology detected. A note thas been made. #TODO: localisation
+    startAnnouncement: station-event-smuggler-satchel-announcement #TODO: localisation
     startAudio:
       path: /Audio/Announcements/attention.ogg
 
