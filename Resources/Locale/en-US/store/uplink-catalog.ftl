@@ -445,4 +445,4 @@ uplink-warhorn-desc = A tool that releases an intimidating sound, great for lett
 
 ## Goobstation
 uplink-smuggler-satchel-name = Smugglers Satchel
-uplink-smuggler-satchel-desc = A satchel that can be hidden underneet floorboard
+uplink-smuggler-satchel-desc = A satchel that can be hidden undernet floorboard
