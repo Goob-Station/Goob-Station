@@ -12,8 +12,8 @@
         prob: 0.5
       - id: PowerCellHigh
         prob: 0.5
-      - id: ClothingMaskGasSyndicate
-        prob: 0.3
+     # - id: ClothingMaskGasSyndicate
+     #   prob: 0.3
       - id: ClothingShoesGaloshes
         prob: 0.1
       - id: MedkitCombatFilled
@@ -41,7 +41,7 @@
       - id: RevolverCapGun
         prob: 0.3
       - id: RubberStampSyndicate
-        prob: 0.3
+        prob: 0.1
       - id: ClothingHeadHatCatEars
         prob: 0.3
       - id: ResearchDisk10000
@@ -67,8 +67,8 @@
 
       - id: SmokeGrenade            # can be made by chemist. thief item
         prob: 0.3
-      - id:  BaseUplinkRadio        # empty nuki uplink
-        prob: 0.001
+     # - id:  BaseUplinkRadio        # empty nuki uplink
+     #   prob: 0.001
       - id: StorageImplanter        # cant assist in any meaning full way other then hiding contraband.
         prob: 0.01
       - id: Telecrystal1            # can be found in salvage
