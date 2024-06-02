@@ -8,12 +8,20 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingHandsGlovesCombat
+
+      - id: null
         prob: 0.5
+        orGroup: gloves
+      - id: ClothingHandsGlovesColorYellow
+        prob: 0.4
+        orGroup: gloves
+      - id: ClothingHandsGlovesCombat
+        prob: 0.1
+        orGroup: gloves
       - id: PowerCellHigh
         prob: 0.5
-     # - id: ClothingMaskGasSyndicate
-     #   prob: 0.3
+      - id: ClothingMaskGasSyndicate
+        prob: 0.3
       - id: ClothingShoesGaloshes
         prob: 0.1
       - id: MedkitCombatFilled
@@ -27,9 +35,7 @@
       - id: ClothingHeadPyjamaSyndicateBlack
         prob: 0.3
       - id: CyberPen
-        prob: 0.3
-      - id: SmokeGrenade
-        prob: 0.3
+        prob: 0.1
       - id: CigPackSyndicate
         prob: 0.3
       - id: NukeDiskFake
@@ -37,13 +43,11 @@
       - id: SoapSyndie
         prob: 0.1
       - id: HappyHonkNukieSnacks
-        prob: 0.3
+        prob: 0.1
       - id: RevolverCapGun
         prob: 0.3
-      - id: RubberStampSyndicate
-        prob: 0.1
       - id: ClothingHeadHatCatEars
-        prob: 0.3
+        prob: 0.1
       - id: ResearchDisk10000
         prob: 0.3
       - id: SheetUranium
@@ -63,14 +67,10 @@
       - id: SoapOmega
         prob: 0.1
 
-        #Dangerus items /or breaks the rule for allowed items
+        #Dangerus items
 
       - id: SmokeGrenade            # can be made by chemist. thief item
         prob: 0.3
-     # - id:  BaseUplinkRadio        # empty nuki uplink
-     #   prob: 0.001
-      - id: StorageImplanter        # cant assist in any meaning full way other then hiding contraband.
-        prob: 0.01
       - id: Telecrystal1            # can be found in salvage
         prob: 0.1
       - id: Telecrystal10           # can be found in salvage
@@ -83,10 +83,6 @@
         prob: 0.01
       - id: ThrowingKnife#          # single knife can be found in some boot
         prob: 0.3
-      - id: EncryptionKeyBinary     # borg is freinds
-        prob: 0.01
-      - id: CombatMedipen           # its 25u of  omizine
-        prob: 0.1
       - id: DehydratedSpaceCarp     # can be found by salvage
         prob: 0.01
       - id: MaterialBananium        # use a geigercounter to find the satchel
