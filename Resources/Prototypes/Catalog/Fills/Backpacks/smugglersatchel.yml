@@ -18,10 +18,23 @@
       - id: ClothingHandsGlovesCombat
         prob: 0.1
         orGroup: gloves
+
       - id: PowerCellHigh
         prob: 0.5
+
+      - id: null
+        prob: 0.5
+        orGroup: gasMask
+      - id: ClothingMaskGasExplorer
+        prob: 0.2
+        orGroup: gasMask
+      - id: ClothingMaskGasAtmos
+        prob: 0.2
+        orGroup: gasMask
       - id: ClothingMaskGasSyndicate
-        prob: 0.3
+        prob: 0.1
+        orGroup: gasMask
+
       - id: ClothingShoesGaloshes
         prob: 0.1
       - id: MedkitCombatFilled
@@ -81,10 +94,10 @@
         prob: 0.1
       - id: GatfruitSeeds           # can be obtained from anomaly
         prob: 0.01
-      - id: ThrowingKnife#          # single knife can be found in some boot
+      - id: ThrowingKnife           # single knife can be found in some boot
         prob: 0.3
       - id: DehydratedSpaceCarp     # can be found by salvage
         prob: 0.01
       - id: MaterialBananium        # use a geigercounter to find the satchel
-        prob: 0.33
+        prob: 0.1
 
