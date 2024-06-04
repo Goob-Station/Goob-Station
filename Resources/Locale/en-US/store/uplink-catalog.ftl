@@ -290,9 +290,6 @@ uplink-disposable-turret-desc = Looks and functions like a normal electrical too
 uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
-uplink-pie-cannon-name = Regenerating Pie Cannon
-uplink-pie-cannon-desc = Regenerates banana cream pies. Aim your crosshair onto the target, not in their general direction.
-
 uplink-cane-blade-name = Cane Blade
 uplink-cane-blade-desc = A cane that has a hidden blade that can be unsheathed.
 
@@ -346,9 +343,6 @@ uplink-eshield-desc = Exotic energy shield that reflects almost all laser beams,
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.
 
-uplink-gondola-name = Gondola Crate
-uplink-gondola-desc = Crate containing one standard issue gondola.
-
 uplink-ultrabright-lantern-name = Extra-Bright Lantern
 uplink-ultrabright-lantern-desc = It can be used to blind people like a flash.
 
@@ -376,8 +370,8 @@ uplink-syndicate-sponge-box-desc = A box containing 6 syndicate sponges disguise
 uplink-slipocalypse-clustersoap-name = Slipocalypse Clustersoap
 uplink-slipocalypse-clustersoap-desc = Scatters arounds small pieces of syndicate-brand soap after being thrown, these pieces of soap evaporate after 60 seconds.
 
-uplink-mobcat-microbomb-name = SyndiCat
-uplink-mobcat-microbomb-desc = A hand cat equipped with a microbomb implant. Explodes when seriously injured. Can bite painfully
+uplink-mobcat-microbomb-name = SyndiCat Teleporter
+uplink-mobcat-microbomb-desc = Call in a handy cat equipped with a microbomb implant. Explodes when seriously injured. Can bite painfully.
 
 uplink-chameleon-projector-name = Chameleon Projector
 uplink-chameleon-projector-desc = Disappear in plain sight by creating a hologram of an item around you. Do not use this to play the game "Object Search".
@@ -434,9 +428,6 @@ uplink-hypodart-desc = A seemingly unremarkable dart with an enlarged reservoir 
 uplink-barber-scissors-name = Barber Scissors
 uplink-barber-scissors-desc = A good tool to give your fellow agent a nice haircut, unless you want to give it to yourself.
 
-uplink-throngler-name = The Throngler
-uplink-throngler-desc = You're never gonna get it. You're never gonna get it. Please don't get it...
-
 uplink-backpack-syndicate-name = Syndicate backpack
 uplink-backpack-syndicate-desc = Lightweight explosion-proof а backpack for holding various traitor goods
 
@@ -446,3 +437,4 @@ uplink-warhorn-desc = A tool that releases an intimidating sound, great for lett
 ## Goobstation
 uplink-smuggler-satchel-name = Smugglers Satchel
 uplink-smuggler-satchel-desc = A satchel that can be hidden underneath floorboards
+

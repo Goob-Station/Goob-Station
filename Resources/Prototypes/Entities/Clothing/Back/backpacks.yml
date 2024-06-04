@@ -30,7 +30,6 @@
     delay: 0.5
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: AllowsSleepInside
 
 - type: entity
   parent: ClothingBackpack
@@ -257,6 +256,16 @@
   components:
   - type: Sprite
     sprite: Clothing/Back/Backpacks/ertchaplain.rsi
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackDeathSquad
+  name: death squad backpack
+  description: Holds the kit of CentComm's most feared agents.
+  components:
+    - type: Storage
+      grid:
+      - 0,0,7,6
 
 #Syndicate
 - type: entity

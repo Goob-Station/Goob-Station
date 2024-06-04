@@ -278,7 +278,7 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             powered: Rainbow
   - type: Sprite
-    sprite: Mobs/Silicon/Bots/medibot.rsi
+    sprite: Goobstation/Mobs/Silicon/Bots/medibot.rsi
     layers:
       - state: medibot
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -305,6 +305,8 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
+  - type: Advertise
+    pack: MedibotAds
 
 - type: entity
   parent: MobSiliconBase

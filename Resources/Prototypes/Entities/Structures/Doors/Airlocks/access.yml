@@ -74,15 +74,6 @@
       board: [ DoorElectronicsHydroponics ]
 
 - type: entity
-  parent: AirlockCommandLocked
-  id: AirlockServiceCaptainLocked
-  suffix: Captain, Locked
-  components:
-  - type: ContainerFill
-    containers:
-      board: [ DoorElectronicsCaptain ]
-
-- type: entity
   parent: AirlockExternal
   id: AirlockExternalLocked
   suffix: External, Locked
@@ -1206,26 +1197,6 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsArmory ]
-
-- type: entity
-  parent: Airlock
-  id: AirlockWizardeLocked
-  suffix: Wizard, Locked
-  components:
-  - type: AccessReader
-    access: [["Wizard"]]
-  - type: Wires
-    layoutId: AirlockService
-
-- type: entity
-  parent: AirlockGlass
-  id: AirlockWizardGlassLocked
-  suffix: Wizard, Locked
-  components:
-  - type: AccessReader
-    access: [["Wizard"]]
-  - type: Wires
-    layoutId: AirlockService
 
 #Airtight hatch
 

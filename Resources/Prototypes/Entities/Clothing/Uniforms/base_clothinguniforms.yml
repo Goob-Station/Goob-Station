@@ -25,9 +25,9 @@
           Quantity: 30
   - type: Tag
     tags:
-    - Skirt
     - ClothMade
     - WhitelistChameleon
+    - Skirt # Goobstation
 
 - type: entity
   abstract: true

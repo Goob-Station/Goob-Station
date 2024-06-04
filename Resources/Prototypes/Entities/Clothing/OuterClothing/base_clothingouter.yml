@@ -136,7 +136,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - HidesHarpyWings
+    - HidesHarpyWings # Goobstation
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
 
@@ -159,10 +159,9 @@
     size: Huge
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-  - type: Tag
+  - type: Tag #Goobstation
     tags:
     - HidesHarpyWings
-  - type: AllowSuitStorage
 
 - type: entity
   parent: ClothingOuterBase
