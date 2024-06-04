@@ -540,7 +540,6 @@
   components:
   - type: StationEvent
     weight: 10 #normal , its a little hige as its only one satchel, TODO: needs balancing
-    startDelay: 5
     duration: 1
     reoccurrenceDelay: 10 # can happen evry 10 minutes
   - type: RandomSpawnRule   #TODO make a new spawnrule for picking among different fills and spawning more at once. and make sure it only spawns under floorboards
