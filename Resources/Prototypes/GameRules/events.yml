@@ -553,9 +553,11 @@
   noSpawn: true
   components:
   - type: StationEvent
-    weight: 10 #normal , its a little hige as its only one satchel, TODO: needs balancing
+    weight: 10 # normal , its a little hige as its only one satchel, TODO: needs balancing
     duration: 1
-    reoccurrenceDelay: 10 # can happen evry 10 minutes
+    earliestStart: 0
+    reoccurrenceDelay: 20 # can happen evry 20 minutes
+    maxOccurrences: 4
   - type: RandomSpawnRule   #TODO make a new spawnrule for picking among different fills and spawning more at once. and make sure it only spawns under floorboards
     prototype: ClothingBackpackSatchelSmugglerAnchoredFilled
 
@@ -569,7 +571,9 @@
   components:
   - type: StationEvent
     reoccurrenceDelay: 30
-    startAnnouncement: station-event-smuggler-satchel-announcement #TODO: localisation
+    earliestStart: 15
+    startAnnouncement: station-event-smuggler-satchel-announcement
+    maxOccurrences: 1
     startAudio:
       path: /Audio/Announcements/attention.ogg
 
