@@ -192,8 +192,6 @@
   - type: SubFloorHide
   - type: Anchorable
   - type: Appearance
-  - type: CollideOnAnchor
-    enable: false
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
 
