@@ -51,7 +51,7 @@
   - type: Appearance
   - type: PipeColorVisuals
   - type: NodeContainer
-  - type: PipeRestrictOverlap
+  #- type: PipeRestrictOverlap # Goobstation - revert pipestacking to reduce number of dead atmosians.
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
   - type: Tag
