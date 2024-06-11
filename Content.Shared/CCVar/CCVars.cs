@@ -1084,7 +1084,7 @@ namespace Content.Shared.CCVar
         /// This solves the problem of objects being trapped in an infinite loop of slamming into a wall repeatedly.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosUseExpensiveAirflow =
-            CVarDef.Create("atmos.mmos_expensive_airflow", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.mmos_expensive_airflow", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
@@ -1114,7 +1114,7 @@ namespace Content.Shared.CCVar
 		///     Also looks weird on slow spacing for unrelated reasons. If you do want to enable this, you should probably turn on instaspacing.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosRipTiles =
-            CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles", false, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
