@@ -93,3 +93,10 @@
   name: Jimmy Van Heusen - hmeister - Ain't That A Kick In The Head
   path:
     path: /Audio/Jukebox/Ain_t_That_A_Kick_In_The_Head.ogg
+
+- type: jukebox
+  id: StraussII-Blue_Danube_Waltz
+  name: StraussII - Blue Danube Waltz
+  path:
+    path: /Audio/Jukebox/StraussII-Blue_Danube_Waltz.ogg
+
