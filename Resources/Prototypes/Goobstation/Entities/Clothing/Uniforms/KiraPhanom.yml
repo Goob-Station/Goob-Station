@@ -12,7 +12,6 @@
     sprite: Goobstation/clothing/Head/PhannyDantomFace.rsi
   - type: Clothing
     sprite: Goobstation/clothing/Head/PhannyDantomFace.rsi
-      coefficients:
   - type: Tag
     tags:
     - HamsterWearable

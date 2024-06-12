@@ -30,31 +30,6 @@
   - type: TemperatureProtection
     coefficient: 0.1
 
-# Did not edit bee socks beyond changing base
-#- type: entity
-#  parent: ClothingUnderSocksBase
-#  id: ClothingUnderSocksBee
-#  name: bee socks
-#  suffix: Socks
-#  description: Make them loins buzz!
-#  components:
-#  - type: Sprite
-#    sprite: Clothing/Under/Socks/bee.rsi
-#  - type: Clothing
-#    sprite: Clothing/Under/Socks/bee.rsi
-
-#- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderSocksCoder
-  name: coder socks
-  suffix: Socks
-  description: It's time to code sisters!!11!
-  components:
-  - type: Sprite
-    sprite: Goobstation/Clothing/Under/Socks/coder.rsi
-  - type: Clothing
-    sprite: Goobstation/Clothing/Under/Socks/coder.rsi
-
 - type: entity
   parent: ClothingUnderSocksBase
   id: ClothingUnderSocksStripedWhiteandLightBlue
@@ -63,9 +38,9 @@
   description: Wearing these white and light blue socks makes you feel just a little bit lazier.
   components:
   - type: Sprite
-    sprite: Clothing/Under/Socks/SocksStripedWhiteandLightBlue.rsi
+    sprite: Goobstation/Clothing/Under/Socks/SocksStripedWhiteandLightBlue.rsi
   - type: Clothing
-    sprite: Clothing/Under/Socks/SocksStripedWhiteandLightBlue.rsi
+    sprite: Goobstation/Clothing/Under/Socks/SocksStripedWhiteandLightBlue.rsi
 
 - type: entity
   parent: ClothingUnderSocksBase

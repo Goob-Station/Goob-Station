@@ -12,6 +12,7 @@
   - type: Clothing
     sprite: Clothing/Under/Socks/bee.rsi
 
+#updated sprites to match stripped update
 - type: entity
   parent: ClothingShoesBase
   id: ClothingUnderSocksCoder
