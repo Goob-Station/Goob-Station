@@ -21,6 +21,7 @@
         amount: 2
       - id: RagItem
         amount: 2
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedGreyDark
 
 #- type: entity
@@ -53,6 +54,7 @@
       - id: DrinkMilkCarton
         amount: 2
       - id: DrinkSoyMilkCarton
+# Goobstation Sock Stuff Yes its weird its in a locker fridge hecc you
       - id: ClothingUnderSocksStripedGrey
 
 - type: entity
@@ -90,6 +92,7 @@
       - id: BriefcaseBrownFilled
         prob: 0.80
       - id: ClothingOuterRobesJudge
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedGreyDark
 
 - type: entity
@@ -112,6 +115,7 @@
       - id: ClothingUniformOveralls
       - id: ClothingHeadHatTrucker
         prob: 0.1
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedBotany
 
 - type: entity

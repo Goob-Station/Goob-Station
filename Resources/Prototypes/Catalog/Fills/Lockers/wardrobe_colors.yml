@@ -16,6 +16,7 @@
         prob: 0.5
       - id: ClothingOuterCoatBomber
         prob: 0.3
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedGrey
 
 - type: entity
@@ -58,6 +59,7 @@
       - id: ClothingShoesColorOrange
         amount: 2
       - id: ClothingHeadBandGold
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedWhiteandYellow
 
 - type: entity
@@ -72,6 +74,7 @@
       - id: ClothingShoesColorWhite
         amount: 2
       - id: ClothingHeadHatMimesoft
+# Goobstation Sock Stuff The forbiden sock
       - id: ClothingUnderSocksBase
 
 - type: entity
@@ -85,7 +88,8 @@
       - id: ClothingUniformJumpskirtColorBlue
       - id: ClothingShoesColorBlue
         amount: 2
-      - id: ClothingUnderSocksStripedSherbert
+# Goobstation Sock Stuff yes this one is weird
+      - id: ClothingUndersocksStripedSherbert
 
 - type: entity
   id: WardrobePinkFilled
@@ -98,6 +102,7 @@
       - id: ClothingUniformJumpskirtColorPink
       - id: ClothingShoesColorPink
         amount: 2
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksCoder
 
 - type: entity
@@ -114,6 +119,7 @@
       - id: ClothingHeadBandBlack
       - id: ClothingHeadBandSkull
         prob: 0.4
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedGreyDark
 
 - type: entity
@@ -128,4 +134,5 @@
       - id: ClothingShoesColorBlack
         amount: 2
       - id: ClothingHeadBandGreen
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedWhiteandGreen

@@ -96,6 +96,7 @@
       - id: HolofanProjector
       - id: RCD
       - id: RCDAmmo
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedEngineeringAtmos
 
 - type: entity
@@ -113,6 +114,7 @@
       - id: HolofanProjector
       - id: RCD
       - id: RCDAmmo
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedEngineeringAtmos
 
 - type: entity
@@ -141,6 +143,7 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+# Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedEngineering
 
 - type: entity
