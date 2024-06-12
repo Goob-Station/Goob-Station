@@ -1121,7 +1121,14 @@ namespace Content.Shared.CCVar
         ///     This should be set by default to the cube of the game's lowest mass tile as defined in .yml prototypes, but can be increased for server performance reasons
         /// </summary>
         public static readonly CVarDef<float> MonstermosRipTilesMinimumPressure =
-            CVarDef.Create("atmos.monstermos_rip_tiles_min_pressure", 125f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.monstermos_rip_tiles_min_pressure", 500f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Taken after the minimum pressure is checked, the effective pressure is multiplied by this amount. This allows server hosts to
+        ///     finely tune how likely floor tiles are to be ripped apart by air pressure
+        /// </summary>
+        public static readonly CVarDef<float> MonstermosRipTilesPressureOffset =
+            CVarDef.Create("atmos.monstermos_rip_tiles_pressure_offset", 10f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.

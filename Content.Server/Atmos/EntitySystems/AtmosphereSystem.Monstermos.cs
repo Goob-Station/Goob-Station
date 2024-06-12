@@ -17,6 +17,7 @@ namespace Content.Server.Atmos.EntitySystems
     public sealed partial class AtmosphereSystem
     {
         [Dependency] private readonly FirelockSystem _firelockSystem = default!;
+
         private readonly TileAtmosphereComparer _monstermosComparer = new();
 
         private readonly TileAtmosphere?[] _equalizeTiles = new TileAtmosphere[Atmospherics.MonstermosHardTileLimit];
@@ -685,7 +686,7 @@ namespace Content.Server.Atmos.EntitySystems
             var tileref = tileRef.Tile;
 
             var tileDef = (ContentTileDefinition) _tileDefinitionManager[tileref.TypeId];
-            if (!tileDef.Reinforced && tileDef.TileRipResistance < delta)
+            if (!tileDef.Reinforced && tileDef.TileRipResistance < delta * MonstermosRipTilesPressureOffset)
             {
                 PryTile(mapGrid, tile.GridIndices);
             }
