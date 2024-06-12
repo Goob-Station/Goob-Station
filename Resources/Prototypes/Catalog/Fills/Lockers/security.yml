@@ -66,6 +66,12 @@
         prob: 0.1
       - id: HoloprojectorSecurity
         prob: 0.6
+      - id: ClothingUnderSocksStripedSecurityJackboots
+        prob: 0.8
+        orGroup: SecSocks
+      - id: ClothingUnderSocksStripedSecurity
+        prob: 0.2
+        orGroup: SecSocks
 
 - type: entity
   id: LockerBrigmedicFilled
@@ -124,6 +130,12 @@
       - id: RubberStampDetective
       - id: HoloprojectorSecurity
       - id: BoxEvidenceMarkers
+      - id: ClothingUnderSocksStripedSecurityJackboots
+        prob: 0.8
+        orGroup: SecSocks
+      - id: ClothingUnderSocksStripedSecurity
+        prob: 0.2
+        orGroup: SecSocks
 
 - type: entity
   id: ClosetBombFilled

@@ -96,6 +96,7 @@
       - id: HolofanProjector
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingUnderSocksStripedEngineeringAtmos
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -112,6 +113,7 @@
       - id: HolofanProjector
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingUnderSocksStripedEngineeringAtmos
 
 - type: entity
   id: LockerEngineerFilledHardsuit
@@ -139,6 +141,7 @@
       - id: trayScanner
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingUnderSocksStripedEngineering
 
 - type: entity
   id: ClosetRadiationSuitFilled
