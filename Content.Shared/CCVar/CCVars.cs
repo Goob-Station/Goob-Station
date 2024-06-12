@@ -1094,13 +1094,6 @@ namespace Content.Shared.CCVar
             CVarDef.Create("atmos.mmos_expensive_airflow", true, CVar.SERVERONLY);
 
         /// <summary>
-        ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
-        ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
-        /// </summary>
-        public static readonly CVarDef<float> SpaceWindMaxPushForce =
-            CVarDef.Create("atmos.space_wind_max_push_force", 10f, CVar.SERVERONLY);
-
-        /// <summary>
         ///     Whether monstermos tile equalization is enabled.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosEqualization =

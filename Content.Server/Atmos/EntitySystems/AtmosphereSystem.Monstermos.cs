@@ -550,7 +550,7 @@ namespace Content.Server.Atmos.EntitySystems
                     otherTile.Air.Temperature = Atmospherics.TCMB;
                 }
 
-                InvalidateVisuals(otherTile.GridIndex, otherTile.GridIndices, visuals);
+                InvalidateVisuals(otherTile.GridIndex, otherTile.GridIndices);
                 if (MonstermosRipTiles && otherTile.PressureDifference > MonstermosRipTilesMinimumPressure)
                     HandleDecompressionFloorRip(mapGrid, otherTile, otherTile.PressureDifference);
             }
