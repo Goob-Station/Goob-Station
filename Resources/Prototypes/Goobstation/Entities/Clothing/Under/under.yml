@@ -31,19 +31,19 @@
     coefficient: 0.1
 
 # Did not edit bee socks beyond changing base
-- type: entity
-  parent: ClothingUnderSocksBase
-  id: ClothingUnderSocksBee
-  name: bee socks
-  suffix: Socks
-  description: Make them loins buzz!
-  components:
-  - type: Sprite
-    sprite: Clothing/Under/Socks/bee.rsi
-  - type: Clothing
-    sprite: Clothing/Under/Socks/bee.rsi
+#- type: entity
+#  parent: ClothingUnderSocksBase
+#  id: ClothingUnderSocksBee
+#  name: bee socks
+#  suffix: Socks
+#  description: Make them loins buzz!
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/Under/Socks/bee.rsi
+#  - type: Clothing
+#    sprite: Clothing/Under/Socks/bee.rsi
 
-- type: entity
+#- type: entity
   parent: ClothingUnderSocksBase
   id: ClothingUnderSocksCoder
   name: coder socks

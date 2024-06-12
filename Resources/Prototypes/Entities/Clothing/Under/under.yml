@@ -19,6 +19,6 @@
   description: It's time to code sisters!!11!
   components:
   - type: Sprite
-    sprite: Clothing/Under/Socks/coder.rsi
+    sprite: Goobstation/Clothing/Under/Socks/coder.rsi
   - type: Clothing
-    sprite: Clothing/Under/Socks/coder.rsi
+    sprite: Goobstation/Clothing/Under/Socks/coder.rsi

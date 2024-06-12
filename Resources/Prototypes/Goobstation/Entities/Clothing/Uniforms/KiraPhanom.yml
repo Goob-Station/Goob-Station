@@ -12,8 +12,6 @@
     sprite: Goobstation/clothing/Head/PhannyDantomFace.rsi
   - type: Clothing
     sprite: Goobstation/clothing/Head/PhannyDantomFace.rsi
-  - type: Armor
-    modifiers:
       coefficients:
   - type: Tag
     tags:

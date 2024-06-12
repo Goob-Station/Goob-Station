@@ -1,6 +1,6 @@
 - type: entity
   parent: ClothingOuterStorageBase
-  id: ClothingOuter
+  id: NParka
   name: N Parka
   description: A white and purple parka with blue accents made for a contributor to the sector.
   components:
