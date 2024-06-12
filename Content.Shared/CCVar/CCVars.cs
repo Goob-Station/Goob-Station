@@ -1061,6 +1061,13 @@ namespace Content.Shared.CCVar
             CVarDef.Create("atmos.space_wind_max_velocity", 15f, CVar.SERVERONLY);
 
         /// <summary>
+        ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
+        ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
+        /// </summary>
+        public static readonly CVarDef<float> SpaceWindMaxPushForce =
+            CVarDef.Create("atmos.space_wind_max_push_force", 20f, CVar.SERVERONLY);
+
+        /// <summary>
         ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
         ///     This has nothing to do with throwing force, only acting as a way of reducing the odds of tiny 5 gram objects from being yeeted by people's breath
         /// </summary>
@@ -1087,13 +1094,6 @@ namespace Content.Shared.CCVar
             CVarDef.Create("atmos.mmos_expensive_airflow", true, CVar.SERVERONLY);
 
         /// <summary>
-        ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
-        ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
-        /// </summary>
-        public static readonly CVarDef<float> SpaceWindMaxPushForce =
-            CVarDef.Create("atmos.space_wind_max_push_force", 10f, CVar.SERVERONLY);
-
-        /// <summary>
         ///     Whether monstermos tile equalization is enabled.
         /// </summary>
         public static readonly CVarDef<bool> MonstermosEqualization =
@@ -1117,6 +1117,20 @@ namespace Content.Shared.CCVar
             CVarDef.Create("atmos.monstermos_rip_tiles", true, CVar.SERVERONLY);
 
         /// <summary>
+        ///     Taken as the cube of a tile's mass, this acts as a minimum threshold of mass for which air pressure calculates whether or not to rip a tile from the floor
+        ///     This should be set by default to the cube of the game's lowest mass tile as defined in .yml prototypes, but can be increased for server performance reasons
+        /// </summary>
+        public static readonly CVarDef<float> MonstermosRipTilesMinimumPressure =
+            CVarDef.Create("atmos.monstermos_rip_tiles_min_pressure", 7500f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Taken after the minimum pressure is checked, the effective pressure is multiplied by this amount. This allows server hosts to
+        ///     finely tune how likely floor tiles are to be ripped apart by air pressure
+        /// </summary>
+        public static readonly CVarDef<float> MonstermosRipTilesPressureOffset =
+            CVarDef.Create("atmos.monstermos_rip_tiles_pressure_offset", 0.44f, CVar.SERVERONLY);
+
+        /// <summary>
         ///     Whether explosive depressurization will cause the grid to gain an impulse.
         ///     Needs <see cref="MonstermosEqualization"/> and <see cref="MonstermosDepressurization"/> to be enabled to work.
         /// </summary>
@@ -1128,7 +1142,7 @@ namespace Content.Shared.CCVar
         ///     1.0 for instant spacing, 0.2 means 20% of remaining air lost each time
         /// </summary>
         public static readonly CVarDef<float> AtmosSpacingEscapeRatio =
-            CVarDef.Create("atmos.mmos_spacing_speed", 0.15f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.mmos_spacing_speed", 0.05f, CVar.SERVERONLY);
 
         /// <summary>
         ///     Minimum amount of air allowed on a spaced tile before it is reset to 0 immediately in kPa
