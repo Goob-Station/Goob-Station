@@ -90,7 +90,7 @@
     ClothingEyesGlassesCheapSunglasses: 3
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
-    ClothingBackpackSatchelSmuggler: 1 # GoobStation - adding smuggler's satchel to  inventroy
+    ClothingBackpackSatchelSmuggler: 1 # GoobStation - adding smuggler's satchel to contraband inventory
     ClothingMaskNeckGaiter: 2
     ClothingUniformJumpsuitTacticool: 1
     ClothingUniformJumpskirtTacticool: 1

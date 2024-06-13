@@ -9,7 +9,7 @@
     duration: 1
     earliestStart: 0
     reoccurrenceDelay: 20 # can happen evry 20 minutes
-    maxOccurrences: 4
+    maxOccurrences: 0   #disabled
   - type: RandomSpawnRule   #TODO make a new spawnrule for picking among different fills and spawning more at once. and make sure it only spawns under floorboards
     prototype: ClothingBackpackSatchelSmugglerAnchoredFilled
 
@@ -23,6 +23,6 @@
     reoccurrenceDelay: 30
     earliestStart: 15
     startAnnouncement: station-event-smuggler-satchel-announcement
-    maxOccurrences: 1
+    maxOccurrences: 3 #  3 is a  good nunber
     startAudio:
       path: /Audio/Announcements/attention.ogg
