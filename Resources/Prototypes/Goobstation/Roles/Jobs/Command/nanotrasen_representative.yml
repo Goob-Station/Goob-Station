@@ -36,3 +36,6 @@
     belt: BoxFolderCentComClipboard
     pocket1: RubberStampCentcom
     pocket2: WeaponDisabler
+  storage:
+    back:
+    - BoxSurvival
