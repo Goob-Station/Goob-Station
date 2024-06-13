@@ -1,9 +1,8 @@
 - type: gameMap
-  id: Oasis
+  id: OasisHighPop
   mapName: 'Oasis'
   mapPath: /Maps/oasis.yml
-  minPlayers: 0
-  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
+  minPlayers: 85
   stations:
     Oasis:
       stationProto: StandardNanotrasenStation

@@ -3,6 +3,7 @@
   mapName: 'Fland Installation'
   mapPath: /Maps/fland.yml
   minPlayers: 0
+  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Fland:
       stationProto: StandardNanotrasenStation
