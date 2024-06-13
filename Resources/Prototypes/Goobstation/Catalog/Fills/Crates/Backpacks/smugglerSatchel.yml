@@ -10,17 +10,14 @@
     contents:
 
       - id: null
-        prob: 0.5
+        prob: 0.7
         orGroup: gloves
       - id: ClothingHandsGlovesColorYellow
-        prob: 0.4
+        prob: 0.29
         orGroup: gloves
       - id: ClothingHandsGlovesCombat
-        prob: 0.1
+        prob: 0.01
         orGroup: gloves
-
-      - id: PowerCellHigh
-        prob: 0.5
 
       - id: null
         prob: 0.5
@@ -35,13 +32,55 @@
         prob: 0.1
         orGroup: gasMask
 
-      - id: ClothingShoesGaloshes
+      - id: null
+        prob: 0.2
+        onGroup: tools
+      - id: PowerCellHigh
+        prob: 0.5
+        onGroup: tools
+      - id: JawsOfLife
         prob: 0.1
+        onGroup: tools
+      - id: PowerDrill
+        prob: 0.1
+        onGroup: tools
+      - id: WelderExperimental
+        prob: 0.1
+        onGroup: tools
+
+      - id: null
+        prob: 0.6
+        onGroup: material
+      - id: SheetUranium
+        prob: 0.1
+        onGroup: material
+      - id: IngotGold
+        prob: 0.1
+        onGroup: material
+      - id: IngotSilver
+        prob: 0.1
+        onGroup: material
+      - id: MaterialBananium        # use a geigercounter to find the satchel
+        prob: 0.1
+        onGroup: material
+
       - id: MedkitCombatFilled
         prob: 0.1
+        onGroup: Medecine
+      - id: PillAmbuzol             # cant change the round in a meaningfull way
+        prob: 0.1
+        onGroup: Medecine
+      - id: CognizineChemistryBottle
+        prob: 0.1
+        onGroup: Medecine
+      - id: CigPackSyndicate
+        prob: 0.1
+        onGroup: Medecine
       - id: StimpackMini
         prob: 0.1
-      - id: JawsOfLife
+        onGroup: Medecine
+
+      - id: ClothingShoesGaloshes
         prob: 0.1
       - id: ClothingMaskClown
         prob: 0.3
@@ -49,10 +88,8 @@
         prob: 0.3
       - id: CyberPen
         prob: 0.1
-      - id: CigPackSyndicate
-        prob: 0.3
       - id: NukeDiskFake
-        prob: 0.3
+        prob: 0.1
       - id: SoapSyndie
         prob: 0.1
       - id: HappyHonkNukieSnacks
@@ -60,22 +97,10 @@
       - id: RevolverCapGun
         prob: 0.3
       - id: ClothingHeadHatCatEars
-        prob: 0.1
+        prob: 0.01
       - id: ResearchDisk10000
-        prob: 0.3
-      - id: SheetUranium
-        prob: 0.3
-      - id: IngotGold
-        prob: 0.3
-      - id: IngotSilver
-        prob: 0.3
+        prob: 0.1
       - id: CrewMonitoringComputerCircuitboard
-        prob: 0.3
-      - id: PowerDrill
-        prob: 0.3
-      - id: WelderExperimental
-        prob: 0.3
-      - id: CognizineChemistryBottle
         prob: 0.1
       - id: SoapOmega
         prob: 0.1
@@ -83,21 +108,18 @@
         #Dangerus items
 
       - id: SmokeGrenade            # can be made by chemist. thief item
-        prob: 0.3
+        prob: 0.1
       - id: Telecrystal1            # can be found in salvage
         prob: 0.1
       - id: Telecrystal10           # can be found in salvage
         prob: 0.01
       - id: SyndicatePersonalAI     # is in usless tab, thief item
         prob: 0.1
-      - id: PillAmbuzol             # cant change the round in a meaningfull way
-        prob: 0.1
       - id: GatfruitSeeds           # can be obtained from anomaly
         prob: 0.1
       - id: ThrowingKnife           # single knife can be found in some boot
-        prob: 0.3
+        prob: 0.1
       - id: DehydratedSpaceCarp     # can be found by salvage
-        prob: 0.1
-      - id: MaterialBananium        # use a geigercounter to find the satchel
-        prob: 0.1
+        prob: 0.01
+
 

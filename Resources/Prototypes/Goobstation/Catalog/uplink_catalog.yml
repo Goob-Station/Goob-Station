@@ -7,3 +7,14 @@
     Telecrystal: 6
   categories:
     -  UplinkDisruption
+
+- type: listing
+  id: UplinkClothingBackpackSatchelSmuggler
+  name: uplink-smuggler-satchel-name
+  description: uplink-smuggler-satchel-desc
+  productEntity: ClothingBackpackSatchelSmuggler
+  cost:
+    Telecrystal: 1
+  categories:
+    - UplinkWearables
+

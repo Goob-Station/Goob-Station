@@ -1,0 +1,28 @@
+# GoobStation - *spawns a random smuggler's satchel filled whit ligth contraband somwhere on the station
+- type: entity
+  id: SmugglerStashSpawnQuiet
+  parent: BaseGameRule
+  noSpawn: true
+  components:
+  - type: StationEvent
+    weight: 10 # normal , its a little hige as its only one satchel, TODO: needs balancing
+    duration: 1
+    earliestStart: 0
+    reoccurrenceDelay: 20 # can happen evry 20 minutes
+    maxOccurrences: 4
+  - type: RandomSpawnRule   #TODO make a new spawnrule for picking among different fills and spawning more at once. and make sure it only spawns under floorboards
+    prototype: ClothingBackpackSatchelSmugglerAnchoredFilled
+
+# GoobStation - not all smuggeling goes unnoticed
+- type: entity
+  id: SmugglerStashSpawn
+  parent: SmugglerStashSpawnQuiet
+  noSpawn: true
+  components:
+  - type: StationEvent
+    reoccurrenceDelay: 30
+    earliestStart: 15
+    startAnnouncement: station-event-smuggler-satchel-announcement
+    maxOccurrences: 1
+    startAudio:
+      path: /Audio/Announcements/attention.ogg

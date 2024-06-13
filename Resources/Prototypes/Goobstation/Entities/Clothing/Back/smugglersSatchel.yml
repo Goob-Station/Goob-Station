@@ -1,0 +1,25 @@
+# GoobStation - added smuggler's satchel can be hidden under floorboerds
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelSmuggler
+  name: satchel
+  suffix: smugglers
+  description: A suspicious looking satchel.
+  components:
+  - type: Sprite
+    sprite: Clothing/Back/Satchels/satchel.rsi
+  - type: SubFloorHide
+  - type: Anchorable
+  - type: Appearance
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+
+# GoobStation - make smuggler's satchel stuck to ground
+- type: entity
+  parent: ClothingBackpackSatchelSmuggler
+  id: ClothingBackpackSatchelSmugglerAnchored
+  name: satchel
+  suffix: smugglers-anchored
+  components:
+  - type: Transform
+    anchored: true
