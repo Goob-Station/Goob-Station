@@ -25,7 +25,8 @@
   - type: Tag
     tags:
     - ClothMade
-    - Socks
+# Whoops does nothing
+#    - Socks
     - WhitelistChameleon
   - type: TemperatureProtection
     coefficient: 0.1

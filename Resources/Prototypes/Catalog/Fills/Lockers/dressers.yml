@@ -94,7 +94,7 @@
         orGroup: StripedSocks
         prob: 0.20
       - id: ClothingUnderSocksStripedSecurityHosJackboot
-        orGroup: Stripped Socks
+        orGroup: StrippedSocks
         prob: 0.80
 
 
