@@ -54,9 +54,9 @@
 
 #Piras wanted more free lisence classical
 - type: jukebox
-  id: StraussII-Blue_Danube_Waltz
-  name: StraussII - Blue Danube Waltz
+  id: Blue_Danube_Waltz
+  name: StraussII-Blue_Danube_Waltz
   path:
-    path: /Audio/Jukebox/Blue Danube Waltz.ogg
+    path: /Audio/Jukebox/Blue_Danube_Waltz.ogg
 
 
