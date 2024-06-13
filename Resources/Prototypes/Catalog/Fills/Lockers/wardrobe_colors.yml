@@ -88,8 +88,6 @@
       - id: ClothingUniformJumpskirtColorBlue
       - id: ClothingShoesColorBlue
         amount: 2
-# Goobstation Sock Stuff yes this one is weird
-      - id: ClothingUndersocksStripedSherbert
 
 - type: entity
   id: WardrobePinkFilled
@@ -100,9 +98,10 @@
     contents:
       - id: ClothingUniformJumpsuitColorPink
       - id: ClothingUniformJumpskirtColorPink
-      - id: ClothingShoesColorPink
-        amount: 2
-# Goobstation Sock Stuff
+# Apparently doesnt exist atm will fix later - Nep
+#     - id: ClothingShoesColorPink
+#        amount: 2
+# Goobstation Sock Stuff The forbiden sock
       - id: ClothingUnderSocksCoder
 
 - type: entity
