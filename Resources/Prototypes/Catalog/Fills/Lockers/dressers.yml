@@ -83,8 +83,9 @@
       - id: ClothingHeadHatBeretHoS
       - id: ClothingHeadHatHoshat
       - id: ClothingNeckCloakHos
-      - id: ClothingUniformJumpskirtHoSAlt
-      - id: ClothingUniformJumpsuitHoSAlt
+# Disabled because accessable from both lathe and loadouts, makes more consistant with other dressers
+#      - id: ClothingUniformJumpskirtHoSAlt
+#      - id: ClothingUniformJumpsuitHoSAlt
       - id: ClothingUniformJumpskirtHosFormal
       - id: ClothingUniformJumpsuitHosFormal
       - id: ClothingOuterWinterHoS
@@ -92,8 +93,8 @@
       - id: ClothingUnderSocksStripedSecurityHos
         orGroup: StripedSocks
         prob: 0.20
-      - id: ClothingUnderSocksStripedSecurity
-        orGroup: ClothingUnderSocksStripedSecurityHosJackboot
+      - id: ClothingUnderSocksStripedSecurityHosJackboot
+        orGroup: Stripped Socks
         prob: 0.80
 
 

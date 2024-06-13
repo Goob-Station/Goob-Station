@@ -39,9 +39,9 @@
     sprite: Goobstation/Clothing/Uniforms/DannyPhantomSuitGhostSolid.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Uniforms/DannyPhantomSuitGhostSolid.rsi
-  - type: Tag
-    tags:
-    -  GhostFeet
+#  - type: Tag
+#    tags:
+#    -  GhostFeet
 
 - type: entity
   parent: ClothingUniformBase
