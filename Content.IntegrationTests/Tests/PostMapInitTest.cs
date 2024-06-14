@@ -39,7 +39,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
-            "/Maps/Goobstation/Shuttles/infiltrator.yml", // Goobstation - use custom infiltrator
+            "/Maps/Goobstation/Shuttles/infiltrator.yml" // Goobstation - use custom infiltrator
         };
 
         private static readonly string[] GameMaps =
@@ -65,7 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            "FlandHighPop", // Goobstation - add highpop map versions to the integration tests
+            "FlandHighPop", // Goobstation - add highpop maps
             "OasisHighPop",
             "OriginHighPop
         };
