@@ -65,8 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Reach",
             "Train",
             "Oasis",
-            // Goobstation - add highpop map versions to the integration tests
-            "FlandHighPop",
+            "FlandHighPop", // Goobstation - add highpop map versions to the integration tests
             "OasisHighPop",
             "OriginHighPop
         };
