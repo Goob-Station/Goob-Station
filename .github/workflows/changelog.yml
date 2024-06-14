@@ -1,4 +1,4 @@
-# From https://github.com/DeltaV-Station/Delta-v/pull/11/files by DebugOk
+# From https://github.com/DeltaV-Station/Delta-v/
 name: PR Changelogs
 concurrency: commit_action
 on:
@@ -12,7 +12,7 @@ env:
 
 jobs:
   changelog:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     if: github.event.pull_request.merged == true
     permissions:
       contents: write
