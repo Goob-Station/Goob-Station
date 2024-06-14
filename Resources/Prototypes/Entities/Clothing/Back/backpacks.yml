@@ -55,25 +55,6 @@
     storageOpenSound:
       collection: IanBark
 
-      
-- type: entity
-  parent: ClothingBackpack
-  id: ClothingBackpackCentcom
-  name: Centcom backpack
-  description: A luxurious backpack, smells like money.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/centcom.rsi
-    
-- type: entity
-  parent: ClothingBackpack
-  id: ClothingBackpackSecurity
-  name: security backpack
-  description: It's a very robust backpack.
-  components:
-  - type: Sprite
-    sprite: Clothing/Back/Backpacks/security.rsi
-
 - type: entity
   parent: ClothingBackpack
   id: ClothingBackpackBrigmedic
