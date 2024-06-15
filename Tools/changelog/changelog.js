@@ -143,6 +143,7 @@ function writeChangelog(entry) {
     }
 
     console.log('entry (line 145): ', entry);
+    console.log('data (line 146): ', data);
 
     data.Entries.push(entry);
 
