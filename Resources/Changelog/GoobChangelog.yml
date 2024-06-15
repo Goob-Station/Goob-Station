@@ -1,26 +1,7 @@
 Entries:
 - author: Piras314
   changes:
-    - message: Added changelogs. HONK!!
-      type: Add
-  id: 1
-  time: '2024-06-14T21:15:48.0000000+00:00'
-  url: https://goobstation.com
-- author: Piras314
-  changes:
-    - type: Fix
-      message: allah please fix the changelogs
-  id: 2
-  time: '2024-06-15T12:46:23.0000000+00:00'
-- author: Piras314
-  changes:
     - type: Remove
       message: ERP
   id: 3
   time: '2024-06-15T12:54:44.0000000+00:00'
-- author: Piras314
-  changes:
-    - type: Tweak
-      message: tweaked fun
-  id: 4
-  time: '2024-06-15T13:11:12.0000000+00:00'
