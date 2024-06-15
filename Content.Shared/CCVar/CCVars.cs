@@ -1466,6 +1466,18 @@ namespace Content.Shared.CCVar
             CVarDef.Create("shuttle.arrivals_returns", false, CVar.SERVERONLY);
 
         /// <summary>
+        /// Should all players be forced to spawn at departures, even on roundstart, even if their loadout says they spawn in cryo?
+        /// </summary>
+        public static readonly CVarDef<bool> ForceArrivals =
+            CVarDef.Create("shuttle.force_arrivals", false, CVar.SERVERONLY);
+
+        /// <summary>
+        /// Should all players who spawn at arrivals have godmode until they leave the map?
+        /// </summary>
+        public static readonly CVarDef<bool> GodmodeArrivals =
+            CVarDef.Create("shuttle.godmode_arrivals", false, CVar.SERVERONLY);
+
+        /// <summary>
         /// Whether to automatically spawn escape shuttles.
         /// </summary>
         public static readonly CVarDef<bool> GridFill =
@@ -1884,7 +1896,7 @@ namespace Content.Shared.CCVar
         /// Don't show rules to localhost/loopback interface.
         /// </summary>
         public static readonly CVarDef<bool> RulesExemptLocal =
-            CVarDef.Create("rules.exempt_local", false, CVar.SERVERONLY);
+            CVarDef.Create("rules.exempt_local", true, CVar.SERVERONLY);
 
 
         /*
