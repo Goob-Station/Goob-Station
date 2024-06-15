@@ -171,12 +171,24 @@
 - type: entity
   name: flash
   parent: Flash
-  suffix: 2 charges
+  suffix: recharging
+  id: RechargeFlash
+  components:
+    - type: LimitedCharge
+      maxCharges: 3
+      charges: 3
+    - type: AutoRecharge
+      rechargeDuration: 180
+
+- type: entity
+  name: flash
+  parent: Flash
+  suffix: 1 charge
   id: SciFlash
   components:
     - type: LimitedCharges
-      maxCharges: 2
-      charges: 2
+      maxCharges: 1
+      charges: 1
 
 - type: entity
   name: portable flasher
