@@ -60,6 +60,8 @@ async function main() {
         time: time,
     };
 
+    console.log('entry (line 63): ${entry}');
+
     // Write changelogs
     writeChangelog(entry);
 
@@ -139,6 +141,8 @@ function writeChangelog(entry) {
         const file = fs.readFileSync(`../../${process.env.CHANGELOG_DIR}`, "utf8");
         data = yaml.load(file);
     }
+
+    console.log('entry (line 145): ${entry}');
 
     data.Entries.push(entry);
 
