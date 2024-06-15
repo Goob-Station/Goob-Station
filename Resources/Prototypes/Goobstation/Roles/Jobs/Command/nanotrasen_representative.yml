@@ -16,6 +16,8 @@
   canBeAntag: false
   accessGroups:
   - AllAccess
+  access:
+  - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -27,7 +29,7 @@
   id: NanotrasenRepresentativeGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
-    back: ClothingBackpack
+    back: ClothingBackpackCentcom
     shoes: ClothingShoesColorBlack
     head: ClothingHeadHatCentcomcap
     eyes: ClothingEyesGlasses
