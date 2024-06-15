@@ -60,7 +60,7 @@ async function main() {
         time: time,
     };
 
-    console.log('entry (line 63): ${entry}');
+    console.log('entry (line 63): ', entry);
 
     // Write changelogs
     writeChangelog(entry);
@@ -142,7 +142,7 @@ function writeChangelog(entry) {
         data = yaml.load(file);
     }
 
-    console.log('entry (line 145): ${entry}');
+    console.log('entry (line 145): ', entry);
 
     data.Entries.push(entry);
 
