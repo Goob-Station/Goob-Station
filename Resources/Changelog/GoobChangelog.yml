@@ -18,3 +18,9 @@ Entries:
       message: ERP
   id: 3
   time: '2024-06-15T12:54:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: tweaked fun
+  id: 4
+  time: '2024-06-15T13:11:12.0000000+00:00'
