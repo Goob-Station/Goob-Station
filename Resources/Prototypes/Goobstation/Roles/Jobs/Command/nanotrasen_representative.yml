@@ -29,7 +29,7 @@
   id: NanotrasenRepresentativeGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
-    back: ClothingBackpack
+    back: ClothingBackpackCentcom
     shoes: ClothingShoesColorBlack
     head: ClothingHeadHatCentcomcap
     eyes: ClothingEyesGlasses
