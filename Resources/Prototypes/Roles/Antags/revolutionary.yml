@@ -18,6 +18,6 @@
   id: HeadRevGear
   storage:
     back:
-    - RechargeFlash
-    - ClothingEyesGlassesHiddenSecurity
-    - EncryptionKeySyndie
+    - RechargeFlash # Goobstation
+    - ClothingEyesGlassesHiddenSecurity # Goobstation
+    - EncryptionKeySyndie # Goobstation
