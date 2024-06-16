@@ -171,12 +171,12 @@
 - type: entity
   name: flash
   parent: Flash
-  suffix: 1 charge # Goobstation
+  suffix: 2 charges
   id: SciFlash
   components:
     - type: LimitedCharges
-      maxCharges: 1 # Goobstation
-      charges: 1 # Goobstation
+      maxCharges: 2
+      charges: 2
 
 - type: entity
   name: portable flasher
