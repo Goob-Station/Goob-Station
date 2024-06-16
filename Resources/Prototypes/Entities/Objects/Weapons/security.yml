@@ -179,6 +179,7 @@
       charges: 3
     - type: AutoRecharge
       rechargeDuration: 180
+  # Goobstation
 
 - type: entity
   name: flash
@@ -189,7 +190,8 @@
     - type: LimitedCharges
       maxCharges: 1
       charges: 1
-
+   # Goobstation
+   
 - type: entity
   name: portable flasher
   parent: BaseStructure
