@@ -1,0 +1,11 @@
+- type: entity
+  name: flash
+  parent: Flash
+  suffix: recharging
+  id: RechargeFlash
+  components:
+    - type: LimitedCharge
+      maxCharges: 3
+      charges: 3
+    - type: AutoRecharge
+      rechargeDuration: 180
