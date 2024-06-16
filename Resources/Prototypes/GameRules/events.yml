@@ -419,7 +419,7 @@
       mindComponents:
       - type: InitialInfectedRole
         prototype: InitialInfected
-  
+
 - type: entity
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
