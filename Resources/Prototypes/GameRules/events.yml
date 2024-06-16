@@ -394,14 +394,14 @@
   - type: StationEvent
     earliestStart: 50
     minimumPlayers: 30
-    weight: 1.5
+    weight: 1.5 # Goobstation
     duration: 1
   - type: ZombieRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
       max: 3
-      playerRatio: 15
+      playerRatio: 15 # Goobstation
       blacklist:
         components:
         - ZombieImmune
@@ -419,8 +419,7 @@
       mindComponents:
       - type: InitialInfectedRole
         prototype: InitialInfected
-  # Goobstation - Weight change + Player Ratio change
-
+  
 - type: entity
   parent: BaseNukeopsRule
   id: LoneOpsSpawn
@@ -477,34 +476,6 @@
       mindComponents:
       - type: TraitorRole
         prototype: Traitor
-
-  - type: entity
-  id: ProvokedRevolt
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    earliestStart: 40
-    minimumPlayers: 40
-    weight: 1.5
-    duration: 1
-  - type: RevolutionaryRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Headrev ]
-      max: 3
-      playerRatio: 30
-      briefing:
-        text: head-rev-role-greeting
-        color: CornflowerBlue
-        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
-      components:
-      - type: Revolutionary
-      - type: HeadRevolutionary
-      mindComponents:
-      - type: RevolutionaryRole
-        prototype: HeadRev
-  # Goobstation
 
 - type: entity
   id: MassHallucinations
