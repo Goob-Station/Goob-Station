@@ -2,7 +2,7 @@
   id: RoboticsInventory
   startingInventory:
     CableApcStack: 4
-    SciFlash: 4
+    SciFlash: 2
     ProximitySensor: 3
     ClothingEyesHudDiagnostic: 2
     ClothingEyesEyepatchHudDiag: 2
