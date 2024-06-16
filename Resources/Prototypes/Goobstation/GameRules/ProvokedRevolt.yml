@@ -1,0 +1,26 @@
+- type: entity
+  id: ProvokedRevolt
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 40
+    minimumPlayers: 40
+    weight: 1.5
+    duration: 1
+  - type: RevolutionaryRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Headrev ]
+      max: 3
+      playerRatio: 30
+      briefing:
+        text: head-rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      startingGear: HeadRevGear
+      components:
+      - type: Revolutionary
+      - type: HeadRevolutionary
+      mindComponents:
+      - type: RevolutionaryRole
+        prototype: HeadRev
