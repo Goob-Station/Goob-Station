@@ -13,9 +13,9 @@
   category: Robotics
   completetime: 2
   materials:
-    Glass: 300
-    Plastic: 500
-    Steel: 300
+    Glass: 200
+    Plastic: 400
+    Steel: 200
 
 - type: latheRecipe
   id: CyborgEndoskeleton
@@ -23,7 +23,7 @@
   category: Robotics
   completetime: 3
   materials:
-    Steel: 1200
+    Steel: 1500
 
 - type: latheRecipe
   id: LeftArmBorg
