@@ -177,7 +177,7 @@
     - type: LimitedCharges
       maxCharges: 1 # Goobstation
       charges: 1 # Goobstation
-      
+
 - type: entity
   name: portable flasher
   parent: BaseStructure
