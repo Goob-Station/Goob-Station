@@ -419,6 +419,7 @@
       mindComponents:
       - type: InitialInfectedRole
         prototype: InitialInfected
+  # Goobstation - Weight change + Player Ratio change
 
 - type: entity
   parent: BaseNukeopsRule
@@ -503,6 +504,7 @@
       mindComponents:
       - type: RevolutionaryRole
         prototype: HeadRev
+  # Goobstation
 
 - type: entity
   id: MassHallucinations
