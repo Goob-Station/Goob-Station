@@ -23,7 +23,7 @@
     - EncryptionKeySyndie # Goobstation
 
 - type: startingGear
-  id: ProvacateurGear
+  id: ProvocateurGear
   storage:
     back:
     - RechargeFlash # Goobstation
