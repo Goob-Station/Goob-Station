@@ -11,3 +11,9 @@ Entries:
       message: Added automated changelogs! Goobers rejoice!
   id: 4
   time: '2024-06-17T00:09:12.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Stopped using custom nukie maps.
+  id: 5
+  time: '2024-06-17T16:52:54.0000000+00:00'
