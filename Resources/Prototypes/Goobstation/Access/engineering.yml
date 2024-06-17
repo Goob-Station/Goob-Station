@@ -1,4 +1,4 @@
-  - type: accessGroup # Goobstation - re adding fire door remote
+  - type: accessGroup 
     id: FireFight
     tags:
       - Engineering
