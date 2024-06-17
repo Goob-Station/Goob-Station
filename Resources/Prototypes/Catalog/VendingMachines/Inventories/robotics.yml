@@ -2,7 +2,7 @@
   id: RoboticsInventory
   startingInventory:
     CableApcStack: 4
-    SciFlash: 2
+    SciFlash: 2 # Goobstation - Rev changes
     ProximitySensor: 3
     ClothingEyesHudDiagnostic: 2
     ClothingEyesEyepatchHudDiag: 2
