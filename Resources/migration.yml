@@ -343,8 +343,7 @@ chem_master: ChemMaster
 # 2024-05-21
 CrateJanitorExplosive: ClosetJanitorBombFilled
 
-# 2024-05-27
-DoorRemoteFirefight: null
+# Goobstation - re adding fire door remote
 
 # 2024-06-03
 AirlockServiceCaptainLocked: AirlockCaptainLocked
