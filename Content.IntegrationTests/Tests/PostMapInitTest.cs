@@ -39,7 +39,7 @@ namespace Content.IntegrationTests.Tests
             "/Maps/centcomm.yml",
             "/Maps/Shuttles/cargo.yml",
             "/Maps/Shuttles/emergency.yml",
-            "/Maps/Goobstation/Shuttles/infiltrator.yml" // Goobstation - use custom infiltrator
+            "/Maps/Shuttles/infiltrator.yml"
         };
 
         private static readonly string[] GameMaps =
