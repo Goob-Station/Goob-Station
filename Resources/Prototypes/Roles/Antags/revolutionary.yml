@@ -14,18 +14,20 @@
   objective: roles-antag-rev-objective
   guides: [ Revolutionaries ]
 
+# Goobstation - Rev changes
 - type: startingGear
   id: HeadRevGear
   storage:
     back:
-    - RechargeFlash # Goobstation
-    - ClothingEyesGlassesHiddenSecurity # Goobstation
-    - EncryptionKeySyndie # Goobstation
+    - RechargeFlash
+    - ClothingEyesGlassesHiddenSecurity
+    - EncryptionKeySyndie
 
+# Goobstation - Rev changes
 - type: startingGear
   id: ProvocateurGear
   storage:
     back:
-    - RechargeFlash # Goobstation
-    - ClothingEyesGlassesHiddenSecurity # Goobstation
+    - RechargeFlash
+    - ClothingEyesGlassesHiddenSecurity
     # For midround revs, removes the synd key to prevent fuckery on op/synd games, or survival games that roll sleeper or lone op.
