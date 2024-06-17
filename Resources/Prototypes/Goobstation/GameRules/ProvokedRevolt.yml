@@ -18,7 +18,7 @@
         text: head-rev-role-greeting
         color: CornflowerBlue
         sound: "/Audio/Ambience/Antag/headrev_start.ogg"
-      startingGear: HeadRevGear
+      startingGear: ProvocateurGear # Removes synd key from them to prevent goobery on op/synd games and survival ones w/ lone op or sleepers
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
