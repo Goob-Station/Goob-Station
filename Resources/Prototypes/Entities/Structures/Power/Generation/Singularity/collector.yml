@@ -81,6 +81,8 @@
           - GasTank
   - type: UseDelay
     delay: 1
+  - type: Machine # Goobstation - making tesla coils and radiation collectors craftable
+    board: RadiationCollectorCircuitboard
 
 - type: entity
   id: RadiationCollectorNoTank

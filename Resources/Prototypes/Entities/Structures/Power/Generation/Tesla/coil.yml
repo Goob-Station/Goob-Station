@@ -101,6 +101,8 @@
               SheetSteel1:
                 min: 2
                 max: 4
+  - type: Machine # Goobstation - making tesla coils and radiation collectors craftable
+    board: TeslaCoilCircuitboard
   #- type: GuideHelp #   To Do - add Tesla Guide
 
 - type: entity

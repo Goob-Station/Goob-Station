@@ -73,6 +73,8 @@
   - SolarControlComputerCircuitboard
   - SolarTrackerElectronics
   - EmitterCircuitboard
+  - TeslaCoilCircuitboard # Goobstation - making tesla coils and radiation collectors craftable
+  - RadiationCollectorCircuitboard # Goobstation - making tesla coils and radiation collectors craftable
 
 - type: technology
   id: AtmosphericTech
