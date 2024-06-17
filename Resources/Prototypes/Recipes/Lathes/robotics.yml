@@ -12,7 +12,7 @@
   result: SciFlash
   category: Robotics
   completetime: 2
-  materials:
+  materials: # Goobstation - Rev changes
     Glass: 200
     Plastic: 400
     Steel: 200
