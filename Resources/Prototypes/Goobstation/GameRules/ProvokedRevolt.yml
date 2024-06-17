@@ -5,6 +5,7 @@
   - type: StationEvent
     earliestStart: 40
     minimumPlayers: 40
+    maxOccurrences: 1 # No 4/6 headrev games from survival, thank fuck
     weight: 1.5
     duration: 1
   - type: RevolutionaryRule
