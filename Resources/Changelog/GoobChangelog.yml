@@ -17,3 +17,9 @@ Entries:
       message: Stopped using custom nukie maps.
   id: 5
   time: '2024-06-17T16:52:54.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Re-added fire fighting remotes to atmos lockers.
+  id: 6
+  time: '2024-06-17T21:00:22.0000000+00:00'
