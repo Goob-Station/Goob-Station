@@ -21,3 +21,11 @@
     - RechargeFlash # Goobstation
     - ClothingEyesGlassesHiddenSecurity # Goobstation
     - EncryptionKeySyndie # Goobstation
+
+- type: startingGear
+  id: ProvacateurGear
+  storage:
+    back:
+    - RechargeFlash # Goobstation
+    - ClothingEyesGlassesHiddenSecurity # Goobstation
+    # For midround revs, removes the synd key to prevent fuckery on op/synd games, or survival games that roll sleeper or lone op.
