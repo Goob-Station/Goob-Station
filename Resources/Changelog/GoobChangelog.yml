@@ -5,3 +5,9 @@ Entries:
       message: ERP
   id: 3
   time: '2024-06-15T12:54:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added automated changelogs! Goobers rejoice!
+  id: 4
+  time: '2024-06-17T00:09:12.0000000+00:00'
