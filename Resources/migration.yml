@@ -340,6 +340,8 @@ DrinkBottleGoldschlager: DrinkBottleGildlager
 soda_dispenser: SodaDispenser
 chem_master: ChemMaster
 
+# Goobstation - re adding fire door remote
+
 # 2024-05-21
 CrateJanitorExplosive: ClosetJanitorBombFilled
 

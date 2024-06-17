@@ -17,7 +17,7 @@
   - Engineering
   - Atmospherics
 
-  - type: accessGroup
+  - type: accessGroup # Goobstation - re adding fire door remote
     id: FireFight
     tags:
       - Engineering
