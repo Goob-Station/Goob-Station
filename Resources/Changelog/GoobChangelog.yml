@@ -77,3 +77,9 @@ Entries:
       message: Moths have way better control in zero gravity environments
   id: 13
   time: '2024-06-18T12:44:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Un-flatten dwarves.
+  id: 14
+  time: '2024-06-18T13:22:18.0000000+00:00'
