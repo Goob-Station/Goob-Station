@@ -13815,7 +13815,7 @@ entities:
     - type: Transform
       pos: 14.341918,-16.877413
       parent: 104
-- proto: Telecrystal1
+- proto: Telecrystal5  # Goobstation - Telecrystal rework
   entities:
   - uid: 2474
     components:

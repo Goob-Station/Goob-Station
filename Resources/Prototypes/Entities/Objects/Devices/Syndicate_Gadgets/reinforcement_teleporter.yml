@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: Objects/Devices/communication.rsi
     layers:
-    - state: old-radio
+    - state: radio
   - type: GhostRole
     name: ghost-role-information-syndicate-reinforcement-name
     description: ghost-role-information-syndicate-reinforcement-description
