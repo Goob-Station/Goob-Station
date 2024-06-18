@@ -9,7 +9,7 @@
     flavors:
       - chalky
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: proteinbar
   - type: Item
   - type: Food
@@ -36,7 +36,7 @@
   description: Now with 20% less lawsuit enabling rhegolith!
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake_wrapped
   - type: Item
     heldPrefix: lunacake_wrapped
@@ -61,7 +61,7 @@
     flavors:
       - vanilla
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
   - type: Item
 
@@ -72,7 +72,7 @@
   description: Konnichiwa! Many go lucky rice cakes in future!
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: mochicake_wrapped
   - type: Item
     heldPrefix: mochicake_wrapped
@@ -97,7 +97,7 @@
     flavors:
       - rice
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
   - type: Item
 
@@ -108,7 +108,7 @@
   description: Explore the dark side! May contain trace amounts of reconstituted cocoa.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: mooncake_wrapped
   - type: Item
     heldPrefix: mooncake_wrapped
@@ -133,7 +133,7 @@
     flavors:
       - chocolate
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: lunacake
   - type: Item
 
@@ -147,7 +147,7 @@
     flavors:
       - salty
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: tidegobs
   - type: Item
   - type: Food
@@ -163,7 +163,7 @@
     flavors:
       - salty
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: saturno
   - type: Item
   - type: Food
@@ -179,7 +179,7 @@
     flavors:
       - sweet
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: jupiter
   - type: Item
   - type: Food
@@ -195,7 +195,7 @@
     flavors:
       - chalky
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: pluto
   - type: Item
   - type: Food
@@ -213,7 +213,7 @@
       - potatoes
       - mustard
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: mars
   - type: Item
   - type: Food
@@ -229,7 +229,7 @@
     flavors:
       - spicy
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: venus
   - type: Item
   - type: Food
@@ -246,7 +246,7 @@
       - fizzy
       - sweet
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: oort
   - type: Item
   - type: Food
@@ -263,7 +263,7 @@
     flavors:
       - spicy
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: weebonuts
   - type: Item
   - type: Food
@@ -279,7 +279,7 @@
     flavors:
       - rice
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: ricecake
   - type: Item
 
@@ -294,7 +294,7 @@
       - sweet
       - chocolate
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: pokeys
   - type: Item
 
@@ -309,7 +309,7 @@
       - sweet
       - chocolate
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: chocobanana
   - type: Item
   - type: Food
@@ -326,7 +326,7 @@
       - rice
       - sweet
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: dango
   - type: Item
   - type: Food
@@ -344,7 +344,7 @@
     flavors:
       - terrible
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_food.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_food.rsi
     state: ancient_burger
   - type: Item
   - type: SolutionContainerManager
@@ -402,7 +402,7 @@
   name: lunacake wrapper
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Food/bay_trash.rsi
+    sprite: Goobstation/Objects/Consumable/Food/bay_trash.rsi
     state: cakewrap
   - type: Item
 

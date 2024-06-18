@@ -18,7 +18,7 @@
   description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shakerblack.rsi
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerblack.rsi
     state: icon
 
 - type: entity
@@ -26,7 +26,7 @@
   id: DrinkFitnessShakerRed
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shakerred.rsi
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerred.rsi
     state: icon
 
 - type: entity
@@ -34,7 +34,7 @@
   id: DrinkFitnessShakerBlue
   components:
   - type: Sprite
-    sprite: Objects/Consumable/Drinks/shakerblue.rsi
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerblue.rsi
     state: icon
 
 - type: reagent

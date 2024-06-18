@@ -6,7 +6,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/VendingMachines/fitness.rsi
+    sprite: Goobstation/Structures/Machines/VendingMachines/fitness.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -50,7 +50,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/VendingMachines/hotfood.rsi
+    sprite: Goobstation/Structures/Machines/VendingMachines/hotfood.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -89,7 +89,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/VendingMachines/solsnack.rsi
+    sprite: Goobstation/Structures/Machines/VendingMachines/solsnack.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]
@@ -129,7 +129,7 @@
   components:
   - type: Sprite
     noRot: true
-    sprite: Structures/Machines/VendingMachines/weeb.rsi
+    sprite: Goobstation/Structures/Machines/VendingMachines/weeb.rsi
     layers:
     - state: "off"
       map: ["enum.VendingMachineVisualLayers.Base"]

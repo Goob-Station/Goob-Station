@@ -10,7 +10,7 @@
   - type: Anchorable
   - type: Rotatable
   - type: Sprite
-    sprite: Structures/Specific/barbershop.rsi
+    sprite: Goobstation/Structures/Specific/barbershop.rsi
     state: barberchair
 
 - type: entity
@@ -20,7 +20,7 @@
   description: Hypnotic.
   components:
   - type: Sprite
-    sprite: Structures/Specific/barbershop.rsi
+    sprite: Goobstation/Structures/Specific/barbershop.rsi
     state: pole
     snapCardinals: false
 
@@ -31,6 +31,6 @@
   description: Let's hope it's not a medical practice...
   components:
   - type: Sprite
-    sprite: Structures/Specific/barbershop.rsi
+    sprite: Goobstation/Structures/Specific/barbershop.rsi
     state: thesnip
     snapCardinals: false
