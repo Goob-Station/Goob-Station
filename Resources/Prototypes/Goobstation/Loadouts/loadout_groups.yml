@@ -1,6 +1,6 @@
 - type: loadoutGroup
   id: Nanotrasen_representativeHead
-  name: loudout-group-ntr-head
+  name: loadout-group-ntr-head
   minLimit: 0
   loadouts:
   - Nanotrasen_representativeHead
