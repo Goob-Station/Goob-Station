@@ -1,21 +1,21 @@
 - type: loadoutGroup
-  id: Nanotrasen_representativeHead
+  id: NanotrasenRepresentativeHead
   name: loadout-group-ntr-head
   minLimit: 0
   loadouts:
-  - Nanotrasen_representativeHead
-  - Nanotrasen_representativeCap
+  - NanotrasenRepresentativeHead
+  - NanotrasenRepresentativeCap
 
 - type: loadoutGroup
-  id: Nanotrasen_representativeBackpack
+  id: NanotrasenRepresentativeBackpack
   name: loadout-group-ntr-backpack
   loadouts:
-  - Nanotrasen_representativeBackpack
-  - Nanotrasen_representativeSatchel
+  - NanotrasenRepresentativeBackpack
+  - NanotrasenRepresentativeSatchel
 
 - type: loadoutGroup
-  id: Nanotrasen_representativeJumpsuit
+  id: NanotrasenRepresentativeJumpsuit
   name: loadout-group-ntr-jumpsuit
   loadouts:
-  - Nanotrasen_representativeJumpsuit
-  - Nanotrasen_representativeJumpskirt
+  - NanotrasenRepresentativeJumpsuit
+  - NanotrasenRepresentativeJumpskirt
