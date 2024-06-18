@@ -12,3 +12,10 @@
   loadouts:
   - Nanotrasen_representativeBackpack
   - Nanotrasen_representativeSatchel
+
+- type: loadoutGroup
+  id: Nanotrasen_representativeJumpsuit
+  name: loadout-group-ntr-jumpsuit
+  loadouts:
+  - Nanotrasen_representativeJumpsuit
+  - Nanotrasen_representativeJumpskirt
