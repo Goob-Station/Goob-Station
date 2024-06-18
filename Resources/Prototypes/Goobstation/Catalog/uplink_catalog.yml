@@ -4,7 +4,6 @@
   description: uplink-gondola-desc
   productEntity: CrateNPCGondola
   cost:
-    # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 6
   categories:
     -  UplinkDisruption
