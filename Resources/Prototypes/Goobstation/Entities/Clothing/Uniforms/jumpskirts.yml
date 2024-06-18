@@ -11,7 +11,7 @@
 
 - type: entity
   parent: ClothingUniformSkirtBase
-  id: Centcom_agentSkirt
+  id: CentcomAgentSkirt
   name: Centcom agent skirt
   description: A skirt worn by CentComs legal team. Smells of burnt coffee.
   components:
