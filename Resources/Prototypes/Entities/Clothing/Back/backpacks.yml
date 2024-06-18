@@ -330,6 +330,8 @@
     - 6,4,7,5
     - 9,2,10,3
     - 9,5,9,5
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpack
@@ -341,6 +343,8 @@
   - type: Storage
     grid:
     - 0,0,39,24
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpack
@@ -362,6 +366,8 @@
     - 9,0,9,1
     - 8,2,8,3
     - 10,2,10,3
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   parent: ClothingBackpack
@@ -373,3 +379,5 @@
   - type: Storage
     grid:
     - 5,5,11,8
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
