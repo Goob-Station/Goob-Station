@@ -36,5 +36,5 @@
   equipment:
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    pocket1: BaseUplinkRadio40TC
+    pocket1: BaseUplinkRadio200TC # Goobstation - Telecrystal rework
     id: SyndiPDA

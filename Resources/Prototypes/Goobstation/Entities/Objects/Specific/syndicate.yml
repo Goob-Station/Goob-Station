@@ -45,3 +45,11 @@
   components:
   - type: Stack
     count: 40
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal50
+  suffix: 50 TC
+  components:
+  - type: Stack
+    count: 50
