@@ -31,7 +31,7 @@
   id: Nanotrasen_representativeSatchel
   equipment: NtrSatchel
 
-- type: startinggear
+- type: startingGear
   id: Nanotrasen_representativeSatchel
   equipment: 
     back: ClothingBackpackSatchelNanorep
