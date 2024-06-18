@@ -1,0 +1,37 @@
+#hat
+- type: loadout
+  id: Nanotrasen_representativeHead
+  equipment: Nanotrasen_representativeHead
+
+- type: startingGear
+  id: Nanotrasen_representativeHead
+  equipment:
+    head: ClothingHeadHatCentcom
+
+- type: loadout
+  id: Nanotrasen_representativeCap
+  equipment: Nanotrasen_representativeCap
+
+- type: startingGear
+  id: Nanotrasen_representativeCap
+  equipment: 
+    head: ClothingHeadHatCentcomcap
+
+#backy packy
+- type: loadout
+  id: Nanotrasen_representativeBackpack
+  equipment: Ntrbackpack
+
+- type: startingGear
+  id: Nanotrasen_representativebackpack
+  equipment:
+    back: ClothingBackpackCentcom
+
+- type: loadout
+  id: Nanotrasen_representativeSatchel
+  equipment: NtrSatchel
+
+- type: startinggear
+  id: Nanotrasen_representativeSatchel
+  equipment: 
+    back: ClothingBackpackSatchelNanorep
