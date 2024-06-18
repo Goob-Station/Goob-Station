@@ -35,3 +35,9 @@ Entries:
       message: Emitters and containment field generators are now much cheaper!
   id: 8
   time: '2024-06-18T12:08:34.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Dwarves are now w i d e.
+  id: 9
+  time: '2024-06-18T12:09:05.0000000+00:00'
