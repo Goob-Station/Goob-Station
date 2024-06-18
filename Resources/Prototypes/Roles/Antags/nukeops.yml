@@ -52,8 +52,7 @@
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
-    # Goobstation - Telecrystal rework
-    pocket2: BaseUplinkRadio200TC
+    pocket2: BaseUplinkRadio40TC
     belt: ClothingBeltMilitaryWebbing
   storage:
     back:
@@ -100,5 +99,4 @@
   id: SyndicateLoneOperativeGearFull
   parent: SyndicateOperativeGearFull
   equipment:
-    # Goobstation - Telecrystal rework
-    pocket2: BaseUplinkRadio200TC
+    pocket2: BaseUplinkRadio60TC

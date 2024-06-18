@@ -1,8 +1,8 @@
 <Document>
   # Traitors
-
+  
   WHISKEY. ECHO. WHISKEY. LIMA. ALPHA. DELTA.
-
+  
   - A Traitor is an antagonist employed by the Syndicate. They have access to various Syndicate tools and weapons through their [color=#a4885c]Uplink[/color].
   - Traitors can use codewords to identify themselves to one another in order to cooperate.
   - In a Traitor round, any player can be a Traitor aside from department heads, the captain, or any security officers.
@@ -10,8 +10,7 @@
 
   ## Uplink
   <Box>
-    <!-- Goobstation - Telecrystal rework -->
-    <GuideEntityEmbed Entity="BaseUplinkRadio200TC" Caption="Uplink"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="Uplink"/>
   </Box>
   - The [color=#a4885c]Uplink[/color] is the most important tool as a Traitor, as it can purchase tools and weapons with [color=#a4885c]telecrystals[/color](TC).
   <Box>
