@@ -59,3 +59,11 @@ Entries:
       message: Port over all the textures from EE.
   id: 11
   time: '2024-06-18T12:23:41.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        The telecrystal market has been flooded with telecrystals, increasing
+        prices and availability fivefold.
+  id: 12
+  time: '2024-06-18T12:29:26.0000000+00:00'
