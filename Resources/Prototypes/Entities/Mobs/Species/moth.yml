@@ -44,7 +44,7 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 2.5 # Move around more easily in space.
+    weightlessAcceleration: 2.5 # Goobstation - Frictionless Space, move around more easily in space.
   - type: Flammable
     damage:
       types:
