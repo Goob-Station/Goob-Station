@@ -1,56 +1,56 @@
 #hat
 - type: loadout
-  id: Nanotrasen_representativeHead
-  equipment: Nanotrasen_representativeHead
+  id: NanotrasenRepresentativeHead
+  equipment: NanotrasenRepresentativeHead
 
 - type: startingGear
-  id: Nanotrasen_representativeHead
+  id: NanotrasenRepresentativeHead
   equipment:
     head: ClothingHeadHatCentcom
 
 - type: loadout
-  id: Nanotrasen_representativeCap
-  equipment: Nanotrasen_representativeCap
+  id: NanotrasenRepresentativeCap
+  equipment: NanotrasenRepresentativeCap
 
 - type: startingGear
-  id: Nanotrasen_representativeCap
+  id: NanotrasenRepresentativeCap
   equipment: 
     head: ClothingHeadHatCentcomcap
 
 #backy packy
 - type: loadout
-  id: Nanotrasen_representativeBackpack
-  equipment: Nanotrasen_representativeBackpack
+  id: NanotrasenRepresentativeBackpack
+  equipment: NanotrasenRepresentativeBackpack
 
 - type: startingGear
-  id: Nanotrasen_representativeBackpack
+  id: NanotrasenRepresentativeBackpack
   equipment:
     back: ClothingBackpackCentcom
 
 - type: loadout
-  id: Nanotrasen_representativeSatchel
-  equipment: Nanotrasen_representativeSatchel
+  id: NanotrasenRepresentativeSatchel
+  equipment: NanotrasenRepresentativeSatchel
 
 - type: startingGear
-  id: Nanotrasen_representativeSatchel
+  id: NanotrasenRepresentativeSatchel
   equipment: 
     back: ClothingBackpackSatchelNanorep
 
 #jumpy suity
 - type: loadout
-  id: Nanotrasen_representativeJumpsuit
-  equipment: Nanotrasen_representativeJumpsuit
+  id: NanotrasenRepresentativeJumpsuit
+  equipment: NanotrasenRepresentativeJumpsuit
 
 - type: startingGear
-  id: Nanotrasen_representativeJumpsuit
+  id: NanotrasenRepresentativeJumpsuit
   equipment: 
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
     
 - type: loadout
-  id: Nanotrasen_representativeJumpskirt
-  equipment: Nanotrasen_representativeJumpskirt
+  id: NanotrasenRepresentativeJumpskirt
+  equipment: NanotrasenRepresentativeJumpskirt
 
 - type: startingGear
-  id: Nanotrasen_representativeJumpskirt
+  id: NanotrasenRepresentativeJumpskirt
   equipment:
-    back: Centcom_agentSkirt
+    back: CentcomAgentSkirt
