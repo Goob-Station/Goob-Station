@@ -4,7 +4,7 @@
   suffix: recharging
   id: RechargeFlash
   components:
-    - type: LimitedCharge
+    - type: LimitedCharges
       maxCharges: 3
       charges: 3
     - type: AutoRecharge
