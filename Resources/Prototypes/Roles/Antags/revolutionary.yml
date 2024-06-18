@@ -20,7 +20,7 @@
   storage:
     back:
     - RechargeFlash
-    - ClothingEyesGlassesHiddenSecurity
+    - ClothingEyesGlassesSecurity # supposed to be synd chame sec glasses, but they broke recently because fuck me that's why
     - EncryptionKeySyndie
 
 # Goobstation - Rev changes
@@ -29,5 +29,5 @@
   storage:
     back:
     - RechargeFlash
-    - ClothingEyesGlassesHiddenSecurity
+    - ClothingEyesGlassesSecurity
     # For midround revs, removes the synd key to prevent fuckery on op/synd games, or survival games that roll sleeper or lone op.
