@@ -29,3 +29,9 @@ Entries:
       message: Remove items from chameleon items that were unintended.
   id: 7
   time: '2024-06-18T03:37:53.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Emitters and containment field generators are now much cheaper!
+  id: 8
+  time: '2024-06-18T12:08:34.0000000+00:00'
