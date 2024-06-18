@@ -20,7 +20,7 @@
 #backy packy
 - type: loadout
   id: Nanotrasen_representativeBackpack
-  equipment: Ntrbackpack
+  equipment: Nanotrasen_representativeBackpack
 
 - type: startingGear
   id: Nanotrasen_representativebackpack
@@ -29,7 +29,7 @@
 
 - type: loadout
   id: Nanotrasen_representativeSatchel
-  equipment: NtrSatchel
+  equipment: Nanotrasen_representativeSatchel
 
 - type: startingGear
   id: Nanotrasen_representativeSatchel
