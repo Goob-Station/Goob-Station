@@ -35362,7 +35362,7 @@ entities:
     - type: Transform
       pos: 4.5,-15.5
       parent: 1668
-- proto: Telecrystal5
+- proto: Telecrystal25  # Goobstation - Telecrystal rework
   entities:
   - uid: 3772
     components:

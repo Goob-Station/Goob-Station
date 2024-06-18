@@ -534,7 +534,7 @@
     spawned:
     - id: FoodMeat
       amount: 3
-    - id: Telecrystal5
+    - id: Telecrystal25 # Goobstation - Telecrystal rework
       amount: 1
   - type: Grammar
     attributes:
