@@ -2,6 +2,7 @@
   id: JobNanotrasenRepresentative
   groups:
   - Nanotrasen_representativeHead
+  - Nanotrasen_representativeJumpsuit
   - Nanotrasen_representativeBackpack
   - Glasses
   - Trinkets
