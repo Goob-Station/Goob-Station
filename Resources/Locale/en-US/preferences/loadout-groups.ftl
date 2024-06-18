@@ -17,6 +17,9 @@ loadout-group-hop-neck = Head of Personnel neck
 loadout-group-hop-backpack = Head of Personnel backpack
 loadout-group-hop-outerclothing = Head of Personnel outer clothing
 
+loadout-group-ntr-head = Nanotrasen Representative head <#-- Goobstation -->
+loadout-group-ntr-backpack = Nanotrasen Representative backpack <#-- Goobstation -->
+
 # Civilian
 loadout-group-passenger-jumpsuit = Passenger jumpsuit
 loadout-group-passenger-mask = Passenger mask
