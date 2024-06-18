@@ -16,6 +16,6 @@
   description: A skirt worn by CentComs legal team. Smells of burnt coffee.
   components:
   - type: Sprite
-    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/centcomagent.rsi
   - type: Clothing
-    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/centcom_agent.rsi
+    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/centcomagent.rsi
