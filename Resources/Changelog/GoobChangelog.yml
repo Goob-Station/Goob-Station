@@ -41,3 +41,15 @@ Entries:
       message: Dwarves are now w i d e.
   id: 9
   time: '2024-06-18T12:09:05.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: >-
+        Headrevs now have syndicate encryption keys. Coordinate and plan a
+        strategy!
+    - type: Tweak
+      message: >-
+        Revs and survival chances have been swapped. Revs at a 10%, and survival
+        at 5%.
+  id: 10
+  time: '2024-06-18T12:12:08.0000000+00:00'
