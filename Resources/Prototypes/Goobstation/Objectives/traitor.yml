@@ -12,6 +12,7 @@
   - type: PickRandomTraitor
   - type: KillPersonCondition
     requireDead: true
+  - type: MultipleTraitorsRequirement
 
 # Kill random person
 # This is a separate objective to prevent metagaming by having a different condition for killing traitors

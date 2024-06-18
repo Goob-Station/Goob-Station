@@ -126,8 +126,8 @@ public sealed class KillPersonConditionSystem : EntitySystem
 
         var tots = _traitor.GetOtherTraitorMindsAliveAndConnected(args.Mind);
 
-        // Set target to a random person on station if no other traitors are found
-        var targetId = tots.Count > 0 ? _random.Pick(tots).Id : _random.Pick(allHumans);
+        // We have a requirement for there to be other traitors, no need to check if there are any other
+        var targetId = _random.Pick(tots).Id;
         _target.SetTarget(uid, targetId, target);
     }
 
