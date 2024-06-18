@@ -23,7 +23,7 @@
   equipment: Nanotrasen_representativeBackpack
 
 - type: startingGear
-  id: Nanotrasen_representativebackpack
+  id: Nanotrasen_representativeBackpack
   equipment:
     back: ClothingBackpackCentcom
 
