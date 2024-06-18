@@ -23,3 +23,9 @@ Entries:
       message: Re-added fire fighting remotes to atmos lockers.
   id: 6
   time: '2024-06-17T21:00:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Remove items from chameleon items that were unintended.
+  id: 7
+  time: '2024-06-18T03:37:53.0000000+00:00'
