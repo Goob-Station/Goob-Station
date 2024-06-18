@@ -201,6 +201,8 @@
       - id: ClothingUniformJumpskirtPerformer
       - id: FoodMealMemoryleek
         amount: 2
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
 
 - type: entity
   name: flare box
