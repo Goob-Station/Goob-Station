@@ -43,6 +43,7 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
+    RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another traitor
 
 #Thief groups
 - type: weightedRandom

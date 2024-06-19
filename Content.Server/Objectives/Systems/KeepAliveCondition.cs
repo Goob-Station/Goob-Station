@@ -5,6 +5,7 @@ using Content.Shared.Objectives.Components;
 using Content.Shared.Roles.Jobs;
 using Robust.Shared.Random;
 using System.Linq;
+using Content.Server.Goobstation.Objectives.Components;
 
 namespace Content.Server.Objectives.Systems;
 
@@ -13,6 +14,7 @@ namespace Content.Server.Objectives.Systems;
 /// </summary>
 public sealed class KeepAliveConditionSystem : EntitySystem
 {
+    [Dependency] private readonly EntityManager _entity = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
@@ -25,6 +27,8 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         SubscribeLocalEvent<KeepAliveConditionComponent, ObjectiveGetProgressEvent>(OnGetProgress);
 
         SubscribeLocalEvent<RandomTraitorAliveComponent, ObjectiveAssignedEvent>(OnAssigned);
+
+        SubscribeLocalEvent<RandomTraitorTargetComponent, ObjectiveAssignedEvent>(OnTraitorTargetAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, KeepAliveConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -54,6 +58,54 @@ public sealed class KeepAliveConditionSystem : EntitySystem
         }
 
         _target.SetTarget(uid, _random.Pick(traitors).Id, target);
+    }
+
+    // Goobstation - Protect another traitor's target
+    private void OnTraitorTargetAssigned(EntityUid uid,
+        RandomTraitorTargetComponent comp,
+        ref ObjectiveAssignedEvent args)
+    {
+        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var tots = _traitorRule.GetOtherTraitorMindsAliveAndConnected(args.Mind);
+        var killTargets = new List<EntityUid>();
+
+        foreach (var tot in tots)
+        {
+            var objectives = tot.Mind.Objectives;
+            foreach (var obj in objectives)
+            {
+                // Check for kill cond
+                if (!_entity.HasComponent<KillPersonConditionComponent>(obj))
+                    continue;
+
+                // Check if target is present
+                if (!_entity.TryGetComponent<TargetObjectiveComponent>(obj, out var targComp))
+                    continue;
+
+                if (targComp.Target == null)
+                    continue;
+
+                // Check if target is us
+                if (targComp.Target == args.MindId)
+                    continue;
+
+                killTargets.Add(targComp.Target.Value);
+            }
+        }
+
+        // No other traitors or no traitors with valid kill objectives
+        if (killTargets.Count == 0)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        _target.SetTarget(uid, _random.Pick(killTargets), target);
     }
 
     private float GetProgress(EntityUid target)
