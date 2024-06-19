@@ -97,3 +97,11 @@ Entries:
       message: Traitors are now more likely to have conflicting objectives
   id: 16
   time: '2024-06-19T07:25:56.0000000+00:00'
+- author: Teapug
+  changes:
+    - type: Tweak
+      message: >-
+        Nanotrasen in their all knowing wisdom has made NTR's backpack not ugly
+        as shit! Rejoice!
+  id: 17
+  time: '2024-06-19T07:28:06.0000000+00:00'
