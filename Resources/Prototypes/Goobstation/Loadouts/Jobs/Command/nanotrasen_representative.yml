@@ -14,7 +14,7 @@
 
 - type: startingGear
   id: NanotrasenRepresentativeCap
-  equipment: 
+  equipment:
     head: ClothingHeadHatCentcomcap
 
 #backy packy
@@ -33,7 +33,7 @@
 
 - type: startingGear
   id: NanotrasenRepresentativeSatchel
-  equipment: 
+  equipment:
     back: ClothingBackpackSatchelNanorep
 
 #jumpy suity
@@ -43,9 +43,9 @@
 
 - type: startingGear
   id: NanotrasenRepresentativeJumpsuit
-  equipment: 
+  equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
-    
+
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment: NanotrasenRepresentativeJumpskirt
@@ -53,4 +53,4 @@
 - type: startingGear
   id: NanotrasenRepresentativeJumpskirt
   equipment:
-    back: CentcomAgentSkirt
+    jumpsuit:: CentcomAgentSkirt
