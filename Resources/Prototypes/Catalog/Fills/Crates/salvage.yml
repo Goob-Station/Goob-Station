@@ -83,7 +83,7 @@
       - id: ClothingHeadHatDogEars
         prob: 0.01
         # TRAITOR EQUIPMENT (0.01%)
-      - id: Telecrystal10
+      - id: Telecrystal50 # Goobstation - Telecrystal rework
         prob: 0.0001
       - id: WeaponRevolverPython
         prob: 0.0001

@@ -2,7 +2,8 @@
   name: telecrystal
   parent: BaseItem
   id: Telecrystal
-  suffix: 20 TC
+  # Goobstation - Telecrystal rework
+  suffix: 100 TC
   description: It seems to be pulsing with suspiciously enticing energies.
   components:
   - type: Sprite
@@ -12,12 +13,12 @@
     sprite: Objects/Specific/Syndicate/telecrystal.rsi
     size: Tiny
   - type: Stack
-    count: 20
+    count: 100
     stackType: Telecrystal
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 200
+    price: 1000
   - type: Currency
     price:
       Telecrystal: 1
@@ -73,43 +74,47 @@
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio20TC
-  suffix: 20 TC
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadio100TC
+  suffix: 100 TC
   components:
   - type: Store
     balance:
-      Telecrystal: 20
+      Telecrystal: 100
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio25TC
-  suffix: 25 TC
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadio125TC
+  suffix: 125 TC
   components:
   - type: Store
     balance:
-      Telecrystal: 25
+      Telecrystal: 125
 
 #this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio40TC
-  suffix: 40 TC, NukeOps
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadio200TC
+  suffix: 400 TC, NukeOps
   components:
   - type: Store
     balance:
-      Telecrystal: 40
+      Telecrystal: 200
   - type: Tag
     tags:
     - NukeOpsUplink
 
 - type: entity
   parent: BaseUplinkRadio
-  id: BaseUplinkRadio60TC
-  suffix: 60 TC, LoneOps
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadio300TC
+  suffix: 300 TC, LoneOps
   components:
   - type: Store
     balance:
-      Telecrystal: 60
+      Telecrystal: 300
   - type: Tag
     tags:
     - NukeOpsUplink
@@ -121,4 +126,5 @@
   components:
   - type: Store
     balance:
-      Telecrystal: 99999
+      # Goobstation - Telecrystal rework
+      Telecrystal: 999999
