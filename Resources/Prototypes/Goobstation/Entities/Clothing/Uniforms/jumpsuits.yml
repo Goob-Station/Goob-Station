@@ -6,9 +6,9 @@
   description: A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
   components:
   - type: Sprite
-    sprite: Goobstation\Clothing\Uniforms\Jumpsuit\durathread_jumpsuit.rsi
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Clothing
-    sprite: Goobstation\Clothing\Uniforms\Jumpsuit\durathread_jumpsuit.rsi
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/durathread_jumpsuit.rsi
   - type: Armor
     modifiers:
       coefficients:
