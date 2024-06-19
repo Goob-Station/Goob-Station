@@ -97,7 +97,7 @@
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
   id: BaseUplinkRadio200TC
-  suffix: 400 TC, NukeOps
+  suffix: 200 TC, NukeOps
   components:
   - type: Store
     balance:
