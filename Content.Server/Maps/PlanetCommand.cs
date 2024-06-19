@@ -81,36 +81,8 @@ public sealed class PlanetCommand : IConsoleCommand
         }
         var probSum = budgetEntries.Sum(x => x.Prob);
         var allLoot = _protoManager.Index<SalvageLootPrototype>(SharedSalvageSystem.ExpeditionsLootProto);
-        var lootBudget = 100f;
         var seed = _entManager.GetComponent<BiomeComponent>(mapUid).Seed;
         var random = new Random(seed);
-
-        foreach (var rule in allLoot.LootRules)
-        {
-            switch (rule)
-            {
-                case RandomSpawnsLoot randomLoot:
-                    budgetEntries.Clear();
-
-                    foreach (var entry in randomLoot.Entries)
-                    {
-                        budgetEntries.Add(entry);
-                    }
-
-                    probSum = budgetEntries.Sum(x => x.Prob);
-
-                    while (lootBudget > 0f)
-                    {
-                        var entry = randomSystem.GetBudgetEntry(ref lootBudget, ref probSum, budgetEntries, random);
-                        if (entry == null)
-                            break;
-
-                    }
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
-        }
 
 
         shell.WriteLine(Loc.GetString("cmd-planet-success", ("mapId", mapId)));
