@@ -22,35 +22,5 @@
       "name": "inhand-right",
       "directions": 4
     },
-    {
-      "name": "trinkets-icon"
-    },
-    {
-      "name": "trinkets-equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "trinkets-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "trinkets-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "prisoner-icon"
-    },
-    {
-      "name": "prisoner-inhand-left",
-      "directions": 4
-    },
-    {
-      "name": "prisoner-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "prisoner-equipped-INNERCLOTHING",
-      "directions": 4
-    }
   ]
 }
