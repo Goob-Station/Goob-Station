@@ -53,4 +53,4 @@
 - type: startingGear
   id: NanotrasenRepresentativeJumpskirt
   equipment:
-    jumpsuit:: CentcomAgentSkirt
+    jumpsuit: CentcomAgentSkirt
