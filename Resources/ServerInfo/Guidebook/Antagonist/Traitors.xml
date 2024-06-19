@@ -10,7 +10,6 @@
 
   ## Uplink
   <Box>
-    <!-- Goobstation - Telecrystal rework -->
     <GuideEntityEmbed Entity="BaseUplinkRadio200TC" Caption="Uplink"/>
   </Box>
   - The [color=#a4885c]Uplink[/color] is the most important tool as a Traitor, as it can purchase tools and weapons with [color=#a4885c]telecrystals[/color](TC).
