@@ -91,3 +91,9 @@ Entries:
         prices.
   id: 15
   time: '2024-06-19T07:25:14.0000000+00:00'
+- author: Misandry
+  changes:
+    - type: Add
+      message: Traitors are now more likely to have conflicting objectives
+  id: 16
+  time: '2024-06-19T07:25:56.0000000+00:00'
