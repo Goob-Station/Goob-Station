@@ -1,0 +1,71 @@
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal15
+  suffix: 15 TC
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal20
+  suffix: 20 TC
+  components:
+  - type: Stack
+    count: 20
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal25
+  suffix: 25 TC
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal30
+  suffix: 30 TC
+  components:
+  - type: Stack
+    count: 30
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal35
+  suffix: 35 TC
+  components:
+  - type: Stack
+    count: 35
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal40
+  suffix: 40 TC
+  components:
+  - type: Stack
+    count: 40
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal50
+  suffix: 50 TC
+  components:
+  - type: Stack
+    count: 50
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal250
+  suffix: 250 TC
+  components:
+  - type: Stack
+    count: 250
+
+- type: entity
+  parent: Telecrystal
+  id: Telecrystal500
+  suffix: 500 TC
+  components:
+  - type: Stack
+    count: 500
