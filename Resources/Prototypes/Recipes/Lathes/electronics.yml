@@ -975,11 +975,3 @@
   materials:
     Steel: 100
     Glass: 500
-
-- type: latheRecipe # Goobstation - adding uniform printer to emagged circuit imprinter.
-  id: UniformPrinter
-  result: UniformPrinter
-  completetime: 4
-  materials:
-    Steel: 100
-    Glass: 500

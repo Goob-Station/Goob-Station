@@ -504,7 +504,6 @@
       - ShuttleGunFriendshipCircuitboard
       - ShuttleGunPerforatorCircuitboard
       - ShuttleGunSvalinnMachineGunCircuitboard
-      - UniformPrinter # Goobstation - adding uniform printer to emagged circuit imprinter.
   - type: MaterialStorage
     whitelist:
       tags:
