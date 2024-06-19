@@ -83,3 +83,11 @@ Entries:
       message: Un-flatten dwarves.
   id: 14
   time: '2024-06-18T13:22:18.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: >-
+        The syndicate are now provided with 100 TC to cope with the inflating
+        prices.
+  id: 15
+  time: '2024-06-19T07:25:14.0000000+00:00'
