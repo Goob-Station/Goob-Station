@@ -69,6 +69,8 @@ public sealed class PlanetCommand : IConsoleCommand
         var mapUid = _mapManager.GetMapEntityId(mapId);
         biomeSystem.EnsurePlanet(mapUid, biomeTemplate);
 
+        // - Beginning of GoobStation changes -
+
         var budgetEntries = new List<IBudgetEntry>();
         var randomSystem = _entManager.System<RandomSystem>();
 
@@ -116,6 +118,8 @@ public sealed class PlanetCommand : IConsoleCommand
             }
         }
     }
+
+    // - End of GoobStation changes -
 
     public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
     {
