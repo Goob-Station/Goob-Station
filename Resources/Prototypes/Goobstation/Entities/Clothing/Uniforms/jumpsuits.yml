@@ -13,11 +13,8 @@
     modifiers:
       coefficients:
         Blunt: 0.95 # no plating so no pierce/blunt protection but provides some stab resistance and heat resistance
-        Slash: 0.8
+        Slash: 0.9
         Piercing: 0.95
-        Heat: 0.8
+        Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.95
-  - type: Construction
-    graph: DurathreadJumpsuitGraph
-    node: jumpsuit

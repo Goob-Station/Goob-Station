@@ -504,6 +504,7 @@
       - ShuttleGunFriendshipCircuitboard
       - ShuttleGunPerforatorCircuitboard
       - ShuttleGunSvalinnMachineGunCircuitboard
+      - UniformPrinter # Goobstation - adding uniform printer to emagged circuit imprinter.
   - type: MaterialStorage
     whitelist:
       tags:
@@ -1127,6 +1128,9 @@
       - ClothingOuterWinterCentcom
       - ClothingOuterWinterSyndie
       - ClothingOuterWinterSyndieCap
+      - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
+      - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
+      - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
   - type: MaterialStorage
     whitelist:
       tags:
