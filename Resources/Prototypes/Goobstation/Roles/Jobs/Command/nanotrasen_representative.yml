@@ -28,11 +28,7 @@
 - type: startingGear
   id: NanotrasenRepresentativeGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCentcomAgent
-    back: ClothingBackpackSatchelNanorep
     shoes: ClothingShoesColorBlack
-    head: ClothingHeadHatCentcomcap
-    eyes: ClothingEyesGlasses
     id: CentcomPDA
     ears: ClothingHeadsetCentCom
     belt: BoxFolderCentComClipboard
