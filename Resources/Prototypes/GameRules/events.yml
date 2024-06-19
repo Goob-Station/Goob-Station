@@ -495,8 +495,11 @@
     minimumPlayers: 20
   - type: ImmovableRodRule
     rodPrototypes:
+    - id: ImmovableRodSkibidi  #Goobstation - immovable rod improvments
+      prob: 0.9
+      orGroup: rodProto
     - id: ImmovableRodKeepTilesStill
-      prob: 0.95
+      prob: 0.05  # Goobstation -lowered from 95% to 5% to make room for skibbidi
       orGroup: rodProto
     - id: ImmovableRodMop
       prob: 0.0072
