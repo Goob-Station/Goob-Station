@@ -1,0 +1,47 @@
+# Durathred web vest
+- type: entity
+  parent: ClothingOuterVestWeb 
+  id: ClothingOuterVestWebDurathread
+  name: durathread web vest
+  description: An improvised armored web vest made from durathread with plasteel plates. It's surprisingly light, despite formidable armor plating.
+  components:
+  - type: Sprite
+    sprite: Goobstation\Clothing\Armor\durathread_web_vest.rsi
+  - type: Clothing
+    sprite: Goobstation\Clothing\Armor\durathread_web_vest.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.8 # same stats as the mercinary web vest, might change later but i think this is ok considering the web vest is mapped in a few places.
+        Slash: 0.8
+        Piercing: 0.5
+        Heat: 0.9
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Construction
+    graph: DurathreadWebVestGraph
+    node: webvest
+
+# Durathread plated vest
+- type: entity
+  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  id: ClothingOuterArmourDurathread
+  name: durathread armor
+  description: An improvised armored vest made from durathread with plasteel plates. It's surprisingly flexible and light, despite formidable armor plating.
+  components:
+  - type: Sprite
+    sprite: Goobstation\Clothing\Armor\durathread_armour.rsi
+  - type: Clothing
+    sprite: Goobstation\Clothing\Armor\durathread_armour.rsi
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.8 # better stats than the web vest since it has no storage slots, a good trade imo. slightly better than a bulletproof vest
+        Slash: 0.8
+        Piercing: 0.4 
+        Heat: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
+  - type: Construction
+    graph: DurathreadArmourGraph
+    node: armour

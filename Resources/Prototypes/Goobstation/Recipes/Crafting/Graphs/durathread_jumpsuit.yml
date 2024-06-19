@@ -1,0 +1,13 @@
+- type: constructionGraph
+  id: DurathreadJumpsuitGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: jumpsuit
+      steps:
+      - material: Durathread
+        amount: 10
+        doAfter: 5
+  - node: jumpsuit
+    entity: ClothingUniformJumpsuitDurathread

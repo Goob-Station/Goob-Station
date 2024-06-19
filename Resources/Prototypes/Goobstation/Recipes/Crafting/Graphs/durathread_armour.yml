@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: DurathreadArmourGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: armour
+      steps:
+      - material: Durathread
+        amount: 10
+        doAfter: 5
+      - material: Plasteel
+        amount: 10
+        doAfter: 5
+  - node: armour
+    entity: ClothingOuterArmourDurathread
