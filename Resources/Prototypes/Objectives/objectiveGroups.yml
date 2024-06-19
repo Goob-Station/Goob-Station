@@ -27,7 +27,9 @@
   id: TraitorObjectiveGroupKill
   weights:
     KillRandomPersonObjective: 1
-    KillRandomHeadObjective: 0.25
+    PermaKillRandomPersonObjective: 0.5 # Goobstation - straight up kill someone with no maroons
+    PermaKillRandomTraitorObjective: 0.3 # Goobstation - target traitor
+    KillRandomHeadObjective: 0.2
 
 - type: weightedRandom
   id: TraitorObjectiveGroupState
@@ -41,6 +43,7 @@
   weights:
     RandomTraitorAliveObjective: 1
     RandomTraitorProgressObjective: 1
+    RandomTraitorTargetAliveObjective: 0.5 # Goobstation - protect a player that is targeted by another traitor
 
 #Thief groups
 - type: weightedRandom
