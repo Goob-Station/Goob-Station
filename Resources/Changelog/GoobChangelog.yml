@@ -111,3 +111,11 @@ Entries:
       message: planet command generates an ore layer
   id: 18
   time: '2024-06-20T03:33:02.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        durathread armour, web vest and jumpsuit is now craftable in the clothes
+        printer when emagged
+  id: 19
+  time: '2024-06-20T03:35:55.0000000+00:00'
