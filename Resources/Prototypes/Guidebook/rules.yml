@@ -217,7 +217,7 @@
   name: guide-entry-goob-rules-r1
   ruleEntry: true
   priority: 8
-  text: "/ServerInfo/Goobstation/ServerRules/RoleplayRules/RuleR1MassDestruction.xml"
+  text: "/ServerInfo/Goobstation/Guidebook/ServerRules/RoleplayRules/RuleR1MassDestruction.xml"
 
 - type: guideEntry
   id: RuleR8
