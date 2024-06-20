@@ -39,7 +39,7 @@ namespace Content.Server.Carrying
 {
     public sealed class CarryingSystem : EntitySystem
     {
-        [Dependency] private readonly VirtualItemSystem  _virtualItemSystem = default!;
+        [Dependency] private readonly VirtualItemSystem _virtualItemSystem = default!;
         [Dependency] private readonly CarryingSlowdownSystem _slowdown = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly StandingStateSystem _standingState = default!;
@@ -68,7 +68,8 @@ namespace Content.Server.Carrying
             SubscribeLocalEvent<BeingCarriedComponent, GettingInteractedWithAttemptEvent>(OnInteractedWith);
             SubscribeLocalEvent<BeingCarriedComponent, PullAttemptEvent>(OnPullAttempt);
             SubscribeLocalEvent<BeingCarriedComponent, StartClimbEvent>(OnStartClimb);
-            SubscribeLocalEvent<BeingCarriedComponent, BuckleChangeEvent>(OnBuckleChange);
+            SubscribeLocalEvent<BeingCarriedComponent, BuckledEvent>(OnBuckled);
+            SubscribeLocalEvent<BeingCarriedComponent, UnbuckledEvent>(OnUnbuckled);
             SubscribeLocalEvent<CarriableComponent, CarryDoAfterEvent>(OnDoAfter);
         }
 
@@ -186,7 +187,7 @@ namespace Content.Server.Carrying
             var targetParent = Transform(args.Target.Value).ParentUid;
 
             if (args.Target.Value != component.Carrier && targetParent != component.Carrier && targetParent != uid)
-                args.Cancel();
+                args.Cancelled = true;
         }
 
         /// <summary>
@@ -220,7 +221,7 @@ namespace Content.Server.Carrying
         private void OnInteractedWith(EntityUid uid, BeingCarriedComponent component, GettingInteractedWithAttemptEvent args)
         {
             if (args.Uid != component.Carrier)
-                args.Cancel();
+                args.Cancelled = true;
         }
 
         private void OnPullAttempt(EntityUid uid, BeingCarriedComponent component, PullAttemptEvent args)
@@ -233,7 +234,12 @@ namespace Content.Server.Carrying
             DropCarried(component.Carrier, uid);
         }
 
-        private void OnBuckleChange(EntityUid uid, BeingCarriedComponent component, ref BuckleChangeEvent args)
+        private void OnBuckled(EntityUid uid, BeingCarriedComponent component, ref BuckledEvent args)
+        {
+            DropCarried(component.Carrier, uid);
+        }
+
+        private void OnUnbuckled(EntityUid uid, BeingCarriedComponent component, ref UnbuckledEvent args)
         {
             DropCarried(component.Carrier, uid);
         }
@@ -361,7 +367,7 @@ namespace Content.Server.Carrying
             if (HasComp<BeingCarriedComponent>(carrier) || HasComp<BeingCarriedComponent>(carried))
                 return false;
 
-        //  if (_respirator.IsReceivingCPR(carried))
+            //  if (_respirator.IsReceivingCPR(carried))
             //  return false;
 
             if (!TryComp<HandsComponent>(carrier, out var hands))
