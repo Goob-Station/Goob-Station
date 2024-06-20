@@ -105,3 +105,9 @@ Entries:
         as shit! Rejoice!
   id: 17
   time: '2024-06-19T07:28:06.0000000+00:00'
+- author: PoTeletubby
+  changes:
+    - type: Tweak
+      message: planet command generates an ore layer
+  id: 18
+  time: '2024-06-20T03:33:02.0000000+00:00'
