@@ -11,10 +11,10 @@
             "name": "Fine"
         },
         {
-            "name": "Critical"
+            "name": "Dead"
         },
         {
-            "name": "Dead",
+            "name": "Critical",
             "delays": [
                 [
                     0.125,
