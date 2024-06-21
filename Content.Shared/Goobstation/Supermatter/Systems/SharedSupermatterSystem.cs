@@ -21,6 +21,8 @@ public abstract class SharedSupermatterSystem : EntitySystem
     {
         Explosion = 0,
         Singulo = 1,
+        Tesla = 2,
+        Cascade = 3 // save for later
     }
     #region Getters/Setters
 
