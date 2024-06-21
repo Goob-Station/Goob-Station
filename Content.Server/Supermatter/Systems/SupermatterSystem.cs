@@ -36,6 +36,7 @@ namespace Content.Server.Supermatter.Systems
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly AmbientSoundSystem _ambient = default!;
+        [Dependency] private readonly TagSystem _tagSystem = default!;
         public new DelamType DelamType;
         public override void Initialize()
         {
@@ -89,7 +90,7 @@ namespace Content.Server.Supermatter.Systems
             float frameTime,
             SupermatterComponent sMcomponent,
             RadiationSourceComponent radcomponent,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             sMcomponent.AtmosUpdateAccumulator += frameTime;
 
@@ -230,7 +231,7 @@ namespace Content.Server.Supermatter.Systems
             float frameTime,
             SupermatterComponent? sMcomponent = null,
             ExplosiveComponent? xplode = null,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             if (!Resolve(uid, ref sMcomponent, ref xplode))
             {
@@ -293,7 +294,8 @@ namespace Content.Server.Supermatter.Systems
 
                 //if there are space tiles next to SM
                 //TODO: change moles out for checking if adjacent tiles exist
-                foreach (var ind in _atmosphere.GetAdjacentTileMixtures(xform.GridUid.Value, indices))
+                var enumerator = _atmosphere.GetAdjacentTileMixtures(xform.GridUid.Value, indices, false, false);
+                while (enumerator.MoveNext(out var ind))
                 {
                     if (ind.TotalMoles != 0)
                         continue;
@@ -375,7 +377,7 @@ namespace Content.Server.Supermatter.Systems
             float frameTime,
             SupermatterComponent sMcomponent,
             ExplosiveComponent xplode,
-            Atmos.GasMixture? mixture = null)
+            GasMixture? mixture = null)
         {
             var xform = Transform(uid);
 
@@ -478,8 +480,7 @@ namespace Content.Server.Supermatter.Systems
         private void OnCollideEvent(EntityUid uid, SupermatterComponent supermatter, ref StartCollideEvent args)
         {
             var target = args.OtherEntity;
-            if (!supermatter.Whitelist.IsValid(target)
-                || args.OtherBody.BodyType == BodyType.Static
+            if (args.OtherBody.BodyType == BodyType.Static
                 || HasComp<SupermatterImmuneComponent>(target)
                 || _container.IsEntityInContainer(uid))
                 return;

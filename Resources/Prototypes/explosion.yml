@@ -130,7 +130,8 @@
   fireStates: 6
   fireStacks: 2
 
-- id: Supermatter
+- type: explosion
+  id: Supermatter
   damagePerIntensity:
     types:
       Radiation: 5
