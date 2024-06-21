@@ -3,6 +3,8 @@ using Robust.Shared.Audio;
 using Content.Shared.Atmos;
 using Content.Shared.Supermatter.Systems;
 using Content.Shared.Whitelist;
+using Content.Shared.DoAfter;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Supermatter.Components;
 
@@ -371,4 +373,10 @@ public sealed partial class SupermatterComponent : Component
     };
 
     #endregion SM Gas
+}
+
+[Serializable, NetSerializable]
+public sealed partial class SupermatterDoAfterEvent : SimpleDoAfterEvent
+{
+
 }

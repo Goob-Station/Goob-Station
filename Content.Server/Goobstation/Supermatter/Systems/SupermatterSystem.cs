@@ -23,6 +23,11 @@ using Content.Server.Lightning;
 using Content.Server.AlertLevel;
 using Content.Server.Station.Systems;
 using System.Text;
+using Content.Server.Kitchen.Components;
+using Content.Shared.DoAfter;
+using Content.Shared.Examine;
+using Content.Server.DoAfter;
+using Content.Server.Popups;
 
 namespace Content.Server.Supermatter.Systems
 {
@@ -42,8 +47,11 @@ namespace Content.Server.Supermatter.Systems
         [Dependency] private readonly LightningSystem _lightning = default!;
         [Dependency] private readonly AlertLevelSystem _alert = default!;
         [Dependency] private readonly StationSystem _station = default!;
+        [Dependency] private readonly DoAfterSystem _doAfter = default!;
+        [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly PopupSystem _popup = default!;
 
-        public DelamType _delamType = DelamType.Explosion;
+        private DelamType _delamType = DelamType.Explosion;
 
         public override void Initialize()
         {
@@ -55,6 +63,8 @@ namespace Content.Server.Supermatter.Systems
             SubscribeLocalEvent<SupermatterComponent, StartCollideEvent>(OnCollideEvent);
             SubscribeLocalEvent<SupermatterComponent, InteractHandEvent>(OnHandInteract);
             SubscribeLocalEvent<SupermatterComponent, InteractUsingEvent>(OnItemInteract);
+            SubscribeLocalEvent<SupermatterComponent, ExaminedEvent>(OnExamine);
+            SubscribeLocalEvent<SupermatterComponent, SupermatterDoAfterEvent>(OnGetSliver);
         }
 
         private void OnComponentRemove(EntityUid uid, SupermatterComponent component, ComponentRemove args)
@@ -106,11 +116,8 @@ namespace Content.Server.Supermatter.Systems
             ProcessAtmos(uid, sm);
             HandleDamage(uid, sm);
 
-            if (sm.Damage >= sm.DelaminationPoint)
-            {
-                Delamination(uid, sm);
-                return;
-            }
+            if (sm.Damage >= sm.DelaminationPoint || sm.Delamming)
+                HandleDelamination(uid, sm);
 
             HandleSoundLoop(uid, sm);
 
@@ -344,6 +351,7 @@ namespace Content.Server.Supermatter.Systems
             if (sm.Damage < sm.DelaminationPoint && sm.Delamming)
             {
                 message = Loc.GetString("supermatter-delam-cancel", ("integrity", integrity));
+                sm.DelamAnnounced = false;
                 global = true;
             }
             if (sm.Delamming && !sm.DelamAnnounced)
@@ -445,89 +453,49 @@ namespace Content.Server.Supermatter.Systems
         }
 
         /// <summary>
-        /// Runs the logic and timers for Delamination
+        ///     Handle the end of the station.
         /// </summary>
-        private void Delamination(EntityUid uid, SupermatterComponent sm)
+        private void HandleDelamination(EntityUid uid, SupermatterComponent sm)
         {
             var xform = Transform(uid);
 
-            
+            _delamType = ChooseDelamType(uid, sm);
 
-            //before we actually start counting down, check to see what delam type we're doing.
-            if (!sm.FinalCountdown)
+            if (!sm.Delamming)
             {
-                //if we're in atmos
-                if (mix is { })
-                {
-                    //Absorbed gas from surrounding area
-                    var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-                    var moles = absorbedGas.TotalMoles;
-                    //if the moles on the sm's tile are above MolePenaltyThreshold
-                    if (moles >= sm.MolePenaltyThreshold)
-                    {
-                        DelamType = DelamType.Singulo;
-                        _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-overmass"),
-                            InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-                    }
-                }
-                else
-                {
-                    DelamType = DelamType.Explosion;
-                    _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-default"),
-                        InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-                }
+                sm.Delamming = true;
+                HandleAnnouncements(uid, sm);
+            }
+            if (sm.Damage < sm.DelaminationPoint && sm.Delamming)
+            {
+                sm.Delamming = false;
+                HandleAnnouncements(uid, sm);
             }
 
-            sm.FinalCountdown = true;
+            sm.DelamTimerAccumulator++;
 
-            sm.DelamTimerAccumulator += frameTime;
-            sm.SpeakAccumulator += frameTime;
-            var roundSeconds = sm.FinalCountdownTime - (int) Math.Floor(sm.DelamTimerAccumulator);
-
-            //we're more than 5 seconds from delam, only yell every 5 seconds.
-            if (roundSeconds >= sm.YellDelam && sm.SpeakAccumulator >= sm.YellDelam)
-            {
-                sm.SpeakAccumulator -= sm.YellDelam;
-                _chat.TrySendInGameICMessage(uid,
-                    Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-            }
-            //less than 5 seconds to delam, count every second.
-            else if (roundSeconds < sm.YellDelam && sm.SpeakAccumulator >= 1)
-            {
-                sm.SpeakAccumulator -= 1;
-                _chat.TrySendInGameICMessage(uid,
-                    Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
-            }
-
-            //TODO: make tesla(?) spawn at SupermatterComponent.PowerPenaltyThreshold and think up other delam types
-            //times up, explode or make a singulo
-            if (!(sm.DelamTimerAccumulator >= sm.FinalCountdownTime))
+            if (sm.DelamTimerAccumulator < sm.DelamTimer)
                 return;
 
-            if (DelamType == DelamType.Singulo)
+            switch (_delamType)
             {
-                //spawn a singulo :)
-                EntityManager.SpawnEntity("Singularity", xform.Coordinates);
-                sm.AudioStream = _audio.Stop(sm.AudioStream);
-            }
-            else
-            {
-                //explosion!!!!!
-                _explosion.TriggerExplosive(
-                    uid,
-                    explosive: xplode,
-                    totalIntensity: sm.TotalIntensity,
-                    radius: sm.Radius,
-                    user: uid
-                );
+                case DelamType.Explosion:
+                default:
+                    _explosion.TriggerExplosive(uid);
+                    break;
 
-                sm.AudioStream = _audio.Stop(sm.AudioStream);
-                _ambient.SetAmbience(uid, false);
-            }
+                case DelamType.Singulo:
+                    Spawn(sm.SingularityPrototypeId, xform.Coordinates);
+                    break;
 
-            sm.FinalCountdown = false;
+                case DelamType.Tesla:
+                    Spawn(sm.TeslaPrototypeId, xform.Coordinates);
+                    break;
+
+                case DelamType.Cascade:
+                    Spawn(sm.SupermatterKudzuPrototypeId, xform.Coordinates);
+                    break;
+            }
         }
 
         private void HandleSoundLoop(EntityUid uid, SupermatterComponent sm)
@@ -584,7 +552,7 @@ namespace Content.Server.Supermatter.Systems
             EntityManager.QueueDeleteEntity(target);
         }
 
-        private void OnHandInteract(EntityUid uid, SupermatterComponent sm, InteractHandEvent args)
+        private void OnHandInteract(EntityUid uid, SupermatterComponent sm, ref InteractHandEvent args)
         {
             if (!sm.Activated)
                 sm.Activated = true;
@@ -599,6 +567,49 @@ namespace Content.Server.Supermatter.Systems
             EntityManager.SpawnEntity("Ash", Transform(target).Coordinates);
             _audio.PlayPvs(sm.DustSound, uid);
             EntityManager.QueueDeleteEntity(target);
+        }
+
+        private void OnItemInteract(EntityUid uid, SupermatterComponent sm, ref InteractUsingEvent args)
+        {
+            if (!sm.Activated)
+                sm.Activated = true;
+
+            if (sm.SliverRemoved)
+                return;
+
+            if (!HasComp<SharpComponent>(args.Used))
+                return;
+
+            var dae = new DoAfterArgs(EntityManager, args.User, 30f, new SupermatterDoAfterEvent(), uid)
+            {
+                BreakOnDamage = true,
+                BreakOnHandChange = false,
+                BreakOnMove = true,
+                BreakOnWeightlessMove = false,
+                NeedHand = true,
+                RequireCanInteract = true,
+            };
+
+            _doAfter.TryStartDoAfter(dae);
+            _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), args.User);
+        }
+
+        private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
+        {
+            sm.Damage += sm.DelaminationPoint / 10; // your criminal actions will not go unnoticed
+            SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", GetIntegrity(sm.Damage, sm.DelaminationPoint).ToString("0.00"))), true, true);
+
+            Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
+            _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), args.User);
+        }
+
+        private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
+        {
+            // get all close and personal to it
+            if (args.IsInDetailsRange)
+            {
+                args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", (int) (100 - sm.Damage))));
+            }
         }
 
         #endregion
