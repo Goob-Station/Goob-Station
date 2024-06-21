@@ -116,6 +116,7 @@
   - type: Tag
     tags:
     - Trash
+    - SMImmune
   - type: SolutionContainerManager
     solutions:
       food:

@@ -1142,7 +1142,13 @@
   id: SmallMech
 
 - type: Tag
+  id: SMImmune
+
+- type: Tag
   id: Smokable
+
+- type: Tag
+  id: SnapPop
 
 - type: Tag
   id: SnowyLabs
