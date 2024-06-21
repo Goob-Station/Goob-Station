@@ -2,5 +2,5 @@
   id: SupermatterSliver
   name: supermatter sliver
   sprite:
-    sprite: Objects/Misc/supermatter_sliver.rsi
+    sprite: Goobstation/Objects/Supermatter/supermatter_sliver.rsi
     state: icon
