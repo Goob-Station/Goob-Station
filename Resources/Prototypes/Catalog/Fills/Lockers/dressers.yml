@@ -91,11 +91,11 @@
       - id: ClothingOuterWinterHoS
 # Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedSecurityHos
-        orGroup: StripedSocks
-        prob: 0.20
-      - id: ClothingUnderSocksStripedSecurityHosJackboot
-        orGroup: StrippedSocks
-        prob: 0.80
+#        orGroup: StripedSocks
+#        prob: 0.20
+#      - id: ClothingUnderSocksStripedSecurityHosJackboot
+#        orGroup: StrippedSocks
+#        prob: 0.80
 
 
 - type: entity
