@@ -339,19 +339,19 @@ namespace Content.Server.Supermatter.Systems
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-danger-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
                     }
                     else if (sMcomponent.Damage >= sMcomponent.DamageArchived)
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-warning-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
                     }
                     else
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-safe-alert", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true);
+                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
                     }
 
                     sMcomponent.YellAccumulator = 0;
