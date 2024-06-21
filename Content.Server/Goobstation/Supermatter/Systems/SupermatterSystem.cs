@@ -146,7 +146,6 @@ namespace Content.Server.Supermatter.Systems
             if (mix is not { })
                 return;
 
-            //Absorbed gas from surrounding area
             var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
             var moles = absorbedGas.TotalMoles;
 
@@ -170,8 +169,7 @@ namespace Content.Server.Supermatter.Systems
             var heatModifier = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].HeatPenalty);
 
             // Minimum value of -10, maximum value of 23. Affects plasma, o2 and heat output.
-            var transmissionBonus =
-                gases.Sum(gas => gases[gas.Key] * facts[gas.Key].TransmitModifier);
+            var transmissionBonus = gases.Sum(gas => gases[gas.Key] * facts[gas.Key].TransmitModifier);
 
             var h2OBonus = 1 - gases[Gas.WaterVapor] * 0.25f;
 
@@ -179,16 +177,16 @@ namespace Content.Server.Supermatter.Systems
             heatModifier = Math.Max(heatModifier, 0.5f);
             transmissionBonus *= h2OBonus;
 
-            //Effects the damage heat does to the crystal
+            // Effects the damage heat does to the crystal
             sm.DynamicHeatResistance = 1f;
 
-            //more moles of gases are harder to heat than fewer,
-            //so let's scale heat damage around them
+            // more moles of gases are harder to heat than fewer,
+            // so let's scale heat damage around them
             sm.MoleHeatPenaltyThreshold = (float) Math.Max(moles * sm.MoleHeatPenalty, 0.25);
 
-            //Ramps up or down in increments of 0.02 up to the proportion of co2
-            //Given infinite time, powerloss_dynamic_scaling = co2comp
-            //Some value between 0 and 1
+            // Ramps up or down in increments of 0.02 up to the proportion of co2
+            // Given infinite time, powerloss_dynamic_scaling = co2comp
+            // Some value between 0 and 1
             if (moles > sm.PowerlossInhibitionMoleThreshold && gases[Gas.CarbonDioxide] > sm.PowerlossInhibitionGasThreshold)
             {
                 var co2powerloss = Math.Clamp(gases[Gas.CarbonDioxide] - sm.PowerlossDynamicScaling, -0.02f, 0.02f);
@@ -199,8 +197,8 @@ namespace Content.Server.Supermatter.Systems
                 sm.PowerlossDynamicScaling = Math.Clamp(sm.PowerlossDynamicScaling - 0.05f, 0f, 1f);
             }
 
-            //Ranges from 0 to 1(1-(value between 0 and 1 * ranges from 1 to 1.5(mol / 500)))
-            //We take the mol count, and scale it to be our inhibitor
+            // Ranges from 0 to 1(1-(value between 0 and 1 * ranges from 1 to 1.5(mol / 500)))
+            // We take the mol count, and scale it to be our inhibitor
             var powerlossInhibitor =
                 Math.Clamp(
                     1 - sm.PowerlossDynamicScaling *
@@ -317,7 +315,7 @@ namespace Content.Server.Supermatter.Systems
                 if (ind.TotalMoles != 0)
                     continue;
 
-                var integrity = GetIntegrity(sm.Damage, sm.DelaminationPoint);
+                var integrity = GetIntegrity(sm);
 
                 // this is some magic number shit
                 var factor = integrity switch
@@ -345,7 +343,7 @@ namespace Content.Server.Supermatter.Systems
             var message = string.Empty;
             var global = false;
 
-            var integrity = GetIntegrity(sm.Damage, sm.DelaminationPoint).ToString("0.00");
+            var integrity = GetIntegrity(sm).ToString("0.00");
 
             // Special cases
             if (sm.Damage < sm.DelaminationPoint && sm.Delamming)
@@ -357,27 +355,38 @@ namespace Content.Server.Supermatter.Systems
             if (sm.Delamming && !sm.DelamAnnounced)
             {
                 var sb = new StringBuilder();
+                var loc = string.Empty;
+                var alertLevel = "Yellow";
 
                 switch (_delamType)
                 {
                     case DelamType.Explosion:
                     default:
-                        sb.Append(Loc.GetString("supermatter-delam-explosion"));
+                        loc = "supermatter-delam-explosion";
                         break;
 
                     case DelamType.Singulo:
-                        sb.Append(Loc.GetString("supermatter-delam-overmass"));
+                        loc = "supermatter-delam-overmass";
+                        alertLevel = "Delta";
                         break;
 
                     case DelamType.Tesla:
-                        sb.Append(Loc.GetString("supermatter-delam-tesla"));
+                        loc = "supermatter-delam-tesla";
+                        alertLevel = "Delta";
                         break;
 
                     case DelamType.Cascade:
-                        sb.Append(Loc.GetString("supermatter-delam-cascade"));
+                        loc = "supermatter-delam-cascade";
+                        alertLevel = "Delta";
                         break;
                 }
-                sb.Append(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
+
+                var station = _station.GetOwningStation(uid);
+                if (station != null)
+                    _alert.SetLevel((EntityUid) station, alertLevel, true, true, true, false);
+
+                sb.AppendLine(Loc.GetString(loc));
+                sb.AppendLine(Loc.GetString("supermatter-seconds-before-delam", ("seconds", sm.DelamTimer)));
 
                 message = sb.ToString();
                 global = true;
@@ -393,12 +402,12 @@ namespace Content.Server.Supermatter.Systems
 
             if (sm.Damage >= sm.WarningPoint)
             {
+                message = Loc.GetString("supermatter-warning", ("integrity", integrity));
                 if (sm.Damage >= sm.EmergencyPoint)
                 {
                     message = Loc.GetString("supermatter-emergency", ("integrity", integrity));
                     global = true;
                 }
-                message = Loc.GetString("supermatter-warning", ("integrity", integrity));
             }
             SupermatterAnnouncement(uid, message, global);
         }
@@ -421,9 +430,9 @@ namespace Content.Server.Supermatter.Systems
         /// <summary>
         ///     Returns the integrity rounded to hundreds, e.g. 100.00%
         /// </summary>
-        public float GetIntegrity(float damage, float maxDamage)
+        public float GetIntegrity(SupermatterComponent sm)
         {
-            var integrity = damage / maxDamage;
+            var integrity = sm.Damage / sm.DelaminationPoint;
             integrity = (float) Math.Round(100 - integrity * 100, 2);
             integrity = integrity < 0 ? 0 : integrity;
             return integrity;
@@ -596,11 +605,15 @@ namespace Content.Server.Supermatter.Systems
 
         private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
         {
+            if (args.Cancelled)
+                return;
+
             sm.Damage += sm.DelaminationPoint / 10; // your criminal actions will not go unnoticed
-            SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", GetIntegrity(sm.Damage, sm.DelaminationPoint).ToString("0.00"))), true, true);
+            SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", GetIntegrity(sm).ToString("0.00"))), true, true);
 
             Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
             _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), args.User);
+            sm.DelamTimer /= 2;
         }
 
         private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
@@ -608,7 +621,7 @@ namespace Content.Server.Supermatter.Systems
             // get all close and personal to it
             if (args.IsInDetailsRange)
             {
-                args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", (int) (100 - sm.Damage))));
+                args.PushMarkup(Loc.GetString("supermatter-examine-integrity", ("integrity", GetIntegrity(sm).ToString("0.00"))));
             }
         }
 

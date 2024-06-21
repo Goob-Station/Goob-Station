@@ -1,6 +1,6 @@
 - type: entity
   id: Supermatter
-  name: supermatter
+  name: supermatter crystal
   description: A strangely translucent and iridescent crystal.
   placement:
     mode: SnapgridCenter
@@ -63,6 +63,5 @@
       maxIntensity: 10000
       intensitySlope: 5
       totalIntensity: 10000
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Engineering
+    - type: GuideHelp
+      guides: [ Supermatter, Power ]

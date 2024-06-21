@@ -358,7 +358,7 @@ public sealed partial class SupermatterComponent : Component
     };
 
     /// <summary>
-    /// Stores each gases calculation
+    ///     Stores each gas facts
     /// </summary>
     public readonly Dictionary<Gas, (float TransmitModifier, float HeatPenalty, float PowerMixRatio)> GasDataFields = new()
     {
@@ -368,8 +368,9 @@ public sealed partial class SupermatterComponent : Component
         [Gas.Plasma] = (TransmitModifier: 4f, HeatPenalty: 15f, PowerMixRatio: 1f),
         [Gas.Tritium] = (TransmitModifier: 30f, HeatPenalty: 10f, PowerMixRatio: 1f),
         [Gas.WaterVapor] = (TransmitModifier: 2f, HeatPenalty: 12f, PowerMixRatio: 1f),
-        [Gas.Frezon] = (TransmitModifier: -1f, HeatPenalty: -5f, PowerMixRatio: -1f),
+        [Gas.Frezon] = (TransmitModifier: 3f, HeatPenalty: -10f, PowerMixRatio: -1f),
         [Gas.Ammonia] = (TransmitModifier: 0f, HeatPenalty: .5f, PowerMixRatio: 1f),
+        [Gas.NitrousOxide] = (TransmitModifier: 0f, HeatPenalty: -5f, PowerMixRatio: -1f),
     };
 
     #endregion SM Gas
