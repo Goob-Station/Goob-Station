@@ -339,19 +339,19 @@ namespace Content.Server.Supermatter.Systems
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-danger-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
+                            InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
                     }
                     else if (sMcomponent.Damage >= sMcomponent.DamageArchived)
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-warning-message", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
+                            InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
                     }
                     else
                     {
                         _chat.TrySendInGameICMessage(uid,
                             Loc.GetString("supermatter-safe-alert", ("integrity", integrity.ToString("0.00"))),
-                            InGameICChatType.Speak, hideChat: true, checkRadioPrefix: true);
+                            InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
                     }
 
                     sMcomponent.YellAccumulator = 0;
@@ -395,14 +395,14 @@ namespace Content.Server.Supermatter.Systems
                     {
                         DelamType = DelamType.Singulo;
                         _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-overmass"),
-                            InGameICChatType.Speak, hideChat: true);
+                            InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
                     }
                 }
                 else
                 {
                     DelamType = DelamType.Explosion;
                     _chat.TrySendInGameICMessage(uid, Loc.GetString("supermatter-delamination-default"),
-                        InGameICChatType.Speak, hideChat: true);
+                        InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
                 }
             }
 
@@ -418,7 +418,7 @@ namespace Content.Server.Supermatter.Systems
                 sMcomponent.SpeakAccumulator -= sMcomponent.YellDelam;
                 _chat.TrySendInGameICMessage(uid,
                     Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: true);
+                    InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
             }
             //less than 5 seconds to delam, count every second.
             else if (roundSeconds < sMcomponent.YellDelam && sMcomponent.SpeakAccumulator >= 1)
@@ -426,7 +426,7 @@ namespace Content.Server.Supermatter.Systems
                 sMcomponent.SpeakAccumulator -= 1;
                 _chat.TrySendInGameICMessage(uid,
                     Loc.GetString("supermatter-seconds-before-delam", ("Seconds", roundSeconds)),
-                    InGameICChatType.Speak, hideChat: true);
+                    InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
             }
 
             //TODO: make tesla(?) spawn at SupermatterComponent.PowerPenaltyThreshold and think up other delam types
