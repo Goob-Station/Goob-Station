@@ -10,7 +10,7 @@
       energy: 2
       color: "#fff633"
     - type: RadiationSource
-      intensity: 3.5
+      intensity: .75
     - type: Icon
       sprite: Goobstation/Supermatter/supermatter_sliver.rsi
       state: icon

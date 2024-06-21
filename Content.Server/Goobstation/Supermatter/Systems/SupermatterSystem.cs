@@ -439,7 +439,7 @@ namespace Content.Server.Supermatter.Systems
         }
 
         /// <summary>
-        ///     The supermatter is picky. Help the SM pick it's last song of death.
+        ///     Decide on how to delaminate.
         /// </summary>
         public DelamType ChooseDelamType(EntityUid uid, SupermatterComponent sm)
         {
