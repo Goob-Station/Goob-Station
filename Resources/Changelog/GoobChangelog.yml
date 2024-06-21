@@ -119,3 +119,9 @@ Entries:
         printer when emagged
   id: 19
   time: '2024-06-20T03:35:55.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: New lobby music!
+  id: 20
+  time: '2024-06-21T01:34:42.0000000+00:00'
