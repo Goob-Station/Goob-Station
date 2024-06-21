@@ -1,3 +1,5 @@
+using Content.Server.GameTicking.Rules;
+using Content.Server.Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
@@ -20,6 +22,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
     [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
+    [Dependency] private readonly TraitorRuleSystem _traitor = default!;
 
     public override void Initialize()
     {
@@ -30,6 +33,8 @@ public sealed class KillPersonConditionSystem : EntitySystem
         SubscribeLocalEvent<PickRandomPersonComponent, ObjectiveAssignedEvent>(OnPersonAssigned);
 
         SubscribeLocalEvent<PickRandomHeadComponent, ObjectiveAssignedEvent>(OnHeadAssigned);
+
+        SubscribeLocalEvent<PickRandomTraitorComponent, ObjectiveAssignedEvent>(OnTraitorAssigned);
     }
 
     private void OnGetProgress(EntityUid uid, KillPersonConditionComponent comp, ref ObjectiveGetProgressEvent args)
@@ -97,6 +102,33 @@ public sealed class KillPersonConditionSystem : EntitySystem
             allHeads = allHumans; // fallback to non-head target
 
         _target.SetTarget(uid, _random.Pick(allHeads), target);
+    }
+
+    // Goobstation - Kill traitor objective
+    private void OnTraitorAssigned(EntityUid uid, PickRandomTraitorComponent comp, ref ObjectiveAssignedEvent args)
+    {
+        // preliminary checks yeah-yeah yada-yada
+        if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        if (target.Target != null)
+            return;
+
+        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        if (allHumans.Count == 0)
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        var tots = _traitor.GetOtherTraitorMindsAliveAndConnected(args.Mind);
+
+        // We have a requirement for there to be other traitors, no need to check if there are any other
+        var targetId = _random.Pick(tots).Id;
+        _target.SetTarget(uid, targetId, target);
     }
 
     private float GetProgress(EntityUid target, bool requireDead)

@@ -1,0 +1,13 @@
+- type: vendingMachineInventory
+  id: SolsnackInventory
+  startingInventory:
+    FoodSnackLunacakeWrapped: 3
+    FoodSnackMochicakeWrapped: 3
+    FoodSnackMooncakeWrapped: 3
+    FoodSnackTidegobs: 3
+    FoodSnackSaturnos: 3
+    FoodSnackJoveGello: 3
+    FoodSnackPlutoniumrods: 3
+    FoodSnackMarsFrouka: 3
+    FoodSnackVenusianhotcakes: 3
+    FoodSnackOortrocks: 3

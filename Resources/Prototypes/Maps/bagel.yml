@@ -3,7 +3,7 @@
   mapName: 'Bagel Station'
   mapPath: /Maps/bagel.yml
   minPlayers: 0
-  maxPlayers: 100
+  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation

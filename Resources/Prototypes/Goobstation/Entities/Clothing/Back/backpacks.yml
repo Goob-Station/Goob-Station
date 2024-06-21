@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackCentcom
+  name: Centcom backpack
+  description: A luxurious backpack, smells like money.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Back/Backpacks/centcom.rsi

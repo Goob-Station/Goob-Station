@@ -3,9 +3,6 @@
   name: job-name-mime
   description: job-description-mime
   playTimeTracker: JobMime
-  requirements:
-    - !type:OverallPlaytimeRequirement
-      time: 14400 #4 hrs
   startingGear: MimeGear
   icon: "JobIconMime"
   supervisors: job-supervisors-hop
@@ -30,7 +27,6 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
     - RubberStampMime
 
 - type: entity

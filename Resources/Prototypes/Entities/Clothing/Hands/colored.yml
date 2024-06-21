@@ -351,3 +351,5 @@
   components:
   - type: Insulated
     coefficient: 5 # zap em good
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag

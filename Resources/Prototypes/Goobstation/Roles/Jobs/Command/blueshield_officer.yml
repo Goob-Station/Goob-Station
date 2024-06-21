@@ -45,3 +45,6 @@
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponPistolMk58
     pocket2: DeathAcidifierImplanter
+  storage:
+    back:
+    - BoxSurvival

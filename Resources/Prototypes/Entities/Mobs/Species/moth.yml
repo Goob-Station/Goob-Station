@@ -7,6 +7,8 @@
   components:
   - type: HumanoidAppearance
     species: Moth
+    hideLayersOnEquip:
+    - HeadTop
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -44,9 +46,7 @@
       Female: UnisexMoth
       Unsexed: UnisexMoth
   - type: MovementSpeedModifier
-    weightlessAcceleration: 1.5 # Move around more easily in space.
-    weightlessFriction: 1
-    weightlessModifier: 1
+    weightlessAcceleration: 2.5 # Goobstation - Frictionless Space, move around more easily in space.
   - type: Flammable
     damage:
       types:

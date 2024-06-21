@@ -3,6 +3,7 @@
   mapName: 'Origin'
   mapPath: /Maps/origin.yml
   minPlayers: 0
+  maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
     Origin:
       stationProto: StandardNanotrasenStation

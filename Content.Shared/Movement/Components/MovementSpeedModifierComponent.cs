@@ -14,7 +14,7 @@ namespace Content.Shared.Movement.Components
         // Weightless
         public const float DefaultMinimumFrictionSpeed = 0.005f;
         public const float DefaultWeightlessFriction = 1f;
-        public const float DefaultWeightlessFrictionNoInput = 0.2f;
+        public const float DefaultWeightlessFrictionNoInput = 0f; // Goobstation - Frictionless Space
         public const float DefaultWeightlessModifier = 0.7f;
         public const float DefaultWeightlessAcceleration = 1f;
 

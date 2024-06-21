@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelNanorep
+  name: Nanotrasen Representative Satchel
+  description: An expensive dark green backpack. Smells like fax machines.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Back/Satchels/nanorep.rsi

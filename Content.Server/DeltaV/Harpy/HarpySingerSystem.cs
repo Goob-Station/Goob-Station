@@ -20,6 +20,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.DeltaV.Harpy.Components;
+using Content.Shared.Bed.Sleep;
 
 namespace Content.Server.DeltaV.Harpy
 {

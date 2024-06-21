@@ -1,0 +1,127 @@
+Entries:
+- author: Piras314
+  changes:
+    - type: Remove
+      message: ERP
+  id: 3
+  time: '2024-06-15T12:54:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added automated changelogs! Goobers rejoice!
+  id: 4
+  time: '2024-06-17T00:09:12.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Stopped using custom nukie maps.
+  id: 5
+  time: '2024-06-17T16:52:54.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Re-added fire fighting remotes to atmos lockers.
+  id: 6
+  time: '2024-06-17T21:00:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Remove items from chameleon items that were unintended.
+  id: 7
+  time: '2024-06-18T03:37:53.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Emitters and containment field generators are now much cheaper!
+  id: 8
+  time: '2024-06-18T12:08:34.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Dwarves are now w i d e.
+  id: 9
+  time: '2024-06-18T12:09:05.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: >-
+        Headrevs now have syndicate encryption keys. Coordinate and plan a
+        strategy!
+    - type: Tweak
+      message: >-
+        Revs and survival chances have been swapped. Revs at a 10%, and survival
+        at 5%.
+  id: 10
+  time: '2024-06-18T12:12:08.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Port over all the textures from EE.
+  id: 11
+  time: '2024-06-18T12:23:41.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        The telecrystal market has been flooded with telecrystals, increasing
+        prices and availability fivefold.
+  id: 12
+  time: '2024-06-18T12:29:26.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Space has suddenly become less dense (objects don't slow down in space)
+    - type: Remove
+      message: Moths are unable to move in space
+    - type: Tweak
+      message: Moths have way better control in zero gravity environments
+  id: 13
+  time: '2024-06-18T12:44:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Un-flatten dwarves.
+  id: 14
+  time: '2024-06-18T13:22:18.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: >-
+        The syndicate are now provided with 100 TC to cope with the inflating
+        prices.
+  id: 15
+  time: '2024-06-19T07:25:14.0000000+00:00'
+- author: Misandry
+  changes:
+    - type: Add
+      message: Traitors are now more likely to have conflicting objectives
+  id: 16
+  time: '2024-06-19T07:25:56.0000000+00:00'
+- author: Teapug
+  changes:
+    - type: Tweak
+      message: >-
+        Nanotrasen in their all knowing wisdom has made NTR's backpack not ugly
+        as shit! Rejoice!
+  id: 17
+  time: '2024-06-19T07:28:06.0000000+00:00'
+- author: PoTeletubby
+  changes:
+    - type: Tweak
+      message: planet command generates an ore layer
+  id: 18
+  time: '2024-06-20T03:33:02.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        durathread armour, web vest and jumpsuit is now craftable in the clothes
+        printer when emagged
+  id: 19
+  time: '2024-06-20T03:35:55.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: New lobby music!
+  id: 20
+  time: '2024-06-21T01:34:42.0000000+00:00'
