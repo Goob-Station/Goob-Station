@@ -12,5 +12,5 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Heat: 0.9
+        Blunt: 0.95
+        Heat: 0.95
