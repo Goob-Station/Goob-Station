@@ -23,6 +23,6 @@
     shoes: ClothingShoesColorBlack
     id: BartenderPDA
     ears: ClothingHeadsetService
-  storage:
-    back:
-    - BoxSurvival
+  #storage:
+    #back:
+    #- Stuff
