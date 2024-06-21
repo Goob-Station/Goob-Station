@@ -10,12 +10,12 @@
       energy: 2
       color: "#fff633"
     - type: RadiationSource
-      intensity: 2.5
+      intensity: 3.5
     - type: Icon
-      sprite: Objects/Misc/supermatter_sliver.rsi
+      sprite: Goobstation/Supermatter/supermatter_sliver.rsi
       state: icon
     - type: Sprite
-      sprite: Objects/Misc/supermatter_sliver.rsi
+      sprite: Goobstation/Supermatter/supermatter_sliver.rsi
       state: icon
     - type: StealTarget
       stealGroup: SupermatterSliver
