@@ -92,10 +92,10 @@
 # Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedSecurityHos
 #        orGroup: StripedSocks
-#        prob: 0.20
-#      - id: ClothingUnderSocksStripedSecurityHosJackboot
-#        orGroup: StrippedSocks
-#        prob: 0.80
+        prob: 0.20
+      - id: ClothingUnderSocksStripedSecurityHosJackboot
+        orGroup: StrippedSocks
+        prob: 0.80
 
 
 - type: entity
@@ -142,7 +142,7 @@
       - id: ClothingHeadHatWarden
       - id: ClothingHeadHatBeretWarden
 # Goobstation Sock Stuff
-      - id: C ClothingUnderSocksStripedSecurityHosJackboot
+      - id: ClothingUnderSocksStripedSecurityHosJackboot
         orGroup: StripedSocks
         prob: 0.30
       - id: ClothingUnderSocksStripedSecurityHos
