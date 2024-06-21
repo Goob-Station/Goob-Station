@@ -116,7 +116,6 @@
   - type: Tag
     tags:
     - Trash
-    - SMImmune
   - type: SolutionContainerManager
     solutions:
       food:
@@ -131,6 +130,7 @@
     solution: food
   - type: Extractable
     grindableSolutionName: food
+  - type: SupermatterImmune
 
 - type: entity
   parent: Ash

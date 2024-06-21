@@ -19,7 +19,6 @@
       sound:
         path: /Audio/Supermatter/calm.ogg
     - type: Physics
-      bodyType: Dynamic
     - type: Speech
       speechSounds: Pai
     - type: Fixtures
