@@ -1,6 +1,6 @@
 - type: entity
-  id: supermatter
-  name: Supermatter
+  id: Supermatter
+  name: supermatter
   description: A strangely translucent and iridescent crystal.
   placement:
     mode: SnapgridCenter
