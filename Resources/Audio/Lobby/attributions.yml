@@ -68,3 +68,13 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "every light is blinking at once by Alexander Divine."
   source: "https://soundcloud.com/alexanderdivine/every-light-is-blinking-at-once"
+
+- files: ["skubstep.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "skubstep by finket."
+  source: "https://soundcloud.com/finket/skubstep-extended"
+
+- files: ["sneedsfeedandseed.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "skubstep by finket."
+  source: "https://soundcloud.com/burgerchild/sneeds-feed-and-seed-2022"
