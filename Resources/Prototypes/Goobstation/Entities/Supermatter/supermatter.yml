@@ -1,0 +1,68 @@
+- type: entity
+  id: Supermatter
+  name: supermatter
+  description: A strangely translucent and iridescent crystal.
+  placement:
+    mode: SnapgridCenter
+  components:
+    - type: Supermatter
+      whitelist:
+        tags:
+          - EmitterBolt
+        components:
+          - Body
+          - Item
+    - type: RadiationSource
+    - type: AmbientSound
+      range: 5
+      volume: -5
+      sound:
+        path: /Audio/Goobstation/Supermatter/calm.ogg
+    - type: Physics
+    - type: Speech
+      speechSounds: Pai
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.25,-0.25,0.25,0.25"
+          mask:
+            - Impassable
+            - MidImpassable
+            - HighImpassable
+            - LowImpassable
+            - InteractImpassable
+            - Opaque
+          layer:
+            - MidImpassable
+            - HighImpassable
+            - BulletImpassable
+            - InteractImpassable
+    - type: Transform
+      anchored: true
+      noRot: true
+    - type: CollisionWake
+      enabled: false
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Sprite
+      drawdepth: WallMountedItems
+      sprite: Goobstation/Supermatter/supermatter.rsi
+      state: supermatter
+    - type: Icon
+      sprite: Goobstation/Supermatter/supermatter.rsi
+      state: supermatter
+    - type: PointLight
+      enabled: true
+      radius: 10
+      energy: 5
+      color: "#d9ce00"
+    - type: Explosive
+      explosionType: Supermatter
+      maxIntensity: 10000
+      intensitySlope: 10
+      totalIntensity: 10000
+    - type: IntrinsicRadioTransmitter
+      channels:
+      - Engineering
