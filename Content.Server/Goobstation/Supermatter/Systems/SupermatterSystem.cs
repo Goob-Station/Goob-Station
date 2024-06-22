@@ -16,7 +16,6 @@ using Content.Server.Audio;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
-using Content.Server.Explosion.Components;
 using Content.Shared.Supermatter.Components;
 using Content.Shared.Supermatter.Systems;
 using Content.Server.Lightning;
@@ -36,7 +35,6 @@ namespace Content.Server.Supermatter.Systems
     {
         [Dependency] private readonly AtmosphereSystem _atmosphere = default!;
         [Dependency] private readonly ChatSystem _chat = default!;
-        [Dependency] private readonly TagSystem _tag = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly ExplosionSystem _explosion = default!;
         [Dependency] private readonly TransformSystem _xform = default!;
@@ -601,7 +599,6 @@ namespace Content.Server.Supermatter.Systems
             };
 
             _doAfter.TryStartDoAfter(dae);
-            _popup.PopupClient(Loc.GetString("supermatter-tamper-begin"), args.User);
         }
 
         private void OnGetSliver(EntityUid uid, SupermatterComponent sm, ref SupermatterDoAfterEvent args)
@@ -611,12 +608,12 @@ namespace Content.Server.Supermatter.Systems
 
             // your criminal actions will not go unnoticed
             sm.Damage += sm.DelaminationPoint / 10;
+            sm.DamageArchived += sm.DelaminationPoint / 10;
 
             var integrity = GetIntegrity(sm).ToString("0.00");
             SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
             Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
-            _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), args.User);
 
             sm.DelamTimer /= 2;
         }
