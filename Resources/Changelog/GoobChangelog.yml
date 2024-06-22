@@ -125,3 +125,9 @@ Entries:
       message: New lobby music!
   id: 20
   time: '2024-06-21T01:34:42.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Durathread armour is no longer extremely overpowered.
+  id: 21
+  time: '2024-06-22T12:28:57.0000000+00:00'
