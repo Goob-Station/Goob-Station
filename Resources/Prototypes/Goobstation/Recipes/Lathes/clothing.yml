@@ -1,25 +1,25 @@
 - type: latheRecipe # Goobstation - adding durathread armoured clothing
   id: ClothingOuterVestWebDurathread
   result: ClothingOuterVestWebDurathread
-  completetime: 5
+  completetime: 30
   materials:
-    Cloth: 300
-    Durathread: 1000
+    Cloth: 3000
+    Durathread: 3000
     Plasteel: 1000
 
 - type: latheRecipe # Goobstation - adding durathread armoured clothing
   id: ClothingOuterArmourDurathread
   result: ClothingOuterArmourDurathread
-  completetime: 5
+  completetime: 30
   materials:
-    Cloth: 200
-    Durathread: 700
-    Plasteel: 1200
+    Cloth: 2000
+    Durathread: 3000
+    Plasteel: 1000
 
-- type: latheRecipe # Goobstation - adding durathread armoured clothing
+- type: latheRecipe
   id: ClothingUniformJumpsuitDurathread
   result: ClothingUniformJumpsuitDurathread
-  completetime: 5
+  completetime: 15
   materials:
-    Cloth: 300
-    Durathread: 500
+    Cloth: 1000
+    Durathread: 1000
