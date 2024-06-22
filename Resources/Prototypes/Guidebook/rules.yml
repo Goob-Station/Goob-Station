@@ -213,6 +213,13 @@
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR7RoundStalling.xml"
 
 - type: guideEntry
+  id: GoobRuleR75
+  name: guide-entry-goob-rules-r75
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/Goobstation/Guidebook/ServerRules/RoleplayRules/RuleR75MassDestruction.xml"
+
+- type: guideEntry
   id: RuleR8
   name: guide-entry-rules-r8
   ruleEntry: true
