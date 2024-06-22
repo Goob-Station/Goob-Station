@@ -137,3 +137,21 @@ Entries:
       message: Mass sabotage is not allowed before 30 minutes into the round.
   id: 22
   time: '2024-06-22T12:46:03.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Supermatter now shoots out lightning bolts.
+    - type: Add
+      message: You will now have to activate the SM by making it collide with anything.
+    - type: Add
+      message: Supermatter Tesla Delamination.
+    - type: Add
+      message: New traitor objective - get a piece of the supermatter.
+    - type: Remove
+      message: 'Fland: Singularity platform.'
+    - type: Add
+      message: 'Fland: Supermatter chamber.'
+    - type: Tweak
+      message: 'Fland: Moved TEG near the SM chambere.'
+  id: 23
+  time: '2024-06-22T13:35:28.0000000+00:00'
