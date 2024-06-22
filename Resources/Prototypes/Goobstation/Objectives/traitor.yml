@@ -60,5 +60,5 @@
     difficulty: 3.5
   - type: StealCondition
     stealGroup: SupermatterSliver
-    objectiveNoOwnerText: Cut off a sliver from the supermatter crystal.
-    descriptionText: Use any cutting tool that comes in handy. A scalpel is more recommended. Also, don't die of radiation poisoning.
+    objectiveNoOwnerText: objective-condition-steal-smsliver-title
+    descriptionText: objective-condition-steal-smsliver-description
