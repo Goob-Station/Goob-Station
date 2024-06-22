@@ -15,7 +15,8 @@ guide-entry-ame = Antimatter Engine (AME)
 guide-entry-singularity = Singularity / Tesla
 guide-entry-teg = Thermo-electric Generator (TEG)
 guide-entry-rtg = RTG
-guide-entry-sm = Supermatter Engine # GoobStation - Supermatter
+# GoobStation - Supermatter
+guide-entry-sm = Supermatter Engine
 guide-entry-jobs = Jobs
 guide-entry-cargo = Cargo
 guide-entry-cargo-bounties = Cargo Bounties
