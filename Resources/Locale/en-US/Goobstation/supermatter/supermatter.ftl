@@ -1,7 +1,7 @@
 supermatter-announcer = Automatic Supermatter Engine
 
 supermatter-examine-integrity =
-    It's integrity is {$integrity}%.
+    It's integrity is [color=yellow]{$integrity}%[/color].
 
 supermatter-warning =
     Warning! Crystal hyperstructure integrity faltering! Integrity: {$integrity}%.

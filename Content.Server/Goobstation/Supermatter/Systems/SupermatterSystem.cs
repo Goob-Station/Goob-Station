@@ -417,11 +417,12 @@ namespace Content.Server.Supermatter.Systems
         /// </summary>
         /// <param name="global">If true, does the station announcement.</param>
         /// <param name="customSender">If true, sends the announcement from Central Command.</param>
-        public void SupermatterAnnouncement(EntityUid uid, string message, bool global = false, bool customSender = false)
+        public void SupermatterAnnouncement(EntityUid uid, string message, bool global = false, string? customSender = null)
         {
             if (global)
             {
-                _chat.DispatchStationAnnouncement(uid, message, customSender ? "Central Command" : Loc.GetString("supermatter-announcer"), colorOverride: Color.Yellow);
+                var sender = customSender != null ? customSender : Loc.GetString("supermatter-announcer");
+                _chat.DispatchStationAnnouncement(uid, message, sender, colorOverride: Color.Yellow);
                 return;
             }
             _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, hideChat: false, checkRadioPrefix: true);
@@ -608,11 +609,15 @@ namespace Content.Server.Supermatter.Systems
             if (args.Cancelled)
                 return;
 
-            sm.Damage += sm.DelaminationPoint / 10; // your criminal actions will not go unnoticed
-            SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", GetIntegrity(sm).ToString("0.00"))), true, true);
+            // your criminal actions will not go unnoticed
+            sm.Damage += sm.DelaminationPoint / 10;
+
+            var integrity = GetIntegrity(sm).ToString("0.00");
+            SupermatterAnnouncement(uid, Loc.GetString("supermatter-announcement-cc-tamper", ("integrity", integrity)), true, "Central Command");
 
             Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
             _popup.PopupClient(Loc.GetString("supermatter-tamper-end"), args.User);
+
             sm.DelamTimer /= 2;
         }
 
