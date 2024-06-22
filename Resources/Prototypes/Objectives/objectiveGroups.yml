@@ -22,6 +22,7 @@
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
     SecretDocumentsStealObjective: 0.5
+    StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
