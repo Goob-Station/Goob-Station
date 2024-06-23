@@ -19,10 +19,10 @@ public sealed partial class RevolutionaryComponent : Component
     public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "RevolutionaryFaction";
 
     /// <summary>
-    /// Sound that plays when you are chosen as Rev. (Placeholder until I find something cool I guess)
+    /// Sound that plays when you are chosen as Rev.
     /// </summary>
     [DataField]
-    public SoundSpecifier RevStartSound = new SoundPathSpecifier("/Audio/Ambience/Antag/headrev_start.ogg");
+    public SoundSpecifier RevStartSound = new SoundPathSpecifier("/Audio/Goobstation/Ambience/Antag/rev_start.ogg"); // Goobstation - add custom rev conversion noise :)
 
     public override bool SessionSpecific => true;
 }

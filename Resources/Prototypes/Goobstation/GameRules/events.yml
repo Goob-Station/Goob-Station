@@ -1,0 +1,12 @@
+- type: entity
+  id: JohnsAIMalf
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    startAnnouncement: goobstation-station-event-johns-ai-malf-start-announcement
+    startAudio:
+      path: /Audio/Goobstation/Announcements/ailaws.ogg
+    weight: 8
+    duration: 1
+    earliestStart: 5
+    minimumPlayers: 1

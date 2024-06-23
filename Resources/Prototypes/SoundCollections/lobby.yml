@@ -15,5 +15,8 @@
     - /Audio/Lobby/lasers_rip_apart_the_bulkhead.ogg
     - /Audio/Lobby/every_light_is_blinking_at_once.ogg
     - /Audio/Lobby/atomicamnesiammx.ogg
-    - /Audio/Lobby/skubstep.ogg # Goobstation
-    - /Audio/Lobby/sneedsfeedandseed.ogg # Goobstation
+
+    # Goobstation
+    - /Audio/Lobby/skubstep.ogg
+    - /Audio/Lobby/sneedsfeedandseed.ogg
+    - /Audio/Goobstation/Lobby/redsun.ogg
