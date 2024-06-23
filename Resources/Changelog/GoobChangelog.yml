@@ -161,3 +161,9 @@ Entries:
       message: Improved EMT belt sprite
   id: 24
   time: '2024-06-23T12:10:54.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: 'Bagel: Supermatter Engine'
+  id: 25
+  time: '2024-06-23T14:52:19.0000000+00:00'
