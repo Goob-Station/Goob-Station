@@ -155,3 +155,9 @@ Entries:
       message: 'Fland: Moved TEG near the SM chambere.'
   id: 23
   time: '2024-06-22T13:35:28.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: Improved EMT belt sprite
+  id: 24
+  time: '2024-06-23T12:10:54.0000000+00:00'
