@@ -31,6 +31,8 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Content.Shared.Emag.Components;
+using Content.Shared.Emag.Systems;
 
 namespace Content.Server.Medical.BiomassReclaimer
 {
@@ -103,11 +105,16 @@ namespace Content.Server.Medical.BiomassReclaimer
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, ComponentShutdown>(OnShutdown);
             SubscribeLocalEvent<ActiveBiomassReclaimerComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+            SubscribeLocalEvent<BiomassReclaimerComponent, GotEmaggedEvent>(OnEmagged);
             SubscribeLocalEvent<BiomassReclaimerComponent, AfterInteractUsingEvent>(OnAfterInteractUsing);
             SubscribeLocalEvent<BiomassReclaimerComponent, ClimbedOnEvent>(OnClimbedOn);
             SubscribeLocalEvent<BiomassReclaimerComponent, PowerChangedEvent>(OnPowerChanged);
             SubscribeLocalEvent<BiomassReclaimerComponent, SuicideEvent>(OnSuicide);
             SubscribeLocalEvent<BiomassReclaimerComponent, ReclaimerDoAfterEvent>(OnDoAfter);
+        }
+        private void OnEmagged(EntityUid uid, BiomassReclaimerComponent component, ref GotEmaggedEvent args)
+        {
+            args.Handled = true;
         }
 
         private void OnSuicide(Entity<BiomassReclaimerComponent> ent, ref SuicideEvent args)
@@ -254,7 +261,8 @@ namespace Content.Server.Medical.BiomassReclaimer
             // Reject souled bodies in easy mode.
             if (_configManager.GetCVar(CCVars.BiomassEasyMode) &&
                 HasComp<HumanoidAppearanceComponent>(dragged) &&
-                _minds.TryGetMind(dragged, out _, out var mind))
+                _minds.TryGetMind(dragged, out _, out var mind) &&
+                HasComp<EmaggedComponent>(reclaimer))
             {
                 if (mind.UserId != null && _playerManager.TryGetSessionById(mind.UserId.Value, out _))
                     return false;
