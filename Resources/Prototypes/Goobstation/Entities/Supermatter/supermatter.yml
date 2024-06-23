@@ -65,6 +65,3 @@
       totalIntensity: 10000
     - type: GuideHelp
       guides: [ Supermatter, Power ]
-    - type: WarpPoint
-      follow: true
-      location: supermatter
