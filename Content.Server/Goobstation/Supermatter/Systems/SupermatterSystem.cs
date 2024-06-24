@@ -352,7 +352,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         {
             var sb = new StringBuilder();
             var loc = string.Empty;
-            var alertLevel = "Yellow";
+            var alertLevel = "yellow";
 
             switch (_delamType)
             {
@@ -363,17 +363,17 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
                 case DelamType.Singulo:
                     loc = "supermatter-delam-overmass";
-                    alertLevel = "Delta";
+                    alertLevel = "delta";
                     break;
 
                 case DelamType.Tesla:
                     loc = "supermatter-delam-tesla";
-                    alertLevel = "Delta";
+                    alertLevel = "delta";
                     break;
 
                 case DelamType.Cascade:
                     loc = "supermatter-delam-cascade";
-                    alertLevel = "Delta";
+                    alertLevel = "delta";
                     break;
             }
 
