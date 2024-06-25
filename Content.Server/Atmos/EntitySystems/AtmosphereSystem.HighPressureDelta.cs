@@ -210,20 +210,19 @@ namespace Content.Server.Atmos.EntitySystems
                     moveForce *= HumanoidThrowMultiplier;
                 if (moveForce > physics.Mass)
                 {
-                    var maxSafeForceForObject = SpaceWindMaxVelocity * physics.Mass;
-                    moveForce = MathF.Min(moveForce, maxSafeForceForObject);
                     // Grid-rotation adjusted direction
                     var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
+                    moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
 
                     //TODO Consider replacing throw target with proper trigonometry angles.
                     if (throwTarget != EntityCoordinates.Invalid)
                     {
                         var pos = throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec;
-                        _throwing.TryThrow(uid, pos.Normalized() * moveForce, pressureDifference);
+                        _throwing.TryThrow(uid, pos.Normalized() * moveForce, moveForce);
                     }
                     else
                     {
-                        _throwing.TryThrow(uid, dirVec.Normalized() * moveForce, pressureDifference);
+                        _throwing.TryThrow(uid, dirVec.Normalized() * moveForce, moveForce);
                     }
 
                     component.LastHighPressureMovementAirCycle = cycle;
