@@ -10,8 +10,6 @@
     state: box
   - type: Appearance
   - type: Item
-    sprite: Goobstation/Objects/Misc/emergencybox.rsi
-    state: box
     size: Normal
     shape:
     - 0,0,1,1
