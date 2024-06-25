@@ -28,7 +28,7 @@
     - JetpackBlackFilled
   storage:
     back: # belt holds katana so satchel has the tools for sabotaging things
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
     - Crowbar
     - Wrench
     - Screwdriver

@@ -36,4 +36,4 @@
     pocket2: WeaponDisabler
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots
