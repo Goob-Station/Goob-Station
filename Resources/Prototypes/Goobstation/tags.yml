@@ -5,10 +5,22 @@
   id: EmergencyOxygenTank
 
 - type: Tag
+  id: ExtendedEmergencyOxygenTank
+
+- type: Tag
+  id: ClownEmergencyOxygenTank
+
+- type: Tag
   id: EmergencyNitrogenTank
 
 - type: Tag
   id: BreathMask
+
+- type: Tag
+  id: SecurityBreathMask
+
+- type: Tag
+  id: SyndicateBreathMask
 
 - type: Tag
   id: EmergencyMedipen

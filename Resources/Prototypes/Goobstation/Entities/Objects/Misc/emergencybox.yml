@@ -55,12 +55,16 @@
         whitelist:
           tags:
           - EmergencyOxygenTank
+          - ExtendedEmergencyOxygenTank
+          - ClownEmergencyOxygenTank
           - EmergencyNitrogenTank
       mask:
         ejectOnInteract: false
         whitelist:
           tags:
           - BreathMask
+          - SecurityBreathMask
+          - SyndicateBreathMask
       emergencypen:
         ejectOnInteract: false
         whitelist:
@@ -113,10 +117,26 @@
         whitelist:
           tags:
           - BreathMask
+      secmask:
+        whitelist:
+          tags:
+          - SecurityBreathMask
+      syndiemask:
+        whitelist:
+          tags:
+          - SyndicateBreathMask
       oxy:
         whitelist:
           tags:
           - EmergencyOxygenTank
+      oxyextend:
+        whitelist:
+          tags:
+          - ExtendedEmergencyOxygenTank
+      oxyclown:
+        whitelist:
+          tags:
+          - ClownEmergencyOxygenTank
       nit:
         whitelist:
           tags:

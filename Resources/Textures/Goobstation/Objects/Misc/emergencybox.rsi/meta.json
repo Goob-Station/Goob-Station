@@ -36,6 +36,12 @@
       "name": "mask"
     },
     {
+      "name": "secmask"
+    },
+    {
+      "name": "syndiemask"
+    },
+    {
       "name": "emergencypen"
     },
     {
@@ -49,6 +55,12 @@
     },
     {
       "name": "oxy"
+    },
+    {
+      "name": "oxyclown"
+    },
+    {
+      "name": "oxyextend"
     },
     {
       "name": "nit"
