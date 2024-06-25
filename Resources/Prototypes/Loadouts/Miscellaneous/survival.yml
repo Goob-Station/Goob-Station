@@ -18,6 +18,11 @@
     - Human
     - Moth
     - Reptilian
+    # Goobstation - Custom Races
+    - Vulpkanin
+    - Felinid
+    - Harpy
+    - Gingerbread
 
 # Basic
 - type: loadout
@@ -31,7 +36,7 @@
   id: EmergencyOxygen
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogen
@@ -44,7 +49,7 @@
   id: EmergencyNitrogen
   storage:
     back:
-    - BoxSurvivalNitrogen
+    - BoxSurvivalSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Clown
 - type: loadout
@@ -58,7 +63,7 @@
   id: EmergencyOxygenClown
   storage:
     back:
-    - BoxHug
+    - BoxHugSlots
 
 - type: loadout
   id: EmergencyNitrogenClown
@@ -71,7 +76,7 @@
   id: EmergencyNitrogenClown
   storage:
     back:
-    - BoxHugNitrogen
+    - BoxHugSlotsNitrogen
 
 # Engineering / Extended
 - type: loadout
@@ -85,7 +90,7 @@
   id: EmergencyOxygenExtended
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenExtended
@@ -98,7 +103,7 @@
   id: EmergencyNitrogenExtended
   storage:
     back:
-    - BoxSurvivalEngineeringNitrogen
+    - BoxSurvivalSlotsEngineeringNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Medical
 - type: loadout
@@ -112,7 +117,7 @@
   id: EmergencyOxygenMedical
   storage:
     back:
-    - BoxSurvivalMedical
+    - BoxSurvivalSlotsMedical # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenMedical
@@ -125,7 +130,7 @@
   id: EmergencyNitrogenMedical
   storage:
     back:
-    - BoxSurvivalMedicalNitrogen
+    - BoxSurvivalSlotsMedicalNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Security
 - type: loadout
@@ -139,7 +144,7 @@
   id: EmergencyOxygenSecurity
   storage:
     back:
-    - BoxSurvivalSecurity
+    - BoxSurvivalSlotsSecurity # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenSecurity
@@ -152,7 +157,7 @@
   id: EmergencyNitrogenSecurity
   storage:
     back:
-    - BoxSurvivalSecurityNitrogen
+    - BoxSurvivalSlotsSecurityNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Syndicate
 - type: loadout
@@ -166,7 +171,7 @@
   id: EmergencyOxygenSyndicate
   storage:
     back:
-    - BoxSurvivalSyndicate
+    - BoxSurvivalSlotsSyndicate # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenSyndicate
@@ -179,4 +184,4 @@
   id: EmergencyNitrogenSyndicate
   storage:
     back:
-    - BoxSurvivalSyndicateNitrogen
+    - BoxSurvivalSlotsSyndicateNitrogen # Goobstation - Slots Based Survival Boxes
