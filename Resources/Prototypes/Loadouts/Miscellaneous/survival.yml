@@ -63,7 +63,7 @@
   id: EmergencyOxygenClown
   storage:
     back:
-    - BoxSlotsHug
+    - BoxHugSlots
 
 - type: loadout
   id: EmergencyNitrogenClown
