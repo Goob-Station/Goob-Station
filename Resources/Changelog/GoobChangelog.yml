@@ -167,3 +167,11 @@ Entries:
       message: 'Bagel: Supermatter Engine'
   id: 25
   time: '2024-06-23T14:52:19.0000000+00:00'
+- author: JoeHammad1844
+  changes:
+    - type: Tweak
+      message: >-
+        The EMT belt has received a full resprite to be more in line with the
+        art style
+  id: 26
+  time: '2024-06-25T04:22:40.0000000+00:00'
