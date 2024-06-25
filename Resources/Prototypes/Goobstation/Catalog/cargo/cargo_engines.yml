@@ -4,7 +4,7 @@
     sprite: Structures/Power/Generation/ame.rsi
     state: core
   product: CrateEngineeringAMEShielding
-  cost: 4500
+  cost: 5000
   category: cargoproduct-category-name-engineering
   group: market
 
