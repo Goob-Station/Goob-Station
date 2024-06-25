@@ -1,2 +1,18 @@
 - type: Tag
   id: SnapPop
+
+- type: Tag
+  id: EmergencyOxygenTank
+
+- type: Tag
+  id: EmergencyNitrogenTank
+
+- type: Tag
+  id: BreathMask
+
+- type: Tag
+  id: EmergencyMedipen
+
+- type: Tag
+  id: SpaceMedipen
+

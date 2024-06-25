@@ -107,6 +107,10 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: Tag # Goobstation - For survival boxes
+    tags:
+    - EmergencyOxygenTank
+
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -120,6 +124,9 @@
     sprite: Objects/Tanks/emergency_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_red.rsi
+  - type: Tag # Goobstation - For survival boxes
+    tags:
+    - EmergencyNitrogenTank
 
 - type: entity
   parent: EmergencyOxygenTank
@@ -150,6 +157,9 @@
     sprite: Objects/Tanks/emergency_extended_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_extended_red.rsi
+  - type: Tag # Goobstation - For survival boxes
+    tags:
+    - EmergencyNitrogenTank
 
 - type: entity
   parent: ExtendedEmergencyOxygenTank
@@ -185,6 +195,9 @@
     sprite: Objects/Tanks/emergency_double_red.rsi
   - type: Clothing
     sprite: Objects/Tanks/emergency_double_red.rsi
+  - type: Tag # Goobstation - For survival boxes
+    tags:
+    - EmergencyNitrogenTank
 
 - type: entity
   parent: EmergencyOxygenTank
