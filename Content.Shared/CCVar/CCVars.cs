@@ -1279,6 +1279,10 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> AtmosHeatScale =
             CVarDef.Create("atmos.heat_scale", 8f, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     A multiplier on the amount of force applied to Humanoid entities, as tracked by HumanoidAppearanceComponent
+        ///     This multiplier is added after all other checks are made, and applies to both throwing force, and how easy it is for an entity to be thrown.
+        /// </summary>
         public static readonly CVarDef<float> AtmosHumanoidThrowMultiplier =
             CVarDef.Create("atmos.humanoid_throw_multiplier", 2f, CVar.SERVERONLY);
 
