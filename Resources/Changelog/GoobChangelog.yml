@@ -167,3 +167,39 @@ Entries:
       message: 'Bagel: Supermatter Engine'
   id: 25
   time: '2024-06-23T14:52:19.0000000+00:00'
+- author: JoeHammad1844
+  changes:
+    - type: Tweak
+      message: >-
+        The EMT belt has received a full resprite to be more in line with the
+        art style
+  id: 26
+  time: '2024-06-25T04:22:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Survival boxes are useful again.
+  id: 27
+  time: '2024-06-25T14:52:46.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        cloning costs 30% more but non SSD bodies are now able to be recycled
+        into biomass.
+  id: 28
+  time: '2024-06-26T05:12:49.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Supermatter now has a warp point for ghosts.
+    - type: Add
+      message: Bagel now has supermatter.
+    - type: Add
+      message: Oasis now had supermatter.
+    - type: Tweak
+      message: Changed SM chamber tiles to plating on fland.
+    - type: Fix
+      message: SM guidebook entry.
+  id: 29
+  time: '2024-06-26T05:50:36.0000000+00:00'

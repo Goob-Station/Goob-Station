@@ -214,7 +214,7 @@ entities:
     - type: Transform
       pos: 5.5,-5.5
       parent: 2
-- proto: BoxSurvival
+- proto: BoxSurvivalSlots
   entities:
   - uid: 325
     components:
