@@ -158,7 +158,8 @@
         - ReagentId: TranexamicAcid
           Quantity: 3
   - type: Tag
-    tags: []
+    tags:
+    - EmergencyMedipen
 
 - type: entity
   name: poison auto-injector
@@ -315,7 +316,8 @@
           - ReagentId: Barozine
             Quantity: 20
   - type: Tag
-    tags: []
+    tags:
+    - SpaceMedipen
 
 - type: entity
   name: hyperzine injector
