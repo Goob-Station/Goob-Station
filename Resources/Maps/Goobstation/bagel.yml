@@ -13795,8 +13795,6 @@ entities:
       pos: -16.5,51.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15540
 - proto: AltarSpawner
@@ -96832,8 +96830,6 @@ entities:
       pos: -15.5,49.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15540
   - uid: 15112
@@ -96843,8 +96839,6 @@ entities:
       pos: -15.5,51.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15540
   - uid: 15340
@@ -96854,8 +96848,6 @@ entities:
       pos: -15.5,50.5
       parent: 60
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 15540
   - uid: 15648
