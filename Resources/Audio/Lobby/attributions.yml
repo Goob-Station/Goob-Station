@@ -47,7 +47,7 @@
 - files: ["mod.flip-flap.ogg"]
   license: "Custom"
   copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in this directory) and is free for non-commercial use. It was converted from MOD to WAV using Schism Tracker, in 16 Bit, Non-Interpolated mode, no output equalizer settings, Ramp volume at start of sample enabled. From there it was converted to OGG Vorbis with `ffmpeg -i flip-flap.wav -q 2.9 flip-flap-renc.ogg` (quality scale chosen to match size of the OGG file being replaced). Non-interpolated mode was chosen as the module has a high enough sample rate to balance it out, but seems muffled in other interpolation modes. If 'Ramp volume at start of sample' is not enabled, a clicking phenomenon results."
-  source: "http://aminet.net/package/mods/xceed/Flipflap"
+  source: "http://aminet.net/package/mods/xceed/Fextendlipflap"
 
 - files: ["Spac_Stac.ogg"]
   license: "CC-BY-NC-SA-3.0"
@@ -95,7 +95,7 @@
   source: "https://www.youtube.com/watch?v=DCy3TtYwaWc"
 
 - files: ["dawsonschristian.ogg"]
-  license: "Unknown"
+  license: "Custom"
   copyright: "Dawson's Christian by Vic Tyler"
   source: "https://archive.org/details/filk_carmen_mirandas_ghost"
 
