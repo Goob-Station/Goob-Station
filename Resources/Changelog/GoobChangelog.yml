@@ -209,3 +209,9 @@ Entries:
       message: More sprites for the survival boxes, because why not?
   id: 30
   time: '2024-06-26T07:38:16.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: More custom music for the lobby and jukebox!
+  id: 31
+  time: '2024-06-26T07:42:33.0000000+00:00'
