@@ -82,7 +82,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
             return false;
 
         var itemComp = new ItemComponent
-            { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };
+        { Size = component.Size, Shape = component.Shape, StoredOffset = component.StoredOffset };
         AddComp(toInsert, itemComp);
         _item.VisualsChanged(toInsert);
 
@@ -143,7 +143,7 @@ public abstract partial class SharedPseudoItemSystem : EntitySystem
     private void OnInteractAttempt(EntityUid uid, PseudoItemComponent component, InteractionAttemptEvent args)
     {
         if (args.Uid == args.Target && component.Active)
-            args.Cancel();
+            args.Cancelled = true;
     }
 
     private void OnDoAfter(EntityUid uid, PseudoItemComponent component, DoAfterEvent args)

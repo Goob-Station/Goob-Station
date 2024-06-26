@@ -196,6 +196,8 @@
       - WeaponCapacitorRechargerCircuitboard
       - HandheldStationMap
       - ClothingHeadHatWelding
+      - WetFloorSign
+      - ClothingHeadHatCone
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -746,9 +748,6 @@
       - WeaponDisablerPractice
       - WeaponLaserCarbinePractice
       - Zipties
-      - ClothingOuterVestWebDurathread # Goobstation - adding durathread armoured clothing
-      - ClothingOuterArmourDurathread # Goobstation - adding durathread armoured clothing
-      - ClothingUniformJumpsuitDurathread # Goobstation - adding durathread armoured clothing
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
