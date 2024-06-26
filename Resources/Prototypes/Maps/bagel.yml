@@ -1,7 +1,7 @@
 - type: gameMap
   id: Bagel
   mapName: 'Bagel Station'
-  mapPath: /Maps/bagel.yml
+  mapPath: /Maps/Goobstation/bagel.yml # Goobstation - SM
   minPlayers: 0
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:

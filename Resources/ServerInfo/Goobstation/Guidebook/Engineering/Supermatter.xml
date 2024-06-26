@@ -1,15 +1,12 @@
 <Document>
 
-
   <GuideEntityEmbed Entity="Supermatter"/>
 
-  # The Supermatter Engine
+  So, you've decided to take on the challenge and set up the Supermatter Engine? First, let's give you a short overview of the main Supermatter crystal beforehand.
 
-  So you've decided to take on the challenge and set up the Supermatter Engine? First, let's give you a short overview of the main Supermatter crystal beforehand.
+  Its primary feature is emitting radioactive background that is harnessed to power the station through radiation collectors.
 
-  Its primary features are emitting electrical arcs that are harnessed to power the station through tesla coils.
-
-  Side effects include radiation emission, releasing hot oxygen and plasma, heating the air around, and exploding, transforming into a black hole or an energy ball and eating the entire station if you screw up hard enough.
+  Side effects include lightning strikes, releasing hot oxygen and plasma, heating the air around, exploding, transforming into a black hole or an energy ball and eating the entire station if you screw up hard enough.
 
   It begins inert but being hit by an object or a projectile will activate it and it'll start exhibiting nearly all of the aforementioned properties.
 
