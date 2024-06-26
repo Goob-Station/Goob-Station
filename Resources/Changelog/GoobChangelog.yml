@@ -181,3 +181,11 @@ Entries:
       message: Survival boxes are useful again.
   id: 27
   time: '2024-06-25T14:52:46.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        cloning costs 30% more but non SSD bodies are now able to be recycled
+        into biomass.
+  id: 28
+  time: '2024-06-26T05:12:49.0000000+00:00'
