@@ -1,0 +1,20 @@
+- type: entity
+  parent: BaseGameRule
+  id: Changeling
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 10
+  - type: AntagSelection
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 8
+      playerRatio: 10
+      lateJoinAdditional: true
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+  #- type: AntagRandomObjectives
+  #  sets:
+  #  - groups: ChangelingObjectiveGroups

@@ -1,0 +1,11 @@
+- type: entity
+  id: ActionEvolutionMenu
+  name: Evolution Menu
+  description: Opens the evolution menu.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: evolution_menu

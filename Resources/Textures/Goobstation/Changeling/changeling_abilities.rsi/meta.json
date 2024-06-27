@@ -1,0 +1,90 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Paradise Station wiki",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+
+    "states": [
+        {
+            "name": "absorb_dna"
+        },
+        {
+            "name": "apex_predator"
+        },
+        {
+            "name": "armblade"
+        },
+        {
+            "name": "augmented_eyesight"
+        },
+        {
+            "name": "biodegrade"
+        },
+        {
+            "name": "chameleon_skin"
+        },
+        {
+            "name": "chitinous_armor"
+        },
+        {
+            "name": "contort_body"
+        },
+        {
+            "name": "epinephrine_overdose"
+        },
+        {
+            "name": "evolution_menu"
+        },
+        {
+            "name": "fleshmend"
+        },
+        {
+            "name": "last_resort"
+        },
+        {
+            "name": "lesser_form"
+        },
+        {
+            "name": "organic_shield"
+        },
+        {
+            "name": "shriek_dissonant"
+        },
+        {
+            "name": "shriek_resonant"
+        },
+        {
+            "name": "stasis_enter"
+        },
+        {
+            "name": "stasis_exit"
+        },
+        {
+            "name": "sting_lethargic"
+        },
+        {
+            "name": "sting_mute"
+        },
+        {
+            "name": "strained_muscles"
+        },
+        {
+            "name": "sting_blind"
+        },
+        {
+            "name": "string_extractdna"
+        },
+        {
+            "name": "swap_forms"
+        },
+        {
+            "name": "tentacle"
+        },
+        {
+            "name": "transform"
+        }
+    ]
+}
