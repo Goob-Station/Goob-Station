@@ -215,3 +215,9 @@ Entries:
       message: More custom music for the lobby and jukebox!
   id: 31
   time: '2024-06-26T07:42:33.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: 'ninja has a microbomb inplant instead of a death acidifier '
+  id: 32
+  time: '2024-06-27T05:57:09.0000000+00:00'
