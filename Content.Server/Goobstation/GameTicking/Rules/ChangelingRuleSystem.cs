@@ -37,8 +37,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         TryComp<MetaDataComponent>(target, out var metaData);
 
-        var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData.EntityName ?? "Unknown"));
-        var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData.EntityName ?? "Unknown"));
+        var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
+        var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
 
         _antag.SendBriefing(target, briefing, Color.Yellow, rule.BriefingSound);
 
