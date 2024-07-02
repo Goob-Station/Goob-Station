@@ -4,21 +4,29 @@
   id: EvolutionMenuCombatArmblade
   name: evolutionmenu-combat-armblade-name
   description: evolutionmenu-combat-armblade-description
-  productEntity: ActionToggleArmblade
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  productAction: ActionToggleArmblade
   cost:
     EvolutionPoint: 4
   categories:
   - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuCombatBoneShard
   name: evolutionmenu-combat-boneshard-name
   description: evolutionmenu-combat-boneshard-description
-  productEntity: ActionToggleBoneShard
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: bone_shard }
+  productAction: ActionCreateBoneShard
   cost:
     EvolutionPoint: 3
   categories:
   - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 # sting
 
@@ -26,8 +34,12 @@
   id: EvolutionMenuCombatStingBlind
   name: evolutionmenu-combat-sting-blind-name
   description: evolutionmenu-combat-sting-blind-description
-  productEntity: ActionStingBlind
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_blind }
+  productAction: ActionStingBlind
   cost:
     EvolutionPoint: 2
   categories:
-  - ChangelingAbilitySting 
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

@@ -16,8 +16,8 @@ public sealed partial class ChangelingActionComponent : Component
 #region Events - Basic
 
 public sealed partial class OpenEvolutionMenuEvent : InstantActionEvent { }
-public sealed partial class AbsorbDNAEvent : WorldTargetActionEvent { }
-public sealed partial class StingExtractDNAEvent : WorldTargetActionEvent { }
+public sealed partial class AbsorbDNAEvent : EntityTargetActionEvent { }
+public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
 public sealed partial class EnterStasisEvent : InstantActionEvent { }
 public sealed partial class ExitStasisEvent : InstantActionEvent { }

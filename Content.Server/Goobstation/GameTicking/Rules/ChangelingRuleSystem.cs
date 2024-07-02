@@ -7,6 +7,7 @@ using Content.Server.Roles;
 using Content.Shared.Changeling;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
+using Content.Shared.Store.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -47,10 +48,16 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         _npcFaction.RemoveFaction(target, rule.NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, rule.ChangelingFactionId);
 
-        var lingComp = AddComp<ChangelingComponent>(target);
+        EnsureComp<ChangelingComponent>(target);
 
         foreach (var actionId in rule.BaseChangelingActions)
             _actions.AddAction(target, actionId);
+
+        var store = EnsureComp<StoreComponent>(target);
+        foreach (var category in rule.StoreCategories)
+            store.Categories.Add(category);
+        store.CurrencyWhitelist.Add(rule.Currency);
+        store.Balance.Add(rule.Currency, 20);
 
         rule.ChangelingMinds.Add(mindId);
 

@@ -15,15 +15,6 @@
       mindComponents:
       - type: ChangelingRole
         prototype: Changeling
-      - type: Store
-        categories:
-        - ChangelingAbilityOffense
-        - ChangelingAbilitySting
-        - ChangelingAbilityUtility
-        currencyWhitelist:
-        - EvolutionPoint
-        balance:
-          EvolutionPoint: 20
   #- type: AntagRandomObjectives
   #  sets:
   #  - groups: ChangelingObjectiveGroups

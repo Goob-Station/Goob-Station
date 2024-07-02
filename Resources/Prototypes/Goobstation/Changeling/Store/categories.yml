@@ -2,7 +2,7 @@
 
 - type: storeCategory
   id: ChangelingAbilityCombat
-  name: store-ling-category-offense
+  name: store-ling-category-combat
   priority: 0
 
 - type: storeCategory

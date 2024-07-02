@@ -7,14 +7,14 @@
   description: Opens the evolution menu.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 0
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
 
 - type: entity
   id: ActionAbsorbDNA
@@ -22,14 +22,20 @@
   description: Absorb the target's DNA, husking them in the process. Costs 25 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 25
   - type: EntityTargetAction
+    useDelay: 5
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
     event: !type:AbsorbDNAEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25
 
 - type: entity
   id: ActionStingExtractDNA
@@ -37,14 +43,19 @@
   description: Silently sting an organic target to steal their genetic information, allowing you to later transform into them. Costs 25 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 25
   - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_extractdna
     event: !type:StingExtractDNAEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25
 
 - type: entity
   id: ActionChangelingTransform
@@ -52,14 +63,14 @@
   description: Use stolen genetic information to transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 5
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: transform
     event: !type:ChangelingTransformEvent {}
+  - type: ChangelingAction
+    chemicalCost: 5
 
 - type: entity
   id: ActionEnterStasis
@@ -67,8 +78,6 @@
   description: Fake your death and enter into a regenerative stasis. Costs 15 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 15
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
@@ -77,6 +86,8 @@
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: stasis_enter
     event: !type:EnterStasisEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
 
 - type: entity
   id: ActionExitStasis
@@ -84,8 +95,6 @@
   description: Rise from the dead with full health. Costs 15 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 15
   - type: InstantAction
     checkCanInteract: false
     checkConsciousness: false
@@ -94,6 +103,8 @@
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: stasis_exit
     event: !type:ExitStasisEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
 
 # combat
 - type: entity
@@ -102,8 +113,6 @@
   description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 15
   - type: InstantAction
     useDelay: 1
     itemIconStyle: NoItem
@@ -111,6 +120,8 @@
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: armblade
     event: !type:ToggleArmbladeEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
 
 - type: entity
   id: ActionCreateBoneShard
@@ -118,8 +129,6 @@
   description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 15
   - type: InstantAction
     useDelay: 1
     itemIconStyle: NoItem
@@ -127,6 +136,8 @@
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: bone_shard
     event: !type:CreateBoneShardEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
 
 # stings
 - type: entity
@@ -135,12 +146,17 @@
   description: Silently sting a target, completely blinding them for a short time and rendering them near sighted. Costs 20 chemicals.
   noSpawn: true
   components:
-  - type: ChangelingAction
-    chemicalCost: 25
-    useInLesserForm: true
   - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
     event: !type:StingBlindEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25
+    useInLesserForm: true
