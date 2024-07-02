@@ -1,1 +1,0 @@
-store-currency-display-evolution-points = Evolution Points

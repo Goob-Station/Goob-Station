@@ -1,14 +1,14 @@
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Goobstation.GameTicking.Rules.Components;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Roles;
-using Content.Shared.Goobstation.Changeling;
+using Content.Shared.Changeling;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 
-namespace Content.Server.Goobstation.GameTicking.Rules;
+namespace Content.Server.GameTicking.Rules;
 
 public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRuleComponent>
 {
@@ -44,13 +44,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
 
-        // Change the faction
         _npcFaction.RemoveFaction(target, rule.NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, rule.ChangelingFactionId);
 
         var lingComp = AddComp<ChangelingComponent>(target);
 
-        _actions.AddAction(target, "ActionEvolutionMenu");
+        foreach (var actionId in rule.BaseChangelingActions)
+            _actions.AddAction(target, actionId);
 
         rule.ChangelingMinds.Add(mindId);
 

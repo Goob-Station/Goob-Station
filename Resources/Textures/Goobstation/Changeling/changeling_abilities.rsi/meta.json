@@ -1,15 +1,17 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from Paradise Station wiki",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling",
     "size": {
         "x": 32,
         "y": 32
     },
-
     "states": [
         {
             "name": "absorb_dna"
+        },
+        {
+            "name": "anatomic_panacea"
         },
         {
             "name": "apex_predator"
@@ -22,6 +24,9 @@
         },
         {
             "name": "biodegrade"
+        },
+        {
+            "name": "bone_shard"
         },
         {
             "name": "chameleon_skin"
@@ -42,6 +47,9 @@
             "name": "fleshmend"
         },
         {
+            "name": "hivemind_access"
+        },
+        {
             "name": "last_resort"
         },
         {
@@ -57,10 +65,19 @@
             "name": "shriek_resonant"
         },
         {
+            "name": "space_adaptation"
+        },
+        {
             "name": "stasis_enter"
         },
         {
             "name": "stasis_exit"
+        },
+        {
+            "name": "sting_blind"
+        },
+        {
+            "name": "sting_extractdna"
         },
         {
             "name": "sting_lethargic"
@@ -70,12 +87,6 @@
         },
         {
             "name": "strained_muscles"
-        },
-        {
-            "name": "sting_blind"
-        },
-        {
-            "name": "string_extractdna"
         },
         {
             "name": "swap_forms"

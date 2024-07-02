@@ -1,8 +1,13 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Goobstation.Changeling;
+namespace Content.Shared.Changeling;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(ChangelingSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingComponent : Component
 {
+    [DataField("chemicals")]
+    public float Chemicals = 100;
+
+    [DataField("maxChemicals")]
+    public float MaxChemicals = 100;
 }

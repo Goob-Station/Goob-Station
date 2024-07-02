@@ -1,5 +1,5 @@
 using Content.Client.Alerts;
-using Content.Shared.Goobstation.Changeling;
+using Content.Shared.Changeling;
 
 namespace Content.Client.Changeling;
 

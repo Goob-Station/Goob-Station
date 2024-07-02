@@ -3,7 +3,7 @@ using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Goobstation.GameTicking.Rules.Components;
+namespace Content.Server.GameTicking.Rules.Components;
 
 [RegisterComponent, Access(typeof(ChangelingRuleSystem))]
 public sealed partial class ChangelingRuleComponent : Component
@@ -17,4 +17,13 @@ public sealed partial class ChangelingRuleComponent : Component
     public ProtoId<NpcFactionPrototype> ChangelingFactionId = "Changeling";
 
     public ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
+
+    public List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
+    {
+        "ActionEvolutionMenu",
+        "ActionAbsorbDNA",
+        "ActionStingExtractDNA",
+        "ActionChangelingTransform",
+        "ActionEnterStasis"
+    };
 }

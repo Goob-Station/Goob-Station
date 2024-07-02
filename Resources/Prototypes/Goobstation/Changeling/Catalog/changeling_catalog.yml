@@ -1,0 +1,11 @@
+# combat
+
+- type: listing
+  id: EvolutionMenuCombatArmblade
+  name: evolutionmenu-combat-armblade-name
+  description: evolutionmenu-combat-armblade-description
+  productEntity: ActionToggleArmblade
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
