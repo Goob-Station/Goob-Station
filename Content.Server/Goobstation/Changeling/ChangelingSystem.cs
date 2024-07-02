@@ -244,7 +244,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        var popupOthers = Loc.GetString("changeling-absorb-start-others", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
+        var popupOthers = Loc.GetString("changeling-absorb-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
         PlayMeatySound(uid, comp);
         var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(15), new AbsorbDNADoAfterEvent(), uid, target)
@@ -258,7 +258,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(dargs);
     }
-    public ProtoId<DamageGroupPrototype> GeneticDamageGroup = "Genetic";
+    public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Caustic";
     private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
     {
         if (args.Args.Target == null)
@@ -271,30 +271,29 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (args.Cancelled || !IsIncapacitated(target) || HasComp<AbsorbedComponent>(target))
             return;
 
-        var dmg = new DamageSpecifier(_proto.Index(GeneticDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, true, false);
+        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
+        _damage.TryChangeDamage(target, dmg, false, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
         EnsureComp<AbsorbedComponent>(target);
 
-        var popupSelf = string.Empty;
+        var popup = Loc.GetString("changeling-absorb-end-self-ling");
         var bonusChemicals = 10;
         var bonusEvolutionPoints = 0;
         if (HasComp<ChangelingComponent>(target))
         {
-            popupSelf = Loc.GetString("changeling-absorb-end-self-ling");
             bonusChemicals += 20;
             bonusEvolutionPoints += 5;
         }
         else
         {
-            popupSelf = Loc.GetString("changeling-absorb-end-self", ("target", Identity.Entity(target, EntityManager)));
+            popup = Loc.GetString("changeling-absorb-end-self", ("target", Identity.Entity(target, EntityManager)));
             bonusChemicals += 10;
             TryStealDNA(uid, target, comp);
         }
 
-        _popup.PopupEntity(popupSelf, uid, uid);
+        _popup.PopupEntity(popup, uid, uid);
         comp.MaxChemicals += bonusChemicals;
 
         if (TryComp<StoreComponent>(uid, out var store))
