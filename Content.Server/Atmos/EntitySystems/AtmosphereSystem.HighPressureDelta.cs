@@ -218,11 +218,11 @@ namespace Content.Server.Atmos.EntitySystems
                     if (throwTarget != EntityCoordinates.Invalid)
                     {
                         var pos = throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec;
-                        _throwing.TryThrow(uid, pos.Normalized() * moveForce, moveForce);
+                        _throwing.TryThrow(uid, pos.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
                     }
                     else
                     {
-                        _throwing.TryThrow(uid, dirVec.Normalized() * moveForce, moveForce);
+                        _throwing.TryThrow(uid, dirVec.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
                     }
 
                     component.LastHighPressureMovementAirCycle = cycle;
