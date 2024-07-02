@@ -9,3 +9,25 @@
     EvolutionPoint: 4
   categories:
   - ChangelingAbilityCombat
+
+- type: listing
+  id: EvolutionMenuCombatBoneShard
+  name: evolutionmenu-combat-boneshard-name
+  description: evolutionmenu-combat-boneshard-description
+  productEntity: ActionToggleBoneShard
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - ChangelingAbilityCombat
+
+# sting
+
+- type: listing
+  id: EvolutionMenuCombatStingBlind
+  name: evolutionmenu-combat-sting-blind-name
+  description: evolutionmenu-combat-sting-blind-description
+  productEntity: ActionStingBlind
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilitySting 

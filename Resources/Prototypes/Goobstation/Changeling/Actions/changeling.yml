@@ -7,6 +7,8 @@
   description: Opens the evolution menu.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 0
   - type: InstantAction
     itemIconStyle: NoItem
     icon:
@@ -17,11 +19,12 @@
 - type: entity
   id: ActionAbsorbDNA
   name: Absorb DNA
-  description: Absorb the target's DNA, husking them in the process.
+  description: Absorb the target's DNA, husking them in the process. Costs 25 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 25
   - type: EntityTargetAction
-    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -31,11 +34,12 @@
 - type: entity
   id: ActionStingExtractDNA
   name: Extract DNA sting
-  description: Silently sting an organic target to steal their genetic information, allowing you to later transform into them.
+  description: Silently sting an organic target to steal their genetic information, allowing you to later transform into them. Costs 25 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 25
   - type: EntityTargetAction
-    useDelay: 5
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -45,11 +49,12 @@
 - type: entity
   id: ActionChangelingTransform
   name: Transform
-  description: Use stolen genetic information to transform into another humanoid.
+  description: Use stolen genetic information to transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 5
   - type: InstantAction
-    useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -59,11 +64,12 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and enter into a regenerative stasis.
+  description: Fake your death and enter into a regenerative stasis. Costs 15 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 15
   - type: InstantAction
-    useDelay: 60
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -75,11 +81,12 @@
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health.
+  description: Rise from the dead with full health. Costs 15 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 15
   - type: InstantAction
-    useDelay: 60
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -92,13 +99,48 @@
 - type: entity
   id: ActionToggleArmblade
   name: Toggle Arm Blade
-  description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use.
+  description: Reform one of your arms into a strong blade, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
   noSpawn: true
   components:
+  - type: ChangelingAction
+    chemicalCost: 15
   - type: InstantAction
-    useDelay: 5
+    useDelay: 1
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: armblade
-    # event: !type:ToggleArmbladeEvent {}
+    event: !type:ToggleArmbladeEvent {}
+
+- type: entity
+  id: ActionCreateBoneShard
+  name: Form Bone Shard
+  description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
+  noSpawn: true
+  components:
+  - type: ChangelingAction
+    chemicalCost: 15
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: bone_shard
+    event: !type:CreateBoneShardEvent {}
+
+# stings
+- type: entity
+  id: ActionStingBlind
+  name: Blind Sting
+  description: Silently sting a target, completely blinding them for a short time and rendering them near sighted. Costs 20 chemicals.
+  noSpawn: true
+  components:
+  - type: ChangelingAction
+    chemicalCost: 25
+    useInLesserForm: true
+  - type: EntityTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_blind
+    event: !type:StingBlindEvent {}

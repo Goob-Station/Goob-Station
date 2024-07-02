@@ -18,7 +18,7 @@
       - type: Store
         categories:
         - ChangelingAbilityOffense
-        - ChangelingAbilityDefense
+        - ChangelingAbilitySting
         - ChangelingAbilityUtility
         currencyWhitelist:
         - EvolutionPoint
