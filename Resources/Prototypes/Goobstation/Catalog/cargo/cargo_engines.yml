@@ -13,7 +13,7 @@
   icon:
     sprite: Structures/Power/Generation/ame.rsi
     state: control
-  product: CrateEngineeringAMEControl
+  product: CrateEngineeringAMEControlFlatpack
   cost: 5000
   category: cargoproduct-category-name-engineering
   group: market

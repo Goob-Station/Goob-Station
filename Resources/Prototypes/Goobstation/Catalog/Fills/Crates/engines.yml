@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateEngineeringAMEControlFlatpack
+  parent: CrateEngineeringSecure
+  suffix: flatpacked
+  name: antimatter control unit crate
+  description: The control unit of an antimatter reactor.
+  components:
+  - type: StorageFill
+    contents:
+      - id: AmeControllerFlatpack

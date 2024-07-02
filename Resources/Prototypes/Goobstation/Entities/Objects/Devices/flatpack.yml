@@ -1,0 +1,31 @@
+- type: entity
+  parent: BaseFlatpack
+  id: AmeControllerFlatpack
+  name: AME Controller flatpack
+  description: A flatpack used for constructing an antimatter engine controller.
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: AmeController
+  - type: StaticPrice
+    price: 2000
+  - type: GuideHelp
+    guides: [ AME, Power ]
+
+- type: entity
+  parent: BaseFlatpack
+  id: SingularityFlatpack
+  name: Singularity flatpack
+  suffix: admeme
+  description: only open in a secure location
+  components:
+  - type: Sprite
+    layers:
+    - state: ame-part
+  - type: Flatpack
+    entity: Singularity
+  - type: StaticPrice
+    price: 10000
+
