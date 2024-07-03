@@ -19,6 +19,9 @@
       "directions": 4
     },
     {
+      "name": "box_hug"
+    },
+    {
       "name": "hug-inhand-left",
       "directions": 4
     },
@@ -27,7 +30,16 @@
       "directions": 4
     },
     {
-      "name": "box_hug"
+      "name": "box_med"
+    },
+    {
+      "name": "box_sec"
+    },
+    {
+      "name": "box_syndie"
+    },
+    {
+      "name": "box_extend"
     },
     {
       "name": "flare"
