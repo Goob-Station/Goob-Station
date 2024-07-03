@@ -96,6 +96,9 @@
         },
         {
             "name": "transform"
+        },
+        {
+            "name": "transform_cycle"
         }
     ]
 }

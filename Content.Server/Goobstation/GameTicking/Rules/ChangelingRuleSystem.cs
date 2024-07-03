@@ -36,6 +36,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
+        // briefing
         TryComp<MetaDataComponent>(target, out var metaData);
 
         var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
@@ -45,14 +46,15 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
 
+        // hivemind stuff
         _npcFaction.RemoveFaction(target, rule.NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, rule.ChangelingFactionId);
 
-        EnsureComp<ChangelingComponent>(target);
+        // make sure it's initial chems are set to max
+        var lingComp = EnsureComp<ChangelingComponent>(target);
+        lingComp.Chemicals = lingComp.MaxChemicals;
 
-        foreach (var actionId in rule.BaseChangelingActions)
-            _actions.AddAction(target, actionId);
-
+        // add store
         var store = EnsureComp<StoreComponent>(target);
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);

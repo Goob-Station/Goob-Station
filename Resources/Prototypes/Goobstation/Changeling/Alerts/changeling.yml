@@ -1,0 +1,18 @@
+- type: alert
+  id: Chemicals
+  category: SuitPower # yup, 100% makes sense.
+  icons:
+  - sprite: /Textures/Goobstation/Changeling/changeling_chemicals.rsi
+    state: 0
+  alertViewEntity: AlertChemicalsSpriteView
+  name: alerts-changeling-chemicals-name
+  description: alerts-changeling-chemicals-desc
+
+- type: entity
+  id: AlertChemicalsSpriteView
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Goobstation/Changeling/changeling_chemicals.rsi
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]

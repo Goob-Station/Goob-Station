@@ -58,12 +58,28 @@
     chemicalCost: 25
 
 - type: entity
-  id: ActionChangelingTransform
-  name: Transform
-  description: Use stolen genetic information to transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
+  id: ActionChangelingTransformCycle
+  name: Cycle DNA
+  description: Cycle your available DNA.
   noSpawn: true
   components:
   - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: transform_cycle
+    event: !type:ChangelingTransformCycleEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+
+- type: entity
+  id: ActionChangelingTransform
+  name: Transform
+  description: Use stolen genetic information to transform into another humanoid. Resets your abilities. Doesn't come with clothes. Costs 5 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 5
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -88,11 +104,12 @@
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
     chemicalCost: 15
+    useInLesserForm: true
 
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 15 chemicals.
+  description: Rise from the dead with full health. Costs 99 chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -104,7 +121,8 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+    chemicalCost: 99
+    useInLesserForm: true
 
 # combat
 - type: entity
@@ -138,6 +156,89 @@
     event: !type:CreateBoneShardEvent {}
   - type: ChangelingAction
     chemicalCost: 15
+
+- type: entity
+  id: ActionToggleChitinousArmor
+  name: Toggle Armor
+  description: Inflate your body into an all-consuming chitinous mass of armor. Costs 25 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: chitinous_armor
+    event: !type:ToggleChitinousArmorEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25
+
+- type: entity
+  id: ActionToggleOrganicShield
+  name: Form Shield
+  description: Reform one of your arms into a large, fleshy shield. Costs 20 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: organic_shield
+    event: !type:ToggleOrganicShieldEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
+
+- type: entity
+  id: ActionShriekDissonant
+  name: Dissonant Shriek
+  description: Emit an EMP blast, with just your voice. Costs 30 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: shriek_dissonant
+    event: !type:ShriekDissonantEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+    useInLesserForm: true
+
+- type: entity
+  id: ActionShriekResonant
+  name: Resonant Shriek
+  description: Disorient people and break lights, with just your voice. Costs 30 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: shriek_resonant
+    event: !type:ShriekResonantEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+    useInLesserForm: true
+
+- type: entity
+  id: ActionToggleStrainedMuscles
+  name: Strain Muscles
+  description: Move at extremely fast speeds. Deals stamina damage.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: strained_muscles
+    event: !type:ToggleStrainedMusclesEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLesserForm: true
 
 # stings
 - type: entity

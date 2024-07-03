@@ -28,6 +28,76 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: EvolutionMenuCombatChitinousArmor
+  name: evolutionmenu-combat-armor-name
+  description: evolutionmenu-combat-armor-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
+  productAction: ActionToggleChitinousArmor
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombatOrganicShield
+  name: evolutionmenu-combat-shield-name
+  description: evolutionmenu-combat-shield-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: organic_shield }
+  productAction: ActionToggleOrganicShield
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombatShriekDissonant
+  name: evolutionmenu-combat-shriek-dissonant-name
+  description: evolutionmenu-combat-shriek-dissonant-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: shriek_dissonant }
+  productAction: ActionShriekDissonant
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombatShriekResonant
+  name: evolutionmenu-combat-shriek-resonant-name
+  description: evolutionmenu-combat-shriek-resonant-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: shriek_resonant }
+  productAction: ActionShriekResonant
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuCombat
+  name: evolutionmenu-combat-strainedmuscles-name
+  description: evolutionmenu-combat-strainedmuscles-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: strained_muscles }
+  productAction: ActionToggleStrainedMuscles
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # sting
 
 - type: listing

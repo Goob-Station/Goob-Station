@@ -19,15 +19,6 @@ public sealed partial class ChangelingRuleComponent : Component
 
     public readonly ProtoId<NpcFactionPrototype> NanotrasenFactionId = "NanoTrasen";
 
-    public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
-    {
-        "ActionEvolutionMenu",
-        "ActionAbsorbDNA",
-        "ActionStingExtractDNA",
-        "ActionChangelingTransform",
-        "ActionEnterStasis"
-    };
-
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "ChangelingAbilityCombat",

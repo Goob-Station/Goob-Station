@@ -20,5 +20,7 @@ public sealed partial class TransformMenu : RadialMenu
         _sprite = _entity.System<SpriteSystem>();
 
         var main = FindControl<RadialContainer>("Main");
+
+        // TODO: transform radial menu
     }
 }
