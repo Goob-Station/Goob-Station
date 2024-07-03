@@ -27,6 +27,7 @@ namespace Content.Server.Tabletop
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
         [Dependency] private readonly IChatManager _chat = default!;
+        [Dependency] private readonly INetConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {
