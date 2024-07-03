@@ -1,5 +1,6 @@
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -9,6 +10,7 @@ using Content.Shared.Tabletop.Events;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
@@ -75,6 +77,9 @@ namespace Content.Server.Tabletop
 
         private void OnInteractUsing(EntityUid uid, TabletopGameComponent component, InteractUsingEvent args)
         {
+            if (!_cfg.GetCVar(CCVars.GameTabletopPlace))
+                return;
+
             if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
                 return;
 
