@@ -93,6 +93,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Belch: # Frontier
+      collection: Belch # Frontier
     Hew:
       collection: Hew
     Gasp:
@@ -141,6 +143,8 @@
       collection: Weh
     Hew:
       collection: Hew
+    Belch: # Frontier
+      collection: Belch # Frontier
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -539,6 +543,8 @@
       collection: Whistles
     Weh:
       collection: Weh
+    Belch: # Frontier
+      collection: Belch # Frontier
     Hew:
       collection: Hew
     Gasp:
@@ -586,8 +592,8 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Hew:
-      collection: Hew
+    Belch: # Frontier
+      collection: Belch # Frontier
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

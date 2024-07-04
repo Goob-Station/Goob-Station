@@ -98,6 +98,7 @@
     accent: zombieDwarf #Goob
   - type: Speech
     speechSounds: Bass
+    allowedEmotes: ['Belch'] # Frontier
   - type: LanguageKnowledge # Einstein Engines - Languages
     speaks:
     - TauCetiBasic

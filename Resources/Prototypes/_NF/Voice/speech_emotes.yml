@@ -1,0 +1,29 @@
+- type: emote
+  id: Belch
+  name: chat-emote-name-belch
+  category: Vocal
+  available: false
+  icon: _NF/Interface/Emotes/belch.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-belch"]
+  chatTriggers:
+    - belch
+    - belch.
+    - belch!
+    - burp
+    - burp.
+    - burp!
+    - belchs
+    - belchs.
+    - belchs!
+    - burps
+    - burps.
+    - burps!
+    - belches
+    - belches.
+    - belches!
