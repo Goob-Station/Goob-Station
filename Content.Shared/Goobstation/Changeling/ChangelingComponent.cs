@@ -44,8 +44,8 @@ public sealed partial class ChangelingComponent : Component
     public ProtoId<EntityPrototype> ArmorPrototype = "ChangelingClothingOuterArmor";
     public ProtoId<EntityPrototype> ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
 
-    public ProtoId<EntityPrototype> SpacesuitPrototype = "";
-    public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "";
+    public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
@@ -60,7 +60,6 @@ public sealed partial class ChangelingComponent : Component
     public float MaxChemicals = 100;
 
     public float ChemicalRegenerationAccumulator = 0;
-
     /// <summary>
     ///     Time in seconds to take before chemical regeneration occurs.
     /// </summary>
@@ -71,6 +70,10 @@ public sealed partial class ChangelingComponent : Component
     ///     Modifier for chemical regeneration. Positive = faster, negative = slower.
     /// </summary>
     public float ChemicalRegenerationModifier = 0;
+    /// <summary>
+    ///     The higher - the more chemicals drain.
+    /// </summary>
+    public float ChemicalDrain = 0;
 
 
 

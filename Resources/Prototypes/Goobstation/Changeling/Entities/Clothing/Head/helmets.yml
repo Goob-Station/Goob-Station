@@ -1,15 +1,15 @@
-#Chitinous Helmet
 - type: entity
   parent: ClothingHeadBase
   id: ChangelingClothingHeadHelmet
   name: chitinous helmet
   description: An all-consuming chitinous mass of armor.
+  suffix: Unremoveable
   components:
   - type: Sprite
     sprite: Goobstation/Changeling/ling_armor_helmet.rsi
   - type: Clothing
     sprite: Goobstation/Changeling/ling_armor_helmet.rsi
-  - type: Armor #admeme item so it should be fine being overpowered while helmets are still intentionally kneecapped.
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.5

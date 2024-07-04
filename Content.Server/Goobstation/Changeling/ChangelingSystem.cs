@@ -175,10 +175,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         return false;
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = 1)
+    private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        var regen = Math.Abs(1 * (1 + comp.ChemicalRegenerationModifier));
-        var chemicals = comp.Chemicals + amount ?? regen;
+        var regen = Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -1, float.PositiveInfinity)));
+        var chemicals = comp.Chemicals;
+
+        chemicals += amount ?? regen;
 
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
 
@@ -597,24 +599,22 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnToggleArmblade(EntityUid uid, ChangelingComponent comp, ref ToggleArmbladeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
         if (comp.ArmbladeEntity == null)
         {
-            comp.ChemicalRegenerationModifier -= .25f;
-
             var armblade = EntityManager.SpawnEntity(comp.ArmbladePrototype, Transform(uid).Coordinates);
             if (!_hands.TryForcePickupAnyHand(uid, armblade))
             {
                 EntityManager.DeleteEntity(comp.ArmbladeEntity);
                 _popup.PopupEntity(Loc.GetString("changeling-armblade-fail-hands"), uid, uid);
             }
+            else if (!TryUseAbility(uid, comp, args))
+                EntityManager.DeleteEntity(comp.ArmbladeEntity);
             else
             {
                 PlayMeatySound(uid, comp);
                 _popup.PopupEntity(Loc.GetString("changeling-armblade-start"), uid, uid);
                 comp.ArmbladeEntity = armblade;
+                comp.ChemicalRegenerationModifier -= .25f;
             }
         }
         else
