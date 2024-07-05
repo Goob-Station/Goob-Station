@@ -57,7 +57,7 @@
     belt: ClothingBeltMilitaryWebbing
   storage:
     back:
-    - BoxSurvivalSyndicate
+    - BoxSurvivalSlotsSyndicate # Goobstation - Slots Based Survival Boxes
     - WeaponPistolViper
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
@@ -85,7 +85,7 @@
   storage:
     back:
     - SyndiHypo
-    - BoxSurvivalSyndicate
+    - BoxSurvivalSlotsSyndicate # Goobstation - Slots Based Survival Boxes
     - SawAdvanced
     - Cautery
     - CombatKnife

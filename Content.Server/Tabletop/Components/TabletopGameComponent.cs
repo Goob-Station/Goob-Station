@@ -37,5 +37,17 @@ namespace Content.Server.Tabletop.Components
         /// </summary>
         [ViewVariables]
         public TabletopSession? Session { get; set; } = null;
+
+        /// <summary>
+        /// How many holograms have been spawned onto this board.
+        /// </summary>
+        [ViewVariables]
+        public int HologramsSpawned { get; set; } = 0;
+
+        /// <summary>
+        /// How many holograms are allowed to be spawned total by players.
+        /// </summary>
+        [ViewVariables]
+        public int MaximumHologramsAllowed { get; set; } = 10;
     }
 }

@@ -1,7 +1,7 @@
 - type: gameMap
   id: Fland
   mapName: 'Fland Installation'
-  mapPath: /Maps/fland.yml
+  mapPath: /Maps/Goobstation/fland.yml # Goobstation - SM
   minPlayers: 0
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:
