@@ -39,6 +39,11 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: Tag # Goobstation - For survial boxes
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+    - SecurityBreathMask
 
 - type: entity
   parent: ClothingMaskGas
@@ -59,6 +64,11 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: Tag  # Goobstation - For survial boxes
+    tags:
+    - PetWearable
+    - WhitelistChameleon
+    - SyndicateBreathMask
 
 - type: entity
   parent: ClothingMaskGas
@@ -137,6 +147,8 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+    - BreathMask  # Goobstation - For survial boxes
+
 
 - type: entity
   parent: ClothingMaskBreathMedical
@@ -176,6 +188,7 @@
     tags:
     - PetWearable
     - WhitelistChameleon
+    - BreathMask # Goobstation - For survial boxes
   - type: PhysicalComposition
     materialComposition:
       Steel: 50

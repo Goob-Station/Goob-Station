@@ -983,7 +983,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 80
+    Telecrystal: 70
   categories:
   - UplinkAllies
   conditions:
@@ -1000,7 +1000,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 80
+    Telecrystal: 175
   categories:
   - UplinkAllies
   conditions:
@@ -1412,7 +1412,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 50
+    Telecrystal: 60
   categories:
   - UplinkWearables
 
