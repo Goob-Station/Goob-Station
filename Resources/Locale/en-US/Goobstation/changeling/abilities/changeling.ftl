@@ -29,6 +29,11 @@ changeling-stasis-enter-fail = Can't enter stasis!
 changeling-stasis-exit = We exit the regenerative stasis, fully patched up and ready to go.
 changeling-stasis-exit-fail = We're not in a stasis!
 
+changeling-hand-transform-end = Your arm takes back it's initial form.
+changeling-fail-hands = Need to drop something beforehand...
+
 changeling-armblade-start = Your arm reforms into a grotesque blade.
-changeling-armblade-end = Your arm takes back it's initial form.
-changeling-armblade-fail-hands = Need to drop something beforehand...
+changeling-shield-start = Your arm reforms into a meat shield.
+
+changeling-muscles-start = Your body feel a lot lighter...
+changeling-muscles-end = Your legs feel heavier...

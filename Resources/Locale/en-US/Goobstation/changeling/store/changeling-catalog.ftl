@@ -4,7 +4,7 @@
 evolutionmenu-combat-armblade-name = Arm Blade
 evolutionmenu-combat-armblade-description =
     Reform one of your arms into a grotesque blade, composed of bone and flesh, able to pry open airlocks and cut through your foes like butter.
-    Costs 15 chemicals on activation, 0.35 chemicals per second to upkeep.
+    Costs 15 chemicals on activation, slows chemical regeneration.
 
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-description =
@@ -16,13 +16,13 @@ evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
     Provides extensive protection against physical damage, but less against other types.
     It massively slows your movement, and maintaining its shape slows chemical generation.
-    Costs 25 chemicals on activation.
+    Costs 25 chemicals on activation, significantly slows chemical regeneration.
 
 evolutionmenu-combat-shield-name = Organic Shield
 evolutionmenu-combat-shield-desc =
     Reforms one of your arms into a large, fleshy shield.
     Blocks attacks automatically, but very brittle.
-    Costs 20 chemicals on activation, slows chemical regeneration.
+    Costs 20 chemicals on activation.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
@@ -41,7 +41,7 @@ evolutionmenu-combat-strainedmuscles-name = Strained Muscles
 evolutionmenu-combat-strainedmuscles-desc =
     You reduce lactic acid buildup in your leg muscles, allowing you to move at extremely fast speeds.
     While active, you will take steadily increments of stamina damage and eventually pass out.
-    Cost-free on activation, slows chemical regeneration.
+    Cost-free on activation, halts chemical regeneration.
 
 # sting
 

@@ -17,6 +17,8 @@ public sealed partial class ChangelingComponent : Component
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
 
+    #region Abilities
+
     [DataField("soundShriek")]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
@@ -33,19 +35,30 @@ public sealed partial class ChangelingComponent : Component
         "ActionEnterStasis",
         "ActionExitStasis"
     };
-    public bool IsInStasis = false;
 
+    public bool IsInStasis = false;
 
     public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
     public EntityUid? ArmbladeEntity;
+
+    public ProtoId<EntityPrototype> ShieldPrototype = "ChangelingShield";
+    public EntityUid? ShieldEntity;
 
     public ProtoId<EntityPrototype> BoneShardPrototype = "ThrowingStarChangeling";
 
     public ProtoId<EntityPrototype> ArmorPrototype = "ChangelingClothingOuterArmor";
     public ProtoId<EntityPrototype> ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+    public EntityUid? ArmorEntity;
 
     public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+    public EntityUid? SpacesuitEntity;
+
+    public bool StrainedMusclesActivated = false;
+
+    #endregion
+
+    #region Base
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
@@ -56,27 +69,24 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
-    [DataField("maxChemicals")]
+    [DataField("maxChemicals"), AutoNetworkedField]
     public float MaxChemicals = 100;
 
-    public float ChemicalRegenerationAccumulator = 0;
+    public float UpdateAccumulator = 0;
     /// <summary>
-    ///     Time in seconds to take before chemical regeneration occurs.
+    ///     Time in seconds to take before the update cycle.
     /// </summary>
-    public readonly float ChemicalRegenerationTimer = 1;
+    public readonly float UpdateTimer = 1;
 
     public float ChemicalRegenerationMobStateModifier = 0;
     /// <summary>
     ///     Modifier for chemical regeneration. Positive = faster, negative = slower.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public float ChemicalRegenerationModifier = 0;
-    /// <summary>
-    ///     The higher - the more chemicals drain.
-    /// </summary>
-    public float ChemicalDrain = 0;
 
 
-
+    [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
@@ -86,23 +96,30 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
     /// </summary>
+    [DataField("maxDna")]
     public int MaxAbsorbedDNA = 5;
 
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public int TotalAbsorbedEntities = 0;
 
     /// <summary>
     ///     Total stolen DNA. Counts towards objectives.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public int TotalStolenDNA = 0;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
     public TransformData? SelectedForm;
+
+    #endregion
 }
 
+[Serializable]
 public struct TransformData
 {
     /// <summary>

@@ -1,6 +1,7 @@
 # abilities
 
 # starting
+
 - type: entity
   id: ActionEvolutionMenu
   name: Open evolution menu
@@ -125,6 +126,7 @@
     useInLesserForm: true
 
 # combat
+
 - type: entity
   id: ActionToggleArmblade
   name: Toggle Arm Blade
@@ -241,6 +243,7 @@
     useInLesserForm: true
 
 # stings
+
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
@@ -261,3 +264,8 @@
   - type: ChangelingAction
     chemicalCost: 25
     useInLesserForm: true
+
+
+
+# utility
+
