@@ -42,15 +42,18 @@ using Content.Server.Emp;
 using Robust.Server.GameObjects;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
+using Content.Shared.Mind;
+using Content.Shared.Damage.Components;
+using Content.Server.Objectives.Components;
 
 namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem : EntitySystem
 {
     // this is one hell of a star wars intro text
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly StoreSystem _store = default!;
@@ -132,9 +135,10 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (comp.StrainedMusclesActivated)
         {
+            var stamina = EnsureComp<StaminaComponent>(uid);
             _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-            if (_stamina.GetStaminaDamage(uid) >= 100)
-                RaiseLocalEvent(uid, new ToggleStrainedMusclesEvent());
+            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
+                ToggleStrainedMuscles(uid, comp);
         }
     }
 
@@ -304,7 +308,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         comp.AbsorbedDNA.Add(data);
 
         if (countObjective)
-            comp.TotalStolenDNA += 1;
+        {
+            if (_mind.TryGetMind(uid, out var mindId, out var mind))
+                if (_mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective))
+                    objective.DNAStolen += 1;
+        }
     }
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp)
     {
@@ -495,12 +503,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (HasComp<ChangelingComponent>(target))
         {
             bonusChemicals += 20;
-            bonusEvolutionPoints += 5;
+            bonusEvolutionPoints += 4;
         }
         else
         {
             popup = Loc.GetString("changeling-absorb-end-self", ("target", Identity.Entity(target, EntityManager)));
             bonusChemicals += 10;
+            bonusEvolutionPoints += 2;
             TryStealDNA(args.User, target, comp);
             comp.TotalAbsorbedEntities++;
             comp.TotalStolenDNA++;
@@ -514,6 +523,10 @@ public sealed partial class ChangelingSystem : EntitySystem
             _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
             _store.UpdateUserInterface(args.User, args.User, store);
         }
+
+        if (_mind.TryGetMind(uid, out var mindId, out var mind))
+            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective))
+                objective.Absorbed += 1;
     }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)
@@ -678,6 +691,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        //outerClothing
+
         if (!TryToggleItem(uid, comp.ArmorHelmetPrototype, ref comp.ArmorEntity, "head"))
             return;
 
@@ -736,6 +751,10 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        ToggleStrainedMuscles(uid, comp);
+    }
+    private void ToggleStrainedMuscles(EntityUid uid, ChangelingComponent comp)
+    {
         if (!comp.StrainedMusclesActivated)
         {
             _speed.ChangeBaseSpeed(uid, 125f, 150f, 1f);

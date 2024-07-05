@@ -7,8 +7,8 @@ changeling-absorb-fail-incapacitated = You can't absorb it until it's not incapa
 changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = You've successfully absorbed {CAPITALIZE(THE($target))}!
-changeling-absorb-end-self-ling = You've absorbed another changeling! Evolution points added.
-changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person you used to know. A sad view.[/color]
+changeling-absorb-end-self-ling = You've absorbed another changeling!
+changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person.[/color]
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!

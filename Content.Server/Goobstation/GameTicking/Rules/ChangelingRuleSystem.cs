@@ -1,8 +1,8 @@
 using Content.Server.Actions;
 using Content.Server.Antag;
-using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
+using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Changeling;
 using Content.Shared.NPC.Systems;
@@ -17,7 +17,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly ActionsSystem _actions = default!;
+    [Dependency] private readonly ObjectivesSystem _objective = default!;
 
     public override void Initialize()
     {
@@ -62,6 +62,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         store.Balance.Add(rule.Currency, 20);
 
         rule.ChangelingMinds.Add(mindId);
+
+        foreach (var objective in rule.Objectives)
+            _mind.TryAddObjective(mindId, mind, objective);
 
         return true;
     }

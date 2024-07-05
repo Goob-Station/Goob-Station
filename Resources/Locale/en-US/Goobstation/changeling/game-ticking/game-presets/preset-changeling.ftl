@@ -1,6 +1,6 @@
 changeling-roundend-name = changeling
 
-changeling-objective-issuer = changeling
+objective-issuer-hivemind = [color=orange]Hivemind[/color]
 
 changeling-gamemode-title = Changelings
 changeling-gamemode-description =

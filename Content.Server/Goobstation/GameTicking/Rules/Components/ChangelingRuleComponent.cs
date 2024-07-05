@@ -27,4 +27,11 @@ public sealed partial class ChangelingRuleComponent : Component
     };
 
     public readonly ProtoId<CurrencyPrototype> Currency = "EvolutionPoint";
+
+    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
+    {
+        "ChangelingAbsorbObjective",
+        "ChangelingStealDNAObjective",
+        "EscapeIdentityObjective"
+    };
 }

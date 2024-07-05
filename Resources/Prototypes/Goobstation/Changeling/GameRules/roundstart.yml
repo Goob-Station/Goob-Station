@@ -15,6 +15,4 @@
       mindComponents:
       - type: ChangelingRole
         prototype: Changeling
-  #- type: AntagRandomObjectives
-  #  sets:
-  #  - groups: ChangelingObjectiveGroups
+    maxDifficulty: 10 # doesn't matter, set to 10 for the sake of it

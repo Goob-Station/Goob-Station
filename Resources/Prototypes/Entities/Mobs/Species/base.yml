@@ -290,7 +290,6 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
-  - type: Absorbable # Goobstation - changelings
 
 - type: entity
   save: false
