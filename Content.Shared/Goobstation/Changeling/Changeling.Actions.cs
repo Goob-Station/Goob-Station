@@ -40,6 +40,11 @@ public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
 #region Events - Sting
 
 public sealed partial class StingBlindEvent : EntityTargetActionEvent { }
+public sealed partial class StingCryoEvent : EntityTargetActionEvent { }
+public sealed partial class StingLethargicEvent : EntityTargetActionEvent { }
+public sealed partial class StingMuteEvent : EntityTargetActionEvent { }
+public sealed partial class StingFakeArmbladeEvent : EntityTargetActionEvent { }
+public sealed partial class StingTransformEvent : EntityTargetActionEvent { }
 
 #endregion
 

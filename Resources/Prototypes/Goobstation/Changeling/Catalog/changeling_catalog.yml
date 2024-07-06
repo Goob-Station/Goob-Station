@@ -3,7 +3,7 @@
 - type: listing
   id: EvolutionMenuCombatArmblade
   name: evolutionmenu-combat-armblade-name
-  description: evolutionmenu-combat-armblade-description
+  description: evolutionmenu-combat-armblade-desc
   icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
   productAction: ActionToggleArmblade
   cost:
@@ -17,7 +17,7 @@
 - type: listing
   id: EvolutionMenuCombatBoneShard
   name: evolutionmenu-combat-boneshard-name
-  description: evolutionmenu-combat-boneshard-description
+  description: evolutionmenu-combat-boneshard-desc
   icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: bone_shard }
   productAction: ActionCreateBoneShard
   cost:
@@ -101,13 +101,83 @@
 # sting
 
 - type: listing
-  id: EvolutionMenuCombatStingBlind
-  name: evolutionmenu-combat-sting-blind-name
-  description: evolutionmenu-combat-sting-blind-description
+  id: EvolutionMenuStingBlind
+  name: evolutionmenu-sting-blind-name
+  description: evolutionmenu-sting-blind-desc
   icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_blind }
   productAction: ActionStingBlind
   cost:
-    EvolutionPoint: 2
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuStingCryo
+  name: evolutionmenu-sting-cryo-name
+  description: evolutionmenu-sting-cryo-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_cryo }
+  productAction: ActionStingCryo
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuStingLethargic
+  name: evolutionmenu-sting-lethargic-name
+  description: evolutionmenu-sting-lethargic-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_lethargic }
+  productAction: ActionStingLethargic
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuStingMute
+  name: evolutionmenu-sting-mute-name
+  description: evolutionmenu-sting-mute-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_mute }
+  productAction: ActionStingMute
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuStingFakeArmblade
+  name: evolutionmenu-sting-armblade-name
+  description: evolutionmenu-sting-armblade-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_armblade }
+  productAction: ActionStingFakeArmblade
+  cost:
+    EvolutionPoint: 5
+  categories:
+  - ChangelingAbilitySting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: EvolutionMenuStingTransform
+  name: evolutionmenu-sting-transform-name
+  description: evolutionmenu-sting-transform-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: sting_transform }
+  productAction: ActionStingTransform
+  cost:
+    EvolutionPoint: 6
   categories:
   - ChangelingAbilitySting
   conditions:

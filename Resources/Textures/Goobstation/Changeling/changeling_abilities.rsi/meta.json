@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0",
     "size": {
         "x": 32,
         "y": 32
@@ -74,7 +74,13 @@
             "name": "stasis_exit"
         },
         {
+            "name": "sting_armblade"
+        },
+        {
             "name": "sting_blind"
+        },
+        {
+            "name": "sting_cryo"
         },
         {
             "name": "sting_extractdna"
@@ -84,6 +90,9 @@
         },
         {
             "name": "sting_mute"
+        },
+        {
+            "name": "sting_transform"
         },
         {
             "name": "strained_muscles"

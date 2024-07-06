@@ -2,6 +2,7 @@ using Content.Shared.Humanoid;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Changeling;
 
@@ -39,6 +40,7 @@ public sealed partial class ChangelingComponent : Component
     public bool IsInStasis = false;
 
     public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
+    public ProtoId<EntityPrototype> FakeArmbladePrototype = "FakeArmBladeChangeling";
     public EntityUid? ArmbladeEntity;
 
     public ProtoId<EntityPrototype> ShieldPrototype = "ChangelingShield";
@@ -48,11 +50,11 @@ public sealed partial class ChangelingComponent : Component
 
     public ProtoId<EntityPrototype> ArmorPrototype = "ChangelingClothingOuterArmor";
     public ProtoId<EntityPrototype> ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
-    public EntityUid? ArmorEntity;
+    public EntityUid? ArmorEntity, ArmorHelmetEntity;
 
     public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
-    public EntityUid? SpacesuitEntity;
+    public EntityUid? SpacesuitEntity, SpacesuitHelmetEntity;
 
     public bool StrainedMusclesActivated = false;
 
@@ -64,26 +66,27 @@ public sealed partial class ChangelingComponent : Component
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
     [DataField("chemicals"), AutoNetworkedField]
-    public float Chemicals = 100;
+    public float Chemicals = 100f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
     [DataField("maxChemicals"), AutoNetworkedField]
-    public float MaxChemicals = 100;
+    public float MaxChemicals = 100f;
 
-    public float UpdateAccumulator = 0;
+    public float UpdateAccumulator = 0f;
     /// <summary>
     ///     Time in seconds to take before the update cycle.
     /// </summary>
-    public readonly float UpdateTimer = 1;
+    public readonly float UpdateTimer = 1f;
 
-    public float ChemicalRegenerationMobStateModifier = 0;
+    public float ChemicalRegenerationMobStateModifier = 0f;
+    public float ChemicalRegenerationAbilityModifier = 0f;
     /// <summary>
     ///     Modifier for chemical regeneration. Positive = faster, negative = slower.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public float ChemicalRegenerationModifier = 0;
+    public float ChemicalRegenerationModifier = 0f;
 
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -119,27 +122,32 @@ public sealed partial class ChangelingComponent : Component
     #endregion
 }
 
-[Serializable]
-public struct TransformData
+[DataDefinition]
+[Serializable, NetSerializable]
+public partial struct TransformData
 {
     /// <summary>
     ///     Entity's name.
     /// </summary>
+    [DataField]
     public string Name;
 
     /// <summary>
     ///     Entity's fingerprint, if it exists.
     /// </summary>
+    [DataField]
     public string? Fingerprint;
 
     /// <summary>
     ///     Entity's DNA.
     /// </summary>
+    [DataField("dna")]
     public string DNA;
 
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
+    [DataField, NonSerialized]
     public HumanoidAppearanceComponent Appearance;
 
     public static bool operator ==(TransformData one, TransformData two)

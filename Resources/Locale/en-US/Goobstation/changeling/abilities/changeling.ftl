@@ -6,9 +6,9 @@ changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(
 changeling-absorb-fail-incapacitated = You can't absorb it until it's not incapacitated.
 changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
-changeling-absorb-end-self = You've successfully absorbed {CAPITALIZE(THE($target))}!
-changeling-absorb-end-self-ling = You've absorbed another changeling!
-changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person.[/color]
+changeling-absorb-end-self = Another absorbed. We are evolving.
+changeling-absorb-end-self-ling = Another changeling absorbed. We are evolving.
+changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person, an empty shell.[/color]
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!
@@ -20,20 +20,24 @@ changeling-transform-finish = You are now {$target}.
 changeling-sting-fail-self = You tried to sting {CAPITALIZE(THE($target))}, but failed!
 changeling-sting-fail-ling = Someone just tried to silently sting you!
 
-changeling-sting-extract = You silently take a sample of {CAPITALIZE(THE($target))}'s DNA
+changeling-sting = You silently sting {CAPITALIZE(THE($target))}
 changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA.
 changeling-sting-extract-fail = Can't extract it's DNA, need another target.
 
-changeling-stasis-enter = We enter the regenerative stasis...
+changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!
-changeling-stasis-exit = We exit the regenerative stasis, fully patched up and ready to go.
+changeling-stasis-exit = You exit regenerative stasis
 changeling-stasis-exit-fail = We're not in a stasis!
 
-changeling-hand-transform-end = Your arm takes back it's initial form.
-changeling-fail-hands = Need to drop something beforehand...
+changeling-hand-transform-end = Your arm takes back it's initial form
+changeling-fail-hands = Need to drop something beforehand
 
-changeling-armblade-start = Your arm reforms into a grotesque blade.
-changeling-shield-start = Your arm reforms into a meat shield.
+changeling-armblade-start = Your arm reforms into a grotesque blade
+changeling-shield-start = Your arm reforms into a meat shield
 
-changeling-muscles-start = Your body feel a lot lighter...
-changeling-muscles-end = Your legs feel heavier...
+changeling-muscles-start = Your body feels a lot lighter
+changeling-muscles-end = Your legs feel heavier
+
+changeling-equip-armor-start = Your body gets wrapped in a sturdy chitinous shell
+changeling-equip-spacesuit-start = Your body transforms into a spaceproof abomination
+changeling-equip-end = Your body takes back it's original shape

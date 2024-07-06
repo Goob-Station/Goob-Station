@@ -7,10 +7,10 @@
   components:
     - type: Unremoveable
     - type: Sprite
-      sprite: Objects/Goobstation/Changeling/shields.rsi
+      sprite: Goobstation/Changeling/shields.rsi
       state: ling-icon
     - type: Item
-      sprite: Objects/Goobstation/Changeling/shields.rsi
+      sprite: Goobstation/Changeling/shields.rsi
       helpPrefix: ling
     - type: Destructible
       thresholds:

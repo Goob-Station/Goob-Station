@@ -1,7 +1,6 @@
 # abilities
 
 # starting
-
 - type: entity
   id: ActionEvolutionMenu
   name: Open evolution menu
@@ -88,6 +87,7 @@
     event: !type:ChangelingTransformEvent {}
   - type: ChangelingAction
     chemicalCost: 5
+    useInLesserForm: true
 
 - type: entity
   id: ActionEnterStasis
@@ -126,7 +126,6 @@
     useInLesserForm: true
 
 # combat
-
 - type: entity
   id: ActionToggleArmblade
   name: Toggle Arm Blade
@@ -243,11 +242,10 @@
     useInLesserForm: true
 
 # stings
-
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently sting a target, completely blinding them for a short time and rendering them near sighted. Costs 20 chemicals.
+  description: Silently drug the target, completely blinding them for a short time and rendering them near sighted. Costs 30 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -262,10 +260,112 @@
       state: sting_blind
     event: !type:StingBlindEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 30
     useInLesserForm: true
 
+- type: entity
+  id: ActionStingCryo
+  name: Cryogenic Sting
+  description: Silently inject a drug cocktail into the target, constantly slowing and freezing them. Costs 30 chemicals.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_cryo
+    event: !type:StingCryoEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+    useInLesserForm: true
 
+- type: entity
+  id: ActionStingLethargic
+  name: Lethargic Sting
+  description: Silently inject a cocktail of anesthetics into the target. Costs 50 chemicals.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_lethargic
+    event: !type:StingLethargicEvent {}
+  - type: ChangelingAction
+    chemicalCost: 50
+    useInLesserForm: true
+
+- type: entity
+  id: ActionStingMute
+  name: Mute Sting
+  description: Silently inject a drug cocktail into the target, completely silencing them for a short time. Costs 30 chemicals.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_mute
+    event: !type:StingMuteEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+    useInLesserForm: true
+
+- type: entity
+  id: ActionStingFakeArmblade
+  name: Fake Armblade Sting
+  description: Silently inject some of your genes into the target, making them grow a dull armblade for a short time. Costs 50 chemicals.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_armblade
+    event: !type:StingFakeArmbladeEvent {}
+  - type: ChangelingAction
+    chemicalCost: 50
+    useInLesserForm: true
+
+- type: entity
+  id: ActionStingTransform
+  name: Transform Sting
+  description: Silently inject some of your genes into the target, transforming them into a person of your choosing. Costs 75 chemicals.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: sting_transform
+    event: !type:StingTransformEvent {}
+  - type: ChangelingAction
+    chemicalCost: 75
+    useInLesserForm: true
 
 # utility
-
