@@ -2,6 +2,9 @@ changeling-roundend-name = changeling
 
 objective-issuer-hivemind = [color=orange]Hivemind[/color]
 
+roundend-prepend-changeling-absorbed = {$name} has absorbed {$number} organics.
+roundend-prepend-changeling-stolen = {$name} has stolen {$number} DNA.
+
 changeling-gamemode-title = Changelings
 changeling-gamemode-description =
     The changeling hive has boarded the station!

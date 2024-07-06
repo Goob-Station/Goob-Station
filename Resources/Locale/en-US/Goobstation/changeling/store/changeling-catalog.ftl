@@ -9,6 +9,7 @@ evolutionmenu-combat-armblade-desc =
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-desc =
     Break off shards of your bone and shape them into a throwing star which embeds into your foes. But a one timer opportinuty.
+    Requires you to absorb at least 1 organic to use the ability.
     Costs 15 chemicals on activation.
 
 evolutionmenu-combat-armor-name = Chitinous Armor
@@ -43,6 +44,13 @@ evolutionmenu-combat-strainedmuscles-desc =
     While active, you will take steadily increments of stamina damage and eventually pass out.
     Cost-free on activation, halts chemical regeneration.
 
+evolutionmenu-combat-spiders-name = Spider Infestation
+evolutionmenu-combat-spiders-desc =
+    One full grown hunter spider spawns from your mouth, being loyal to only you, and friendly with other spiders.
+    You can spawn up to three spiders total, and change their orders via other actions.
+    Costs 50 chemicals.
+    IMPORTANT: You must absorb at least 5 organics to activate the ability.
+
 # sting
 
 evolutionmenu-sting-blind-name = Blind Sting
@@ -73,10 +81,12 @@ evolutionmenu-sting-transform-name = Transformation Sting
 evolutionmenu-sting-transform-desc =
     Inject some of your genome into an organic target, forcing their body to shapeshift into whoever you've chosen using the Cycle DNA ability.
     May be used while under the effects of Lesser Form.
+    Requires you to absorb at least 2 organics to use the ability.
     Costs 75 chemicals.
 
 evolutionmenu-sting-armblade-name = Fake Arm Blade Sting
 evolutionmenu-sting-armblade-desc =
     Inject some of your genome into an organic target, forcing their arm to shapeshift into a dull armblade.
     May be used while under the effects of Lesser Form.
+    Requires you to absorb at least 1 organic to use the ability.
     Costs 50 chemicals.

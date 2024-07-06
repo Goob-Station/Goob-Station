@@ -1,13 +1,14 @@
 # Abilities
 changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
+changeling-action-fail-absorbed = Need to absorb {$number} more organics to use it!
 
 changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s!
 changeling-absorb-fail-incapacitated = You can't absorb it until it's not incapacitated.
 changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
-changeling-absorb-end-self = Another absorbed. We are evolving.
-changeling-absorb-end-self-ling = Another changeling absorbed. We are evolving.
+changeling-absorb-end-self = Another organic absorbed. You are evolving.
+changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person, an empty shell.[/color]
 
 changeling-transform-cycle = Switched to {$target}'s DNA.

@@ -157,6 +157,7 @@
     event: !type:CreateBoneShardEvent {}
   - type: ChangelingAction
     chemicalCost: 15
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleChitinousArmor
@@ -245,7 +246,7 @@
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently drug the target, completely blinding them for a short time and rendering them near sighted. Costs 30 chemicals.
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 30 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -266,7 +267,7 @@
 - type: entity
   id: ActionStingCryo
   name: Cryogenic Sting
-  description: Silently inject a drug cocktail into the target, constantly slowing and freezing them. Costs 30 chemicals.
+  description: Silently sting your target, constantly slowing and freezing them. Costs 30 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -308,7 +309,7 @@
 - type: entity
   id: ActionStingMute
   name: Mute Sting
-  description: Silently inject a drug cocktail into the target, completely silencing them for a short time. Costs 30 chemicals.
+  description: Silently sting your target, completely silencing them for a short time. Costs 30 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -329,7 +330,7 @@
 - type: entity
   id: ActionStingFakeArmblade
   name: Fake Armblade Sting
-  description: Silently inject some of your genes into the target, making them grow a dull armblade for a short time. Costs 50 chemicals.
+  description: Silently sting your target, making them grow a dull armblade for a short time. Costs 50 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -346,11 +347,12 @@
   - type: ChangelingAction
     chemicalCost: 50
     useInLesserForm: true
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionStingTransform
-  name: Transform Sting
-  description: Silently inject some of your genes into the target, transforming them into a person of your choosing. Costs 75 chemicals.
+  name: Transformation Sting
+  description: Silently sting your target, transforming them into a person of your choosing. Costs 75 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -367,5 +369,171 @@
   - type: ChangelingAction
     chemicalCost: 75
     useInLesserForm: true
+    requireAbsorbed: 2
 
 # utility
+
+- type: entity
+  id: ActionUtilityAnatomicPanacea
+  name: Anatomic Panacea
+  description: Cure yourself of diseases, disabilities, radiation, toxins, drunkedness and brain damage. Costs 30 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: anatomic_panacea
+    event: !type:ActionAnatomicPanaceaEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+
+- type: entity
+  id: ActionUtilityAugmentedEyesight
+  name: Augmented Eyesight
+  description: Toggle flash protection.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: augmented_eyesight
+    event: !type:ActionAugmentedEyesightEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionBiodegradeEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionChameleonSkinEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionEphedrineOverdoseEvent {}
+  - type: ChangelingAction
+    chemicalCost: 30
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionFleshmendEvent {}
+  - type: ChangelingAction
+    chemicalCost: 35
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionLastResortEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionLesserFormEvent {}
+  - type: ChangelingAction
+    chemicalCost: 10
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionSpacesuitEvent {}
+  - type: ChangelingAction
+    chemicalCost: 10
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionHivemindAccessEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+
+- type: entity
+  id: ActionUtility
+  name: 
+  description: 
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: 
+    event: !type:ActionContortBodyEvent {}
+  - type: ChangelingAction
+    chemicalCost: 25

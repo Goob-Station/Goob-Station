@@ -117,13 +117,13 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
+    [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
 
     #endregion
 }
 
 [DataDefinition]
-[Serializable, NetSerializable]
 public partial struct TransformData
 {
     /// <summary>
@@ -147,7 +147,7 @@ public partial struct TransformData
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
-    [DataField, NonSerialized]
+    [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
 
     public static bool operator ==(TransformData one, TransformData two)

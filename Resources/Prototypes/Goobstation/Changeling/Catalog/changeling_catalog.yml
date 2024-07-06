@@ -85,7 +85,7 @@
     stock: 1
 
 - type: listing
-  id: EvolutionMenuCombat
+  id: EvolutionMenuCombatMuscles
   name: evolutionmenu-combat-strainedmuscles-name
   description: evolutionmenu-combat-strainedmuscles-desc
   icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: strained_muscles }
@@ -97,6 +97,20 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+#- type: listing
+#  id: EvolutionMenuCombatSpiders
+#  name: evolutionmenu-combat-spiders-name
+#  description: evolutionmenu-combat-spiders-desc
+#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: spiders_spawn }
+#  productAction: ActionSpawnChangelingSpider
+#  cost:
+#    EvolutionPoint: 6
+#  categories:
+#  - ChangelingAbilityCombat
+#  consitions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 # sting
 

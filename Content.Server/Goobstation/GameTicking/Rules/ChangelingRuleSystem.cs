@@ -5,9 +5,11 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Changeling;
+using Content.Shared.IdentityManagement;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Store.Components;
+using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -24,13 +26,13 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingRuleComponent, AfterAntagEntitySelectedEvent>(OnSelectAntag);
+        SubscribeLocalEvent<ChangelingRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
     }
 
-    public void OnSelectAntag(EntityUid uid, ChangelingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
+    private void OnSelectAntag(EntityUid uid, ChangelingRuleComponent comp, ref AfterAntagEntitySelectedEvent args)
     {
         MakeChangeling(args.EntityUid, comp);
     }
-
     public bool MakeChangeling(EntityUid target, ChangelingRuleComponent rule)
     {
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
@@ -59,7 +61,7 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(rule.Currency);
-        store.Balance.Add(rule.Currency, 20);
+        store.Balance.Add(rule.Currency, 16);
 
         rule.ChangelingMinds.Add(mindId);
 
@@ -67,5 +69,41 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             _mind.TryAddObjective(mindId, mind, objective);
 
         return true;
+    }
+
+    private void OnTextPrepend(EntityUid uid, ChangelingRuleComponent comp, ref ObjectivesTextPrependEvent args)
+    {
+        EntityUid? mostAbsorbedUid = null;
+        EntityUid? mostStolenUid = null;
+        var mostAbsorbed = 0f;
+        var mostStolen = 0f;
+
+        foreach (var ling in EntityQuery<ChangelingComponent>())
+        {
+            if (ling.TotalAbsorbedEntities > mostAbsorbed)
+            {
+                mostAbsorbed = ling.TotalAbsorbedEntities;
+                mostAbsorbedUid = ling.Owner;
+            }
+            if (ling.TotalStolenDNA > mostStolen)
+            {
+                mostStolen = ling.TotalStolenDNA;
+                mostStolenUid = ling.Owner;
+            }
+        }
+
+        var sb = new StringBuilder();
+        if (mostAbsorbedUid != null)
+        {
+            var absorbedName = _objective.GetTitle((EntityUid) mostAbsorbedUid, string.Empty);
+            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-absorbed", ("name", absorbedName), ("number", mostStolen)));
+        }
+        if (mostStolenUid != null)
+        {
+            var stolenName = _objective.GetTitle((EntityUid) mostStolenUid, string.Empty);
+            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-stolen", ("name", stolenName), ("number", mostStolen)));
+        }
+
+        args.Text = sb.ToString();
     }
 }

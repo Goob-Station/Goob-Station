@@ -108,7 +108,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
-        SubscribeLocalEvent<ChangelingComponent, ChangelingTransformDoAfterEvent>(OnTransformDoAfter);
         SubscribeLocalEvent<ChangelingComponent, EnterStasisEvent>(OnEnterStasis);
         SubscribeLocalEvent<ChangelingComponent, ExitStasisEvent>(OnExitStasis);
 
@@ -232,6 +231,13 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
+        if (lingAction.RequireAbsorbed > comp.TotalAbsorbedEntities)
+        {
+            var delta = lingAction.RequireAbsorbed - comp.TotalAbsorbedEntities;
+            _popup.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), uid, uid);
+            return false;
+        }
+
         UpdateChemicals(uid, comp, -price);
 
         action.Handled = true;
@@ -257,20 +263,28 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         return true;
     }
+    public bool TryInjectReagents(EntityUid uid, List<(string, FixedPoint2)> reagents)
+    {
+        var solution = new Solution();
+        foreach (var reagent in reagents)
+            solution.AddReagent(reagent.Item1, reagent.Item2);
+
+        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
+            return false;
+
+        if (!_solution.TryAddSolution(targetSolution.Value, solution))
+            return false;
+
+        return true;
+    }
     public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
     {
         var target = action.Target;
         if (!TrySting(uid, comp, action))
             return false;
-        
-        var solution = new Solution();
-        foreach (var reagent in reagents)
-            solution.AddReagent(reagent.Item1, reagent.Item2);
 
-        if (!_solution.TryGetInjectableSolution(target, out var targetSolution, out var _))
+        if (!TryInjectReagents(target, reagents))
             return false;
-
-        _solution.TryAddSolution(targetSolution.Value, solution);
 
         return true;
     }
@@ -378,6 +392,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             var newLingComp = Comp<ChangelingComponent>(newUid.Value);
 
             newLingComp.AbsorbedDNA = comp.AbsorbedDNA;
+            newLingComp.CurrentForm = data;
             if (!persistentDna)
                 newLingComp.AbsorbedDNA.Remove(data); // a one timer opportunity.
 
@@ -397,6 +412,36 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return newUid;
     }
+    public bool TryTransform(EntityUid target, ChangelingComponent comp, bool sting = false, bool persistentDna = false)
+    {
+        var data = comp.SelectedForm;
+
+        if (data == null)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-self"), target, target);
+            return false;
+        }
+        if (data == comp.CurrentForm)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-choose"), target, target);
+            return false;
+        }
+
+        var locName = Identity.Entity(target, EntityManager);
+        EntityUid? newUid = null;
+        if (sting)
+            newUid = Transform(target, (TransformData) data, persistentDna: persistentDna);
+        else newUid = Transform(target, (TransformData) data, comp, persistentDna);
+
+        if (newUid != null)
+        {
+            PlayMeatySound((EntityUid) newUid, comp);
+            var loc = Loc.GetString("changeling-transform-others", ("user", locName));
+            _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
+        }
+
+        return true;
+    }
 
     #endregion
 
@@ -411,15 +456,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
-
-        if (comp.CurrentForm == null)
-        {
-            // steal DNA from ourselves. real.
-            TryStealDNA(uid, uid, comp);
-            var form = comp.AbsorbedDNA.ToArray()[0];
-            comp.CurrentForm = form;
-            comp.AbsorbedDNA.RemoveAt(0);
-        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
@@ -566,60 +602,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         comp.SelectedForm = selected;
         _popup.PopupEntity(Loc.GetString("changeling-transform-cycle", ("target", selected.Name)), uid, uid);
     }
-    public bool StartTransformDoAfter(EntityUid uid, ChangelingComponent comp, bool sting = false, bool persistentDna = false)
-    {
-        if (comp.SelectedForm == null)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-self"), uid, uid);
-            return false;
-        }
-        if (comp.SelectedForm == comp.CurrentForm)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-choose"), uid, uid);
-            return false;
-        }
-
-        PlayMeatySound(uid, comp);
-
-        var dae = new ChangelingTransformDoAfterEvent();
-        dae.Data = comp.SelectedForm;
-        dae.PersistentDNA = persistentDna;
-        dae.Sting = sting;
-
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(2.5f), dae, uid, uid)
-        {
-            BreakOnDamage = false,
-            BreakOnMove = false,
-            BreakOnHandChange = false,
-            BreakOnWeightlessMove = false,
-        };
-        var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity(uid, EntityManager)));
-        _popup.PopupEntity(loc, uid, PopupType.LargeCaution);
-        _doAfter.TryStartDoAfter(dargs);
-        return true;
-    }
     private void OnTransform(EntityUid uid, ChangelingComponent comp, ref ChangelingTransformEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!StartTransformDoAfter(uid, comp))
+        if (!TryTransform(uid, comp))
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-    }
-    private void OnTransformDoAfter(EntityUid uid, ChangelingComponent comp, ref ChangelingTransformDoAfterEvent args)
-    {
-        PlayMeatySound(uid, comp);
-
-        if (args.Data == null)
-        {
-            if (comp.SelectedForm != null)
-                args.Data = comp.SelectedForm;
-            else return;
-        }
-
-        if (args.Sting)
-            Transform(uid, (TransformData) args.Data, persistentDna: args.PersistentDNA);
-        else Transform(uid, (TransformData) args.Data, comp, args.PersistentDNA);
     }
 
     private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
@@ -863,10 +852,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         var target = args.Target;
-        if (!StartTransformDoAfter(target, comp, true, true))
-        {
+        if (!TryTransform(target, comp, true, true))
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
-        }
     }
     private void OnStingFakeArmblade(EntityUid uid, ChangelingComponent comp, ref StingFakeArmbladeEvent args)
     {
