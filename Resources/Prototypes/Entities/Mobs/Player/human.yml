@@ -39,6 +39,12 @@
   suffix: Human, NukeOps
   components:
     - type: NukeOperative
+    - type: RandomMetadata
+      nameSegments:
+      - SyndicateNamesPrefix
+      - SyndicateNamesNormal
+    - type: Loadout
+      prototypes: [SyndicateOperativeGearNoUplink]
 
 # Nuclear Operative
 - type: entity
