@@ -134,7 +134,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -167,7 +167,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -183,7 +183,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -199,7 +199,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -216,7 +216,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 1
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -381,6 +381,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -415,6 +416,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -431,6 +433,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 1
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -448,6 +451,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -466,6 +470,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -484,6 +489,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -501,6 +507,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 5
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
@@ -518,6 +525,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 2
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -551,6 +559,7 @@
   noSpawn: true
   components:
   - type: InstantAction
+    useDelay: 2
     checkCanInteract: false
     itemIconStyle: NoItem
     icon:
