@@ -42,19 +42,19 @@
 #  - !type:ListingLimitedStockCondition
 #    stock: 1
 
-#- type: listing
-#  id: EvolutionMenuCombatOrganicShield
-#  name: evolutionmenu-combat-shield-name
-#  description: evolutionmenu-combat-shield-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: organic_shield }
-#  productAction: ActionToggleOrganicShield
-#  cost:
-#    EvolutionPoint: 2
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuCombatOrganicShield
+  name: evolutionmenu-combat-shield-name
+  description: evolutionmenu-combat-shield-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: organic_shield }
+  productAction: ActionToggleOrganicShield
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuCombatShriekDissonant
@@ -246,7 +246,7 @@
   id: EvolutionMenuUtilityChameleon
   name: evolutionmenu-utility-chameleon-name
   description: evolutionmenu-utility-chameleon-desc
-  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: chemeleon_skin }
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: chameleon_skin }
   productAction: ActionChameleonSkin
   cost:
     EvolutionPoint: 4

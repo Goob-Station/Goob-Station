@@ -18,4 +18,3 @@
       mindComponents:
       - type: ChangelingRole
         prototype: Changeling
-    maxDifficulty: 10 # doesn't matter, set to 10 for the sake of it

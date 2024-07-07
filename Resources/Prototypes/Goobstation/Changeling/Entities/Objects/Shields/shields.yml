@@ -11,7 +11,7 @@
       state: ling-icon
     - type: Item
       sprite: Goobstation/Changeling/shields.rsi
-      helpPrefix: ling
+      heldPrefix: ling
     - type: Destructible
       thresholds:
         - trigger:

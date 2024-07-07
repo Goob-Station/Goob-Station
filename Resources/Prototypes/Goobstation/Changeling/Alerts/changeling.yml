@@ -1,6 +1,5 @@
 - type: alert
   id: Chemicals
-  category: SuitPower # yup, 100% makes sense.
   icons:
   - sprite: /Textures/Goobstation/Changeling/changeling_chemicals.rsi
     state: 0

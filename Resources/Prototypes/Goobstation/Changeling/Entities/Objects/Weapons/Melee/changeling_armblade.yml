@@ -28,7 +28,6 @@
     qualities:
     - Slicing
     - Prying
-    speed: 0.5
   - type: DisarmMalus
     malus: 0
 
