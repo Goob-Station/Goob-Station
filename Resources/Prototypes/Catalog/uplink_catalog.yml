@@ -54,9 +54,9 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    Telecrystal: 20 #(Originally 16)
+    Telecrystal: 100 #(Originally 16)
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkEsword
@@ -100,9 +100,9 @@
   description: uplink-fire-axe-flaming-desc
   productEntity: FireAxeFlaming
   cost:
-    Telecrystal: 10
+    Telecrystal: 50
   categories:
-  - UplinkWeapons
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -1021,7 +1021,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 175
+    Telecrystal: 80
   categories:
   - UplinkAllies
   conditions:
