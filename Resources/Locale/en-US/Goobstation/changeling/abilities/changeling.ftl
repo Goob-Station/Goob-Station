@@ -42,3 +42,18 @@ changeling-muscles-end = Your legs feel heavier
 changeling-equip-armor-start = Your body gets wrapped in a sturdy chitinous shell
 changeling-equip-spacesuit-start = Your body transforms into a spaceproof abomination
 changeling-equip-end = Your body takes back it's original shape
+
+changeling-inject = You inject yourself
+changeling-inject-fail = Failed to inject yourself!
+
+changeling-passive-activate = Activated ability
+changeling-passive-activate-fail = Failed to activate the ability
+changeling-passive-active = Already active!
+
+changeling-fleshmend = Your body twists, sealing wounds and regenerating dead cells
+changeling-panacea = You mutate and alter your DNA for better cell regeneration
+
+changeling-chameleon-start = You adapt your skin to the environment
+changeling-chameleon-end = Your skin is losing it's translucency
+
+changeling-hivemind = We tune our brainwaves to match the hivemind frequency

@@ -90,3 +90,62 @@ evolutionmenu-sting-armblade-desc =
     May be used while under the effects of Lesser Form.
     Requires you to absorb at least 1 organic to use the ability.
     Costs 50 chemicals.
+
+# utility
+evolutionmenu-utility-panacea-name = Anatomic Panacea
+evolutionmenu-utility-panacea-desc =
+    Cure yourself of diseases, disabilities, radiation, toxins, drunkenness, and brain damage. Generally covers the things that fleshmend doesn't.
+    Costs 30 chemicals.
+
+evolutionmenu-utility-eyesight-name = Augmented Eyesight
+evolutionmenu-utility-eyesight-desc =
+    Evolve additional features in your eyes, such as flash protection.
+    Cost-free on activation.
+
+evolutionmenu-utility-biodegrade-name = Biodegrade
+evolutionmenu-utility-biodegrade-desc =
+    Vomit a caustic substance onto any restraints you may be wearing, allowing yourself to break free.
+    Using this ability while being grabbed will spit acid in your attackers face.
+    Costs 30 chemicals.
+
+evolutionmenu-utility-chameleon-name = Chameleon Skin
+evolutionmenu-utility-chameleon-desc =
+    Alter the pigment in your skin to match your surroundings, rendering you invisible.
+    WARNING: Halts chemical regeneration!
+    Costs 20 chemicals.
+
+evolutionmenu-utility-stims-name = Ephedrine Overdose
+evolutionmenu-utility-stims-desc =
+    Inject a cocktail of stimulants into yourself, quickly removing any stuns and giving yourself a speed boost.
+    Continuous injection is poisonous.
+    Costs 30 chemicals.
+
+evolutionmenu-utility-fleshmend-name = Fleshmend
+evolutionmenu-utility-fleshmend-desc =
+    Rapidly heal yourself of all bruises and burns. Significantly weaker when below 20 normal body temperature.
+    Costs 35 chemicals.
+
+evolutionmenu-utility-lastresort-name = Last Resort
+evolutionmenu-utility-lastresort-desc =
+    Abandon your current body and becomes a headslug in a last ditch effort to evade discovery or capture.
+    As a headslug, you can lay eggs inside anybody, and, after some time, a monkey with your original conciousness will burst out of the body.
+    Costs 20 chemicals.
+
+evolutionmenu-utility-lesserform-name = Lesser Form
+evolutionmenu-utility-lesserform-desc =
+    Abandon your current form and turn into a sentient monkey.
+    Costs 20 chemicals.
+
+evolutionmenu-utility-spacesuit-name = Space Adaptation
+evolutionmenu-utility-spacesuit-desc =
+    Get rid of useless tissue in order to facilitate space travel. A source of oxygen is still required for space walking. Slows chemical regeneration while active.
+    Costs 20 chemicals.
+
+evolutionmenu-utility-hivemindaccess-name = Hivemind Access
+evolutionmenu-utility-hivemindaccess-desc =
+    Tunes our chemical receptors for hivemind communication, which passively grants us access to the changeling hivemind, and the ability to speak over it using the :g "radio" keyword.
+
+evolutionmenu-utility-contort-name = Contort Body
+evolutionmenu-utility-contort-desc =
+    Allows you to contort your body, making you capable of fitting yourself in and under things where you normally don't fit, such as tables and closed airlocks.
+    Costs 25 chemicals.

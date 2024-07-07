@@ -74,6 +74,8 @@ public sealed partial class ChangelingComponent : Component
     [DataField("maxChemicals"), AutoNetworkedField]
     public float MaxChemicals = 100f;
 
+    public float ChemicalDrain = 0f;
+
     public float UpdateAccumulator = 0f;
     /// <summary>
     ///     Time in seconds to take before the update cycle.
