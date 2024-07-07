@@ -51,7 +51,7 @@
     radius: 3
     energy: 1
     netsync: false
-    
+
 - type: entity
   id: PortalArtifact
   parent: BasePortal
@@ -65,7 +65,7 @@
     energy: 1
     netsync: false
   - type: TimedDespawn
-    lifetime: 1
+    lifetime: 120
   - type: Portal
     canTeleportToOtherMaps: true
 
