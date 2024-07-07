@@ -39,21 +39,10 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInStasis = false;
 
-    public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
-    public ProtoId<EntityPrototype> FakeArmbladePrototype = "FakeArmBladeChangeling";
+    
     public EntityUid? ArmbladeEntity;
-
-    public ProtoId<EntityPrototype> ShieldPrototype = "ChangelingShield";
     public EntityUid? ShieldEntity;
-
-    public ProtoId<EntityPrototype> BoneShardPrototype = "ThrowingStarChangeling";
-
-    public ProtoId<EntityPrototype> ArmorPrototype = "ChangelingClothingOuterArmor";
-    public ProtoId<EntityPrototype> ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
     public EntityUid? ArmorEntity, ArmorHelmetEntity;
-
-    public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
     public EntityUid? SpacesuitEntity, SpacesuitHelmetEntity;
 
     public bool StrainedMusclesActivated = false;

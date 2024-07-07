@@ -33,9 +33,6 @@ using Content.Server.Humanoid;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Camera;
-using Robust.Shared.Map;
-using Robust.Shared.Player;
-using System.Numerics;
 using Robust.Server.Player;
 using Content.Server.Flash;
 using Content.Server.Emp;
@@ -49,7 +46,6 @@ using Content.Shared.Damage.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
-using Robust.Shared.Reflection;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.StatusEffect;
@@ -61,9 +57,9 @@ using Content.Shared.Fluids;
 using Content.Shared.Stealth.Components;
 using Content.Server.Radio.Components;
 using Robust.Shared.Physics;
-using Content.Server.Database.Migrations.Postgres;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Radio.EntitySystems;
+using Content.Shared.NameIdentifier;
 
 namespace Content.Server.Changeling;
 
@@ -110,6 +106,18 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly FixtureSystem _fixture = default!;
     [Dependency] private readonly RadioDeviceSystem _radio = default!;
+
+    public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
+    public ProtoId<EntityPrototype> FakeArmbladePrototype = "FakeArmBladeChangeling";
+
+    public ProtoId<EntityPrototype> ShieldPrototype = "ChangelingShield";
+    public ProtoId<EntityPrototype> BoneShardPrototype = "ThrowingStarChangeling";
+
+    public ProtoId<EntityPrototype> ArmorPrototype = "ChangelingClothingOuterArmor";
+    public ProtoId<EntityPrototype> ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+
+    public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     public override void Initialize()
     {
@@ -192,7 +200,10 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public bool IsInLesserForm(EntityUid uid, ChangelingComponent comp)
     {
-        // todo: check lesser form
+        if (TryComp<NameIdentifierComponent>(uid, out var name))
+            if (name.Group == "Monkey")
+                return true;
+
         return false;
     }
 
@@ -642,7 +653,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnEnterStasis(EntityUid uid, ChangelingComponent comp, ref EnterStasisEvent args)
     {
-        if (comp.IsInStasis)
+        if (comp.IsInStasis || HasComp<AbsorbedComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("changeling-stasis-enter-fail"), uid, uid);
             return;
@@ -676,6 +687,11 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail"), uid, uid);
             return;
         }
+        if (HasComp<AbsorbedComponent>(uid))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-stasis-exit-fail-dead"), uid, uid);
+            return;
+        }
 
         if (!TryUseAbility(uid, comp, args))
             return;
@@ -706,7 +722,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, comp.ArmbladePrototype, ref comp.ArmbladeEntity))
+        if (!TryToggleItem(uid, ArmbladePrototype, ref comp.ArmbladeEntity))
             return;
 
         if (comp.ArmbladeEntity != null)
@@ -727,7 +743,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var star = EntityManager.SpawnEntity(comp.BoneShardPrototype, Transform(uid).Coordinates);
+        var star = EntityManager.SpawnEntity(BoneShardPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, star);
 
         PlayMeatySound(uid, comp);
@@ -737,9 +753,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, comp.ArmorPrototype, ref comp.ArmorEntity, "outerClothing"))
+        if (!TryToggleItem(uid, ArmorPrototype, ref comp.ArmorEntity, "outerClothing"))
             return;
-        if (!TryToggleItem(uid, comp.ArmorHelmetPrototype, ref comp.ArmorHelmetEntity, "head"))
+        if (!TryToggleItem(uid, ArmorHelmetPrototype, ref comp.ArmorHelmetEntity, "head"))
             return;
 
         if (comp.ArmorEntity != null)
@@ -760,7 +776,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, comp.ShieldPrototype, ref comp.ShieldEntity))
+        if (!TryToggleItem(uid, ShieldPrototype, ref comp.ShieldEntity))
             return;
 
         if (comp.ShieldEntity != null)
@@ -789,7 +805,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         PlayShriekSound(uid, comp);
 
         var power = comp.ShriekPower;
-        _flash.FlashArea(uid, uid, power, power * 1000f); // whoever wrote the /1000f in the flash system i hate you :3
+        _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
 
         var lookup = _lookup.GetEntitiesInRange(uid, power);
         var lights = GetEntityQuery<PoweredLightComponent>();
@@ -890,7 +906,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         var target = args.Target;
-        var fakeArmblade = EntityManager.SpawnEntity(comp.FakeArmbladePrototype, Transform(target).Coordinates);
+        var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
         _hands.TryPickupAnyHand(target, fakeArmblade);
 
         PlayMeatySound(target, comp);

@@ -28,19 +28,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#- type: listing
-#  id: EvolutionMenuCombatChitinousArmor
-#  name: evolutionmenu-combat-armor-name
-#  description: evolutionmenu-combat-armor-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
-#  productAction: ActionToggleChitinousArmor
-#  cost:
-#    EvolutionPoint: 4
-#  categories:
-#  - ChangelingAbilityCombat
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuCombatChitinousArmor
+  name: evolutionmenu-combat-armor-name
+  description: evolutionmenu-combat-armor-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: chitinous_armor }
+  productAction: ActionToggleChitinousArmor
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityCombat
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuCombatOrganicShield
@@ -312,33 +312,33 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#- type: listing
-#  id: EvolutionMenuUtilitySpacesuit
-#  name: evolutionmenu-utility-spacesuit-name
-#  description: evolutionmenu-utility-spacesuit-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
-#  productAction: ActionToggleSpacesuit
-#  cost:
-#    EvolutionPoint: 4
-#  categories:
-#  - ChangelingAbilityUtility
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuUtilitySpacesuit
+  name: evolutionmenu-utility-spacesuit-name
+  description: evolutionmenu-utility-spacesuit-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: space_adaptation }
+  productAction: ActionToggleSpacesuit
+  cost:
+    EvolutionPoint: 4
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
-#- type: listing
-#  id: EvolutionMenuUtilityHivemindAccess
-#  name: evolutionmenu-utility-hivemindaccess-name
-#  description: evolutionmenu-utility-hivemindaccess-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
-#  productAction: ActionHivemindAccess
-#  cost:
-#    EvolutionPoint: 3
-#  categories:
-#  - ChangelingAbilityUtility
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuUtilityHivemindAccess
+  name: evolutionmenu-utility-hivemindaccess-name
+  description: evolutionmenu-utility-hivemindaccess-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
+  productAction: ActionHivemindAccess
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 #- type: listing
 #  id: EvolutionMenuUtilityContortBody

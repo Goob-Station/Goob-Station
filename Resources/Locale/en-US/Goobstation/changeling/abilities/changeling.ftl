@@ -23,12 +23,13 @@ changeling-sting-fail-ling = Someone just tried to silently sting you!
 
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
 changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA.
-changeling-sting-extract-fail = Can't extract it's DNA, need another target.
+changeling-sting-extract-fail = Can't extract DNA, need another target
 
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!
 changeling-stasis-exit = You exit regenerative stasis
 changeling-stasis-exit-fail = We're not in a stasis!
+changeling-stasis-exit-fail-dead = Can't exit stasis!
 
 changeling-hand-transform-end = Your arm takes back it's initial form
 changeling-fail-hands = Need to drop something beforehand
