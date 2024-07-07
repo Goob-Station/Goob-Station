@@ -625,6 +625,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.2
     lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.3
   - type: Armor
@@ -657,6 +659,8 @@
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
+  - type: FireProtection
+    reduction: 0.8
   - type: ExplosionResistance
     damageCoefficient: 0.5
   - type: Armor
