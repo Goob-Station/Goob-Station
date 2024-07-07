@@ -1,8 +1,11 @@
 using Content.Shared.Humanoid;
+using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+
+
 
 namespace Content.Shared.Changeling;
 
@@ -123,6 +126,12 @@ public sealed partial class ChangelingComponent : Component
     public TransformData? SelectedForm;
 
     #endregion
+    /// <summary>
+    /// The status icon corresponding to the Changlings.
+    /// </summary>
+
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "ChangelingFaction";
 }
 
 [DataDefinition]
@@ -156,4 +165,7 @@ public partial struct TransformData
         => one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA;
     public static bool operator !=(TransformData one, TransformData two)
         => !(one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA);
+
+
+
 }

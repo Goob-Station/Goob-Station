@@ -1,0 +1,10 @@
+- type: statusIcon
+  id: ChangelingFaction
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Changeling
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Geneticist
