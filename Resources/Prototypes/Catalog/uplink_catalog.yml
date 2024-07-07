@@ -57,11 +57,6 @@
     Telecrystal: 20 #(Originally 16)
   categories:
   - UplinkWeapons
-  conditions:
-    - !type:StoreWhitelistCondition
-      blacklist:
-        tags:
-          - NukeOpsUplink
 
 - type: listing
   id: UplinkEsword
