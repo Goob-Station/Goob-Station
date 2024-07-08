@@ -21,6 +21,7 @@
   - type: UseDelay
     delay: 300
 
+# Goobstation - Nukeop reinforcement
 - type: entity
   parent: ReinforcementRadioSyndicate
   id: ReinforcementRadioSyndicateNukeops # Reinforcement radio exclusive to nukeops uplink

@@ -48,17 +48,6 @@
   - UplinkWeaponry
 
 - type: listing
-  id: UplinkEswordDouble
-  name: uplink-esword-double-name
-  description: uplink-esword-double-desc
-  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
-  productEntity: EnergySwordDouble
-  cost:
-    Telecrystal: 100 #(Originally 16)
-  categories:
-  - UplinkWeaponry
-
-- type: listing
   id: UplinkEsword
   name: uplink-esword-name
   description: uplink-esword-desc
@@ -93,16 +82,6 @@
     Telecrystal: 30
   categories:
     - UplinkWeaponry
-
-- type: listing
-  id: UplinkFireAxeFlaming
-  name: uplink-fire-axe-flaming-name
-  description: uplink-fire-axe-flaming-desc
-  productEntity: FireAxeFlaming
-  cost:
-    Telecrystal: 50
-  categories:
-  - UplinkWeaponry
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -1013,8 +992,9 @@
         tags:
           - NukeOpsUplink
 
+# Goobstation - Nukeop reinforcement
 - type: listing
-  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that essentially spawns another nuclear operative.
+  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns another nuclear operative.
   name: uplink-operative-radio-name
   description: uplink-operative-radio-desc
   productEntity: ReinforcementRadioSyndicateNukeops

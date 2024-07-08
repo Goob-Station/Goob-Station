@@ -4,6 +4,7 @@
   sprite: /Textures/Tiles/plating.png
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
@@ -21,6 +22,7 @@
   - 1.0
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
@@ -33,6 +35,7 @@
   sprite: /Textures/Tiles/plating_burnt.png
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
@@ -45,6 +48,7 @@
   sprite: /Textures/Tiles/Asteroid/asteroid_plating.png
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
@@ -57,6 +61,7 @@
   sprite: /Textures/Tiles/Misc/clockwork/clockwork_floor.png
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating
@@ -69,6 +74,7 @@
   sprite: /Textures/Tiles/snow_plating.png #Not in the snow planet RSI because it doesn't have any metadata. Should probably be moved to its own folder later.
   baseTurf: Lattice
   isSubfloor: true
+  # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
   footstepSounds:
     collection: FootstepPlating

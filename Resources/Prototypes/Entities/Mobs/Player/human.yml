@@ -39,6 +39,7 @@
   suffix: Human, NukeOps
   components:
     - type: NukeOperative
+    # Goobstation - Nukeop reinforcement
     - type: RandomMetadata
       nameSegments:
       - SyndicateNamesPrefix
