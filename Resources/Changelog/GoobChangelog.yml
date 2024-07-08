@@ -230,6 +230,12 @@ Entries:
 - author: Verbalase
   changes:
     - type: Remove
-      message:  Inappropriate names for skeletons and ninjas.
+      message: Inappropriate names for skeletons and ninjas.
   id: 34
   time: '2024-07-03T07:01:44.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: there is now an anomaly locator in the research directors locker
+  id: 35
+  time: '2024-07-08T01:42:15.0000000+00:00'
