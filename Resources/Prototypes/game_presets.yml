@@ -172,9 +172,26 @@
     - changeling
   name: changeling-gamemode-title
   description: changeling-gamemode-description
-  showInVote: true
+  showInVote: false
   rules:
     - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
+
+# Goobstation
+- type: gamePreset
+  id: Traitorling
+  alias:
+    - lingtraitor
+    - traitorling
+  name: secret-title
+  description: secret-description
+  showInVote: false
+  rules:
+    - Changeling
+    - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
