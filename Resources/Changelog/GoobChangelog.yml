@@ -239,3 +239,9 @@ Entries:
       message: there is now an anomaly locator in the research directors locker
   id: 35
   time: '2024-07-08T01:42:15.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added changelings.
+  id: 36
+  time: '2024-07-08T07:40:03.0000000+00:00'
