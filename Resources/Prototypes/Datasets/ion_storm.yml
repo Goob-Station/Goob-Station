@@ -628,7 +628,7 @@
   - ENGINES
   - EQUIPMENT
   - ERRORS
-#  - EXTERMINATORS 
+#  - EXTERMINATORS
   - EXPLOSIVES
   - EYEWEAR
   - FEDORAS
@@ -836,6 +836,26 @@
   - TO UNDERSTAND UNDERSTAND, UNDERSTAND UNDERSTAND, UNDERSTAND UNDERSTAND THE CONCEPT OF LOVE
   - TRAITORS
   - VEGETABLES
+
+  # Species, for when the law holder has to commit genocide. Plural.
+- type: dataset
+  id: IonStormSpecies
+  values:
+  - ARACHNAE
+  - CYBORGS
+  - DIONAE
+  - HUMANS
+  - LIZARDMEN
+  - MOFFERS
+  - HARPYS
+  - VOX
+  - VULPKANIN
+  - GINGERBREAD PEOPLE
+  - KOBOLDS
+  - MONKEYS
+  - SLIME PEOPLE
+  - SKELETONS
+  - FURRIES # debating if i should add this, even though its funny
 
 # Specific actions that either harm humans or must be done to not
 # harm humans. Make sure they're plural and "not" can be tacked
