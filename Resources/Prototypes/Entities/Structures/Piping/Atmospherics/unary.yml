@@ -86,7 +86,7 @@
         - sprite: Structures/Piping/Atmospherics/pipe.rsi
           state: pipeHalf
           map: [ "enum.PipeVisualLayers.Pipe" ]
-        - state: vent_passive
+        - state: vent_off
           map: [ "enum.SubfloorLayers.FirstLayer" ]
     - type: Appearance
     - type: PipeColorVisuals
