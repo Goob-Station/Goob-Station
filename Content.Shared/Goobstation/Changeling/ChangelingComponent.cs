@@ -42,7 +42,6 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInStasis = false;
 
-    
     public EntityUid? ArmbladeEntity;
     public EntityUid? ShieldEntity;
     public EntityUid? ArmorEntity, ArmorHelmetEntity;
@@ -120,7 +119,7 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "ChangelingFaction";
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 
 [DataDefinition]

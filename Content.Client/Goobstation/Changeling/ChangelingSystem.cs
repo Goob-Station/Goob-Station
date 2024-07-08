@@ -28,9 +28,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         sprite.LayerSetState(AlertVisualLayers.Base, $"{chemicalsNormalised}");
     }
 
-        private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
+    private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
     {
-
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }

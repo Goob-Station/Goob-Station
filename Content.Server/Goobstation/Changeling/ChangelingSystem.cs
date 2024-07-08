@@ -60,6 +60,9 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Content.Server.Radio.EntitySystems;
 using Content.Shared.NameIdentifier;
+using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server.Changeling;
 
@@ -104,8 +107,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly FixtureSystem _fixture = default!;
-    [Dependency] private readonly RadioDeviceSystem _radio = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
     public ProtoId<EntityPrototype> FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -118,6 +120,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+
+    public ProtoId<NpcFactionPrototype> HivemindFactionPrototype = "Hivemind";
 
     public override void Initialize()
     {
@@ -584,8 +588,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         var bonusEvolutionPoints = 0;
         if (HasComp<ChangelingComponent>(target))
         {
-            bonusChemicals += 20;
-            bonusEvolutionPoints += 4;
+            bonusChemicals += 30;
+            bonusEvolutionPoints += 8;
         }
         else
         {
@@ -753,10 +757,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, ArmorPrototype, ref comp.ArmorEntity, "outerClothing"))
+        if (!TryToggleItem(uid, ArmorPrototype, ref comp.ArmorEntity, "outerClothing")
+        || !TryToggleItem(uid, ArmorHelmetPrototype, ref comp.ArmorHelmetEntity, "head"))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
             return;
-        if (!TryToggleItem(uid, ArmorHelmetPrototype, ref comp.ArmorHelmetEntity, "head"))
-            return;
+        }
 
         if (comp.ArmorEntity != null)
         {
@@ -1077,22 +1083,39 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        // todo: implement
+        if (!TryToggleItem(uid, SpacesuitPrototype, ref comp.SpacesuitEntity, "outerClothing")
+        || !TryToggleItem(uid, SpacesuitHelmetPrototype, ref comp.SpacesuitHelmetEntity, "head"))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
+            return;
+        }
+
+        if (comp.SpacesuitEntity != null)
+        {
+            comp.ChemicalRegenerationAbilityModifier -= .5f;
+            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-start"), uid, uid);
+        }
+        else
+        {
+            comp.ChemicalRegenerationAbilityModifier += .5f;
+            _popup.PopupEntity(Loc.GetString("changeling-equip-end"), uid, uid);
+        }
+
+        PlayMeatySound(uid, comp);
     }
     public void OnHivemindAccess(EntityUid uid, ChangelingComponent comp, ref ActionHivemindAccessEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!HasComp<ActiveRadioComponent>(uid))
+        if (HasComp<HivemindComponent>(uid))
         {
-            var radio = EnsureComp<ActiveRadioComponent>(uid);
-            radio.Channels.Add("Hivemind");
-            radio.GlobalReceive = true;
-            _popup.PopupEntity(Loc.GetString("changeling-hivemind"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
+            return;
         }
 
-        // todo: implement
+        EnsureComp<HivemindComponent>(uid);
+        _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
     public void OnContortBody(EntityUid uid, ChangelingComponent comp, ref ActionContortBodyEvent args)
     {

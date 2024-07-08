@@ -1,7 +1,0 @@
-- type: radioChannel
-  id: Hivemind
-  name: chat-radio-hivemind
-  keycode: 'g'
-  frequency: 5096
-  color: "#a86f00"
-  longRange: true

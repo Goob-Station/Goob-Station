@@ -40,6 +40,7 @@ changeling-shield-start = Your arm reforms into a meat shield
 changeling-muscles-start = Your body feels a lot lighter
 changeling-muscles-end = Your legs feel heavier
 
+changeling-equip-armor-fail = Need to get rid of existing outer clothing beforehand
 changeling-equip-armor-start = Your body gets wrapped in a sturdy chitinous shell
 changeling-equip-spacesuit-start = Your body transforms into a spaceproof abomination
 changeling-equip-end = Your body takes back it's original shape
@@ -57,4 +58,4 @@ changeling-panacea = You mutate and alter your DNA for better cell regeneration
 changeling-chameleon-start = You adapt your skin to the environment
 changeling-chameleon-end = Your skin is losing it's translucency
 
-changeling-hivemind = We tune our brainwaves to match the hivemind frequency
+changeling-hivemind-start = We tune our brainwaves to match the hivemind frequency

@@ -1,10 +1,10 @@
 - type: statusIcon
-  id: ChangelingFaction
+  id: HivemindFaction
   priority: 11
   showTo:
     components:
       - ShowAntagIcons
-      - Changeling
+      - Hivemind
   icon:
     sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Geneticist
+    state: Changeling

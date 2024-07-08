@@ -143,7 +143,7 @@ evolutionmenu-utility-spacesuit-desc =
 
 evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
-    Tunes our chemical receptors for hivemind communication, which passively grants us access to the changeling hivemind, and the ability to speak over it using the :g "radio" keyword.
+    Tunes our chemical receptors for hivemind communication, giving us access to the hivemind network, allowing us to recognize other changelings who have also bought this ability.
 
 evolutionmenu-utility-contort-name = Contort Body
 evolutionmenu-utility-contort-desc =
