@@ -4,6 +4,7 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Changeling;
+using Content.Shared.IdentityManagement;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
@@ -106,15 +107,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         var sb = new StringBuilder();
         if (mostAbsorbedUid != null)
-        {
-            var absorbedName = _objective.GetTitle((EntityUid) mostAbsorbedUid, string.Empty);
-            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-absorbed", ("name", absorbedName), ("number", mostStolen)));
-        }
+            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-absorbed", ("name", Identity.Entity((EntityUid) mostAbsorbedUid, EntityManager)), ("number", mostStolen)));
         if (mostStolenUid != null)
-        {
-            var stolenName = _objective.GetTitle((EntityUid) mostStolenUid, string.Empty);
-            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-stolen", ("name", stolenName), ("number", mostStolen)));
-        }
+            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-stolen", ("name", Identity.Entity((EntityUid) mostStolenUid, EntityManager)), ("number", mostStolen)));
 
         args.Text = sb.ToString();
     }
