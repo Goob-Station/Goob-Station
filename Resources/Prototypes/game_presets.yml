@@ -22,6 +22,7 @@
     - Zombie
     - RampingStationEventScheduler
     - GameRuleMeteorScheduler
+    - Changeling # Goobstation - changeling playtest
 
 - type: gamePreset
   id: Extended
@@ -161,3 +162,20 @@
   - BasicStationEventScheduler
   - GameRuleMeteorScheduler
   - BasicRoundstartVariation
+
+# Goobstation - changelings playtest
+- type: gamePreset
+  id: Changeling
+  alias:
+    - lings
+    - lings
+    - changeling
+  name: changeling-gamemode-title
+  description: changeling-gamemode-description
+  showInVote: true
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - GameRuleMeteorScheduler
+    - BasicRoundstartVariation
