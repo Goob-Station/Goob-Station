@@ -55,9 +55,6 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
 using Content.Shared.Stealth.Components;
-using Robust.Shared.Physics;
-using Content.Shared.NameIdentifier;
-using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server.Changeling;
 

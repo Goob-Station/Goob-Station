@@ -516,7 +516,6 @@
     event: !type:ActionLesserFormEvent {}
   - type: ChangelingAction
     chemicalCost: 20
-    useInLesserForm: true
 
 - type: entity
   id: ActionToggleSpacesuit
