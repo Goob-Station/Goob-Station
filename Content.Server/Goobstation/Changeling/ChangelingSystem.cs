@@ -216,7 +216,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        var regen = Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -1, float.PositiveInfinity)));
+        var regen = (float) Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -.75f, float.PositiveInfinity)));
         var chemicals = comp.Chemicals;
 
         chemicals += amount ?? regen;
