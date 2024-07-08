@@ -55,13 +55,8 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
 using Content.Shared.Stealth.Components;
-using Content.Server.Radio.Components;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
-using Content.Server.Radio.EntitySystems;
 using Content.Shared.NameIdentifier;
-using Content.Shared.NPC.Systems;
-using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Prototypes;
 
 namespace Content.Server.Changeling;
@@ -107,7 +102,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
 
     public ProtoId<EntityPrototype> ArmbladePrototype = "ArmBladeChangeling";
     public ProtoId<EntityPrototype> FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -120,8 +114,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public ProtoId<EntityPrototype> SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
     public ProtoId<EntityPrototype> SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
-
-    public ProtoId<NpcFactionPrototype> HivemindFactionPrototype = "Hivemind";
 
     public override void Initialize()
     {
@@ -342,7 +334,7 @@ public sealed partial class ChangelingSystem : EntitySystem
                 EntityManager.DeleteEntity(item);
                 return false;
             }
-            if (!_hands.TryForcePickupAnyHand(uid, item))
+            else if (!_hands.TryForcePickupAnyHand(uid, item))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
                 EntityManager.DeleteEntity(item);

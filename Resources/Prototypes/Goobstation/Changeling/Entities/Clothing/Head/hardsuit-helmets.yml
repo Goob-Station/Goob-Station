@@ -5,6 +5,7 @@
   description: A spaceworthy biomass of pressure and temperature resistant tissue.
   suffix: Unremoveable
   components:
+  - type: Item
   - type: Sprite
     sprite: Goobstation/Changeling/ling_spacesuit_helmet.rsi
   - type: Clothing

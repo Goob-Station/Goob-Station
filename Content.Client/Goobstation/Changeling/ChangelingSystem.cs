@@ -30,7 +30,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+        if (HasComp<HivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }
 }
