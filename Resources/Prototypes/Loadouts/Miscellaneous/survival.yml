@@ -24,6 +24,13 @@
     - Harpy
     - Gingerbread
 
+- type: loadoutEffectGroup
+  id: EffectSpeciesVox
+  effects:
+  - !type:SpeciesLoadoutEffect
+    species:
+    - Vox
+
 # Basic
 - type: loadout
   id: EmergencyOxygen
@@ -185,3 +192,68 @@
   storage:
     back:
     - BoxSurvivalSlotsSyndicateNitrogen # Goobstation - Slots Based Survival Boxes
+
+# Pre-equipped species gear
+
+# Full Tank Equipped
+- type: loadout
+  id: LoadoutSpeciesEVANitrogen
+  equipment: GearEVANitrogen
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+
+- type: startingGear
+  id: GearEVANitrogen
+  equipment:
+    suitstorage: NitrogenTankFilled
+
+# Tank Harness
+- type: loadout
+  id: LoadoutTankHarness
+  equipment: GearTankHarness
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+
+- type: startingGear
+  id: GearTankHarness
+  equipment:
+    outerClothing: ClothingOuterVestTank
+
+# Breaths Tool On Face
+- type: loadout
+  id: LoadoutSpeciesBreathTool
+  equipment: GearSpeciesBreathTool
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+
+- type: startingGear
+  id: GearSpeciesBreathTool
+  equipment:
+    mask: ClothingMaskBreath
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolMedical
+  equipment: GearSpeciesBreathToolMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+
+- type: startingGear
+  id: GearSpeciesBreathToolMedical
+  equipment:
+    mask: ClothingMaskBreathMedical
+
+- type: loadout
+  id: LoadoutSpeciesBreathToolSecurity
+  equipment: GearSpeciesBreathToolSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+
+- type: startingGear
+  id: GearSpeciesBreathToolSecurity
+  equipment:
+    mask: ClothingMaskGasSecurity
