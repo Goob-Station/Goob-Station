@@ -551,20 +551,3 @@
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
-
-- type: entity
-  id: ActionContortBody
-  name: Contort Body
-  description: Contory your body, making you capable of fitting under thing you don't normally fit. Costs 25 chemicals.
-  noSpawn: true
-  components:
-  - type: InstantAction
-    useDelay: 2
-    checkCanInteract: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: Goobstation/Changeling/changeling_abilities.rsi
-      state: contort_body
-    event: !type:ActionContortBodyEvent {}
-  - type: ChangelingAction
-    chemicalCost: 25

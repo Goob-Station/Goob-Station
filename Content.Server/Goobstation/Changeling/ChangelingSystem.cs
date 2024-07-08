@@ -157,7 +157,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
         SubscribeLocalEvent<ChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
-        SubscribeLocalEvent<ChangelingComponent, ActionContortBodyEvent>(OnContortBody);
     }
 
     public override void Update(float frameTime)
@@ -193,15 +192,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
 
     #region Helper Methods
-
-    public bool IsInLesserForm(EntityUid uid, ChangelingComponent comp)
-    {
-        if (TryComp<NameIdentifierComponent>(uid, out var name))
-            if (name.Group == "Monkey")
-                return true;
-
-        return false;
-    }
 
     public void PlayMeatySound(EntityUid uid, ChangelingComponent comp)
     {
@@ -254,7 +244,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
-        if (!lingAction.UseWhileLesserForm && IsInLesserForm(uid, comp))
+        if (!lingAction.UseWhileLesserForm && comp.IsInLesserForm)
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
             return false;
@@ -429,6 +419,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
             newLingComp.AbsorbedDNA = comp.AbsorbedDNA;
             newLingComp.CurrentForm = data;
+            newLingComp.IsInLesserForm = false;
             if (!persistentDna)
                 newLingComp.AbsorbedDNA.Remove(data); // a one timer opportunity.
 
@@ -1069,6 +1060,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         PlayMeatySound((EntityUid) newUid, comp);
         var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) newUid, EntityManager)));
         _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
+
+        comp.IsInLesserForm = true;
     }
     public void OnSpacesuit(EntityUid uid, ChangelingComponent comp, ref ActionSpacesuitEvent args)
     {
@@ -1108,22 +1101,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         EnsureComp<HivemindComponent>(uid);
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
-    }
-    public void OnContortBody(EntityUid uid, ChangelingComponent comp, ref ActionContortBodyEvent args)
-    {
-        if (!HasComp<FixturesComponent>(uid))
-            return;
-
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        var fixes = Comp<FixturesComponent>(uid).Fixtures;
-        foreach (var fix in fixes.Values)
-        {
-            // todo: implement
-        }
-        // MobMask MobLayer
-        // SmallMobMask SmallMobLayer
     }
 
     #endregion

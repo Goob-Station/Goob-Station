@@ -49,6 +49,8 @@ public sealed partial class ChangelingComponent : Component
 
     public bool StrainedMusclesActivated = false;
 
+    public bool IsInLesserForm = false;
+
     #endregion
 
     #region Base

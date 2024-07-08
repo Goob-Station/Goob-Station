@@ -339,17 +339,3 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-
-#- type: listing
-#  id: EvolutionMenuUtilityContortBody
-#  name: evolutionmenu-utility-contort-name
-#  description: evolutionmenu-utility-contort-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: contort_body }
-#  productAction: ActionContortBody
-#  cost:
-#    EvolutionPoint: 4
-#  categories:
-#  - ChangelingAbilityUtility
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
