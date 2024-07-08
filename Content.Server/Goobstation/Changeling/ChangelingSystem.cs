@@ -1093,7 +1093,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (comp.SpacesuitEntity != null)
         {
             comp.ChemicalRegenerationAbilityModifier -= .5f;
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-start"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-equip-spacesuit-start"), uid, uid);
         }
         else
         {

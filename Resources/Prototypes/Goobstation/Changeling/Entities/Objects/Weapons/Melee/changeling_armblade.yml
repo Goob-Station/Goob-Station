@@ -4,9 +4,9 @@
   suffix: Unremoveable
   components:
   - type: Sharp
-  #- type: Sprite
-  #  sprite: Objects/Goobstation/Changeling/arm_blade.rsi
-  #  state: icon
+  - type: Sprite
+    sprite: Objects/Goobstation/Changeling/arm_blade.rsi
+    state: icon
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 0.75
@@ -18,9 +18,9 @@
         Structural: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  #- type: Item
-  #  size: Ginormous
-  #  sprite: Objects/Goobstation/Changeling/arm_blade.rsi
+  - type: Item
+    size: Ginormous
+    sprite: Objects/Goobstation/Changeling/arm_blade.rsi
   - type: Prying
     pryPowered: true
   - type: Unremoveable
