@@ -1435,6 +1435,21 @@
   heatCapacity: 10000
   tileRipResistance: 175
 
+- type: tile
+  id: FloorMetalFoam
+  name: tiles-metal-foam
+  sprite: /Textures/Tiles/foammetal.png
+  variants: 1
+  placementVariants:
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepHull
+  itemDrop: SheetSteel1
+  heatCapacity: 10000
+
 # Circuits
 - type: tile
   id: FloorGreenCircuit
