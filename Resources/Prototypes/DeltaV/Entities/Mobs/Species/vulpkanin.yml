@@ -5,6 +5,7 @@
   id: BaseMobVulpkanin
   abstract: true
   components:
+  - type: Absorbable # Goobstation - changelings
   - type: HumanoidAppearance
     species: Vulpkanin
   - type: Hunger

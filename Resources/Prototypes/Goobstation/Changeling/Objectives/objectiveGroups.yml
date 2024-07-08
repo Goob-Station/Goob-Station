@@ -1,0 +1,16 @@
+# changeling
+
+- type: weightedRandom
+  id: ChangelingAbsorbObjectiveGroup
+  weights:
+    ChangelingAbsorbObjective: 1
+
+- type: weightedRandom
+  id: ChangelingStealDNAObjectiveGroup
+  weights:
+    ChangelingStealDNAObjective: 1
+
+- type: weightedRandom
+  id: EscapeIdentityObjectiveGroup
+  weights:
+    EscapeIdentityObjective: 1

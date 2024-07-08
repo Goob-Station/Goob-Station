@@ -5,6 +5,7 @@
   id: BaseMobGingerbread
   abstract: true
   components:
+  - type: Absorbable # Goobstation - changelings
   - type: HumanoidAppearance
     species: Gingerbread
   - type: Icon
