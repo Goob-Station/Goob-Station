@@ -444,11 +444,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             var copy = _serialization.CreateCopy(b, notNullableOverride: true);
             AddComp(newUid.Value, copy, true);
         }
-        if (TryComp<MindShieldComponent>(uid, out var c))
-        {
-            var copy = _serialization.CreateCopy(c, notNullableOverride: true);
-            AddComp(newUid.Value, copy, true);
-        }
 
         if (data != null)
         {
