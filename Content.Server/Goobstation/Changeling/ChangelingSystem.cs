@@ -384,6 +384,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             data.Fingerprint = fingerprint.Fingerprint;
 
         AddDNA(uid, comp, data, countObjective);
+        comp.TotalStolenDNA++;
 
         return true;
     }
@@ -420,6 +421,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             AddComp(newUid.Value, lingCompCopy, true);
             var newLingComp = Comp<ChangelingComponent>(newUid.Value);
 
+            newLingComp.TotalStolenDNA = comp.TotalStolenDNA;
+            newLingComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
             newLingComp.AbsorbedDNA = comp.AbsorbedDNA;
             newLingComp.CurrentForm = data;
             if (!persistentDna)
@@ -584,7 +587,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
-        comp.TotalStolenDNA++;
+
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;
