@@ -9,7 +9,6 @@ evolutionmenu-combat-armblade-desc =
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-desc =
     Break off shards of your bone and shape them into a throwing star which embeds into your foes. But a one timer opportinuty.
-    Requires you to absorb at least 1 organic to use the ability.
     Costs 15 chemicals on activation.
 
 evolutionmenu-combat-armor-name = Chitinous Armor
@@ -17,18 +16,21 @@ evolutionmenu-combat-armor-desc =
     Inflate your body into an all-consuming chitinous mass of armor.
     Provides extensive protection against physical damage, but less against other types.
     It massively slows your movement, and maintaining its shape slows chemical generation.
+    WARNING: Requires you to absorb at least 2 organics to use the ability.
     Costs 25 chemicals on activation, significantly slows chemical regeneration.
 
 evolutionmenu-combat-shield-name = Organic Shield
 evolutionmenu-combat-shield-desc =
     Reforms one of your arms into a large, fleshy shield.
     Blocks attacks automatically, but very brittle.
+    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 20 chemicals on activation.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
     You emit an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
+    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals on activation.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
@@ -36,6 +38,7 @@ evolutionmenu-combat-shriek-resonant-desc =
     You emit a tone beyond the range of human hearing,
     bursting lights and causing disorientation in an area around yourself.
     Good for escaping groups, or hindering people from fleeing.
+    WARNING: Requires you to absorb at least 1 organic to use the ability.
     Costs 30 chemicals on activation.
 
 evolutionmenu-combat-strainedmuscles-name = Strained Muscles
@@ -81,14 +84,12 @@ evolutionmenu-sting-transform-name = Transformation Sting
 evolutionmenu-sting-transform-desc =
     Inject some of your genome into an organic target, forcing their body to shapeshift into whoever you've chosen using the Cycle DNA ability.
     May be used while under the effects of Lesser Form.
-    Requires you to absorb at least 2 organics to use the ability.
     Costs 75 chemicals.
 
 evolutionmenu-sting-armblade-name = Fake Arm Blade Sting
 evolutionmenu-sting-armblade-desc =
     Inject some of your genome into an organic target, forcing their arm to shapeshift into a dull armblade.
     May be used while under the effects of Lesser Form.
-    Requires you to absorb at least 1 organic to use the ability.
     Costs 50 chemicals.
 
 # utility
@@ -129,6 +130,7 @@ evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc =
     Abandon your current body and becomes a headslug in a last ditch effort to evade discovery or capture.
     As a headslug, you can lay eggs inside anybody, and, after some time, a monkey with your original conciousness will burst out of the body.
+    Requires you to absorb at least 1 organic to use the ability.
     Costs 20 chemicals.
 
 evolutionmenu-utility-lesserform-name = Lesser Form

@@ -32,8 +32,6 @@ using Content.Server.Actions;
 using Content.Server.Humanoid;
 using Content.Server.Polymorph.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Camera;
-using Robust.Server.Player;
 using Content.Server.Flash;
 using Content.Server.Emp;
 using Robust.Server.GameObjects;
@@ -80,8 +78,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly IPlayerManager _playerMan = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -216,10 +212,10 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        var regen = (float) Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -.75f, float.PositiveInfinity)));
+        //var regen = (float) Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -.75f, float.PositiveInfinity)));
         var chemicals = comp.Chemicals;
 
-        chemicals += amount ?? regen;
+        chemicals += amount ?? 1 /*regen*/;
 
         comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
 
