@@ -245,3 +245,13 @@ Entries:
       message: Added changelings.
   id: 36
   time: '2024-07-08T07:40:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The fire axe and desword are now purchasable in the uplink.
+    - type: Add
+      message: The atmos fireaxe can now pry plating.
+    - type: Tweak
+      message: Nukie reinforcements are now 150 TC but get full nukeop gear.
+  id: 37
+  time: '2024-07-09T02:13:10.0000000+00:00'
