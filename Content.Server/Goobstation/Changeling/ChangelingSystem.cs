@@ -521,9 +521,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnAbsorb(EntityUid uid, ChangelingComponent comp, ref AbsorbDNAEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
         var target = args.Target;
 
         if (!IsIncapacitated(target))
@@ -541,6 +538,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
             return;
         }
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
 
         var popupOthers = Loc.GetString("changeling-absorb-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
