@@ -129,6 +129,7 @@
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
 
 - type: entity
+  # Goobstation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeBend
   suffix: Bend
@@ -169,6 +170,7 @@
         Blunt: 3 #This should be 6 but throwing damage is doubled at the moment for some reason so for now it's 3
 
 - type: entity
+  # Goobstation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeTJunction
   suffix: TJunction
@@ -205,6 +207,7 @@
       collection: MetalThud
 
 - type: entity
+  # Goobstation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   id: GasPipeFourway
   suffix: Fourway
@@ -241,6 +244,7 @@
 
 - type: entity
   id: GasPipeBroken
+  # Goobstation - Allow device-on-pipe stacking
   parent: GasPipeNoOverlap
   name: broken pipe
   description: It used to hold gas.
