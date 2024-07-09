@@ -96,7 +96,7 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and enter into a regenerative stasis. Costs 15 chemicals.
+  description: Fake your death and enter into a regenerative stasis. Costs 75 chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -108,7 +108,7 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+    chemicalCost: 75
     useInLesserForm: true
 
 - type: entity
@@ -203,7 +203,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -221,7 +221,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -385,7 +385,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 30
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -455,7 +455,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -474,9 +474,8 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 30
     checkCanInteract: false
-    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi

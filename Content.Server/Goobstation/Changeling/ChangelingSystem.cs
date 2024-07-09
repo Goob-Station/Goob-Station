@@ -992,6 +992,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
+            ("Impedrezene", 2.5f),
             ("Ichor", 15f),
             ("TranexamicAcid", 5f)
         };
