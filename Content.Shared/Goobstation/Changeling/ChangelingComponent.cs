@@ -3,9 +3,6 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-
-
 
 namespace Content.Shared.Changeling;
 
@@ -75,14 +72,6 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     public readonly float UpdateTimer = 1f;
 
-    public float ChemicalRegenerationMobStateModifier = 0f;
-    public float ChemicalRegenerationAbilityModifier = 0f;
-    /// <summary>
-    ///     Modifier for chemical regeneration. Positive = faster, negative = slower.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float ChemicalRegenerationModifier = 0f;
-
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
@@ -125,7 +114,7 @@ public sealed partial class ChangelingComponent : Component
 }
 
 [DataDefinition]
-public partial struct TransformData
+public sealed partial class TransformData
 {
     /// <summary>
     ///     Entity's name.
@@ -151,11 +140,8 @@ public partial struct TransformData
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
 
-    public static bool operator ==(TransformData one, TransformData two)
-        => one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA;
-    public static bool operator !=(TransformData one, TransformData two)
-        => !(one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA);
-
-
-
+    //public static bool operator ==(TransformData one, TransformData two)
+    //    => one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA;
+    //public static bool operator !=(TransformData one, TransformData two)
+    //    => !(one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA);
 }
