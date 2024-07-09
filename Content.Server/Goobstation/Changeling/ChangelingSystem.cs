@@ -654,6 +654,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        comp.Chemicals = 0f;
+
         if (_mobState.IsAlive(uid))
         {
             // fake our death
