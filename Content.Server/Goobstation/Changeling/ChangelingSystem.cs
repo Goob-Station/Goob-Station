@@ -974,8 +974,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Desoxyephedrine", 10f),
-            ("Stimulants", 10f)
+            ("Synaptizine", 5f),
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);
