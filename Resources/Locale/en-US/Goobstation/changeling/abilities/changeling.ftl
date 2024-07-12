@@ -22,6 +22,7 @@ changeling-sting-fail-self = You tried to sting {CAPITALIZE(THE($target))}, but 
 changeling-sting-fail-ling = Someone just tried to silently sting you!
 
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
+changeling-sting-fail-simplemob = You can't sting a simplemob with that!
 changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA.
 changeling-sting-extract-fail = Can't extract DNA, need another target
 

@@ -371,6 +371,21 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
+    private ChangelingComponent? CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
+    {
+        var newComp = EnsureComp<ChangelingComponent>(target);
+        newComp.AbsorbedDNA = comp.AbsorbedDNA;
+        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
+        newComp.Chemicals = comp.Chemicals;
+
+        newComp.IsInLesserForm = comp.IsInLesserForm;
+        newComp.CurrentForm = comp.CurrentForm;
+
+        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
+        newComp.TotalStolenDNA = comp.TotalStolenDNA;
+
+        return comp;
+    }
     private EntityUid? TransformEntity(EntityUid uid, TransformData? data = null, EntProtoId? protoId = null, ChangelingComponent? comp = null, bool persistentDna = false)
     {
         EntProtoId? pid = null;
@@ -399,28 +414,27 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (newUid == null)
             return null;
 
+        var newEnt = newUid.Value;
+
         if (data != null)
         {
-            Comp<FingerprintComponent>(newUid.Value).Fingerprint = data.Fingerprint;
-            Comp<DnaComponent>(newUid.Value).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newUid.Value);
-            _metaData.SetEntityName(newUid.Value, data.Name);
+            Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
+            Comp<DnaComponent>(newEnt).DNA = data.DNA;
+            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
+            _metaData.SetEntityName(newEnt, data.Name);
+            var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
+            _popup.PopupEntity(message, newEnt, newEnt);
         }
 
-        RemCompDeferred<PolymorphedEntityComponent>(newUid.Value);
+        RemCompDeferred<PolymorphedEntityComponent>(newEnt);
 
         if (comp != null)
         {
             // copy our stuff
-            var lingCompCopy = _serialization.CreateCopy(comp, notNullableOverride: true);
-            AddComp(newUid.Value, lingCompCopy, true);
-            var newLingComp = Comp<ChangelingComponent>(newUid.Value);
-
-            newLingComp.AbsorbedDNA = comp.AbsorbedDNA;
-            newLingComp.CurrentForm = data != null ? data : newLingComp.CurrentForm;
-            newLingComp.IsInLesserForm = false;
+            var newLingComp = CopyChangelingComponent(newEnt, comp);
             if (!persistentDna && data != null)
-                newLingComp.AbsorbedDNA.Remove(data);
+                newLingComp?.AbsorbedDNA.Remove(data);
+            RemCompDeferred<ChangelingComponent>(uid);
 
             if (TryComp<StoreComponent>(uid, out var storeComp))
             {
@@ -428,28 +442,15 @@ public sealed partial class ChangelingSystem : EntitySystem
                 RemComp<StoreComponent>(newUid.Value);
                 EntityManager.AddComponent(newUid.Value, storeCompCopy);
             }
-            RemCompDeferred<ChangelingComponent>(uid);
         }
 
         // comps check
-        // there's no foreach for types i believe so i gotta live with it.
-        // i'm sorry durk
-        if (TryComp<HeadRevolutionaryComponent>(uid, out var a))
-        {
-            var copy = _serialization.CreateCopy(a, notNullableOverride: true);
-            AddComp(newUid.Value, copy, true);
-        }
-        if (TryComp<RevolutionaryComponent>(uid, out var b))
-        {
-            var copy = _serialization.CreateCopy(b, notNullableOverride: true);
-            AddComp(newUid.Value, copy, true);
-        }
+        // there's no foreach for types i believe so i gotta thug it out yandev style.
+        if (HasComp<HeadRevolutionaryComponent>(uid))
+            EnsureComp<HeadRevolutionaryComponent>(newEnt);
+        if (HasComp<RevolutionaryComponent>(uid))
+            EnsureComp<RevolutionaryComponent>(newEnt);
 
-        if (data != null)
-        {
-            var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
-            _popup.PopupEntity(message, newUid.Value, newUid.Value);
-        }
         QueueDel(uid);
 
         return newUid;
@@ -501,8 +502,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
 
     #endregion
-
-
 
     #region Basic Abilities
 
@@ -621,7 +620,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     private void OnTransformCycle(EntityUid uid, ChangelingComponent comp, ref ChangelingTransformCycleEvent args)
     {
         comp.AbsorbedDNAIndex += 1;
-        if (comp.AbsorbedDNAIndex >= comp.MaxAbsorbedDNA || comp.AbsorbedDNAIndex >= comp.AbsorbedDNA.Count - 1)
+        if (comp.AbsorbedDNAIndex >= comp.MaxAbsorbedDNA || comp.AbsorbedDNAIndex >= comp.AbsorbedDNA.Count)
             comp.AbsorbedDNAIndex = 0;
 
         if (comp.AbsorbedDNA.Count == 0)
@@ -883,7 +882,13 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var target = args.Target;
         var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
-        _hands.TryPickupAnyHand(target, fakeArmblade);
+        if (!_hands.TryPickupAnyHand(target, fakeArmblade))
+        {
+            EntityManager.DeleteEntity(fakeArmblade);
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
+            return;
+        }
 
         PlayMeatySound(target, comp);
     }
