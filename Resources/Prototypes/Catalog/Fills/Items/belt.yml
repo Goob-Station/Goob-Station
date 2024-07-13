@@ -25,6 +25,8 @@
       - id: Wirecutter
       - id: Welder
       - id: Multitool
+      #Goob-Station - edit by Jellygato 7/13/24
+      - id: trayScanner
 
 - type: entity
   id: ClothingBeltChiefEngineerFilled
