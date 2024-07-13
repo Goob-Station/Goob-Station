@@ -53,7 +53,6 @@ using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.Coordinates;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Camera;
@@ -71,6 +70,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;

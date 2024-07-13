@@ -139,9 +139,4 @@ public sealed partial class TransformData
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
-
-    //public static bool operator ==(TransformData one, TransformData two)
-    //    => one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA;
-    //public static bool operator !=(TransformData one, TransformData two)
-    //    => !(one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA);
 }
