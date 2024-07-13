@@ -20,7 +20,7 @@
   - type: GunRequiresWield
 
   - type: Gun
-    firerate: 2 # Lower fire-rate than the old one
+    fireRate: 2 # Lower fire-rate than the old one
     selectedMode: SemiAuto
 
     availableModes:
