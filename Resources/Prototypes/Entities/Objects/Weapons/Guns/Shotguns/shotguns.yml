@@ -115,7 +115,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun_inhands_64x.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Gun
-    fireRate: 2
+    fireRate: 4 # until cycling works, this works to simulate the fact a DB doesn't need to pump- and also removes sawn off powergame yayyyy :3 - Goobstation
   - type: BallisticAmmoProvider
     capacity: 2
   - type: Construction
@@ -173,7 +173,7 @@
     sprite: Objects/Weapons/Guns/Shotguns/pump.rsi
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: BallisticAmmoProvider
-    capacity: 4
+    capacity: 6 # Goobstation
   - type: Tag
     tags:
     - WeaponShotgunKammerer
