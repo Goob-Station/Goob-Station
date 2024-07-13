@@ -22,6 +22,7 @@
     - Zombie
     - RampingStationEventScheduler
     - GameRuleMeteorScheduler
+    - Changeling # Goobstation - changeling playtest
 
 - type: gamePreset
   id: Extended

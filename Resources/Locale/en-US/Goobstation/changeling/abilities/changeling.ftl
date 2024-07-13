@@ -9,7 +9,7 @@ changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
 changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
-changeling-absorb-onexamine = [color=red]It is nothing but a husk of a person, an empty shell.[/color]
+changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!
@@ -22,7 +22,8 @@ changeling-sting-fail-self = You tried to sting {CAPITALIZE(THE($target))}, but 
 changeling-sting-fail-ling = Someone just tried to silently sting you!
 
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
-changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA.
+changeling-sting-fail-simplemob = You can't sting a lesser creature!
+changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA
 changeling-sting-extract-fail = Can't extract DNA, need another target
 
 changeling-stasis-enter = You enter regenerative stasis

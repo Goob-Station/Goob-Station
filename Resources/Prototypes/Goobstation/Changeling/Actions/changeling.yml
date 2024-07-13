@@ -37,6 +37,7 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
+    useInLesserForm: true
 
 - type: entity
   id: ActionStingExtractDNA
@@ -57,6 +58,7 @@
     event: !type:StingExtractDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
+    useInLesserForm: true
 
 - type: entity
   id: ActionChangelingTransformCycle
@@ -72,6 +74,7 @@
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
     chemicalCost: 0
+    useInLesserForm: true
 
 - type: entity
   id: ActionChangelingTransform
@@ -93,7 +96,7 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and enter into a regenerative stasis. Costs 15 chemicals.
+  description: Fake your death and enter into a regenerative stasis. Drains all your chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -105,13 +108,13 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 15
+    chemicalCost: 0
     useInLesserForm: true
 
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 99 chemicals.
+  description: Rise from the dead with full health. Costs 60 chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -123,7 +126,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 99
+    chemicalCost: 60
     useInLesserForm: true
 
 # combat
@@ -158,7 +161,6 @@
     event: !type:CreateBoneShardEvent {}
   - type: ChangelingAction
     chemicalCost: 15
-    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleChitinousArmor
@@ -175,6 +177,7 @@
     event: !type:ToggleChitinousArmorEvent {}
   - type: ChangelingAction
     chemicalCost: 25
+    requireAbsorbed: 2
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -191,6 +194,7 @@
     event: !type:ToggleOrganicShieldEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionShriekDissonant
@@ -199,7 +203,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -208,6 +212,7 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionShriekResonant
@@ -216,7 +221,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 2
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -225,6 +230,7 @@
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleStrainedMuscles
@@ -348,7 +354,6 @@
   - type: ChangelingAction
     chemicalCost: 50
     useInLesserForm: true
-    requireAbsorbed: 1
 
 - type: entity
   id: ActionStingTransform
@@ -370,7 +375,6 @@
   - type: ChangelingAction
     chemicalCost: 75
     useInLesserForm: true
-    requireAbsorbed: 2
 
 # utility
 
@@ -381,7 +385,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 30
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -451,7 +455,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 10
     checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
@@ -470,9 +474,8 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 5
+    useDelay: 30
     checkCanInteract: false
-    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
@@ -499,6 +502,7 @@
     event: !type:ActionLastResortEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleLesserForm
