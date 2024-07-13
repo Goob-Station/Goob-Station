@@ -38,7 +38,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 1
+    fireRate: 0.6 # Goobstation
     selectedMode: SemiAuto
     availableModes:
       - SemiAuto
