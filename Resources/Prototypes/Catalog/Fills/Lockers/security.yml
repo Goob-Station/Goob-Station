@@ -66,6 +66,8 @@
         prob: 0.1
       - id: HoloprojectorSecurity
         prob: 0.6
+      - id: BookSpaceLaw
+        prob: 0.5
 # Goobstation Sock Stuff
       - id: ClothingUnderSocksStripedSecurityJackboots
         prob: 0.8
