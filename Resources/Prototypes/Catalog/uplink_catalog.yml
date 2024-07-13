@@ -1144,7 +1144,7 @@
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
-  catergories:
+  categories:
     - UplinkImplants
 
 - type: listing
