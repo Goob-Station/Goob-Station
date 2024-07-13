@@ -1,7 +1,7 @@
 objective-condition-absorb-title = Absorb {$count} humanoids.
-objective-condition-absorb-description = I must absorb {$count} humanoids. It is necessary for my survival.
+objective-condition-absorb-description = I must absorb {$count} humanoids. It is necessary for my survival and further evolution.
 
-objective-condition-stealdna-title = Steal {$count} compatible genomes.
-objective-condition-stealdna-description = I must steal {$count} unique genomes. The hivemind network is no good, it needs to be special.
+objective-condition-stealdna-title = Extract {$count} compatible genomes.
+objective-condition-stealdna-description = I must extract {$count} unique genomes.
 
-objective-condition-escape-identity-title = Escape on the evacuation shuttle while being {$targetName}, {CAPITALIZE($job)}.
+objective-condition-escape-identity-title = Escape on the evacuation shuttle alive and unrestrained while being {$targetName}, {CAPITALIZE($job)}.

@@ -4,7 +4,6 @@ using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
 using Content.Shared.Changeling;
-using Content.Shared.IdentityManagement;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
@@ -86,8 +85,8 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
     private void OnTextPrepend(EntityUid uid, ChangelingRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
-        EntityUid? mostAbsorbedUid = null;
-        EntityUid? mostStolenUid = null;
+        var mostAbsorbedName = string.Empty;
+        var mostStolenName = string.Empty;
         var mostAbsorbed = 0f;
         var mostStolen = 0f;
 
@@ -96,20 +95,20 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
             {
                 mostAbsorbed = ling.TotalAbsorbedEntities;
-                mostAbsorbedUid = ling.Owner;
+                if (_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+                    mostAbsorbedName = _objective.GetTitle((mindId, mind), string.Empty);
             }
             if (ling.TotalStolenDNA > mostStolen)
             {
                 mostStolen = ling.TotalStolenDNA;
-                mostStolenUid = ling.Owner;
+                if (_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+                    mostStolenName = _objective.GetTitle((mindId, mind), string.Empty);
             }
         }
 
         var sb = new StringBuilder();
-        if (mostAbsorbedUid != null)
-            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-absorbed", ("name", Identity.Entity((EntityUid) mostAbsorbedUid, EntityManager)), ("number", mostStolen)));
-        if (mostStolenUid != null)
-            sb.AppendLine(Loc.GetString("roundend-prepend-changeling-stolen", ("name", Identity.Entity((EntityUid) mostStolenUid, EntityManager)), ("number", mostStolen)));
+        sb.AppendLine(Loc.GetString($"roundend-prepend-changeling-absorbed{(!string.IsNullOrWhiteSpace(mostAbsorbedName) ? "-named" : "")}", ("name", mostAbsorbedName), ("number", mostAbsorbed)));
+        sb.AppendLine(Loc.GetString($"roundend-prepend-changeling-stolen{(!string.IsNullOrWhiteSpace(mostStolenName) ? "-named" : "")}", ("name", mostStolenName), ("number", mostStolen)));
 
         args.Text = sb.ToString();
     }

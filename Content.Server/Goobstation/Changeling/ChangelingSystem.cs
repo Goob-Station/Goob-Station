@@ -53,7 +53,10 @@ using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Revolutionary.Components;
-using Content.Shared.Mindshield.Components;
+using Content.Shared.Coordinates;
+using Robust.Shared.Player;
+using System.Numerics;
+using Content.Shared.Camera;
 
 namespace Content.Server.Changeling;
 
@@ -83,6 +86,8 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly PoweredLightSystem _light = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
 
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -190,10 +195,27 @@ public sealed partial class ChangelingSystem : EntitySystem
         var sound = comp.SoundPool.ToArray()[rand];
         _audio.PlayPvs(sound, uid, AudioParams.Default.WithVolume(-3f));
     }
-    public void PlayShriekSound(EntityUid uid, ChangelingComponent comp)
+    public void DoScreech(EntityUid uid, ChangelingComponent comp)
     {
-        // todo: add camera shake
         _audio.PlayPvs(comp.ShriekSound, uid);
+
+        var center = Transform(uid).MapPosition;
+        var gamers = Filter.Empty();
+        gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
+
+        foreach (var gamer in gamers.Recipients)
+        {
+            if (gamer.AttachedEntity == null)
+                continue;
+
+            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
+            var delta = center.Position - pos;
+
+            if (delta.EqualsApprox(Vector2.Zero))
+                delta = new(.01f, 0);
+
+            _recoil.KickCamera(uid, -delta.Normalized());
+        }
     }
 
     /// <summary>
@@ -444,7 +466,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             }
         }
 
-        // comps check
+        // exceptional comps check
         // there's no foreach for types i believe so i gotta thug it out yandev style.
         if (HasComp<HeadRevolutionaryComponent>(uid))
             EnsureComp<HeadRevolutionaryComponent>(newEnt);
@@ -768,7 +790,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        PlayShriekSound(uid, comp);
+        DoScreech(uid, comp);
 
         var pos = _transform.GetMapCoordinates(uid);
         var power = comp.ShriekPower;
@@ -779,7 +801,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        PlayShriekSound(uid, comp);
+        DoScreech(uid, comp);
 
         var power = comp.ShriekPower;
         _flash.FlashArea(uid, uid, power, power * 2f * 1000f);
