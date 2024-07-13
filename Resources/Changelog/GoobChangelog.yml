@@ -255,3 +255,18 @@ Entries:
       message: Nukie reinforcements are now 150 TC but get full nukeop gear.
   id: 37
   time: '2024-07-09T02:13:10.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: Changed the riot bullet shield sprite to look less weird
+  id: 38
+  time: '2024-07-13T08:32:49.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Reintroduced limited pipe stacking. Beware of placement order, as you
+        can't place smaller pipes overlaying large pipes doing the same thing -
+        each new pipe must add a new flow direction to get anchored on.
+  id: 39
+  time: '2024-07-13T08:38:12.0000000+00:00'
