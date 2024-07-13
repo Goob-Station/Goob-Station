@@ -12,12 +12,12 @@
     layers:
       - state: piecannon
 
-  - type: Wieldable
-    wieldSound:
-      path: /Audio/Items/bow_pull.ogg
+  #- type: Wieldable
+  #  wieldSound:
+  #    path: /Audio/Items/bow_pull.ogg
 
-  # Require wielding to use
-  - type: GunRequiresWield
+  # Don't require wielding to use, it would be valid otherwise
+  #- type: GunRequiresWield
 
   - type: Gun
     fireRate: 2 # Lower fire-rate than the old one
