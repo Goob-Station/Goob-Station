@@ -8,3 +8,26 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
+
+- type: listing
+  id: UplinkEswordDouble
+  name: uplink-esword-double-name
+  description: uplink-esword-double-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
+  productEntity: EnergySwordDouble
+  cost:
+    # Goobstation - Telecrystal rework
+    Telecrystal: 100
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkFireAxeFlaming
+  name: uplink-fire-axe-flaming-name
+  description: uplink-fire-axe-flaming-desc
+  productEntity: FireAxeFlaming
+  cost:
+    # Goobstation - Telecrystal rework
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry

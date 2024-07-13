@@ -1,5 +1,6 @@
 using Content.Server.Popups;
 using Content.Server.Tabletop.Components;
+using Content.Shared.CCVar;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -9,10 +10,12 @@ using Content.Shared.Tabletop.Events;
 using Content.Shared.Verbs;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
+using Robust.Shared.Configuration;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
+using Content.Server.Chat.Managers;
 
 namespace Content.Server.Tabletop
 {
@@ -23,6 +26,8 @@ namespace Content.Server.Tabletop
         [Dependency] private readonly EyeSystem _eye = default!;
         [Dependency] private readonly ViewSubscriberSystem _viewSubscriberSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly IChatManager _chat = default!;
+        [Dependency] private readonly INetConfigurationManager _cfg = default!;
 
         public override void Initialize()
         {
@@ -73,6 +78,9 @@ namespace Content.Server.Tabletop
 
         private void OnInteractUsing(EntityUid uid, TabletopGameComponent component, InteractUsingEvent args)
         {
+            if (!_cfg.GetCVar(CCVars.GameTabletopPlace))
+                return;
+
             if (!EntityManager.TryGetComponent(args.User, out HandsComponent? hands))
                 return;
 
@@ -89,7 +97,16 @@ namespace Content.Server.Tabletop
 
             if (!TryComp<ItemComponent>(handEnt, out var item))
                 return;
+            // Skye hotfix to prevent people from infinitely spawning mice on the board games and crashing server.
+            if (component.HologramsSpawned > component.MaximumHologramsAllowed)
+            {
+                _chat.SendAdminAlert($"{EntityManager.ToPrettyString(args.User):user} is attempting to put more holograms than allowed in a gameboard.");
+                _popupSystem.PopupEntity("Nuh uh.", uid, args.User);
+                return;
 
+            }
+            else
+                component.HologramsSpawned++;
             var meta = MetaData(handEnt);
             var protoId = meta.EntityPrototype?.ID;
 

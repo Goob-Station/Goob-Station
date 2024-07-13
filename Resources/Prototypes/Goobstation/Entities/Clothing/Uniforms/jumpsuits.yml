@@ -12,9 +12,5 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9 # no plating so little blunt protection but provides some stab resistance and heat resistance
-        Slash: 0.8
-        Piercing: 0.9
-        Heat: 0.8
-  - type: ExplosionResistance
-    damageCoefficient: 0.95
+        Blunt: 0.95
+        Heat: 0.95
