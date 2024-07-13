@@ -350,6 +350,6 @@
   suffix: Conducting
   components:
   - type: Insulated
-    coefficient: 10 # if you pull a shock off and they are alone and can never be found, a kill's deserved. *BZZT!!!* - Goobstation
+    coefficient: 5 # zap em good
   - type: Tag
     tags: [] # ignore "WhitelistChameleon" tag
