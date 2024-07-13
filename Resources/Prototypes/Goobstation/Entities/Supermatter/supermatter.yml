@@ -1,6 +1,6 @@
 - type: entity
   id: Supermatter
-  name: supermatter
+  name: supermatter crystal
   description: A strangely translucent and iridescent crystal.
   placement:
     mode: SnapgridCenter
@@ -15,7 +15,7 @@
     - type: RadiationSource
     - type: AmbientSound
       range: 5
-      volume: -5
+      volume: 0
       sound:
         path: /Audio/Goobstation/Supermatter/calm.ogg
     - type: Physics
@@ -57,12 +57,14 @@
       enabled: true
       radius: 10
       energy: 5
-      color: "#d9ce00"
+      color: "#ffe000"
     - type: Explosive
       explosionType: Supermatter
       maxIntensity: 10000
-      intensitySlope: 10
+      intensitySlope: 5
       totalIntensity: 10000
-    - type: IntrinsicRadioTransmitter
-      channels:
-      - Engineering
+    - type: GuideHelp
+      guides: [ Supermatter, Power ]
+    - type: WarpPoint
+      follow: true
+      location: supermatter

@@ -12,12 +12,12 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5 # ~10% better than normal web vest
-        Slash: 0.5
-        Piercing: 0.25
-        Heat: 0.35 # much better heat resist then normal web vest
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.50
+        Heat: 0.50
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.9
 
 # Durathread plated vest
 - type: entity
@@ -33,9 +33,9 @@
   - type: Armor 
     modifiers:
       coefficients:
-        Blunt: 0.4 # ~20% better than the normal web vest
-        Slash: 0.4
-        Piercing: 0.2
-        Heat: 0.3 # much better heat resist then normal web vest
+        Blunt: 0.85
+        Slash: 0.85
+        Piercing: 0.50
+        Heat: 0.50
   - type: ExplosionResistance
-    damageCoefficient: 0.8
+    damageCoefficient: 0.9

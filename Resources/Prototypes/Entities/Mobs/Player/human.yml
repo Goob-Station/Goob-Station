@@ -39,6 +39,13 @@
   suffix: Human, NukeOps
   components:
     - type: NukeOperative
+    # Goobstation - Nukeop reinforcement
+    - type: RandomMetadata
+      nameSegments:
+      - SyndicateNamesPrefix
+      - SyndicateNamesNormal
+    - type: Loadout
+      prototypes: [SyndicateOperativeGearNoUplink]
 
 # Nuclear Operative
 - type: entity
@@ -88,7 +95,7 @@
     rule: Ninja
   - type: AutoImplant
     implants:
-    - DeathAcidifierImplant
+    - MicroBombImplant
   - type: RandomMetadata
     nameSegments:
     - names_ninja_title

@@ -983,7 +983,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 80
+    Telecrystal: 70
   categories:
   - UplinkAllies
   conditions:
@@ -992,15 +992,16 @@
         tags:
           - NukeOpsUplink
 
+# Goobstation - Nukeop reinforcement
 - type: listing
-  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns an agent with the NukeOperative component.
-  name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns another nuclear operative.
+  name: uplink-operative-radio-name
+  description: uplink-operative-radio-desc
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 80
+    Telecrystal: 150
   categories:
   - UplinkAllies
   conditions:
@@ -1412,7 +1413,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 50
+    Telecrystal: 60
   categories:
   - UplinkWearables
 
