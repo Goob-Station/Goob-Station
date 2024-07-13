@@ -30,7 +30,7 @@
   name: cane blade
   parent: BaseItem
   id: CaneBlade
-  description: A sharp blade with a cane shaped hilt.
+  description: A sharp blade with a cane shaped hilt. Enchanted with fire powers by a fellow book lover. # Goobstation
   components:
   - type: Sharp
   - type: Sprite
@@ -41,7 +41,7 @@
     attackRate: 1.5
     damage:
       types:
-        Slash: 14
+        Slash: 16 # Goobstation
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -51,6 +51,8 @@
     tags:
       - CaneBlade
   - type: DisarmMalus
+  - type: IgniteOnMeleeHit # Goobstation
+    fireStacks: 1
 
 - type: entity
   parent: Cane
