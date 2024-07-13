@@ -135,7 +135,7 @@
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 110 # increase price by a lot when the thing has a scope
+    Telecrystal: 80 # increase price by a lot when the thing has a scope
   categories:
   - UplinkWeaponry
 
