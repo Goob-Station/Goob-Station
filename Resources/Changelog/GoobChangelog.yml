@@ -270,3 +270,23 @@ Entries:
         each new pipe must add a new flow direction to get anchored on.
   id: 39
   time: '2024-07-13T08:38:12.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Changeling gamemode
+    - type: Add
+      message: Brought changeling to secret
+    - type: Tweak
+      message: Made changeling chemical regeneration static
+    - type: Tweak
+      message: Made most changeling combat abilities require you to absorb people
+    - type: Tweak
+      message: Made stealthy changeling abilities require no absorptions
+    - type: Fix
+      message: Fixed "Escape on the evac shuttle while being person" objective
+    - type: Fix
+      message: Changelings will now stay revved after transforming
+    - type: Fix
+      message: Fixed armblade stinging a mouse making it drop the armblade
+  id: 40
+  time: '2024-07-13T18:42:40.0000000+00:00'
