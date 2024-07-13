@@ -1575,7 +1575,7 @@
   productEntity: ClothingBackpackDuffelSyndicateCarpSuit
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 8 # Why ever buy a 20 TC fake over a 20 TC real deal?
+    Telecrystal: 15
   categories:
   - UplinkPointless
 
