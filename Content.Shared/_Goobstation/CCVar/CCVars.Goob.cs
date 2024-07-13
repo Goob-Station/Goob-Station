@@ -1,6 +1,6 @@
 using Robust.Shared.Configuration;
 
-namespace Content.Shared._Goobstation.CCVar;
+namespace Content.Shared._Goobstation.CCVar; // wtf??
 
 [CVarDefs]
 public sealed partial class GoobCVars
@@ -241,6 +241,24 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<int> GoobcoinMinPlayers =
         CVarDef.Create("goob.coins_min_players", 5, CVar.SERVERONLY);
+
+    #endregion
+
+    #region Mass Contests
+    /// <summary>
+    ///
+    ///     Toggles all MassContest functions. All mass contests output 1f when false
+    /// </summary>
+    public static readonly CVarDef<bool> DoMassContests =
+        CVarDef.Create("contests.do_mass_contests", true, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    ///     The maximum amount that Mass Contests can modify a physics multiplier, given as a +/- percentage
+    ///     Default of 0.25f outputs between * 0.75f and 1.25f
+    /// </summary>
+    public static readonly CVarDef<float> MassContestsMaxPercentage =
+        CVarDef.Create("contests.max_percentage", 0.25f, CVar.REPLICATED | CVar.SERVER);
+
 
     #endregion
 }
