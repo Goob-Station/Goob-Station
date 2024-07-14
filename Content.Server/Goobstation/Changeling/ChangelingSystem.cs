@@ -169,8 +169,9 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             var uid = comp.Owner;
 
-            if (_timing.CurTime <= comp.RegenTime)
+            if (_timing.CurTime < comp.RegenTime)
                 continue;
+
             comp.RegenTime = _timing.CurTime + TimeSpan.FromSeconds(comp.RegenCooldown);
 
             Cycle(uid, comp);
