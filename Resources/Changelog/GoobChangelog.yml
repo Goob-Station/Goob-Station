@@ -322,3 +322,9 @@ Entries:
       message: Fixed chemical regeneration. Thanks durkk.
   id: 44
   time: '2024-07-14T10:18:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Space wind is now much smoother :)
+  id: 45
+  time: '2024-07-14T11:01:11.0000000+00:00'
