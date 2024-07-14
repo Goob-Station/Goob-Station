@@ -21,11 +21,20 @@
   - type: UseDelay
     delay: 300
 
+# Goobstation - Nukeop reinforcement
 - type: entity
   parent: ReinforcementRadioSyndicate
   id: ReinforcementRadioSyndicateNukeops # Reinforcement radio exclusive to nukeops uplink
+  name: nuclear operative radio
+  description: Call in a nuclear operative of questionable quality, instantly! Basic nukeop equipment provided.
   suffix: NukeOps
   components:
+  - type: GhostRole
+    name: ghost-role-information-nukie-reinforcement-name
+    description: ghost-role-information-nukie-reinforcement-description
+    rules: ghost-role-information-nukie-reinforcement-rules
+    raffle:
+      settings: default
   - type: GhostRoleMobSpawner
     prototype: MobHumanSyndicateAgentNukeops
 

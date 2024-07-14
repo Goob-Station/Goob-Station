@@ -155,7 +155,7 @@ namespace Content.Server.Carrying
             args.ItemUid = virtItem.BlockingEntity;
 
             var multiplier = MassContest(uid, virtItem.BlockingEntity);
-            args.ThrowStrength = 5f * multiplier;
+            args.ThrowSpeed = 5f * multiplier;
         }
 
         private void OnParentChanged(EntityUid uid, CarryingComponent component, ref EntParentChangedMessage args)
