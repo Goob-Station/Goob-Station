@@ -328,3 +328,42 @@ Entries:
       message: Space wind is now much smoother :)
   id: 45
   time: '2024-07-14T11:01:11.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Clearance Sale! A high amount of items that haven't sold well have been
+        made cheaper by the syndicate. However, Suppliers have increased prices
+        on certain items.
+    - type: Tweak
+      message: >-
+        The Cane blade has been totally rebalanced, dealing more damage and
+        igniting targets, but has been marked up in price to 40 TC.
+    - type: Tweak
+      message: >-
+        The old Syndicate EVA Suit has been replaced by a new lightweight
+        durathread model, with some moderate protection and anti-rad but costs
+        20 TC. Reviewers have stated that it's insanely comfy, but these have
+        been bought, NT claims.
+    - type: Tweak
+      message: >-
+        The China Lakes in supply  have started to deprecate and fire slower due
+        to age. 1 FR > 0.6 FR.
+    - type: Tweak
+      message: >-
+        The Syndicate has realised they were sending .40 Materiel instead of .60
+        Antimateriel. This has been rectified recently and the hristov improved.
+        The correct ammo is very costly! 40 Damage > 60 Damage AP, Hristov 60 TC
+        > 80 TC.
+    - type: Tweak
+      message: >-
+        Revolvers across the galaxy have had their firerates magically increased
+        after one girl decided "Hey, maybe we should invest more money into the
+        revolver department!" 1.5 > 2.0 FR for Inspector, 2.0 > 2.5 FR for
+        Deckard and Python.
+    - type: Tweak
+      message: .35 Auto Pistol Capacity 10 > 12
+    - type: Tweak
+      message: Slug Shells now deal 40 Damage making them a more desirable option!
+  id: 46
+  time: '2024-07-14T20:33:32.0000000+00:00'
