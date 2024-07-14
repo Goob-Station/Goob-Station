@@ -187,8 +187,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
                 ToggleStrainedMuscles(uid, comp);
         }
-
-        comp.UpdateAccumulator -= comp.UpdateTimer;
     }
 
     #region Helper Methods
