@@ -55,29 +55,27 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
-    [DataField("chemicals"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Chemicals = 100f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
-    [DataField("maxChemicals"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float MaxChemicals = 100f;
 
-    public float ChemicalDrain = 0f;
-
-    public float UpdateAccumulator = 0f;
     /// <summary>
-    ///     Time in seconds to take before the update cycle.
+    ///     Cooldown between chem regen events.
     /// </summary>
-    public readonly float UpdateTimer = 1f;
-
+    public TimeSpan RegenTime = TimeSpan.Zero;
+    public float RegenCooldown = 1f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public int AbsorbedDNAIndex = 0;
 
     /// <summary>
@@ -89,13 +87,13 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int TotalAbsorbedEntities = 0;
 
     /// <summary>
     ///     Total stolen DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -109,7 +107,7 @@ public sealed partial class ChangelingComponent : Component
     /// The status icon corresponding to the Changlings.
     /// </summary>
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 

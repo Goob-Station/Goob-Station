@@ -56,12 +56,14 @@ using Content.Shared.Revolutionary.Components;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Camera;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem : EntitySystem
 {
     // this is one hell of a star wars intro text
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
@@ -119,6 +121,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
 
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
@@ -160,16 +163,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         foreach (var comp in EntityManager.EntityQuery<ChangelingComponent>())
         {
             var uid = comp.Owner;
 
-            comp.UpdateAccumulator += frameTime;
+            if (_timing.CurTime < comp.RegenTime)
+                continue;
 
-            if (comp.UpdateAccumulator < comp.UpdateTimer)
-                return;
-
-            comp.UpdateAccumulator -= comp.UpdateTimer;
+            comp.RegenTime = _timing.CurTime + TimeSpan.FromSeconds(comp.RegenCooldown);
 
             Cycle(uid, comp);
         }
@@ -232,7 +236,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        //var regen = (float) Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -.75f, float.PositiveInfinity)));
         var chemicals = comp.Chemicals;
 
         chemicals += amount ?? 1 /*regen*/;
@@ -508,6 +511,17 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
+    public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
+    {
+        // yanderedev type shit
+        EntityManager.DeleteEntity(comp.ShieldEntity);
+        EntityManager.DeleteEntity(comp.ArmbladeEntity);
+        EntityManager.DeleteEntity(comp.ArmorEntity);
+        EntityManager.DeleteEntity(comp.ArmorHelmetEntity);
+        EntityManager.DeleteEntity(comp.SpacesuitEntity);
+        EntityManager.DeleteEntity(comp.SpacesuitHelmetEntity);
+        PlayMeatySound(target, comp);
+    }
     #endregion
 
     #region Event Handlers
@@ -521,6 +535,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
+    }
+
+    private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            RemoveAllChangelingEquipment(uid, comp);
     }
 
     #endregion
