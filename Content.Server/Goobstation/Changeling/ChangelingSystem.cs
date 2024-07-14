@@ -160,15 +160,23 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
         foreach (var comp in EntityManager.EntityQuery<ChangelingComponent>())
         {
             var uid = comp.Owner;
 
-            comp.UpdateAccumulator += frameTime;
+            if (_timing.CurTime <= comp.RegenTime)
+                continue;
+            comp.RegenTime = _timing.CurTime + TimeSpan.FromSeconds(comp.RegenCooldown);
 
-            if (comp.UpdateAccumulator >= comp.UpdateTimer)
-            {
-                UpdateChemicals(uid, comp, comp.UpdateAccumulator);
+            Cycle(uid, comp);
+        }
+    }
+    public void Cycle(EntityUid uid, ChangelingComponent comp)
+    {
+        UpdateChemicals(uid, comp);
 
                 if (comp.StrainedMusclesActivated)
                 {

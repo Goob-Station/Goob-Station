@@ -64,14 +64,15 @@ public sealed partial class ChangelingComponent : Component
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100f;
 
-    [AutoNetworkedField]
-    public float UpdateAccumulator = 0f;
-    /// <summary>
-    ///     Time in seconds to take before the update cycle.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public float UpdateTimer = 1f;
+    public float ChemicalDrain = 0f;
 
+    public float RegenCooldown = 1f;
+    /// <summary>
+    ///     Cooldown between chem regen events.
+    /// </summary>
+    public readonly float UpdateTimer = 1f;
+
+    public readonly float RegenTime = 0f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
