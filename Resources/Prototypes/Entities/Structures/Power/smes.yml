@@ -32,7 +32,7 @@
     - type: Appearance
     - type: Battery
       startingCharge: 0
-      maxCharge: 16000000
+      maxCharge: 16000000 # Goobstation - SMES buff
     - type: ExaminableBattery
     - type: NodeContainer
       examinable: true
@@ -57,6 +57,7 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
+       # Goobstation - SMES buff
       maxSupply: 300000
       maxChargeRate: 10000
       supplyRampTolerance: 10000
@@ -98,6 +99,7 @@
   suffix: Basic, 8MJ
   components:
   - type: Battery
+     # Goobstation - SMES buff
     maxCharge: 16000000
     startingCharge: 16000000
 
