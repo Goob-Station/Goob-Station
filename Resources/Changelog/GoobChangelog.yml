@@ -298,3 +298,11 @@ Entries:
         clowns!
   id: 41
   time: '2024-07-13T19:01:36.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Tweak
+      message: >-
+        Added t-ray scanner and gas analyzer to Station Engineer belt round
+        start.
+  id: 42
+  time: '2024-07-14T06:34:50.0000000+00:00'
