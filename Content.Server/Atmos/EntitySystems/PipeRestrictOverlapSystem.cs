@@ -25,6 +25,9 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
 
     private readonly List<EntityUid> _anchoredEntities = new();
     private EntityQuery<NodeContainerComponent> _nodeContainerQuery;
+    // Goobstation - Allow device-on-pipe stacking
+    private EntityQuery<PipeRestrictOverlapComponent> _restrictOverlapQuery;
+
     public bool StrictPipeStacking = false;
 
     /// <inheritdoc/>
@@ -35,6 +38,8 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
         Subs.CVar(_cfg, CCVars.StrictPipeStacking, (bool val) => {StrictPipeStacking = val;}, false);
 
         _nodeContainerQuery = GetEntityQuery<NodeContainerComponent>();
+        // Goobstation - Allow device-on-pipe stacking
+        _restrictOverlapQuery = GetEntityQuery<PipeRestrictOverlapComponent>();
     }
 
     private void OnAnchorStateChanged(Entity<PipeRestrictOverlapComponent> ent, ref AnchorStateChangedEvent args)
@@ -93,6 +98,10 @@ public sealed class PipeRestrictOverlapSystem : EntitySystem
                 continue;
 
             if (!_nodeContainerQuery.TryComp(otherEnt, out var otherComp))
+                continue;
+
+            // Goobstation - Allow device-on-pipe stacking
+            if (!_restrictOverlapQuery.HasComp(otherEnt))
                 continue;
 
             var (overlapping, which) = PipeNodesOverlap(ent, (otherEnt, otherComp, Transform(otherEnt)), takenDirs);
