@@ -52,7 +52,7 @@
       - CaneBlade
   - type: DisarmMalus
   - type: IgniteOnMeleeHit # Goobstation
-    fireStacks: 1
+    fireStacks: 0.5
 
 - type: entity
   parent: Cane
