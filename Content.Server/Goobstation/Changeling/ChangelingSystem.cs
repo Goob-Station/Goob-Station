@@ -121,6 +121,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
 
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
@@ -510,6 +511,17 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
+    public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
+    {
+        // yanderedev type shit
+        EntityManager.DeleteEntity(comp.ShieldEntity);
+        EntityManager.DeleteEntity(comp.ArmbladeEntity);
+        EntityManager.DeleteEntity(comp.ArmorEntity);
+        EntityManager.DeleteEntity(comp.ArmorHelmetEntity);
+        EntityManager.DeleteEntity(comp.SpacesuitEntity);
+        EntityManager.DeleteEntity(comp.SpacesuitHelmetEntity);
+        PlayMeatySound(target, comp);
+    }
     #endregion
 
     #region Event Handlers
@@ -523,6 +535,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
+    }
+
+    private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            RemoveAllChangelingEquipment(uid, comp);
     }
 
     #endregion
