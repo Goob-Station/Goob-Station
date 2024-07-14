@@ -178,17 +178,15 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         UpdateChemicals(uid, comp);
 
-                if (comp.StrainedMusclesActivated)
-                {
-                    var stamina = EnsureComp<StaminaComponent>(uid);
-                    _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-                    if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
-                        ToggleStrainedMuscles(uid, comp);
-                }
-
-                comp.UpdateAccumulator -= comp.UpdateTimer;
-            }
+        if (comp.StrainedMusclesActivated)
+        {
+            var stamina = EnsureComp<StaminaComponent>(uid);
+            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
+            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
+                ToggleStrainedMuscles(uid, comp);
         }
+
+        comp.UpdateAccumulator -= comp.UpdateTimer;
     }
 
     #region Helper Methods
