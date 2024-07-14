@@ -56,12 +56,14 @@ using Content.Shared.Revolutionary.Components;
 using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Camera;
+using Robust.Shared.Timing;
 
 namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem : EntitySystem
 {
     // this is one hell of a star wars intro text
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
