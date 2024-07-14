@@ -314,3 +314,11 @@ Entries:
         stacking check.
   id: 43
   time: '2024-07-14T06:35:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: When killing a changeling, his equipment e.g. armblade gets deleted
+    - type: Fix
+      message: Fixed chemical regeneration. Thanks durkk.
+  id: 44
+  time: '2024-07-14T10:18:42.0000000+00:00'
