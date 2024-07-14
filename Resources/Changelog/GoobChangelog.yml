@@ -306,3 +306,11 @@ Entries:
         start.
   id: 42
   time: '2024-07-14T06:34:50.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Inline devices are back. Atmos devices are now exempt from the pipe
+        stacking check.
+  id: 43
+  time: '2024-07-14T06:35:37.0000000+00:00'
