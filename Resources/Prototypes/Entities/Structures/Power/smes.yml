@@ -57,7 +57,7 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
-      maxSupply: 160000
+      maxSupply: 300000
       maxChargeRate: 10000
       supplyRampTolerance: 10000
       supplyRampRate: 2000
