@@ -166,24 +166,20 @@ public sealed partial class ChangelingSystem : EntitySystem
 
             comp.UpdateAccumulator += frameTime;
 
-            if (comp.UpdateAccumulator < comp.UpdateTimer)
-                return;
+            if (comp.UpdateAccumulator >= comp.UpdateTimer)
+            {
+                UpdateChemicals(uid, comp, comp.UpdateAccumulator);
 
-            comp.UpdateAccumulator -= comp.UpdateTimer;
+                if (comp.StrainedMusclesActivated)
+                {
+                    var stamina = EnsureComp<StaminaComponent>(uid);
+                    _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
+                    if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
+                        ToggleStrainedMuscles(uid, comp);
+                }
 
-            Cycle(uid, comp);
-        }
-    }
-    public void Cycle(EntityUid uid, ChangelingComponent comp)
-    {
-        UpdateChemicals(uid, comp);
-
-        if (comp.StrainedMusclesActivated)
-        {
-            var stamina = EnsureComp<StaminaComponent>(uid);
-            _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
-                ToggleStrainedMuscles(uid, comp);
+                comp.UpdateAccumulator -= comp.UpdateTimer;
+            }
         }
     }
 
@@ -232,7 +228,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        //var regen = (float) Math.Abs(1 * (1 + Math.Clamp(comp.ChemicalRegenerationModifier, -.75f, float.PositiveInfinity)));
         var chemicals = comp.Chemicals;
 
         chemicals += amount ?? 1 /*regen*/;
