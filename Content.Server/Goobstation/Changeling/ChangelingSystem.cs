@@ -57,6 +57,7 @@ using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Camera;
 using Robust.Shared.Timing;
+using Content.Shared.Gravity;
 
 namespace Content.Server.Changeling;
 
@@ -182,11 +183,12 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         UpdateChemicals(uid, comp);
 
-        if (comp.StrainedMusclesActivated)
+        if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
             _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold)
+            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold
+            || !HasComp<GravityComponent>(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
     }
@@ -613,12 +615,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         EnsureComp<AbsorbedComponent>(target);
 
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
-        var bonusChemicals = 10;
+        var bonusChemicals = 0;
         var bonusEvolutionPoints = 0;
         if (HasComp<ChangelingComponent>(target))
         {
-            bonusChemicals += 30;
-            bonusEvolutionPoints += 8;
+            bonusChemicals += 60;
+            bonusEvolutionPoints += 10;
         }
         else
         {
@@ -842,17 +844,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void ToggleStrainedMuscles(EntityUid uid, ChangelingComponent comp)
     {
-        if (!comp.StrainedMusclesActivated)
+        if (!comp.StrainedMusclesActive)
         {
             _speed.ChangeBaseSpeed(uid, 125f, 150f, 1f);
             _popup.PopupEntity(Loc.GetString("changeling-muscles-start"), uid, uid);
-            comp.StrainedMusclesActivated = true;
+            comp.StrainedMusclesActive = true;
         }
         else
         {
             _speed.ChangeBaseSpeed(uid, 100f, 100f, 1f);
             _popup.PopupEntity(Loc.GetString("changeling-muscles-end"), uid, uid);
-            comp.StrainedMusclesActivated = false;
+            comp.StrainedMusclesActive = false;
         }
 
         PlayMeatySound(uid, comp);
