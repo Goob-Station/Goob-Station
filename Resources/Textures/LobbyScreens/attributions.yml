@@ -33,3 +33,17 @@
   copyright: "Unknown"
   source: "https://forums.goobstation.com"
 
+- files: ["courtjester.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "Own work"
+
+- files: ["donottouch.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "Own work"
+
+- files: ["twosides.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "Own work"
