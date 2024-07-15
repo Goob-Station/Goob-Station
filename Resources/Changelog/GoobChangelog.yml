@@ -375,3 +375,9 @@ Entries:
         power! Rejoice!
   id: 47
   time: '2024-07-15T07:33:13.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made most changeling stings cost 35 chemicals
+  id: 48
+  time: '2024-07-15T07:34:10.0000000+00:00'
