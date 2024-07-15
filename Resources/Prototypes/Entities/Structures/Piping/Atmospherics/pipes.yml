@@ -51,7 +51,8 @@
   - type: Appearance
   - type: PipeColorVisuals
   - type: NodeContainer
-  - type: PipeRestrictOverlap
+  # Goobstation - Allow device-on-pipe stacking
+  # - type: PipeRestrictOverlap
   - type: AtmosUnsafeUnanchor
   - type: AtmosPipeColor
   - type: Tag
@@ -63,10 +64,19 @@
   - type: StaticPrice
     price: 11
 
+# Goobstation - Allow device-on-pipe stacking
+- type: entity
+  abstract: true
+  parent: GasPipeBase
+  id: GasPipeNoOverlap
+  components:
+  - type: PipeRestrictOverlap
+
 #Note: The PipeDirection of the PipeNode should be the south-facing version, because the entity starts at an angle of 0 (south)
 
 - type: entity
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   id: GasPipeHalf
   suffix: Half
   components:
@@ -85,7 +95,8 @@
     node: half
 
 - type: entity
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   id: GasPipeStraight
   suffix: Straight
   components:
@@ -118,7 +129,8 @@
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
 
 - type: entity
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   id: GasPipeBend
   suffix: Bend
   components:
@@ -158,7 +170,8 @@
         Blunt: 3 #This should be 6 but throwing damage is doubled at the moment for some reason so for now it's 3
 
 - type: entity
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   id: GasPipeTJunction
   suffix: TJunction
   components:
@@ -194,7 +207,8 @@
       collection: MetalThud
 
 - type: entity
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   id: GasPipeFourway
   suffix: Fourway
   components:
@@ -230,7 +244,8 @@
 
 - type: entity
   id: GasPipeBroken
-  parent: GasPipeBase
+  # Goobstation - Allow device-on-pipe stacking
+  parent: GasPipeNoOverlap
   name: broken pipe
   description: It used to hold gas.
   components:

@@ -210,7 +210,8 @@
       key: enum.ThermomachineUiKey.Key
     - type: WiresPanel
     - type: WiresVisuals
-    - type: PipeRestrictOverlap
+  # Goobstation - Allow device-on-pipe stacking
+  # - type: PipeRestrictOverlap
     - type: NodeContainer
       nodes:
         pipe:
@@ -385,7 +386,8 @@
   - type: GasCondenser
   - type: AtmosPipeColor
   - type: AtmosDevice
-  - type: PipeRestrictOverlap
+  # Goobstation - Allow device-on-pipe stacking
+  # - type: PipeRestrictOverlap
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: Machine

@@ -245,3 +245,80 @@ Entries:
       message: Added changelings.
   id: 36
   time: '2024-07-08T07:40:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: The fire axe and desword are now purchasable in the uplink.
+    - type: Add
+      message: The atmos fireaxe can now pry plating.
+    - type: Tweak
+      message: Nukie reinforcements are now 150 TC but get full nukeop gear.
+  id: 37
+  time: '2024-07-09T02:13:10.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: Changed the riot bullet shield sprite to look less weird
+  id: 38
+  time: '2024-07-13T08:32:49.0000000+00:00'
+- author: router
+  changes:
+    - type: Tweak
+      message: >-
+        Reintroduced limited pipe stacking. Beware of placement order, as you
+        can't place smaller pipes overlaying large pipes doing the same thing -
+        each new pipe must add a new flow direction to get anchored on.
+  id: 39
+  time: '2024-07-13T08:38:12.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Changeling gamemode
+    - type: Add
+      message: Brought changeling to secret
+    - type: Tweak
+      message: Made changeling chemical regeneration static
+    - type: Tweak
+      message: Made most changeling combat abilities require you to absorb people
+    - type: Tweak
+      message: Made stealthy changeling abilities require no absorptions
+    - type: Fix
+      message: Fixed "Escape on the evac shuttle while being person" objective
+    - type: Fix
+      message: Changelings will now stay revved after transforming
+    - type: Fix
+      message: Fixed armblade stinging a mouse making it drop the armblade
+  id: 40
+  time: '2024-07-13T18:42:40.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        A regenerating pie cannon has been added to Syndicate uplinks for
+        clowns!
+  id: 41
+  time: '2024-07-13T19:01:36.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Tweak
+      message: >-
+        Added t-ray scanner and gas analyzer to Station Engineer belt round
+        start.
+  id: 42
+  time: '2024-07-14T06:34:50.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Inline devices are back. Atmos devices are now exempt from the pipe
+        stacking check.
+  id: 43
+  time: '2024-07-14T06:35:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: When killing a changeling, his equipment e.g. armblade gets deleted
+    - type: Fix
+      message: Fixed chemical regeneration. Thanks durkk.
+  id: 44
+  time: '2024-07-14T10:18:42.0000000+00:00'
