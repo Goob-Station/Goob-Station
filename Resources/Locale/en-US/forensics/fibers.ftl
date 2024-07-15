@@ -7,7 +7,6 @@ fibers-leather = leather
 fibers-durathread = durathread
 fibers-latex = latex
 fibers-nitrile = nitrile
-
 fibers-nanomachines = insulative mysterious
 fibers-chameleon = mysterious
 fibers-rubber = rubber
