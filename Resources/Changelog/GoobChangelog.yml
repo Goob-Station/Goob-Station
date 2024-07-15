@@ -367,3 +367,11 @@ Entries:
       message: Slug Shells now deal 40 Damage making them a more desirable option!
   id: 46
   time: '2024-07-14T20:33:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        SMES are now twice as good, meaning Engineering has more time to set up
+        power! Rejoice!
+  id: 47
+  time: '2024-07-15T07:33:13.0000000+00:00'
