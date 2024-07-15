@@ -44,7 +44,7 @@ public sealed partial class ChangelingComponent : Component
     public EntityUid? ArmorEntity, ArmorHelmetEntity;
     public EntityUid? SpacesuitEntity, SpacesuitHelmetEntity;
 
-    public bool StrainedMusclesActivated = false;
+    public bool StrainedMusclesActive = false;
 
     public bool IsInLesserForm = false;
 
