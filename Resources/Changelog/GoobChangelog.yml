@@ -387,3 +387,11 @@ Entries:
       message: Added nine brand-new lobby screens!
   id: 49
   time: '2024-07-16T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Chameleon gloves have been made undiscoverable by the Detective's
+        scanner.
+  id: 50
+  time: '2024-07-16T10:12:25.0000000+00:00'
