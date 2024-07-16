@@ -272,9 +272,9 @@
     Squish:
       collection: Squishes
     Scream:
-      collection: MaleScreams
+      collection: SlimeMaleScreams
     Laugh:
-      collection: MaleLaugh
+      collection: SlimeMaleLaughs
     Sneeze:
       collection: MaleSneezes
     Cough:
@@ -316,9 +316,9 @@
     Squish:
       collection: Squishes
     Scream:
-      collection: FemaleScreams
+      collection: SlimeFemaleScreams
     Laugh:
-      collection: FemaleLaugh
+      collection: SlimeFemaleLaughs
     Sneeze:
       collection: FemaleSneezes
     Cough:
