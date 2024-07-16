@@ -61,3 +61,7 @@
 - type: lobbyBackground
   id: GrandTheftGoob
   background: /Textures/LobbyScreens/grandtheftgoob.webp
+
+- type: lobbyBackground
+  id: Killsigned
+  background: /Textures/LobbyScreens/killsigned.webp
