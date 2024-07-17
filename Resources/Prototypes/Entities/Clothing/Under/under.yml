@@ -19,6 +19,7 @@
   name: coder socks
   description: It's time to code sisters!!11!
   components:
+# Sprites updated to match other made stripped aka more lighting on worn and a new icon design
   - type: Sprite
     sprite: Goobstation/Clothing/Under/Socks/coder.rsi
   - type: Clothing

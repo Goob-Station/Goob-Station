@@ -138,6 +138,8 @@
           prob: 0.05
         - id: PlushieMatryoshka
           prob: 0.05
+        - id: PlushieLouie
+          prob: 0.05
 # Goobstation Plushies
         - id: PlushieHolocarp
           prob: 0.05
@@ -152,8 +154,6 @@
           prob: 0.2
         - id: PlushieSnake
           prob: 0.2
-        - id: PlushieLouie
-          prob: 0.05
         - id: ClothingShoesSkates
           prob: 0.1
         - id: ClothingHandsGlovesColorYellow
@@ -268,6 +268,8 @@
         - id: PlushiePlyushkina
           prob: 0.05
         - id: PlushieMatryoshka
+          prob: 0.05
+        - id: PlushieLouie
           prob: 0.05
 # Goobstation Plushies
         - id: ClothingHandsGlovesColorYellow

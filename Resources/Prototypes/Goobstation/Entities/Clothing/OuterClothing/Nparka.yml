@@ -1,13 +1,13 @@
 - type: entity
   parent: ClothingOuterStorageBase
-  id: NParka
+  id: Parka_Nep
   name: N Parka
   description: A white and purple parka with blue accents made for a contributor to the sector.
   components:
   - type: Sprite
-    sprite: Goobstation/Clothing/OuterClothing/NParka.rsi
+    sprite: Goobstation/Clothing/OuterClothing/Parka_Nep.rsi
   - type: Clothing
-    sprite: Goobstation/Clothing/OuterClothing/NParka.rsi
+    sprite: Goobstation/Clothing/OuterClothing/Parka_Nep.rsi
   - type: TemperatureProtection
     coefficient: 0.1
   - type: Item

@@ -86,6 +86,7 @@
        - id: ClothingShoesColorWhite
        - id: ClothingOuterCoatLabViro
        - id: ClothingUniformJumpskirtVirology
+# Goobstation Sock Stuff
        - id: ClothingUnderSocksStripedWhiteandGreen
 
  - type: entity
