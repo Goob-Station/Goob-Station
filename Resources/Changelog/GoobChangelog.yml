@@ -395,3 +395,11 @@ Entries:
         scanner.
   id: 50
   time: '2024-07-16T10:12:25.0000000+00:00'
+- author: flyingkarii
+  changes:
+    - type: Tweak
+      message: >-
+        Playtime commands can now use time strings (such as 3d30m) for the
+        minutes argument.
+  id: 51
+  time: '2024-07-17T18:09:02.0000000+00:00'
