@@ -6,8 +6,8 @@
   - type: GameRule
     minPlayers: 15
     delay:
-      min: 10
-      max: 20
+      min: 240
+      max: 420
   - type: AntagSelection
     agentName: changeling-roundend-name
     definitions:
