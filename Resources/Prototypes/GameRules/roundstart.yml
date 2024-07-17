@@ -182,6 +182,7 @@
       blacklist:
         components:
         - AntagImmune
+        - Changeling # Goobstation
       lateJoinAdditional: true
       mindComponents:
       - type: TraitorRole

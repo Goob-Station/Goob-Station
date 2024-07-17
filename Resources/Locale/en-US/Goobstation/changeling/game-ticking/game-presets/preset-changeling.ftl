@@ -2,8 +2,10 @@ changeling-roundend-name = changeling
 
 objective-issuer-hivemind = [color=orange]Hivemind[/color]
 
-roundend-prepend-changeling-absorbed = [color=white]{$name}[/color] has absorbed [color=red]{$number}[/color] organics.
-roundend-prepend-changeling-stolen = [color=white]{$name}[/color] has stolen [color=orange]{$number}[/color] DNA samples.
+roundend-prepend-changeling-absorbed-named = [color=white]{$name}[/color] has absorbed a total of [color=red]{$number}[/color] organics.
+roundend-prepend-changeling-stolen-named = [color=white]{$name}[/color] has extracted a total of [color=orange]{$number}[/color] DNA samples.
+roundend-prepend-changeling-absorbed = Someone has absorbed a total of [color=red]{$number}[/color] organics.
+roundend-prepend-changeling-stolen = Someone had extracted a total of [color=orange]{$number}[/color] DNA samples.
 
 changeling-gamemode-title = Changelings
 changeling-gamemode-description =
@@ -12,8 +14,7 @@ changeling-gamemode-description =
 changeling-role-greeting = 
     You are a changeling who has absorbed and taken the form of {$name}!
     Your objectives are listed in the character menu.
-    Use your abilities to the max to achieve them.
+    Absorb, shapeshift, evolve and use your abilities to the max to complete them!
 
 changeling-role-greeting-short =
-    You are a changeling.
-    Your starting form is {$name}.
+    You are a changeling who has absorbed and taken the initial form of {$name}.

@@ -270,3 +270,128 @@ Entries:
         each new pipe must add a new flow direction to get anchored on.
   id: 39
   time: '2024-07-13T08:38:12.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Changeling gamemode
+    - type: Add
+      message: Brought changeling to secret
+    - type: Tweak
+      message: Made changeling chemical regeneration static
+    - type: Tweak
+      message: Made most changeling combat abilities require you to absorb people
+    - type: Tweak
+      message: Made stealthy changeling abilities require no absorptions
+    - type: Fix
+      message: Fixed "Escape on the evac shuttle while being person" objective
+    - type: Fix
+      message: Changelings will now stay revved after transforming
+    - type: Fix
+      message: Fixed armblade stinging a mouse making it drop the armblade
+  id: 40
+  time: '2024-07-13T18:42:40.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        A regenerating pie cannon has been added to Syndicate uplinks for
+        clowns!
+  id: 41
+  time: '2024-07-13T19:01:36.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Tweak
+      message: >-
+        Added t-ray scanner and gas analyzer to Station Engineer belt round
+        start.
+  id: 42
+  time: '2024-07-14T06:34:50.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Inline devices are back. Atmos devices are now exempt from the pipe
+        stacking check.
+  id: 43
+  time: '2024-07-14T06:35:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: When killing a changeling, his equipment e.g. armblade gets deleted
+    - type: Fix
+      message: Fixed chemical regeneration. Thanks durkk.
+  id: 44
+  time: '2024-07-14T10:18:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Space wind is now much smoother :)
+  id: 45
+  time: '2024-07-14T11:01:11.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Clearance Sale! A high amount of items that haven't sold well have been
+        made cheaper by the syndicate. However, Suppliers have increased prices
+        on certain items.
+    - type: Tweak
+      message: >-
+        The Cane blade has been totally rebalanced, dealing more damage and
+        igniting targets, but has been marked up in price to 40 TC.
+    - type: Tweak
+      message: >-
+        The old Syndicate EVA Suit has been replaced by a new lightweight
+        durathread model, with some moderate protection and anti-rad but costs
+        20 TC. Reviewers have stated that it's insanely comfy, but these have
+        been bought, NT claims.
+    - type: Tweak
+      message: >-
+        The China Lakes in supply  have started to deprecate and fire slower due
+        to age. 1 FR > 0.6 FR.
+    - type: Tweak
+      message: >-
+        The Syndicate has realised they were sending .40 Materiel instead of .60
+        Antimateriel. This has been rectified recently and the hristov improved.
+        The correct ammo is very costly! 40 Damage > 60 Damage AP, Hristov 60 TC
+        > 80 TC.
+    - type: Tweak
+      message: >-
+        Revolvers across the galaxy have had their firerates magically increased
+        after one girl decided "Hey, maybe we should invest more money into the
+        revolver department!" 1.5 > 2.0 FR for Inspector, 2.0 > 2.5 FR for
+        Deckard and Python.
+    - type: Tweak
+      message: .35 Auto Pistol Capacity 10 > 12
+    - type: Tweak
+      message: Slug Shells now deal 40 Damage making them a more desirable option!
+  id: 46
+  time: '2024-07-14T20:33:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        SMES are now twice as good, meaning Engineering has more time to set up
+        power! Rejoice!
+  id: 47
+  time: '2024-07-15T07:33:13.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made most changeling stings cost 35 chemicals
+  id: 48
+  time: '2024-07-15T07:34:10.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added nine brand-new lobby screens!
+  id: 49
+  time: '2024-07-16T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Chameleon gloves have been made undiscoverable by the Detective's
+        scanner.
+  id: 50
+  time: '2024-07-16T10:12:25.0000000+00:00'

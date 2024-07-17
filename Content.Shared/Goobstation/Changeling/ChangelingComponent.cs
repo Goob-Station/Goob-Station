@@ -3,9 +3,6 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
-
-
 
 namespace Content.Shared.Changeling;
 
@@ -47,7 +44,7 @@ public sealed partial class ChangelingComponent : Component
     public EntityUid? ArmorEntity, ArmorHelmetEntity;
     public EntityUid? SpacesuitEntity, SpacesuitHelmetEntity;
 
-    public bool StrainedMusclesActivated = false;
+    public bool StrainedMusclesActive = false;
 
     public bool IsInLesserForm = false;
 
@@ -58,37 +55,27 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
     /// </summary>
-    [DataField("chemicals"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float Chemicals = 100f;
 
     /// <summary>
     ///     Maximum amount of chemicals changeling can have.
     /// </summary>
-    [DataField("maxChemicals"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public float MaxChemicals = 100f;
 
-    public float ChemicalDrain = 0f;
-
-    public float UpdateAccumulator = 0f;
     /// <summary>
-    ///     Time in seconds to take before the update cycle.
+    ///     Cooldown between chem regen events.
     /// </summary>
-    public readonly float UpdateTimer = 1f;
-
-    public float ChemicalRegenerationMobStateModifier = 0f;
-    public float ChemicalRegenerationAbilityModifier = 0f;
-    /// <summary>
-    ///     Modifier for chemical regeneration. Positive = faster, negative = slower.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public float ChemicalRegenerationModifier = 0f;
-
+    public TimeSpan RegenTime = TimeSpan.Zero;
+    public float RegenCooldown = 1f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>
+    [ViewVariables(VVAccess.ReadOnly)]
     public int AbsorbedDNAIndex = 0;
 
     /// <summary>
@@ -100,13 +87,13 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int TotalAbsorbedEntities = 0;
 
     /// <summary>
     ///     Total stolen DNA. Counts towards objectives.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
 
     [ViewVariables(VVAccess.ReadOnly)]
@@ -120,12 +107,12 @@ public sealed partial class ChangelingComponent : Component
     /// The status icon corresponding to the Changlings.
     /// </summary>
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 
 [DataDefinition]
-public partial struct TransformData
+public sealed partial class TransformData
 {
     /// <summary>
     ///     Entity's name.
@@ -150,12 +137,4 @@ public partial struct TransformData
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
-
-    public static bool operator ==(TransformData one, TransformData two)
-        => one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA;
-    public static bool operator !=(TransformData one, TransformData two)
-        => !(one.Name == two.Name && one.Fingerprint == two.Fingerprint && one.DNA == two.DNA);
-
-
-
 }

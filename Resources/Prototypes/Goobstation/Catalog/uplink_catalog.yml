@@ -1,13 +1,16 @@
+# Disruption
+
 - type: listing
   id: UplinkCrateNPCGondola
   name: uplink-gondola-name
   description: uplink-gondola-desc
   productEntity: CrateNPCGondola
   cost:
-    # Goobstation - Telecrystal rework
     Telecrystal: 30
   categories:
     -  UplinkDisruption
+
+# Weaponry
 
 - type: listing
   id: UplinkEswordDouble
@@ -16,7 +19,6 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    # Goobstation - Telecrystal rework
     Telecrystal: 100
   categories:
   - UplinkWeaponry
@@ -27,7 +29,23 @@
   description: uplink-fire-axe-flaming-desc
   productEntity: FireAxeFlaming
   cost:
-    # Goobstation - Telecrystal rework
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+
+# Job specific
+- type: listing
+  id: UplinkPieCannon
+  name: uplink-pie-cannon-name
+  description: uplink-pie-cannon-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Cannons/pie_cannon.rsi, state: piecannon }
+  productEntity: LauncherCreamPieRegenerating
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkJob
+
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown

@@ -54,4 +54,3 @@
   - type: TargetObjective
     title: objective-condition-escape-identity-title
   - type: PickRandomPerson
-  - type: EscapeShuttleCondition
