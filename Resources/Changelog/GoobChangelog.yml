@@ -425,3 +425,9 @@ Entries:
         has been lessened to 5. 
   id: 53
   time: '2024-07-18T17:39:51.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a OSRS NPC for admemes to mess around with.
+  id: 54
+  time: '2024-07-18T17:56:53.0000000+00:00'
