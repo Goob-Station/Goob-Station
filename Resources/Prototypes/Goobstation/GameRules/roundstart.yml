@@ -12,7 +12,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 6
+      max: 5
       playerRatio: 15
       lateJoinAdditional: true
       mindComponents:
@@ -55,8 +55,8 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 4
-      playerRatio: 22
+      max: 2
+      playerRatio: 20
       lateJoinAdditional: true
       mindComponents:
       - type: ChangelingRole
@@ -108,7 +108,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
+      max: 1
       playerRatio: 15
       startingGear: SyndicateOperativeGearFull
       components:
@@ -134,7 +134,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 2
+      max: 1
       playerRatio: 25
       briefing:
         text: head-rev-role-greeting
