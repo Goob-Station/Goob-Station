@@ -79,7 +79,6 @@
   - type: Inventory
     speciesId: human
   - type: Deathgasp
-  - type: Cuffable
   - type: Stripping
   - type: Hands
   - type: ComplexInteraction
