@@ -1,3 +1,5 @@
+objective-issuer-hivemind = [color=#7d32a8]Hivemind[/color]
+
 objective-condition-absorb-title = Absorb {$count} humanoids.
 objective-condition-absorb-description = I must absorb {$count} humanoids. It is necessary for my survival and further evolution.
 
