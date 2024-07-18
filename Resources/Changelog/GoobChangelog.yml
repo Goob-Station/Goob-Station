@@ -409,3 +409,19 @@ Entries:
       message: Added a new puppet, lil cal.
   id: 52
   time: '2024-07-18T00:40:53.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: >-
+        Added gamemodes to secret with two antags at once, but have less of one
+        type and need 30+ Players ready to start. 
+    - type: Tweak
+      message: >-
+        Weights have been slightly tweaked. Lings are rarer, and ops/revs are
+        more common due to dual antag gamemodes.
+    - type: Tweak
+      message: >-
+        Changeling now rolls with the same delay as traitors, and changeling max
+        has been lessened to 5. 
+  id: 53
+  time: '2024-07-18T17:39:51.0000000+00:00'
