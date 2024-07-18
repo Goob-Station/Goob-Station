@@ -25,7 +25,6 @@
   rules:
     - CalmLing
     - CalmTraitor
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
     - BasicRoundstartVariation
@@ -42,7 +41,6 @@
   rules:
     - Calmops
     - CalmTraitor
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
     - BasicRoundstartVariation
@@ -58,7 +56,6 @@
   rules:
     - Calmops
     - CalmLing
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
     - BasicRoundstartVariation
@@ -75,7 +72,6 @@
   rules:
     - CalmRevs
     - CalmTraitor
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
 
@@ -90,7 +86,6 @@
   rules:
     - CalmRevs
     - CalmLing
-    - SubGamemodesRule
     - BasicStationEventScheduler
     - GameRuleMeteorScheduler
     - BasicRoundstartVariation
