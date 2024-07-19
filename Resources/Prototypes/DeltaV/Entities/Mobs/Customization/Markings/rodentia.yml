@@ -1,0 +1,35 @@
+- type: marking
+  id: RodentiaHandLeftBasic
+  markingCategory: Arms
+  bodyPart: LHand
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: l_hand
+
+- type: marking
+  id: RodentiaHandRightBasic
+  markingCategory: Arms
+  bodyPart: RHand
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: r_hand
+
+- type: marking
+  id: RodentiaFootLeftBasic
+  markingCategory: Legs
+  bodyPart: LFoot
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: l_foot
+
+- type: marking
+  id: RodentiaFootRightBasic
+  markingCategory: Legs
+  bodyPart: RFoot
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: r_foot
