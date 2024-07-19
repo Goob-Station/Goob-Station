@@ -37,6 +37,35 @@ marking-RodentiaHeadTopEarRabbit-rabbit_overlay = Inner ear
 marking-RodentiaHeadTopEarSmall = Ears - Small
 marking-RodentiaHeadTopEarSmall-small = Outer Ear
 
+## snout
+
+marking-RodentiaSnoutBat = Snout - Bat
+marking-RodentiaSnoutBat-bat = Snout
+marking-RodentiaSnoutBat-bat_nose = Nose
+
+marking-RodentiaSnoutBatCounter = Snout - Bat, Two-tone
+marking-RodentiaSnoutBatCounter-bat = Snout
+marking-RodentiaSnoutBatCounter-bat_nose = Nose
+marking-RodentiaSnoutBatCounter-bat_overlay = Countershade
+
+marking-RodentiaSnoutFlat = Snout - Flat
+marking-RodentiaSnoutFlat-flat = Snout
+marking-RodentiaSnoutFlat-flat_nose = Nose
+
+marking-RodentiaSnoutFlatCounter = Snout - Flat, Two-tone
+marking-RodentiaSnoutFlatCounter-flat = Snout
+marking-RodentiaSnoutFlatCounter-flat_nose = Nose
+marking-RodentiaSnoutFlatCounter-flat_overlay = Countershade
+
+marking-RodentiaSnoutRound = Snout - Round
+marking-RodentiaSnoutRound-round = Snout
+marking-RodentiaSnoutRound-round_nose = Nose
+
+marking-RodentiaSnoutRoundCounter = Snout - Round, Two-tone
+marking-RodentiaSnoutRoundCounter-round = Snout
+marking-RodentiaSnoutRoundCounter-round_nose = Nose
+marking-RodentiaSnoutRoundCounter-round_overlay = Countershade
+
 # body markings
 
 ## tail
@@ -79,7 +108,7 @@ marking-RodentiaTailSquirrelBicolor = Tail - Squirrel, Two-tone
 marking-RodentiaTailSquirrelBicolor-squirrel = Tail
 marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Secondary
 
-## base parts
+# base parts
 
 marking-RodentiaHeadBasic = Head - Basic
 marking-RodentiaHeadBasic-head = Head
