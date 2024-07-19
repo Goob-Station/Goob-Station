@@ -66,6 +66,29 @@ marking-RodentiaSnoutRoundCounter-round = Snout
 marking-RodentiaSnoutRoundCounter-round_nose = Nose
 marking-RodentiaSnoutRoundCounter-round_overlay = Countershade
 
+## cheeks
+
+marking-RodentiaCheeksRound = Cheeks - Round
+marking-RodentiaCheeksRound-cheeks = Cheek
+
+marking-RodentiaCheeksRoundCounter = Cheeks - Round, Two-tone
+marking-RodentiaCheeksRoundCounter-cheeks = Cheek
+marking-RodentiaCheeksRoundCounter-cheeks_overlay = Countershade
+
+marking-RodentiaCheeksFluff = Cheeks - Fluff
+marking-RodentiaCheeksFluff-fluff = Cheek fluff
+
+marking-RodentiaCheeksFluffCounter = Cheeks - Fluff, Two-tone
+marking-RodentiaCheeksFluffCounter-fluff = Cheek fluff
+marking-RodentiaCheeksFluffCounter-fluff_overlay = Countershade
+
+marking-RodentiaCheeksFluffAlt = Cheeks - Fluff, Alt
+marking-RodentiaCheeksFluffAlt-fluff_alt = Cheek fluff
+
+marking-RodentiaCheeksFluffAltCounter = Cheeks - Fluff, Alt, Two-tone
+marking-RodentiaCheeksFluffAltCounter-fluff_alt = Cheek fluff
+marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Countershade
+
 # body markings
 
 ## tail
