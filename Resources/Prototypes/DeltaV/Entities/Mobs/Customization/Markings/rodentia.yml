@@ -7,6 +7,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: bat
@@ -16,6 +19,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: bat_large
@@ -25,6 +31,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: hamster
@@ -36,6 +45,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: long
@@ -47,6 +59,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: mouse
@@ -58,6 +73,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: none
@@ -67,6 +85,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: pointy
@@ -76,6 +97,9 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: rabbit
@@ -87,11 +111,160 @@
   markingCategory: HeadTop
   bodyPart: HeadTop
   speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: small
 
-# LIMBS
+# BODY
+
+## TAIL
+
+- type: marking
+  id: RodentiaTailBeaver
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: beaver
+
+- type: marking
+  id: RodentiaTailHamster
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: hamster
+
+- type: marking
+  id: RodentiaTailLong
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long
+
+- type: marking
+  id: RodentiaTailLongCounter
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long_overlay
+
+- type: marking
+  id: RodentiaTailLongCounterTip
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long_overlay
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: long_tip
+
+- type: marking
+  id: RodentiaTailMouse
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: mouse
+
+- type: marking
+  id: RodentiaTailRabbit
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: rabbit
+
+- type: marking
+  id: RodentiaTailRabbitCounter
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: rabbit
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: rabbit_overlay
+
+- type: marking
+  id: RodentiaTailShort
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: short
+
+- type: marking
+  id: RodentiaTailSquirrel
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: squirrel
+
+- type: marking
+  id: RodentiaTailSquirrelBicolor
+  markingCategory: Tail
+  bodyPart: Tail
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: squirrel
+    - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
+      state: squirrel_overlay
+
+## LIMBS
 
 - type: marking
   id: RodentiaHandLeftBasic
