@@ -8,9 +8,9 @@
   markingLimits: MobRodentiaMarkingLimits
   dollPrototype: MobRodentiaDummy
   skinColoration: Hues
-  maleFirstNames: names_vulpkanin_male
-  femaleFirstNames: names_vulpkanin_female
-  lastNames: names_vulpkanin_last
+  maleFirstNames: names_rodentia_male
+  femaleFirstNames: names_rodentia_female
+  lastNames: names_rodentia_last
 
 - type: speciesBaseSprites
   id: MobRodentiaSprites
