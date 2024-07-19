@@ -204,6 +204,68 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
       state: round_overlay
 
+## CHEEKS
+
+- type: marking
+  id: RodentiaCheeksRound
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: cheeks
+
+- type: marking
+  id: RodentiaCheeksRoundCounter
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: cheeks
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: cheeks_overlay
+
+- type: marking
+  id: RodentiaCheeksFluff
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff
+
+- type: marking
+  id: RodentiaCheeksFluffCounter
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff_overlay
+
+- type: marking
+  id: RodentiaCheeksFluffAlt
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff_alt
+
+- type: marking
+  id: RodentiaCheeksFluffAltCounter
+  markingCategory: HeadSide
+  bodyPart: HeadSide
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff_alt
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: fluff_alt_overlay
+
 # BODY
 
 ## TAIL
