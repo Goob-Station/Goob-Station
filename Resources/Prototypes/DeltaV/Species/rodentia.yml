@@ -45,7 +45,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ RodentiaTailMouse ]
+      defaultMarkings: [ RodentiaTailDefault ]
     Head:
       points: 3
       required: false
@@ -61,7 +61,7 @@
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ RodentiaHeadTopEarMouse ]
+      defaultMarkings: [ RodentiaHeadTopEarDefault ]
 
 - type: humanoidBaseSprite
   id: MobRodentiaHead
