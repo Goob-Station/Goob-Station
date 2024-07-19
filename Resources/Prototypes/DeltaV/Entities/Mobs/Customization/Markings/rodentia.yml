@@ -130,6 +130,80 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
       state: small
 
+## SNOUTS
+
+- type: marking
+  id: RodentiaSnoutBat
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: bat
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: bat_nose
+
+- type: marking
+  id: RodentiaSnoutBatCounter
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: bat
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: bat_nose
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: bat_overlay
+
+- type: marking
+  id: RodentiaSnoutFlat
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: flat
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: flat_nose
+
+- type: marking
+  id: RodentiaSnoutFlatCounter
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: flat
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: flat_nose
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: flat_overlay
+
+- type: marking
+  id: RodentiaSnoutRound
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: round
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: round_nose
+
+- type: marking
+  id: RodentiaSnoutRoundCounter
+  markingCategory: Snout
+  bodyPart: Snout
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: round
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: round_nose
+    - sprite: DeltaV/Mobs/Customization/Rodentia/snout_markings.rsi
+      state: round_overlay
+
 # BODY
 
 ## TAIL
@@ -243,9 +317,9 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
       state: squirrel_overlay
 
-## BASE BODY PARTS
+# BASE BODY PARTS
 
-### HEAD
+## HEAD
 
 - type: marking
   id: RodentiaHeadBasic
@@ -256,7 +330,7 @@
     - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
       state: head_m
 
-### ARMS
+## ARMS
 
 - type: marking
   id: RodentiaArmLeftBasic
@@ -276,7 +350,7 @@
     - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
       state: r_arm
 
-### LEGS
+## LEGS
 
 - type: marking
   id: RodentiaLegLeftBasic
@@ -296,7 +370,7 @@
     - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
       state: r_leg
 
-### HANDS
+## HANDS
 
 - type: marking
   id: RodentiaHandLeftBasic
@@ -316,7 +390,7 @@
     - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
       state: r_hand
 
-### FEET
+## FEET
 
 - type: marking
   id: RodentiaFootLeftBasic
