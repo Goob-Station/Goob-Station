@@ -13,6 +13,10 @@
       "directions": 4
     },
     {
+      "name": "countershade_f",
+      "directions": 4
+    },
+    {
       "name": "countershade_lleg",
       "directions": 4
     },
@@ -26,6 +30,10 @@
     },
     {
       "name": "hooded",
+      "directions": 4
+    },
+    {
+      "name": "hooded_f",
       "directions": 4
     }
   ]

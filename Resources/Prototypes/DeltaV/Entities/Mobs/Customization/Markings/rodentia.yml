@@ -386,9 +386,20 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Rodentia]
+  sexRestriction: Male
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
       state: countershade
+
+- type: marking
+  id: RodentiaChestCountershadeF
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Rodentia]
+  sexRestriction: Female
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: countershade_f
 
 - type: marking
   id: RodentiaLegLeftCountershade
@@ -426,9 +437,20 @@
   markingCategory: Chest
   bodyPart: Chest
   speciesRestriction: [Rodentia]
+  sexRestriction: Male
   sprites:
     - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
       state: hooded
+
+- type: marking
+  id: RodentiaChestHoodedF
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Rodentia]
+  sexRestriction: Female
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: hooded_f
 
 - type: marking
   id: RodentiaHeadBlaze
