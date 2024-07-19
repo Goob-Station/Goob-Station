@@ -108,10 +108,33 @@ marking-RodentiaTailSquirrelBicolor = Tail - Squirrel, Two-tone
 marking-RodentiaTailSquirrelBicolor-squirrel = Tail
 marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Secondary
 
+## patterns
+
+marking-RodentiaChestCountershade = Chest - Countershade
+marking-RodentiaChestCountershade-countershade = Countershade
+
+marking-RodentiaLegLeftCountershade = Left Leg - Countershade
+marking-RodentiaLegLeftCountershade-l_leg = Leg
+marking-RodentiaLegLeftCountershade-countershade_lleg = Countershade
+
+marking-RodentiaLegRightCountershade = Right Leg - Countershade
+marking-RodentiaLegRightCountershade-r_leg = Leg
+marking-RodentiaLegRightCountershade-countershade_rleg = Countershade
+
+marking-RodentiaChestFawn = Chest - Fawn
+marking-RodentiaChestFawn-fawn = Pattern
+
+marking-RodentiaChestHooded = Chest - Hooded
+marking-RodentiaChestHooded-hooded = Pattern
+
+marking-RodentiaHeadBlaze = Head - Blaze
+marking-RodentiaHeadBlaze-head_m = Head
+marking-RodentiaHeadBlaze-blaze = Pattern
+
 # base parts
 
 marking-RodentiaHeadBasic = Head - Basic
-marking-RodentiaHeadBasic-head = Head
+marking-RodentiaHeadBasic-head_m = Head
 
 marking-RodentiaArmLeftBasic = Left Arm - Basic
 marking-RodentiaArmLeftBasic-l_arm = Arm

@@ -317,6 +317,68 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/tail_markings.rsi
       state: squirrel_overlay
 
+## PATTERNS
+
+- type: marking
+  id: RodentiaChestCountershade
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: countershade
+
+- type: marking
+  id: RodentiaLegLeftCountershade
+  markingCategory: Legs
+  bodyPart: LLeg
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
+      state: l_leg
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: countershade_lleg
+
+- type: marking
+  id: RodentiaLegRightCountershade
+  markingCategory: Legs
+  bodyPart: RLeg
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
+      state: r_leg
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: countershade_rleg
+
+- type: marking
+  id: RodentiaChestFawn
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: fawn
+
+- type: marking
+  id: RodentiaChestHooded
+  markingCategory: Chest
+  bodyPart: Chest
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: hooded
+
+- type: marking
+  id: RodentiaHeadBlaze
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
+      state: head_m
+    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+      state: blaze
+
 # BASE BODY PARTS
 
 ## HEAD

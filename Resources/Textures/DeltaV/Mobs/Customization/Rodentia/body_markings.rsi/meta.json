@@ -5,19 +5,27 @@
   "size": {"x": 32, "y": 32},
   "states": [
     {
-      "name": "l_hand",
+      "name": "blaze",
       "directions": 4
     },
     {
-      "name": "r_hand",
+      "name": "countershade",
       "directions": 4
     },
     {
-      "name": "l_foot",
+      "name": "countershade_lleg",
       "directions": 4
     },
     {
-      "name": "r_foot",
+      "name": "countershade_rleg",
+      "directions": 4
+    },
+    {
+      "name": "fawn",
+      "directions": 4
+    },
+    {
+      "name": "hooded",
       "directions": 4
     }
   ]
