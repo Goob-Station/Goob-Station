@@ -91,8 +91,6 @@
   - type: Perishable
   - type: Damageable
     damageModifierSet: Rodentia
-  - type: TemperatureProtection
-    coefficient: 0.1
   - type: Butcherable
     butcheringType: Spike
     spawned:
