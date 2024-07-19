@@ -1535,10 +1535,6 @@
           Blunt: 0
       soundHit:
         path: /Audio/Effects/explosion_small1.ogg
-      soundHit:
-        path: /Audio/Weapons/rubberhammer.ogg
-      soundNoDamage:
-        path: /Audio/Effects/explosion_small1.ogg
       soundNoDamage:
         path: /Audio/Weapons/rubberhammer.ogg
     - type: Item
