@@ -1,0 +1,29 @@
+<Document>
+  # Rodentia
+
+  <Box>
+    <GuideEntityEmbed Entity="MobRodentiaDummy" Caption=""/>
+  </Box>
+
+  Rodentia are a race of humanoid beings resembling rodents and rodent-adjacent species, such as lagomorphs, opossums, and bats.
+
+  ## Diet
+
+  - Can eat raw meat.
+  - Will get poisoned by Theobromine (Chocolate, Tea, Coffee) and Allicin (Onion, Garlic).
+
+  ## Benefits
+
+  - Uses their claws to do some Slashing and Blunt damage.
+  - Smaller and more evasive than humans.
+  - Can fit in duffelbags.
+
+  ## Special
+
+  - Can Rummage in disposal chutes, which can sometimes dig up food.
+
+  ## Drawbacks
+
+  - Takes 15% more Blunt, Slash, and Piercing damage.
+
+</Document>
