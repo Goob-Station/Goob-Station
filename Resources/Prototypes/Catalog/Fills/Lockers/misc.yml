@@ -150,8 +150,6 @@
         - id: PlushieRainbowCarp
           prob: 0.03
           orGroup: carp
-        - id: PlushieSlime
-          prob: 0.2
         - id: PlushieSnake
           prob: 0.2
         - id: ClothingShoesSkates
