@@ -37,6 +37,14 @@
       "directions": 4
     },
     {
+      "name": "mouse_large",
+      "directions": 4
+    },
+    {
+      "name": "mouse_large_overlay",
+      "directions": 4
+    },
+    {
       "name": "none",
       "directions": 4
     },

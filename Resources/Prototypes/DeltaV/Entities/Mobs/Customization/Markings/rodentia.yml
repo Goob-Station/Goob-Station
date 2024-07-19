@@ -69,6 +69,20 @@
       state: mouse_overlay
 
 - type: marking
+  id: RodentiaHeadTopEarMouseLarge
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  coloring:
+    default:
+      type: !type:TattooColoring
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: mouse_large
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: mouse_large_overlay
+
+- type: marking
   id: RodentiaHeadTopEarNone
   markingCategory: HeadTop
   bodyPart: HeadTop
