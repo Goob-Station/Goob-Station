@@ -136,6 +136,9 @@ marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Secondary
 marking-RodentiaChestCountershade = Chest - Countershade
 marking-RodentiaChestCountershade-countershade = Countershade
 
+marking-RodentiaChestCountershadeF = Chest - Countershade
+marking-RodentiaChestCountershadeF-countershade_f = Countershade
+
 marking-RodentiaLegLeftCountershade = Left Leg - Countershade
 marking-RodentiaLegLeftCountershade-l_leg = Leg
 marking-RodentiaLegLeftCountershade-countershade_lleg = Countershade
@@ -149,6 +152,9 @@ marking-RodentiaChestFawn-fawn = Pattern
 
 marking-RodentiaChestHooded = Chest - Hooded
 marking-RodentiaChestHooded-hooded = Pattern
+
+marking-RodentiaChestHoodedF = Chest - Hooded
+marking-RodentiaChestHoodedF-hooded_f = Pattern
 
 marking-RodentiaHeadBlaze = Head - Blaze
 marking-RodentiaHeadBlaze-head_m = Head
