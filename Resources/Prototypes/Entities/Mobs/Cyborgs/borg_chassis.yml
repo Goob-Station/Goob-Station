@@ -325,22 +325,6 @@
       noMindState: synd_sec
     - type: Construction
       node: syndicateassault
-    - type: MobThresholds   # Goobstation Assult borg buff HP upped by 100%
-      thresholds:
-        0: Alive
-        200: Critical
-        300: Dead
-    - type: Destructible  #  Goobstation Assult borg buff alarm goes of at 75% health
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 150
-        behaviors:
-        - !type:PlaySoundBehavior
-          sound:
-            path: /Audio/Machines/warning_buzzer.ogg
-            params:
-              volume: 5
 
 - type: entity
   id: BorgChassisSyndicateMedical
