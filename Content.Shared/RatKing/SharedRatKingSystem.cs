@@ -1,4 +1,5 @@
-﻿using Content.Shared.Actions;
+﻿using Content.Shared.Abilities;
+using Content.Shared.Actions;
 using Content.Shared.DoAfter;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
@@ -105,7 +106,9 @@ public abstract class SharedRatKingSystem : EntitySystem
 
     private void OnGetVerb(EntityUid uid, RatKingRummageableComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
-        if (!HasComp<RatKingComponent>(args.User) || component.Looted)
+        if (!HasComp<RummagerComponent>(args.User) || component.Looted)
+            // DeltaV - Use RummagerComponent instead of RatKingComponent
+            // (This is so we can give Rodentia rummage abilities)
             return;
 
         args.Verbs.Add(new AlternativeVerb
