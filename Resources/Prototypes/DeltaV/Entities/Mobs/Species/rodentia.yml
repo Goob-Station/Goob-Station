@@ -19,11 +19,23 @@
     prototype: Rodentia
     requiredLegs: 2
   - type: Speech
-    speechSounds: Vulpkanin
-    speechVerb: Vulpkanin
+    speechVerb: SmallMob
+    speechSounds: Squeak
+    allowedEmotes: ['Squeak']
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
   - type: Sprite
-    netsync: false
-    noRot: true
+    scale: 0.8, 0.8
     drawdepth: Mobs
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
@@ -78,19 +90,21 @@
         Slash: 3
   - type: Perishable
   - type: Damageable
-    damageModifierSet: Vulpkanin
+    damageModifierSet: Rodentia
   - type: TemperatureProtection
     coefficient: 0.1
-  - type: Vocal
-    sounds:
-      Male: MaleVulpkanin
-      Female: FemaleVulpkanin
-      Unsexed: MaleVulpkanin
   - type: Butcherable
     butcheringType: Spike
     spawned:
     - id: FoodMeatRat
       amount: 5
+  - type: TypingIndicator
+    proto: rodentia
+  - type: Vocal
+    sounds:
+      Male: MaleRodentia
+      Female: FemaleRodentia
+      Unsexed: MaleRodentia
 
 - type: entity
   save: false
