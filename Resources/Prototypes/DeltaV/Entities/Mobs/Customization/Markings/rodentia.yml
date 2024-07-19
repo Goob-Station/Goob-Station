@@ -1,3 +1,98 @@
+# HEAD
+
+## EARS
+
+- type: marking
+  id: RodentiaHeadTopEarBat
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: bat
+
+- type: marking
+  id: RodentiaHeadTopEarBatLarge
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: bat_large
+
+- type: marking
+  id: RodentiaHeadTopEarHamster
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: hamster
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: hamster_overlay
+
+- type: marking
+  id: RodentiaHeadTopEarLong
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: long
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: long_overlay
+
+- type: marking
+  id: RodentiaHeadTopEarMouse
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: mouse
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: mouse_overlay
+
+- type: marking
+  id: RodentiaHeadTopEarNone
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: none
+
+- type: marking
+  id: RodentiaHeadTopEarPointy
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: pointy
+
+- type: marking
+  id: RodentiaHeadTopEarRabbit
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: rabbit
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: rabbit_overlay
+
+- type: marking
+  id: RodentiaHeadTopEarSmall
+  markingCategory: HeadTop
+  bodyPart: HeadTop
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/ear_markings.rsi
+      state: small
+
+# LIMBS
+
 - type: marking
   id: RodentiaHandLeftBasic
   markingCategory: Arms

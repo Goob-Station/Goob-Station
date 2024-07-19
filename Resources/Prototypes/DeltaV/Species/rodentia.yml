@@ -61,7 +61,7 @@
     HeadTop:
       points: 1
       required: true
-      defaultMarkings: [ ]
+      defaultMarkings: [ RodentiaHeadTopEarMouse ]
 
 - type: humanoidBaseSprite
   id: MobRodentiaHead
