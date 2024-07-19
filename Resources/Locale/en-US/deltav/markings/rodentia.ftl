@@ -79,7 +79,22 @@ marking-RodentiaTailSquirrelBicolor = Tail - Squirrel, Two-tone
 marking-RodentiaTailSquirrelBicolor-squirrel = Tail
 marking-RodentiaTailSquirrelBicolor-squirrel_overlay = Secondary
 
-## limb
+## base parts
+
+marking-RodentiaHeadBasic = Head - Basic
+marking-RodentiaHeadBasic-head = Head
+
+marking-RodentiaArmLeftBasic = Left Arm - Basic
+marking-RodentiaArmLeftBasic-l_arm = Arm
+
+marking-RodentiaArmRightBasic = Right Arm - Basic
+marking-RodentiaArmRightBasic-r_arm = Arm
+
+marking-RodentiaLegLeftBasic = Left Leg - Basic
+marking-RodentiaLegLeftBasic-l_leg = Leg
+
+marking-RodentiaLegRightBasic = Right Leg - Basic
+marking-RodentiaLegRightBasic-r_leg = Leg
 
 marking-RodentiaHandLeftBasic = Left Hand - Basic
 marking-RodentiaHandLeftBasic-l_hand = Hand
