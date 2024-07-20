@@ -13,6 +13,6 @@
 - type: damageModifierSet
   id: Rodentia
   coefficients:
-    Blunt: 1.15
-    Slash: 1.15
-    Piercing: 1.15
+    Blunt: 1.2
+    Slash: 1.1
+    Piercing: 1.1
