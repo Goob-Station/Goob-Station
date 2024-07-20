@@ -8375,13 +8375,6 @@ entities:
     - type: Transform
       pos: 14.5,-3.5
       parent: 104
-- proto: CartridgeRocket
-  entities:
-  - uid: 2539
-    components:
-    - type: Transform
-      pos: 5.4341445,11.066763
-      parent: 104
 - proto: Catwalk
   entities:
   - uid: 217
@@ -12823,7 +12816,7 @@ entities:
     - type: Transform
       pos: 2.5,-12.5
       parent: 104
-- proto: SignToxins2
+- proto: SignToxins
   entities:
   - uid: 1318
     components:
