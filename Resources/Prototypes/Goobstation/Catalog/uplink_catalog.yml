@@ -63,7 +63,7 @@
 - type: listing
   id: UplinkLubeGranade
   name: Lube granade
-  description: Make the floor somwhat Slippery
+  description: Discounted Granades.30% off  Make the floor somwat Slippery!
   productEntity: LubeGrenade
   cost:
     Telecrystal: 7
