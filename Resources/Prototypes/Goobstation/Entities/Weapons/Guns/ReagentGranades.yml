@@ -8,7 +8,7 @@
     sprite: Objects/Weapons/Grenades/foamdart.rsi
   - type: SmokeOnTrigger
     duration: 5
-    spreadAmount: 25  #somwhat smaller then the cleanade.
+    spreadAmount: 25
     smokePrototype: Foam
     solution:
       reagents:
@@ -18,14 +18,14 @@
 - type: entity
   parent: SmokeGrenade
   id: GlueGrenade
-  name: GlueGranade
-  description: Special grenade for Clowns, releasing large cloud of Space Lube foam
+  name: Glue Grenades
+  description: Special grenades for Mimes, releasing large cloud of Space Glue Smoke
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
   - type: SmokeOnTrigger
     duration: 5
-    spreadAmount: 25  #somwhat smaller then the cleanade.
+    spreadAmount: 25
     smokePrototype: Smoke
     solution:
       reagents:
@@ -33,10 +33,10 @@
         Quantity: 20
 
 - type: entity
-  name: ReagentGrenade box
+  name: Syndicate Box of Reagent Grenades
   parent: BoxCardboard
-  id: BoxReagentGrenade
-  description: A box full of Lube Grenades.
+  id: BoxReagentGrenades
+  description: A box full of Lube grenades .
   components:
   - type: StorageFill
     contents:

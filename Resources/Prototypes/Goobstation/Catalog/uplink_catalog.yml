@@ -11,10 +11,10 @@
     -  UplinkDisruption
 
 - type: listing
-  id: UplinkBoxReagentGrenade
-  name: Box of Reagent Granades
-  description: Contains 2 Glue granades and 2 Lube Granades
-  productEntity: BoxReagentGrenade
+  id: UplinkBoxReagentGrenades
+  name: Box of Reagent Grenades
+  description: Contains 2 Glue granades and 2 Lube Grenades
+  productEntity: BoxReagentGrenades
   cost:
     Telecrystal: 40
   categories:
@@ -61,8 +61,8 @@
     - Clown
 
 - type: listing
-  id: UplinkLubeGranade
-  name: Lube granade
+  id: UplinkLubeGrenade
+  name: Lube grenades
   description: Discounted Granades.30% off  Make the floor somwat Slippery!
   productEntity: LubeGrenade
   cost:
