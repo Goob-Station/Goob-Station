@@ -10,6 +10,16 @@
   categories:
     -  UplinkDisruption
 
+- type: listing
+  id: UplinkBoxReagentGrenade
+  name: Box of Reagent Granades
+  description: Contains 2 Glue granades and 2 Lube Granades
+  productEntity: BoxReagentGrenade
+  cost:
+    Telecrystal: 40
+  categories:
+    -  UplinkDisruption
+
 # Weaponry
 
 - type: listing
@@ -49,3 +59,18 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
+
+- type: listing
+  id: UplinkLubeGranade
+  name: Lube granade
+  description: Make the floor somwhat Slippery
+  productEntity: LubeGrenade
+  cost:
+    Telecrystal: 7
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown # im sure some Clown mains will spend 100 tc just to buy 14 granades
+    - Mime
