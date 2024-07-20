@@ -15,6 +15,18 @@ public sealed partial class SpriteMovementComponent : Component
     public Dictionary<string, PrototypeLayerData> MovementLayers = new();
 
     /// <summary>
+    /// Layer and sprite state to use when runnin.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, PrototypeLayerData> RunLayers = new();
+
+    /// <summary>
+    /// Layer and sprite state to use when walking.
+    /// </summary>
+    [DataField]
+    public Dictionary<string, PrototypeLayerData> WalkLayers = new();
+
+    /// <summary>
     /// Layer and sprite state to use when not moving.
     /// </summary>
     [DataField]
