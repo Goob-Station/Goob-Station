@@ -4,12 +4,12 @@
 evolutionmenu-combat-armblade-name = Arm Blade
 evolutionmenu-combat-armblade-desc =
     Reform one of your arms into a grotesque blade, composed of bone and flesh, able to pry open airlocks and cut through your foes like butter.
-    Costs 15 chemicals on activation, slows chemical regeneration.
+    Costs 15 chemicals.
 
 evolutionmenu-combat-boneshard-name = Bone Shard
 evolutionmenu-combat-boneshard-desc =
     Break off shards of your bone and shape them into a throwing star which embeds into your foes. But a one timer opportinuty.
-    Costs 15 chemicals on activation.
+    Costs 15 chemicals.
 
 evolutionmenu-combat-armor-name = Chitinous Armor
 evolutionmenu-combat-armor-desc =
@@ -17,21 +17,21 @@ evolutionmenu-combat-armor-desc =
     Provides extensive protection against physical damage, but less against other types.
     It massively slows your movement, and maintaining its shape slows chemical generation.
     WARNING: Requires you to absorb at least 2 organics to use the ability.
-    Costs 25 chemicals on activation, significantly slows chemical regeneration.
+    Costs 25 chemicals.
 
 evolutionmenu-combat-shield-name = Organic Shield
 evolutionmenu-combat-shield-desc =
     Reforms one of your arms into a large, fleshy shield.
     Blocks attacks automatically, but very brittle.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
-    Costs 20 chemicals on activation.
+    Costs 20 chemicals.
 
 evolutionmenu-combat-shriek-dissonant-name = Dissonant Shriek
 evolutionmenu-combat-shriek-dissonant-desc =
     You emit an EMP blast, which disables technology in the surrounding area, including radio headsets.
     Good for escaping cyborgs and security.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
-    Costs 30 chemicals on activation.
+    Costs 30 chemicals.
 
 evolutionmenu-combat-shriek-resonant-name = Resonant Shriek
 evolutionmenu-combat-shriek-resonant-desc =
@@ -39,20 +39,13 @@ evolutionmenu-combat-shriek-resonant-desc =
     bursting lights and causing disorientation in an area around yourself.
     Good for escaping groups, or hindering people from fleeing.
     WARNING: Requires you to absorb at least 1 organic to use the ability.
-    Costs 30 chemicals on activation.
+    Costs 30 chemicals.
 
 evolutionmenu-combat-strainedmuscles-name = Strained Muscles
 evolutionmenu-combat-strainedmuscles-desc =
     You reduce lactic acid buildup in your leg muscles, allowing you to move at extremely fast speeds.
     While active, you will take steadily increments of stamina damage and eventually pass out.
-    Cost-free on activation, halts chemical regeneration.
-
-evolutionmenu-combat-spiders-name = Spider Infestation
-evolutionmenu-combat-spiders-desc =
-    One full grown hunter spider spawns from your mouth, being loyal to only you, and friendly with other spiders.
-    You can spawn up to three spiders total, and change their orders via other actions.
-    Costs 50 chemicals.
-    IMPORTANT: You must absorb at least 5 organics to activate the ability.
+    Cost-free.
 
 # sting
 
@@ -60,25 +53,25 @@ evolutionmenu-sting-blind-name = Blind Sting
 evolutionmenu-sting-blind-desc =
     Silently sting an organic target, completely blinding them for a short time, and rendering them near-sighted until oculine is applied.
     May be used while under the effects of Lesser Form.
-    Costs 30 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-sting-cryo-name = Cryogenic Sting
 evolutionmenu-sting-cryo-desc =
     Inject an organic target with a cocktail of chemicals that chills the blood.
     May be used while under the effects of Lesser Form.
-    Costs 30 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-sting-lethargic-name = Lethargic Sting
 evolutionmenu-sting-lethargic-desc =
     Inject an organic target with a cocktail of anesthetics, slowing the victim down for a decent amount of time.
     May be used while under the effects of Lesser Form.
-    Costs 50 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-sting-mute-name = Mute Sting
 evolutionmenu-sting-mute-desc =
     Inject mute toxin into an organic target, completely silencing them for a while.
     May be used while under the effects of Lesser Form.
-    Costs 30 chemicals.
+    Costs 35 chemicals.
 
 evolutionmenu-sting-transform-name = Transformation Sting
 evolutionmenu-sting-transform-desc =
@@ -101,7 +94,7 @@ evolutionmenu-utility-panacea-desc =
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
     Evolve additional features in your eyes, such as flash protection.
-    Cost-free on activation.
+    Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade
 evolutionmenu-utility-biodegrade-desc =
@@ -111,8 +104,7 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.
-    WARNING: Halts chemical regeneration!
+    Alter the pigment in your skin to match your surroundings, rendering you invisible.p
     Costs 20 chemicals.
 
 evolutionmenu-utility-stims-name = Ephedrine Overdose
@@ -123,15 +115,8 @@ evolutionmenu-utility-stims-desc =
 
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
-    Rapidly heal yourself of all bruises and burns. Significantly weaker when below 20 normal body temperature.
+    Rapidly heal yourself of all bruises and burns.
     Costs 35 chemicals.
-
-evolutionmenu-utility-lastresort-name = Last Resort
-evolutionmenu-utility-lastresort-desc =
-    Abandon your current body and becomes a headslug in a last ditch effort to evade discovery or capture.
-    As a headslug, you can lay eggs inside anybody, and, after some time, a monkey with your original conciousness will burst out of the body.
-    Requires you to absorb at least 1 organic to use the ability.
-    Costs 20 chemicals.
 
 evolutionmenu-utility-lesserform-name = Lesser Form
 evolutionmenu-utility-lesserform-desc =
@@ -140,14 +125,9 @@ evolutionmenu-utility-lesserform-desc =
 
 evolutionmenu-utility-spacesuit-name = Space Adaptation
 evolutionmenu-utility-spacesuit-desc =
-    Get rid of useless tissue in order to facilitate space travel. A source of oxygen is still required for space walking. Slows chemical regeneration while active.
+    Get rid of useless tissue in order to facilitate space travel. A source of oxygen is still required for space walking.
     Costs 20 chemicals.
 
 evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
-    Tunes our chemical receptors for hivemind communication, giving us access to the hivemind network, allowing us to recognize other changelings who have also bought this ability.
-
-evolutionmenu-utility-contort-name = Contort Body
-evolutionmenu-utility-contort-desc =
-    Allows you to contort your body, making you capable of fitting yourself in and under things where you normally don't fit, such as tables and closed airlocks.
-    Costs 25 chemicals.
+    Tunes our chemical receptors for hivemind communication, allowing us to recognize other changelings who have also bought this ability.

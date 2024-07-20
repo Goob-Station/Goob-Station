@@ -394,7 +394,7 @@
   productEntity: GrenadeIncendiary
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20 # Better than the shrapnel nade by far. 
+    Telecrystal: 20 # Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
 
@@ -682,7 +682,7 @@
   productEntity: ChameleonProjector
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30 # Basically a meme item at 35 TC to be real. 
+    Telecrystal: 30 # Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
 
@@ -1722,7 +1722,7 @@
   productEntity: RevolverCapGunFake
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 28 
+    Telecrystal: 28
   categories:
   - UplinkJob
   conditions:

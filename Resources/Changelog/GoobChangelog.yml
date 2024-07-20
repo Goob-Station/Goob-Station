@@ -367,3 +367,73 @@ Entries:
       message: Slug Shells now deal 40 Damage making them a more desirable option!
   id: 46
   time: '2024-07-14T20:33:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        SMES are now twice as good, meaning Engineering has more time to set up
+        power! Rejoice!
+  id: 47
+  time: '2024-07-15T07:33:13.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made most changeling stings cost 35 chemicals
+  id: 48
+  time: '2024-07-15T07:34:10.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added nine brand-new lobby screens!
+  id: 49
+  time: '2024-07-16T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Chameleon gloves have been made undiscoverable by the Detective's
+        scanner.
+  id: 50
+  time: '2024-07-16T10:12:25.0000000+00:00'
+- author: flyingkarii
+  changes:
+    - type: Tweak
+      message: >-
+        Playtime commands can now use time strings (such as 3d30m) for the
+        minutes argument.
+  id: 51
+  time: '2024-07-17T18:09:02.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a new puppet, lil cal.
+  id: 52
+  time: '2024-07-18T00:40:53.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: >-
+        Added gamemodes to secret with two antags at once, but have less of one
+        type and need 30+ Players ready to start. 
+    - type: Tweak
+      message: >-
+        Weights have been slightly tweaked. Lings are rarer, and ops/revs are
+        more common due to dual antag gamemodes.
+    - type: Tweak
+      message: >-
+        Changeling now rolls with the same delay as traitors, and changeling max
+        has been lessened to 5. 
+  id: 53
+  time: '2024-07-18T17:39:51.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a OSRS NPC for admemes to mess around with.
+  id: 54
+  time: '2024-07-18T17:56:53.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Readded The Throngler to The Grand Lottery
+  id: 55
+  time: '2024-07-20T20:37:50.0000000+00:00'

@@ -253,7 +253,7 @@
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 30 chemicals.
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 35 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -268,13 +268,13 @@
       state: sting_blind
     event: !type:StingBlindEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 35
     useInLesserForm: true
 
 - type: entity
   id: ActionStingCryo
   name: Cryogenic Sting
-  description: Silently sting your target, constantly slowing and freezing them. Costs 30 chemicals.
+  description: Silently sting your target, constantly slowing and freezing them. Costs 35 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -289,13 +289,13 @@
       state: sting_cryo
     event: !type:StingCryoEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 35
     useInLesserForm: true
 
 - type: entity
   id: ActionStingLethargic
   name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 50 chemicals.
+  description: Silently inject a cocktail of anesthetics into the target. Costs 35 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -310,13 +310,13 @@
       state: sting_lethargic
     event: !type:StingLethargicEvent {}
   - type: ChangelingAction
-    chemicalCost: 50
+    chemicalCost: 35
     useInLesserForm: true
 
 - type: entity
   id: ActionStingMute
   name: Mute Sting
-  description: Silently sting your target, completely silencing them for a short time. Costs 30 chemicals.
+  description: Silently sting your target, completely silencing them for a short time. Costs 35 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -331,7 +331,7 @@
       state: sting_mute
     event: !type:StingMuteEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 35
     useInLesserForm: true
 
 - type: entity
@@ -540,7 +540,7 @@
 - type: entity
   id: ActionHivemindAccess
   name: Hivemind Access
-  description: Tune your chemical receptors for hivemind communication. Costs 0 chemicals.
+  description: Tune your chemical receptors for hivemind communication.
   noSpawn: true
   components:
   - type: InstantAction
