@@ -28,6 +28,7 @@
   storage:
     back:
     - RubberStampMime
+    - GlueGrenade # Goobstation
 
 - type: entity
   id: ActionMimeInvisibleWall
