@@ -1,3 +1,8 @@
+- files: ["janishootout.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
+
 - files: ["breakingchem.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Unknown"
@@ -66,4 +71,9 @@
 - files: ["killsigned.webp"]
   license: "CC-BY-SA-3.0"
   copyright: "icepick"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownassassin.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "ka2220"
   source: "https://forums.goobstation.com"
