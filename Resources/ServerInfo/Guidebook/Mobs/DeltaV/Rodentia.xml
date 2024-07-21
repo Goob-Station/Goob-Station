@@ -25,5 +25,6 @@
   ## Drawbacks
 
   - Takes 20% more Blunt damage, and 10% more Slash and Piercing damage.
+  - Always triggers mousetraps, regardless of whether or not they are wearing shoes.
 
 </Document>
