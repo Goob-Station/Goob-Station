@@ -19,7 +19,7 @@
     prototype: Rodentia
     requiredLegs: 2
   - type: Speech
-    speechVerb: SmallMob
+    speechVerb: Rodentia
     speechSounds: Squeak
     allowedEmotes: ['Squeak']
   - type: Fixtures
