@@ -1,0 +1,19 @@
+- type: entity
+  name: energy sword
+  parent: EnergySword
+  id: EnergySwordBorg
+  suffix: Borg only
+  description: A very loud & dangerous sword with a beam made of pure, concentrated plasma. Cuts through unarmored targets like butter.
+  components:
+  - type: Reflect
+    reflectProb: .75
+    spread: 75
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/e_sword.rsi
+    layers:
+      - state: e_sword
+      - state: e_sword_blade
+        color: "#FFFFFF"
+        visible: false
+        shader: unshaded
+        map: [ "blade" ]

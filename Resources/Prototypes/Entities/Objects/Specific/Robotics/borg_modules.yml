@@ -536,7 +536,7 @@
       - state: icon-syndicate
     - type: ItemBorgModule
       items:
-      - EnergySword   # Goobstation - changed becuse of bug
+      - EnergySwordBorg   # Goobstation - changed becuse of bug
       - PinpointerSyndicateNuclear
 
 - type: entity
