@@ -43,10 +43,6 @@
   background: /Textures/LobbyScreens/donottouch.webp
 
 - type: lobbyBackground
-  id: TwoSides
-  background: /Textures/LobbyScreens/twosides.webp
-
-- type: lobbyBackground
   id: Cburn
   background: /Textures/LobbyScreens/cburn.webp
 
