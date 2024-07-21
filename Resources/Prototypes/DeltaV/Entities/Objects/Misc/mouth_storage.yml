@@ -1,0 +1,24 @@
+- type: entity
+  id: CheekStorage
+  name: cheek storage
+  description: The cheeks of an animal, capable of storing small objects.
+  noSpawn: true
+  components:
+  - type: Storage
+    clickInsert: false
+    grid:
+    - 0,0,1,1
+    maxItemSize: Small
+    blacklist: 
+      components:
+      - Sharp
+      - MindContainer
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Dumpable

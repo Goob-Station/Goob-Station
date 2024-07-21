@@ -111,6 +111,9 @@
     shape:
       - 0, 0, 3, 2
       - 0, 2, 5, 4
+  - type: MouthStorage
+    mouthProto: CheekStorage
+    openStorageAction: ActionOpenMouthStorage
 
 - type: entity
   save: false
