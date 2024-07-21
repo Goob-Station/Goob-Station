@@ -104,6 +104,7 @@
       Female: FemaleRodentia
       Unsexed: MaleRodentia
   - type: Rummager
+  - type: AlwaysTriggerMousetrap
   - type: PseudoItem
     storedOffset: 0,17
     shape:
