@@ -11,6 +11,20 @@ public sealed partial class DumpableDoAfterEvent : SimpleDoAfterEvent
 {
 }
 
+// DeltaV: Event that dumps the contents of a container with no wait
+public sealed partial class DumpContentsEvent : EntityEventArgs
+{
+    public EntityUid User;
+
+    public EntityUid Target;
+
+    public DumpContentsEvent(EntityUid user, EntityUid target)
+    {
+        User = user;
+        Target = target;
+    }
+}
+
 /// <summary>
 /// Lets you dump this container on the ground using a verb,
 /// or when interacting with it on a disposal unit or placeable surface.
