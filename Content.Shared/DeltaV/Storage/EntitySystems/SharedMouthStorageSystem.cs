@@ -16,6 +16,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MouthStorageComponent, MapInitEvent>(OnMouthStorageInit);
+        SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(OnDowned);
     }
 
     private void OnMouthStorageInit(EntityUid uid, MouthStorageComponent component, MapInitEvent args)
@@ -35,5 +36,13 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         {
             _actionsSystem.AddAction(uid, ref component.Action, component.OpenStorageAction, mouth);
         }
+    }
+
+    private void OnDowned(EntityUid uid, MouthStorageComponent component, DownedEvent args)
+    {
+        if (component.MouthId == null)
+            return;
+
+        RaiseLocalEvent(component.MouthId.Value, new DumpContentsEvent(uid, uid));
     }
 }
