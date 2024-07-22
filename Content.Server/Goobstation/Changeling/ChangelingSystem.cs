@@ -778,6 +778,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         || !TryToggleItem(uid, ArmorHelmetPrototype, comp, "head"))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
 
@@ -991,6 +992,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (HasComp<StealthComponent>(uid) && HasComp<StealthOnMoveComponent>(uid))
         {
             RemComp<StealthComponent>(uid);
+            RemComp<StealthOnMoveComponent>(uid);
             _popup.PopupEntity(Loc.GetString("changeling-chameleon-end"), uid, uid);
             return;
         }
@@ -1004,9 +1006,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        var stam = EnsureComp<StaminaComponent>(uid);
+        stam.StaminaDamage = 0;
+
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Synaptizine", 5f),
+            ("Synaptizine", 5f)
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);
@@ -1015,7 +1020,6 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-inject-fail"), uid, uid);
             return;
         }
-        PlayMeatySound(uid, comp);
     }
     // john space made me do this
     public void OnHealUltraSwag(EntityUid uid, ChangelingComponent comp, ref ActionFleshmendEvent args)
@@ -1067,6 +1071,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         || !TryToggleItem(uid, SpacesuitHelmetPrototype, comp, "head"))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
 
