@@ -39,7 +39,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
-using Content.Shared.Damage.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.Components;
 using Content.Server.Light.EntitySystems;
@@ -185,10 +184,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (comp.StrainedMusclesActive)
         {
-            var stamina = EnsureComp<StaminaComponent>(uid);
             _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-            if (_stamina.GetStaminaDamage(uid) >= stamina.CritThreshold
-            || !HasComp<GravityComponent>(uid))
+            if (!HasComp<GravityComponent>(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
     }
@@ -327,28 +324,29 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ref EntityUid? outItem, string? clothingSlot = null)
+    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp, string? clothingSlot = null)
     {
-        if (outItem == null)
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item) || item == null)
         {
-            var item = EntityManager.SpawnEntity(proto, Transform(uid).Coordinates);
-            if (clothingSlot != null && !_inventory.TryEquip(uid, item, clothingSlot, force: true))
+            item = Spawn(proto, Transform(uid).Coordinates);
+            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item, clothingSlot, force: true))
             {
-                EntityManager.DeleteEntity(item);
+                QueueDel(item);
                 return false;
             }
-            else if (!_hands.TryForcePickupAnyHand(uid, item))
+            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
-                EntityManager.DeleteEntity(item);
+                QueueDel(item);
                 return false;
             }
-            outItem = item;
+            comp.Equipment.Add(proto.Id, item);
             return true;
         }
 
-        EntityManager.DeleteEntity(outItem);
-        outItem = null;
+        QueueDel(item);
+        // assuming that it exists
+        comp.Equipment.Remove(proto.Id);
 
         return true;
     }
@@ -515,13 +513,12 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
     {
-        // yanderedev type shit
-        EntityManager.DeleteEntity(comp.ShieldEntity);
-        EntityManager.DeleteEntity(comp.ArmbladeEntity);
-        EntityManager.DeleteEntity(comp.ArmorEntity);
-        EntityManager.DeleteEntity(comp.ArmorHelmetEntity);
-        EntityManager.DeleteEntity(comp.SpacesuitEntity);
-        EntityManager.DeleteEntity(comp.SpacesuitHelmetEntity);
+        if (comp.Equipment.Values.Count == 0)
+            return;
+
+        foreach (var equip in comp.Equipment.Values)
+            QueueDel(equip);
+
         PlayMeatySound(target, comp);
     }
     #endregion
@@ -753,13 +750,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, ArmbladePrototype, ref comp.ArmbladeEntity))
+        if (!TryToggleItem(uid, ArmbladePrototype, comp))
             return;
-
-        if (comp.ArmbladeEntity != null)
-            _popup.PopupEntity(Loc.GetString("changeling-armblade-start"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-hand-transform-end"), uid, uid);
 
         PlayMeatySound(uid, comp);
     }
@@ -768,7 +760,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        var star = EntityManager.SpawnEntity(BoneShardPrototype, Transform(uid).Coordinates);
+        var star = Spawn(BoneShardPrototype, Transform(uid).Coordinates);
         _hands.TryPickupAnyHand(uid, star);
 
         PlayMeatySound(uid, comp);
@@ -778,17 +770,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, ArmorPrototype, ref comp.ArmorEntity, "outerClothing")
-        || !TryToggleItem(uid, ArmorHelmetPrototype, ref comp.ArmorHelmetEntity, "head"))
+        if (!TryToggleItem(uid, ArmorPrototype, comp, "outerClothing")
+        || !TryToggleItem(uid, ArmorHelmetPrototype, comp, "head"))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
             return;
         }
-
-        if (comp.ArmorEntity != null)
-            _popup.PopupEntity(Loc.GetString("changeling-equip-armor-start"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-equip-end"), uid, uid);
 
         PlayMeatySound(uid, comp);
     }
@@ -797,13 +784,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, ShieldPrototype, ref comp.ShieldEntity))
+        if (!TryToggleItem(uid, ShieldPrototype, comp))
             return;
-
-        if (comp.ShieldEntity != null)
-            _popup.PopupEntity(Loc.GetString("changeling-shield-start"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-hand-transform-end"), uid, uid);
 
         PlayMeatySound(uid, comp);
     }
@@ -873,7 +855,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
             return;
 
-        _blindable.AdjustEyeDamage((target, blindable), 5);
+        _blindable.AdjustEyeDamage((target, blindable), 2);
         var timeSpan = TimeSpan.FromSeconds(5f);
         _statusEffect.TryAddStatusEffect(target, TemporaryBlindnessSystem.BlindingStatusEffect, timeSpan, false, TemporaryBlindnessSystem.BlindingStatusEffect);
     }
@@ -893,7 +875,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         var reagents = new List<(string, FixedPoint2)>()
         {
             ("Impedrezene", 10f),
-            ("Happiness", 5f),
             ("MuteToxin", 5f)
         };
 
@@ -928,7 +909,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
         if (!_hands.TryPickupAnyHand(target, fakeArmblade))
         {
-            EntityManager.DeleteEntity(fakeArmblade);
+            QueueDel(fakeArmblade);
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-simplemob"), uid, uid);
             return;
@@ -949,7 +930,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         var reagents = new List<(string, FixedPoint2)>()
         {
             ("Diphenhydramine", 5f),
-            ("Arithrazine", 10f),
+            ("Arithrazine", 5f),
             ("Ethylredoxrazine", 5f)
         };
         if (TryInjectReagents(uid, reagents))
@@ -968,10 +949,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        PlayMeatySound(uid, comp);
         EnsureComp<FlashImmunityComponent>(uid);
         _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
-        PlayMeatySound(uid, comp);
     }
     public void OnBiodegrade(EntityUid uid, ChangelingComponent comp, ref ActionBiodegradeEvent args)
     {
@@ -1042,8 +1021,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Impedrezene", 2.5f),
-            ("Ichor", 15f),
+            ("Ichor", 10f),
             ("TranexamicAcid", 5f)
         };
         if (TryInjectReagents(uid, reagents))
@@ -1081,17 +1059,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (!TryToggleItem(uid, SpacesuitPrototype, ref comp.SpacesuitEntity, "outerClothing")
-        || !TryToggleItem(uid, SpacesuitHelmetPrototype, ref comp.SpacesuitHelmetEntity, "head"))
+        if (!TryToggleItem(uid, SpacesuitPrototype, comp, "outerClothing")
+        || !TryToggleItem(uid, SpacesuitHelmetPrototype, comp, "head"))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
             return;
         }
-
-        if (comp.SpacesuitEntity != null)
-            _popup.PopupEntity(Loc.GetString("changeling-equip-spacesuit-start"), uid, uid);
-        else
-            _popup.PopupEntity(Loc.GetString("changeling-equip-end"), uid, uid);
 
         PlayMeatySound(uid, comp);
     }
