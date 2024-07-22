@@ -24,7 +24,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1.5
+    fireRate: 2 # Goobstation
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -65,7 +65,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
-    fireRate: 2
+    fireRate: 2.5 # Goobstation
   - type: RevolverAmmoProvider
     capacity: 5
     chambers: [ True, True, True, True, True ]
@@ -120,7 +120,7 @@
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 2.5 # Goobstation
     availableModes:
     - SemiAuto
     soundGunshot:

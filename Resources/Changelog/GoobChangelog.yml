@@ -322,3 +322,118 @@ Entries:
       message: Fixed chemical regeneration. Thanks durkk.
   id: 44
   time: '2024-07-14T10:18:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Space wind is now much smoother :)
+  id: 45
+  time: '2024-07-14T11:01:11.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Tweak
+      message: >-
+        Clearance Sale! A high amount of items that haven't sold well have been
+        made cheaper by the syndicate. However, Suppliers have increased prices
+        on certain items.
+    - type: Tweak
+      message: >-
+        The Cane blade has been totally rebalanced, dealing more damage and
+        igniting targets, but has been marked up in price to 40 TC.
+    - type: Tweak
+      message: >-
+        The old Syndicate EVA Suit has been replaced by a new lightweight
+        durathread model, with some moderate protection and anti-rad but costs
+        20 TC. Reviewers have stated that it's insanely comfy, but these have
+        been bought, NT claims.
+    - type: Tweak
+      message: >-
+        The China Lakes in supply  have started to deprecate and fire slower due
+        to age. 1 FR > 0.6 FR.
+    - type: Tweak
+      message: >-
+        The Syndicate has realised they were sending .40 Materiel instead of .60
+        Antimateriel. This has been rectified recently and the hristov improved.
+        The correct ammo is very costly! 40 Damage > 60 Damage AP, Hristov 60 TC
+        > 80 TC.
+    - type: Tweak
+      message: >-
+        Revolvers across the galaxy have had their firerates magically increased
+        after one girl decided "Hey, maybe we should invest more money into the
+        revolver department!" 1.5 > 2.0 FR for Inspector, 2.0 > 2.5 FR for
+        Deckard and Python.
+    - type: Tweak
+      message: .35 Auto Pistol Capacity 10 > 12
+    - type: Tweak
+      message: Slug Shells now deal 40 Damage making them a more desirable option!
+  id: 46
+  time: '2024-07-14T20:33:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        SMES are now twice as good, meaning Engineering has more time to set up
+        power! Rejoice!
+  id: 47
+  time: '2024-07-15T07:33:13.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made most changeling stings cost 35 chemicals
+  id: 48
+  time: '2024-07-15T07:34:10.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added nine brand-new lobby screens!
+  id: 49
+  time: '2024-07-16T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Chameleon gloves have been made undiscoverable by the Detective's
+        scanner.
+  id: 50
+  time: '2024-07-16T10:12:25.0000000+00:00'
+- author: flyingkarii
+  changes:
+    - type: Tweak
+      message: >-
+        Playtime commands can now use time strings (such as 3d30m) for the
+        minutes argument.
+  id: 51
+  time: '2024-07-17T18:09:02.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a new puppet, lil cal.
+  id: 52
+  time: '2024-07-18T00:40:53.0000000+00:00'
+- author: TooSillyFennec
+  changes:
+    - type: Add
+      message: >-
+        Added gamemodes to secret with two antags at once, but have less of one
+        type and need 30+ Players ready to start. 
+    - type: Tweak
+      message: >-
+        Weights have been slightly tweaked. Lings are rarer, and ops/revs are
+        more common due to dual antag gamemodes.
+    - type: Tweak
+      message: >-
+        Changeling now rolls with the same delay as traitors, and changeling max
+        has been lessened to 5. 
+  id: 53
+  time: '2024-07-18T17:39:51.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a OSRS NPC for admemes to mess around with.
+  id: 54
+  time: '2024-07-18T17:56:53.0000000+00:00'
+- author: Scruq445
+  changes:
+    - type: Add
+      message: Readded The Throngler to The Grand Lottery
+  id: 55
+  time: '2024-07-20T20:37:50.0000000+00:00'

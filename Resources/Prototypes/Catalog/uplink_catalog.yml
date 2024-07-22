@@ -8,7 +8,7 @@
   productEntity: WeaponPistolViper
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 15
+    Telecrystal: 14 # this +1 mag = 20 TC
   categories:
   - UplinkWeaponry
 
@@ -19,7 +19,7 @@
   productEntity: WeaponRevolverPythonAP
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 40 # Originally was 13 TC but was not used due to high cost
+    Telecrystal: 24 # Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
   categories:
   - UplinkWeaponry
 
@@ -31,7 +31,7 @@
   productEntity: WeaponPistolCobra
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 17 # this +1 mag = 25 TC
   categories:
   - UplinkWeaponry
 
@@ -43,7 +43,7 @@
   productEntity: WeaponSniperMosin
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkWeaponry
 
@@ -79,7 +79,7 @@
   productEntity: ThrowingKnivesKit
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 20 # Pretty weak, but resusable ranged crit potential shouldn't be less.
   categories:
     - UplinkWeaponry
 
@@ -135,7 +135,7 @@
   productEntity: BriefcaseSyndieSniperBundleFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60
+    Telecrystal: 80 # increase price by a lot when the thing has a scope
   categories:
   - UplinkWeaponry
 
@@ -196,7 +196,7 @@
   productEntity: ExGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 12 # Better than C4 combat wise, less utility elsewhere. Don't want crazy spam on ops however.
   categories:
   - UplinkExplosives
 
@@ -207,7 +207,7 @@
   productEntity: GrenadeFlashBang
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 4 # grenade balancing applies
   categories:
   - UplinkExplosives
 
@@ -218,7 +218,7 @@
   productEntity: SmokeGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 4 # grenade balancing applies
   categories:
   - UplinkExplosives
 
@@ -229,7 +229,7 @@
   productEntity: SyndieMiniBomb
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 32
   categories:
     - UplinkExplosives
 
@@ -240,7 +240,7 @@
   productEntity: SupermatterGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 28
   categories:
     - UplinkExplosives
 
@@ -251,7 +251,7 @@
   productEntity: WhiteholeGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 15
+    Telecrystal: 8 # it's an emergency escape tool and distraction, not a real nade.
   categories:
     - UplinkExplosives
 
@@ -278,7 +278,7 @@
   productEntity: C4
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 8 # We have a ten tens or 100 TC system, lets use the bastard. Better than 13's yet 10 TC's a pretty crappy price.
   categories:
   - UplinkExplosives
 
@@ -289,7 +289,7 @@
   productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60
+    Telecrystal: 50
   categories:
   - UplinkExplosives
   conditions:
@@ -305,7 +305,7 @@
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60 #you're buying bulk so its a 25% discount
+    Telecrystal: 50 # All in the C4s, are we now??? not a clean number, but slightly less than 25% cheaper than the contents
   categories:
   - UplinkExplosives
 
@@ -316,7 +316,7 @@
   productEntity: EmpGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 8 # Pretty decent, but underused for a reason at 10 TC.
   categories:
   - UplinkExplosives
 
@@ -328,7 +328,7 @@
   productEntity: PenExplodingBox
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 16
   categories:
   - UplinkExplosives
 
@@ -372,7 +372,7 @@
   productEntity: ClusterGrenade
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 40
+    Telecrystal: 28 # Best grenade in the game currently, but very hard to predict how it explodes.
   categories:
   - UplinkExplosives
 
@@ -383,7 +383,7 @@
   productEntity: GrenadeShrapnel
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 16 # Better than the normal nade, but not by much.
   categories:
   - UplinkExplosives
 
@@ -394,7 +394,7 @@
   productEntity: GrenadeIncendiary
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 20 # Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
 
@@ -405,7 +405,7 @@
   productEntity: ElectricalDisruptionKit
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 20
   categories:
     - UplinkExplosives
 
@@ -419,7 +419,7 @@
   productEntity: MagazinePistol
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 6 # Harder to spam mags, not that people really viper spam and they have more space.
   categories:
   - UplinkAmmo
 
@@ -432,7 +432,7 @@
   productEntity: MagazinePistolSubMachineGun
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 15 # Bundle + Mag = 100 TC
   categories:
   - UplinkAmmo
 
@@ -445,7 +445,7 @@
   productEntity: MagazinePistolCaselessRifle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 8 # People actually spam these more than other ammo types
   categories:
   - UplinkAmmo
 
@@ -458,7 +458,7 @@
   productEntity: SpeedLoaderMagnumAP
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 15
+    Telecrystal: 8 # AP, improved level
   categories:
   - UplinkAmmo
 
@@ -470,7 +470,7 @@
   productEntity: MagazineBoxLightRifle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkAmmo
 
@@ -482,7 +482,7 @@
   productEntity: MagazineBoxAntiMateriel
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 40 # 2 ammo capacity worth
   categories:
   - UplinkAmmo
 
@@ -605,7 +605,7 @@
   productEntity: Stimpack
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 10 # 1 TC per 3 seconds.
   categories:
   - UplinkChemicals
 
@@ -616,7 +616,7 @@
   productEntity: StimkitFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60
+    Telecrystal: 30
   categories:
   - UplinkChemicals
 
@@ -671,7 +671,7 @@
   productEntity: StealthBox
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 25
+    Telecrystal: 20 # 20 TC's a balance tier, and the stealth box's not good enough to lose a 20/40/80 TC item for.
   categories:
   - UplinkDeception
 
@@ -682,7 +682,7 @@
   productEntity: ChameleonProjector
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 35
+    Telecrystal: 30 # Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
 
@@ -728,7 +728,7 @@
   productEntity: NukeDiskFake
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2 # Pointless class item.
   categories:
   - UplinkDeception
 
@@ -772,7 +772,7 @@
   productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 20 # total meme item.
   categories:
   - UplinkDeception
 
@@ -783,7 +783,7 @@
   productEntity: SyndicateBombFake
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 10
   categories:
   - UplinkDeception
 
@@ -852,7 +852,7 @@
   productEntity: SlipocalypseClusterSoap
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 15
+    Telecrystal: 12 # Not a GREAT item but has some effects. Bomb Balance.
   categories:
   - UplinkDisruption
 
@@ -896,7 +896,7 @@
   productEntity: PowerSink
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 40
+    Telecrystal: 32 # worse synd bomb. Requires real skill to pull off. Can get 3, but that blocks any decent item. Bomb balancing applies here.
   categories:
   - UplinkDisruption
   conditions:
@@ -1052,7 +1052,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 40 # Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
   categories:
   - UplinkAllies
   conditions:
@@ -1143,7 +1143,7 @@
   productEntity: ScramImplanter
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30 # it's a gamble that may kill you easily so 30 TC per 2 uses, second one more of a backup
+    Telecrystal: 20 # it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
     - UplinkImplants
 
@@ -1298,7 +1298,7 @@
   productEntity: ClothingBeltSyndieHolster
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2 # Pointless and valid.
   categories:
   - UplinkWearables
 
@@ -1309,7 +1309,7 @@
   productEntity: ClothingBeltMilitaryWebbing
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 4
   categories:
   - UplinkWearables
 
@@ -1354,7 +1354,7 @@
   productEntity: ClothingOuterVestWeb
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 15
+    Telecrystal: 20 # Locks out some stronger items. Also 20 TC Tier makes more sense.
   categories:
   - UplinkWearables
 
@@ -1377,7 +1377,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 20 # Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
 
@@ -1463,7 +1463,7 @@
   productEntity: ClothingBackpackSyndicate
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 4 # Pointless valid item.
   categories:
     - UplinkWearables
 
@@ -1476,7 +1476,7 @@
   productEntity: BarberScissors
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2 # Meh, can be useful in preventing metagamers, but pretty pointless.
   categories:
   - UplinkPointless
 
@@ -1498,7 +1498,7 @@
   productEntity: RevolverCapGun
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 4 # Funny, but not 20 TC Funny.
   categories:
   - UplinkPointless
 
@@ -1509,7 +1509,7 @@
   productEntity: RubberStampSyndicate
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 8 # Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
   categories:
   - UplinkPointless
 
@@ -1531,7 +1531,7 @@
   productEntity: ClothingHeadHatOutlawHat
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2 # Yeehaw! less than 5 TC for both to get a set.
   categories:
   - UplinkPointless
 
@@ -1542,7 +1542,7 @@
   productEntity: ClothingEyesGlassesOutlawGlasses
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2 # Who am i??? less than 5 TC for both to get a set.
   categories:
   - UplinkPointless
 
@@ -1553,7 +1553,7 @@
   productEntity: ClothingBackpackDuffelSyndicatePyjamaBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 8 # Funny but blatantly not worth more
   categories:
   - UplinkPointless
 
@@ -1575,7 +1575,7 @@
   productEntity: ClothingBackpackDuffelSyndicateCarpSuit
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 15
   categories:
   - UplinkPointless
 
@@ -1586,7 +1586,7 @@
   productEntity: ClothingUniformJumpsuitOperative
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
   - UplinkPointless
 
@@ -1597,7 +1597,7 @@
   productEntity: ClothingUniformJumpskirtOperative
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
   - UplinkPointless
 
@@ -1619,7 +1619,7 @@
   productEntity: ClothingNeckScarfStripedSyndieRed
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
   - UplinkPointless
 
@@ -1630,7 +1630,7 @@
   productEntity: ClothingNeckScarfStripedSyndieGreen
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 5
+    Telecrystal: 2
   categories:
     - UplinkPointless
 
@@ -1652,7 +1652,7 @@
     - Botanist
 
 - type: listing
-  id: uplinkRiggedBoxingGlovesPassenger
+  id: uplinkRiggedBoxingGlovesPassenger # Remove when contractor baton gets added- and yes, i'm working on that - Goobstation, Fenn :3
   name: uplink-rigged-boxing-gloves-name
   description: uplink-rigged-boxing-gloves-desc
   productEntity: ClothingHandsGlovesBoxingRigged
@@ -1722,7 +1722,7 @@
   productEntity: RevolverCapGunFake
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 45
+    Telecrystal: 28
   categories:
   - UplinkJob
   conditions:
@@ -1739,7 +1739,7 @@
   productEntity: TrashBananaPeelExplosiveUnarmed
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 10
+    Telecrystal: 8
   categories:
   - UplinkJob
   conditions:
@@ -1754,7 +1754,7 @@
   productEntity: ClusterBananaPeel
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30
+    Telecrystal: 24
   categories:
   - UplinkJob
   conditions:
@@ -1803,7 +1803,7 @@
   productEntity: WeaponPistolCHIMPUpgradeKit
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 10 # Weak but very cheap
   categories:
   - UplinkJob
   conditions:
@@ -1818,7 +1818,7 @@
   productEntity: WetFloorSignMineExplosive
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 25 # was 20, with my buff made it 25 to be closer to minibomb -panzer
+    Telecrystal: 16 # was 20, with my buff made it 25 to be closer to minibomb -panzer well no one uses it! 16 TC better.
   categories:
   - UplinkJob
   conditions:
@@ -1857,14 +1857,14 @@
   productEntity: CaneSheathFilled
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 25
+    Telecrystal: 40 # E-sword sidegrade
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Librarian
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
