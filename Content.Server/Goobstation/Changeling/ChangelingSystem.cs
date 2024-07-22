@@ -57,6 +57,8 @@ using System.Numerics;
 using Content.Shared.Camera;
 using Robust.Shared.Timing;
 using Content.Shared.Gravity;
+using Content.Shared.Damage.Components;
+using Content.Server.Gravity;
 
 namespace Content.Server.Changeling;
 
@@ -96,6 +98,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly GravitySystem _gravity = default!;
 
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
@@ -184,8 +187,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (comp.StrainedMusclesActive)
         {
+            var stamina = EnsureComp<StaminaComponent>(uid);
             _stamina.TakeStaminaDamage(uid, 7.5f, visual: false);
-            if (!HasComp<GravityComponent>(uid))
+            if (stamina.StaminaDamage >= stamina.CritThreshold || _gravity.IsWeightless(uid))
                 ToggleStrainedMuscles(uid, comp);
         }
     }
