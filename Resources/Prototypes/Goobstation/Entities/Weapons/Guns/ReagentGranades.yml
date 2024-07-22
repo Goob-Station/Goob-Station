@@ -1,8 +1,8 @@
 - type: entity
   parent: SmokeGrenade
   id: LubeGrenade
-  name: Lubenade
-  description: Special grenade for Clowns, releasing large cloud of Space Lube foam
+  name: Lube Grenade
+  description: A grenade that releases Space Lube foam.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/foamdart.rsi
@@ -18,8 +18,8 @@
 - type: entity
   parent: SmokeGrenade
   id: GlueGrenade
-  name: Glue Grenades
-  description: Special grenades for Mimes, releasing large cloud of Space Glue Smoke
+  name: Glue Grenade
+  description: A grenade that releases Space Glue foam.
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/smoke.rsi
@@ -33,10 +33,10 @@
         Quantity: 20
 
 - type: entity
-  name: Syndicate Box of Reagent Grenades
+  name: Box of lube & glue grenades
   parent: BoxCardboard
   id: BoxReagentGrenades
-  description: A box full of Lube grenades .
+  description: A box full of lube & glue grenades.
   components:
   - type: StorageFill
     contents:
