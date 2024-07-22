@@ -104,7 +104,7 @@ evolutionmenu-utility-biodegrade-desc =
 
 evolutionmenu-utility-chameleon-name = Chameleon Skin
 evolutionmenu-utility-chameleon-desc =
-    Alter the pigment in your skin to match your surroundings, rendering you invisible.p
+    Alter the pigment in your skin to match your surroundings, rendering you invisible.
     Costs 20 chemicals.
 
 evolutionmenu-utility-stims-name = Ephedrine Overdose
