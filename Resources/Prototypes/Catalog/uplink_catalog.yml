@@ -978,7 +978,7 @@
 - type: listing
   id: UplinkReinforcementRadioSyndicate
   name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  description: uplink-reinforcement-radio-traitor-desc
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
@@ -994,9 +994,9 @@
 
 # Goobstation - Nukeop reinforcement
 - type: listing
-  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns another nuclear operative.
-  name: uplink-operative-radio-name
-  description: uplink-operative-radio-desc
+  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns an agent with the NukeOperative component.
+  name: uplink-reinforcement-radio-name
+  description: uplink-reinforcement-radio-nukeops-desc
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
@@ -1404,6 +1404,22 @@
     Telecrystal: 40
   categories:
   - UplinkWearables
+
+- type: listing
+  id: UplinkClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkHardsuitSyndieElite
