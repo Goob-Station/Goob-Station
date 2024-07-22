@@ -1,4 +1,5 @@
 using Content.Shared.DeltaV.Storage.EntitySystems;
+using Content.Shared.FixedPoint;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -26,4 +27,8 @@ public sealed partial class MouthStorageComponent : Component
     [ViewVariables]
     [DataField]
     public EntityUid? MouthId;
+
+    // Mimimum inflicted damage on hit to spit out items
+    [DataField("spitDamageThreshold")]
+    public FixedPoint2 SpitDamageThreshold = FixedPoint2.New(2);
 }

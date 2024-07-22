@@ -1,4 +1,6 @@
 using Content.Shared.Actions;
+using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.DeltaV.Storage.Components;
 using Content.Shared.Standing;
 using Content.Shared.Storage.Components;
@@ -16,7 +18,9 @@ public abstract class SharedMouthStorageSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<MouthStorageComponent, MapInitEvent>(OnMouthStorageInit);
-        SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(OnDowned);
+        SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
+        SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
+        SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
     }
 
     private void OnMouthStorageInit(EntityUid uid, MouthStorageComponent component, MapInitEvent args)
@@ -38,11 +42,22 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         }
     }
 
-    private void OnDowned(EntityUid uid, MouthStorageComponent component, DownedEvent args)
+    private void DropAllContents(EntityUid uid, MouthStorageComponent component, EntityEventArgs args)
     {
         if (component.MouthId == null)
             return;
 
         RaiseLocalEvent(component.MouthId.Value, new DumpContentsEvent(uid, uid));
+    }
+
+    private void OnDamageModified(EntityUid uid, MouthStorageComponent component, DamageChangedEvent args)
+    {
+        if (args.DamageDelta == null || !args.DamageIncreased)
+            return;
+
+        if (args.DamageDelta.GetTotal() < component.SpitDamageThreshold)
+            return;
+
+        DropAllContents(uid, component, args);
     }
 }
