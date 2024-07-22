@@ -10,7 +10,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 28
+        Piercing: 40 # Goobstation - Don't really have to cycle them here, so a moderate nerf over 13 makes sense... not 28 damage what the actual fuck was that?
 
 - type: entity
   id: PelletShotgunBeanbag
