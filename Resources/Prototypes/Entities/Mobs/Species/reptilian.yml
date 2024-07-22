@@ -72,5 +72,11 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    hideLayersOnEquip:
+    - Snout
+    - HeadTop
+    - HeadSide
+  - type: Inventory
+    speciesId: reptilian
 
 #Weh

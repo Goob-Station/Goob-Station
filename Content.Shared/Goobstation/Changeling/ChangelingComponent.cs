@@ -39,10 +39,7 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInStasis = false;
 
-    public EntityUid? ArmbladeEntity;
-    public EntityUid? ShieldEntity;
-    public EntityUid? ArmorEntity, ArmorHelmetEntity;
-    public EntityUid? SpacesuitEntity, SpacesuitHelmetEntity;
+    public Dictionary<string, EntityUid?> Equipment = new();
 
     public bool StrainedMusclesActive = false;
 
