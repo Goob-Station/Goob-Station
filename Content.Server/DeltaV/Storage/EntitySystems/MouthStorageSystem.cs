@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.Nutrition;
 using Content.Server.Speech;
 using Content.Server.Speech.EntitySystems;
