@@ -114,6 +114,7 @@
   - type: MouthStorage
     mouthProto: CheekStorage
     openStorageAction: ActionOpenMouthStorage
+    spitDamageThreshold: 3
 
 - type: entity
   save: false
