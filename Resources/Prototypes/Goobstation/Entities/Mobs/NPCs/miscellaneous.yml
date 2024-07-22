@@ -14,13 +14,12 @@
       drawdepth: Mobs
       sprite: Goobstation/Mobs/Demons/skibidi.rsi
       layers:
-        - map: [ "enum.DamageStateVisualLayers.Base" ]
+        - map: ["enum.DamageStateVisualLayers.Base"]
           state: alive
     - type: Fixtures
       fixtures:
         fix1:
-          shape:
-            !type:PhysShapeCircle
+          shape: !type:PhysShapeCircle
             radius: 0.30
           density: 80
           mask:
@@ -66,3 +65,128 @@
       interactFailureString: petting-failure-generic
       interactSuccessSound:
         path: /Audio/Goobstation/Animals/skibidi.wav
+
+- type: entity
+  name: OSRS NPC
+  description: Reminiscent of an older time...
+  id: MobOSRS
+  parent: [MobRespirator, MobAtmosStandard, StripableInventoryBase, BaseSimpleMob, MobCombat, MobBloodstream, MobFlammable]
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2
+    baseSprintSpeed: 4.5
+  - type: CombatMode
+  - type: Inventory
+    speciesId: human
+  - type: Deathgasp
+  - type: Stripping
+  - type: Hands
+  - type: ComplexInteraction
+  - type: Body
+    prototype: Human
+    requiredLegs: 0
+  - type: MeleeWeapon
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 30
+    animation: WeaponArcBite
+    damage:
+      types:
+        Blunt: 3
+        Piercing: 3
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 3
+  - type: Puller
+    needsHands: false
+  - type: CanHostGuardian
+  - type: NPCRetaliation
+    attackMemoryLength: 10
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: IdExaminable
+  - type: Hunger
+    thresholds: # only animals and rats are derived from this prototype so let's override it here and in rats' proto
+      Overfed: 100
+      Okay: 50
+      Peckish: 25
+      Starving: 10
+      Dead: 0
+    baseDecayRate: 0.00925925925926 # it is okay for animals to eat and drink less than humans, but more frequently
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200
+      Okay: 150
+      Thirsty: 100
+      Parched: 50
+      Dead: 0
+    baseDecayRate: 0.04
+  - type: StatusEffects
+    allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Stutter
+      - Electrocution
+      - ForcedSleep
+      - TemporaryBlindness
+      - Pacified
+      - StaminaModifier
+      - Flashed
+  - type: Bloodstream
+    bloodMaxVolume: 150
+  - type: Climbing
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      80: 0.5
+  - type: Perishable
+  - type: MobPrice
+    price: 150
+  - type: FloatingVisuals
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Sprite
+    scale: 0.18, 0.18
+    drawdepth: Mobs
+    sprite: Goobstation/Mobs/Demons/osrs.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base", "Idle", "Walk", "Run"]
+        state: idle
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Critical:
+        Base: crit
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Critical
+      200: Dead
+  - type: SpriteMovement
+    walkLayers:
+      Walk:
+        state: walk
+    runLayers:
+      Run:
+        state: run
+    noMovementLayers:
+      Idle:
+        state: idle
+  - type: RandomMetadata
+    nameSegments:
+    - names_first_male
+  - type: Grammar
+    attributes:
+      gender: male
