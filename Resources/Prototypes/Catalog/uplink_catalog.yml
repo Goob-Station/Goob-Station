@@ -394,7 +394,7 @@
   productEntity: GrenadeIncendiary
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20 # Better than the shrapnel nade by far. 
+    Telecrystal: 20 # Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
 
@@ -682,7 +682,7 @@
   productEntity: ChameleonProjector
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 30 # Basically a meme item at 35 TC to be real. 
+    Telecrystal: 30 # Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
 
@@ -978,7 +978,7 @@
 - type: listing
   id: UplinkReinforcementRadioSyndicate
   name: uplink-reinforcement-radio-name
-  description: uplink-reinforcement-radio-desc
+  description: uplink-reinforcement-radio-traitor-desc
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
@@ -994,9 +994,9 @@
 
 # Goobstation - Nukeop reinforcement
 - type: listing
-  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns another nuclear operative.
-  name: uplink-operative-radio-name
-  description: uplink-operative-radio-desc
+  id: UplinkReinforcementRadioSyndicateNukeops # Version for Nukeops that spawns an agent with the NukeOperative component.
+  name: uplink-reinforcement-radio-name
+  description: uplink-reinforcement-radio-nukeops-desc
   productEntity: ReinforcementRadioSyndicateNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
   cost:
@@ -1406,6 +1406,22 @@
   - UplinkWearables
 
 - type: listing
+  id: UplinkClothingOuterArmorRaid
+  name: uplink-syndie-raid-name
+  description: uplink-syndie-raid-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateRaidBundle
+  cost:
+    Telecrystal: 8
+  categories:
+  - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkHardsuitSyndieElite
   name: uplink-hardsuit-syndieelite-name
   description: uplink-hardsuit-syndieelite-desc
@@ -1722,7 +1738,7 @@
   productEntity: RevolverCapGunFake
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 28 
+    Telecrystal: 28
   categories:
   - UplinkJob
   conditions:

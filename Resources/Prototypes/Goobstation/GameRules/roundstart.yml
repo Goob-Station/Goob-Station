@@ -1,0 +1,149 @@
+- type: entity
+  parent: BaseGameRule
+  id: Changeling
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 7
+      playerRatio: 10
+      lateJoinAdditional: true
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+
+- type: entity
+  parent: BaseTraitorRule
+  id: CalmTraitor # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 30
+    delay:
+      min: 240
+      max: 420
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 5
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        - Changeling
+      lateJoinAdditional: true
+      mindComponents:
+      - type: TraitorRole
+        prototype: Traitor
+
+- type: entity
+  parent: Changeling
+  id: CalmLing # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 30
+    delay:
+      min: 30
+      max: 60
+  - type: AntagSelection
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 2
+      playerRatio: 15
+      lateJoinAdditional: true
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+
+- type: entity
+  parent: BaseNukeopsRule
+  id: Calmops # For Dual Antag Gamemodes
+  components:
+  - type: GameRule
+    minPlayers: 30
+  - type: LoadMapRule
+    mapPath: /Maps/Nonstations/nukieplanet.yml
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ NukeopsCommander ]
+      fallbackRoles: [ Nukeops, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsCommander
+      startingGear: SyndicateCommanderGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: NukeopsCommander
+    - prefRoles: [ NukeopsMedic ]
+      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      spawnerPrototype: SpawnPointNukeopsMedic
+      startingGear: SyndicateOperativeMedicFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: NukeopsMedic
+    - prefRoles: [ Nukeops ]
+      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsOperative
+      max: 1
+      playerRatio: 15
+      startingGear: SyndicateOperativeGearFull
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: Nukeops
+
+- type: entity
+  id: CalmRevs # For Dual Antag Gamemodes
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 30
+  - type: RevolutionaryRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ HeadRev ]
+      max: 1
+      playerRatio: 20
+      briefing:
+        text: head-rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      startingGear: HeadRevGear
+      components:
+      - type: Revolutionary
+      - type: HeadRevolutionary
+      mindComponents:
+      - type: RevolutionaryRole
+        prototype: HeadRev

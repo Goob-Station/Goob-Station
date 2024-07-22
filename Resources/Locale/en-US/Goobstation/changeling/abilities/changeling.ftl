@@ -23,8 +23,7 @@ changeling-sting-fail-ling = Someone just tried to silently sting you!
 
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
 changeling-sting-fail-simplemob = You can't sting a lesser creature!
-changeling-sting-extract-max = Disposed of the first stored DNA to free up space for new DNA
-changeling-sting-extract-fail = Can't extract DNA, need another target
+changeling-sting-extract-fail = Unable to extract DNA
 
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!
@@ -32,19 +31,12 @@ changeling-stasis-exit = You exit regenerative stasis
 changeling-stasis-exit-fail = We're not in a stasis!
 changeling-stasis-exit-fail-dead = Can't exit stasis!
 
-changeling-hand-transform-end = Your arm takes back it's initial form
 changeling-fail-hands = Need to drop something beforehand
-
-changeling-armblade-start = Your arm reforms into a grotesque blade
-changeling-shield-start = Your arm reforms into a meat shield
 
 changeling-muscles-start = Your body feels a lot lighter
 changeling-muscles-end = Your legs feel heavier
 
 changeling-equip-armor-fail = Need to get rid of existing outer clothing beforehand
-changeling-equip-armor-start = Your body gets wrapped in a sturdy chitinous shell
-changeling-equip-spacesuit-start = Your body transforms into a spaceproof abomination
-changeling-equip-end = Your body takes back it's original shape
 
 changeling-inject = You inject yourself
 changeling-inject-fail = Failed to inject yourself!
@@ -59,4 +51,4 @@ changeling-panacea = You mutate and alter your DNA for better cell regeneration
 changeling-chameleon-start = You adapt your skin to the environment
 changeling-chameleon-end = Your skin is losing it's translucency
 
-changeling-hivemind-start = We tune our brainwaves to match the hivemind frequency
+changeling-hivemind-start = You tune your brainwaves to match the hivemind frequency

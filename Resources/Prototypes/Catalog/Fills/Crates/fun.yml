@@ -300,6 +300,8 @@
         orGroup: GiftPool
       - id: MrDips
         orGroup: Giftpool
+      - id: LilCal
+        orGroup: Giftpool
       - id: RevolverCapGun
       - id: BalloonNT
       - id: ClothingShoesClownLarge
