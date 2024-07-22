@@ -3,6 +3,7 @@ using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.DeltaV.Storage.Components;
 using Content.Shared.Standing;
+using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -21,6 +22,14 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
+    }
+
+    protected bool IsMouthBlocked(MouthStorageComponent component)
+    {
+        if (!TryComp<StorageComponent>(component.MouthId, out var storage))
+            return false;
+
+        return storage.Container.ContainedEntities.Count > 0;
     }
 
     private void OnMouthStorageInit(EntityUid uid, MouthStorageComponent component, MapInitEvent args)
