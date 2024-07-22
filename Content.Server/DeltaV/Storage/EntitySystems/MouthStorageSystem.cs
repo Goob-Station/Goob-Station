@@ -26,9 +26,7 @@ public sealed class MouthStorageSystem : SharedMouthStorageSystem
     private void OnAccent(EntityUid uid, MouthStorageComponent component, AccentGetEvent args)
     {
         if (IsMouthBlocked(component))
-            return;
-
-        args.Message = _replacement.ApplyReplacements(args.Message, "mumble");
+            args.Message = _replacement.ApplyReplacements(args.Message, "mumble");
     }
 
     // Attempting to eat or drink anything with items in your mouth won't work
