@@ -45,7 +45,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         _containerSystem.Insert(mouth, component.Mouth);
         component.MouthId = mouth;
 
-        if (!string.IsNullOrWhiteSpace(component.OpenStorageAction))
+        if (!string.IsNullOrWhiteSpace(component.OpenStorageAction) && component.Action == null)
         {
             _actionsSystem.AddAction(uid, ref component.Action, component.OpenStorageAction, mouth);
         }
