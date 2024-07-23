@@ -23,9 +23,9 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, ToggleHideUnderTablesEvent>(OnAbilityToggle);
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, AttemptClimbEvent>(OnAttemptClimb);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
     }
 
     public void OnInit(EntityUid uid, HideUnderTableAbilityComponent component, ComponentInit args)
@@ -90,13 +90,9 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         component.ChangedFixtures.Clear();
     }
 
-    public void OnAbilityToggle(EntityUid uid, HideUnderTableAbilityComponent component, ToggleHideUnderTablesEvent args)
+    public void OnAbilityToggle(EntityUid uid, CrawlUnderObjectsComponent component, ToggleCrawlingStateEvent args)
     {
-        if (component.Enabled)
-            DisableSneakMode(uid, component);
-        else
             EnableSneakMode(uid, component);
-
         if (TryComp<AppearanceComponent>(uid, out var app))
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
     }
