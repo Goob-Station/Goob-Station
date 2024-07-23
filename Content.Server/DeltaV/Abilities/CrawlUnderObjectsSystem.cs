@@ -48,13 +48,13 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
     }
 
-    private void EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
+    private bool EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (component.Enabled)
-            return;
+            return false;
 
         if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
-            return;
+            return false;
 
         component.Enabled = true;
         Dirty(uid, component);
@@ -76,15 +76,16 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
                     manager: fixtureComponent);
             }
         }
+        return true;
     }
 
-    private void DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
+    private bool DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (!component.Enabled || IsOnCollidingTile(uid))
-            return;
+            return false;
 
         if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
-            return;
+            return false;
 
         component.Enabled = false;
         Dirty(uid, component);
@@ -100,23 +101,31 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
             }
         }
         component.ChangedFixtures.Clear();
+        return true;
     }
 
-    private void OnAbilityToggle(EntityUid uid, 
-        CrawlUnderObjectsComponent component, 
+    private void OnAbilityToggle(EntityUid uid,
+        CrawlUnderObjectsComponent component,
         ToggleCrawlingStateEvent args)
     {
+        if (args.Handled)
+            return;
+
+        bool result;
+
         if (component.Enabled)
-            DisableSneakMode(uid, component);
+            result = DisableSneakMode(uid, component);
         else
-            EnableSneakMode(uid, component);
+            result = EnableSneakMode(uid, component);
 
         if (TryComp<AppearanceComponent>(uid, out var app))
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
+
+        args.Handled = result;
     }
 
-    private void OnAttemptClimb(EntityUid uid, 
-        CrawlUnderObjectsComponent component, 
+    private void OnAttemptClimb(EntityUid uid,
+        CrawlUnderObjectsComponent component,
         AttemptClimbEvent args)
     {
         if (component.Enabled == true)
