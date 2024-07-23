@@ -18,7 +18,7 @@
       mindComponents:
       - type: ChangelingRole
         prototype: Changeling
-        
+
 - type: entity
   parent: BaseTraitorRule
   id: CalmTraitor # For Dual Antag Gamemodes
@@ -69,7 +69,7 @@
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
-    gameMap: NukieOutpost
+    mapPath: /Maps/Nonstations/nukieplanet.yml
   - type: AntagSelection
     selectionTime: PrePlayerSpawn
     definitions:
