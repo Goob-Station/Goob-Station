@@ -21,7 +21,7 @@
   icon: "JobIconHeadOfPersonnel"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  canBeAntag: true
+  canBeAntag: true # goobstation - head antags
   access:
   - Command
   - HeadOfPersonnel
@@ -50,6 +50,7 @@
   - Atmospherics
   - Medical
   special:
+  # goobstation - head antags. removed mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

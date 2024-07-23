@@ -19,7 +19,7 @@
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: true
+  canBeAntag: true # goobstation - head antags
   access:
   - Cargo
   - Salvage
@@ -29,6 +29,7 @@
   - Brig
   - Cryogenics
   special:
+  # goobstation - head antags. removed mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

@@ -14,7 +14,7 @@
   icon: "JobIconResearchDirector"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  canBeAntag: true
+  canBeAntag: true # goobstation - head antags
   access:
   - Research
   - Command
@@ -23,6 +23,7 @@
   - Brig
   - Cryogenics
   special:
+  # goobstation - head antags. removed mindshield
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
