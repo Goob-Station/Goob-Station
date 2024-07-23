@@ -5,7 +5,7 @@
     <GuideEntityEmbed Entity="MobRodentiaDummy" Caption=""/>
   </Box>
 
-  Rodentia are a race of humanoid beings resembling rodents.
+  Rodentia are a race of humanoid beings resembling rodents. Resourceful, evasive, sneaky, but fragile.
 
   ## Diet
 
@@ -15,13 +15,14 @@
   ## Benefits
 
   - Uses their claws to do some Slashing and Blunt damage.
-  - Smaller and more evasive than humans.
+  - Smaller than humans.
   - Can fit in duffelbags.
 
   ## Special
 
   - Can Rummage in disposal chutes, which can sometimes dig up food.
   - Can store small items in their cheeks. Having items in their mouth makes their speech unintelligible, and they will drop all items in their mouth if attacked, stunned, or shoved.
+  - Can "sneak" underneath tables, but not doors.
 
   ## Drawbacks
 

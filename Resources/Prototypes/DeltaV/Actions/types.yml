@@ -23,3 +23,16 @@
       sprite: Clothing/Back/Backpacks/backpack.rsi
       state: icon
     event: !type:OpenStorageImplantEvent
+
+- type: entity
+  id: ActionToggleSneakMode
+  name: Toggle sneak mode
+  description: Sneak underneath tables. 
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Clothing/Back/Backpacks/backpack.rsi
+      state: icon
+    event: !type:ToggleHideUnderTablesEvent
