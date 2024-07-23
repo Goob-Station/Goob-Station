@@ -16,7 +16,7 @@
   description: Contains 2 Glue grenades and 2 Lube Grenades
   productEntity: BoxReagentGrenades
   cost:
-    Telecrystal: 40
+    Telecrystal: 30
   categories:
     -  UplinkDisruption
 
@@ -66,7 +66,7 @@
   description: Make the floor slippery!
   productEntity: LubeGrenade
   cost:
-    Telecrystal: 15
+    Telecrystal: 14
   categories:
     -  UplinkJob
   conditions:
@@ -81,7 +81,7 @@
   description: Make the floor hard to walk in!
   productEntity: GlueGrenade
   cost:
-    Telecrystal: 7
+    Telecrystal: 5
   categories:
     -  UplinkJob
   conditions:
