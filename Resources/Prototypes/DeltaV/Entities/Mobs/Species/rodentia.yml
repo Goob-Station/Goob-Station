@@ -115,6 +115,8 @@
     mouthProto: CheekStorage
     openStorageAction: ActionOpenMouthStorage
     spitDamageThreshold: 3
+  - type: HideUnderTableAbility
+    actionProto: ActionToggleSneakMode
 
 - type: entity
   save: false
