@@ -248,6 +248,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var gone = 0;
         foreach (var entity in list)
         {
+            // goobstation - antag heads. check if a head's been revved
+            if (HasComp<RevolutionaryComponent>(entity) || HasComp<HeadRevolutionaryComponent>(entity))
+                gone++;
+
             if (TryComp<CuffableComponent>(entity, out var cuffed) && cuffed.CuffedHandCount > 0 && countCuffed)
             {
                 gone++;
