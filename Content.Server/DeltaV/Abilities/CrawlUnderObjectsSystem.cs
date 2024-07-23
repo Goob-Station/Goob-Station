@@ -1,10 +1,9 @@
-using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DeltaV.Abilities;
+using Content.Shared.Maps;
 using Content.Shared.Physics;
-using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -16,6 +15,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
 
     private const int HighImpassable = (int) CollisionGroup.HighImpassable;
     private const int MidImpassable = (int) CollisionGroup.MidImpassable;
@@ -30,7 +30,17 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
     }
 
-    public void OnInit(EntityUid uid, CrawlUnderObjectsComponent component, ComponentInit args)
+    private bool IsOnCollidingTile(EntityUid uid)
+    {
+        var xform = Transform(uid);
+        var tile = xform.Coordinates.GetTileRef();
+        if (tile == null)
+            return false;
+
+        return _turf.IsTileBlocked(tile.Value, CollisionGroup.MobMask);
+    }
+
+    private void OnInit(EntityUid uid, CrawlUnderObjectsComponent component, ComponentInit args)
     {
         if (component.ToggleHideAction != null)
             return;
@@ -38,7 +48,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
     }
 
-    public void EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
+    private void EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (component.Enabled)
             return;
@@ -70,7 +80,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
 
     private void DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
-        if (!component.Enabled)
+        if (!component.Enabled || IsOnCollidingTile(uid))
             return;
 
         if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
@@ -92,7 +102,9 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         component.ChangedFixtures.Clear();
     }
 
-    public void OnAbilityToggle(EntityUid uid, CrawlUnderObjectsComponent component, ToggleCrawlingStateEvent args)
+    private void OnAbilityToggle(EntityUid uid, 
+        CrawlUnderObjectsComponent component, 
+        ToggleCrawlingStateEvent args)
     {
         if (component.Enabled)
             DisableSneakMode(uid, component);
@@ -103,7 +115,9 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
     }
 
-    public void OnAttemptClimb(EntityUid uid, CrawlUnderObjectsComponent component, AttemptClimbEvent args)
+    private void OnAttemptClimb(EntityUid uid, 
+        CrawlUnderObjectsComponent component, 
+        AttemptClimbEvent args)
     {
         if (component.Enabled == true)
             args.Cancelled = true;
