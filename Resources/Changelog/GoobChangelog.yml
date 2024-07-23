@@ -443,3 +443,9 @@ Entries:
       message: OSRS NPC is more robust.
   id: 56
   time: '2024-07-22T02:54:56.0000000+00:00'
+- author: mryikes
+  changes:
+    - type: Add
+      message: A new nuke song, Last Call has been added!
+  id: 57
+  time: '2024-07-23T12:52:32.0000000+00:00'
