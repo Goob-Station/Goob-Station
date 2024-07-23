@@ -1,4 +1,5 @@
 using Content.Shared.DeltaV.Abilities;
+using Content.Shared.Popups;
 using Robust.Client.GameObjects;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
@@ -15,7 +16,9 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         SubscribeLocalEvent<HideUnderTableAbilityComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnAppearanceChange(EntityUid uid, HideUnderTableAbilityComponent component, AppearanceChangeEvent args)
+    private void OnAppearanceChange(EntityUid uid,
+        CrawlUnderObjectsComponent component,
+        AppearanceChangeEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;

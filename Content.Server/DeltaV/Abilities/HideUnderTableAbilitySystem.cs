@@ -48,13 +48,13 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
     }
 
-    private void EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
+    private bool EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (component.Enabled)
-            return;
+            return false;
 
         if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
-            return;
+            return false;
 
         component.Enabled = true;
         Dirty(uid, component);
@@ -76,15 +76,16 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
                     manager: fixtureComponent);
             }
         }
+        return true;
     }
 
-    private void DisableSneakMode(EntityUid uid, HideUnderTableAbilityComponent component)
+    private bool DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (!component.Enabled || IsOnCollidingTile(uid))
-            return;
+            return false;
 
         if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
-            return;
+            return false;
 
         component.Enabled = false;
         Dirty(uid, component);
@@ -100,15 +101,27 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
             }
         }
         component.ChangedFixtures.Clear();
+        return true;
     }
 
     private void OnAbilityToggle(EntityUid uid,
         CrawlUnderObjectsComponent component,
         ToggleCrawlingStateEvent args)
     {
-            EnableSneakMode(uid, component);
+        if (args.Handled)
+            return;
+
+        bool result;
+
+        if (component.Enabled)
+            result = DisableSneakMode(uid, component);
+        else
+            result = EnableSneakMode(uid, component);
+
         if (TryComp<AppearanceComponent>(uid, out var app))
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
+
+        args.Handled = result;
     }
 
     private void OnAttemptClimb(EntityUid uid,

@@ -29,7 +29,7 @@
   components:
   - type: InstantAction
     itemIconStyle: BigAction
-    useDelay: 5
+    useDelay: 3
     icon:
       sprite: Structures/Furniture/Tables/generic.rsi
       state: full
