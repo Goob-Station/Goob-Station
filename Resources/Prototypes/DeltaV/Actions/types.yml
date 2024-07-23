@@ -18,10 +18,8 @@
   components:
   - type: InstantAction
     itemIconStyle: BigAction
-    priority: -20
-    icon:
-      sprite: Clothing/Back/Backpacks/backpack.rsi
-      state: icon
+    priority: -10
+    icon: DeltaV/Interface/Actions/mouthStorageOpen.png
     event: !type:OpenStorageImplantEvent
 
 - type: entity
@@ -31,8 +29,8 @@
   components:
   - type: InstantAction
     itemIconStyle: BigAction
-    priority: -20
+    useDelay: 5
     icon:
-      sprite: Clothing/Back/Backpacks/backpack.rsi
-      state: icon
+      sprite: Structures/Furniture/Tables/generic.rsi
+      state: full
     event: !type:ToggleHideUnderTablesEvent
