@@ -1,15 +1,17 @@
+using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DeltaV.Abilities;
 using Content.Shared.Physics;
+using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Server.DeltaV.Abilities.Systems;
 
-public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAbilitySystem
+public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -23,12 +25,12 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, ToggleHideUnderTablesEvent>(OnAbilityToggle);
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, AttemptClimbEvent>(OnAttemptClimb);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleHideUnderTablesEvent>(OnAbilityToggle);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
     }
 
-    public void OnInit(EntityUid uid, HideUnderTableAbilityComponent component, ComponentInit args)
+    public void OnInit(EntityUid uid, CrawlUnderObjectsComponent component, ComponentInit args)
     {
         if (component.ToggleHideAction != null)
             return;
@@ -36,7 +38,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         _actionsSystem.AddAction(uid, ref component.ToggleHideAction, component.ActionProto);
     }
 
-    public void EnableSneakMode(EntityUid uid, HideUnderTableAbilityComponent component)
+    public void EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (component.Enabled)
             return;
@@ -46,7 +48,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 
         component.Enabled = true;
         Dirty(uid, component);
-        RaiseLocalEvent(uid, new HideUnderTablesUpdatedEvent(component.Enabled));
+        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
 
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
@@ -66,7 +68,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         }
     }
 
-    private void DisableSneakMode(EntityUid uid, HideUnderTableAbilityComponent component)
+    private void DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (!component.Enabled)
             return;
@@ -76,7 +78,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 
         component.Enabled = false;
         Dirty(uid, component);
-        RaiseLocalEvent(uid, new HideUnderTablesUpdatedEvent(component.Enabled));
+        RaiseLocalEvent(uid, new CrawlingUpdatedEvent(component.Enabled));
 
         // Restore normal collision masks
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
@@ -90,7 +92,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         component.ChangedFixtures.Clear();
     }
 
-    public void OnAbilityToggle(EntityUid uid, HideUnderTableAbilityComponent component, ToggleHideUnderTablesEvent args)
+    public void OnAbilityToggle(EntityUid uid, CrawlUnderObjectsComponent component, ToggleHideUnderTablesEvent args)
     {
         if (component.Enabled)
             DisableSneakMode(uid, component);
@@ -101,7 +103,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
     }
 
-    public void OnAttemptClimb(EntityUid uid, HideUnderTableAbilityComponent component, AttemptClimbEvent args)
+    public void OnAttemptClimb(EntityUid uid, CrawlUnderObjectsComponent component, AttemptClimbEvent args)
     {
         if (component.Enabled == true)
             args.Cancelled = true;

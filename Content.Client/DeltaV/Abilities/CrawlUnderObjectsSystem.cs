@@ -4,7 +4,7 @@ using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client.DeltaV.Abilities;
 
-public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAbilitySystem
+public sealed partial class HideUnderTableAbilitySystem : SharedCrawlUnderObjectsSystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
 
@@ -12,10 +12,10 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HideUnderTableAbilityComponent, AppearanceChangeEvent>(OnAppearanceChange);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, AppearanceChangeEvent>(OnAppearanceChange);
     }
 
-    private void OnAppearanceChange(EntityUid uid, HideUnderTableAbilityComponent component, AppearanceChangeEvent args)
+    private void OnAppearanceChange(EntityUid uid, CrawlUnderObjectsComponent component, AppearanceChangeEvent args)
     {
         if (!TryComp<SpriteComponent>(uid, out var sprite))
             return;

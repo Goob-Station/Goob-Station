@@ -9,11 +9,10 @@ namespace Content.Shared.DeltaV.Abilities;
 [RegisterComponent]
 [NetworkedComponent]
 [AutoGenerateComponentState]
-public sealed partial class HideUnderTableAbilityComponent : Component
+public sealed partial class CrawlUnderObjectsComponent : Component
 {
     [DataField]
     public EntityUid? ToggleHideAction;
-
 
     [DataField("actionProto")]
     public EntProtoId? ActionProto;
@@ -42,11 +41,11 @@ public sealed partial class ToggleHideUnderTablesEvent : InstantActionEvent
 { }
 
 [Serializable, NetSerializable]
-public sealed partial class HideUnderTablesUpdatedEvent : EventArgs
+public sealed partial class CrawlingUpdatedEvent : EventArgs
 {
     public readonly bool Enabled = false;
 
-    public HideUnderTablesUpdatedEvent(bool enabled)
+    public CrawlingUpdatedEvent(bool enabled)
     {
         Enabled = enabled;
     }
