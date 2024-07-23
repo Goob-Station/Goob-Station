@@ -3,6 +3,7 @@ using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.DeltaV.Abilities;
 using Content.Shared.Maps;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
@@ -14,6 +15,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movespeed = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
@@ -28,6 +30,8 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent,
+            RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
     }
 
     private bool IsOnCollidingTile(EntityUid uid)
@@ -121,6 +125,8 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         if (TryComp<AppearanceComponent>(uid, out var app))
             _appearance.SetData(uid, SneakMode.Enabled, component.Enabled, app);
 
+        _movespeed.RefreshMovementSpeedModifiers(uid);
+
         args.Handled = result;
     }
 
@@ -130,5 +136,11 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     {
         if (component.Enabled == true)
             args.Cancelled = true;
+    }
+
+    private void OnRefreshMovespeed(EntityUid uid, CrawlUnderObjectsComponent component, RefreshMovementSpeedModifiersEvent args)
+    {
+        if (component.Enabled)
+            args.ModifySpeed(component.SneakSpeedModifier, component.SneakSpeedModifier);
     }
 }

@@ -30,6 +30,9 @@ public sealed partial class HideUnderTableAbilityComponent : Component
 
     [DataField]
     public int? OriginalDrawDepth;
+
+    [DataField]
+    public float SneakSpeedModifier = 0.7f;
 }
 
 [Serializable, NetSerializable]
