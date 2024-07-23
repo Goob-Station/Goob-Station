@@ -29,6 +29,9 @@ public sealed partial class CrawlUnderObjectsComponent : Component
 
     [DataField]
     public int? OriginalDrawDepth;
+
+    [DataField]
+    public float SneakSpeedModifier = 0.7f;
 }
 
 [Serializable, NetSerializable]
