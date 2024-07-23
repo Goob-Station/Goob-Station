@@ -37,7 +37,7 @@ public enum SneakMode : byte
     Enabled
 }
 
-public sealed partial class ToggleHideUnderTablesEvent : InstantActionEvent
+public sealed partial class ToggleCrawlingStateEvent : InstantActionEvent
 { }
 
 [Serializable, NetSerializable]

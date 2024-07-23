@@ -26,7 +26,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         base.Initialize();
 
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleHideUnderTablesEvent>(OnAbilityToggle);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
     }
 
@@ -92,7 +92,7 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
         component.ChangedFixtures.Clear();
     }
 
-    public void OnAbilityToggle(EntityUid uid, CrawlUnderObjectsComponent component, ToggleHideUnderTablesEvent args)
+    public void OnAbilityToggle(EntityUid uid, CrawlUnderObjectsComponent component, ToggleCrawlingStateEvent args)
     {
         if (component.Enabled)
             DisableSneakMode(uid, component);
