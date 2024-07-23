@@ -9,7 +9,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Server.DeltaV.Abilities.Systems;
+namespace Content.Server.DeltaV.Abilities;
 
 public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAbilitySystem
 {
