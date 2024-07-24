@@ -56,7 +56,6 @@ using Robust.Shared.Player;
 using System.Numerics;
 using Content.Shared.Camera;
 using Robust.Shared.Timing;
-using Content.Shared.Gravity;
 using Content.Shared.Damage.Components;
 using Content.Server.Gravity;
 
@@ -359,8 +358,8 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
         {
-            comp.AbsorbedDNA.RemoveAt(0);
             _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+            return;
         }
         comp.AbsorbedDNA.Add(data);
 
