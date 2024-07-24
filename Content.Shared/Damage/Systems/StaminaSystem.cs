@@ -22,6 +22,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
+using Robust.Shared.Random; // Goob - Shove
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Damage.Systems;
@@ -40,6 +41,8 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
     [Dependency] private readonly ClothingModifyStunTimeSystem _modify = default!; // goob edit
+    [Dependency] private readonly IRobustRandom _random = default!; // Goob - Shove
+
 
     /// <summary>
     /// How much of a buffer is there between the stun duration and when stuns can be re-applied.

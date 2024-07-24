@@ -7,6 +7,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared._EinsteinEngines.Contests;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -57,6 +58,8 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
     [Dependency] private   readonly ContestsSystem          _contests        = default!;
     [Dependency] private   readonly ThrowingSystem          _throwing        = default!; // WWDP
     [Dependency] private   readonly IConfigurationManager   _config          = default!; // WWDP
+    [Dependency] private   readonly SharedTransformSystem   _transform       = default!; // Goob - Shove
+
 
     private const int AttackMask = (int) (CollisionGroup.MobMask | CollisionGroup.Opaque);
 
@@ -820,17 +823,17 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
 
         // WWDP Push shove physics yeee
 
-        float shoverange = _config.GetCVar(WhiteCVars.ShoveRange);
-        float shovespeed = _config.GetCVar(WhiteCVars.ShoveSpeed);
-        float shovemass = _config.GetCVar(WhiteCVars.ShoveMassFactor);
+        var shoveRange = _config.GetCVar(GoobCVars.ShoveRange);
+        var shoveSpeed = _config.GetCVar(GoobCVars.ShoveSpeed);
+        var shoveMass = _config.GetCVar(GoobCVars.ShoveMassFactor);
 
-        var force = shoverange * _contests.MassContest(user, target, rangeFactor: shovemass);
+        var force = shoveRange * _contests.MassContest(user, target, rangeFactor: shoveMass);
 
-        var userPos = user.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
-        var targetPos = target.ToCoordinates().ToMapPos(EntityManager, TransformSystem);
+        var userPos = _transform.ToMapCoordinates(user.ToCoordinates()).Position;
+        var targetPos = _transform.ToMapCoordinates(target.ToCoordinates()).Position;
         var pushVector = (targetPos - userPos).Normalized() * force;
 
-        _throwing.TryThrow(target, pushVector, force * shovespeed, animated: false);
+        _throwing.TryThrow(target, pushVector, force * shoveSpeed, animated: false);
         // WWDP Edit end
 
         var comboEv = new ComboAttackPerformedEvent(user, target, meleeUid, ComboAttackType.Disarm);
