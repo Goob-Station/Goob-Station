@@ -132,6 +132,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
+            HasComp<CommandStaffComponent>(ev.Target) || // goobstation - head antags
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
