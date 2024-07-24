@@ -467,3 +467,9 @@ Entries:
       message: Fixed changelings not showing up as antags (thanks huffs)
   id: 59
   time: '2024-07-24T04:30:32.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Jukeboxes now activate artifacts
+  id: 60
+  time: '2024-07-24T04:31:11.0000000+00:00'
