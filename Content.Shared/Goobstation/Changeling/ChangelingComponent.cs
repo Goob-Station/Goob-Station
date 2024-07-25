@@ -10,10 +10,8 @@ namespace Content.Shared.Changeling;
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
-    /// <summary>
-    ///     Sound pool used for audible abilities.
-    /// </summary>
-    [DataField] public List<SoundSpecifier?> AbilitySoundPool = new()
+    [DataField("soundMeatPool")]
+    public List<SoundSpecifier?> SoundPool = new()
     {
         new SoundPathSpecifier("/Audio/Effects/gib1.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
@@ -116,17 +114,20 @@ public sealed partial class TransformData
     /// <summary>
     ///     Entity's name.
     /// </summary>
-    [DataField] public string Name;
+    [DataField]
+    public string Name;
 
     /// <summary>
     ///     Entity's fingerprint, if it exists.
     /// </summary>
-    [DataField] public string? Fingerprint;
+    [DataField]
+    public string? Fingerprint;
 
     /// <summary>
     ///     Entity's DNA.
     /// </summary>
-    [DataField] public string DNA;
+    [DataField("dna")]
+    public string DNA;
 
     /// <summary>
     ///     Entity's humanoid appearance component.

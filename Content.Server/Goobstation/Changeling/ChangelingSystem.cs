@@ -197,8 +197,8 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public void PlayMeatySound(EntityUid uid, ChangelingComponent comp)
     {
-        var rand = _rand.Next(0, comp.AbilitySoundPool.Count - 1);
-        var sound = comp.AbilitySoundPool.ToArray()[rand];
+        var rand = _rand.Next(0, comp.SoundPool.Count - 1);
+        var sound = comp.SoundPool.ToArray()[rand];
         _audio.PlayPvs(sound, uid, AudioParams.Default.WithVolume(-3f));
     }
     public void DoScreech(EntityUid uid, ChangelingComponent comp)
@@ -327,50 +327,31 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TryToggleItem(EntityUid uid, ChangelingComponent comp, EntProtoId proto, string? clothingSlot = null)
+    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp, string? clothingSlot = null)
     {
-        // check if the item does not exist
-        if (!comp.Equipment.TryGetValue(proto, out var item) && (item == null || item.Entity == null))
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
         {
-            item = new ChangelingEquipmentData(Spawn(proto, Transform(uid).Coordinates), clothingSlot);
-
-            if (item.Entity == null)
-                return false;
-
-            // check if we have an predefined slot and put the item there
-            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item.Entity, clothingSlot, force: true))
+            item = Spawn(proto, Transform(uid).Coordinates);
+            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item, clothingSlot, force: true))
             {
-                _popup.PopupEntity(Loc.GetString("changeling-equip-outer-fail"), uid, uid);
-                QueueDel(item.Entity);
+                QueueDel(item);
                 return false;
             }
-            // if not, we're going to spawn it in a hand
-            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item.Entity))
+            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
             {
                 _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
-                QueueDel(item.Entity);
+                QueueDel(item);
                 return false;
             }
-
-            if (_inventory.TryGetContainingSlot((EntityUid) item.Entity, out var slotDef) && item.EquipmentSlot == null)
-                item.EquipmentSlot = slotDef.SlotGroup;
-
             comp.Equipment.Add(proto.Id, item);
-
             return true;
         }
-        // so it did exist! get rid of it.
-        else if (item != null && item.Entity != null)
-        {
-            QueueDel(item.Entity);
-            comp.Equipment.Remove(proto);
-        }
+
+        QueueDel(item);
+        // assuming that it exists
+        comp.Equipment.Remove(proto.Id);
 
         return true;
-    }
-    public bool TryToggleItem(EntityUid uid, ChangelingComponent comp, ChangelingEquipmentData data)
-    {
-        return TryToggleItem(uid, comp, data.Prototype, data.EquipmentSlot);
     }
 
     public void AddDNA(EntityUid uid, ChangelingComponent comp, TransformData data, bool countObjective = false)
@@ -540,10 +521,6 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         foreach (var equip in comp.Equipment.Values)
             QueueDel(equip);
-
-            QueueDel(equip.Entity);
-            comp.Equipment.Remove(equip.Prototype);
-        }
 
         PlayMeatySound(target, comp);
     }
