@@ -1,8 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
-using Content.Shared.Changeling.Components;
 
-namespace Content.Shared.Changeling.EntitySystems;
+namespace Content.Shared.Changeling;
 
 public sealed partial class AbsorbedSystem : EntitySystem
 {

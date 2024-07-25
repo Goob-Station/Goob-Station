@@ -1,4 +1,4 @@
-using Content.Server.Changeling.EntitySystems;
+using Content.Server.Changeling;
 using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
