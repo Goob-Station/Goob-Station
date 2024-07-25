@@ -4,27 +4,34 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
-    [DataField("soundMeatPool")]
-    public List<SoundSpecifier?> SoundPool = new()
+    /// <summary>
+    ///     Sound pool used for audible abilities.
+    /// </summary>
+    [DataField] public List<SoundSpecifier?> AbilitySoundPool = new()
     {
         new SoundPathSpecifier("/Audio/Effects/gib1.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
 
-    #region Abilities
+    /// <summary>
+    ///     Contains all changeling exclusive equipment for further processing.
+    /// </summary>
+    [DataField] public Dictionary<EntProtoId, ChangelingEquipmentData?> Equipment = new();
 
-    [DataField("soundShriek")]
-    public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
+    public bool IsInStasis = false;
 
-    [DataField("shriekPower")]
-    public float ShriekPower = 2.5f;
+    public bool IsInLesserForm = false;
+
+    [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
+
+    [DataField] public float ShriekPower = 2.5f;
 
     public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
     {
@@ -37,15 +44,7 @@ public sealed partial class ChangelingComponent : Component
         "ActionExitStasis"
     };
 
-    public bool IsInStasis = false;
-
-    public Dictionary<string, EntityUid?> Equipment = new();
-
     public bool StrainedMusclesActive = false;
-
-    public bool IsInLesserForm = false;
-
-    #endregion
 
     #region Base
 
@@ -100,10 +99,10 @@ public sealed partial class ChangelingComponent : Component
     public TransformData? SelectedForm;
 
     #endregion
-    /// <summary>
-    /// The status icon corresponding to the Changlings.
-    /// </summary>
 
+    /// <summary>
+    ///     The status icon used for Hivemind Access ability.
+    /// </summary>
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
@@ -114,24 +113,35 @@ public sealed partial class TransformData
     /// <summary>
     ///     Entity's name.
     /// </summary>
-    [DataField]
-    public string Name;
+    [DataField] public string Name;
 
     /// <summary>
     ///     Entity's fingerprint, if it exists.
     /// </summary>
-    [DataField]
-    public string? Fingerprint;
+    [DataField] public string? Fingerprint;
 
     /// <summary>
     ///     Entity's DNA.
     /// </summary>
-    [DataField("dna")]
-    public string DNA;
+    [DataField] public string DNA;
 
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
+}
+
+[DataDefinition]
+public sealed partial class ChangelingEquipmentData
+{
+    [DataField] public EntProtoId Prototype;
+    [DataField] public string? EquipmentSlot;
+    public EntityUid? Entity;
+
+    public ChangelingEquipmentData(EntityUid? ent, string? slot) : base()
+    {
+        Entity = ent;
+        EquipmentSlot = slot;
+    }
 }
