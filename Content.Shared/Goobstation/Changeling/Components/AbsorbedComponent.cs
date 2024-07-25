@@ -1,6 +1,7 @@
+using Content.Shared.Changeling.EntitySystems;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared.Changeling.Components;
 
 
 /// <summary>

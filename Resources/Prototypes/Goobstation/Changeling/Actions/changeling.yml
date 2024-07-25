@@ -12,10 +12,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: evolution_menu
-    event: !type:OpenEvolutionMenuEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:OpenEvolutionMenuEvent {}
 
 - type: entity
   id: ActionAbsorbDNA
@@ -34,10 +36,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
-    event: !type:AbsorbDNAEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 25
     useInLesserForm: true
+    audible: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:AbsorbDNAEvent {}
 
 - type: entity
   id: ActionStingExtractDNA
@@ -55,10 +60,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_extractdna
-    event: !type:StingExtractDNAEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 25
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:StingExtractDNAEvent {}
 
 - type: entity
   id: ActionChangelingTransformCycle
@@ -71,10 +78,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: transform_cycle
-    event: !type:ChangelingTransformCycleEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ChangelingTransformCycleEvent {}
 
 - type: entity
   id: ActionChangelingTransform
@@ -88,10 +97,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: transform
-    event: !type:ChangelingTransformEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 5
     useInLesserForm: true
+    audible: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ChangelingTransformEvent {}
 
 - type: entity
   id: ActionEnterStasis
@@ -106,10 +118,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: stasis_enter
-    event: !type:EnterStasisEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:EnterStasisEvent {}
 
 - type: entity
   id: ActionExitStasis
@@ -124,10 +138,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: stasis_exit
-    event: !type:ExitStasisEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 60
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ExitStasisEvent {}
 
 # combat
 - type: entity
@@ -142,9 +158,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: armblade
-    event: !type:ToggleArmbladeEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 15
+    audible: true
+  - type: ChangelingActionBehaviorEquip
+    equipment:
+    - prototype: ArmBladeChangeling
 
 - type: entity
   id: ActionCreateBoneShard
@@ -158,9 +178,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: bone_shard
-    event: !type:CreateBoneShardEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 15
+    audible: true
+  - type: ChangelingActionBehaviorEquip
+    equipment:
+    - prototype: ThrowingStarChangeling
 
 - type: entity
   id: ActionToggleChitinousArmor
@@ -174,10 +198,17 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: chitinous_armor
-    event: !type:ToggleChitinousArmorEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 25
     requireAbsorbed: 2
+    audible: true
+  - type: ChangelingActionBehaviorEquip
+    equipment:
+    - prototype: ChangelingClothingOuterArmor
+      equipmentSlot: outerClothing
+    - prototype: ChangelingClothingHeadHelmet
+      equipmentSlot: head
 
 - type: entity
   id: ActionToggleOrganicShield
@@ -191,10 +222,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: organic_shield
-    event: !type:ToggleOrganicShieldEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 20
     requireAbsorbed: 1
+    audible: true
+  - type: ChangelingActionBehaviorEquip
+    equipment:
+    - prototype: ChangelingShield
 
 - type: entity
   id: ActionShriekDissonant
@@ -208,11 +243,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_dissonant
-    event: !type:ShriekDissonantEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
     requireAbsorbed: 1
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ShriekDissonantEvent {}
+  - type: ChangelingActionBehaviorShriek
 
 - type: entity
   id: ActionShriekResonant
@@ -226,11 +264,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_resonant
-    event: !type:ShriekResonantEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
     requireAbsorbed: 1
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ShriekResonantEvent {}
+  - type: ChangelingActionBehaviorShriek
 
 - type: entity
   id: ActionToggleStrainedMuscles
@@ -244,10 +285,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: strained_muscles
-    event: !type:ToggleStrainedMusclesEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ToggleStrainedMusclesEvent {}
 
 # stings
 - type: entity
@@ -266,10 +309,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
-    event: !type:StingBlindEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 35
     useInLesserForm: true
+  - type: ChangelingActionBehaviorSting
+  - type: ChangelingActionBehaviorCustom
+    event: !type:StingBlindEvent {}
 
 - type: entity
   id: ActionStingCryo
@@ -287,10 +333,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_cryo
-    event: !type:StingCryoEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 35
     useInLesserForm: true
+  - type: ChangelingActionBehaviorSting
+    reagents:
+      Fresium: 20
+      ChloralHydrate: 10
 
 - type: entity
   id: ActionStingLethargic
@@ -308,10 +358,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_lethargic
-    event: !type:StingLethargicEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 35
     useInLesserForm: true
+  - type: ChangelingActionBehaviorSting
+    reagents:
+      Impedrezene: 10
+      MuteToxin: 5
 
 - type: entity
   id: ActionStingMute
@@ -329,10 +383,13 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_mute
-    event: !type:StingMuteEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 35
     useInLesserForm: true
+  - type: ChangelingActionBehaviorSting
+    reagents:
+      MuteToxin: 15
 
 - type: entity
   id: ActionStingFakeArmblade
@@ -350,10 +407,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_armblade
-    event: !type:StingFakeArmbladeEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 50
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:StingFakeArmbladeEvent {}
 
 - type: entity
   id: ActionStingTransform
@@ -371,13 +430,14 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_transform
-    event: !type:StingTransformEvent {}
+    event: !type:ChangelingTargetActionEvent {}
   - type: ChangelingAction
     chemicalCost: 75
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:StingTransformEvent {}
 
 # utility
-
 - type: entity
   id: ActionAnatomicPanacea
   name: Anatomic Panacea
@@ -392,10 +452,17 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: anatomic_panacea
-    event: !type:ActionAnatomicPanaceaEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
+    audible: true
+  - type: ChangelingActionBehaviorSting
+    targetSelf: true
+    reagents:
+      Arithrazine: 10
+      Oculine: 5
+      Ethylredoxrazine: 5
 
 - type: entity
   id: ActionAugmentedEyesight
@@ -409,9 +476,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: augmented_eyesight
-    event: !type:ActionAugmentedEyesightEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
+    useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionAugmentedEyesightEvent {}
 
 - type: entity
   id: ActionBiodegrade
@@ -426,9 +496,11 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: biodegrade
-    event: !type:ActionBiodegradeEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 30
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionBiodegradeEvent {}
 
 - type: entity
   id: ActionChameleonSkin
@@ -444,9 +516,11 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: chameleon_skin
-    event: !type:ActionChameleonSkinEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionChameleonSkinEvent {}
 
 - type: entity
   id: ActionEphedrineOverdose
@@ -462,10 +536,16 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: epinephrine_overdose
-    event: !type:ActionEphedrineOverdoseEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 30
     useInLesserForm: true
+  - type: ChangelingActionBehaviorSting
+    targetSelf: true
+    reagents:
+      Synaptizine: 5
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionEphedrineOverdoseEvent {}
 
 - type: entity
   id: ActionFleshmend
@@ -476,33 +556,20 @@
   - type: InstantAction
     useDelay: 30
     checkCanInteract: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: Goobstation/Changeling/changeling_abilities.rsi
-      state: fleshmend
-    event: !type:ActionFleshmendEvent {}
-  - type: ChangelingAction
-    chemicalCost: 35
-    useInLesserForm: true
-
-- type: entity
-  id: ActionLastResort
-  name: Last Resort
-  description: Abandon your current body and become a headslug. Costs 20 chemicals.
-  noSpawn: true
-  components:
-  - type: InstantAction
-    useDelay: 5
-    checkCanInteract: false
     checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
-      state: last_resort
-    event: !type:ActionLastResortEvent {}
+      state: fleshmend
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
-    chemicalCost: 20
-    requireAbsorbed: 1
+    chemicalCost: 35
+    useInLesserForm: true
+    audible: true
+  - type: ChangelingActionBehaviorSting
+    targetSelf: true
+    reagents:
+      Ichor: 10
 
 - type: entity
   id: ActionToggleLesserForm
@@ -517,9 +584,12 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: lesser_form
-    event: !type:ActionLesserFormEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+    audible: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionLesserFormEvent {}
 
 - type: entity
   id: ActionToggleSpacesuit
@@ -533,9 +603,16 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: space_adaptation
-    event: !type:ActionSpacesuitEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+    audible: true
+  - type: ChangelingActionBehaviorEquip
+    equipment:
+    - prototype: ChangelingClothingOuterHardsuit
+      equipmentSlot: outerClothing
+    - prototype: ChangelingClothingHeadHelmetHardsuit
+      equipmentSlot: head
 
 - type: entity
   id: ActionHivemindAccess
@@ -550,7 +627,9 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: hivemind_access
-    event: !type:ActionHivemindAccessEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+  - type: ChangelingActionBehaviorCustom
+    event: !type:ActionHivemindAccessEvent {}

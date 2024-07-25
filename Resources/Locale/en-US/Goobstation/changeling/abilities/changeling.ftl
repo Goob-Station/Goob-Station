@@ -37,7 +37,7 @@ changeling-fail-hands = Need to drop something beforehand
 changeling-muscles-start = Your body feels a lot lighter
 changeling-muscles-end = Your legs feel heavier
 
-changeling-equip-armor-fail = Need to get rid of existing outer clothing beforehand
+changeling-equip-outer-fail = Need to get rid of existing outer clothing beforehand
 
 changeling-inject = You inject yourself
 changeling-inject-fail = Failed to inject yourself!
@@ -45,6 +45,7 @@ changeling-inject-fail = Failed to inject yourself!
 changeling-passive-activate = Activated ability
 changeling-passive-activate-fail = Failed to activate the ability
 changeling-passive-active = Already active!
+changeling-passive-deactivate = Deactivated ability
 
 changeling-fleshmend = Your body twists, sealing wounds and regenerating dead cells
 changeling-panacea = You mutate and alter your DNA for better cell regeneration

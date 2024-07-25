@@ -4,29 +4,30 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
-    [DataField("soundMeatPool")]
-    public List<SoundSpecifier?> SoundPool = new()
+    #region Prototypes
+
+    [DataField] public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+
+    /// <summary>
+    ///     Sound pool used for audible abilities.
+    /// </summary>
+    [DataField] public List<SoundSpecifier?> AbilitySoundPool = new()
     {
         new SoundPathSpecifier("/Audio/Effects/gib1.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
 
-    #region Abilities
-
-    [DataField("soundShriek")]
-    public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
-
-    [DataField("shriekPower")]
-    public float ShriekPower = 2.5f;
-
-    public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
+    /// <summary>
+    ///     Actions that will be given out each time a <see cref="ChangelingComponent"/> is initialized.
+    /// </summary>
+    [DataField] public List<EntProtoId> BaseChangelingActions = new()
     {
         "ActionEvolutionMenu",
         "ActionAbsorbDNA",
@@ -37,17 +38,21 @@ public sealed partial class ChangelingComponent : Component
         "ActionExitStasis"
     };
 
-    public bool IsInStasis = false;
-
-    public Dictionary<string, EntityUid?> Equipment = new();
-
-    public bool StrainedMusclesActive = false;
-
-    public bool IsInLesserForm = false;
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 
     #endregion
 
-    #region Base
+    /// <summary>
+    ///     Contains all changeling exclusive equipment for further processing.
+    /// </summary>
+    [DataField] public Dictionary<EntProtoId, ChangelingEquipmentData?> Equipment = new();
+
+    public bool IsInStasis = false;
+
+    public bool IsInLesserForm = false;
+
+    public bool StrainedMusclesActive = false;
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
@@ -60,6 +65,12 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TransformData? CurrentForm;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TransformData? SelectedForm;
 
     /// <summary>
     ///     Cooldown between chem regen events.
@@ -78,8 +89,7 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
     /// </summary>
-    [DataField("maxDna")]
-    public int MaxAbsorbedDNA = 5;
+    [DataField] public int MaxAbsorbedDNA = 5;
 
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
@@ -92,20 +102,6 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? CurrentForm;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? SelectedForm;
-
-    #endregion
-    /// <summary>
-    /// The status icon corresponding to the Changlings.
-    /// </summary>
-
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 
 [DataDefinition]
@@ -114,24 +110,39 @@ public sealed partial class TransformData
     /// <summary>
     ///     Entity's name.
     /// </summary>
-    [DataField]
-    public string Name;
+    [DataField] public string Name;
 
     /// <summary>
     ///     Entity's fingerprint, if it exists.
     /// </summary>
-    [DataField]
-    public string? Fingerprint;
+    [DataField] public string? Fingerprint;
 
     /// <summary>
     ///     Entity's DNA.
     /// </summary>
-    [DataField("dna")]
-    public string DNA;
+    [DataField] public string DNA;
 
     /// <summary>
     ///     Entity's humanoid appearance component.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly), NonSerialized]
     public HumanoidAppearanceComponent Appearance;
+}
+
+[DataDefinition]
+public sealed partial class ChangelingEquipmentData
+{
+    [DataField] public EntProtoId? Prototype;
+    [DataField] public string? EquipmentSlot;
+    public EntityUid? Entity;
+
+    public ChangelingEquipmentData(EntityUid? uid, string? slot) : base()
+    {
+        Entity = uid;
+        EquipmentSlot = slot;
+    }
+    public ChangelingEquipmentData(EntProtoId? proto, EntityUid? uid, string? slot) : this (uid, slot)
+    {
+        Prototype = proto;
+    }
 }
