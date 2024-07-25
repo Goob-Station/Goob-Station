@@ -34,7 +34,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
-        if (!lingAction.UseInLesserForm && comp.IsInLesserForm)
+        if (!lingAction.UseWhileLesserForm && comp.IsInLesserForm)
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
             return false;
@@ -174,16 +174,19 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(ent, ent.Comp, args))
             return;
 
-        if (TryComp<ChangelingActionBehaviorEquipComponent>(args.Action, out var behaviorEquip))
-            HandleBehaviorEquip(ent, behaviorEquip);
-
         if (TryComp<ChangelingActionBehaviorCustomComponent>(args.Action, out var behaviorCustom))
             HandleBehaviorCustom(args.Action, behaviorCustom);
+
+        if (TryComp<ChangelingActionBehaviorEquipComponent>(args.Action, out var behaviorEquip))
+            HandleBehaviorEquip(ent, behaviorEquip);
     }
     private void OnTargetAction(Entity<ChangelingComponent> ent, ref ChangelingTargetActionEvent args)
     {
         if (!TryUseAbility(ent, ent.Comp, args))
             return;
+
+        if (TryComp<ChangelingActionBehaviorCustomComponent>(args.Action, out var behaviorCustom))
+            RaiseLocalEvent(behaviorCustom.Event);
 
         if (TryComp<ChangelingActionBehaviorStingComponent>(args.Action, out var behaviorSting))
         {
@@ -191,9 +194,6 @@ public sealed partial class ChangelingSystem : EntitySystem
                 return;
             TryReagentSting(args.Target, behaviorSting.Reagents);
         }
-
-        if (TryComp<ChangelingActionBehaviorCustomComponent>(args.Action, out var behaviorCustom))
-            RaiseLocalEvent(behaviorCustom.Event);
     }
 
     #endregion

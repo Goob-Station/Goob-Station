@@ -60,7 +60,7 @@
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
       state: sting_extractdna
-    event: !type:ChangelingTargetActionEvent {}
+    event: !type:ChangelingInstantActionEvent {}
   - type: ChangelingAction
     chemicalCost: 25
     useInLesserForm: true
@@ -83,7 +83,7 @@
     chemicalCost: 0
     useInLesserForm: true
   - type: ChangelingActionBehaviorCustom
-    event: !type:ChangelingTransformCycleEvent {}
+    event: ChangelingTransformCycleEvent
 
 - type: entity
   id: ActionChangelingTransform
@@ -250,7 +250,7 @@
     requireAbsorbed: 1
   - type: ChangelingActionBehaviorCustom
     event: !type:ShriekDissonantEvent {}
-  - type: ChangelingActionBehaviorShriek
+  - type: ChangelingActionShriek
 
 - type: entity
   id: ActionShriekResonant
@@ -271,7 +271,7 @@
     requireAbsorbed: 1
   - type: ChangelingActionBehaviorCustom
     event: !type:ShriekResonantEvent {}
-  - type: ChangelingActionBehaviorShriek
+  - type: ChangelingActionShriek
 
 - type: entity
   id: ActionToggleStrainedMuscles

@@ -1,22 +1,14 @@
-using Content.Server.Flash.Components;
 using Content.Server.Light.Components;
-using Content.Server.Objectives.Components;
 using Content.Shared.Changeling;
 using Content.Shared.Changeling.Components;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
-using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stealth.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -63,7 +55,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (!(_mobState.IsIncapacitated(target) || TryComp<CuffableComponent>(target, out var cuffs) && cuffs.CuffedHandCount > 0))
+        if (!if (_mobState.IsIncapacitated(target) || TryComp<CuffableComponent>(target, out var cuffs) && cuffs.CuffedHandCount > 0))
         {
             _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), ent, ent);
             return;
@@ -250,7 +242,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (delta.EqualsApprox(Vector2.Zero))
                 delta = new(.01f, 0);
 
-            _recoil.KickCamera((EntityUid) gamer.AttachedEntity, -delta.Normalized());
+            _recoil.KickCamera(gamer, -delta.Normalized());
         }
 
         return action;
@@ -278,7 +270,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         foreach (var target in lookup)
         {
-            if (target == ent.Owner)
+            if (target == ent)
                 continue;
 
             if (people.HasComp(target))
@@ -294,6 +286,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnToggleStrainedMuscles(Entity<ChangelingComponent> ent, ref ToggleStrainedMusclesEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         ToggleStrainedMuscles(ent, ent.Comp);
     }
     private void ToggleStrainedMuscles(EntityUid uid, ChangelingComponent comp)
@@ -316,6 +311,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnStingBlind(Entity<ChangelingComponent> ent, ref StingBlindEvent args)
     {
+        if (!TrySting(ent, ent.Comp, args))
+            return;
+
         var target = args.Target;
         if (!TryComp<BlindableComponent>(target, out var blindable) || blindable.IsBlind)
             return;
@@ -326,14 +324,20 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnStingTransform(Entity<ChangelingComponent> ent, ref StingTransformEvent args)
     {
+        if (!TrySting(ent, ent.Comp, args, true))
+            return;
+
         var target = args.Target;
         if (!TryTransform(target, ent.Comp, true, true))
             ent.Comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
     }
     private void OnStingFakeArmblade(Entity<ChangelingComponent> ent, ref StingFakeArmbladeEvent args)
     {
+        if (!TrySting(ent, ent.Comp, args))
+            return;
+
         var target = args.Target;
-        var fakeArmblade = EntityManager.SpawnEntity(ent.Comp.FakeArmbladePrototype, Transform(target).Coordinates);
+        var fakeArmblade = EntityManager.SpawnEntity(FakeArmbladePrototype, Transform(target).Coordinates);
         if (!_hands.TryPickupAnyHand(target, fakeArmblade))
         {
             QueueDel(fakeArmblade);
@@ -347,6 +351,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public void OnAugmentedEyesight(Entity<ChangelingComponent> ent, ref ActionAugmentedEyesightEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         if (HasComp<FlashImmunityComponent>(ent))
         {
             RemComp<FlashImmunityComponent>(ent);
@@ -359,6 +366,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public void OnBiodegrade(Entity<ChangelingComponent> ent, ref ActionBiodegradeEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         if (TryComp<CuffableComponent>(ent, out var cuffs) && cuffs.Container.ContainedEntities.Count > 0)
         {
             var cuff = cuffs.LastAddedCuffs;
@@ -383,6 +393,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public void OnChameleonSkin(Entity<ChangelingComponent> ent, ref ActionChameleonSkinEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         if (HasComp<StealthComponent>(ent) && HasComp<StealthOnMoveComponent>(ent))
         {
             RemComp<StealthComponent>(ent);
@@ -397,6 +410,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public void OnLesserForm(Entity<ChangelingComponent> ent, ref ActionLesserFormEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         var newUid = TransformEntity(ent, protoId: "MobMonkey", comp: ent.Comp);
         if (newUid == null)
         {
@@ -412,6 +428,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public void OnHivemindAccess(Entity<ChangelingComponent> ent, ref ActionHivemindAccessEvent args)
     {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
         if (HasComp<HivemindComponent>(ent))
         {
             _popup.PopupEntity(Loc.GetString("changeling-passive-active"), ent, ent);
