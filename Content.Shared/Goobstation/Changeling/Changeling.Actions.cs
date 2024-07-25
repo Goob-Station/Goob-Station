@@ -23,9 +23,9 @@ public sealed partial class ChangelingActionComponent : Component
 ///     Used for custom changeling action behavior. Every other event dedidcated to changelings should be used here.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public abstract partial class ChangelingActionBehaviorCustomComponent : Component
+public sealed partial class ChangelingActionBehaviorCustomComponent : Component
 {
-    [DataField] public BaseActionEvent Event;
+    [DataField] public object Event;
 }
 
 /// <summary>
@@ -84,6 +84,7 @@ public sealed partial class StingTransformEvent : EntityTargetActionEvent { }
 public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
+public sealed partial class ActionEphedrineOverdoseEvent : InstantActionEvent { }
 public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 

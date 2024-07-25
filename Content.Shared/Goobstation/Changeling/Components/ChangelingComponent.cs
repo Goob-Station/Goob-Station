@@ -38,6 +38,9 @@ public sealed partial class ChangelingComponent : Component
         "ActionExitStasis"
     };
 
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
+
     #endregion
 
     /// <summary>
@@ -138,7 +141,7 @@ public sealed partial class ChangelingEquipmentData
         Entity = uid;
         EquipmentSlot = slot;
     }
-    public ChangelingEquipmentData(EntProtoId? proto, EntityUid? uid, string? slot) : base(uid, slot)
+    public ChangelingEquipmentData(EntProtoId? proto, EntityUid? uid, string? slot) : this (uid, slot)
     {
         Prototype = proto;
     }
