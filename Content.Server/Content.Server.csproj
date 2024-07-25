@@ -32,8 +32,5 @@
   <ItemGroup>
     <Folder Include="Objectives\Interfaces\" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Goobstation\Changeling\EntitySystems\ChangelingSystem.Abilities.cs" />
-  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
 </Project>

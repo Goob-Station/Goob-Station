@@ -4,13 +4,14 @@ using Content.Shared.Changeling.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem : EntitySystem
 {
-    private void EnableAbilities()
+    private void SubscribeAbilitiesBase()
     {
         SubscribeLocalEvent<ChangelingComponent, ChangelingInstantActionEvent>(OnInstantAction);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTargetActionEvent>(OnTargetAction);
@@ -136,7 +137,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (_inventory.TryGetContainingSlot((EntityUid) item.Entity, out var slotDef) && item.EquipmentSlot == null)
                 item.EquipmentSlot = slotDef.SlotGroup;
 
-            comp.Equipment.Add(proto.Id, item);
+            comp.Equipment.Add((EntProtoId) proto, item);
 
             return true;
         }
@@ -144,7 +145,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         else if (item != null && item.Entity != null)
         {
             QueueDel(item.Entity);
-            comp.Equipment.Remove(proto);
+            comp.Equipment.Remove((EntProtoId) proto);
         }
 
         return true;
@@ -154,44 +155,46 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     #region Base Processing
 
-    public void OnInstantAction(Entity<ChangelingComponent> ent, ref ChangelingInstantActionEvent args)
+    private void HandleBehaviorCustom(EntityUid ent, ChangelingActionBehaviorCustomComponent comp)
     {
-        if (!TryUseAbility(ent, ent.Comp, args))
-            return;
-
-        if (TryComp<ChangelingActionBehaviorEquip>(args.Action, out var behaviorEquip))
-        {
-            if (behaviorEquip.Equipment.Count > 0)
-            {
-                foreach (var item in behaviorEquip.Equipment)
-                    if (item != null)
-                        TryToggleItem(ent, ent.Comp, item);
-            }
-        }
-
-        if (TryComp<ChangelingActionBehaviorCustom>(args.Action, out var behaviorCustom))
-            RaiseLocalEvent(behaviorCustom.Event);
+        RaiseLocalEvent(comp.Event);
     }
-    public void OnTargetAction(Entity<ChangelingComponent> ent, ref ChangelingTargetActionEvent args)
+    private void HandleBehaviorEquip(Entity<ChangelingComponent> ent, ChangelingActionBehaviorEquipComponent comp)
+    {
+        if (comp.Equipment.Count > 0)
+        {
+            foreach (var item in comp.Equipment)
+                if (item != null)
+                    TryToggleItem(ent, ent.Comp, item);
+        }
+    }
+
+    private void OnInstantAction(Entity<ChangelingComponent> ent, ref ChangelingInstantActionEvent args)
     {
         if (!TryUseAbility(ent, ent.Comp, args))
             return;
 
-        if (TryComp<ChangelingActionBehaviorSting>(args.Action, out var behaviorSting))
+        if (TryComp<ChangelingActionBehaviorCustomComponent>(args.Action, out var behaviorCustom))
+            HandleBehaviorCustom(args.Action, behaviorCustom);
+
+        if (TryComp<ChangelingActionBehaviorEquipComponent>(args.Action, out var behaviorEquip))
+            HandleBehaviorEquip(ent, behaviorEquip);
+    }
+    private void OnTargetAction(Entity<ChangelingComponent> ent, ref ChangelingTargetActionEvent args)
+    {
+        if (!TryUseAbility(ent, ent.Comp, args))
+            return;
+
+        if (TryComp<ChangelingActionBehaviorCustomComponent>(args.Action, out var behaviorCustom))
+            RaiseLocalEvent(behaviorCustom.Event);
+
+        if (TryComp<ChangelingActionBehaviorStingComponent>(args.Action, out var behaviorSting))
         {
-            if (!TrySting(ent, args))
+            if (!TrySting(ent, args, behaviorSting.TargetSelf))
                 return;
             TryReagentSting(args.Target, behaviorSting.Reagents);
         }
-
-        if (TryComp<ChangelingActionBehaviorCustom>(args.Action, out var behaviorCustom))
-            RaiseLocalEvent(behaviorCustom.Event);
     }
-
-    #endregion
-
-    #region Custom Events
-
 
     #endregion
 }

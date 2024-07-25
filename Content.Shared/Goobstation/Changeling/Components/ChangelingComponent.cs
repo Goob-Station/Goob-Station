@@ -12,17 +12,7 @@ public sealed partial class ChangelingComponent : Component
 {
     #region Prototypes
 
-    [DataField] public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     [DataField] public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-
-    [DataField] public EntProtoId ShieldPrototype = "ChangelingShield";
-    [DataField] public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
-
-    [DataField] public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
-    [DataField] public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
-
-    [DataField] public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
-    [DataField] public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
 
     /// <summary>
     ///     Sound pool used for audible abilities.
@@ -59,13 +49,7 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInLesserForm = false;
 
-    [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
-
-    [DataField] public float ShriekPower = 2.5f;
-
     public bool StrainedMusclesActive = false;
-
-    #region Base
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
@@ -78,6 +62,12 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float MaxChemicals = 100f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TransformData? CurrentForm;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public TransformData? SelectedForm;
 
     /// <summary>
     ///     Cooldown between chem regen events.
@@ -96,8 +86,7 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
     /// </summary>
-    [DataField("maxDna")]
-    public int MaxAbsorbedDNA = 5;
+    [DataField] public int MaxAbsorbedDNA = 5;
 
     /// <summary>
     ///     Total absorbed DNA. Counts towards objectives.
@@ -110,20 +99,6 @@ public sealed partial class ChangelingComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? CurrentForm;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? SelectedForm;
-
-    #endregion
-
-    /// <summary>
-    ///     The status icon used for Hivemind Access ability.
-    /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 
 [DataDefinition]
