@@ -449,3 +449,27 @@ Entries:
       message: A new nuke song, Last Call has been added!
   id: 57
   time: '2024-07-23T12:52:32.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: 'Added fun! '
+  id: 58
+  time: '2024-07-23T13:59:52.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: >-
+        Changelings will now have to transform to get rid of the excess DNA. It
+        won't get removed automatically.
+    - type: Fix
+      message: If you somehow revive a husked person he will become unhusked.
+    - type: Fix
+      message: Fixed changelings not showing up as antags (thanks huffs)
+  id: 59
+  time: '2024-07-24T04:30:32.0000000+00:00'
+- author: taydeo
+  changes:
+    - type: Add
+      message: Jukeboxes now activate artifacts
+  id: 60
+  time: '2024-07-24T04:31:11.0000000+00:00'
