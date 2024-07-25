@@ -10,10 +10,6 @@ namespace Content.Shared.Changeling.Components;
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
-    #region Prototypes
-
-    [DataField] public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
-
     /// <summary>
     ///     Sound pool used for audible abilities.
     /// </summary>
@@ -25,9 +21,19 @@ public sealed partial class ChangelingComponent : Component
     };
 
     /// <summary>
-    ///     Actions that will be given out each time a <see cref="ChangelingComponent"/> is initialized.
+    ///     Contains all changeling exclusive equipment for further processing.
     /// </summary>
-    [DataField] public List<EntProtoId> BaseChangelingActions = new()
+    [DataField] public Dictionary<EntProtoId, ChangelingEquipmentData?> Equipment = new();
+
+    public bool IsInStasis = false;
+
+    public bool IsInLesserForm = false;
+
+    [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
+
+    [DataField] public float ShriekPower = 2.5f;
+
+    public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
     {
         "ActionEvolutionMenu",
         "ActionAbsorbDNA",
@@ -37,17 +43,6 @@ public sealed partial class ChangelingComponent : Component
         "ActionEnterStasis",
         "ActionExitStasis"
     };
-
-    #endregion
-
-    /// <summary>
-    ///     Contains all changeling exclusive equipment for further processing.
-    /// </summary>
-    [DataField] public Dictionary<EntProtoId, ChangelingEquipmentData?> Equipment = new();
-
-    public bool IsInStasis = false;
-
-    public bool IsInLesserForm = false;
 
     public bool StrainedMusclesActive = false;
 
@@ -129,17 +124,13 @@ public sealed partial class TransformData
 [DataDefinition]
 public sealed partial class ChangelingEquipmentData
 {
-    [DataField] public EntProtoId? Prototype;
+    [DataField] public EntProtoId Prototype;
     [DataField] public string? EquipmentSlot;
     public EntityUid? Entity;
 
-    public ChangelingEquipmentData(EntityUid? uid, string? slot) : base()
+    public ChangelingEquipmentData(EntityUid? ent, string? slot) : base()
     {
-        Entity = uid;
+        Entity = ent;
         EquipmentSlot = slot;
-    }
-    public ChangelingEquipmentData(EntProtoId? proto, EntityUid? uid, string? slot) : base(uid, slot)
-    {
-        Prototype = proto;
     }
 }

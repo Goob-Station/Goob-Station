@@ -93,6 +93,18 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
 
+    public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
+    public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+
+    public EntProtoId ShieldPrototype = "ChangelingShield";
+    public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
+
+    public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
+    public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+
+    public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+
     public override void Initialize()
     {
         base.Initialize();
@@ -136,6 +148,49 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
     }
 
+    #region Helper Methods
+
+    public void PlayMeatySound(EntityUid uid, ChangelingComponent comp)
+    {
+        var rand = _rand.Next(0, comp.AbilitySoundPool.Count - 1);
+        var sound = comp.AbilitySoundPool.ToArray()[rand];
+        _audio.PlayPvs(sound, uid, AudioParams.Default.WithVolume(-3f));
+    }
+    public void DoScreech(EntityUid uid, ChangelingComponent comp)
+    {
+        _audio.PlayPvs(comp.ShriekSound, uid);
+
+        var center = Transform(uid).MapPosition;
+        var gamers = Filter.Empty();
+        gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
+
+        foreach (var gamer in gamers.Recipients)
+        {
+            if (gamer.AttachedEntity == null)
+                continue;
+
+            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
+            var delta = center.Position - pos;
+
+            if (delta.EqualsApprox(Vector2.Zero))
+                delta = new(.01f, 0);
+
+            _recoil.KickCamera(uid, -delta.Normalized());
+        }
+    }
+
+    /// <summary>
+    ///     Check if a target is crit/dead or cuffed. For absorbing.
+    /// </summary>
+    public bool IsIncapacitated(EntityUid uid)
+    {
+        if (_mobState.IsIncapacitated(uid)
+        || TryComp<CuffableComponent>(uid, out var cuffs) && cuffs.CuffedHandCount > 0)
+            return true;
+
+        return false;
+    }
+
     private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
         var chemicals = comp.Chemicals;
@@ -147,6 +202,130 @@ public sealed partial class ChangelingSystem : EntitySystem
         Dirty(uid, comp);
 
         _alerts.ShowAlert(uid, "Chemicals");
+    }
+
+    public bool TryUseAbility(EntityUid uid, ChangelingComponent comp, BaseActionEvent action)
+    {
+        if (action.Handled)
+            return false;
+
+        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
+            return false;
+
+        if (!lingAction.UseWhileLesserForm && comp.IsInLesserForm)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
+            return false;
+        }
+
+        var price = lingAction.ChemicalCost;
+        if (comp.Chemicals < price)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
+            return false;
+        }
+
+        if (lingAction.RequireAbsorbed > comp.TotalAbsorbedEntities)
+        {
+            var delta = lingAction.RequireAbsorbed - comp.TotalAbsorbedEntities;
+            _popup.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), uid, uid);
+            return false;
+        }
+
+        UpdateChemicals(uid, comp, -price);
+
+        action.Handled = true;
+
+        return true;
+    }
+    public bool TrySting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
+    {
+        if (!TryUseAbility(uid, comp, action))
+            return false;
+
+        var target = action.Target;
+        if (HasComp<ChangelingComponent>(target))
+        {
+            var selfMessage = Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager)));
+            var targetMessage = Loc.GetString("changeling-sting-fail-ling");
+
+            _popup.PopupEntity(selfMessage, uid, uid);
+            _popup.PopupEntity(targetMessage, target, target);
+            return false;
+        }
+        if (!overrideMessage)
+            _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+        return true;
+    }
+    public bool TryInjectReagents(EntityUid uid, List<(string, FixedPoint2)> reagents)
+    {
+        var solution = new Solution();
+        foreach (var reagent in reagents)
+            solution.AddReagent(reagent.Item1, reagent.Item2);
+
+        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
+            return false;
+
+        if (!_solution.TryAddSolution(targetSolution.Value, solution))
+            return false;
+
+        return true;
+    }
+    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
+    {
+        var target = action.Target;
+        if (!TrySting(uid, comp, action))
+            return false;
+
+        if (!TryInjectReagents(target, reagents))
+            return false;
+
+        return true;
+    }
+    public bool TryToggleItem(EntityUid uid, ChangelingComponent comp, EntProtoId proto, string? clothingSlot = null)
+    {
+        // check if the item does not exist
+        if (!comp.Equipment.TryGetValue(proto, out var item) && (item == null || item.Entity == null))
+        {
+            item = new ChangelingEquipmentData(Spawn(proto, Transform(uid).Coordinates), clothingSlot);
+
+            if (item.Entity == null)
+                return false;
+
+            // check if we have an predefined slot and put the item there
+            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item.Entity, clothingSlot, force: true))
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-equip-outer-fail"), uid, uid);
+                QueueDel(item.Entity);
+                return false;
+            }
+            // if not, we're going to spawn it in a hand
+            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item.Entity))
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
+                QueueDel(item.Entity);
+                return false;
+            }
+
+            if (_inventory.TryGetContainingSlot((EntityUid) item.Entity, out var slotDef) && item.EquipmentSlot == null)
+                item.EquipmentSlot = slotDef.SlotGroup;
+
+            comp.Equipment.Add(proto.Id, item);
+
+            return true;
+        }
+        // so it did exist! get rid of it.
+        else if (item != null && item.Entity != null)
+        {
+            QueueDel(item.Entity);
+            comp.Equipment.Remove(proto);
+        }
+
+        return true;
+    }
+    public bool TryToggleItem(EntityUid uid, ChangelingComponent comp, ChangelingEquipmentData data)
+    {
+        return TryToggleItem(uid, comp, data.Prototype, data.EquipmentSlot);
     }
 
     public void AddDNA(EntityUid uid, ChangelingComponent comp, TransformData data, bool countObjective = false)
@@ -320,8 +499,7 @@ public sealed partial class ChangelingSystem : EntitySystem
                 continue;
 
             QueueDel(equip.Entity);
-            if (equip.Prototype != null)
-                comp.Equipment.Remove((EntProtoId) equip.Prototype);
+            comp.Equipment.Remove(equip.Prototype);
         }
 
         PlayMeatySound(target, comp);
