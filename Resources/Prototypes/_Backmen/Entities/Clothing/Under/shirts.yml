@@ -1,0 +1,1268 @@
+- type: entity
+  abstract: true
+  description: To go under your shirt.
+  parent: Clothing
+  id: ClothingUnderShirtBase
+  components:
+    - type: Clothing
+      slots:
+        - UNDERSHIRT
+    - type: Sprite
+      # noRot: true
+      state: icon
+    - type: TemperatureProtection
+      coefficient: 0.75
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbabydoll
+  name: babydoll shirt
+  description: "A babydoll shirt, perfect for feeling flirty and fabulous."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: babydoll-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: babydoll
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderband
+  name: band shirt
+  description: "A cool band shirt, ready for concerts or just jamming out at home."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: band-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: band
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbee_shirt
+  name: bee shirt
+  description: "A bee-themed shirt, buzzing with style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bee_shirt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bee_shirt
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderblueshirtsport
+  name: sporty blue shirt
+  description: "A sporty blue shirt, ideal for working out or lounging."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: blueshirtsport-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: blueshirtsport
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowling
+  name: red bowling shirt
+  description: "A red bowling shirt, ready to knock down those pins in style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bowling-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowling
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlinga
+  name: navy bowling shirt
+  description: "A navy bowling shirt, making a statement on the lanes."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bowlinga-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlinga
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlingp
+  name: pink bowling shirt
+  description: "A pink bowling shirt, showing off your playful side."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bowlingp-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlingp
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbowlingw
+  name: white bowling shirt
+  description: "A white bowling shirt, keeping it simple and stylish."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bowlingw-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bowlingw
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_alt
+  name: bra
+  description: "A basic bra, providing comfort and support for everyday wear."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_assblastusa
+  name: american flag bra
+  description: "An American flag bra, perfect for patriotic occasions."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_assblastusa-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_assblastusa
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_bee-kini
+  name: bee-kini bra
+  description: "A bra with a little sting-er."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_bee-kini-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_bee-kini
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_binder_strapless
+  name: strapless binder bra
+  description: "A bra for keeping your chest in check."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_binder_strapless-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_binder_strapless
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_binder
+  name: binder bra
+  description: "A strapless bra, for those who like to keep it simple."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_binder-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_binder
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_commie
+  name: commie bra
+  description: "A bra for the socialist in all of us."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_commie-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_commie
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUnderbra_kinky
+#   name: kinky bra
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: bra_kinky-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: bra_kinky
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_neko
+  name: neko bra
+  description: "A cat-themed bra, for the cat-lovers out there."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_neko-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_neko
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_strapless_alt
+  name: strapless bra
+  description: "A strapless bra, for the daring and bold."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_strapless_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_strapless_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_strapless
+  name: strapless bra
+  description: "A strapless bra, for the daring and bold."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_strapless-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_strapless
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_swimming_alt
+  name: swimming bra
+  description: "A comfortable bra, perfect for pool-parties."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_swimming_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_swimming_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_swimming
+  name: swimming bra
+  description: "A serious swimwear bra, for those who take their swimwear seriously."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_swimming-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_swimming
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUnderbra_thin
+#   name: thin bra
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: bra_thin-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: bra_thin
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra_uk
+  name: union jack bra
+  description: "A patriotic and royalist-themed bra."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra_uk-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra_uk
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderbra
+  name: bra
+  description: "A bra providing a little lift."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: bra-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_navy
+  name: navy cowboy shirt
+  description: "A navy cowboy shirt, perfect for looking like a true cowboy."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_navy-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_navy
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_navys
+  name: navy cowboy t-shirt
+  description: "A casual navy cowboy t-shirt, ready for a rodeo."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_navys-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_navys
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_red
+  name: red cowboy shirt
+  description: "A bold red cowboy shirt, standing out from the crowd."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_red-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_red
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_reds
+  name: red cowboy t-shirt
+  description: "A red cowboy t-shirt, ready to ride off into the sunset in style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_reds-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_reds
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_s
+  name: cowboy t-shirt
+  description: "A spicy cowboy t-shirt, ready to yeehaw!"
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_s-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_s
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_white
+  name: white cowboy shirt
+  description: "A white cowboy shirt, ideal for looking sharp and professional."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_white-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_white
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt_whites
+  name: white cowboy shirt t-shirt
+  description: "A white cowboy t-shirt, perfect for a day on the ranch or a night on the town."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt_whites-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt_whites
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndercowboyshirt
+  name: cowboy shirt
+  description: "A classic cowboy shirt, ideal for rounding up cattle or friends."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: cowboyshirt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: cowboyshirt
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUnderfishnet_body
+#   name: fishnet body
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: fishnet_body-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: fishnet_body
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUnderfishnet_gloves
+#   name: fishnet gloves
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: fishnet_gloves-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: fishnet_gloves
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUnderfishnet_sleeves
+#   name: fishnet sleeves
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: fishnet_sleeves-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: fishnet_sleeves
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndergreenshirtsport
+  name: sporty green shirt
+  description: "A sporty green shirt, ready for the gym or trails."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: greenshirtsport-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: greenshirtsport
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderhalterneck_bra
+  name: halterneck bra
+  description: "A daring halterneck bra, perfect for parties."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: halterneck_bra-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: halterneck_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderian
+  name: ian shirt
+  description: "An Ian shirt, ready to look dapper for any occasion."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: ian-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ian
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderilovent
+  name: nanotrasen shirt
+  description: "A Nanotrasen-themed shirt, showing off your love for the company."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: ilovent-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ilovent
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderljont
+  name: long john shirt
+  description: "A Long John shirt, perfect for staying cozy in the cold."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: ljont-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: ljont
+    - type: TemperatureProtection
+      coefficient: 0.70
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlongstripe_blue
+  name: blue stripe shirt
+  description: "A runway-inspired shirt, making you feel like you're always walking the runway."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: longstripe_blue-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: longstripe_blue
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlongstripe
+  name: stripe shirt
+  description: "A bold stripe undershirt, perfect for making a fashion statement."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: longstripe-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: longstripe
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderlover
+  name: lover shirt
+  description: "A sweet and sentimental undershirt, perfect for wearing your heart on your chest."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: lover-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: lover
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndermatroska
+  name: matroska shirt
+  description: "A quirky and unique undershirt in the shape of a Russian doll."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: matroska-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: matroska
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpeace
+  name: peace shirt
+  description: "An eye-catching undershirt with a peaceful message."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: peace-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: peace
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpogoman
+  name: pogoman shirt
+  description: "A wild and funky undershirt, ready for any party."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: pogoman-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: pogoman
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderpolo
+  name: polo shirt
+  description: "A stylish polo shirt, perfect for golfing or a Little League game."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: polo-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: polo
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderredshirtsport
+  name: sporty red shirt
+  description: "A sporty red shirt, ready for the gym or couch time."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: redshirtsport-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: redshirtsport
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUndershibari_sleeves
+#   name: shibari sleeves
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: shibari_sleeves-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: shibari_sleeves
+
+# - type: entity
+#   parent: ClothingUnderShirtBase
+#   id: ClothingUndershibari
+#   name: shibari
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       state: shibari-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/undershirts.rsi
+#       clothingVisuals:
+#         undershirt:
+#           - state: shibari
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_alien
+  name: alien shirt
+  description: "An out-of-this-world shirt for your love of extraterrestrial beings."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_alien-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_alien
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_assblastusa
+  name: american flag shirt
+  description: "A patriotic shirt, showing off your love for your country."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_assblastusa-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_assblastusa
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_bluejersey
+  name: blue jersey
+  description: "A blue jersey, making you feel like a sports star."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_bluejersey-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_bluejersey
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_clown
+  name: clown shirt
+  description: "A clown shirt, ready to make everyone laugh."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_clown-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_clown
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_commie
+  name: commie shirt
+  description: "A commie shirt, making a political statement."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_commie-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_commie
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_meat
+  name: meat shirt
+  description: "A shirt perfect for the meat and potatoes kind of person."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_meat-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_meat
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_nano
+  name: nano shirt
+  description: "A sleek and cool shirt, perfect for hacking or looking cool."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_nano-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_nano
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_question
+  name: question mark shirt
+  description: "A shirt with more questions than answers."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_question-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_question
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_redjersey
+  name: red jersey
+  description: "A stylish red jersey, perfect for scoring style points."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_redjersey-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_redjersey
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_skull
+  name: skull shirt
+  description: "A shirt making a bold statement about mortality."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_skull-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_skull
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_ss13
+  name: ss13 shirt
+  description: "A shirt representing your favorite space-themed game."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_ss13-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_ss13
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_stripes
+  name: striped shirt
+  description: "A striped shirt, perfect for getting in touch with your inner sailor."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_stripes-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_stripes
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershirt_tiedye
+  name: tie-dye shirt
+  description: "A colorful and bold tie-dye shirt, making a statement."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shirt_tiedye-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shirt_tiedye
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndershortsleeve
+  name: t-shirt
+  description: "A classic and casual shirt for everyday wear."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: shortsleeve-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: shortsleeve
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndersports_bra_alt
+  name: sports bra
+  description: "A shirt suitable for high-intensity activities."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: sports_bra_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: sports_bra_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndersports_bra
+  name: sports bra
+  description: "An undershirt for staying cool and dry during a workout."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: sports_bra-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: sports_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderstriped_bra
+  name: striped bra
+  description: "A sleek and stylish undergarment."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: striped_bra-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: striped_bra
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_black
+  name: black swimming shirt
+  description: "A swimsuit for a sleek and stylish swim."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: swimming_black-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_black
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_blue
+  name: blue swimming shirt
+  description: "A swimsuit for a refreshing swim with a pop of color."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: swimming_blue-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_blue
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderswimming_red
+  name: red swimming shirt
+  description: "A swimsuit for a bold and daring swim."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: swimming_red-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: swimming_red
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_fire
+  name: fire tank top
+  description: "A swimsuit for bringing the heat."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_fire-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_fire
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_midriff_alt
+  name: midriff tank top
+  description: "A swimsuit for showing off your summer tan."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_midriff_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_midriff_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_midriff
+  name: midriff tank top
+  description: "A swimsuit for a flirty and fun summer look."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_midriff-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_midriff
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_rainbow
+  name: rainbow tank top
+  description: "A tank top for spreading positivity and good vibes."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_rainbow-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_rainbow
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_stripes
+  name: striped tank top
+  description: "A fashionable tank top with heads and stripes alike."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_stripes-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_stripes
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertank_sun
+  name: sun tank top
+  description: "A sunny tank top, shining bright like a sun."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tank_sun-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tank_sun
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertanktop_alt
+  name: tank top
+  description: "A classic and stylish tank top."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tanktop_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tanktop_alt
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertanktop
+  name: tank top
+  description: "A comfortable and classic tank top."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tanktop-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tanktop
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUndertubetop
+  name: tubetop
+  description: "A trendy and flirty tubetop, ready to make waves."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: tubetop-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: tubetop
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderuk
+  name: union jack shirt
+  description: "A patriotic undershirt, ready to wave the flag of style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: uk-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: uk
+
+- type: entity
+  parent: ClothingUnderShirtBase
+  id: ClothingUnderundershirt
+  name: undershirt
+  description: "A basic undershirt for staying cozy and covered."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      state: undershirt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/undershirts.rsi
+      clothingVisuals:
+        undershirt:
+          - state: undershirt
+

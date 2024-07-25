@@ -36,6 +36,29 @@
       uiWindowPos: 1,1
       strippingWindowPos: 1,2
       displayName: Suit
+      #backmen:underclothing-start
+    - name: undershirt
+      slotTexture: undershirt
+      slotFlags: UNDERSHIRT
+      stripTime: 8
+      uiWindowPos: 4,1
+      strippingWindowPos: 3,1
+      displayName: Undershirt
+    - name: underpants
+      slotTexture: underpants
+      slotFlags: UNDERPANTS
+      stripTime: 12
+      uiWindowPos: 4,0
+      strippingWindowPos: 3,2
+      displayName: Underpants
+    - name: socks
+      slotTexture: socks
+      slotFlags: SOCKS
+      stripTime: 8
+      uiWindowPos: 4,2
+      strippingWindowPos: 3,3
+      displayName: Socks
+      #backmen:underclothing-end
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES

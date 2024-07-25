@@ -1,0 +1,277 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from TGStation at commit https://github.com/tgstation/tgstation/commit/343ec403eb9941c4b4fc298bd0c686f2350d6917",
+    "states": [
+        {
+            "name": "assblastusa_knee-ICON"
+        },
+        {
+            "name": "assblastusa_knee",
+            "directions": 4
+        },
+        {
+            "name": "assblastusa_thigh-ICON"
+        },
+        {
+            "name": "assblastusa_thigh",
+            "directions": 4
+        },
+        {
+            "name": "bee_knee-ICON"
+        },
+        {
+            "name": "bee_knee",
+            "directions": 4
+        },
+        {
+            "name": "bee_norm-ICON"
+        },
+        {
+            "name": "bee_norm",
+            "directions": 4
+        },
+        {
+            "name": "bee_thigh-ICON"
+        },
+        {
+            "name": "bee_thigh",
+            "directions": 4
+        },
+        {
+            "name": "candycaneg_knee-ICON"
+        },
+        {
+            "name": "candycaneg_knee",
+            "directions": 4
+        },
+        {
+            "name": "candycaneg_norm-ICON"
+        },
+        {
+            "name": "candycaneg_norm",
+            "directions": 4
+        },
+        {
+            "name": "candycaneg_thigh-ICON"
+        },
+        {
+            "name": "candycaneg_thigh",
+            "directions": 4
+        },
+        {
+            "name": "candycaner_knee-ICON"
+        },
+        {
+            "name": "candycaner_knee",
+            "directions": 4
+        },
+        {
+            "name": "candycaner_norm-ICON"
+        },
+        {
+            "name": "candycaner_norm",
+            "directions": 4
+        },
+        {
+            "name": "candycaner_thigh-ICON"
+        },
+        {
+            "name": "candycaner_thigh",
+            "directions": 4
+        },
+        {
+            "name": "christmas_knee-ICON"
+        },
+        {
+            "name": "christmas_knee",
+            "directions": 4
+        },
+        {
+            "name": "christmas_norm-ICON"
+        },
+        {
+            "name": "christmas_norm",
+            "directions": 4
+        },
+        {
+            "name": "christmas_thigh-ICON"
+        },
+        {
+            "name": "christmas_thigh",
+            "directions": 4
+        },
+        {
+            "name": "commie_knee-ICON"
+        },
+        {
+            "name": "commie_knee",
+            "directions": 4
+        },
+        {
+            "name": "commie_thigh-ICON"
+        },
+        {
+            "name": "commie_thigh",
+            "directions": 4
+        },
+        {
+            "name": "fishnet-ICON"
+        },
+        {
+            "name": "fishnet",
+            "directions": 4
+        },
+        {
+            "name": "garter-ICON"
+        },
+        {
+            "name": "garter",
+            "directions": 4
+        },
+        {
+            "name": "rainbow_knee-ICON"
+        },
+        {
+            "name": "rainbow_knee",
+            "directions": 4
+        },
+        {
+            "name": "rainbow_thigh-ICON"
+        },
+        {
+            "name": "rainbow_thigh",
+            "directions": 4
+        },
+        {
+            "name": "socks_knee-ICON"
+        },
+        {
+            "name": "socks_knee",
+            "directions": 4
+        },
+        {
+            "name": "socks_norm-ICON"
+        },
+        {
+            "name": "socks_norm",
+            "directions": 4
+        },
+        {
+            "name": "socks_short-ICON"
+        },
+        {
+            "name": "socks_short",
+            "directions": 4
+        },
+        {
+            "name": "socks_thigh-ICON"
+        },
+        {
+            "name": "socks_thigh",
+            "directions": 4
+        },
+        {
+            "name": "stockings_blue-ICON"
+        },
+        {
+            "name": "stockings_blue",
+            "directions": 4
+        },
+        {
+            "name": "stockings_cyan-ICON"
+        },
+        {
+            "name": "stockings_cyan",
+            "directions": 4
+        },
+        {
+            "name": "stockings_dpink-ICON"
+        },
+        {
+            "name": "stockings_dpink",
+            "directions": 4
+        },
+        {
+            "name": "stockings_green-ICON"
+        },
+        {
+            "name": "stockings_green",
+            "directions": 4
+        },
+        {
+            "name": "stockings_lpink-ICON"
+        },
+        {
+            "name": "stockings_lpink",
+            "directions": 4
+        },
+        {
+            "name": "stockings_orange-ICON"
+        },
+        {
+            "name": "stockings_orange",
+            "directions": 4
+        },
+        {
+            "name": "stockings_purple-ICON"
+        },
+        {
+            "name": "stockings_purple",
+            "directions": 4
+        },
+        {
+            "name": "stockings_yellow-ICON"
+        },
+        {
+            "name": "stockings_yellow",
+            "directions": 4
+        },
+        {
+            "name": "striped_knee-ICON"
+        },
+        {
+            "name": "striped_knee",
+            "directions": 4
+        },
+        {
+            "name": "striped_thigh-ICON"
+        },
+        {
+            "name": "striped_thigh",
+            "directions": 4
+        },
+        {
+            "name": "thin_knee-ICON"
+        },
+        {
+            "name": "thin_knee",
+            "directions": 4
+        },
+        {
+            "name": "thin_thigh-ICON"
+        },
+        {
+            "name": "thin_thigh",
+            "directions": 4
+        },
+        {
+            "name": "uk_knee-ICON"
+        },
+        {
+            "name": "uk_knee",
+            "directions": 4
+        },
+        {
+            "name": "uk_thigh-ICON"
+        },
+        {
+            "name": "uk_thigh",
+            "directions": 4
+        }
+    ]
+}

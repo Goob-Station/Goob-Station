@@ -1,0 +1,435 @@
+- type: entity
+  abstract: true
+  description: Keep your private parts all cozy!
+  parent: Clothing
+  id: ClothingUnderPantsBase
+  components:
+    - type: Clothing
+      slots:
+        - UNDERPANTS
+    - type: Sprite
+      # noRot: true
+      state: icon
+    - type: TemperatureProtection
+      coefficient: 0.80
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderbee_shorts
+  name: bee shorts
+  description: "A pair of bee shorts, the buzz-worthy choice for a summer day."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: bee_shorts-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: bee_shorts
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxer_briefs
+  name: boxer briefs
+  description: "A pair of boxer briefs, the perfect blend of comfort and support."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxer_briefs-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxer_briefs
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_assblastusa
+  name: american flag boxers
+  description: "A pair of American Flag boxers, showing off your patriotic spirit with stars and stripes."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers_assblastusa-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_assblastusa
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_commie
+  name: commie boxers
+  description: "A pair of Commie boxers, making a political statement in your pants."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers_commie-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_commie
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_heart
+  name: heart boxers
+  description: "A pair of Heart boxers, a love letter to your significant other written on your underwear."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers_heart-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_heart
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_striped
+  name: striped boxers
+  description: "A pair of Striped boxers, featuring a classic pattern."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers_striped-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_striped
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers_uk
+  name: union jack boxers
+  description: "A pair of Union Jack boxers, representing your British heritage with style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers_uk-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers_uk
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderboxers
+  name: boxers
+  description: "A pair of classic boxers, just as comfy as grandpa's."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: boxers-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: boxers
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderbriefs
+  name: briefs
+  description: "A pair of briefs, for those who want a snug fit in all the right places."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: briefs-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: briefs
+
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderfishnet_lower
+#   name: fishnet lower underwear
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       state: fishnet_lower-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: fishnet_lower
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderjockstrap
+  name: jockstrap
+  description: "A jockstrap, for the sporty and adventurous type."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: jockstrap-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: jockstrap
+    - type: TemperatureProtection
+      coefficient: 0.98
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderljonb
+  name: long john pants
+  description: "A pair of Long John pants, to stay warm in these classic long underwear."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: ljonb-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: ljonb
+    - type: TemperatureProtection
+      coefficient: 0.70
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_alt
+  name: panties
+  description: "A pair of regular panties, good old fashioned."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_alt-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_alt
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_assblastusa
+  name: american flag panties
+  description: "A pair of American Flag panties, showing love for the red, white, and blue."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_assblastusa-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_assblastusa
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_bee-kini
+  name: bee-kini panties
+  description: "A pair of Bee-Kini panties, getting a buzz going with the bee-print design."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_bee-kini-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_bee-kini
+    - type: TemperatureProtection
+      coefficient: 0.85
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_commie
+  name: commie panties
+  description: "A pair of Commie panties, for the rebellious and daring, with a commie-themed design."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_commie-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_commie
+
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpanties_kinky
+#   name: kinky panties
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       state: panties_kinky-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: panties_kinky
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_neko
+  name: neko panties
+  description: "A pair of Neko panties, for the cat-lover, featuring a cute neko-print design."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_neko-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_neko
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_slim
+  name: slim panties
+  description: "A pair of Slim panties, for the minimalist, with a slim and comfortable fit."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_slim-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_slim
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_swimming
+  name: swimming panties
+  description: "A pair of Swimming panties, hitting the pool in style."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_swimming-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_swimming
+
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpanties_thin
+#   name: thin panties
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       state: panties_thin-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: panties_thin
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties_uk
+  name: union jack panties
+  description: "A pair of Union Jack panties, showing love for the UK with the union jack design."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties_uk-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties_uk
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpanties
+  name: panties
+  description: "A pair of regular panties, good old fashioned."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: panties-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: panties
+
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderpantyhose_ripped
+#   name: ripped pantyhose
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       state: pantyhose_ripped-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: pantyhose_ripped
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderpantyhose
+  name: pantyhose
+  description: "A pair of pantyhose, for when you want to look like a human-sized spider."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: pantyhose-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: pantyhose
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderstriped_panties
+  name: striped panties
+  description: "A pair of Striped panties, making a fashion statement... down there."
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: striped_panties-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: striped_panties
+
+# - type: entity
+#   parent: ClothingUnderPantsBase
+#   id: ClothingUnderthong_babydoll
+#   name: thong babydoll
+#   components:
+#     - type: Sprite
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       state: thong_babydoll-ICON
+#     - type: Clothing
+#       sprite: Backmen/Clothing/Under/underpants.rsi
+#       clothingVisuals:
+#         underpants:
+#           - state: thong_babydoll
+
+- type: entity
+  parent: ClothingUnderPantsBase
+  id: ClothingUnderthong
+  name: thong
+  components:
+    - type: Sprite
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      state: thong-ICON
+    - type: Clothing
+      sprite: Backmen/Clothing/Under/underpants.rsi
+      clothingVisuals:
+        underpants:
+          - state: thong
+
