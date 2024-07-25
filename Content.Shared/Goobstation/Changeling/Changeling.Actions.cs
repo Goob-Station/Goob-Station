@@ -1,20 +1,59 @@
 using Content.Shared.Actions;
+using Content.Shared.Changeling.Components;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Changeling;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField("chemicalCost")]
-    public float ChemicalCost = 0;
+    [DataField] public float ChemicalCost = 0;
 
-    [DataField("useInLesserForm")]
-    public bool UseWhileLesserForm = false;
+    [DataField] public bool UseWhileLesserForm = false;
 
-    [DataField("requireAbsorbed")]
-    public float RequireAbsorbed = 0;
+    [DataField] public float RequireAbsorbed = 0;
+
+    [DataField] public bool Audible = false;
 }
+
+/// <summary>
+///     Used for custom changeling action behavior. Every other event dedidcated to changelings should be used here.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public abstract partial class ChangelingActionBehaviorCustom : Component
+{
+    [DataField] public BaseActionEvent Event;
+}
+
+/// <summary>
+///     Used for changeling sting handling.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ChangelingActionBehaviorSting : Component
+{
+    [DataField] public bool TargetSelf = false;
+    [DataField] public Dictionary<EntProtoId, FixedPoint2> Reagents = new();
+}
+
+/// <summary>
+///     Used for changeling equipment handling.
+/// </summary>
+[RegisterComponent, NetworkedComponent]
+public sealed partial class ChangelingActionBehaviorEquip : Component
+{
+    [DataField] public List<ChangelingEquipmentData> Equipment = new();
+}
+
+/// <summary>
+///     Base instant event that should be used in actions in combination with ChangelingActionBehaviors.
+/// </summary>
+public sealed partial class ChangelingInstantActionEvent : InstantActionEvent { }
+/// <summary>
+///     Base target event that should be used in actions in combination with ChangelingActionBehaviors.
+/// </summary>
+public sealed partial class ChangelingTargetActionEvent : EntityTargetActionEvent { }
 
 #region Events - Basic
 

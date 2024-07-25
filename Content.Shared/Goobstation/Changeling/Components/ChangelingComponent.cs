@@ -10,6 +10,20 @@ namespace Content.Shared.Changeling.Components;
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
+    #region Prototypes
+
+    [DataField] public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
+    [DataField] public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+
+    [DataField] public EntProtoId ShieldPrototype = "ChangelingShield";
+    [DataField] public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
+
+    [DataField] public EntProtoId ArmorPrototype = "ChangelingClothingOuterArmor";
+    [DataField] public EntProtoId ArmorHelmetPrototype = "ChangelingClothingHeadHelmet";
+
+    [DataField] public EntProtoId SpacesuitPrototype = "ChangelingClothingOuterHardsuit";
+    [DataField] public EntProtoId SpacesuitHelmetPrototype = "ChangelingClothingHeadHelmetHardsuit";
+
     /// <summary>
     ///     Sound pool used for audible abilities.
     /// </summary>
@@ -19,6 +33,22 @@ public sealed partial class ChangelingComponent : Component
         new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
+
+    /// <summary>
+    ///     Actions that will be given out each time a <see cref="ChangelingComponent"/> is initialized.
+    /// </summary>
+    [DataField] public List<EntProtoId> BaseChangelingActions = new()
+    {
+        "ActionEvolutionMenu",
+        "ActionAbsorbDNA",
+        "ActionStingExtractDNA",
+        "ActionChangelingTransformCycle",
+        "ActionChangelingTransform",
+        "ActionEnterStasis",
+        "ActionExitStasis"
+    };
+
+    #endregion
 
     /// <summary>
     ///     Contains all changeling exclusive equipment for further processing.
@@ -32,17 +62,6 @@ public sealed partial class ChangelingComponent : Component
     [DataField] public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
     [DataField] public float ShriekPower = 2.5f;
-
-    public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
-    {
-        "ActionEvolutionMenu",
-        "ActionAbsorbDNA",
-        "ActionStingExtractDNA",
-        "ActionChangelingTransformCycle",
-        "ActionChangelingTransform",
-        "ActionEnterStasis",
-        "ActionExitStasis"
-    };
 
     public bool StrainedMusclesActive = false;
 
@@ -135,13 +154,17 @@ public sealed partial class TransformData
 [DataDefinition]
 public sealed partial class ChangelingEquipmentData
 {
-    [DataField] public EntProtoId Prototype;
+    [DataField] public EntProtoId? Prototype;
     [DataField] public string? EquipmentSlot;
     public EntityUid? Entity;
 
-    public ChangelingEquipmentData(EntityUid? ent, string? slot) : base()
+    public ChangelingEquipmentData(EntityUid? uid, string? slot) : base()
     {
-        Entity = ent;
+        Entity = uid;
         EquipmentSlot = slot;
+    }
+    public ChangelingEquipmentData(EntProtoId? proto, EntityUid? uid, string? slot) : base(uid, slot)
+    {
+        Prototype = proto;
     }
 }
