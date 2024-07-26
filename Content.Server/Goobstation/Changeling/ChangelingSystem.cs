@@ -58,6 +58,12 @@ using Content.Shared.Camera;
 using Robust.Shared.Timing;
 using Content.Shared.Damage.Components;
 using Content.Server.Gravity;
+using Content.Shared.Mobs.Components;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Content.Server.Stunnable;
+using Content.Server.Body.Components;
+using Content.Shared.Jittering;
+using Content.Server.Radio.Components;
 
 namespace Content.Server.Changeling;
 
@@ -73,7 +79,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
-
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -83,7 +88,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly FlashSystem _flash = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
@@ -91,17 +95,13 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PoweredLightSystem _light = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
-
     [Dependency] private readonly BlindableSystem _blindable = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
-
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
@@ -124,6 +124,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
+        SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChange);
 
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
@@ -172,10 +173,10 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             var uid = comp.Owner;
 
-            if (_timing.CurTime < comp.RegenTime)
+            if (_timing.CurTime < comp.UpdateTimer)
                 continue;
 
-            comp.RegenTime = _timing.CurTime + TimeSpan.FromSeconds(comp.RegenCooldown);
+            comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
 
             Cycle(uid, comp);
         }
@@ -184,6 +185,80 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         UpdateChemicals(uid, comp);
 
+        comp.BiomassUpdateTimer += 1;
+        if (comp.BiomassUpdateTimer >= comp.BiomassUpdateCooldown)
+        {
+            comp.BiomassUpdateTimer = 0;
+            UpdateBiomass(uid, comp);
+        }
+
+        UpdateAbilities(uid, comp);
+    }
+
+    private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
+    {
+        var chemicals = comp.Chemicals;
+        // either amount or regen
+        chemicals += amount ?? 1 + comp.BonusChemicalRegen;
+        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
+        Dirty(uid, comp);
+        _alerts.ShowAlert(uid, "ChangelingChemicals");
+    }
+    private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
+    {
+        var biomass = comp.Biomass;
+        biomass += amount ?? -1;
+        comp.Biomass = Math.Clamp(biomass, 0, comp.MaxBiomass);
+        Dirty(uid, comp);
+        _alerts.ShowAlert(uid, "ChangelingBiomass");
+
+        var random = (int) _rand.Next(1, 3);
+        var jitter = EntityManager.System<SharedJitteringSystem>();
+
+        if (comp.Biomass <= comp.Biomass / 2 && random == 3)
+        {
+            if (random == 1)
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid);
+        }
+        if (comp.Biomass <= comp.Biomass / 3)
+        {
+            // vomit blood
+            if (random == 1)
+            {
+                if (TryComp<StatusEffectsComponent>(uid, out var status))
+                {
+                    var _stun = EntityManager.System<StunSystem>();
+                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+                }
+
+                var solution = new Solution();
+
+                var vomitAmount = 15f;
+                _blood.TryModifyBloodLevel(uid, -vomitAmount);
+                solution.AddReagent("Blood", vomitAmount);
+
+                _puddle.TrySplashSpillAt(uid, Transform(uid).Coordinates, solution, out _);
+
+                _popup.PopupEntity(Loc.GetString("disease-vomit", ("person", Identity.Entity(uid, EntityManager))), uid);
+            }
+
+            // the funny itch is not real
+            if (random == 3)
+            {
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid);
+                jitter.DoJitter(uid, TimeSpan.FromSeconds(.25f), true, frequency: 6);
+            }
+        }
+        if (comp.Biomass <= comp.Biomass / 10)
+        {
+            // THE FUNNY ITCH IS REAL!!
+            comp.BonusChemicalRegen = 5f;
+            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid);
+            jitter.DoJitter(uid, TimeSpan.FromSeconds(1f), true, frequency: 10);
+        }
+    }
+    private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
+    {
         if (comp.StrainedMusclesActive)
         {
             var stamina = EnsureComp<StaminaComponent>(uid);
@@ -236,19 +311,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         return false;
     }
 
-    private void UpdateChemicals(EntityUid uid, ChangelingComponent comp, float? amount = null)
-    {
-        var chemicals = comp.Chemicals;
-
-        chemicals += amount ?? 1 /*regen*/;
-
-        comp.Chemicals = Math.Clamp(chemicals, 0, comp.MaxChemicals);
-
-        Dirty(uid, comp);
-
-        _alerts.ShowAlert(uid, "Chemicals");
-    }
-
     public bool TryUseAbility(EntityUid uid, ChangelingComponent comp, BaseActionEvent action)
     {
         if (action.Handled)
@@ -257,14 +319,19 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
             return false;
 
-        if (!lingAction.UseWhileLesserForm && comp.IsInLesserForm)
+        if (comp.Biomass < 1 && lingAction.RequireBiomass)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-biomass-deficit"), uid, uid);
+            return false;
+        }
+
+        if (!lingAction.UseInLesserForm && comp.IsInLesserForm)
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
             return false;
         }
 
-        var price = lingAction.ChemicalCost;
-        if (comp.Chemicals < price)
+        if (comp.Chemicals < lingAction.ChemicalCost)
         {
             _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
             return false;
@@ -277,7 +344,8 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -price);
+        UpdateChemicals(uid, comp, -lingAction.ChemicalCost);
+        UpdateBiomass(uid, comp, -lingAction.BiomassCost);
 
         action.Handled = true;
 
@@ -537,12 +605,30 @@ public sealed partial class ChangelingSystem : EntitySystem
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
-    }
 
+        // show alerts
+        UpdateChemicals(uid, comp, 0);
+        UpdateBiomass(uid, comp, 0);
+    }
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
             RemoveAllChangelingEquipment(uid, comp);
+    }
+    private void OnDamageChange(Entity<ChangelingComponent> ent, ref DamageChangedEvent args)
+    {
+        var target = args.Damageable;
+
+        if (!TryComp<MobStateComponent>(ent, out var mobState))
+            return;
+
+        if (mobState.CurrentState != MobState.Dead)
+            return;
+
+        if (!args.DamageIncreased)
+            return;
+
+        target.Damage.ClampMax(200); // we never die. UNLESS??
     }
 
     #endregion
@@ -1088,6 +1174,12 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         EnsureComp<HivemindComponent>(uid);
+        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(uid);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
+        var radio = EnsureComp<ActiveRadioComponent>(uid);
+        radio.Channels = new() { "Hivemind" };
+        transmitter.Channels = new() { "Hivemind" };
+
         _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
     }
 

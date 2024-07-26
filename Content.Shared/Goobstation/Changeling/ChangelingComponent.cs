@@ -10,6 +10,8 @@ namespace Content.Shared.Changeling;
 [AutoGenerateComponentState]
 public sealed partial class ChangelingComponent : Component
 {
+    #region Prototypes
+
     [DataField("soundMeatPool")]
     public List<SoundSpecifier?> SoundPool = new()
     {
@@ -17,8 +19,6 @@ public sealed partial class ChangelingComponent : Component
         new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
         new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
     };
-
-    #region Abilities
 
     [DataField("soundShriek")]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/Goobstation/Changeling/Effects/changeling_shriek.ogg");
@@ -37,17 +37,41 @@ public sealed partial class ChangelingComponent : Component
         "ActionExitStasis"
     };
 
-    public bool IsInStasis = false;
+    /// <summary>
+    ///     The status icon corresponding to the Changlings.
+    /// </summary>
 
-    public Dictionary<string, EntityUid?> Equipment = new();
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
+
+    #endregion
+
+    public bool IsInStasis = false;
 
     public bool StrainedMusclesActive = false;
 
     public bool IsInLesserForm = false;
 
-    #endregion
 
-    #region Base
+    public Dictionary<string, EntityUid?> Equipment = new();
+
+    /// <summary>
+    ///     Amount of biomass changeling currently has.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float Biomass = 30f;
+
+    /// <summary>
+    ///     Maximum amount of biomass a changeling can have.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxBiomass = 20f;
+
+    /// <summary>
+    ///     How much biomass should be removed per cycle.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BiomassDrain = 1f;
 
     /// <summary>
     ///     Current amount of chemicals changeling currently has.
@@ -62,10 +86,19 @@ public sealed partial class ChangelingComponent : Component
     public float MaxChemicals = 100f;
 
     /// <summary>
+    ///     Bonus chemicals regeneration. In case
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float BonusChemicalRegen = 0f;
+
+    /// <summary>
     ///     Cooldown between chem regen events.
     /// </summary>
-    public TimeSpan RegenTime = TimeSpan.Zero;
-    public float RegenCooldown = 1f;
+    public TimeSpan UpdateTimer = TimeSpan.Zero;
+    public float UpdateCooldown = 1f;
+
+    public float BiomassUpdateTimer = 0f;
+    public float BiomassUpdateCooldown = 60f;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
@@ -78,7 +111,6 @@ public sealed partial class ChangelingComponent : Component
     /// <summary>
     ///     Maximum amount of DNA a changeling can absorb.
     /// </summary>
-    [DataField("maxDna")]
     public int MaxAbsorbedDNA = 5;
 
     /// <summary>
@@ -98,14 +130,6 @@ public sealed partial class ChangelingComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
-
-    #endregion
-    /// <summary>
-    /// The status icon corresponding to the Changlings.
-    /// </summary>
-
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }
 
 [DataDefinition]
