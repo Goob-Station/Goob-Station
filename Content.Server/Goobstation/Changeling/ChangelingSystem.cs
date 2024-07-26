@@ -105,6 +105,8 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly SharedJitteringSystem _jitter = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -206,19 +208,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        var biomass = comp.Biomass;
-        biomass += amount ?? -1;
-        comp.Biomass = Math.Clamp(biomass, 0, comp.MaxBiomass);
+        comp.Biomass += amount ?? -1;
+        comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
 
         var random = (int) _rand.Next(1, 3);
-        var jitter = EntityManager.System<SharedJitteringSystem>();
 
         if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
         {
             if (random == 1)
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
@@ -226,10 +226,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
-                {
-                    var stun = EntityManager.System<StunSystem>();
-                    stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
-                }
+                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
 
                 var solution = new Solution();
 
@@ -245,17 +242,20 @@ public sealed partial class ChangelingSystem : EntitySystem
             // the funny itch is not real
             if (random == 3)
             {
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid);
-                jitter.DoJitter(uid, TimeSpan.FromSeconds(1.5f), true, frequency: 6);
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(1.5f), true, frequency: 6);
             }
         }
         else if (comp.Biomass <= comp.MaxBiomass / 10)
         {
             // THE FUNNY ITCH IS REAL!!
             comp.BonusChemicalRegen = 3f;
-            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid);
-            jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
+            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
+            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
         }
+        else if (comp.Biomass == 0)
+            // game over, man
+            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
         else comp.BonusChemicalRegen = 0f;
     }
     private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
