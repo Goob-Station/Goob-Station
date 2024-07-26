@@ -558,7 +558,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (HasComp<AbsorbedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), target, target);
             return false;
         }
 
