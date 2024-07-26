@@ -59,9 +59,7 @@ using Robust.Shared.Timing;
 using Content.Shared.Damage.Components;
 using Content.Server.Gravity;
 using Content.Shared.Mobs.Components;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Content.Server.Stunnable;
-using Content.Server.Body.Components;
 using Content.Shared.Jittering;
 using Content.Server.Radio.Components;
 
