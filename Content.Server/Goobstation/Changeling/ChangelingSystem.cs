@@ -215,20 +215,20 @@ public sealed partial class ChangelingSystem : EntitySystem
         var random = (int) _rand.Next(1, 3);
         var jitter = EntityManager.System<SharedJitteringSystem>();
 
-        if (comp.Biomass <= comp.Biomass / 2 && random == 3)
+        if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
         {
             if (random == 1)
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid);
         }
-        if (comp.Biomass <= comp.Biomass / 3)
+        else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
             // vomit blood
             if (random == 1)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
                 {
-                    var _stun = EntityManager.System<StunSystem>();
-                    _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
+                    var stun = EntityManager.System<StunSystem>();
+                    stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
                 }
 
                 var solution = new Solution();
@@ -246,16 +246,17 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (random == 3)
             {
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid);
-                jitter.DoJitter(uid, TimeSpan.FromSeconds(.25f), true, frequency: 6);
+                jitter.DoJitter(uid, TimeSpan.FromSeconds(1.5f), true, frequency: 6);
             }
         }
-        if (comp.Biomass <= comp.Biomass / 10)
+        else if (comp.Biomass <= comp.MaxBiomass / 10)
         {
             // THE FUNNY ITCH IS REAL!!
-            comp.BonusChemicalRegen = 5f;
+            comp.BonusChemicalRegen = 3f;
             _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid);
-            jitter.DoJitter(uid, TimeSpan.FromSeconds(1f), true, frequency: 10);
+            jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
         }
+        else comp.BonusChemicalRegen = 0f;
     }
     private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
     {
@@ -592,6 +593,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         PlayMeatySound(target, comp);
     }
+
     #endregion
 
     #region Event Handlers
