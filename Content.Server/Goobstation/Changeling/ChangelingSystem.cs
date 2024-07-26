@@ -224,7 +224,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             // THE FUNNY ITCH IS REAL!!
             comp.BonusChemicalRegen = 3f;
             _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
-            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
+            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
@@ -249,7 +249,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (random == 3)
             {
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
-                _jitter.DoJitter(uid, TimeSpan.FromSeconds(1.5f), true, frequency: 6);
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
             }
         }
         else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
@@ -691,10 +691,12 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var target = args.Args.Target.Value;
 
-        PlayMeatySound(args.User, comp);
-
         if (args.Cancelled || !IsIncapacitated(target) || HasComp<AbsorbedComponent>(target))
             return;
+
+        PlayMeatySound(args.User, comp);
+
+        UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
 
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false);
