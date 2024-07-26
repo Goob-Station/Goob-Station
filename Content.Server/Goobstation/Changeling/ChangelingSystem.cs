@@ -475,6 +475,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         newComp.AbsorbedDNA = comp.AbsorbedDNA;
         newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
         newComp.Chemicals = comp.Chemicals;
+        newComp.Biomass = comp.Biomass;
 
         newComp.IsInLesserForm = comp.IsInLesserForm;
         newComp.CurrentForm = comp.CurrentForm;
@@ -555,6 +556,12 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public bool TryTransform(EntityUid target, ChangelingComponent comp, bool sting = false, bool persistentDna = false)
     {
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), uid, uid);
+            return false;
+        }
+
         var data = comp.SelectedForm;
 
         if (data == null)
