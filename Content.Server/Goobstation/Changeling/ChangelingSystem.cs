@@ -215,10 +215,16 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var random = (int) _rand.Next(1, 3);
 
-        if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
+        if (comp.Biomass <= 0)
+            // game over, man
+            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
+
+        if (comp.Biomass <= comp.MaxBiomass / 10)
         {
-            if (random == 1)
-                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
+            // THE FUNNY ITCH IS REAL!!
+            comp.BonusChemicalRegen = 3f;
+            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
+            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
@@ -246,16 +252,11 @@ public sealed partial class ChangelingSystem : EntitySystem
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(1.5f), true, frequency: 6);
             }
         }
-        else if (comp.Biomass <= comp.MaxBiomass / 10)
+        else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
         {
-            // THE FUNNY ITCH IS REAL!!
-            comp.BonusChemicalRegen = 3f;
-            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
-            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, frequency: 10);
+            if (random == 1)
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
         }
-        else if (comp.Biomass == 0)
-            // game over, man
-            _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
         else comp.BonusChemicalRegen = 0f;
     }
     private void UpdateAbilities(EntityUid uid, ChangelingComponent comp)
