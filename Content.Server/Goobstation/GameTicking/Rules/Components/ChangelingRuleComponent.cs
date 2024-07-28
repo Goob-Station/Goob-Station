@@ -20,8 +20,7 @@ public sealed partial class ChangelingRuleComponent : Component
 
     public readonly List<ProtoId<EntityPrototype>> Objectives = new()
     {
-        "ChangelingAbsorbObjective",
-        "ChangelingStealDNAObjective",
+        "ChangelingSurviveObjective",
         "EscapeIdentityObjective"
     };
 }

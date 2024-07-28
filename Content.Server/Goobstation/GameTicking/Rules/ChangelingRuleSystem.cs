@@ -51,22 +51,20 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
             return false;
 
         // briefing
-        TryComp<MetaDataComponent>(target, out var metaData);
+        if (TryComp<MetaDataComponent>(target, out var metaData))
+        {
+            var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
+            var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
 
-        var briefing = Loc.GetString("changeling-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
-        var briefingShort = Loc.GetString("changeling-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
-
-        _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
-
-        _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
-
+            _antag.SendBriefing(target, briefing, Color.Yellow, BriefingSound);
+            _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+        }
         // hivemind stuff
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, ChangelingFactionId);
 
         // make sure it's initial chems are set to max
-        var lingComp = EnsureComp<ChangelingComponent>(target);
-        lingComp.Chemicals = lingComp.MaxChemicals;
+        EnsureComp<ChangelingComponent>(target);
 
         // add store
         var store = EnsureComp<StoreComponent>(target);
@@ -92,17 +90,21 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
 
         foreach (var ling in EntityQuery<ChangelingComponent>())
         {
+            if (!_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
+                continue;
+
+            if (!TryComp<MetaDataComponent>(ling.Owner, out var metaData))
+                continue;
+
             if (ling.TotalAbsorbedEntities > mostAbsorbed)
             {
                 mostAbsorbed = ling.TotalAbsorbedEntities;
-                if (_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
-                    mostAbsorbedName = _objective.GetTitle((mindId, mind), string.Empty);
+                mostAbsorbedName = _objective.GetTitle((mindId, mind), metaData.EntityName);
             }
             if (ling.TotalStolenDNA > mostStolen)
             {
                 mostStolen = ling.TotalStolenDNA;
-                if (_mind.TryGetMind(ling.Owner, out var mindId, out var mind))
-                    mostStolenName = _objective.GetTitle((mindId, mind), string.Empty);
+                mostStolenName = _objective.GetTitle((mindId, mind), metaData.EntityName);
             }
         }
 
