@@ -119,7 +119,7 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobMothDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
     species: Moth
