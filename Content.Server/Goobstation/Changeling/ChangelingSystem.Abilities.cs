@@ -132,23 +132,22 @@ public sealed partial class ChangelingSystem : EntitySystem
         EnsureComp<AbsorbedComponent>(target);
 
         var popup = Loc.GetString("changeling-absorb-end-self-ling");
-        var bonusChemicals = 0;
-        var bonusEvolutionPoints = 0;
-        if (HasComp<ChangelingComponent>(target))
+        var bonusChemicals = 0f;
+        var bonusEvolutionPoints = 0f;
+        if (TryComp<ChangelingComponent>(target, out var targetComp))
         {
-            bonusChemicals += 60;
+            bonusChemicals += targetComp.MaxChemicals / 2;
             bonusEvolutionPoints += 10;
-            comp.MaxBiomass += 30;
+            comp.MaxBiomass += targetComp.MaxBiomass / 2;
         }
         else
         {
-            popup = Loc.GetString("changeling-absorb-end-self", ("target", Identity.Entity(target, EntityManager)));
+            popup = Loc.GetString("changeling-absorb-end-self");
             bonusChemicals += 10;
             bonusEvolutionPoints += 2;
         }
         TryStealDNA(uid, target, comp, true);
         comp.TotalAbsorbedEntities++;
-        comp.TotalStolenDNA++;
 
         _popup.PopupEntity(popup, args.User, args.User);
         comp.MaxChemicals += bonusChemicals;

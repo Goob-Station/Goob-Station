@@ -422,6 +422,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             data.Fingerprint = fingerprint.Fingerprint;
 
         AddDNA(uid, comp, data, countObjective);
+        comp.TotalStolenDNA++;
 
         return true;
     }
@@ -576,6 +577,10 @@ public sealed partial class ChangelingSystem : EntitySystem
         // add actions
         foreach (var actionId in comp.BaseChangelingActions)
             _actions.AddAction(uid, actionId);
+
+        // making sure things are right in this world
+        comp.Chemicals = comp.MaxChemicals;
+        comp.Biomass = comp.MaxBiomass;
 
         // show alerts
         UpdateChemicals(uid, comp, 0);
