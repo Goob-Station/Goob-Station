@@ -491,3 +491,11 @@ Entries:
         biomass and evolution points instead of a fixed amount.
   id: 61
   time: '2024-07-28T21:40:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed the lobby screen "twosides"
+    - type: Add
+      message: Added a remix of Skubstep, Skubstub to lobby and jukebox
+  id: 62
+  time: '2024-07-28T22:53:33.0000000+00:00'
