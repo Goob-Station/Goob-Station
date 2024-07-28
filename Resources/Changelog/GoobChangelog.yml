@@ -473,3 +473,29 @@ Entries:
       message: Jukeboxes now activate artifacts
   id: 60
   time: '2024-07-24T04:31:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Added biomass to changelings. Now they cannot die unless they run out of
+        biomass.
+    - type: Add
+      message: Changelings must absorb people to recover biomass.
+    - type: Fix
+      message: Fixed changeling transform ability not transferring stuff correctly.
+    - type: Fix
+      message: Fixed round end changeling prepend text not working correctly.
+    - type: Tweak
+      message: >-
+        Now absorbing another changeling gives a half of it's max chemicals,
+        biomass and evolution points instead of a fixed amount.
+  id: 61
+  time: '2024-07-28T21:40:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed the lobby screen "twosides"
+    - type: Add
+      message: Added a remix of Skubstep, Skubstub to lobby and jukebox
+  id: 62
+  time: '2024-07-28T22:53:33.0000000+00:00'

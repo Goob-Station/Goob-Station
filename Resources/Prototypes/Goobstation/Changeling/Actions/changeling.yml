@@ -14,7 +14,7 @@
       state: evolution_menu
     event: !type:OpenEvolutionMenuEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
+    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
@@ -37,12 +37,13 @@
     event: !type:AbsorbDNAEvent {}
   - type: ChangelingAction
     chemicalCost: 25
+    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
   id: ActionStingExtractDNA
   name: Extract DNA sting
-  description: Silently sting an organic target to steal their genetic information, allowing you to later transform into them. Costs 25 chemicals.
+  description: Steal your target's genetic information. Costs 25 chemicals.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -73,13 +74,13 @@
       state: transform_cycle
     event: !type:ChangelingTransformCycleEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
+    requireBiomass: false
     useInLesserForm: true
 
 - type: entity
   id: ActionChangelingTransform
   name: Transform
-  description: Use stolen genetic information to transform into another humanoid. Resets your abilities. Doesn't come with clothes. Costs 5 chemicals.
+  description: Transform into another humanoid. Doesn't come with clothes. Costs 5 chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -96,7 +97,7 @@
 - type: entity
   id: ActionEnterStasis
   name: Enter regenerative stasis
-  description: Fake your death and enter into a regenerative stasis. Drains all your chemicals.
+  description: Fake your death and start regenerating. Drains all your chemicals. Consumes biomass.
   noSpawn: true
   components:
   - type: InstantAction
@@ -108,7 +109,7 @@
       state: stasis_enter
     event: !type:EnterStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 0
+    biomassCost: 1
     useInLesserForm: true
 
 - type: entity
@@ -377,7 +378,6 @@
     useInLesserForm: true
 
 # utility
-
 - type: entity
   id: ActionAnatomicPanacea
   name: Anatomic Panacea
@@ -484,25 +484,6 @@
   - type: ChangelingAction
     chemicalCost: 35
     useInLesserForm: true
-
-- type: entity
-  id: ActionLastResort
-  name: Last Resort
-  description: Abandon your current body and become a headslug. Costs 20 chemicals.
-  noSpawn: true
-  components:
-  - type: InstantAction
-    useDelay: 5
-    checkCanInteract: false
-    checkConsciousness: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: Goobstation/Changeling/changeling_abilities.rsi
-      state: last_resort
-    event: !type:ActionLastResortEvent {}
-  - type: ChangelingAction
-    chemicalCost: 20
-    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleLesserForm

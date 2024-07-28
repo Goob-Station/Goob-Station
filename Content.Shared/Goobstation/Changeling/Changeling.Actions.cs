@@ -6,14 +6,15 @@ namespace Content.Shared.Changeling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField("chemicalCost")]
-    public float ChemicalCost = 0;
+    [DataField] public bool RequireBiomass = true;
 
-    [DataField("useInLesserForm")]
-    public bool UseWhileLesserForm = false;
+    [DataField] public float ChemicalCost = 0;
 
-    [DataField("requireAbsorbed")]
-    public float RequireAbsorbed = 0;
+    [DataField] public float BiomassCost = 0;
+
+    [DataField] public bool UseInLesserForm = false;
+
+    [DataField] public float RequireAbsorbed = 0;
 }
 
 #region Events - Basic
