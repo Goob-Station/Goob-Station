@@ -54,6 +54,7 @@ using Content.Server.Gravity;
 using Content.Shared.Mobs.Components;
 using Content.Server.Stunnable;
 using Content.Shared.Jittering;
+using System.Linq;
 
 namespace Content.Server.Changeling;
 
@@ -117,6 +118,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChange);
+        SubscribeLocalEvent<ChangelingComponent, ComponentRemove>(OnComponentRemove);
 
         SubscribeAbilities();
     }
@@ -381,22 +383,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         return true;
     }
 
-    public void AddDNA(EntityUid uid, ChangelingComponent comp, TransformData data, bool countObjective = false)
-    {
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-            return;
-        }
-        comp.AbsorbedDNA.Add(data);
-
-        if (countObjective)
-        {
-            if (_mind.TryGetMind(uid, out var mindId, out var mind))
-                if (_mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
-                    objective.DNAStolen += 1;
-        }
-    }
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
         if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
@@ -421,7 +407,17 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (fingerprint.Fingerprint != null)
             data.Fingerprint = fingerprint.Fingerprint;
 
-        AddDNA(uid, comp, data, countObjective);
+        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+        else comp.AbsorbedDNA.Add(data);
+
+        if (countObjective
+        && _mind.TryGetMind(uid, out var mindId, out var mind)
+        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        {
+            objective.DNAStolen += 1;
+        }
+
         comp.TotalStolenDNA++;
 
         return true;
@@ -555,7 +551,9 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
     {
-        if (comp.Equipment.Values.Count == 0)
+        // check if there's no entities or all entities are null
+        if (comp.Equipment.Values.Count == 0
+        || comp.Equipment.Values.All(ent => ent == null ? true : false))
             return;
 
         foreach (var equip in comp.Equipment.Values)
@@ -586,11 +584,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         UpdateChemicals(uid, comp, 0);
         UpdateBiomass(uid, comp, 0);
     }
+
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
             RemoveAllChangelingEquipment(uid, comp);
     }
+
     private void OnDamageChange(Entity<ChangelingComponent> ent, ref DamageChangedEvent args)
     {
         var target = args.Damageable;
@@ -605,6 +605,11 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         target.Damage.ClampMax(200); // we never die. UNLESS??
+    }
+
+    private void OnComponentRemove(Entity<ChangelingComponent> ent, ref ComponentRemove args)
+    {
+        RemoveAllChangelingEquipment(ent, ent.Comp);
     }
 
     #endregion
