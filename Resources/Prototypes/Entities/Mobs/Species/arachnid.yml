@@ -118,7 +118,7 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobArachnidDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
     species: Arachnid

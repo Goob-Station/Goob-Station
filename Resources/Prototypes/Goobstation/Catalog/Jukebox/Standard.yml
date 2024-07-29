@@ -39,3 +39,9 @@
   name: Vic Tyler - Dawson's Christian
   path:
     path: /Audio/Lobby/dawsonschristian.ogg
+
+- type: jukebox
+  id: skubstub
+  name: DJ B1G YAPPA - SKUBSTUB
+  path:
+    path: /Audio/Lobby/skubstub.ogg

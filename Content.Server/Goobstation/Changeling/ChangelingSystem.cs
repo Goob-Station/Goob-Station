@@ -588,7 +588,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         // show alerts
         UpdateChemicals(uid, comp, 0);
         UpdateBiomass(uid, comp, 0);
-
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
     }
@@ -611,7 +610,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (!args.DamageIncreased)
             return;
-
+        
         target.Damage.ClampMax(200); // we never die. UNLESS??
     }
 
