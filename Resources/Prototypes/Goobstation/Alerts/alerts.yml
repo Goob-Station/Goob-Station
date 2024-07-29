@@ -1,0 +1,7 @@
+- type: alert
+  id: Stasis    
+  icons: 
+  - sprite: /Textures/Goobstation/Interface/Alerts/stasis.rsi
+    state: stasis
+  name: alerts-stasis-name
+  description: alerts-stasis-desc

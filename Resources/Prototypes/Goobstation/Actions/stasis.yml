@@ -1,0 +1,21 @@
+- type: entity
+  id: ActionChronoBlink
+  name: Temporary shift
+  description: Changes your coordinates, allowing you to teleport to nearby locations
+  noSpawn: true
+  components:
+  - type: WorldTargetAction
+    icon:
+      sprite: Goobstation/Actions/chronoblink.rsi
+      state: effect
+    event: !type:TeleportSpellEvent
+    range: 15
+    useDelay: 15
+    itemIconStyle: NoItem
+    checkCanAccess: false
+    sound:
+      path: /Audio/Magic/blink.ogg
+      params:
+        volume: 5
+
+    

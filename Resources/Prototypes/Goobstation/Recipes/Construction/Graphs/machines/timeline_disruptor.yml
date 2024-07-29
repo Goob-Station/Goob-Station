@@ -1,0 +1,16 @@
+- type: constructionGraph
+  id: TimelineDisruptor
+  start: timelineDisruptor
+  graph:
+  - node: timelineDisruptor
+    entity: TimelineDisruptor
+    edges:
+    - to: timelineDisruptor
+      completed:
+      - !type:SpawnPrototype
+            prototype: TimelineDisruptorFlatpack
+            amount: 1
+      - !type:DeleteEntity {}
+      steps:
+        - tool: Screwing
+          doAfter: 5

@@ -1,0 +1,20 @@
+- type: entity
+  parent: IDCardStandard
+  id: ChronoIDCard
+  name: futuristic ID card
+  description: The card that originally accessed everything in this universe
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: future
+    - state: idchrono
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: future agent
+    jobIcon: JobIconFuture
+  - type: Access
+    tags:
+    - CentralCommand
+    - SyndicateAgent

@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesChronoLegioneer
+  name: futuristic gloves
+  description: Futuristic gloves made of an unknown material that doesn't leave any trace
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Hands/Gloves/chronolegioneer.rsi
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Insulated
+  - type: FingerprintMask
+  
+- type: entity
+  parent: ClothingHandsGlovesChronoLegioneer
+  id: ClothingHandsGlovesChronoLegioneerUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
