@@ -12,9 +12,11 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: future agent
+    jobTitle: Future Agent
     jobIcon: JobIconFuture
   - type: Access
+    groups:
+    - AllAccess
     tags:
     - CentralCommand
     - SyndicateAgent

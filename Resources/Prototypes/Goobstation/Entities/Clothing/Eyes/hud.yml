@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingEyesHudMultiversal
+  parent: ClothingEyesHudOmni
   id: ClothingEyesHudChrono
   name: futuristic visor
   description: A visior from the future, capable of displaying almost anything.

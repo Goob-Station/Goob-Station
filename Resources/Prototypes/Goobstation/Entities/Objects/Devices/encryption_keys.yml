@@ -19,6 +19,7 @@
     - Handheld
     - CentCom
     - Future
+    - Syndicate
   - type: Sprite
     sprite: Objects/Devices/encryption_keys.rsi
     layers:
