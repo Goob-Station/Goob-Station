@@ -10,11 +10,9 @@
   - type: Clothing
     sprite: Goobstation/Clothing/Shoes/Boots/chronolegioneer.rsi
   - type: Magboots
-    toggleAction: ActionToggleMagbootsAdvanced
   - type: ClothingSpeedModifier
     walkModifier: 1
     sprintModifier: 1
-    enabled: false
   - type: NoSlip
   - type: Tag
     tags:
