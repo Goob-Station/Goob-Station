@@ -1,0 +1,8 @@
+- type: soundCollection
+  id: FootstepHeavySuit
+  files:
+  - /Audio/Goobstation/Effects/Footsteps/heavy1.ogg
+  - /Audio/Goobstation/Effects/Footsteps/heavy2.ogg
+  - /Audio/Goobstation/Effects/Footsteps/heavy3.ogg
+  - /Audio/Goobstation/Effects/Footsteps/heavy4.ogg
+
