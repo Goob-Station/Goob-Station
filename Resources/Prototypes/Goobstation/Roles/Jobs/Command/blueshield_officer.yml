@@ -20,7 +20,7 @@
   joinNotifyCrew: true
   supervisors: "Nanotrasen Representative and Central Command."
   canBeAntag: false
-  accessGroups:
+  access:
   - Security
   - Brig
   - External
