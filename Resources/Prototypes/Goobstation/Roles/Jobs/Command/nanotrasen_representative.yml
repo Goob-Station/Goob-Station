@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 180000  #50 hours
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasen"
@@ -15,9 +15,16 @@
   supervisors: job-supervisors-centcom
   canBeAntag: false
   accessGroups:
-  - AllAccess
   access:
   - CentralCommand
+  - Security
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Command
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
