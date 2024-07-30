@@ -17,6 +17,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ContainerSystem _containerSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()
     {
@@ -38,11 +39,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
         if (args.Handled || !args.Complex)
             return;
 
-        // Trying to get disruptor slot. If entity don't have slot - we can't work with it
-        if (!TryComp<ItemSlotsComponent>(ent, out var itemSlots))
-            return;
-
-        if (!itemSlots.Slots.TryGetValue(comp.DisruptionSlot, out var disruptionSlot))
+        if (!_itemSlotsSystem.TryGetSlot(ent, comp.DisruptionSlot, out var disruptionSlot))
             return;
 
         if (disruptionSlot.ContainerSlot == null || disruptionSlot.ContainerSlot.ContainedEntities.Count == 0)
@@ -114,17 +111,17 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 
         Dirty(ent, ent.Comp);
     }
-    private void FinishDisrupting(Entity<TimelineDisruptorComponent, ItemSlotsComponent> ent)
+    private void FinishDisrupting(Entity<TimelineDisruptorComponent> ent)
     {
-        var (_, disruptor, itemSlots) = ent;
+        var (_, disruptor) = ent;
         StopDisrupting(ent);
 
-        Dirty(ent, ent.Comp1);
+        Dirty(ent, disruptor);
 
-        if (!itemSlots.Slots.TryGetValue(disruptor.DisruptionSlot, out var slot))
+        if (!_itemSlotsSystem.TryGetSlot(ent, disruptor.DisruptionSlot, out var disruptionSlot))
             return;
 
-        EntityUid? cage = slot.ContainerSlot!.ContainedEntity;
+        EntityUid? cage = disruptionSlot.ContainerSlot!.ContainedEntity;
 
         if (cage == null)
             return;
@@ -149,17 +146,17 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<TimelineDisruptorComponent, ItemSlotsComponent>();
-        while (query.MoveNext(out var uid, out var disruptor, out var itemSlots))
+        var query = EntityQueryEnumerator<TimelineDisruptorComponent>();
+        while (query.MoveNext(out var uid, out var disruptor))
         {
             if (!disruptor.Disruption)
                 continue;
 
-            if (!itemSlots.Slots.TryGetValue(disruptor.DisruptionSlot, out var slot))
+            if (!_itemSlotsSystem.TryGetSlot(uid, disruptor.DisruptionSlot, out var disruptionSlot))
                 continue;
 
             // Check if we removed stasis container from disruptor
-            if ((slot.ContainerSlot == null || slot.ContainerSlot.ContainedEntity == null) && disruptor.Disruption)
+            if ((disruptionSlot.ContainerSlot == null || disruptionSlot.ContainerSlot.ContainedEntity == null) && disruptor.Disruption)
             {
                 StopDisrupting((uid, disruptor));
                 disruptor.DisruptionSoundStream = _audioSystem.Stop(disruptor.DisruptionSoundStream);
@@ -173,7 +170,7 @@ public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
             }
 
             if (disruptor.DisruptionEndTime < _timing.CurTime)
-                FinishDisrupting((uid, disruptor, itemSlots));
+                FinishDisrupting((uid, disruptor));
         }
     }
 }

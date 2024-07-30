@@ -9,6 +9,9 @@
     "states": [
         {
             "name": "stasis"
+        },
+		{
+            "name": "stasis_ru"
         }
     ]
 }
