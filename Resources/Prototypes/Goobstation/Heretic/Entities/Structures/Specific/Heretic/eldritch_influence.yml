@@ -1,0 +1,23 @@
+- type: entity
+  id: EldritchInfluence
+  name: eldritch influence
+  description: Your eyes... OH GOD, MY EYES!!! I CAN'T STOP LOOKING AT IT!!!
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: EldritchInfluence
+  - type: Sprite
+    sprite: Goobstation/Heretic/reality_fracture.rsi
+    state: icon
+  - type: Clickable
+
+- type: entity
+  parent: EldritchInfluence
+  id: EldritchInfluenceSpent
+  components:
+  - type: EldritchInfluence
+    spent: true  
+  - type: Sprite
+    sprite: Goobstation/Heretic/reality_fracture.rsi
+    state: icon_harvested

@@ -1,0 +1,31 @@
+# actions
+- type: entity
+  id: ActionHereticOpenStore
+  name: Open Knowledge Store
+  description: Open the Knowledge Store.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Heretic/Abilities/base.rsi
+      state: open_store
+    event: !type:EventHereticOpenStore {}
+  - type: HereticAction
+    requireMagicItem: false
+
+- type: entity
+  id: ActionHereticMansusGrasp
+  name: Mansus Grasp
+  description: Cast a touch spell that lets you channel the power of the Old Gods through your grip.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Heretic/Abilities/base.rsi
+      state: mansus_grasp
+    event: !type:EventHereticMansusGrasp {}
+  - type: HereticAction
+    requireMagicItem: false

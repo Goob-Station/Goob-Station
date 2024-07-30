@@ -1,0 +1,126 @@
+  #- !type:HereticPathCondition
+  #  whitelist:
+  #  - Ash
+  #  blasklist:
+  #  - Ash
+  #  stage: 0
+
+- type: listing
+  id: KnowledgePathStartAsh
+  name: knowledge-path-start-ash-name
+  description: knowledge-path-start-ash-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartAshEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartMoon
+  name: knowledge-path-start-moon-name
+  description: knowledge-path-start-moon-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_moon.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartMoonEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartLock
+  name: knowledge-path-start-lock-name
+  description: knowledge-path-start-lock-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_lock.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartLockEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartFlesh
+  name: knowledge-path-start-flesh-name
+  description: knowledge-path-start-flesh-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartFleshEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartVoid
+  name: knowledge-path-start-void-name
+  description: knowledge-path-start-void-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartVoidEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartBlade
+  name: knowledge-path-start-blade-name
+  description: knowledge-path-start-blade-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_blade.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartBladeEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartRust
+  name: knowledge-path-start-rust-name
+  description: knowledge-path-start-rust-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartRustEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: KnowledgePathStartCosmos
+  name: knowledge-path-start-cosmos-name
+  description: knowledge-path-start-cosmos-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent: !type:KnowledgePathStartCosmosEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathStarting
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
