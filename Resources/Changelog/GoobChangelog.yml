@@ -499,3 +499,9 @@ Entries:
       message: Added a remix of Skubstep, Skubstub to lobby and jukebox
   id: 62
   time: '2024-07-28T22:53:33.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: ChronoLegionnaire was added as admeme tool
+  id: 63
+  time: '2024-07-30T19:59:52.0000000+00:00'
