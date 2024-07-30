@@ -20,7 +20,7 @@ changeling-transform-fail-choose = You did not choose a form to transform into!
 changeling-transform-fail-absorbed = You can't transform a husk!
 changeling-transform-finish = You are now {$target}.
 
-changeling-sting-fail-self = You tried to sting {CAPITALIZE(THE($target))}, but failed!
+changeling-sting-fail-self = You tried to sting {CAPITALIZE(THE($target))}, but something stopped you from doing it!
 changeling-sting-fail-ling = Someone just tried to silently sting you!
 
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
