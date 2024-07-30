@@ -54,7 +54,10 @@
   - type: TimelineDisruptor
   - type: ContainerContainer
     containers:
-      ItemPlacement: !type:ContainerSlot
+      disruptionSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
   - type: Construction
     deconstructionTarget: null
     graph: TimelineDisruptor
