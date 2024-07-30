@@ -30,7 +30,6 @@
   - Medical
   - Research
   - Command
-
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
