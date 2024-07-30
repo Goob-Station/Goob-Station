@@ -505,3 +505,11 @@ Entries:
       message: ChronoLegionnaire was added as admeme tool
   id: 63
   time: '2024-07-30T19:59:52.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added a guidebook entry for changelings.
+    - type: Add
+      message: Added a ling check. Read more about it in the guidebook.
+  id: 64
+  time: '2024-07-30T20:01:54.0000000+00:00'
