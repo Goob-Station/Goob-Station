@@ -18,7 +18,7 @@
   icon: "JobIconNanotrasen"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: "Nanotrasen Representative and Central Command."
+  supervisors: "the Nanotrasen Representative and Central Command"
   canBeAntag: false
   access:
   - Security
