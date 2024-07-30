@@ -6,22 +6,31 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 180000 # 50 hours
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 54000 # 15 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 180000 # 50 hours
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconNanotrasen"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: job-supervisors-centcom
+  supervisors: "Nanotrasen Representative and Central Command."
   canBeAntag: false
   accessGroups:
-  - AllAccess
+  - Security
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Command
+
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
