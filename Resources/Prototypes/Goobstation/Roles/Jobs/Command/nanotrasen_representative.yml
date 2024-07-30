@@ -14,7 +14,6 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  accessGroups:
   access:
   - CentralCommand
   - Security
