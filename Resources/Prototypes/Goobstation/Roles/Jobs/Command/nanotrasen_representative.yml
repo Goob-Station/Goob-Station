@@ -12,7 +12,7 @@
   icon: "JobIconNanotrasen"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
   access:
   - CentralCommand
