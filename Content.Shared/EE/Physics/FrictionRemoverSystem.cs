@@ -1,3 +1,4 @@
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -19,7 +20,15 @@ public sealed class FrictionRemoverSystem : EntitySystem
 
     private void RemoveDampening(EntityUid uid, PhysicsComponent component, PhysicsSleepEvent args)
     {
-        _physics.SetAngularDamping(uid, component, 0f, false);
-        _physics.SetLinearDamping(uid, component, 0f);
+        var linear = 0f;
+        var angular = 0f;
+        if (TryComp<PassiveDampeningComponent>(uid, out var dampening) && dampening.Enabled)
+        {
+            linear = dampening.LinearDampening;
+            angular = dampening.AngularDampening;
+        }
+
+        _physics.SetAngularDamping(uid, component, angular, false);
+        _physics.SetLinearDamping(uid, component, linear);
     }
 }
