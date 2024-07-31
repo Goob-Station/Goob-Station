@@ -527,3 +527,11 @@ Entries:
       message: The station and ATS now have a minor amount of friction.
   id: 66
   time: '2024-07-31T04:54:59.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Fix
+      message: >-
+        Blueshield and Nanotrasen Representative rules should look a bit better
+        now.
+  id: 67
+  time: '2024-07-31T04:55:55.0000000+00:00'
