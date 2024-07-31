@@ -3,6 +3,7 @@ using Content.Server.Goobstation.Objectives.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -23,6 +24,7 @@ public sealed partial class HereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
+        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
 
         SubscribeAbilities();
     }
@@ -40,9 +42,14 @@ public sealed partial class HereticSystem : EntitySystem
                 objective.Researched += amount;
     }
 
-    public void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
+    private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
         foreach (var ability in ent.Comp.BaseActions)
             _action.AddAction(ent, ability);
+    }
+
+    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 }

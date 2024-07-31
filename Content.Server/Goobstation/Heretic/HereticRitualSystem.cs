@@ -31,10 +31,15 @@ public sealed partial class HereticRitualSystem : SharedHereticRitualSystem
         if (heretic.ChosenRitual != null)
         {
             var index = heretic.KnownRituals.FindIndex(m => m == heretic.ChosenRitual) + 1;
+
             if (index >= heretic.KnownRituals.Count)
                 index = 0;
+
             heretic.ChosenRitual = heretic.KnownRituals[index];
 
+            var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual.Value).Name);
+
+            _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), ent, ent);
         }
     }
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)

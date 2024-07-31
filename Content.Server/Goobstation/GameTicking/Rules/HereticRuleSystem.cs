@@ -4,8 +4,6 @@ using Content.Server.Goobstation.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Events;
 using Content.Shared.Heretic;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;

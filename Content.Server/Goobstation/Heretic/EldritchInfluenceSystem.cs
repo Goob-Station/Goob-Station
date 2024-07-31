@@ -16,7 +16,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<EldritchInfluenceComponent, InteractHandEvent>(OnInteract);
-        SubscribeLocalEvent<HereticComponent, EldritchInfluenceDoAfterEvent>(OnDoAfter);
+        SubscribeLocalEvent<EldritchInfluenceComponent, EldritchInfluenceDoAfterEvent>(OnDoAfter);
     }
 
     public void OnInteract(Entity<EldritchInfluenceComponent> ent, ref InteractHandEvent args)
@@ -43,7 +43,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
 
         args.Handled = true;
     }
-    public void OnDoAfter(Entity<HereticComponent> ent, ref EldritchInfluenceDoAfterEvent args)
+    public void OnDoAfter(Entity<EldritchInfluenceComponent> ent, ref EldritchInfluenceDoAfterEvent args)
     {
         if (args.Cancelled)
             return;
@@ -51,7 +51,10 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         if (args.Target == null)
             return;
 
-        _heretic.UpdateKnowledge(ent, ent.Comp, ent.Comp.CodexActive ? 2 : 1);
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
+            return;
+
+        _heretic.UpdateKnowledge(args.User, heretic, heretic.CodexActive ? 2 : 1);
 
         Spawn("EldritchInfluenceSpent", Transform((EntityUid) args.Target).Coordinates);
         QueueDel(args.Target);

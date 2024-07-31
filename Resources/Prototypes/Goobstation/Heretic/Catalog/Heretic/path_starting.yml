@@ -1,10 +1,3 @@
-  #- !type:HereticPathCondition
-  #  whitelist:
-  #  - Ash
-  #  blasklist:
-  #  - Ash
-  #  stage: 0
-
 - type: listing
   id: KnowledgePathStartAsh
   name: knowledge-path-start-ash-name
@@ -12,21 +5,6 @@
   icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
   raiseProductEventOnUser: true
   productEvent: !type:KnowledgePathStartAshEvent
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathStarting
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: KnowledgePathStartMoon
-  name: knowledge-path-start-moon-name
-  description: knowledge-path-start-moon-desc
-  icon: { sprite: Goobstation/Heretic/Blades/blade_moon.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent: !type:KnowledgePathStartMoonEvent
   cost:
     KnowledgePoint: 1
   categories:
@@ -102,21 +80,6 @@
   icon: { sprite: Goobstation/Heretic/Blades/blade_rust.rsi, state: icon }
   raiseProductEventOnUser: true
   productEvent: !type:KnowledgePathStartRustEvent
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathStarting
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-
-- type: listing
-  id: KnowledgePathStartCosmos
-  name: knowledge-path-start-cosmos-name
-  description: knowledge-path-start-cosmos-desc
-  icon: { sprite: Goobstation/Heretic/Blades/blade_cosmos.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent: !type:KnowledgePathStartCosmosEvent
   cost:
     KnowledgePoint: 1
   categories:

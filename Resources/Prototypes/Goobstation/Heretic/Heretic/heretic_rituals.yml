@@ -1,3 +1,13 @@
 - type: hereticRitual
   id: Sacrifice
-  name: Heartbeat of Mansus
+  name: heretic-ritual-basic-sacrifice
+  outputEvent: !type:HereticRitualSacrificeEvent
+
+- type: hereticRitual
+  id: AmberFocus
+  name: heretic-ritual-basic-focus
+
+- type: hereticRitual
+  id: AscendDebug
+  name: heretic-ritual-ascend-debug
+  outputEvent: !type:HereticRitualAscendEvent

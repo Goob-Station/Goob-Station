@@ -14,7 +14,7 @@
   - type: Clickable
 
 - type: entity
-  id: HereticRuneRitualAnimation
+  id: HereticRuneRitualDrawAnimation
   name: unfinished ritual rune
   description: An unfinished ancient drawing used by sinister individuals for sacrifices.
   placement:
@@ -24,3 +24,17 @@
     drawdepth: WallMountedItems
     sprite: Goobstation/Heretic/ritual_rune.rsi
     state: icon_drawanim
+
+- type: entity
+  id: HereticRuneRitualAnimation
+  name: ritual rune
+  description: you shouldn't be seeing this description
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    delay: 1
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: Goobstation/Heretic/ritual_rune.rsi
+    state: icon_ritualanim

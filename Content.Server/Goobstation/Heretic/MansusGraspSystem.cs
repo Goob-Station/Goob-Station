@@ -72,6 +72,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
     public void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!args.CanReach)
             return;
         if (!args.ClickLocation.IsValid(EntityManager))
@@ -87,7 +90,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (!heretic.MansusGraspActive)
             return;
 
-        var rune = Spawn("HereticRuneRitualAnimation", args.ClickLocation);
+        var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
         var dargs = new DoAfterArgs(EntityManager, args.User, 30f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
             BreakOnDamage = true,
@@ -95,6 +98,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
             BreakOnMove = true,
             CancelDuplicate = true
         };
+        args.Handled = true;
         _doAfter.TryStartDoAfter(dargs);
     }
     public void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)

@@ -8,6 +8,11 @@ public sealed partial class HereticComponent : Component
 {
     #region Prototypes
 
+    [DataField] public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
+    {
+
+    };
+
     [DataField] public List<EntProtoId> BaseActions = new()
     {
         "ActionHereticOpenStore",
@@ -19,7 +24,7 @@ public sealed partial class HereticComponent : Component
     [DataField] public bool Ascended = false;
 
     // hardcoded paths because i hate it
-    // "Ash", "Moon", "Lock", "Flesh", "Void", "Blade", "Rust", "Cosmos"
+    // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
     /// <summary>
     ///     Indicates a path the heretic is on.
     /// </summary>
