@@ -513,3 +513,11 @@ Entries:
       message: Added a ling check. Read more about it in the guidebook.
   id: 64
   time: '2024-07-30T20:01:54.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Blueshield and NTR's accesses, who the Blueshield answers
+        to, and the playtime requirements for both jobs.
+  id: 65
+  time: '2024-07-31T01:39:15.0000000+00:00'
