@@ -10,13 +10,12 @@ public sealed partial class HereticComponent : Component
 
     [DataField] public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
-
-    };
-
-    [DataField] public List<EntProtoId> BaseActions = new()
-    {
-        "ActionHereticOpenStore",
-        "ActionHereticMansusGrasp"
+        "BreakOfDawn",
+        "LivingHeart",
+        "HeartbeatOfMansus",
+        "AmberFocus",
+        "CodexCicatrix",
+        "CloakOfShadow"
     };
 
     #endregion

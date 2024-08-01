@@ -6,6 +6,10 @@
 - type: hereticRitual
   id: AmberFocus
   name: heretic-ritual-basic-focus
+  requiredTags:
+    GlassShard: 1
+  requiredEntityNames:
+    eyes: 1
 
 - type: hereticRitual
   id: AscendDebug

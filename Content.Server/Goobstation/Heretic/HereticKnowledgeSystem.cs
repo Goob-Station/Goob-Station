@@ -15,7 +15,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
-    public void AddKnowledge(Entity<HereticComponent> ent, ProtoId<HereticKnowledgePrototype> id)
+    public void AddKnowledge(Entity<HereticComponent> ent, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
     {
         var data = GetKnowledge(id);
 
@@ -30,9 +30,10 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             foreach (var ritual in data.RitualPrototypes)
                 ent.Comp.KnownRituals.Add(_ritual.GetRitual(ritual));
 
-        _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), ent, ent);
+        if (!silent)
+            _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), ent, ent);
     }
-    public void RemoveKnowledge(Entity<HereticComponent> ent, ProtoId<HereticKnowledgePrototype> id)
+    public void RemoveKnowledge(Entity<HereticComponent> ent, ProtoId<HereticKnowledgePrototype> id, bool silent = false)
     {
         var data = GetKnowledge(id);
 
@@ -59,6 +60,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             foreach (var ritual in data.RitualPrototypes)
                 ent.Comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
 
-        _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), ent, ent);
+        if (!silent)
+            _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), ent, ent);
     }
 }

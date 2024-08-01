@@ -2,7 +2,7 @@ heretic-ritual-unknown = Unknown Ritual
 heretic-ritual-switch = Selected {$name}
 heretic-ritual-success = Ritual successful
 heretic-ritual-fail = Ritual failed
-heretic-ritual-fail-items = Need {$entlist} to start
+heretic-ritual-fail-items = Needed items: {$itemlist}
 
 heretic-ritual-basic-sacrifice = Heartbeat of the Mansus
 heretic-ritual-basic-focus = Amber Focus

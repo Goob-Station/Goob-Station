@@ -18,6 +18,7 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
+    [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
 
     public override void Initialize()
     {
@@ -44,8 +45,8 @@ public sealed partial class HereticSystem : EntitySystem
 
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
-        foreach (var ability in ent.Comp.BaseActions)
-            _action.AddAction(ent, ability);
+        foreach (var knowledge in ent.Comp.BaseKnowledge)
+            _knowledge.AddKnowledge(ent, knowledge);
     }
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)

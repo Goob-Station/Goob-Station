@@ -1,0 +1,28 @@
+# basic knowledge
+- type: hereticKnowledge
+  id: BreakOfDawn
+  actionPrototypes:
+  - ActionHereticOpenStore
+  - ActionHereticMansusGrasp
+
+- type: hereticKnowledge
+  id: LivingHeart
+  # actionPrototypes:
+
+- type: hereticKnowledge
+  id: HeartbeatOfMansus
+  ritualPrototypes:
+  - Sacrifice  
+
+- type: hereticKnowledge
+  id: AmberFocus
+  ritualPrototypes:
+  - AmberFocus
+
+- type: hereticKnowledge
+  id: CodexCicatrix
+  # ritualPrototypes:
+
+- type: hereticKnowledge
+  id: CloakOfShadow
+  # actionPrototypes:

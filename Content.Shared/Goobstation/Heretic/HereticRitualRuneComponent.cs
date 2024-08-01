@@ -2,7 +2,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedHereticRitualSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class HereticRitualRuneComponent : Component
 {
 
