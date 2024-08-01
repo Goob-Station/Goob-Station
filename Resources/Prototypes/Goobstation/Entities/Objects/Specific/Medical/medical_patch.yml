@@ -104,8 +104,8 @@
     node: medicalPatchMakeshift
 
 - type: latheRecipe
-  id: MedicalPatchBase
-  result: MedicalPatchBase
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
   completetime: 2
   materials:
     Plastic: 100
