@@ -917,7 +917,7 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
-      - MedicalPatchBase  #Goobstation - MedicalPatch
+      - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
     dynamicRecipes:
