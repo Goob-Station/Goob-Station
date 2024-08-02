@@ -11,7 +11,11 @@ using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server.Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Jobs;
+using Content.Shared.Roles;
+using Content.Shared.Inventory;
 
 namespace Content.Server.Goobstation.Ghostbar;
 
@@ -25,10 +29,20 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
+    private static readonly List<JobComponent> _jobComponents = new()
+    {
+        new JobComponent { Prototype = "Passenger" },
+        new JobComponent { Prototype = "Bartender" },
+        new JobComponent { Prototype = "Botanist" },
+        new JobComponent { Prototype = "Chef" },
+        new JobComponent { Prototype = "Janitor" }
+    };
+
     public override void Initialize()
     {
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
+        SubscribeLocalEvent<GhostBarPlayerComponent, MindRemovedMessage>(OnPlayerGhosted);
     }
 
     const string MapPath = "Maps/Goobstation/Nonstations/ghostbar.yml";
@@ -43,38 +57,45 @@ public sealed class GhostBarSystem : EntitySystem
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
     {
-        Log.Info("SpawnPlayer Event Recieved");
-
         if (!_entityManager.HasComponent<GhostComponent>(args.SenderSession.AttachedEntity))
         {
             Log.Warning($"User {args.SenderSession.Name} tried to spawn at ghost bar without being a ghost.");
             return;
         }
 
-            var spawnPoints = new List<EntityCoordinates>();
-            var query = EntityQueryEnumerator<GhostBarSpawnComponent>();
-            while (query.MoveNext(out var ent, out _))
-            {
-                spawnPoints.Add(_entityManager.GetComponent<TransformComponent>(ent).Coordinates);
-            }
+        var spawnPoints = new List<EntityCoordinates>();
+        var query = EntityQueryEnumerator<GhostBarSpawnComponent>();
+        while (query.MoveNext(out var ent, out _))
+        {
+            spawnPoints.Add(_entityManager.GetComponent<TransformComponent>(ent).Coordinates);
+        }
 
-            if (spawnPoints.Count == 0)
-            {
-                Log.Warning("No spawn points found for ghost bar.");
-                return;
-            }
+        if (spawnPoints.Count == 0)
+        {
+            Log.Warning("No spawn points found for ghost bar.");
+            return;
+        }
 
 
-            var randomSpawnPoint = _random.Pick(spawnPoints);
-            var profile = _ticker.GetPlayerProfile(args.SenderSession);
-            var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, job: new JobComponent(){Prototype = "Passenger"}, profile, null);
-            var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
+        var randomSpawnPoint = _random.Pick(spawnPoints);
+        var randomJob = _random.Pick(_jobComponents);
+        var profile = _ticker.GetPlayerProfile(args.SenderSession);
+        var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
+
+        _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
+
+        var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
 
 
         if (targetMind != null)
         {
             _mindSystem.TransferTo(targetMind.Value, mobUid, true);
         }
+    }
+
+    private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
+    {
+        _entityManager.DeleteEntity(uid);
     }
 }
 

@@ -16,6 +16,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
 
     private GhostGui? Gui => UIManager.GetActiveUIWidgetOrNull<GhostGui>();
 
+
     public override void Initialize()
     {
         base.Initialize();
@@ -169,7 +170,7 @@ public sealed class GhostUIController : UIController, IOnSystemChanged<GhostSyst
         Gui?.GhostBarWindow.OpenCentered();
     }
 
-        private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
+    private void GhostBarSpawnPressed() // Goobstation - Ghost Bar
     {
         _system?.GhostBarSpawn();
     }
