@@ -509,44 +509,6 @@
     node: woodtile
 
 - type: entity
-  name: white tile
-  parent: FloorTileItemBase
-  id: FloorTileItemWhite
-  components:
-  - type: Sprite
-    state: white
-  - type: Item
-    heldPrefix: white
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorWhite
-  - type: Stack
-    stackType: FloorTileWhite
-  - type: Construction
-    graph: TileWhite
-    node: whitetile
-
-- type: entity
-  name: dark tile
-  parent: FloorTileItemSteel
-  id: FloorTileItemDark
-  components:
-  - type: Sprite
-    state: dark
-  - type: Item
-    heldPrefix: dark
-  - type: FloorTile
-    outputs:
-      - Plating
-      - FloorDark
-  - type: Stack
-    stackType: FloorTileDark
-  - type: Construction
-    graph: TileDark
-    node: darktile
-
-- type: entity
   name: techmaint floor
   parent: FloorTileItemSteel
   id: FloorTileItemTechmaint
