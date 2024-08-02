@@ -535,3 +535,9 @@ Entries:
         now.
   id: 67
   time: '2024-07-31T04:55:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The NTR's Security access has been fixed.
+  id: 68
+  time: '2024-08-02T17:15:42.0000000+00:00'
