@@ -31,15 +31,14 @@ public sealed class GhostBarSystem : EntitySystem
         SubscribeNetworkEvent<GhostBarSpawnEvent>(SpawnPlayer);
     }
 
+    const string MapPath = "Maps/Goobstation/Nonstations/ghostbar.yml";
     private void OnRoundStart(RoundStartingEvent ev)
     {
-        var mapUid = _mapSystem.CreateMap(out var mapId, true);
-        var options = new MapLoadOptions
-        {
-            LoadMap = true,
-        };
-        _mapLoader.TryLoad(mapId, "Maps/Goobstation/Nonstations/ghostbar.yml", out _, options);
-        _mapSystem .SetPaused(mapId, false);
+        _mapSystem.CreateMap(out var mapId);
+        var options = new MapLoadOptions { LoadMap = true };
+
+        if (_mapLoader.TryLoad(mapId, MapPath, out _, options))
+            _mapSystem.SetPaused(mapId, false);
     }
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
