@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
-using Content.Server.Ghostbar.Components;
+using Content.Server.Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Roles.Jobs;
 
