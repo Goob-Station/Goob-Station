@@ -16,7 +16,7 @@
   canBeAntag: false
   access:
   - CentralCommand
-  - Security
+  - Brig
   - External
   - Cryogenics
   - Maintenance
