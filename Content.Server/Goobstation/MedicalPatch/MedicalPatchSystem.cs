@@ -113,7 +113,7 @@ public sealed class MedicalPatchSystem : EntitySystem
     }
     public void OnUnstuck(EntityUid uid, MedicalPatchComponent component, EntityUnstuckEvent args)
     {
-        if (component.SingelUse)
+        if (component.SingleUse)
         {
             //_polymorph.PolymorphEntity(uid, "UsedMedicalPatch");
             //why does this not work?
