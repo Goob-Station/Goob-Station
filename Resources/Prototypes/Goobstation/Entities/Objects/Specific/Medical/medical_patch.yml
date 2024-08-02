@@ -22,10 +22,7 @@
     unstickPopupSuccess: patch removed
     whitelist:
       components:
-      - MobState  # only atatch to living
-    blacklist:
-      components:
-      - BorgChassis # borgs are alive but dont get band aids.
+      - Bloodstream  # Only atatch to "Living"?.
   - type: StickyVisualizer
   - type: Appearance
   - type: Tag
