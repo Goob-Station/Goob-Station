@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseHealingItem
   id: MedicalPatchBasic
-  name: "Medical patch"
+  name: Medical Patch
   description: put this on your boo boo
   components:
   - type: Sprite
@@ -58,7 +58,7 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchRapid
-  name: "Medical Patch Rapid"
+  name: Medical Patch Rapid
   description:  has racing cars drawn on
   components:
   - type: Sprite
@@ -69,7 +69,7 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchLarge
-  name: "Medical Patch Large"
+  name: Medical Patch Large
   description: put this on your Big boo boo
   components:
   - type: Sprite
@@ -84,15 +84,15 @@
 - type: entity
   parent: MedicalPatchBasic
   id: MedicalPatchMakeshift
-  name: "Makeshift Patch"
-  description: does not look hygenic
+  name: Makeshift Patch
+  description: does not look hygienic
   components:
   - type: Sprite
     state: brutepack
     color: Lime
   - type: MedicalPatch
     updateTime: 2 # slow
-    singelUse: true
+    singleUse: true
   - type: SolutionContainerManager
     solutions:
       drink:
