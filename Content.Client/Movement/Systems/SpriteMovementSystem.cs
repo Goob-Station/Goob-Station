@@ -31,7 +31,7 @@ public sealed class SpriteMovementSystem : EntitySystem
         var moving = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
 
         var oldWalking = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.Walk) != MoveButtons.None;
-        var walking = (SharedMoverController.GetNormalizedMovement(args.Component.HeldMoveButtons) & MoveButtons.Walk) != MoveButtons.None;
+        var walking = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.Walk) != MoveButtons.None;
 
         if ((oldMoving == moving && oldWalking == walking) || !_spriteQuery.TryGetComponent(uid, out var sprite))
             return;
