@@ -28,7 +28,7 @@ public sealed class SpriteMovementSystem : EntitySystem
             return;
 
         var oldMoving = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.AnyDirection) != MoveButtons.None;
-        var moving = (SharedMoverController.GetNormalizedMovement(args.Component.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
+        var moving = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
 
         var oldWalking = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.Walk) != MoveButtons.None;
         var walking = (SharedMoverController.GetNormalizedMovement(args.Component.HeldMoveButtons) & MoveButtons.Walk) != MoveButtons.None;
