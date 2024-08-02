@@ -13,7 +13,7 @@ using Content.Server.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Roles.Jobs;
 
-namespace Content.Server.Ghostbar;
+namespace Content.Server.Goobstation.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {
