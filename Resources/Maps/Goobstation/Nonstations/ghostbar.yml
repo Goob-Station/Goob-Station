@@ -1692,11 +1692,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2443.3800125
-      thrownTime: 2443.2735602
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2024
@@ -1742,11 +1737,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2443.5160667
-      thrownTime: 2443.406893
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2025
@@ -1792,11 +1782,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2443.637438
-      thrownTime: 2443.5235592
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2026
@@ -1842,11 +1827,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2443.7710219
-      thrownTime: 2443.656892
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2027
@@ -1892,11 +1872,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2443.8710217
-      thrownTime: 2443.7568916
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2028
@@ -1942,11 +1917,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2444.0043544
-      thrownTime: 2443.8902244
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2029
@@ -1992,11 +1962,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2444.1049574
-      thrownTime: 2443.9908275
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2030
@@ -2042,11 +2007,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2444.2543534
-      thrownTime: 2444.1402234
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2031
@@ -2092,11 +2052,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2444.3543529
-      thrownTime: 2444.240223
-      thrower: invalid
     missingComponents:
     - Ammo
   - uid: 2032
@@ -2142,11 +2097,6 @@ entities:
           friction: 0.4
     - type: Physics
       bodyStatus: InAir
-    - type: ThrownItem
-      playLandSound: True
-      landTime: 2444.4876859
-      thrownTime: 2444.3735558
-      thrower: invalid
     missingComponents:
     - Ammo
 - proto: CableApcExtension
