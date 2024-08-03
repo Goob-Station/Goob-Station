@@ -57,7 +57,6 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             gondola_moustache_large_short: ""
             gondola_moustache_small_short: ""
-
   - type: Sprite
     sprite: Goobstation/Mobs/Animals/gondola.rsi
     layers:
@@ -115,3 +114,35 @@
   - type: MobPrice
     price: 1000 # Living critters are valuable in space.
   - type: Perishable
+
+- type: entity
+  name: syndiroach
+  id: MobMothSyndy
+  parent: MobMothroach
+  description: Explosive moth.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Mobs/Animals/syndiroach.rsi
+  - type: Clothing
+    quickEquip: false
+    sprite: Goobstation/Mobs/Animals/syndiroach.rsi
+    equippedPrefix: 0
+    slots:
+    - HEAD
+  - type: GhostRole
+    prob: 1
+    name: ghost-role-information-SyndiRoach-name
+    allowMovement: true
+    description: ghost-role-information-SyndiRoach-description
+    rules: ghost-role-information-SyndiRoach-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+  - type: AutoImplant
+    implants:
+    - MicroBombImplant
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: NpcFactionMember
+    factions:
+    - Syndicate
