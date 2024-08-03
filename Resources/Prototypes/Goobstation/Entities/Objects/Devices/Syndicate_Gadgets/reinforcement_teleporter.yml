@@ -11,6 +11,6 @@
     raffle:
       settings: default
   - type: GhostRoleMobSpawner
-    prototype: MobRoachSyndy
+    prototype: MobMothSyndy
   - type: EmitSoundOnUse
     sound: /Audio/Animals/mouse_squeak.ogg
