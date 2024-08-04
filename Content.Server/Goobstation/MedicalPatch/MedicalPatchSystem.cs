@@ -10,6 +10,8 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Database;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server.Medical;
 
@@ -22,6 +24,7 @@ public sealed class MedicalPatchSystem : EntitySystem
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -119,10 +122,18 @@ public sealed class MedicalPatchSystem : EntitySystem
     {
         if (component.SingleUse)
         {
-            //_polymorph.PolymorphEntity(uid, "UsedMedicalPatch");
-            //why does this not work?
-            //maybe i cant polymorph somthing inside its own system.
-            QueueDel(uid); //Just delete it for now. TODO:
+            var coordinates = Transform(uid).Coordinates;
+            var finisher = Spawn("UsedMedicalPatch", coordinates);
+            // If the user is holding the item
+            if (_hands.IsHolding(args.User, uid, out var hand))
+            {
+                Del(uid);
+
+                // Put the Medicalpatch in the user's hand
+                _hands.TryPickup(args.User, finisher, hand);
+                return;
+            }
+            QueueDel(uid);
         }
     }
 }
