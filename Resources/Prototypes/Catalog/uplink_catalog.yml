@@ -594,7 +594,7 @@
   productEntity: CombatMedipen
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 12 # Goobstation - syndie combat medipen buff
   categories:
   - UplinkChemicals
 
@@ -915,11 +915,7 @@
     Telecrystal: 100
   categories:
   - UplinkDisruption
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+  conditions: # Goobstation - nukies get surplus crates
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
@@ -935,11 +931,7 @@
     Telecrystal: 200
   categories:
   - UplinkDisruption
-  conditions:
-  - !type:StoreWhitelistCondition
-    blacklist:
-      tags:
-      - NukeOpsUplink
+  conditions: # Goobstation - nukies get surplus crates
   - !type:BuyerWhitelistCondition
     blacklist:
       components:
