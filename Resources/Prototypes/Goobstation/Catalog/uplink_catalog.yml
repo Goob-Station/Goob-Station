@@ -89,3 +89,14 @@
     whitelist:
     - Clown
     - Mime
+
+- type: listing
+  id: UplinkMobRoachMicrobomb
+  name: uplink-mobroach-microbomb-name
+  description: uplink-mobroach-microbomb-desc
+  icon: { sprite: Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
+  productEntity: ReinforcementRadioSyndicateSyndiRoach
+  cost:
+    Telecrystal: 30
+  categories:
+    - UplinkAllies

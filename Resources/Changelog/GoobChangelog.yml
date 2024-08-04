@@ -535,3 +535,21 @@ Entries:
         now.
   id: 67
   time: '2024-07-31T04:55:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The NTR's Security access has been fixed.
+  id: 68
+  time: '2024-08-02T17:15:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Ghost bar!
+  id: 69
+  time: '2024-08-02T17:29:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added SyndiRoaches, an alternative to SyndiCats!
+  id: 70
+  time: '2024-08-04T01:53:11.0000000+00:00'
