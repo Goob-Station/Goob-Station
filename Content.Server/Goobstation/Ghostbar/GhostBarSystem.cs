@@ -16,6 +16,8 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles;
 using Content.Shared.Inventory;
+using Content.Server.Antag.Components;
+using Content.Shared.Mindshield.Components;
 
 namespace Content.Server.Goobstation.Ghostbar;
 
