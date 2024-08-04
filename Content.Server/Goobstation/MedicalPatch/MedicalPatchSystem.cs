@@ -43,7 +43,7 @@ public sealed class MedicalPatchSystem : EntitySystem
         {
             if (_timing.CurTime < comp.NextUpdate)
                 continue;
-            var uid = comp.Owner;
+            var uid = comp.Owner; // TODO update thsi to the
 
             if (!TryComp<StickyComponent>(uid, out var stickycomp))
                 continue;
@@ -122,16 +122,19 @@ public sealed class MedicalPatchSystem : EntitySystem
     {
         if (component.SingleUse)
         {
-            var coordinates = Transform(uid).Coordinates;
-            var finisher = Spawn("UsedMedicalPatch", coordinates);
-            // If the user is holding the item
-            if (_hands.IsHolding(args.User, uid, out var hand))
+            if (component.TrashObject!=null)
             {
-                Del(uid);
+                var coordinates = Transform(uid).Coordinates;
+                var finisher = Spawn(component.TrashObject, coordinates);
+                // If the user is holding the item
+                if (_hands.IsHolding(args.User, uid, out var hand))
+                {
+                    Del(uid);
 
-                // Put the Medicalpatch in the user's hand
-                _hands.TryPickup(args.User, finisher, hand);
-                return;
+                    // Put the Medicalpatch in the user's hand
+                    _hands.TryPickup(args.User, finisher, hand);
+                    return;
+                }
             }
             QueueDel(uid);
         }
