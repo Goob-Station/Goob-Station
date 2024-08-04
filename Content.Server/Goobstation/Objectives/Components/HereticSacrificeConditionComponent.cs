@@ -1,6 +1,6 @@
 using Content.Server.Objectives.Systems;
 
-namespace Content.Server.Goobstation.Objectives.Components;
+namespace Content.Server.Objectives.Components;
 
 [RegisterComponent, Access(typeof(HereticObjectiveSystem))]
 public sealed partial class HereticSacrificeConditionComponent : Component

@@ -20,13 +20,19 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/Goobstation/Heretic/castsummon.ogg");
 
-    public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype> id)
-        => _proto.Index(id);
-
-    public bool TryDoRitual(Entity<HereticComponent> performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    public HereticRitualPrototype GetRitual(ProtoId<HereticRitualPrototype>? id)
     {
-        var rit = GetRitual(ritualId);
-        var lookup = _lookup.GetEntitiesInRange(platform, 2.5f);
+        if (id == null) throw new ArgumentNullException();
+        return _proto.Index<HereticRitualPrototype>(id);
+    }
+
+    public bool TryDoRitual(EntityUid performer, EntityUid platform, ProtoId<HereticRitualPrototype> ritualId)
+    {
+        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+            return false;
+
+        var rit = (HereticRitualPrototype) GetRitual(ritualId).Clone();
+        var lookup = _lookup.GetEntitiesInRange(platform, 0.5f);
 
         var missingList = new List<string>();
         var toDelete = new List<EntityUid>();
@@ -63,14 +69,12 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 {
                     if (!TryComp<TagComponent>(look, out var tags))
                         continue;
+                    var ltags = tags.Tags;
 
-                    foreach (var ltag in tags.Tags)
+                    if (ltags.Contains(tag.Key))
                     {
-                        if (ltag == tag.Key)
-                        {
-                            rit.RequiredTags[tag.Key] -= 1;
-                            toDelete.Add(look);
-                        }
+                        rit.RequiredTags[tag.Key] -= 1;
+                        toDelete.Add(look);
                     }
                 }
             }
@@ -93,8 +97,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         // yay! ritual successfull!
-        _audio.PlayPvs(RitualSuccessSound, platform, AudioParams.Default.WithVolume(-3f));
-
         // ya get some, ya lose some
         foreach (var ent in toDelete)
             QueueDel(ent);
@@ -110,7 +112,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             RaiseLocalEvent(rit.OutputEvent);
 
         if (rit.OutputKnowledge != null)
-            _knowledge.AddKnowledge(performer, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);
+            _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);
 
         return true;
     }
@@ -129,10 +131,14 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         if (heretic.KnownRituals.Count == 0)
         {
-
+            _popup.PopupEntity(Loc.GetString("heretic-ritual-norituals"), args.User, args.User);
             return;
         }
-        if (heretic.ChosenRitual != null)
+
+        if (heretic.ChosenRitual == null)
+            heretic.ChosenRitual = heretic.KnownRituals[0];
+
+        else if (heretic.ChosenRitual != null)
         {
             var index = heretic.KnownRituals.FindIndex(m => m == heretic.ChosenRitual) + 1;
 
@@ -140,11 +146,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 index = 0;
 
             heretic.ChosenRitual = heretic.KnownRituals[index];
-
-            var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual.Value).Name);
-
-            _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), ent, ent);
         }
+
+        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).Name);
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), args.User, args.User);
     }
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
@@ -156,14 +161,14 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         if (heretic.ChosenRitual == null)
         {
-
+            _popup.PopupEntity(Loc.GetString("heretic-ritual-noritual"), args.User, args.User);
             return;
         }
 
         if (!TryDoRitual(args.User, ent, (ProtoId<HereticRitualPrototype>) heretic.ChosenRitual))
-        {
-
             return;
-        }
+
+        _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
+        Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 }

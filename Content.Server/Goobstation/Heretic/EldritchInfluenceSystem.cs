@@ -30,7 +30,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         if (ent.Comp.Spent)
             return;
 
-        var dargs = new DoAfterArgs(EntityManager, args.User, 10f, new EldritchInfluenceDoAfterEvent(), args.Target, args.Target)
+        var dargs = new DoAfterArgs(EntityManager, args.User, 10f, new EldritchInfluenceDoAfterEvent(), ent, ent)
         {
             Hidden = true,
             BreakOnHandChange = true,
@@ -38,7 +38,7 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
             BreakOnDamage = true,
             CancelDuplicate = true
         };
-        _popup.PopupEntity(Loc.GetString("heretic-influence-start"), ent, ent);
+        _popup.PopupEntity(Loc.GetString("heretic-influence-start"), args.User, args.User);
         _doafter.TryStartDoAfter(dargs);
 
         args.Handled = true;

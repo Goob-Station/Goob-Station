@@ -22,6 +22,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly RatvarianLanguageSystem _language = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
 
     public override void Initialize()
     {
@@ -34,7 +35,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
     }
 
-    public void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
+    private void OnAfterInteract(Entity<MansusGraspComponent> ent, ref AfterInteractEvent args)
     {
         if (!args.CanReach)
             return;
@@ -48,21 +49,25 @@ public sealed partial class MansusGraspSystem : EntitySystem
             return;
         }
 
-        if (HasComp<StatusEffectsComponent>(args.Target))
-        {
-            var target = (EntityUid) args.Target;
-            _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3.5f), true);
-            _stamina.TakeStaminaDamage(target, 80f);
-            _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
-        }
+        if (!HasComp<StatusEffectsComponent>(args.Target))
+            return;
+
+        var target = (EntityUid) args.Target;
+        _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
+        _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
+        _stamina.TakeStaminaDamage(target, 65f);
+        _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
+
+        // upgraded grasp
+        if (hereticComp.PathStage >= 2)
+            _combatMark.AddCombatMark((EntityUid) args.Target, args.User);
 
         hereticComp.MansusGraspActive = false;
         QueueDel(ent);
     }
 
-    public void OnDrop(Entity<MansusGraspComponent> ent, ref DroppedEvent args)
+    private void OnDrop(Entity<MansusGraspComponent> ent, ref DroppedEvent args)
     {
         if (TryComp<HereticComponent>(args.User, out var hereticComp))
             hereticComp.MansusGraspActive = false;
@@ -70,11 +75,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
     }
 
 
-    public void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
+    private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
-        if (args.Handled)
-            return;
-
         if (!args.CanReach)
             return;
         if (!args.ClickLocation.IsValid(EntityManager))
@@ -91,17 +93,15 @@ public sealed partial class MansusGraspSystem : EntitySystem
             return;
 
         var rune = Spawn("HereticRuneRitualDrawAnimation", args.ClickLocation);
-        var dargs = new DoAfterArgs(EntityManager, args.User, 30f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
+        var dargs = new DoAfterArgs(EntityManager, args.User, 14f, new DrawRitualRuneDoAfterEvent(rune, args.ClickLocation), args.User)
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
-            BreakOnMove = true,
-            CancelDuplicate = true
+            BreakOnMove = true
         };
-        args.Handled = true;
         _doAfter.TryStartDoAfter(dargs);
     }
-    public void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
+    private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
     {
         // no matter if it's canceled or not, delete that anim rune
         QueueDel(ev.RitualRune);

@@ -26,3 +26,8 @@
 - type: hereticKnowledge
   id: CloakOfShadow
   # actionPrototypes:
+
+
+# ash path
+- type: hereticKnowledge
+  id: NightwatcherSecret

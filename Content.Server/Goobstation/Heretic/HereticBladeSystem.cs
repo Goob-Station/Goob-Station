@@ -1,0 +1,148 @@
+using Content.Server.Heretic.Components;
+using Content.Shared.Examine;
+using Content.Shared.Heretic;
+using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
+using Content.Shared.Physics;
+using Content.Shared.Popups;
+using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Collections;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
+using Robust.Shared.Random;
+using System.Numerics;
+
+namespace Content.Server.Heretic;
+
+public sealed partial class HereticBladeSystem : EntitySystem
+{
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SharedTransformSystem _xform = default!;
+    [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private HashSet<Entity<MapGridComponent>> _targetGrids = [];
+
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
+        SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
+    }
+
+    private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
+    {
+        if (!HasComp<HereticComponent>(args.User))
+            return;
+
+        var xform = Transform(args.User);
+        // 250 because for some reason it counts "10" as 1 tile
+        var targetCoords = SelectRandomTileInRange(xform, 250f);
+
+        if (targetCoords != null)
+        {
+            _xform.SetCoordinates(args.User, targetCoords.Value);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), args.User);
+            args.Handled = true;
+        }
+
+        _popup.PopupEntity(Loc.GetString("heretic-blade-use"), args.User, args.User);
+        QueueDel(ent);
+    }
+
+    private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)
+    {
+        if (!HasComp<HereticComponent>(args.Examiner))
+            return;
+
+        args.PushMarkup(Loc.GetString("heretic-blade-examine"));
+    }
+
+    private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)
+    {
+        var userCoords = userXform.Coordinates.ToMap(EntityManager, _xform);
+        _targetGrids.Clear();
+        _lookupSystem.GetEntitiesInRange(userCoords, radius, _targetGrids);
+        Entity<MapGridComponent>? targetGrid = null;
+
+        if (_targetGrids.Count == 0)
+            return null;
+
+        // Give preference to the grid the entity is currently on.
+        // This does not guarantee that if the probability fails that the owner's grid won't be picked.
+        // In reality the probability is higher and depends on the number of grids.
+        if (userXform.GridUid != null && TryComp<MapGridComponent>(userXform.GridUid, out var gridComp))
+        {
+            var userGrid = new Entity<MapGridComponent>(userXform.GridUid.Value, gridComp);
+            if (_random.Prob(0.5f))
+            {
+                _targetGrids.Remove(userGrid);
+                targetGrid = userGrid;
+            }
+        }
+
+        if (targetGrid == null)
+            targetGrid = _random.GetRandom().PickAndTake(_targetGrids);
+
+        EntityCoordinates? targetCoords = null;
+
+        do
+        {
+            var valid = false;
+
+            var range = (float) Math.Sqrt(radius);
+            var box = Box2.CenteredAround(userCoords.Position, new Vector2(range, range));
+            var tilesInRange = _mapSystem.GetTilesEnumerator(targetGrid.Value.Owner, targetGrid.Value.Comp, box, false);
+            var tileList = new ValueList<Vector2i>();
+
+            while (tilesInRange.MoveNext(out var tile))
+            {
+                tileList.Add(tile.GridIndices);
+            }
+
+            while (tileList.Count != 0)
+            {
+                var tile = tileList.RemoveSwap(_random.Next(tileList.Count));
+                valid = true;
+                foreach (var entity in _mapSystem.GetAnchoredEntities(targetGrid.Value.Owner, targetGrid.Value.Comp,
+                             tile))
+                {
+                    if (!_physicsQuery.TryGetComponent(entity, out var body))
+                        continue;
+
+                    if (body.BodyType != BodyType.Static ||
+                        !body.Hard ||
+                        (body.CollisionLayer & (int) CollisionGroup.MobMask) == 0)
+                        continue;
+
+                    valid = false;
+                    break;
+                }
+
+                if (valid)
+                {
+                    targetCoords = new EntityCoordinates(targetGrid.Value.Owner,
+                        _mapSystem.TileCenterToVector(targetGrid.Value, tile));
+                    break;
+                }
+            }
+
+            if (valid || _targetGrids.Count == 0) // if we don't do the check here then PickAndTake will blow up on an empty set.
+                break;
+
+            targetGrid = _random.GetRandom().PickAndTake(_targetGrids);
+        } while (true);
+
+        return targetCoords;
+    }
+
+}

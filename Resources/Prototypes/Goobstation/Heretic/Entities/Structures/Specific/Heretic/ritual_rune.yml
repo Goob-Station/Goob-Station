@@ -10,7 +10,6 @@
     drawdepth: WallMountedItems
     sprite: Goobstation/Heretic/ritual_rune.rsi
     state: icon
-  - type: InteractionOutline
   - type: Clickable
 
 - type: entity
@@ -33,7 +32,7 @@
     mode: SnapgridCenter
   components:
   - type: TimedDespawn
-    delay: 1
+    delay: 0.25
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Goobstation/Heretic/ritual_rune.rsi

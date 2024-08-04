@@ -39,16 +39,3 @@ public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 
 #endregion
-
-#region Store - Starting Path
-
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartAshEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartMoonEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartLockEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartFleshEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartVoidEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartBladeEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartRustEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class KnowledgePathStartCosmosEvent : EntityEventArgs { }
-
-#endregion

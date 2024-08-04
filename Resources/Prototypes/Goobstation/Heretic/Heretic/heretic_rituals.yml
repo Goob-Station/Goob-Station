@@ -1,3 +1,4 @@
+# basic rituals
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
@@ -10,8 +11,15 @@
     GlassShard: 1
   requiredEntityNames:
     eyes: 1
+  output:
+    ClothingNeckAmberFocus: 1
 
+# ash path
 - type: hereticRitual
-  id: AscendDebug
-  name: heretic-ritual-ascend-debug
-  outputEvent: !type:HereticRitualAscendEvent
+  id: AshBlade
+  name: heretic-ritual-ash-blade
+  requiredTags:
+    Knife: 1
+    Matchstick: 1
+  output:
+    HereticBladeAsh: 1

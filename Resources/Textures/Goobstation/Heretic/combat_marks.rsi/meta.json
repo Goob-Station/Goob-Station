@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "made by blooodyspy",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "ash"
+    },
+    {
+      "name": "blade"
+    },
+    {
+      "name": "flesh"
+    },
+    {
+      "name": "lock"
+    },
+    {
+      "name": "rust"
+    },
+    {
+      "name": "void"
+    }
+  ]
+}

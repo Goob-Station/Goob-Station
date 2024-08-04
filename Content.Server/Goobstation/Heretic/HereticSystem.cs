@@ -1,5 +1,4 @@
-using Content.Server.Actions;
-using Content.Server.Goobstation.Objectives.Components;
+using Content.Server.Objectives.Components;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Store.Systems;
@@ -13,7 +12,6 @@ namespace Content.Server.Heretic;
 
 public sealed partial class HereticSystem : EntitySystem
 {
-    [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -46,7 +44,7 @@ public sealed partial class HereticSystem : EntitySystem
     private void OnCompInit(Entity<HereticComponent> ent, ref ComponentInit args)
     {
         foreach (var knowledge in ent.Comp.BaseKnowledge)
-            _knowledge.AddKnowledge(ent, knowledge);
+            _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
     }
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
