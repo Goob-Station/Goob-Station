@@ -10,3 +10,6 @@ uplink-operative-radio-desc = Radio in a nuclear operative of extremely question
 
 uplink-pie-cannon-name = Regenerating Pie Cannon
 uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
+
+uplink-mobroach-microbomb-name = SyndiRoach Teleporter
+uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a microbomb implant. Explodes when seriously injured.

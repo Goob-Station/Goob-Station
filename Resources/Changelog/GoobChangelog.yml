@@ -521,3 +521,35 @@ Entries:
         to, and the playtime requirements for both jobs.
   id: 65
   time: '2024-07-31T01:39:15.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: The station and ATS now have a minor amount of friction.
+  id: 66
+  time: '2024-07-31T04:54:59.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Fix
+      message: >-
+        Blueshield and Nanotrasen Representative rules should look a bit better
+        now.
+  id: 67
+  time: '2024-07-31T04:55:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The NTR's Security access has been fixed.
+  id: 68
+  time: '2024-08-02T17:15:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Ghost bar!
+  id: 69
+  time: '2024-08-02T17:29:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added SyndiRoaches, an alternative to SyndiCats!
+  id: 70
+  time: '2024-08-04T01:53:11.0000000+00:00'
