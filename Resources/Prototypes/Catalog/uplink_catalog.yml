@@ -594,7 +594,7 @@
   productEntity: CombatMedipen
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 12 # Goobstation - syndie combat medipen buff
+    Telecrystal: 20
   categories:
   - UplinkChemicals
 
