@@ -1,0 +1,67 @@
+- type: entity
+  parent: BaseHealingItem
+  id: MedicalPatchPrefilledBase
+  name: prefilled medical patch
+  description: put this on your boo boo
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: bandaid
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: ExaminableSolution
+    solution: drink
+  - type: Sticky
+    stickDelay: 3
+    unstickDelay: 2
+    stickPopupStart: start placing patch
+    stickPopupSuccess: patch attatched
+    unstickPopupStart: start removing Patch
+    unstickPopupSuccess: patch removed
+    whitelist:
+      components:
+      - Bloodstream
+  - type: StickyVisualizer
+  - type: Appearance
+  - type: MixableSolution
+    solution: drink
+  - type: MedicalPatch
+    singleUse: true
+    transferAmount: 0.25
+
+- type: entity
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledBicaridine
+  name: patch
+  suffix: Bicaridine
+  description: put this on your boo boo
+  components:
+  - type: Label
+    currentLabel: Bicaridine
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Bicaridine
+            Quantity: 30
+
+- type: entity
+  parent: MedicalPatchPrefilledBase
+  id: MedicalPatchPrefilledDermaline
+  name: patch
+  suffix: Dermaline
+  description: put this on your boo boo
+  components:
+  - type: Label
+    currentLabel: Dermaline
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+          - ReagentId: Dermaline
+            Quantity: 30
