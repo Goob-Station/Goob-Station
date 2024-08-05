@@ -1001,7 +1001,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 150
+    Telecrystal: 125
   categories:
   - UplinkAllies
   conditions:
