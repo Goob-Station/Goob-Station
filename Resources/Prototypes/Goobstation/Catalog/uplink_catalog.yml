@@ -100,3 +100,15 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
+
+# chemicals
+
+- type: listing
+  id: UplinkAdvancedCombatMedipen
+  name: uplink-advanced-combat-medipen-name
+  description: uplink-advanced-combat-medipen-desc
+  productEntity: AdvancedCombatMedipen
+  cost:
+    Telecrystal: 28
+  categories:
+  - UplinkChemicals
