@@ -6,7 +6,14 @@
   components:
   - type: Sprite
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
-    state: bandaid_double
+    layers:
+      - state: GenericPatch
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 9
+    fillBaseName: GenericPatch-
   - type: SolutionContainerManager
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
