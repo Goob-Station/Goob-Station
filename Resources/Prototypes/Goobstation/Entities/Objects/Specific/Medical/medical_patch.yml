@@ -1,5 +1,37 @@
 - type: entity
   parent: BaseHealingItem
+  id: BaseMedicalPatch
+  name: base patch
+  description: put this on your boo boo
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: bandaid
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: ExaminableSolution
+    solution: drink
+  - type: Sticky
+    stickDelay: 3
+    unstickDelay: 2
+    stickPopupStart: start placing patch
+    stickPopupSuccess: patch attatched
+    unstickPopupStart: start removing Patch
+    unstickPopupSuccess: patch removed
+    whitelist:
+      components:
+      - Bloodstream
+  - type: StickyVisualizer
+  - type: Appearance
+  - type: MixableSolution
+    solution: drink
+  - type: MedicalPatch
+
+- type: entity
+  parent: BaseMedicalPatch
   id: MedicalPatchBasic
   name: patch
   description: put this on your boo boo
@@ -18,28 +50,11 @@
     solutions:
       drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
         maxVol: 40
-  - type: ExaminableSolution
-    solution: drink
-  - type: Sticky
-    stickDelay: 3
-    unstickDelay: 2
-    stickPopupStart: start placing patch
-    stickPopupSuccess: patch attatched
-    unstickPopupStart: start removing Patch
-    unstickPopupSuccess: patch removed
-    whitelist:
-      components:
-      - Bloodstream  # Only atatch to "Living"
-  - type: StickyVisualizer
-  - type: Appearance
   - type: Tag
     tags:
     - Bottle  # Bottle tag so that it can be accepted by chem master # TODO: code chemmaster
-  - type: MixableSolution
-    solution: drink
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
     solution: drink
-  - type: MedicalPatch
 
 - type: entity
   parent: BaseHealingItem
@@ -64,7 +79,14 @@
   description:  has racing cars drawn on
   components:
   - type: Sprite
-    color: Pink  #red ones go faster
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: Red
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: MedicalPatch
     transferAmount: 2 # Twice the ammound of basic
 
@@ -75,7 +97,14 @@
   description: put this on your Big boo boo
   components:
   - type: Sprite
-    color: violet  #Purple for larger
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: Blue
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -84,7 +113,7 @@
     injectPercentageOnAttatch: 15 # 10u when full
 
 - type: entity
-  parent: MedicalPatchBasic
+  parent: BaseMedicalPatch
   id: MedicalPatchMakeshift
   name: makeshift patch
   description: does not look hygienic

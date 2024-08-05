@@ -20,6 +20,9 @@
         "name": "GenericPatch"
     },
     {
+        "name": "GenericPatchBorder"
+    },
+    {
         "name": "GenericPatch-1"
     },
     {
