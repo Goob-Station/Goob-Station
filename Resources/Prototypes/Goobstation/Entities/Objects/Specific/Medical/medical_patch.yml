@@ -17,10 +17,10 @@
   - type: Sticky
     stickDelay: 3
     unstickDelay: 2
-    stickPopupStart: start placing patch
-    stickPopupSuccess: patch attatched
-    unstickPopupStart: start removing Patch
-    unstickPopupSuccess: patch removed
+    stickPopupStart: Started placing patch
+    stickPopupSuccess: Patch placed
+    unstickPopupStart: Started removing patch
+    unstickPopupSuccess: Patch removed
     whitelist:
       components:
       - Bloodstream
