@@ -1,0 +1,11 @@
+- type: cargoBounty
+  id: BountyMedicalPatch
+  reward: 4000
+  description: "There is a medical emergency going on. Send some patches to help us out over here"
+  idPrefix: CC
+  entries:
+  - name: Medical Patches
+    amount: 5
+    whitelist:
+      tags:
+      - MedicalPatch

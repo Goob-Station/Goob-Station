@@ -29,6 +29,9 @@
   - type: MixableSolution
     solution: drink
   - type: MedicalPatch
+  - type: Tag
+    tags:
+    - MedicalPatch
 
 - type: entity
   parent: BaseMedicalPatch
@@ -52,6 +55,7 @@
         maxVol: 40
   - type: Tag
     tags:
+    - MedicalPatch
     - Bottle  # Bottle tag so that it can be accepted by chem master # TODO: code chemmaster
   - type: Spillable # only way empty the patch is wring it out and spill it on the floor
     solution: drink
