@@ -137,6 +137,8 @@
     - HidesHarpyWings # Goobstation
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.75
 
 - type: entity
   abstract: true

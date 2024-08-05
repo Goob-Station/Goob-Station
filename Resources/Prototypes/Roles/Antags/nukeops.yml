@@ -47,7 +47,7 @@
     eyes: ClothingEyesHudSyndicate
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterHardsuitSyndie
+    #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
     shoes: ClothingShoesBootsCombatFilled
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
@@ -60,12 +60,20 @@
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
 
+# goobstation - duke nukies
+# Nuclear Assailant (reinforcement) Gear
+- type: startingGear
+  id: SyndicateOperativeReinforcementGear
+  parent: SyndicateOperativeGearFullNoUplink
+  equipment:
+    pocket2: BaseUplinkRadio50TC
+
 #Nuclear Operative Gear
 - type: startingGear
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio200TC # Goobstation - Telecrystal rework
+    pocket2: BaseUplinkRadio250TC # Goobstation - Telecrystal rework
 
 #Nuclear Operative Commander Gear
 - type: startingGear
@@ -73,7 +81,7 @@
   parent: SyndicateOperativeGearFull
   equipment:
     neck: SyndicateWhistle
-    outerClothing: ClothingOuterHardsuitSyndieCommander
+    #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
   inhand:
     - NukeOpsDeclarationOfWar
 
@@ -83,7 +91,7 @@
   parent: SyndicateOperativeGearFull
   equipment:
     eyes: ClothingEyesHudSyndicateAgent
-    outerClothing: ClothingOuterHardsuitSyndieMedic
+    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
@@ -106,4 +114,4 @@
   parent: SyndicateOperativeGearFull
   equipment:
     # Goobstation - Telecrystal rework
-    pocket2: BaseUplinkRadio300TC
+    pocket2: BaseUplinkRadio350TC
