@@ -631,7 +631,7 @@
         Radiation: 0.2
         Caustic: 0.2
   - type: ClothingSpeedModifier
-    walkModifier: 0.7
+    walkModifier: 0.7 # goobstation - duke nukies
     sprintModifier: 0.6
   - type: HeldSpeedModifier
   - type: ToggleableClothing

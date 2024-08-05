@@ -102,6 +102,16 @@
     balance:
       Telecrystal: 125
 
+- type: entity
+  parent: BaseUplinkRadio
+  # Goobstation - Telecrystal rework
+  id: BaseUplinkRadio200TC
+  suffix: 200 TC
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 200
+
 #this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
   parent: BaseUplinkRadio
