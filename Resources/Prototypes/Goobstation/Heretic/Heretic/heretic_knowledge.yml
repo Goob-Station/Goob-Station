@@ -31,3 +31,12 @@
 # ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
+  path: Ash
+  stage: 1
+  ritualPrototypes:
+  - BladeAsh  
+
+- type: hereticKnowledge
+  id: GraspOfAsh
+  path: Ash
+  stage: 2

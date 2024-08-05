@@ -22,7 +22,7 @@ public sealed partial class HereticPathCondition : ListingCondition
         if (!ent.TryGetComponent<HereticComponent>(args.Buyer, out var hereticComp))
             return false;
 
-        if (Stage > hereticComp.PathStage)
+        if (Stage > hereticComp.PathStage + 1)
             return false;
 
         if (Whitelist != null)

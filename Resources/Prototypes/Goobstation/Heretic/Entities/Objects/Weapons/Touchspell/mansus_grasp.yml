@@ -4,6 +4,7 @@
   description: The power of the Old Gods, channeled through your grip.
   noSpawn: true
   components:
+  - type: Unremoveable
   - type: Item
     size: Ginormous
   - type: MansusGrasp
@@ -17,45 +18,3 @@
     radius: 1
     energy: 1
     color: "#329a00"
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusAsh
-  components:
-  - type: MansusGrasp
-    path: Ash
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusLock
-  components:
-  - type: MansusGrasp
-    path: Lock
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusFlesh
-  components:
-  - type: MansusGrasp
-    path: Flesh
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusVoid
-  components:
-  - type: MansusGrasp
-    path: Void
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusBlade
-  components:
-  - type: MansusGrasp
-    path: Blade
-
-- type: entity
-  parent: TouchSpellMansus
-  id: TouchSpellMansusRust
-  components:
-  - type: MansusGrasp
-    path: Rust

@@ -32,10 +32,10 @@ public sealed partial class HereticActionComponent : Component
 
 #endregion
 
-#region Events - Base
+#region Abilities
 
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
-
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
+
 
 #endregion

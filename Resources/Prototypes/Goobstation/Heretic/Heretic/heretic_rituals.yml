@@ -16,7 +16,7 @@
 
 # ash path
 - type: hereticRitual
-  id: AshBlade
+  id: BladeAsh
   name: heretic-ritual-ash-blade
   requiredTags:
     Knife: 1

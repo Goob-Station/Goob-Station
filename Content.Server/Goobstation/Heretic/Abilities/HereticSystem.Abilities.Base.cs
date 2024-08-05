@@ -57,7 +57,7 @@ public sealed partial class HereticSystem : EntitySystem
             return;
         }
 
-        var st = Spawn($"TouchSpellMansus{ent.Comp.CurrentPath ?? ""}", Transform(ent).Coordinates);
+        var st = Spawn("TouchSpellMansus", Transform(ent).Coordinates);
 
         if (!_hands.TryForcePickupAnyHand(ent, st))
         {

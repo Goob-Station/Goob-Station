@@ -44,10 +44,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             {
                 foreach (var look in lookup)
                 {
-                    if (!TryComp<MetaDataComponent>(look, out var metadata))
-                        continue;
-
-                    if (metadata.EntityName == name.Key)
+                    if (Name(look) == name.Key)
                     {
                         rit.RequiredEntityNames[name.Key] -= 1;
                         toDelete.Add(look);

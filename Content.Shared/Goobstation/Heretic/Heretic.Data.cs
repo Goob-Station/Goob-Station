@@ -9,6 +9,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
+    [DataField] public string? Path;
     [DataField] public int Stage = 1;
     [DataField] public object? Event;
     [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes;
@@ -55,7 +56,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 
 #region Shop Events
 
-// will only work if listing id matches the knowledge id
-[Serializable, NetSerializable] public sealed partial class HereticAddKnowledgeEvent : EntityEventArgs { }
+// will only work if event name matches the listing and knowledge id
+[Serializable, NetSerializable] public sealed partial class ListingNightwatcherSecretEvent : EntityEventArgs { }
 
 #endregion

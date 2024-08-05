@@ -1,11 +1,14 @@
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticCombatMarkComponent : Component
 {
-    [DataField] public string Path = string.Empty;
-    // attached entity is used only for good looks and does/should do absolutely nothing else
-    [DataField] public EntityUid? AttachedEntity = null;
+    [DataField, AutoNetworkedField] public string Path = "Blade";
+
+    [DataField] public float DisappearTime = 5f;
+    public TimeSpan Timer = TimeSpan.Zero;
 }

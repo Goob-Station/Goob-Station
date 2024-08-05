@@ -3,6 +3,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Goobstation.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
+using Content.Server.Objectives.Components;
 using Content.Server.Roles;
 using Content.Shared.Heretic;
 using Content.Shared.NPC.Prototypes;
@@ -82,7 +83,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 6);
+        store.Balance.Add(Currency, 2);
 
         rule.Minds.Add(mindId);
 
@@ -104,10 +105,7 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
             if (!_mind.TryGetMind(heretic.Owner, out var mindId, out var mind))
                 continue;
 
-            if (!TryComp<MetaDataComponent>(heretic.Owner, out var metaData))
-                continue;
-
-            var name = _objective.GetTitle((mindId, mind), metaData.EntityName);
+            var name = _objective.GetTitle((mindId, mind), Name(heretic.Owner));
             if (_mind.TryGetObjectiveComp<HereticKnowledgeConditionComponent>(mindId, out var objective, mind))
             {
                 if (objective.Researched > mostKnowledge)

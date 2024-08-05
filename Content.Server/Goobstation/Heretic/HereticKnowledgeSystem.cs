@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using System.Text;
 
 namespace Content.Server.Heretic;
 
@@ -15,6 +16,17 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
+    private void AddKnowledge(Entity<HereticComponent> ent, string listingEventId)
+    {
+        // basically remove the Listing and the Event, leave only the name
+        var sb = new StringBuilder();
+        sb.Append(listingEventId);
+        sb.Remove(0, 7);
+        sb.Remove(listingEventId.Length - 6, 5);
+
+        _popup.PopupEntity(sb.ToString(), ent, ent);
+        AddKnowledge(ent, ent.Comp, sb.ToString());
+    }
     public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
     {
         var data = GetKnowledge(id);
@@ -29,6 +41,9 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Add(_ritual.GetRitual(ritual));
+
+        if (data.Stage > comp.PathStage)
+            comp.PathStage = data.Stage;
 
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-gain"), uid, uid);
@@ -63,4 +78,16 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
     }
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        // i couldn't find a better way, e.g. getting the listing prototype, because it simply doesn't get passed
+        // so i'm using a shit ton of events. god help me tolerate this. this is a lot of copypaste.
+        SubscribeLocalEvent<HereticComponent, ListingNightwatcherSecretEvent>(ListingNightwatcherSecret);
+    }
+
+    private void ListingNightwatcherSecret(Entity<HereticComponent> ent, ref ListingNightwatcherSecretEvent args)
+    => AddKnowledge(ent, nameof(args));
 }
