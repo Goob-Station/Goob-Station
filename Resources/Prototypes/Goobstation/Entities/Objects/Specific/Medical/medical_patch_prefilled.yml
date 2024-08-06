@@ -2,7 +2,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchPrefilledBase
   name: prefilled medical patch
-  description: put this on your boo boo
+  description: Medical patch filled whit chemicals
   abstract: true
   components:
   - type: Sprite
@@ -19,12 +19,11 @@
 - type: entity
   parent: MedicalPatchPrefilledBase
   id: MedicalPatchPrefilledBicaridine
-  name: patch
+  name: brute patch
   suffix: Bicaridine
-  description: put this on your boo boo
   components:
   - type: Label
-    currentLabel: Bicaridine
+    currentLabel: Bicaridine 30u
   - type: SolutionContainerManager
     solutions:
       drink:
@@ -36,12 +35,11 @@
 - type: entity
   parent: MedicalPatchPrefilledBase
   id: MedicalPatchPrefilledDermaline
-  name: patch
+  name: burn patch
   suffix: Dermaline
-  description: put this on your boo boo
   components:
   - type: Label
-    currentLabel: Dermaline
+    currentLabel: Dermaline 30u
   - type: SolutionContainerManager
     solutions:
       drink:
