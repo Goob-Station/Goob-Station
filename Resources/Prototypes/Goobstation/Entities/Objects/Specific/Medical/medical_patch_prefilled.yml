@@ -7,7 +7,14 @@
   components:
   - type: Sprite
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
-    state: bandaid
+    layers:
+      - state: GenericPatchSmall
+      - state: GenericPatchSmall-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 5
+    fillBaseName: GenericPatchSmall-
   - type: SolutionContainerManager
     solutions:
       drink:
