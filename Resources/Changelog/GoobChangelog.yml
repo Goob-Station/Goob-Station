@@ -553,3 +553,9 @@ Entries:
       message: Added SyndiRoaches, an alternative to SyndiCats!
   id: 70
   time: '2024-08-04T01:53:11.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Ghost bar goers can no longer roll midround antag.
+  id: 71
+  time: '2024-08-06T07:25:21.0000000+00:00'
