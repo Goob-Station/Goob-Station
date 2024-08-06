@@ -16,6 +16,8 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles;
 using Content.Shared.Inventory;
+using Content.Server.Antag.Components;
+using Content.Shared.Mindshield.Components;
 
 namespace Content.Server.Goobstation.Ghostbar;
 
@@ -83,6 +85,8 @@ public sealed class GhostBarSystem : EntitySystem
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 
         _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
+        _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
+        _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
 
         var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
 
