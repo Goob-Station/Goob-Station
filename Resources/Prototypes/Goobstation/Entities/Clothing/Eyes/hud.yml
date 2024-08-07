@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingEyesHudOmni
+  id: ClothingEyesHudChrono
+  name: futuristic visor
+  description: A visior from the future, capable of displaying almost anything.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Eyes/Hud/chrono.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Eyes/Hud/chrono.rsi
+  
+- type: entity
+  parent: ClothingEyesHudChrono
+  id: ClothingEyesHudChronoUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

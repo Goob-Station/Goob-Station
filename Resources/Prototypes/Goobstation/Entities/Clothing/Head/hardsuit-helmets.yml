@@ -1,0 +1,31 @@
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitChronolegioneer
+  name: futuristic helmet
+  description: The helmet of the fighters of the future, designed for special timeflow operations
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Head/Hardsuits/chronolegioneer.rsi
+  - type: PointLight
+    color: "#6BA9E6"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.08
+    lowPressureMultiplier: 1000
+  - type: SpeechSoundsReplacer
+    speechSounds: Chrono
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.10
+        Slash: 0.10
+        Piercing: 0.10
+        Heat: 0.10
+        Cold: 0.10
+        Radiation: 0.10
+        Caustic: 0.10
