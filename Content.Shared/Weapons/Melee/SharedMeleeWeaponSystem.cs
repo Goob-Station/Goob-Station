@@ -545,7 +545,7 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         var direction = targetMap.Position - userPos;
         var distance = Math.Min(component.Range, direction.Length());
 
-        var damage = GetDamage(meleeUid, user, component);
+        var damage = GetDamage(meleeUid, user, component) / 2f; // goobstation - aiming update
         var entities = GetEntityList(ev.Entities);
 
         if (entities.Count == 0)
