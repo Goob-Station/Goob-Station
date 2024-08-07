@@ -13,7 +13,7 @@
             VerticalAlignment="Center"
             MaxSize="64 9999"
             Name="ActionsContainer"
-            Access="Public"
-            Rows="1"/>
+            Access="Public"/>
+        <controls:ActionPageButtons Name="PageButtons" Access="Public"/>
     </BoxContainer>
 </widgets:ActionsBar>
