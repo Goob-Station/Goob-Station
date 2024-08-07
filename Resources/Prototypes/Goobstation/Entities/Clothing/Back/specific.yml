@@ -1,0 +1,57 @@
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackStasisBattery
+  name: stasis storage
+  description: Stores energy to freeze time flow, warping the space inside for more capacity.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+    state: icon
+  - type: Clothing
+    slots: BACK
+    sprite: Goobstation/Clothing/Back/Backpacks/stasis_back.rsi
+  - type: BasicEntityAmmoProvider
+    proto: BulletStasis
+    capacity: 1
+    count: 1
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2.5
+    rechargeSound:
+      path: /Audio/Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,8,5
+  - type: Tag
+    tags:
+    - StasisBattery
+    - WhitelistChameleon
+    
+- type: entity
+  parent: ClothingBackpackStasisBattery
+  id: ClothingBackpackStasisBatteryUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+  
+- type: entity
+  parent: ClothingBackpackStasisBatteryUnremoveable
+  id: ClothingBackpackStasisBatteryUnremoveableFilled
+  suffix: Filled, Unremoveable
+  components:
+  - type: StorageFill
+    contents:
+      - id: StasisCage
+        amount: 4
+      - id: MedkitCombatStasiziumFilled
+      - id: StasisBaton
+      - id: FreedomImplanter
+      - id: ScramImplanter
+      - id: MindShieldImplanter
+      - id: RCDChrono
+      - id: ChronoTeleporter
+      - id: HandHeldMassScanner
+      - id: Flash
+      - id: TimelineDisruptorFlatpack
