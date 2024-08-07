@@ -118,7 +118,10 @@ namespace Content.Shared.Maps
             TileId = id;
         }
 
-        [DataField] public bool Reinforced = false;
-        [DataField] public float TileRipResistance = 125f;
+        [DataField]
+        public bool Reinforced = false;
+
+        [DataField]
+        public float TileRipResistance = 125f;
     }
 }

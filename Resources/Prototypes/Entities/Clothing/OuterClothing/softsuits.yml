@@ -16,21 +16,21 @@
     - WhitelistChameleon
 
 #Syndicate EVA
-- type: entity
-  parent: ClothingOuterEVASuitBase
-  id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
-  name: syndicate EVA suit
-  description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
-  components:
-  - type: Sprite
-    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
-  - type: Clothing
-    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
-  - type: Tag
-    tags:
-    - SuitEVA
-    - MonkeyWearable
-    - WhitelistChameleon
+#- type: entity
+#  parent: ClothingOuterEVASuitBase
+#  id: ClothingOuterHardsuitSyndicate # TODO: rename to ClothingOuterEVASuitSyndicate
+#  name: syndicate EVA suit
+#  description: "Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
+#  components:
+#  - type: Sprite
+#    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+#  - type: Clothing
+#    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+#  - type: Tag
+#    tags:
+#    - SuitEVA
+#    - MonkeyWearable
+#    - WhitelistChameleon
 
 #Emergency EVA
 - type: entity

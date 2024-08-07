@@ -6,22 +6,30 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 90000 # 25 hours
     - !type:DepartmentTimeRequirement
       department: Medical
       time: 54000 # 15 hours
     - !type:DepartmentTimeRequirement
       department: Security
-      time: 54000 # 15 hours
+      time: 90000 # 25 hours
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconNanotrasen"
   requireAdminNotify: true
   joinNotifyCrew: true
-  supervisors: job-supervisors-centcom
+  supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
-  accessGroups:
-  - AllAccess
+  access:
+  - Security
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Command
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -47,4 +55,4 @@
     pocket2: DeathAcidifierImplanter
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots

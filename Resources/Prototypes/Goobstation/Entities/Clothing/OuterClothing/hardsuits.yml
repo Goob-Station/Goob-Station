@@ -1,0 +1,42 @@
+- type: entity
+  parent: ClothingOuterHardsuitBase
+  id: ClothingOuterHardsuitChronolegioneer
+  name: futuristic hardsuit
+  description: A hardsuit covered in an unknown material that protects against most material and temporal damage
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/OuterClothing/Hardsuits/chronolegioneer.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    coefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.05
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.05
+        Slash: 0.05
+        Piercing: 0.05
+        Heat: 0.05
+        Cold: 0.05
+        Radiation: 0.05
+        Caustic: 0.05
+  - type: ClothingSpeedModifier
+    walkModifier: 0.70
+    sprintModifier: 0.70
+  - type: HeldSpeedModifier
+  - type: StasisProtection
+  - type: StasisBlinkProvider
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitChronolegioneer
+
+- type: entity
+  parent: ClothingOuterHardsuitChronolegioneer
+  id: ClothingOuterHardsuitChronolegioneerUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

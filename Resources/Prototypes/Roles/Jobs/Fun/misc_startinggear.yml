@@ -15,7 +15,7 @@
     ears: ClothingHeadsetGrey
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 #Deathsquad Outfit
 - type: startingGear
@@ -36,7 +36,7 @@
     belt: ClothingBeltMilitaryWebbingMedFilled
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponPulseRifle
     - WeaponPulsePistol
     - WeaponRevolverMateba
@@ -74,7 +74,7 @@
     id: SyndiPDA
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 # Syndicate Footsoldier Gear
 - type: startingGear
@@ -98,7 +98,7 @@
     gloves: ClothingHandsGlovesCombat
   storage:
     back:
-    - BoxSurvivalSecurity
+    - BoxSurvivalSlotsSecurity # Goobstation - Slots Based Survival Boxes
     - Flash
     - MagazinePistol
 
@@ -121,7 +121,7 @@
     belt: ClothingBeltBandolier
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponShotgunDoubleBarreled
     - BoxShotgunIncendiary
     - GrenadeFlashBang

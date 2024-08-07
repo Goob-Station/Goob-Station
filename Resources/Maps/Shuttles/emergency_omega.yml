@@ -1041,14 +1041,14 @@ entities:
     - type: DeviceLinkSink
       links:
       - 555
-- proto: BoxSurvivalEngineering
+- proto: BoxSurvivalSlotsEngineering
   entities:
   - uid: 600
     components:
     - type: Transform
       pos: 2.4716125,7.543292
       parent: 603
-- proto: BoxSurvivalMedical
+- proto: BoxSurvivalSlotsMedical
   entities:
   - uid: 601
     components:

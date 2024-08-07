@@ -31,7 +31,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -57,7 +57,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -85,7 +85,7 @@
     - AirTankFilled
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -131,7 +131,7 @@
     pocket2: DrinkWaterBottleFull
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - BoxCandle
     - BoxBodyBag
     - DrinkWaterMelonJuiceJug
@@ -164,7 +164,7 @@
     pocket2: DrinkWaterBottleFull
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - BoxCandle
     - BoxBodyBag
     - DrinkWaterMelonJuiceJug
@@ -211,7 +211,7 @@
     pocket2: GasAnalyzer
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - trayScanner
     - RCD
     - RCDAmmo
@@ -241,7 +241,7 @@
     pocket2: GasAnalyzer
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - trayScanner
     - RCD
     - RCDAmmo
@@ -286,7 +286,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -312,7 +312,7 @@
     pocket2: FlashlightSeclite
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -340,7 +340,7 @@
     - AirTankFilled
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - WeaponDisabler
     - MedicatedSuture
     - RegenerativeMesh
@@ -380,7 +380,7 @@
     pocket1: Flare
   storage:
     back:
-    - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - Hypospray
     - MedkitAdvancedFilled
     - CrowbarRed
@@ -405,7 +405,7 @@
     pocket1: Flare
   storage:
     back:
-    - BoxSurvivalMedical # Is this actually supposed to be Medical? All other ERT has Extended
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - Hypospray
     - MedkitAdvancedFilled
     - CrowbarRed
@@ -444,7 +444,7 @@
     pocket1: Flare
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - LightReplacer
     - BoxLightMixed
     - BoxLightMixed
@@ -468,7 +468,7 @@
     pocket1: Flare
   storage:
     back:
-    - BoxSurvivalEngineering
+    - BoxSurvivalSlotsEngineering # Goobstation - Slots Based Survival Boxes
     - LightReplacer
     - BoxLightMixed
     - BoxLightMixed

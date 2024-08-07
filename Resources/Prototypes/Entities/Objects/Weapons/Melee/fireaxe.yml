@@ -39,6 +39,8 @@
   - type: Tool
     qualities:
       - Prying
+      # Goobstation - Fireaxe plating prying
+      - Axing
   - type: ToolTileCompatible
   - type: Prying
   - type: UseDelay
@@ -66,3 +68,7 @@
     quickEquip: false
     slots:
     - back
+  # Goobstation - Fireaxe plating prying; prevent fire axe from plating prying
+  - type: Tool
+    qualities:
+      - Prying

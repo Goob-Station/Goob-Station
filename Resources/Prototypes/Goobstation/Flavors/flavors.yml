@@ -1,0 +1,4 @@
+- type: flavor
+  id: futuristic
+  flavorType: Base
+  description: flavor-base-futuristic

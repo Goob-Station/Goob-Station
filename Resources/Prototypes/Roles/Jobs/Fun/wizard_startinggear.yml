@@ -10,7 +10,7 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 - type: startingGear
   id: WizardRedGear

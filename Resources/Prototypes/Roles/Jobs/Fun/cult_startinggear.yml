@@ -12,7 +12,7 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 - type: startingGear
   id: CultistGear
@@ -26,4 +26,4 @@
     ears: ClothingHeadsetService
   storage:
     back:
-    - BoxSurvival
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes

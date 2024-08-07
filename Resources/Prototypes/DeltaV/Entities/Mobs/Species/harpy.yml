@@ -5,6 +5,7 @@
   id: MobHarpyBase
   abstract: true
   components:
+  - type: Absorbable # Goobstation - changelings
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false

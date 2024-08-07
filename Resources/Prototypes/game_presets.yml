@@ -22,6 +22,7 @@
     - Zombie
     - RampingStationEventScheduler
     - GameRuleMeteorScheduler
+    - Changeling # Goobstation - changeling playtest
 
 - type: gamePreset
   id: Extended
@@ -46,7 +47,6 @@
   description: greenshift-description
   rules:
   - BasicRoundstartVariation
-  - GameRuleMeteorScheduler
 
 - type: gamePreset
   id: Secret

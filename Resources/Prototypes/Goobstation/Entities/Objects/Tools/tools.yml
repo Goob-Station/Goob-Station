@@ -1,0 +1,84 @@
+- type: entity
+  name: sonic screwdriver
+  parent: BaseItem
+  id: SonicScrewdriver
+  description: Wzzzzz....
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+    state: icon
+  - type: Item
+    sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+    size: Small
+  - type: Tag
+    tags:
+    - Multitool
+  - type: Prying
+    enabled: false
+  - type: Tool
+    qualities:
+      - Screwing
+    useSound: /Audio/Items/drill_use.ogg
+  - type: ToolTileCompatible
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Screwing
+        sprite:
+          sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          state: screw
+        useSound:
+          path: /Audio/Items/drill_use.ogg
+        changeSound:
+          path: /Audio/Effects/Arcade/newgame.ogg
+      - behavior: Prying
+        sprite:
+          sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          state: cutter
+        useSound:
+          path: /Audio/Items/jaws_pry.ogg
+        changeSound:
+          path: /Audio/Effects/Arcade/newgame.ogg
+      - behavior: Anchoring
+        sprite:
+          sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          state: wrench
+        useSound:
+          path: /Audio/Items/ratchet.ogg
+        changeSound:
+          path: /Audio/Effects/Arcade/newgame.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          state: crowbar
+        useSound:
+          path: /Audio/Items/jaws_cut.ogg
+        changeSound:
+          path: /Audio/Effects/Arcade/newgame.ogg
+      - behavior: Pulsing
+        sprite:
+          sprite: Goobstation/Objects/Tools/sonic_screwdriver.rsi
+          state: icon
+        changeSound:
+          path: /Audio/Effects/Arcade/newgame.ogg
+          
+      
+- type: entity
+  name: futuristic RCD
+  parent: RCD
+  id: RCDChrono
+  description: A tool that can build a station from scratch in minutes.
+  components:
+  - type: LimitedCharges
+    maxCharges: 100
+    charges: 100
+  - type: UseDelay
+    delay: 0.1
+  - type: AutoRecharge
+    rechargeDuration: 5
+  - type: Sprite
+    sprite: Goobstation/Objects/Tools/rcd_chrono.rsi
+    state: icon
+  - type: Item
+    sprite: Goobstation/Objects/Tools/rcd_chrono.rsi
+  - type: RCD

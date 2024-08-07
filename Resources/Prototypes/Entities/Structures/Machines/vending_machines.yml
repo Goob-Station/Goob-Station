@@ -1532,7 +1532,7 @@
   - type: PointLight
     radius: 2
     energy: 1.6
-    color: "#9dc5c9"
+    color: "#b89f25"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
   - type: AccessReader
@@ -1635,9 +1635,9 @@
     rotateWhileAnchored: false
     rotateWhilePulling: true
   - type: PointLight
-    radius: 2
+    radius: 1.3
     energy: 1.6
-    color: "#9dc5c9"
+    color: "#43ccb5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
 
@@ -1668,6 +1668,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#326e3f"
   - type: AccessReader
     access: [["Hydroponics"]]
 
@@ -1724,6 +1728,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#d82929"
   - type: AccessReader
     access: [["Security"]]
 
@@ -1810,6 +1818,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89e2a"
   - type: AccessReader
     access: [["Cargo"]]
 
@@ -1922,6 +1934,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -1950,6 +1966,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#b89e2a"
   - type: AccessReader
     access: [["Engineering"]]
 
@@ -2037,9 +2057,9 @@
   - type: AccessReader
     access: [["Janitor"]]
   - type: PointLight
-    radius: 2
+    radius: 1.5
     energy: 1.6
-    color: "#9dc5c9"
+    color: "#6927C5"
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
 
@@ -2096,6 +2116,10 @@
       shader: unshaded
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: PointLight
+    radius: 1.5
+    energy: 1.6
+    color: "#d82929"
   - type: AccessReader
     access: [["NuclearOperative"], ["SyndicateAgent"]]
 

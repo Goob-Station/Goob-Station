@@ -163,7 +163,7 @@
   - type: PointLight
     radius: 1.5
     energy: 1.6
-    color: "#c94242"
+    color: "#43ccb5"
   - type: Computer
     board: CargoShuttleConsoleCircuitboard
   - type: StealTarget
@@ -193,7 +193,7 @@
     - type: PointLight
       radius: 1.5
       energy: 1.6
-      color: "#c94242"
+      color: "#43ccb5"
     - type: Computer
       board: SalvageShuttleConsoleCircuitboard
     - type: StealTarget
@@ -745,6 +745,7 @@
     - map: ["computerLayerKeys"]
       state: tech_key
   - type: CargoOrderConsole
+  - type: BankClient
   - type: ActiveRadio
     channels:
     - Supply

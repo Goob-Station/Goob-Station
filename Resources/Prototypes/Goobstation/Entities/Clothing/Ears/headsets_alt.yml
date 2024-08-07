@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHeadset
+  id: ClothingHeadsetChronolegioneer
+  name: futuristic over-ear headset
+  description: A headset from the future that can pick up most station frequencies.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyFuture
+  - type: Sprite
+    sprite: Goobstation/Clothing/Ears/Headsets/chronolegioneer.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Ears/Headsets/chronolegioneer.rsi
+    
+- type: entity
+  parent: ClothingHeadsetChronolegioneer
+  id: ClothingHeadsetChronolegioneerUnremoveable
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

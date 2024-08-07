@@ -1,0 +1,41 @@
+- type: reagent
+  id: Stasizium
+  name: reagent-name-stasizium
+  group: Medicine
+  desc: reagent-desc-stasizium
+  physicalDesc: reagent-physical-desc-stasizium
+  flavor: futuristic
+  color: "#8364BE"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:ModifyBloodLevel
+          amount: 10
+        - !type:ModifyBleedAmount
+          amount: -2
+        - !type:ReduceRotting
+          seconds: 30
+          conditions:
+          - !type:MobStateCondition
+            mobstate: Dead
+        - !type:HealthChange
+          damage:
+            groups:
+              Brute: -20
+              Burn: -20
+              Airloss: -20
+              Toxin: -20
+              Genetic: -20
+        - !type:HealthChange
+          conditions:
+          - !type:ReagentThreshold
+            min: 21
+          damage:
+            types:
+              Blunt: 100
+        - !type:AdjustTemperature
+          conditions:
+          - !type:Temperature
+            min: 263.15
+          amount: -50000

@@ -19,7 +19,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.8 # Goobstation
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -61,12 +61,12 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 5
+    capacity: 6 # Goobstation
     proto: CartridgeAntiMateriel
 
 - type: entity
   name: musket
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseGunWieldable]
   id: Musket
   description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
   components:

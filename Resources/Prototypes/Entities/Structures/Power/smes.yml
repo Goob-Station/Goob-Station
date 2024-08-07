@@ -32,7 +32,7 @@
     - type: Appearance
     - type: Battery
       startingCharge: 0
-      maxCharge: 8000000
+      maxCharge: 16000000 # Goobstation - SMES buff
     - type: ExaminableBattery
     - type: NodeContainer
       examinable: true
@@ -57,10 +57,11 @@
       voltage: High
       node: input
     - type: PowerNetworkBattery
-      maxSupply: 150000
-      maxChargeRate: 5000
-      supplyRampTolerance: 5000
-      supplyRampRate: 1000
+       # Goobstation - SMES buff
+      maxSupply: 300000
+      maxChargeRate: 10000
+      supplyRampTolerance: 10000
+      supplyRampRate: 2000
     - type: PointLight
       radius: 1.5
       energy: 1.6
@@ -95,11 +96,12 @@
 - type: entity
   parent: BaseSMES
   id: SMESBasic
-  suffix: Basic, 8MW
+  suffix: Basic, 8MJ
   components:
   - type: Battery
-    maxCharge: 8000000
-    startingCharge: 8000000
+     # Goobstation - SMES buff
+    maxCharge: 16000000
+    startingCharge: 16000000
 
 - type: entity
   parent: SMESBasic
