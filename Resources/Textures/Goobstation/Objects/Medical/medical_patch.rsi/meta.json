@@ -69,6 +69,15 @@
     },
     {
         "name": "GenericPatchSmall-5"
+    },
+    {
+        "name": "MakeshiftPatch"
+    },
+    {
+        "name": "MakeshiftPatchUsed"
+    },
+    {
+        "name": "GenericPatchSmallUsed"
     }
   ]
 }
