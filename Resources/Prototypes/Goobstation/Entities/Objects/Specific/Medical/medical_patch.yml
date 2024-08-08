@@ -77,7 +77,7 @@
       Cloth: 100
 
 - type: entity
-  parent: BaseHealingItem
+  parent: UsedMedicalPatch
   id: UsedMedicalPatchMakeshift
   name: patch used
   description: EEEEWWWWWWW
