@@ -7,7 +7,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Actions.Controls;
-
+// goobstation heavily modified
 [Virtual]
 public class ActionButtonContainer : GridContainer
 {
@@ -21,7 +21,6 @@ public class ActionButtonContainer : GridContainer
     public ActionButtonContainer()
     {
         IoCManager.InjectDependencies(this);
-        // goobstation
         UserInterfaceManager.GetUIController<ActionUIController>().RegisterActionContainer(this);
     }
 
@@ -32,7 +31,6 @@ public class ActionButtonContainer : GridContainer
 
     public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
-        // goobstation
         ClearActionData();
 
         for (var i = 0; i < actionTypes.Length; i++)

@@ -37,7 +37,7 @@ using static Robust.Client.UserInterface.Controls.TextureRect;
 using static Robust.Shared.Input.Binding.PointerInputCmdHandler;
 
 namespace Content.Client.UserInterface.Systems.Actions;
-
+// goobstation heavily modified
 public sealed class ActionUIController : UIController, IOnStateChanged<GameplayState>, IOnSystemChanged<ActionsSystem>
 {
     [Dependency] private readonly IOverlayManager _overlays = default!;
@@ -51,17 +51,17 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly TargetOutlineSystem? _targetOutline = default;
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 
-    private const int DefaultPageIndex = 0; // goobstation
+    private const int DefaultPageIndex = 0; 
     private ActionButtonContainer? _container;
-    private readonly List<ActionPage> _pages = new(); // goobstation
-    private int _currentPageIndex = DefaultPageIndex; // goobstation
+    private readonly List<ActionPage> _pages = new(); 
+    private int _currentPageIndex = DefaultPageIndex; 
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
-    private ActionPage CurrentPage => _pages[_currentPageIndex]; // goobstation
+    private ActionPage CurrentPage => _pages[_currentPageIndex]; 
 
     public bool IsDragging => _menuDragHelper.IsDragging;
 
@@ -81,7 +81,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SetSize = new Vector2(64, 64),
             MouseFilter = MouseFilterMode.Ignore
         };
-        // goobstation
+        
         var pageCount = ContentKeyFunctions.GetLoadoutBoundKeys().Length;
         var buttonCount = ContentKeyFunctions.GetHotbarBoundKeys().Length;
         for (var i = 0; i < pageCount; i++)
@@ -140,7 +140,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 return true;
             }, false, true));
         }
-        // goobstation
+        
         var loadoutKeys = ContentKeyFunctions.GetLoadoutBoundKeys();
         for (var i = 0; i < loadoutKeys.Length; i++)
         {
@@ -336,7 +336,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void TriggerAction(int index)
     {
         if (_actionsSystem == null ||
-            CurrentPage[index] is not { } actionId || // goobstation
+            CurrentPage[index] is not { } actionId || 
             !_actionsSystem.TryGetActionData(actionId, out var baseAction))
         {
             return;
@@ -344,11 +344,11 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (baseAction is BaseTargetActionComponent action)
 
-            ToggleTargeting(actionId, action); // goobstation
+            ToggleTargeting(actionId, action); 
         else
-            _actionsSystem?.TriggerAction(actionId, baseAction); // goobstation
+            _actionsSystem?.TriggerAction(actionId, baseAction); 
     }
-    // goobstation
+    
     private void ChangePage(int index)
     {
         if (_actionsSystem == null)
@@ -420,7 +420,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // if the action is toggled when we add it, start targeting
         if (action is BaseTargetActionComponent targetAction && action.Toggled)
             StartTargeting(actionId, targetAction);
-        // goobstation
+        
         foreach (var page in _pages)
         {
             for (var i = 0; i < page.Size; i++)
@@ -432,7 +432,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             }
         }
 
-        AppendAction(actionId); // goobstation
+        AppendAction(actionId); 
     }
 
     private void OnActionRemoved(EntityUid actionId)
@@ -442,7 +442,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (actionId == SelectingTargetFor)
             StopTargeting();
-        // goobstation
+        
         foreach (var button in _container.GetButtons())
         {
             if (button.ActionId == actionId)
@@ -466,14 +466,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private void OnActionsUpdated()
     {
         QueueWindowUpdate();
-        // goobstation
+        
         if (_container == null)
             return;
 
         // TODO ACTIONS allow buttons to persist across state applications
         // Then we don't have to interrupt drags any time the buttons get rebuilt.
         _menuDragHelper.EndDrag();
-        // goobstation
+        
         foreach (var button in _container.GetButtons())
         {
             button.UpdateIcons();
@@ -624,7 +624,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         PopulateActions(actions);
     }
 
-    private void SetAction(ActionButton button, EntityUid? actionId) // goobstation
+    private void SetAction(ActionButton button, EntityUid? actionId) 
     {
         if (_actionsSystem == null)
             return;
@@ -636,30 +636,30 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             button.ClearData();
             if (_container?.TryGetButtonIndex(button, out position) ?? false)
             {
-                CurrentPage[position] = actionId; // goobstation
+                CurrentPage[position] = actionId; 
             }
-            return; // goobstation
+            return; 
         }
-        if (button.TryReplaceWith(actionId.Value, _actionsSystem) && // goobstation
+        if (button.TryReplaceWith(actionId.Value, _actionsSystem) && 
             _container != null &&
             _container.TryGetButtonIndex(button, out position))
         {
-            CurrentPage[position] = actionId; // goobstation
+            CurrentPage[position] = actionId; 
         }
     }
 
     private void DragAction()
     {
-        if (UIManager.CurrentlyHovered is ActionButton button) // goobstation
+        if (UIManager.CurrentlyHovered is ActionButton button) 
         {
-            if (!_menuDragHelper.IsDragging || _menuDragHelper.Dragged?.ActionId is not { } type) // goobstation
+            if (!_menuDragHelper.IsDragging || _menuDragHelper.Dragged?.ActionId is not { } type) 
             {
                 _menuDragHelper.EndDrag();
                 return;
             }
-            SetAction(button, type); // goobstation
+            SetAction(button, type); 
         }
-        // goobstation
+        
         if (_menuDragHelper.Dragged is {Parent: ActionButtonContainer} old)
         {
             SetAction(old, null);
@@ -816,7 +816,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             return;
         }
-        // goobstation
+        
         ActionsBar.PageButtons.LeftArrow.OnPressed -= OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed -= OnRightArrowPressed;
 
@@ -849,7 +849,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         {
             return;
         }
-        // goobstation
+        
         ActionsBar.PageButtons.LeftArrow.OnPressed += OnLeftArrowPressed;
         ActionsBar.PageButtons.RightArrow.OnPressed += OnRightArrowPressed;
 
@@ -881,12 +881,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
 
-        foreach (ref var assignment in CollectionsMarshal.AsSpan(assignments)) // goobstation
+        foreach (ref var assignment in CollectionsMarshal.AsSpan(assignments)) 
         {
-            _pages[assignment.Hotbar][assignment.Slot] = assignment.ActionId; // goobstation
+            _pages[assignment.Hotbar][assignment.Slot] = assignment.ActionId; 
         }
 
-        _container?.SetActionData(_actionsSystem, _pages[_currentPageIndex]); // goobstation
+        _container?.SetActionData(_actionsSystem, _pages[_currentPageIndex]); 
     }
 
     public void RemoveActionContainer()
@@ -922,8 +922,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_actionsSystem == null)
             return;
         
-        LoadDefaultActions(component); // goobstation
-        _container?.SetActionData(_actionsSystem, _pages[DefaultPageIndex]); // goobstation
+        LoadDefaultActions(component); 
+        _container?.SetActionData(_actionsSystem, _pages[DefaultPageIndex]); 
         QueueWindowUpdate();
     }
 
@@ -934,14 +934,14 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         StopTargeting();
     }
 
-    private void LoadDefaultActions(ActionsComponent component) // goobstation
+    private void LoadDefaultActions(ActionsComponent component) 
     {
         if (_actionsSystem == null)
             return;
 
         var actions = _actionsSystem.GetClientActions().Where(action => action.Comp.AutoPopulate).ToList();
         actions.Sort(ActionComparer);
-        // goobstation
+        
         var offset = 0;
         var totalPages = _pages.Count;
         var pagesLeft = totalPages;
@@ -1082,7 +1082,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         handOverlay.IconOverride = null;
         handOverlay.EntityOverride = null;
     }
-    // goobstation
+    
     private sealed class ActionPage
     {
         private readonly EntityUid?[] _data;

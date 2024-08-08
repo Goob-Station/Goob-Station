@@ -14,6 +14,6 @@
             MaxSize="64 9999"
             Name="ActionsContainer"
             Access="Public"/>
-        <controls:ActionPageButtons Name="PageButtons" Access="Public"/>
+        <controls:ActionPageButtons Name="PageButtons" Access="Public"/> <!-- goobstation -->
     </BoxContainer>
 </widgets:ActionsBar>
