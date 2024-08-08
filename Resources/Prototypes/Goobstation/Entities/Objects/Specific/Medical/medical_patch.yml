@@ -68,13 +68,23 @@
   components:
   - type: Sprite
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
-    state: bandaid_used
+    state: GenericPatchSmallUsed
   - type: Tag
     tags:
     - Trash
   - type: PhysicalComposition #get 1 cloth form recycling a used patch
     materialComposition:
       Cloth: 100
+
+- type: entity
+  parent: BaseHealingItem
+  id: UsedMedicalPatchMakeshift
+  name: patch used
+  description: EEEEWWWWWWW
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatchUsed
 
 - type: entity
   parent: MedicalPatchBasic
@@ -123,10 +133,11 @@
   description: does not look hygienic
   components:
   - type: Sprite
-    state: bandaid
+    state: MakeshiftPatch
   - type: MedicalPatch
     updateTime: 2 # slow
     singleUse: true
+    trashObject: UsedMedicalPatchMakeshift
   - type: SolutionContainerManager
     solutions:
       drink:
