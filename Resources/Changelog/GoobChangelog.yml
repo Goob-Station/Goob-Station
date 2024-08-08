@@ -559,3 +559,11 @@ Entries:
       message: Ghost bar goers can no longer roll midround antag.
   id: 71
   time: '2024-08-06T07:25:21.0000000+00:00'
+- author: packmore
+  changes:
+    - type: Tweak
+      message: >-
+        Updated roleplay rule 4 to explicitly deny metagaming while
+        crit/unconscious.
+  id: 72
+  time: '2024-08-08T00:31:21.0000000+00:00'
