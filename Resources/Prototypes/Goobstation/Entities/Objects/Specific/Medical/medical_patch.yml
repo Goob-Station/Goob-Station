@@ -41,6 +41,7 @@
   components:
   - type: Sprite
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    scale: 0.9 , 0.9
     layers:
       - state: GenericPatch
       - state: GenericPatch-1
@@ -112,6 +113,7 @@
   components:
   - type: Sprite
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    scale: 1 , 1
     layers:
       - state: GenericPatch
       - state: GenericPatchBorder
@@ -197,6 +199,7 @@
   description: a little better then nothig
   icon:
     sprite: Goobstation/Objects/Medical/medical_patch.rsi
-    state: bandaid
+    state: MakeshiftPatch
+
 
 
