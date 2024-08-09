@@ -8,15 +8,6 @@
   },
   "states": [
     {
-        "name": "bandaid_double"
-    },
-    {
-        "name": "bandaid"
-    },
-    {
-        "name": "bandaid_used"
-    },
-    {
         "name": "GenericPatch"
     },
     {
