@@ -29,8 +29,37 @@ public class ActionButtonContainer : GridContainer
         get => (ActionButton) GetChild(index);
     }
 
+
+    private void BuildActionButtons(int count)
+    {
+        var keys = ContentKeyFunctions.GetHotbarBoundKeys();
+
+        Children.Clear();
+        for (var index = 0; index < count; index++)
+        {
+            Children.Add(MakeButton(index));
+        }
+
+        ActionButton MakeButton(int index)
+        {
+            var button = new ActionButton(_entity);
+
+            if (!keys.TryGetValue(index, out var boundKey))
+                return button;
+
+            button.KeyBind = boundKey;
+            if (_input.TryGetKeyBinding(boundKey, out var binding))
+            {
+                button.Label.Text = binding.GetKeyString();
+            }
+
+            return button;
+        }
+    }
+
     public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
+        BuildActionButtons(10);
         ClearActionData();
 
         for (var i = 0; i < actionTypes.Length; i++)
