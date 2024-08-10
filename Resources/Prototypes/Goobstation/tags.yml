@@ -17,9 +17,6 @@
   id: BreathMask
 
 - type: Tag
-  id: MedicalPatch
-
-- type: Tag
   id: SecurityBreathMask
 
 - type: Tag
