@@ -1,7 +1,8 @@
 #hat
 - type: loadout
   id: NanotrasenRepresentativeHead
-  equipment: NanotrasenRepresentativeHead
+  equipment:
+    head: NanotrasenRepresentativeHead
 
 - type: startingGear
   id: NanotrasenRepresentativeHead
@@ -10,7 +11,8 @@
 
 - type: loadout
   id: NanotrasenRepresentativeCap
-  equipment: NanotrasenRepresentativeCap
+  equipment:
+    head: NanotrasenRepresentativeCap
 
 - type: startingGear
   id: NanotrasenRepresentativeCap
@@ -20,7 +22,8 @@
 #backy packy
 - type: loadout
   id: NanotrasenRepresentativeBackpack
-  equipment: NanotrasenRepresentativeBackpack
+  equipment:
+    back: NanotrasenRepresentativeBackpack
 
 - type: startingGear
   id: NanotrasenRepresentativeBackpack
@@ -29,7 +32,8 @@
 
 - type: loadout
   id: NanotrasenRepresentativeSatchel
-  equipment: NanotrasenRepresentativeSatchel
+  equipment:
+    back: NanotrasenRepresentativeSatchel
 
 - type: startingGear
   id: NanotrasenRepresentativeSatchel
@@ -39,7 +43,8 @@
 #jumpy suity
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
-  equipment: NanotrasenRepresentativeJumpsuit
+  equipment:
+    jumpsuit: NanotrasenRepresentativeJumpsuit
 
 - type: startingGear
   id: NanotrasenRepresentativeJumpsuit
@@ -48,7 +53,8 @@
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
-  equipment: NanotrasenRepresentativeJumpskirt
+  equipment:
+    jumpsuit: NanotrasenRepresentativeJumpskirt
 
 - type: startingGear
   id: NanotrasenRepresentativeJumpskirt
