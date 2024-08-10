@@ -1,4 +1,27 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
+# Base
+
+- type: entity
+  parent: FoodInjectableBase
+  id: FoodSkewerBase
+  abstract: true
+  components:
+  - type: Food
+    trash:
+    - FoodKebabSkewer
+  - type: Sprite
+    sprite: Objects/Consumable/Food/skewer.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+  - type: Item
+    size: Small
+    storedRotation: -90
+
 # Kebabs
 
 - type: entity
@@ -9,7 +32,7 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Food/skewer.rsi
-    state: 
+    state:
     layers:
     - state: skewer
     - map: ["foodSequenceLayers"]
@@ -27,7 +50,7 @@
     - Trash
     - Skewer
   - type: Food
-    trash: 
+    trash:
     - FoodKebabSkewer
   - type: SolutionContainerManager
     solutions:
@@ -38,7 +61,7 @@
     key: skewer
     maxLayers: 4
     startPosition: -0.27, -0.19
-    inverseLayers: true 
+    inverseLayers: true
     offset: 0.2, 0.1
     nameGeneration: food-sequence-skewer-gen
     contentSeparator: ", "

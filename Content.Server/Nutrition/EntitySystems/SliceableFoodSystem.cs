@@ -140,14 +140,23 @@ public sealed class SliceableFoodSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        // Locate the sliced food and spawn its trash
-        foreach (var trash in foodComp.Trash)
-        {
-            var trashUid = Spawn(trash, _transform.GetMapCoordinates(uid));
+            if (foodComp.Trash.Count == 0)
+            {
+                QueueDel(uid);
+                return;
+            }
 
-            // try putting the trash in the food's container too, to be consistent with slice spawning?
-            _transform.DropNextTo(trashUid, uid);
-            _transform.SetLocalRotation(trashUid, 0);
+            // Locate the sliced food and spawn its trash
+            foreach (var trash in foodComp.Trash)
+            {
+                var trashUid = Spawn(trash, _xformSystem.GetMapCoordinates(uid));
+
+                // try putting the trash in the food's container too, to be consistent with slice spawning?
+                _xformSystem.DropNextTo(trashUid, uid);
+                _xformSystem.SetLocalRotation(trashUid, 0);
+            }
+
+            QueueDel(uid);
         }
 
         QueueDel(uid);
