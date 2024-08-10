@@ -1,0 +1,33 @@
+- type: entity
+  name: advanced combat medipen
+  parent: ChemicalMedipen
+  id: AdvancedCombatMedipen
+  description: A single-use advanced medipen containing chemicals extracted from eldritch beasts. # ethically sourced space dragon blood
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: advcombatpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: advcombatpen_empty
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 40
+        reagents:
+        - ReagentId: Ichor
+          Quantity: 35
+        - ReagentId: TranexamicAcid
+          Quantity: 5
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 40
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: StaticPrice
+    price: 500
+  - type: Tag
+    tags: []
