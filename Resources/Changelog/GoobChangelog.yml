@@ -579,3 +579,9 @@ Entries:
         desoxyephedrine because it makes more sense
   id: 73
   time: '2024-08-10T03:40:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Felinids and harpys will no longer play the mute sound when screaming.
+  id: 74
+  time: '2024-08-10T21:36:12.0000000+00:00'
