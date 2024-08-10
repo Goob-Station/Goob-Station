@@ -1,7 +1,7 @@
 - type: soundCollection
   id: HarpyScreams
   files:
-    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+    #- /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg  - Goobstation - Remove mute sound from felinid + harpy screams
     - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
     - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
     - /Audio/Animals/monkey_scream.ogg
