@@ -567,3 +567,15 @@ Entries:
         crit/unconscious.
   id: 72
   time: '2024-08-08T00:31:21.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now not fly at mach 10 when weightless with strained
+        muscles active.
+    - type: Tweak
+      message: >-
+        Changed the reagent in ephedrine overdose from synaptizine to
+        desoxyephedrine because it makes more sense
+  id: 73
+  time: '2024-08-10T03:40:25.0000000+00:00'
