@@ -28,7 +28,6 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly ReactiveSystem _reactive = default!;
-        [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
         private const float ReactTime = 0.125f;
 
@@ -70,7 +69,7 @@ namespace Content.Server.Chemistry.EntitySystems
 
                 _throwing.TryThrow(vapor, dir, speed, user: user);
 
-                var distance = (target.Position - _transformSystem.GetWorldPosition(vaporXform)).Length();
+                var distance = (target.Position - vaporXform.WorldPosition).Length();
                 var time = (distance / physics.LinearVelocity.Length());
                 despawn.Lifetime = MathF.Min(aliveTime, time);
             }
@@ -123,7 +122,7 @@ namespace Content.Server.Chemistry.EntitySystems
                     var reagent = _protoManager.Index<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
 
                     var reaction =
-                        reagent.ReactionTile(tile, (reagentQuantity.Quantity / vapor.TransferAmount) * 0.25f, EntityManager, reagentQuantity.Reagent.Data);
+                        reagent.ReactionTile(tile, (reagentQuantity.Quantity / vapor.TransferAmount) * 0.25f, EntityManager);
 
                     if (reaction > reagentQuantity.Quantity)
                     {

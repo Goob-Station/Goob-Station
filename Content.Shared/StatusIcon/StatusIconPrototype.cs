@@ -73,6 +73,7 @@ public partial class StatusIconData : IComparable<StatusIconData>
     /// </summary>
     [DataField]
     public bool IsShaded = false;
+
     public int CompareTo(StatusIconData? other)
     {
         return Priority.CompareTo(other?.Priority ?? int.MaxValue);
@@ -82,138 +83,21 @@ public partial class StatusIconData : IComparable<StatusIconData>
 /// <summary>
 /// <see cref="StatusIconData"/> but in new convenient prototype form!
 /// </summary>
-public abstract partial class StatusIconPrototype : StatusIconData, IPrototype
+[Prototype("statusIcon")]
+public sealed partial class StatusIconPrototype : StatusIconData, IPrototype, IInheritingPrototype
 {
+    /// <inheritdoc />
+    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<StatusIconPrototype>))]
+    public string[]? Parents { get; }
+
+    /// <inheritdoc />
+    [NeverPushInheritance]
+    [AbstractDataField]
+    public bool Abstract { get; }
+
     /// <inheritdoc/>
     [IdDataField]
     public string ID { get; private set; } = default!;
-}
-
-/// <summary>
-/// StatusIcons for showing jobs on the sec HUD
-/// </summary>
-[Prototype]
-public sealed partial class JobIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<JobIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-
-    /// <summary>
-    /// Name of the icon used for menu tooltips.
-    /// </summary>
-    [DataField]
-    public string JobName { get; private set; } = string.Empty;
-
-    [ViewVariables(VVAccess.ReadOnly)]
-    public string LocalizedJobName => Loc.GetString(JobName);
-
-    /// <summary>
-    /// Should the agent ID or ID card console be able to use this job icon?
-    /// </summary>
-    [DataField]
-    public bool AllowSelection = true;
-}
-
-/// <summary>
-/// StatusIcons for the med HUD
-/// </summary>
-[Prototype]
-public sealed partial class HealthIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<HealthIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-}
-
-/// <summary>
-/// StatusIcons for the beer goggles and fried onion goggles
-/// </summary>
-[Prototype]
-public sealed partial class SatiationIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<SatiationIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-}
-
-/// <summary>
-/// StatusIcons for showing the wanted status on the sec HUD
-/// </summary>
-[Prototype]
-public sealed partial class SecurityIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<SecurityIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-}
-
-/// <summary>
-/// StatusIcons for faction membership
-/// </summary>
-[Prototype]
-public sealed partial class FactionIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<FactionIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-}
-
-/// <summary>
-/// StatusIcons for debugging purposes
-/// </summary>
-[Prototype]
-public sealed partial class DebugIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<DebugIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
-}
-
-/// <summary>
-/// StatusIcons for the SSD indicator
-/// </summary>
-[Prototype]
-public sealed partial class SsdIconPrototype : StatusIconPrototype, IInheritingPrototype
-{
-    /// <inheritdoc />
-    [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<SsdIconPrototype>))]
-    public string[]? Parents { get; }
-
-    /// <inheritdoc />
-    [NeverPushInheritance]
-    [AbstractDataField]
-    public bool Abstract { get; }
 }
 
 [Serializable, NetSerializable]

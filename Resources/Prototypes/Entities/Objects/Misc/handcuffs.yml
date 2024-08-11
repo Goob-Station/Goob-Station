@@ -26,7 +26,6 @@
   - type: GuideHelp
     guides:
     - Security
-    - Antagonists
   - type: UseDelay
     delay: 3
 

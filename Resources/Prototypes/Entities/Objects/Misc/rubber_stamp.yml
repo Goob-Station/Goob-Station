@@ -51,7 +51,7 @@
     state: stamp-cap
 
 - type: entity
-  name: CentComm rubber stamp
+  name: CentCom rubber stamp
   parent: RubberStampBase
   id: RubberStampCentcom
   suffix: DO NOT MAP

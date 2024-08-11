@@ -29,7 +29,7 @@
 - type: entity
   parent: ClothingHeadsetAlt
   id: ClothingHeadsetAltCentCom
-  name: CentComm over-ear headset
+  name: CentCom over-ear headset
   components:
   - type: ContainerFill
     containers:

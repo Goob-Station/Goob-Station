@@ -104,7 +104,7 @@
   name: artifact analyzer printout
   parent: Paper
   id: PaperArtifactAnalyzer
-  description: The readout of a device forgotten to time.
+  description: 'The readout of a device forgotten to time'
   components:
   - type: Sprite
     layers:
@@ -219,7 +219,6 @@
   - type: GuideHelp
     guides:
     - CargoBounties
-    - Cargo
 
 - type: entity
   name: character sheet
@@ -229,6 +228,7 @@
   components:
   - type: Paper
     contentSize: 10000
+    escapeFormatting: false
     content: book-cnc-sheet
   - type: Sprite
     layers:
@@ -410,10 +410,10 @@
 
 - type: entity
   id: BoxFolderCentCom
-  name: CentComm folder
+  name: CentCom folder
   parent: BoxFolderBase
   suffix: DO NOT MAP
-  description: CentComm's miserable little pile of secrets!
+  description: CentCom's miserable little pile of secrets!
   components:
   - type: Sprite
     layers:
@@ -482,8 +482,8 @@
 - type: entity
   id: BoxFolderCentComClipboard
   parent: BoxFolderClipboard
-  name: CentComm clipboard
-  description: A luxurious clipboard upholstered with green velvet. Often seen carried by CentComm officials, seldom seen actually used.
+  name: CentCom clipboard
+  description: A luxurious clipboard upholstered with green velvet. Often seen carried by CentCom officials, seldom seen actually used.
   components:
   - type: Sprite
     sprite: Objects/Misc/cc-clipboard.rsi
@@ -566,26 +566,6 @@
     stealGroup: BoxFolderQmClipboard
 
 - type: entity
-  parent: Paper
-  id: TraitorCodePaper
-  name: syndicate codeword
-  description: A leaked codeword to possibly get in touch with the Syndicate.
-  suffix: DO NOT MAP
-  components:
-  - type: TraitorCodePaper
-
-- type: entity
-  parent: Paper
-  id: AllTraitorCodesPaper
-  name: syndicate codewords registry
-  description: A registry of all active Syndicate codewords.
-  suffix: Admeme
-  components:
-  - type: TraitorCodePaper
-    fakeCodewords: false
-    codewordShowAll: true
-
-- type: entity
   name: envelope
   parent: BaseItem
   id: Envelope
@@ -606,6 +586,7 @@
       map: ["enum.PaperVisualLayers.Stamp"]
       visible: false
   - type: Paper
+    escapeFormatting: false
     content: envelope-default-message
   - type: PaperVisuals
     headerImagePath: "/Textures/Interface/Paper/paper_heading_postage_stamp.svg.96dpi.png"

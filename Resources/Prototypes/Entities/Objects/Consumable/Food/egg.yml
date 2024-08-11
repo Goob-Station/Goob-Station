@@ -11,8 +11,7 @@
       - Egg
       - Meat
   - type: Food
-    trash: 
-    - Eggshells
+    trash: Eggshells
   - type: Sprite
     sprite: Objects/Consumable/Food/egg.rsi
   - type: Item

@@ -1,4 +1,3 @@
-using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Weapons.Ranged.Components;
@@ -7,7 +6,6 @@ namespace Content.Shared.Weapons.Ranged.Components;
 /// Chamber + mags in one package. If you need just magazine then use <see cref="MagazineAmmoProviderComponent"/>
 /// </summary>
 [RegisterComponent, AutoGenerateComponentState]
-[Access(typeof(SharedGunSystem))]
 public sealed partial class ChamberMagazineAmmoProviderComponent : MagazineAmmoProviderComponent
 {
     /// <summary>

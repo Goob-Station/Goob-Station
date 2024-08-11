@@ -42,7 +42,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     protected override void Added(EntityUid uid, TraitorRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
-        SetCodewords(component);
+        MakeCodewords(component);
     }
 
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
@@ -50,23 +50,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         MakeTraitor(args.EntityUid, ent);
     }
 
-    private void SetCodewords(TraitorRuleComponent component)
-    {
-        component.Codewords = GenerateTraitorCodewords(component);
-    }
-
-    public string[] GenerateTraitorCodewords(TraitorRuleComponent component)
+    private void MakeCodewords(TraitorRuleComponent component)
     {
         var adjectives = _prototypeManager.Index(component.CodewordAdjectives).Values;
         var verbs = _prototypeManager.Index(component.CodewordVerbs).Values;
         var codewordPool = adjectives.Concat(verbs).ToList();
         var finalCodewordCount = Math.Min(component.CodewordCount, codewordPool.Count);
-        string[] codewords = new string[finalCodewordCount];
+        component.Codewords = new string[finalCodewordCount];
         for (var i = 0; i < finalCodewordCount; i++)
         {
-            codewords[i] = _random.PickAndTake(codewordPool);
+            component.Codewords[i] = _random.PickAndTake(codewordPool);
         }
-        return codewords;
     }
 
     public bool MakeTraitor(EntityUid traitor, TraitorRuleComponent component, bool giveUplink = true)
@@ -128,9 +122,9 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     {
         var sb = new StringBuilder();
         sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
-        sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
+        sb.AppendLine(Loc.GetString("traitor-role-codewords-short", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
-            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
 
         return sb.ToString();
     }

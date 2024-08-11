@@ -1,4 +1,4 @@
-- type: securityIcon
+- type: statusIcon
   id: SecurityIcon
   abstract: true
   priority: 3
@@ -6,47 +6,37 @@
   locationPreference: Right
   isShaded: true
 
-- type: securityIcon
+- type: statusIcon
   parent: SecurityIcon
   id: SecurityIconDischarged
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_discharged
 
-- type: securityIcon
+- type: statusIcon
   parent: SecurityIcon
   id: SecurityIconIncarcerated
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_incarcerated
 
-- type: securityIcon
+- type: statusIcon
   parent: SecurityIcon
   id: SecurityIconParoled
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_paroled
 
-- type: securityIcon
+- type: statusIcon
   parent: SecurityIcon
   id: SecurityIconSuspected
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_suspected
 
-- type: securityIcon
+- type: statusIcon
   parent: SecurityIcon
   id: SecurityIconWanted
   icon:
     sprite: /Textures/Interface/Misc/security_icons.rsi
     state: hud_wanted
-
-- type: securityIcon
-  id: MindShieldIcon
-  priority: 2
-  locationPreference: Right
-  layer: Mod
-  isShaded: true
-  icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: MindShield

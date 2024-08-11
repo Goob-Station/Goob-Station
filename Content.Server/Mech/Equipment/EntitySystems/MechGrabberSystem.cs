@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using Content.Server.Interaction;
 using Content.Server.Mech.Equipment.Components;
 using Content.Server.Mech.Systems;
@@ -85,7 +85,7 @@ public sealed class MechGrabberSystem : EntitySystem
         var (mechPos, mechRot) = _transform.GetWorldPositionRotation(mechxform);
 
         var offset = mechPos + mechRot.RotateVec(component.DepositOffset);
-        _transform.SetWorldPositionRotation(toRemove, offset, Angle.Zero);
+        _transform.SetWorldPositionRotation(xform, offset, Angle.Zero);
         _mech.UpdateUserInterface(mech);
     }
 

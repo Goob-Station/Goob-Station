@@ -17,7 +17,7 @@
         type: InstrumentBoundUserInterface
         requireInputValidation: false
       enum.StationMapUiKey.Key:
-        type: StationMapBoundUserInterface
+        type: UntrackedStationMapBoundUserInterface
         requireInputValidation: false
   - type: Sprite
     sprite: Objects/Fun/pai.rsi

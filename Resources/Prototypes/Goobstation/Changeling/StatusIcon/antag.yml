@@ -1,4 +1,4 @@
-- type: factionIcon
+- type: statusIcon
   id: HivemindFaction
   priority: 11
   showTo:

@@ -16,7 +16,6 @@ public sealed partial class AdminLogManager
 
     // TODO ADMIN LOGS make this thread safe or remove thread safety from the main partial class
     private readonly Dictionary<int, List<SharedAdminLog>> _roundsLogCache = new(MaxRoundsCached);
-    private readonly Queue<int> _roundsLogCacheQueue = new();
 
     private static readonly Gauge CacheRoundCount = Metrics.CreateGauge(
         "admin_logs_cache_round_count",
@@ -29,20 +28,18 @@ public sealed partial class AdminLogManager
     // TODO ADMIN LOGS cache previous {MaxRoundsCached} rounds on startup
     public void CacheNewRound()
     {
-        List<SharedAdminLog>? list = null;
+        List<SharedAdminLog> list;
+        var oldestRound = _currentRoundId - MaxRoundsCached;
 
-        _roundsLogCacheQueue.Enqueue(_currentRoundId);
-        if (_roundsLogCacheQueue.Count > MaxRoundsCached)
+        if (_roundsLogCache.Remove(oldestRound, out var oldestList))
         {
-            var oldestRound = _roundsLogCacheQueue.Dequeue();
-            if (_roundsLogCache.Remove(oldestRound, out var oldestList))
-            {
-                list = oldestList;
-                list.Clear();
-            }
+            list = oldestList;
+            list.Clear();
         }
-
-        list ??= new List<SharedAdminLog>(LogListInitialSize);
+        else
+        {
+            list = new List<SharedAdminLog>(LogListInitialSize);
+        }
 
         _roundsLogCache.Add(_currentRoundId, list);
         CacheRoundCount.Set(_roundsLogCache.Count);

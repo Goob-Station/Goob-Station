@@ -23,7 +23,6 @@ public sealed class TargetOutlineSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
-    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
 
     private bool _enabled = false;
 
@@ -166,8 +165,8 @@ public sealed class TargetOutlineSystem : EntitySystem
                 valid = _interactionSystem.InRangeUnobstructed(player, entity, Range);
             else if (Range >= 0)
             {
-                var origin = _transformSystem.GetWorldPosition(player);
-                var target = _transformSystem.GetWorldPosition(entity);
+                var origin = Transform(player).WorldPosition;
+                var target = Transform(entity).WorldPosition;
                 valid = (origin - target).LengthSquared() <= Range;
             }
 

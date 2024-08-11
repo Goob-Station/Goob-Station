@@ -16,7 +16,6 @@ public sealed class ExplosionOverlay : Overlay
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    private readonly SharedTransformSystem _transformSystem;
     private SharedAppearanceSystem _appearance;
 
     public override OverlaySpace Space => OverlaySpace.WorldSpaceBelowFOV;
@@ -27,7 +26,6 @@ public sealed class ExplosionOverlay : Overlay
     {
         IoCManager.InjectDependencies(this);
         _shader = _proto.Index<ShaderPrototype>("unshaded").Instance();
-        _transformSystem = _entMan.System<SharedTransformSystem>();
         _appearance = appearanceSystem;
     }
 
@@ -70,7 +68,7 @@ public sealed class ExplosionOverlay : Overlay
                 continue;
 
             var xform = xforms.GetComponent(gridId);
-            var (_, _, worldMatrix, invWorldMatrix) = _transformSystem.GetWorldPositionRotationMatrixWithInv(xform, xforms);
+            var (_, _, worldMatrix, invWorldMatrix) = xform.GetWorldPositionRotationMatrixWithInv(xforms);
 
             gridBounds = invWorldMatrix.TransformBox(worldBounds).Enlarged(grid.TileSize * 2);
             drawHandle.SetTransform(worldMatrix);

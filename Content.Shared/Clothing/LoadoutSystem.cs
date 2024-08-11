@@ -40,25 +40,12 @@ public sealed class LoadoutSystem : EntitySystem
         return "Job" + loadout;
     }
 
-    public EntProtoId? GetFirstOrNull(LoadoutPrototype loadout)
-    {
-        EntProtoId? proto = null;
-
-        if (_protoMan.TryIndex(loadout.StartingGear, out var gear))
-        {
-            proto = GetFirstOrNull(gear);
-        }
-
-        proto ??= GetFirstOrNull((IEquipmentLoadout)loadout);
-        return proto;
-    }
-
     /// <summary>
     /// Tries to get the first entity prototype for operations such as sprite drawing.
     /// </summary>
-    public EntProtoId? GetFirstOrNull(IEquipmentLoadout? gear)
+    public EntProtoId? GetFirstOrNull(LoadoutPrototype loadout)
     {
-        if (gear == null)
+        if (!_protoMan.TryIndex(loadout.Equipment, out var gear))
             return null;
 
         var count = gear.Equipment.Count + gear.Inhand.Count + gear.Storage.Values.Sum(x => x.Count);
@@ -88,23 +75,13 @@ public sealed class LoadoutSystem : EntitySystem
         return null;
     }
 
-    public string GetName(LoadoutPrototype loadout)
-    {
-        if (_protoMan.TryIndex(loadout.StartingGear, out var gear))
-        {
-            return GetName(gear);
-        }
-
-        return GetName((IEquipmentLoadout) loadout);
-    }
-
     /// <summary>
     /// Tries to get the name of a loadout.
     /// </summary>
-    public string GetName(IEquipmentLoadout? gear)
+    public string GetName(LoadoutPrototype loadout)
     {
-        if (gear == null)
-            return string.Empty;
+        if (!_protoMan.TryIndex(loadout.Equipment, out var gear))
+            return Loc.GetString("loadout-unknown");
 
         var count = gear.Equipment.Count + gear.Storage.Values.Sum(o => o.Count) + gear.Inhand.Count;
 
@@ -134,42 +111,28 @@ public sealed class LoadoutSystem : EntitySystem
             }
         }
 
-        return Loc.GetString($"unknown");
+        return Loc.GetString($"loadout-{loadout.ID}");
     }
 
     private void OnMapInit(EntityUid uid, LoadoutComponent component, MapInitEvent args)
     {
-        Equip(uid, component.StartingGear, component.RoleLoadout);
-    }
-
-    public void Equip(EntityUid uid, List<ProtoId<StartingGearPrototype>>? startingGear,
-        List<ProtoId<RoleLoadoutPrototype>>? loadoutGroups)
-    {
-        // First, randomly pick a startingGear profile from those specified, and equip it.
-        if (startingGear != null && startingGear.Count > 0)
-            _station.EquipStartingGear(uid, _random.Pick(startingGear));
-
-        if (loadoutGroups == null)
+        // Use starting gear if specified
+        if (component.StartingGear != null)
         {
-            GearEquipped(uid);
+            var gear = _protoMan.Index(_random.Pick(component.StartingGear));
+            _station.EquipStartingGear(uid, gear);
             return;
         }
 
-        // Then, randomly pick a RoleLoadout profile from those specified, and process/equip all LoadoutGroups from it.
-        // For non-roundstart mobs there is no SelectedLoadout data, so minValue must be set in each LoadoutGroup to force selection.
-        var id = _random.Pick(loadoutGroups);
+        if (component.RoleLoadout == null)
+            return;
+
+        // ...otherwise equip from role loadout
+        var id = _random.Pick(component.RoleLoadout);
         var proto = _protoMan.Index(id);
         var loadout = new RoleLoadout(id);
         loadout.SetDefault(GetProfile(uid), _actors.GetSession(uid), _protoMan, true);
         _station.EquipRoleLoadout(uid, loadout, proto);
-
-        GearEquipped(uid);
-    }
-
-    public void GearEquipped(EntityUid uid)
-    {
-        var ev = new StartingGearEquippedEvent(uid);
-        RaiseLocalEvent(uid, ref ev);
     }
 
     public HumanoidCharacterProfile GetProfile(EntityUid? uid)
