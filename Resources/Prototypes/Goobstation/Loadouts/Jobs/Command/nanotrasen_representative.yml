@@ -24,9 +24,9 @@
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
   equipment:
-    jumpsuit: CentcomAgentSkirt
+    jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
