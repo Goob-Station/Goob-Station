@@ -1,6 +1,7 @@
-- type: statusIcon
+- type: jobIcon
   parent: JobIcon
   id: JobIconFuture
   icon:
     sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
     state: Future
+  jobName: Future Agent
