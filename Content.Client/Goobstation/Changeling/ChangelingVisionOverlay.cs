@@ -8,6 +8,7 @@ using Content.Shared.Changeling;
 
 namespace Content.Client.Changeling;
 
+// this is copied from RMC. pleas dont send xenos after me
 public sealed class ChangelingVisionOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entity = default!;
