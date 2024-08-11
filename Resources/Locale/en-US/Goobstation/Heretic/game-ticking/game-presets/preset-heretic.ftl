@@ -29,6 +29,10 @@ heretic-ghoul-greeting =
     Obey his orders and protect him at all cost.
     You may follow other heretics' if your owner is beyond resurrection.
 
+ghostrole-ghoul-name = Ghoul
+ghostrole-ghoul-desc = Obey your summoner.
+ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other ghouls.
+
 
 ## ascension
 

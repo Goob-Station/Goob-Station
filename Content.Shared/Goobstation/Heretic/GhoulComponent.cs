@@ -19,5 +19,5 @@ public sealed partial class GhoulComponent : Component
     /// <summary>
     ///     Total health for ghouls.
     /// </summary>
-    [DataField] public FixedPoint2 TotalHealth = 25;
+    [DataField] public FixedPoint2 TotalHealth = 50;
 }

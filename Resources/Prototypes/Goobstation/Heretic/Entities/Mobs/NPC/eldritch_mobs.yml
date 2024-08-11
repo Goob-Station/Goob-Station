@@ -1,0 +1,99 @@
+- type: entity
+  parent: [ SimpleMobBase, MobCombat ]
+  id: BaseMobGhoul
+  abstract: true
+  components:
+  - type: Ghoul
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.00
+    baseSprintSpeed: 3.00
+  - type: InputMover
+  - type: MobMover
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: Reactive
+    groups:
+      Flammable: [Touch]
+      Extinguish: [Touch]
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 250
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
+    angle: 0
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 12
+        Piercing: 8
+  - type: NoSlip
+  - type: Grammar
+    attributes:
+      gender: male
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: true
+    makeSentient: true
+    name: ghostrole-ghoul-name
+    description: ghostrole-ghoul-desc
+    rules: ghostrole-ghoul-rules
+    raffle:
+      settings: short
+
+# TODO: FINISH THEIR ABILITIES OR DIE TRYING
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulStalker
+  name: flesh stalker
+  description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
+  suffix: DO NOT MAP
+  components:
+  - type: Ghoul
+    totalHealth: 150
+  - type: Sprite
+    sprite: Goobstation/Heretic/eldritch_mobs.rsi
+    state: stalker
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulProphet
+  name: raw prophet
+  description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
+  suffix: DO NOT MAP
+  components:
+  - type: Ghoul
+    totalHealth: 65
+  - type: Sprite
+    noRot: true
+    sprite: Goobstation/Heretic/eldritch_mobs.rsi
+    state: raw_prophet
+
+- type: entity
+  parent: BaseMobGhoul
+  id: MobGhoulRustWalker
+  name: rust walker
+  description: A grinding, clanking construct which leaches life from its surroundings with every armoured step.
+  suffix: DO NOT MAP
+  components:
+  - type: Ghoul
+    totalHealth: 100

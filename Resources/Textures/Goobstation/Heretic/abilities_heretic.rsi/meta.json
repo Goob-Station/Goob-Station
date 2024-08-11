@@ -13,7 +13,6 @@
         {
             "name": "open_store"
         },
-        // ash
         {
             "name": "ashen_shift"
         },
@@ -29,7 +28,6 @@
         {
             "name": "ashlord_rite2"
         },
-        // lock
         {
             "name": "bulglar_finesse"
         },
@@ -39,21 +37,18 @@
         {
             "name": "labyrinth"
         },
-        // flesh
         {
             "name": "flesh_surgery"
         },
         {
             "name": "final_hymn"
         },
-        // blade
         {
             "name": "realignment"
         },
         {
             "name": "furious_steel"
         },
-        // void
         {
             "name": "void_phase"
         },
@@ -63,7 +58,6 @@
         {
             "name": "void_pull"
         },
-        // rust
         {
             "name": "construction"
         },
@@ -73,7 +67,6 @@
         {
             "name": "entropic_plume"
         },
-        // side
         {
             "name": "blood_siphon"
         },

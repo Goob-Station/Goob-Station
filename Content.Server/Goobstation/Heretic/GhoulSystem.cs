@@ -5,6 +5,7 @@ using Content.Server.Body.Components;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
+using Content.Server.Roles;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -13,9 +14,11 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
 using Content.Shared.Nutrition.Components;
+using Content.Shared.Roles;
 using Robust.Shared.Audio;
 
 namespace Content.Server.Heretic;
@@ -28,6 +31,9 @@ public sealed partial class GhoulSystem : EntitySystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoid = default!;
     [Dependency] private readonly RejuvenateSystem _rejuvenate = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly SharedRoleSystem _role = default!;
+    [Dependency] private readonly MobThresholdSystem _threshold = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -44,6 +50,13 @@ public sealed partial class GhoulSystem : EntitySystem
             var brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Identity.Entity((EntityUid) ent.Comp.BoundHeretic, EntityManager)));
             var sound = new SoundPathSpecifier("/Audio/Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
             _antag.SendBriefing(ent, brief, Color.MediumPurple, sound);
+
+            if (!_mind.TryGetRole<GhoulRoleComponent>(ent, out _))
+                _role.MindAddRole<GhoulRoleComponent>(mindId, new(), mind);
+
+            if (!_mind.TryGetRole<RoleBriefingComponent>(ent, out var rolebrief))
+                _role.MindAddRole(mindId, new RoleBriefingComponent() { Briefing = brief }, mind);
+            else rolebrief.Briefing += $"\n{brief}";
         }
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
@@ -52,8 +65,8 @@ public sealed partial class GhoulSystem : EntitySystem
             _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.FromHex("#505050"));
         }
 
-        // todo: add dynamic total damage when it finally stops being private
         _rejuvenate.PerformRejuvenate(ent);
+        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, Shared.Mobs.MobState.Dead);
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
 
@@ -61,9 +74,9 @@ public sealed partial class GhoulSystem : EntitySystem
         {
             var ghostRole = EnsureComp<GhostRoleComponent>(ent);
             EnsureComp<GhostTakeoverAvailableComponent>(ent);
-            ghostRole.RoleName = "Ghoul";
-            ghostRole.RoleDescription = "Serve your master";
-            ghostRole.RoleRules = "You'll know it when you see it";
+            ghostRole.RoleName = Loc.GetString("ghostrole-ghoul-name");
+            ghostRole.RoleDescription = Loc.GetString("ghostrole-ghoul-desc");
+            ghostRole.RoleRules = Loc.GetString("ghostrole-ghoul-rules");
         }
 
         _faction.ClearFactions((ent, null));
@@ -82,17 +95,29 @@ public sealed partial class GhoulSystem : EntitySystem
 
     private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
     {
+        foreach (var look in _lookup.GetEntitiesInRange<HereticComponent>(Transform(ent).Coordinates, 1.5f))
+        {
+            if (ent.Comp.BoundHeretic == null)
+                ent.Comp.BoundHeretic = look;
+            else break;
+        }
+
         GhoulifyEntity(ent);
     }
     private void OnTakeGhostRole(Entity<GhoulComponent> ent, ref TakeGhostRoleEvent args)
     {
-        // dirty briefing copypaste
+        // dirty briefing copypasta
+        var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
+
         if (ent.Comp.BoundHeretic != null && args.Player.AttachedEntity != null)
         {
             var brief = Loc.GetString("heretic-ghoul-greeting", ("ent", Name((EntityUid) ent.Comp.BoundHeretic)));
             var sound = new SoundPathSpecifier("/Audio/Goobstation/Heretic/Ambience/Antag/Heretic/heretic_gain.ogg");
             _antag.SendBriefing((EntityUid) args.Player.AttachedEntity, brief, Color.MediumPurple, sound);
         }
+
+        if (!_mind.TryGetRole<GhoulRoleComponent>(ent, out _))
+            _role.MindAddRole<GhoulRoleComponent>(mindId, new(), mind);
     }
 
     private void OnTryAttack(Entity<GhoulComponent> ent, ref AttackAttemptEvent args)
