@@ -148,7 +148,6 @@
         - id: ClothingNeckPansexualPin
         - id: ClothingNeckTransPin
         - id: ClothingNeckAutismPin
-        - id: ClothingNeckGoldAutismPin
     # Rare Group
     - !type:GroupSelector
       weight: 2

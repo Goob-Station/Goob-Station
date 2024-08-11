@@ -2,19 +2,9 @@
 - type: loadout
   id: NanotrasenRepresentativeHead
   equipment:
-    head: NanotrasenRepresentativeHead
-
-- type: startingGear
-  id: NanotrasenRepresentativeHead
-  equipment:
     head: ClothingHeadHatCentcom
 
 - type: loadout
-  id: NanotrasenRepresentativeCap
-  equipment:
-    head: NanotrasenRepresentativeCap
-
-- type: startingGear
   id: NanotrasenRepresentativeCap
   equipment:
     head: ClothingHeadHatCentcomcap
@@ -23,19 +13,9 @@
 - type: loadout
   id: NanotrasenRepresentativeBackpack
   equipment:
-    back: NanotrasenRepresentativeBackpack
-
-- type: startingGear
-  id: NanotrasenRepresentativeBackpack
-  equipment:
     back: ClothingBackpackCentcom
 
 - type: loadout
-  id: NanotrasenRepresentativeSatchel
-  equipment:
-    back: NanotrasenRepresentativeSatchel
-
-- type: startingGear
   id: NanotrasenRepresentativeSatchel
   equipment:
     back: ClothingBackpackSatchelNanorep
@@ -44,19 +24,9 @@
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
   equipment:
-    jumpsuit: NanotrasenRepresentativeJumpsuit
-
-- type: startingGear
-  id: NanotrasenRepresentativeJumpsuit
-  equipment:
     jumpsuit: ClothingUniformJumpsuitCentcomAgent
 
 - type: loadout
-  id: NanotrasenRepresentativeJumpskirt
-  equipment:
-    jumpsuit: NanotrasenRepresentativeJumpskirt
-
-- type: startingGear
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: CentcomAgentSkirt
