@@ -599,3 +599,9 @@ Entries:
       message: Scottish accent trait.
   id: 76
   time: '2024-08-11T03:06:30.0000000+00:00'
+- author: RealFakeSoof
+  changes:
+    - type: Fix
+      message: Fixed ling shield sprites.
+  id: 77
+  time: '2024-08-11T03:06:40.0000000+00:00'
