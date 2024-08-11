@@ -20,13 +20,13 @@ namespace Content.Shared.Construction.Conditions
 
             // get blueprint and user position
             var transformSystem = entManager.System<SharedTransformSystem>();
-            var userWorldPosition = transformSystem.GetWorldPosition(user);
+            var userWorldPosition = entManager.GetComponent<TransformComponent>(user).WorldPosition;
             var objWorldPosition = location.ToMap(entManager, transformSystem).Position;
 
             // find direction from user to blueprint
             var userToObject = (objWorldPosition - userWorldPosition);
             // get direction of the grid being placed on as an offset.
-            var gridRotation = transformSystem.GetWorldRotation(location.EntityId);
+            var gridRotation = entManager.GetComponent<TransformComponent>(location.EntityId).WorldRotation;
             var directionWithOffset = gridRotation.RotateVec(direction.ToVec());
 
             // dot product will be positive if user direction and blueprint are co-directed

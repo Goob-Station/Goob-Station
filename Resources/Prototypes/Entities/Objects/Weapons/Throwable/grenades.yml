@@ -59,7 +59,7 @@
 
 - type: entity
   name: flashbang
-  description: Eeeeeeeeeeeeeeeeeeeeee.
+  description: Eeeeeeeeeeeeeeeeeeeeee
   parent: GrenadeBase
   id: GrenadeFlashBang
   components:
@@ -80,7 +80,6 @@
   - type: GuideHelp
     guides:
     - Security
-    - Antagonists
 
 - type: entity
   id: GrenadeFlashEffect
@@ -339,7 +338,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Grenades/empgrenade.rsi
   - type: EmpOnTrigger
-    range: 5.5
+    range: 4
     energyConsumption: 50000
   - type: DeleteOnTrigger
   - type: Appearance
@@ -394,7 +393,7 @@
   parent: SmokeGrenade
   id: CleanerGrenade
   name: cleanade
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/janitor.rsi

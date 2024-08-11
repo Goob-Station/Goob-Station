@@ -22,7 +22,6 @@
   - type: GuideHelp
     guides:
     - Bartender
-    - Drinks
   - type: StealTarget
     stealGroup: BoozeDispenser
 

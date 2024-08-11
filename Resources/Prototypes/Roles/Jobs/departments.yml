@@ -1,6 +1,5 @@
 - type: department
   id: Cargo
-  name: department-Cargo
   description: department-Cargo-description
   color: "#A46106"
   roles:
@@ -10,7 +9,6 @@
 
 - type: department
   id: Civilian
-  name: department-Civilian
   description: department-Civilian-description
   color: "#9FED58"
   weight: -10
@@ -36,7 +34,6 @@
 
 - type: department
   id: Command
-  name: department-Command
   description: department-Command-description
   color: "#334E6D"
   roles:
@@ -55,7 +52,6 @@
 
 - type: department
   id: Engineering
-  name: department-Engineering
   description: department-Engineering-description
   color: "#EFB341"
   roles:
@@ -66,7 +62,6 @@
 
 - type: department
   id: Medical
-  name: department-Medical
   description: department-Medical-description
   color: "#52B4E9"
   roles:
@@ -79,7 +74,6 @@
 
 - type: department
   id: Security
-  name: department-Security
   description: department-Security-description
   color: "#DE3A3A"
   weight: 20
@@ -92,7 +86,6 @@
 
 - type: department
   id: Science
-  name: department-Science
   description: department-Science-description
   color: "#D381C9"
   roles:
@@ -102,7 +95,6 @@
 
 - type: department
   id: Specific
-  name: department-Specific
   description: department-Specific-description
   color: "#9FED58"
   weight: 10

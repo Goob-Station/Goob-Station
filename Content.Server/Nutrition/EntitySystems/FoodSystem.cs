@@ -335,31 +335,27 @@ public sealed class FoodSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        if (component.Trash.Count == 0)
+        if (string.IsNullOrEmpty(component.Trash))
         {
             QueueDel(food);
             return;
         }
 
         //We're empty. Become trash.
-        //cache some data as we remove food, before spawning trash and passing it to the hand.
-
         var position = _transform.GetMapCoordinates(food);
-        var trashes = component.Trash;
-        var tryPickup = _hands.IsHolding(user, food, out _);
+        var finisher = Spawn(component.Trash, position);
 
-        Del(food);
-        foreach (var trash in trashes)
+        // If the user is holding the item
+        if (_hands.IsHolding(user, food, out var hand))
         {
-            var spawnedTrash = Spawn(trash, position);
+            Del(food);
 
-            // If the user is holding the item
-            if (tryPickup)
-            {
-                // Put the trash in the user's hand
-                _hands.TryPickupAnyHand(user, spawnedTrash);
-            }
+            // Put the trash in the user's hand
+            _hands.TryPickup(user, finisher, hand);
+            return;
         }
+
+        QueueDel(food);
     }
 
     private void AddEatVerb(Entity<FoodComponent> entity, ref GetVerbsEvent<AlternativeVerb> ev)

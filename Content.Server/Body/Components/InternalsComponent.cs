@@ -25,5 +25,4 @@ namespace Content.Server.Body.Components
         [DataField]
         public ProtoId<AlertPrototype> InternalsAlert = "Internals";
     }
-
 }

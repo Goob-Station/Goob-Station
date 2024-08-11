@@ -9,16 +9,10 @@ public sealed partial class DepartmentPrototype : IPrototype
     public string ID { get; } = string.Empty;
 
     /// <summary>
-    /// The name LocId of the department that will be displayed in the various menus.
+    /// A description string to display in the character menu as an explanation of the department's function.
     /// </summary>
     [DataField(required: true)]
-    public LocId Name = string.Empty;
-
-    /// <summary>
-    /// A description LocId to display in the character menu as an explanation of the department's function.
-    /// </summary>
-    [DataField(required: true)]
-    public LocId Description = string.Empty;
+    public string Description = string.Empty;
 
     /// <summary>
     /// A color representing this department to use for text.

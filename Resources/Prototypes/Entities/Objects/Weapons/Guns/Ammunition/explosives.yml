@@ -175,7 +175,9 @@
   parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
-    proto: PelletGrapeshotSpread
+    proto: PelletGrapeshot
+    count: 5
+    spread: 40
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi
@@ -188,7 +190,9 @@
   parent: BaseCannonBall
   components:
   - type: CartridgeAmmo
-    proto: PelletGlassSpread
+    proto: PelletGlass
+    count: 5
+    spread: 10
     deleteOnSpawn: true
   - type: Sprite
     sprite: Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi

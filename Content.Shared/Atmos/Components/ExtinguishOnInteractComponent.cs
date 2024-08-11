@@ -1,4 +1,3 @@
-using Content.Shared.Alert;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Atmos.Components;
@@ -28,5 +27,3 @@ public sealed partial class ExtinguishOnInteractComponent : Component
     [DataField]
     public LocId ExtinguishFailed = "candle-extinguish-failed";
 }
-
-public sealed partial class ResistFireAlertEvent : BaseAlertEvent;

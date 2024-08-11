@@ -2,7 +2,7 @@ using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
-using static Content.Shared.Paper.PaperComponent;
+using static Content.Shared.Paper.SharedPaperComponent;
 
 namespace Content.Client.Paper.UI;
 

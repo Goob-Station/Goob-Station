@@ -1,25 +1,45 @@
 # Jumpsuit
 - type: loadout
   id: QuartermasterJumpsuit
+  equipment: QuartermasterJumpsuit
+
+- type: startingGear
+  id: QuartermasterJumpsuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQM
 
 - type: loadout
+  id: QuartermasterJumpskirt
+  equipment: QuartermasterJumpskirt
+
+- type: startingGear
   id: QuartermasterJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQM
 
 - type: loadout
   id: QuartermasterTurtleneck
+  equipment: QuartermasterTurtleneck
+
+- type: startingGear
+  id: QuartermasterTurtleneck
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMTurtleneck
 
 - type: loadout
   id: QuartermasterTurtleneckSkirt
+  equipment: QuartermasterTurtleneckSkirt
+
+- type: startingGear
+  id: QuartermasterTurtleneckSkirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtQMTurtleneck
 
 - type: loadout
+  id: QuartermasterFormalSuit
+  equipment: QuartermasterFormalSuit
+
+- type: startingGear
   id: QuartermasterFormalSuit
   equipment:
     jumpsuit: ClothingUniformJumpsuitQMFormal
@@ -27,10 +47,18 @@
 # Head
 - type: loadout
   id: QuartermasterHead
+  equipment: QuartermasterHead
+
+- type: startingGear
+  id: QuartermasterHead
   equipment:
     head: ClothingHeadHatQMsoft
 
 - type: loadout
+  id: QuartermasterBeret
+  equipment: QuartermasterBeret
+
+- type: startingGear
   id: QuartermasterBeret
   equipment:
     head: ClothingHeadHatBeretQM
@@ -38,16 +66,28 @@
 # Neck
 - type: loadout
   id: QuartermasterCloak
+  equipment: QuartermasterCloak
+
+- type: startingGear
+  id: QuartermasterCloak
   equipment:
     neck: ClothingNeckCloakQm
 
 - type: loadout
+  id: QuartermasterMantle
+  equipment: QuartermasterMantle
+
+- type: startingGear
   id: QuartermasterMantle
   equipment:
     neck: ClothingNeckMantleQM
 
 # OuterClothing
 - type: loadout
+  id: QuartermasterWintercoat
+  equipment: QuartermasterWintercoat
+
+- type: startingGear
   id: QuartermasterWintercoat
   equipment:
     outerClothing: ClothingOuterWinterQM

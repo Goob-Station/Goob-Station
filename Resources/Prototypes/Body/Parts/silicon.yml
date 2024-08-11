@@ -24,8 +24,7 @@
       Steel: 25
   - type: GuideHelp
     guides:
-    - Cyborgs
-    - Robotics
+      - Cyborgs
 
 - type: entity
   id: BaseBorgArmLeft

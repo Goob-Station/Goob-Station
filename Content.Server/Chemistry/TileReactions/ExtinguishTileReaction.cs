@@ -17,8 +17,7 @@ namespace Content.Server.Chemistry.TileReactions
         public FixedPoint2 TileReact(TileRef tile,
             ReagentPrototype reagent,
             FixedPoint2 reactVolume,
-            IEntityManager entityManager,
-            List<ReagentData>? data)
+            IEntityManager entityManager)
         {
             if (reactVolume <= FixedPoint2.Zero || tile.Tile.IsEmpty)
                 return FixedPoint2.Zero;

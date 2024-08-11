@@ -1,5 +1,4 @@
-﻿using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
@@ -7,7 +6,6 @@ namespace Content.Shared.Weapons.Ranged.Components;
 ///     Handles pulling entities from the given container to use as ammunition.
 /// </summary>
 [RegisterComponent]
-[Access(typeof(SharedGunSystem))]
 public sealed partial class ContainerAmmoProviderComponent : AmmoProviderComponent
 {
     [DataField("container", required: true)]

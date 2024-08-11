@@ -14,8 +14,7 @@ namespace Content.Shared.Movement.Components
         // Weightless
         public const float DefaultMinimumFrictionSpeed = 0.005f;
         public const float DefaultWeightlessFriction = 1f;
-        public const float DefaultWeightlessFrictionNoInput = 0f;
-        public const float DefaultOffGridFriction = 0f;
+        public const float DefaultWeightlessFrictionNoInput = 0f; // Goobstation - Frictionless Space
         public const float DefaultWeightlessModifier = 0.7f;
         public const float DefaultWeightlessAcceleration = 1f;
 
@@ -72,12 +71,6 @@ namespace Content.Shared.Movement.Components
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite), DataField]
         public float WeightlessFrictionNoInput = DefaultWeightlessFrictionNoInput;
-
-        /// <summary>
-        /// The negative velocity applied for friction when weightless and not standing on a grid or mapgrid
-        /// </summary>
-        [ViewVariables(VVAccess.ReadWrite), DataField]
-        public float OffGridFriction = DefaultOffGridFriction;
 
         /// <summary>
         /// The movement speed modifier applied to a mob's total input velocity when weightless.
