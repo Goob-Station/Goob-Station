@@ -5,6 +5,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Collections;
@@ -14,6 +15,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Random;
 using System.Numerics;
+using System.Security.Cryptography;
 
 namespace Content.Server.Heretic;
 
@@ -25,6 +27,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+    [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
@@ -37,6 +40,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
@@ -65,6 +69,21 @@ public sealed partial class HereticBladeSystem : EntitySystem
             return;
 
         args.PushMarkup(Loc.GetString("heretic-blade-examine"));
+    }
+
+    private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)
+    {
+        if (string.IsNullOrWhiteSpace(ent.Comp.Path))
+            return;
+
+        foreach (var hit in args.HitEntities)
+        {
+            if (HasComp<HereticComponent>(hit) // does not work on other heretics
+            || !HasComp<HereticCombatMarkComponent>(hit))
+                continue;
+
+            _combatMark.ApplyMarkEffect(hit, ent.Comp.Path);
+        }
     }
 
     private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)

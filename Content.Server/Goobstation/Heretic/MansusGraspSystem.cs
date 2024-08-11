@@ -78,6 +78,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         var target = (EntityUid) args.Target;
 
+        if (HasComp<HereticComponent>(target))
+            return;
+
         if (HasComp<StatusEffectsComponent>(target))
         {
             _chat.TrySendInGameICMessage(args.User, Loc.GetString("heretic-speech-mansusgrasp"), InGameICChatType.Speak, false);
@@ -92,7 +95,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             if (hereticComp.PathStage >= 2)
                 ApplyGraspEffect(target, hereticComp.CurrentPath!);
-            if (hereticComp.PathStage >= 3 && HasComp<StatusEffectsComponent>(target))
+            if (hereticComp.PathStage >= 4 && HasComp<StatusEffectsComponent>(target))
             {
                 var markComp = EnsureComp<HereticCombatMarkComponent>(target);
                 markComp.Path = hereticComp.CurrentPath;

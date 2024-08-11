@@ -30,7 +30,7 @@ public sealed partial class HereticComponent : Component
     [DataField] public string? CurrentPath = null;
 
     /// <summary>
-    ///     Indicates a stage of a path the heretic is on. 0 is starting, 6 is end, 7 is Ascension
+    ///     Indicates a stage of a path the heretic is on. 0 is no path, 10 is ascension
     /// </summary>
     [DataField] public int PathStage = 0;
 

@@ -72,7 +72,6 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticCombatMarkComponent, ComponentStartup>(OnStart);
-        SubscribeLocalEvent<DamageableComponent, DamageChangedEvent>(OnDamageChange);
     }
 
     public override void Update(float frameTime)
@@ -93,23 +92,5 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
     {
         if (ent.Comp.Timer == TimeSpan.Zero)
             ent.Comp.Timer = _timing.CurTime + TimeSpan.FromSeconds(ent.Comp.DisappearTime);
-    }
-    private void OnDamageChange(Entity<DamageableComponent> ent, ref DamageChangedEvent args)
-    {
-        if (args.DamageDelta is null || !args.DamageIncreased)
-            return;
-
-        if (!args.Origin.HasValue)
-            return;
-
-        if (!TryComp<HereticComponent>(args.Origin.Value, out var hereticComp))
-            return;
-
-        if (!TryComp<HereticCombatMarkComponent>(ent, out var mark))
-            return;
-
-
-        if (ApplyMarkEffect(ent, hereticComp.CurrentPath))
-            RemComp(ent, mark);
     }
 }

@@ -28,6 +28,16 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeAbilities();
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        foreach (var heretic in EntityQuery<HereticComponent>())
+        {
+
+        }
+    }
+
     public void UpdateKnowledge(EntityUid uid, HereticComponent comp, float amount)
     {
         if (TryComp<StoreComponent>(uid, out var store))
