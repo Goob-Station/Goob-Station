@@ -625,3 +625,11 @@ Entries:
       message: no more 8 spaceman Fland gaming.
   id: 80
   time: '2024-08-11T08:41:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Crowbar storage icons now match our crowbars color scheme
+    - type: Fix
+      message: Crowbar handle now correctly positioned
+  id: 81
+  time: '2024-08-11T09:03:43.0000000+00:00'
