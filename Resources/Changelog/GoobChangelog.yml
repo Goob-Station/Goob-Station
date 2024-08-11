@@ -619,3 +619,9 @@ Entries:
       message: The button for pages has been moved to the top of the UI.
   id: 79
   time: '2024-08-11T08:41:34.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: no more 8 spaceman Fland gaming.
+  id: 80
+  time: '2024-08-11T08:41:43.0000000+00:00'
