@@ -38,8 +38,7 @@
     id: CentcomPDA
     ears: ClothingHeadsetCentCom
     belt: BoxFolderCentComClipboard
-    pocket1: RubberStampCentcom
-    pocket2: WeaponDisabler
+    pocket1: WeaponDisabler
   storage:
     back:
-    - BoxSurvivalSlots
+    - RubberStampCentcom

@@ -541,7 +541,7 @@ binds:
   type: State
   key: Num9
 ### goobstation-start
-- function: Loadout0 
+- function: Loadout0
   type: State
   key: Num0
   mod1: Shift
@@ -582,3 +582,33 @@ binds:
   key: Num9
   mod1: Shift
 ### goobstation-end
+- function: MappingUnselect
+  type: State
+  key: MouseRight
+  canFocus: true
+- function: SaveMap
+  type: State
+  key: S
+  mod1: Control
+- function: MappingEnablePick
+  type: State
+  key: Num5
+- function: MappingEnableDelete
+  type: State
+  key: Num6
+- function: MappingPick
+  type: State
+  key: MouseLeft
+  canFocus: true
+- function: MappingRemoveDecal
+  type: State
+  key: MouseLeft
+  canFocus: true
+- function: MappingCancelEraseDecal
+  type: State
+  key: MouseRight
+  canFocus: true
+- function: MappingOpenContextMenu
+  type: State
+  key: MouseRight
+  canFocus: true
