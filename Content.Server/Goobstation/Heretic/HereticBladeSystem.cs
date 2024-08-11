@@ -1,4 +1,8 @@
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
@@ -13,9 +17,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
-using System.Security.Cryptography;
 
 namespace Content.Server.Heretic;
 
@@ -28,10 +32,53 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookupSystem = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly HereticCombatMarkSystem _combatMark = default!;
+    [Dependency] private readonly FlammableSystem _flammable = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
     private HashSet<Entity<MapGridComponent>> _targetGrids = [];
 
+    public void ApplySpecialEffect(EntityUid performer, EntityUid target)
+    {
+        if (!TryComp<HereticComponent>(performer, out var hereticComp))
+            return;
+
+        switch (hereticComp.CurrentPath)
+        {
+            case "Ash":
+                _flammable.AdjustFireStacks(target, 2.5f, ignite: true);
+                break;
+
+            case "Blade":
+                // todo: add double attack
+                break;
+
+            case "Flesh":
+                _blood.TryModifyBleedAmount(target, 1.5f);
+                break;
+
+            case "Lock":
+                // todo: do something that has weeping and avulsion in it
+                if (_random.Next(0, 10) >= 8)
+                    _blood.TryModifyBleedAmount(target, 10f);
+                break;
+
+            case "Rust":
+                var dmgProt = _proto.Index((ProtoId<DamageGroupPrototype>) "Poison");
+                var dmgSpec = new DamageSpecifier(dmgProt, 7.5f);
+                _damage.TryChangeDamage(target, dmgSpec);
+                break;
+
+            case "Void":
+                // check void pull
+                break;
+
+            default:
+                return;
+        }
+    }
 
     public override void Initialize()
     {
@@ -76,13 +123,23 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
+        if (!TryComp<HereticComponent>(args.User, out var hereticComp))
+        {
+            args.Handled = true;
+            return;
+        }
+
         foreach (var hit in args.HitEntities)
         {
-            if (HasComp<HereticComponent>(hit) // does not work on other heretics
-            || !HasComp<HereticCombatMarkComponent>(hit))
+            // does not work on other heretics
+            if (HasComp<HereticComponent>(hit))
                 continue;
 
-            _combatMark.ApplyMarkEffect(hit, ent.Comp.Path);
+            if (HasComp<HereticCombatMarkComponent>(hit))
+                _combatMark.ApplyMarkEffect(hit, ent.Comp.Path);
+
+            if (hereticComp.PathStage >= 8)
+                ApplySpecialEffect(args.User, hit);
         }
     }
 

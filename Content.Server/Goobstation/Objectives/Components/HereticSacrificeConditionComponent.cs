@@ -1,8 +1,9 @@
+using Content.Server.Heretic;
 using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 
-[RegisterComponent, Access(typeof(HereticObjectiveSystem))]
+[RegisterComponent]
 public sealed partial class HereticSacrificeConditionComponent : Component
 {
     [DataField] public float Sacrificed = 0f;

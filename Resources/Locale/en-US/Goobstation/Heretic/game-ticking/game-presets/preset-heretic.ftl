@@ -23,6 +23,11 @@ heretic-role-greeting-short =
     You are the Heretic!
     In order to learn the Final Ritual and Ascend, you must fulfill your tasks.
 
+## ghoul
+heretic-ghoul-greeting =
+    You are a ghoul of {CAPITALIZE(THE($ent))}!
+    Obey his orders and protect him at all cost.
+    You may follow other heretics' if your owner is beyond resurrection.
 
 
 ## ascension

@@ -1,7 +1,7 @@
 - type: listing
   id: NightwatcherSecret
-  name: knowledge-path-start-ash-name
-  description: knowledge-path-start-ash-desc
+  name: knowledge-path-ash-s1-name
+  description: knowledge-path-ash-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
   raiseProductEventOnUser: true
   productEvent: !type:ListingNightwatcherSecretEvent
@@ -13,7 +13,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:HereticPathCondition
-    stage: 1
+    stage: 0
     # add every path here because you shouldn't be able to buy more starter knowledge
     blacklist:
     - Ash
@@ -21,4 +21,4 @@
     - Flesh
     - Lock
     - Rust
-    - Void# store catalog
+    - Void

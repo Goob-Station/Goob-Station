@@ -1,6 +1,14 @@
 using Content.Server.Heretic.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Revolutionary.Components;
+using Content.Shared.Changeling;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
+using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
+using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Audio;
@@ -12,11 +20,14 @@ namespace Content.Server.Heretic;
 
 public sealed partial class HereticRitualSystem : EntitySystem
 {
+    [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly HereticSystem _heretic = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/Goobstation/Heretic/castsummon.ogg");
 
@@ -36,6 +47,58 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         var missingList = new List<string>();
         var toDelete = new List<EntityUid>();
+
+        // is it a sacrifice?
+        if (rit.OutputEvent != null && rit.OutputEvent.GetType() == typeof(HereticRitualSacrificeEvent))
+        {
+            EntityUid? acc = null;
+
+            foreach (var look in lookup)
+            {
+                // get the first dead one
+                if (!TryComp<MobStateComponent>(look, out var mobstate)
+                || !HasComp<HumanoidAppearanceComponent>(look))
+                    continue;
+
+                // eldritch gods don't want these nature freaks
+                if (HasComp<ChangelingComponent>(look))
+                    continue;
+
+                if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
+                {
+                    acc = look;
+
+                    if (TryComp<DamageableComponent>(look, out var dmg))
+                    {
+                        // YES!!! GIB!!!
+                        var prot = (ProtoId<DamageGroupPrototype>) "Blunt";
+                        var dmgtype = _proto.Index(prot);
+                        _damage.TryChangeDamage(look, new DamageSpecifier(dmgtype, 500), true);
+                    }
+
+                    break;
+                }
+            }
+
+            if (acc == null)
+            {
+                _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-sacrifice"), performer, performer);
+                return false;
+            }
+
+            var knowledgeGain = HasComp<CommandStaffComponent>(acc) ? 2f : 1f;
+
+            if (_mind.TryGetMind(performer, out var mindId, out var mind))
+                if (_mind.TryGetObjectiveComp<HereticSacrificeConditionComponent>(mindId, out var objective, mind))
+                {
+                    if (HasComp<CommandStaffComponent>(acc) && objective.IsCommand)
+                        objective.Sacrificed += 1;
+                    objective.Sacrificed += 1; // give one nontheless
+                }
+
+            _heretic.UpdateKnowledge(performer, hereticComp, knowledgeGain);
+            return true;
+        }
 
         // check for matching entity names
         if (rit.RequiredEntityNames != null)

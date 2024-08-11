@@ -25,6 +25,8 @@
   id: HereticBladeAsh
   suffix: Ash
   components:
+  - type: HereticBlade
+    path: Ash
   - type: Sprite
     sprite: Goobstation/Heretic/Blades/blade_ash.rsi
     state: icon
@@ -35,12 +37,17 @@
   parent: HereticBladeBase
   id: HereticBladeBlade
   suffix: Blade
+  components:
+  - type: HereticBlade
+    path: Blade
 
 - type: entity
   parent: HereticBladeBase
   id: HereticBladeFlesh
   suffix: Flesh
   components:
+  - type: HereticBlade
+    path: Flesh
   - type: Sprite
     sprite: Goobstation/Heretic/Blades/blade_flesh.rsi
     state: icon
@@ -52,6 +59,8 @@
   id: HereticBladeLock
   suffix: Lock
   components:
+  - type: HereticBlade
+    path: Lock
   - type: Sprite
     sprite: Goobstation/Heretic/Blades/blade_lock.rsi
     state: icon
@@ -63,6 +72,8 @@
   id: HereticBladeRust
   suffix: Rust
   components:
+  - type: HereticBlade
+    path: Rust
   - type: Sprite
     sprite: Goobstation/Heretic/Blades/blade_rust.rsi
     state: icon
@@ -74,6 +85,8 @@
   id: HereticBladeVoid
   suffix: Void
   components:
+  - type: HereticBlade
+    path: Void
   - type: Sprite
     sprite: Goobstation/Heretic/Blades/blade_void.rsi
     state: icon

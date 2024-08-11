@@ -6,10 +6,6 @@
   - ActionHereticMansusGrasp
 
 - type: hereticKnowledge
-  id: LivingHeart
-  # actionPrototypes:
-
-- type: hereticKnowledge
   id: HeartbeatOfMansus
   ritualPrototypes:
   - Sacrifice  

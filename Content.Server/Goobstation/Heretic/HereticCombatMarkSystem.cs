@@ -1,12 +1,16 @@
 using Content.Server.Atmos.EntitySystems;
+using Content.Server.Body.Systems;
+using Content.Server.Popups;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Atmos;
-using Content.Shared.Damage;
+using Content.Shared.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.Heretic;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Server.Heretic;
@@ -19,6 +23,9 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly BloodstreamSystem _blood = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public bool ApplyMarkEffect(EntityUid target, string? path)
     {
@@ -37,10 +44,11 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
                 break;
 
             case "Flesh":
+                _blood.TryModifyBleedAmount(target, 5f);
                 break;
 
             case "Lock":
-                // bolts all doors
+                // bolts nearby doors
                 var lookup = _lookup.GetEntitiesInRange(target, 5f);
                 foreach (var door in lookup)
                 {
@@ -52,12 +60,28 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
                 break;
 
             case "Rust":
-                // TODO: add item damage, for now just break random items
+                // TODO: add item damage, for now just break a random item
+                if (!TryComp<InventoryComponent>(target, out var inv))
+                    break;
+
+                var contrandom = _random.Next(0, inv.Containers.Length - 1);
+                if (contrandom < 0)
+                    break;
+                var cont = inv.Containers[contrandom];
+
+                var itemrandom = _random.Next(0, cont.ContainedEntities.Count - 1);
+                if (itemrandom < 0)
+                    break;
+                var item = cont.ContainedEntities[itemrandom];
+
+                _popup.PopupEntity(Loc.GetString("heretic-rust-mark-itembreak", ("name", Name(item))), target, PopupType.LargeCaution);
+                QueueDel(item);
                 break;
 
             case "Void":
-                // set target's temperature to -20C
-                _temperature.ForceChangeTemperature(target, Atmospherics.T0C - 20f);
+                // set target's temperature to -40C
+                // is really OP with the new temperature slowing thing :godo:
+                _temperature.ForceChangeTemperature(target, Atmospherics.T0C - 40f);
                 break;
 
             default:

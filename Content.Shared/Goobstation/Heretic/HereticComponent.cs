@@ -11,7 +11,6 @@ public sealed partial class HereticComponent : Component
     [DataField] public List<ProtoId<HereticKnowledgePrototype>> BaseKnowledge = new()
     {
         "BreakOfDawn",
-        "LivingHeart",
         "HeartbeatOfMansus",
         "AmberFocus",
         "CodexCicatrix",

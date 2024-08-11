@@ -28,7 +28,7 @@ knowledge-path-lock-s7-desc =
 knowledge-path-lock-s8-name = Opening Blade
 knowledge-path-lock-s8-desc = Your blade now has a chance to cause a weeping avulsion on attack.
 
-knowledge-path-lock-s9-name = 
+knowledge-path-lock-s9-name = Caretaker's Last Refuge
 knowledge-path-lock-s9-desc =
     Grants Caretaker's Last Refuge, a self-cast spell that turns you transparent and pass-through.
     While under this spell, you may not be harmed, but cannot interact with your hands or spells.
