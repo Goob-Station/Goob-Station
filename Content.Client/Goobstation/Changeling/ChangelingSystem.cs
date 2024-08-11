@@ -13,6 +13,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly ILightManager _ligth = default!;
+    [Dependency] private readonly IOverlayManager _overlay = default!;
 
     public override void Initialize()
     {
@@ -54,6 +55,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         if(args.Handled)
             return;
         _ligth.DrawLighting = !_ligth.DrawLighting;
+        _overlay.AddOverlay(new ChangelingVisionOverlay());
         args.Handled = true;
     }
 }
