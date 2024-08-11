@@ -17,7 +17,7 @@
 - type: entity
   id: ActionHereticMansusGrasp
   name: Mansus Grasp
-  description: Cast a touch spell that lets you channel the power of the Old Gods through your grip.
+  description: Channel the power of the Old Gods through your grip.
   noSpawn: true
   components:
   - type: InstantAction

@@ -1,29 +1,3 @@
-# listing must match names with the knowledge so that it gets added properly
-- type: listing
-  id: NightwatcherSecret
-  name: knowledge-path-start-ash-name
-  description: knowledge-path-start-ash-desc
-  icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent: !type:ListingNightwatcherSecretEvent
-  cost:
-    KnowledgePoint: 1
-  categories:
-  - HereticPathStarting
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:HereticPathCondition
-    stage: 1
-    # add every path here because you shouldn't be able to buy more starter knowledge
-    blacklist:
-    - Ash
-    - Blade
-    - Flesh
-    - Lock
-    - Rust
-    - Void
-
 - type: listing
   id: KnowledgePathStartLock
   name: knowledge-path-start-lock-name

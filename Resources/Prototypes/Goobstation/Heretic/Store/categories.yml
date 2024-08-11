@@ -1,18 +1,8 @@
 # heretic
 
 - type: storeCategory
-  id: HereticPathStarting
-  name: store-heretic-path-starting
-  priority: 0
-
-- type: storeCategory
   id: HereticPathAsh
   name: store-heretic-path-ash
-  priority: 0
-
-- type: storeCategory
-  id: HereticPathMoon
-  name: store-heretic-path-moon
   priority: 0
 
 - type: storeCategory
@@ -38,11 +28,6 @@
 - type: storeCategory
   id: HereticPathRust
   name: store-heretic-path-rust
-  priority: 0
-
-- type: storeCategory
-  id: HereticPathCosmos
-  name: store-heretic-path-cosmos
   priority: 0
 
 - type: storeCategory
