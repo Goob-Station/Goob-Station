@@ -463,11 +463,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        if (TryComp<EyeComponent>(uid, out var eyes))
-        {
-            _eye.SetDrawLight(uid, !eyes.DrawLight);
-        }
-
         if (HasComp<FlashImmunityComponent>(uid))
         {
             _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
