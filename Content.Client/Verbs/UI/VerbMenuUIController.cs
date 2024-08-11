@@ -3,7 +3,6 @@ using System.Numerics;
 using Content.Client.CombatMode;
 using Content.Client.ContextMenu.UI;
 using Content.Client.Gameplay;
-using Content.Client.Mapping;
 using Content.Shared.Input;
 using Content.Shared.Verbs;
 using Robust.Client.Player;
@@ -23,9 +22,7 @@ namespace Content.Client.Verbs.UI
     ///     open a verb menu for a given entity, add verbs to it, and add server-verbs when the server response is
     ///     received.
     /// </remarks>
-    public sealed class VerbMenuUIController : UIController,
-        IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>,
-        IOnStateEntered<MappingState>, IOnStateExited<MappingState>
+    public sealed class VerbMenuUIController : UIController, IOnStateEntered<GameplayState>, IOnStateExited<GameplayState>
     {
         [Dependency] private readonly IPlayerManager _playerManager = default!;
         [Dependency] private readonly ContextMenuUIController _context = default!;
@@ -51,22 +48,6 @@ namespace Content.Client.Verbs.UI
         }
 
         public void OnStateExited(GameplayState state)
-        {
-            _context.OnContextKeyEvent -= OnKeyBindDown;
-            _context.OnContextClosed -= Close;
-            if (_verbSystem != null)
-                _verbSystem.OnVerbsResponse -= HandleVerbsResponse;
-            Close();
-        }
-
-        public void OnStateEntered(MappingState state)
-        {
-            _context.OnContextKeyEvent += OnKeyBindDown;
-            _context.OnContextClosed += Close;
-            _verbSystem.OnVerbsResponse += HandleVerbsResponse;
-        }
-
-        public void OnStateExited(MappingState state)
         {
             _context.OnContextKeyEvent -= OnKeyBindDown;
             _context.OnContextClosed -= Close;

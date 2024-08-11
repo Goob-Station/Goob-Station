@@ -63,8 +63,8 @@
     Steel: 30
 
 - type: latheRecipe
-  id: CrowbarGreen
-  result: CrowbarGreen
+  id: Crowbar
+  result: Crowbar
   category: Tools
   completetime: 2
   materials:

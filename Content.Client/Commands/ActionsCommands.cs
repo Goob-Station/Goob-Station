@@ -1,4 +1,3 @@
-﻿using Content.Client.Actions;
 using Content.Client.Actions;
 using Content.Client.Mapping;
 using Content.Shared.Administration;
@@ -55,6 +54,30 @@ public sealed class LoadActionsCommand : LocalizedCommands
         try
         {
             _entitySystemManager.GetEntitySystem<ActionsSystem>().LoadActionAssignments(args[0], true);
+        }
+        catch
+        {
+            shell.WriteError(LocalizationManager.GetString($"cmd-{Command}-error"));
+        }
+    }
+}
+
+[AnyCommand]
+public sealed class LoadMappingActionsCommand : LocalizedCommands
+{
+    [Dependency] private readonly IEntitySystemManager _entitySystemManager = default!;
+
+    public const string CommandName = "loadmapacts";
+
+    public override string Command => CommandName;
+
+    public override string Help => LocalizationManager.GetString($"cmd-{Command}-help", ("command", Command));
+
+    public override void Execute(IConsoleShell shell, string argStr, string[] args)
+    {
+        try
+        {
+            _entitySystemManager.GetEntitySystem<MappingSystem>().LoadMappingActions();
         }
         catch
         {

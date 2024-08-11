@@ -1,4 +1,3 @@
-using System.Text;
 using Content.Server.Speech.Components;
 
 namespace Content.Server.Speech.EntitySystems
@@ -15,7 +14,7 @@ namespace Content.Server.Speech.EntitySystems
             // Insert E before every S
             message = InsertS(message);
             // If a sentence ends with ?, insert a reverse ? at the beginning of the sentence
-            message = ReplacePunctuation(message);
+            message = ReplaceQuestionMark(message);
             return message;
         }
 
@@ -37,32 +36,24 @@ namespace Content.Server.Speech.EntitySystems
             return msg;
         }
 
-        private string ReplacePunctuation(string message)
+        private string ReplaceQuestionMark(string message)
         {
             var sentences = AccentSystem.SentenceRegex.Split(message);
-            var msg = new StringBuilder();
+            var msg = "";
             foreach (var s in sentences)
             {
-                var toInsert = new StringBuilder();
-                for (var i = s.Length - 1; i >= 0 && "?!‽".Contains(s[i]); i--)
+                if (s.EndsWith("?", StringComparison.Ordinal)) // We've got a question => add ¿ to the beginning
                 {
-                    toInsert.Append(s[i] switch
-                    {
-                        '?' => '¿',
-                        '!' => '¡',
-                        '‽' => '⸘',
-                        _ => ' '
-                    });
+                    // Because we don't split by whitespace, we may have some spaces in front of the sentence.
+                    // So we add the symbol before the first non space char
+                    msg += s.Insert(s.Length - s.TrimStart().Length, "¿");
                 }
-                if (toInsert.Length == 0)
+                else
                 {
-                    msg.Append(s);
-                } else
-                {
-                    msg.Append(s.Insert(s.Length - s.TrimStart().Length, toInsert.ToString()));
+                    msg += s;
                 }
             }
-            return msg.ToString();
+            return msg;
         }
 
         private void OnAccent(EntityUid uid, SpanishAccentComponent component, AccentGetEvent args)

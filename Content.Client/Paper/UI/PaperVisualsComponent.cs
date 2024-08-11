@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Content.Client.Paper.UI;
+namespace Content.Client.Paper;
 
 [RegisterComponent]
 public sealed partial class PaperVisualsComponent : Component

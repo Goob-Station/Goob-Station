@@ -137,11 +137,6 @@
     - HidesHarpyWings # Goobstation
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
 
 - type: entity
   abstract: true
@@ -165,11 +160,6 @@
   - type: Tag #Goobstation
     tags:
     - HidesHarpyWings
-  - type: DamageOnInteractProtection
-    damageProtection:
-      flatReductions:
-        Heat: 10 # the average lightbulb only does around four damage!
-    slots: OUTERCLOTHING
 
 - type: entity
   parent: ClothingOuterBase

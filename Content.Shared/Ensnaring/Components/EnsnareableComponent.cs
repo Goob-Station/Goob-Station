@@ -47,8 +47,6 @@ public sealed partial class EnsnareableComponent : Component
     public ProtoId<AlertPrototype> EnsnaredAlert = "Ensnared";
 }
 
-public sealed partial class RemoveEnsnareAlertEvent : BaseAlertEvent;
-
 [Serializable, NetSerializable]
 public sealed class EnsnareableComponentState : ComponentState
 {

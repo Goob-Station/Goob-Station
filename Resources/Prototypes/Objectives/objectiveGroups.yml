@@ -56,8 +56,8 @@
 - type: weightedRandom
   id: ThiefBigObjectiveGroups
   weights:
-    ThiefObjectiveGroupStructure: 1
-    ThiefObjectiveGroupAnimal: 1
+    ThiefObjectiveGroupStructure: 0 #Temporarily disabled until obvious ways to steal structures are added
+    ThiefObjectiveGroupAnimal: 2
 
 - type: weightedRandom
   id: ThiefObjectiveGroupCollection
@@ -95,6 +95,7 @@
   weights:
     NuclearBombStealObjective: 0.5
     FaxMachineCaptainStealObjective: 1
+    VehicleSecwayStealObjective: 1
     ChemDispenserStealObjective: 1
     XenoArtifactStealObjective: 1
     FreezerHeaterStealObjective: 1

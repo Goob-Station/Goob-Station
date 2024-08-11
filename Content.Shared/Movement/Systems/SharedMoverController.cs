@@ -214,9 +214,7 @@ namespace Content.Shared.Movement.Systems
 
             if (weightless)
             {
-                if (gridComp == null && !MapGridQuery.HasComp(xform.GridUid))
-                    friction = moveSpeedComponent?.OffGridFriction ?? MovementSpeedModifierComponent.DefaultOffGridFriction;
-                else if (worldTotal != Vector2.Zero && touching)
+                if (worldTotal != Vector2.Zero && touching)
                     friction = moveSpeedComponent?.WeightlessFriction ?? MovementSpeedModifierComponent.DefaultWeightlessFriction;
                 else
                     friction = moveSpeedComponent?.WeightlessFrictionNoInput ?? MovementSpeedModifierComponent.DefaultWeightlessFrictionNoInput;

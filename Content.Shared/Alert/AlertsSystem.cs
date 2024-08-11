@@ -195,7 +195,7 @@ public abstract class AlertsSystem : EntitySystem
 
         SubscribeLocalEvent<AlertAutoRemoveComponent, EntityUnpausedEvent>(OnAutoRemoveUnPaused);
 
-        SubscribeAllEvent<ClickAlertEvent>(HandleClickAlert);
+        SubscribeNetworkEvent<ClickAlertEvent>(HandleClickAlert);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(HandlePrototypesReloaded);
         LoadPrototypes();
     }
@@ -328,20 +328,7 @@ public abstract class AlertsSystem : EntitySystem
             return;
         }
 
-        ActivateAlert(player.Value, alert);
-    }
-
-    public bool ActivateAlert(EntityUid user, AlertPrototype alert)
-    {
-        if (alert.ClickEvent is not { } clickEvent)
-            return false;
-
-        clickEvent.Handled = false;
-        clickEvent.User = user;
-        clickEvent.AlertId = alert.ID;
-
-        RaiseLocalEvent(user, (object) clickEvent, true);
-        return clickEvent.Handled;
+        alert.OnClick?.AlertClicked(player.Value);
     }
 
     private void OnPlayerAttached(EntityUid uid, AlertsComponent component, PlayerAttachedEvent args)

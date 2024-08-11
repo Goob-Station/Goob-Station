@@ -52,12 +52,9 @@ internal sealed class ChargerSystem : EntitySystem
             if (!_container.TryGetContainer(uid, component.SlotId, out var container))
                 return;
 
-            if (HasComp<PowerCellSlotComponent>(uid))
-                return;
-
             // if charger is empty and not a power cell type charger, add empty message
             // power cells have their own empty message by default, for things like flash lights
-            if (container.ContainedEntities.Count == 0)
+            if (container.ContainedEntities.Count == 0 && !HasComp<PowerCellSlotComponent>(uid))
             {
                 args.PushMarkup(Loc.GetString("charger-empty"));
             }

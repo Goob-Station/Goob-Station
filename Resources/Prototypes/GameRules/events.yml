@@ -151,6 +151,10 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Vox disabled until loadouts work on AntagSelection-based spawns
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Vox
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -167,8 +171,6 @@
       max: 1
       pickPlayer: false
       startingGear: SpaceNinjaGear
-      roleLoadout:
-      - RoleSurvivalEVA
       briefing:
         text: ninja-role-greeting
         color: Green
@@ -494,7 +496,6 @@
     startAudio:
       path: /Audio/Announcements/intercept.ogg
     duration: null # the rule has to last the whole round not 1 second
-    occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
   - type: AntagSelection
     definitions:

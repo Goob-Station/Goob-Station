@@ -62,18 +62,41 @@ namespace Content.Shared.Decals
                 dictionary = serializationManager.Read<Dictionary<Vector2i, DecalChunk>>(node, hookCtx, context, notNullableOverride: true);
             }
 
-            uint nextIndex = 0;
+            var uids = new SortedSet<uint>();
+            var uidChunkMap = new Dictionary<uint, Vector2i>();
+            var allIndices = dictionary.Keys.ToList();
+            allIndices.Sort((x, y) => x.X == y.X ? x.Y.CompareTo(y.Y) : x.X.CompareTo(y.X));
 
-            foreach (var decals in dictionary.Values)
+            foreach (var indices in allIndices)
             {
-                foreach (var uid in decals.Decals.Keys)
+                var decals = dictionary[indices];
+                var decalUids = decals.Decals.Keys.ToList();
+                decalUids.Sort();
+
+                foreach (var uid in decalUids)
                 {
-                    nextIndex = Math.Max(uid, nextIndex);
+                    uids.Add(uid);
+                    uidChunkMap[uid] = indices;
                 }
             }
 
-            nextIndex++;
-            return new DecalGridChunkCollection(dictionary) { NextDecalId = nextIndex };
+            var uidMap = new Dictionary<uint, uint>();
+            uint nextIndex = 0;
+            foreach (var uid in uids)
+            {
+                uidMap[uid] = nextIndex++;
+            }
+
+            var newDict = new Dictionary<Vector2i, DecalChunk>();
+            foreach (var (oldUid, newUid) in uidMap)
+            {
+                var indices = uidChunkMap[oldUid];
+                if(!newDict.ContainsKey(indices))
+                    newDict[indices] = new();
+                newDict[indices].Decals[newUid] = dictionary[indices].Decals[oldUid];
+            }
+
+            return new DecalGridChunkCollection(newDict) { NextDecalId = nextIndex };
         }
 
         public DataNode Write(ISerializationManager serializationManager,
@@ -86,6 +109,8 @@ namespace Content.Shared.Decals
 
             var allData = new MappingDataNode();
             // Want consistent chunk + decal ordering so diffs aren't mangled
+            var chunks = new List<Vector2i>(value.ChunkCollection.Keys);
+            chunks.Sort((x, y) => x.X == y.X ? x.Y.CompareTo(y.Y) : x.X.CompareTo(y.X));
             var nodes = new SequenceDataNode();
 
             // Assuming decal indices stay consistent:
@@ -97,6 +122,9 @@ namespace Content.Shared.Decals
             // Build all of the decal lookups first.
             foreach (var chunk in value.ChunkCollection.Values)
             {
+                var sortedDecals = new List<uint>(chunk.Decals.Keys);
+                sortedDecals.Sort();
+
                 foreach (var (uid, decal) in chunk.Decals)
                 {
                     var data = new DecalData(decal);

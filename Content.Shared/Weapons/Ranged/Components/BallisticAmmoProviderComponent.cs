@@ -1,4 +1,3 @@
-using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -7,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, Access(typeof(SharedGunSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BallisticAmmoProviderComponent : Component
 {
     [ViewVariables(VVAccess.ReadWrite), DataField]
@@ -33,7 +32,6 @@ public sealed partial class BallisticAmmoProviderComponent : Component
     public Container Container = default!;
 
     // TODO: Make this use stacks when the typeserializer is done.
-    // Realistically just point to the container.
     [DataField, AutoNetworkedField]
     public List<EntityUid> Entities = new();
 

@@ -34,7 +34,6 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 50
-  - type: DnaSubstanceTrace
   - type: ReactionMixer
     mixOnInteract: false
     reactionTypes:
@@ -73,7 +72,7 @@
   parent: DrinkGlassBase
   id: DrinkJar
   name: jar
-  description: The hipster's cup.
+  description: The hipster's cup
   components:
   - type: Drink
   - type: Sprite

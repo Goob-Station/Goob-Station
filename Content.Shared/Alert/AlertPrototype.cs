@@ -76,11 +76,11 @@ public sealed partial class AlertPrototype : IPrototype
     public bool SupportsSeverity => MaxSeverity != -1;
 
     /// <summary>
-    /// Event raised on the user when they click on this alert.
-    /// Can be null.
+    /// Defines what to do when the alert is clicked.
+    /// This will always be null on clientside.
     /// </summary>
-    [DataField]
-    public BaseAlertEvent? ClickEvent;
+    [DataField(serverOnly: true)]
+    public IAlertClick? OnClick { get; private set; }
 
     /// <param name="severity">severity level, if supported by this alert</param>
     /// <returns>the icon path to the texture for the provided severity level</returns>
@@ -112,19 +112,5 @@ public sealed partial class AlertPrototype : IPrototype
         }
 
         return Icons[severity.Value - _minSeverity];
-    }
-}
-
-[ImplicitDataDefinitionForInheritors]
-public abstract partial class BaseAlertEvent : HandledEntityEventArgs
-{
-    public EntityUid User;
-
-    public ProtoId<AlertPrototype> AlertId;
-
-    protected BaseAlertEvent(EntityUid user, ProtoId<AlertPrototype> alertId)
-    {
-        User = user;
-        AlertId = alertId;
     }
 }

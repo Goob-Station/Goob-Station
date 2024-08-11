@@ -13,8 +13,7 @@
     state: proteinbar
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketProteinbarTrash
+    trash: FoodPacketProteinbarTrash
   - type: SolutionContainerManager
     solutions:
       food:
@@ -152,8 +151,7 @@
     state: tidegobs
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketTidegobsTrash
+    trash: FoodPacketTidegobsTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -169,8 +167,7 @@
     state: saturno
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketSaturnosTrash
+    trash: FoodPacketSaturnosTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -186,8 +183,7 @@
     state: jupiter
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketJoveGelloTrash
+    trash: FoodPacketJoveGelloTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -203,8 +199,7 @@
     state: pluto
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketPlutoniumrodsTrash
+    trash: FoodPacketPlutoniumrodsTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -222,8 +217,7 @@
     state: mars
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketMarsFroukaTrash
+    trash: FoodPacketMarsFroukaTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -239,8 +233,7 @@
     state: venus
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketVenusTrash
+    trash: FoodPacketVenusTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -257,8 +250,7 @@
     state: oort
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketOortrocksTrash
+    trash: FoodPacketOortrocksTrash
 
 # Weeb Vend
 - type: entity
@@ -275,8 +267,7 @@
     state: weebonuts
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketRedalertnutsTrash
+    trash: FoodPacketRedalertnutsTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -322,8 +313,7 @@
     state: chocobanana
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketStickTrash
+    trash: FoodPacketStickTrash
 
 - type: entity
   parent: FoodSnackBase
@@ -340,8 +330,7 @@
     state: dango
   - type: Item
   - type: Food
-    trash:
-    - FoodPacketStickTrash
+    trash: FoodPacketStickTrash
 
 # Old food
 - type: entity

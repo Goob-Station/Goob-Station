@@ -21,12 +21,10 @@ public sealed partial class CleanDecalsReaction : ITileReaction
     [DataField]
     public FixedPoint2 CleanCost { get; private set; } = FixedPoint2.New(0.25f);
 
-
     public FixedPoint2 TileReact(TileRef tile,
         ReagentPrototype reagent,
         FixedPoint2 reactVolume,
-        IEntityManager entityManager,
-        List<ReagentData>? data)
+        IEntityManager entityManager)
     {
         if (reactVolume <= CleanCost ||
             !entityManager.TryGetComponent<MapGridComponent>(tile.GridUid, out var grid) ||

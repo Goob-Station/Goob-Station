@@ -1,7 +1,6 @@
-using Content.Shared.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using System.Linq;
 
 namespace Content.Shared.Chemistry.Reagent;
 
@@ -21,23 +20,17 @@ public partial struct ReagentId : IEquatable<ReagentId>
     /// Any additional data that is unique to this reagent type. E.g., for blood this could be DNA data.
     /// </summary>
     [DataField("data")]
-    public List<ReagentData>? Data { get; private set; } = new();
+    public ReagentData? Data { get; private set; }
 
-    public ReagentId(string prototype, List<ReagentData>? data)
+    public ReagentId(string prototype, ReagentData? data)
     {
         Prototype = prototype;
-        Data = data ?? new();
+        Data = data;
     }
 
     public ReagentId()
     {
         Prototype = default!;
-        Data = new();
-    }
-
-    public List<ReagentData> EnsureReagentData()
-    {
-        return (Data != null) ? Data : new List<ReagentData>();
     }
 
     public bool Equals(ReagentId other)
@@ -51,13 +44,13 @@ public partial struct ReagentId : IEquatable<ReagentId>
         if (other.Data == null)
             return false;
 
-        if (Data.Except(other.Data).Any() || other.Data.Except(Data).Any() || Data.Count != other.Data.Count)
+        if (Data.GetType() != other.Data.GetType())
             return false;
 
-        return true;
+        return Data.Equals(other.Data);
     }
 
-    public bool Equals(string prototype, List<ReagentData>? otherData = null)
+    public bool Equals(string prototype, ReagentData? otherData = null)
     {
         if (Prototype != prototype)
             return false;
@@ -80,12 +73,12 @@ public partial struct ReagentId : IEquatable<ReagentId>
 
     public string ToString(FixedPoint2 quantity)
     {
-        return $"{Prototype}:{quantity}";
+        return Data?.ToString(Prototype, quantity) ?? $"{Prototype}:{quantity}";
     }
 
     public override string ToString()
     {
-        return $"{Prototype}";
+        return Data?.ToString(Prototype) ?? Prototype;
     }
 
     public static bool operator ==(ReagentId left, ReagentId right)

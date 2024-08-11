@@ -17,8 +17,7 @@
     - BorgModuleGeneric
   - type: GuideHelp
     guides:
-    - Cyborgs
-    - Robotics
+      - Cyborgs
 
 - type: entity
   id: BaseProviderBorgModule

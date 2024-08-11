@@ -1,4 +1,3 @@
-using Content.Shared.Paper;
 using Content.Shared.StoryGen;
 
 namespace Content.Server.Paper;
@@ -12,10 +11,10 @@ public sealed class PaperRandomStorySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<PaperRandomStoryComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<PaperRandomStoryComponent, MapInitEvent>(OnMapinit);
     }
 
-    private void OnMapInit(Entity<PaperRandomStoryComponent> paperStory, ref MapInitEvent ev)
+    private void OnMapinit(Entity<PaperRandomStoryComponent> paperStory, ref MapInitEvent ev)
     {
         if (!TryComp<PaperComponent>(paperStory, out var paper))
             return;
@@ -23,6 +22,6 @@ public sealed class PaperRandomStorySystem : EntitySystem
         if (!_storyGen.TryGenerateStoryFromTemplate(paperStory.Comp.Template, out var story))
             return;
 
-        _paper.SetContent((paperStory.Owner, paper), story);
+        _paper.SetContent(paperStory.Owner, story, paper);
     }
 }

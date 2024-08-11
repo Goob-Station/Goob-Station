@@ -81,12 +81,10 @@ public sealed class NPCSteeringOverlay : Overlay
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
     private readonly IEntityManager _entManager;
-    private readonly SharedTransformSystem _transformSystem;
 
     public NPCSteeringOverlay(IEntityManager entManager)
     {
         _entManager = entManager;
-        _transformSystem = _entManager.System<SharedTransformSystem>();
     }
 
     protected override void Draw(in OverlayDrawArgs args)
@@ -98,7 +96,7 @@ public sealed class NPCSteeringOverlay : Overlay
                 continue;
             }
 
-            var (worldPos, worldRot) = _transformSystem.GetWorldPositionRotation(xform);
+            var (worldPos, worldRot) = xform.GetWorldPositionRotation();
 
             if (!args.WorldAABB.Contains(worldPos))
                 continue;

@@ -9,6 +9,8 @@
     - Cartridge
     - ShellShotgun
   - type: CartridgeAmmo
+    count: 6
+    spread: 15
     soundEject:
       collection: ShellEject
   - type: Sprite
@@ -30,6 +32,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunBeanbag
+    count: 1
   - type: SpentAmmoVisuals
     state: "beanbag"
 
@@ -44,6 +47,8 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunSlug
+    count: 1
+    spread: 0
   - type: SpentAmmoVisuals
     state: "slug"
 
@@ -58,6 +63,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunFlare
+    count: 1
   - type: SpentAmmoVisuals
     state: "flare"
 
@@ -71,7 +77,7 @@
       - state: base
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: PelletShotgunSpread
+    proto: PelletShotgun
 
 - type: entity
   id: ShellShotgunIncendiary
@@ -83,7 +89,7 @@
       - state: incendiary
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: PelletShotgunIncendiarySpread
+    proto: PelletShotgunIncendiary
   - type: SpentAmmoVisuals
     state: "incendiary"
 
@@ -97,7 +103,7 @@
       - state: practice
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
-    proto: PelletShotgunPracticeSpread
+    proto: PelletShotgunPractice
   - type: SpentAmmoVisuals
     state: "practice"
 
@@ -112,6 +118,7 @@
         map: [ "enum.AmmoVisualLayers.Base" ]
   - type: CartridgeAmmo
     proto: PelletShotgunTranquilizer
+    count: 1
   - type: ChemicalAmmo
   - type: SolutionContainerManager
     solutions:
@@ -138,7 +145,9 @@
     graph: ImprovisedShotgunShellGraph
     node: shell
   - type: CartridgeAmmo
-    proto: PelletShotgunImprovisedSpread
+    count: 10
+    spread: 45 
+    proto: PelletShotgunImprovised
   - type: SpentAmmoVisuals
     state: "improvised"
 
@@ -152,6 +161,8 @@
         - state: depleted-uranium
           map: [ "enum.AmmoVisualLayers.Base" ]
     - type: CartridgeAmmo
-      proto: PelletShotgunUraniumSpread
+      count: 5
+      spread: 6
+      proto: PelletShotgunUranium
     - type: SpentAmmoVisuals
       state: "depleted-uranium"

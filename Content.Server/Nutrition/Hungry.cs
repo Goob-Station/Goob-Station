@@ -4,35 +4,40 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Console;
 
-namespace Content.Server.Nutrition;
-
-[AdminCommand(AdminFlags.Debug)]
-public sealed class Hungry : LocalizedEntityCommands
+namespace Content.Server.Nutrition
 {
-    public override string Command => "hungry";
-
-    public override void Execute(IConsoleShell shell, string argStr, string[] args)
+    [AdminCommand(AdminFlags.Debug)]
+    public sealed class Hungry : IConsoleCommand
     {
-        var player = shell.Player;
-        if (player == null)
-        {
-            shell.WriteError(Loc.GetString("cmd-nutrition-error-player"));
-            return;
-        }
+        [Dependency] private readonly IEntityManager _entities = default!;
 
-        if (player.AttachedEntity is not {Valid: true} playerEntity)
-        {
-            shell.WriteError(Loc.GetString("cmd-nutrition-error-entity"));
-            return;
-        }
+        public string Command => "hungry";
+        public string Description => "Makes you hungry.";
+        public string Help => $"{Command}";
 
-        if (!EntityManager.TryGetComponent(playerEntity, out HungerComponent? hunger))
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
-            shell.WriteError(Loc.GetString("cmd-nutrition-error-component", ("comp", nameof(HungerComponent))));
-            return;
-        }
+            var player = shell.Player;
+            if (player == null)
+            {
+                shell.WriteLine("You cannot use this command unless you are a player.");
+                return;
+            }
 
-        var hungryThreshold = hunger.Thresholds[HungerThreshold.Starving];
-        EntityManager.System<HungerSystem>().SetHunger(playerEntity, hungryThreshold, hunger);
+            if (player.AttachedEntity is not {Valid: true} playerEntity)
+            {
+                shell.WriteLine("You cannot use this command without an entity.");
+                return;
+            }
+
+            if (!_entities.TryGetComponent(playerEntity, out HungerComponent? hunger))
+            {
+                shell.WriteLine($"Your entity does not have a {nameof(HungerComponent)} component.");
+                return;
+            }
+
+            var hungryThreshold = hunger.Thresholds[HungerThreshold.Starving];
+            _entities.System<HungerSystem>().SetHunger(playerEntity, hungryThreshold, hunger);
+        }
     }
 }

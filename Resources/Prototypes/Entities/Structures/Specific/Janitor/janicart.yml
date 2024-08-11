@@ -84,7 +84,6 @@
       behaviors:
       - !type:DoActsBehavior
         acts: ["Destruction"]
-  - type: DnaSubstanceTrace
   - type: Fixtures
     fixtures:
       fix1:
@@ -335,4 +334,3 @@
     - type: GuideHelp
       guides:
       - Janitorial
-    - type: DnaSubstanceTrace

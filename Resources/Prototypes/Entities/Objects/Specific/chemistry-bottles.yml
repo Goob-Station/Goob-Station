@@ -93,7 +93,6 @@
         transferForensics: true
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: DnaSubstanceTrace
 
 - type: entity
   parent: BaseChemistryEmptyBottle
