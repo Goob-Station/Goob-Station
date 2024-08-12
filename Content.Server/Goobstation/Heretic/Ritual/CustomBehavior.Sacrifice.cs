@@ -9,6 +9,8 @@ using Content.Shared.Mind;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
+using Content.Server.Heretic.EntitySystems;
+using Robust.Server.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -20,16 +22,22 @@ namespace Content.Server.Heretic.Ritual;
 public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
     // this is awful but it works so i'm not complaining
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly HereticSystem _heretic = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
+    private SharedMindSystem _mind = default!;
+    private HereticSystem _heretic = default!;
+    private DamageableSystem _damage = default!;
+    private EntityLookupSystem _lookup = default!;
+    [Dependency] private IPrototypeManager _proto = default!;
 
     private readonly List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
+        _mind = args.EntityManager.System<SharedMindSystem>();
+        _heretic = args.EntityManager.System<HereticSystem>();
+        _damage = args.EntityManager.System<DamageableSystem>();
+        _lookup = args.EntityManager.System<EntityLookupSystem>();
+        _proto = IoCManager.Resolve<IPrototypeManager>();
+
         if (!args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
         {
             outstr = string.Empty;
@@ -83,9 +91,10 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
             // YES!!! GIB!!!
             if (args.EntityManager.TryGetComponent<DamageableComponent>(acc, out var dmg))
             {
-                var prot = (ProtoId<DamageGroupPrototype>) "Blunt";
+                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(acc, new DamageSpecifier(dmgtype, 500), true);
+                // set to absurd number so that it'll 1000% get gibbed
+                _damage.TryChangeDamage(acc, new DamageSpecifier(dmgtype, 2000), true);
             }
         }
     }

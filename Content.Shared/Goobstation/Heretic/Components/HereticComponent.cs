@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Heretic;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class HereticComponent : Component
 {
     #region Prototypes
@@ -20,21 +20,21 @@ public sealed partial class HereticComponent : Component
 
     #endregion
 
-    [DataField] public bool Ascended = false;
+    [DataField, AutoNetworkedField] public bool Ascended = false;
 
     // hardcoded paths because i hate it
     // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
     /// <summary>
     ///     Indicates a path the heretic is on.
     /// </summary>
-    [DataField] public string? CurrentPath = null;
+    [DataField, AutoNetworkedField] public string? CurrentPath = null;
 
     /// <summary>
     ///     Indicates a stage of a path the heretic is on. 0 is no path, 10 is ascension
     /// </summary>
-    [DataField] public int PathStage = 0;
+    [DataField, AutoNetworkedField] public int PathStage = 0;
 
-    [DataField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
+    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
     [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
 
     /// <summary>

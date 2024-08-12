@@ -31,6 +31,13 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Add(_ritual.GetRitual(ritual));
 
+        // set path if out heretic doesn't have it, or if it's different from whatever he has atm
+        if (string.IsNullOrWhiteSpace(comp.CurrentPath))
+        {
+            if (!data.SideKnowledge && comp.CurrentPath != data.Path)
+                comp.CurrentPath = data.Path;
+        }
+
         if (data.Stage > comp.PathStage)
             comp.PathStage = data.Stage;
 
@@ -67,23 +74,4 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
     }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-        SubscribeLocalEvent<HereticComponent, HereticAddKnowledgeEvent>(OnAddKnowledge);
-    }
-
-    private void OnAddKnowledge(Entity<HereticComponent> ent, ref HereticAddKnowledgeEvent args)
-    {
-        if (args.ID == null)
-            return;
-
-        AddKnowledge(ent, ent.Comp, (ProtoId<HereticKnowledgePrototype>) args.ID);
-    }
-}
-
-public sealed partial class HereticAddKnowledgeEvent : EntityEventArgs
-{
-    [DataField] public ProtoId<HereticKnowledgePrototype>? ID;
 }

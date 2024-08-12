@@ -3,9 +3,7 @@
   name: knowledge-path-void-s1-name
   description: knowledge-path-void-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent:
-    !type:HereticAddKnowledgeEvent
+  #productHereticKnowledge:
   cost:
     KnowledgePoint: 1
   categories:

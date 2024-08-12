@@ -3,10 +3,7 @@
   name: knowledge-path-ash-s1-name
   description: knowledge-path-ash-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent:
-    !type:HereticAddKnowledgeEvent
-    id: NightwatcherSecret
+  productHereticKnowledge: NightwatcherSecret
   cost:
     KnowledgePoint: 1
   categories:
@@ -30,10 +27,7 @@
   name: knowledge-path-ash-s2-name
   description: knowledge-path-ash-s2-desc
   icon: { sprite: Goobstation/Heretic/mansus_grasp.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent:
-    !type:HereticAddKnowledgeEvent
-    id: GraspOfAsh
+  productHereticKnowledge: GraspOfAsh
   cost:
     KnowledgePoint: 1
   categories:
@@ -43,6 +37,5 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 1
-    # add every path here because you shouldn't be able to buy more starter knowledge
     whitelist:
     - Ash

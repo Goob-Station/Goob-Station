@@ -3,9 +3,7 @@
   name: knowledge-path-lock-s1-name
   description: knowledge-path-lock-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_lock.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent:
-    !type:HereticAddKnowledgeEvent
+  #productHereticKnowledge:
   cost:
     KnowledgePoint: 1
   categories:

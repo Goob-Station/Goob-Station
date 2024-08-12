@@ -13,6 +13,11 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 
     [DataField] public int Stage = 1;
 
+    /// <summary>
+    ///     Indicates that this should not be on a main branch.
+    /// </summary>
+    [DataField] public bool SideKnowledge = false;
+
     [DataField] public object? Event;
 
     [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes;
@@ -67,16 +72,10 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
             Name = Name,
             RequiredEntityNames = RequiredEntityNames,
             RequiredTags = RequiredTags,
+            CustomBehaviors = CustomBehaviors,
             Output = Output,
             OutputEvent = OutputEvent,
             OutputKnowledge = OutputKnowledge
         };
     }
 }
-
-#region Ritual Events
-
-[Serializable, NetSerializable] public sealed partial class HereticRitualSacrificeEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class HereticRitualAscendEvent : EntityEventArgs { }
-
-#endregion

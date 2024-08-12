@@ -3,7 +3,7 @@ using Content.Server.Objectives.Systems;
 
 namespace Content.Server.Objectives.Components;
 
-[RegisterComponent, Access(typeof(HereticObjectiveSystem), typeof(HereticSystem))]
+[RegisterComponent]
 public sealed partial class HereticKnowledgeConditionComponent : Component
 {
     [DataField] public float Researched = 0f;

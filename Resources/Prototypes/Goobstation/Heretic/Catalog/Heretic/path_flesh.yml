@@ -3,9 +3,7 @@
   name: knowledge-path-flesh-s1-name
   description: knowledge-path-flesh-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
-  raiseProductEventOnUser: true
-  productEvent:
-    !type:HereticAddKnowledgeEvent
+  #productHereticKnowledge:
   cost:
     KnowledgePoint: 1
   categories:

@@ -1,3 +1,5 @@
+using Content.Server.Heretic.EntitySystems;
+
 namespace Content.Server.Heretic.Components;
 
 [RegisterComponent, Access(typeof(MansusGraspSystem))]

@@ -2,7 +2,8 @@
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
-  customBehaviors: !type:RitualSacrificeBehavior
+  customBehaviors:
+  - !type:RitualSacrificeBehavior
 
 - type: hereticRitual
   id: AmberFocus

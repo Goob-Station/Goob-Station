@@ -1,8 +1,11 @@
+using Content.Server.Store.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Heretic;
+using Content.Shared.Popups;
 using Content.Shared.Store.Components;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : EntitySystem
 {
