@@ -1,0 +1,36 @@
+- type: entity
+  name: cane blade
+  suffix: Nanotrasen
+  parent: BaseItem
+  id: CaneBladeNanotrasen
+  description: A sharp blade with a cane shaped hilt, a Nanotrasen logo is engraved on the blade.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cane_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: 65
+    attackRate: 1.25
+    damage:
+      types:
+        Slash: 10
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+    sprite: Objects/Weapons/Melee/cane_blade.rsi
+  - type: Tag
+    tags:
+      - CaneBlade
+  - type: DisarmMalus
+
+- type: entity
+  id: CaneSheathFilledNanotrasen
+  parent: CaneSheath
+  suffix: Filled, Nanotrasen
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - CaneBladeNanotrasen
