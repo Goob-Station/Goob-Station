@@ -3,5 +3,4 @@ namespace Content.Shared.Abilities;
 
 [RegisterComponent]
 [NetworkedComponent]
-public sealed partial class AlwaysTriggerMousetrapComponent : Component
-{ }
+public sealed partial class AlwaysTriggerMousetrapComponent : Component { }

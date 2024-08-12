@@ -12,23 +12,22 @@ public sealed partial class MouthStorageComponent : Component
 {
     public const string MouthContainerId = "mouth";
 
-    [DataField("openStorageAction"), AutoNetworkedField]
+    [DataField, AutoNetworkedField]
     public EntProtoId? OpenStorageAction;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Action;
 
-    [DataField("mouthProto")]
+    [DataField]
     public EntProtoId MouthProto = "ActionOpenMouthStorage";
 
     [ViewVariables]
     public Container Mouth = default!;
 
-    [ViewVariables]
     [DataField]
     public EntityUid? MouthId;
 
     // Mimimum inflicted damage on hit to spit out items
-    [DataField("spitDamageThreshold")]
+    [DataField]
     public FixedPoint2 SpitDamageThreshold = FixedPoint2.New(2);
 }

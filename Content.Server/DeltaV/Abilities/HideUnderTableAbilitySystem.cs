@@ -30,8 +30,7 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, ToggleCrawlingStateEvent>(OnAbilityToggle);
         SubscribeLocalEvent<CrawlUnderObjectsComponent, AttemptClimbEvent>(OnAttemptClimb);
-        SubscribeLocalEvent<CrawlUnderObjectsComponent,
-            RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
+        SubscribeLocalEvent<CrawlUnderObjectsComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovespeed);
     }
 
     private bool IsOnCollidingTile(EntityUid uid)
@@ -54,10 +53,9 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 
     private bool EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
-        if (component.Enabled)
-            return false;
-
-        if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
+        if (component.Enabled
+        	|| (TryComp<ClimbingComponent>(uid, out var climbing)
+        		&& climbing.IsClimbing == true))
             return false;
 
         component.Enabled = true;
@@ -85,10 +83,10 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 
     private bool DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
-        if (!component.Enabled || IsOnCollidingTile(uid))
-            return false;
-
-        if (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)
+        if (!component.Enabled
+        	|| IsOnCollidingTile(uid))
+        	|| (TryComp<ClimbingComponent>(uid, out var climbing)
+        		&& climbing.IsClimbing == true))
             return false;
 
         component.Enabled = false;
@@ -97,13 +95,10 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
 
         // Restore normal collision masks
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
-        {
             foreach (var (key, originalMask) in component.ChangedFixtures)
-            {
                 if (fixtureComponent.Fixtures.TryGetValue(key, out var fixture))
                     _physics.SetCollisionMask(uid, key, fixture, originalMask, fixtureComponent);
-            }
-        }
+
         component.ChangedFixtures.Clear();
         return true;
     }

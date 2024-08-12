@@ -46,9 +46,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         component.MouthId = mouth;
 
         if (!string.IsNullOrWhiteSpace(component.OpenStorageAction) && component.Action == null)
-        {
             _actionsSystem.AddAction(uid, ref component.Action, component.OpenStorageAction, mouth);
-        }
     }
 
     private void DropAllContents(EntityUid uid, MouthStorageComponent component, EntityEventArgs args)
