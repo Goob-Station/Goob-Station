@@ -59,7 +59,7 @@ public sealed class MedicalPatchSystem : EntitySystem
         {
             if (!TryComp<StickyComponent>(uid, out var stickycomp))
                 return;
-            _stickySystem.UnstickFromEntity((uid,stickycomp), uid);
+            _stickySystem.UnstickFromEntity((uid, stickycomp), uid);
         }
     }
     public bool TryInject(EntityUid uid, MedicalPatchComponent component, FixedPoint2 transferAmount)
