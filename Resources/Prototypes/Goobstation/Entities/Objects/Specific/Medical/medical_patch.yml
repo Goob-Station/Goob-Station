@@ -17,10 +17,10 @@
   - type: Sticky
     stickDelay: 3
     unstickDelay: 2
-    stickPopupStart: Started placing patch
-    stickPopupSuccess: Patch placed
-    unstickPopupStart: Started removing patch
-    unstickPopupSuccess: Patch removed
+    stickPopupStart: goobstation-medicalpatch-sticy-trystick
+    stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-succes
+    unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
+    unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
     whitelist:
       components:
       - Bloodstream
