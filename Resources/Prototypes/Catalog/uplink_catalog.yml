@@ -594,7 +594,7 @@
   productEntity: CombatMedipen
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 20
+    Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
 

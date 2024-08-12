@@ -61,3 +61,8 @@
 - type: lobbyBackground
   id: Killsigned
   background: /Textures/LobbyScreens/killsigned.webp
+
+- type: lobbyBackground
+  id: GoobNukie
+  background: /Textures/LobbyScreens/GoobNukie.webp
+  
