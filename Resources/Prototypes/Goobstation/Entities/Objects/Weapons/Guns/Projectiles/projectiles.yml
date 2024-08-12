@@ -14,7 +14,7 @@
   - type: Projectile
     damage:
       types:
-        Poison: 10
+        Heat: 10
   - type: TimedDespawn
     lifetime: 0.4
   - type: StaminaDamageOnCollide
