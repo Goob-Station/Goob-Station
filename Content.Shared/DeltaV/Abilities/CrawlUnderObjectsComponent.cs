@@ -40,8 +40,7 @@ public enum SneakMode : byte
     Enabled
 }
 
-public sealed partial class ToggleCrawlingStateEvent : InstantActionEvent
-{ }
+public sealed partial class ToggleCrawlingStateEvent : InstantActionEvent { }
 
 [Serializable, NetSerializable]
 public sealed partial class CrawlingUpdatedEvent : EventArgs
