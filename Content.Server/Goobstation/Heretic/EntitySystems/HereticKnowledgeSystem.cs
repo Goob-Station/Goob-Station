@@ -1,10 +1,10 @@
 using Content.Shared.Actions;
+using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using System.Text;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticKnowledgeSystem : EntitySystem
 {
@@ -16,17 +16,6 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public HereticKnowledgePrototype GetKnowledge(ProtoId<HereticKnowledgePrototype> id)
         => _proto.Index(id);
 
-    private void AddKnowledge(Entity<HereticComponent> ent, string listingEventId)
-    {
-        // basically remove the Listing and the Event, leave only the name
-        var sb = new StringBuilder();
-        sb.Append(listingEventId);
-        sb.Remove(0, 7);
-        sb.Remove(listingEventId.Length - 6, 5);
-
-        _popup.PopupEntity(sb.ToString(), ent, ent);
-        AddKnowledge(ent, ent.Comp, sb.ToString());
-    }
     public void AddKnowledge(EntityUid uid, HereticComponent comp, ProtoId<HereticKnowledgePrototype> id, bool silent = true)
     {
         var data = GetKnowledge(id);
@@ -82,12 +71,19 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-
-        // i couldn't find a better way, e.g. getting the listing prototype, because it simply doesn't get passed
-        // so i'm using a shit ton of events. god help me tolerate this. this is a lot of copypaste.
-        SubscribeLocalEvent<HereticComponent, ListingNightwatcherSecretEvent>(ListingNightwatcherSecret);
+        SubscribeLocalEvent<HereticComponent, HereticAddKnowledgeEvent>(OnAddKnowledge);
     }
 
-    private void ListingNightwatcherSecret(Entity<HereticComponent> ent, ref ListingNightwatcherSecretEvent args)
-    => AddKnowledge(ent, nameof(args));
+    private void OnAddKnowledge(Entity<HereticComponent> ent, ref HereticAddKnowledgeEvent args)
+    {
+        if (args.ID == null)
+            return;
+
+        AddKnowledge(ent, ent.Comp, (ProtoId<HereticKnowledgePrototype>) args.ID);
+    }
+}
+
+public sealed partial class HereticAddKnowledgeEvent : EntityEventArgs
+{
+    [DataField] public ProtoId<HereticKnowledgePrototype>? ID;
 }

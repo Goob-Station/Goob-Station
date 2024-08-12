@@ -21,7 +21,7 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class GhoulSystem : EntitySystem
 {

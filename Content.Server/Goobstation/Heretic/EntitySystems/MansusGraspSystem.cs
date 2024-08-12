@@ -19,7 +19,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class MansusGraspSystem : EntitySystem
 {

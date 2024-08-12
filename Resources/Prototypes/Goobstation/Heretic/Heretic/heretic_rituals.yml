@@ -1,8 +1,8 @@
-# basic rituals
+# basic
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
-  outputEvent: !type:HereticRitualSacrificeEvent
+  customBehaviors: !type:RitualSacrificeBehavior
 
 - type: hereticRitual
   id: AmberFocus
@@ -14,7 +14,7 @@
   output:
     ClothingNeckAmberFocus: 1
 
-# ash path
+# ash
 - type: hereticRitual
   id: BladeAsh
   name: heretic-ritual-ash-blade

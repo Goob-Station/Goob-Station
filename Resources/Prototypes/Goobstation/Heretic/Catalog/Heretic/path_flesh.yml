@@ -1,0 +1,25 @@
+- type: listing
+  id: KnowledgePathStartFlesh
+  name: knowledge-path-flesh-s1-name
+  description: knowledge-path-flesh-s1-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
+  raiseProductEventOnUser: true
+  productEvent:
+    !type:HereticAddKnowledgeEvent
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathFlesh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
+    # add every path here because you shouldn't be able to buy more starter knowledge
+    blacklist:
+    - Ash
+    - Blade
+    - Flesh
+    - Lock
+    - Rust
+    - Void

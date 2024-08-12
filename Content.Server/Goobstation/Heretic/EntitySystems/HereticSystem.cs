@@ -8,7 +8,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticSystem : EntitySystem
 {

@@ -21,7 +21,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Numerics;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class HereticBladeSystem : EntitySystem
 {

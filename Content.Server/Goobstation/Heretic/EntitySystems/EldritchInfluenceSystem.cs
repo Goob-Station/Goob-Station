@@ -4,7 +4,7 @@ using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 
-namespace Content.Server.Heretic;
+namespace Content.Server.Heretic.EntitySystems;
 
 public sealed partial class EldritchInfluenceSystem : EntitySystem
 {
