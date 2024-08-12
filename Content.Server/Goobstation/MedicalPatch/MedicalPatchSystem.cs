@@ -2,8 +2,8 @@ using Content.Shared.Administration.Logs;
 using Content.Server.Medical.Components;
 using Content.Server.Popups;
 using Content.Shared.FixedPoint;
-using Content.Shared.Sticky.Systems;
 using Content.Shared.Sticky;
+using Content.Shared.Sticky.Systems;
 using Content.Shared.Sticky.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Chemistry.EntitySystems;
@@ -22,7 +22,6 @@ public sealed class MedicalPatchSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] private readonly ReactiveSystem _reactiveSystem = default!;
-    [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
 
@@ -59,10 +58,8 @@ public sealed class MedicalPatchSystem : EntitySystem
         if (!TryInject(uid, component, component.TransferAmount))
         {
             if (!TryComp<StickyComponent>(uid, out var stickycomp))
-            return false;
-            //_stickySystem.UnstickFromEntity(uid, uid);
-            var attemptEv = new AttemptEntityUnstickEvent(stickycomp.StuckTo, uid);
-            RaiseLocalEvent(uid, ref attemptEv);
+                return;
+            _stickySystem.UnstickFromEntity((uid,stickycomp), uid);
         }
     }
     public bool TryInject(EntityUid uid, MedicalPatchComponent component, FixedPoint2 transferAmount)
