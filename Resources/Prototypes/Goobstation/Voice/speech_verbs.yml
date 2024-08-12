@@ -4,3 +4,12 @@
   speechVerbStrings:
   - chat-speech-verb-gondola-1
   - chat-speech-verb-gondola-2
+
+- type: speechSounds
+  id: Chrono
+  saySound:
+    path: /Audio/Goobstation/Voice/Chrono/contact.ogg
+  askSound:
+    path: /Audio/Goobstation/Voice/Chrono/dagger.ogg
+  exclaimSound:
+    path: /Audio/Goobstation/Voice/Chrono/contact.ogg

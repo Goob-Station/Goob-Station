@@ -1,3 +1,8 @@
+- files: ["janishootout.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
+
 - files: ["breakingchem.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "Unknown"
@@ -33,3 +38,53 @@
   copyright: "Unknown"
   source: "https://forums.goobstation.com"
 
+- files: ["courtjester.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["donottouch.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["foundinghonkers.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["cburn.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "PubliclyExecutedPig"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownhell.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "kA2220"
+  source: "https://forums.goobstation.com"
+
+- files: ["grandtheftgoob.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["killsigned.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "icepick"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownassassin.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "ka2220"
+  source: "https://forums.goobstation.com"
+
+- files: ["reclaimer-nuke.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Unknown"
+  source: "https://forums.goobstation.com"
+
+- files: ["GoobNukie.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
+  source: "https://forums.goobstation.com"
+  

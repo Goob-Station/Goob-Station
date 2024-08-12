@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 54000 # 15 hours
+      time: 180000  #50 hours
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasen"
@@ -14,10 +14,16 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
-  accessGroups:
-  - AllAccess
   access:
   - CentralCommand
+  - Brig
+  - External
+  - Cryogenics
+  - Maintenance
+  - Engineering
+  - Medical
+  - Research
+  - Command
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -32,8 +38,7 @@
     id: CentcomPDA
     ears: ClothingHeadsetCentCom
     belt: BoxFolderCentComClipboard
-    pocket1: RubberStampCentcom
-    pocket2: WeaponDisabler
+    pocket1: WeaponDisabler
   storage:
     back:
-    - BoxSurvivalSlots
+    - RubberStampCentcom

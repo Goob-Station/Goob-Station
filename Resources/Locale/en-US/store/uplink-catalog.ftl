@@ -80,7 +80,7 @@ uplink-shrapnel-grenade-desc = Launches a spray of sharp fragments dealing great
 
 # Ammo
 uplink-pistol-magazine-name = Pistol Magazine (.35 auto)
-uplink-pistol-magazine-desc = Pistol magazine with 10 catridges. Compatible with the Viper.
+uplink-pistol-magazine-desc = Pistol magazine with 12 catridges. Compatible with the Viper.
 
 uplink-pistol-magazine-c20r-name = SMG magazine (.35 auto)
 uplink-pistol-magazine-c20r-desc = Rifle magazine with 30 catridges. Compatible with C-20r.
@@ -125,7 +125,10 @@ uplink-reinforcement-radio-ancestor-name = Genetic Ancestor Reinforcement Telepo
 uplink-reinforcement-radio-ancestor-desc =  Call in a trained ancestor of your choosing to assist you. Comes with a single syndicate cigarette.
 
 uplink-reinforcement-radio-name = Reinforcement Teleporter
-uplink-reinforcement-radio-desc =  Radio in a reinforcement agent of extremely questionable quality. No off button, buy this if you're ready to party. They have a pistol with no reserve ammo, and a knife. That's it.
+uplink-reinforcement-radio-traitor-desc =  Radio in a reinforcement agent of extremely questionable quality. No off button, buy this if you're ready to party. Call in a medic or spy or thief to help you out. Good luck.
+
+uplink-reinforcement-radio-nukeops-name = Nuclear Operative Teleporter
+uplink-reinforcement-radio-nukeops-desc =  Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
 
 uplink-reinforcement-radio-cyborg-assault-name = Syndicate Assault Cyborg Teleporter
 uplink-reinforcement-radio-cyborg-assault-desc =  A lean, mean killing machine with access to an Energy Sword, LMG, Cryptographic Sequencer, and a Pinpointer.
@@ -242,7 +245,7 @@ uplink-super-surplus-bundle-desc = Contains 625 telecrystals worth of completely
 
 # Tools
 uplink-toolbox-name = Toolbox
-uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves, syndicate gas mask and a utility belt.
+uplink-toolbox-desc = A full compliment of tools for the mechanically inclined traitor. Includes a pair of insulated combat gloves and a syndicate gas mask as well.
 
 uplink-syndicate-jaws-of-life-name = Jaws Of Life
 uplink-syndicate-jaws-of-life-desc = A combined prying and cutting tool. Useful for entering the station or its departments.
@@ -291,8 +294,7 @@ uplink-cluster-banana-peel-name = Cluster Banana
 uplink-cluster-banana-peel-desc = Splits into 6 explosive banana peels after being thrown, the peels detonate automatically after 20 seconds if nobody slips on them.
 
 uplink-cane-blade-name = Cane Blade
-uplink-cane-blade-desc = A cane that has a hidden blade that can be unsheathed.
-
+uplink-cane-blade-desc = A cane that has a hidden, strange blade that can be unsheathed. Stolen from a curator's personal museum. Lights people on fire via an ancient enchantment.
 # Armor
 uplink-chameleon-name = Chameleon Kit
 uplink-chameleon-desc = A backpack full of items that contain chameleon technology allowing you to disguise as pretty much anything on the station, and more!
@@ -310,13 +312,16 @@ uplink-clothing-shoes-boots-mag-syndie-name = Blood-red Magboots
 uplink-clothing-shoes-boots-mag-syndie-desc = A pair of boots that prevent slipping and, in zero gravity, allow you to move normally, at the cost of a slight slowdown. Additionally, they have jetpack functionality and come fueled, but don't last for long.
 
 uplink-eva-syndie-name = Syndicate EVA Bundle
-uplink-eva-syndie-desc = A simple EVA suit that offers no protection other than what's needed to survive in space.
+uplink-eva-syndie-desc = A durathread EVA suit with some protection, and anti-rad installed. Very nimble, with zero slowdown.
 
 uplink-hardsuit-carp-name = Carp Hardsuit
 uplink-hardsuit-carp-desc = Looks like an ordinary carp suit, except fully spaceproof and tricks space carp into thinking you are one of them.
 
 uplink-hardsuit-syndie-name = Syndicate Hardsuit
 uplink-hardsuit-syndie-desc = The Syndicate's well known armored blood red hardsuit, capable of space walks and bullet resistant.
+
+uplink-syndie-raid-name = Syndicate Raid Suit
+uplink-syndie-raid-desc = A very durable and reasonably flexible suit of blood-red armor, reinforced against all common forms of damage but not capable of space walks. Comes with a sick helmet.
 
 uplink-hardsuit-syndieelite-name = Syndicate Elite Hardsuit
 uplink-hardsuit-syndieelite-desc = An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.

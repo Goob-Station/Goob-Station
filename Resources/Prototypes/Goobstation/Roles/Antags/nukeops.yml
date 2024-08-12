@@ -1,0 +1,6 @@
+# used by reinforcement operatives
+- type: startingGear
+  id: SyndicateOperativeGearNoUplink
+  parent: SyndicateOperativeGearFull
+  equipment:
+    pocket2: PlushieCarp # instead of uplink

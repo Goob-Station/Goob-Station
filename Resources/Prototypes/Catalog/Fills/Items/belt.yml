@@ -19,12 +19,15 @@
   components:
   - type: StorageFill
     contents:
-      - id: Crowbar
+      - id: CrowbarYellow
       - id: Wrench
       - id: Screwdriver
       - id: Wirecutter
       - id: Welder
       - id: Multitool
+      #Goob-Station - changes made by Jellygato 7/13/24
+      - id: trayScanner
+      - id: GasAnalyzer
 
 - type: entity
   id: ClothingBeltChiefEngineerFilled

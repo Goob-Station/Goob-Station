@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Shared.Atmos;
 using Content.Shared.Atmos.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
 using Robust.Shared.Audio;
@@ -70,28 +71,8 @@ namespace Content.Server.Atmos.EntitySystems
             }
         }
 
-        private void AddMovedByPressure(EntityUid uid, MovedByPressureComponent component, PhysicsComponent body)
-        {
-            if (!TryComp<FixturesComponent>(uid, out var fixtures))
-                return;
-
-            _physics.SetBodyStatus(uid, body, BodyStatus.InAir);
-
-            foreach (var (id, fixture) in fixtures.Fixtures)
-            {
-                _physics.RemoveCollisionMask(uid, id, fixture, (int) CollisionGroup.TableLayer, manager: fixtures);
-            }
-
-            // TODO: Make them dynamic type? Ehh but they still want movement so uhh make it non-predicted like weightless?
-            // idk it's hard.
-
-            component.Accumulator = 0f;
-            _activePressures.Add((uid, component));
-        }
-
         private void HighPressureMovements(Entity<GridAtmosphereComponent> gridAtmosphere, TileAtmosphere tile, EntityQuery<PhysicsComponent> bodies, EntityQuery<TransformComponent> xforms, EntityQuery<MovedByPressureComponent> pressureQuery, EntityQuery<MetaDataComponent> metas)
         {
-            //!MAGIC EXIT CONDITION THAT MAKES ALMOST 200 LINES RUN 1/100TH AS OFTEN.
             if (tile.PressureDifference < SpaceWindMinimumCalculatedMass * SpaceWindMinimumCalculatedMass)
                 return;
             // TODO ATMOS finish this
@@ -123,7 +104,7 @@ namespace Content.Server.Atmos.EntitySystems
             var gridWorldRotation = xforms.GetComponent(gridAtmosphere).WorldRotation;
 
             // If we're using monstermos, smooth out the yeet direction to follow the flow
-            //WTF:This is bad, don't run this. It just makes the throws worse by somehow rounding them to orthogonal
+            //TODO This is bad, don't run this. It just makes the throws worse by somehow rounding them to orthogonal
             if (!MonstermosEqualization)
             {
                 // We step through tiles according to the pressure direction on the current tile.
@@ -185,8 +166,8 @@ namespace Content.Server.Atmos.EntitySystems
             tile.PressureDirection = differenceDirection;
         }
 
-        //INFO:The EE version of this function drops pressureResistanceProbDelta, since it's not needed. If you are for whatever reason calling this function
-        //INFO:And it isn't working, you've probably still got the pressureResistanceProbDelta line included.
+        //INFO The EE version of this function drops pressureResistanceProbDelta, since it's not needed. If you are for whatever reason calling this function
+        //INFO And if it isn't working, you've probably still got the pressureResistanceProbDelta line included.
         /// <notes>
         /// EXPLANATION:
         /// pressureDifference = Force of Air Flow on a given tile
@@ -202,14 +183,6 @@ namespace Content.Server.Atmos.EntitySystems
         /// For a human sized entity with a standard weight of 80kg and a spacing between a hard vacuum and a room pressurized at 101kpa,
         /// The human shall only be moved if he is either very close to the hole, or is standing in a region of high airflow
         /// </notes>
-        /// <param name="ent"></param>
-        /// <param name="cycle"></param>
-        /// <param name="pressureDifference"></param>
-        /// <param name="direction"></param>
-        /// <param name="throwTarget"></param>
-        /// <param name="gridWorldRotation"></param>
-        /// <param name="xform"></param>
-        /// <param name="physics"></param>
 
         public void ExperiencePressureDifference(
             Entity<MovedByPressureComponent> ent,
@@ -233,23 +206,23 @@ namespace Content.Server.Atmos.EntitySystems
                 && !float.IsPositiveInfinity(component.MoveResist))
             {
                 var moveForce = pressureDifference * MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
+                if (HasComp<HumanoidAppearanceComponent>(ent))
+                    moveForce *= HumanoidThrowMultiplier;
                 if (moveForce > physics.Mass)
                 {
-                    var maxSafeForceForObject = SpaceWindMaxVelocity * physics.Mass;
-                    moveForce = MathF.Min(moveForce, maxSafeForceForObject);
-                    AddMovedByPressure(uid, component, physics);
                     // Grid-rotation adjusted direction
                     var dirVec = (direction.ToAngle() + gridWorldRotation).ToWorldVec();
+                    moveForce *= MathF.Max(physics.InvMass, SpaceWindMaximumCalculatedInverseMass);
 
-                    // TODO: Consider replacing throw target with proper trigonometry angles.
+                    //TODO Consider replacing throw target with proper trigonometry angles.
                     if (throwTarget != EntityCoordinates.Invalid)
                     {
                         var pos = throwTarget.ToMap(EntityManager, _transformSystem).Position - xform.WorldPosition + dirVec;
-                        _physics.ApplyLinearImpulse(uid, pos.Normalized() * moveForce, body: physics);
+                        _throwing.TryThrow(uid, pos.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
                     }
                     else
                     {
-                        _physics.ApplyLinearImpulse(uid, dirVec.Normalized() * moveForce, body: physics);
+                        _throwing.TryThrow(uid, dirVec.Normalized() * MathF.Min(moveForce, SpaceWindMaxVelocity), moveForce);
                     }
 
                     component.LastHighPressureMovementAirCycle = cycle;

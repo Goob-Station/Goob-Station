@@ -1,13 +1,12 @@
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: BaseBullet
   id: BulletAntiMateriel
   name: bullet (.60 anti-materiel)
   components:
   - type: Projectile
-    damage:
+    damage: # Goobstation
       types:
-        Piercing: 40
-        Structural: 30
-  - type: StaminaDamageOnCollide
-    damage: 35
+        Piercing: 60
+        Structural: 90
+    ignoreResistances: true

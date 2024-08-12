@@ -745,6 +745,7 @@
     - map: ["computerLayerKeys"]
       state: tech_key
   - type: CargoOrderConsole
+  - type: BankClient
   - type: ActiveRadio
     channels:
     - Supply
@@ -809,6 +810,7 @@
   - type: GuideHelp
     guides:
     - CargoBounties
+    - Cargo
 
 - type: entity
   parent: BaseComputer
@@ -980,7 +982,7 @@
   id: ComputerPalletConsole
   parent: BaseComputer
   name: cargo sale computer
-  description: Used to sell goods loaded onto cargo pallets
+  description: Used to sell goods loaded onto cargo pallets.
   components:
   - type: Sprite
     layers:
