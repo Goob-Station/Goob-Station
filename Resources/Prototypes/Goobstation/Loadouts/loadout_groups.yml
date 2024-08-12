@@ -19,3 +19,16 @@
   loadouts:
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeJumpskirt
+
+- type: loadoutGroup
+  id: Tools
+  name: loadout-group-tools
+  minLimit: 0
+  maxLimit: 2
+  loadouts:
+  - Crowbar
+  - Wrench
+  - Screwdriver
+  - Wirecutter
+  - FlashlightLantern
+  - Lantern

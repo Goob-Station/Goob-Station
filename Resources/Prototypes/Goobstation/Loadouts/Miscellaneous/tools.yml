@@ -1,0 +1,36 @@
+- type: loadout
+  id: Crowbar
+  storage:
+    back:
+    - Crowbar
+
+- type: loadout
+  id: Wrench
+  storage:
+    back:
+    - Wrench
+
+- type: loadout
+  id: Screwdriver
+  storage:
+    back:
+    - Screwdriver
+
+- type: loadout
+  id: Wirecutter
+  storage:
+    back:
+    - Wirecutter
+
+- type: loadout
+  id: FlashlightLantern
+  storage:
+    back:
+    - FlashlightLantern
+
+- type: loadout
+  id: Lantern
+  storage:
+    back:
+    - Lantern
+
