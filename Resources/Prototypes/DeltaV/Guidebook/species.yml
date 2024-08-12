@@ -1,0 +1,24 @@
+- type: guideEntry
+  id: Felinid
+  name: species-name-felinid
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Felinid.xml"
+
+- type: guideEntry
+  id: Harpy
+  name: species-name-harpy
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Harpy.xml"
+
+- type: guideEntry
+  id: Vulpkanin
+  name: species-name-vulpkanin
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Vulpkanin.xml"
+
+- type: guideEntry
+  id: Oni
+  name: species-name-oni
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Oni.xml"
+
+- type: guideEntry
+  id: Rodentia
+  name: species-name-rodentia
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Rodentia.xml"
