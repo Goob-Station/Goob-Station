@@ -125,7 +125,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
         {
-            args.Handled = true;
+            // todo: make the blade break and damage heathens
             return;
         }
 

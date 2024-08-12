@@ -25,13 +25,20 @@ heretic-role-greeting-short =
 
 ## ghoul
 heretic-ghoul-greeting =
-    You are a ghoul of {CAPITALIZE(THE($ent))}!
-    Obey his orders and protect him at all cost.
-    You may follow other heretics' if your owner is beyond resurrection.
+    You have been summoned into this world by {CAPITALIZE(THE($ent))}!
+    You must aid him in his journey to ascension and protect him at all costs.
+    You may follow other heretics if your master is beyond resurrection.
+heretic-ghoul-greeting-noname =
+    You have been summoned into this world by eldritch forces.
+    Obey the orders of your masters no matter what.
 
 ghostrole-ghoul-name = Ghoul
-ghostrole-ghoul-desc = Obey your summoner.
-ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other ghouls.
+ghostrole-prophet-name = Raw Prophet
+ghostrole-stalker-name = Flesh Stalker
+ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
+ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believes to the Mansus Link.
+ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and blend in with crew.
+ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
 
 
 ## ascension

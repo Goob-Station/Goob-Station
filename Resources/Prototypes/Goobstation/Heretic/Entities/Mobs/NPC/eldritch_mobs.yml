@@ -73,6 +73,9 @@
   - type: Sprite
     sprite: Goobstation/Heretic/eldritch_mobs.rsi
     state: stalker
+  - type: GhostRole
+    name: ghostrole-stalker-name
+    description: ghostrole-stalker-desc
 
 - type: entity
   parent: BaseMobGhoul
@@ -87,6 +90,9 @@
     noRot: true
     sprite: Goobstation/Heretic/eldritch_mobs.rsi
     state: raw_prophet
+  - type: GhostRole
+    name: ghostrole-prophet-name
+    description: ghostrole-prophet-desc
 
 - type: entity
   parent: BaseMobGhoul
