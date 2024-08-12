@@ -651,3 +651,9 @@ Entries:
         their new jumpsuits.
   id: 83
   time: '2024-08-12T22:15:33.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Changeling hivemind status icon fixed
+  id: 84
+  time: '2024-08-12T22:52:35.0000000+00:00'
