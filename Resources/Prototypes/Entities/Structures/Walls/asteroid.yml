@@ -31,6 +31,11 @@
         state: rock_asteroid_north
       - map: [ "enum.EdgeLayer.West" ]
         state: rock_asteroid_west
+  - type: SoundOnGather # Goobstation
+  - type: Gatherable    # Goobstation
+    toolWhitelist:
+      tags:
+        - Pickaxe
   - type: Damageable
     damageContainer: StructuralInorganic
     damageModifierSet: Rock
