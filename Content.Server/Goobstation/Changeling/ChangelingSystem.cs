@@ -318,13 +318,18 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
 
         var target = action.Target;
+
+        // can't get his dna if he doesn't have it!
+        if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
+            return false;
+        }
+
         if (HasComp<ChangelingComponent>(target))
         {
-            var selfMessage = Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager)));
-            var targetMessage = Loc.GetString("changeling-sting-fail-ling");
-
-            _popup.PopupEntity(selfMessage, uid, uid);
-            _popup.PopupEntity(targetMessage, target, target);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager))), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
             return false;
         }
         if (!overrideMessage)
@@ -583,6 +588,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         // show alerts
         UpdateChemicals(uid, comp, 0);
         UpdateBiomass(uid, comp, 0);
+        // make their blood unreal
+        _blood.ChangeBloodReagent(uid, "BloodChangeling");
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
@@ -603,7 +610,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (!args.DamageIncreased)
             return;
-
+        
         target.Damage.ClampMax(200); // we never die. UNLESS??
     }
 

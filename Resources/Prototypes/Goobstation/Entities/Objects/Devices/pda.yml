@@ -1,0 +1,22 @@
+- type: entity
+  parent: AdminPDA
+  id: ChronoPDA
+  name: futuristic PDA
+  description: A powerful quantum computer disguised as a regular pda for disguise.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: ChronoIDCard
+    state: pda-chrono
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono

@@ -1,0 +1,14 @@
+- type: entity
+  id: MedkitCombatStasiziumFilled
+  name: futuristic medkit
+  description: Medkit filled with medicines of the future
+  suffix: Stazisium
+  parent: MedkitCombat
+  components:
+  - type: StorageFill
+    contents:
+      - id: StasiziumAutoInjector
+        amount: 8
+  - type: Sprite
+    sprite: Objects/Specific/Medical/firstaidkits.rsi
+    state: purplekit

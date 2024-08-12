@@ -28,3 +28,9 @@
 - type: Tag
   id: SpaceMedipen
 
+- type: Tag
+  id: StasisBattery
+  
+- type: Tag
+  id: StasisCage
+ 
