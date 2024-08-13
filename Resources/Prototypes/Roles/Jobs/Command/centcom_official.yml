@@ -8,6 +8,14 @@
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-hos
   canBeAntag: false
+  # Goobstation - Siouxcide, prevent felinids from playing command
+  requirements:
+  - !type:AgeRequirement
+    requiredAge: 21
+  - !type:SpeciesRequirement
+    inverted: true
+    species:
+    - Felinid
   accessGroups:
   - AllAccess
   access:
