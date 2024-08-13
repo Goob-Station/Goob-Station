@@ -12,10 +12,6 @@
   requirements:
   - !type:AgeRequirement
     requiredAge: 21
-  - !type:SpeciesRequirement
-    inverted: true
-    species:
-    - Felinid
   accessGroups:
   - AllAccess
   access:
