@@ -679,3 +679,9 @@ Entries:
         for just 49.99!
   id: 87
   time: '2024-08-13T20:51:37.0000000+00:00'
+- author: DaMoggen
+  changes:
+    - type: Tweak
+      message: Tritium and ammonia gas canisters are no longer an eyesore.
+  id: 88
+  time: '2024-08-13T20:52:21.0000000+00:00'
