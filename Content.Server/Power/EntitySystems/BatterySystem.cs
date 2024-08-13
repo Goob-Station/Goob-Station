@@ -170,16 +170,6 @@ namespace Content.Server.Power.EntitySystems
             return true;
         }
 
-        // Goobstation
-        public bool TryAddCharge(EntityUid uid, float value, BatteryComponent? battery = null)
-        {
-            if (!Resolve(uid, ref battery, false))
-                return false;
-
-            AddCharge(uid, value, battery);
-            return true;
-        }
-
         /// <summary>
         /// Returns whether the battery is at least 99% charged, basically full.
         /// </summary>

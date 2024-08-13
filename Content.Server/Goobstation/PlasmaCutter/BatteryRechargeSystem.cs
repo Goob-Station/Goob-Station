@@ -58,7 +58,7 @@ namespace Content.Server.Goobstation.Plasmacutter
 
             if (_materialStorage.TryChangeMaterialAmount(uid, fuelType, -availableMaterial))
             {
-                _batterySystem.TryAddCharge(uid, chargePerMaterial);
+                _batterySystem.AddCharge(uid, chargePerMaterial);
             }
         }
     }
