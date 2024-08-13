@@ -110,6 +110,7 @@
   description: A ballistic riot shield built for withstanding bullets, but not much else.
   components:
     - type: Sprite
+      sprite: Objects/Weapons/Melee/shields.rsi
       state: riot_bullet-icon
     - type: Item
       heldPrefix: riot_bullet
