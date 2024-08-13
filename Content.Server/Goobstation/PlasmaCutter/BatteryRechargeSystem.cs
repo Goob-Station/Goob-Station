@@ -10,7 +10,6 @@ namespace Content.Server.Goobstation.Plasmacutter
         [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
         [Dependency] private readonly BatterySystem _batterySystem = default!;
 
-
         public override void Initialize()
         {
             base.Initialize();
@@ -52,13 +51,23 @@ namespace Content.Server.Goobstation.Plasmacutter
         {
             if (!Resolve(uid, ref recharge))
                 return;
-
+            
             var availableMaterial = _materialStorage.GetMaterialAmount(uid, fuelType);
-            var chargePerMaterial = availableMaterial * recharge.Multiplier;
 
             if (_materialStorage.TryChangeMaterialAmount(uid, fuelType, -availableMaterial))
             {
-                _batterySystem.AddCharge(uid, chargePerMaterial);
+                // this is shit. this shit works.
+                var spawnAmount = 0;
+                if (fuelType == "Plasma")
+                {
+                    spawnAmount = Math.Abs(_batterySystem.GetChargeDifference(uid) - availableMaterial) / 100;
+                }
+                for (int i = 0; i < spawnAmount; i++) 
+                {
+                    Spawn("SheetPlasma1", Transform(uid).Coordinates);
+                }
+                
+                _batterySystem.AddCharge(uid, availableMaterial);
             }
         }
     }

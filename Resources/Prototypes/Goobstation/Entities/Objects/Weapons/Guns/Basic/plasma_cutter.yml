@@ -20,13 +20,11 @@
     materialWhiteList: [Plasma]
     CanEjectStoredMaterials: false
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
+    maxCharge: 3000
+    startingCharge: 3000
   - type: BatteryRecharge
-    multiplier: 3
-    storageMaxCapacity: 100
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutter
-    fireCost: 100
+    fireCost: 200
   - type: Appearance
 
