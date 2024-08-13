@@ -13,6 +13,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 90000 # 25 hours
+    - !type:AgeRequirement
+      requiredAge: 21
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Felinid
   weight: 20
   startingGear: BlueshieldOfficerGear
   icon: "JobIconNanotrasen"
