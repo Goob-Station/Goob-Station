@@ -663,3 +663,11 @@ Entries:
       message: Changed NTR dress to match other command members dresses
   id: 85
   time: '2024-08-13T01:18:18.0000000+00:00'
+- author: Gtheglorious
+  changes:
+    - type: Tweak
+      message: Updated the cleanbot with better sprites.
+    - type: Tweak
+      message: You can now pick up cleanbots.
+  id: 86
+  time: '2024-08-13T02:31:33.0000000+00:00'
