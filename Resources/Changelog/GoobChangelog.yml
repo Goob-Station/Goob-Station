@@ -619,3 +619,41 @@ Entries:
       message: The button for pages has been moved to the top of the UI.
   id: 79
   time: '2024-08-11T08:41:34.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: no more 8 spaceman Fland gaming.
+  id: 80
+  time: '2024-08-11T08:41:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Crowbar storage icons now match our crowbars color scheme
+    - type: Fix
+      message: Crowbar handle now correctly positioned
+  id: 81
+  time: '2024-08-11T09:03:43.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Fix
+      message: Fixed the new riot bullet shield sprites not displaying correctly
+  id: 82
+  time: '2024-08-12T20:08:25.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Nanotrasen Representative now has their own job icon
+    - type: Add
+      message: New nanotrasen representative jumpsuit and jumpskirt
+    - type: Tweak
+      message: >-
+        Nanotrasen Representative loadout has been filled out and better matches
+        their new jumpsuits.
+  id: 83
+  time: '2024-08-12T22:15:33.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Changeling hivemind status icon fixed
+  id: 84
+  time: '2024-08-12T22:52:35.0000000+00:00'
