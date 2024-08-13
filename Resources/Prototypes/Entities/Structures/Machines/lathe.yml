@@ -323,6 +323,7 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
+      - WeaponPlasmaCutter # Goobstation
       - WeaponTetherGun
       - WeaponGrapplingGun
       - ClothingBackpackHolding

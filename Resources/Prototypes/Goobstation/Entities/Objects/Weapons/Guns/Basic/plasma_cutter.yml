@@ -11,6 +11,10 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
   - type: MaterialStorage
     storageLimit: 0
     materialWhiteList: [Plasma]
