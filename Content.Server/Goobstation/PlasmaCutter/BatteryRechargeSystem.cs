@@ -57,14 +57,17 @@ namespace Content.Server.Goobstation.Plasmacutter
             if (_materialStorage.TryChangeMaterialAmount(uid, fuelType, -availableMaterial))
             {
                 // this is shit. this shit works.
-                var spawnAmount = 0;
-                if (fuelType == "Plasma")
+                var spawnAmount = _batterySystem.GetChargeDifference(uid) - availableMaterial;
+                if (spawnAmount < 0)
                 {
-                    spawnAmount = Math.Abs(_batterySystem.GetChargeDifference(uid) - availableMaterial) / 100;
+                    spawnAmount = Math.Abs(spawnAmount) / 100;
+                }
+                else {
+                    spawnAmount = 0;
                 }
                 for (int i = 0; i < spawnAmount; i++) 
                 {
-                    Spawn("SheetPlasma1", Transform(uid).Coordinates);
+                    var ent = Spawn("SheetPlasma1", Transform(uid).Coordinates);
                 }
                 
                 _batterySystem.AddCharge(uid, availableMaterial);
