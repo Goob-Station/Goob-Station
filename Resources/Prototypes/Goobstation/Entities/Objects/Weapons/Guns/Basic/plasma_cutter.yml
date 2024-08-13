@@ -13,10 +13,14 @@
       path: /Audio/Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
   - type: MaterialStorage
     storageLimit: 0
-    materialWhiteList: [RawPlasma, Plasma]
+    materialWhiteList: [Plasma]
     canEjectStoredMaterial: false
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 1500
   - type: BatteryRecharge
-    multiplier: 1.25
+    multiplier: 3
+    storageMaxCapacity: 100
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutter
     fireCost: 100

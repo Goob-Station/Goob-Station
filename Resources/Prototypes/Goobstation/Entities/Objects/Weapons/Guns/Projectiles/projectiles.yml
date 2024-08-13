@@ -20,7 +20,7 @@
     deleteOnCollide: false
     damage:
       types:
-        Heat: 10
+        Heat: 5
   - type: TimedDespawn
     lifetime: 0.2
   - type: PointLight
