@@ -60,15 +60,13 @@ namespace Content.Server.Goobstation.Plasmacutter
                 var spawnAmount = _batterySystem.GetChargeDifference(uid) - availableMaterial;
                 if (spawnAmount < 0)
                 {
-                    spawnAmount = Math.Abs(spawnAmount) / 100;
+                    spawnAmount = Math.Abs(spawnAmount);
                 }
                 else {
                     spawnAmount = 0;
                 }
-                for (int i = 0; i < spawnAmount; i++) 
-                {
-                    var ent = Spawn("SheetPlasma1", Transform(uid).Coordinates);
-                }
+
+                _materialStorage.SpawnMultipleFromMaterial(spawnAmount, fuelType, Transform(uid).Coordinates, out var overflow);
                 
                 _batterySystem.AddCharge(uid, availableMaterial);
             }
