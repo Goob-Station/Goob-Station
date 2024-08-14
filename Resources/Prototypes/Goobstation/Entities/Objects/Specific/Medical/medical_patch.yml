@@ -18,7 +18,7 @@
     stickDelay: 3
     unstickDelay: 2
     stickPopupStart: goobstation-medicalpatch-sticy-trystick
-    stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-succes
+    stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-success
     unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
     unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
     whitelist:
