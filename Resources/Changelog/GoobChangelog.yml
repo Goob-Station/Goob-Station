@@ -671,3 +671,17 @@ Entries:
       message: You can now pick up cleanbots.
   id: 86
   time: '2024-08-13T02:31:33.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: >-
+        Syndicate weapons supply department can now provide new Energy Crossbow
+        for just 49.99!
+  id: 87
+  time: '2024-08-13T20:51:37.0000000+00:00'
+- author: DaMoggen
+  changes:
+    - type: Tweak
+      message: Tritium and ammonia gas canisters are no longer an eyesore.
+  id: 88
+  time: '2024-08-13T20:52:21.0000000+00:00'

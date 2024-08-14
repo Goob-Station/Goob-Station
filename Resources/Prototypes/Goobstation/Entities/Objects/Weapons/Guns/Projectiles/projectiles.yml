@@ -1,4 +1,26 @@
 - type: entity
+  id: BulletMic
+  name: MIC bolt
+  parent: BaseBullet
+  noSpawn: true
+  description: Not too bad, but you still don't want to get hit by it.
+  components:
+  - type: Sprite
+    noRot: false
+    sprite: Goobstation/Objects/Weapons/Guns/Projectiles/cbbolt.rsi
+    layers:
+    - state: cbbolt
+  - type: GatheringProjectile
+  - type: Projectile
+    damage:
+      types:
+        Heat: 10
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: StaminaDamageOnCollide
+    damage: 65
+    
+- type: entity
   id: BulletPlasmaCutter
   name: cutter bolt
   parent: BaseBullet
@@ -26,4 +48,4 @@
   - type: PointLight
     radius: 2
     color: purple
-    energy: 1
+    energy: 1    

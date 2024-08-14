@@ -1,6 +1,7 @@
+
 - type: entity
   name: telecrystal
-  parent: BaseItem
+  parent: [BaseItem, BaseSyndicateContraband]
   id: Telecrystal
   # Goobstation - Telecrystal rework
   suffix: 100 TC
@@ -49,7 +50,7 @@
 
 # Uplinks
 - type: entity
-  parent: [ BaseItem, StorePresetUplink ]
+  parent: [BaseItem, StorePresetUplink, BaseSyndicateContraband]
   id: BaseUplinkRadio
   name: syndicate uplink
   description: Suspiciously looking old radio...
