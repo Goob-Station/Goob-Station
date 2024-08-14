@@ -1,5 +1,7 @@
-using Content.Server.Materials;
 using Content.Shared.Materials;
+using Content.Shared.Interaction.Events;
+using Content.Server.Hands.Systems;
+using Content.Server.Materials;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Components;
 
@@ -9,13 +11,22 @@ namespace Content.Server.Goobstation.Plasmacutter
     {
         [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
         [Dependency] private readonly BatterySystem _batterySystem = default!;
+        [Dependency] private readonly HandsSystem _hands = default!;
+
+        private EntityUid playerUid;
 
         public override void Initialize()
         {
             base.Initialize();
 
+            SubscribeLocalEvent<MaterialStorageComponent, ContactInteractionEvent>(OnInteract);
             SubscribeLocalEvent<MaterialStorageComponent, MaterialEntityInsertedEvent>(OnMaterialAmountChanged);
             SubscribeLocalEvent<BatteryRechargeComponent, ChargeChangedEvent>(OnChargeChanged);
+        }
+
+        private void OnInteract(EntityUid uid, MaterialStorageComponent component, ContactInteractionEvent args)
+        {
+            playerUid = args.Other;
         }
 
         private void OnMaterialAmountChanged(EntityUid uid, MaterialStorageComponent component, MaterialEntityInsertedEvent args)
@@ -66,7 +77,12 @@ namespace Content.Server.Goobstation.Plasmacutter
                     spawnAmount = 0;
                 }
 
-                _materialStorage.SpawnMultipleFromMaterial(spawnAmount, fuelType, Transform(uid).Coordinates, out var overflow);
+                var ent = _materialStorage.SpawnMultipleFromMaterial(spawnAmount, fuelType, Transform(uid).Coordinates, out var overflow);
+
+                foreach (var entUid in ent)
+                {
+                    _hands.TryForcePickupAnyHand(playerUid, entUid);
+                }
                 
                 _batterySystem.AddCharge(uid, availableMaterial);
             }
