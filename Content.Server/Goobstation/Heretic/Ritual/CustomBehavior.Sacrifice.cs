@@ -94,7 +94,7 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
                 // set to absurd number so that it'll 1000% get gibbed
-                _damage.TryChangeDamage(acc, new DamageSpecifier(dmgtype, 2000), true);
+                _damage.TryChangeDamage(acc, new DamageSpecifier(dmgtype, 1984f), true);
             }
         }
     }

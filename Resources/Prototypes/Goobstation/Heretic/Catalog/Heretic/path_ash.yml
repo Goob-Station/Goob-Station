@@ -39,3 +39,36 @@
     stage: 1
     whitelist:
     - Ash
+
+# side
+- type: listing
+  id: HereticAshPath3
+  name: knowledge-path-ash-s3-name
+  description: knowledge-path-ash-s3-desc
+  icon: { sprite: Goobstation/Heretic/abilities_heretic.rsi, state: ashen_shift }
+  productHereticKnowledge: AshenShift
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
+  id: HereticAshPath4
+  name: knowledge-path-ash-s4-name
+  description: knowledge-path-ash-s4-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
+  productHereticKnowledge: MarkOfAsh
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 3

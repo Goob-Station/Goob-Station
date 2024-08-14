@@ -1,1 +1,16 @@
 # store catalog
+
+- type: listing
+  id: HereticSidePath5
+  name: knowledge-path-side-s5-name
+  description: knowledge-path-side-s5-desc
+  productHereticKnowledge: RitualOfKnowledge
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 0
