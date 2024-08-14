@@ -1,27 +1,4 @@
 # When adding new food also add to random spawner located in Resources\Prototypes\Entities\Markers\Spawners\Random\Food_Drinks\food_single.yml
-# Base
-
-- type: entity
-  parent: FoodInjectableBase
-  id: FoodSkewerBase
-  abstract: true
-  components:
-  - type: Food
-    trash:
-    - FoodKebabSkewer
-  - type: Sprite
-    sprite: Objects/Consumable/Food/skewer.rsi
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 10
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 8
-  - type: Item
-    size: Small
-    storedRotation: -90
-
 # Kebabs
 
 - type: entity

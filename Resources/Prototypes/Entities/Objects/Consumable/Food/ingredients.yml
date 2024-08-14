@@ -619,13 +619,6 @@
   - type: SliceableFood
     count: 4
     slice: FoodCheeseSlice
-  - type: FoodSequenceElement
-    entries:
-      burger:
-        name: food-sequence-burger-content-cheese
-        sprite:
-          sprite: Objects/Consumable/Food/ingredients.rsi
-          state: cheesewheel
 
 - type: entity
   name: cheese wedge
@@ -649,12 +642,14 @@
     tags:
     - Slice
   - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Consumable/Food/ingredients.rsi
+      state: cheesewedge
     entries:
       burger:
-        name: food-sequence-burger-content-cheese
-        sprite:
-          sprite: Objects/Consumable/Food/ingredients.rsi
-          state: cheesewedge
+        name: food-sequence-content-cheese
+      taco:
+        name: food-sequence-content-cheese
 
 - type: entity
   name: chèvre log
@@ -855,3 +850,5 @@
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
+      taco:
+        name: food-sequence-content-cocoa
