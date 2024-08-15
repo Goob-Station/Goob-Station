@@ -60,14 +60,6 @@
     - PinpointerSyndicateNuclear
     - DeathAcidifierImplanter
 
-# goobstation - duke nukies
-# Nuclear Assailant (reinforcement) Gear
-- type: startingGear
-  id: SyndicateOperativeReinforcementGear
-  parent: SyndicateOperativeGearFullNoUplink
-  equipment:
-    pocket2: BaseUplinkRadio50TC
-
 #Nuclear Operative Gear
 - type: startingGear
   id: SyndicateOperativeGearFull
