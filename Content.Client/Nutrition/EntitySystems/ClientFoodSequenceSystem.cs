@@ -2,11 +2,14 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes; // Goobstation - anythingburgers
 
 namespace Content.Client.Nutrition.EntitySystems;
 
 public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<FoodSequenceStartPointComponent, AfterAutoHandleStateEvent>(OnHandleState);
@@ -36,6 +39,22 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         var counter = 0;
         foreach (var state in start.Comp.FoodLayers)
         {
+            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers
+            {
+                prototype.TryGetComponent<SpriteComponent>(out var spriteComp);
+                if (spriteComp != null)
+                {
+                    var rsiPath = spriteComp.BaseRSI?.Path.ToString();
+                    var rsiState = spriteComp.LayerGetState(0).ToString();
+
+                    if (rsiPath != null && rsiState != null)
+                    {
+                        state.Sprite = new SpriteSpecifier.Rsi(new ResPath(rsiPath), rsiState);
+                    }
+                }
+            }
+
+
             if (state.Sprite is null)
                 continue;
 

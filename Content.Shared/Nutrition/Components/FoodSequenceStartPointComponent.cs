@@ -17,6 +17,12 @@ public sealed partial class FoodSequenceStartPointComponent : Component
     public string Key = string.Empty;
 
     /// <summary>
+    /// Can we put anything on the food?
+    /// </summary>
+    [DataField]
+    public bool AcceptAll = false; // Goobstation - anythingburgers
+
+    /// <summary>
     /// The maximum number of layers of food that can be placed on this item.
     /// </summary>
     [DataField]

@@ -30,6 +30,9 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
+        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
+            EnsureComp<FoodSequenceElementComponent>(args.Used);
+
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement))
             TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
@@ -39,7 +42,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         FoodSequenceElementEntry? elementData = null;
         foreach (var entry in element.Comp.Entries)
         {
-            if (entry.Key == start.Comp.Key)
+            if (entry.Key == start.Comp.Key || start.Comp.AcceptAll) // Goobstation - anythingburgers
             {
                 elementData = entry.Value;
                 break;
@@ -49,7 +52,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (elementData is null)
             return false;
 
-        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead)
+        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead && !start.Comp.AcceptAll) // Goobstation - anythingburgers
         {
             if (_mobState.IsAlive(element))
                 return false;
