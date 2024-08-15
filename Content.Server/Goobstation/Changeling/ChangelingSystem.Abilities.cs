@@ -349,18 +349,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     {
         if (!comp.StrainedMusclesActive)
         {
-            _speed.ChangeBaseSpeed(uid, 125f, 150f, 1f);
             _popup.PopupEntity(Loc.GetString("changeling-muscles-start"), uid, uid);
             comp.StrainedMusclesActive = true;
         }
         else
         {
-            _speed.ChangeBaseSpeed(uid, 100f, 100f, 1f);
             _popup.PopupEntity(Loc.GetString("changeling-muscles-end"), uid, uid);
             comp.StrainedMusclesActive = false;
         }
 
         PlayMeatySound(uid, comp);
+        _speed.RefreshMovementSpeedModifiers(uid);
     }
 
     #endregion
@@ -527,7 +526,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Synaptizine", 5f)
+            ("Desoxyephedrine", 5f)
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-inject"), uid, uid);

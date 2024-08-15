@@ -559,3 +559,77 @@ Entries:
       message: Ghost bar goers can no longer roll midround antag.
   id: 71
   time: '2024-08-06T07:25:21.0000000+00:00'
+- author: packmore
+  changes:
+    - type: Tweak
+      message: >-
+        Updated roleplay rule 4 to explicitly deny metagaming while
+        crit/unconscious.
+  id: 72
+  time: '2024-08-08T00:31:21.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now not fly at mach 10 when weightless with strained
+        muscles active.
+    - type: Tweak
+      message: >-
+        Changed the reagent in ephedrine overdose from synaptizine to
+        desoxyephedrine because it makes more sense
+  id: 73
+  time: '2024-08-10T03:40:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Felinids and harpys will no longer play the mute sound when screaming.
+  id: 74
+  time: '2024-08-10T21:36:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: An advanced combat medipen is now available in the uplink.
+    - type: Tweak
+      message: Combat medipens now cost 12 TC from 20 TC.
+  id: 75
+  time: '2024-08-10T21:37:53.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Scottish accent trait.
+  id: 76
+  time: '2024-08-11T03:06:30.0000000+00:00'
+- author: RealFakeSoof
+  changes:
+    - type: Fix
+      message: Fixed ling shield sprites.
+  id: 77
+  time: '2024-08-11T03:06:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Lube and glue grenades removed from clown and mime loadouts.
+    - type: Tweak
+      message: All command time requirements are reverted to their original times.
+  id: 78
+  time: '2024-08-11T03:10:08.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: The button for pages has been moved to the top of the UI.
+  id: 79
+  time: '2024-08-11T08:41:34.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: no more 8 spaceman Fland gaming.
+  id: 80
+  time: '2024-08-11T08:41:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Crowbar storage icons now match our crowbars color scheme
+    - type: Fix
+      message: Crowbar handle now correctly positioned
+  id: 81
+  time: '2024-08-11T09:03:43.0000000+00:00'

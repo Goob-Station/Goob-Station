@@ -22,8 +22,10 @@
             <!-- Buffer so big votes don't skew it -->
             <Control/>
         </BoxContainer>
-        <BoxContainer Name="VoteMenu" Access="Public" Margin="0 10 0 10" Orientation="Vertical"/>
-        <actions:ActionsBar Name="Actions" Access="Protected" />
+        <BoxContainer Orientation="Horizontal"> <!--goobstation-->
+            <actions:ActionsBar Name="Actions" Access="Protected" />
+            <BoxContainer Name="VoteMenu" Access="Public" Margin="0 10 0 10" Orientation="Vertical"/>
+        </BoxContainer>
     </BoxContainer>
     <widgets:GhostGui Name="Ghost" Access="Protected" />
     <inventory:InventoryGui Name="Inventory" Access="Protected" />
