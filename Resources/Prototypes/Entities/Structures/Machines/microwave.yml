@@ -6,8 +6,8 @@
   components:
   - type: Microwave
     capacity: 10
-    canMicrowaveIdsSafely: false
-    explosionChance: 0.4
+    canMicrowaveIdsSafely: false # Goobstation
+    explosionChance: 0.4 # Goobstation
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -119,14 +119,14 @@
     cookTimeMultiplier: 0.5
     capacity: 10
     canMicrowaveIdsSafely: false
-    explosionChance: 0.15
+    explosionChance: 0.15 # Goobstation
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Machine
     board: SyndicateMicrowaveMachineCircuitboard
-  - type: Explosive
+  - type: Explosive # Goobstation
     explosionType: Default
     maxIntensity: 10
     totalIntensity: 5
