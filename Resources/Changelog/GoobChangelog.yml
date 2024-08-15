@@ -697,3 +697,9 @@ Entries:
       message: Plasma cutter. Can be researched; can be recharged with plasma sheets.
   id: 90
   time: '2024-08-15T08:10:27.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The Syndicate has updated their drip to match the new fashion standart
+  id: 91
+  time: '2024-08-15T08:45:17.0000000+00:00'
