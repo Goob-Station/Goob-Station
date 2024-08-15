@@ -685,3 +685,9 @@ Entries:
       message: Tritium and ammonia gas canisters are no longer an eyesore.
   id: 88
   time: '2024-08-13T20:52:21.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: added Medical Patches
+  id: 89
+  time: '2024-08-15T01:13:49.0000000+00:00'

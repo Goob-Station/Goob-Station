@@ -11,7 +11,7 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -26,7 +26,7 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -42,7 +42,7 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -57,7 +57,7 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -73,7 +73,7 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
 
 - type: gamePreset
   id: RevLing
@@ -87,6 +87,6 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    - GameRuleMeteorScheduler
+    - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
