@@ -19,6 +19,7 @@ public sealed class RoleSystem : SharedRoleSystem
         SubscribeAntagEvents<ZombieRoleComponent>();
         SubscribeAntagEvents<ThiefRoleComponent>();
         SubscribeAntagEvents<ChangelingRoleComponent>();
+        SubscribeAntagEvents<MindcontrollRoleComponent>();
     }
 
     public string? MindGetBriefing(EntityUid? mindId)

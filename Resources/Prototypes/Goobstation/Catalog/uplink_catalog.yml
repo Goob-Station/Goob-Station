@@ -123,3 +123,21 @@
     Telecrystal: 28
   categories:
   - UplinkChemicals
+
+# Implants
+
+- type: listing
+  id: UplinkMinscontrollImplanter
+  name: mindcontroll implanter
+  description: When all you need is a friend
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: MinscontrollImplanter
+  cost:
+    Telecrystal: 50 # Half the budget. or so based of paradise.
+  categories:
+    - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC

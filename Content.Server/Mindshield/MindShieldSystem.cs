@@ -8,6 +8,7 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
+using Content.Server.Mindcontroll.Components;   //Goobstation - MindcontrollImplant
 
 namespace Content.Server.Mindshield;
 
@@ -60,5 +61,7 @@ public sealed class MindShieldSystem : EntitySystem
         {
             _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(implanted)} was deconverted due to being implanted with a Mindshield.");
         }
+        if (HasComp<MindcontrollComponent>(implanted))   //Goobstation - MindcoltrollImplant
+            RemComp<MindcontrollComponent>(implanted);
     }
 }

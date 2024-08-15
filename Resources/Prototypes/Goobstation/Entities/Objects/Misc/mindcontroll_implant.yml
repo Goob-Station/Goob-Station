@@ -1,0 +1,24 @@
+- type: entity
+  id: MinscontrollImplanter
+  name: mindcontroll implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: MindcontrollImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindcontrollImplant
+  name: mindcontroll implant
+  description: take controll of the mind of loyalists
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState  # can implant ian.
+      blacklist:
+        components:
+        - MindShield
+        - Changeling
+    - type: MindcontrollImplant
