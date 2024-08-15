@@ -117,10 +117,17 @@
     cookTimeMultiplier: 0.5
     capacity: 10
     canMicrowaveIdsSafely: false
-    explosionChance: 0.3
+    explosionChance: 0.15
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Machine
     board: SyndicateMicrowaveMachineCircuitboard
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 10
+    totalIntensity: 5
+    intensitySlope: 5
+    canCreateVacuum: false
+    deleteAfterExplosion: false
