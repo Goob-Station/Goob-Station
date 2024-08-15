@@ -96,7 +96,6 @@
       Male: MaleVulpkanin
       Female: FemaleVulpkanin
       Unsexed: MaleVulpkanin
-  - type: DogVision
 
 - type: entity
   save: false
