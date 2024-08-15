@@ -578,7 +578,7 @@
     size: Huge
   - type: ClothingSpeedModifier # goobstation - duke nukies
     walkModifier: 1.0
-    sprintModifier: 1.0
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
