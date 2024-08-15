@@ -6,6 +6,7 @@ using Content.Shared.Sticky.Components;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Content.Shared.Interaction.Components;
 
 namespace Content.Shared.Sticky.Systems;
 
@@ -171,7 +172,7 @@ public sealed class StickySystem : EntitySystem
 
         // send information to appearance that entity is stuck
         _appearance.SetData(uid, StickyVisuals.IsStuck, true);
-
+        EnsureComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
         comp.StuckTo = target;
         Dirty(uid, comp);
 
@@ -190,6 +191,7 @@ public sealed class StickySystem : EntitySystem
         if (attemptEv.Cancelled)
             return;
 
+        RemComp<UnremoveableComponent>(uid); //Goobstation - MedicalPatch
         // try to remove sticky item from target container
         if (!_container.TryGetContainer(stuckTo, StickerSlotId, out var container) || !_container.Remove(uid, container))
             return;

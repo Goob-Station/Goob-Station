@@ -1,0 +1,10 @@
+- type: cargoBounty
+  id: BountyMedicalPatch
+  reward: 4000
+  description: goobstation-medicalpatch-bounty-desc
+  entries:
+  - name: goobstation-medicalpatch-bounty-name
+    amount: 5
+    whitelist:
+      tags:
+      - MedicalPatch
