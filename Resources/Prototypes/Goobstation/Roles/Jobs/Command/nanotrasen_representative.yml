@@ -7,6 +7,8 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 180000  #50 hours
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"

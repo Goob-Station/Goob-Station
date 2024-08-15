@@ -25,10 +25,11 @@
     prototype: Felinid
   - type: Damageable
     damageModifierSet: Felinid
-  - type: SlowOnDamage
-    speedModifierThresholds:
-      60: 0.85  # 0.7 is base speed.
-      80: 0.75  # 0.5 is base speed.
+  # Goobstation - Siouxcide, felinids have standard slow on damage numbers
+# - type: SlowOnDamage
+#   speedModifierThresholds:
+#     60: 0.85  # 0.7 is base speed.
+#     80: 0.75  # 0.5 is base speed.
   - type: MeleeWeapon
     soundHit:
       collection: Punch
@@ -47,7 +48,7 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 85
+    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
   - type: TypingIndicator
     proto: felinid
   - type: PseudoItem
