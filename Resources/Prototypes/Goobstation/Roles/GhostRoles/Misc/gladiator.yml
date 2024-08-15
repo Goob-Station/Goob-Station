@@ -1,0 +1,21 @@
+- type: startingGear
+  id: GladiatorGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitGladiator
+    back: ClothingBackpackMerc
+    head: ClothingHeadHatGladiator
+    mask: ClothingMaskBandMerc
+    eyes: ClothingEyesGlassesMercenary
+    ears: ClothingHeadsetGrey
+    gloves: ClothingHandsMercGlovesCombat
+    outerClothing: ClothingOuterVestWebMerc
+    shoes: ClothingShoesBootsMerc
+    id: BoxerPDA
+    belt: SurveillanceWirelessCameraBodyEntertainment
+    pocket1: ToolboxGolden
+  storage:
+    back:
+    - StasiziumAutoInjector
+    - StimpackMini
+    - SmokeGrenade
+    - SmokeGrenade

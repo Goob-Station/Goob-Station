@@ -23,3 +23,16 @@
     layers:
       - state: green
       - state: centcom
+
+- type: entity
+  id: SpawnPointSpectator
+  parent: SpawnPointJobBase
+  name: spectator
+  components:
+  - type: SpawnPoint
+    job_id: Spectator
+  - type: Sprite
+    layers:
+      - state: green
+      - state: passenger
+

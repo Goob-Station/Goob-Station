@@ -1,0 +1,32 @@
+- type: job
+  id: Spectator
+  name: Spectator
+  description: A spectator.
+  playTimeTracker: JobSpectator
+  startingGear: SpectatorGear
+  icon: "JobIconPassenger"
+  supervisors: job-supervisors-everyone
+  access:
+  - Maintenance
+
+- type: startingGear
+  id: SpectatorGear
+  equipment:
+    id: PassengerPDA
+    ears: ClothingHeadsetGrey
+    jumpsuit: ClothingUniformJumpsuitHawaiBlack
+    shoes: ClothingShoesTourist
+    eyes: ClothingEyesGlassesCheapSunglasses
+    back: ClothingBackpackDebug
+  storage:
+    back:
+    - Whistle
+    - GlowstickPurple
+    - GlowstickGreen
+    - GlowstickRed
+    - GlowstickYellow
+    - GlowstickBlue
+    - SnapPopBox
+    - BalloonCorgi
+    - FoodSnackAncientHotdog
+    - DrinkColaCan
