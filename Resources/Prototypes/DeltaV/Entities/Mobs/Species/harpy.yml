@@ -126,7 +126,6 @@
     speciesId: harpy
     templateId: digitigrade
   - type: HarpyVisuals
-  - type: UltraVision
 
 - type: entity
   save: false
