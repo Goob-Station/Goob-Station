@@ -1,0 +1,28 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: SurveillanceWirelessCameraBodyEntertainment
+  name: nopro camera
+  description: A body mounted camera. It's watching you. Kinda.
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraEntertainment
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+    - type: Eye
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+          - SurveillanceCamera
+          - SurveillanceCameraMonitor
+          - RadioSpeaker
+    - type: ActiveListener
+      range: 10
+    - type: Sprite
+      sprite: Clothing/Belt/champion.rsi
+    - type: Clothing
+      sprite: Clothing/Belt/champion.rsi
+      quickEquip: true
