@@ -18,6 +18,7 @@
     shoes: ClothingShoesTourist
     eyes: ClothingEyesGlassesCheapSunglasses
     back: ClothingBackpackDebug
+    pocket1: BaseHandheldTelevisions
   storage:
     back:
     - Whistle
