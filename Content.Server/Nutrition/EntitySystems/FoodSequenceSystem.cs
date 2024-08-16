@@ -2,12 +2,14 @@ using System.Numerics;
 using System.Text;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Item;
 using Robust.Shared.Random;
 
 namespace Content.Server.Nutrition.EntitySystems;
@@ -33,7 +35,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
-        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement))
+        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
@@ -71,8 +73,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             elementData.Sprite = element.Comp.Sprite;
 
         elementData.LocalOffset = new Vector2(
-            _random.NextFloat(start.Comp.MinLayerOffset.X,start.Comp.MaxLayerOffset.X),
-            _random.NextFloat(start.Comp.MinLayerOffset.Y,start.Comp.MaxLayerOffset.Y));
+            _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
+            _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y));
 
         start.Comp.FoodLayers.Add(elementData);
         Dirty(start);
@@ -85,7 +87,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         MergeFlavorProfiles(start, element);
         MergeTrash(start, element);
         MergeTags(start, element);
-        QueueDel(element);
+
+        if (!IsClientSide(element))
+            QueueDel(element);
+
         return true;
     }
 
@@ -129,11 +134,16 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
-        if (!_solutionContainer.TryGetSolution(element.Owner, element.Comp.Solution, out _, out var elementSolution))
-            return;
+        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer)){ // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+            foreach (var name in elementSolutionContainer.Containers)
+            {
+                if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
+                    continue;
 
-        startSolution.MaxVolume += elementSolution.MaxVolume;
-        _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
+                startSolution.MaxVolume += elementSolution.MaxVolume;
+                _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
+            }
+        }
     }
 
     private void MergeFlavorProfiles(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)

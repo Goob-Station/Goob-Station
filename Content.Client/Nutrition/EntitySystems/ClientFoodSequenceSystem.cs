@@ -3,6 +3,8 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes; // Goobstation - anythingburgers
+using Robust.Client.Graphics;
+using Robust.Shared.Graphics;
 
 namespace Content.Client.Nutrition.EntitySystems;
 
@@ -41,17 +43,42 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         {
             if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers
             {
-                prototype.TryGetComponent<SpriteComponent>(out var spriteComp);
-                if (spriteComp != null)
+                if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))
                 {
                     var rsiPath = spriteComp.BaseRSI?.Path.ToString();
-                    var rsiState = spriteComp.LayerGetState(0).ToString();
+                    if (rsiPath == null)
+                        continue;
 
-                    if (rsiPath != null && rsiState != null)
+                    foreach (var layer in spriteComp.AllLayers)
                     {
-                        state.Sprite = new SpriteSpecifier.Rsi(new ResPath(rsiPath), rsiState);
+
+                        if (!layer.RsiState.IsValid || !layer.Visible || layer.ActualRsi == null || layer.RsiState == null || layer.RsiState.Name == null)
+                            continue;
+
+
+                        state.Sprite = new SpriteSpecifier.Rsi(layer.ActualRsi.Path, layer.RsiState.Name);
+
+                        var keyCodeProto = $"food-layer-{counter}-{layer.RsiState.Name}";
+                        start.Comp.RevealedLayers.Add(keyCodeProto);
+
+                        sprite.LayerMapTryGet(start.Comp.TargetLayerMap, out var indexProto);
+
+                        if (start.Comp.InverseLayers)
+                            indexProto++;
+
+                        sprite.AddBlankLayer(indexProto);
+                        sprite.LayerMapSet(keyCodeProto, indexProto);
+                        sprite.LayerSetSprite(indexProto, state.Sprite);
+                        sprite.LayerSetColor(indexProto, layer.Color);
+
+                        var layerPosProto = start.Comp.StartPosition;
+                        layerPosProto += (start.Comp.Offset * counter) + state.LocalOffset;
+                        sprite.LayerSetOffset(indexProto, layerPosProto);
+
                     }
                 }
+                counter++;
+                continue;
             }
 
 
