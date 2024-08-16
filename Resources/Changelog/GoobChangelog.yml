@@ -414,7 +414,7 @@ Entries:
     - type: Add
       message: >-
         Added gamemodes to secret with two antags at once, but have less of one
-        type and need 30+ Players ready to start. 
+        type and need 30+ Players ready to start.
     - type: Tweak
       message: >-
         Weights have been slightly tweaked. Lings are rarer, and ops/revs are
@@ -422,7 +422,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling now rolls with the same delay as traitors, and changeling max
-        has been lessened to 5. 
+        has been lessened to 5.
   id: 53
   time: '2024-07-18T17:39:51.0000000+00:00'
 - author: Aidenkrz
@@ -703,3 +703,9 @@ Entries:
       message: The Syndicate has updated their drip to match the new fashion standart
   id: 91
   time: '2024-08-15T08:45:17.0000000+00:00'
+- author: ComradeSilver
+  changes:
+    - type: Tweak
+      message: Rev gamemode ends immediately instead of calling shuttle
+  id: 92
+  time: '2024-08-15T20:54:17.0000000+00:00'
