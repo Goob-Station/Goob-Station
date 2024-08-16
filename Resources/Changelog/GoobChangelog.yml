@@ -703,9 +703,3 @@ Entries:
       message: The Syndicate has updated their drip to match the new fashion standart
   id: 91
   time: '2024-08-15T08:45:17.0000000+00:00'
-- author: ComradeSilver
-  changes:
-    - type: Tweak
-      message: Rev gamemode ends immediately instead of calling shuttle
-  id: 92
-  time: '2024-08-15T20:54:17.0000000+00:00'
