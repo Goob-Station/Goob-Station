@@ -29,9 +29,6 @@
       - !type:Polymorph
         prototype: Gondola
         conditions:
-        - !type:OrganType
-          type: Animal
-          shouldHave: false
         - !type:ReagentThreshold
           min: 25
 
