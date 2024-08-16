@@ -2,15 +2,16 @@ using System.Numerics;
 using System.Text;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
-using Content.Shared.Item;
 using Robust.Shared.Random;
+using Content.Shared.Item; // Goobstation - anythingburgers
+using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
+
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -88,7 +89,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         MergeTrash(start, element);
         MergeTags(start, element);
 
-        if (!IsClientSide(element))
+        if (!IsClientSide(element)) // Goobstation - anythingburgers PSEUDOITEMS FUCK THIS SHIT UP!!
             QueueDel(element);
 
         return true;

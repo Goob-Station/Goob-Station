@@ -2,9 +2,9 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
+using Robust.Client.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
+using Robust.Shared.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
 using Robust.Shared.Prototypes; // Goobstation - anythingburgers
-using Robust.Client.Graphics;
-using Robust.Shared.Graphics;
 
 namespace Content.Client.Nutrition.EntitySystems;
 
@@ -41,7 +41,7 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         var counter = 0;
         foreach (var state in start.Comp.FoodLayers)
         {
-            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers
+            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
             {
                 if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))
                 {
