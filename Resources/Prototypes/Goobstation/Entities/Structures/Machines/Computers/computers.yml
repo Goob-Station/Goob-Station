@@ -10,41 +10,91 @@
       prototype: ComputerCommsNoEvac
 
 - type: entity
-  parent: BaseComputer
+  parent: ComputerComms
   id: ComputerCommsNoEvac
   name: department communications computer
   suffix: Evac Disabled
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level.
   components:
-  - type: Sprite
-    layers:
-    - map: ["computerLayerBody"]
-      state: computer
-    - map: ["computerLayerKeyboard"]
-      state: generic_keyboard
-    - map: ["computerLayerScreen"]
-      state: comm
-    - map: ["computerLayerKeys"]
-      state: generic_keys
   - type: AccessReader
     access: [[ "Command" ]]
   - type: CommunicationsConsole
     title: comms-console-announcement-title-station
     canShuttle: false
-  - type: DeviceNetwork
-    transmitFrequencyId: ShuttleTimer
-  - type: ActivatableUI
-    key: enum.CommunicationsConsoleUiKey.Key
-  - type: UserInterface
-    interfaces:
-      enum.CommunicationsConsoleUiKey.Key:
-        type: CommunicationsConsoleBoundUserInterface
-  - type: Computer
-    board: CommsComputerCircuitboardNoEvac
-  - type: PointLight
-    radius: 1.5
-    energy: 1.6
-    color: "#3c5eb5"
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: StrongMetallic
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacRD
+  suffix: RD
+  components:
+  - type: CommunicationsConsole
+    title: "Research Director"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "ResearchDirector" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacHop
+  suffix: Hop
+  components:
+  - type: CommunicationsConsole
+    title: "Head Of Personell"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "HeadOfPersonnel" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacQM
+  suffix: QM
+  components:
+  - type: CommunicationsConsole
+    title: "Quarter Master"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "Quartermaster" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacCE
+  suffix: CE
+  components:
+  - type: CommunicationsConsole
+    title: "Chief Engineer"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "ChiefEngineer" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacCMO
+  suffix: CMO
+  components:
+  - type: CommunicationsConsole
+    title: "Chief Medical Officer"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "ChiefMedicalOfficer" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacHos
+  suffix: Hos
+  components:
+  - type: CommunicationsConsole
+    title: "Head Of Security"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "HeadOfSecurity" ]]
+
+- type: entity
+  parent: ComputerCommsNoEvac
+  id: ComputerCommsNoEvacHos
+  suffix: warden
+  components:
+  - type: CommunicationsConsole
+    title: "Warden"
+    canShuttle: false
+  - type: AccessReader
+    access: [[ "Armory" ]]
