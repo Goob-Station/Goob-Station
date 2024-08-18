@@ -709,3 +709,21 @@ Entries:
       message: Rev victory ends game instead of calling shuttle
   id: 92
   time: '2024-08-16T09:59:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Vulps and Harpies are no longer colorblind.
+    - type: Tweak
+      message: >-
+        Syndicate microwave has a smaller chance to explode when microwaving
+        IDs.
+    - type: Tweak
+      message: Normal microwave has chance to explode when microwaving IDs.
+    - type: Tweak
+      message: You can now put any items on a burger.
+    - type: Fix
+      message: Tranquility now affects all species.
+    - type: Tweak
+      message: Tranquility now affects mobs, not just players.
+  id: 93
+  time: '2024-08-18T22:58:35.0000000+00:00'
