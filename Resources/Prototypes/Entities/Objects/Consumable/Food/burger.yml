@@ -34,7 +34,8 @@
   description: It's time to start building the burger tower.
   components:
   - type: Item
-    size: Normal #patch until there is an adequate resizing system in place
+    shape:
+    - 0,0,1,0
   - type: Food
   - type: Sprite
     drawdepth: Mobs
@@ -46,7 +47,7 @@
   - type: FoodSequenceStartPoint
     key: burger
     acceptAll: true # Goobstation - anythingburgers
-    maxLayers: 10
+    maxLayers: 20 # Goobstation - anythingburgers
     startPosition: 0, 0
     offset: 0, 0.1
     minLayerOffset: -0.05, 0

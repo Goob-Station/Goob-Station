@@ -23,6 +23,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
+    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
 
     public override void Initialize()
     {
@@ -36,7 +38,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
             EnsureComp<FoodSequenceElementComponent>(args.Used);
 
-        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
+        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
@@ -67,6 +69,39 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             if (user is not null)
                 _popup.PopupEntity(Loc.GetString("food-sequence-no-space"), start, user.Value);
             return false;
+        }
+
+        if (HasComp<ItemComponent>(start)) // Goobstation - anythingburgers dynamic item size
+        {
+            int increment = (start.Comp.FoodLayers.Count / 2);
+
+            if (increment <= 1)
+            {
+                _item.SetSize(start.Owner, "Small");
+            }
+            else if (increment <= 2)
+            {
+                _item.SetSize(start.Owner, "Normal");
+            }
+            else if (increment <= 3)
+            {
+                _item.SetSize(start.Owner, "Large");
+            }
+            else if (increment <= 4)
+            {
+                _item.SetSize(start.Owner, "Huge");
+            }
+            else if (increment <= 5)
+            {
+                _item.SetSize(start.Owner, "Ginormous");
+            }
+            else if (increment <= 6)
+            {
+                _transform.DropNextTo(start.Owner, start.Owner);
+                RemComp<ItemComponent>(start);
+            }
+
+            _item.SetShape(start.Owner, new List<Box2i> { new Box2i(0, 0, 1, increment) });
         }
 
         //If no specific sprites are specified, standard sprites will be used.
@@ -135,7 +170,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
-        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer)){ // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
+        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer))
+        { // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
             foreach (var name in elementSolutionContainer.Containers)
             {
                 if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
