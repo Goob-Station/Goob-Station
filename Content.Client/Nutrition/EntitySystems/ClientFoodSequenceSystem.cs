@@ -2,11 +2,16 @@ using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
+using Robust.Client.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
+using Robust.Shared.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
+using Robust.Shared.Prototypes; // Goobstation - anythingburgers
 
 namespace Content.Client.Nutrition.EntitySystems;
 
 public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+
     public override void Initialize()
     {
         SubscribeLocalEvent<FoodSequenceStartPointComponent, AfterAutoHandleStateEvent>(OnHandleState);
@@ -36,6 +41,47 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
         var counter = 0;
         foreach (var state in start.Comp.FoodLayers)
         {
+            if (state.Sprite is null && state.Proto != null && _prototypeManager.TryIndex<EntityPrototype>(state.Proto, out var prototype)) // Goobstation - anythingburgers HOLY FUCK THIS IS SO BAD!!! BUT IT WORKS!!
+            {
+                if (prototype.TryGetComponent<SpriteComponent>(out var spriteComp))
+                {
+                    var rsiPath = spriteComp.BaseRSI?.Path.ToString();
+                    if (rsiPath == null)
+                        continue;
+
+                    foreach (var layer in spriteComp.AllLayers)
+                    {
+
+                        if (!layer.RsiState.IsValid || !layer.Visible || layer.ActualRsi == null || layer.RsiState == null || layer.RsiState.Name == null)
+                            continue;
+
+
+                        state.Sprite = new SpriteSpecifier.Rsi(layer.ActualRsi.Path, layer.RsiState.Name);
+
+                        var keyCodeProto = $"food-layer-{counter}-{layer.RsiState.Name}";
+                        start.Comp.RevealedLayers.Add(keyCodeProto);
+
+                        sprite.LayerMapTryGet(start.Comp.TargetLayerMap, out var indexProto);
+
+                        if (start.Comp.InverseLayers)
+                            indexProto++;
+
+                        sprite.AddBlankLayer(indexProto);
+                        sprite.LayerMapSet(keyCodeProto, indexProto);
+                        sprite.LayerSetSprite(indexProto, state.Sprite);
+                        sprite.LayerSetColor(indexProto, layer.Color);
+
+                        var layerPosProto = start.Comp.StartPosition;
+                        layerPosProto += (start.Comp.Offset * counter) + state.LocalOffset;
+                        sprite.LayerSetOffset(indexProto, layerPosProto);
+
+                    }
+                }
+                counter++;
+                continue;
+            }
+
+
             if (state.Sprite is null)
                 continue;
 
