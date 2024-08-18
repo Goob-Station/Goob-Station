@@ -1,0 +1,14 @@
+- type: entity
+  name: plant bag of holding
+  id: PlantBagOfHolding
+  parent: PlantBag
+  description: A robust bag of holding for fruitful botanists with more plants than pockets.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Specific/Hydroponics/plant_bag_holding.rsi
+    state: icon
+  - type: Clothing
+    sprite: DeltaV/Objects/Specific/Hydroponics/plant_bag_holding.rsi
+  - type: Storage
+    grid:
+    - 0,0,19,9
