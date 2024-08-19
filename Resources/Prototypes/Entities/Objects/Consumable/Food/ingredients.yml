@@ -452,6 +452,9 @@
   - type: Construction
     graph: Pizza
     node: flat
+  - type: SliceableFood
+    count: 3
+    slice: FoodCroissantRaw
 
 - type: entity
   name: pizza bread
@@ -599,7 +602,7 @@
     entries:
       burger:
         name: food-sequence-content-cheese
-      taco: 
+      taco:
         name: food-sequence-content-cheese
 
 - type: entity
@@ -658,7 +661,7 @@
     entries:
       burger:
         name: food-sequence-content-chevre
-      taco: 
+      taco:
         name: food-sequence-content-chevre
 
 - type: entity
@@ -715,7 +718,7 @@
     entries:
       burger:
         name: food-sequence-content-tofu
-      taco: 
+      taco:
         name: food-sequence-content-tofu
 
 - type: entity
@@ -780,5 +783,24 @@
     entries:
       burger:
         name: food-sequence-content-cocoa
-      taco: 
+      taco:
         name: food-sequence-content-cocoa
+
+- type: entity
+  name: raw croissant
+  parent: FoodBakingBase
+  id: FoodCroissantRaw
+  description: Buttery, flaky goodness waiting to happen.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - dough
+  - type: Sprite
+    state: croissant-raw
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 4
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
