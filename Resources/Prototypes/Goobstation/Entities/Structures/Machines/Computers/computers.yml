@@ -28,21 +28,21 @@
   suffix: RD
   components:
   - type: CommunicationsConsole
-    title: "Research Director"
+    title: "Research Director's Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "ResearchDirector" ]]
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacHop
-  suffix: Hop
+  id: ComputerCommsNoEvacHoP
+  suffix: HoP
   components:
   - type: CommunicationsConsole
-    title: "Head Of Personell"
+    title: "Head Of Personell's Desk"
     canShuttle: false
   - type: AccessReader
-    access: [[ "HeadOfPersonnel" ]]
+    access: [[ "HeadOfPersonell" ]]
 
 - type: entity
   parent: ComputerCommsNoEvac
@@ -50,7 +50,7 @@
   suffix: QM
   components:
   - type: CommunicationsConsole
-    title: "Quarter Master"
+    title: "Quartermaster's Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "Quartermaster" ]]
@@ -61,7 +61,7 @@
   suffix: CE
   components:
   - type: CommunicationsConsole
-    title: "Chief Engineer"
+    title: "Chief Engineer's Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "ChiefEngineer" ]]
@@ -72,7 +72,7 @@
   suffix: CMO
   components:
   - type: CommunicationsConsole
-    title: "Chief Medical Officer"
+    title: "Chief Medical Officer's Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "ChiefMedicalOfficer" ]]
@@ -80,10 +80,10 @@
 - type: entity
   parent: ComputerCommsNoEvac
   id: ComputerCommsNoEvacHos
-  suffix: Hos
+  suffix: HoS
   components:
   - type: CommunicationsConsole
-    title: "Head Of Security"
+    title: "Head Of Security's Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "HeadOfSecurity" ]]
@@ -91,10 +91,10 @@
 - type: entity
   parent: ComputerCommsNoEvac
   id: ComputerCommsNoEvacHos
-  suffix: warden
+  suffix: Captain
   components:
   - type: CommunicationsConsole
-    title: "Warden"
+    title: "Captain's Desk"
     canShuttle: false
   - type: AccessReader
-    access: [[ "Armory" ]]
+    access: [[ "Captain" ]]
