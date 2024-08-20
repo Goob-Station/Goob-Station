@@ -90,7 +90,7 @@
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacHos
+  id: ComputerCommsNoEvacCaptain
   suffix: Captain
   components:
   - type: CommunicationsConsole
