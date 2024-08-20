@@ -159,6 +159,11 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
             MakeSentientCommand.MakeSentient(jobEntity, EntityManager);
             DoJobSpecials(job, jobEntity);
             _identity.QueueIdentityUpdate(jobEntity);
+            // #Goobstation - Borg Preferred Name
+            if (profile != null && prototype.JobEntity == "PlayerBorgGeneric")
+            {
+                _metaSystem.SetEntityName(jobEntity, profile.BorgName);
+            }
             return jobEntity;
         }
 
