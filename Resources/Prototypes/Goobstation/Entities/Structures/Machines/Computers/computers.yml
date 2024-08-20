@@ -24,7 +24,7 @@
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacRD
+  id: ComputerCommsNoEvacRd
   suffix: RD
   components:
   - type: CommunicationsConsole
@@ -35,18 +35,18 @@
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacHoP
+  id: ComputerCommsNoEvacHop
   suffix: HoP
   components:
   - type: CommunicationsConsole
-    title: "Head Of Personell's Desk"
+    title: "Head Of Personnel's Desk"
     canShuttle: false
   - type: AccessReader
-    access: [[ "HeadOfPersonell" ]]
+    access: [[ "HeadOfPersonnel" ]]
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacQM
+  id: ComputerCommsNoEvacQm
   suffix: QM
   components:
   - type: CommunicationsConsole
@@ -57,7 +57,7 @@
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacCE
+  id: ComputerCommsNoEvacCe
   suffix: CE
   components:
   - type: CommunicationsConsole
@@ -68,7 +68,7 @@
 
 - type: entity
   parent: ComputerCommsNoEvac
-  id: ComputerCommsNoEvacCMO
+  id: ComputerCommsNoEvacCmo
   suffix: CMO
   components:
   - type: CommunicationsConsole
