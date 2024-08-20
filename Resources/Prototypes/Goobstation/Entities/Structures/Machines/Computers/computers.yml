@@ -50,7 +50,7 @@
   suffix: QM
   components:
   - type: CommunicationsConsole
-    title: "Quartermaster's Desk"
+    title: "Quartermaster Desk"
     canShuttle: false
   - type: AccessReader
     access: [[ "Quartermaster" ]]
@@ -83,10 +83,10 @@
   suffix: HoS
   components:
   - type: CommunicationsConsole
-    title: "Head Of Security's Desk"
+    title: "Head Of Security Desk"
     canShuttle: false
   - type: AccessReader
-    access: [[ "HeadOfSecurity" ]]
+    access: [[ "HeadOfSecurity" ], ["Armory"]]
 
 - type: entity
   parent: ComputerCommsNoEvac
