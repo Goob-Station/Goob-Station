@@ -28,7 +28,7 @@
   suffix: RD
   components:
   - type: CommunicationsConsole
-    title: "Research Director's Desk"
+    title: comms-console-announcement-title-department-rd
     canShuttle: false
   - type: AccessReader
     access: [[ "ResearchDirector" ]]
@@ -39,7 +39,7 @@
   suffix: HoP
   components:
   - type: CommunicationsConsole
-    title: "Head Of Personnel's Desk"
+    title: comms-console-announcement-title-department-hop
     canShuttle: false
   - type: AccessReader
     access: [[ "HeadOfPersonnel" ]]
@@ -50,7 +50,7 @@
   suffix: QM
   components:
   - type: CommunicationsConsole
-    title: "Quartermaster Desk"
+    title: comms-console-announcement-title-department-qm
     canShuttle: false
   - type: AccessReader
     access: [[ "Quartermaster" ]]
@@ -61,7 +61,7 @@
   suffix: CE
   components:
   - type: CommunicationsConsole
-    title: "Chief Engineer's Desk"
+    title: comms-console-announcement-title-department-ce
     canShuttle: false
   - type: AccessReader
     access: [[ "ChiefEngineer" ]]
@@ -72,7 +72,7 @@
   suffix: CMO
   components:
   - type: CommunicationsConsole
-    title: "Chief Medical Officer's Desk"
+    title: comms-console-announcement-title-department-cmo
     canShuttle: false
   - type: AccessReader
     access: [[ "ChiefMedicalOfficer" ]]
@@ -83,7 +83,7 @@
   suffix: HoS
   components:
   - type: CommunicationsConsole
-    title: "Head Of Security Desk"
+    title: comms-console-announcement-title-department-hos
     canShuttle: false
   - type: AccessReader
     access: [[ "HeadOfSecurity" ], ["Armory"]]
@@ -94,7 +94,7 @@
   suffix: Captain
   components:
   - type: CommunicationsConsole
-    title: "Captain's Desk"
+    title: comms-console-announcement-title-department-cap
     canShuttle: false
   - type: AccessReader
     access: [[ "Captain" ]]
