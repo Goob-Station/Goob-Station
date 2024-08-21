@@ -43,6 +43,17 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkMiniatureEnergyCrossbow
+  name: uplink-miniature-energy-crossbow-name
+  description: uplink-miniature-energy-crossbow-desc
+  icon: { sprite:  /Textures/Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  productEntity: MiniatureEnergyCrossbow
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
@@ -100,3 +111,15 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
+
+# chemicals
+
+- type: listing
+  id: UplinkAdvancedCombatMedipen
+  name: uplink-advanced-combat-medipen-name
+  description: uplink-advanced-combat-medipen-desc
+  productEntity: AdvancedCombatMedipen
+  cost:
+    Telecrystal: 28
+  categories:
+  - UplinkChemicals

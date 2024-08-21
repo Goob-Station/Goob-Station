@@ -414,7 +414,7 @@ Entries:
     - type: Add
       message: >-
         Added gamemodes to secret with two antags at once, but have less of one
-        type and need 30+ Players ready to start. 
+        type and need 30+ Players ready to start.
     - type: Tweak
       message: >-
         Weights have been slightly tweaked. Lings are rarer, and ops/revs are
@@ -422,7 +422,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling now rolls with the same delay as traitors, and changeling max
-        has been lessened to 5. 
+        has been lessened to 5.
   id: 53
   time: '2024-07-18T17:39:51.0000000+00:00'
 - author: Aidenkrz
@@ -559,3 +559,171 @@ Entries:
       message: Ghost bar goers can no longer roll midround antag.
   id: 71
   time: '2024-08-06T07:25:21.0000000+00:00'
+- author: packmore
+  changes:
+    - type: Tweak
+      message: >-
+        Updated roleplay rule 4 to explicitly deny metagaming while
+        crit/unconscious.
+  id: 72
+  time: '2024-08-08T00:31:21.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: >-
+        Changelings will now not fly at mach 10 when weightless with strained
+        muscles active.
+    - type: Tweak
+      message: >-
+        Changed the reagent in ephedrine overdose from synaptizine to
+        desoxyephedrine because it makes more sense
+  id: 73
+  time: '2024-08-10T03:40:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Felinids and harpys will no longer play the mute sound when screaming.
+  id: 74
+  time: '2024-08-10T21:36:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: An advanced combat medipen is now available in the uplink.
+    - type: Tweak
+      message: Combat medipens now cost 12 TC from 20 TC.
+  id: 75
+  time: '2024-08-10T21:37:53.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Scottish accent trait.
+  id: 76
+  time: '2024-08-11T03:06:30.0000000+00:00'
+- author: RealFakeSoof
+  changes:
+    - type: Fix
+      message: Fixed ling shield sprites.
+  id: 77
+  time: '2024-08-11T03:06:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Lube and glue grenades removed from clown and mime loadouts.
+    - type: Tweak
+      message: All command time requirements are reverted to their original times.
+  id: 78
+  time: '2024-08-11T03:10:08.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: The button for pages has been moved to the top of the UI.
+  id: 79
+  time: '2024-08-11T08:41:34.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: no more 8 spaceman Fland gaming.
+  id: 80
+  time: '2024-08-11T08:41:43.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Crowbar storage icons now match our crowbars color scheme
+    - type: Fix
+      message: Crowbar handle now correctly positioned
+  id: 81
+  time: '2024-08-11T09:03:43.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Fix
+      message: Fixed the new riot bullet shield sprites not displaying correctly
+  id: 82
+  time: '2024-08-12T20:08:25.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Nanotrasen Representative now has their own job icon
+    - type: Add
+      message: New nanotrasen representative jumpsuit and jumpskirt
+    - type: Tweak
+      message: >-
+        Nanotrasen Representative loadout has been filled out and better matches
+        their new jumpsuits.
+  id: 83
+  time: '2024-08-12T22:15:33.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Fix
+      message: Changeling hivemind status icon fixed
+  id: 84
+  time: '2024-08-12T22:52:35.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Changed NTR dress to match other command members dresses
+  id: 85
+  time: '2024-08-13T01:18:18.0000000+00:00'
+- author: Gtheglorious
+  changes:
+    - type: Tweak
+      message: Updated the cleanbot with better sprites.
+    - type: Tweak
+      message: You can now pick up cleanbots.
+  id: 86
+  time: '2024-08-13T02:31:33.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: >-
+        Syndicate weapons supply department can now provide new Energy Crossbow
+        for just 49.99!
+  id: 87
+  time: '2024-08-13T20:51:37.0000000+00:00'
+- author: DaMoggen
+  changes:
+    - type: Tweak
+      message: Tritium and ammonia gas canisters are no longer an eyesore.
+  id: 88
+  time: '2024-08-13T20:52:21.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: added Medical Patches
+  id: 89
+  time: '2024-08-15T01:13:49.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Plasma cutter. Can be researched; can be recharged with plasma sheets.
+  id: 90
+  time: '2024-08-15T08:10:27.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The Syndicate has updated their drip to match the new fashion standart
+  id: 91
+  time: '2024-08-15T08:45:17.0000000+00:00'
+- author: silver2127
+  changes:
+    - type: Tweak
+      message: Rev victory ends game instead of calling shuttle
+  id: 92
+  time: '2024-08-16T09:59:42.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Vulps and Harpies are no longer colorblind.
+    - type: Tweak
+      message: >-
+        Syndicate microwave has a smaller chance to explode when microwaving
+        IDs.
+    - type: Tweak
+      message: Normal microwave has chance to explode when microwaving IDs.
+    - type: Tweak
+      message: You can now put any items on a burger.
+    - type: Fix
+      message: Tranquility now affects all species.
+    - type: Tweak
+      message: Tranquility now affects mobs, not just players.
+  id: 93
+  time: '2024-08-18T22:58:35.0000000+00:00'

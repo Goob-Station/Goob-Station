@@ -1,0 +1,30 @@
+- type: entity
+  name: plasma cutter
+  parent: BaseWeaponBatterySmall
+  id: WeaponPlasmaCutter
+  description: A self-defense weapon that exhausts organic targets, weakening them until they collapse.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Weapons/Guns/Battery/cutter.rsi
+    state: icon
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Goobstation/Weapons/Guns/Gunshots/plasma_cutter.ogg
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,2,2
+  - type: MaterialStorage
+    storageLimit: 0
+    materialWhiteList: [Plasma]
+    canEjectStoredMaterials: false
+  - type: Battery
+    maxCharge: 3000
+    startingCharge: 3000
+  - type: BatteryRecharge
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPlasmaCutter
+    fireCost: 200
+  - type: Appearance
+

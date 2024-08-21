@@ -14,7 +14,9 @@
       department: Security
       time: 54000 # 15 hrs
     - !type:OverallPlaytimeRequirement
-      time: 72000 #20 hrs
+      time: 144000 #40 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
   weight: 10
   startingGear: HoSGear
   icon: "JobIconHeadOfSecurity"

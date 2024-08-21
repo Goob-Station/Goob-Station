@@ -43,6 +43,9 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction MovePulledObject = "MovePulledObject";
         public static readonly BoundKeyFunction ReleasePulledObject = "ReleasePulledObject";
         public static readonly BoundKeyFunction MouseMiddle = "MouseMiddle";
+        public static readonly BoundKeyFunction RotateObjectClockwise = "RotateObjectClockwise";
+        public static readonly BoundKeyFunction RotateObjectCounterclockwise = "RotateObjectCounterclockwise";
+        public static readonly BoundKeyFunction FlipObject = "FlipObject";
         public static readonly BoundKeyFunction ToggleRoundEndSummaryWindow = "ToggleRoundEndSummaryWindow";
         public static readonly BoundKeyFunction OpenEntitySpawnWindow = "OpenEntitySpawnWindow";
         public static readonly BoundKeyFunction OpenSandboxWindow = "OpenSandboxWindow";
@@ -90,6 +93,23 @@ namespace Content.Shared.Input
             {
                 Hotbar1, Hotbar2, Hotbar3, Hotbar4, Hotbar5, Hotbar6, Hotbar7, Hotbar8, Hotbar9, Hotbar0
             };
+        // goobstation
+        public static readonly BoundKeyFunction Loadout0 = "Loadout0";
+        public static readonly BoundKeyFunction Loadout1 = "Loadout1";
+        public static readonly BoundKeyFunction Loadout2 = "Loadout2";
+        public static readonly BoundKeyFunction Loadout3 = "Loadout3";
+        public static readonly BoundKeyFunction Loadout4 = "Loadout4";
+        public static readonly BoundKeyFunction Loadout5 = "Loadout5";
+        public static readonly BoundKeyFunction Loadout6 = "Loadout6";
+        public static readonly BoundKeyFunction Loadout7 = "Loadout7";
+        public static readonly BoundKeyFunction Loadout8 = "Loadout8";
+        public static readonly BoundKeyFunction Loadout9 = "Loadout9";
+
+        public static BoundKeyFunction[] GetLoadoutBoundKeys() =>
+            new[]
+            {
+                Loadout1, Loadout2, Loadout3, Loadout4, Loadout5, Loadout6, Loadout7, Loadout8, Loadout9, Loadout0
+            };
 
         public static readonly BoundKeyFunction Vote0 = "Vote0";
         public static readonly BoundKeyFunction Vote1 = "Vote1";
@@ -104,5 +124,14 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction EditorCopyObject = "EditorCopyObject";
         public static readonly BoundKeyFunction EditorFlipObject = "EditorFlipObject";
         public static readonly BoundKeyFunction InspectEntity = "InspectEntity";
+
+        public static readonly BoundKeyFunction MappingUnselect = "MappingUnselect";
+        public static readonly BoundKeyFunction SaveMap = "SaveMap";
+        public static readonly BoundKeyFunction MappingEnablePick = "MappingEnablePick";
+        public static readonly BoundKeyFunction MappingEnableDelete = "MappingEnableDelete";
+        public static readonly BoundKeyFunction MappingPick = "MappingPick";
+        public static readonly BoundKeyFunction MappingRemoveDecal = "MappingRemoveDecal";
+        public static readonly BoundKeyFunction MappingCancelEraseDecal = "MappingCancelEraseDecal";
+        public static readonly BoundKeyFunction MappingOpenContextMenu = "MappingOpenContextMenu";
     }
 }

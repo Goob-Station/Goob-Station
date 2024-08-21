@@ -1,56 +1,79 @@
 #hat
 - type: loadout
-  id: NanotrasenRepresentativeHead
-  equipment: NanotrasenRepresentativeHead
-
-- type: startingGear
-  id: NanotrasenRepresentativeHead
+  id: NanotrasenRepresentativeBowler
   equipment:
-    head: ClothingHeadHatCentcom
+    head: ClothingHeadHatBowlerHat
 
 - type: loadout
-  id: NanotrasenRepresentativeCap
-  equipment: NanotrasenRepresentativeCap
-
-- type: startingGear
-  id: NanotrasenRepresentativeCap
+  id: NanotrasenRepresentativeTop
   equipment:
-    head: ClothingHeadHatCentcomcap
+    head: ClothingHeadHatTophat
 
-#backy packy
+- type: loadout
+  id: NanotrasenRepresentativeOutlaw
+  equipment:
+    head: ClothingHeadHatOutlawHat
+
+- type: loadout
+  id: NanotrasenRepresentativeBeret
+  equipment:
+    head: ClothingHeadHatBeretFrench
+
+- type: loadout
+  id: NanotrasenRepresentativeMAA
+  equipment:
+    head: ClothingHeadHatSyndieMAA
+
+# Backpacks
 - type: loadout
   id: NanotrasenRepresentativeBackpack
-  equipment: NanotrasenRepresentativeBackpack
-
-- type: startingGear
-  id: NanotrasenRepresentativeBackpack
   equipment:
-    back: ClothingBackpackCentcom
+    back: ClothingBackpack
+
+- type: loadout
+  id: NanotrasenRepresentativeDuffel
+  equipment:
+    back: ClothingBackpackDuffel
 
 - type: loadout
   id: NanotrasenRepresentativeSatchel
-  equipment: NanotrasenRepresentativeSatchel
-
-- type: startingGear
-  id: NanotrasenRepresentativeSatchel
   equipment:
-    back: ClothingBackpackSatchelNanorep
+    back: ClothingBackpackSatchelLeather
 
-#jumpy suity
+# Jumpsuits
 - type: loadout
   id: NanotrasenRepresentativeJumpsuit
-  equipment: NanotrasenRepresentativeJumpsuit
-
-- type: startingGear
-  id: NanotrasenRepresentativeJumpsuit
   equipment:
-    jumpsuit: ClothingUniformJumpsuitCentcomAgent
+    jumpsuit: ClothingUniformJumpsuitNanotrasenRepresentative
 
 - type: loadout
   id: NanotrasenRepresentativeJumpskirt
-  equipment: NanotrasenRepresentativeJumpskirt
-
-- type: startingGear
-  id: NanotrasenRepresentativeJumpskirt
   equipment:
-    jumpsuit: CentcomAgentSkirt
+    jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+
+# Belt
+- type: loadout
+  id: NanotrasenRepresentativeClipboard
+  equipment:
+    belt: BoxFolderCentComClipboard
+
+- type: loadout
+  id: NanotrasenRepresentativeWaistbag
+  equipment:
+    belt: ClothingBeltStorageWaistbag
+
+# Shoes
+- type: loadout
+  id: NanotrasenRepresentativeBoots
+  equipment:
+    shoes: ClothingShoesBootsLaceup
+
+- type: loadout
+  id: NanotrasenRepresentativeShoes
+  equipment:
+    shoes: ClothingShoesLeather
+
+- type: loadout
+  id: NanotrasenRepresentativeHeels
+  equipment:
+    shoes: ClothingShoesHighheelBoots

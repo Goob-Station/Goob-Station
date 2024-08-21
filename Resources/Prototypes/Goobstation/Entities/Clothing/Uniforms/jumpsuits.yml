@@ -14,3 +14,14 @@
       coefficients:
         Blunt: 0.95
         Heat: 0.95
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitNanotrasenRepresentative
+  name: nanotrasen representative suit
+  description: A black suit worn by officials.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/nanotrasen_representative.rsi

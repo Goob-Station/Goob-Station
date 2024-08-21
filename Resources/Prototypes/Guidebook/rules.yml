@@ -162,6 +162,7 @@
   - RuleR15
   - RuleR16
   - RuleR17
+  - RuleR18
 
 - type: guideEntry
   id: RuleR1
@@ -298,6 +299,12 @@
   text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR17NTR.xml"
 
 - type: guideEntry
+  id: RuleR18
+  name: guide-entry-rules-r18
+  priority: 18
+  text: "/ServerInfo/Guidebook/ServerRules/RoleplayRules/RuleR18PG.xml"
+
+- type: guideEntry
   id: SiliconRules
   name: guide-entry-rules-silicon
   ruleEntry: true
@@ -386,22 +393,18 @@
   text: "/ServerInfo/Guidebook/ServerRules/SiliconRules/RuleS10OrderConflicts.xml"
 
 - type: guideEntry
-  id: SpaceLawControlledSubstances
-  name: guide-entry-rules-sl-controlled-substances
-  priority: 20
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLControlledSubstances.xml"
+  id: SpaceLaw
+  name: guide-entry-rules-space-law
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
+  children:
+  - SpaceLawCrimeList
 
 - type: guideEntry
-  id: SpaceLawRestrictedGear
-  name: guide-entry-rules-sl-restricted-gear
-  priority: 30
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLRestrictedGear.xml"
-
-- type: guideEntry
-  id: SpaceLawRestrictedWeapons
-  name: guide-entry-rules-sl-restricted-weapons
-  priority: 40
-  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLRestrictedWeapons.xml"
+  id: SpaceLawCrimeList
+  name: guide-entry-rules-sl-crime-list
+  priority: 5
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
 
 - type: guideEntry
   id: BanTypes
