@@ -1,6 +1,9 @@
+using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Robust.Shared.Prototypes; // Goobstation - anythingburgers
+using Content.Shared.Goobstation.Nutrition.EntitySystems; // Goobstation - anythingburgers
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -21,10 +24,16 @@ public sealed partial class FoodSequenceElementComponent : Component
     /// </summary>
     [DataField]
     public string Solution = "food";
+
+    /// <summary>
+    /// state used to generate the appearance of the added layer
+    /// </summary>
+    [DataField]
+    public SpriteSpecifier? Sprite;
 }
 
 [DataRecord, Serializable, NetSerializable]
-public partial record struct FoodSequenceElementEntry()
+public sealed class FoodSequenceElementEntry
 {
     /// <summary>
     /// A localized name piece to build into the item name generator.
@@ -32,7 +41,7 @@ public partial record struct FoodSequenceElementEntry()
     public LocId? Name { get; set; } = null;
 
     /// <summary>
-    /// state used to generate the appearance of the added layer
+    /// overriding default sprite
     /// </summary>
     public SpriteSpecifier? Sprite { get; set; } = null;
 
@@ -40,4 +49,14 @@ public partial record struct FoodSequenceElementEntry()
     /// If the layer is the final one, it can be added over the limit, but no other layers can be added after it.
     /// </summary>
     public bool Final { get; set; } = false;
+
+    /// <summary>
+    /// the shear of a particular layer. Allows a little "randomization" of each layer.
+    /// </summary>
+    public Vector2 LocalOffset { get; set; } = Vector2.Zero;
+
+    /// <summary>
+    /// the original prototype of the layer
+    /// </summary>
+    public string? Proto { get; set; } = null; // Goobstation - anythingburgers
 }

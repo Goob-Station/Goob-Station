@@ -247,6 +247,8 @@
     interactFailureString: petting-failure-cleanbot
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Item # Goobstation
+    size: Large
 
 - type: entity
   parent:
