@@ -39,3 +39,28 @@
         Heat: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.9
+
+# Helldiver
+- type: entity
+  parent: [ ClothingOuterEVASuitBase, GeigerCounterClothing ]
+  id: ClothingOuterArmorHelldiver
+  name: salvage NT-01 tactical hardsuit
+  description: This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.5
+        Radiation: 0.7
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.95
