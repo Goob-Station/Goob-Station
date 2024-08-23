@@ -1,0 +1,67 @@
+- type: entity
+  parent: BaseItem
+  id: BaseKey
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - VehicleKey
+
+- type: entity
+  parent: BaseKey
+  id: VehicleKeySecway
+  name: secway keys
+  description: The keys to the future.
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/secway.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - SecwayKeys
+    
+- type: entity
+  parent: BaseKey
+  id: VehicleKeySyndicateSegway
+  name: syndicate segway keys
+  description: Patterned after the iconic EMAG design.
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/syndicatesegway.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - SyndicateSegwayKeys
+
+- type: entity
+  parent: BaseKey
+  id: VehicleKeyATV
+  name: ATV keys
+  description: Think this looks like just one key? ATV keys means "actually two vehicle keys."
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/atv.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - ATVKeys
+    
+- type: entity
+  parent: BaseKey
+  id: VehicleKeyJanicart
+  name: janicart keys
+  description: Interesting design.
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/janicart.rsi
+    state: keys
+  - type: Tag
+    tags:
+    - VehicleKey
+    - JanicartKeys
