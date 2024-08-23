@@ -54,8 +54,8 @@
         sound:
           collection: MetalBreak
   - type: MovementSpeedModifier
-    acceleration: 10
-    friction: 10 # wheels dont stop instantly
+    acceleration: 8
+    friction: 5 # wheels dont stop instantly
     baseSprintSpeed: 7
     baseWalkSpeed: 4.5 # default walking speed
   - type: ItemSlots
