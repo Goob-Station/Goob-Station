@@ -45,6 +45,11 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, 0.5f);
+        if (lookup.Count == 0)
+        {
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
+            return false;
+        }
 
         foreach (var look in lookup)
         {
@@ -59,12 +64,6 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
                 uids.Add(look);
-        }
-
-        if (uids.Count == 0)
-        {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
-            return false;
         }
 
         outstr = null;

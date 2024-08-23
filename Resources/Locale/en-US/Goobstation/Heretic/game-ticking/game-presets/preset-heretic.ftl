@@ -39,27 +39,3 @@ ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
 ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believes to the Mansus Link.
 ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and blend in with crew.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.
-
-
-## ascension
-
-heretic-ascend-announcement = ?!_#@#@*$#*$#&@
-
-heretic-ascend-ash =
-    Fear the blaze, for the Ashlord, {CAPITALIZE(THE($ent))}, has Ascended!
-    The flames shall consume all!
-heretic-ascend-lock =
-    Delta-class dimensional anomaly detect%*$&*$(#@^(@))
-    Reality ended, torn. Gates open, doors open, {CAPITALIZE(THE($ent))}, has Ascended!
-    Fear the tide!
-heretic-ascend-flesh =
-    Ever colliding vortex. Reality unfolded. ARMS OUTREACHED, THE LORD OF THE NIGHT, {CAPITALIZE(THE($ent))}, has Ascended!
-    Fear the ever twisting hand!
-heretic-ascend-blade =
-    Master of blades, the Torn Champion's disciple, {CAPITALIZE(THE($ent))}, has Ascended!
-    Their steel is that which will cut reality in a maelstom of silver!
-heretic-ascend-void =
-    The nobleman of void, {CAPITALIZE(THE($ent))}, has arrived, stepping along the Waltz that ends worlds!
-heretic-ascend-rust =
-    Fear the decay, for the Rustbringer, {CAPITALIZE(THE($ent))}, has Ascended!
-    None shall escape the corrosion!

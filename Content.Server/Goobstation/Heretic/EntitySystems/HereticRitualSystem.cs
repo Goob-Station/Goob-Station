@@ -48,7 +48,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
                 if (!output && missingStr != null)
                 {
-                    _popup.PopupEntity((string) missingStr, platform, performer);
+                    _popup.PopupEntity(missingStr, platform, performer);
                     return false;
                 }
 
@@ -104,8 +104,13 @@ public sealed partial class HereticRitualSystem : EntitySystem
         {
             // we are! notify the performer about that!
             var sb = new StringBuilder();
-            foreach (var missing in missingList)
-                sb.Append(missing);
+            for (int i = 0; i < missingList.Count; i++)
+            {
+                // makes a nice, list, of, missing, items.
+                if (i != missingList.Count - 1)
+                    sb.Append($"{missingList[i]}, ");
+                else sb.Append(missingList[i]);
+            }
 
             _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString())), platform, performer);
             return false;

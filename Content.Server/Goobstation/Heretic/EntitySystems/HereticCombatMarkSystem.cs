@@ -12,6 +12,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
+using System.Linq;
+using Content.Shared.Humanoid;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -86,6 +88,19 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
 
             default:
                 return false;
+        }
+
+        // transfers the mark to the next nearby person
+        var look = _lookup.GetEntitiesInRange(target, 2.5f);
+        if (look.Count != 0)
+        {
+            var lookent = look.ToArray()[0];
+            if (HasComp<HumanoidAppearanceComponent>(lookent)
+            && !HasComp<HereticComponent>(lookent))
+            {
+                var markComp = EnsureComp<HereticCombatMarkComponent>(lookent);
+                markComp.Path = path;
+            }
         }
 
         return true;

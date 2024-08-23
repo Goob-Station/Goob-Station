@@ -60,9 +60,6 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField] public ProtoId<HereticKnowledgePrototype>? OutputKnowledge;
 
-    /// <summary>
-    ///     
-    /// </summary>
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
     public object Clone()
     {

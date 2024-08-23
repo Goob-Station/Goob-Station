@@ -5,7 +5,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -135,10 +134,13 @@ public sealed partial class HereticBladeSystem : EntitySystem
             if (HasComp<HereticComponent>(hit))
                 continue;
 
-            if (HasComp<HereticCombatMarkComponent>(hit))
+            if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
+            {
                 _combatMark.ApplyMarkEffect(hit, ent.Comp.Path);
+                RemComp(hit, mark);
+            }
 
-            if (hereticComp.PathStage >= 8)
+            if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit);
         }
     }

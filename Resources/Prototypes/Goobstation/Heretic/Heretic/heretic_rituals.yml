@@ -15,7 +15,7 @@
   output:
     ClothingNeckAmberFocus: 1
 
-# ash
+# ash path
 - type: hereticRitual
   id: BladeAsh
   name: heretic-ritual-ash-blade

@@ -50,8 +50,11 @@ public sealed partial class GhoulSystem : EntitySystem
 
         if (TryComp<HumanoidAppearanceComponent>(ent, out var humanoid))
         {
-            _humanoid.SetSkinColor(ent, Color.FromHex("#505050"), true, false, humanoid);
-            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, Color.FromHex("#505050"));
+            // make them "have no eyes" and grey
+            // this is clearly a reference to grey tide
+            var greycolor = Color.FromHex("#505050");
+            _humanoid.SetSkinColor(ent, greycolor, true, false, humanoid);
+            _humanoid.SetBaseLayerColor(ent, HumanoidVisualLayers.Eyes, greycolor, true, humanoid);
         }
 
         _rejuvenate.PerformRejuvenate(ent);
