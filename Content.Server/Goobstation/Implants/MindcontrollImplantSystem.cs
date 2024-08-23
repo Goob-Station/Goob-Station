@@ -8,11 +8,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Hands.Components;
 
 namespace Content.Server.Implants;
-//      SubdermalImplantComponent
-//      ImplantRelayEvent<T>
-//
-//
-//
 public sealed class MindcontrollImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrollSystem _mindcontroll = default!;
