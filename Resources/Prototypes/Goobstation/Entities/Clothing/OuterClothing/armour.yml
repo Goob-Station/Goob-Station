@@ -49,6 +49,11 @@
   components:
   - type: Sprite
     sprite: Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
+    layers:
+    - state: icon
+    - state: light-overlay
+      visible: false
+      shader: unshaded
   - type: Clothing
     sprite: Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
   - type: TemperatureProtection

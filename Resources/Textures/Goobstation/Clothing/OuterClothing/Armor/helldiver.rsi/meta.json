@@ -18,6 +18,9 @@
       "name": "equipped-OUTERCLOTHING-light",
       "directions": 4
     },
+	{
+      "name": "light-overlay"
+    },
     {
       "name": "inhand-left",
       "directions": 4
