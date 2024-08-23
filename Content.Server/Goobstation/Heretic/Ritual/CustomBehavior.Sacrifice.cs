@@ -10,7 +10,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
-using Robust.Server.Prototypes;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -21,6 +20,16 @@ namespace Content.Server.Heretic.Ritual;
 // these classes should be lead out and shot
 public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
+    /// <summary>
+    ///     Minimal amount of corpses.
+    /// </summary>
+    [DataField] public float Min = 1;
+
+    /// <summary>
+    ///     Maximum amount of corpses.
+    /// </summary>
+    [DataField] public float Max = 1;
+
     // this is awful but it works so i'm not complaining
     private SharedMindSystem _mind = default!;
     private HereticSystem _heretic = default!;
@@ -45,25 +54,28 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
         }
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, 0.5f);
-        if (lookup.Count == 0)
+        if (lookup.Count == 0 || lookup == null)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
             return false;
         }
 
+        // get all the dead ones
         foreach (var look in lookup)
         {
-            // get the first dead one
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look))
-                continue;
-
-            // eldritch gods don't want these nature freaks
-            if (args.EntityManager.HasComponent<ChangelingComponent>(look))
+            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
+            || args.EntityManager.HasComponent<ChangelingComponent>(look))
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
                 uids.Add(look);
+        }
+
+        if (uids.Count < Min)
+        {
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
+            return false;
         }
 
         outstr = null;
@@ -72,14 +84,14 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
 
     public override void Finalize(RitualData args)
     {
-        foreach (var acc in uids)
+        for (int i = 0; i < Max; i++)
         {
-            var knowledgeGain = args.EntityManager.HasComponent<CommandStaffComponent>(acc) ? 2f : 1f;
+            var knowledgeGain = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]) ? 2f : 1f;
 
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind)
             && _mind.TryGetObjectiveComp<HereticSacrificeConditionComponent>(mindId, out var objective, mind))
             {
-                if (args.EntityManager.HasComponent<CommandStaffComponent>(acc) && objective.IsCommand)
+                if (args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]) && objective.IsCommand)
                     objective.Sacrificed += 1;
                 objective.Sacrificed += 1; // give one nontheless
             }
@@ -88,12 +100,11 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
                 _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
 
             // YES!!! GIB!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(acc, out var dmg))
+            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
             {
                 var prot = (ProtoId<DamageGroupPrototype>) "Brute";
                 var dmgtype = _proto.Index(prot);
-                // set to absurd number so that it'll 1000% get gibbed
-                _damage.TryChangeDamage(acc, new DamageSpecifier(dmgtype, 1984f), true);
+                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
             }
         }
     }

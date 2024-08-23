@@ -38,22 +38,29 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var missingList = new List<string>();
         var toDelete = new List<EntityUid>();
 
-        // custom behavior
-        // this is god awful
         if (rit.CustomBehaviors != null)
+        {
+            // check for all conditions
             foreach (var behavior in rit.CustomBehaviors)
             {
                 var ritData = new RitualData(performer, platform, ritualId, EntityManager);
-                var output = behavior.Execute(ritData, out var missingStr);
 
-                if (!output && missingStr != null)
+                if (!behavior.Execute(ritData, out var missingStr))
                 {
-                    _popup.PopupEntity(missingStr, platform, performer);
+                    if (missingStr != null)
+                        _popup.PopupEntity(missingStr, platform, performer);
                     return false;
                 }
+            }
 
+            // nice every condition is met
+            // finalize all of them
+            foreach (var behavior in rit.CustomBehaviors)
+            {
+                var ritData = new RitualData(performer, platform, ritualId, EntityManager);
                 behavior.Finalize(ritData);
             }
+        }
 
         // check for matching entity names
         if (rit.RequiredEntityNames != null)

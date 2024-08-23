@@ -34,7 +34,7 @@ public sealed partial class HereticSystem : EntitySystem
 
         foreach (var heretic in EntityQuery<HereticComponent>())
         {
-            // passive gains
+            // todo: passive gains
         }
     }
 
