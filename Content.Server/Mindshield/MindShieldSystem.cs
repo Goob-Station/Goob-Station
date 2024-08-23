@@ -8,7 +8,7 @@ using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
-using Content.Server.Mindcontroll.Components;   //Goobstation - MindcontrollImplant
+using Content.Shared.Mindcontroll;  //Goobstation - MindcontrollImplant
 
 namespace Content.Server.Mindshield;
 

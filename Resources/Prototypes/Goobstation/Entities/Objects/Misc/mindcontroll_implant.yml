@@ -21,4 +21,18 @@
         components:
         - MindShield
         - Changeling
+        - BorgChassisComponent #dermal means skin. borgs dont have skin
     - type: MindcontrollImplant
+
+- type: factionIcon #  There are no statusicon for group for what is needed here. a new group is needed whit ShowToUid. Faction will do for now.
+  id: MindcontrolledFaction # All mindcontrolled can tell who else is mindcontrolled.
+  isShaded: true
+  priority: 11
+  locationPreference: Left
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Mindcontroll
+  icon:
+    sprite: /Textures/Interface/Misc/job_icons.rsi
+    state: Mindcontroll

@@ -1,22 +1,24 @@
 using Content.Server.Implants.Components;
 using Content.Shared.Implants;
 using Robust.Shared.Containers;
-using Content.Server.Mindcontroll.Components;
+using Content.Shared.Mindcontroll;
 using Content.Server.Mindcontroll;
 using Content.Shared.Implants.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Hands.Components;
 
-
 namespace Content.Server.Implants;
-
+//      SubdermalImplantComponent
+//      ImplantRelayEvent<T>
+//
+//
+//
 public sealed class MindcontrollImplantSystem : EntitySystem
 {
     [Dependency] private readonly MindcontrollSystem _mindcontroll = default!;
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<MindcontrollImplantComponent, EntGotRemovedFromContainerMessage>(OnRemove); //implant gets removed, remove traitor
         SubscribeLocalEvent<MindcontrollImplantComponent, ImplantImplantedEvent>(OnImplant);
         SubscribeLocalEvent<MindcontrollImplantComponent, EntGotInsertedIntoContainerMessage>(OnInsert);
@@ -36,7 +38,6 @@ public sealed class MindcontrollImplantSystem : EntitySystem
         if (!TryComp<MindcontrollComponent>(args.Implanted.Value, out var implanted))
             return;
         implanted.Master = component.HolderUid;
-        implanted.Implant = uid;
         _mindcontroll.Start(args.Implanted.Value, implanted);
     }
     private void OnInsert(EntityUid uid, MindcontrollImplantComponent component, EntGotInsertedIntoContainerMessage args)
