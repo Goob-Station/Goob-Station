@@ -51,10 +51,11 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 break;
 
             case "Blade":
-                // todo: add double attack
+                // todo: double it's damage
                 break;
 
             case "Flesh":
+                // ultra bleed
                 _blood.TryModifyBleedAmount(target, 1.5f);
                 break;
 

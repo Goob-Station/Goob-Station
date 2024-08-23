@@ -64,7 +64,7 @@
   icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
   productHereticKnowledge: MarkOfAsh
   cost:
-    KnowledgePoint: 2
+    KnowledgePoint: 1
   categories:
   - HereticPathAsh
   conditions:
@@ -72,3 +72,93 @@
     stock: 1
   - !type:HereticPathCondition
     stage: 3
+    whitelist:
+    - Ash
+
+- type: listing
+  id: HereticAshPath5
+  name: knowledge-path-ash-s5-name
+  description: knowledge-path-ash-s5-desc
+  icon: { sprite: Goobstation/Heretic/abilities_heretic.rsi, state: volcano_blast }
+  productHereticKnowledge: VolcanicBlast
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 4
+    whitelist:
+    - Ash
+
+# side
+- type: listing
+  id: HereticAshPath6
+  name: knowledge-path-ash-s6-name
+  description: knowledge-path-ash-s6-desc
+  icon: { sprite: Goobstation/Heretic/mad_mask.rsi, state: icon }
+  productHereticKnowledge: MaskOfMadness
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 5
+
+- type: listing
+  id: HereticAshPath7
+  name: knowledge-path-ash-s7-name
+  description: knowledge-path-ash-s7-desc
+  icon: { sprite: Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
+  productHereticKnowledge: FieryBlade
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 6
+    whitelist:
+    - Ash
+
+# side
+- type: listing
+  id: HereticAshPath8
+  name: knowledge-path-ash-s8-name
+  description: knowledge-path-ash-s8-desc
+  icon: { sprite: Goobstation/Heretic/abilities_heretic.rsi, state: nightwatcher_rebirth }
+  productHereticKnowledge: NightwatcherRebirth
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 7
+
+- type: listing
+  id: HereticAshPath9
+  name: knowledge-path-ash-s9-name
+  description: knowledge-path-ash-s9-desc
+  icon: { sprite: Goobstation/Heretic/abilities_heretic.rsi, state: ashlord_rite1 }
+  productHereticKnowledge: AscensionAsh
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathAsh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 8
+    whitelist:
+    - Ash

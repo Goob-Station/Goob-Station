@@ -43,7 +43,8 @@
 - type: hereticKnowledge
   id: AshenShift
   stage: 3
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticJaunt
 
 - type: hereticKnowledge
   id: MarkOfAsh
@@ -54,13 +55,15 @@
   id: VolcanicBlast
   path: Ash
   stage: 5
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticVolcanoBlast
 
 - type: hereticKnowledge
   id: MaskOfMadness
   path: Ash
   stage: 6
-  #ritualPrototypes:
+  ritualPrototypes:
+  - MaskOfMadness
 
 - type: hereticKnowledge
   id: FieryBlade
@@ -71,10 +74,20 @@
   id: NightwatcherRebirth
   path: Ash
   stage: 8
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticNightwatcherRebirth
 
 - type: hereticKnowledge
   id: AscensionAsh
   path: Ash
   stage: 9
-  #ritualPrototypes:
+  ritualPrototypes:
+  - AscensionAsh
+
+- type: hereticKnowledge
+  id: AshlordRite
+  path: Ash
+  stage: 10
+  actionPrototypes:
+  - ActionHereticAscension1
+  - ActionHereticAscension2

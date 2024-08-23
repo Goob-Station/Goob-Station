@@ -1,0 +1,6 @@
+- type: polymorph
+  id: AshJaunt
+  configuration:
+    entity: PolymorphAshJaunt
+    forced: true
+    duration: 5

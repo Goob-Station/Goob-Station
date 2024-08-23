@@ -18,7 +18,7 @@ namespace Content.Server.Heretic.Ritual;
 ///     gibs it and gives the heretic knowledge points.
 /// </summary>
 // these classes should be lead out and shot
-public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
+[Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior
 {
     /// <summary>
     ///     Minimal amount of corpses.
@@ -31,13 +31,13 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
     [DataField] public float Max = 1;
 
     // this is awful but it works so i'm not complaining
-    private SharedMindSystem _mind = default!;
-    private HereticSystem _heretic = default!;
-    private DamageableSystem _damage = default!;
-    private EntityLookupSystem _lookup = default!;
-    [Dependency] private IPrototypeManager _proto = default!;
+    protected SharedMindSystem _mind = default!;
+    protected HereticSystem _heretic = default!;
+    protected DamageableSystem _damage = default!;
+    protected EntityLookupSystem _lookup = default!;
+    [Dependency] protected IPrototypeManager _proto = default!;
 
-    private readonly List<EntityUid> uids = new();
+    protected List<EntityUid> uids = new();
 
     public override bool Execute(RitualData args, out string? outstr)
     {
@@ -53,7 +53,7 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
             return false;
         }
 
-        var lookup = _lookup.GetEntitiesInRange(args.Platform, 0.5f);
+        var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
         if (lookup.Count == 0 || lookup == null)
         {
             outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
@@ -86,14 +86,15 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
     {
         for (int i = 0; i < Max; i++)
         {
-            var knowledgeGain = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]) ? 2f : 1f;
+            var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
+            var knowledgeGain = isCommand ? 2f : 99f; // 1f;
 
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind)
             && _mind.TryGetObjectiveComp<HereticSacrificeConditionComponent>(mindId, out var objective, mind))
             {
-                if (args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]) && objective.IsCommand)
+                if (objective.IsCommand && isCommand)
                     objective.Sacrificed += 1;
-                objective.Sacrificed += 1; // give one nontheless
+                else objective.Sacrificed += 1;
             }
 
             if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
@@ -107,5 +108,8 @@ public sealed partial class RitualSacrificeBehavior : RitualCustomBehavior
                 _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
             }
         }
+
+        // reset it because blehhh
+        uids = new();
     }
 }

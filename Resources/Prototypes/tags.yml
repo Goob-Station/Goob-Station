@@ -629,6 +629,9 @@
 - type: Tag
   id: Galaxythistle
 
+- type: Tag # goob edit
+  id: GasMask
+
 - type: Tag
   id: GasScrubber
 
@@ -884,6 +887,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag # goob edit
+  id: Mask
 
 - type: Tag
   id: Matchstick
@@ -1216,6 +1222,9 @@
 
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: Stunbaton
 
 - type: Tag
   id: SubdermalImplant

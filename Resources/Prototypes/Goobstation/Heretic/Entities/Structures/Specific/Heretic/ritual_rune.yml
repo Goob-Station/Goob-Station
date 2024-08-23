@@ -32,7 +32,7 @@
     mode: SnapgridCenter
   components:
   - type: TimedDespawn
-    delay: 0.25
+    delay: 0.1
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Goobstation/Heretic/ritual_rune.rsi

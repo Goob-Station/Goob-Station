@@ -1,6 +1,8 @@
 ## misc
 
-heretic-ability-fail = Failed to use ability
+heretic-ability-fail = Failed to cast
+heretic-ability-fail-magicitem = You cannot cast it without a focus!
+heretic-ability-fail-notarget = Couldn't find a valid target!
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while equipped.[/color]
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
@@ -13,7 +15,7 @@ heretic-speech-mansusgrasp = R'CH T'H TR'TH!
 
 heretic-speech-ash-jaunt = ASH'N P'SSG'
 heretic-speech-ash-volcano = V'LC'N!
-heretic-speech-ash-rebirth = GL'RY T' TH' N'GHT'W'TCH'ER!
+heretic-speech-ash-rebirth = G'LR'Y T' TH' N'GHT'W'TCH'ER!
 heretic-speech-ash-flame = FL'MS!!
 heretic-speech-ash-cascade = C'SC'DE!!
 

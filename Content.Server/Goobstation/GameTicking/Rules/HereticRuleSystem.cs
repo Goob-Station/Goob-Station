@@ -14,6 +14,7 @@ using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using System.Linq;
 using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
@@ -71,7 +72,10 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
 
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting-fluff"), Color.MediumPurple, null);
             _antag.SendBriefing(target, Loc.GetString("heretic-role-greeting"), Color.Red, BriefingSound);
-            _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+
+            if (_mind.TryGetRole<RoleBriefingComponent>(mindId, out var rbc))
+                rbc.Briefing += $"\n{briefingShort}";
+            else _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
         }
         _npcFaction.RemoveFaction(target, NanotrasenFactionId, false);
         _npcFaction.AddFaction(target, HereticFactionId);

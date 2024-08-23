@@ -24,3 +24,23 @@
     Matchstick: 1
   output:
     HereticBladeAsh: 1
+
+- type: hereticRitual
+  id: MaskOfMadness
+  name: heretic-ritual-ash-mask
+  requiredTags:
+    Mask: 1
+    Candle: 4
+    Stunbaton: 1
+  output:
+    ClothingMaskMadHeretic: 1
+
+- type: hereticRitual
+  id: AscensionAsh
+  name: heretic-ritual-ash-ascend
+  customBehaviors:
+  - !type:RitualAshAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: AshlordRite
+  outputEvent: !type:EventHereticAscension

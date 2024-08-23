@@ -136,7 +136,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     Spawn(ent, Transform(platform).Coordinates);
         }
         if (rit.OutputEvent != null)
-            RaiseLocalEvent(rit.OutputEvent);
+            RaiseLocalEvent(performer, rit.OutputEvent, true);
 
         if (rit.OutputKnowledge != null)
             _knowledge.AddKnowledge(performer, hereticComp, (ProtoId<HereticKnowledgePrototype>) rit.OutputKnowledge);

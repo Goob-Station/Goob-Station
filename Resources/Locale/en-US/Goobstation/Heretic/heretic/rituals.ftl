@@ -9,6 +9,8 @@ heretic-ritual-basic-sacrifice = Heartbeat of the Mansus
 heretic-ritual-basic-focus = Amber Focus
 heretic-ritual-basic-codex = Codex Cicatrix
 
+heretic-ritual-fail-sacrifice = There is no corpse to sacrifice!
+heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
 
 ## side quests
 heretic-ritual-side-shark = Scorching Shark
@@ -23,3 +25,5 @@ heretic-ritual-side-coin = Eldritch Coin
 ## ash path
 heretic-ritual-ash-blade = Nightwatcher's Secret
 heretic-ritual-ash-grasp = Grasp of Ash
+heretic-ritual-ash-mask = Mask of Madness
+heretic-ritual-ash-ascend = Ashlord's Rite

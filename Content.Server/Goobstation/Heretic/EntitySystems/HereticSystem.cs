@@ -1,12 +1,17 @@
 using Content.Server.Objectives.Components;
-using Content.Server.Hands.Systems;
-using Content.Server.Popups;
 using Content.Server.Store.Systems;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store.Components;
+using Content.Shared.Heretic.Prototypes;
+using Content.Server.Chat.Systems;
+using Robust.Shared.Audio;
+using Content.Server.Temperature.Components;
+using Content.Server.Body.Components;
+using Content.Server.Atmos.Components;
+using Content.Shared.Damage;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -14,9 +19,8 @@ public sealed partial class HereticSystem : EntitySystem
 {
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly StoreSystem _store = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     public override void Initialize()
     {
@@ -24,8 +28,8 @@ public sealed partial class HereticSystem : EntitySystem
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
-
-        SubscribeAbilities();
+        SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+        SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
     }
 
     public override void Update(float frameTime)
@@ -60,5 +64,46 @@ public sealed partial class HereticSystem : EntitySystem
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
+    }
+
+    private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
+    {
+        if (!ent.Comp.Ascended)
+            return;
+
+        switch (ent.Comp.CurrentPath)
+        {
+            case "Ash":
+                // nullify heat damage because zased
+                args.Damage.DamageDict["Heat"] = 0;
+                break;
+        }
+    }
+
+    // notify the crew of how good the person is and play the cool sound :godo:
+    private void OnAscension(Entity<HereticComponent> ent, ref EventHereticAscension args)
+    {
+        ent.Comp.Ascended = true;
+
+        // how???
+        if (ent.Comp.CurrentPath == null)
+            return;
+
+        var pathLoc = ent.Comp.CurrentPath!.ToLower();
+        var ascendSound = new SoundPathSpecifier($"/Audio/Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
+        _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
+
+        // do other logic, e.g. make heretic immune to whatever
+        switch (ent.Comp.CurrentPath!)
+        {
+            case "Ash":
+                RemComp<TemperatureComponent>(ent);
+                RemComp<RespiratorComponent>(ent);
+                RemComp<BarotraumaComponent>(ent);
+                break;
+
+            default:
+                break;
+        }
     }
 }
