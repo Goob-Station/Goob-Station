@@ -19,9 +19,6 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
-    private const int HighImpassable = (int) CollisionGroup.HighImpassable;
-    private const int MidImpassable = (int) CollisionGroup.MidImpassable;
-    private const int InteractImpassable = (int) CollisionGroup.InteractImpassable;
 
     public override void Initialize()
     {
@@ -54,8 +51,8 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     private bool EnableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (component.Enabled
-        	|| (TryComp<ClimbingComponent>(uid, out var climbing)
-        		&& climbing.IsClimbing == true))
+            || (TryComp<ClimbingComponent>(uid, out var climbing)
+                && climbing.IsClimbing == true))
             return false;
 
         component.Enabled = true;
@@ -84,9 +81,9 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     private bool DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
         if (!component.Enabled
-        	|| IsOnCollidingTile(uid))
-        	|| (TryComp<ClimbingComponent>(uid, out var climbing)
-        		&& climbing.IsClimbing == true))
+            || IsOnCollidingTile(uid)
+            || (TryComp<ClimbingComponent>(uid, out var climbing)
+                && climbing.IsClimbing == true))
             return false;
 
         component.Enabled = false;

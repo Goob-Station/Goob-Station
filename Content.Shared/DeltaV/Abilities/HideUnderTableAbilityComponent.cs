@@ -6,10 +6,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.Abilities;
 
-[RegisterComponent]
-[NetworkedComponent]
-[AutoGenerateComponentState]
-public sealed partial class HideUnderTableAbilityComponent : Component
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+public sealed partial class CrawlUnderObjectsComponent : Component
 {
     [DataField]
     public EntityUid? ToggleHideAction;
@@ -52,4 +50,7 @@ public sealed partial class HideUnderTablesUpdatedEvent : EventArgs
     {
         Enabled = enabled;
     }
+public sealed partial class CrawlingUpdatedEvent(bool enabled = false) : EventArgs
+{
+    public readonly bool Enabled = enabled;
 }
