@@ -22,6 +22,9 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
 
+    private float _timer = 0f;
+    private float _passivePointCooldown = 20f * 60f;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -36,9 +39,17 @@ public sealed partial class HereticSystem : EntitySystem
     {
         base.Update(frameTime);
 
+        _timer += frameTime;
+
+        if (_timer < _passivePointCooldown)
+            return;
+
+        _timer = 0f;
+
         foreach (var heretic in EntityQuery<HereticComponent>())
         {
-            // todo: passive gains
+            // passive point gain every 20 minutes
+            UpdateKnowledge(heretic.Owner, heretic, 1f);
         }
     }
 

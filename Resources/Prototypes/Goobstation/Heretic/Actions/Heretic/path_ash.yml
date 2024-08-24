@@ -23,7 +23,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 15
+    useDelay: 10
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Heretic/abilities_heretic.rsi
@@ -40,7 +40,7 @@
   noSpawn: true
   components:
   - type: InstantAction
-    useDelay: 30
+    useDelay: 15
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Heretic/abilities_heretic.rsi

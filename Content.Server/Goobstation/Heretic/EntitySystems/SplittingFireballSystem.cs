@@ -29,11 +29,10 @@ public sealed partial class SplittingFireballSystem : EntitySystem
 
     private void OnHit(Entity<SplittingFireballComponent> ent, ref ProjectileHitEvent args)
     {
-        if (ent.Comp.Divisions >= ent.Comp.MaxDivisions)
+        if (!_random.Prob((100 - ent.Comp.Divisions) / 100))
             return;
 
-        for (int i = 0; i < 2; i++)
-            Spawn(ent);
+        Spawn(ent);
 
         QueueDel(ent);
     }
@@ -69,7 +68,7 @@ public sealed partial class SplittingFireballSystem : EntitySystem
         var ball = Spawn("FireballSplitting", Transform(uid).Coordinates);
         if (TryComp<SplittingFireballComponent>(ball, out var sfc))
             if (TryComp<SplittingFireballComponent>(uid, out var usfc))
-                sfc.Divisions = usfc.Divisions + 1;
+                sfc.Divisions = usfc.Divisions + .5f;
 
         var fromCoords = Transform(uid).Coordinates;
         var toCoords = Transform(target).Coordinates;
