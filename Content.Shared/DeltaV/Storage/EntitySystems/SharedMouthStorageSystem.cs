@@ -18,6 +18,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
         SubscribeLocalEvent<MouthStorageComponent, MapInitEvent>(OnMouthStorageInit);
         SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
@@ -59,10 +60,9 @@ public abstract class SharedMouthStorageSystem : EntitySystem
 
     private void OnDamageModified(EntityUid uid, MouthStorageComponent component, DamageChangedEvent args)
     {
-        if (args.DamageDelta == null || !args.DamageIncreased)
-            return;
-
-        if (args.DamageDelta.GetTotal() < component.SpitDamageThreshold)
+        if (args.DamageDelta == null
+            || !args.DamageIncreased
+            || args.DamageDelta.GetTotal() < component.SpitDamageThreshold)
             return;
 
         DropAllContents(uid, component, args);

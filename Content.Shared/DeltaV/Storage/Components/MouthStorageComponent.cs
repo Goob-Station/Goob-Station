@@ -5,8 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 namespace Content.Shared.DeltaV.Storage.Components;
 
-[RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedMouthStorageSystem))]
 public sealed partial class MouthStorageComponent : Component
 {

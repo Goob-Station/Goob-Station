@@ -6,15 +6,13 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.DeltaV.Abilities;
 
-[RegisterComponent]
-[NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class CrawlUnderObjectsComponent : Component
 {
     [DataField]
     public EntityUid? ToggleHideAction;
 
-    [DataField("actionProto")]
+    [DataField]
     public EntProtoId? ActionProto;
 
     [DataField]
@@ -43,12 +41,7 @@ public enum SneakMode : byte
 public sealed partial class ToggleCrawlingStateEvent : InstantActionEvent { }
 
 [Serializable, NetSerializable]
-public sealed partial class CrawlingUpdatedEvent : EventArgs
+public sealed partial class CrawlingUpdatedEvent(bool enabled = false) : EventArgs
 {
-    public readonly bool Enabled = false;
-
-    public CrawlingUpdatedEvent(bool enabled)
-    {
-        Enabled = enabled;
-    }
+    public readonly bool Enabled = enabled;
 }
