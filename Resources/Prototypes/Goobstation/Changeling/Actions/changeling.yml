@@ -112,6 +112,7 @@
   - type: ChangelingAction
     biomassCost: 1
     useInLesserForm: true
+    useInLastResort: true
 
 - type: entity
   id: ActionExitStasis
@@ -130,6 +131,7 @@
   - type: ChangelingAction
     chemicalCost: 60
     useInLesserForm: true
+    useInLastResort: true
 
 # combat
 - type: entity
@@ -379,9 +381,9 @@
     useInLesserForm: true
 
 - type: entity
-  id: ActionLayEggs
-  name: Lay Eggs
-  description: description.
+  id: ActionLayEgg
+  name: Lay Egg
+  description: We may attack a corpse like this to plant an egg which will mature into a new form for us.
   noSpawn: true
   components:
   - type: EntityTargetAction
@@ -393,7 +395,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: Goobstation/Changeling/changeling_abilities.rsi
-      state: lesser_form
+      state: lay_egg
     event: !type:StingLayEggsEvent {}
   - type: ChangelingAction
     chemicalCost: 0
@@ -510,7 +512,7 @@
 - type: entity
   id: ActionLastResort
   name: Last Resort
-  description: Abandon your current form and transform into a monkey. Costs 20 chemicals.
+  description: We sacrifice our current body in a moment of need, placing us in control of a vessel that can plant our likeness in a new host. Costs 20 chemicals.
   noSpawn: true
   components:
   - type: InstantAction
@@ -523,6 +525,7 @@
     event: !type:ActionLastResortEvent {}
   - type: ChangelingAction
     chemicalCost: 20
+    useInLesserForm: true
 
 - type: entity
   id: ActionToggleLesserForm

@@ -116,7 +116,7 @@ evolutionmenu-utility-stims-desc =
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal yourself of all bruises and burns.
-    Costs 35 ch
+    Costs 35 chemicals.
     
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc = 

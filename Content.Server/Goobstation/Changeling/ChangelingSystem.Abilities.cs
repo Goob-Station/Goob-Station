@@ -49,7 +49,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, StingMuteEvent>(OnStingMute);
         SubscribeLocalEvent<ChangelingComponent, StingTransformEvent>(OnStingTransform);
         SubscribeLocalEvent<ChangelingComponent, StingFakeArmbladeEvent>(OnStingFakeArmblade);
-        SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEggs);
+        SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEgg);
 
         SubscribeLocalEvent<ChangelingComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
         SubscribeLocalEvent<ChangelingComponent, ActionAugmentedEyesightEvent>(OnAugmentedEyesight);
@@ -438,7 +438,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         PlayMeatySound(target, comp);
     }
-    public void OnLayEggs(EntityUid uid, ChangelingComponent comp, ref StingLayEggsEvent args)
+    public void OnLayEgg(EntityUid uid, ChangelingComponent comp, ref StingLayEggsEvent args)
     {     
         var target = args.Target;
 
@@ -599,7 +599,14 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
 
         comp.IsInLastResort = true;
-        var newUid = TransformEntity(uid, protoId: "MobHeadcrab", comp: comp);
+
+        var newUid = TransformEntity(
+            uid, 
+            protoId: "MobHeadcrab", 
+            comp: comp, 
+            dropInventory: true,
+            transferDamage: false);
+
         if (newUid == null)
         {
             comp.IsInLastResort = false;
@@ -607,7 +614,15 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        _actionsSystem.AddAction((EntityUid) newUid, "ActionLayEggs");
+        _explosionSystem.QueueExplosion(
+            (EntityUid) uid,
+            typeId: "Default",
+            totalIntensity: 2,
+            slope: 4,
+            maxTileIntensity: 2);
+        Spawn("FleshKudzu", Transform(uid).Coordinates);
+
+        _actions.AddAction((EntityUid) newUid, "ActionLayEgg");
 
         PlayMeatySound((EntityUid) newUid, comp);
     }

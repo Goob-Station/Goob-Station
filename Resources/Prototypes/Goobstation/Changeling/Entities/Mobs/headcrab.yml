@@ -1,8 +1,8 @@
 - type: entity
-  name: ling thing
+  name: head slug
   parent: [SimpleMobBase]
   id: MobHeadcrab
-  description: It's like a cat, only.... branch-ier.
+  description: You don't want to touch it.
   components:
   - type: Sprite
     drawdepth: Mobs
@@ -29,4 +29,6 @@
       60: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed : 3
-    baseSprintSpeed : 6
+    baseSprintSpeed : 7
+  - type: ExplosionResistance
+    damageCoefficient: 0

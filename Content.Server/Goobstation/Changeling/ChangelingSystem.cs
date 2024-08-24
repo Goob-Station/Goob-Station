@@ -54,7 +54,7 @@ using Content.Server.Gravity;
 using Content.Shared.Mobs.Components;
 using Content.Server.Stunnable;
 using Content.Shared.Jittering;
-using Content.Shared.Actions;
+using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 
 namespace Content.Server.Changeling;
@@ -99,7 +99,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
-    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -468,7 +468,14 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return comp;
     }
-    private EntityUid? TransformEntity(EntityUid uid, TransformData? data = null, EntProtoId? protoId = null, ChangelingComponent? comp = null, bool persistentDna = false)
+    private EntityUid? TransformEntity(
+        EntityUid uid, 
+        TransformData? data = null, 
+        EntProtoId? protoId = null, 
+        ChangelingComponent? comp = null, 
+        bool dropInventory = false, 
+        bool transferDamage = true,
+        bool persistentDna = false)
     {
         EntProtoId? pid = null;
 
@@ -485,12 +492,14 @@ public sealed partial class ChangelingSystem : EntitySystem
         var config = new PolymorphConfiguration()
         {
             Entity = (EntProtoId) pid,
-            TransferDamage = true,
+            TransferDamage = transferDamage,
             Forced = true,
-            Inventory = PolymorphInventoryChange.Transfer,
+            Inventory = (dropInventory) ? PolymorphInventoryChange.Drop : PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
             RevertOnDeath = false
         };
+
+        
         var newUid = _polymorph.PolymorphEntity(uid, config);
 
         if (newUid == null)
