@@ -18,7 +18,7 @@ public sealed class ImpendingDoomSystem : EntitySystem
     [ViewVariables(VVAccess.ReadOnly)]
     private TimeSpan ticker;
 
-    private readonly List<string> _condemned = new() { "MobFelinid", "MobVulpkanin" };
+    private readonly List<string> _condemned = new() { "MobFelinid" };
 
     public override void Initialize()
     {
