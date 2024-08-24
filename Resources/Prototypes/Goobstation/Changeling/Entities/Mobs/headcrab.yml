@@ -1,0 +1,32 @@
+- type: entity
+  name: ling thing
+  parent: [SimpleMobBase]
+  id: MobHeadcrab
+  description: It's like a cat, only.... branch-ier.
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: headcrab
+      sprite: Goobstation/Changeling/headcrab.rsi
+  - type: Physics
+  - type: Bloodstream
+    bloodReagent: BloodChangeling
+    bloodMaxVolume: 60
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: headcrab
+      Critical:
+        Base: headcrab_dead
+      Dead:
+        Base: headcrab_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      30: Critical
+      60: Dead
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 3
+    baseSprintSpeed : 6

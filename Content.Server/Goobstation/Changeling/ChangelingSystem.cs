@@ -54,6 +54,7 @@ using Content.Server.Gravity;
 using Content.Shared.Mobs.Components;
 using Content.Server.Stunnable;
 using Content.Shared.Jittering;
+using Content.Shared.Actions;
 using System.Linq;
 
 namespace Content.Server.Changeling;
@@ -98,6 +99,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -297,6 +299,12 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
+        if (!lingAction.UseInLastResort && comp.IsInLastResort)
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-action-fail-lastresort"), uid, uid);
+            return false;
+        }
+
         if (!lingAction.UseInLesserForm && comp.IsInLesserForm)
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
@@ -452,6 +460,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         newComp.MaxBiomass = comp.MaxBiomass;
 
         newComp.IsInLesserForm = comp.IsInLesserForm;
+        newComp.IsInLastResort = comp.IsInLastResort;
         newComp.CurrentForm = comp.CurrentForm;
 
         newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
@@ -553,7 +562,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         EntityUid? newUid = null;
         if (sting)
             newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
-        else newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
+        else 
+        {
+            comp.IsInLesserForm = false;
+            newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
+        }
 
         if (newUid != null)
         {

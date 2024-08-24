@@ -116,7 +116,12 @@ evolutionmenu-utility-stims-desc =
 evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal yourself of all bruises and burns.
-    Costs 35 chemicals.
+    Costs 35 ch
+    
+evolutionmenu-utility-lastresort-name = Last Resort
+evolutionmenu-utility-lastresort-desc = 
+    For when you are well and truly fucked.
+    Costs 20 chemicals.
 
 evolutionmenu-utility-lesserform-name = Lesser Form
 evolutionmenu-utility-lesserform-desc =
