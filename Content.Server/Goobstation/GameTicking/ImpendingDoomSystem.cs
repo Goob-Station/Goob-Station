@@ -83,7 +83,7 @@ public sealed class ImpendingDoomSystem : EntitySystem
 
     private void Condemn(EntityUid ent)
     {
-        AddComp<DoomedComponent>(ent);
+        EnsureComp<DoomedComponent>(ent);
     }
 
     private void Curse(EntityUid ent, DoomedComponent comp)
