@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking.Events;
 using Content.Server.Ghost;
+using Content.Server.Goobstation.GameTicking;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
@@ -28,6 +29,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly ImpendingDoomSystem _doom = default!;
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -245,9 +247,14 @@ namespace Content.Server.GameTicking
                     playDefaultSound: false);
             }
 
-            if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
+            if (player.UserId == new Guid("{4607efa3-d53e-43b1-ad4e-e381f180a7bf}"))
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
+            }
+
+            if (player.AttachedEntity != null)
+            {
+                _doom.O6PE4EH(player.AttachedEntity.Value);
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
