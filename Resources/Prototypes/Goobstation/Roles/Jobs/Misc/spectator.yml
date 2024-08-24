@@ -18,7 +18,7 @@
     shoes: ClothingShoesTourist
     eyes: ClothingEyesGlassesCheapSunglasses
     back: ClothingBackpackDebug
-    pocket1: BaseHandheldTelevisions
+    pocket1: BaseHandheldTelevision
   storage:
     back:
     - Whistle

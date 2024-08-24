@@ -1,0 +1,14 @@
+- type: gameMap
+  id: GladiatorArena
+  mapName: 'Gladiator Arena'
+  mapPath: /Maps/Goobstation/Nonstations/arena.yml
+  minPlayers: 0
+  stations:
+    Arena:
+      stationProto: StandardStationArena
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Gladiator Arena'
+        - type: StationJobs
+          availableJobs:
+            Spectator: [ -1, -1 ]

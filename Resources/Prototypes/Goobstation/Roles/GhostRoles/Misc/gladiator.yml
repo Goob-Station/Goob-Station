@@ -1,5 +1,5 @@
 - type: startingGear
-  id: GladiatorGear
+  id: GladiatorArenaGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitGladiator
     back: ClothingBackpackMerc
