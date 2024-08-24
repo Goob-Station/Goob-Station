@@ -41,7 +41,7 @@
   Each member in your squad has been given an [color=cyan]uplink[/color] to purchase everything you will need for the mission, similar to [textlink="Traitors." link="Traitors"]
 
   <Box>
-    <GuideEntityEmbed Entity="BaseUplinkRadio40TC" Caption="your uplink"/>
+    <GuideEntityEmbed Entity="BaseUplinkRadio200TC" Caption="your uplink"/>
   </Box>
 
   You can purchase the same kinds of gear Traitors can, but you have higher quality gear available to you and more telecrystals to spend.
@@ -60,7 +60,7 @@
     <GuideEntityEmbed Entity="ClothingEyesGlassesOutlawGlasses" Caption="Pointless"/>
   </Box>
 
-  You'll also have to choose if you want to [color=red]declare war[/color] or not. Doing so grants your team [bold]40 extra telecrystals each[/bold].
+  You'll also have to choose if you want to [color=red]declare war[/color] or not. Doing so grants your team [bold]200 extra telecrystals each[/bold].
   However, the crew will immediately know of your existence and will have plenty of time to prepare for your arrival.
 
   The [bold]Commander[/bold] is the only person who can declare war. Make your choice quick, [italic]this is a limited-time offer![/italic]
