@@ -8,17 +8,15 @@ using Content.Shared.Mobs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Atmos;
-using Content.Shared.FixedPoint;
+using Content.Server.Magic;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
     [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly SplittingFireballSystem _splitball = default!;
+    [Dependency] private readonly ChainFireballSystem _splitball = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly MobStateSystem _mobstate = default!;
     [Dependency] private readonly FlammableSystem _flammable = default!;

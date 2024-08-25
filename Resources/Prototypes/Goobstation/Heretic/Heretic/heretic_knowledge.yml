@@ -60,7 +60,6 @@
 
 - type: hereticKnowledge
   id: MaskOfMadness
-  path: Ash
   stage: 6
   ritualPrototypes:
   - MaskOfMadness
@@ -72,7 +71,6 @@
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
-  path: Ash
   stage: 8
   actionPrototypes:
   - ActionHereticNightwatcherRebirth
@@ -91,3 +89,58 @@
   actionPrototypes:
   - ActionHereticAscension1
   - ActionHereticAscension2
+
+# flesh path
+- type: hereticKnowledge
+  id: PrincipleOfHunger
+  path: Flesh
+  stage: 1
+  #ritualPrototypes:
+
+- type: hereticKnowledge
+  id: GraspOfFlesh
+  path: Flesh
+  stage: 2
+
+- type: hereticKnowledge
+  id: ImperfectRitual
+  stage: 3
+  #ritualPrototypes:
+
+- type: hereticKnowledge
+  id: MarkOfFlesh
+  path: Flesh
+  stage: 4
+
+- type: hereticKnowledge
+  id: KnittingOfFlesh
+  path: Flesh
+  stage: 5
+  #actionPrototypes:
+
+- type: hereticKnowledge
+  id: RawRitual
+  stage: 6
+  #ritualPrototypes:
+
+- type: hereticKnowledge
+  id: BleedingSteel
+  path: Flesh
+  stage: 7
+
+- type: hereticKnowledge
+  id: LonelyRitual
+  stage: 8
+  #ritualPrototypes:
+
+- type: hereticKnowledge
+  id: AscensionFlesh
+  path: Flesh
+  stage: 9
+  #ritualPrototypes:
+
+- type: hereticKnowledge
+  id: PriestFinalHymn
+  path: Flesh
+  stage: 10
+  #actionPrototypes:

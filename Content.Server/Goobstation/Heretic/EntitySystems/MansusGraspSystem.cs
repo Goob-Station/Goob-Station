@@ -148,22 +148,16 @@ public sealed partial class MansusGraspSystem : EntitySystem
         QueueDel(ent);
     }
 
-
     private void OnAfterInteract(Entity<TagComponent> ent, ref AfterInteractEvent args)
     {
-        if (!args.CanReach)
-            return;
-        if (!args.ClickLocation.IsValid(EntityManager))
-            return;
-
         var tags = ent.Comp.Tags;
-        if (!tags.Contains("Write") || !tags.Contains("Pen"))
-            return;
 
-        if (!TryComp<HereticComponent>(args.User, out var heretic))
-            return;
-
-        if (!heretic.MansusGraspActive)
+        if (!args.CanReach
+        || !args.ClickLocation.IsValid(EntityManager)
+        || !TryComp<HereticComponent>(args.User, out var heretic) // not a heretic - how???
+        || !heretic.MansusGraspActive // no grasp - not special
+        || HasComp<ActiveDoAfterComponent>(args.User) // prevent rune shittery
+        || !tags.Contains("Write") || !tags.Contains("Pen")) // not a pen
             return;
 
         // remove our rune if clicked
@@ -180,13 +174,14 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnHandChange = true,
-            BreakOnMove = true
+            BreakOnMove = true,
+            CancelDuplicate = false,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
     private void OnRitualRuneDoAfter(Entity<HereticComponent> ent, ref DrawRitualRuneDoAfterEvent ev)
     {
-        // no matter if it's canceled or not, delete that anim rune
+        // delete the animation rune regardless
         QueueDel(ev.RitualRune);
 
         if (!ev.Cancelled)

@@ -22,7 +22,7 @@
     rules:
     - id: Thief
       prob: 0.5
-    - id: HereticRule # goob edit
+    - id: Heretics # goob edit
       prob: 0.5
 
 - type: entity

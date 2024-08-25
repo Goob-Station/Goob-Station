@@ -12,6 +12,7 @@ using Content.Server.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared.Damage;
+using Content.Server.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -32,6 +33,7 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
         SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+        SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
     }
 
@@ -77,6 +79,12 @@ public sealed partial class HereticSystem : EntitySystem
         args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 
+    private void OnBeforeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        // ignore damage from heretic stuff
+        if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
+            args.Cancelled = true;
+    }
     private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
     {
         if (!ent.Comp.Ascended)

@@ -8,9 +8,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Server.Magic;
 
-public sealed partial class SplittingFireballSystem : EntitySystem
+public sealed partial class ChainFireballSystem : EntitySystem
 {
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
@@ -24,10 +24,10 @@ public sealed partial class SplittingFireballSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SplittingFireballComponent, ProjectileHitEvent>(OnHit);
+        SubscribeLocalEvent<ChainFireballComponent, ProjectileHitEvent>(OnHit);
     }
 
-    private void OnHit(Entity<SplittingFireballComponent> ent, ref ProjectileHitEvent args)
+    private void OnHit(Entity<ChainFireballComponent> ent, ref ProjectileHitEvent args)
     {
         if (!_random.Prob((100 - ent.Comp.Divisions) / 100))
             return;
@@ -66,8 +66,8 @@ public sealed partial class SplittingFireballSystem : EntitySystem
     private bool SpawnFireball(EntityUid uid, EntityUid target)
     {
         var ball = Spawn("FireballSplitting", Transform(uid).Coordinates);
-        if (TryComp<SplittingFireballComponent>(ball, out var sfc))
-            if (TryComp<SplittingFireballComponent>(uid, out var usfc))
+        if (TryComp<ChainFireballComponent>(ball, out var sfc))
+            if (TryComp<ChainFireballComponent>(uid, out var usfc))
                 sfc.Divisions = usfc.Divisions + .5f;
 
         var fromCoords = Transform(uid).Coordinates;

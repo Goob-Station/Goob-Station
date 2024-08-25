@@ -40,7 +40,7 @@ public sealed partial class MadnessMaskSystem : EntitySystem
                 || HasComp<GhoulComponent>(look))
                     continue;
 
-                if (HasComp<StaminaComponent>(look) && _random.Prob(.6f))
+                if (HasComp<StaminaComponent>(look) && _random.Prob(.4f))
                     _stamina.TakeStaminaDamage(look, 5f, visual: false);
 
                 if (_random.Prob(.4f))

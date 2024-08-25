@@ -3,7 +3,7 @@
   name: knowledge-path-flesh-s1-name
   description: knowledge-path-flesh-s1-desc
   icon: { sprite: Goobstation/Heretic/Blades/blade_flesh.rsi, state: icon }
-  #productHereticKnowledge:
+  productHereticKnowledge: PrincipleOfHunger
   cost:
     KnowledgePoint: 1
   categories:
@@ -21,3 +21,21 @@
     - Lock
     - Rust
     - Void
+
+- type: listing
+  id: HereticFleshPath2
+  name: knowledge-path-flesh-s2-name
+  description: knowledge-path-flesh-s2-desc
+  icon: { sprite: Goobstation/Heretic/mansus_grasp.rsi, state: icon }
+  productHereticKnowledge: GraspOfFlesh
+  cost:
+    KnowledgePoint: 1
+  categories:
+  - HereticPathFlesh
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 1
+    whitelist:
+    - Flesh
