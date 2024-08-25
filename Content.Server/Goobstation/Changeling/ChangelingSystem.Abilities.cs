@@ -458,25 +458,29 @@ public sealed partial class ChangelingSystem : EntitySystem
             return;
         }
 
-        EnsureComp<AbsorbedComponent>(target);
+        var mind = _mind.GetMind(uid);
+        if (mind == null)
+            return;
+        if (!TryComp<StoreComponent>(uid, out var storeComp))
+            return;
 
         comp.IsInLastResort = false;
         comp.IsInLesserForm = true;
-        var newUid = TransformEntity((EntityUid) uid, protoId: "MobMonkey", comp: comp);
-        if (newUid == null)
-        {
-            comp.IsInLastResort = true;
-            comp.IsInLesserForm = false;
-            return;
-        }
 
+        var eggComp = EnsureComp<ChangelingEggComponent>(target);
+        eggComp.lingComp = comp;
+        eggComp.lingMind = (EntityUid) mind;
+        eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+
+        EnsureComp<AbsorbedComponent>(target);
         var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
         _damage.TryChangeDamage(target, dmg, false, false);           
-        _damage.TryChangeDamage(newUid, dmg, false, false);
         _blood.ChangeBloodReagent(target, "FerrochromicAcid");
         _blood.SpillAllSolutions(target);
 
         PlayMeatySound((EntityUid) uid, comp);
+
+        _bodySystem.GibBody((EntityUid) uid);
     }
 
     #endregion
@@ -615,12 +619,11 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
 
         _explosionSystem.QueueExplosion(
-            (EntityUid) uid,
+            (EntityUid) newUid,
             typeId: "Default",
             totalIntensity: 2,
             slope: 4,
             maxTileIntensity: 2);
-        Spawn("FleshKudzu", Transform(uid).Coordinates);
 
         _actions.AddAction((EntityUid) newUid, "ActionLayEgg");
 
