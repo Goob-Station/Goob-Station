@@ -1,5 +1,14 @@
 - type: Tag
-  id: SnapPop
+  id: BreathMask
+
+- type: Tag
+  id: ClownEmergencyOxygenTank
+
+- type: Tag
+  id: EmergencyMedipen
+
+- type: Tag
+  id: EmergencyNitrogenTank
 
 - type: Tag
   id: EmergencyOxygenTank
@@ -8,13 +17,10 @@
   id: ExtendedEmergencyOxygenTank
 
 - type: Tag
-  id: ClownEmergencyOxygenTank
+  id: FelinidEmotes
 
 - type: Tag
-  id: EmergencyNitrogenTank
-
-- type: Tag
-  id: BreathMask
+  id: HarpyEmotes
 
 - type: Tag
   id: MedicalPatch
@@ -23,10 +29,7 @@
   id: SecurityBreathMask
 
 - type: Tag
-  id: SyndicateBreathMask
-
-- type: Tag
-  id: EmergencyMedipen
+  id: SnapPop
 
 - type: Tag
   id: SpaceMedipen
@@ -36,4 +39,10 @@
   
 - type: Tag
   id: StasisCage
- 
+
+- type: Tag
+  id: SyndicateBreathMask
+
+- type: Tag
+  id: VulpEmotes
+  

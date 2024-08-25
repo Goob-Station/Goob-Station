@@ -20,3 +20,21 @@
   - type: Icon
     sprite: Goobstation/Objects/Devices/pda.rsi
     state: pda-chrono
+
+- type: entity
+  parent: SalvagePDA
+  id: HelldiverPDA
+  name: salvage diver PDA
+  description: Smells like corpses of insects and androids.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: HelldiverIDCard
+    state: pda-heccd
+  - type: PdaBorderColor
+    borderColor: "#272727"
+    accentVColor: "#cec100"
+  - type: Icon
+    sprite: Goobstation/Objects/Devices/pda.rsi
+    state: pda-heccd

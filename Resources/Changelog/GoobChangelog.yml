@@ -727,3 +727,9 @@ Entries:
       message: Tranquility now affects mobs, not just players.
   id: 93
   time: '2024-08-18T22:58:35.0000000+00:00'
+- author: outget
+  changes:
+    - type: Add
+      message: Added new lobby song!
+  id: 94
+  time: '2024-08-25T00:44:24.0000000+00:00'

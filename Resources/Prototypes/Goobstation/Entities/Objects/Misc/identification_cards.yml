@@ -20,3 +20,17 @@
     tags:
     - CentralCommand
     - SyndicateAgent
+
+# Helldiver
+- type: entity
+  parent: SalvageIDCard
+  id: HelldiverIDCard
+  name: salvage diver ID card
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: idhelldiver
+  - type: IdCard
+    jobTitle: Salvage Diver
+    jobIcon: JobIconShaftMiner

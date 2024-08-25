@@ -1,8 +1,15 @@
 # vocal emotes
 - type: emote
   id: Hiss
-  name: /Audio/Nyanotrasen/Voice/Felinid/cat_hiss1.ogg
+  name: Hiss
   category: Vocal
+  whitelist:
+    tags:
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [hisses.]
   chatTriggers:
     - hiss.
@@ -15,6 +22,13 @@
   id: Meow
   name: Meow
   category: Vocal
+  whitelist:
+    tags:
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [meows.]
   chatTriggers:
     - meow.
@@ -41,6 +55,13 @@
   id: Mew
   name: Mew
   category: Vocal
+  whitelist:
+    tags:
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [mews.]
   chatTriggers:
     - mew.
@@ -54,8 +75,15 @@
 
 - type: emote
   id: Growl
-  name: growls.
+  name: Growl
   category: Vocal
+  whitelist:
+    tags:
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [growls.]
   chatTriggers:
     - growl.
@@ -68,6 +96,13 @@
   id: Purr
   name: Purr
   category: Vocal
+  whitelist:
+    tags:
+    - FelinidEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [purrs.]
   chatTriggers:
     - purr.
