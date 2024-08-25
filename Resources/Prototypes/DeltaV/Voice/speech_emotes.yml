@@ -3,6 +3,12 @@
   id: Ring
   name: Ring
   category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [rings.]
   chatTriggers:
     - ring.
@@ -15,6 +21,12 @@
   id: Pew
   name: Pew
   category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [pews.]
   chatTriggers:
     - pew.
@@ -25,6 +37,12 @@
   id: Bang
   name: Bang
   category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [bangs.]
   chatTriggers:
     - bangs.
@@ -48,6 +66,12 @@
   id: Rev
   name: Rev
   category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [revs.]
   chatTriggers:
     - revs.
@@ -71,6 +95,12 @@
   id: Caw
   name: Caw
   category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [caws.]
   chatTriggers:
     - caws.
@@ -84,6 +114,13 @@
   id: Bark
   name: Bark
   category: Vocal
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [barks.]
   chatTriggers:
     - bark.
@@ -98,6 +135,13 @@
   id: Snarl
   name: Snarl
   category: Vocal
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [snarls.]
   chatTriggers:
     - snarl.
@@ -112,6 +156,13 @@
   id: Whine
   name: Whine
   category: Vocal
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [whines.]
   chatTriggers:
     - whine.
@@ -126,6 +177,13 @@
   id: Howl
   name: Howl
   category: Vocal
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [howls.]
   chatTriggers:
     - howl.
@@ -139,6 +197,13 @@
   id: Awoo
   name: Awoo
   category: Vocal
+  whitelist:
+    tags:
+    - VulpEmotes
+    - HarpyEmotes
+  blacklist:
+    components:
+    - BorgChassis
   chatMessages: [awoos.]
   chatTriggers:
     - awoo.
