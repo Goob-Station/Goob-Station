@@ -509,7 +509,7 @@ public sealed partial class ShuttleSystem
         else
         {
             // TODO: This should now use tryftlproximity
-            mapId = _transform.GetMapId(target);
+            mapId = target.GetMapId(EntityManager);
             _transform.SetCoordinates(uid, xform, target, rotation: entity.Comp1.TargetAngle);
         }
 
