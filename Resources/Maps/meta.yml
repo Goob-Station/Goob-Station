@@ -10826,7 +10826,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -4222.55
+      secondsUntilStateChange: -3920.309
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
