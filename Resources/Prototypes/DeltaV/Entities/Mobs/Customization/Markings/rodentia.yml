@@ -452,6 +452,8 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
       state: hooded_f
 
+### HEAD PATTERNS
+
 - type: marking
   id: RodentiaHeadBlaze
   markingCategory: Head
@@ -460,8 +462,19 @@
   sprites:
     - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
       state: head_m
-    - sprite: DeltaV/Mobs/Customization/Rodentia/body_markings.rsi
+    - sprite: DeltaV/Mobs/Customization/Rodentia/head_markings.rsi
       state: blaze
+
+- type: marking
+  id: RodentiaHeadRound
+  markingCategory: Head
+  bodyPart: Head
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
+      state: head_m
+    - sprite: DeltaV/Mobs/Customization/Rodentia/head_markings.rsi
+      state: round
 
 # BASE BODY PARTS
 
