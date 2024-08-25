@@ -5,12 +5,12 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS)"
   source: "https://github.com/BombasterDS"
-
+  
 - files: ["scream.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified standart laught.png icon by BombasterDS)"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["mew.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
@@ -20,7 +20,7 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["growl.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
@@ -30,12 +30,12 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["awoo.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["bark.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
@@ -45,37 +45,37 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["howl.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["whine.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["ring.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified red_phone.png by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["pew.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified disabler.png by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["rev.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified juicer.png by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["bang.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified n1984.png by BombasterDS"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["caw.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
