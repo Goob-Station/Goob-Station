@@ -1,5 +1,15 @@
 # head markings
 
+## patterns
+
+marking-RodentiaHeadBlaze = Head - Blaze
+marking-RodentiaHeadBlaze-head_m = Head
+marking-RodentiaHeadBlaze-blaze = Pattern
+
+marking-RodentiaHeadRound = Head - Face Color
+marking-RodentiaHeadRound-head_m = Head
+marking-RodentiaHeadRound-round = Pattern
+
 ## ears
 
 marking-RodentiaHeadTopEarBat = Ears - Bat
@@ -155,10 +165,6 @@ marking-RodentiaChestHooded-hooded = Pattern
 
 marking-RodentiaChestHoodedF = Chest - Hooded
 marking-RodentiaChestHoodedF-hooded_f = Pattern
-
-marking-RodentiaHeadBlaze = Head - Blaze
-marking-RodentiaHeadBlaze-head_m = Head
-marking-RodentiaHeadBlaze-blaze = Pattern
 
 # base parts
 
