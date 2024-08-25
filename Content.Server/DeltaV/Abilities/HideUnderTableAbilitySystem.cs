@@ -19,7 +19,6 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
@@ -63,7 +62,10 @@ public sealed partial class HideUnderTableAbilitySystem : SharedHideUnderTableAb
         {
             foreach (var (key, fixture) in fixtureComponent.Fixtures)
             {
-                var newMask = (fixture.CollisionMask & ~HighImpassable & ~MidImpassable) | InteractImpassable;
+                var newMask = (fixture.CollisionMask
+                    & (int)~CollisionGroup.HighImpassable
+                    & (int)~CollisionGroup.MidImpassable)
+                    | (int)CollisionGroup.InteractImpassable;
                 if (fixture.CollisionMask == newMask)
                     continue;
 
