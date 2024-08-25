@@ -621,7 +621,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         _explosionSystem.QueueExplosion(
             (EntityUid) newUid,
             typeId: "Default",
-            totalIntensity: 2,
+            totalIntensity: 1,
             slope: 4,
             maxTileIntensity: 2);
 
