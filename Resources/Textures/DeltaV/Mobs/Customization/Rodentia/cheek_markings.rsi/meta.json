@@ -27,6 +27,10 @@
     {
       "name": "fluff_alt_overlay",
       "directions": 4
+    },
+    {
+      "name": "whiskers",
+      "directions": 4
     }
   ]
 }

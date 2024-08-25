@@ -266,6 +266,15 @@
     - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
       state: fluff_alt_overlay
 
+- type: marking
+  id: RodentiaCheeksWhiskers
+  markingCategory: Head # for no-cost markings
+  bodyPart: HeadTop # for layering
+  speciesRestriction: [Rodentia]
+  sprites:
+    - sprite: DeltaV/Mobs/Customization/Rodentia/cheek_markings.rsi
+      state: whiskers
+
 # BODY
 
 ## TAIL

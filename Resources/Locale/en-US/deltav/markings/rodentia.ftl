@@ -99,6 +99,9 @@ marking-RodentiaCheeksFluffAltCounter = Cheeks - Fluff, Alt, Two-tone
 marking-RodentiaCheeksFluffAltCounter-fluff_alt = Cheek fluff
 marking-RodentiaCheeksFluffAltCounter-fluff_alt_overlay = Countershade
 
+marking-RodentiaCheeksWhiskers = Whiskers
+marking-RodentiaCheeksWhiskers-whiskers = Whiskers
+
 # body markings
 
 ## tail
