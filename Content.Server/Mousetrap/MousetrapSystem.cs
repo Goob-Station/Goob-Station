@@ -41,7 +41,7 @@ public sealed class MousetrapSystem : EntitySystem
     private void OnStepTriggerAttempt(EntityUid uid, MousetrapComponent component, ref StepTriggerAttemptEvent args)
     {
         // DeltaV: Entities with this component always trigger mouse traps, even if wearing shoes
-        if (TryComp(args.Tripper, out AlwaysTriggerMousetrapComponent? _) == true)
+        if (HasComp<AlwaysTriggerMousetrapComponent>(args.Tripper))
             args.Cancelled = false;
 
         args.Continue |= component.IsActive;
