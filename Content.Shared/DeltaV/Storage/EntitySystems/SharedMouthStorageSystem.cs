@@ -6,7 +6,7 @@ using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Standing;
 using Content.Shared.Storage;
-using Content.Shared.Storage.Components;
+using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 
@@ -14,6 +14,7 @@ namespace Content.Shared.DeltaV.Storage.EntitySystems;
 
 public abstract class SharedMouthStorageSystem : EntitySystem
 {
+    [Dependency] private readonly DumpableSystem _dumpableSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
 
@@ -58,7 +59,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         if (component.MouthId == null)
             return;
 
-        RaiseLocalEvent(component.MouthId.Value, new DumpContentsEvent(uid, uid));
+        _dumpableSystem.DumpContents(component.MouthId.Value, uid, uid);
     }
 
     private void OnDamageModified(EntityUid uid, MouthStorageComponent component, DamageChangedEvent args)
