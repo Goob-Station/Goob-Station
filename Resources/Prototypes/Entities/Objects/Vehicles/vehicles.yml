@@ -5,6 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Vehicle
+    renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
     maxBuckleDistance: 1
     position: Stand
@@ -148,6 +149,7 @@
       collection: BikeHorn
       params:
         variation: 0.125
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: ItemSlots
     slots:
       key_slot:
@@ -173,10 +175,7 @@
     state: vehicle
     noRot: true
   - type: Vehicle
-    hornSound:
-      collection: BikeHorn
-      params:
-        variation: 0.125
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
   - type: ItemSlots
     slots:
       key_slot:
@@ -198,3 +197,42 @@
     radius: 3.5
     softness: 2
     netsync: false
+
+- type: entity
+  id: VehicleWheelchair
+  parent: [ BaseVehicle, BaseFoldable, BaseItem ]
+  name: wheelchair
+  description: A chair with big wheels. It looks like you can move in these on your own.
+  components:
+  - type: Sprite
+    sprite: Objects/Vehicles/wheelchair.rsi
+    layers:
+    - state: vehicle
+      map: ["unfoldedLayer"]
+    - state: vehicle_folded
+      map: ["foldedLayer"]
+      visible: false
+    noRot: true
+  - type: Vehicle
+    requiredHands: 0
+    engineRunning: true
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+    renderOver: North, NorthEast, NorthWest
+  - type: MovementSpeedModifier
+    acceleration: 10
+    friction: 10
+    baseSprintSpeed: 3.5
+    baseWalkSpeed: 2.5
+  - type: StaticPrice
+    price: 125
+
+- type: entity
+  parent: VehicleWheelchair
+  id: VehicleWheelchairFolded
+  suffix: folded
+  components:
+    - type: Foldable
+      folded: true
