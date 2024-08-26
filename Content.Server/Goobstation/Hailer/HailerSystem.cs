@@ -21,14 +21,14 @@ public sealed class HailerSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ActionsComponent, HailerActionEvent>(OnHail);
-        SubscribeLocalEvent<HailerComponent, GetItemActionsEvent>(OnGetItemActions);
+        SubscribeLocalEvent<HailerComponent, GotEquippedEvent>(OnGotEquipped);
         SubscribeLocalEvent<HailerComponent, GotUnequippedEvent>(OnGotUnequipped);
     }
-    private void OnGetItemActions(EntityUid uid, HailerComponent component, GetItemActionsEvent args)
+    private void OnGotEquipped(EntityUid uid, HailerComponent component, GotEquippedEvent args)
     {
         if (args.SlotFlags == SlotFlags.MASK)
         {
-            _actionsSystem.AddAction(args.User, ref component.HailActionEntity, component.HailerAction, args.User);
+            _actionsSystem.AddAction(args.Equipee, ref component.HailActionEntity, component.HailerAction, args.Equipee);
         }
     }
     private void OnGotUnequipped(EntityUid uid, HailerComponent component, GotUnequippedEvent args)
