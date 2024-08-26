@@ -3,7 +3,7 @@
   maps:
   - Bagel
   - Box
-  - Cog
+  #- Cog # Goobstation - cog is broken
   - Core
   - Fland
   - Marathon
