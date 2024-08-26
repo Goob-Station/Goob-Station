@@ -1,4 +1,3 @@
-
 using Content.Shared.Hailer.Components;
 using Content.Shared.Actions;
 using Content.Shared.Inventory;
@@ -20,7 +19,6 @@ public sealed class HailerSystem : EntitySystem
         SubscribeLocalEvent<ActionsComponent, HailerActionEvent>(OnHail);
         SubscribeLocalEvent<HailerComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<HailerComponent, GotUnequippedEvent>(OnGotUnequipped);
-
     }
     private void OnGetItemActions(EntityUid uid, HailerComponent component, GetItemActionsEvent args)
     {
@@ -36,9 +34,8 @@ public sealed class HailerSystem : EntitySystem
             _actionsSystem.RemoveAction(args.Equipee, component.HailActionEntity);
         }
     }
-
     string[] _sounds = [
-       "/Audio/Goobstation/Hailer/asshole.ogg",
+        "/Audio/Goobstation/Hailer/asshole.ogg",
         "/Audio/Goobstation/Hailer/bash.ogg",
         "/Audio/Goobstation/Hailer/bobby.ogg",
         "/Audio/Goobstation/Hailer/compliance.ogg",
@@ -47,7 +44,7 @@ public sealed class HailerSystem : EntitySystem
         "/Audio/Goobstation/Hailer/floor.ogg",
         "/Audio/Goobstation/Hailer/freeze.ogg",
         "/Audio/Goobstation/Hailer/halt.ogg",
-        ];
+    ];
     private void OnHail(EntityUid uid, ActionsComponent component, ref HailerActionEvent args)
     {
         if (args.Handled)
@@ -56,7 +53,5 @@ public sealed class HailerSystem : EntitySystem
         Ra r = new Ra();
         int rInt = r.Next(0, _sounds.Length);
         _audio.PlayPvs(_sounds[rInt], uid);
-
     }
-
 }
