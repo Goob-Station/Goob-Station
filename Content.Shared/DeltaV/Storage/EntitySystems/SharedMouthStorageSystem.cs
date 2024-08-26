@@ -2,6 +2,8 @@ using Content.Shared.Actions;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.DeltaV.Storage.Components;
+using Content.Shared.Examine;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Standing;
 using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
@@ -23,6 +25,7 @@ public abstract class SharedMouthStorageSystem : EntitySystem
         SubscribeLocalEvent<MouthStorageComponent, DownedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DisarmedEvent>(DropAllContents);
         SubscribeLocalEvent<MouthStorageComponent, DamageChangedEvent>(OnDamageModified);
+        SubscribeLocalEvent<MouthStorageComponent, ExaminedEvent>(OnExamined);
     }
 
     protected bool IsMouthBlocked(MouthStorageComponent component)
@@ -66,5 +69,15 @@ public abstract class SharedMouthStorageSystem : EntitySystem
             return;
 
         DropAllContents(uid, component, args);
+    }
+
+    // Other people can see if this person has items in their mouth.
+    private void OnExamined(EntityUid uid, MouthStorageComponent component, ExaminedEvent args)
+    {
+        if (IsMouthBlocked(component))
+        {
+            var subject = Identity.Entity(uid, EntityManager);
+            args.PushMarkup(Loc.GetString("mouth-storage-examine-condition-occupied", ("entity", subject)));
+        }
     }
 }
