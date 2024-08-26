@@ -16,7 +16,6 @@ public sealed class HailerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-
     public override void Initialize()
     {
         base.Initialize();
