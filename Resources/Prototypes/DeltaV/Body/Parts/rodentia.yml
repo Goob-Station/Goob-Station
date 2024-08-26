@@ -4,6 +4,10 @@
   name: "rodentia body part"
   abstract: true
   components:
+  - type: Sprite
+    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
+  - type: Icon
+    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
   - type: Damageable
     damageContainer: Biological
   - type: BodyPart
@@ -23,11 +27,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "torso_m"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "torso_m"
   - type: BodyPart
     partType: Torso
@@ -38,11 +39,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "head_m"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "head_m"
   - type: BodyPart
     partType: Head
@@ -61,11 +59,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_arm"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_arm"
   - type: BodyPart
     partType: Arm
@@ -77,11 +72,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_arm"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_arm"
   - type: BodyPart
     partType: Arm
@@ -93,11 +85,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_hand"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_hand"
   - type: BodyPart
     partType: Hand
@@ -109,11 +98,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_hand"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_hand"
   - type: BodyPart
     partType: Hand
@@ -125,11 +111,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_leg"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_leg"
   - type: BodyPart
     partType: Leg
@@ -142,11 +125,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_leg"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_leg"
   - type: BodyPart
     partType: Leg
@@ -159,11 +139,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_foot"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "l_foot"
   - type: BodyPart
     partType: Foot
@@ -175,11 +152,8 @@
   parent: PartRodentia
   components:
   - type: Sprite
-    netsync: false
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_foot"
   - type: Icon
-    sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: "r_foot"
   - type: BodyPart
     partType: Foot
