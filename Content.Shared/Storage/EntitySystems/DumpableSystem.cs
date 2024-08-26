@@ -6,6 +6,7 @@ using Content.Shared.Item;
 using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
+using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -33,7 +34,6 @@ public sealed class DumpableSystem : EntitySystem
         SubscribeLocalEvent<DumpableComponent, GetVerbsEvent<AlternativeVerb>>(AddDumpVerb);
         SubscribeLocalEvent<DumpableComponent, GetVerbsEvent<UtilityVerb>>(AddUtilityVerbs);
         SubscribeLocalEvent<DumpableComponent, DumpableDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<DumpableComponent, DumpContentsEvent>(OnDumpContentsEvent);
     }
 
     private void OnAfterInteract(EntityUid uid, DumpableComponent component, AfterInteractEvent args)
@@ -143,18 +143,15 @@ public sealed class DumpableSystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        DumpContents(uid, component, args.Args.Target, args.Args.User);
-    }
-
-    private void OnDumpContentsEvent(EntityUid uid, DumpableComponent component, DumpContentsEvent args)
-    {
-        DumpContents(uid, component, args.Target, args.User);
+        DumpContents(uid, args.Args.Target, args.Args.User, component);
     }
 
     // DeltaV: Refactor to allow dumping that doesn't require a verb
-    private void DumpContents(EntityUid uid, DumpableComponent component, EntityUid? target, EntityUid user)
+    [PublicAPI]
+    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
     {
-        if (!TryComp<StorageComponent>(uid, out var storage))
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || !Resolve(uid, ref component))
             return;
 
         if (storage.Container.ContainedEntities.Count == 0)
