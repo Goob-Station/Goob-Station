@@ -28,7 +28,8 @@
       30: Critical
       60: Dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3
-    baseSprintSpeed : 7
+    baseWalkSpeed: 3
+    baseSprintSpeed: 7
   - type: ExplosionResistance
     damageCoefficient: 0
+    
