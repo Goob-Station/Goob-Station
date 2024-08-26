@@ -12,13 +12,11 @@
   - type: Carriable # Carrying system from nyanotrasen.
   - type: Inventory
     speciesId: rodentia
-  - type: Thirst
   - type: Icon
     sprite: DeltaV/Mobs/Species/Rodentia/parts.rsi
     state: full
   - type: Body
     prototype: Rodentia
-    requiredLegs: 2
   - type: Speech
     speechVerb: Rodentia
     speechSounds: Squeak
@@ -37,7 +35,6 @@
         - MobLayer
   - type: Sprite
     scale: 0.8, 0.8
-    drawdepth: Mobs
     layers:
       - map: [ "enum.HumanoidVisualLayers.Chest" ]
       - map: [ "enum.HumanoidVisualLayers.Head" ]
@@ -80,7 +77,6 @@
         state: "creampie_rodentia"
         visible: false
   - type: MeleeWeapon
-    hidden: true
     soundHit:
       path: /Audio/Weapons/pierce.ogg
     angle: 30
@@ -89,11 +85,9 @@
       types:
         Blunt: 2
         Slash: 3
-  - type: Perishable
   - type: Damageable
     damageModifierSet: Rodentia
   - type: Butcherable
-    butcheringType: Spike
     spawned:
     - id: FoodMeatRat
       amount: 5
