@@ -46,16 +46,6 @@
     - SecurityBreathMask
   - type: Hailer # Goobstation - Hailer
 
-# Goob Station security gas mask voice hailer action.
-- type: entity
-  id: ActionHailer
-  name: Hail
-  description: Audibly hail nearby crew, useful for giving quick orders.
-  components:
-  - type: InstantAction
-    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
-    event: !type:HailerActionEvent
-
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
   id: ClothingMaskGasSyndicate
