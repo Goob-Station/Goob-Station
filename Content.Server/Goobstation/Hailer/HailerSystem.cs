@@ -5,8 +5,6 @@ using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
 using Ra = System.Random;
 using Robust.Shared.Timing;
-using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Robust.Shared.Serialization.TypeSerializers.Implementations;
 
 namespace Content.Shared.Hailer.EntitySystems;
 
