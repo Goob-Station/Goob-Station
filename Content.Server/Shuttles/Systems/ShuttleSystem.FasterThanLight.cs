@@ -187,11 +187,6 @@ public sealed partial class ShuttleSystem
     /// </summary>
     public bool TryAddFTLDestination(MapId mapId, bool enabled, [NotNullWhen(true)] out FTLDestinationComponent? component)
     {
-        return TryAddFTLDestination(mapId, enabled, true, false, out component);
-    }
-
-    public bool TryAddFTLDestination(MapId mapId, bool enabled, bool requireDisk, bool beaconsOnly, [NotNullWhen(true)] out FTLDestinationComponent? component)
-    {
         var mapUid = _mapSystem.GetMapOrInvalid(mapId);
         component = null;
 
@@ -509,7 +504,7 @@ public sealed partial class ShuttleSystem
         else
         {
             // TODO: This should now use tryftlproximity
-            mapId = target.GetMapId(EntityManager);
+            mapId = _transform.GetMapId(target);
             _transform.SetCoordinates(uid, xform, target, rotation: entity.Comp1.TargetAngle);
         }
 
