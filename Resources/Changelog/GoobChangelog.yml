@@ -733,3 +733,9 @@ Entries:
       message: Added new lobby song!
   id: 94
   time: '2024-08-25T00:44:24.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Remove
+      message: Cog
+  id: 95
+  time: '2024-08-26T16:50:10.0000000+00:00'
