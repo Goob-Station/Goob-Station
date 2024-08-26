@@ -1,0 +1,4 @@
+- files: ["asshole.ogg","bash.ogg","bobby.ogg","compliance.ogg","dontmove.ogg","dredd.ogg","floor.ogg","freeze.ogg","halt.ogg","imperial.ogg","justice.ogg","robocop.ogg","running.ogg"]
+  license: "GPLv3"
+  copyright: "Created by TGStation"
+  source: "https://github.com/tgstation/tgstation"
