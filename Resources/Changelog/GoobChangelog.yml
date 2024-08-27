@@ -759,3 +759,9 @@ Entries:
       message: Absorbed body can't be butchered on meat spike.
   id: 97
   time: '2024-08-27T12:26:11.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: You can now actually kill a slime with fire extinguisher.
+  id: 98
+  time: '2024-08-27T17:55:31.0000000+00:00'
