@@ -739,3 +739,9 @@ Entries:
       message: Cog
   id: 95
   time: '2024-08-26T16:50:10.0000000+00:00'
+- author: terezi-station
+  changes:
+    - type: Add
+      message: Readded Atlas, Cluster, Europa, Saltern, and Origin
+  id: 96
+  time: '2024-08-27T00:58:50.0000000+00:00'
