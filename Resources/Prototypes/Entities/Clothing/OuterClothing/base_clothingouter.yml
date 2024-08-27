@@ -23,6 +23,9 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+      - WhitelistChameleon
 
 - type: entity
   abstract: true

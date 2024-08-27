@@ -518,6 +518,7 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -536,6 +537,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings
 
 #Syndicate Elite Hardsuit
 - type: entity
