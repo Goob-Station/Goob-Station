@@ -135,12 +135,24 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
+<<<<<<< HEAD:Resources/Prototypes/_DV/Entities/Mobs/Species/harpy.yml
   - type: HarpyVisuals
+=======
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+  - type: HarpyVisuals
+  - type: UltraVision
+>>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641)):Resources/Prototypes/DeltaV/Entities/Mobs/Species/harpy.yml
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
+<<<<<<< HEAD:Resources/Prototypes/_DV/Entities/Mobs/Species/harpy.yml
     - HarpyEmotes
   - type: FootPrints
     leftBarePrint: "footprint-left-bare-lizard"
@@ -151,6 +163,8 @@
       - Shard
       - Landmine
       - Mousetrap
+=======
+>>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641)):Resources/Prototypes/DeltaV/Entities/Mobs/Species/harpy.yml
 
 - type: entity
   save: false
@@ -164,6 +178,15 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
+<<<<<<< HEAD:Resources/Prototypes/_DV/Entities/Mobs/Species/harpy.yml
+=======
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
+            state: jumpsuit
+>>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641)):Resources/Prototypes/DeltaV/Entities/Mobs/Species/harpy.yml
     templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9

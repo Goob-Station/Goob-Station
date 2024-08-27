@@ -24,8 +24,13 @@
   - type: Tag
     tags:
     - Hardsuit
+<<<<<<< HEAD
     - WhitelistChameleon
   - type: ProtectedFromStepTriggers
+=======
+    - HidesHarpyWings
+  - type: ClothingRequiredStepTriggerImmune
+>>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
     slots: WITHOUT_POCKET
 
 - type: entity
@@ -70,6 +75,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -102,6 +110,9 @@
   - type: GroupExamine
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - HidesHarpyWings
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
@@ -124,6 +135,9 @@
       head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
+  - type: Tag
+    tags:
+      - HidesHarpyWings
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
