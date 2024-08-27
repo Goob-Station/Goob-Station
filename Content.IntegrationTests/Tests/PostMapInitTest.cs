@@ -49,15 +49,19 @@ namespace Content.IntegrationTests.Tests
             "Fland",
             "Meta",
             "Packed",
+            "Cluster", // Goobstation - Readds Cluster
             "Omega",
             "Bagel",
             "CentComm",
             "Box",
+            "Europa", // Goobstation - Readds Europa
+            "Atlas", // Goobstation - Readds Atlas
             "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
+            "Origin", // Goobstation - Readds Origin
             "Train",
             "Oasis",
             "Cog",

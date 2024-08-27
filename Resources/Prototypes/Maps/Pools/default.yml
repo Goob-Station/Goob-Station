@@ -1,15 +1,19 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
+  - Atlas
   - Bagel
   - Box
-  - Cog
+  - Cluster
+  #- Cog # Goobstation - cog is broken
   - Core
   - Fland
   - Marathon
   - Meta
   - Oasis
   - Omega
+  - Origin
+  - Saltern
   - Packed
   - Reach
   - FlandHighPop

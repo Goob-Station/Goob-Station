@@ -49,6 +49,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, StingMuteEvent>(OnStingMute);
         SubscribeLocalEvent<ChangelingComponent, StingTransformEvent>(OnStingTransform);
         SubscribeLocalEvent<ChangelingComponent, StingFakeArmbladeEvent>(OnStingFakeArmblade);
+        SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEgg);
 
         SubscribeLocalEvent<ChangelingComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
         SubscribeLocalEvent<ChangelingComponent, ActionAugmentedEyesightEvent>(OnAugmentedEyesight);
@@ -437,6 +438,50 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         PlayMeatySound(target, comp);
     }
+    public void OnLayEgg(EntityUid uid, ChangelingComponent comp, ref StingLayEggsEvent args)
+    {     
+        var target = args.Target;
+
+        if (!_mobState.IsDead(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
+            return;
+        }
+        if (HasComp<AbsorbedComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
+            return;
+        }
+        if (!HasComp<AbsorbableComponent>(target))
+        {
+            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
+            return;
+        }
+
+        var mind = _mind.GetMind(uid);
+        if (mind == null)
+            return;
+        if (!TryComp<StoreComponent>(uid, out var storeComp))
+            return;
+
+        comp.IsInLastResort = false;
+        comp.IsInLesserForm = true;
+
+        var eggComp = EnsureComp<ChangelingEggComponent>(target);
+        eggComp.lingComp = comp;
+        eggComp.lingMind = (EntityUid) mind;
+        eggComp.lingStore = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+
+        EnsureComp<AbsorbedComponent>(target);
+        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
+        _damage.TryChangeDamage(target, dmg, false, false);           
+        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
+        _blood.SpillAllSolutions(target);
+
+        PlayMeatySound((EntityUid) uid, comp);
+
+        _bodySystem.GibBody((EntityUid) uid);
+    }
 
     #endregion
 
@@ -557,16 +602,43 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (!TryUseAbility(uid, comp, args))
             return;
 
-        // todo: implement
+        comp.IsInLastResort = true;
+
+        var newUid = TransformEntity(
+            uid, 
+            protoId: "MobHeadcrab", 
+            comp: comp, 
+            dropInventory: true,
+            transferDamage: false);
+
+        if (newUid == null)
+        {
+            comp.IsInLastResort = false;
+            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            return;
+        }
+
+        _explosionSystem.QueueExplosion(
+            (EntityUid) newUid,
+            typeId: "Default",
+            totalIntensity: 1,
+            slope: 4,
+            maxTileIntensity: 2);
+
+        _actions.AddAction((EntityUid) newUid, "ActionLayEgg");
+
+        PlayMeatySound((EntityUid) newUid, comp);
     }
     public void OnLesserForm(EntityUid uid, ChangelingComponent comp, ref ActionLesserFormEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
             return;
 
+        comp.IsInLesserForm = true;
         var newUid = TransformEntity(uid, protoId: "MobMonkey", comp: comp);
         if (newUid == null)
         {
+            comp.IsInLesserForm = false;
             comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
@@ -574,8 +646,6 @@ public sealed partial class ChangelingSystem : EntitySystem
         PlayMeatySound((EntityUid) newUid, comp);
         var loc = Loc.GetString("changeling-transform-others", ("user", Identity.Entity((EntityUid) newUid, EntityManager)));
         _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
-
-        comp.IsInLesserForm = true;
     }
     public void OnSpacesuit(EntityUid uid, ChangelingComponent comp, ref ActionSpacesuitEvent args)
     {
