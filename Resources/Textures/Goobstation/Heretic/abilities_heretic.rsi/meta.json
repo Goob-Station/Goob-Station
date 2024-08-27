@@ -11,6 +11,9 @@
             "name": "mansus_grasp"
         },
         {
+            "name": "mansus_link"
+        },
+        {
             "name": "open_store"
         },
         {

@@ -38,6 +38,7 @@
       0: Alive
       100: Dead
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh1.ogg
     angle: 0
@@ -59,8 +60,15 @@
     rules: ghostrole-ghoul-rules
     raffle:
       settings: short
+  - type: ActiveRadio
+    channels:
+    - Mansus
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Mansus
+  
 
-# TODO: FINISH THEIR ABILITIES OR DIE TRYING
 - type: entity
   parent: BaseMobGhoul
   id: MobGhoulStalker
@@ -89,7 +97,7 @@
     sprite: Goobstation/Heretic/eldritch_mobs.rsi
     layers:
     - map: [ "movement" ]
-    state: raw_prophet
+      state: raw_prophet
   - type: SpriteMovement
     movementLayers:
       movement:
@@ -100,6 +108,10 @@
   - type: GhostRole
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJaunt
+    - ActionHereticMansusLink
 
 - type: entity
   parent: BaseMobGhoul
@@ -113,7 +125,7 @@
 
 # heretic ascend flesh form
 - type: entity
-  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  aprent: BaseMob
   id: MobHereticFleshAscend
   name: eldritch horror
   descripgion: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
@@ -123,25 +135,25 @@
     factions:
     - Heretic
   - type: CombatMode
-  - type: MobMover
-  - type: InputMover
   - type: MovementSpeedModifier
     baseWalkSpeed: 5
     baseSprintSpeed: 7.5
     weightlessModifier: 1.5
   - type: Sprite
+    drawdepth: Mobs
     sprite: Goobstation/Heretic/eldritch_horror.rsi
     noRot: true
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
       state: alive
-  - type: Appearance
   - type: DamageStateVisuals
     states:
       Alive:
         Base: alive
       Dead:
         Base: dead
+  - type: Clickable
+  - type: InteractionOutline
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
@@ -156,22 +168,28 @@
         layer:
         - FlyingMobLayer
   - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
       500: Dead
+  - type: Damageable
+    damageContainer: Biological
   - type: StatusEffects
     allowed:
     - SlowedDown
-    - Stutter
     - RadiationProtection
   - type: MeleeWeapon
+    hidden: false
     altDisarm: false
     autoAttack: true
-    attackRate: 4
+    attackRate: 2.5
     damage:
       types:
-       Blunt: 10
+       Blunt: 20
+       Structural: 60
     soundHit:
       collection: Punch
     animation: WeaponArcFist
@@ -197,3 +215,12 @@
     tags:
     - CannotSuicide
     - DoorBumpOpener
+  - type: ActiveRadio
+    channels:
+    - Mansus
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Mansus
+  - type: Examiner
+  - type: Pullable

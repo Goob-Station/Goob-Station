@@ -1,18 +1,24 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Chat.Systems;
+using Content.Server.DoAfter;
+using Content.Server.Flash;
 using Content.Server.Hands.Systems;
 using Content.Server.Magic;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Popups;
+using Content.Server.Radio.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
+using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
 using Content.Shared.Inventory;
+using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Store.Components;
 using Robust.Shared.Audio.Systems;
+using Content.Shared.Popups;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -32,6 +38,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly SharedAudioSystem _aud = default!;
+    [Dependency] private readonly DoAfterSystem _doafter = default!;
+    [Dependency] private readonly FlashSystem _flash = default!;
 
     public override void Initialize()
     {
@@ -42,11 +50,14 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
         SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
 
+        SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
+        SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
+
         SubscribeAsh();
         SubscribeFlesh();
     }
 
-    private bool TryUseAbility(Entity<HereticComponent> ent, BaseActionEvent args)
+    private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
     {
         if (args.Handled)
             return false;
@@ -55,9 +66,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return false;
 
         // check if any magic items are worn
-        if (actionComp.RequireMagicItem && !ent.Comp.Ascended)
+        if (TryComp<HereticComponent>(ent, out var hereticComp) && actionComp.RequireMagicItem && !hereticComp.Ascended)
         {
-            if (ent.Comp.CodexActive)
+            if (hereticComp.CodexActive)
                 return true;
 
             var ev = new CheckMagicItemEvent();
@@ -76,7 +87,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         return true;
     }
-
     private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
     {
         // no need to check fo anythign because the event gets processed only by magic items
@@ -112,5 +122,45 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         ent.Comp.MansusGraspActive = true;
         args.Handled = true;
+    }
+
+    private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        if (!HasComp<MindContainerComponent>(args.Target))
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-nomind"), ent, ent);
+            return;
+        }
+
+        if (TryComp<ActiveRadioComponent>(args.Target, out var radio)
+        && radio.Channels.Contains("Mansus"))
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-manselink-fail-exists"), ent, ent);
+            return;
+        }
+
+        var dargs = new DoAfterArgs(EntityManager, ent, 5f, new HereticMansusLinkDoAfter(args.Target), ent, args.Target)
+        {
+            BreakOnDamage = true,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true
+        };
+        _popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
+        _popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);
+        _doafter.TryStartDoAfter(dargs);
+    }
+    private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
+    {
+        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
+        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
+        var radio = EnsureComp<ActiveRadioComponent>(args.Target);
+        radio.Channels = new() { "Mansus" };
+        transmitter.Channels = new() { "Mansus" };
+
+        // this "* 1000f" (divided by 1000 in FlashSystem) is gonna age like fine wine :clueless:
+        _flash.Flash(args.Target, null, null, 2f * 1000f, 0f, false, true, stunDuration: TimeSpan.FromSeconds(1f));
     }
 }

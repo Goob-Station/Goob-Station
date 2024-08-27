@@ -3,12 +3,18 @@
 heretic-ability-fail = Failed to cast
 heretic-ability-fail-magicitem = You cannot cast it without a focus!
 heretic-ability-fail-notarget = Couldn't find a valid target!
+
 heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while equipped.[/color]
+
 heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 
 heretic-rust-mark-itembreak = {$name} shatters into dust!
 
+heretic-manselink-fail-exists = This creature is already connected!
+heretic-manselink-fail-nomind = This creature does not have a mind!
+heretic-manselink-start = You begin to connect this creature's mind to yours.
+heretic-manselink-start-target = You feel your mind being pulled somewhere...
 
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!
@@ -42,3 +48,4 @@ heretic-speech-fuckoff = F'K 'FF!!
 heretic-speech-blind = E'E'S
 heretic-speech-emp = E'P
 heretic-speech-shapeshift = SH'PE
+heretic-speech-link = PI'RC' TH' M'ND

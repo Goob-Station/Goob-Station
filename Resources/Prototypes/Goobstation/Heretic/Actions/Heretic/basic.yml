@@ -29,3 +29,20 @@
     event: !type:EventHereticMansusGrasp {}
   - type: HereticAction
     requireMagicItem: false
+
+- type: entity
+  id: ActionHereticMansusLink
+  name: Manse Link
+  description: This spell allows you to pierce through reality and connect minds to one another via your Mansus Link.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Heretic/abilities_heretic.rsi
+      state: mansus_link
+    event: !type:EventHereticMansusLink {}
+  - type: HereticAction
+    requireMagicItem: false
+    messageLoc: heretic-speech-link

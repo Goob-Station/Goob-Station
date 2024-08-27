@@ -13,6 +13,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
+        SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
@@ -23,15 +24,21 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        if (!TryUseAbility(ent, args))
-            return;
-
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+            args.Handled = true;
+    }
+    private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
+    {
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+            args.Handled = true;
+    }
+    private bool TryDoJaunt(EntityUid ent)
+    {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
         var urist = _poly.PolymorphEntity(ent, "AshJaunt");
         if (urist == null)
-            return;
-
-        args.Handled = true;
+            return false;
+        return true;
     }
     private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
     {

@@ -32,6 +32,15 @@ public sealed partial class HereticActionComponent : Component
         Coords = coords;
     }
 }
+[Serializable, NetSerializable] public sealed partial class HereticMansusLinkDoAfter : SimpleDoAfterEvent
+{
+    [NonSerialized] public EntityUid Target;
+
+    public HereticMansusLinkDoAfter(EntityUid target)
+    {
+        Target = target;
+    }
+}
 
 #endregion
 
@@ -47,6 +56,9 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
+
+// for mobs
+public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
 public sealed partial class EventHereticAshenShift : InstantActionEvent { }
