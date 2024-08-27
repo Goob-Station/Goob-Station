@@ -4,8 +4,6 @@ using Robust.Shared.Containers;
 using Content.Shared.Mindcontrol;
 using Content.Server.Mindcontrol;
 using Content.Shared.Implants.Components;
-using Content.Shared.Interaction;
-using Content.Shared.Hands.Components;
 
 namespace Content.Server.Implants;
 public sealed class MindcontrolImplantSystem : EntitySystem
@@ -47,7 +45,6 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     }
     private void OnRemove(EntityUid uid, MindcontrolImplantComponent component, EntGotRemovedFromContainerMessage args)
     {
-
         if (args.Container.ID == "implant") //when implant is removed
         {
             if (HasComp<MindcontrolComponent>(args.Container.Owner))
