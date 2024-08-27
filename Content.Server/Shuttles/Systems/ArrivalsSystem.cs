@@ -514,6 +514,7 @@ public sealed class ArrivalsSystem : EntitySystem
     private void SetupArrivalsStation()
     {
         var mapUid = _mapSystem.CreateMap(out var mapId, false);
+        _metaData.SetEntityName(mapUid, Loc.GetString("map-name-terminal"));
 
         if (!_loader.TryLoad(mapId, _cfgManager.GetCVar(CCVars.ArrivalsMap), out var uids))
         {
