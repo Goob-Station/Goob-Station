@@ -1,5 +1,3 @@
-
-
 namespace Content.Server.Implants.Components;
 
 [RegisterComponent]

@@ -10,7 +10,7 @@
   parent: BaseSubdermalImplant
   id: MindcontrolImplant
   name: mind control implant
-  description: take controll of the mind of loyalists
+  description: commit menticide
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
@@ -25,14 +25,14 @@
     - type: MindcontrolImplant
 
 - type: factionIcon #  There are no statusicon for group for what is needed here. a new group is needed whit ShowToUid. Faction will do for now.
-  id: MindcontroledFaction # All mindcontroled can tell who else is mindcontroled.
+  id: MindcontrolledFaction # All mindcontrolled can tell who else is mindcontrolled.
   isShaded: true
   priority: 11
   locationPreference: Left
   showTo:
     components:
       - ShowAntagIcons
-      - Mindcontrol
+      - Mindcontrolled
   icon:
-    sprite: /Textures/Interface/Misc/job_icons.rsi
-    state: Mindcontrol
+    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
+    state: Mindcontrolled

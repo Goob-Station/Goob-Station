@@ -10,9 +10,9 @@ public sealed class MindcontrolSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<MindcontrolComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
+        SubscribeLocalEvent<MindcontrolledComponent, GetStatusIconsEvent>(OnGetStatusIconsEvent);
     }
-    private void OnGetStatusIconsEvent(Entity<MindcontrolComponent> ent, ref GetStatusIconsEvent args)
+    private void OnGetStatusIconsEvent(Entity<MindcontrolledComponent> ent, ref GetStatusIconsEvent args)
     {
         if (_prototype.TryIndex(ent.Comp.MindcontrolIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);

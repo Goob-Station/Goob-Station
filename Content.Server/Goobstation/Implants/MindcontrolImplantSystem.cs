@@ -24,12 +24,12 @@ public sealed class MindcontrolImplantSystem : EntitySystem
             RemComp<PreventSelfImplantComponent>(component.ImplanterUid.Value);
         }
         if (args.Implanted != null)
-            EnsureComp<MindcontrolComponent>(args.Implanted.Value);
+            EnsureComp<MindcontrolledComponent>(args.Implanted.Value);
 
         component.ImplanterUid = null;
         if (args.Implanted == null)
             return;
-        if (!TryComp<MindcontrolComponent>(args.Implanted.Value, out var implanted))
+        if (!TryComp<MindcontrolledComponent>(args.Implanted.Value, out var implanted))
             return;
         implanted.Master = component.HolderUid;
         _mindcontrol.Start(args.Implanted.Value, implanted);
@@ -47,8 +47,8 @@ public sealed class MindcontrolImplantSystem : EntitySystem
     {
         if (args.Container.ID == "implant") //when implant is removed
         {
-            if (HasComp<MindcontrolComponent>(args.Container.Owner))
-                RemComp<MindcontrolComponent>(args.Container.Owner);
+            if (HasComp<MindcontrolledComponent>(args.Container.Owner))
+                RemComp<MindcontrolledComponent>(args.Container.Owner);
         }
     }
 }

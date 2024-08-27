@@ -7,7 +7,7 @@ using Robust.Shared.Audio;
 namespace Content.Shared.Mindcontrol;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class MindcontrolComponent : Component
+public sealed partial class MindcontrolledComponent : Component
 {
     [DataField]
     public EntityUid? Master = null;
@@ -16,5 +16,5 @@ public sealed partial class MindcontrolComponent : Component
     [DataField]
     public bool BriefingSent = false;
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MindcontrolIcon { get; set; } = "MindcontroledFaction";
+    public ProtoId<FactionIconPrototype> MindcontrolIcon { get; set; } = "MindcontrolledFaction";
 }

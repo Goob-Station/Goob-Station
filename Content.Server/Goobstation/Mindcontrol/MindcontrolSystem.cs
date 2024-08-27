@@ -25,25 +25,25 @@ public sealed class MindcontrolSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<MindcontrolComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MindcontrolComponent, ComponentShutdown>(OnShutdown);
-        SubscribeLocalEvent<MindcontrolComponent, MindAddedMessage>(OnMindAdded);
-        SubscribeLocalEvent<MindcontrolComponent, MindRemovedMessage>(OnMindRemoved);
-        SubscribeLocalEvent<MindcontrolRoleComponent, GetBriefingEvent>(OnGetBriefing);
+        SubscribeLocalEvent<MindcontrolledComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MindcontrolledComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MindcontrolledComponent, MindAddedMessage>(OnMindAdded);
+        SubscribeLocalEvent<MindcontrolledComponent, MindRemovedMessage>(OnMindRemoved);
+        SubscribeLocalEvent<MindcontrolledRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
-    public void OnStartup(EntityUid uid, MindcontrolComponent component, ComponentStartup arg)
+    public void OnStartup(EntityUid uid, MindcontrolledComponent component, ComponentStartup arg)
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true); //dont need this but, but its a still a good indicator from how Revulution and subverted silicone does it
     }
-    public void OnShutdown(EntityUid uid, MindcontrolComponent component, ComponentShutdown arg)
+    public void OnShutdown(EntityUid uid, MindcontrolledComponent component, ComponentShutdown arg)
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
         if (_mindSystem.TryGetMind(uid, out var mindId, out _))
-            _roleSystem.MindTryRemoveRole<MindcontrolRoleComponent>(mindId);
+            _roleSystem.MindTryRemoveRole<MindcontrolledRoleComponent>(mindId);
         _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);
-        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontroled.");
+        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontrolled.");
     }
-    public void Start(EntityUid uid, MindcontrolComponent component)
+    public void Start(EntityUid uid, MindcontrolledComponent component)
     {
         if (component.Master == null)
             return;
@@ -54,8 +54,8 @@ public sealed class MindcontrolSystem : EntitySystem
         if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))   //no mind, how can you mindcontrol whit no mind?
             return;
 
-        if (!_roleSystem.MindHasRole<MindcontrolRoleComponent>(mindId))
-            _roleSystem.MindAddRole(mindId, new MindcontrolRoleComponent { PrototypeId = "Mindcontroled", MasterUid = component.Master.Value }, mind, true);
+        if (!_roleSystem.MindHasRole<MindcontrolledRoleComponent>(mindId))
+            _roleSystem.MindAddRole(mindId, new MindcontrolledRoleComponent { PrototypeId = "Mindcontrolled", MasterUid = component.Master.Value }, mind, true);
 
         if (mind?.Session != null && !component.BriefingSent)
         {
@@ -63,25 +63,25 @@ public sealed class MindcontrolSystem : EntitySystem
             _antag.SendBriefing(mind.Session, Loc.GetString("mindcontrol-briefing-start", ("master", (MetaData(component.Master.Value).EntityName))), Color.Red, component.MindcontrolStartSound);
             component.BriefingSent = true;
         }
-        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is Mindcontroled by {ToPrettyString(component.Master.Value)}.");
+        _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is Mindcontrolled by {ToPrettyString(component.Master.Value)}.");
     }
-    private void OnMindAdded(EntityUid uid, MindcontrolComponent component, MindAddedMessage args)  //  OnMindAdded is if somone whit out a mind gets implanted, like Ian before given cognezine or somone dead ghost.
+    private void OnMindAdded(EntityUid uid, MindcontrolledComponent component, MindAddedMessage args)  //  OnMindAdded is if somone whit out a mind gets implanted, like Ian before given cognezine or somone dead ghost.
     {
-        if (!_roleSystem.MindHasRole<MindcontrolRoleComponent>(args.Mind.Owner))
+        if (!_roleSystem.MindHasRole<MindcontrolledRoleComponent>(args.Mind.Owner))
             Start(uid, component); //goes agein if comp added before mind.
     }
-    private void OnMindRemoved(EntityUid uid, MindcontrolComponent component, MindRemovedMessage args)
+    private void OnMindRemoved(EntityUid uid, MindcontrolledComponent component, MindRemovedMessage args)
     {
-        _roleSystem.MindTryRemoveRole<MindcontrolRoleComponent>(args.Mind.Owner);
+        _roleSystem.MindTryRemoveRole<MindcontrolledRoleComponent>(args.Mind.Owner);
     }
-    private void OnGetBriefing(Entity<MindcontrolRoleComponent> target, ref GetBriefingEvent args)
+    private void OnGetBriefing(Entity<MindcontrolledRoleComponent> target, ref GetBriefingEvent args)
     {
         if (!TryComp<MindComponent>(target.Owner, out var mind) || mind.OwnedEntity == null)
             return;
 
         args.Append(MakeBriefing(target));
     }
-    private string MakeBriefing(Entity<MindcontrolRoleComponent> target)
+    private string MakeBriefing(Entity<MindcontrolledRoleComponent> target)
     {
         var briefing = Loc.GetString("mindcontrol-briefing-get");
         if (target.Comp.MasterUid != null) // Returns null if Master is gibbed
