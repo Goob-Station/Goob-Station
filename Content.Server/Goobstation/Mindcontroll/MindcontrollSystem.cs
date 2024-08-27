@@ -38,8 +38,8 @@ public sealed class MindcontrollSystem : EntitySystem
     public void OnShutdown(EntityUid uid, MindcontrollComponent component, ComponentShutdown arg)
     {
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
-        _mindSystem.TryGetMind(uid, out var mindId, out _);
-        _roleSystem.MindTryRemoveRole<MindcontrollRoleComponent>(mindId);
+        if (_mindSystem.TryGetMind(uid, out var mindId, out _))
+            _roleSystem.MindTryRemoveRole<MindcontrollRoleComponent>(mindId);
         _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontrolled.");
     }
