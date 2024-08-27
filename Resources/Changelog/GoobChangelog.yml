@@ -765,3 +765,9 @@ Entries:
       message: You can now actually kill a slime with fire extinguisher.
   id: 98
   time: '2024-08-27T17:55:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Changed the logos slightly to be more readable!
+  id: 99
+  time: '2024-08-27T19:10:42.0000000+00:00'
