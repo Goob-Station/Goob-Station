@@ -300,13 +300,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
-        if (!lingAction.UseInLastResort && comp.IsInLastResort)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-action-fail-lastresort"), uid, uid);
-            return false;
-        }
-
-        if (!lingAction.UseInLesserForm && comp.IsInLesserForm)
+        if ((!lingAction.UseInLesserForm && comp.IsInLesserForm) || (!lingAction.UseInLastResort && comp.IsInLastResort))
         {
             _popup.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), uid, uid);
             return false;

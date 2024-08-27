@@ -120,7 +120,7 @@ evolutionmenu-utility-fleshmend-desc =
     
 evolutionmenu-utility-lastresort-name = Last Resort
 evolutionmenu-utility-lastresort-desc = 
-    For when you are well and truly fucked.
+    Abandon your current body and escape in the form of a headslug.
     Costs 20 chemicals.
 
 evolutionmenu-utility-lesserform-name = Lesser Form

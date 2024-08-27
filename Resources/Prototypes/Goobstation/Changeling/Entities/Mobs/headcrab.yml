@@ -18,15 +18,12 @@
     states:
       Alive:
         Base: headcrab
-      Critical:
-        Base: headcrab_dead
       Dead:
         Base: headcrab_dead
   - type: MobThresholds
     thresholds:
       0: Alive
-      30: Critical
-      60: Dead
+      50: Dead
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 7

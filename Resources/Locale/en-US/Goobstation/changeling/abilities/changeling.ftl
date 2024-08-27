@@ -2,7 +2,6 @@
 changeling-biomass-deficit = Not enough biomass!
 changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
-changeling-action-fail-lastresort = Can't use it while in last resort!
 changeling-action-fail-absorbed = Need to absorb {$number} more organics to use it!
 
 changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s!
