@@ -84,7 +84,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 0.15
+            Caustic: 5 # Goobstation
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
