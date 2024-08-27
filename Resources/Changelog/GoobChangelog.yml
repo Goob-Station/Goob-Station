@@ -771,3 +771,11 @@ Entries:
       message: Changed the logos slightly to be more readable!
   id: 99
   time: '2024-08-27T19:10:42.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: >-
+        Cherries have been added, as well as the ability to grow your own
+        cherries!
+  id: 100
+  time: '2024-08-27T22:26:22.0000000+00:00'
