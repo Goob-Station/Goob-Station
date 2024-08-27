@@ -27,3 +27,10 @@ heretic-ritual-ash-blade = Nightwatcher's Secret
 heretic-ritual-ash-grasp = Grasp of Ash
 heretic-ritual-ash-mask = Mask of Madness
 heretic-ritual-ash-ascend = Ashlord's Rite
+
+## flesh path
+heretic-ritual-flesh-blade = Principle of Hunger
+heretic-ritual-flesh-ghoul = Imperfect Ritual
+heretic-ritual-flesh-prophet = Raw Ritual
+heretic-ritual-flesh-stalker = Lonely Ritual
+heretic-ritual-flesh-ascend = Priest's Final Hymn

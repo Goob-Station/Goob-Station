@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseGameRule
-  id: Heretics
+  id: Heretic
   components:
   - type: HereticRule
   - type: GameRule

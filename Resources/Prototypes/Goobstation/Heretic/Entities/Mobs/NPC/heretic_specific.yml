@@ -2,6 +2,7 @@
   id: PolymorphAshJauntAnimation
   name: ashen thing
   description: you're not really supposed to read this
+  noSpawn: true
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -15,6 +16,7 @@
   id: PolymorphAshJauntEndAnimation
   name: ashen thing
   description: you're not really supposed to read this
+  noSpawn: true
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -28,6 +30,7 @@
   id: PolymorphAshJaunt
   name: ashen thing
   description: again you're not supposed to read this
+  noSpawn: true
   components:
   - type: MindContainer
   - type: InputMover

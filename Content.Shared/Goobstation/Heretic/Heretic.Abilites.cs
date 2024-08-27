@@ -48,10 +48,14 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 
+// ash
 public sealed partial class EventHereticAshenShift : InstantActionEvent { }
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
 
+
+// flesh
+public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 #endregion

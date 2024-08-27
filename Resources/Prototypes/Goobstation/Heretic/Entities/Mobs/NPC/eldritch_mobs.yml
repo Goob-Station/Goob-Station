@@ -66,7 +66,6 @@
   id: MobGhoulStalker
   name: flesh stalker
   description: An abomination cobbled together from varied remains. Its appearance changes slightly every time you blink.
-  suffix: DO NOT MAP
   components:
   - type: Ghoul
     totalHealth: 150
@@ -82,14 +81,22 @@
   id: MobGhoulProphet
   name: raw prophet
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
-  suffix: DO NOT MAP
   components:
   - type: Ghoul
     totalHealth: 65
   - type: Sprite
     noRot: true
     sprite: Goobstation/Heretic/eldritch_mobs.rsi
+    layers:
+    - map: [ "movement" ]
     state: raw_prophet
+  - type: SpriteMovement
+    movementLayers:
+      movement:
+        state: raw_prophet-move
+    noMovementLayers:
+      movement:
+        state: raw_prophet
   - type: GhostRole
     name: ghostrole-prophet-name
     description: ghostrole-prophet-desc
@@ -103,3 +110,90 @@
   components:
   - type: Ghoul
     totalHealth: 100
+
+# heretic ascend flesh form
+- type: entity
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
+  id: MobHereticFleshAscend
+  name: eldritch horror
+  descripgion: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
+  suffix: DO NOT MAP
+  components:
+  - type: NpcFactionMember
+    factions:
+    - Heretic
+  - type: CombatMode
+  - type: MobMover
+  - type: InputMover
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 5
+    baseSprintSpeed: 7.5
+    weightlessModifier: 1.5
+  - type: Sprite
+    sprite: Goobstation/Heretic/eldritch_horror.rsi
+    noRot: true
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: Appearance
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Physics
+    bodyType: KinematicController
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 100
+        mask:
+        - FlyingMobMask
+        layer:
+        - FlyingMobLayer
+  - type: MobState
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      500: Dead
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+    - Stutter
+    - RadiationProtection
+  - type: MeleeWeapon
+    altDisarm: false
+    autoAttack: true
+    attackRate: 4
+    damage:
+      types:
+       Blunt: 10
+    soundHit:
+      collection: Punch
+    animation: WeaponArcFist
+  - type: Devourer
+    foodPreference: Humanoid
+    shouldStoreDevoured: true
+    chemical: Ichor
+    healRate: 15.0
+    whitelist:
+      components:
+      - MobState
+      - Door
+      tags:
+      - Wall
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Dragon ]
+    groups:
+    - id: Medicine
+    - id: Poison
+  - type: Tag
+    tags:
+    - CannotSuicide
+    - DoorBumpOpener

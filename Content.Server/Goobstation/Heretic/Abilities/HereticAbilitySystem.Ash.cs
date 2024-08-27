@@ -1,30 +1,15 @@
 using Content.Server.Atmos.Components;
-using Content.Server.Heretic.EntitySystems;
-using Content.Server.Polymorph.Systems;
 using Content.Shared.Heretic;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
-using Content.Server.Atmos.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Systems;
 using Content.Shared.Atmos;
-using Content.Server.Magic;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server.Heretic.Abilities;
 
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
-    [Dependency] private readonly PolymorphSystem _poly = default!;
-    [Dependency] private readonly ChainFireballSystem _splitball = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobstate = default!;
-    [Dependency] private readonly FlammableSystem _flammable = default!;
-    [Dependency] private readonly DamageableSystem _dmg = default!;
-    [Dependency] private readonly StaminaSystem _stam = default!;
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
-    [Dependency] private readonly SharedTransformSystem _xform = default!;
-
     private void SubscribeAsh()
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
@@ -42,7 +27,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
-        _poly.PolymorphEntity(ent, "AshJaunt");
+        var urist = _poly.PolymorphEntity(ent, "AshJaunt");
+        if (urist == null)
+            return;
 
         args.Handled = true;
     }

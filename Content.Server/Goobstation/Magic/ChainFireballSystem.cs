@@ -65,7 +65,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
     }
     private bool SpawnFireball(EntityUid uid, EntityUid target)
     {
-        var ball = Spawn("FireballSplitting", Transform(uid).Coordinates);
+        var ball = Spawn("FireballChain", Transform(uid).Coordinates);
         if (TryComp<ChainFireballComponent>(ball, out var sfc))
             if (TryComp<ChainFireballComponent>(uid, out var usfc))
                 sfc.Divisions = usfc.Divisions + .5f;

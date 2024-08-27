@@ -95,7 +95,8 @@
   id: PrincipleOfHunger
   path: Flesh
   stage: 1
-  #ritualPrototypes:
+  ritualPrototypes:
+  - BladeFlesh
 
 - type: hereticKnowledge
   id: GraspOfFlesh
@@ -137,10 +138,12 @@
   id: AscensionFlesh
   path: Flesh
   stage: 9
-  #ritualPrototypes:
+  ritualPrototypes:
+  - AscensionFlesh
 
 - type: hereticKnowledge
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionPolymorphHereticHorror

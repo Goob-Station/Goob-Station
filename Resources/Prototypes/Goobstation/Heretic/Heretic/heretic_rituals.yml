@@ -55,3 +55,21 @@
     Knife: 1
   output:
     HereticBladeFlesh: 1
+
+- type: hereticRitual
+  id: ImperfectRitual
+  name: heretic-ritual-flesh-ghoul
+  #customBehaviors:
+  #- !type:RitualSacrificeGhoulBehavior
+  requiredEntityNames:
+    poppy: 1
+
+- type: hereticRitual
+  id: AscensionFlesh
+  name: heretic-ritual-flesh-ascend
+  customBehaviors:
+  - !type:RitualSacrificeBehavior
+    min: 4
+    max: 4
+  outputKnowledge: PriestFinalHymn
+  outputEvent: !type:EventHereticAscension
