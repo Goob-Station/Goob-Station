@@ -284,19 +284,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-#- type: listing
-#  id: EvolutionMenuUtilityLastResort
-#  name: evolutionmenu-utility-lastresort-name
-#  description: evolutionmenu-utility-lastresort-desc
-#  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: last_resort }
-#  productAction: ActionLastResort
-#  cost:
-#    EvolutionPoint: 2
-#  categories:
-#  - ChangelingAbilityUtility
-#  conditions:
-#  - !type:ListingLimitedStockCondition
-#    stock: 1
+- type: listing
+  id: EvolutionMenuUtilityLastResort
+  name: evolutionmenu-utility-lastresort-name
+  description: evolutionmenu-utility-lastresort-desc
+  icon: { sprite: Goobstation/Changeling/changeling_abilities.rsi, state: last_resort }
+  productAction: ActionLastResort
+  cost:
+    EvolutionPoint: 2
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 - type: listing
   id: EvolutionMenuUtilityLesserForm

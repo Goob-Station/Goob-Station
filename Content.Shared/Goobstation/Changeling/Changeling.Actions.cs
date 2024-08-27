@@ -12,6 +12,8 @@ public sealed partial class ChangelingActionComponent : Component
 
     [DataField] public float BiomassCost = 0;
 
+    [DataField] public bool UseInLastResort = false;
+
     [DataField] public bool UseInLesserForm = false;
 
     [DataField] public float RequireAbsorbed = 0;
@@ -49,6 +51,7 @@ public sealed partial class StingLethargicEvent : EntityTargetActionEvent { }
 public sealed partial class StingMuteEvent : EntityTargetActionEvent { }
 public sealed partial class StingFakeArmbladeEvent : EntityTargetActionEvent { }
 public sealed partial class StingTransformEvent : EntityTargetActionEvent { }
+public sealed partial class StingLayEggsEvent : EntityTargetActionEvent { }
 
 #endregion
 

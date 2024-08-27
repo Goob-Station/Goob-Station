@@ -739,3 +739,23 @@ Entries:
       message: Cog
   id: 95
   time: '2024-08-26T16:50:10.0000000+00:00'
+- author: terezi-station
+  changes:
+    - type: Add
+      message: Readded Atlas, Cluster, Europa, Saltern, and Origin
+  id: 96
+  time: '2024-08-27T00:58:50.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Changeling last resort ability.
+    - type: Tweak
+      message: >-
+        Changeling can't be butchered on meat spike. (you can still put it in
+        biomass reclaimer or burn it in crematorium)  
+    - type: Fix
+      message: Changeling in lesser form can't use most abilities.
+    - type: Fix
+      message: Absorbed body can't be butchered on meat spike.
+  id: 97
+  time: '2024-08-27T12:26:11.0000000+00:00'
