@@ -3,9 +3,9 @@ using Content.Shared.Actions;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Shared.Audio.Systems;
-using Ra = System.Random;
 using Robust.Shared.Timing;
 using Content.Server.Chat.Systems;
+using Robust.Shared.Random;
 
 namespace Content.Shared.Hailer.EntitySystems;
 
@@ -15,6 +15,7 @@ public sealed class HailerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -62,8 +63,7 @@ public sealed class HailerSystem : EntitySystem
                 return;
             }
         }
-        Ra r = new Ra();
-        int rInt = r.Next(0, _sounds.Length);
+        int rInt = (int) _random.NextDouble(0, _sounds.Length);
         _audio.PlayPvs(_sounds[rInt], uid);
         _delays[uid] = _timing.CurTime.Add(_fixed_delay);
         _chat.TrySendInGameICMessage(uid, Loc.GetString("hail-" + rInt), InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: Name(uid) + "(SecMask)", checkRadioPrefix: false);
