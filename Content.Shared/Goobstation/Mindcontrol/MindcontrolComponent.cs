@@ -4,17 +4,17 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 
-namespace Content.Shared.Mindcontroll;
+namespace Content.Shared.Mindcontrol;
 
 [RegisterComponent, NetworkedComponent]
-public sealed partial class MindcontrollComponent : Component
+public sealed partial class MindcontrolComponent : Component
 {
     [DataField]
     public EntityUid? Master = null;
     [DataField]
-    public SoundSpecifier MindcontrollStartSound = new SoundPathSpecifier("/Audio/Goobstation/Ambience/Antag/mindcontroll_start.ogg");
+    public SoundSpecifier MindcontrolStartSound = new SoundPathSpecifier("/Audio/Goobstation/Ambience/Antag/mindcontrol_start.ogg");
     [DataField]
     public bool BriefingSent = false;
     [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> MindcontrollIcon { get; set; } = "MindcontrolledFaction";
+    public ProtoId<FactionIconPrototype> MindcontrolIcon { get; set; } = "MindcontroledFaction";
 }

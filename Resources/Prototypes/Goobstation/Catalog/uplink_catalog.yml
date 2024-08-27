@@ -127,11 +127,11 @@
 # Implants
 
 - type: listing
-  id: UplinkMindcontrollImplanter
+  id: UplinkMindcontrolImplanter
   name: uplink-mindcontrol-implant-name
   description: uplink-mindcontrol-implant-desc
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
-  productEntity: MindcontrollImplanter
+  productEntity: MindcontrolImplanter
   cost:
     Telecrystal: 50 # Half the budget. or so based of paradise.
   categories:
