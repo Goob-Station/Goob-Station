@@ -5,31 +5,21 @@ using Content.Server.Popups;
 using Content.Shared.Popups;
 using Content.Server.Roles;
 using Content.Shared.Database;
-using Content.Server.GameTicking.Rules;
-using Content.Server.Traitor.Systems;
 using Content.Server.Antag;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Server.Stunnable;
-using Content.Shared.StatusIcon.Components;
-using Content.Shared.StatusIcon;
-using Robust.Shared.Prototypes;
-using Content.Server.Revolutionary;
-using Content.Server.Revolutionary.Components;
-using Content.Shared.Revolutionary.Components;
 using Content.Shared.Mindcontroll;
-using Robust.Shared.GameObjects;
 
 namespace Content.Server.Mindcontroll;
 
-public sealed class MindcontrollSystem : SharedMindcontrollSystem
+public sealed class MindcontrollSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
     [Dependency] private readonly RoleSystem _roleSystem = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly StunSystem _stun = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
@@ -43,7 +33,6 @@ public sealed class MindcontrollSystem : SharedMindcontrollSystem
     }
     public void OnStartup(EntityUid uid, MindcontrollComponent component, ComponentStartup arg)
     {
-        EnsureComp<MindcontrollComponent>(uid);
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true); //dont need this but, but its a still a good indicator from how Revulution and subverted silicone does it
     }
     public void OnShutdown(EntityUid uid, MindcontrollComponent component, ComponentShutdown arg)
@@ -51,8 +40,8 @@ public sealed class MindcontrollSystem : SharedMindcontrollSystem
         _stun.TryParalyze(uid, TimeSpan.FromSeconds(5f), true);
         _mindSystem.TryGetMind(uid, out var mindId, out _);
         _roleSystem.MindTryRemoveRole<MindcontrollRoleComponent>(mindId);
+        _popup.PopupEntity(Loc.GetString("mindcontrol-popup-stop"), uid, PopupType.Large);
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is no longer Mindcontrolled.");
-        //if (_mindSystem.TryGetSession(mindId, out var session))
     }
     public void Start(EntityUid uid, MindcontrollComponent component)
     {
@@ -62,16 +51,17 @@ public sealed class MindcontrollSystem : SharedMindcontrollSystem
             return;
         if (uid == component.Master.Value)  //good jobb, you implanted yourself
             return;
-
-        _mindSystem.TryGetMind(uid, out var mindId, out var mind);
+        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))   //no mind, how can you mindcontrol whit no mind?
+            return;
 
         if (!_roleSystem.MindHasRole<MindcontrollRoleComponent>(mindId))
-            _roleSystem.MindAddRole(mindId, new MindcontrollRoleComponent { PrototypeId = "Mindcontrolled", MasterUid = component.Master.Value });
+            _roleSystem.MindAddRole(mindId, new MindcontrollRoleComponent { PrototypeId = "Mindcontrolled", MasterUid = component.Master.Value }, mind, true);
 
-        if (mind?.Session != null)
+        if (mind?.Session != null && !component.BriefingSent)
         {
-            _popup.PopupEntity(Loc.GetString("You are Mindcontrolled"), uid, PopupType.LargeCaution);
-            _antag.SendBriefing(mind.Session, Loc.GetString("You are Mindcontrolled \n OBEY " + MetaData(component.Master.Value).EntityName), Color.Red, component.MindcontrollStartSound);
+            _popup.PopupEntity(Loc.GetString("mindcontrol-popup-start"), uid, PopupType.LargeCaution);
+            _antag.SendBriefing(mind.Session, Loc.GetString("mindcontrol-briefing-start", ("master", (MetaData(component.Master.Value).EntityName))), Color.Red, component.MindcontrollStartSound);
+            component.BriefingSent = true;
         }
         _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} is Mindcontrolled by {ToPrettyString(component.Master.Value)}.");
     }
@@ -93,12 +83,12 @@ public sealed class MindcontrollSystem : SharedMindcontrollSystem
     }
     private string MakeBriefing(Entity<MindcontrollRoleComponent> target)
     {
-        var briefing = Loc.GetString("YOU ARE MINDCONTROLLED");
+        var briefing = Loc.GetString("mindcontrol-briefing-get");
         if (target.Comp.MasterUid != null) // Returns null if Master is gibbed
         {
             TryComp<MetaDataComponent>(target.Comp.MasterUid, out var metadata);
             if (metadata != null)
-                briefing += "\n " + Loc.GetString("Obey: ") + metadata.EntityName + "\n";
+                briefing += "\n " + Loc.GetString("mindcontrol-briefing-get-master", ("master", metadata.EntityName)) + "\n";
         }
         return briefing;
     }

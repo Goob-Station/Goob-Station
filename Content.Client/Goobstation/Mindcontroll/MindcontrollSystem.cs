@@ -4,7 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Mindcontroll;
 
-public sealed class MindcontrollSystem : SharedMindcontrollSystem
+public sealed class MindcontrollSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     public override void Initialize()
