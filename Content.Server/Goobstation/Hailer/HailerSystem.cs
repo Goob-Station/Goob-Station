@@ -48,17 +48,6 @@ public sealed class HailerSystem : EntitySystem
         "/Audio/Goobstation/Hailer/freeze.ogg",
         "/Audio/Goobstation/Hailer/halt.ogg",
     ];
-    string[] _sounds_subs = [
-        "Stop breaking the law, asshole!!",
-        "Stop or I will bash you!!",
-        "Stop in the name of the law!!",
-        "Compliance is in your best interest!!",
-        "Don't move, creep!!",
-        "I AM THE LAW!!",
-        "Get down on the floor creep!!",
-        "Freeze scumbag!!",
-        "HALT! HALT! HALT!!",
-    ];
     Dictionary<EntityUid, TimeSpan> _delays = new Dictionary<EntityUid, TimeSpan>();
     TimeSpan _fixed_delay = TimeSpan.FromSeconds(2);
     private void OnHail(EntityUid uid, ActionsComponent component, ref HailerActionEvent args)
@@ -77,6 +66,6 @@ public sealed class HailerSystem : EntitySystem
         int rInt = r.Next(0, _sounds.Length);
         _audio.PlayPvs(_sounds[rInt], uid);
         _delays[uid] = _timing.CurTime.Add(_fixed_delay);
-        _chat.TrySendInGameICMessage(uid, _sounds_subs[rInt], InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: Name(uid) + "(SecMask)", checkRadioPrefix: false);
+        _chat.TrySendInGameICMessage(uid, Loc.GetString("hail-" + rInt), InGameICChatType.Speak, ChatTransmitRange.GhostRangeLimit, nameOverride: Name(uid) + "(SecMask)", checkRadioPrefix: false);
     }
 }
