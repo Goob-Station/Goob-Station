@@ -1,0 +1,1 @@
+mindshield-implant-effect-removed = You feel like your mind become much freer.

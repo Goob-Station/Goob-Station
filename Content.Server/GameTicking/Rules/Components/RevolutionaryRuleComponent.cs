@@ -1,3 +1,4 @@
+using Content.Server.RoundEnd;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -27,4 +28,40 @@ public sealed partial class RevolutionaryRuleComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan ShuttleCallTime = TimeSpan.FromMinutes(5);
+
+    /// <summary>
+    /// Needed to stop checking and announce spam in the end of round
+    /// </summary>
+    [DataField]
+    public bool HasAnnouncementPlayed = false;
+
+    /// <summary>
+    /// Text for shuttle call if RoundEndBehavior is ShuttleCall.
+    /// </summary>
+    [DataField]
+    public string RevolutionariesLoseEndTextShuttleCall = "revolutionaries-lose-announcement-shuttle-call"; //GoobStation
+
+    /// <summary>
+    /// Text for announcement if RoundEndBehavior is ShuttleCall. Used if shuttle is already called
+    /// </summary>
+    [DataField]
+    public string RevolutionariesLoseRoundEndTextAnnouncement = "revolutionaries-lose-announcement"; //GoobStation
+
+    /// <summary>
+    /// Text for shuttle call if revs win.
+    /// </summary>
+    [DataField]
+    public string RevolutionariesWinEndTextShuttleCall = "revolutionaries-win-announcement-shuttle-call"; //GoobStation
+
+    /// <summary>
+    /// Text for shuttle call if revs win. Used if shuttle is already called.
+    /// </summary>
+    [DataField]
+    public string RevolutionariesWinEndText = "revolutionaries-win-announcement"; //GoobStation
+
+    /// <summary>
+    /// Text for round end sender if revs win.
+    /// </summary>
+    [DataField]
+    public string RevolutionariesWinSender = "revolutionaries-win-sender"; //GoobStation
 }

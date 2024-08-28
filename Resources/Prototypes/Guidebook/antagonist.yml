@@ -30,7 +30,7 @@
 - type: guideEntry
   id: Revolutionaries
   name: guide-entry-revolutionaries
-  text: "/ServerInfo/Guidebook/Antagonist/Revolutionaries.xml"
+  text: "/ServerInfo/Goobstation/Guidebook/Antagonist/Revolutionaries.xml" # goobstation
 
 - type: guideEntry
   id: MinorAntagonists
