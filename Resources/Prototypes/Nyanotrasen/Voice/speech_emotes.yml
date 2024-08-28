@@ -3,6 +3,7 @@
   id: Hiss
   name: Hiss
   category: Vocal
+  icon: Goobstation/Interface/Emotes/hiss.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -12,16 +13,16 @@
     - BorgChassis
   chatMessages: [hisses.]
   chatTriggers:
-    - hiss.
-    - hisses.
-    - hisses!
-    - hissing.
-    - hissed.
+    - hiss
+    - hisses
+    - hissing
+    - hissed
 
 - type: emote
   id: Meow
   name: Meow
   category: Vocal
+  icon: Goobstation/Interface/Emotes/meow.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -31,30 +32,22 @@
     - BorgChassis
   chatMessages: [meows.]
   chatTriggers:
-    - meow.
-    - meow!
-    - meows.
-    - meows~
-    - meows!
-    - meowing.
-    - meowed.
-    - miau.
-    - miaus.
-    - miaus!
-    - nya.
-    - nyas.
-    - nyas!
-    - mraow.
-    - mraow!
-    - mraow~
-    - mraows.
-    - mraows!
-    - mraows~
+    - meow
+    - meows
+    - meowing
+    - meowed
+    - miau
+    - miaus
+    - nya
+    - nyas
+    - mraow
+    - mraows
 
 - type: emote
   id: Mew
   name: Mew
   category: Vocal
+  icon: Goobstation/Interface/Emotes/mew.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -64,19 +57,16 @@
     - BorgChassis
   chatMessages: [mews.]
   chatTriggers:
-    - mew.
-    - mew!
-    - mew~
-    - mews.
-    - mews!
-    - mews~
-    - mewing.
-    - mewed.
+    - mew
+    - mews
+    - mewing
+    - mewed
 
 - type: emote
   id: Growl
   name: Growl
   category: Vocal
+  icon: Goobstation/Interface/Emotes/growl.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -86,16 +76,16 @@
     - BorgChassis
   chatMessages: [growls.]
   chatTriggers:
-    - growl.
-    - growls.
-    - growls!
-    - growling.
-    - growled.
+    - growl
+    - growls
+    - growling
+    - growled
 
 - type: emote
   id: Purr
   name: Purr
   category: Vocal
+  icon: Goobstation/Interface/Emotes/purr.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -105,9 +95,7 @@
     - BorgChassis
   chatMessages: [purrs.]
   chatTriggers:
-    - purr.
-    - purrs.
-    - purrs~
-    - purrs!
-    - purring.
-    - purred.
+    - purr
+    - purrs
+    - purring
+    - purred
