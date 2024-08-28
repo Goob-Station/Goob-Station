@@ -21,7 +21,7 @@
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
-            StationAi: [ 1, 1 ]
+            #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 2 ]
             Botanist: [ 2, 2 ]
@@ -64,4 +64,5 @@
             Reporter: [ 2, 2 ]
             #silicon
             # Goobstation - TODO: add stationai to our bagel StationAi: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]
