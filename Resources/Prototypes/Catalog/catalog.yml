@@ -24,15 +24,16 @@
   categories:
     - Debug
 
-- type: listing
-  id: DebugListing4
-  name: debug name 4
-  description: debug desc 4
-  productAction: ActionScream
-  categories:
-    - Debug
-  cost:
-    DebugDollar: 1
+## Goobstation - turn off scream action
+# - type: listing
+#   id: DebugListing4
+#   name: debug name 4
+#   description: debug desc 4
+#   productAction: ActionScream
+#   categories:
+#     - Debug
+#   cost:
+#     DebugDollar: 1
 
 - type: listing
   id: DebugListing2
