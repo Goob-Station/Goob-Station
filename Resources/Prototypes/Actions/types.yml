@@ -9,16 +9,17 @@
 
 # actions
 
-- type: entity
-  id: ActionScream
-  name: Scream
-  description: AAAAAAAAAAAAAAAAAAAAAAAAA
-  components:
-  - type: InstantAction
-    useDelay: 10
-    icon: Interface/Actions/scream.png
-    event: !type:ScreamActionEvent
-    checkCanInteract: false
+## Goobstation - turn off scream action
+# - type: entity
+#   id: ActionScream
+#   name: Scream
+#   description: AAAAAAAAAAAAAAAAAAAAAAAAA
+#   components:
+#   - type: InstantAction
+#     useDelay: 10
+#     icon: Interface/Actions/scream.png
+#     event: !type:ScreamActionEvent
+#     checkCanInteract: false
 
 - type: entity
   id: ActionTurnUndead

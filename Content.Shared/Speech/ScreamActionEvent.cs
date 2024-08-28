@@ -1,7 +1,9 @@
-﻿using Content.Shared.Actions;
+﻿// using Content.Shared.Actions;
 
-namespace Content.Shared.Speech;
+// namespace Content.Shared.Speech;
 
-public sealed partial class ScreamActionEvent : InstantActionEvent
-{
-}
+// public sealed partial class ScreamActionEvent : InstantActionEvent
+// {
+// }
+
+////// Goobstation - turn off scream action

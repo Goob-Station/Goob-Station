@@ -18,7 +18,7 @@ namespace Content.Server.Speech.Muting
             base.Initialize();
             SubscribeLocalEvent<MutedComponent, SpeakAttemptEvent>(OnSpeakAttempt);
             SubscribeLocalEvent<MutedComponent, EmoteEvent>(OnEmote, before: new[] { typeof(VocalSystem) });
-            SubscribeLocalEvent<MutedComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) });
+            //SubscribeLocalEvent<MutedComponent, ScreamActionEvent>(OnScreamAction, before: new[] { typeof(VocalSystem) }); // Goobstation - turn off scream action
         }
 
         private void OnEmote(EntityUid uid, MutedComponent component, ref EmoteEvent args)
@@ -31,18 +31,19 @@ namespace Content.Server.Speech.Muting
                 args.Handled = true;
         }
 
-        private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
-        {
-            if (args.Handled)
-                return;
+        //// Goobstation - turn off scream action
+        // private void OnScreamAction(EntityUid uid, MutedComponent component, ScreamActionEvent args)
+        // {
+        //     if (args.Handled)
+        //         return;
 
-            if (HasComp<MimePowersComponent>(uid))
-                _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
+        //     if (HasComp<MimePowersComponent>(uid))
+        //         _popupSystem.PopupEntity(Loc.GetString("mime-cant-speak"), uid, uid);
 
-            else
-                _popupSystem.PopupEntity(Loc.GetString("speech-muted"), uid, uid);
-            args.Handled = true;
-        }
+        //     else
+        //         _popupSystem.PopupEntity(Loc.GetString("speech-muted"), uid, uid);
+        //     args.Handled = true;
+        // }
 
 
         private void OnSpeakAttempt(EntityUid uid, MutedComponent component, SpeakAttemptEvent args)
