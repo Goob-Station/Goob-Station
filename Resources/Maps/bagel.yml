@@ -32183,6 +32183,11 @@ entities:
     - type: Transform
       pos: -54.5,16.5
       parent: 60
+  - uid: 24815
+    components:
+    - type: Transform
+      pos: 0.5,-53.5
+      parent: 60
 - proto: CableApcStack
   entities:
   - uid: 9517
@@ -128520,20 +128525,6 @@ entities:
 - proto: SpawnPointCaptain
   entities:
   - uid: 18681
-    components:
-    - type: Transform
-      pos: -7.5,-4.5
-      parent: 60
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 121464342
-    components:
-    - type: Transform
-      pos: -7.5,-4.5
-      parent: 60
-- proto: SpawnPointNanotrasenRepresentative
-  entities:
-  - uid: 42146433
     components:
     - type: Transform
       pos: -7.5,-4.5
