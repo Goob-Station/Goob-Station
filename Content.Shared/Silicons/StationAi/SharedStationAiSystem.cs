@@ -135,9 +135,6 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnAiBuiCheck(Entity<StationAiWhitelistComponent> ent, ref BoundUserInterfaceCheckRangeEvent args)
     {
-        if (!HasComp<StationAiHeldComponent>(args.Actor))
-            return;
-
         args.Result = BoundUserInterfaceRangeResult.Fail;
 
         // Similar to the inrange check but more optimised so server doesn't die.
