@@ -59,6 +59,7 @@ public sealed partial class GhoulSystem : EntitySystem
 
         _rejuvenate.PerformRejuvenate(ent);
         _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, Shared.Mobs.MobState.Dead);
+        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.5f, Shared.Mobs.MobState.Critical);
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
 

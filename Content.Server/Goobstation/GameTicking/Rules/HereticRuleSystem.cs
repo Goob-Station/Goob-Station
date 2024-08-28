@@ -39,25 +39,17 @@ public sealed partial class HereticRuleSystem : GameRuleSystem<HereticRuleCompon
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StationVariationPassEvent>(OnStationPostInit);
         SubscribeLocalEvent<HereticRuleComponent, AfterAntagEntitySelectedEvent>(OnAntagSelect);
         SubscribeLocalEvent<HereticRuleComponent, ObjectivesTextPrependEvent>(OnTextPrepend);
-    }
-
-    private void OnStationPostInit(ref StationVariationPassEvent ev)
-    {
-        for (int i = 0; i < 30; i++)
-        {
-            if (!TryFindRandomTileOnStation(ev.Station, out var _, out var _, out var coords))
-            {
-                Spawn("EldritchInfluence", coords);
-            }
-        }
     }
 
     private void OnAntagSelect(Entity<HereticRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
         TryMakeHeretic(args.EntityUid, ent.Comp);
+
+        for (int i = 0; i < 5; i++)
+            if (TryFindRandomTile(out var _, out var _, out var _, out var coords))
+                Spawn("EldritchInfluence", coords);
     }
 
     public bool TryMakeHeretic(EntityUid target, HereticRuleComponent rule)

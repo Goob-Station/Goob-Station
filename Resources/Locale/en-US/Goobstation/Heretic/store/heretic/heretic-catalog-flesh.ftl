@@ -43,7 +43,7 @@ knowledge-path-flesh-s6-desc =
     I could not continue alone. I was able to summon The Uncanny Man to help me see more.
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
-    Allows you to transmute a pair of eyes, a left arm, and a pool of blood to create a Raw Prophet.
+    Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
     Raw Prophets have a greatly increased sight range and x-ray vision, as well as a long range jaunt and
     the ability to link minds to communicate with ease, but are very fragile and weak in combat.
 
@@ -60,7 +60,7 @@ knowledge-path-flesh-s8-desc =
     An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved.
 
     Allows you to transmute a tail of any kind, a stomach, a tongue, a pen and a piece of paper to create a Stalker.
-    Stalkers can jaunt, release EMPs, shapeshift into animals or automatons, and are strong in combat.
+    Stalkers can jaunt, release EMPs, shapeshift into animals, and are strong in combat.
 
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =

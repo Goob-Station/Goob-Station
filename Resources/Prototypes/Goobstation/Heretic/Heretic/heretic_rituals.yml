@@ -49,8 +49,9 @@
 - type: hereticRitual
   id: BladeFlesh
   name: heretic-ritual-flesh-blade
-  #customBehaviors:
-  #- !type:RitualPoolBloodBehavior
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Blood
   requiredTags:
     Knife: 1
   output:
@@ -59,10 +60,26 @@
 - type: hereticRitual
   id: ImperfectRitual
   name: heretic-ritual-flesh-ghoul
-  #customBehaviors:
-  #- !type:RitualSacrificeGhoulBehavior
+  customBehaviors:
+  - !type:RitualMuteGhoulifyBehavior
   requiredEntityNames:
     poppy: 1
+
+- type: hereticRitual
+  id: RawRitual
+  name: heretic-ritual-flesh-prophet
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Blood
+  requiredEntityNames:
+    eyes: 1
+    stomach: 1
+  output:
+    MobGhoulProphet: 1
+
+- type: hereticRitual
+  id: LonelyRitual
+  name: heretic-ritual-flesh-stalker
 
 - type: hereticRitual
   id: AscensionFlesh
