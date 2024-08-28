@@ -22,6 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using static Content.Shared.Kitchen.Components.KitchenSpikeComponent;
+using Content.Shared.Changeling; // Goobstation
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -222,6 +223,19 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-butcher", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;
             }
+
+            // Goobstation - start
+            if (HasComp<ChangelingComponent>(victimUid))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
+                return false;
+            }
+            if (HasComp<AbsorbedComponent>(victimUid))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
+                return false;
+            }
+            // Goobstation - end
 
             switch (butcherable.Type)
             {

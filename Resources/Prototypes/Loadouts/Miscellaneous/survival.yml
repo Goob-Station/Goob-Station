@@ -69,6 +69,26 @@
     back:
     - BoxHugSlotsNitrogen
 
+# Mime
+- type: loadout
+  id: EmergencyOxygenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: OxygenBreather
+  storage:
+    back:
+    - BoxMime
+
+- type: loadout
+  id: EmergencyNitrogenMime
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: NitrogenBreather
+  storage:
+    back:
+    - BoxMimeNitrogen
+
+
 # Engineering / Extended
 - type: loadout
   id: EmergencyOxygenExtended

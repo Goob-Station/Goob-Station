@@ -1,6 +1,6 @@
 - type: gameMap
   id: Train
-  mapName: 'Why would you fucking want this map at all?'
+  mapName: 'Poo Poo Train Map'
   mapPath: /Maps/train.yml
   maxRandomOffset: 0
   randomRotation: false
