@@ -1,7 +1,7 @@
 - type: gameMap
   id: Bagel
   mapName: 'Bagel Station'
-  mapPath: /Maps/bagel.yml # Goobstation TODO: use our own bagel again
+  mapPath: /Maps/Goobstation/bagel.yml # Goobstation - custom bagel
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -62,5 +62,5 @@
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
             #silicon
-            StationAi: [ 1, 1 ]
+            # Goobstation - TODO: add stationai to our bagel StationAi: [ 1, 1 ]
             Borg: [ 4, 4 ]
