@@ -29,7 +29,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary; // GoobStation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -76,6 +76,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
+        // GoobStation
         if (component.HasAnnouncementPlayed)
             return;
 
@@ -167,7 +168,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             return;
         }
 
-        // Turning on headrev ability back
+        // Goobstation - Turning on headrev ability back
         if (TryComp<HeadRevolutionaryComponent>(ev.Target, out var headRevComp))
         {
             _revolutionarySystem.ToggleConvertAbility((ev.Target, headRevComp), true);
@@ -216,9 +217,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var commandList = new List<EntityUid>();
 
         var heads = AllEntityQuery<CommandStaffComponent>();
-        while (heads.MoveNext(out var id, out var commandComp)) // GoobStation
+        while (heads.MoveNext(out var id, out var commandComp)) // GoobStation - commandComp
         {
-            // If mindshield was removed from head and he got converted - he won't count as command
+            // GoobStation - If mindshield was removed from head and he got converted - he won't count as command
             if (commandComp.Enabled)
                 commandList.Add(id);
         }
@@ -241,9 +242,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
-        while (headRevs.MoveNext(out var uid, out var headRevComp, out _))
+        while (headRevs.MoveNext(out var uid, out var headRevComp, out _)) // GoobStation - headRevComp
         {
-            // Checking if headrev ability is enabled to count them
+            // GoobStation - Checking if headrev ability is enabled to count them
             if (headRevComp.ConvertAbilityEnabled)
                 headRevList.Add(uid);
         }

@@ -1,1 +1,1 @@
-mindshield-implant-effect-removed = You feel like your mind become much freer.
+mindshield-implant-effect-removed = You feel an agonizing pain as your perspective changes and your vision widens near-instantly.

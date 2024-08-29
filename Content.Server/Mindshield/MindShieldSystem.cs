@@ -1,14 +1,14 @@
 using Content.Server.Administration.Logs;
-using Content.Server.GameTicking.Rules;
+using Content.Server.GameTicking.Rules; // GoobStation
 using Content.Server.Mind;
 using Content.Server.Popups;
-using Content.Server.Revolutionary.Components;
+using Content.Server.Revolutionary.Components; // GoobStation
 using Content.Server.Roles;
 using Content.Shared.Database;
 using Content.Shared.Implants;
 using Content.Shared.Implants.Components;
 using Content.Shared.Mindshield.Components;
-using Content.Shared.Revolutionary;
+using Content.Shared.Revolutionary; // GoobStation
 using Content.Shared.Revolutionary.Components;
 using Content.Shared.Tag;
 
@@ -59,7 +59,7 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void MindShieldRemovalCheck(EntityUid implanted, EntityUid implant)
     {
-        if (TryComp<HeadRevolutionaryComponent>(implanted, out var headRevComp))
+        if (TryComp<HeadRevolutionaryComponent>(implanted, out var headRevComp)) // GoobStation - headRevComp
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
             _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoobStation - turn off headrev ability to convert
