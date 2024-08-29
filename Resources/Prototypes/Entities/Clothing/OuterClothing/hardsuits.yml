@@ -94,8 +94,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitEngineering
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.75 # 25% stamdmg resist
 
 #Spationaut Hardsuit
 - type: entity
@@ -217,8 +215,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.75 # 25% stamdmg resist
 
 #Brigmedic Hardsuit
 - type: entity
@@ -276,8 +272,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.65 # 35% stamdmg resist
 
 #Captain's Hardsuit
 - type: entity
@@ -310,8 +304,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -349,8 +341,6 @@
   - type: ClothingGrantComponent # Goobstation - Make sure the CE doesn't get cooked by supermatter
     component:
     - type: SupermatterImmune
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.65 # 35% stamdmg resist
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -451,8 +441,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -524,8 +512,6 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% resistance
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -582,8 +568,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdamage resistance
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -648,8 +632,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #Wizard Hardsuit
 - type: entity
@@ -682,8 +664,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #Ling Space Suit
 - type: entity
@@ -794,8 +774,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -810,8 +788,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -826,8 +802,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #ERT Medic Hardsuit
 - type: entity
@@ -842,8 +816,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #ERT Security Hardsuit
 - type: entity
@@ -862,8 +834,6 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -878,8 +848,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.5 # 50% stamdmg resist
 
 #Deathsquad
 - type: entity
@@ -916,8 +884,6 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.1 # 90% stamdmg resist
 
 #CBURN Hardsuit
 - type: entity
