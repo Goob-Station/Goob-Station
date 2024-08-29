@@ -787,3 +787,11 @@ Entries:
         suspects.
   id: 101
   time: '2024-08-28T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: >-
+        Various fixes to automatic shuttle calling during Zombies by VMSolidus
+        have been ported from Einstein Engines
+  id: 102
+  time: '2024-08-29T00:19:18.0000000+00:00'
