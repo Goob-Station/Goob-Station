@@ -15,7 +15,12 @@
   - Kitchen
   extendedAccess:
   - Hydroponics
-  - Bar
+  - Bar #Nyano - Summary: After this line, Professional Che is a component to be added. Very important.
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: CQCKnowledge
+      - type: ProfessionalChef #Nyano - End Summary.
 
 - type: startingGear
   id: ChefGear
