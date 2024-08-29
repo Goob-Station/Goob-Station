@@ -17,6 +17,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Station.Components;
+using FastAccessors;
 using Robust.Shared.Utility;
 using YamlDotNet.RepresentationModel;
 
@@ -49,15 +50,19 @@ namespace Content.IntegrationTests.Tests
             "Fland",
             "Meta",
             "Packed",
+            "Cluster", // Goobstation - Readds Cluster
             "Omega",
             "Bagel",
             "CentComm",
             "Box",
+            "Europa", // Goobstation - Readds Europa
+            "Atlas", // Goobstation - Readds Atlas
             "Core",
             "Marathon",
             "MeteorArena",
             "Saltern",
             "Reach",
+            "Origin", // Goobstation - Readds Origin
             "Train",
             "Oasis",
             "Cog",
@@ -253,6 +258,13 @@ namespace Content.IntegrationTests.Tests
                         .Select(x => x.Job!.Value);
 
                     jobs.ExceptWith(spawnPoints);
+
+                    spawnPoints = entManager.EntityQuery<ContainerSpawnPointComponent>()
+                        .Where(x => x.SpawnType == SpawnPointType.Job)
+                        .Select(x => x.Job!.Value);
+
+                    jobs.ExceptWith(spawnPoints);
+
                     Assert.That(jobs, Is.Empty, $"There is no spawnpoints for {string.Join(", ", jobs)} on {mapProto}.");
                 }
 

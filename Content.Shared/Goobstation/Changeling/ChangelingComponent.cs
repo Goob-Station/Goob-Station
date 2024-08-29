@@ -52,6 +52,8 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInLesserForm = false;
 
+    public bool IsInLastResort = false;
+
 
     public Dictionary<string, EntityUid?> Equipment = new();
 

@@ -31,3 +31,25 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
+
+# CREATED BY Goldminermac
+# https://github.com/space-wizards/space-station-14/pull/31149
+# LICENSED UNDER THE MIT LICENSE
+# SEE README.MD AND LICENSE.TXT IN THE ROOT OF THIS REPOSITORY FOR MORE INFORMATION
+- type: reagent
+  id: Profanol
+  name: reagent-name-profanol
+  group: Toxins
+  desc: reagent-desc-profanol
+  physicalDesc: reagent-physical-desc-pungent
+  flavor: offensive
+  color: "#BF5E5E"
+  slippery: true
+  metabolisms:
+    Poison:
+      metabolismRate: 0.10
+      effects:
+      - !type:GenericStatusEffect
+        key: Vulgarity
+        component: VulgarAccent
+# END OF MIT-LICENSED CODE
