@@ -41,7 +41,7 @@ public sealed class MindShieldSystem : EntitySystem
     /// </summary>
     public void ImplantCheck(EntityUid uid, SubdermalImplantComponent comp, ref ImplantImplantedEvent ev)
     {
-        if (!_tag.HasTag(ev.Implant, MindShieldTag) || ev.Implanted == null)
+        if (!_tag.HasTag(ev.Implant, MindShieldTag) || ev.Implanted == null) // Edited Goobstation
             return;
 
         EnsureComp<MindShieldComponent>(ev.Implanted.Value);

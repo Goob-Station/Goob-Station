@@ -88,9 +88,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             {
                 _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
                     component.ShuttleCallTime,
-                    sender: component.RevolutionariesWinSender,
-                    textCall: component.RevolutionariesWinEndTextShuttleCall,
-                    textAnnounce: component.RevolutionariesWinEndText);
+                    sender: "revolutionaries-win-sender",
+                    textCall: "revolutionaries-win-announcement-shuttle-call",
+                    textAnnounce: "revolutionaries-win-announcement");
 
                 component.HasAnnouncementPlayed = true;
             }
@@ -99,8 +99,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             {
                 _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
                     component.ShuttleCallTime,
-                    textCall: component.RevolutionariesLoseEndTextShuttleCall,
-                    textAnnounce: component.RevolutionariesLoseRoundEndTextAnnouncement);
+                    textCall: "revolutionaries-lose-announcement-shuttle-call",
+                    textAnnounce: "revolutionaries-lose-announcement");
 
                 component.HasAnnouncementPlayed = true;
             }
