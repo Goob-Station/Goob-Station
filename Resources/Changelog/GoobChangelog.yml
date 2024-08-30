@@ -852,3 +852,9 @@ Entries:
       message: Centcom has learned the difference between a zombie outbreak and flu
   id: 107
   time: '2024-08-30T13:41:48.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: SM.
+  id: 108
+  time: '2024-08-30T13:45:38.0000000+00:00'
