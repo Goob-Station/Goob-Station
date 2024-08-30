@@ -1,1 +1,0 @@
-flavor-base-futuristic = futuristic

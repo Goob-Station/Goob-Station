@@ -1,7 +1,7 @@
 - type: gameMap
   id: Saltern
   mapName: 'Saltern'
-  mapPath: /Maps/saltern.yml
+  mapPath: /Maps/Goobstation/saltern.yml # Goobstation - use custom saltern
   minPlayers: 0
   maxPlayers: 35
   fallback: true
@@ -17,6 +17,11 @@
         - type: StationJobs
           availableJobs:
             #service
+            # Goobstation - TODO: add bso and ntr
+            # Goobstation - Me did it, Icepick
+            StationAi: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             Captain: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
@@ -57,4 +62,3 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-

@@ -22,6 +22,7 @@ public sealed class RoleSystem : SharedRoleSystem
         SubscribeAntagEvents<ChangelingRoleComponent>(); // goobstation - changelings
         SubscribeAntagEvents<HereticRoleComponent>(); // goobstation - heretics
         SubscribeAntagEvents<GhoulRoleComponent>(); // heretics
+        SubscribeAntagEvents<MindcontrolledRoleComponent>();
     }
 
     public string? MindGetBriefing(EntityUid? mindId)

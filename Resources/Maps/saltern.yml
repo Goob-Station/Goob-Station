@@ -49397,13 +49397,6 @@ entities:
     - type: Transform
       pos: 7.2571726,18.545927
       parent: 31
-- proto: MaterialReclaimer
-  entities:
-  - uid: 9264
-    components:
-    - type: Transform
-      pos: -32.5,-17.5
-      parent: 31
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -57756,20 +57749,6 @@ entities:
 - proto: SpawnPointCaptain
   entities:
   - uid: 39
-    components:
-    - type: Transform
-      pos: 11.5,24.5
-      parent: 31
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 121464342
-    components:
-    - type: Transform
-      pos: 11.5,24.5
-      parent: 31
-- proto: SpawnPointNanotrasenRepresentative
-  entities:
-  - uid: 42146433
     components:
     - type: Transform
       pos: 11.5,24.5
