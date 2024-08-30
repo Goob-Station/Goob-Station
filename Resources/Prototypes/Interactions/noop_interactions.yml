@@ -1,0 +1,84 @@
+- type: Interaction
+  id: LookAt
+  parent: BaseGlobal
+  priority: 4
+  requiresHands: false
+  requiresCanInteract: false
+  contactInteraction: false
+  allowSelfInteract: true
+  icon: /Textures/Interface/Actions/eyeopen.png
+  range: {max: 20}
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Effects/ominous.ogg}
+    soundPerceivedByOthers: false # Can be used to attract attention, but not to spam sounds or chat
+  action:
+    !type:NoOpAction
+
+- type: Interaction
+  id: WaveAt
+  parent: [BaseHands, BaseGlobal]
+  priority: 3
+  contactInteraction: false
+  range: {max: 20}
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Effects/ominous.ogg}
+    soundPerceivedByOthers: false
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement # Don't wave your hands at inanimate objects smh
+    inverted: true
+  action:
+    !type:NoOpAction
+
+- type: Interaction
+  id: Hug
+  parent: [BaseGlobal, BaseHands]
+  priority: 2
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.7
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement
+    inverted: true
+  action:
+    # TODO: this should pull the target closer or sumth, but I need to code that action first
+    !type:NoOpAction
+
+- type: Interaction
+  id: Pet
+  parent: [BaseGlobal, BaseHands]
+  priority: 1
+  #icon: /Textures/Interface/Actions/hug.png
+  delay: 0.4
+  range: {max: 1}
+  hideByRequirement: true
+  requirement:
+    !type:MobStateRequirement
+    inverted: true
+  action:
+    !type:NoOpAction
+
+# Knocking on the target - windows, doors, etc.
+- type: Interaction
+  id: KnockOn
+  parent: BaseHands
+  priority: 20
+  effectSuccess:
+    popup: Visible
+    sound: {path: /Audio/Effects/glass_knock.ogg}
+  action:
+    !type:NoOpAction
+
+# Rattling a fence
+- type: Interaction
+  id: Rattle
+  parent: BaseHands
+  priority: 20
+  effectSuccess:
+    popup: VisibleNoChat
+    sound: {collection: FenceRattle}
+  action:
+    !type:NoOpAction

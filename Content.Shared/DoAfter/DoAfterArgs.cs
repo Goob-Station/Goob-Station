@@ -323,7 +323,11 @@ public sealed partial class DoAfterArgs
         NetShowTo = entManager.GetNetEntity(ShowTo); // Goobstation - Show doAfter popup to another entity
     }
 
-    private DoAfterArgs()
+    /// <summary>
+    ///     An empty do-after constructor. This WILL cause runtime errors if used to create a do-after. Only use this if you really know what you're doing!
+    /// </summary>
+    [Obsolete("Use the other constructors if possible.")]
+    public DoAfterArgs()
     {
     }
 

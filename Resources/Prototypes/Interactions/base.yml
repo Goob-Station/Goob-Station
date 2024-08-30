@@ -1,0 +1,42 @@
+- type: Interaction
+  id: Base
+  abstract: true
+  effectSuccess:
+    popup: Small
+  effectFailure:
+    popup: SubtleFail
+
+# Base global interaction
+- type: Interaction
+  id: BaseGlobal
+  abstract: true
+  global: true
+
+# Base interaction that involves hands
+- type: Interaction
+  id: BaseHands
+  abstract: true
+  requiresHands: true
+  requiresCanInteract: true
+  contactInteraction: true
+  range:
+    max: 2
+  effectSuccess:
+    popup: Obvious
+    sound: {path: /Audio/Effects/thudswoosh.ogg}
+  effectFailure:
+    popup: Fail
+    sound: {path: /Audio/Effects/thudswoosh.ogg}
+
+# Base interaction using dangerous popups
+- type: Interaction
+  id: BaseDangerous
+  abstract: true
+  effectSuccess:
+    popup: Dangerous
+    sound: {path: /Audio/Effects/thudswoosh.ogg}
+  effectFailure:
+    popup: Fail
+    sound: {path: /Audio/Effects/thudswoosh.ogg}
+  effectDelayed:
+    popup: DangerousDelayed
