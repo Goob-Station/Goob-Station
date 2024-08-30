@@ -5,21 +5,21 @@ roles-antag-rev-head-objective = Your objective is to take over the station by c
 
 head-rev-role-greeting =
     You are a Head Revolutionary.
-    You are tasked with removing all of Command from station via death, exilement or imprisonment.
+    You are tasked with removing all of Command from station via converting, death, exilement or imprisonment.
     The Syndicate has sponsored you with a flash that converts the crew to your side.
     Beware, this won't work on Security, Command, or those wearing sunglasses.
     Viva la revolución!
 
 head-rev-briefing =
     Use flashes to convert people to your cause.
-    Get rid of all heads to take over the station.
+    Get rid of all heads or convert them to take over the station.
 
-head-rev-break-mindshield = The Mindshield was destroyed!
+head-rev-break-mindshield = The Mindshield neutralized hypnotic powers and was destroyed in the process!
 
 ## Rev
 
 roles-antag-rev-name = Revolutionary
-roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the Head Revolutionaries as well as getting rid of all Command staff on station.
+roles-antag-rev-objective = Your objective is to ensure the safety and follow the orders of the Head Revolutionaries as well as helping them to convert or get rid of all Command staff on station.
 
 rev-break-control = {$name} has remembered their true allegiance!
 
@@ -29,7 +29,7 @@ rev-role-greeting =
     Get rid of all of the Command staff.
     Viva la revolución!
 
-rev-briefing = Help your head revolutionaries get rid of every head to take over the station.
+rev-briefing = Help your head revolutionaries convert or get rid of every head to take over the station.
 
 ## General
 
@@ -42,7 +42,7 @@ rev-no-heads = There were no Head Revolutionaries to be selected. Can't start a 
 
 rev-won = The Head Revs survived and successfully seized control of the station.
 
-rev-lost = Command survived and killed all of the Head Revs.
+rev-lost = Command survived and neutralized all of the Head Revs.
 
 rev-stalemate = All of the Head Revs and Command died. It's a draw.
 
@@ -67,7 +67,7 @@ rev-headrev-name = [color=#5e9cff]{$name}[/color] converted {$count} {$count ->
 
 rev-deconverted-title = Deconverted!
 rev-deconverted-text =
-    As the last headrev has died, the revolution is over.
+    As the last headrev was neutralized, the revolution is over.
 
     You are no longer a revolutionary, so be nice.
 rev-deconverted-confirm = Confirm

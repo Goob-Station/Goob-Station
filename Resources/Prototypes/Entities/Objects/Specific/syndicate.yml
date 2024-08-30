@@ -73,6 +73,16 @@
     balance:
       Telecrystal: 0
 
+# goobstation - duke nukies
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadio50TC
+  suffix: 50 TC
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 50
+
 - type: entity
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
@@ -93,29 +103,25 @@
     balance:
       Telecrystal: 125
 
-#this uplink MUST be used for nukeops, as it has the tag for filtering the listing.
 - type: entity
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
   id: BaseUplinkRadio200TC
-  suffix: 200 TC, NukeOps
+  suffix: 200 TC
   components:
   - type: Store
     balance:
       Telecrystal: 200
-  - type: Tag
-    tags:
-    - NukeOpsUplink
 
 - type: entity
   parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
-  id: BaseUplinkRadio300TC
-  suffix: 300 TC, LoneOps
+  id: BaseUplinkRadio350TC
+  suffix: 350 TC, LoneOps
   components:
   - type: Store
     balance:
-      Telecrystal: 300
+      Telecrystal: 350
   - type: Tag
     tags:
     - NukeOpsUplink

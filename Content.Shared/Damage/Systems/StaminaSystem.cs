@@ -128,6 +128,7 @@ public sealed partial class StaminaSystem : EntitySystem
         args.Handled = true;
     }
 
+    // goobstation - stun resistance. try not to modify this method at all
     private void OnMeleeHit(EntityUid uid, StaminaDamageOnHitComponent component, MeleeHitEvent args)
     {
         if (!args.IsHit ||
@@ -154,20 +155,22 @@ public sealed partial class StaminaSystem : EntitySystem
             toHit.Add((ent, stam));
         }
 
-        var hitEvent = new StaminaMeleeHitEvent(toHit);
-        RaiseLocalEvent(uid, hitEvent);
-
-        if (hitEvent.Handled)
-            return;
-
-        var damage = component.Damage;
-
-        damage *= hitEvent.Multiplier;
-
-        damage += hitEvent.FlatModifier;
-
+        // goobstation
         foreach (var (ent, comp) in toHit)
         {
+            var hitEvent = new TakeStaminaDamageEvent((ent, comp));
+            // raise event for each entity hit
+            RaiseLocalEvent(ent, hitEvent);
+
+            if (hitEvent.Handled)
+                return;
+
+            var damage = component.Damage;
+
+            damage *= hitEvent.Multiplier;
+
+            damage += hitEvent.FlatModifier;
+
             TakeStaminaDamage(ent, damage / toHit.Count, comp, source: args.User, with: args.Weapon, sound: component.Sound);
         }
     }
@@ -194,7 +197,7 @@ public sealed partial class StaminaSystem : EntitySystem
     {
         // you can't inflict stamina damage on things with no stamina component
         // this prevents stun batons from using up charges when throwing it at lockers or lights
-        if (!HasComp<StaminaComponent>(target))
+        if (!TryComp<StaminaComponent>(target, out var stamComp))
             return;
 
         var ev = new StaminaDamageOnHitAttemptEvent();
@@ -202,7 +205,20 @@ public sealed partial class StaminaSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        TakeStaminaDamage(target, component.Damage, source: uid, sound: component.Sound);
+        // goobstation
+        var hitEvent = new TakeStaminaDamageEvent((target, stamComp));
+        RaiseLocalEvent(target, hitEvent);
+
+        if (hitEvent.Handled)
+            return;
+
+        var damage = component.Damage;
+
+        damage *= hitEvent.Multiplier;
+
+        damage += hitEvent.FlatModifier;
+
+        TakeStaminaDamage(target, damage, source: uid, sound: component.Sound);
     }
 
     private void SetStaminaAlert(EntityUid uid, StaminaComponent? component = null)

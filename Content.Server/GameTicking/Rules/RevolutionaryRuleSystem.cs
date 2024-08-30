@@ -29,6 +29,7 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Revolutionary; // GoobStation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -50,6 +51,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
+    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // GoobStation
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -73,16 +75,35 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     protected override void ActiveTick(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
+
+        // GoobStation
+        if (component.HasAnnouncementPlayed)
+            return;
+
         if (component.CommandCheck <= _timing.CurTime)
         {
             component.CommandCheck = _timing.CurTime + component.TimerWait;
 
+            // Goobstation
             if (CheckCommandLose())
             {
-               // _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall, component.ShuttleCallTime);
-                _roundEnd.EndRound();
-                GameTicker.EndGameRule(uid, gameRule);
-                //Immediately Ends Round if all of command dies 
+                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+                    component.ShuttleCallTime,
+                    sender: "revolutionaries-win-sender",
+                    textCall: "revolutionaries-win-announcement-shuttle-call",
+                    textAnnounce: "revolutionaries-win-announcement");
+
+                component.HasAnnouncementPlayed = true;
+            }
+
+            if (CheckRevsLose())
+            {
+                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+                    component.ShuttleCallTime,
+                    textCall: "revolutionaries-lose-announcement-shuttle-call",
+                    textAnnounce: "revolutionaries-lose-announcement");
+
+                component.HasAnnouncementPlayed = true;
             }
         }
     }
@@ -127,18 +148,30 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     /// </summary>
     private void OnPostFlash(EntityUid uid, HeadRevolutionaryComponent comp, ref AfterFlashedEvent ev)
     {
+        // GoobStation - check if headRev's ability enabled
+        if (!comp.ConvertAbilityEnabled)
+            return;
+
         var alwaysConvertible = HasComp<AlwaysRevolutionaryConvertibleComponent>(ev.Target);
 
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
             return;
 
-        if (HasComp<RevolutionaryComponent>(ev.Target) ||
+        // GoobStation - added check if rev is head rev to enable back his convert ability
+        if (HasComp<RevolutionaryComponent>(ev.Target) && !HasComp<HeadRevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
             !_mobState.IsAlive(ev.Target) ||
             HasComp<ZombieComponent>(ev.Target))
         {
+            return;
+        }
+
+        // Goobstation - Turning on headrev ability back
+        if (TryComp<HeadRevolutionaryComponent>(ev.Target, out var headRevComp))
+        {
+            _revolutionarySystem.ToggleConvertAbility((ev.Target, headRevComp), true);
             return;
         }
 
@@ -160,6 +193,13 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
         if (mind?.Session != null)
             _antag.SendBriefing(mind.Session, Loc.GetString("rev-role-greeting"), Color.Red, revComp.RevStartSound);
+
+        // Goobstation - Check lose if command was converted
+        if (!TryComp<CommandStaffComponent>(ev.Target, out var commandComp))
+            return;
+
+        commandComp.Enabled = false;
+        CheckCommandLose();
     }
 
     //TODO: Enemies of the revolution
@@ -177,9 +217,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var commandList = new List<EntityUid>();
 
         var heads = AllEntityQuery<CommandStaffComponent>();
-        while (heads.MoveNext(out var id, out _))
+        while (heads.MoveNext(out var id, out var commandComp)) // GoobStation - commandComp
         {
-            commandList.Add(id);
+            // GoobStation - If mindshield was removed from head and he got converted - he won't count as command
+            if (commandComp.Enabled)
+                commandList.Add(id);
         }
 
         return IsGroupDetainedOrDead(commandList, true, true);
@@ -200,9 +242,11 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         var headRevList = new List<EntityUid>();
 
         var headRevs = AllEntityQuery<HeadRevolutionaryComponent, MobStateComponent>();
-        while (headRevs.MoveNext(out var uid, out _, out _))
+        while (headRevs.MoveNext(out var uid, out var headRevComp, out _)) // GoobStation - headRevComp
         {
-            headRevList.Add(uid);
+            // GoobStation - Checking if headrev ability is enabled to count them
+            if (headRevComp.ConvertAbilityEnabled)
+                headRevList.Add(uid);
         }
 
         // If no Head Revs are alive all normal Revs will lose their Rev status and rejoin Nanotrasen
@@ -220,6 +264,10 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
                 RemCompDeferred<RevolutionaryComponent>(uid);
                 _popup.PopupEntity(Loc.GetString("rev-break-control", ("name", Identity.Entity(uid, EntityManager))), uid);
                 _adminLogManager.Add(LogType.Mind, LogImpact.Medium, $"{ToPrettyString(uid)} was deconverted due to all Head Revolutionaries dying.");
+
+                // Goobstation - check if command staff was deconverted
+                if (TryComp<CommandStaffComponent>(uid, out var commandComp))
+                    commandComp.Enabled = true;
 
                 if (!_mind.TryGetMind(uid, out var mindId, out _, mc))
                     continue;

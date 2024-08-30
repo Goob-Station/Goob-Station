@@ -1,0 +1,4 @@
+- files: ["asshole.ogg","bash.ogg","bobby.ogg","compliance.ogg","dontmove.ogg","dredd.ogg","floor.ogg","freeze.ogg","halt.ogg","imperial.ogg","justice.ogg","robocop.ogg","running.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Created by TGStation"
+  source: "https://github.com/tgstation/tgstation/tree/ce21df72f42c9bfeb79920a9e5231c1ce90c1151/sound/runtime/complionator"

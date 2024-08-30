@@ -11,6 +11,9 @@
       "name": "pda-chrono"
     },
 	{
+      "name": "pda-heccd"
+    },
+	{
       "name": "id_overlay"
     },
 	{

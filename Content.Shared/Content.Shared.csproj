@@ -24,9 +24,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Power\Components\" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Goobstation\Changeling\Changeling.Actions.cs" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

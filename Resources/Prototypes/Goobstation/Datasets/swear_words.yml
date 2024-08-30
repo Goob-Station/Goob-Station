@@ -1,0 +1,9 @@
+# CREATED BY Goldminermac
+# https://github.com/space-wizards/space-station-14/pull/31149
+# LICENSED UNDER THE MIT LICENSE
+# SEE README.MD AND LICENSE.TXT IN THE ROOT OF THIS REPOSITORY FOR MORE INFORMATION
+- type: localizedDataset
+  id: SwearWords
+  values:
+    prefix: accent-vulgar-words-
+    count: 9

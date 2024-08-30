@@ -65,6 +65,12 @@
       Unsexed: MaleFelinid
   - type: Felinid
   - type: NoShoesSilentFootsteps
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - FelinidEmotes
 
 - type: entity
   save: false
