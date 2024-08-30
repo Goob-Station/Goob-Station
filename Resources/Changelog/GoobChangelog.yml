@@ -801,3 +801,9 @@ Entries:
       message: Added Profanol, a new reagent that makes people curse uncontrollably.
   id: 103
   time: '2024-08-29T00:24:56.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added an AI setup to Bagel.
+  id: 104
+  time: '2024-08-30T01:29:30.0000000+00:00'
