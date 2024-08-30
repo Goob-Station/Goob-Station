@@ -190,3 +190,4 @@
     - type: Grammar
       attributes:
         proper: true
+    - type: HitHead #GoobStation

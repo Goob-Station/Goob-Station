@@ -480,6 +480,7 @@
   - type: StaticPrice
     price: 25
   - type: Shovel
+  - type: HitHead #GoobStation
 
 - type: entity
   parent: BaseItem
@@ -514,3 +515,4 @@
   - type: Tag
     tags:
     - RollingPin
+  - type: HitHead #GoobStation

@@ -32,6 +32,7 @@
           True: { state: icon-open }
           False: { state: icon }
   - type: Appearance
+  - type: HitHead #GoobStation
 
 - type: entity
   name: emergency toolbox

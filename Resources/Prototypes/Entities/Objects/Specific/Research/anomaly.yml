@@ -156,3 +156,4 @@
         Cold: 100
         Radiation: 100
     slots: NONE
+  - type: HitHead #GoobStation

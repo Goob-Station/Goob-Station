@@ -65,6 +65,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+  - type: HitHeadProtection # GoobStation
 
 - type: entity
   parent: ClothingHeadHatHardhatBase

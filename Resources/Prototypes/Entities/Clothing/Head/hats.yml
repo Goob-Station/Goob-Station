@@ -203,6 +203,7 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: HitHeadProtection # GoobStation
 
 - type: entity
   parent: ClothingHeadBase

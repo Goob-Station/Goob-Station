@@ -41,6 +41,7 @@
     size: Normal
     shape:
     - 0,0,0,1
+  - type: HitHead #GoobStation
 
 # Standard (grey) Crowbar
 - type: entity

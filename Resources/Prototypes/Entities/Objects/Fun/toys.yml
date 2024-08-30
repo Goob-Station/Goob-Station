@@ -1389,6 +1389,7 @@
       damage:
         types:
           Blunt: 0
+    - type: HitHead #GoobStation >:)
 
 - type: entity
   parent: BaseItem

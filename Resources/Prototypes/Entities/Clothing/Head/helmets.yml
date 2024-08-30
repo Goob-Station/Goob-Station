@@ -26,6 +26,7 @@
     slots:
     - HeadTop
     - HeadSide
+  - type: HitHeadProtection # GoobStation
 
 #Mercenary Helmet
 - type: entity

@@ -85,3 +85,4 @@
     - back
   - type: UseDelay
     delay: 1
+  - type: HitHead #GoobStation

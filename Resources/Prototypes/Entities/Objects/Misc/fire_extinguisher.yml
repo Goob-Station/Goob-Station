@@ -71,6 +71,7 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 100
+  - type: HitHead #GoobStation
 
 - type: entity
   name: extinguisher spray

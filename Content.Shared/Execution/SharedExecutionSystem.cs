@@ -14,6 +14,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Robust.Shared.Player;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.Execution;
 

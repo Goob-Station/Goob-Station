@@ -145,6 +145,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: HitHeadProtection # GoobStation
 
 - type: entity
   abstract: true
@@ -189,6 +190,7 @@
     - Snout
     - HeadTop
     - HeadSide
+  - type: HitHeadProtection # GoobStation
 
 - type: entity
   abstract: true

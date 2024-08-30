@@ -45,6 +45,7 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  - type: HitHead #GoobStation
 
 - type: entity
   abstract: true
@@ -113,6 +114,7 @@
   - type: Tag # Goobstation - For survival boxes
     tags:
     - EmergencyOxygenTank
+  - type: HitHead #GoobStation
 
 
 - type: entity

@@ -103,7 +103,8 @@
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/debug.rsi
-
+  - type: HitHead #GoobStation
+  
 - type: entity
   name: bang stick 100dmg
   parent: MeleeDebugGib

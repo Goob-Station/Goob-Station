@@ -157,6 +157,7 @@
     damage:
       types:
         Blunt: 15
+  - type: HitHead #GoobStation
 
 - type: entity
   parent: BaseHandheldInstrument

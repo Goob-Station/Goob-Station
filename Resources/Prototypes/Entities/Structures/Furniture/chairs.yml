@@ -350,6 +350,7 @@
     graph: Seat
     node: chairFolding
   - type: DamageExaminable
+  - type: HitHead #GoobStation
 
 - type: entity
   parent: ChairFolding

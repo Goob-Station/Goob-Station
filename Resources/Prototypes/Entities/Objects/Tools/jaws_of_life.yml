@@ -49,6 +49,7 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: HitHead #GoobStation
 
 - type: entity
   name: syndicate jaws of life

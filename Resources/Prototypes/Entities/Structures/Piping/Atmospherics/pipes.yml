@@ -127,6 +127,7 @@
         Blunt: 8
     soundHit:
       collection: MetalThud # this NEEDS to changed to the metal pipe falling sound effect on april first every year
+  - type: HitHead #GoobStation
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -168,6 +169,7 @@
     damage:
       types:
         Blunt: 8 # Woe, pipe be upon ye!
+  - type: HitHead #GoobStation
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -205,6 +207,7 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: HitHead #GoobStation
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking
@@ -241,6 +244,7 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: HitHead #GoobStation
 
 - type: entity
   id: GasPipeBroken

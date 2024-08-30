@@ -51,6 +51,7 @@
     guides:
     - Janitorial
   - type: DnaSubstanceTrace
+  - type: HitHead #GoobStation
 
 - type: entity
   parent: BaseItem
@@ -111,6 +112,7 @@
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
+    - type: HitHead #GoobStation
 
 - type: entity
   name: wet floor sign

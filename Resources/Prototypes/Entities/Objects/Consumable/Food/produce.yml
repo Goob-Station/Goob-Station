@@ -168,6 +168,7 @@
   - type: Produce
     seedId: towercap
   - type: Log
+  - type: HitHead #GoobStation
 
 - type: entity
   name: steel-cap log
@@ -187,6 +188,7 @@
   - type: Log
     spawnedPrototype: SheetSteel1
     spawnCount: 1
+  - type: HitHead #GoobStation
 
 - type: entity
   name: nettle
