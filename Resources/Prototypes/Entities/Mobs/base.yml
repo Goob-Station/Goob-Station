@@ -135,6 +135,8 @@
   abstract: true
   components:
   - type: Polymorphable
+  - type: OwnInteractionVerbs
+    allowedVerbs: [] # TODO: define something here, or don't.
 
 # Used for mobs that have health and can take damage.
 - type: entity
