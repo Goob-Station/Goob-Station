@@ -3,12 +3,6 @@
   flavorType: Base
   description: flavor-base-futuristic
 
-#Cherry seeds and cherries added as part of Goob-Station issue #302 by jellygato - 8/27/24
-- type: flavor
-  id: cherry
-  flavorType: Complex
-  description: flavor-complex-cherry
-
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
 # LICENSED UNDER THE MIT LICENSE
