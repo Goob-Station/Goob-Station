@@ -719,7 +719,7 @@
     DoctorsDelight:
       Min: 3
       Max: 13
-      PotencyDivisor: 10 
+      PotencyDivisor: 10
 
 - type: seed
   id: corn
@@ -1805,7 +1805,7 @@
   name: seeds-cherry-name
   noun: seeds-noun-seeds
   displayName: seeds-cherry-display-name
-  plantRsi: Objects/Specific/Hydroponics/cherry.rsi
+  plantRsi: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
   packetPrototype: CherrySeeds
   productPrototypes:
     - FoodCherry

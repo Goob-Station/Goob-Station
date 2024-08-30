@@ -849,7 +849,7 @@
         name: food-sequence-content-tomato
       skewer:
         name: food-sequence-content-tomato
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
 
@@ -960,7 +960,7 @@
         name: food-sequence-content-tomato
       skewer:
         name: food-sequence-content-tomato
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-tomato
 
@@ -1166,7 +1166,7 @@
         name: food-sequence-content-corn
       skewer:
         name: food-sequence-content-corn
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-corn
 
@@ -1311,7 +1311,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -1477,7 +1477,7 @@
         name: food-sequence-content-chili
       skewer:
         name: food-sequence-content-chili
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-pepper
 
@@ -1517,7 +1517,7 @@
         name: food-sequence-content-chilly
       skewer:
         name: food-sequence-content-chilly
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-bluepepper
 
@@ -1672,7 +1672,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -1913,7 +1913,7 @@
         name: food-sequence-content-mushroom
       skewer:
         name: food-sequence-content-mushroom
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-mushroom
 
@@ -2596,7 +2596,7 @@
         - ReagentId: Vitamin
           Quantity: 3
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
+    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
   - type: Produce
     seedId: cherry
   - type: Extractable
@@ -2609,7 +2609,7 @@
     - Fruit
   - type: FoodSequenceElement
     sprite:
-      sprite: Objects/Specific/Hydroponics/cherry.rsi
+      sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
       state: produce
     entries:
       burger:
@@ -2623,10 +2623,10 @@
   id: TrashCherryPit
   components:
   - type: Sprite
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
+    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
     state: pit
   - type: Item
-    sprite: Objects/Specific/Hydroponics/cherry.rsi
+    sprite: Goobstation/Objects/Specific/Hydroponics/cherry.rsi
     heldPrefix: pit
   - type: Tag
     tags:
