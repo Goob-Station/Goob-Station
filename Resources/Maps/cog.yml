@@ -91881,7 +91881,6 @@ entities:
       deviceLists:
       - 23930
       - 1699
-      - 12032
   - uid: 23934
     components:
     - type: Transform
@@ -91891,7 +91890,6 @@ entities:
       deviceLists:
       - 23930
       - 1699
-      - 12032
   - uid: 23935
     components:
     - type: Transform
@@ -92656,18 +92654,6 @@ entities:
     components:
     - type: Transform
       pos: 57.376583,58.4156
-      parent: 12
-- proto: FoodBanana
-  entities:
-  - uid: 4201
-    components:
-    - type: Transform
-      pos: -9.655863,20.270027
-      parent: 12
-  - uid: 9998
-    components:
-    - type: Transform
-      pos: -11.85737,19.691113
       parent: 12
 - proto: FoodBanana
   entities:
