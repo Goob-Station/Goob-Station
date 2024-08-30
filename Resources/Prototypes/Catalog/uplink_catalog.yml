@@ -171,7 +171,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 125
+    Telecrystal: 150
   categories:
   - UplinkWeaponry
 
@@ -1001,7 +1001,7 @@
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-nukeop }
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 150
+    Telecrystal: 125
   categories:
   - UplinkAllies
   conditions:
@@ -1412,7 +1412,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
-    Telecrystal: 40 # Goobstation
+    Telecrystal: 30 # Goobstation
   categories:
   - UplinkWearables
   conditions:
@@ -1429,7 +1429,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60
+    Telecrystal: 70
   categories:
   - UplinkWearables
 
@@ -1437,11 +1437,11 @@
   id: UplinkClothingOuterHardsuitJuggernaut
   name: uplink-clothing-outer-hardsuit-juggernaut-name
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
-  icon: { sprite: /Textures/Structures/Storage/Crates/syndicate.rsi, state: icon }
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 60
+    Telecrystal: 100
   categories:
   - UplinkWearables
 
