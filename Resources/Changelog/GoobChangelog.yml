@@ -824,3 +824,25 @@ Entries:
         Revolutionaries.
   id: 105
   time: '2024-08-30T01:32:08.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Nuclear operatives spawn without hardsuits but with 50 more TC.
+    - type: Add
+      message: Nuclear operative reinforcements spawn with a bonus uplink with 50 TC.
+    - type: Tweak
+      message: Decreased raid suit price to 30 TC
+    - type: Tweak
+      message: Increased syndicate elite suit price to 70 TC
+    - type: Tweak
+      message: Increased juggernaut suit price to 100 TC
+    - type: Tweak
+      message: Increased the chinalake price to 150 TC
+    - type: Tweak
+      message: Decreased nukie reinforcement agent price to 125 TC
+    - type: Tweak
+      message: Overhauled the syndicate Infiltrator ship
+    - type: Tweak
+      message: Overhauled the nuclear operative outpost
+  id: 106
+  time: '2024-08-30T01:32:24.0000000+00:00'
