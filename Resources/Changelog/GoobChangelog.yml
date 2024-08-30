@@ -807,3 +807,20 @@ Entries:
       message: Added an AI setup to Bagel.
   id: 104
   time: '2024-08-30T01:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Now you can eject mindshield implant by using empty implanter.
+    - type: Tweak
+      message: >-
+        Now revs can convert command and security by removing mindshield
+        implant. If they convert all command that will lead to revolution
+        victory
+    - type: Tweak
+      message: >-
+        Now mindshield implant can disable Head Revolutionary ability convert
+        people. Ability can be turned on back by another non-disabled Head
+        Revolutionary with flash. Command will win if they disable all Head
+        Revolutionaries.
+  id: 105
+  time: '2024-08-30T01:32:08.0000000+00:00'
