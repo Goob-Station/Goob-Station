@@ -8,6 +8,7 @@
     - id: UnknownShuttleTravelingCuisine
     - id: UnknownShuttleDisasterEvacPod
     - id: UnknownShuttleHonki
+    - id: UnknownShuttleFrontierProspector  #Goobstation - Salvage shuttle event
 
 - type: entityTable
   id: UnknownShuttlesFreelanceTable
