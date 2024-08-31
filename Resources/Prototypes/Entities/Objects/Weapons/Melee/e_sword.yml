@@ -105,6 +105,13 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Construction # WD EDIT
+    deconstructionTarget: null
+    graph: EnergyDoubleSwordGraph
+    node: esword
+  - type: Tag # WD EDIT
+    tags:
+    - EnergySword
 
 - type: entity
   name: energy dagger
@@ -290,10 +297,12 @@
 - type: entity
   name: double-bladed energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
-  id: EnergySwordDouble
+  id: EnergySwordDoubleBase # Goob edit
+  abstract: true # Goob edit
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. This can be stored in pockets.
   components:
   - type: ItemToggle
+    predictable: false # Goobstation - wielded weapons sound prediction is broken
     onUse: false # wielding events control it instead
     onActivate: false # prevents the weapon from being able to be turned on when it is on the ground
     soundActivate:
@@ -314,7 +323,7 @@
         types:
             Slash: 17   #Goob Station rebalance, was originally 12
             Heat: 17    #Goob Station rebalance, was originally 12
-            Structural: 15
+            Structural: 40 # Goob edit
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -353,10 +362,20 @@
     reflectProb: 1
     otherTypeReflectProb: .2
     spread: 75
+  - type: FlipOnHit # WD EDIT
+
+- type: entity # Goobstation
+  parent: EnergySwordDoubleBase
+  id: EnergySwordDouble
+  components:
+  - type: Construction # WD EDIT
+    deconstructionTarget: null
+    graph: EnergyDoubleSwordGraph
+    node: desword
 
 - type: entity
   suffix: One-Handed, For Borgs
-  parent: EnergySwordDouble
+  parent: EnergySwordDoubleBase # Goob edit
   id: CyborgEnergySwordDouble # why is this invalid if ID is BorgEnergySwordDouble
   description: Syndicate Command Interns thought that having one blade on the energy sword was not enough. Specially designed for syndicate cyborgs.
   components: # could add energy-draining like the L6C

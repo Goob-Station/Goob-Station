@@ -55,7 +55,8 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 37 # goob - desword is 74
+  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
 
