@@ -104,6 +104,7 @@
     interactSuccessString: petting-success-tesla
     interactFailureString: petting-failure-tesla
     interactSuccessSpawn: EffectHearts
+  - type: SupermatterImmune # Goobstation
 
 - type: entity
   id: TeslaMiniEnergyBall

@@ -25,4 +25,7 @@ public sealed partial class ZombieRuleComponent : Component
     /// </summary>
     [DataField]
     public float ZombieShuttleCallPercentage = 0.7f;
+
+    // goob edit
+    public bool StartAnnounced = false;
 }

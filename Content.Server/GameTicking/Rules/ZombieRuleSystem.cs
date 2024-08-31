@@ -14,6 +14,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Zombies;
+using Robust.Shared.Audio;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
@@ -116,6 +117,18 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         var healthy = GetHealthyHumans();
         if (healthy.Count == 1) // Only one human left. spooky
             _popup.PopupEntity(Loc.GetString("zombie-alone"), healthy[0], healthy[0]);
+
+        // goob edit
+        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage / 5f && !zombieRuleComponent.StartAnnounced)
+        {
+            zombieRuleComponent.StartAnnounced = true;
+
+            foreach (var station in _station.GetStations())
+                _chat.DispatchStationAnnouncement(station,
+                    Loc.GetString("zombie-start-announcement"),
+                    colorOverride: Color.Pink,
+                    announcementSound: new SoundPathSpecifier("/Audio/Announcements/outbreak7.ogg"));
+        }
 
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
         {
