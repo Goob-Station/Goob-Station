@@ -133,11 +133,3 @@
   color: "#80ffff"
   price: 20 # big diamond gaslit us so hard diamonds actually became extremely rare
 
-# Goobstation
-- type: material
-  id: BSCrystal
-  name: materials-diamond
-  unit: materials-unit-piece
-  icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
-  color: "#80ffff"
-  price: 40 # big diamond gaslit us so hard diamonds actually became extremely rare

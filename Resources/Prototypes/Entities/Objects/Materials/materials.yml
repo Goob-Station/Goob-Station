@@ -384,43 +384,6 @@
   - type: Stack
     count: 1
 
-# Goobstation - start
-- type: entity
-  parent: MaterialBase
-  id: MaterialBSCrystal
-  name: bluespace crystal
-  suffix: Full
-  components:
-  - type: Stack
-    stackType: Diamond
-    baseLayer: base
-    layerStates:
-    - diamond
-    - diamond_2
-    - diamond_3
-  - type: Sprite
-    state: diamond
-    layers:
-    - state: diamond
-      map: ["base"]
-  - type: Appearance
-  - type: Item
-    heldPrefix: diamond
-  - type: Material
-  - type: PhysicalComposition
-    materialComposition:
-      BSCrystal: 100
-  - type: BluespaceCrystal
-
-- type: entity
-  parent: MaterialBSCrystal
-  id: MaterialBSCrystal1
-  suffix: Single
-  components:
-  - type: Stack
-    count: 1
-# Goobstation - end
-
 - type: entity
   parent: MaterialBase
   id: MaterialCotton

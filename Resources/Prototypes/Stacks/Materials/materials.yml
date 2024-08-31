@@ -40,14 +40,6 @@
   spawn: MaterialDiamond1
   maxCount: 30
 
-# Goobstation
-- type: stack
-  id: BSCrystal
-  name: bluespace crystal
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: diamond }
-  spawn: MaterialBSCrystal1
-  maxCount: 30
-
 - type: stack
   id: Cotton
   name: cotton
