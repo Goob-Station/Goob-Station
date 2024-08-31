@@ -24,6 +24,9 @@
   - type: PhysicalComposition
     materialComposition:
       BSCrystal: 100
+  # - type: Tag
+  #   tags:
+  #   - RawMaterial
   - type: BluespaceCrystal
 
 - type: entity

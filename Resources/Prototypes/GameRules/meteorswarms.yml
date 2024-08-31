@@ -48,6 +48,7 @@
     AsteroidRockDiamond: 2
     AsteroidRockUranium: 0.5
     AsteroidRockBananium: 0.5
+    AsteroidRockBSCrystal: 0.5 # Goobstation
 
 # Event Schedulers
 
