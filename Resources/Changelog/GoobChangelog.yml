@@ -759,3 +759,102 @@ Entries:
       message: Absorbed body can't be butchered on meat spike.
   id: 97
   time: '2024-08-27T12:26:11.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: You can now actually kill a slime with fire extinguisher.
+  id: 98
+  time: '2024-08-27T17:55:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Changed the logos slightly to be more readable!
+  id: 99
+  time: '2024-08-27T19:10:42.0000000+00:00'
+- author: jellygato
+  changes:
+    - type: Add
+      message: >-
+        Cherries have been added, as well as the ability to grow your own
+        cherries!
+  id: 100
+  time: '2024-08-27T22:26:22.0000000+00:00'
+- author: starwolfy
+  changes:
+    - type: Add
+      message: >-
+        a robo-voice hail action to security gas masks for hailing potential
+        suspects.
+  id: 101
+  time: '2024-08-28T10:11:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: >-
+        Various fixes to automatic shuttle calling during Zombies by VMSolidus
+        have been ported from Einstein Engines
+  id: 102
+  time: '2024-08-29T00:19:18.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Profanol, a new reagent that makes people curse uncontrollably.
+  id: 103
+  time: '2024-08-29T00:24:56.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added an AI setup to Bagel.
+  id: 104
+  time: '2024-08-30T01:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Now you can eject mindshield implant by using empty implanter.
+    - type: Tweak
+      message: >-
+        Now revs can convert command and security by removing mindshield
+        implant. If they convert all command that will lead to revolution
+        victory
+    - type: Tweak
+      message: >-
+        Now mindshield implant can disable Head Revolutionary ability convert
+        people. Ability can be turned on back by another non-disabled Head
+        Revolutionary with flash. Command will win if they disable all Head
+        Revolutionaries.
+  id: 105
+  time: '2024-08-30T01:32:08.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Nuclear operatives spawn without hardsuits but with 50 more TC.
+    - type: Add
+      message: Nuclear operative reinforcements spawn with a bonus uplink with 50 TC.
+    - type: Tweak
+      message: Decreased raid suit price to 30 TC
+    - type: Tweak
+      message: Increased syndicate elite suit price to 70 TC
+    - type: Tweak
+      message: Increased juggernaut suit price to 100 TC
+    - type: Tweak
+      message: Increased the chinalake price to 150 TC
+    - type: Tweak
+      message: Decreased nukie reinforcement agent price to 125 TC
+    - type: Tweak
+      message: Overhauled the syndicate Infiltrator ship
+    - type: Tweak
+      message: Overhauled the nuclear operative outpost
+  id: 106
+  time: '2024-08-30T01:32:24.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Centcom has learned the difference between a zombie outbreak and flu
+  id: 107
+  time: '2024-08-30T13:41:48.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: SM.
+  id: 108
+  time: '2024-08-30T13:45:38.0000000+00:00'

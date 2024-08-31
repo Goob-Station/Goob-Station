@@ -91,7 +91,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         foreach (var sm in EntityManager.EntityQuery<SupermatterComponent>())
         {
             if (!sm.Activated)
-                return;
+                continue;
 
             var uid = sm.Owner;
             sm.UpdateAccumulator += frameTime;
@@ -444,13 +444,14 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         if (mix is { })
         {
-            var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
-            var moles = absorbedGas.TotalMoles;
+            // var absorbedGas = mix.Remove(sm.GasEfficiency * mix.TotalMoles);
+            var moles = mix.TotalMoles;
 
             if (moles >= sm.MolePenaltyThreshold)
                 return DelamType.Singulo;
         }
-        if (sm.Power >= sm.PowerPenaltyThreshold)
+
+        if (sm.Power >= sm.PowerPenaltyThreshold) 
             return DelamType.Tesla;
 
         // TODO: add resonance cascade when there's crazy conditions, or a destabilizing crystal :godo:
@@ -480,7 +481,7 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         sm.DelamTimerAccumulator++;
 
-        if (sm.DelamTimerAccumulator < sm.DelamTimer)
+        if (sm.DelamTimer > sm.DelamTimerAccumulator)
             return;
 
         switch (_delamType)
@@ -613,7 +614,8 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
 
         Spawn(sm.SliverPrototypeId, _transform.GetMapCoordinates(args.User));
 
-        sm.DelamTimer /= 2;
+        if (sm.DelamTimer > 30f)
+            sm.DelamTimer -= 10f;
     }
 
     private void OnExamine(EntityUid uid, SupermatterComponent sm, ref ExaminedEvent args)
