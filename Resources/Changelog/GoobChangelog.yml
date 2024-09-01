@@ -858,3 +858,9 @@ Entries:
       message: SM.
   id: 108
   time: '2024-08-30T13:45:38.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: 'Added New Salvager Shuttle Event '
+  id: 109
+  time: '2024-09-01T12:10:46.0000000+00:00'
