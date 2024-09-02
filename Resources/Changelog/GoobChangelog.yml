@@ -876,3 +876,11 @@ Entries:
       message: The grerat resprite part 1
   id: 111
   time: '2024-09-02T14:09:55.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        The Syndicate has been packing in items lately, so they've decided to
+        start a yard sale for their agents!
+  id: 112
+  time: '2024-09-02T14:41:37.0000000+00:00'
