@@ -5,7 +5,7 @@
   suffix: Full
   components:
   - type: Stack
-    stackType: bluespace_crystal
+    stackType: BSCrystal
     baseLayer: base
     layerStates:
     - bluespace_crystal

@@ -1,5 +1,5 @@
 - type: stack
-  id: bluespace_crystal
+  id: BSCrystal
   name: bluespace crystal
   icon: { sprite: /Textures/Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
   spawn: MaterialBSCrystal1
