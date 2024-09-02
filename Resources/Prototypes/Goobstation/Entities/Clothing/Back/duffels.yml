@@ -8,10 +8,10 @@
     sprite: Goobstation/Clothing/Back/Duffels/Yukon.rsi
   - type: Storage
     grid:
-    - 0,0,4,4
+    - 0,0,3,3
   - type: ClothingSpeedModifier
-    walkModifier: 1.25
-    sprintModifier: 1.25
+    walkModifier: 1.10
+    sprintModifier: 1.10
 
 #- type: entity
 #  parent: ClothingBackpackDuffelSyndicateYukon
