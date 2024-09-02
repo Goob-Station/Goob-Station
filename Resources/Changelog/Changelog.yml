@@ -1,13 +1,6 @@
 ﻿Entries:
 - author: Tayrtahn
   changes:
-  - message: Chemical jugs no longer spawn with two labels.
-    type: Fix
-  id: 6767
-  time: '2024-06-17T23:09:19.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/29137
-- author: Tayrtahn
-  changes:
   - message: Mice and hamsters inside chef's hats can now steer the hat's wearer.
     type: Add
   id: 6768
