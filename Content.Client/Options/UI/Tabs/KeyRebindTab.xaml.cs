@@ -103,6 +103,12 @@ namespace Content.Client.Options.UI.Tabs
             _cfg.SaveToFile();
         }
 
+        private void HandleToggleAutoGetUp(BaseButton.ButtonToggledEventArgs args) // WD EDIT
+        {
+            _cfg.SetCVar(CCVars.AutoGetUp, args.Pressed);
+            _cfg.SaveToFile();
+        }
+
         public KeyRebindTab()
         {
             IoCManager.InjectDependencies(this);
@@ -161,6 +167,8 @@ namespace Content.Client.Options.UI.Tabs
             AddButton(EngineKeyFunctions.MoveRight);
             AddButton(EngineKeyFunctions.Walk);
             AddCheckBox("ui-options-hotkey-toggle-walk", _cfg.GetCVar(CCVars.ToggleWalk), HandleToggleWalk);
+            AddButton(ContentKeyFunctions.ToggleStanding);
+            AddCheckBox("ui-options-function-auto-get-up", _cfg.GetCVar(CCVars.AutoGetUp), HandleToggleAutoGetUp); // WD EDIT
             InitToggleWalk();
 
             AddHeader("ui-options-header-camera");

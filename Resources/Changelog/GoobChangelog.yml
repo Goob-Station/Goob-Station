@@ -858,3 +858,35 @@ Entries:
       message: SM.
   id: 108
   time: '2024-08-30T13:45:38.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: 'Added New Salvager Shuttle Event '
+  id: 109
+  time: '2024-09-01T12:10:46.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: broken tiles shuttle floor
+  id: 110
+  time: '2024-09-01T18:46:56.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The grerat resprite part 1
+  id: 111
+  time: '2024-09-02T14:09:55.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        The Syndicate has been packing in items lately, so they've decided to
+        start a yard sale for their agents!
+  id: 112
+  time: '2024-09-02T14:41:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added crawling. Toggleable on R by default
+  id: 113
+  time: '2024-09-02T14:41:45.0000000+00:00'

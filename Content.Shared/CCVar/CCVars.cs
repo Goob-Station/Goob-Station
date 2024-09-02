@@ -2239,6 +2239,12 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> PointingCooldownSeconds =
             CVarDef.Create("pointing.cooldown_seconds", 0.5f, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     Should the player automatically get up after being knocked down
+        /// </summary>
+        public static readonly CVarDef<bool> AutoGetUp =
+            CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
+
         /*
          * DEBUG
          */
