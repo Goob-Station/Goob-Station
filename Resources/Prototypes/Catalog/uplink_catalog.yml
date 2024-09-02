@@ -1900,3 +1900,13 @@
     whitelist:
     - Chef
     - Mime
+
+#- type: listing
+#  id: UplinkYukonDuffel
+#  name: Yukon genetics duffel bag
+#  description: Favored by insurgents and lovers of moralless companies
+#  productEntity: ClothingBackpackDuffelSyndicateYukon
+#  cost:
+#    Telecrystal: 25
+#  categories:
+#  - UplinkPointless

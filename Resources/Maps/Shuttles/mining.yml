@@ -11,13 +11,25 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 40
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 181
     components:
     - type: MetaData
       name: NT-Reclaimer
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+      parent: 40
     - type: MapGrid
       chunks:
         -1,0:
@@ -925,20 +937,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.5,-4.5
       parent: 181
-- proto: GeneratorBasic
-  entities:
-  - uid: 40
-    components:
-    - type: Transform
-      pos: -1.5,-5.5
-      parent: 181
-- proto: GeneratorBasic15kW
-  entities:
-  - uid: 67
-    components:
-    - type: Transform
-      pos: -1.5,-6.5
-      parent: 181
 - proto: GravityGeneratorMini
   entities:
   - uid: 39
@@ -1013,12 +1011,45 @@ entities:
     - type: Transform
       pos: -0.5,-0.5
       parent: 181
+- proto: PaperOffice
+  entities:
+  - uid: 137
+    components:
+    - type: Transform
+      pos: -1.7531209,-4.6654305
+      parent: 181
+    - type: Paper
+      stampState: paper_stamp-ok
+      stampedBy:
+      - stampedColor: '#00BE00FF'
+        stampedName: stamp-component-stamped-name-approved
+      content: >
+        Sorry, i ate your old generators, please accept this new generator as my forgiveness.
+
+
+        P.S it was very tasty
 - proto: PersonalAI
   entities:
   - uid: 167
     components:
     - type: Transform
       pos: -1.4453101,4.467156
+      parent: 181
+- proto: PlushiePlyushkina
+  entities:
+  - uid: 135
+    components:
+    - type: MetaData
+      desc: This little bitch ate your salvage ship generator, what are you gonna do about it?
+    - type: Transform
+      pos: -1.2739542,-4.6341577
+      parent: 181
+- proto: PortableGeneratorPacman
+  entities:
+  - uid: 67
+    components:
+    - type: Transform
+      pos: -1.5,-6.5
       parent: 181
 - proto: PoweredSmallLight
   entities:
@@ -1083,6 +1114,13 @@ entities:
     components:
     - type: Transform
       pos: -4.5,-6.5
+      parent: 181
+- proto: SheetPlasma
+  entities:
+  - uid: 134
+    components:
+    - type: Transform
+      pos: -0.46145415,-4.554392
       parent: 181
 - proto: SignalButtonExt1
   entities:

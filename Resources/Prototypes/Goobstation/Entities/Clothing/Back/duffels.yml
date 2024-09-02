@@ -1,0 +1,22 @@
+- type: entity
+  parent: [ClothingBackpackDuffel, BaseSyndicateContraband]
+  id: ClothingBackpackDuffelSyndicateYukon
+  name: Yukon Genetics Duffel bag
+  description: A large duffel bag for holding whatever Blackburns decide to stick in them.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Back/Duffels/Yukon.rsi
+  - type: Storage
+    grid:
+    - 0,0,4,4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.25
+    sprintModifier: 1.25
+
+#- type: entity
+#  parent: ClothingBackpackDuffelSyndicateYukon
+#  id: ClothingBackpackDuffelSyndicateYukonBundle
+#  abstract: true
+#  components:
+#  - type: Tag
+#    tags: [] # ignore "WhitelistChameleon" tag

@@ -1,0 +1,19 @@
+- type: entity
+  name: Blackburn Enforcer
+  parent: WeaponShotgunEnforcer
+  id: WeaponShotgunEnforcerBlackburn
+  description: Man, what these SS14 devs won't do for a buck. At least it's educational! .50 shotgun shells and is a burst.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Weapons/Guns/Shotgun/BlackburnEnforcer.rsi
+  - type: Clothing
+    sprite: Goobstation/Objects/Weapons/Guns/Shotgun/BlackburnEnforcer.rsi
+  - type: Item
+    sprite: Objects/Weapons/Guns/Shotguns/enforcer_inhands_64x.rsi #switch to Goobstation\Objects\Weapons\Guns\Shotgun\BlackburnEnforcer_inhands_64x
+  - type: BallisticAmmoProvider
+  - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
+  - type: Gun
+    fireRate: 3.5
+    selectedMode: Burst
+    availableModes:
+    - Burst

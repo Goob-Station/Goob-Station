@@ -1,0 +1,18 @@
+#- type: entity
+#  parent: ClothingBackpackDuffelSyndicateYukonBundle
+#  id: ClothingBackpackDuffelYukonBlackburnPartyPack
+#  name: Blackburn army bundle
+#  description: Take over the station with this portable pack of blackburna.
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: PlushieDesislava
+#      amount: 2
+#      - id: PlushieBlackburna
+#      amount: 2
+#      - id: PlushiePlyushkina
+#      amount: 2
+#      - id: PlushieMatryoshka
+#      amount: 2
+
+

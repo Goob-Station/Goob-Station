@@ -62,11 +62,41 @@
   parent: BasePlushie
   id: PlushieMatryoshka
   name: Matryoshka Plushie
-  description: ...
+  description: A plushie of the "baba yaga" of the yukon front; will just eat about anything that moves, luckily its a plushie... right?
   components:
     - type: Sprite
       sprite: Goobstation/Objects/Fun/toys.rsi
       state: plushie_Bkv3
+    - type: EmitSoundOnUse
+      sound:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+    - type: EmitSoundOnLand
+      sound:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+    - type: EmitSoundOnActivate
+      sound:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+    - type: EmitSoundOnTrigger
+      sound:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+    - type: Food
+      requiresSpecialDigestion: true
+      useSound:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      soundHit:
+        path: /Audio/Goobstation/Items/Toys/fox.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDesislava
+  name: Desislava Plushie
+  description: Look at them in their little tank, they totally don't want to slaughter all of us here for their corrupt ultra nationalist beliefs!
+  components:
+    - type: Sprite
+      sprite: Goobstation/Objects/Fun/toys.rsi
+      state: plushie_Bkv4
     - type: EmitSoundOnUse
       sound:
         path: /Audio/Goobstation/Items/Toys/fox.ogg

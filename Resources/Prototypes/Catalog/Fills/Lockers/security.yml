@@ -212,6 +212,8 @@
       amount: 2
     - id: MagazineShotgun
       amount: 4
+    - id: WeaponShotgunEnforcerBlackburn
+      prob: 0.2
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
