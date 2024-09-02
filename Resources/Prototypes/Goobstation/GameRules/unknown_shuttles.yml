@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseUnknownShuttleRule
+  id: UnknownShuttleFrontierProspector
+  components:
+  - type: StationEvent
+    weight: 2
+  - type: LoadMapRule
+    preloadedGrid: FrontierProspector

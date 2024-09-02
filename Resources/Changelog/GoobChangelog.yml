@@ -846,3 +846,27 @@ Entries:
       message: Overhauled the nuclear operative outpost
   id: 106
   time: '2024-08-30T01:32:24.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Centcom has learned the difference between a zombie outbreak and flu
+  id: 107
+  time: '2024-08-30T13:41:48.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: SM.
+  id: 108
+  time: '2024-08-30T13:45:38.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: 'Added New Salvager Shuttle Event '
+  id: 109
+  time: '2024-09-01T12:10:46.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: broken tiles shuttle floor
+  id: 110
+  time: '2024-09-01T18:46:56.0000000+00:00'
