@@ -1,57 +1,4 @@
 ﻿Entries:
-- author: deltanedas
-  changes:
-  - message: Added the Carp Hardsuit to the uplink which is spaceproof and makes carp
-      think you are one of them.
-    type: Add
-  id: 6760
-  time: '2024-06-16T11:57:57.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/25155
-- author: Futuristic
-  changes:
-  - message: RandomSentience event was removed
-    type: Remove
-  id: 6761
-  time: '2024-06-16T23:24:29.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/28982
-- author: notafet
-  changes:
-  - message: Adjust TEG power generation levels.
-    type: Tweak
-  id: 6762
-  time: '2024-06-17T01:13:33.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/29112
-- author: Cojoke-dot, AJCM-git
-  changes:
-  - message: You can now flip your eyepatches to the other eye! Yarrrrr!
-    type: Add
-  id: 6763
-  time: '2024-06-17T03:21:29.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/26277
-- author: deltanedas
-  changes:
-  - message: Borgs now have a 10 second beeping timer that paralyzes them when being
-      exploded with the robotics console and a 5 second delay when being disabled
-      with it.
-    type: Tweak
-  id: 6764
-  time: '2024-06-17T03:30:10.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/27876
-- author: EmoGarbage404
-  changes:
-  - message: Changed meteor swarm spawning to be less clumped up and favor hitting
-      multiple areas more.
-    type: Tweak
-  id: 6765
-  time: '2024-06-17T05:20:47.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/29057
-- author: Ubaser
-  changes:
-  - message: Added new reptilian horns, "Demonic".
-    type: Add
-  id: 6766
-  time: '2024-06-17T10:53:47.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/29022
 - author: Tayrtahn
   changes:
   - message: Mice and hamsters inside chef's hats can now steer the hat's wearer.
@@ -3902,10 +3849,3 @@
   id: 7266
   time: '2024-09-02T13:49:01.0000000+00:00'
   url: https://github.com/space-wizards/space-station-14/pull/31239
-- author: yuitop
-  changes:
-  - message: actions bar now resize dynamically
-    type: Tweak
-  id: 7267
-  time: '2024-09-02T19:12:11.0000000+00:00'
-  url: https://github.com/space-wizards/space-station-14/pull/31759
