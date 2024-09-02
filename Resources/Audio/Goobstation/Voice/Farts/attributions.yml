@@ -1,0 +1,7 @@
+## Public Domain YAML Begins
+#THE YAML ATTRIBUTION TEXT IS PUBLIC DOMAIN, NOT THE SOUND ASSETS, THE SOUND ASSETS ARE CC-BY-NC-SA-3.0
+- files: ["diarrhea.ogg","fart1.ogg","fart2.ogg","fart3.ogg","fart4.ogg","fart5.ogg","fart6.ogg","fart7.ogg","frogfart.ogg","poo.ogg","poo2.ogg","poo2_robot.ogg","superfart.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Unknown"
+  source: "https://github.com/goonstation/goonstation/tree/9e0102b77c737a417a946589d8dfd6f8be9db09e/sound/voice/farts"
+## Public Domain YAML Ends

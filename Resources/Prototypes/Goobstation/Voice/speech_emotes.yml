@@ -1,0 +1,19 @@
+## Public Domain YAML Begins
+- type: emote
+  id: Fart
+  name: chat-emote-name-fart
+  category: Vocal
+  icon: Goobstation/Interface/Emotes/scream.png #Placeholder
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-fart"]
+  chatTriggers:
+    - fart
+    - farts
+    - farting
+    - farted
+## Public Domain YAML Ends
