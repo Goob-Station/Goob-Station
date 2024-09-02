@@ -7,9 +7,9 @@
   whitelist:
     components:
     - Vocal
-  blacklist:
-    components:
-    - BorgChassis
+#  blacklist:
+#    components:
+#    - BorgChassis
   chatMessages: ["chat-emote-msg-fart"]
   chatTriggers:
     - fart
