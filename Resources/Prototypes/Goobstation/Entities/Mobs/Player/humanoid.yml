@@ -1,0 +1,38 @@
+- type: entity
+  name: lost frontier salvager spawner
+  id: LostFrontierSalvagerSpawner
+  parent: MarkerBase
+  components:
+    - type: Sprite
+      layers:
+        - state: red
+        - sprite: Objects/Tools/appraisal-tool.rsi
+          state: icon
+    - type: RandomSpawner
+      prototypes:
+      - RandomHumanoidLostFrontierSalvager
+      chance: 1
+
+- type: entity
+  id: RandomHumanoidLostFrontierSalvager
+  name: lost salvager ghost role
+  components:
+    - type: Sprite
+      sprite: Objects/Tools/appraisal-tool.rsi
+      state: icon
+    - type: RandomHumanoidSpawner
+      settings: LostFrontierSalvager
+
+- type: randomHumanoidSettings
+  id: LostFrontierSalvager
+  parent: EventHumanoid
+  components:
+    - type: GhostRole
+      name: Lost Salvager
+      description: Lost crew from Frontier Sector
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [ LostFrontierProspectorSuit ]
+      roleLoadout: [ RoleSurvivalStandard ]
