@@ -4,7 +4,6 @@ using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Eui;
-using Content.Shared.Chemistry.EntitySystems;
 using JetBrains.Annotations;
 using Robust.Shared.Timing;
 
@@ -18,13 +17,13 @@ namespace Content.Server.Administration.UI
     {
         [Dependency] private readonly IEntityManager _entityManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        private readonly SolutionContainerSystem _solutionContainerSystem = default!;
         public readonly EntityUid Target;
 
         public EditSolutionsEui(EntityUid entity)
         {
             IoCManager.InjectDependencies(this);
-            _solutionContainerSystem = _entityManager.System<SharedSolutionContainerSystem>();
+            _solutionContainerSystem = _entityManager.System<SolutionContainerSystem>();
             Target = entity;
         }
 

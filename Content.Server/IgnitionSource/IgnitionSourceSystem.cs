@@ -1,5 +1,4 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared.IgnitionSource;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Temperature;
 using Robust.Server.GameObjects;

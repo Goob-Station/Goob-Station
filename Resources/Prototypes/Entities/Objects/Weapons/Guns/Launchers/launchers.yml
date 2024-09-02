@@ -263,6 +263,7 @@
         - state: base
         - state: base-unshaded
           map: [ "unshaded" ]
+          shader: unshaded
           visible: true
     - type: UseDelay
       delay: 1.5

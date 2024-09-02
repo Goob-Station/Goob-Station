@@ -10,11 +10,7 @@ public sealed partial class BotanySystem
         if (!TryGetSeed(produce, out var seed))
             return;
 
-        if (!_solutionContainerSystem.EnsureSolution(uid,
-                produce.SolutionName,
-                out var solutionContainer,
-                FixedPoint2.Zero))
-            return;
+        var solutionContainer = _solutionContainerSystem.EnsureSolution(uid, produce.SolutionName, FixedPoint2.Zero, out _);
 
         solutionContainer.RemoveAllSolution();
         foreach (var (chem, quantity) in seed.Chemicals)

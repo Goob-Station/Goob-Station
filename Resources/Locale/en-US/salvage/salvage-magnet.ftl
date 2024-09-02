@@ -32,7 +32,7 @@ salvage-magnet-resources-count = {$count ->
 }
 
 # Debris
-salvage-magnet-debris-ChunkDebris = Space debris
+salvage-magnet-debris-ChunkDebris = Space Debris
 
 # Asteroids
 dungeon-config-proto-BlobAsteroid = Asteroid clump

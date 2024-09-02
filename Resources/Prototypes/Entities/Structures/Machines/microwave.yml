@@ -133,7 +133,3 @@
     intensitySlope: 5
     canCreateVacuum: false
     deleteAfterExplosion: false
-  - type: FoodRecipeProvider
-    providedRecipes:
-    - RecipeBaguetteSword
-    - RecipeThrowingCroissant

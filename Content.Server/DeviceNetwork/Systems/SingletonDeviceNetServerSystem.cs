@@ -63,7 +63,7 @@ public sealed class SingletonDeviceNetServerSystem : EntitySystem
 
             last = (uid, server, device);
 
-            if (!server.Active || string.IsNullOrEmpty(device.Address))
+            if (!server.Active)
                 continue;
 
             address = device.Address;

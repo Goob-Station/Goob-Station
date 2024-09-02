@@ -1,4 +1,5 @@
 using Content.Server.Body.Components;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Server.DoAfter;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics.Components;
@@ -9,6 +10,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.DoAfter;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Forensics;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -26,7 +28,7 @@ namespace Content.Server.Forensics
         [Dependency] private readonly InventorySystem _inventory = default!;
         [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
-        [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+        [Dependency] private readonly SolutionContainerSystem _solutionContainerSystem = default!;
 
         public override void Initialize()
         {

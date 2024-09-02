@@ -3,7 +3,6 @@ using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
-using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Toolshed;
 using Robust.Shared.Toolshed.Syntax;
 using Robust.Shared.Toolshed.TypeParsers;
@@ -14,7 +13,7 @@ namespace Content.Server.Administration.Toolshed;
 [ToolshedCommand, AdminCommand(AdminFlags.Debug)]
 public sealed class SolutionCommand : ToolshedCommand
 {
-    private SharedSolutionContainerSystem? _solutionContainer;
+    private SolutionContainerSystem? _solutionContainer;
 
     [CommandImplementation("get")]
     public SolutionRef? Get(
@@ -23,7 +22,7 @@ public sealed class SolutionCommand : ToolshedCommand
             [CommandArgument] ValueRef<string> name
         )
     {
-        _solutionContainer ??= GetSys<SharedSolutionContainerSystem>();
+        _solutionContainer ??= GetSys<SolutionContainerSystem>();
 
         if (_solutionContainer.TryGetSolution(input, name.Evaluate(ctx)!, out var solution))
             return new SolutionRef(solution.Value);
@@ -49,7 +48,7 @@ public sealed class SolutionCommand : ToolshedCommand
             [CommandArgument] ValueRef<FixedPoint2> amountRef
         )
     {
-        _solutionContainer ??= GetSys<SharedSolutionContainerSystem>();
+        _solutionContainer ??= GetSys<SolutionContainerSystem>();
 
         var amount = amountRef.Evaluate(ctx);
         if (amount > 0)
