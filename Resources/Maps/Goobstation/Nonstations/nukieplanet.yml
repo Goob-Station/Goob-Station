@@ -1123,8 +1123,11 @@ entities:
   - uid: 798
     components:
     - type: Transform
-      pos: -5.7040906,-2.6222272
+      pos: -6.6014543,-0.54301596
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Bed
   entities:
   - uid: 907
@@ -3982,6 +3985,16 @@ entities:
     - type: Transform
       pos: -6.5,-11.5
       parent: 1
+- proto: ChemistryHotplate
+  entities:
+  - uid: 2378
+    components:
+    - type: Transform
+      pos: -5.5,-2.5
+      parent: 1
+    - type: ItemPlacer
+      placedEntities:
+      - 799
 - proto: ChemMaster
   entities:
   - uid: 779
@@ -4184,8 +4197,11 @@ entities:
   - uid: 800
     components:
     - type: Transform
-      pos: -5.3134656,-2.7472272
+      pos: -6.2733293,-0.71489096
       parent: 1
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: CyberPen
   entities:
   - uid: 2377
@@ -6098,8 +6114,13 @@ entities:
   - uid: 799
     components:
     - type: Transform
-      pos: -5.5322156,-2.3097272
+      pos: -5.5077043,-2.1055162
       parent: 1
+    - type: CollisionWake
+      enabled: False
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: LightPostSmall
   entities:
   - uid: 1285
@@ -8491,20 +8512,19 @@ entities:
     - type: Transform
       pos: 38.5,-8.5
       parent: 1
-- proto: SpawnMobAdultSlimesGreenAngry
-  entities:
-  - uid: 742
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -13.5,-16.5
-      parent: 1
 - proto: SpawnMobCatKitten
   entities:
   - uid: 275
     components:
     - type: Transform
       pos: 7.5,-7.5
+      parent: 1
+- proto: SpawnMobSmile
+  entities:
+  - uid: 742
+    components:
+    - type: Transform
+      pos: -12.5,-16.5
       parent: 1
 - proto: SpawnPointNukies
   entities:
