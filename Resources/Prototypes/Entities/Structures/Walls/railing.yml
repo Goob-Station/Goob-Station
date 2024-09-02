@@ -1,38 +1,18 @@
 - type: entity
   parent: BaseStructure
-  id: BaseRailing
-  abstract: true
+  id: Railing
   name: railing
   description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Structures/Walls/railing.rsi
+    state: side
   - type: Icon
     sprite: Structures/Walls/railing.rsi
+    state: side
   - type: Physics
     bodyType: Static
-  - type: InteractionOutline
-  - type: Repairable
-  - type: Damageable
-    damageContainer: Inorganic
-    damageModifierSet: FlimsyMetallic
-  - type: Climbable
-  - type: Construction
-    graph: Railing
-  - type: RCDDeconstructable
-    cost: 2
-    delay: 2
-    fx: EffectRCDDeconstruct2
-
-- type: entity
-  parent: BaseRailing
-  id: Railing
-  components:
-  - type: Sprite
-    state: side
-  - type: Icon
-    state: side
   - type: Fixtures
     fixtures:
       fix1:
@@ -44,6 +24,11 @@
         - TableMask
         layer:
         - TableLayer
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -68,17 +53,30 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Climbable
   - type: Construction
+    graph: Railing
     node: railing
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
 
 - type: entity
-  parent: BaseRailing
+  parent: BaseStructure
   id: RailingCorner
+  name: railing
+  description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Walls/railing.rsi
     state: corner
   - type: Icon
+    sprite: Structures/Walls/railing.rsi
     state: corner
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -99,6 +97,11 @@
         - TableMask
         layer:
         - TableLayer
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -123,17 +126,30 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Climbable
   - type: Construction
+    graph: Railing
     node: railingCorner
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
 
 - type: entity
-  parent: BaseRailing
+  parent: BaseStructure
   id: RailingCornerSmall
+  name: railing
+  description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Walls/railing.rsi
     state: corner_small
   - type: Icon
+    sprite: Structures/Walls/railing.rsi
     state: corner_small
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -145,6 +161,11 @@
         - TableMask
         layer:
         - TableLayer
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -169,17 +190,27 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Climbable
   - type: Construction
+    graph: Railing
     node: railingCornerSmall
-    
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2
+
 - type: entity
-  parent: BaseRailing
+  parent: BaseStructure
   id: RailingRound
+  name: railing
+  description: Basic railing meant to protect idiots like you from falling.
   components:
   - type: Sprite
+    drawdepth: SmallObjects
+    sprite: Structures/Walls/railing.rsi
     state: round
-  - type: Icon
-    state: round
+  - type: Physics
+    bodyType: Static
   - type: Fixtures
     fixtures:
       fix1:
@@ -209,6 +240,11 @@
           - TableMask
         layer:
           - TableLayer
+  - type: InteractionOutline
+  - type: Repairable
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: FlimsyMetallic
   - type: Destructible
     thresholds:
     - trigger:
@@ -233,5 +269,11 @@
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: Climbable
   - type: Construction
+    graph: Railing
     node: railingRound
+  - type: RCDDeconstructable
+    cost: 2
+    delay: 2
+    fx: EffectRCDDeconstruct2

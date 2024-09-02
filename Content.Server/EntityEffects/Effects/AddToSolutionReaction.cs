@@ -1,4 +1,4 @@
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
@@ -18,7 +18,7 @@ namespace Content.Server.EntityEffects.Effects
                     return;
 
                 // TODO see if this is correct
-                var solutionContainerSystem = reagentArgs.EntityManager.System<SharedSolutionContainerSystem>();
+                var solutionContainerSystem = reagentArgs.EntityManager.System<SolutionContainerSystem>();
                 if (!solutionContainerSystem.TryGetSolution(reagentArgs.TargetEntity, _solution, out var solutionContainer))
                     return;
 

@@ -4,12 +4,14 @@
   name: gold ring
   description: A precious ring.
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-        color: "#ffc833"
-  - type: StaticPrice
-    price: 300
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+          color: "#ffc833"
+    - type: StaticPrice
+      price: 300
+    - type: Appearance
 
 - type: entity
   parent: RingBase
@@ -17,11 +19,13 @@
   name: silver ring
   description: Looks slightly less valuable than a gold one.
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-  - type: StaticPrice
-    price: 275
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+    - type: StaticPrice
+      price: 275
+    - type: Appearance
 
 - type: entity
   parent: RingBase
@@ -29,14 +33,16 @@
   name: gold diamond ring
   description: Made from ethically mined space diamonds.
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-        color: "#ffc833"
-      - state: gem
-        color: "#c1ffff"
-  - type: StaticPrice
-    price: 1500
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+          color: "#ffc833"
+        - state: gem
+          color: "#c1ffff"
+    - type: StaticPrice
+      price: 1500
+    - type: Appearance
 
 - type: entity
   parent: RingBase
@@ -44,13 +50,15 @@
   name: silver diamond ring
   description: Made from ethically mined space diamonds.
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-      - state: gem
-        color: "#c1ffff"
-  - type: StaticPrice
-    price: 1400
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+        - state: gem
+          color: "#c1ffff"
+    - type: StaticPrice
+      price: 1400
+    - type: Appearance
 
 - type: entity
   parent: RingBase
@@ -58,19 +66,21 @@
   name: gold gem ring
   description: Shiny and valuable!
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-        color: "#ffc833"
-      - state: gem
-        map: [ "gemColor" ]
-  - type: StaticPrice
-    price: 2100
-  - type: RandomSprite
-    getAllGroups: true
-    available:
-      - gemColor:
-          gem: Rainbow
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+          color: "#ffc833"
+        - state: gem
+          map: [ "gemColor" ]
+    - type: StaticPrice
+      price: 2100
+    - type: Appearance
+    - type: RandomSprite
+      getAllGroups: true
+      available:
+        - gemColor:
+            gem: Rainbow
 
 - type: entity
   parent: RingBase
@@ -78,15 +88,17 @@
   name: silver gem ring
   description: Shiny and not quite as valuable!
   components:
-  - type: Sprite
-    layers:
-      - state: ring
-      - state: gem
-        map: [ "gemColor" ]
-  - type: StaticPrice
-    price: 2000
-  - type: RandomSprite
-    getAllGroups: true
-    available:
-      - gemColor:
-          gem: Rainbow
+    - type: Sprite
+      sprite: Clothing/Hands/Rings/basic.rsi
+      layers:
+        - state: ring
+        - state: gem
+          map: [ "gemColor" ]
+    - type: StaticPrice
+      price: 2000
+    - type: Appearance
+    - type: RandomSprite
+      getAllGroups: true
+      available:
+        - gemColor:
+            gem: Rainbow

@@ -1,4 +1,4 @@
-namespace Content.Shared.IgnitionSource;
+namespace Content.Server.IgnitionSource;
 
 /// <summary>
 ///     Raised in order to toggle the ignitionSourceComponent on an entity on or off

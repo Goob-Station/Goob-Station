@@ -1,4 +1,4 @@
-using Content.Shared.Chemistry.EntitySystems;
+using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Administration;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.Reagent;
@@ -42,7 +42,7 @@ namespace Content.Server.Administration.Commands
                 return;
             }
 
-            var solutionContainerSystem = _entManager.System<SharedSolutionContainerSystem>();
+            var solutionContainerSystem = _entManager.System<SolutionContainerSystem>();
             if (!solutionContainerSystem.TryGetSolution((uid.Value, man), args[1], out var solution))
             {
                 var validSolutions = string.Join(", ", solutionContainerSystem.EnumerateSolutions((uid.Value, man)).Select(s => s.Name));
