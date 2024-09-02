@@ -6,7 +6,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_asteroid
@@ -28,7 +28,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: ironrock
@@ -50,7 +50,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock
@@ -72,7 +72,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: Bluespace_crystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_wall
@@ -94,7 +94,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_snow
@@ -116,7 +116,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_sand
@@ -138,7 +138,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_chromite
@@ -160,7 +160,7 @@
   components:
     - type: OreVein
       oreChance: 1.0
-      currentOre: BSCrystal
+      currentOre: oreBSCrystal
     - type: Sprite
       layers:
         - state: rock_andesite
