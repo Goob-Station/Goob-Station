@@ -38,27 +38,16 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var missingList = new List<string>();
         var toDelete = new List<EntityUid>();
 
-        if (rit.CustomBehaviors != null)
+        // check for all conditions
+        foreach (var behavior in rit.CustomBehaviors ?? new())
         {
-            // check for all conditions
-            foreach (var behavior in rit.CustomBehaviors)
-            {
-                var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
 
-                if (!behavior.Execute(ritData, out var missingStr))
-                {
-                    if (missingStr != null)
-                        _popup.PopupEntity(missingStr, platform, performer);
-                    return false;
-                }
-            }
-
-            // nice every condition is met
-            // finalize all of them
-            foreach (var behavior in rit.CustomBehaviors)
+            if (!behavior.Execute(ritData, out var missingStr))
             {
-                var ritData = new RitualData(performer, platform, ritualId, EntityManager);
-                behavior.Finalize(ritData);
+                if (missingStr != null)
+                    _popup.PopupEntity(missingStr, platform, performer);
+                return false;
             }
         }
 
@@ -124,12 +113,20 @@ public sealed partial class HereticRitualSystem : EntitySystem
         }
 
         // yay! ritual successfull!
+
+        // finalize all of the custom ones
+        foreach (var behavior in rit.CustomBehaviors ?? new())
+        {
+            var ritData = new RitualData(performer, platform, ritualId, EntityManager);
+            behavior.Finalize(ritData);
+        }
+
         // ya get some, ya lose some
         foreach (var ent in toDelete)
             QueueDel(ent);
 
         // add stuff
-        if (rit.Output != null && rit.Output.Count > 0)
+        if (rit.Output != null)
         {
             foreach (var ent in rit.Output.Keys)
                 for (int i = 0; i < rit.Output[ent]; i++)

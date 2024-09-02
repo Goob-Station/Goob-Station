@@ -10,7 +10,7 @@ knowledge-path-flesh-s2-desc =
     My new found desires drove me to greater and greater heights.
 
     Your Mansus Grasp gains the ability to create a ghoul out of corpse with a soul.
-    Ghouls have only 25 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively.
+    Ghouls have only 50 health and look like husks to the heathens' eyes, but can use Bloody Blades effectively.
     You can only create one at a time by this method.
 
 knowledge-path-flesh-s3-name = Imperfect Ritual
@@ -19,7 +19,7 @@ knowledge-path-flesh-s3-desc =
 
     Allows you to transmute a corpse and a poppy to create a Voiceless Dead.
     The corpse does not need to have a soul.
-    Voiceless Dead are mute ghouls and only have 50 health, but can use Bloody Blades effectively.
+    Voiceless Dead are mute ghouls and only have 100 health, but can use Bloody Blades effectively.
     You can only create two at a time.
 
 knowledge-path-flesh-s4-name = Mark of Flesh
@@ -44,8 +44,7 @@ knowledge-path-flesh-s6-desc =
     The screams... once constant, now silenced by their wretched appearance. Nothing was out of reach.
 
     Allows you to transmute a pair of eyes, a stomach, and a pool of blood to create a Raw Prophet.
-    Raw Prophets have a greatly increased sight range and x-ray vision, as well as a long range jaunt and
-    the ability to link minds to communicate with ease, but are very fragile and weak in combat.
+    Raw Prophets have a long range jaunt and the ability to link minds to communicate with ease, but are very fragile and weak in combat.
 
 knowledge-path-flesh-s7-name = Bleeding Steel
 knowledge-path-flesh-s7-desc =
@@ -59,8 +58,8 @@ knowledge-path-flesh-s8-desc =
     I was able to combine my greed and desires to summon an eldritch beast I had never seen before.
     An ever shapeshifting mass of flesh, it knew well my goals. The Marshal approved.
 
-    Allows you to transmute a tail of any kind, a stomach, a tongue, a pen and a piece of paper to create a Stalker.
-    Stalkers can jaunt, release EMPs, shapeshift into animals, and are strong in combat.
+    Allows you to transmute a heart, a stomach, lungs and a pen to create a Stalker.
+    Stalkers can jaunt, release EMPs, and are strong in combat.
 
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =

@@ -6,6 +6,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
+using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -43,6 +44,7 @@ public sealed partial class GhoulSystem : EntitySystem
         RemComp<ThirstComponent>(ent);
         RemComp<ReproductiveComponent>(ent);
         RemComp<ReproductivePartnerComponent>(ent);
+        RemComp<TemperatureComponent>(ent);
 
         var hasMind = _mind.TryGetMind(ent, out var mindId, out var mind);
         if (hasMind && ent.Comp.BoundHeretic != null)

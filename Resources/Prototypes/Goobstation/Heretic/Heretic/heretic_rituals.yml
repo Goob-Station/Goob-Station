@@ -80,6 +80,17 @@
 - type: hereticRitual
   id: LonelyRitual
   name: heretic-ritual-flesh-stalker
+  customBehaviors:
+  - !type:RitualReagentPuddleBehavior
+    reagent: Blood
+  requiredEntityNames:
+    heart: 1
+    stomach: 1
+    lungs: 1
+  requiredTags:
+    Pen: 1
+  output:
+    MobGhoulStalker: 1
 
 - type: hereticRitual
   id: AscensionFlesh
@@ -90,3 +101,37 @@
     max: 4
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
+
+# void path
+- type: hereticRitual
+  id: BladeVoid
+  name: heretic-ritual-void-blade
+  customBehaviors:
+  - !type:RitualTemperatureBehavior
+    minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
+  requiredTags:
+    Knife: 1
+  output:
+    HereticBladeVoid: 1
+
+- type: hereticRitual
+  id: AscensionVoid
+  name: heretic-ritual-void-ascend
+  customBehaviors:
+  - !type:RitualSacrificeBehavior
+    min: 3
+    max: 3
+  - !type:RitualTemperatureBehavior
+    minThreshold: -20
+  outputKnowledge: WaltzAtTheEndOfTime
+  outputEvent: !type:EventHereticAscension
+
+# side path
+- type: hereticRitual
+  id: ArmorerRitual
+  name: heretic-ritual-side-armor
+  requiredTags:
+    Table: 1
+    GasMask: 1
+  output:
+    ClothingOuterArmorHeretic: 1

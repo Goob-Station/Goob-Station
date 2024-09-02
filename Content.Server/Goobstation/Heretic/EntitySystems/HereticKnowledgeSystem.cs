@@ -49,7 +49,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(data.Event);
+            RaiseLocalEvent(uid, data.Event);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
         {

@@ -27,19 +27,24 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
 
         foreach (var ent in lookup)
         {
-            if (!args.EntityManager.HasComponent<PuddleComponent>(ent)
-            || !args.EntityManager.TryGetComponent<SolutionContainerManagerComponent>(ent, out var solnMan))
+            if (!args.EntityManager.TryGetComponent<PuddleComponent>(ent, out var puddle))
                 continue;
 
-            if (solnMan.Solutions == null)
+            if (puddle.Solution == null)
                 continue;
 
-            var sols = solnMan.Solutions;
+            var soln = puddle.Solution.Value;
 
-            if (!sols["puddle"].ContainsPrototype(Reagent))
+            if (!soln.Comp.Solution.ContainsPrototype(Reagent))
                 continue;
 
             uids.Add(ent);
+        }
+
+        if (uids.Count == 0)
+        {
+            outstr = Loc.GetString("heretic-ritual-fail-reagentpuddle", ("reagentname", Reagent!));
+            return false;
         }
 
         return true;

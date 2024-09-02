@@ -1,25 +1,15 @@
 ## stage 3
-knowledge-path-side-s3-shark-name = Scorching Shark
-knowledge-path-side-s3-shark-desc =
-    Transmute a pool of ash, a sheet of plasma, and kidneys into a Fire Shark. Fire Sharks are fast and strong in groups, but are bad at combat.
-
-knowledge-path-side-s3-ghoul-name = Shattered Ritual
-knowledge-path-side-s3-ghoul-desc =
-    Transmute any suit clothing, a pair of latex or nitrile gloves, and a corpse with soul into a Ghoul.
-    These Ghouls have 125 HP, but cannot hold any items.
-    Instead, they have two powerful melee weapons for fists.
-
 knowledge-path-side-s3-armor-name = Armorer’s Ritual
 knowledge-path-side-s3-armor-desc =
-    Transmute a built table and a gas mask into Ominous Armor. These eldritch robes reduce damage taken roughly by half.
-    When your hood is up, you are able to cast spells.
+    The Rusted Hills welcomed the Blacksmith in their generosity. And the Blacksmith returned their generosity in kind.
+
+    Allows you to transmute a table and a gas mask to create Eldritch Armor.
+    Eldritch Armor provides great protection while also acting as a focus when hooded.
 
 knowledge-path-side-s3-flask-name = Priest's Ritual
 knowledge-path-side-s3-flask-desc =
     Transmute a tank of water into a Flask of Eldritch Water.
     When consumed, the water will heal a bit of everything for Heretics, and hurt a bit of everything for Heathens.
-
-
 
 ## stage 5
 knowledge-path-side-s5-name = Ritual of Knowledge
@@ -51,11 +41,11 @@ knowledge-path-side-s7-knife-desc =
 
 knowledge-path-side-s7-crucible-name = Mawed Crucible
 knowledge-path-side-s7-crucible-desc =
-    Transmute a table with a water tank to create a Mawed Crucible.
-    The Crucible allows you to create potions of various effects.
-    It starts with enough liquid to create 1 potion, but it can be refilled with organs/body parts.
+    This is pure agony. I wasn't able to summon the figure of the Aristocrat,
+    but with the Priest's attention I stumbled upon a different recipe...
 
-
+    Allows you to transmute a portable water tank and a table to create a Mawed Crucible.
+    The Mawed Crucible can brew powerful potions for combat and utility, but must be fed bodyparts and organs between uses.
 
 ## stage 9
 knowledge-path-side-s9-coin-name = Eldritch Coin

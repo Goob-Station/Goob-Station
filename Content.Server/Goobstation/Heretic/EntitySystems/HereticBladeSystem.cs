@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -86,6 +87,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
+        SubscribeLocalEvent<HereticComponent, RangedInteractEvent>(OnRangedInteract); // void path exclusive
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
@@ -108,6 +110,18 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
         _popup.PopupEntity(Loc.GetString("heretic-blade-use"), args.User, args.User);
         QueueDel(ent);
+    }
+    private void OnRangedInteract(Entity<HereticComponent> ent, ref RangedInteractEvent args)
+    {
+        if (ent.Comp.CurrentPath != "Void"
+        && ent.Comp.PathStage < 7)
+            return;
+
+        if (HasComp<HereticCombatMarkComponent>(args.TargetUid))
+        {
+            _xform.SetCoordinates(ent, Transform(args.TargetUid).Coordinates);
+            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
+        }
     }
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)

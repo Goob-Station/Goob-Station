@@ -118,7 +118,8 @@
   id: KnittingOfFlesh
   path: Flesh
   stage: 5
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticFleshSurgery
 
 - type: hereticKnowledge
   id: RawRitual
@@ -150,3 +151,67 @@
   stage: 10
   actionPrototypes:
   - ActionPolymorphHereticHorror
+
+# void path
+- type: hereticKnowledge
+  id: GlimmerOfWinter
+  path: Void
+  stage: 1
+  ritualPrototypes:
+  - BladeVoid
+
+- type: hereticKnowledge
+  id: GraspOfVoid
+  path: Void
+  stage: 2
+
+- type: hereticKnowledge
+  id: AristocratWay
+  stage: 3
+  event: !type:HereticAristocratWayEvent
+
+- type: hereticKnowledge
+  id: MarkOfVoid
+  path: Void
+  stage: 4
+
+- type: hereticKnowledge
+  id: VoidBlast
+  path: Void
+  stage: 5
+  #actionPrototypes:
+
+- type: hereticKnowledge
+  id: VoidPhase
+  stage: 6
+  #actionPrototypes:
+
+- type: hereticKnowledge
+  id: SeekingBlade
+  path: Void
+  stage: 7
+
+- type: hereticKnowledge
+  id: VoidPull
+  stage: 8
+  #actionPrototypes:
+
+- type: hereticKnowledge
+  id: AscensionVoid
+  stage: 9
+  path: Void
+  ritualPrototypes:
+  - AscensionVoid
+
+- type: hereticKnowledge
+  id: WaltzAtTheEndOfTime
+  stage: 10
+  path: Void
+  event: !type:HereticAscensionVoidEvent
+
+# side paths
+- type: hereticKnowledge
+  id: ArmorerRitual
+  stage: 3
+  ritualPrototypes:
+  - ArmorerRitual  

@@ -83,6 +83,16 @@
   - type: GhostRole
     name: ghostrole-stalker-name
     description: ghostrole-stalker-desc
+  - type: ActionsProvider
+    actions:
+    - ActionHereticJaunt
+  # basically an EMP implant. don't feel like making 1 more emp action
+    - ActionActivateEmpImplant
+  - type: TriggerImplantAction
+  - type: EmpOnTrigger
+    range: 5
+    energyConsumption: 50000
+    disableDuration: 20
 
 - type: entity
   parent: BaseMobGhoul

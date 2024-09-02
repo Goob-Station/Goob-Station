@@ -1,36 +1,66 @@
 knowledge-path-void-s1-name = Glimmer of Winter
-knowledge-path-void-s1-desc = Follow the void path. Transmute a knife in a sub-zero temperature into a void blade.
+knowledge-path-void-s1-desc =
+    I feel a shimmer in the air, the air around me gets colder.
+    I start to realize the emptiness of existence. Something's watching me.
+
+    Opens up the Path of Void to you.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
 
 knowledge-path-void-s2-name = Grasp of Void
-knowledge-path-void-s2-desc = Your Mansus Grasp now mutes your victim for 8 seconds and lowers their body temperature.
+knowledge-path-void-s2-desc =
+    I saw the cold watcher who observes me. The chill mounts within me.
+    They are quiet. This isn't the end of the mystery.
+
+    Your Mansus Grasp will temporarily mute and chill the victim.
 
 knowledge-path-void-s3-name = Aristocrat's Way
-knowledge-path-void-s3-desc = You no longer need to breathe, and become immune to cold temperatures. You can still take damage from lack of pressure.
+knowledge-path-void-s3-desc =
+    I found a thread of cold breath. It lead me to a strange shrine, all made of crystals.
+    Translucent and white, a depiction of a nobleman stood before me.
+
+    Grants you immunity to cold temperatures, and removes your need to breathe.
+    You can still take damage due to a lack of pressure.
 
 knowledge-path-void-s4-name = Mark of Void
-knowledge-path-void-s4-desc = Your Grasp applies a void mark on hit. Attack a marked victim with your blade to lower their body temperature significantly.
+knowledge-path-void-s4-desc =
+    A gust of wind? A shimmer in the air? The presence is overwhelming, my senses began to betray me. My mind is my own enemy.
 
-knowledge-path-void-s6-name = Void Blast
+    Your Mansus Grasp now applies the Mark of Void. The mark is triggered from an attack with your Void Blade.
+    When triggered, further silences the victim and swiftly lowers the temperature of their body and the air around them.
+
+knowledge-path-void-s5-name = Void Blast
+knowledge-path-void-s5-desc =
+    Every door I open racks my body. I am afraid of what is behind them. Someone is expecting me,
+    and my legs start to drag. Is that... snow?
+
+    Grants you Void Blast, a spell that shoots out a freezing blast in a cone in front of you,
+    freezing the ground and any victims within.
+
+knowledge-path-void-s6-name = Void Phase
 knowledge-path-void-s6-desc =
-    Grants Void Blast, a spell which fires off a cone of ice in front of you.
-    The cone will chill and damage any mobs hit, as well as freezing the floor.
+    The entity calls themself the Aristocrat. They effortlessly walk through air like nothing - leaving a harsh, cold breeze in their wake.
+    They disappear, and I am left in the blizzard.
 
-knowledge-path-void-s7-name = Void Phase
+    Grants you Void Phase, a long range targeted teleport spell.
+    Additionally causes damage to heathens around your original and target destination.
+
+knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =
-    Grants Void Phase, a long range blink that allows you to instantly teleport to a targeted location.
-    Teleporting causes AoE damage around you and your targeted location.
+    Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
 
-knowledge-path-void-s8-name = Seeking Blade
-knowledge-path-void-s8-desc = You can now use your blade on a distant marked target to move to them and attack them.
+    You can now attack distant marked targets with your Void Blade, teleporting directly next to them.
 
-knowledge-path-void-s9-name = Void Pull
+knowledge-path-void-s8-name = Void Pull
+knowledge-path-void-s8-desc =
+    All is fleeting, but what else stays? I'm close to ending what was started.
+    The Aristocrat reveals themselves to me again. They tell me I am late. Their pull is immense, I cannot turn back.
+
+    Grants you Void Pull, a spell that pulls all nearby heathens towards you, stunning them briefly.
+
+knowledge-path-void-s9-name = Waltz at the End of Time
 knowledge-path-void-s9-desc =
-    Grants Void Pull, an area spell that damages all victims adjacent to you.
-    Nearby people are also knocked down and stunned, and distant victims are dragged closer to you.
-
-knowledge-path-void-s10-name = Waltz at the End of Time
-knowledge-path-void-s10-desc =
-    Transmute 3 corpses in a frozen area to Ascend.
-    You now automatically silence people around you.
-    Additionally, a deadly snow storm is summoned around you and everywhere you walk.
-    The storm does not harm you or your summoned minions.
+    The ascension ritual of the Path of Void.
+    Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
+    When completed, causes a violent storm of void snow
+    to assault the station, freezing and damaging heathens. Those nearby will be silenced and frozen even quicker.
+    Additionally, you will become immune to the effects of space.

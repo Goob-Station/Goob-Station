@@ -1,6 +1,7 @@
 heretic-ritual-unknown = Unknown Ritual
 heretic-ritual-switch = Selected {$name}
 heretic-ritual-success = Ritual successful
+
 heretic-ritual-fail-items = Ritual failed. Required items: {$itemlist}
 heretic-ritual-norituals = You don't know any rituals!
 heretic-ritual-noritual = No ritual chosen!
@@ -9,7 +10,10 @@ heretic-ritual-basic-sacrifice = Heartbeat of the Mansus
 heretic-ritual-basic-focus = Amber Focus
 heretic-ritual-basic-codex = Codex Cicatrix
 
-heretic-ritual-fail-sacrifice = There is no corpse to sacrifice!
+heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
+heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.
+heretic-ritual-fail-temperature-hot = It is too hot here.
+heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
 
 ## side quests
@@ -34,3 +38,7 @@ heretic-ritual-flesh-ghoul = Imperfect Ritual
 heretic-ritual-flesh-prophet = Raw Ritual
 heretic-ritual-flesh-stalker = Lonely Ritual
 heretic-ritual-flesh-ascend = Priest's Final Hymn
+
+## void path
+heretic-ritual-void-blade = Glimmer of Winter
+heretic-ritual-void-ascend = Waltz at the End of Time

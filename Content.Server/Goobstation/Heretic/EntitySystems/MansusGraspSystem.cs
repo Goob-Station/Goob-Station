@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Systems;
@@ -13,6 +14,7 @@ using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -78,6 +80,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             case "Void":
                 _temperature.ChangeHeat(target, -10f, true);
+                _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 
             default:

@@ -54,6 +54,7 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
     public SlotFlags TargetSlots => SlotFlags.WITHOUT_POCKET;
 }
 
+// basic
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 
@@ -69,5 +70,22 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 
 // flesh
+public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
+public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
+{
+    [NonSerialized] public EntityUid? Target;
+
+    public EventHereticFleshSurgeryDoAfter(EntityUid target)
+    {
+        Target = target;
+    }
+}
 public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
+
+// void (including upgrades)
+public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
+public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
+public sealed partial class HereticVoidBlastEvent : WorldTargetActionEvent { }
+public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
+public sealed partial class HereticVoidPullEvent : EntityTargetActionEvent { }
 #endregion

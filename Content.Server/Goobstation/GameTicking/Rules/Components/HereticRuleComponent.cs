@@ -11,11 +11,11 @@ public sealed partial class HereticRuleComponent : Component
     public readonly List<ProtoId<StoreCategoryPrototype>> StoreCategories = new()
     {
         "HereticPathAsh",
-        "HereticPathLock",
+        //"HereticPathLock", //TODO
         "HereticPathFlesh",
-        "HereticPathBlade",
+        //"HereticPathBlade", //TODO
         "HereticPathVoid",
-        "HereticPathRust",
+        //"HereticPathRust", //TODO
         "HereticPathSide"
     };
 
