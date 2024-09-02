@@ -1,5 +1,5 @@
 - type: entity
-  id: AsteroidRockBSCrystal
+  id: MeteorRockBSCrystal
   parent: AsteroidRock
   description: An ore vein rich with bluespace crystals.
   suffix: bluespace crystal
