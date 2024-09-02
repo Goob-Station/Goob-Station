@@ -127,6 +127,7 @@
 
 - type: material
   id: Diamond
+  stackEntity: MaterialDiamond1  # Goobstation - fix
   name: materials-diamond
   unit: materials-unit-piece
   icon: { sprite: Objects/Materials/materials.rsi, state: diamond }
