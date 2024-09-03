@@ -91,6 +91,7 @@
     # DO NOT ADD MORE, USE UNIFORM DYING
   contrabandInventory:
     ClothingMaskNeckGaiter: 2
-    ClothingUniformJumpsuitTacticool: 1
-    ClothingUniformJumpskirtTacticool: 1
+    ClothingUniformJumpsuitTacticool: 2 #+1 Goobstation
+    ClothingUniformJumpskirtTacticool: 2 #+1 Goobstation
+    ClothingUniformJumpsuitCasualSyndicate: 2 #Goobstation
   # DO NOT ADD MORE, USE UNIFORM DYING
