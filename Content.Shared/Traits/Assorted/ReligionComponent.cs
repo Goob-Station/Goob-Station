@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
-/// Used for the atheist trait. Systems will check for this component in order to determine if atheist interactions occur.
+/// Used for religions. Systems will check for this component and its field in order to determine if religion based interactions occur.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ReligionComponent : Component
