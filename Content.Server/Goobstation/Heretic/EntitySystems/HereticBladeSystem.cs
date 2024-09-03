@@ -19,6 +19,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Linq;
 using System.Numerics;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -87,19 +88,30 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
         SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
-        SubscribeLocalEvent<HereticComponent, RangedInteractEvent>(OnRangedInteract); // void path exclusive
         SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
         SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
     {
-        if (!HasComp<HereticComponent>(args.User))
+        if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
         var xform = Transform(args.User);
         // 250 because for some reason it counts "10" as 1 tile
         var targetCoords = SelectRandomTileInRange(xform, 250f);
+        var queuedel = true;
+
+        // void path exxclusive
+        if (heretic.CurrentPath == "Void" && heretic.PathStage >= 7)
+        {
+            var look = _lookupSystem.GetEntitiesInRange<HereticCombatMarkComponent>(Transform(ent).Coordinates, 15f);
+            if (look.Count > 0)
+            {
+                targetCoords = Transform(look.ToList()[0]).Coordinates;
+                queuedel = false;
+            }
+        }
 
         if (targetCoords != null)
         {
@@ -109,19 +121,9 @@ public sealed partial class HereticBladeSystem : EntitySystem
         }
 
         _popup.PopupEntity(Loc.GetString("heretic-blade-use"), args.User, args.User);
-        QueueDel(ent);
-    }
-    private void OnRangedInteract(Entity<HereticComponent> ent, ref RangedInteractEvent args)
-    {
-        if (ent.Comp.CurrentPath != "Void"
-        && ent.Comp.PathStage < 7)
-            return;
 
-        if (HasComp<HereticCombatMarkComponent>(args.TargetUid))
-        {
-            _xform.SetCoordinates(ent, Transform(args.TargetUid).Coordinates);
-            _audio.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
-        }
+        if (queuedel)
+            QueueDel(ent);
     }
 
     private void OnExamine(Entity<HereticBladeComponent> ent, ref ExaminedEvent args)

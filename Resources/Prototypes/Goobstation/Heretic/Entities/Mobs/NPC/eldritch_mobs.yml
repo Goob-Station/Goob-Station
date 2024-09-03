@@ -135,7 +135,7 @@
 
 # heretic ascend flesh form
 - type: entity
-  aprent: BaseMob
+  parent: BaseMob
   id: MobHereticFleshAscend
   name: eldritch horror
   descripgion: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.

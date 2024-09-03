@@ -81,6 +81,9 @@
         },
         {
             "name": "space_phase"
+        },
+        {
+            "name": "immovable_rod"
         }
     ]
 }

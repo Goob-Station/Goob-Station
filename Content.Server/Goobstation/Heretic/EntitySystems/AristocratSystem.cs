@@ -27,6 +27,8 @@ public sealed partial class AristocratSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
 
+    private string _snowWallPrototype = "WallSnowCobblebrick";
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -51,6 +53,7 @@ public sealed partial class AristocratSystem : EntitySystem
         if (mix != null)
             mix.Temperature -= 50f;
 
+        // replace certain things with their winter analogue
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, ent.Comp.Range);
         foreach (var look in lookup)
         {
@@ -67,16 +70,16 @@ public sealed partial class AristocratSystem : EntitySystem
                 var tags = tag.Tags;
 
                 // replace walls with snow ones
-                if (tags.Contains("Wall"))
+                if (_rand.Prob(.45f) && tags.Contains("Wall")
+                && Prototype(look) != null && Prototype(look)!.ID != _snowWallPrototype)
                 {
-                    Spawn("WallSnowCobblebrick", Transform(look).Coordinates);
+                    Spawn(_snowWallPrototype, Transform(look).Coordinates);
                     QueueDel(look);
                 }
             }
         }
     }
 
-    // FloorSnow
     private void SpawnTiles(Entity<AristocratComponent> ent)
     {
         var xform = Transform(ent);
@@ -85,7 +88,7 @@ public sealed partial class AristocratSystem : EntitySystem
             return;
 
         var pos = xform.Coordinates.Position;
-        var box = new Box2(pos + new Vector2(-ent.Comp.Range, ent.Comp.Range), pos + new Vector2(-ent.Comp.Range, ent.Comp.Range));
+        var box = new Box2(pos + new Vector2(-ent.Comp.Range, -ent.Comp.Range), pos + new Vector2(ent.Comp.Range, ent.Comp.Range));
         var tilerefs = grid.GetLocalTilesIntersecting(box).ToList();
 
         if (tilerefs.Count == 0)
@@ -110,7 +113,7 @@ public sealed partial class AristocratSystem : EntitySystem
 
         foreach (var tileref in tiles2)
         {
-
+            // todo add more tile variety
         }
     }
 }

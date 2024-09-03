@@ -65,14 +65,16 @@ public sealed partial class GhoulSystem : EntitySystem
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
 
-        if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)
+        if (!HasComp<GhostRoleComponent>(ent) && !hasMind)
         {
             var ghostRole = EnsureComp<GhostRoleComponent>(ent);
-            EnsureComp<GhostTakeoverAvailableComponent>(ent);
             ghostRole.RoleName = Loc.GetString("ghostrole-ghoul-name");
             ghostRole.RoleDescription = Loc.GetString("ghostrole-ghoul-desc");
             ghostRole.RoleRules = Loc.GetString("ghostrole-ghoul-rules");
         }
+
+        if (!HasComp<GhostRoleMobSpawnerComponent>(ent) && !hasMind)
+            EnsureComp<GhostTakeoverAvailableComponent>(ent);
 
         _faction.ClearFactions((ent, null));
         _faction.AddFaction((ent, null), "Heretic");

@@ -80,6 +80,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     break;
             }
         }
+
+        args.Handled = true;
     }
     private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
     {

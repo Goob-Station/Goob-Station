@@ -22,6 +22,10 @@ using Content.Shared.Popups;
 using Robust.Shared.Random;
 using Content.Shared.Body.Systems;
 using Content.Server.Medical;
+using Robust.Server.GameObjects;
+using Content.Shared.Stunnable;
+using Robust.Shared.Map;
+using Content.Shared.StatusEffect;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -48,6 +52,26 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly VomitSystem _vomit = default!;
+    [Dependency] private readonly PhysicsSystem _phys = default!;
+    [Dependency] private readonly SharedStunSystem _stun = default!;
+
+    private List<EntityUid> GetNearbyPeople(EntityUid ent, float range)
+    {
+        var list = new List<EntityUid>();
+        var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, range);
+
+        foreach (var look in lookup)
+        {
+            if (HasComp<HereticComponent>(look) || HasComp<GhoulComponent>(look))
+                continue;
+
+            if (!HasComp<StatusEffectsComponent>(look))
+                continue;
+
+            list.Add(look);
+        }
+        return list;
+    }
 
     public override void Initialize()
     {

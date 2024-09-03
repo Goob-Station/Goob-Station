@@ -21,7 +21,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         var data = GetKnowledge(id);
 
         if (data.Event != null)
-            RaiseLocalEvent(data.Event);
+            RaiseLocalEvent(uid, data.Event, true);
 
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
             foreach (var act in data.ActionPrototypes)
@@ -48,9 +48,6 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
     {
         var data = GetKnowledge(id);
 
-        if (data.Event != null)
-            RaiseLocalEvent(uid, data.Event);
-
         if (data.ActionPrototypes != null && data.ActionPrototypes.Count > 0)
         {
             foreach (var act in data.ActionPrototypes)
@@ -58,12 +55,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
                 var actionName = (EntityPrototype) _proto.Index(typeof(EntityPrototype), act);
                 // jesus christ.
                 foreach (var action in _action.GetActions(uid))
-                {
-                    if (!TryComp<MetaDataComponent>(action.Id, out var metadata))
-                        continue;
-                    if (metadata.EntityName == actionName.Name)
+                    if (Name(action.Id) == actionName.Name)
                         _action.RemoveAction(action.Id);
-                }
             }
         }
 

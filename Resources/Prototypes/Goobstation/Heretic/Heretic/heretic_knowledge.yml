@@ -168,7 +168,7 @@
 - type: hereticKnowledge
   id: AristocratWay
   stage: 3
-  event: !type:HereticAristocratWayEvent
+  event: !type:HereticAristocratWayEvent {}
 
 - type: hereticKnowledge
   id: MarkOfVoid
@@ -179,12 +179,14 @@
   id: VoidBlast
   path: Void
   stage: 5
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticVoidBlast
 
 - type: hereticKnowledge
   id: VoidPhase
   stage: 6
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticVoidPhase
 
 - type: hereticKnowledge
   id: SeekingBlade
@@ -194,7 +196,8 @@
 - type: hereticKnowledge
   id: VoidPull
   stage: 8
-  #actionPrototypes:
+  actionPrototypes:
+  - ActionHereticVoidPull
 
 - type: hereticKnowledge
   id: AscensionVoid
@@ -207,7 +210,7 @@
   id: WaltzAtTheEndOfTime
   stage: 10
   path: Void
-  event: !type:HereticAscensionVoidEvent
+  event: !type:HereticAscensionVoidEvent {}
 
 # side paths
 - type: hereticKnowledge
