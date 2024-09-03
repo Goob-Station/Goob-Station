@@ -168,7 +168,7 @@
 - type: hereticKnowledge
   id: AristocratWay
   stage: 3
-  event: !type:HereticAristocratWayEvent {}
+  event: !type:HereticAristocratWayEvent
 
 - type: hereticKnowledge
   id: MarkOfVoid
@@ -210,7 +210,7 @@
   id: WaltzAtTheEndOfTime
   stage: 10
   path: Void
-  event: !type:HereticAscensionVoidEvent {}
+  event: !type:HereticAscensionVoidEvent
 
 # side paths
 - type: hereticKnowledge
