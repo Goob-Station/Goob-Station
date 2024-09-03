@@ -77,4 +77,4 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     }
 }
 
-[Serializable, NetSerializable] public sealed partial class EventHereticAscension : EntityEventArgs { }
+public sealed partial class EventHereticAscension { }

@@ -2,6 +2,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.Effects.StatusEffects;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
+using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
@@ -79,7 +80,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
                 break;
 
             case "Void":
-                _temperature.ChangeHeat(target, -10f, true);
+                if (HasComp<TemperatureComponent>(target))
+                    _temperature.ChangeHeat(target, -10f, true);
                 _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 
@@ -93,7 +95,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MansusGraspComponent, AfterInteractEvent>(OnAfterInteract);
-        SubscribeLocalEvent<MansusGraspComponent, DropAttemptEvent>(OnDrop);
 
         SubscribeLocalEvent<TagComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<HereticComponent, DrawRitualRuneDoAfterEvent>(OnRitualRuneDoAfter);
@@ -141,13 +142,6 @@ public sealed partial class MansusGraspSystem : EntitySystem
         }
 
         hereticComp.MansusGraspActive = false;
-        QueueDel(ent);
-    }
-
-    private void OnDrop(Entity<MansusGraspComponent> ent, ref DropAttemptEvent args)
-    {
-        if (TryComp<HereticComponent>(args.Uid, out var hereticComp))
-            hereticComp.MansusGraspActive = false;
         QueueDel(ent);
     }
 

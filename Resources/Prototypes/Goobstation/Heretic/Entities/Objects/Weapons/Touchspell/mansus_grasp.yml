@@ -4,9 +4,8 @@
   description: The power of the Old Gods, channeled through your grip.
   noSpawn: true
   components:
-  #- type: Unremoveable
+  - type: Unremoveable
   - type: Item
-    size: Ginormous
   - type: MansusGrasp
   - type: Sprite
     sprite: Goobstation/Heretic/mansus_grasp.rsi
