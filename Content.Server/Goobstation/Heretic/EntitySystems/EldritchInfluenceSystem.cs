@@ -54,7 +54,10 @@ public sealed partial class EldritchInfluenceSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.User, out var heretic))
             return;
 
-        _heretic.UpdateKnowledge(args.User, heretic, heretic.CodexActive ? 2 : 1);
+        var ev = new CheckMagicItemEvent();
+        RaiseLocalEvent(args.User, ev);
+
+        _heretic.UpdateKnowledge(args.User, heretic, ev.Handled ? 2 : 1);
 
         Spawn("EldritchInfluenceSpent", Transform((EntityUid) args.Target).Coordinates);
         QueueDel(args.Target);

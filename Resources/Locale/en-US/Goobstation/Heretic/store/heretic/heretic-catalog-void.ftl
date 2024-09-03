@@ -42,13 +42,13 @@ knowledge-path-void-s6-desc =
     They disappear, and I am left in the blizzard.
 
     Grants you Void Phase, a long range targeted teleport spell.
-    Additionally causes damage to heathens around your original and target destination.
+    Additionally stuns heathens around your original and target destination.
 
 knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =
     Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
 
-    You can now attack distant marked targets with your Void Blade, teleporting directly next to them.
+    When a target is marked, use your Void Blade to teleport right next to them without breaking the blade.
 
 knowledge-path-void-s8-name = Void Pull
 knowledge-path-void-s8-desc =
@@ -61,6 +61,6 @@ knowledge-path-void-s9-name = Waltz at the End of Time
 knowledge-path-void-s9-desc =
     The ascension ritual of the Path of Void.
     Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
-    When completed, causes a violent storm of void snow
-    to assault the station, freezing and damaging heathens. Those nearby will be silenced and frozen even quicker.
+    When completed, grants you Aristocrat's Blessing.
+    Everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
     Additionally, you will become immune to the effects of space.
