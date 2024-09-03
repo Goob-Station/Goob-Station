@@ -89,6 +89,18 @@ namespace Content.Server.Heretic.Ritual;
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
             var knowledgeGain = isCommand ? 2f : 1f;
 
+            // YES!!! GIB!!!
+            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
+            {
+                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
+                var dmgtype = _proto.Index(prot);
+                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
+            }
+
+            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
+                _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
+
+            // update objectives
             if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))
             {
                 // this is godawful dogshit. but it works :)
@@ -101,20 +113,9 @@ namespace Content.Server.Heretic.Ritual;
                 && isCommand)
                     crewHeadObjComp.Sacrificed += 1;
             }
-
-            if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
-                _heretic.UpdateKnowledge(args.Performer, hereticComp, knowledgeGain);
-
-            // YES!!! GIB!!!
-            if (args.EntityManager.TryGetComponent<DamageableComponent>(uids[i], out var dmg))
-            {
-                var prot = (ProtoId<DamageGroupPrototype>) "Brute";
-                var dmgtype = _proto.Index(prot);
-                _damage.TryChangeDamage(uids[i], new DamageSpecifier(dmgtype, 1984f), true);
-            }
         }
 
-        // reset it because blehhh
+        // reset it because it refuses to work otherwise.
         uids = new();
     }
 }

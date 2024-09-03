@@ -10,7 +10,7 @@
     state: ash_jaunt
     loop: false
   - type: TimedDespawn
-    delay: 0.0005
+    lifetime: 1
 
 - type: entity
   id: PolymorphAshJauntEndAnimation
@@ -24,7 +24,7 @@
     state: ash_jaunt_end
     loop: false
   - type: TimedDespawn
-    delay: 0.0005
+    lifetime: 1
 
 - type: entity
   id: PolymorphAshJaunt

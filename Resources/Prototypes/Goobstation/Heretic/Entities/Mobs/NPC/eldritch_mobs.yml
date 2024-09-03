@@ -138,7 +138,7 @@
   parent: BaseMob
   id: MobHereticFleshAscend
   name: eldritch horror
-  descripgion: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
+  description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
   suffix: DO NOT MAP
   components:
   - type: NpcFactionMember

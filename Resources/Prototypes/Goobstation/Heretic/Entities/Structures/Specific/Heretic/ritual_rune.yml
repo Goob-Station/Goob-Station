@@ -34,7 +34,7 @@
   noSpawn: true
   components:
   - type: TimedDespawn
-    delay: 0.001
+    lifetime: 1
   - type: Sprite
     drawdepth: WallMountedItems
     sprite: Goobstation/Heretic/ritual_rune.rsi

@@ -22,7 +22,7 @@
   productHereticKnowledge: ArmorerRitual
   cost:
     KnowledgePoint: 2
-  cagetories:
+  categories:
   - HereticPathSide
   conditions:
   - !type:ListingLimitedStockCondition
