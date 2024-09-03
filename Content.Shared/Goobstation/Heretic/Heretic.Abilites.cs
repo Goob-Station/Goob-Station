@@ -71,7 +71,7 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 // flesh
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
-public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
+[Serializable, NetSerializable] public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
 {
     [NonSerialized] public EntityUid? Target;
 
