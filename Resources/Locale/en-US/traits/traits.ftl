@@ -53,3 +53,6 @@ trait-german-desc = You seem to come from space Germany.
 
 trait-italian-name = Italian accent
 trait-italian-desc = Mamma mia! You seem to have lived in space Italy!
+
+trait-atheist-name = Atheist
+trait-atheist-desc = You don't believe in a higher power and you expect prayers to go unanswered.

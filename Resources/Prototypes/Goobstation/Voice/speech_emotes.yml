@@ -7,6 +7,7 @@
   whitelist:
     components:
     - Vocal
+# Leaving this commented to make a point all types of borgs need the robot fart sound added to them, otherwise their farts are silent
 #  blacklist:
 #    components:
 #    - BorgChassis

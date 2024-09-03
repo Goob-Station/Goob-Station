@@ -1,0 +1,10 @@
+## Public Domain YAML Begins
+- type: trait
+  id: Atheist
+  name: trait-atheist-name
+  description: trait-atheist-desc
+  category: Quirks
+  components:
+    - type: Religion
+      religion: atheist
+## Public Domain YAML Ends
