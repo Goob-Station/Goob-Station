@@ -11,7 +11,7 @@ namespace Content.Server.Heretic.Abilities;
 public sealed partial class HereticAbilitySystem : EntitySystem
 {
     private void SubscribeAsh()
-    {
+    { 
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
         SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
         SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
