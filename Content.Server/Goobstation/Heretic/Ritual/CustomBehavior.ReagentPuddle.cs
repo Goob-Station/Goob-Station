@@ -54,5 +54,6 @@ public sealed partial class RitualReagentPuddleBehavior : RitualCustomBehavior
     {
         foreach (var uid in uids)
             args.EntityManager.QueueDeleteEntity(uid);
+        uids = new();
     }
 }

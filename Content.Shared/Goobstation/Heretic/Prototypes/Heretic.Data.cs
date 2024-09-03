@@ -18,7 +18,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     /// </summary>
     [DataField] public bool SideKnowledge = false;
 
-    [DataField] [NonSerialized] public object? Event;
+    [DataField] [NonSerialized] public EntityEventArgs? Event;
 
     [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes;
 
@@ -77,4 +77,4 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     }
 }
 
-public sealed partial class EventHereticAscension : HandledEntityEventArgs { }
+[Serializable, NetSerializable] public sealed partial class EventHereticAscension : EntityEventArgs { }

@@ -36,6 +36,6 @@ ghostrole-ghoul-name = Ghoul
 ghostrole-prophet-name = Raw Prophet
 ghostrole-stalker-name = Flesh Stalker
 ghostrole-ghoul-desc = Aid your summoner in achieving ascension.
-ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believes to the Mansus Link.
-ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and blend in with crew.
+ghostrole-prophet-desc = Aid your summoner in achieving ascension. Connect other believers to the Mansus Link.
+ghostrole-stalker-desc = Aid your summoner in achieving ascension. Jaunt and sabotage crew's lighting.
 ghostrole-ghoul-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the one who summoned you and other eldritch beings.

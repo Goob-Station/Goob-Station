@@ -4,6 +4,7 @@ using Content.Server.Heretic.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Heretic;
+using Content.Shared.Temperature.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Physics.Components;
 
@@ -24,6 +25,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     private void OnAristocratWay(Entity<HereticComponent> ent, ref HereticAristocratWayEvent args)
     {
         RemComp<TemperatureComponent>(ent);
+        RemComp<TemperatureSpeedComponent>(ent);
         RemComp<RespiratorComponent>(ent);
     }
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)

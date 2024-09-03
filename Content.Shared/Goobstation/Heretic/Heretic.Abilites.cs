@@ -41,6 +41,15 @@ public sealed partial class HereticActionComponent : Component
         Target = target;
     }
 }
+[Serializable, NetSerializable] public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
+{
+    [NonSerialized] public EntityUid? Target;
+
+    public EventHereticFleshSurgeryDoAfter(EntityUid target)
+    {
+        Target = target;
+    }
+}
 
 #endregion
 
@@ -71,20 +80,11 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 // flesh
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
-[Serializable, NetSerializable] public sealed partial class EventHereticFleshSurgeryDoAfter : SimpleDoAfterEvent
-{
-    [NonSerialized] public EntityUid? Target;
-
-    public EventHereticFleshSurgeryDoAfter(EntityUid target)
-    {
-        Target = target;
-    }
-}
 public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 
 // void (including upgrades)
-public sealed partial class HereticAristocratWayEvent : HandledEntityEventArgs { }
-public sealed partial class HereticAscensionVoidEvent : HandledEntityEventArgs { }
+[Serializable, NetSerializable] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
+[Serializable, NetSerializable] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
