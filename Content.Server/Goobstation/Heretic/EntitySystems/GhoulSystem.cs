@@ -7,6 +7,7 @@ using Content.Server.Humanoid;
 using Content.Server.Mind.Commands;
 using Content.Server.Roles;
 using Content.Server.Temperature.Components;
+using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Ghost.Roles.Components;
@@ -15,6 +16,7 @@ using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
@@ -35,6 +37,7 @@ public sealed partial class GhoulSystem : EntitySystem
     [Dependency] private readonly SharedRoleSystem _role = default!;
     [Dependency] private readonly MobThresholdSystem _threshold = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
 
     public void GhoulifyEntity(Entity<GhoulComponent> ent)
     {
@@ -105,6 +108,7 @@ public sealed partial class GhoulSystem : EntitySystem
         SubscribeLocalEvent<GhoulComponent, AttackAttemptEvent>(OnTryAttack);
         SubscribeLocalEvent<GhoulComponent, TakeGhostRoleEvent>(OnTakeGhostRole);
         SubscribeLocalEvent<GhoulComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GhoulComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
     private void OnInit(Entity<GhoulComponent> ent, ref ComponentInit args)
@@ -136,5 +140,11 @@ public sealed partial class GhoulSystem : EntitySystem
     private void OnExamine(Entity<GhoulComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("examine-system-cant-see-entity"));
+    }
+
+    private void OnMobStateChange(Entity<GhoulComponent> ent, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Dead)
+            _body.GibBody(ent);
     }
 }
