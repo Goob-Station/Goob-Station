@@ -35,7 +35,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
-            var tile = _prot.Index<ContentTileDefinition>("FloorSnow");
+            var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
             _tile.ReplaceTile(tileref, tile);
         }
     }
@@ -51,7 +51,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         if (HasComp<HereticComponent>(args.OtherEntity) || HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(5f), false);
+        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();

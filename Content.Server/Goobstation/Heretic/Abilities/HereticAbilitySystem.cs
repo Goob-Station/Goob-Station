@@ -26,6 +26,7 @@ using Robust.Server.GameObjects;
 using Content.Shared.Stunnable;
 using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
+using Content.Shared.Throwing;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -54,6 +55,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly VomitSystem _vomit = default!;
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly ThrowingSystem _throw = default!;
 
     private List<EntityUid> GetNearbyPeople(EntityUid ent, float range)
     {

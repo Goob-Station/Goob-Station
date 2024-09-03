@@ -28,6 +28,8 @@
       sprite: Goobstation/Heretic/abilities_heretic.rsi
       state: void_phase
     event: !type:HereticVoidBlinkEvent
+    checkCanAccess: false
+    range: 0
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-phase

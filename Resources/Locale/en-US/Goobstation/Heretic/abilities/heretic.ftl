@@ -33,8 +33,8 @@ heretic-speech-flesh-worm = REALITY UNCOIL!!
 heretic-speech-rust-spread = A'GRSV SPR'D
 heretic-speech-rust-plume = 'NTR'P'C PL'M'
 
-heretic-speech-void-blast = FR'ZE!
-heretic-speech-void-phase = RE'L'TY PH'S'E!
+heretic-speech-void-blast = F'RZ'E!
+heretic-speech-void-phase = RE'L'T' PH'S'E!
 heretic-speech-void-pull = BR'NG F'RTH TH'M T' M'!!
 
 heretic-speech-cleave = CL'VE

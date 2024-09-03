@@ -46,11 +46,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _phys.SetBodyStatus(rod, phys, BodyStatus.InAir);
 
             var xform = Transform(rod);
-            var worldRot = xform.WorldRotation;
-            var vel = worldRot.RotateVec(Transform(rod).WorldRotation.ToVec()) * 15f;
+            var vel = Transform(ent).WorldRotation.ToWorldVec() * 15f;
 
-            _phys.ApplyLinearImpulse(rod, vel, body: phys);
-            xform.LocalRotation = (vel - xform.WorldPosition).ToWorldAngle() + MathHelper.PiOver2;
+            _phys.SetLinearVelocity(rod, vel, body: phys);
+            xform.LocalRotation = Transform(ent).LocalRotation;
         }
 
         args.Handled = true;
@@ -66,7 +65,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         foreach (var pookie in GetNearbyPeople(ent, 2f))
             _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
 
-        _transform.SetWorldPosition(ent, args.Target.Position);
+        _transform.SetCoordinates(ent, args.Target);
 
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
@@ -84,12 +83,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var topPriority = GetNearbyPeople(ent, 1.5f);
         var midPriority = GetNearbyPeople(ent, 2.5f);
-        var farPriority = GetNearbyPeople(ent, 4f);
+        var farPriority = GetNearbyPeople(ent, 5f);
 
         // damage closest ones
         foreach (var pookie in topPriority)
             if (TryComp<DamageableComponent>(pookie, out var dmg))
-                _dmg.SetAllDamage(pookie, dmg, dmg.TotalDamage + 10f);
+                _dmg.SetAllDamage(pookie, dmg, dmg.TotalDamage + .5f);
 
         // stun close-mid range
         foreach (var pookie in midPriority)
@@ -97,16 +96,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         // pull in farthest ones
         foreach (var pookie in farPriority)
-        {
-            if (TryComp(pookie, out PhysicsComponent? phys))
-            {
-                var xform = Transform(pookie);
-                var worldRot = xform.WorldRotation;
-                var vel = worldRot.RotateVec(Transform(ent).WorldRotation.ToVec()) * 15f;
-
-                _phys.ApplyLinearImpulse(pookie, vel, body: phys);
-            }
-        }
+            _throw.TryThrow(pookie, Transform(ent).Coordinates);
 
         args.Handled = true;
     }

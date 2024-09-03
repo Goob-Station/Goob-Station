@@ -87,14 +87,19 @@ namespace Content.Server.Heretic.Ritual;
         for (int i = 0; i < Max; i++)
         {
             var isCommand = args.EntityManager.HasComponent<CommandStaffComponent>(uids[i]);
-            var knowledgeGain = isCommand ? 2f : 99f; // 1f;
+            var knowledgeGain = isCommand ? 2f : 1f;
 
-            if (_mind.TryGetMind(args.Performer, out var mindId, out var mind)
-            && _mind.TryGetObjectiveComp<HereticSacrificeConditionComponent>(mindId, out var objective, mind))
+            if (_mind.TryGetMind(args.Performer, out var mindId, out var mind))
             {
-                if (objective.IsCommand && isCommand)
-                    objective.Sacrificed += 1;
-                else objective.Sacrificed += 1;
+                // this is godawful dogshit. but it works :)
+                if (_mind.TryFindObjective((mindId, mind), "HereticSacrificeObjective", out var crewObj)
+                && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewObj, out var crewObjComp))
+                    crewObjComp.Sacrificed += 1;
+
+                if (_mind.TryFindObjective((mindId, mind), "HereticSacrificeHeadObjective", out var crewHeadObj)
+                && args.EntityManager.TryGetComponent<HereticSacrificeConditionComponent>(crewHeadObj, out var crewHeadObjComp)
+                && isCommand)
+                    crewHeadObjComp.Sacrificed += 1;
             }
 
             if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
