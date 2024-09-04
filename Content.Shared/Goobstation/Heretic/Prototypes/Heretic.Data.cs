@@ -4,7 +4,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic.Prototypes;
 
+[Serializable, NetSerializable]
 [Prototype("hereticKnowledge")]
+[DataDefinition] 
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -18,14 +20,16 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     /// </summary>
     [DataField] public bool SideKnowledge = false;
 
-    [DataField] [NonSerialized] public EntityEventArgs? Event;
+    [DataField] public object? Event;
 
     [DataField] public List<ProtoId<HereticRitualPrototype>>? RitualPrototypes;
 
     [DataField] public List<EntProtoId>? ActionPrototypes;
 }
 
+[Serializable, NetSerializable]
 [Prototype("hereticRitual")]
+[DataDefinition]
 public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -54,7 +58,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     What event will be raised on success?
     /// </summary>
-    [DataField] [NonSerialized] public object? OutputEvent;
+    [DataField] public object? OutputEvent;
     /// <summary>
     ///     What knowledge will be given on success?
     /// </summary>
