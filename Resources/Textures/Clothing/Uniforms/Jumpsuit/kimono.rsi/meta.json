@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprite by joestarguy, code by kxvvv, reptilian made by SonicDC(821343860961706054)",
+  "copyright": "Sprite by joestarguy, code by kxvvv",
   "size": {
     "x": 32,
     "y": 32
@@ -12,10 +12,6 @@
     },
     {
       "name": "equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-INNERCLOTHING-reptilian",
       "directions": 4
     },
     {
