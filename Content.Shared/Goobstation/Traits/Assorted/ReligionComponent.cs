@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared.Traits.Assorted;
 
 /// <summary>
-/// Used for religions. Systems will check for this component and its field in order to determine if religion based interactions occur.
+/// Used for religions. Systems will check for this component and its fields in order to determine if religion based interactions occur.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ReligionComponent : Component
@@ -12,7 +12,14 @@ public sealed partial class ReligionComponent : Component
     /// <summary>
     /// The religion of the entity with this component
     /// </summary>
-    [DataField]
+    [DataField("religion")]
     [AutoNetworkedField]
     public string? Religion = null;
+
+    /// <summary>
+    /// boolean of if the religion is an anti-theistic religion
+    /// </summary>
+    [DataField("isAtheist")]
+    [AutoNetworkedField]
+    public bool IsAtheist = false;
 }
