@@ -26,8 +26,8 @@ namespace Content.Server.Heretic.Ritual;
 
         var mix = _atmos.GetTileMixture(args.Platform);
 
-        if (mix == null)
-            return false;
+        if (mix == null || mix.TotalMoles == 0) // just accept space as it is
+            return true;
 
         if (mix.Temperature > Atmospherics.T0C + MaxThreshold)
         {

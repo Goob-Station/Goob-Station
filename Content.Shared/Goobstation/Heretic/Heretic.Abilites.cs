@@ -83,8 +83,8 @@ public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent {
 public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 
 // void (including upgrades)
-[Serializable, NetSerializable] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
-[Serializable, NetSerializable] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
