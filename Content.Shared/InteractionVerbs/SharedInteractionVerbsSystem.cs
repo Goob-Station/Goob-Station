@@ -1,11 +1,14 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._EinsteinEngines.Contests;
 using Content.Shared.DoAfter;
 using Content.Shared.Ghost;
+using Content.Shared.Interaction;
 using Content.Shared.InteractionVerbs.Events;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -22,9 +25,12 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
     private readonly InteractionAction.VerbDependencies _verbDependencies = new();
     private List<InteractionVerbPrototype> _globalPrototypes = default!;
 
+    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfters = default!;
+    [Dependency] private readonly SharedContainerSystem _containers = default!;
     [Dependency] private readonly ContestsSystem _contests = default!;
+    [Dependency] private readonly SharedInteractionSystem _interactions = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
@@ -97,7 +103,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
     public bool StartVerb(InteractionVerbPrototype proto, InteractionArgs args, bool force = false)
     {
         if (!TryComp<OwnInteractionVerbsComponent>(args.User, out var ownInteractions)
-            || !force && CheckVerbCooldown(proto, args, out _, ownInteractions))
+            || !force && !CheckVerbCooldown(proto, args, out _, ownInteractions))
             return false;
 
         // If contest advantage wasn't calculated yet, calculate it now and ensure it's in the allowed range
@@ -201,43 +207,24 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
             DebugTools.AssertNotEqual(proto.Abstract, true, "Attempted to add a verb with an abstract prototype.");
 
             var name = proto.Name;
-            if (!proto.AllowSelfInteract && args.User == args.Target
-                || args.Verbs.Any(v => v.Text == name)
-                || !Transform(args.User).Coordinates.TryDistance(EntityManager, Transform(args.Target).Coordinates, out var distance)
-            )
+            if (args.Verbs.Any(v => v.Text == name))
                 continue;
-
-            var isInvalid = proto.RequiresHands && args.Hands is null
-                || proto.RequiresCanInteract && !args.CanInteract
-                || !proto.Range.IsInRange(distance);
 
             var verbArgs = InteractionArgs.From(args);
-            // Calculate contest advantage early if required
-            if (proto.ContestAdvantageRange is not null)
-            {
-                CalculateAdvantage(proto, ref verbArgs, out var canPerform);
-                isInvalid |= !canPerform;
-            }
+            var isEnabled = PerformChecks(proto, ref verbArgs, out var skipAdding, out var errorLocale);
 
-            var isRequirementMet = proto.Requirement?.IsMet(verbArgs, proto, _verbDependencies) != false;
-            if (!isRequirementMet && proto.HideByRequirement)
-                continue;
-
-            // TODO: we skip this check since the client is not aware of actions. This should be changed, maybe make actions mixed server/client?
-            var isAllowed = proto.Action?.IsAllowed(verbArgs, proto, _verbDependencies) == true || _net.IsClient;
-            if (!isAllowed && proto.HideWhenInvalid)
+            if (skipAdding)
                 continue;
 
             var verb = factory.Invoke();
             CopyVerbData(proto, verb);
-            verb.Disabled = isInvalid || !isRequirementMet || !isAllowed;
-            if (!verb.Disabled)
-                verb.Act = () => StartVerb(proto, verbArgs);
-            else
-                verb.Message = Loc.GetString("interaction-verb-invalid");
+            verb.Act = () => StartVerb(proto, verbArgs);
+            verb.Disabled = !isEnabled;
 
-            // This just marks the verb as disabled without removing the action so the user can still try to use it.
-            if (CheckVerbCooldown(proto, verbArgs, out var remainingTime, ownInteractions))
+            if (!isEnabled)
+                verb.Message = Loc.GetString(errorLocale!);
+
+            if (isEnabled && !CheckVerbCooldown(proto, verbArgs, out var remainingTime, ownInteractions))
             {
                 verb.Disabled = true;
                 verb.Message = Loc.GetString("interaction-verb-cooldown", ("seconds", remainingTime.TotalSeconds));
@@ -245,6 +232,64 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
             args.Verbs.Add(verb);
         }
+    }
+
+    /// <summary>
+    ///     Performs all requirement/action checks on the verb. Returns true if the verb can be executed right now.
+    ///     The skipAdding output param indicates whether the caller should skip adding this verb to the verb list, if applicable.
+    /// </summary>
+    private bool PerformChecks(InteractionVerbPrototype proto, ref InteractionArgs args, out bool skipAdding, [NotNullWhen(false)] out string? errorLocale)
+    {
+        if (!proto.AllowSelfInteract && args.User == args.Target
+            || !Transform(args.User).Coordinates.TryDistance(EntityManager, Transform(args.Target).Coordinates, out var distance))
+        {
+            skipAdding = true;
+            errorLocale = "interaction-verb-invalid-target";
+            return false;
+        }
+
+        if (proto.Requirement?.IsMet(args, proto, _verbDependencies) == false)
+        {
+            skipAdding = proto.HideByRequirement;
+            errorLocale = "interaction-verb-invalid";
+            return false;
+        }
+
+        // TODO: we skip this check since the client is not aware of actions. This should be changed, maybe make actions mixed server/client?
+        if (proto.Action?.IsAllowed(args, proto, _verbDependencies) != true && !_net.IsClient)
+        {
+            skipAdding = proto.HideWhenInvalid;
+            errorLocale = "interaction-verb-invalid";
+            return false;
+        }
+
+        skipAdding = false;
+        if (proto.RequiresHands && !args.HasHands)
+        {
+            errorLocale = "interaction-verb-no-hands";
+            return false;
+        }
+
+        if (proto.RequiresCanInteract && args is not { CanInteract: true, CanAccess: true } || !proto.Range.IsInRange(distance))
+        {
+            errorLocale = "interaction-verb-cannot-reach";
+            return false;
+        }
+
+        // Calculate contest advantage early if required
+        if (proto.ContestAdvantageRange is not null)
+        {
+            CalculateAdvantage(proto, ref args, out var canPerform);
+
+            if (!canPerform)
+            {
+                errorLocale = "interaction-verb-too-" + (args.ContestAdvantage > 1f ? "strong" : "weak");
+                return false;
+            }
+        }
+
+        errorLocale = null;
+        return true;
     }
 
     /// <summary>
@@ -282,7 +327,7 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Checks if the verb is on cooldown. Returns true if it still is.
+    ///     Checks if the verb is on cooldown. Returns true if the verb can be used right now.
     /// </summary>
     private bool CheckVerbCooldown(InteractionVerbPrototype proto, InteractionArgs args, out TimeSpan remainingTime, OwnInteractionVerbsComponent? comp = null)
     {
@@ -292,10 +337,10 @@ public abstract class SharedInteractionVerbsSystem : EntitySystem
 
         var cooldownTarget = proto.GlobalCooldown ? EntityUid.Invalid : args.Target;
         if (!comp.Cooldowns.TryGetValue((proto.ID, cooldownTarget), out var cooldown))
-            return false;
+            return true;
 
         remainingTime = cooldown - _timing.CurTime;
-        return remainingTime > TimeSpan.Zero;
+        return remainingTime <= TimeSpan.Zero;
     }
 
     private void StartVerbCooldown(InteractionVerbPrototype proto, InteractionArgs args, TimeSpan cooldown, OwnInteractionVerbsComponent? comp = null)

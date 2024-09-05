@@ -20,7 +20,7 @@
   requiresCanInteract: true
   contactInteraction: true
   range:
-    max: 2
+    max: 1.2
   effectSuccess:
     popup: Obvious
     sound: {path: /Audio/Effects/thudswoosh.ogg}
