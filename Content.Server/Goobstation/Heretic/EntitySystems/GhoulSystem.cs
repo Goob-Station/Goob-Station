@@ -17,6 +17,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Nutrition.AnimalHusbandry;
@@ -63,8 +64,11 @@ public sealed partial class GhoulSystem : EntitySystem
         }
 
         _rejuvenate.PerformRejuvenate(ent);
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, Shared.Mobs.MobState.Dead);
-        _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.5f, Shared.Mobs.MobState.Critical);
+        if (TryComp<MobThresholdsComponent>(ent, out var th))
+        {
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth, MobState.Dead, th);
+            _threshold.SetMobStateThreshold(ent, ent.Comp.TotalHealth / 1.25f, MobState.Critical, th);
+        }
 
         MakeSentientCommand.MakeSentient(ent, EntityManager);
 

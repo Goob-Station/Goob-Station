@@ -36,6 +36,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
+      90: Critical
       100: Dead
   - type: MeleeWeapon
     altDisarm: false
@@ -101,7 +102,7 @@
   description: An abomination stitched together from a few severed arms and one swollen, orphaned eye.
   components:
   - type: Ghoul
-    totalHealth: 65
+    totalHealth: 75
   - type: Sprite
     noRot: true
     sprite: Goobstation/Heretic/eldritch_mobs.rsi
