@@ -6,24 +6,28 @@
   name: uplink-pistol-viper-name
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 14 # this +1 mag = 20 TC
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkRevolverPython
   name: uplink-revolver-python-name
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 24 # Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -31,12 +35,14 @@
   name: uplink-pistol-cobra-name
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 17 # this +1 mag = 25 TC
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -55,13 +61,15 @@
   name: uplink-esword-name
   description: uplink-esword-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   productEntity: EnergySword
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEnergyDagger
@@ -69,12 +77,14 @@
   description: uplink-edagger-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_dagger.rsi, state: icon }
   productEntity: EnergyDaggerBox
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -82,30 +92,37 @@
   description: uplink-knives-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: throwing_knives }
   productEntity: ThrowingKnivesKit
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # Pretty weak, but resusable ranged crit potential shouldn't be less.
   categories:
     - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGlovesNorthStar
   name: uplink-gloves-north-star-name
   description: uplink-gloves-north-star-desc
   productEntity: ClothingHandsGlovesNorthStar
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkDisposableTurret
   name: uplink-disposable-turret-name
   description: uplink-disposable-turret-desc
   productEntity: ToolboxElectricalTurretFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
@@ -116,7 +133,6 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEshield
@@ -124,6 +140,9 @@
   description: uplink-eshield-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
@@ -134,7 +153,6 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSniperBundle
@@ -142,12 +160,14 @@
   description: uplink-sniper-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Snipers/heavy_sniper.rsi, state: base }
   productEntity: BriefcaseSyndieSniperBundleFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 30
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 80 # increase price by a lot when the thing has a scope
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkC20RBundle
@@ -155,12 +175,14 @@
   description: uplink-c20r-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 50
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 85
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBulldogBundle
@@ -168,12 +190,14 @@
   description: uplink-buldog-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 60
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 100
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -181,12 +205,14 @@
   description: uplink-grenade-launcher-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Launchers/china_lake.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 100
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 150
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkL6SawBundle
@@ -194,12 +220,14 @@
   description: uplink-l6-saw-bundle-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 120
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 150
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
 
 # Explosives
 
@@ -208,12 +236,14 @@
   name: uplink-explosive-grenade-name
   description: uplink-explosive-grenade-desc
   productEntity: ExGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 12 # Better than C4 combat wise, less utility elsewhere. Don't want crazy spam on ops however.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkExplosiveGrenadeFlash
@@ -225,7 +255,6 @@
     Telecrystal: 4 # grenade balancing applies
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSmokeGrenade
@@ -237,49 +266,57 @@
     Telecrystal: 4 # grenade balancing applies
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndieMiniBomb
   name: uplink-mini-bomb-name
   description: uplink-mini-bomb-desc
   productEntity: SyndieMiniBomb
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 32
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSupermatterGrenade
   name: uplink-supermatter-grenade-name
   description: uplink-supermatter-grenade-desc
   productEntity: SupermatterGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 28
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkWhiteholeGrenade
   name: uplink-whitehole-grenade-name
   description: uplink-whitehole-grenade-desc
   productEntity: WhiteholeGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 8 # it's an emergency escape tool and distraction, not a real nade.
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGrenadePenguin
   name: uplink-penguin-grenade-name
   description: uplink-penguin-grenade-desc
   productEntity: MobGrenadePenguin
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 25
@@ -290,25 +327,29 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkC4
   name: uplink-c4-name
   description: uplink-c4-desc
   productEntity: C4
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 8 # We have a ten tens or 100 TC system, lets use the bastard. Better than 13's yet 10 TC's a pretty crappy price.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGrenadierRig
   name: uplink-grenadier-rig-name
   description: uplink-grenadier-rig-desc
   productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 30
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 50
@@ -319,31 +360,33 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkC4Bundle
   name: uplink-c4-bundle-name
   description: uplink-c4-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 40
   cost:
-    # Goobstation - Telecrystal rework
-    Telecrystal: 50 # All in the C4s, are we now??? not a clean number, but slightly less than 25% cheaper than the contents
+    Telecrystal: 60 #you're buying bulk so its a 25% discount, so no additional random discount over it
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEmpGrenade
   name: uplink-emp-grenade-name
   description: uplink-emp-grenade-desc
   productEntity: EmpGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 8 # Pretty decent, but underused for a reason at 10 TC.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkExplodingPen
@@ -351,12 +394,14 @@
   description: uplink-exploding-pen-desc
   icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
   productEntity: PenExplodingBox
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 16
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateBomb
@@ -396,48 +441,56 @@
   name: uplink-cluster-grenade-name
   description: uplink-cluster-grenade-desc
   productEntity: ClusterGrenade
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 25
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 28 # Best grenade in the game currently, but very hard to predict how it explodes.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGrenadeShrapnel
   name: uplink-shrapnel-grenade-name
   description: uplink-shrapnel-grenade-desc
   productEntity: GrenadeShrapnel
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 16 # Better than the normal nade, but not by much.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkGrenadeIncendiary
   name: uplink-incendiary-grenade-name
   description: uplink-incendiary-grenade-desc
   productEntity: GrenadeIncendiary
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEmpKit
   name: uplink-emp-kit-name
   description: uplink-emp-kit-desc
   productEntity: ElectricalDisruptionKit
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
 
 # Ammo
 
@@ -544,12 +597,14 @@
   description: uplink-hypopen-desc
   icon: { sprite: /Textures/Objects/Misc/pens.rsi, state: pen }
   productEntity: HypopenBox
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHypoDart
@@ -557,12 +612,14 @@
   description: uplink-hypodart-desc
   icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
   productEntity: HypoDartBox
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkChemistryKitBundle
@@ -570,12 +627,14 @@
   description: uplink-chemistry-kit-desc
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
   productEntity: ChemicalSynthesisKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkZombieBundle
@@ -603,78 +662,93 @@
   name: uplink-nocturine-chemistry-bottle-name
   description: uplink-nocturine-chemistry-bottle-desc
   productEntity: NocturineChemistryBottle
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCombatMedkit
   name: uplink-combat-medkit-name
   description: uplink-combat-medkit-desc
   productEntity: MedkitCombatFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 25
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCombatMedipen
   name: uplink-combat-medipen-name
   description: uplink-combat-medipen-desc
   productEntity: CombatMedipen
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkStimpack
   name: uplink-stimpack-name
   description: uplink-stimpack-desc
   productEntity: Stimpack
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 7
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10 # 1 TC per 3 seconds.
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkStimkit
   name: uplink-stimkit-name
   description: uplink-stimkit-desc
   productEntity: StimkitFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCigarettes
   name: uplink-cigarettes-name
   description: uplink-cigarettes-desc
   productEntity: CigPackSyndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkMedsBundle
   name: uplink-meds-bundle-name
   description: uplink-meds-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateMedicalBundleFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 60
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 100
@@ -689,7 +763,6 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 # Deception
 
@@ -698,36 +771,42 @@
   name: uplink-agent-id-card-name
   description: uplink-agent-id-card-desc
   productEntity: AgentIDCard
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 15
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkStealthBox
   name: uplink-stealth-box-name
   description: uplink-stealth-box-desc
   productEntity: StealthBox
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # 20 TC's a balance tier, and the stealth box's not good enough to lose a 20/40/80 TC item for.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkChameleonProjector
   name: uplink-chameleon-projector-name
   description: uplink-chameleon-projector-desc
   productEntity: ChameleonProjector
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30 # Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHeadsetEncryptionKey
@@ -735,12 +814,14 @@
   description: uplink-encryption-key-desc
   icon: { sprite: /Textures/Objects/Devices/encryption_keys.rsi, state: synd_label }
   productEntity: BoxEncryptionKeySyndie # Two for the price of one
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -781,24 +862,28 @@
   name: uplink-ultrabright-lantern-name
   description: uplink-ultrabright-lantern-desc
   productEntity: LanternFlash
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBribe
   name: uplink-bribe-name
   description: uplink-bribe-desc
   productEntity: BriefcaseSyndieLobbyingBundleFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
     - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 # - type: listing
 #   id: UplinkGigacancerScanner
@@ -816,18 +901,23 @@
   description: uplink-decoy-kit-desc
   icon: { sprite: /Textures/Objects/Tools/Decoys/operative_decoy.rsi, state: folded }
   productEntity: ClothingBackpackDuffelSyndicateDecoyKitFilled
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # total meme item.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateBombFake
   name: uplink-exploding-syndicate-bomb-fake-name
   description: uplink-exploding-syndicate-bomb-fake-desc
   productEntity: SyndicateBombFake
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
@@ -841,36 +931,42 @@
   name: uplink-emag-name
   description: uplink-emag-desc
   productEntity: Emag
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkRadioJammer
   name: uplink-radio-jammer-name
   description: uplink-radio-jammer-desc
   productEntity: RadioJammer
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateWeaponModule
   name: uplink-syndicate-weapon-module-name
   description: uplink-syndicate-weapon-module-desc
   productEntity: BorgModuleSyndicateWeapon
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 25
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateMartyrModule
@@ -878,12 +974,14 @@
   description: uplink-syndicate-martyr-module-desc
   productEntity: BorgModuleMartyr
   icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
     - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSoapSyndie
@@ -895,61 +993,71 @@
     Telecrystal: 5
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
   name: uplink-slipocalypse-clustersoap-name
   description: uplink-slipocalypse-clustersoap-desc
   productEntity: SlipocalypseClusterSoap
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 12 # Not a GREAT item but has some effects. Bomb Balance.
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkToolbox
   name: uplink-toolbox-name
   description: uplink-toolbox-desc
   productEntity: ToolboxSyndicateFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateJawsOfLife
   name: uplink-syndicate-jaws-of-life-name
   description: uplink-syndicate-jaws-of-life-desc
   productEntity: SyndicateJawsOfLife
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkDuffelSurgery
   name: uplink-duffel-surgery-name
   description: uplink-duffel-surgery-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledMedical
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkPowerSink
   name: uplink-power-sink-name
   description: uplink-power-sink-desc
   productEntity: PowerSink
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 32 # worse synd bomb. Requires real skill to pull off. Can get 3, but that blocks any decent item. Bomb balancing applies here.
@@ -960,7 +1068,6 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSurplusBundle
@@ -981,7 +1088,6 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -1002,19 +1108,20 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
 
 - type: listing
   id: UplinkSingarityBeacon
   name: uplink-singularity-beacon-name
   description: uplink-singularity-beacon-desc
   productEntity: SingularityBeacon
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 60
   categories:
     - UplinkDisruption
-  saleLimit: 1 # WD EDIT
 
 # Allies
 
@@ -1024,6 +1131,9 @@
   description: uplink-holopara-kit-desc
   icon: { sprite: /Textures/Objects/Misc/guardian_info.rsi, state: icon }
   productEntity: BoxHoloparasite
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 40
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 70
@@ -1034,7 +1144,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
@@ -1042,6 +1151,9 @@
   description: uplink-reinforcement-radio-traitor-desc
   productEntity: ReinforcementRadioSyndicate
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-urist }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 55
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 70
@@ -1052,7 +1164,6 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 # Goobstation - Nukeop reinforcement
 - type: listing
@@ -1071,7 +1182,6 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateCyborgAssault
@@ -1089,7 +1199,6 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor
@@ -1097,6 +1206,9 @@
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestor
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
@@ -1107,7 +1219,6 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestorNukeops # Version for Nukeops that spawns a syndicate monkey with the NukeOperative component.
@@ -1115,6 +1226,9 @@
   description: uplink-reinforcement-radio-ancestor-desc
   productEntity: ReinforcementRadioSyndicateAncestorNukeops
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-ancestor }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40 # Nuke ops have a lot of free gear, and synd eva a common one has been buffed so these need to cost more
@@ -1125,13 +1239,15 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCarpDehydrated
   name: uplink-carp-dehydrated-name
   description: uplink-carp-dehydrated-desc
   productEntity: DehydratedSpaceCarp
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
@@ -1142,7 +1258,6 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkMobCatMicrobomb
@@ -1150,12 +1265,14 @@
   description: uplink-mobcat-microbomb-desc
   icon: { sprite: Objects/Devices/communication.rsi, state: old-radio-syndicat }
   productEntity: ReinforcementRadioSyndicateSyndiCat
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
   categories:
     - UplinkAllies
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicatePersonalAI
@@ -1171,7 +1288,6 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1 # WD EDIT
 
 # Implants
 
@@ -1181,6 +1297,9 @@
   description: uplink-storage-implanter-desc
   icon: { sprite: /Textures/Clothing/Back/Backpacks/backpack.rsi, state: icon }
   productEntity: StorageImplanter
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
@@ -1191,7 +1310,6 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkFreedomImplanter
@@ -1199,12 +1317,14 @@
   description: uplink-freedom-implanter-desc
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: freedom }
   productEntity: FreedomImplanter
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 25
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkScramImplanter
@@ -1212,12 +1332,14 @@
   description: uplink-scram-implanter-desc
   icon: { sprite: /Textures/Structures/Specific/anomaly.rsi, state: anom4 }
   productEntity: ScramImplanter
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkDnaScramblerImplant
@@ -1225,12 +1347,14 @@
   description: uplink-dna-scrambler-implanter-desc
   icon: { sprite: /Textures/Mobs/Species/Human/parts.rsi, state: full }
   productEntity: DnaScramblerImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 25
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEmpImplanter
@@ -1238,12 +1362,14 @@
   description: uplink-emp-implanter-desc
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: shield }
   productEntity: EmpImplanter
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1265,7 +1391,6 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkMacroBombImplanter
@@ -1287,7 +1412,6 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1305,7 +1429,6 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
@@ -1313,6 +1436,9 @@
   description: uplink-uplink-implanter-desc
   icon: { sprite: /Textures/Objects/Devices/communication.rsi, state: radio }
   productEntity: UplinkImplanter
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
@@ -1323,7 +1449,6 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkDeathRattle
@@ -1344,7 +1469,6 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 # Wearables
 
@@ -1353,24 +1477,28 @@
   name: uplink-black-jetpack-name
   description: uplink-black-jetpack-desc
   productEntity: JetpackBlackFilled
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkVoiceMask
   name: uplink-voice-mask-name
   description: uplink-voice-mask-desc
   productEntity: ClothingMaskGasVoiceChameleon
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHolster
@@ -1382,7 +1510,6 @@
     Telecrystal: 2 # Pointless and valid.
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkChestRig
@@ -1394,7 +1521,6 @@
     Telecrystal: 4
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkChameleon
@@ -1402,60 +1528,70 @@
   description: uplink-chameleon-desc
   productEntity: ClothingBackpackChameleonFill
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
     - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingNoSlipsShoes
   name: uplink-clothing-no-slips-shoes-name
   description: uplink-clothing-no-slips-shoes-desc
   productEntity: ClothingShoesChameleonNoSlips
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkgClothingThievingGloves
   name: uplink-clothing-thieving-gloves-name
   description: uplink-clothing-thieving-gloves-desc
   productEntity: ThievingGloves
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterVestWeb
   name: uplink-clothing-outer-vest-web-name
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # Locks out some stronger items. Also 20 TC Tier makes more sense.
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
   name: uplink-clothing-shoes-boots-mag-syndie-name
   description: uplink-clothing-shoes-boots-mag-syndie-desc
   productEntity: ClothingShoesBootsMagSyndie
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkEVASyndie
@@ -1463,12 +1599,14 @@
   description: uplink-eva-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/eva_syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEVABundle
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20 # Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHardsuitCarp
@@ -1476,12 +1614,14 @@
   description: uplink-hardsuit-carp-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Suits/carpsuit.rsi, state: icon }
   productEntity: ClothingOuterHardsuitCarp
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHardsuitSyndie
@@ -1489,12 +1629,14 @@
   description: uplink-hardsuit-syndie-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndicate.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1511,7 +1653,6 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHardsuitSyndieElite
@@ -1519,12 +1660,14 @@
   description: uplink-hardsuit-syndieelite-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 35
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 70
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -1532,12 +1675,14 @@
   description: uplink-clothing-outer-hardsuit-juggernaut-desc
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/cybersun.rsi, state: icon } # goobstation - duke nukies
   productEntity: CrateCybersunJuggernautBundle
+  discountCategory: veryRareDiscounts
+  discountDownTo:
+    Telecrystal: 40
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 100
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
@@ -1554,7 +1699,6 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClothingConductingGloves
@@ -1566,7 +1710,6 @@
     Telecrystal: 10
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -1578,7 +1721,6 @@
     Telecrystal: 4 # Pointless valid item.
   categories:
     - UplinkWearables
-  saleLimit: 1 # WD EDIT
 
  # Pointless
 
@@ -1609,6 +1751,9 @@
   name: uplink-revolver-cap-gun-name
   description: uplink-revolver-cap-gun-desc
   productEntity: RevolverCapGun
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 4 # Funny, but not 20 TC Funny.
@@ -1620,12 +1765,14 @@
   name: uplink-syndicate-stamp-name
   description: uplink-syndicate-stamp-desc
   productEntity: RubberStampSyndicate
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 3
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 8 # Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCatEars
@@ -1637,7 +1784,6 @@
     Telecrystal: 130
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkOutlawHat
@@ -1682,7 +1828,6 @@
     Telecrystal: 10
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCarpSuitBundle
@@ -1727,7 +1872,6 @@
     Telecrystal: 100
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkScarfSyndieRed
@@ -1758,6 +1902,9 @@
   name: uplink-gatfruit-seeds-name
   description: uplink-gatfruit-seeds-desc
   productEntity: GatfruitSeeds
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
@@ -1767,13 +1914,15 @@
   - !type:BuyerJobCondition
     whitelist:
     - Botanist
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkRiggedBoxingGlovesPassenger # Remove when contractor baton gets added- and yes, i'm working on that - Goobstation, Fenn :3
   name: uplink-rigged-boxing-gloves-name
   description: uplink-rigged-boxing-gloves-desc
   productEntity: ClothingHandsGlovesBoxingRigged
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 30
@@ -1783,13 +1932,15 @@
     - !type:BuyerJobCondition
       whitelist:
         - Passenger
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkRiggedBoxingGlovesBoxer
   name: uplink-rigged-boxing-gloves-name
   description: uplink-rigged-boxing-gloves-desc
   productEntity: ClothingHandsGlovesBoxingRigged
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
@@ -1799,13 +1950,15 @@
     - !type:BuyerJobCondition
       whitelist:
         - Boxer
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkNecronomicon
   name: uplink-necronomicon-name
   description: uplink-necronomicon-desc
   productEntity: BibleNecronomicon
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 20
@@ -1819,13 +1972,15 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkHolyHandGrenade
   name: uplink-holy-hand-grenade-name
   description: uplink-holy-hand-grenade-desc
   productEntity: HolyHandGrenade
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 70
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 100
@@ -1835,13 +1990,15 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chaplain
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkRevolverCapGunFake
   name: uplink-revolver-cap-gun-fake-name
   description: uplink-revolver-cap-gun-fake-desc
   productEntity: RevolverCapGunFake
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 20
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 28
@@ -1852,7 +2009,6 @@
     whitelist:
     - Mime
     - Clown
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkBananaPeelExplosive
@@ -1860,6 +2016,9 @@
   description: uplink-banana-peel-explosive-desc
   icon: { sprite: Objects/Specific/Hydroponics/banana.rsi, state: peel }
   productEntity: TrashBananaPeelExplosiveUnarmed
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 8
@@ -1869,13 +2028,15 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkClusterBananaPeel
   name: uplink-cluster-banana-peel-name
   description: uplink-cluster-banana-peel-desc
   productEntity: ClusterBananaPeel
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 15
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 24
@@ -1885,7 +2046,6 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkHoloclownKit
@@ -1893,6 +2053,9 @@
   description: uplink-holoclown-kit-desc
   icon: { sprite: /Textures/Objects/Fun/figurines.rsi, state: holoclown }
   productEntity: BoxHoloclown
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 30
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 60
@@ -1902,12 +2065,14 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkHotPotato
   name: uplink-hot-potato-name
   description: uplink-hot-potato-desc
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 10
   productEntity: HotPotato
   cost:
     # Goobstation - Telecrystal rework
@@ -1921,13 +2086,15 @@
     - Botanist
     - Clown
     - Mime
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkChimpUpgradeKit
   name: uplink-chimp-upgrade-kit-name
   description: uplink-chimp-upgrade-kit-desc
   productEntity: WeaponPistolCHIMPUpgradeKit
+  discountCategory: usualDiscounts
+  discountDownTo:
+    Telecrystal: 5
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 10 # Weak but very cheap
@@ -1937,13 +2104,15 @@
     - !type:BuyerDepartmentCondition
       whitelist:
       - Science
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: uplinkProximityMine
   name: uplink-proximity-mine-name
   description: uplink-proximity-mine-desc
   productEntity: WetFloorSignMineExplosive
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 16 # was 20, with my buff made it 25 to be closer to minibomb -panzer well no one uses it! 16 TC better.
@@ -1957,13 +2126,15 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkSyndicateSpongeBox
   name: uplink-syndicate-sponge-box-name
   description: uplink-syndicate-sponge-box-desc
   icon: { sprite:  Objects/Misc/monkeycube.rsi, state: box}
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 20
   productEntity: SyndicateSpongeBox
   cost:
     # Goobstation - Telecrystal rework
@@ -1977,7 +2148,6 @@
     - Scientist
     - ResearchDirector
     - Chef
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCaneBlade
@@ -1985,6 +2155,9 @@
   description: uplink-cane-blade-desc
   icon: { sprite:  Objects/Weapons/Melee/cane.rsi, state: cane}
   productEntity: CaneSheathFilled
+  discountCategory: rareDiscounts
+  discountDownTo:
+    Telecrystal: 10
   cost:
     # Goobstation - Telecrystal rework
     Telecrystal: 40 # E-sword sidegrade
@@ -1998,7 +2171,6 @@
   #  blacklist:
   #    components:
   #    - SurplusBundle
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkCombatBakery
@@ -2015,4 +2187,3 @@
     whitelist:
     - Chef
     - Mime
-  saleLimit: 1 # WD EDIT
