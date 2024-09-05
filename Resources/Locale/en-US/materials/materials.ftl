@@ -26,7 +26,6 @@ materials-web = silk
 materials-bones = bone
 materials-coal = coal
 materials-diamond = diamond
-materials-bscrystal = bluespace crystal
 materials-gunpowder = gunpowder
 
 # Ores
