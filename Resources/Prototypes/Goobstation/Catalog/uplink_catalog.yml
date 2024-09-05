@@ -9,7 +9,6 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -20,7 +19,6 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
 
 # Weaponry
 
@@ -34,7 +32,6 @@
     Telecrystal: 100
   categories:
   - UplinkWeaponry
-  saleLimit: 1
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -45,7 +42,6 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
 
 - type: listing
   id: UplinkMiniatureEnergyCrossbow
@@ -57,7 +53,6 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
 
 # Job specific
 - type: listing
@@ -70,11 +65,11 @@
     Telecrystal: 40
   categories:
   - UplinkJob
+
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1
 
 - type: listing
   id: UplinkLubeGrenade
@@ -90,7 +85,6 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
 
 - type: listing
   id: UplinkGlueGrenade
@@ -106,7 +100,6 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -118,7 +111,6 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
-  saleLimit: 1
 
 # chemicals
 
@@ -131,7 +123,6 @@
     Telecrystal: 28
   categories:
   - UplinkChemicals
-  saleLimit: 1
 
 # Implants
 
@@ -150,4 +141,3 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-  saleLimit: 1

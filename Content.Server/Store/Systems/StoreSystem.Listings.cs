@@ -14,7 +14,6 @@ public sealed partial class StoreSystem
     public void RefreshAllListings(StoreComponent component)
     {
         component.Listings = GetAllListings();
-        _storeDiscount.ApplyDiscounts(component.Listings, component); // goob edit
     }
 
     /// <summary>
