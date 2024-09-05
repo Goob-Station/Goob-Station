@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by @ninruB#7795, based off tgstation's jackboots at commit https://github.com/tgstation/tgstation/commit/7e4e9d432d88981fb9bb463970c5b98ce85c0abe. Vox state modified from jackboots.rsi by Flareguy, reptilian made by kuro(388673708753027083)",
+  "copyright": "Made by @ninruB#7795, based off tgstation's jackboots at commit https://github.com/tgstation/tgstation/commit/7e4e9d432d88981fb9bb463970c5b98ce85c0abe. Vox state modified from jackboots.rsi by Flareguy",
   "size": {
     "x": 32,
     "y": 32
@@ -16,10 +16,6 @@
     },
     {
       "name": "equipped-FEET-vox",
-      "directions": 4
-    },
-    {
-      "name": "equipped-FEET-reptilian",
       "directions": 4
     },
     {
