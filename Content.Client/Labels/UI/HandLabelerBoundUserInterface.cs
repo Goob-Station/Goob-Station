@@ -26,11 +26,6 @@ namespace Content.Client.Labels.UI
 
             _window = this.CreateWindow<HandLabelerWindow>();
 
-            if (_entManager.TryGetComponent(Owner, out HandLabelerComponent? labeler))
-            {
-                _window.SetMaxLabelLength(labeler!.MaxLabelChars);
-            }
-
             _window.OnLabelChanged += OnLabelChanged;
             Reload();
         }

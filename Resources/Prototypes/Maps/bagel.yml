@@ -18,6 +18,7 @@
         - type: StationJobs
           availableJobs:
             #command
+            StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
@@ -63,5 +64,4 @@
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
             #silicon
-            StationAi: [ 1, 1 ]
-            Borg: [ 2, 2 ]
+            Borg: [ 4, 4 ]

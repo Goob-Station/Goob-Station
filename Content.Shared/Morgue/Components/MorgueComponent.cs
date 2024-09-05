@@ -9,18 +9,19 @@ public sealed partial class MorgueComponent : Component
     /// <summary>
     ///     Whether or not the morgue beeps if a living player is inside.
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("doSoulBeep")]
     public bool DoSoulBeep = true;
 
-    [DataField]
+    [ViewVariables]
     public float AccumulatedFrameTime = 0f;
 
     /// <summary>
     ///     The amount of time between each beep.
     /// </summary>
-    [DataField]
+    [ViewVariables]
     public float BeepTime = 10f;
 
-    [DataField]
+    [DataField("occupantHasSoulAlarmSound")]
     public SoundSpecifier OccupantHasSoulAlarmSound = new SoundPathSpecifier("/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg");
 }

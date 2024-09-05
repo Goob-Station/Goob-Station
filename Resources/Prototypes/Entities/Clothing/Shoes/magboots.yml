@@ -1,9 +1,8 @@
 - type: entity
-  parent: [ClothingShoesBase, BaseToggleClothing]
-  id: ClothingShoesBootsMagBase
+  parent: [ClothingShoesBase, BaseToggleClothing, BaseEngineeringContraband]
+  id: ClothingShoesBootsMag
   name: magboots
   description: Magnetic boots, often used during extravehicular activity to ensure the user remains safely attached to the vehicle.
-  abstract: true
   components:
   - type: Sprite
     sprite: Clothing/Shoes/Boots/magboots.rsi
@@ -37,11 +36,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
-  id: ClothingShoesBootsMag
-
-- type: entity
-  parent: [ClothingShoesBootsMagBase, BaseGrandTheftContraband]
+  parent: [ClothingShoesBootsMag, BaseGrandTheftContraband]
   id: ClothingShoesBootsMagAdv
   name: advanced magboots
   description: State-of-the-art magnetic boots that do not slow down their wearer.
@@ -64,7 +59,7 @@
     stealGroup: ClothingShoesBootsMagAdv
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase]
+  parent: ClothingShoesBootsMag
   id: ClothingShoesBootsMagSci
   components:
   - type: Sprite
@@ -73,7 +68,7 @@
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
 
 - type: entity
-  parent: ClothingShoesBootsMagBase
+  parent: ClothingShoesBootsMag
   id: ClothingShoesBootsMagBlinding
   name: magboots of blinding speed
   description: These would look fetching on a fetcher like you.
@@ -85,7 +80,7 @@
     price: 3000
 
 - type: entity
-  parent: [ClothingShoesBootsMagBase, BaseJetpack, BaseSyndicateContraband]
+  parent: [ClothingShoesBootsMag, BaseJetpack, BaseSyndicateContraband]
   id: ClothingShoesBootsMagSyndie
   name: blood-red magboots
   description: Reverse-engineered magnetic boots that have a heavy magnetic pull and integrated thrusters. It can hold 0.75 L of gas.
