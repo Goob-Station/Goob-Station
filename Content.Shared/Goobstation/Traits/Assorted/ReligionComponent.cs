@@ -10,14 +10,14 @@ namespace Content.Shared.Traits.Assorted;
 public sealed partial class ReligionComponent : Component
 {
     /// <summary>
-    /// The religion of the entity with this component
+    /// The religion of the entity
     /// </summary>
     [DataField("religion")]
     [AutoNetworkedField]
     public string? Religion = null;
 
     /// <summary>
-    /// boolean of if the religion is an anti-theistic religion
+    /// boolean of if the entity is an atheist
     /// </summary>
     [DataField("isAtheist")]
     [AutoNetworkedField]

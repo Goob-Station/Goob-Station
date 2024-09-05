@@ -6,6 +6,5 @@
   category: Quirks
   components:
     - type: Religion
-      religion: atheist
       isAtheist: true
 ## Public Domain YAML Ends
