@@ -11,6 +11,9 @@
     - bluespace_crystal
     - bluespace_crystal_2
     - bluespace_crystal_3
+    - bluespace_crystal_5
+    - bluespace_crystal_10
+    - bluespace_crystal_15
   - type: Sprite
     sprite: Goobstation/Objects/Materials/materials.rsi
     state: bluespace_crystal
