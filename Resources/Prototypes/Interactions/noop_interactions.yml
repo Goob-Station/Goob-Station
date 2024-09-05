@@ -19,6 +19,7 @@
   id: WaveAt
   parent: [BaseHands, BaseGlobal]
   priority: 3
+  requiresCanInteract: false
   contactInteraction: false
   range: {max: 20}
   effectSuccess:
