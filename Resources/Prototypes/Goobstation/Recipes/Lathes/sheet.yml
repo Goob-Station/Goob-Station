@@ -1,7 +1,7 @@
 - type: latheRecipe
   id: MaterialBSCrystal
   result: MaterialBSCrystal1
-  completetime: 0
+  completetime: 2
   materials:
     Glass: 500
     Plasma: 500
