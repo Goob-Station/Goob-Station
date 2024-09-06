@@ -1,7 +1,7 @@
 - type: entity
   id: EldritchInfluence
-  name: eldritch influence
-  description: Your eyes... OH GOD, MY EYES!!! I CAN'T STOP LOOKING AT IT!!!
+  name: reality shift
+  description: Your eyes start to burn just from a single look. Should you delve deeper?
   placement:
     mode: SnapgridCenter
   components:
@@ -15,6 +15,8 @@
 - type: entity
   parent: EldritchInfluence
   id: EldritchInfluenceSpent
+  name: reality fracture
+  description: A reality fracture. Something keeps leaking out of it, should you really be near this thing?
   components:
   - type: EldritchInfluence
     spent: true  

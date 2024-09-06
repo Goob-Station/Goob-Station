@@ -16,7 +16,7 @@
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
   Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
-  Hovewer, while it is visible to crew members, they will not be able to see you hervesting it, aside from influence suddenly changing colors.
+  Hovewer, while it is visible to crew members, they will not be able to see you harvesting it, aside from influence suddenly changing colors.
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
   </Box>
@@ -32,7 +32,7 @@
   These runes are highly noticeable and take up a 3x3 area.
   You can freely remove runes by using your pen with the activated [color=green]Mansus Grasp[/color] on it, and you can also freely use other Heretic's runes.
 
-  To **transmute**, simply click the rune with your empty hand to choose the needed ritual, after that use your [color=green]Mansus Grasp[/color] on the rune to see what objects you require for the ritual.
+  To *transmute*, simply click the rune with your empty hand to choose the needed ritual, after that use your [color=green]Mansus Grasp[/color] on the rune to see what objects you require for the ritual.
 
   Transmutation Rituals allow you to create powerful artifacts, demonic monsters, and many useful tools that will help you progress towards ultimate power.
 
@@ -52,6 +52,6 @@
   - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof!
   - Influences can spawn in almost any location on the station, ranging from the main hallways and public restrooms to Command staff offices and restricted security areas in the Brig. It's best to check every area you can access, public and department.
   - By default, nothing on you is incriminating. If security suspects you, but can't actually pin anything heretical on you, you might be able to pass off as a Traitor instead.
-  - Monkeys, and monkey-humans (created by giving a monkey mutadone) make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
+  - Monkeys and other simplemobs make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
   - Most summoned monsters will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
 </Document>

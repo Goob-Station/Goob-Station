@@ -187,6 +187,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
+            ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START
