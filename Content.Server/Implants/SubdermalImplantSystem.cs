@@ -98,7 +98,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     {
         args.Handled = true;
     }
-
+    // Goobstation - BSCrystals - start
     private void OnScramImplant(EntityUid uid, SubdermalImplantComponent component, UseScramImplantEvent args)
     {
         if (component.ImplantedEntity is not { } ent)
@@ -129,6 +129,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         }
         return false;
     }
+    // Goobstation - BSCrystals - end
 
     private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)
     {

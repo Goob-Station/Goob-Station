@@ -12,7 +12,7 @@ public sealed partial class BluespaceCrystalComponent : Component
     /// Up to how far to teleport the user
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadius = 200f;
+    public float TeleportRadius = 150f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
