@@ -894,3 +894,9 @@ Entries:
   changes: []
   id: 114
   time: '2024-09-03T16:28:27.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added back network settings.
+  id: 115
+  time: '2024-09-06T11:58:37.0000000+00:00'
