@@ -5,9 +5,6 @@
   name: uplink-gondola-name
   description: uplink-gondola-desc
   productEntity: CrateNPCGondola
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 20
   cost:
     Telecrystal: 30
   categories:
@@ -19,9 +16,6 @@
   name: Box of Reagent Grenades
   description: Contains 2 Glue grenades and 2 Lube Grenades
   productEntity: BoxReagentGrenades
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 20
   cost:
     Telecrystal: 30
   categories:
@@ -36,9 +30,6 @@
   description: uplink-esword-double-desc
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 80
   cost:
     Telecrystal: 100
   categories:
@@ -50,9 +41,6 @@
   name: uplink-fire-axe-flaming-name
   description: uplink-fire-axe-flaming-desc
   productEntity: FireAxeFlaming
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 35
   cost:
     Telecrystal: 50
   categories:
@@ -65,9 +53,6 @@
   description: uplink-miniature-energy-crossbow-desc
   icon: { sprite:  /Textures/Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
   productEntity: MiniatureEnergyCrossbow
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 35
   cost:
     Telecrystal: 50
   categories:
@@ -81,9 +66,6 @@
   description: uplink-pie-cannon-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Cannons/pie_cannon.rsi, state: piecannon }
   productEntity: LauncherCreamPieRegenerating
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 30
   cost:
     Telecrystal: 40
   categories:
@@ -99,9 +81,6 @@
   name: Lube grenade
   description: Make the floor slippery!
   productEntity: LubeGrenade
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
     Telecrystal: 14
   categories:
@@ -118,9 +97,6 @@
   name: Glue grenade
   description: Make the floor hard to walk in!
   productEntity: GlueGrenade
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 3
   cost:
     Telecrystal: 5
   categories:
@@ -138,9 +114,6 @@
   description: uplink-mobroach-microbomb-desc
   icon: { sprite: Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
   productEntity: ReinforcementRadioSyndicateSyndiRoach
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 20
   cost:
     Telecrystal: 30
   categories:
@@ -154,9 +127,6 @@
   name: uplink-advanced-combat-medipen-name
   description: uplink-advanced-combat-medipen-desc
   productEntity: AdvancedCombatMedipen
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 20
   cost:
     Telecrystal: 28
   categories:
@@ -171,9 +141,6 @@
   description: uplink-mindcontrol-implant-desc
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: MindcontrolImplanter
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 35
   cost:
     Telecrystal: 50 # Half the budget
   categories:
