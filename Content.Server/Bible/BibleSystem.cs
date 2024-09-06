@@ -1,3 +1,5 @@
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -13,6 +15,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -33,6 +36,7 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly FlammableSystem _flammableSystem = default!;
 
         public override void Initialize()
         {
@@ -103,6 +107,21 @@ namespace Content.Server.Bible
             {
                 return;
             }
+
+            //Public Domain Code begin
+            //Atheist trait interaction
+            if (EntityManager.TryGetComponent(args.Target, out ReligionComponent? religion) && religion.IsAtheist)
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bible-atheist"), args.User, args.User, PopupType.MediumCaution);
+                if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
+                {
+                    _flammableSystem.SetFireStacks(args.Target.Value, 1);
+                    _flammableSystem.Ignite(args.Target.Value, args.User);
+                    return;
+                }
+                return;
+            }
+            //Public Domain Code end
 
             if (!HasComp<BibleUserComponent>(args.User))
             {
