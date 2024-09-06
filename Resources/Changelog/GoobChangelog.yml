@@ -909,3 +909,9 @@ Entries:
         again.
   id: 116
   time: '2024-09-06T20:39:46.0000000+00:00'
+- author: starwolfy
+  changes:
+    - type: Tweak
+      message: Buffed standard Security armor.
+  id: 117
+  time: '2024-09-06T21:44:56.0000000+00:00'
