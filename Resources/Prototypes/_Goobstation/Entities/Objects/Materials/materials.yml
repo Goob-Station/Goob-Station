@@ -12,7 +12,7 @@
     - bluespace_crystal_2
     - bluespace_crystal_3
   - type: Sprite
-    sprite: _Goobstation/Objects/Materials/materials.rsi
+    sprite: Goobstation/Objects/Materials/materials.rsi
     state: bluespace_crystal
     layers:
     - state: bluespace_crystal
@@ -24,14 +24,7 @@
   - type: PhysicalComposition
     materialComposition:
       BSCrystal: 100
-  - type: RandomTeleportOnUse
-    radius:
-      min: 2
-      max: 5
-  - type: Tag
-    tags:
-    - Ore
-    - Ingot
+  - type: BluespaceCrystal
 
 - type: entity
   parent: MaterialBSCrystal
