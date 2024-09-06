@@ -900,3 +900,12 @@ Entries:
       message: Added back network settings.
   id: 115
   time: '2024-09-06T11:58:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Forgotten, devoured, gutted. Humanity has forgotten the eldritch forces
+        of decay, but the mansus veil has weakened. We will make them taste fear
+        again.
+  id: 116
+  time: '2024-09-06T20:39:46.0000000+00:00'
