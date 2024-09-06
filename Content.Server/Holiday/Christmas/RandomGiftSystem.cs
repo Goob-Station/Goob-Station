@@ -1,9 +1,15 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Atmos.EntitySystems;
+using Content.Server.Electrocution;
 using Content.Server.Hands.Systems;
+using Content.Server.Popups;
 using Content.Shared.Database;
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Content.Shared.Magic.Events;
+using Content.Shared.Popups;
+using Content.Shared.Traits.Assorted;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
@@ -26,6 +32,8 @@ public sealed class RandomGiftSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly ElectrocutionSystem _electrocutionSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
 
     private readonly List<string> _possibleGiftsSafe = new();
     private readonly List<string> _possibleGiftsUnsafe = new();
@@ -56,6 +64,13 @@ public sealed class RandomGiftSystem : EntitySystem
 
         if (component.SelectedEntity is null)
             return;
+
+        //Public Domain Code start
+        if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religion) && religion.IsAtheist)
+        {
+            _electrocutionSystem.TryDoElectrocution(args.User, uid, 25, TimeSpan.FromSeconds(5), true);
+        }
+        //Public Domain Code end
 
         var coords = Transform(args.User).Coordinates;
         var handsEnt = Spawn(component.SelectedEntity, coords);
