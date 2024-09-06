@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from bartender outfit in SS14, edited by noctyrnal, fix digi sprites by DreamlyJack",
+  "copyright": "Taken from bartender outfit in SS14, edited by noctyrnal.",
   "size": {
     "x": 32,
     "y": 32
@@ -12,10 +12,6 @@
     },
     {
       "name": "equipped-INNERCLOTHING",
-      "directions": 4
-    },
-    {
-      "name": "equipped-INNERCLOTHING-reptilian",
       "directions": 4
     },
     {
