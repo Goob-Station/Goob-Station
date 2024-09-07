@@ -130,17 +130,7 @@ namespace Content.Server.Bible
                     case Religion.Atheist:
                         if (userReligion != null && userReligion.Type != targetReligion.Type)
                         {
-                            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
-                                args.User,
-                                args.User,
-                                PopupType.MediumCaution);
-                            if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
-                            {
-                                _flammableSystem.SetFireStacks(args.Target.Value, 1);
-                                _flammableSystem.Ignite(args.Target.Value, args.User);
-                                _delay.TryResetDelay((uid, useDelay));
-                                return;
-                            }
+                            DoBibleSmite(uid, useDelay, args);
                             return;
                         }
                         break;
@@ -149,17 +139,7 @@ namespace Content.Server.Bible
                     default:
                         if (userReligion != null && userReligion.Type == Religion.Atheist)
                         {
-                            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
-                                args.User,
-                                args.User,
-                                PopupType.MediumCaution);
-                            if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
-                            {
-                                _flammableSystem.SetFireStacks(args.Target.Value, 1);
-                                _flammableSystem.Ignite(args.Target.Value, args.User);
-                                _delay.TryResetDelay((uid, useDelay));
-                                return;
-                            }
+                            DoBibleSmite(uid, useDelay, args);
                             return;
                         }
                         break;
@@ -205,6 +185,22 @@ namespace Content.Server.Bible
                 _audio.PlayPvs(component.HealSoundPath, args.User);
                 _delay.TryResetDelay((uid, useDelay));
             }
+        }
+
+        private void DoBibleSmite(EntityUid uid, UseDelayComponent useDelay, AfterInteractEvent args)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
+                args.User,
+                args.User,
+                PopupType.MediumCaution);
+            if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
+            {
+                _flammableSystem.SetFireStacks(args.Target.Value, 1);
+                _flammableSystem.Ignite(args.Target.Value, args.User);
+                _delay.TryResetDelay((uid, useDelay));
+                return;
+            }
+            return;
         }
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)

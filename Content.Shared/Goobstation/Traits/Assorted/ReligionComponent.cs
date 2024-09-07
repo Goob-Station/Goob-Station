@@ -12,7 +12,7 @@ public sealed partial class ReligionComponent : Component
     /// <summary>
     /// The religion of the entity
     /// </summary>
-    [DataField("religion")]
+    [DataField("religion")] [AutoNetworkedField]
     public Religion? Type = null;
 }
 public enum Religion
