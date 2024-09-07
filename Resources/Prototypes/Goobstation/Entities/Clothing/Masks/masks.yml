@@ -1,23 +1,4 @@
 - type: entity
-  parent: ClothingMaskBase
-  id: BKKitsuneMask
-  name: Blackburna Kitsune Mask
-  description: A mask of a fox usually worn by the blackburna army of certain rank
-  components:
-  - type: Item
-    size: Tiny
-  - type: Sprite
-    sprite: Goobstation/Clothing/Mask/BKKitsuneMask.rsi
-  - type: Clothing
-    sprite: Goobstation/Clothing/Mask/BKKitsuneMask.rsi
-  - type: BreathMask
-  - type: IngestionBlocker
-  - type: Tag
-    tags:
-    - WhitelistChameleon
-    - HidesNose
-
-- type: entity
   parent: ClothingMaskGasERT
   id: ClothingMaskGasChrono
   name: futuristic gasmask
@@ -33,10 +14,19 @@
     - WhitelistChameleon
     - HidesHair
     - HidesNose
-    
+
 - type: entity
   parent: ClothingMaskGasChrono
   id: ClothingMaskGasChronoUnremoveable
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  id: ActionHailer
+  name: Hail
+  description: Audibly hail nearby crew, useful for giving quick orders.
+  components:
+  - type: InstantAction
+    icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
+    event: !type:HailerActionEvent

@@ -66,13 +66,13 @@
   id: MobHumanSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
   suffix: Human, NukeOps
   components:
-  - type: NukeOperative
-  - type: RandomMetadata
-    nameSegments:
-    - nukeops-role-operator
-    - SyndicateNamesNormal
-  - type: Loadout
-    prototypes: [SyndicateOperativeGearFullNoUplink]
+    - type: NukeOperative
+    - type: RandomMetadata
+      nameSegments:
+      - nukeops-role-operator
+      - SyndicateNamesNormal
+    - type: Loadout
+      prototypes: [SyndicateOperativeReinforcementGear] # goobstation - duke nukies
 
 # Nuclear Operative
 - type: entity
