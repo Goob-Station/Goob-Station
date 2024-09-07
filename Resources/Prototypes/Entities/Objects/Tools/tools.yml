@@ -211,9 +211,9 @@
     - type: EmitSoundOnDrop # goob edit
       sound:
         path: /Audio/Goobstation/Items/Handling/multitool_drop.ogg
-      - type: EmitSoundOnLand
-        sound:
-          path: /Audio/Items/multitool_drop.ogg
+    - type: EmitSoundOnLand # goob edit
+      sound:
+        path: /Audio/Items/multitool_drop.ogg
     - type: Sprite
       sprite: Objects/Tools/network_configurator.rsi
       layers:

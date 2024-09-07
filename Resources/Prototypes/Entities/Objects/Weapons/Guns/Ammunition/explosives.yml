@@ -54,21 +54,15 @@
       state: frag
     - type: StaticPrice
       price: 20
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/grenade_pickup.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/grenade_drop.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/grenade_drop.ogg
-      params:
-        volume: -1
+    - type: EmitSoundOnPickup # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/grenade_pickup.ogg
+    - type: EmitSoundOnDrop # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/grenade_drop.ogg
+    - type: EmitSoundOnLand # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/grenade_drop.ogg
 
 # Grenades
 

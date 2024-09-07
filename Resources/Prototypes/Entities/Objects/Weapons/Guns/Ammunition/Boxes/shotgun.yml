@@ -22,21 +22,15 @@
         tags:
         - ShellShotgun
       capacity: 16
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
+    - type: EmitSoundOnPickup # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
+    - type: EmitSoundOnDrop # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
+    - type: EmitSoundOnLand # goob edit
+      sound:
+        path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
 
 # Shotgun Shells
 - type: entity
