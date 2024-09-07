@@ -130,7 +130,7 @@ namespace Content.Server.Bible
                     case Religion.Atheist:
                         if (userReligion != null && userReligion.Type != targetReligion.Type)
                         {
-                            _popupSystem.PopupEntity(Loc.GetString("bible-atheist"),
+                            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
                                 args.User,
                                 args.User,
                                 PopupType.MediumCaution);
@@ -149,7 +149,7 @@ namespace Content.Server.Bible
                     default:
                         if (userReligion != null && userReligion.Type == Religion.Atheist)
                         {
-                            _popupSystem.PopupEntity(Loc.GetString("bible-atheist"),
+                            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
                                 args.User,
                                 args.User,
                                 PopupType.MediumCaution);
