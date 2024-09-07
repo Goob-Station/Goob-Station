@@ -45,6 +45,15 @@
       Steel: 185
   - type: StaticPrice
     price: 30
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gas_tank_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gas_tank_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gas_tank_drop.ogg
 
 - type: entity
   abstract: true

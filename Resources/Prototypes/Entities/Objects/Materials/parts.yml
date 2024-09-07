@@ -68,6 +68,9 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/iron_rod_pickup.ogg
 
 - type: entity
   parent: PartRodMetal
