@@ -290,6 +290,9 @@
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodCarp
+  - type: Tag
+    tags:
+    - HidesHarpyWings
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
