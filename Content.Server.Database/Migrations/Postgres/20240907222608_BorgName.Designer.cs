@@ -15,7 +15,7 @@ using NpgsqlTypes;
 namespace Content.Server.Database.Migrations.Postgres
 {
     [DbContext(typeof(PostgresServerDbContext))]
-    [Migration("20240820010317_BorgName")]
+    [Migration("20240907222608_BorgName")]
     partial class BorgName
     {
         /// <inheritdoc />
@@ -558,6 +558,19 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasName("PK_ban_template");
 
                     b.ToTable("ban_template", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Blacklist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_blacklist");
+
+                    b.ToTable("blacklist", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>

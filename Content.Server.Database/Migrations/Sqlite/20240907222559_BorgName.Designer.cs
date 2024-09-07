@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Content.Server.Database.Migrations.Sqlite
 {
     [DbContext(typeof(SqliteServerDbContext))]
-    [Migration("20240820010310_BorgName")]
+    [Migration("20240907222559_BorgName")]
     partial class BorgName
     {
         /// <inheritdoc />
@@ -527,6 +527,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasName("PK_ban_template");
 
                     b.ToTable("ban_template", (string)null);
+                });
+
+            modelBuilder.Entity("Content.Server.Database.Blacklist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_blacklist");
+
+                    b.ToTable("blacklist", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
