@@ -37,8 +37,8 @@ namespace Content.Server.Goobstation.MaterialEnergy
             {
                 if (_composition.MaterialComposition.ContainsKey(fueltype))
                     AddBatteryCharge(
-                        (EntityUid) uid, 
-                        (EntityUid) args.Used, 
+                        uid, 
+                        args.Used, 
                         _composition.MaterialComposition[fueltype], 
                         materialStack.Count);
             }
