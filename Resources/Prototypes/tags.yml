@@ -825,6 +825,9 @@
   id: Lemon
 
 - type: Tag
+  id: LightBulb
+
+- type: Tag
   id: Lime
 
 - type: Tag
@@ -1140,6 +1143,9 @@
 
 - type: Tag
   id: SecBeltEquip
+
+- type: Tag
+  id: SecurityHelmet
 
 - type: Tag
   id: SecwayKeys

@@ -12,6 +12,7 @@
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
+  - MineralScannerEmpty
   - BorgModuleMining
   - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard
@@ -180,6 +181,7 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
 
 # Tier 3
 
