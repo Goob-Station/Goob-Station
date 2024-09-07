@@ -96,7 +96,7 @@
       path: /Audio/Goobstation/Items/Handling/stun_baton_drop.ogg
   - type: EmitSoundOnLand # goob edit
     sound:
-      path: /Audio/Items/stun_baton_drop.ogg
+      path: /Audio/Goobstation/Items/Handling/stun_baton_drop.ogg
 
 - type: entity
   name: truncheon
