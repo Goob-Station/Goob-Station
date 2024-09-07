@@ -142,7 +142,7 @@
   icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
   productEntity: MindcontrolImplanter
   cost:
-    Telecrystal: 50 # Half the budget. or so based of paradise.
+    Telecrystal: 50 # Half the budget
   categories:
     - UplinkImplants
   conditions:

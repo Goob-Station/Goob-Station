@@ -327,8 +327,7 @@
   description: uplink-c4-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
   cost:
-    # Goobstation - Telecrystal rework
-    Telecrystal: 50 # All in the C4s, are we now??? not a clean number, but slightly less than 25% cheaper than the contents
+    Telecrystal: 12 #you're buying bulk so its a 25% discount
   categories:
   - UplinkExplosives
   saleLimit: 1 # WD EDIT
@@ -2007,7 +2006,7 @@
   icon: { sprite:  Objects/Consumable/Food/Baked/bread.rsi, state: baguette}
   productEntity: CombatBakeryKit
   cost:
-    Telecrystal: 3
+    Telecrystal: 6
   categories:
   - UplinkJob
   conditions:

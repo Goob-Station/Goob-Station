@@ -12,7 +12,6 @@
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
-  - WeaponGrapplingGun
   - BorgModuleMining
   - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard

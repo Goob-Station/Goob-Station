@@ -60,6 +60,8 @@ namespace Content.Server.Goobstation.Plasmacutter
             string fuelType,
             BatteryRechargeComponent? recharge = null)
         {
+            if (!HasComp<BatteryComponent>(uid)) // why didn't autotests detect this. I should rewrite this shitcode. @yglop
+                return; 
             if (!Resolve(uid, ref recharge))
                 return;
             

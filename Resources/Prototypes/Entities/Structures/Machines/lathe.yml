@@ -287,6 +287,7 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
+    - MaterialBSCrystal # Goobstation
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
@@ -339,7 +340,6 @@
       - WeaponProtoKineticAccelerator
       - WeaponPlasmaCutter # Goobstation
       - WeaponTetherGun
-      - WeaponGrapplingGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
       - ClothingBackpackDuffelHolding
