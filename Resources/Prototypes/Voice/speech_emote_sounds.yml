@@ -34,8 +34,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -76,8 +74,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -100,8 +96,6 @@
       collection: MaleCry
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -124,8 +118,6 @@
       collection: FemaleCry
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -166,8 +158,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -210,8 +200,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -226,8 +214,6 @@
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
       path: /Audio/Voice/Vox/vox_laugh.ogg
-    Fart:
-      collection: Farts
   params:
     variation: 0.125
     # We need vox sounds for the other emotes
@@ -243,8 +229,6 @@
       collection: BikeHorn
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -267,8 +251,6 @@
       path: /Audio/Voice/Arachnid/arachnid_click.ogg
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -307,8 +289,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -350,8 +330,6 @@
       collection: Whistles
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:
@@ -377,8 +355,6 @@
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Weh:
       collection: Weh
-    Fart:
-      collection: Farts
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -401,8 +377,6 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
-    Fart:
-      path: /Audio/Goobstation/Voice/Farts/poo2_robot.ogg
 
 - type: emoteSounds
   id: UnisexSiliconSyndicate
@@ -423,8 +397,6 @@
       path: /Audio/Items/bikehorn.ogg
     Ping:
       path: /Audio/Effects/Cargo/ping.ogg
-    Fart:
-      path: /Audio/Goobstation/Voice/Farts/poo2_robot.ogg
 
 # body emotes
 - type: emoteSounds
