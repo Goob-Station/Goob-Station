@@ -11,18 +11,18 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "borg_name",
+                name: "cyborg_name",
                 table: "profile",
                 type: "text",
                 nullable: false,
-                defaultValue: "Genero-Bot");
+                defaultValue: "");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "borg_name",
+                name: "cyborg_name",
                 table: "profile");
         }
     }
