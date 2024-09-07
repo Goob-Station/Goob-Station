@@ -50,7 +50,7 @@ public sealed class PrayerSystem : EntitySystem
             Act = () =>
             {
                 //Public Domain Code start
-                if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religion) && religion.IsAtheist)
+                if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("prayer-popup-notify-pray-atheist"), uid, actor.PlayerSession, PopupType.Large);
                     return;

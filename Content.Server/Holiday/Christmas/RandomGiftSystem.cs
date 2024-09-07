@@ -66,7 +66,7 @@ public sealed class RandomGiftSystem : EntitySystem
             return;
 
         //Public Domain Code start
-        if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religion) && religion.IsAtheist)
+        if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
         {
             _electrocutionSystem.TryDoElectrocution(args.User, uid, 25, TimeSpan.FromSeconds(5), true);
         }
