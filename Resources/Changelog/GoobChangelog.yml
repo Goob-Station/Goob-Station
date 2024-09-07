@@ -890,3 +890,40 @@ Entries:
       message: Added crawling. Toggleable on R by default
   id: 113
   time: '2024-09-02T14:41:45.0000000+00:00'
+- author: Icepicked
+  changes: []
+  id: 114
+  time: '2024-09-03T16:28:27.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added back network settings.
+  id: 115
+  time: '2024-09-06T11:58:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Forgotten, devoured, gutted. Humanity has forgotten the eldritch forces
+        of decay, but the mansus veil has weakened. We will make them taste fear
+        again.
+  id: 116
+  time: '2024-09-06T20:39:46.0000000+00:00'
+- author: starwolfy
+  changes:
+    - type: Tweak
+      message: Buffed standard Security armor.
+  id: 117
+  time: '2024-09-06T21:44:56.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: 'Bluespace crystals. '
+    - type: Tweak
+      message: >-
+        Scrambler implant teleports you more then 3 tiles away, has no limit on
+        uses and 30 seconds cooldown.
+    - type: Fix
+      message: Diamonds can be ejected from lathes.
+  id: 118
+  time: '2024-09-06T21:59:08.0000000+00:00'

@@ -1155,6 +1155,7 @@
       stackRequirements:
         Capacitor: 2
         Steel: 5
+        BSCrystal: 5 # Goobstation
 
 - type: entity
   id: SodaDispenserMachineCircuitboard
