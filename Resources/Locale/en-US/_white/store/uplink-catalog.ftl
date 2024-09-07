@@ -3,3 +3,6 @@ uplink-night-vision-desc = They allow you to see in the dark, while looking like
 
 uplink-thermal-vision-name = Thermal Vision Goggles
 uplink-thermal-vision-desc = They allow you to see living creatures regardless of obstacles, while looking like normal sunglasses!
+
+uplink-betrayal-knife-name = Betrayal Dagger
+uplink-betrayal-knife-desc = Betrayal dagger allows the user to teleport a short distance, and also causes significant damage on backstab.

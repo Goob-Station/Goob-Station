@@ -28,5 +28,6 @@
           Slash: 20
     - type: DisarmMalus
       malus: 0.225
+    - type: BackStab
     - type: Blink
       blinkRate: 0.33
