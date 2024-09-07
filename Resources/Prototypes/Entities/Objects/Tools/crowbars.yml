@@ -4,6 +4,12 @@
   id: BaseCrowbar
   abstract: true
   components:
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/crowbar_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/crowbar_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/crowbar_drop.ogg
