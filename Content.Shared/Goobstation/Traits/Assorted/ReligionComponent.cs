@@ -21,5 +21,6 @@ public enum Religion
     Islamic,
     Atheist,
     Hindu,
-    Buddhist
+    Buddhist,
+    None
 };
