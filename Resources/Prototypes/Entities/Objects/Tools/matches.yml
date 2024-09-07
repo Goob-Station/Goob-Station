@@ -108,6 +108,3 @@
   - type: EmitSoundOnDrop # goob edit
     sound:
       path: /Audio/Goobstation/Items/Handling/matchbox_drop.ogg
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/matchbox_drop.ogg
