@@ -11,7 +11,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "cyborg_name",
+                name: "borg_name",
                 table: "profile",
                 type: "text",
                 nullable: false,
@@ -22,7 +22,7 @@ namespace Content.Server.Database.Migrations.Sqlite
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "cyborg_name",
+                name: "borg_name",
                 table: "profile");
         }
     }
