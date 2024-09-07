@@ -187,6 +187,7 @@ namespace Content.Server.Bible
             }
         }
 
+        //Public Domain Code begin
         private void DoBibleSmite(EntityUid uid, UseDelayComponent useDelay, AfterInteractEvent args)
         {
             _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
@@ -202,6 +203,7 @@ namespace Content.Server.Bible
             }
             return;
         }
+        //Public Domain Code end
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
