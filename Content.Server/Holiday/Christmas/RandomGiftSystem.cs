@@ -65,13 +65,6 @@ public sealed class RandomGiftSystem : EntitySystem
         if (component.SelectedEntity is null)
             return;
 
-        //Public Domain Code start
-        if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
-        {
-            _electrocutionSystem.TryDoElectrocution(args.User, uid, 25, TimeSpan.FromSeconds(5), true);
-        }
-        //Public Domain Code end
-
         var coords = Transform(args.User).Coordinates;
         var handsEnt = Spawn(component.SelectedEntity, coords);
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(handsEnt)}");
