@@ -945,3 +945,14 @@ Entries:
       message: Preferred borg name field to the character customization menu
   id: 121
   time: '2024-09-08T13:13:17.0000000+00:00'
+- author: portfiend
+  changes:
+    - type: Add
+      message: Added Rodentia, a new species of playable rodent-like humanoids.
+    - type: Tweak
+      message: >-
+        Mobs that are capable of rummaging (such as the new Rodentia species)
+        can do so every five minutes. They will find small snacks in trash bins
+        instead of entire wheels of cheese.
+  id: 122
+  time: '2024-09-08T14:50:00.0000000+00:00'
