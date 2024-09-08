@@ -135,20 +135,23 @@
   - type: Sprite
     drawdepth: Mobs
     noRot: true
-    sprite: Objects/Consumable/Food/burger.rsi
+    sprite: Objects/Consumable/Food/burger_sequence.rsi
     layers:
     - state: bun_bottom
     - map: ["foodSequenceLayers"]
   - type: FoodSequenceStartPoint
-    key: burger
-    acceptAll: true # Goobstation - anythingburgers
-    maxLayers: 12 # Goobstation - anythingburgers
+    key: Burger
+    maxLayers: 10
+#    key: burger #todo marty fix burger
+#    acceptAll: true # Goobstation - anythingburgers
+#    maxLayers: 12 # Goobstation - anythingburgers
     startPosition: 0, 0
-    offset: 0, 0.1
+    offset: 0, 0.07
     minLayerOffset: -0.05, 0
     maxLayerOffset: 0.05, 0
     nameGeneration: food-sequence-burger-gen
   - type: Appearance
+  - type: FoodMetamorphableByAdding
   - type: SolutionContainerManager
     solutions:
       food:
@@ -166,7 +169,7 @@
   components:
   - type: Food
   - type: Sprite
-    sprite: Objects/Consumable/Food/burger.rsi
+    sprite: Objects/Consumable/Food/burger_sequence.rsi
     layers:
     - state: bun_top
   - type: SolutionContainerManager
@@ -177,12 +180,9 @@
         - ReagentId: Nutriment
           Quantity: 3.3 # 1/2 of a bun
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/burger.rsi
-      state: bun_top
     entries:
-      burger:
-        final: true
+      Burger: BunTopBurger
+
 # Base
 
 - type: entity
@@ -1086,7 +1086,7 @@
   - type: Tag
     tags:
     - Meat
-    
+
 ## Goobstation
 - type: entity
   name: nothing burger
