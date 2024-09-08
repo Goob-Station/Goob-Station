@@ -82,11 +82,9 @@ public sealed partial class CrawlUnderObjectsSystem : SharedCrawlUnderObjectsSys
 
     private bool DisableSneakMode(EntityUid uid, CrawlUnderObjectsComponent component)
     {
-        if (!component.Enabled
-            || IsOnCollidingTile(uid)
-            || (TryComp<ClimbingComponent>(uid, out var climbing)
-                && climbing.IsClimbing == true))
+        if (!component.Enabled || IsOnCollidingTile(uid) || (TryComp<ClimbingComponent>(uid, out var climbing) && climbing.IsClimbing == true)) {
             return false;
+        }
 
         component.Enabled = false;
         Dirty(uid, component);
