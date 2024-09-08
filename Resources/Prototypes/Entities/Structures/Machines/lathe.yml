@@ -434,6 +434,7 @@
     - ProtolatheMachineCircuitboard
     - AutolatheMachineCircuitboard
     - CircuitImprinterMachineCircuitboard
+    - BiogeneratorMachineCircuitboard
     - OreProcessorMachineCircuitboard
     - ElectrolysisUnitMachineCircuitboard
     - CentrifugeMachineCircuitboard
