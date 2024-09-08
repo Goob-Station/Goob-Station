@@ -939,3 +939,9 @@ Entries:
       message: Added a new shirt to the Syndidrobe and hacked Clothesmate.
   id: 120
   time: '2024-09-07T18:06:43.0000000+00:00'
+- author: PoTeletubby
+  changes:
+    - type: Add
+      message: Preferred borg name field to the character customization menu
+  id: 121
+  time: '2024-09-08T13:13:17.0000000+00:00'
