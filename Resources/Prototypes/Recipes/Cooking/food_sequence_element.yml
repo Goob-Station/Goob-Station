@@ -71,6 +71,10 @@
 
 - type: foodSequenceElement
   id: MeatBacon
+# Becon
+
+- type: foodSequenceElement
+  id: MeatBecon
   sprites:
   - sprite: Objects/Consumable/Food/meat.rsi
     state: bacon-cooked
