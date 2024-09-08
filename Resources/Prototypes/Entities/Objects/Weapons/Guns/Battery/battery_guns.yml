@@ -771,5 +771,8 @@
     stealGroup: WeaponEnergyShotgun
   - type: GunRequiresWield #remove when inaccuracy on spreads is fixed
   - type: Battery
-    maxCharge: 800
-    startingCharge: 800
+    maxCharge: 1050 # Goobstation
+    startingCharge: 1050
+  - type: BatterySelfRecharger # Goobstation
+    autoRecharge: true
+    autoRechargeRate: 20
