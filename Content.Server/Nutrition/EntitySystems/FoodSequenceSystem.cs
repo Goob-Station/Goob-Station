@@ -4,10 +4,14 @@ using Content.Server.Nutrition.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Nutrition;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
+using Content.Shared.Nutrition.Prototypes;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Robust.Server.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
 using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
@@ -25,13 +29,17 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
+    [Dependency] private readonly SharedTransformSystem _sharedTransform = default!; // Goobstation - anythingburgers
+    [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<FoodSequenceStartPointComponent, InteractUsingEvent>(OnInteractUsing);
+
+        SubscribeLocalEvent<FoodMetamorphableByAddingComponent, FoodSequenceIngredientAddedEvent>(OnIngredientAdded);
     }
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
@@ -41,6 +49,71 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
         if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
             TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
+    }
+
+    private void OnIngredientAdded(Entity<FoodMetamorphableByAddingComponent> ent, ref FoodSequenceIngredientAddedEvent args)
+    {
+        if (!TryComp<FoodSequenceStartPointComponent>(args.Start, out var start))
+            return;
+
+        if (!_proto.TryIndex(args.Proto, out var elementProto))
+            return;
+
+        if (!ent.Comp.OnlyFinal || elementProto.Final || start.FoodLayers.Count == start.MaxLayers)
+        {
+            TryMetamorph((ent, start));
+        }
+    }
+
+    private bool TryMetamorph(Entity<FoodSequenceStartPointComponent> start)
+    {
+        List<MetamorphRecipePrototype> availableRecipes = new();
+        foreach (var recipe in _proto.EnumeratePrototypes<MetamorphRecipePrototype>())
+        {
+            if (recipe.Key != start.Comp.Key)
+                continue;
+
+            bool allowed = true;
+            foreach (var rule in recipe.Rules)
+            {
+                if (!rule.Check(_proto, EntityManager, start, start.Comp.FoodLayers))
+                {
+                    allowed = false;
+                    break;
+                }
+            }
+            if (allowed)
+                availableRecipes.Add(recipe);
+        }
+
+        if (availableRecipes.Count <= 0)
+            return true;
+
+        Metamorf(start, _random.Pick(availableRecipes)); //In general, if there's more than one recipe, the yml-guys screwed up. Maybe some kind of unit test is needed.
+        QueueDel(start);
+        return true;
+    }
+
+    private void Metamorf(Entity<FoodSequenceStartPointComponent> start, MetamorphRecipePrototype recipe)
+    {
+        var result = SpawnAtPosition(recipe.Result, Transform(start).Coordinates);
+
+        //Try putting in container
+        _transform.DropNextTo(result, (start, Transform(start)));
+
+        if (!_solutionContainer.TryGetSolution(result, start.Comp.Solution, out var resultSoln, out var resultSolution))
+            return;
+
+        if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSoln, out var startSolution))
+            return;
+
+        _solutionContainer.RemoveAllSolution(resultSoln.Value); //Remove all YML reagents
+        resultSoln.Value.Comp.Solution.MaxVolume = startSoln.Value.Comp.Solution.MaxVolume;
+        _solutionContainer.TryAddSolution(resultSoln.Value, startSolution);
+
+        MergeFlavorProfiles(start, result);
+        MergeTrash(start, result);
+        MergeTags(start, result);
     }
 
     private bool TryAddFoodElement(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element, EntityUid? user = null)
@@ -59,31 +132,51 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return false;
 
         if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead && !start.Comp.AcceptAll) // Goobstation - anythingburgers
+        // we can't add a live mouse to a burger.
+        if (!TryComp<FoodComponent>(element, out var elementFood))
+            return false;
+        if (elementFood.RequireDead && _mobState.IsAlive(element))
+            return false;
+
+        //looking for a suitable FoodSequence prototype
+        ProtoId<FoodSequenceElementPrototype> elementProto = string.Empty;
+        foreach (var pair in element.Comp.Entries)
         {
-            if (_mobState.IsAlive(element))
-                return false;
+            if (pair.Key == start.Comp.Key)
+            {
+                elementProto = pair.Value;
+            }
         }
+        if (!_proto.TryIndex(elementProto, out var elementIndexed))
+            return false;
 
         //if we run out of space, we can still put in one last, final finishing element.
-        if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementData.Final || start.Comp.Finished)
+        if (start.Comp.FoodLayers.Count >= start.Comp.MaxLayers && !elementIndexed.Final || start.Comp.Finished)
         {
             if (user is not null)
                 _popup.PopupEntity(Loc.GetString("food-sequence-no-space"), start, user.Value);
             return false;
         }
 
-        //If no specific sprites are specified, standard sprites will be used.
-        if (elementData.Sprite is null && element.Comp.Sprite is not null)
-            elementData.Sprite = element.Comp.Sprite;
+        //Generate new visual layer
+        var flip = start.Comp.AllowHorizontalFlip && _random.Prob(0.5f);
+        var layer = new FoodSequenceVisualLayer(elementIndexed,
+            _random.Pick(elementIndexed.Sprites),
+            new Vector2(flip ? -1 : 1, 1),
+            new Vector2(
+                _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
+                _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y))
+        );
 
         elementData.LocalOffset = new Vector2(
             _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
             _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y));
 
         start.Comp.FoodLayers.Add(elementData);
+        start.Comp.FoodLayers.Add(layer);
         Dirty(start);
 
-        if (elementData.Final)
+        if (elementIndexed.Final)
             start.Comp.Finished = true;
 
         UpdateFoodName(start);
@@ -96,6 +189,10 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!IsClientSide(element)) // Goobstation - anythingburgers PSEUDOITEMS FUCK THIS SHIT UP!!
             QueueDel(element);
 
+        var ev = new FoodSequenceIngredientAddedEvent(start, element, elementProto, user);
+        RaiseLocalEvent(start, ev);
+
+        QueueDel(element);
         return true;
     }
 
@@ -109,17 +206,23 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (start.Comp.ContentSeparator is not null)
             separator = Loc.GetString(start.Comp.ContentSeparator);
 
-        HashSet<LocId> existedContentNames = new();
+        HashSet<ProtoId<FoodSequenceElementPrototype>> existedContentNames = new();
         foreach (var layer in start.Comp.FoodLayers)
         {
-            if (layer.Name is not null && !existedContentNames.Contains(layer.Name.Value))
-                existedContentNames.Add(layer.Name.Value);
+            if (!existedContentNames.Contains(layer.Proto))
+                existedContentNames.Add(layer.Proto);
         }
 
         var nameCounter = 1;
-        foreach (var name in existedContentNames)
+        foreach (var proto in existedContentNames)
         {
-            content.Append(Loc.GetString(name));
+            if (!_proto.TryIndex(proto, out var protoIndexed))
+                continue;
+
+            if (protoIndexed.Name is null)
+                continue;
+
+            content.Append(Loc.GetString(protoIndexed.Name.Value));
 
             if (nameCounter < existedContentNames.Count)
                 content.Append(separator);
@@ -134,9 +237,9 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         _metaData.SetEntityName(start, newName);
     }
 
-    private void MergeFoodSolutions(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)
+    private void MergeFoodSolutions(EntityUid start, EntityUid element)
     {
-        if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
+        if (!TryComp<FoodComponent>(start, out var startFood))
             return;
 
         if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer))
@@ -146,13 +249,22 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
                 if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
                     continue;
 
+                if (!TryComp<FoodComponent>(element, out var elementFood))
+                    return;
+
+                if (!_solutionContainer.TryGetSolution(start, startFood.Solution, out var startSolutionEntity, out var startSolution))
+                    return;
+
+                if (!_solutionContainer.TryGetSolution(element, elementFood.Solution, out _, out var elementSolution))
+                    return;
+
                 startSolution.MaxVolume += elementSolution.MaxVolume;
                 _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
             }
         }
     }
 
-    private void MergeFlavorProfiles(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)
+    private void MergeFlavorProfiles(EntityUid start, EntityUid element)
     {
         if (!TryComp<FlavorProfileComponent>(start, out var startProfile))
             return;
@@ -167,7 +279,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         }
     }
 
-    private void MergeTrash(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)
+    private void MergeTrash(EntityUid start, EntityUid element)
     {
         if (!TryComp<FoodComponent>(start, out var startFood))
             return;
@@ -181,14 +293,14 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         }
     }
 
-    private void MergeTags(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)
+    private void MergeTags(EntityUid start, EntityUid element)
     {
         if (!TryComp<TagComponent>(element, out var elementTags))
             return;
 
-        EnsureComp<TagComponent>(start.Owner);
+        EnsureComp<TagComponent>(start);
 
-        _tag.TryAddTags(start.Owner, elementTags.Tags);
+        _tag.TryAddTags(start, elementTags.Tags);
     }
 
     private void UpdateFoodSize(Entity<FoodSequenceStartPointComponent> start) // Goobstation - anythingburgers dynamic item size
@@ -212,7 +324,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             }
             else if (increment == 6)
             {
-                _transform.DropNextTo(start.Owner, start.Owner);
+                _sharedTransform.DropNextTo(start.Owner, start.Owner);
                 RemComp<ItemComponent>(start);
             }
 

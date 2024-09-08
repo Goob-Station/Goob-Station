@@ -1,26 +1,27 @@
-using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared.Prototypes; // Goobstation - anythingburgers
 using Content.Shared.Goobstation.Nutrition.EntitySystems; // Goobstation - anythingburgers
+using Content.Shared.Nutrition.Prototypes;
+using Content.Shared.Tag;
 
 namespace Content.Shared.Nutrition.Components;
 
 /// <summary>
-/// Tndicates that this entity can be inserted into FoodSequence, which will transfer all reagents to the target.
+/// Indicates that this entity can be inserted into FoodSequence, which will transfer all reagents to the target.
 /// </summary>
 [RegisterComponent, Access(typeof(SharedFoodSequenceSystem))]
 public sealed partial class FoodSequenceElementComponent : Component
 {
     /// <summary>
-    /// the same object can be used in different sequences, and it will have a different sprite in different sequences.
+    /// The same object can be used in different sequences, and it will have a different data in then.
     /// </summary>
     [DataField(required: true)]
-    public Dictionary<string, FoodSequenceElementEntry> Entries = new();
+    public Dictionary<ProtoId<TagPrototype>, ProtoId<FoodSequenceElementPrototype>> Entries = new();
 
     /// <summary>
-    /// which solution we will add to the main dish
+    /// Which solution we will add to the main dish
     /// </summary>
     [DataField]
     public string Solution = "food";
