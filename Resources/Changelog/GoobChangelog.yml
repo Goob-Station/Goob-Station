@@ -956,3 +956,11 @@ Entries:
         instead of entire wheels of cheese.
   id: 122
   time: '2024-09-08T14:50:00.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun now self-recharges again.
+    - type: Tweak
+      message: The Energy Shotgun's maximum battery capacity has been increased.
+  id: 123
+  time: '2024-09-08T14:50:42.0000000+00:00'
