@@ -45,7 +45,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ ]
+      defaultMarkings: [ RodentiaTailMouse ]
     Head:
       points: 3
       required: false
