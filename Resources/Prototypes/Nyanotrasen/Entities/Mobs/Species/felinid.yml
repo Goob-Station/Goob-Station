@@ -63,6 +63,8 @@
       Male: MaleFelinid
       Female: FemaleFelinid
       Unsexed: MaleFelinid
+  - type: ReplacementAccent
+    accent: OwOAccent
   - type: Felinid
   - type: NoShoesSilentFootsteps
   - type: Tag
