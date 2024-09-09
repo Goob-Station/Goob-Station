@@ -964,3 +964,25 @@ Entries:
       message: The Energy Shotgun's maximum battery capacity has been increased.
   id: 123
   time: '2024-09-08T14:50:42.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Eldritch influences are not visible to the crew until harvested.
+    - type: Add
+      message: >-
+        You can now inspect the transmutation rune to see your currently
+        selected ritual.
+    - type: Fix
+      message: >-
+        Fixed heretic rituals giving away free items. No more ominous armor
+        giveaway in maints
+    - type: Tweak
+      message: >-
+        Now heretic's abilities work on other heretics, except for those whose
+        path is the same.
+    - type: Tweak
+      message: Updated heretic guidebook page to include more useful info. GO READ IT
+    - type: Fix
+      message: Fixed flesh surgery having no cooldown
+  id: 124
+  time: '2024-09-09T16:52:58.0000000+00:00'
