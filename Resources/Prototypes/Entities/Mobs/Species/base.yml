@@ -284,6 +284,7 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
+  - type: Religion # Goobstation
 
 - type: entity
   save: false
