@@ -1,6 +1,6 @@
 ﻿- type: entity
   id: OrganDwarfHeart
-  parent: OrganHumanHeart
+  parent: [OrganHumanHeart, BaseHeart] # goob edit
   name: dwarf heart
   components:
   - type: Metabolizer
@@ -8,7 +8,7 @@
 
 - type: entity
   id: OrganDwarfLiver
-  parent: OrganHumanLiver
+  parent: [OrganHumanLiver, BaseLiver] # goob edit
   name: dwarf liver
   components:
   - type: Metabolizer
@@ -16,7 +16,7 @@
 
 - type: entity
   id: OrganDwarfStomach
-  parent: OrganHumanStomach
+  parent: [OrganHumanStomach, BaseStomach] # goob edit
   name: dwarf stomach
   components:
   - type: Sprite

@@ -48,6 +48,9 @@
         reagents:
         - ReagentId: GreyMatter
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Brain
 
 - type: entity
   id: OrganDionaEyes
@@ -59,6 +62,9 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Eyes
 
 - type: entity
   id: OrganDionaStomach
@@ -90,6 +96,9 @@
       - id: Narcotic
       - id: Alcohol
         rateModifier: 0.1
+  - type: Tag # goob edit
+    tags:
+    - Stomach
 
 - type: entity
   id: OrganDionaLungs
@@ -121,6 +130,9 @@
       Lung:
         maxVol: 100
         canReact: False
+  - type: Tag # goob edit
+    tags:
+    - Lungs
 
 # Organs that turn into nymphs on removal
 - type: entity
@@ -134,6 +146,9 @@
   - type: Nymph # This will make the organs turn into a nymph when they're removed. 
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
+  - type: Tag # goob edit
+    tags:
+    - Brain
 
 - type: entity
   id: OrganDionaStomachNymph
@@ -144,6 +159,9 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphStomach
+  - type: Tag # goob edit
+    tags:
+    - Stomach
 
 - type: entity
   id: OrganDionaLungsNymph
@@ -154,6 +172,9 @@
   components:
   - type: Nymph
     entityPrototype: OrganDionaNymphLungs
+  - type: Tag # goob edit
+    tags:
+    - Lungs
 
 # Nymphs that the organs will turn into
 - type: entity

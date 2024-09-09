@@ -30,7 +30,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 [Serializable, NetSerializable]
 [Prototype("hereticRitual")]
 [DataDefinition]
-public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
+public sealed partial class HereticRitualPrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
@@ -65,7 +65,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     [DataField] public ProtoId<HereticKnowledgePrototype>? OutputKnowledge;
 
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-    public object Clone()
+    public HereticRitualPrototype Clone()
     {
         return new HereticRitualPrototype()
         {
@@ -82,4 +82,3 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 }
 
 [Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticAscension : EntityEventArgs { }
-// I DECLARE 6666 LINES

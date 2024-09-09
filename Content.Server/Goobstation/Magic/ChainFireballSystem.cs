@@ -1,7 +1,4 @@
-using Content.Server.Heretic.Components;
 using Content.Server.Popups;
-using Content.Shared.Heretic;
-using Content.Shared.Humanoid;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
@@ -29,24 +26,22 @@ public sealed partial class ChainFireballSystem : EntitySystem
 
     private void OnHit(Entity<ChainFireballComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!_random.Prob((100 - ent.Comp.Divisions) / 100))
+        if (!_random.Prob(ent.Comp.DisappearChance))
             return;
 
-        Spawn(ent);
+        Spawn(ent, ent.Comp.IgnoredTargets);
 
         QueueDel(ent);
     }
 
-    public bool Spawn(EntityUid source)
+    public bool Spawn(EntityUid source, List<EntityUid> ignoredTargets)
     {
-        var lookup = _lookup.GetEntitiesInRange(source, 5f);
+        var lookup = _lookup.GetEntitiesInRange(source, 5f, LookupFlags.Dynamic);
 
         List<EntityUid> mobs = new();
         foreach (var look in lookup)
         {
-            if (!HasComp<HumanoidAppearanceComponent>(look)
-            || HasComp<HereticComponent>(look)
-            || HasComp<GhoulComponent>(look))
+            if (ignoredTargets.Contains(look))
                 continue;
 
             mobs.Add(look);
@@ -57,19 +52,24 @@ public sealed partial class ChainFireballSystem : EntitySystem
             return false;
         }
 
-        return Spawn(source, mobs[_random.Next(0, mobs.Count - 1)]);
+        return Spawn(source, mobs[_random.Next(0, mobs.Count - 1)], ignoredTargets);
     }
-    public bool Spawn(EntityUid source, EntityUid target)
+    public bool Spawn(EntityUid source, EntityUid target, List<EntityUid> ignoredTargets)
     {
-        return SpawnFireball(source, target);
+        return SpawnFireball(source, target, ignoredTargets);
     }
-    private bool SpawnFireball(EntityUid uid, EntityUid target)
+    private bool SpawnFireball(EntityUid uid, EntityUid target, List<EntityUid> ignoredTargets)
     {
         var ball = Spawn("FireballChain", Transform(uid).Coordinates);
         if (TryComp<ChainFireballComponent>(ball, out var sfc))
-            if (TryComp<ChainFireballComponent>(uid, out var usfc))
-                sfc.Divisions = usfc.Divisions + .5f;
+        {
+            sfc.IgnoredTargets = sfc.IgnoredTargets.Count > 0 ? sfc.IgnoredTargets : ignoredTargets;
 
+            if (TryComp<ChainFireballComponent>(uid, out var usfc))
+                sfc.DisappearChance = usfc.DisappearChance + sfc.DisappearChanceDelta;
+        }
+
+        // launch it towards the target
         var fromCoords = Transform(uid).Coordinates;
         var toCoords = Transform(target).Coordinates;
         var userVelocity = _physics.GetMapLinearVelocity(uid);
