@@ -21,6 +21,19 @@ public sealed partial class RatKingRummageableComponent : Component
     public bool Looted;
 
     /// <summary>
+    /// DeltaV: Last time the object was looted, used to check if cooldown has expired
+    /// </summary>
+    [ViewVariables]
+    public TimeSpan? LastLooted;
+
+    /// <summary>
+    /// DeltaV: Minimum time between rummage attempts
+    /// </summary>
+    [DataField("rummageCooldown"), ViewVariables(VVAccess.ReadWrite)]
+    [AutoNetworkedField]
+    public TimeSpan RummageCooldown = TimeSpan.FromMinutes(5);
+
+    /// <summary>
     /// How long it takes to rummage through a rummageable container.
     /// </summary>
     [DataField("rummageDuration"), ViewVariables(VVAccess.ReadWrite)]

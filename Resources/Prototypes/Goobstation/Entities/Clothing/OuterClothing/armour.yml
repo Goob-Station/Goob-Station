@@ -1,6 +1,6 @@
 # Durathred web vest
 - type: entity
-  parent: ClothingOuterVestWeb 
+  parent: ClothingOuterVestWeb
   id: ClothingOuterVestWebDurathread
   name: durathread web vest
   description: An improvised armored web vest made from durathread with plasteel plates. It's surprisingly light, despite formidable armor plating.
@@ -30,7 +30,7 @@
     sprite: Goobstation/Clothing/Armor/durathread_armour.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Armor/durathread_armour.rsi
-  - type: Armor 
+  - type: Armor
     modifiers:
       coefficients:
         Blunt: 0.85
@@ -57,7 +57,8 @@
   - type: Clothing
     sprite: Goobstation/Clothing/OuterClothing/Armor/helldiver.rsi
   - type: TemperatureProtection
-    coefficient: 0.1
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
   - type: PointLight
     enabled: false
     color: "#e5af38"

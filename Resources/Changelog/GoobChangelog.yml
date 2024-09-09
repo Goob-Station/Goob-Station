@@ -927,3 +927,40 @@ Entries:
       message: Diamonds can be ejected from lathes.
   id: 118
   time: '2024-09-06T21:59:08.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The soundening part 1
+  id: 119
+  time: '2024-09-07T17:21:30.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added a new shirt to the Syndidrobe and hacked Clothesmate.
+  id: 120
+  time: '2024-09-07T18:06:43.0000000+00:00'
+- author: PoTeletubby
+  changes:
+    - type: Add
+      message: Preferred borg name field to the character customization menu
+  id: 121
+  time: '2024-09-08T13:13:17.0000000+00:00'
+- author: portfiend
+  changes:
+    - type: Add
+      message: Added Rodentia, a new species of playable rodent-like humanoids.
+    - type: Tweak
+      message: >-
+        Mobs that are capable of rummaging (such as the new Rodentia species)
+        can do so every five minutes. They will find small snacks in trash bins
+        instead of entire wheels of cheese.
+  id: 122
+  time: '2024-09-08T14:50:00.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun now self-recharges again.
+    - type: Tweak
+      message: The Energy Shotgun's maximum battery capacity has been increased.
+  id: 123
+  time: '2024-09-08T14:50:42.0000000+00:00'
