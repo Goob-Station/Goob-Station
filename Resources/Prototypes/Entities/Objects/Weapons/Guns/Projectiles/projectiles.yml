@@ -1074,9 +1074,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: heavylaser
       shader: unshaded
-      color: red
   - type: Ammo
   - type: Physics
   - type: Fixtures
@@ -1093,7 +1092,6 @@
     impactEffect: BulletImpactEffectRedDisabler
     damage:
       types:
-        Heat: 20 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun
+        Heat: 15 # Slightly more damage than the 17heat from the Captain's Hitscan lasgun - Goobstation: Nerfed to 15 damage, to keep it less powerful than caps Lasgun
     soundHit:
       collection: MeatLaserImpact
-    soundForce: true
