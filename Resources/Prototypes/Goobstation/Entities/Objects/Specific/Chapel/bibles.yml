@@ -1,0 +1,23 @@
+## Public Domain YAML Begins
+- type: entity
+  parent: Bible
+  name: goobbit
+  description: "This weird book smells awful for some reason."
+  id: BibleAtheist
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Specific/Chapel/atheism.rsi
+  - type: Item
+    sprite: Goobstation/Objects/Specific/Chapel/atheism.rsi
+
+- type: entity
+  parent: Bible
+  name: tripiṭaka
+  description: "This book is an ancient collection of Buddhist sacred scriptures."
+  id: BibleBhuddist
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Specific/Chapel/tripiṭaka.rsi
+  - type: Item
+    sprite: Goobstation/Objects/Specific/Chapel/tripiṭaka.rsi
+## Public Domain YAML Ends
