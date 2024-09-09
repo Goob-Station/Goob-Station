@@ -5,7 +5,7 @@
         "y": 32
     },
     "license": "CC-BY-SA-3.0",
-    "copyright": "Felinid sprites made by Adrian16199 (Github)",
+    "copyright": "Felinid sprites made by Adrian16199 (Github), Rodentia sprites made by portfiend",
     "states": [
         {
             "name": "felinid0",
@@ -23,6 +23,23 @@
         },
         {
             "name": "felinid2"
+        },
+        {
+            "name": "rodentia0",
+            "delays": [
+                [
+                    0.2,
+                    0.3,
+                    0.3,
+                    0.5
+                ]
+            ]
+        },
+        {
+            "name": "rodentia1"
+        },
+        {
+            "name": "rodentia2"
         }
     ]
 }

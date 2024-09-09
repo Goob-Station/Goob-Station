@@ -21,6 +21,7 @@
   <Box>
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
   </Box>
 
 </Document>
