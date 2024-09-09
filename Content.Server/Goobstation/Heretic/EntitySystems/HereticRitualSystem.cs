@@ -126,6 +126,9 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // yay! ritual successfull!
 
+        // reset fields to their initial values
+        // BECAUSE FOR SOME REASON IT DOESN'T FUCKING WORK OTHERWISE!!!
+
         // finalize all of the custom ones
         foreach (var behavior in behaviors)
         {

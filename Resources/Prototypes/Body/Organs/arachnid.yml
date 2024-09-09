@@ -1,6 +1,6 @@
 - type: entity
   id: BaseArachnidOrgan
-  parent: [BaseItem, BaseOrgan] # goob edit
+  parent: BaseItem
   abstract: true
   components:
   - type: Sprite
@@ -21,13 +21,14 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Tag
+  - type: Tag # goob edit
     tags:
-      - Meat
+    - Meat
+    - Organ
 
 - type: entity
   id: OrganArachnidStomach
-  parent: [OrganAnimalStomach, BaseStomach]
+  parent: OrganAnimalStomach
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
@@ -47,10 +48,15 @@
           Quantity: 5
   - type: Metabolizer
     updateInterval: 1.5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Stomach
 
 - type: entity
   id: OrganArachnidLungs
-  parent: [BaseArachnidOrgan, BaseLungs]
+  parent: BaseArachnidOrgan
   name: lungs
   description: "Filters oxygen from an atmosphere... just more greedily."
   components:
@@ -82,10 +88,15 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Lungs
 
 - type: entity
   id: OrganArachnidHeart
-  parent: [BaseArachnidOrgan, BaseHeart]
+  parent: BaseArachnidOrgan
   name: heart
   description: "A disgustingly persistent little biological pump made for spiders."
   components:
@@ -99,10 +110,15 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Heart
 
 - type: entity
   id: OrganArachnidLiver
-  parent: [BaseHumanOrgan, BaseLiver]
+  parent: BaseHumanOrgan
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
@@ -116,10 +132,15 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Liver
 
 - type: entity
   id: OrganArachnidKidneys
-  parent: [BaseHumanOrgan, BaseKidneys]
+  parent: BaseHumanOrgan
   name: kidneys
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
@@ -134,10 +155,15 @@
     maxReagents: 5
     metabolizerTypes: [Animal]
     removeEmpty: true
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Kidneys
 
 - type: entity
   id: OrganArachnidEyes
-  parent: [BaseArachnidOrgan, BaseEyes]
+  parent: BaseArachnidOrgan
   name: eyes
   description: "Two was already too many."
   components:
@@ -145,12 +171,22 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Eyes
 
 - type: entity
   id: OrganArachnidTongue
-  parent: [BaseArachnidOrgan, BaseTongue]
+  parent: BaseArachnidOrgan
   name: tongue
   description: "A fleshy muscle mostly used for lying."
   components:
   - type: Sprite
     state: tongue
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
+    - Tongue

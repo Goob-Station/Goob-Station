@@ -24,10 +24,14 @@
   - type: FlavorProfile
     flavors:
       - people
+  - type: Tag # goob edit
+    tags:
+    - Meat
+    - Organ
 
 - type: entity
   id: OrganDionaBrain
-  parent: [BaseDionaOrgan, OrganHumanBrain]
+  parent: BaseDionaOrgan
   name: brain
   description: "The source of incredible, unending intelligence. Honk."
   components:
@@ -50,6 +54,8 @@
           Quantity: 5
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Brain
 
 - type: entity
@@ -64,6 +70,8 @@
       - state: eyeball-r
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Eyes
 
 - type: entity
@@ -98,6 +106,8 @@
         rateModifier: 0.1
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Stomach
 
 - type: entity
@@ -132,6 +142,8 @@
         canReact: False
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Lungs
 
 # Organs that turn into nymphs on removal
@@ -148,6 +160,8 @@
     transferMind: true
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Brain
 
 - type: entity
@@ -161,6 +175,8 @@
     entityPrototype: OrganDionaNymphStomach
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Stomach
 
 - type: entity
@@ -174,6 +190,8 @@
     entityPrototype: OrganDionaNymphLungs
   - type: Tag # goob edit
     tags:
+    - Meat
+    - Organ
     - Lungs
 
 # Nymphs that the organs will turn into
