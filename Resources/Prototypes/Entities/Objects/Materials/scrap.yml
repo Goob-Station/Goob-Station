@@ -25,6 +25,15 @@
   - type: Tag
     tags:
     - Recyclable
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/metal_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/metal_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/metal_drop.ogg
 
 - type: entity
   parent: BaseScrap

@@ -6,6 +6,7 @@ using Content.Shared.Item;
 using Content.Shared.Placeable;
 using Content.Shared.Storage.Components;
 using Content.Shared.Verbs;
+using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
@@ -139,27 +140,41 @@ public sealed class DumpableSystem : EntitySystem
 
     private void OnDoAfter(EntityUid uid, DumpableComponent component, DumpableDoAfterEvent args)
     {
-        if (args.Handled || args.Cancelled || !TryComp<StorageComponent>(uid, out var storage) || storage.Container.ContainedEntities.Count == 0)
+        if (args.Handled || args.Cancelled)
+            return;
+
+        DumpContents(uid, args.Args.Target, args.Args.User, component);
+    }
+
+    // DeltaV: Refactor to allow dumping that doesn't require a verb
+    [PublicAPI]
+    public void DumpContents(EntityUid uid, EntityUid? target, EntityUid user, DumpableComponent? component = null)
+    {
+        if (!TryComp<StorageComponent>(uid, out var storage)
+            || !Resolve(uid, ref component))
+            return;
+
+        if (storage.Container.ContainedEntities.Count == 0)
             return;
 
         var dumpQueue = new Queue<EntityUid>(storage.Container.ContainedEntities);
 
         var dumped = false;
 
-        if (_disposalUnitSystem.HasDisposals(args.Args.Target))
+        if (_disposalUnitSystem.HasDisposals(target))
         {
             dumped = true;
 
             foreach (var entity in dumpQueue)
             {
-                _disposalUnitSystem.DoInsertDisposalUnit(args.Args.Target.Value, entity, args.Args.User);
+                _disposalUnitSystem.DoInsertDisposalUnit(target.Value, entity, user);
             }
         }
-        else if (HasComp<PlaceableSurfaceComponent>(args.Args.Target))
+        else if (HasComp<PlaceableSurfaceComponent>(target))
         {
             dumped = true;
 
-            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(args.Args.Target.Value);
+            var (targetPos, targetRot) = _transformSystem.GetWorldPositionRotation(target.Value);
 
             foreach (var entity in dumpQueue)
             {
@@ -179,7 +194,7 @@ public sealed class DumpableSystem : EntitySystem
 
         if (dumped)
         {
-            _audio.PlayPredicted(component.DumpSound, uid, args.User);
+            _audio.PlayPredicted(component.DumpSound, uid, user);
         }
     }
 }

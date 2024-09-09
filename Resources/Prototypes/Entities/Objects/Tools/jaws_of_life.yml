@@ -49,6 +49,15 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/rpd_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/rpd_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/rpd_drop.ogg
 
 - type: entity
   name: syndicate jaws of life

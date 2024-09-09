@@ -632,6 +632,9 @@
 - type: Tag
   id: Galaxythistle
 
+- type: Tag # goob edit
+  id: GasMask
+
 - type: Tag
   id: GasScrubber
 
@@ -822,6 +825,9 @@
   id: Lemon
 
 - type: Tag
+  id: LightBulb
+
+- type: Tag
   id: Lime
 
 - type: Tag
@@ -887,6 +893,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag # goob edit
+  id: Mask
 
 - type: Tag
   id: Matchstick
@@ -1136,6 +1145,9 @@
   id: SecBeltEquip
 
 - type: Tag
+  id: SecurityHelmet
+
+- type: Tag
   id: SecwayKeys
 
 - type: Tag
@@ -1228,6 +1240,9 @@
   id: StringInstrument
 
 - type: Tag
+  id: Stunbaton
+
+- type: Tag
   id: SubdermalImplant
 
 - type: Tag
@@ -1253,6 +1268,9 @@
 
 - type: Tag
   id: Spellbook
+
+- type: Tag # goob edit
+  id: Table
 
 - type: Tag
   id: TabletopBoard

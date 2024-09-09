@@ -870,3 +870,97 @@ Entries:
       message: broken tiles shuttle floor
   id: 110
   time: '2024-09-01T18:46:56.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The grerat resprite part 1
+  id: 111
+  time: '2024-09-02T14:09:55.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        The Syndicate has been packing in items lately, so they've decided to
+        start a yard sale for their agents!
+  id: 112
+  time: '2024-09-02T14:41:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added crawling. Toggleable on R by default
+  id: 113
+  time: '2024-09-02T14:41:45.0000000+00:00'
+- author: Icepicked
+  changes: []
+  id: 114
+  time: '2024-09-03T16:28:27.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added back network settings.
+  id: 115
+  time: '2024-09-06T11:58:37.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Forgotten, devoured, gutted. Humanity has forgotten the eldritch forces
+        of decay, but the mansus veil has weakened. We will make them taste fear
+        again.
+  id: 116
+  time: '2024-09-06T20:39:46.0000000+00:00'
+- author: starwolfy
+  changes:
+    - type: Tweak
+      message: Buffed standard Security armor.
+  id: 117
+  time: '2024-09-06T21:44:56.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: 'Bluespace crystals. '
+    - type: Tweak
+      message: >-
+        Scrambler implant teleports you more then 3 tiles away, has no limit on
+        uses and 30 seconds cooldown.
+    - type: Fix
+      message: Diamonds can be ejected from lathes.
+  id: 118
+  time: '2024-09-06T21:59:08.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: The soundening part 1
+  id: 119
+  time: '2024-09-07T17:21:30.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Add
+      message: Added a new shirt to the Syndidrobe and hacked Clothesmate.
+  id: 120
+  time: '2024-09-07T18:06:43.0000000+00:00'
+- author: PoTeletubby
+  changes:
+    - type: Add
+      message: Preferred borg name field to the character customization menu
+  id: 121
+  time: '2024-09-08T13:13:17.0000000+00:00'
+- author: portfiend
+  changes:
+    - type: Add
+      message: Added Rodentia, a new species of playable rodent-like humanoids.
+    - type: Tweak
+      message: >-
+        Mobs that are capable of rummaging (such as the new Rodentia species)
+        can do so every five minutes. They will find small snacks in trash bins
+        instead of entire wheels of cheese.
+  id: 122
+  time: '2024-09-08T14:50:00.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: The Energy Shotgun now self-recharges again.
+    - type: Tweak
+      message: The Energy Shotgun's maximum battery capacity has been increased.
+  id: 123
+  time: '2024-09-08T14:50:42.0000000+00:00'

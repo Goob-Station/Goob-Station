@@ -79,6 +79,15 @@
             - Multitool
     sprite: Clothing/Belt/belt_overlay.rsi
   - type: Appearance
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/toolbelt_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/toolbelt_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/toolbelt_drop.ogg
 
 - type: entity
   parent: ClothingBeltStorageBase
