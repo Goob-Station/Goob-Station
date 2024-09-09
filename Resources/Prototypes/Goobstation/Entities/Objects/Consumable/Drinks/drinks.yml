@@ -1,0 +1,58 @@
+- type: entity
+  parent: DrinkBase
+  id: DrinkBasePlastic
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 50
+  - type: PhysicalComposition
+    materialComposition:
+      Plastic: 100
+
+- type: entity
+  parent: DrinkBasePlastic
+  id: DrinkFitnessShakerBlack
+  name: fitness shaker
+  description: Big enough to contain enough protein to get perfectly swole. Don't mind the bits.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerblack.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerRed
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerred.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkFitnessShakerBlack
+  id: DrinkFitnessShakerBlue
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Consumable/Drinks/shakerblue.rsi
+    state: icon
+
+- type: reagent
+  id: MilkChoco
+  name: reagent-name-milk-choco
+  group: Drinks
+  desc: reagent-desc-milk-choco
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: chocolate
+  color: "#664300"
+  recognizable: true
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 0.1
+    - !type:PlantAdjustWater
+      amount: 0.9
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4

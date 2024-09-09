@@ -1,0 +1,6 @@
+- type: stealTargetGroup
+  id: SupermatterSliver
+  name: supermatter sliver
+  sprite:
+    sprite: Goobstation/Supermatter/supermatter_sliver.rsi
+    state: icon

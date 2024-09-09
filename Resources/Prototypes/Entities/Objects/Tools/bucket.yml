@@ -35,8 +35,8 @@
     canChangeTransferAmount: true
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: MeleeWeapon
     soundNoDamage:
       path: "/Audio/Effects/Fluids/splat.ogg"
@@ -44,6 +44,8 @@
       types:
         Blunt: 0
   - type: Spillable
+    solution: bucket
+  - type: SpillWhenWorn
     solution: bucket
   - type: DrawableSolution
     solution: bucket
@@ -65,3 +67,4 @@
   - type: PhysicalComposition
     materialComposition:
       Plastic: 50
+  - type: DnaSubstanceTrace

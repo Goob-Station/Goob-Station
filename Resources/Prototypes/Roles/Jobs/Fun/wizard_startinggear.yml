@@ -3,53 +3,33 @@
   id: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    back: ClothingBackpackFilled
     head: ClothingHeadHatWizard
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
-    id: WizardPDA
+    id: PassengerPDA
     ears: ClothingHeadsetService
-
-- type: startingGear
-  id: WizardBlueGearApprentice
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    back: ClothingBackpackFilled
-    head: ClothingHeadHatWizard
-    outerClothing: ClothingOuterWizard
-    shoes: ClothingShoesWizard
-    belt: BaseSpellbookShop6MP
-    id: WizardPDA
-    ears: ClothingHeadsetService
+  storage:
+    back:
+    - BoxSurvivalSlots # Goobstation - Slots Based Survival Boxes
 
 - type: startingGear
   id: WizardRedGear
+  parent: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorRed
-    back: ClothingBackpackFilled
     head: ClothingHeadHatRedwizard
     outerClothing: ClothingOuterWizardRed
-    shoes: ClothingShoesWizard
-    id: WizardPDA
-    ears: ClothingHeadsetService
 
 - type: startingGear
   id: WizardVioletGear
+  parent: WizardBlueGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorPurple
-    back: ClothingBackpackFilled
     head: ClothingHeadHatVioletwizard
     outerClothing: ClothingOuterWizardViolet
-    shoes: ClothingShoesWizard
-    id: WizardPDA
-    ears: ClothingHeadsetService
 
 - type: startingGear
   id: WizardHardsuitGear
+  parent: WizardVioletGear
   equipment:
-    jumpsuit: ClothingUniformJumpsuitColorPurple
-    back: ClothingBackpackFilled
     outerClothing: ClothingOuterHardsuitWizard
-    shoes: ClothingShoesWizard
-    id: WizardPDA
-    ears: ClothingHeadsetService

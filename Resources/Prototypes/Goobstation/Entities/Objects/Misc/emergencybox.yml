@@ -1,0 +1,428 @@
+- type: entity
+  id: BoxSurvivalSlots
+  parent: BaseItem
+  name: survival box
+  description: It's a box with basic internals inside.
+  suffix: Standard
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Misc/emergencybox.rsi
+    state: box
+  - type: Appearance
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,1,1
+  - type: PhysicalComposition
+    materialComposition:
+      Cardboard: 100
+  - type: StaticPrice
+    price: 10
+  - type: Tag
+    tags:
+    - BoxCardboard
+  - type: ContainerContainer
+    containers:
+      water: !type:ContainerSlot
+      nutriblock: !type:ContainerSlot
+      flare: !type:ContainerSlot
+      tank: !type:ContainerSlot
+      mask: !type:ContainerSlot
+      emergencypen: !type:ContainerSlot
+      spacepen: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      water:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - DrinkBottle
+      nutriblock:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - FoodSnack
+      flare:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - Flare
+      tank:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - EmergencyOxygenTank
+          - ExtendedEmergencyOxygenTank
+          - ClownEmergencyOxygenTank
+          - EmergencyNitrogenTank
+      mask:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - BreathMask
+          - SecurityBreathMask
+          - SyndicateBreathMask
+      emergencypen:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - EmergencyMedipen
+      spacepen:
+        ejectOnInteract: false
+        whitelist:
+          tags:
+          - SpaceMedipen
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: ItemMapper
+    mapLayers:
+      nutriblock:
+        whitelist:
+          tags:
+          - FoodSnack
+      flare:
+        whitelist:
+          tags:
+          - Flare
+      emergencypen:
+        whitelist:
+          tags:
+          - EmergencyMedipen
+      spacepen:
+        whitelist:
+          tags:
+          - SpaceMedipen
+      water:
+        whitelist:
+          tags:
+          - DrinkBottle
+      mask:
+        whitelist:
+          tags:
+          - BreathMask
+      secmask:
+        whitelist:
+          tags:
+          - SecurityBreathMask
+      syndiemask:
+        whitelist:
+          tags:
+          - SyndicateBreathMask
+      oxy:
+        whitelist:
+          tags:
+          - EmergencyOxygenTank
+      oxyextend:
+        whitelist:
+          tags:
+          - ExtendedEmergencyOxygenTank
+      oxyclown:
+        whitelist:
+          tags:
+          - ClownEmergencyOxygenTank
+      nit:
+        whitelist:
+          tags:
+          - EmergencyNitrogenTank
+
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsNitrogen
+  suffix: Standard N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsEngineering
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Extended
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_extend
+
+- type: entity
+  parent: BoxSurvivalSlotsEngineering
+  id: BoxSurvivalSlotsEngineeringNitrogen
+  suffix: Extended N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+  - type: Sprite
+    state: box_extend
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsSecurity
+  name: survival box
+  description: It's a box with basic internals inside.
+  suffix: Security
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSecurity
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_sec
+
+- type: entity
+  parent: BoxSurvivalSlotsSecurity
+  id: BoxSurvivalSlotsSecurityNitrogen
+  suffix: Security N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskGasSecurity
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+  - type: Sprite
+    state: box_sec
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsMedical
+  name: survival box
+  description: It's a box with basic internals inside.
+  suffix: Medical
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_med
+
+- type: entity
+  parent: BoxSurvivalSlotsMedical
+  id: BoxSurvivalSlotsMedicalNitrogen
+  suffix: Medical N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskBreathMedical
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+  - type: Sprite
+    state: box_med
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxHugSlots
+  name: box of hugs
+  description: A special box for sensitive people.
+  suffix: Emergency
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyFunnyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_hug
+  - type: Item
+    heldPrefix: hug
+  - type: Tag
+    tags:
+    - BoxHug
+
+- type: entity
+  parent: BoxHugSlots
+  id: BoxHugSlotsNitrogen
+  suffix: Emergency N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - EmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxSurvivalSlotsSyndicate
+  name: extended-capacity survival box
+  description: It's a box with basic internals inside. This one is labelled to contain an extended-capacity tank.
+  suffix: Syndicate
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Sprite
+    state: box_syndie
+
+- type: entity
+  parent: BoxSurvivalSlotsSyndicate
+  id: BoxSurvivalSlotsSyndicateNitrogen
+  suffix: Syndicate N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodSnackNutribrick
+      flare:
+      - Flare
+      tank:
+      - ExtendedEmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskGasSyndicate
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen
+  - type: Sprite
+    state: box_syndie

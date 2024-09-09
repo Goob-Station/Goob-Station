@@ -1,0 +1,92 @@
+- type: gamePreset
+  id: Changeling
+  alias:
+    - ling
+    - lings
+    - changeling
+  name: changeling-gamemode-title
+  description: changeling-gamemode-description
+  showInVote: false
+  rules:
+    - Changeling
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Traitorling
+  alias:
+    - lingtraitor
+    - traitorling
+  name: traitorling-title
+  description: traitorling-description
+  showInVote: false
+  rules:
+    - CalmLing
+    - CalmTraitor
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: NukeTraitor
+  alias:
+    - nuketot
+    - optraitor
+    - optot
+  name: nukeops-title
+  description: nukeops-description
+  showInVote: false
+  rules:
+    - Calmops
+    - CalmTraitor
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: NukeLing
+  alias:
+    - nukeling
+    - opling
+  name: nukeops-title
+  description: nukeops-description
+  showInVote: false
+  rules:
+    - Calmops
+    - CalmLing
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: RevTraitor
+  alias:
+    - revtraitor
+    - revtot
+    - totrevs
+  name: revtraitor-title
+  description: revtraitor-description
+  showInVote: false
+  rules:
+    - CalmRevs
+    - CalmTraitor
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+
+- type: gamePreset
+  id: RevLing
+  alias:
+    - revling
+    - lingrevs
+  name: revling-title
+  description: revling-description
+  showInVote: false
+  rules:
+    - CalmRevs
+    - CalmLing
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
+    - BasicRoundstartVariation

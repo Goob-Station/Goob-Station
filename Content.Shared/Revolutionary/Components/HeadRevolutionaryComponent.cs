@@ -9,13 +9,13 @@ namespace Content.Shared.Revolutionary.Components;
 /// Component used for marking a Head Rev for conversion and winning/losing.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedRevolutionarySystem))]
-public sealed partial class HeadRevolutionaryComponent : Component, IAntagStatusIconComponent
+public sealed partial class HeadRevolutionaryComponent : Component
 {
     /// <summary>
     /// The status icon corresponding to the head revolutionary.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "HeadRevolutionaryFaction";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HeadRevolutionaryFaction";
 
     /// <summary>
     /// How long the stun will last after the user is converted.
@@ -25,6 +25,10 @@ public sealed partial class HeadRevolutionaryComponent : Component, IAntagStatus
 
     public override bool SessionSpecific => true;
 
+    //Goobstation
+    /// <summary>
+    /// If head rev's convert ability is not disabled by mindshield
+    /// </summary>
     [DataField]
-    public bool IconVisibleToGhost { get; set; } = true;
+    public bool ConvertAbilityEnabled = true;
 }

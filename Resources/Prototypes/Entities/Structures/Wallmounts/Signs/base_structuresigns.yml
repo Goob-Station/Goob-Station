@@ -30,8 +30,9 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   - type: Sprite
-    drawdepth: WallTops
+    drawdepth: WallMountedItems
     sprite: Structures/Wallmounts/signs.rsi
-    snapCardinals: true
+    snapCardinals: false
+    noRot: true
   - type: StaticPrice
     price: 20

@@ -2,7 +2,7 @@
   name: handcuffs
   description: Used to detain criminals and other assholes.
   id: Handcuffs
-  parent: BaseItem
+  parent: [BaseItem, BaseRestrictedContraband]
   components:
   - type: Item
     size: Small
@@ -26,8 +26,18 @@
   - type: GuideHelp
     guides:
     - Security
+    - Antagonists
   - type: UseDelay
-    delay: 6
+    delay: 3
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_drop.ogg
 
 - type: entity
   name: makeshift handcuffs
@@ -157,34 +167,3 @@
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/straight_jacket.rsi
     state: icon
-
-- type: entity
-  name: clown cuffs
-  description: To be used for good or evil? The honkmother will decide. Honk.
-  id: ClownCuffs
-  parent: Handcuffs
-  components:
-  - type: Item
-    size: Normal
-    storedRotation: 90
-  - type: Handcuff
-    breakoutTime: 1
-    cuffedRSI: Objects/Fun/clowncuffs.rsi
-    bodyIconState: body-overlay
-    startCuffSound:
-      path: /Audio/Misc/honkalarm.ogg
-      params:
-        volume: -10
-    endCuffSound:
-      path: /Audio/Items/bikehorn.ogg
-    startUncuffSound:
-      path: /Audio/Misc/ducky.ogg
-    endUncuffSound:
-      path: /Audio/Items/bikehorn.ogg
-    startBreakoutSound:
-      path: /Audio/Misc/ducky.ogg
-  - type: Sprite
-    sprite: Objects/Fun/clowncuffs.rsi
-    state: icon
-  - type: UseDelay
-    delay: 2

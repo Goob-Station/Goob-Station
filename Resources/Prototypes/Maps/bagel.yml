@@ -1,9 +1,9 @@
 - type: gameMap
   id: Bagel
   mapName: 'Bagel Station'
-  mapPath: /Maps/bagel.yml
-  minPlayers: 0
-  maxPlayers: 100
+  mapPath: /Maps/Goobstation/bagel.yml # Goobstation - custom bagel
+  minPlayers: 35
+  maxPlayers: 70
   stations:
     Bagel:
       stationProto: StandardNanotrasenStation
@@ -16,18 +16,17 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_lox.yml
         - type: StationJobs
-          overflowJobs:
-            - Passenger
           availableJobs:
-            #service
+            #command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
+            #service
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 2, 2 ]
-            Botanist: [ 3, 3 ]
+            Bartender: [ 1, 2 ]
+            Botanist: [ 2, 2 ]
             Chef: [ 2, 2 ]
-            Janitor: [ 3, 3 ]
+            Janitor: [ 2, 2 ]
             Chaplain: [ 1, 1 ]
             Librarian: [ 1, 1 ]
             ServiceWorker: [ 2, 2 ]
@@ -46,7 +45,6 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 5, 5 ]
             ResearchAssistant: [ 4, 4 ]
-            Borg: [ 2, 2 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
@@ -64,3 +62,6 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             Reporter: [ 2, 2 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]

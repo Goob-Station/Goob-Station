@@ -5,7 +5,7 @@
   playTimeTracker: JobTechnicalAssistant
   requirements:
     - !type:OverallPlaytimeRequirement
-      time: 3600 #1 hr
+      time: 1800 # 30 Minutes
     - !type:DepartmentTimeRequirement
       department: Engineering
       time: 54000 #15 hrs
@@ -27,3 +27,6 @@
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
     pocket2: BookEngineersHandbook
+  #storage:
+    #back:
+    #- Stuff

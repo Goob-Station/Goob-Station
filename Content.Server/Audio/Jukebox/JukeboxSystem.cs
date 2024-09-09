@@ -1,10 +1,13 @@
+using Content.Server.Instruments;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.Audio.Jukebox;
+using Content.Shared.Power;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using JukeboxComponent = Content.Shared.Audio.Jukebox.JukeboxComponent;
 
@@ -43,6 +46,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
         if (Exists(component.AudioStream))
         {
             Audio.SetState(component.AudioStream, AudioState.Playing);
+            EnsureComp<ActiveInstrumentComponent>(uid);
         }
         else
         {
@@ -55,6 +59,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
             }
 
             component.AudioStream = Audio.PlayPvs(jukeboxProto.Path, uid, AudioParams.Default.WithMaxDistance(10f))?.Entity;
+            EnsureComp<ActiveInstrumentComponent>(uid);
             Dirty(uid, component);
         }
     }
@@ -62,12 +67,16 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void OnJukeboxPause(Entity<JukeboxComponent> ent, ref JukeboxPauseMessage args)
     {
         Audio.SetState(ent.Comp.AudioStream, AudioState.Paused);
+        RemComp<ActiveInstrumentComponent>(ent.Owner);
     }
 
     private void OnJukeboxSetTime(EntityUid uid, JukeboxComponent component, JukeboxSetTimeMessage args)
     {
-        var offset = (args.Session.Channel.Ping * 1.5f) / 1000f;
-        Audio.SetPlaybackPosition(component.AudioStream, args.SongTime + offset);
+        if (TryComp(args.Actor, out ActorComponent? actorComp))
+        {
+            var offset = actorComp.PlayerSession.Channel.Ping * 1.5f / 1000f;
+            Audio.SetPlaybackPosition(component.AudioStream, args.SongTime + offset);
+        }
     }
 
     private void OnPowerChanged(Entity<JukeboxComponent> entity, ref PowerChangedEvent args)
@@ -88,6 +97,7 @@ public sealed class JukeboxSystem : SharedJukeboxSystem
     private void Stop(Entity<JukeboxComponent> entity)
     {
         Audio.SetState(entity.Comp.AudioStream, AudioState.Stopped);
+        RemComp<ActiveInstrumentComponent>(entity.Owner);
         Dirty(entity);
     }
 

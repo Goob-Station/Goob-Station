@@ -1,4 +1,4 @@
-- files: ["thunderdome.ogg"]
+﻿- files: ["thunderdome.ogg"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "-Sector11 by MashedByMachines. Converted from MP3 to OGG."
   source: "https://www.newgrounds.com/audio/listen/312622"
@@ -47,7 +47,7 @@
 - files: ["mod.flip-flap.ogg"]
   license: "Custom"
   copyright: "Flip Flap by X-ceed is licensed under a short but clear license (see flip-flap.txt in this directory) and is free for non-commercial use. It was converted from MOD to WAV using Schism Tracker, in 16 Bit, Non-Interpolated mode, no output equalizer settings, Ramp volume at start of sample enabled. From there it was converted to OGG Vorbis with `ffmpeg -i flip-flap.wav -q 2.9 flip-flap-renc.ogg` (quality scale chosen to match size of the OGG file being replaced). Non-interpolated mode was chosen as the module has a high enough sample rate to balance it out, but seems muffled in other interpolation modes. If 'Ramp volume at start of sample' is not enabled, a clicking phenomenon results."
-  source: "http://aminet.net/package/mods/xceed/Flipflap"
+  source: "http://aminet.net/package/mods/xceed/Fextendlipflap"
 
 - files: ["Spac_Stac.ogg"]
   license: "CC-BY-NC-SA-3.0"
@@ -69,77 +69,47 @@
   copyright: "every light is blinking at once by Alexander Divine."
   source: "https://soundcloud.com/alexanderdivine/every-light-is-blinking-at-once"
 
-- files: ["geese.ogg"]
+- files: ["skubstep.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: " "
-  source: "https://x329436.invisionservice.com/"
+  copyright: "skubstep by finket."
+  source: "https://soundcloud.com/finket/skubstep-extended"
 
-- files: ["bufftf2men.ogg"]
+- files: ["sneedsfeedandseed.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Sneed's Feed and Seed by Burgerchild"
+  source: "https://soundcloud.com/burgerchild/sneeds-feed-and-seed-2022"
+
+- files: ["clownwmv.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Clown.wmv by Admiral Hippie"
+  source: "https://www.youtube.com/watch?v=9whQIbNmu9s"
+
+- files: ["clownalwayswins.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Clown Always Wins by NИTRODE"
+  source: "https://www.youtube.com/watch?v=UkN2DQYRooA"
+
+- files: ["honk.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Honk! by SlendyMawn"
+  source: "https://www.youtube.com/watch?v=DCy3TtYwaWc"
+
+- files: ["dawsonschristian.ogg"]
   license: "Custom"
-  copyright: "Unknown"
-  source: "https://x329436.invisionservice.com/"
+  copyright: "Dawson's Christian by Vic Tyler"
+  source: "https://archive.org/details/filk_carmen_mirandas_ghost"
 
-- files: ["everythingisbroke.ogg"]
+- files: ["thewizard.ogg"]
   license: "Custom"
-  copyright: "Unknown"
-  source: "https://x329436.invisionservice.com/"
+  copyright: "The Wizard by Chris Remo is used with special permission from the author, under the condition that the project remains non-commercial and open source. The author also requested that a link to his bandcamp be included: https://chrisremo.bandcamp.com/"
+  source: "https://idlethumbs.bandcamp.com/track/the-wizard"
 
-- files: ["psirius_-_nights_of_orion.xm.ogg"]
-  license: "CC-BY-NC-SA-4.0"
-  copyright: "Nights of Orion by Psirius"
-  source: "https://modarchive.org/index.php?request=view_by_moduleid&query=184962"
-
-- files: ["Marhaba.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Marhaba by Ian Alex Mac. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=p8rFVXzb8A4"
-
-- files: ["Despair-Death-Squadron's-theme.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 - Despair - Death Squadron's theme [FANMADE] By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=bjFofq9j1DM"
-
-- files: ["Syndicate-theme.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 - Syndicate theme [FANMADE] By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=puNBrHe5EhY"
-
-- files: ["Tear-of-veil-Final-phase-of-Blood-cult.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 - Tear of veil - Final phase of Blood cult [FANMADE] By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=NqNHKfTAvcw"
-
-- files: ["Battle-for-Taypan.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 - Battle for Taypan [FANMADE] By Bolgarich x Haziness Codex. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=xAOatuanOfg"
-
-- files: ["Deadline-The-End-of-The-Expedition.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 14 - Deadline - The End of The Expedition [FANMADE] By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=q7_NFEeeEac"
-
-- files: ["Midnight-Black's-theme.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 - Midnight Black's theme by Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=Ay4lpS_yH48"
-
-- files: ["Peacemakers_-_ERTs_Theme.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 & 14 - Peacemakers - ERT's Theme [FANMADE] By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=ksdZxgnaajY"
-
-- files: ["Corporate Rats.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Space Station 13 & 14 - Corporate Rats By Bolgarich. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=F4OkYAPaqeI"
-
-- files: ["Title 2 Mark II.ogg"]
+- files: ["skubstub.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Originally composed by Jonathan Dunn for Robocop 2 Gameboy published by Ocean Software. Remixed by Eric Shumaker for his video Dilbert 3. As of October 9th, 2008 nobody owns the rights to this song and copyright action has never been taken against anyone using this song in their projects. This remix is by roseblossom6. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=XKdDchb_MEY"
+  copyright: "DJ B1G YAPPA"
+  source: "https://forums.goobstation.com"
 
-- files: ["Title 3 Mark II.ogg"]
+- files: ["space_radiation.ogg"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "The original is Title3 by Cuboos. It is a remix of the song 'Tintin on the Moon'. This remix is by roseblossom6 as an uplifting version. Converted from MP4 to OGG."
-  source: "https://www.youtube.com/watch?v=d7hc_GrZP4Y"
+  copyright: "Space Radiation by Outer"
+  source: "https://soundcloud.com/user-957617053"

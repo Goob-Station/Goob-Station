@@ -1,0 +1,23 @@
+- type: localizedDataset
+  id: FitnessVendAds
+  values:
+    prefix: advertisement-fitness-
+    count: 9
+
+- type: localizedDataset
+  id: HotfoodAds
+  values:
+    prefix: advertisement-hotfood-
+    count: 4
+
+- type: localizedDataset
+  id: SolsnackAds
+  values:
+    prefix: advertisement-solsnack-
+    count: 3
+
+- type: localizedDataset
+  id: WeebVendAds
+  values:
+    prefix: advertisement-weebvend-
+    count: 3

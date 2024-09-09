@@ -1,8 +1,8 @@
 - type: entity
-  parent: MobObserver
+  parent: [MobObserver, InventoryBase]
   id: AdminObserver
   name: admin observer
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: ContentEye
     maxZoom: 8.916104, 8.916104
@@ -18,6 +18,7 @@
     canInteract: true
   - type: GhostHearing
   - type: Hands
+  - type: ComplexInteraction
   - type: Puller
   - type: CombatMode
   - type: Physics
@@ -34,32 +35,32 @@
     - CentralCommand
   - type: UserInterface
     interfaces:
-      - key: enum.SolarControlConsoleUiKey.Key
+      enum.SolarControlConsoleUiKey.Key:
         type: SolarControlConsoleBoundUserInterface
-      - key: enum.CommunicationsConsoleUiKey.Key
+      enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
-      - key: enum.RadarConsoleUiKey.Key
+      enum.RadarConsoleUiKey.Key:
         type: RadarConsoleBoundUserInterface
-      - key: enum.CargoConsoleUiKey.Orders
+      enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
-      - key: enum.CrewMonitoringUIKey.Key
+      enum.CrewMonitoringUIKey.Key:
         type: CrewMonitoringBoundUserInterface
-      - key: enum.GeneralStationRecordConsoleKey.Key
-        # who the fuck named this bruh
+      enum.GeneralStationRecordConsoleKey.Key:
+      # who the fuck named this bruh
         type: GeneralStationRecordConsoleBoundUserInterface
   - type: IntrinsicUI
     uis:
-      - key: enum.SolarControlConsoleUiKey.Key
+      enum.SolarControlConsoleUiKey.Key:
         toggleAction: ActionAGhostShowSolar
-      - key: enum.CommunicationsConsoleUiKey.Key
+      enum.CommunicationsConsoleUiKey.Key:
         toggleAction: ActionAGhostShowCommunications
-      - key: enum.RadarConsoleUiKey.Key
+      enum.RadarConsoleUiKey.Key:
         toggleAction: ActionAGhostShowRadar
-      - key: enum.CargoConsoleUiKey.Orders
+      enum.CargoConsoleUiKey.Orders:
         toggleAction: ActionAGhostShowCargo
-      - key: enum.CrewMonitoringUIKey.Key
+      enum.CrewMonitoringUIKey.Key:
         toggleAction: ActionAGhostShowCrewMonitoring
-      - key: enum.GeneralStationRecordConsoleKey.Key
+      enum.GeneralStationRecordConsoleKey.Key:
         toggleAction: ActionAGhostShowStationRecords
   - type: SolarControlConsole # look ma i AM the computer!
   - type: CommunicationsConsole
@@ -68,11 +69,14 @@
   - type: RadarConsole
     followEntity: true
   - type: CargoOrderConsole
+  - type: BankClient
   - type: CrewMonitoringConsole
   - type: GeneralStationRecordConsole
+    canDeleteEntries: true
   - type: DeviceNetwork
     deviceNetId: Wireless
     receiveFrequencyId: CrewMonitor
+    transmitFrequencyId: ShuttleTimer
   - type: WirelessNetworkConnection
     range: 500
   - type: StationLimitedNetwork
@@ -82,19 +86,18 @@
   - type: Stripping
   - type: SolutionScanner
   - type: IgnoreUIRange
-  - type: ShowRevIcons
-  - type: ShowZombieIcons
+  - type: ShowAntagIcons
   - type: Inventory
     templateId: aghost
-  - type: InventorySlots
   - type: Loadout
     prototypes: [ MobAghostGear ]
+  - type: BypassInteractionChecks
+  - type: SupermatterImmune # Goobstation
 
 - type: entity
   id: ActionAGhostShowSolar
   name: Solar Control Interface
   description: View a solar control interface.
-  noSpawn: true
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -107,7 +110,6 @@
   id: ActionAGhostShowCommunications
   name: Communications Interface
   description: View a communications interface.
-  noSpawn: true
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -120,11 +122,10 @@
   id: ActionAGhostShowRadar
   name: Mass Scanner Interface
   description: View a mass scanner interface.
-  noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.RadarConsoleUiKey.Key }
@@ -133,7 +134,6 @@
   id: ActionAGhostShowCargo
   name: Cargo Ordering Interface
   description: View a cargo ordering interface.
-  noSpawn: true
   components:
   - type: InstantAction
     icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
@@ -146,11 +146,10 @@
   id: ActionAGhostShowCrewMonitoring
   name: Crew Monitoring Interface
   description: View a crew monitoring interface.
-  noSpawn: true
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: crew_monitor }
+    iconOn: Interface/Actions/actions_ai.rsi/crew_monitor.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.CrewMonitoringUIKey.Key }
@@ -158,12 +157,11 @@
 - type: entity
   id: ActionAGhostShowStationRecords
   name: Station Records Interface
-  description: View a station records Interface
-  noSpawn: true
+  description: View a station records Interface.
   components:
   - type: InstantAction
-    icon: { sprite: Structures/Machines/parts.rsi, state: box_0 }
-    iconOn: Structures/Machines/parts.rsi/box_2.png
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: station_records }
+    iconOn: Interface/Actions/actions_ai.rsi/station_records.png
     keywords: [ "AI", "console", "interface" ]
     priority: -10
     event: !type:ToggleIntrinsicUIEvent { key: enum.GeneralStationRecordConsoleKey.Key }

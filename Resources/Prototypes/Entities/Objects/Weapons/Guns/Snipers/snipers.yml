@@ -19,7 +19,7 @@
     - suitStorage
   - type: AmmoCounter
   - type: Gun
-    fireRate: 0.75
+    fireRate: 0.8 # Goobstation
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto
@@ -37,10 +37,19 @@
         ents: []
   - type: StaticPrice
     price: 500
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
 
 - type: entity
   name: Kardashev-Mosin
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperMosin
   description: A weapon for hunting, or endless trench warfare. Uses .30 rifle ammo.
   components:
@@ -49,7 +58,7 @@
 
 - type: entity
   name: Hristov
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseGunWieldable, BaseSyndicateContraband]
   id: WeaponSniperHristov
   description: A portable anti-materiel rifle. Fires armor piercing 14.5mm shells. Uses .60 anti-materiel ammo.
   components:
@@ -61,12 +70,12 @@
     whitelist:
       tags:
       - CartridgeAntiMateriel
-    capacity: 5
+    capacity: 6 # Goobstation
     proto: CartridgeAntiMateriel
 
 - type: entity
   name: musket
-  parent: BaseWeaponSniper
+  parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband ]
   id: Musket
   description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
   components:
@@ -104,7 +113,7 @@
 
 - type: entity
   name: flintlock pistol
-  parent: BaseWeaponSniper
+  parent: [BaseWeaponSniper, BaseMinorContraband]
   id: WeaponPistolFlintlock
   description: A pirate's companion. Yarrr! Uses .60 anti-materiel ammo.
   components:
@@ -130,22 +139,3 @@
   - type: StaticPrice
     price: 0
 
-- type: entity
-  name: a gun with one bullet
-  parent: BaseWeaponSniper
-  id: WeaponFaithGun
-  description: Have faith in your aim.
-  components:
-  - type: Sprite
-    sprite: Objects/Weapons/Guns/Snipers/faithgun.rsi
-  - type: Clothing
-    sprite: Objects/Weapons/Guns/Snipers/faithgun.rsi
-  - type: BallisticAmmoProvider
-    whitelist:
-      tags:
-      - CartridgeMortis
-    capacity: 1
-    proto: CartridgeMortis
-  - type: Gun
-    soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mortis.ogg

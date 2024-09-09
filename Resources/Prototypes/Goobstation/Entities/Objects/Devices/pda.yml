@@ -1,0 +1,40 @@
+- type: entity
+  parent: AdminPDA
+  id: ChronoPDA
+  name: futuristic PDA
+  description: A powerful quantum computer disguised as a regular pda for disguise.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: ChronoIDCard
+    state: pda-chrono
+    penSlot:
+      startingItem: PenFuture
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#dee4e7"
+    accentVColor: "#59bcee"
+  - type: Icon
+    sprite: Goobstation/Objects/Devices/pda.rsi
+    state: pda-chrono
+
+- type: entity
+  parent: SalvagePDA
+  id: HelldiverPDA
+  name: salvage diver PDA
+  description: Smells like corpses of insects and androids.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: HelldiverIDCard
+    state: pda-heccd
+  - type: PdaBorderColor
+    borderColor: "#272727"
+    accentVColor: "#cec100"
+  - type: Icon
+    sprite: Goobstation/Objects/Devices/pda.rsi
+    state: pda-heccd

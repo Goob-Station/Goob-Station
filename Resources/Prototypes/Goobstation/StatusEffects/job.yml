@@ -1,0 +1,23 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconFuture
+  icon:
+    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
+    state: Future
+  jobName: Future Agent
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconNanotrasenRepresentative
+  icon:
+    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
+    state: nanotrasenrepresentative
+  jobName: Nanotrasen Representative
+
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconBlueshield
+  icon:
+    sprite: /Textures/Goobstation/Interface/Misc/job_icons.rsi
+    state: blueshield
+  jobName: Blueshield

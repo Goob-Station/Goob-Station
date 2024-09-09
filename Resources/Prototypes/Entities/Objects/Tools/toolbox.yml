@@ -7,6 +7,12 @@
     layers:
       - map: [ base ]
         state: icon
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/toolbox_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/toolbox_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -114,7 +120,7 @@
 
 - type: entity
   name: suspicious toolbox
-  parent: ToolboxBase
+  parent: [ToolboxBase, BaseSyndicateContraband]
   id: ToolboxSyndicate
   description: A sinister looking toolbox filled with elite syndicate tools.
   components:
@@ -155,10 +161,10 @@
     state: icon
   - type: ThiefUndeterminedBackpack
     possibleSets:
-    # - TO DO Thief pinpointer needed
+    # TODO Thief pinpointer needed
     - ChemistrySet
     - ToolsSet
-    - ChameleonSet # - TO DO Chameleon stump PR needed
+    - ChameleonSet # TODO Chameleon stump PR needed
     - SyndieSet
     - SleeperSet
     - CommunicatorSet
@@ -167,5 +173,5 @@
     key: enum.ThiefBackpackUIKey.Key
   - type: UserInterface
     interfaces:
-      - key: enum.ThiefBackpackUIKey.Key
+      enum.ThiefBackpackUIKey.Key:
         type: ThiefBackpackBoundUserInterface

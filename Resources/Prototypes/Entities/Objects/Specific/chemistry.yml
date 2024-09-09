@@ -45,8 +45,8 @@
     solution: beaker
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: Drink
     solution: beaker
   - type: Appearance
@@ -92,6 +92,22 @@
         Blunt: 5
   - type: StaticPrice
     price: 30
+  - type: DnaSubstanceTrace
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/beaker_pickup.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
+      params:
+        volume: -1
 
 - type: entity
   parent: BaseItem
@@ -136,10 +152,12 @@
     solution: beaker
   - type: SolutionTransfer
     canChangeTransferAmount: true
+  - type: SolutionItemStatus
+    solution: beaker
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: Drink
     solution: beaker
   - type: Appearance
@@ -151,6 +169,7 @@
     damageModifierSet: Glass
   - type: StaticPrice
     price: 30
+  - type: DnaSubstanceTrace
 
 - type: entity
   name: beaker
@@ -162,6 +181,9 @@
     solution: beaker
   - type: StaticPrice
     price: 10
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 50
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beaker
@@ -169,11 +191,12 @@
     inHandsFillBaseName: -fill-
 
 - type: entity
-  name: cryoxadone beaker
-  description: Filled with a reagent used in cryogenic tubes.
+  suffix: cryoxadone
   parent: Beaker
   id: CryoxadoneBeakerSmall
   components:
+  - type: Label
+    currentLabel: reagent-name-cryoxadone
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -210,6 +233,9 @@
     fillBaseName: beakerlarge
     inHandsMaxFillLevels: 4
     inHandsFillBaseName: -fill-
+  - type: PhysicalComposition
+    materialComposition:
+      Glass: 100
   - type: StaticPrice
     price: 20
 
@@ -225,6 +251,8 @@
     sprite: Objects/Specific/Chemistry/beaker_cryostasis.rsi
     layers:
       - state: beakernoreact
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -243,6 +271,8 @@
     sprite: Objects/Specific/Chemistry/beaker_bluespace.rsi
     layers:
       - state: beakerbluespace
+  - type: SolutionContainerVisuals
+    maxFillLevels: 0
   - type: SolutionContainerManager
     solutions:
       beaker:
@@ -276,12 +306,13 @@
     solution: dropper
   - type: UserInterface
     interfaces:
-    - key: enum.TransferAmountUiKey.Key
-      type: TransferAmountBoundUserInterface
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
   - type: Spillable
     solution: injector
   - type: Item
     sprite: Objects/Specific/Chemistry/dropper.rsi
+    size: Tiny
   - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 1
@@ -290,6 +321,10 @@
     inHandsFillBaseName: -fill-
   - type: StaticPrice
     price: 40
+  - type: DnaSubstanceTrace
+  - type: Tag
+    tags:
+    - Dropper
 
 - type: entity
   name: borgdropper
@@ -394,7 +429,7 @@
       injector:
         maxVol: 100
   - type: Injector
-    delay: 2.5
+    delay: 1 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
     injectOnly: false
   - type: SolutionContainerVisuals
     maxFillLevels: 2
@@ -408,7 +443,7 @@
   id: SyringeCryostasis
   parent: BaseSyringe
   name: cryostasis syringe
-  description: A syringe used to contain chemicals or solutions without reactions.
+  description: An improved syringe used to contain chemicals or solutions without reactions. # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   components:
   - type: Sprite
     layers:
@@ -423,13 +458,14 @@
   - type: SolutionContainerManager
     solutions:
       injector:
-        maxVol: 10
+        maxVol: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
         canReact: false
   - type: Injector
+    delay: 2
     injectOnly: false
     minTransferAmount: 5
-    maxTransferAmount: 10
-    transferAmount: 10
+    maxTransferAmount: 20
+    transferAmount: 20 # Goobstation - buffing cryo syringe cause its currently pointless and buffing bluespace syringe to make it more useful.
   - type: Tag
     tags:
     - Syringe

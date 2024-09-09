@@ -24,7 +24,7 @@
   - type: AmmoCounter
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 1.5
+    fireRate: 2 # Goobstation
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -49,10 +49,19 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
 
 - type: entity
   name: Deckard
-  parent: BaseWeaponRevolver
+  parent: [BaseWeaponRevolver, BaseSecurityCommandContraband]
   id: WeaponRevolverDeckard
   description: A rare, custom-built revolver. Use when there is no time for Voight-Kampff test. Uses .45 magnum ammo.
   components:
@@ -65,7 +74,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Gun
-    fireRate: 2
+    fireRate: 2.5 # Goobstation
   - type: RevolverAmmoProvider
     capacity: 5
     chambers: [ True, True, True, True, True ]
@@ -80,7 +89,7 @@
 
 - type: entity
   name: Inspector
-  parent: BaseWeaponRevolver
+  parent: [BaseWeaponRevolver, BaseRestrictedContraband]
   id: WeaponRevolverInspector
   description: A detective's best friend. Uses .45 magnum ammo.
   components:
@@ -95,7 +104,7 @@
 
 - type: entity
   name: Mateba
-  parent: BaseWeaponRevolver
+  parent: [BaseWeaponRevolver, BaseMajorContraband]
   id: WeaponRevolverMateba
   description: The iconic sidearm of the dreaded death squads. Uses .45 magnum ammo.
   components:
@@ -110,7 +119,7 @@
 
 - type: entity
   name: Python
-  parent: BaseWeaponRevolver
+  parent: [BaseWeaponRevolver, BaseSyndicateContraband]
   id: WeaponRevolverPython
   description: A robust revolver favoured by Syndicate agents. Uses .45 magnum ammo.
   components:
@@ -120,7 +129,7 @@
     sprite: Objects/Weapons/Guns/Revolvers/python.rsi
   - type: Gun
     selectedMode: SemiAuto
-    fireRate: 2
+    fireRate: 2.5 # Goobstation
     availableModes:
     - SemiAuto
     soundGunshot:
@@ -129,11 +138,9 @@
         volume: 2.25
 
 - type: entity
-  name: Python
   parent: WeaponRevolverPython
   id: WeaponRevolverPythonAP # For the uplink.
   suffix: armor-piercing
-  description: A robust revolver favoured by Syndicate agents. Uses .45 magnum ammo.
   components:
   - type: RevolverAmmoProvider
     whitelist:
@@ -145,7 +152,7 @@
 
 - type: entity
   name: pirate revolver
-  parent: BaseWeaponRevolver
+  parent: [BaseWeaponRevolver, BaseMinorContraband]
   id: WeaponRevolverPirate
   description: An odd, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo.
   components:

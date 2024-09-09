@@ -1,0 +1,8 @@
+- type: vendingMachineInventory
+  id: WeebVendInventory
+  startingInventory:
+    FoodSnackRedalertnuts: 3
+    FoodSnackRicecake: 3
+    FoodSnackPokeysticks: 3
+    FoodSnackChocobanana: 3
+    FoodSnackDango: 3

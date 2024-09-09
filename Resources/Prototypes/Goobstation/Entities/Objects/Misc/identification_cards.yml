@@ -1,0 +1,36 @@
+- type: entity
+  parent: IDCardStandard
+  id: ChronoIDCard
+  name: futuristic ID card
+  description: The card that originally accessed everything in this universe
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: future
+    - state: idchrono
+  - type: Item
+    heldPrefix: blue
+  - type: IdCard
+    jobTitle: Future Agent
+    jobIcon: JobIconFuture
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand
+    - SyndicateAgent
+
+# Helldiver
+- type: entity
+  parent: SalvageIDCard
+  id: HelldiverIDCard
+  name: salvage diver ID card
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Misc/id_cards.rsi
+    layers:
+    - state: idhelldiver
+  - type: IdCard
+    jobTitle: Salvage Diver
+    jobIcon: JobIconShaftMiner

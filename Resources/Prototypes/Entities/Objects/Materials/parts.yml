@@ -57,7 +57,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 5
+    price: 7.5
   - type: Extractable
     grindableSolutionName: rod
   - type: SolutionContainerManager
@@ -68,6 +68,9 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/iron_rod_pickup.ogg
 
 - type: entity
   parent: PartRodMetal
@@ -114,18 +117,3 @@
   - type: Stack
     lingering: true
     count: 0
-
-- type: entity
-  parent: MaterialBase
-  id: EnrichedUranium
-  name: Enriched Uranium
-  description: Highly radioactive... Can be used in the creation of nuclear explosives!
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/enricheduranium.rsi
-    state: icon
-  - type: RadiationSource
-    intensity: 1
-  - type: Tag
-    tags:
-    - EnrichedUranium

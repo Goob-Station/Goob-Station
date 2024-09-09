@@ -6,7 +6,7 @@
 
 - files: ["barratry.yml"]
   authors: Emogarbage, Scribbles0
- 
+
 - files: ["box.yml"]
   authors: ACJM, Emisse
 
@@ -51,3 +51,6 @@
 
 - files: ["oasis.yml"]
   authors: CptJeanLuc
+
+- files: ["cog.yml"]
+  authors: Spacemann

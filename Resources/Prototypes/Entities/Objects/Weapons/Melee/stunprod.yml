@@ -1,9 +1,12 @@
 - type: entity
   name: stun prod
-  parent: BaseItem
+  parent: [BaseItem, BaseMinorContraband]
   id: Stunprod
   description: A stun prod for illegal incapacitation.
   components:
+  - type: Tag # goob edit
+    tags:
+    - Stunbaton
   - type: Sprite
     sprite: Objects/Weapons/Melee/stunprod.rsi
     layers:
@@ -41,6 +44,7 @@
   - type: StaminaDamageOnCollide
     damage: 35
     sound: /Audio/Weapons/egloves.ogg
+  - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
     maxCharge: 360
     startingCharge: 360
@@ -67,3 +71,12 @@
   - type: Construction
     graph: makeshiftstunprod
     node: msstunprod
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/stun_baton_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/stun_baton_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/stun_baton_drop.ogg

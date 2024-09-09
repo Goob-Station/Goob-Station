@@ -4,9 +4,8 @@
   description: job-description-bartender
   playTimeTracker: JobBartender
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 1800
+    - !type:OverallPlaytimeRequirement
+      time: 1800 # 30 Minutes
   startingGear: BartenderGear
   icon: "JobIconBartender"
   supervisors: job-supervisors-hop
@@ -24,3 +23,6 @@
     shoes: ClothingShoesColorBlack
     id: BartenderPDA
     ears: ClothingHeadsetService
+  #storage:
+    #back:
+    #- Stuff

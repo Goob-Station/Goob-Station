@@ -1,0 +1,27 @@
+- type: entity
+  parent: MagazineLightRifleBox # It goes in a saw, its funny.
+  id: MagazineFoamBox
+  name: ammunition box (foam)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - BulletFoam
+    proto: BulletFoam
+    capacity: 100
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
+      params:
+        volume: -1

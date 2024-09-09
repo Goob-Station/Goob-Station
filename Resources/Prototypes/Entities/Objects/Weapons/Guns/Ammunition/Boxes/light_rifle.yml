@@ -10,7 +10,7 @@
       tags:
         - CartridgeLightRifle
     proto: CartridgeLightRifle
-    capacity: 50
+    capacity: 60
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -23,6 +23,21 @@
     steps: 2
     zeroVisible: false
   - type: Appearance
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
+      params:
+        volume: -1
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
+      params:
+        volume: -1
 
 # Boxes
 - type: entity
@@ -73,21 +88,6 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
     - state: practice
-
-- type: entity
-  parent: BaseMagazineBoxLightRifle
-  id: MagazineBoxLightRifleRubber
-  name: ammunition box (.30 rifle rubber)
-  components:
-  - type: BallisticAmmoProvider
-    proto: CartridgeLightRifleRubber
-  - type: Sprite
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-    - state: rubber
 
 - type: entity
   id: MagazineBoxLightRifleIncendiary

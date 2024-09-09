@@ -32,7 +32,7 @@ public sealed partial class StoreMenu : DefaultWindow
 
     private List<ListingData> _cachedListings = new();
 
-    public StoreMenu(string name)
+    public StoreMenu()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
@@ -40,9 +40,6 @@ public sealed partial class StoreMenu : DefaultWindow
         WithdrawButton.OnButtonDown += OnWithdrawButtonDown;
         RefundButton.OnButtonDown += OnRefundButtonDown;
         SearchBar.OnTextChanged += _ => SearchTextUpdated?.Invoke(this, SearchBar.Text);
-
-        if (Window != null)
-            Window.Title = name;
     }
 
     public void UpdateBalance(Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance)
@@ -147,6 +144,10 @@ public sealed partial class StoreMenu : DefaultWindow
         }
 
         var newListing = new StoreListingControl(listing, GetListingPriceString(listing), hasBalance, texture);
+
+        if (listing.DiscountValue > 0) // WD EDIT
+            newListing.StoreItemBuyButton.AddStyleClass("ButtonColorRed");
+
         newListing.StoreItemBuyButton.OnButtonDown += args
             => OnListingButtonPressed?.Invoke(args, listing);
 

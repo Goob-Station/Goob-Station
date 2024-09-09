@@ -4,9 +4,8 @@
   description: job-description-chef
   playTimeTracker: JobChef
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Civilian
-      time: 1800
+    - !type:OverallPlaytimeRequirement
+      time: 1800 # 30 Minutes
   startingGear: ChefGear
   icon: "JobIconChef"
   supervisors: job-supervisors-hop
@@ -25,3 +24,6 @@
     id: ChefPDA
     ears: ClothingHeadsetService
     belt: ClothingBeltChefFilled
+  #storage:
+    #back:
+    #- Stuff

@@ -4,6 +4,7 @@
   name: airlock
   description: It opens, it closes, and maybe crushes you.
   components:
+  - type: StationAiWhitelist
   - type: MeleeSound
     soundGroups:
       Brute:
@@ -104,8 +105,10 @@
   - type: SpawnOnOverload
   - type: UserInterface
     interfaces:
-    - key: enum.WiresUiKey.Key
-      type: WiresBoundUserInterface
+      enum.AiUi.Key:
+        type: StationAiBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Airtight
     noAirWhenFullyAirBlocked: false
   - type: RadiationBlocker
@@ -137,9 +140,6 @@
     - board
   - type: PlacementReplacement
     key: walls
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
   - type: PaintableAirlock
     group: Standard
     department: Civilian

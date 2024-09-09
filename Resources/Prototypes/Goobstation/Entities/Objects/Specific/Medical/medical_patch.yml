@@ -1,0 +1,205 @@
+- type: entity
+  parent: BaseHealingItem
+  id: BaseMedicalPatch
+  name: base patch
+  description: put this on your boo boo
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: GenericPatch
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+  - type: ExaminableSolution
+    solution: drink
+  - type: Sticky
+    stickDelay: 3
+    unstickDelay: 2
+    stickPopupStart: goobstation-medicalpatch-sticy-trystick
+    stickPopupSuccess: goobstation-medicalpatch-sticy-trystick-success
+    unstickPopupStart: goobstation-medicalpatch-sticy-tryremove
+    unstickPopupSuccess: goobstation-medicalpatch-sticy-tryremove-success
+    whitelist:
+      components:
+      - Bloodstream
+  - type: StickyVisualizer
+  - type: Appearance
+  - type: MixableSolution
+    solution: drink
+  - type: MedicalPatch
+  - type: Tag
+    tags:
+    - MedicalPatch
+
+- type: entity
+  parent: BaseMedicalPatch
+  id: MedicalPatchBasic
+  name: patch
+  description: put this on your boo boo
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    scale: 0.9 , 0.9
+    layers:
+      - state: GenericPatch
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerVisuals
+    maxFillLevels: 9
+    fillBaseName: GenericPatch-
+  - type: SolutionContainerManager
+    solutions:
+      drink:  #drink is the same as Bottle solution, this is to prevent recoding chem master. TODO: recode chem master
+        maxVol: 40
+  - type: Tag
+    tags:
+    - MedicalPatch
+    - Bottle  # Bottle tag so that it can be accepted by chem master # TODO: code chemmaster
+  - type: Spillable # only way empty the patch is wring it out and spill it on the floor
+    solution: drink
+
+- type: entity
+  parent: BaseHealingItem
+  id: UsedMedicalPatch
+  name: patch used
+  description: EEEEWWWWWWW
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: GenericPatchSmallUsed
+  - type: Tag
+    tags:
+    - Trash
+  - type: PhysicalComposition #get 1 cloth form recycling a used patch
+    materialComposition:
+      Cloth: 100
+
+- type: entity
+  parent: UsedMedicalPatch
+  id: UsedMedicalPatchMakeshift
+  name: patch used
+  description: EEEEWWWWWWW
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatchUsed
+
+- type: entity
+  parent: MedicalPatchBasic
+  id: MedicalPatchRapid
+  name: rapid patch
+  description:  has racing cars drawn on
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: Red
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: MedicalPatch
+    transferAmount: 2 # Twice the ammound of basic
+
+- type: entity
+  parent: MedicalPatchBasic
+  id: MedicalPatchLarge
+  name: large patch
+  description: put this on your Big boo boo
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    scale: 1 , 1
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: Violet
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60 # +50% from basic
+  - type: MedicalPatch
+    injectPercentageOnAttatch: 15 # 10u when full
+
+- type: entity
+  parent: BaseMedicalPatch
+  id: MedicalPatchMakeshift
+  name: makeshift patch
+  description: does not look hygienic
+  components:
+  - type: Sprite
+    state: MakeshiftPatch
+  - type: MedicalPatch
+    updateTime: 2 # slow
+    singleUse: true
+    trashObject: UsedMedicalPatchMakeshift
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15  #Low volume but a full will last for 30sec
+  - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
+    solution: drink
+  - type: Construction
+    graph: MedicalPatchMakeshift
+    node: medicalPatchMakeshift
+
+- type: latheRecipe
+  id: MedicalPatchBasic
+  result: MedicalPatchBasic
+  completetime: 2
+  materials:
+    Plastic: 100
+    Cloth: 100
+
+- type: latheRecipe
+  id: MedicalPatchRapid
+  result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: MedicalPatchLarge
+  result: MedicalPatchLarge
+  completetime: 2
+  materials:
+    Plastic: 100
+    Cloth: 100
+
+- type: constructionGraph
+  id: MedicalPatchMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: medicalPatchMakeshift
+      steps:
+      - material: Gauze
+        amount: 3
+        doAfter: 10
+  - node: medicalPatchMakeshift
+    entity: MedicalPatchMakeshift
+
+- type: construction
+  name: Makeshift Patch
+  id: MedicalPatchMakeshift
+  graph: MedicalPatchMakeshift
+  startNode: start
+  targetNode: medicalPatchMakeshift
+  category: construction-category-tools
+  objectType: Item
+  description: a little better then nothig
+  icon:
+    sprite: Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
+
+
+

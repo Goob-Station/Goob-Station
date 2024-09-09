@@ -8,12 +8,12 @@
     HorizontalExpand="False"
 >
     <BoxContainer Orientation="Vertical">
+        <controls:ActionPageButtons Name="PageButtons" Access="Public"/> <!-- goobstation -->
         <controls:ActionButtonContainer
             HorizontalAlignment="Center"
             VerticalAlignment="Center"
             MaxSize="64 9999"
             Name="ActionsContainer"
-            Access="Public"
-            Rows="1"/>
+            Access="Public"/>
     </BoxContainer>
 </widgets:ActionsBar>

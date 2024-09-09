@@ -1,0 +1,26 @@
+#Syndicate EVA
+- type: entity
+  parent: ClothingOuterEVASuitBase
+  id: ClothingOuterHardsuitSyndicateDurathread # TODO: rename to ClothingOuterEVASuitSyndicate
+  name: syndicate EVA suit
+  description: "A Nimble, well-crafted durathread-woven EVA suit with mild protection and anti-rad installed. Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'"
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Suits/eva_syndicate.rsi
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Radiation: 0.75
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon

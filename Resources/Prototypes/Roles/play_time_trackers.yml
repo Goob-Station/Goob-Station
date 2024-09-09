@@ -128,6 +128,9 @@
   id: JobServiceWorker
 
 - type: playTimeTracker
+  id: JobStationAi
+
+- type: playTimeTracker
   id: JobStationEngineer
 
 - type: playTimeTracker
@@ -144,9 +147,3 @@
 
 - type: playTimeTracker
   id: JobZookeeper
-
-- type: playTimeTracker
-  id: JobBlueshieldOfficer
-
-- type: playTimeTracker
-  id: JobNanotrasenRepresentative

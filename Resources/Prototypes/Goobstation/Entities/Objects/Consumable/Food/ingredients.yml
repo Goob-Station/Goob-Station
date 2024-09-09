@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseFoodCondimentPacket
+  id: FoodCondimentPacketProtein
+  name: protein powder packet
+  description: Contains 10u of powdered protein. Mix with 20u of water
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Protein
+          Quantity: 10
+  - type: Icon
+    state: packet-greygoo
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: packet-solid-

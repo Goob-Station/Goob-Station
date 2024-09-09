@@ -4,6 +4,7 @@
   id: BaseMobSlimePerson
   abstract: true
   components:
+  - type: Absorbable # Goobstation - changelings
   - type: Hunger
   - type: Thirst
   - type: Icon
@@ -26,14 +27,17 @@
         ents: []
   - type: UserInterface
     interfaces:
-    - key: enum.StorageUiKey.Key
-      type: StorageBoundUserInterface
-    - key: enum.VoiceMaskUIKey.Key
-      type: VoiceMaskBoundUserInterface
-    - key: enum.HumanoidMarkingModifierKey.Key
-      type: HumanoidMarkingModifierBoundUserInterface
-    - key: enum.StrippingUiKey.Key
-      type: StrippableBoundUserInterface
+      enum.VoiceMaskUIKey.Key:
+        type: VoiceMaskBoundUserInterface
+      enum.HumanoidMarkingModifierKey.Key:
+        type: HumanoidMarkingModifierBoundUserInterface
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      # Goobstation - changelings
+      enum.StoreUiKey.Key:
+        type: StoreBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5
@@ -42,6 +46,7 @@
   - type: Speech
     speechVerb: Slime
     speechSounds: Slime
+    allowedEmotes: ['Squish']
   - type: TypingIndicator
     proto: slime
   - type: Vocal
@@ -52,7 +57,6 @@
   - type: Damageable
     damageContainer: Biological
     damageModifierSet: Slime
-  - type: Geras
   - type: PassiveDamage # Around 8 damage a minute healed
     allowedStates:
     - Alive
@@ -67,6 +71,8 @@
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
         color: "#2cf274"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
   - type: Bloodstream
     bloodReagent: Slime # TODO Color slime blood based on their slime color or smth
   - type: Barotrauma
@@ -90,7 +96,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 2
+            Heat: 0.1
       - !type:PopupMessage
         type: Local
         visualType: Large
@@ -109,11 +115,25 @@
       types:
         Asphyxiation: -1.0
     maxSaturation: 15
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
 
 - type: entity
   parent: MobHumanDummy
   id: MobSlimePersonDummy
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
-    - type: HumanoidAppearance
-      species: SlimePerson
+  - type: HumanoidAppearance
+    species: SlimePerson
+  - type: Inventory
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female

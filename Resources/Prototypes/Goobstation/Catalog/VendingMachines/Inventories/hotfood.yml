@@ -1,0 +1,8 @@
+- type: vendingMachineInventory
+  id: HotfoodInventory
+  startingInventory:
+    FoodSnackAncientBurger: 1
+    FoodSnackAncientPizza: 1
+    FoodSnackAncientFries: 1
+    FoodSnackAncientHotdog: 1
+    FoodSnackAncientTaco: 1

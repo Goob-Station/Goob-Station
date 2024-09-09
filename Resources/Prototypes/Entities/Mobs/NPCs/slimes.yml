@@ -37,6 +37,7 @@
   - type: Tag
     tags:
     - FootstepSound
+    - DoorBumpOpener
   - type: Butcherable
     butcheringType: Knife
     spawned:
@@ -83,7 +84,7 @@
         scaleByQuantity: true
         damage:
           types:
-            Heat: 3
+            Caustic: 5 # Goobstation
       - !type:PopupMessage
         type: Local
         messages: [ "slime-hurt-by-water-popup" ]
@@ -92,6 +93,7 @@
     prototype: Slimes
     requiredLegs: 1
   - type: MeleeWeapon
+    altDisarm: false
     soundHit:
         path: /Audio/Weapons/punch3.ogg
     angle: 0
@@ -125,37 +127,21 @@
     makeSentient: true
     name: ghost-role-information-slimes-name
     description: ghost-role-information-slimes-description
+    rules: ghost-role-information-nonantagonist-rules
+    raffle:
+      settings: short
+  - type: Speech
+    speechVerb: Slime
+    speechSounds: Slime
+    allowedEmotes: ['Squish']
+  - type: TypingIndicator
+    proto: slime
   - type: NpcFactionMember
     factions:
     - SimpleNeutral
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
-
-- type: entity
-  name: geras
-  description: A geras of a slime - the name is ironic, isn't it?
-  id: MobSlimesGeras
-  parent: BaseMobAdultSlimes
-  noSpawn: true
-  components:
-  # they portable...
-  - type: MultiHandedItem
-  - type: Item
-    size: Huge
-  - type: Sprite
-    color: "#FFFFFF55"
-  - type: MeleeWeapon
-    attackRate: 2
-    damage:
-      types:
-        Blunt: 4
-  - type: DamageStateVisuals
-    states:
-      Alive:
-        Base: blue_adult_slime
-      Dead:
-        Base: blue_adult_slime_dead
 
 - type: entity
   name: blue slime
@@ -180,6 +166,9 @@
         - SimpleHostile
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short
 
 - type: entity
   name: green slime
@@ -215,6 +204,9 @@
         - SimpleHostile
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short
 
 - type: entity
   name: yellow slime
@@ -250,3 +242,6 @@
         - SimpleHostile
     - type: GhostRole
       description: ghost-role-information-angry-slimes-description
+      rules: ghost-role-information-angry-slimes-rules
+      raffle:
+        settings: short

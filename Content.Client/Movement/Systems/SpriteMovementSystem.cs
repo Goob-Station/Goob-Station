@@ -28,9 +28,12 @@ public sealed class SpriteMovementSystem : EntitySystem
             return;
 
         var oldMoving = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.AnyDirection) != MoveButtons.None;
-        var moving = (SharedMoverController.GetNormalizedMovement(args.Component.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
+        var moving = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.AnyDirection) != MoveButtons.None;
 
-        if (oldMoving == moving || !_spriteQuery.TryGetComponent(uid, out var sprite))
+        var oldWalking = (SharedMoverController.GetNormalizedMovement(args.OldMovement) & MoveButtons.Walk) != MoveButtons.None;
+        var walking = (SharedMoverController.GetNormalizedMovement(args.Entity.Comp.HeldMoveButtons) & MoveButtons.Walk) != MoveButtons.None;
+
+        if ((oldMoving == moving && oldWalking == walking) || !_spriteQuery.TryGetComponent(uid, out var sprite))
             return;
 
         if (moving)
@@ -38,6 +41,21 @@ public sealed class SpriteMovementSystem : EntitySystem
             foreach (var (layer, state) in component.MovementLayers)
             {
                 sprite.LayerSetData(layer, state);
+            }
+
+            if (walking)
+            {
+                foreach (var (layer, state) in component.WalkLayers)
+                {
+                    sprite.LayerSetData(layer, state);
+                }
+            }
+            else
+            {
+                foreach (var (layer, state) in component.RunLayers)
+                {
+                    sprite.LayerSetData(layer, state);
+                }
             }
         }
         else

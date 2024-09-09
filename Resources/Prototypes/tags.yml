@@ -28,9 +28,6 @@
   id: ATVKeys
 
 - type: Tag
-  id: Baguette
-
-- type: Tag
   id: Balloon
 
 - type: Tag
@@ -62,6 +59,9 @@
 
 - type: Tag
   id: Bloodpack
+
+- type: Tag
+  id: BlueprintAutolathe
 
 - type: Tag
   id: BodyBag
@@ -259,6 +259,15 @@
   id: CableCoil
 
 - type: Tag
+  id: Candle
+
+- type: Tag
+  id: Cake
+
+- type: Tag
+  id: CaneBlade
+
+- type: Tag
   id: CannonBall
 
 - type: Tag
@@ -322,9 +331,6 @@
   id: CartridgeAntiMateriel
 
 - type: Tag
-  id: CartridgeMortis
-
-- type: Tag
   id: CartridgeCap
 
 - type: Tag
@@ -360,6 +366,10 @@
 
 - type: Tag
   id: Chicken
+
+# Allowed to control someone wearing a Chef's hat if inside their hat.
+- type: Tag
+  id: ChefPilot
 
 - type: Tag
   id: ChemDispensable # container that can go into the chem dispenser
@@ -399,6 +409,9 @@
 
 - type: Tag
   id: ClownSuit
+
+- type: Tag
+  id: CluwneHappyHonk
 
 - type: Tag
   id: CluwneHorn
@@ -500,6 +513,9 @@
   id: DiscreteHealthAnalyzer #So construction recipes don't eat medical PDAs
 
 - type: Tag
+  id: DNASolutionScannable
+
+- type: Tag
   id: DockArrivals
 
 - type: Tag
@@ -533,7 +549,16 @@
   id: DrinkCan
 
 - type: Tag
+  id: DrinkCup
+
+- type: Tag
+  id: DrinkGlass
+
+- type: Tag
   id: DrinkSpaceGlue
+
+- type: Tag
+  id: Dropper
 
 - type: Tag
   id: Duck
@@ -552,9 +577,6 @@
 
 - type: Tag
   id: Enzyme
-
-- type: Tag
-  id: EnrichedUranium
 
 - type: Tag
   id: ExplosivePassable
@@ -610,8 +632,14 @@
 - type: Tag
   id: Galaxythistle
 
+- type: Tag # goob edit
+  id: GasMask
+
 - type: Tag
   id: GasScrubber
+
+- type: Tag
+  id: GasTank
 
 - type: Tag
   id: GasVent
@@ -633,6 +661,9 @@
 
 - type: Tag
   id: Goat
+
+- type: Tag
+  id: Goliath
 
 - type: Tag
   id: GPS
@@ -751,6 +782,9 @@
 - type: Tag
   id: Igniter
 
+- type: Tag
+  id: Ingredient
+
 - type: Tag #Drop this innate tool instead of deleting it.
   id: InnateDontDelete
 
@@ -789,6 +823,9 @@
 
 - type: Tag
   id: Lemon
+
+- type: Tag
+  id: LightBulb
 
 - type: Tag
   id: Lime
@@ -857,6 +894,9 @@
 - type: Tag
   id: MailingUnitElectronics
 
+- type: Tag # goob edit
+  id: Mask
+
 - type: Tag
   id: Matchstick
 
@@ -865,6 +905,9 @@
 
 - type: Tag
   id: Meat
+
+- type: Tag
+  id: Medal
 
 - type: Tag
   id: Medkit
@@ -892,9 +935,6 @@
 
 - type: Tag
   id: Mineshaft
-
-- type: Tag
-  id: Minibomb
 
 - type: Tag
   id: ModularReceiver
@@ -925,6 +965,9 @@
 
 - type: Tag
   id: NozzleBackTank
+
+- type: Tag
+  id: Nugget # for chicken nuggets
 
 - type: Tag
   id: NukeOpsUplink
@@ -1057,6 +1100,9 @@
   id: RifleStock
 
 - type: Tag
+  id: Ring
+
+- type: Tag
   id: RipleyCentralControlModule
 
 - type: Tag
@@ -1090,10 +1136,16 @@
   id: SalvageExperiment
 
 - type: Tag
+  id: Scarf
+
+- type: Tag
   id: Screwdriver
 
 - type: Tag
   id: SecBeltEquip
+
+- type: Tag
+  id: SecurityHelmet
 
 - type: Tag
   id: SecwayKeys
@@ -1105,13 +1157,7 @@
   id: ShellShotgun
 
 - type: Tag
-  id: ShellShotgunUranium
-
-- type: Tag
   id: Shiv
-
-- type: Tag
-  id: ShoesRequiredStepTriggerImmune
 
 - type: Tag
   id: Shovel
@@ -1120,10 +1166,16 @@
   id: Sidearm
 
 - type: Tag
+  id: SignalTrigger
+
+- type: Tag
   id: SkeletonMotorcycleKeys
 
 - type: Tag
   id: Skewer
+
+- type: Tag
+  id: Slice # sliced fruit, vegetables, pizza etc.
 
 - type: Tag
   id: SmallAIChip
@@ -1134,8 +1186,7 @@
 - type: Tag
   id: Smokable
 
-- type: Tag
-  id: SnapPop
+
 
 - type: Tag
   id: SnowyLabs
@@ -1148,6 +1199,7 @@
 
 - type: Tag
   id: Soup
+
 - type: Tag
   id: Spear
 
@@ -1167,9 +1219,6 @@
   id: SpiderCraft
 
 - type: Tag
-  id: WizardNonApprentice
-
-- type: Tag
   id: SpookyFog
 
 - type: Tag
@@ -1179,6 +1228,9 @@
   id: SpreaderIgnore
 
 - type: Tag
+  id: StationAi
+
+- type: Tag
   id: StationMapElectronics
 
 - type: Tag
@@ -1186,6 +1238,9 @@
 
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: Stunbaton
 
 - type: Tag
   id: SubdermalImplant
@@ -1214,6 +1269,9 @@
 - type: Tag
   id: Spellbook
 
+- type: Tag # goob edit
+  id: Table
+
 - type: Tag
   id: TabletopBoard
 
@@ -1236,6 +1294,12 @@
   id: Toolbox
 
 - type: Tag
+  id: ToothSharkminnow
+
+- type: Tag
+  id: ToothSpaceCarp
+
+- type: Tag
   id: Torch
 
 - type: Tag
@@ -1249,6 +1313,9 @@
 
 - type: Tag
   id: TrashBag
+
+- type: Tag
+  id: Truncheon
 
 - type: Tag
   id: Unimplantable
@@ -1287,10 +1354,10 @@
   id: WeaponPistolCHIMPUpgradeKit
 
 - type: Tag
-  id: WeaponShotgunImprovised
+  id: WeaponShotgunKammerer
 
 - type: Tag
-  id: WeaponShotgunKammerer
+  id: WeldingMask
 
 - type: Tag
   id: WetFloorSign
@@ -1333,3 +1400,5 @@
 
 - type: Tag
   id: WriteIgnoreStamps
+
+# ALPHABETICAL
