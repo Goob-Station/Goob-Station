@@ -986,3 +986,9 @@ Entries:
       message: Fixed flesh surgery having no cooldown
   id: 124
   time: '2024-09-09T16:52:58.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made people edible
+  id: 125
+  time: '2024-09-09T22:30:41.0000000+00:00'
