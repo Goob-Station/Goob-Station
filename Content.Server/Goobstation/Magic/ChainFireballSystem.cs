@@ -27,7 +27,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
 
     private void OnHit(Entity<ChainFireballComponent> ent, ref ProjectileHitEvent args)
     {
-        if (!_random.Prob(ent.Comp.DisappearChance))
+        if (_random.Prob(ent.Comp.DisappearChance))
             return;
 
         Spawn(ent, ent.Comp.IgnoredTargets);
