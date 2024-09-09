@@ -30,7 +30,7 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
 [Serializable, NetSerializable]
 [Prototype("hereticRitual")]
 [DataDefinition]
-public sealed partial class HereticRitualPrototype : IPrototype
+public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
 
@@ -65,7 +65,7 @@ public sealed partial class HereticRitualPrototype : IPrototype
     [DataField] public ProtoId<HereticKnowledgePrototype>? OutputKnowledge;
 
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
-    public HereticRitualPrototype Clone()
+    public object Clone()
     {
         return new HereticRitualPrototype()
         {

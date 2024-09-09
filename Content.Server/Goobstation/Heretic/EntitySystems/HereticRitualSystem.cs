@@ -8,6 +8,8 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using System.Text;
+using System.Linq;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -15,6 +17,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ISerializationManager _series = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -41,16 +44,17 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
             return false;
 
-        var rit = GetRitual(ritualId).Clone();
+        var rit = _series.CreateCopy((HereticRitualPrototype) GetRitual(ritualId).Clone(), notNullableOverride: true);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
         var missingList = new List<string>();
         var toDelete = new List<EntityUid>();
 
         // check for all conditions
+        // this is god awful but it is that it is
         var behaviors = rit.CustomBehaviors ?? new();
-        var requiredNames = rit.RequiredEntityNames ?? new();
-        var requiredTags = rit.RequiredTags ?? new();
+        var requiredNames = rit.RequiredEntityNames?.ToDictionary(e => e.Key, e => e.Value) ?? new();
+        var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
 
         foreach (var behavior in behaviors)
         {
@@ -74,7 +78,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     requiredNames[name.Key] -= 1;
 
                     // prevent deletion of more items than needed
-                    if (requiredNames[name.Key] > 0)
+                    if (requiredNames[name.Key] >= 0)
                         toDelete.Add(look);
                 }
             }
@@ -91,7 +95,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
                     requiredTags[tag.Key] -= 1;
 
                     // prevent deletion of more items than needed
-                    if (requiredTags[tag.Key] > 0)
+                    if (requiredTags[tag.Key] >= 0)
                         toDelete.Add(look);
                 }
             }

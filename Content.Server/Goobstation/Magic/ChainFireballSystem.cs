@@ -1,5 +1,6 @@
 using Content.Server.Popups;
 using Content.Shared.Projectiles;
+using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
@@ -36,12 +37,13 @@ public sealed partial class ChainFireballSystem : EntitySystem
 
     public bool Spawn(EntityUid source, List<EntityUid> ignoredTargets)
     {
-        var lookup = _lookup.GetEntitiesInRange(source, 5f, LookupFlags.Dynamic);
+        var lookup = _lookup.GetEntitiesInRange(source, 5f);
 
         List<EntityUid> mobs = new();
         foreach (var look in lookup)
         {
-            if (ignoredTargets.Contains(look))
+            if (ignoredTargets.Contains(look)
+            || !HasComp<StatusEffectsComponent>(look)) // ignore non mobs whatsoever
                 continue;
 
             mobs.Add(look);
