@@ -526,6 +526,19 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("ban_template", (string)null);
                 });
 
+            modelBuilder.Entity("Content.Server.Database.Blacklist", b =>
+                {
+                    b.Property<Guid>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("user_id");
+
+                    b.HasKey("UserId")
+                        .HasName("PK_blacklist");
+
+                    b.ToTable("blacklist", (string)null);
+                });
+
             modelBuilder.Entity("Content.Server.Database.ConnectionLog", b =>
                 {
                     b.Property<int>("Id")
@@ -732,6 +745,11 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Property<int>("Age")
                         .HasColumnType("INTEGER")
                         .HasColumnName("age");
+
+                    b.Property<string>("BorgName")
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasColumnName("borg_name");
 
                     b.Property<string>("CharacterName")
                         .IsRequired()

@@ -57,7 +57,7 @@
   - type: StaticPrice
     price: 0
   - type: StackPrice
-    price: 5
+    price: 7.5
   - type: Extractable
     grindableSolutionName: rod
   - type: SolutionContainerManager
@@ -68,6 +68,9 @@
           Quantity: 4.5
         - ReagentId: Carbon
           Quantity: 0.5
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/iron_rod_pickup.ogg
 
 - type: entity
   parent: PartRodMetal

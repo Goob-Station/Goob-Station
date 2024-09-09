@@ -72,6 +72,7 @@
   parent:
   - BaseSimpleMob
   - MobDamageable
+  - MobPolymorphable
   - MobBloodstream
   - MobFlammable
   - MobCombat

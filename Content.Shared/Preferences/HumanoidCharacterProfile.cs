@@ -1,10 +1,15 @@
+using System;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
+using Content.Shared.Dataset;
 using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
+using Content.Shared.Random;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;
 using Robust.Shared.Collections;
@@ -80,6 +85,11 @@ namespace Content.Shared.Preferences
         [DataField]
         public int Age { get; set; } = 18;
 
+        // #Goobstation - Prefered Borg Name Stuff
+
+        [DataField]
+        public string BorgName { get; set; } = "Genero-Bot";
+
         [DataField]
         public Sex Sex { get; private set; } = Sex.Male;
 
@@ -124,11 +134,12 @@ namespace Content.Shared.Preferences
         [DataField]
         public PreferenceUnavailableMode PreferenceUnavailable { get; private set; } =
             PreferenceUnavailableMode.SpawnAsOverflow;
-
+        // #Goobstation - Borg Preferred Name (borgname)
         public HumanoidCharacterProfile(
             string name,
             string flavortext,
             string species,
+            string borgname,
             int age,
             Sex sex,
             Gender gender,
@@ -139,10 +150,12 @@ namespace Content.Shared.Preferences
             HashSet<ProtoId<AntagPrototype>> antagPreferences,
             HashSet<ProtoId<TraitPrototype>> traitPreferences,
             Dictionary<string, RoleLoadout> loadouts)
+
         {
             Name = name;
             FlavorText = flavortext;
             Species = species;
+            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -174,6 +187,8 @@ namespace Content.Shared.Preferences
             : this(other.Name,
                 other.FlavorText,
                 other.Species,
+                // #Goobstation - Borg Preferred Name
+                other.BorgName,
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -251,9 +266,13 @@ namespace Content.Shared.Preferences
 
             var name = GetName(species, gender);
 
+            // #Goobstation - Borg Preferred Name
+            var borgname = GetBorgName();
+
             return new HumanoidCharacterProfile()
             {
                 Name = name,
+                BorgName = borgname,
                 Sex = sex,
                 Age = age,
                 Gender = gender,
@@ -275,6 +294,13 @@ namespace Content.Shared.Preferences
         public HumanoidCharacterProfile WithAge(int age)
         {
             return new(this) { Age = age };
+        }
+
+        // #Goobstation - Borg Stuff (see above for more borgname things
+
+        public HumanoidCharacterProfile WithBorgName(string borgname)
+        {
+            return new(this) { BorgName = borgname };
         }
 
         public HumanoidCharacterProfile WithSex(Sex sex)
@@ -365,7 +391,7 @@ namespace Content.Shared.Preferences
         {
             return new(this)
             {
-                _antagPreferences = new (antagPreferences),
+                _antagPreferences = new(antagPreferences),
             };
         }
 
@@ -459,6 +485,8 @@ namespace Content.Shared.Preferences
             if (maybeOther is not HumanoidCharacterProfile other) return false;
             if (Name != other.Name) return false;
             if (Age != other.Age) return false;
+            // #Goobstation - Borg Preferred Name
+            if (BorgName != other.BorgName) return false;
             if (Sex != other.Sex) return false;
             if (Gender != other.Gender) return false;
             if (Species != other.Species) return false;
@@ -522,6 +550,7 @@ namespace Content.Shared.Preferences
 
             name = name.Trim();
 
+
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
                 name = RestrictedNameRegex.Replace(name, string.Empty);
@@ -538,14 +567,36 @@ namespace Content.Shared.Preferences
                 name = GetName(Species, gender);
             }
 
+
             string flavortext;
             if (FlavorText.Length > MaxDescLength)
             {
-                flavortext = FormattedMessage.RemoveMarkup(FlavorText)[..MaxDescLength];
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText)[..MaxDescLength];
             }
             else
             {
-                flavortext = FormattedMessage.RemoveMarkup(FlavorText);
+                flavortext = FormattedMessage.RemoveMarkupOrThrow(FlavorText);
+            }
+            // #Goobstation - Borg Preferred Name
+            string borgname;
+            if (string.IsNullOrEmpty(BorgName))
+            {
+                borgname = GetBorgName();
+            }
+            else if (BorgName.Length > MaxNameLength)
+            {
+                borgname = BorgName[..MaxNameLength];
+            }
+            else
+            {
+                borgname = BorgName;
+            }
+
+            borgname = borgname.Trim();
+
+            if (string.IsNullOrEmpty(borgname))
+            {
+                borgname = GetBorgName();
             }
 
             var appearance = HumanoidCharacterAppearance.EnsureValid(Appearance, Species, Sex);
@@ -596,6 +647,8 @@ namespace Content.Shared.Preferences
 
             Name = name;
             FlavorText = flavortext;
+            // #Goobstation - Borg Preferred Name
+            BorgName = borgname;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -690,6 +743,15 @@ namespace Content.Shared.Preferences
             var namingSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<NamingSystem>();
             return namingSystem.GetName(species, gender);
         }
+        // #Goobstation - Borg Preferred Name
+        public static string GetBorgName()
+        {
+            var random = IoCManager.Resolve<IRobustRandom>();
+            var prototypeSystem = IoCManager.Resolve<IPrototypeManager>();
+            var prototype = prototypeSystem.Index<DatasetPrototype>("names_borg");
+            return random.Pick(prototype);
+
+        }
 
         public override bool Equals(object? obj)
         {
@@ -705,13 +767,15 @@ namespace Content.Shared.Preferences
             hashCode.Add(_loadouts);
             hashCode.Add(Name);
             hashCode.Add(FlavorText);
+            // #Goobstation - Borg Preferred Name
+            hashCode.Add(BorgName);
             hashCode.Add(Species);
             hashCode.Add(Age);
-            hashCode.Add((int)Sex);
-            hashCode.Add((int)Gender);
+            hashCode.Add((int) Sex);
+            hashCode.Add((int) Gender);
             hashCode.Add(Appearance);
-            hashCode.Add((int)SpawnPriority);
-            hashCode.Add((int)PreferenceUnavailable);
+            hashCode.Add((int) SpawnPriority);
+            hashCode.Add((int) PreferenceUnavailable);
             return hashCode.ToHashCode();
         }
 

@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Urist McRat
+  parent: BaseMobRodentia
+  id: MobRodentia

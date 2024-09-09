@@ -9,6 +9,11 @@
     size: Small
   - type: Clothing
     slots: [mask]
+  - type: Tag # goob edit
+    tags:
+    - Mask
+  - type: StaticPrice
+    price: 25
 
 - type: entity
   abstract: true

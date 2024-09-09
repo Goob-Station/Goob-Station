@@ -72,6 +72,10 @@ public abstract class SharedSubdermalImplantSystem : EntitySystem
         if (component.ImplantAction != null)
             _actionsSystem.RemoveProvidedActions(component.ImplantedEntity.Value, uid);
 
+        // GoobStation
+        var ev = new ImplantRemovedFromEvent(uid, component.ImplantedEntity.Value);
+        RaiseLocalEvent(component.ImplantedEntity.Value, ref ev);
+
         if (!_container.TryGetContainer(uid, BaseStorageId, out var storageImplant))
             return;
 
@@ -200,6 +204,25 @@ public readonly struct ImplantImplantedEvent
     public readonly EntityUid? Implanted;
 
     public ImplantImplantedEvent(EntityUid implant, EntityUid? implanted)
+    {
+        Implant = implant;
+        Implanted = implanted;
+    }
+}
+
+// GoobStation
+
+/// <summary>
+/// Event that is raised whenever removed implant from implanted entity.
+/// Raised on implanted entity.
+/// </summary>
+[ByRefEvent]
+public readonly struct ImplantRemovedFromEvent
+{
+    public readonly EntityUid Implant;
+    public readonly EntityUid Implanted;
+
+    public ImplantRemovedFromEvent(EntityUid implant, EntityUid implanted)
     {
         Implant = implant;
         Implanted = implanted;

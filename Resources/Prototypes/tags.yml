@@ -61,6 +61,9 @@
   id: Bloodpack
 
 - type: Tag
+  id: BlueprintAutolathe
+
+- type: Tag
   id: BodyBag
 
 - type: Tag
@@ -629,6 +632,9 @@
 - type: Tag
   id: Galaxythistle
 
+- type: Tag # goob edit
+  id: GasMask
+
 - type: Tag
   id: GasScrubber
 
@@ -655,6 +661,9 @@
 
 - type: Tag
   id: Goat
+
+- type: Tag
+  id: Goliath
 
 - type: Tag
   id: GPS
@@ -816,6 +825,9 @@
   id: Lemon
 
 - type: Tag
+  id: LightBulb
+
+- type: Tag
   id: Lime
 
 - type: Tag
@@ -881,6 +893,9 @@
 
 - type: Tag
   id: MailingUnitElectronics
+
+- type: Tag # goob edit
+  id: Mask
 
 - type: Tag
   id: Matchstick
@@ -1085,6 +1100,9 @@
   id: RifleStock
 
 - type: Tag
+  id: Ring
+
+- type: Tag
   id: RipleyCentralControlModule
 
 - type: Tag
@@ -1125,6 +1143,9 @@
 
 - type: Tag
   id: SecBeltEquip
+
+- type: Tag
+  id: SecurityHelmet
 
 - type: Tag
   id: SecwayKeys
@@ -1178,6 +1199,7 @@
 
 - type: Tag
   id: Soup
+
 - type: Tag
   id: Spear
 
@@ -1206,6 +1228,9 @@
   id: SpreaderIgnore
 
 - type: Tag
+  id: StationAi
+
+- type: Tag
   id: StationMapElectronics
 
 - type: Tag
@@ -1213,6 +1238,9 @@
 
 - type: Tag
   id: StringInstrument
+
+- type: Tag
+  id: Stunbaton
 
 - type: Tag
   id: SubdermalImplant
@@ -1241,6 +1269,9 @@
 - type: Tag
   id: Spellbook
 
+- type: Tag # goob edit
+  id: Table
+
 - type: Tag
   id: TabletopBoard
 
@@ -1261,6 +1292,12 @@
 
 - type: Tag
   id: Toolbox
+
+- type: Tag
+  id: ToothSharkminnow
+
+- type: Tag
+  id: ToothSpaceCarp
 
 - type: Tag
   id: Torch

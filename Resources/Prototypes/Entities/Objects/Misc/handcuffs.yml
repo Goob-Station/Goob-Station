@@ -29,6 +29,15 @@
     - Antagonists
   - type: UseDelay
     delay: 3
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/handcuffs_drop.ogg
 
 - type: entity
   name: makeshift handcuffs

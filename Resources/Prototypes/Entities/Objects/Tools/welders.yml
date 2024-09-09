@@ -95,6 +95,7 @@
     radius: 1.5
     color: orange
     netsync: false
+  - type: ItemTogglePointLight
   - type: Appearance
   - type: RequiresEyeProtection
   - type: PhysicalComposition
@@ -104,6 +105,12 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/weldingtool_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/weldingtool_drop.ogg
 
 - type: entity
   name: industrial welding tool

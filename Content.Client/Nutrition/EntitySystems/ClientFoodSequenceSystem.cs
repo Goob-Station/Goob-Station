@@ -48,17 +48,16 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
                     var rsiPath = spriteComp.BaseRSI?.Path.ToString();
                     if (rsiPath == null)
                         continue;
-
+                    var layercount = 0;
                     foreach (var layer in spriteComp.AllLayers)
                     {
-
                         if (!layer.RsiState.IsValid || !layer.Visible || layer.ActualRsi == null || layer.RsiState == null || layer.RsiState.Name == null)
                             continue;
 
-
                         state.Sprite = new SpriteSpecifier.Rsi(layer.ActualRsi.Path, layer.RsiState.Name);
 
-                        var keyCodeProto = $"food-layer-{counter}-{layer.RsiState.Name}";
+                        var keyCodeProto = $"food-layer-{counter}-{layer.RsiState.Name}-{layercount}";
+                        layercount++;
                         start.Comp.RevealedLayers.Add(keyCodeProto);
 
                         sprite.LayerMapTryGet(start.Comp.TargetLayerMap, out var indexProto);

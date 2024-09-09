@@ -5,7 +5,7 @@
   - Bagel
   - Box
   - Cluster
-  - Cog
+  #- Cog # Goobstation - cog is broken
   - Core
   - Fland
   - Marathon
@@ -18,4 +18,3 @@
   - Reach
   - FlandHighPop
   - OasisHighPop
-  - OriginHighPop

@@ -23,6 +23,7 @@
     HandTeleporterStealObjective: 0.5
     SecretDocumentsStealObjective: 0.5
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
+    EnergyShotgunStealObjective: 0.5
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill
@@ -102,6 +103,7 @@
     BoozeDispenserStealObjective: 1
     AltarNanotrasenStealObjective: 1
     PlantRDStealObjective: 1
+    ToiletGoldenStealObjective: 1
 
 - type: weightedRandom
   id: ThiefObjectiveGroupAnimal

@@ -16,6 +16,7 @@
   - type: ChangelingAction
     requireBiomass: false
     useInLesserForm: true
+    useInLastResort: true
 
 - type: entity
   id: ActionAbsorbDNA
@@ -111,6 +112,7 @@
   - type: ChangelingAction
     biomassCost: 1
     useInLesserForm: true
+    useInLastResort: true
 
 - type: entity
   id: ActionExitStasis
@@ -129,6 +131,7 @@
   - type: ChangelingAction
     chemicalCost: 60
     useInLesserForm: true
+    useInLastResort: true
 
 # combat
 - type: entity
@@ -377,6 +380,27 @@
     chemicalCost: 75
     useInLesserForm: true
 
+- type: entity
+  id: ActionLayEgg
+  name: Lay Egg
+  description: Plant an egg in a dead corpse which will mature into a new form for us.
+  noSpawn: true
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: lay_egg
+    event: !type:StingLayEggsEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    useInLastResort: true
+
 # utility
 - type: entity
   id: ActionAnatomicPanacea
@@ -483,6 +507,24 @@
     event: !type:ActionFleshmendEvent {}
   - type: ChangelingAction
     chemicalCost: 35
+    useInLesserForm: true
+
+- type: entity
+  id: ActionLastResort
+  name: Last Resort
+  description: Abandon your current body and escape in the form of a headslug. Costs 20 chemicals.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 5
+    checkCanInteract: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: Goobstation/Changeling/changeling_abilities.rsi
+      state: last_resort
+    event: !type:ActionLastResortEvent {}
+  - type: ChangelingAction
+    chemicalCost: 20
     useInLesserForm: true
 
 - type: entity

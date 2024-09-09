@@ -60,7 +60,15 @@
         reagents:
         - ReagentId: Cellulose
           Quantity: 3
-
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/paper_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/paper_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/paper_drop.ogg
 
 - type: entity
   parent: SheetPaper
@@ -113,6 +121,16 @@
 
 - type: entity
   parent: SheetPlasma
+  id: SheetPlasma10
+  suffix: 10
+  components:
+  - type: Sprite
+    state: plasma
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: SheetPlasma
   id: SheetPlasma1
   name: plasma
   suffix: Single
@@ -162,6 +180,15 @@
         - ReagentId: Phosphorus
           Quantity: 5
         canReact: false
+  - type: EmitSoundOnPickup # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/plastic_pickup.ogg
+  - type: EmitSoundOnDrop # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/plastic_drop.ogg
+  - type: EmitSoundOnLand # goob edit
+    sound:
+      path: /Audio/Goobstation/Items/Handling/plastic_drop.ogg
 
 - type: entity
   parent: SheetPlastic

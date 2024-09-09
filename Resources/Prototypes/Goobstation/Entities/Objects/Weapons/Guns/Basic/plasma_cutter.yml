@@ -15,16 +15,22 @@
     size: Large
     shape:
     - 0,0,2,2
-  - type: MaterialStorage
-    storageLimit: 0
-    materialWhiteList: [Plasma]
-    canEjectStoredMaterials: false
   - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
-  - type: BatteryRecharge
+    maxCharge: 1500
+    startingCharge: 1500
+  - type: MaterialEnergy
+    materialWhiteList: [Plasma]
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutter
-    fireCost: 200
+    fireCost: 100
   - type: Appearance
+
+- type: entity
+  parent: WeaponPlasmaCutter
+  id: WeaponPlasmaCutterEmpty
+  suffix: Empty
+  components:
+  - type: Battery
+    maxCharge: 1500
+    startingCharge: 0
 

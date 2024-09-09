@@ -12,11 +12,25 @@
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
-  - WeaponGrapplingGun
+  - MineralScannerEmpty
   - BorgModuleMining
   - BorgModuleGrapplingGun
   - OreProcessorIndustrialMachineCircuitboard
   - ClothingMaskWeldingGas
+
+- type: technology
+  id: SpaceScanning
+  name: research-technology-space-scanning
+  icon:
+    sprite: Objects/Tools/handheld_mass_scanner.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - RadarConsoleCircuitboard
+  - HandHeldMassScanner
+  - BorgModuleGPS
 
 - type: technology
   id: AdvancedPowercells
@@ -111,20 +125,6 @@
 # Tier 2
 
 - type: technology
-  id: SpaceScanning
-  name: research-technology-space-scanning
-  icon:
-    sprite: Objects/Tools/handheld_mass_scanner.rsi
-    state: icon
-  discipline: Industrial
-  tier: 2
-  cost: 7500
-  recipeUnlocks:
-  - RadarConsoleCircuitboard
-  - HandHeldMassScanner
-  - BorgModuleGPS
-
-- type: technology
   id: Shuttlecraft
   name: research-technology-shuttlecraft
   icon:
@@ -181,6 +181,7 @@
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
+    - AdvancedMineralScannerEmpty
 
 # Tier 3
 
