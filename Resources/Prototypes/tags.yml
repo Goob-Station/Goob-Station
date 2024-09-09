@@ -222,6 +222,9 @@
 - type: Tag
   id: BoxHug
 
+- type: Tag # goob edit
+  id: Brain
+
 - type: Tag
   id: BrassInstrument
 
@@ -581,6 +584,9 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag # goob edit
+  id: Eyes
+
 - type: Tag
   id: Figurine
 
@@ -719,6 +725,9 @@
 - type: Tag
   id: Head
 
+- type: Tag # goob edit
+  id: Heart
+
 - type: Tag
   id: HelmetEVA
 
@@ -812,6 +821,9 @@
 - type: Tag
   id: KeyedInstrument
 
+- type: Tag # goob edit
+  id: Kidneys
+
 - type: Tag
   id: KitchenKnife
 
@@ -829,6 +841,12 @@
 
 - type: Tag
   id: Lime
+
+- type: Tag # goob edit
+  id: Liver
+
+- type: Tag # goob edit
+  id: Lungs
 
 - type: Tag
   id: Machete
@@ -977,6 +995,9 @@
 
 - type: Tag
   id: Ore
+
+- type: Tag # goob edit
+  id: Organ
 
 - type: Tag
   id: Packet
@@ -1236,6 +1257,9 @@
 - type: Tag
   id: Steak
 
+- type: Tag # goob edit
+  id: Stomach
+
 - type: Tag
   id: StringInstrument
 
@@ -1289,6 +1313,9 @@
 
 - type: Tag
   id: TimerSignalElectronics
+
+- type: Tag # goob edit
+  id: Tongue
 
 - type: Tag
   id: Toolbox
