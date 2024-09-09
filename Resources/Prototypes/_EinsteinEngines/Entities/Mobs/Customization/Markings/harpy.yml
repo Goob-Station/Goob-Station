@@ -12,7 +12,7 @@
 - type: marking
   id: HarpyWingDefaultHuescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -29,7 +29,7 @@
 - type: marking
   id: HarpyWingDefaultWhitescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -46,7 +46,7 @@
 - type: marking
   id: HarpyWingClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -63,7 +63,7 @@
 - type: marking
   id: HarpyWingFoldedHuescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -80,7 +80,7 @@
 - type: marking
   id: HarpyWingFoldedWhitescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -97,7 +97,7 @@
 - type: marking
   id: HarpyWingOwlHuescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -114,7 +114,7 @@
 - type: marking
   id: HarpyWingOwlWhitescale
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   coloring:
     default:
@@ -248,7 +248,7 @@
 - type: marking
   id: HarpyWing2ToneClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -259,7 +259,7 @@
 - type: marking
   id: HarpyWing3ToneClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -272,7 +272,7 @@
 - type: marking
   id: HarpyWingSpeckledClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -283,7 +283,7 @@
 - type: marking
   id: HarpyWingUndertoneClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -294,7 +294,7 @@
 - type: marking
   id: HarpyWingTipsClassic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -305,7 +305,7 @@
 - type: marking
   id: HarpyWingBat
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -316,7 +316,7 @@
 - type: marking
   id: HarpyWingBionic
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Harpy]
   sprites:
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
@@ -324,3 +324,55 @@
     - sprite: _EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi
       state: bionic_wings_tone_2
       shader: unshaded
+
+- type: marking
+  id: HarpyChestDefault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Mobs/Customization/Harpy/harpy_chest.rsi
+      state: upper
+    - sprite: Mobs/Customization/Harpy/harpy_chest.rsi
+      state: lower
+
+- type: marking
+  id: HarpyLegsDefault
+  bodyPart: LLeg
+  markingCategory: RightLeg
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+          category: Hair
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
+      state: thighs
+
+- type: marking
+  id: HarpyFeetDefault
+  bodyPart: RFoot
+  markingCategory: RightLeg
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      fallbackTypes:
+        - !type:SimpleColoring
+          color: "#964b00"
+  sprites:
+    - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
+      state: feet
+    - sprite: Mobs/Customization/Harpy/harpy_legs.rsi
+      state: talons

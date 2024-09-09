@@ -60,25 +60,46 @@
     Chest:
       points: 1
       required: true
-      defaultMarkings: [ MobIPCChestDefault ]
+      defaultMarkings: [ MobIPCTorsoDefault ]
+    HeadSide:
+      points: 1
+      required: false
     Groin:
       points: 1
       required: true
       defaultMarkings: [ MobIPCGroinDefault ]
-    Legs:
-      points: 4
-      required: true
-      defaultMarkings: [ MobIPCLLegDefault, MobIPCLFootDefault, MobIPCRLegDefault, MobIPCRFootDefault ]
-    Arms:
-      points: 4
-      required: true
-      defaultMarkings: [ MobIPCLArmDefault, MobIPCLHandDefault, MobIPCRArmDefault, MobIPCRHandDefault ]
-    HeadSide:
+    RightLeg:
       points: 1
       required: false
-    Wings:
+      defaultMarkings: [ MobIPCRLegDefault ]
+    RightFoot:
       points: 1
       required: false
+      defaultMarkings: [ MobIPCRFootDefault ]
+    LeftLeg:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCLLegDefault ]
+    LeftFoot:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCLFootDefault ]
+    RightArm:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCRArmDefault ]
+    RightHand:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCRHandDefault ]
+    LeftArm:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCLArmDefault ]
+    LeftHand:
+      points: 1
+      required: false
+      defaultMarkings: [ MobIPCLHandDefault ]
 
 - type: humanoidBaseSprite
   id: MobIPCMarkingFollowSkin
@@ -174,7 +195,7 @@
 - type: marking
   id: MobIPCLLegDefault
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -188,7 +209,7 @@
 - type: marking
   id: MobIPCLArmDefault
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -202,7 +223,7 @@
 - type: marking
   id: MobIPCLHandDefault
   bodyPart: LHand
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -216,7 +237,7 @@
 - type: marking
   id: MobIPCLFootDefault
   bodyPart: LFoot
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -230,7 +251,7 @@
 - type: marking
   id: MobIPCRLegDefault
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -244,7 +265,7 @@
 - type: marking
   id: MobIPCRArmDefault
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -258,7 +279,7 @@
 - type: marking
   id: MobIPCRHandDefault
   bodyPart: RHand
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
@@ -272,7 +293,7 @@
 - type: marking
   id: MobIPCRFootDefault
   bodyPart: RFoot
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi

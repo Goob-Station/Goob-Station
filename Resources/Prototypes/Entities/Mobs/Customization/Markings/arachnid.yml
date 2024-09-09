@@ -296,7 +296,7 @@
 - type: marking
   id: ArachnidRArmStripes
   bodyPart: RArm
-  markingCategory: Arms
+  markingCategory: RightArm
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/arms.rsi
@@ -309,7 +309,7 @@
 - type: marking
   id: ArachnidLArmStripes
   bodyPart: LArm
-  markingCategory: Arms
+  markingCategory: LeftArm
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/arms.rsi
@@ -323,7 +323,7 @@
 - type: marking
   id: ArachnidRLegStripes
   bodyPart: RLeg
-  markingCategory: Legs
+  markingCategory: RightLeg
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/legs.rsi
@@ -336,7 +336,7 @@
 - type: marking
   id: ArachnidLLegStripes
   bodyPart: LLeg
-  markingCategory: Legs
+  markingCategory: LeftLeg
   speciesRestriction: [Arachnid]
   sprites:
   - sprite: Mobs/Customization/Arachnid/legs.rsi
