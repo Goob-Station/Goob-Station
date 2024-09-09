@@ -119,7 +119,7 @@ namespace Content.Server.Bible
                 return;
             }
 
-            //Public Domain Code begin
+            //Public Domain Code Begins
             if (EntityManager.TryGetComponent(args.Target, out ReligionComponent? targetReligion))
             {
                 EntityManager.TryGetComponent(args.User, out ReligionComponent? userReligion);
@@ -144,7 +144,7 @@ namespace Content.Server.Bible
                         break;
                 }
             }
-            //Public Domain Code end
+            //Public Domain Code Ends
 
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))

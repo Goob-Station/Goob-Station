@@ -6,6 +6,7 @@ bible-heal-success-none-others = {CAPITALIZE(THE($user))} hits {THE($target)} wi
 bible-heal-fail-self = You hit {THE($target)} with {THE($bible)}, and it lands with a sad thwack, dazing {OBJECT($target)}!
 bible-heal-fail-others = {CAPITALIZE(THE($user))} hits {THE($target)} with {THE($bible)}, and it lands with a sad thack, dazing {OBJECT($target)}!
 bible-sizzle = The book sizzles in your hands!
+
 bible-religion-opposing = The book objects!
 
 bible-summon-verb = Summon familiar

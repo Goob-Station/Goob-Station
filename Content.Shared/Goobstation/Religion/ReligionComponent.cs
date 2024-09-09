@@ -1,4 +1,4 @@
-﻿// Public Domain Code
+﻿// Public Domain Code Begins
 
 using Robust.Shared.GameStates;
 
@@ -24,6 +24,5 @@ public enum Religion
     Atheist,
     Buddhist,
     Christian,
-    Hindu,
-    Islamic,
 }
+// Public Domain Code Ends
