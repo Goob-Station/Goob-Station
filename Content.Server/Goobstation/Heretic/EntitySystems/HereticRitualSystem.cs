@@ -222,6 +222,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var h))
             return;
 
-        args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", GetRitual(h.ChosenRitual).Name)));
+        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).Name : null;
+        var name = ritual != null ? Loc.GetString(ritual) : "None";
+        args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }
 }
