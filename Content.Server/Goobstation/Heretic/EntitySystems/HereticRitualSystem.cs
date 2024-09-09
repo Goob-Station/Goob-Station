@@ -10,6 +10,7 @@ using Robust.Shared.Prototypes;
 using System.Text;
 using System.Linq;
 using Robust.Shared.Serialization.Manager;
+using Content.Shared.Examine;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -165,6 +166,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
     }
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
@@ -213,5 +215,13 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
+    }
+
+    private void OnExamine(Entity<HereticRitualRuneComponent> ent, ref ExaminedEvent args)
+    {
+        if (!TryComp<HereticComponent>(args.Examiner, out var h))
+            return;
+
+        args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", GetRitual(h.ChosenRitual).Name)));
     }
 }

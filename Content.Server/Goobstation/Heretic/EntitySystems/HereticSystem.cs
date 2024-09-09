@@ -81,6 +81,9 @@ public sealed partial class HereticSystem : EntitySystem
 
     private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
     {
+        if (!HasComp<HereticComponent>(args.Examiner))
+            return;
+
         args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 
