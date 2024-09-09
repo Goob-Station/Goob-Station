@@ -139,8 +139,8 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         // add stuff
         var output = rit.Output ?? new();
-        foreach (var ent in rit.Output.Keys)
-            for (int i = 0; i < rit.Output[ent]; i++)
+        foreach (var ent in output.Keys)
+            for (int i = 0; i < output[ent]; i++)
                 Spawn(ent, Transform(platform).Coordinates);
 
         if (rit.OutputEvent != null)
