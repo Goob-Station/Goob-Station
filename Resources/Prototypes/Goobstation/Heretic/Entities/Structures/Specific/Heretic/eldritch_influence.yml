@@ -19,7 +19,7 @@
   noSpawn: true
   components:
   - type: TimedDespawn
-    lifetime: 5 #30
+    lifetime: 30
   - type: SpawnOnDespawn
     prototype: EldritchInfluenceSpent
 
@@ -34,3 +34,4 @@
   - type: Sprite
     sprite: Goobstation/Heretic/reality_fracture.rsi
     state: icon_harvested
+  - type: Clickable

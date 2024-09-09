@@ -57,7 +57,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
 
-    private List<EntityUid> GetNearbyPeople(EntityUid ent, float range)
+    private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
         var list = new List<EntityUid>();
         var lookup = _lookup.GetEntitiesInRange(Transform(ent).Coordinates, range);
