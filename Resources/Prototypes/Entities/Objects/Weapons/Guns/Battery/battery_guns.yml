@@ -798,8 +798,8 @@
   - type: Clothing
     quickEquip: false # Frontier
     slots: # Frontier
-    - Back # Frontier
-    # - suitStorage 
+    # - Back # Frontier
+    - suitStorage #Frontier
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
