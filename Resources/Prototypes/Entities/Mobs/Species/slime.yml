@@ -4,7 +4,6 @@
   id: BaseMobSlimePerson
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: Hunger
   - type: Thirst
   - type: Icon
