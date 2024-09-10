@@ -13,3 +13,12 @@
     Plasma: 1500
     Uranium: 150
     BSCrystal: 200 # Goobstation
+
+- type: latheRecipe
+  id: PlantAnalyzer
+  result: PlantAnalyzerEmpty
+  completetime: 4
+  materials:
+    Glass: 400
+    Steel: 400
+    Bluespace: 100
