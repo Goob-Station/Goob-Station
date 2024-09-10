@@ -5,6 +5,9 @@ accent-words-gondola-1 = ...
 accent-ohio-prefix-1 = Gyatt dang,
 accent-ohio-prefix-2 = Chat...
 accent-ohio-prefix-3 = Epic win,
+accent-ohio-prefix-4 = Widewawwy...
+accent-ohio-prefix-5 = BRO...
+accent-ohio-prefix-6 = Call me the rizzler cause,
 
 accent-ohio-suffix-1 = . Like in Ohio.
 accent-ohio-suffix-2 = . From Ohio...
@@ -14,12 +17,15 @@ accent-ohio-suffix-5 = . For the Rizzler.
 accent-ohio-suffix-6 = . Chat is this real?
 accent-ohio-suffix-7 = . Bro knew what he was doing.
 accent-ohio-suffix-8 = . Goofy ahh.
+accent-ohio-suffix-9 = . Like erm... what the sigma???
+accent-ohio-suffix-10 = . What the scallop?
+accent-ohio-suffix-11 = . It's so over.
 
 accent-ohio-words-1 = charisma
 accent-ohio-words-replace-1 = rizz
 
 accent-ohio-words-2 = cool
-accent-ohio-words-replace-2 = rizz
+accent-ohio-words-replace-2 = sigma
 
 accent-ohio-words-3 = amazing
 accent-ohio-words-replace-3 = rizzlike
@@ -297,3 +303,65 @@ accent-ohio-words-replace-93 = skibidi
 accent-ohio-words-94 = shit
 accent-ohio-words-replace-94 = skibidi
 
+accent-ohio-words-95 = im high
+accent-ohio-words-replace-95 = im tweaking
+
+accent-ohio-words-96 = i'm high
+accent-ohio-words-replace-96 = i'm tweaking
+
+accent-ohio-words-97 = supermatter
+accent-ohio-words-replace-97 = fanum crystal
+
+accent-ohio-words-98 = erping
+accent-ohio-words-replace-98 = going to freaky town
+
+accent-ohio-words-99 = erp
+accent-ohio-words-replace-99 = freaky
+
+accent-ohio-words-100 = sm
+accent-ohio-words-replace-100 = fanum crystal
+
+accent-ohio-words-101 = changeling
+accent-ohio-words-replace-101 = shapeshifting ohioan
+
+accent-ohio-words-102 = cling
+accent-ohio-words-replace-102 = shapeshifting ohioan
+
+accent-ohio-words-103 = heretic
+accent-ohio-words-replace-103 = facebook crystal worshipper
+
+accent-ohio-words-104 = heretics
+accent-ohio-words-replace-104 = members of a crystal-worshipping facebook group
+
+accent-ohio-words-105 = news
+accent-ohio-words-replace-105 = fake news
+
+accent-ohio-words-106 = tax
+accent-ohio-words-replace-106 = fanum tax
+
+accent-ohio-words-107 = cool guy
+accent-ohio-words-replace-107 = real sigma alpha male guy
+
+accent-ohio-words-108 = fed
+accent-ohio-words-replace-108 = fanum taxer
+
+accent-ohio-words-109 = athlete
+accent-ohio-words-replace-109 = ishowspeed
+
+accent-ohio-words-110 = meth
+accent-ohio-words-replace-110 = speed
+
+accent-ohio-words-111 = chemistry
+accent-ohio-words-replace-111 = walter white
+
+accent-ohio-words-112 = chem
+accent-ohio-words-replace-112 = walter white
+
+accent-ohio-words-113 = real news
+accent-ohio-words-replace-113 = fake news
+
+accent-ohio-words-114 = important
+accent-ohio-words-replace-114 = important like paying your fanum taxes
+
+accent-ohio-words-115 = literally
+accent-ohio-words-replace-115 = widewawwy
