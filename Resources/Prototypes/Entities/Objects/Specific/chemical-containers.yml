@@ -83,15 +83,6 @@
       tags:
       - ChemDispensable
     - type: DnaSubstanceTrace
-    - type: EmitSoundOnPickup # goob edit
-      sound:
-        path: /Audio/Goobstation/Items/Handling/beaker_pickup.ogg
-    - type: EmitSoundOnDrop # goob edit
-      sound:
-        path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
-    - type: EmitSoundOnLand # goob edit
-      sound:
-        path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
 
 - type: entity
   parent: Jug
