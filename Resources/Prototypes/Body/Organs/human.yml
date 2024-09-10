@@ -71,9 +71,6 @@
     flavors:
       - people
   - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: brain
     entries:
       burger:
         name: food-sequence-content-brain
@@ -138,15 +135,6 @@
   components:
   - type: Sprite
     state: ears
-  - type: FoodSequenceElement
-    sprite:
-      sprite: Mobs/Species/Human/organs.rsi
-      state: ears
-    entries:
-      burger:
-        name: food-sequence-content-ears
-      taco:
-        name: food-sequence-content-ears
 
 - type: entity
   id: OrganHumanLungs

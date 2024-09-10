@@ -66,6 +66,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+    - Bot
   - type: MobState
     allowedStates:
       - Alive
@@ -412,6 +413,7 @@
     tags:
     - DoorBumpOpener
     - FootstepSound
+    - Bot
   - type: ActiveRadio
     channels:
     - Binary

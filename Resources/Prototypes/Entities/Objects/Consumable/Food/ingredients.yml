@@ -642,9 +642,6 @@
     tags:
     - Slice
   - type: FoodSequenceElement
-    sprite:
-      sprite: Objects/Consumable/Food/ingredients.rsi
-      state: cheesewedge
     entries:
       burger:
         name: food-sequence-content-cheese
