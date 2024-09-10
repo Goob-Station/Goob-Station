@@ -102,9 +102,3 @@
     tags:
     - Trash
   - type: SpaceGarbage
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/matchbox_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/matchbox_drop.ogg

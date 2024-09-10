@@ -7,12 +7,6 @@
     layers:
       - map: [ base ]
         state: icon
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/toolbox_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/toolbox_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg

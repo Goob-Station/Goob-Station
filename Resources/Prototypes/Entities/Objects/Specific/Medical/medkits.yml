@@ -21,15 +21,6 @@
   - type: Tag
     tags:
     - Medkit
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/medkit_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/medkit_drop.ogg
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/medkit_drop.ogg
 
 - type: entity
   name: burn treatment kit
