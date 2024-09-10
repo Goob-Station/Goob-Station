@@ -68,7 +68,7 @@
     head: ClothingHeadHatOutlawHat
     outerClothing: ClothingOuterArmorBasicSlim
     back: ClothingBackpackSatchel
-    pocket1: BaseUplinkRadio25TC
+    pocket1: BaseUplinkRadio125TC
     pocket2: EnergySword
 
 # Nanotrasen Paramilitary Unit Gear
