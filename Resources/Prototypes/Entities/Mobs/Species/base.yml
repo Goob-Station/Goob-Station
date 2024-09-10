@@ -285,7 +285,6 @@
     alternateState: Standing
   - type: Carriable # Goobstation
   - type: LayingDown # WD EDIT
-  - type: Religion # Goobstation
 
 - type: entity
   save: false
