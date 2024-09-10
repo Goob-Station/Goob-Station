@@ -18,6 +18,7 @@
   path: /Maps/Shuttles/ShuttleEvent/disaster_evacpod.yml
   copies: 3
 
+# The power of 3 clowns has proved too strong for the players and may need to be 1984ed.
 - type: preloadedGrid
   id: Honki
   path: /Maps/Shuttles/ShuttleEvent/honki.yml
@@ -31,6 +32,11 @@
 - type: preloadedGrid
   id: NTQuark
   path: /Maps/Shuttles/ShuttleEvent/quark.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: Bang
+  path: /Maps/Shuttles/ShuttleEvent/bang.yml
   copies: 1
 
 - type: preloadedGrid
@@ -49,6 +55,16 @@
   copies: 1
 
 - type: preloadedGrid
+  id: Drone
+  path: /Maps/Shuttles/ShuttleEvent/drone.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: Raider
+  path: /Maps/Shuttles/ShuttleEvent/raider.yml
+  copies: 1
+
+- type: preloadedGrid
   id: Eternal
   path: /Maps/Shuttles/ShuttleEvent/eternal.yml
   copies: 1
@@ -64,8 +80,18 @@
   copies: 1
 
 - type: preloadedGrid
+  id: Hook
+  path: /Maps/Shuttles/ShuttleEvent/hook.yml
+  copies: 1
+
+- type: preloadedGrid
   id: NTIncorporation
   path: /Maps/Shuttles/ShuttleEvent/incorporation.yml
+  copies: 1
+
+- type: preloadedGrid
+  id: Instigator
+  path: /Maps/Shuttles/ShuttleEvent/instigator.yml
   copies: 1
 
 - type: preloadedGrid
@@ -79,6 +105,11 @@
   copies: 1
 
 - type: preloadedGrid
+  id: ManOWar
+  path: /Maps/Shuttles/ShuttleEvent/manowar.yml
+  copies: 1
+
+- type: preloadedGrid
   id: Meatzone
   path: /Maps/Shuttles/ShuttleEvent/meatzone.yml
   copies: 1
@@ -87,6 +118,11 @@
   id: Microshuttle
   path: /Maps/Shuttles/ShuttleEvent/microshuttle.yml
   copies: 4
+
+- type: preloadedGrid
+  id: Scooner
+  path: /Maps/Shuttles/ShuttleEvent/scooner.yml
+  copies: 1
 
 - type: preloadedGrid
   id: Spacebus
