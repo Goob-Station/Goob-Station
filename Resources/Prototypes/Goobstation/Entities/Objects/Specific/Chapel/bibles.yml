@@ -12,12 +12,12 @@
 
 - type: entity
   parent: Bible
-  name: tripiṭaka
+  name: tripitaka
   description: "This book is an ancient collection of Buddhist sacred scriptures."
   id: BibleBhuddhist
   components:
   - type: Sprite
-    sprite: Goobstation/Objects/Specific/Chapel/tripiṭaka.rsi
+    sprite: Goobstation/Objects/Specific/Chapel/tripitaka.rsi
   - type: Item
-    sprite: Goobstation/Objects/Specific/Chapel/tripiṭaka.rsi
+    sprite: Goobstation/Objects/Specific/Chapel/tripitaka.rsi
 ## Public Domain YAML Ends
