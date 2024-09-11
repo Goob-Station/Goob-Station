@@ -30,7 +30,6 @@ public sealed class ReligionSystem: EntitySystem
                     Shared.Goobstation.Religion.Religion.Christian => "Bible",
                     Shared.Goobstation.Religion.Religion.None => "Bible",
                 };
-                //_inventorySystem.SpawnItemOnEntity(args.Mob, bible); Why doesnt this have a silent option ffs
                 _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, true, true);
             }
         }
