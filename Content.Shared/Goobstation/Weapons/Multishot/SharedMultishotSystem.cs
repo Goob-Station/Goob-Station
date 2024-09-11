@@ -64,7 +64,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         if (!TryComp<HandsComponent>(args.User, out var handsComp))
             return;
 
-        if (handsComp.Count < 2 || handsComp.Count != comp.RequiredHandsCount)
+        if (handsComp.Count != 2)
             return;
 
         // Find first suitable weapon

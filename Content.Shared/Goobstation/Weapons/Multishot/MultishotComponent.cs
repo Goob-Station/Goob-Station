@@ -20,10 +20,4 @@ public sealed partial class MultishotComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? RelatedWeapon = default!;
-
-    /// <summary>
-    /// How many hands this weapon required to allow multishot. Just to prevent nukeops borg shoot everything he have.
-    /// </summary>
-    [DataField]
-    public byte RequiredHandsCount = 2;
 }
