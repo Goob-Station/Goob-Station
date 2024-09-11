@@ -778,9 +778,9 @@
     autoRechargeRate: 20
 
 - type: entity
-  name: X-01 multiphase energy gun # Goobstation - Made the x in "x-01" uppercase.
+  name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
   suffix: DO NOT MAP # Frontier - Add DO NOT MAP, this is the sheriff's gun
-  parent: [BaseWeaponBatterySmall] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time. On the handle is a label that says 'for authorized use only.'
   components:
