@@ -61,6 +61,8 @@
     price: 500
   - type: UseDelay
     delay: 1
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.85 # Try not to hit teammates challenge :godo:
 
 - type: entity
   name: L6 SAW

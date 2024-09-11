@@ -24,3 +24,5 @@
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: Multishot
+    spreadMultiplier: 1.2

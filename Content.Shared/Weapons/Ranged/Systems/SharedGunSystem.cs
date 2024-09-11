@@ -361,6 +361,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         Dirty(gunUid, gun);
+        UpdateAmmoCount(gunUid); //GoobStation - Multishot
     }
 
     public void Shoot(

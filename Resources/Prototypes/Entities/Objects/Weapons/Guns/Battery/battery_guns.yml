@@ -122,6 +122,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Multishot # Goobstation
 
 - type: entity
   name: retro laser blaster
@@ -145,6 +146,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
 
 - type: entity
   name: makeshift laser pistol
@@ -168,6 +170,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: Multishot # Goobstation
 
 - type: entity
   name: tesla gun
@@ -264,6 +267,7 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
+  - type: Multishot # Goobstation
 
 - type: entity
   name: pulse carbine
@@ -588,6 +592,7 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
+  - type: Multishot # Goobstation
 
 - type: entity
   name: advanced laser pistol
@@ -623,6 +628,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: Multishot # Goobstation
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -669,6 +675,7 @@
     node: start
   - type: StaticPrice
     price: 100
+  - type: Multishot # Goobstation
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
