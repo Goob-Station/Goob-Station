@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazineMagnum
   name: pistol magazine (.45 magnum)
-  parent: BaseMagazinePistol
+  parent: [ BaseMagazinePistol, BaseRestrictedContraband ]
   abstract: true
   components:
   - type: Tag
@@ -13,21 +13,6 @@
       tags:
         - CartridgeMagnum
     capacity: 7
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
 
 - type: entity
   id: BaseMagazineMagnumSubMachineGun

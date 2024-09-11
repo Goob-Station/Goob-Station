@@ -61,15 +61,6 @@
     price: 500
   - type: UseDelay
     delay: 1
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
 
 - type: entity
   name: L6 SAW
