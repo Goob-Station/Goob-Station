@@ -186,6 +186,7 @@ namespace Content.Server.Bible
             }
         }
 
+        //Goobstation Edit Begin - Religion
         //Public Domain Code begin
         private void DoBibleSmite(EntityUid uid, UseDelayComponent useDelay, AfterInteractEvent args)
         {
@@ -203,6 +204,7 @@ namespace Content.Server.Bible
             return;
         }
         //Public Domain Code end
+        //Goobstation Edit End - Religion
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {
