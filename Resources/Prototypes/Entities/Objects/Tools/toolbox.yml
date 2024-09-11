@@ -7,12 +7,6 @@
     layers:
       - map: [ base ]
         state: icon
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/toolbox_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/toolbox_drop.ogg
   - type: EmitSoundOnLand
     sound:
       path: /Audio/Items/toolbox_drop.ogg
@@ -154,7 +148,7 @@
   id: ToolboxThief
   name: thief undetermined toolbox
   description: This is where your favorite thief's supplies lie. Try to remember which ones.
-  parent: BaseItem
+  parent: [ BaseItem, BaseMinorContraband ]
   components:
   - type: Sprite
     sprite: Objects/Tools/Toolboxes/toolbox_thief.rsi
