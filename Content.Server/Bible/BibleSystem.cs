@@ -119,6 +119,7 @@ namespace Content.Server.Bible
                 return;
             }
 
+            //Goobstation Edit Begin - Religion
             //Public Domain Code Begins
             if (EntityManager.TryGetComponent(args.Target, out ReligionComponent? targetReligion))
             {
@@ -145,6 +146,7 @@ namespace Content.Server.Bible
                 }
             }
             //Public Domain Code Ends
+            //Goobstation Edit End - Religion
 
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))
