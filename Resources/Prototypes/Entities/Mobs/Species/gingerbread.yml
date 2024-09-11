@@ -30,6 +30,32 @@
         amount: 5
   - type: Bloodstream
     bloodReagent: Sugar
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+    reactions:
+    - reagents: [ Water, SpaceCleaner ]
+      methods: [ Touch ]
+      effects:
+      - !type:WashCreamPieReaction
+    - reagents: [ Water ]
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        damage:
+          types:
+            Genetic: 0.3
+      - !type:PopupMessage
+        type: Local
+        visualType: Large
+        messages: [ "gingerbread-hurt-by-water-popup" ]
+        probability: 0.25
+  - type: Flammable
+    damage:
+      types:
+        Heat: 0.5 # gingerbread don't burn very much
   - type: Fixtures
     fixtures:
       fix1:
