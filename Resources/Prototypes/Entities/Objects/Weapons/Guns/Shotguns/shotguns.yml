@@ -201,7 +201,6 @@
     node: shotgunsawn
     deconstructionTarget: null
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.8
 
 - type: entity
   name: sawn-off shotgun
@@ -241,7 +240,6 @@
   - type: StaticPrice
     price: 0
   - type: Multishot # Goobstation
-    spreadMultiplier: 1.8
 
 - type: entity
   name: blunderbuss

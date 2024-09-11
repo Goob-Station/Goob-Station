@@ -55,6 +55,7 @@ public sealed partial class SharedMultishotSystem : EntitySystem
 
         args.MaxAngle *= comp.SpreadMultiplier;
         args.MinAngle *= comp.SpreadMultiplier;
+        args.FireRate /= comp.SpreadMultiplier;
     }
 
     private void OnEquipWeapon(Entity<MultishotComponent> multishotWeapon, ref GotEquippedHandEvent args)
