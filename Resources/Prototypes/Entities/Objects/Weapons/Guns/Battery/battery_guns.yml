@@ -822,10 +822,10 @@
       fireCost: 200
       name: lethal
       state: lethal
-    # - proto: BulletEnergyGunIon
-    #   fireCost: 500
-    #   name: ion
-    #   state: special
+    - proto: BulletEnergyGunIon
+      fireCost: 400
+      name: ion
+      state: special
   - type: MagazineVisuals
     magState: mag
     steps: 5
