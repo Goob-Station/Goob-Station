@@ -94,21 +94,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DnaSubstanceTrace
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/beaker_pickup.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/beaker_drop.ogg
-      params:
-        volume: -1
 
 - type: entity
   parent: BaseChemistryEmptyBottle

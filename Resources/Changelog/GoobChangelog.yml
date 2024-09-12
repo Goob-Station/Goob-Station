@@ -964,3 +964,81 @@ Entries:
       message: The Energy Shotgun's maximum battery capacity has been increased.
   id: 123
   time: '2024-09-08T14:50:42.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Eldritch influences are not visible to the crew until harvested.
+    - type: Add
+      message: >-
+        You can now inspect the transmutation rune to see your currently
+        selected ritual.
+    - type: Fix
+      message: >-
+        Fixed heretic rituals giving away free items. No more ominous armor
+        giveaway in maints
+    - type: Tweak
+      message: >-
+        Now heretic's abilities work on other heretics, except for those whose
+        path is the same.
+    - type: Tweak
+      message: Updated heretic guidebook page to include more useful info. GO READ IT
+    - type: Fix
+      message: Fixed flesh surgery having no cooldown
+  id: 124
+  time: '2024-09-09T16:52:58.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made people edible
+  id: 125
+  time: '2024-09-09T22:30:41.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added Station Anchor and AI Boards to Saltern
+  id: 126
+  time: '2024-09-10T01:30:27.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added StationAI Law Boards to Bagel.
+  id: 127
+  time: '2024-09-10T01:37:16.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Added Ritual of Knowledge. Requires you to transmute 4 random items for
+        4 knowledge points.
+    - type: Tweak
+      message: >-
+        Successful flesh mark hit will spill the target's entire bloodstream on
+        the ground.
+    - type: Tweak
+      message: Changed void and ash blade sprites.
+    - type: Tweak
+      message: Void blade now deals cold damage.
+    - type: Tweak
+      message: Ash blade now deals heat damage.
+    - type: Tweak
+      message: Seeking blade knowledge now allows void blade to freeze targets.
+    - type: Tweak
+      message: Updated some heretic related sprites
+  id: 128
+  time: '2024-09-11T15:55:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: >-
+        Dual welding for guns! Now you can shoot from most weapons with both
+        hands!
+  id: 129
+  time: '2024-09-12T17:04:33.0000000+00:00'
+- author: Daemon
+  changes:
+    - type: Add
+      message: Added religions.
+    - type: Add
+      message: Added new types of bibles.
+  id: 130
+  time: '2024-09-12T17:05:25.0000000+00:00'

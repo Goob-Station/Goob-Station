@@ -19,15 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/gun_drop.ogg
+  - type: Multishot # Goobstation
 
 - type: entity
   name: china lake
@@ -282,6 +274,7 @@
           unshaded:
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
+    - type: PacifismAllowedGun
 
 # Admeme
 - type: entity

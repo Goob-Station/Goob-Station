@@ -64,11 +64,10 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
             case "Flesh":
                 if (TryComp<MobStateComponent>(target, out var mobState) && mobState.CurrentState == Shared.Mobs.MobState.Dead)
-                    if (!HasComp<GhoulComponent>(target))
-                    {
-                        var ghoul = EnsureComp<GhoulComponent>(target);
-                        ghoul.BoundHeretic = performer;
-                    }
+                {
+                    var ghoul = EnsureComp<GhoulComponent>(target);
+                    ghoul.BoundHeretic = performer;
+                }
                 break;
 
             case "Rust":
@@ -80,8 +79,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
                 break;
 
             case "Void":
-                if (HasComp<TemperatureComponent>(target))
-                    _temperature.ChangeHeat(target, -10f, true);
+                if (TryComp<TemperatureComponent>(target, out var temp))
+                    _temperature.ForceChangeTemperature(target, temp.CurrentTemperature - 20f, temp);
                 _statusEffect.TryAddStatusEffect<MutedComponent>(target, "Muted", TimeSpan.FromSeconds(8), false);
                 break;
 
@@ -116,7 +115,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
 
         var target = (EntityUid) args.Target;
 
-        if (HasComp<HereticComponent>(target))
+        if ((TryComp<HereticComponent>(args.Target, out var th) && th.CurrentPath == ent.Comp.Path))
             return;
 
         if (HasComp<StatusEffectsComponent>(target))
