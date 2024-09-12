@@ -1034,3 +1034,11 @@ Entries:
         hands!
   id: 129
   time: '2024-09-12T17:04:33.0000000+00:00'
+- author: Daemon
+  changes:
+    - type: Add
+      message: Added religions.
+    - type: Add
+      message: Added new types of bibles.
+  id: 130
+  time: '2024-09-12T17:05:25.0000000+00:00'
