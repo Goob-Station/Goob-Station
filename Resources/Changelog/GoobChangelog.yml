@@ -1026,3 +1026,11 @@ Entries:
       message: Updated some heretic related sprites
   id: 128
   time: '2024-09-11T15:55:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: >-
+        Dual welding for guns! Now you can shoot from most weapons with both
+        hands!
+  id: 129
+  time: '2024-09-12T17:04:33.0000000+00:00'
