@@ -191,6 +191,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
+        if (args.Cancelled)
+            return;
+
         var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
         var radio = EnsureComp<ActiveRadioComponent>(args.Target);
