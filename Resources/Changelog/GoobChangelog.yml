@@ -1004,3 +1004,25 @@ Entries:
       message: Added StationAI Law Boards to Bagel.
   id: 127
   time: '2024-09-10T01:37:16.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Added Ritual of Knowledge. Requires you to transmute 4 random items for
+        4 knowledge points.
+    - type: Tweak
+      message: >-
+        Successful flesh mark hit will spill the target's entire bloodstream on
+        the ground.
+    - type: Tweak
+      message: Changed void and ash blade sprites.
+    - type: Tweak
+      message: Void blade now deals cold damage.
+    - type: Tweak
+      message: Ash blade now deals heat damage.
+    - type: Tweak
+      message: Seeking blade knowledge now allows void blade to freeze targets.
+    - type: Tweak
+      message: Updated some heretic related sprites
+  id: 128
+  time: '2024-09-11T15:55:36.0000000+00:00'
