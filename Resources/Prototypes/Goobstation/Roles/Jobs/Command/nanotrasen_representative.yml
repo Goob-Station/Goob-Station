@@ -9,6 +9,11 @@
       time: 180000  #50 hours
     - !type:AgeRequirement
       requiredAge: 21
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Felinid
+      - Rodentia
   weight: 20
   startingGear: NanotrasenRepresentativeGear
   icon: "JobIconNanotrasenRepresentative"
