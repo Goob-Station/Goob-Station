@@ -700,6 +700,10 @@
     damage:
       types:
         Blunt: 1 # bonk
+  - type: Tag #Goobstation
+    tags:
+    - BreadEmergency 
+
 # Tastes like France.
 
 - type: entity

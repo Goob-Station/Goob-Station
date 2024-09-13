@@ -59,7 +59,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxHugSlots
+    - BoxHugSlots # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenClown
@@ -68,7 +68,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxHugSlotsNitrogen
+    - BoxHugSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
 # Mime
 - type: loadout
@@ -78,7 +78,7 @@
     proto: OxygenBreather
   storage:
     back:
-    - BoxMime
+    - BoxMimeSlots # Goobstation - Slots Based Survival Boxes
 
 - type: loadout
   id: EmergencyNitrogenMime
@@ -87,7 +87,7 @@
     proto: NitrogenBreather
   storage:
     back:
-    - BoxMimeNitrogen
+    - BoxMimeSlotsNitrogen # Goobstation - Slots Based Survival Boxes
 
 
 # Engineering / Extended
