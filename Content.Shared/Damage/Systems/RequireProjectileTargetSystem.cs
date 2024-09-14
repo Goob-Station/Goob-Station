@@ -3,18 +3,23 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 
 namespace Content.Shared.Damage.Components;
 
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RequireProjectileTargetComponent, PreventCollideEvent>(PreventCollide);
         SubscribeLocalEvent<RequireProjectileTargetComponent, StoodEvent>(StandingBulletHit);
         SubscribeLocalEvent<RequireProjectileTargetComponent, DownedEvent>(LayingBulletPass);
+
+        SubscribeLocalEvent<RequireProjectileTargetComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
@@ -55,6 +60,13 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
     private void LayingBulletPass(Entity<RequireProjectileTargetComponent> ent, ref DownedEvent args)
     {
-        SetActive(ent, true);
+        if (!_mobState.IsAlive(ent)) // Goobstation - crawling fix
+            SetActive(ent, true);
+    }
+
+    // Goobstation - crawling fix
+    private void OnMobStateChange(Entity<RequireProjectileTargetComponent> ent, ref MobStateChangedEvent args)
+    {
+        SetActive(ent, !_mobState.IsAlive(ent));
     }
 }
