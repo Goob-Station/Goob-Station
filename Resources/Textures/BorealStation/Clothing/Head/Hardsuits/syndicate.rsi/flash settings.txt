@@ -1,0 +1,8 @@
+brush: paintbrush
+size: 10
+aspect ratio and angle: 0
+spacing: 10
+hardness: 21
+force: 24
+colour: dbdbdb
+one click
