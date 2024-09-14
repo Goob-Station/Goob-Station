@@ -1,12 +1,15 @@
 <Document>
   # Gingerbread
-  
+
   <Box>
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
-  
-  Gingerbreads are a species of sentient confectionary. The only difference from a standard human is that they have
-  sugar in their bloodstream replacing their blood
 
+  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies.
+
+  ## Damage stats
+
+  Gingerbreads take 3x less heat damage than Humans, but take a lot of damage from being exposed to water externally.
+  They take 3x more damage from being exposed to water externally than Slimes.
 
 </Document>

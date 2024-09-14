@@ -1,4 +1,7 @@
 - type: Tag
+  id: BreadEmergency
+
+- type: Tag
   id: BreathMask
 
 - type: Tag

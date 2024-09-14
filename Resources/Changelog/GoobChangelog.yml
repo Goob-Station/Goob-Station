@@ -1042,3 +1042,17 @@ Entries:
       message: Added new types of bibles.
   id: 130
   time: '2024-09-12T17:05:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Gingerbreads now take damage from water
+    - type: Tweak
+      message: Gingerbreads now take 3 times less burn damage
+  id: 131
+  time: '2024-09-13T13:19:35.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added the X-01 MultiPhase for the BSO
+  id: 132
+  time: '2024-09-14T00:49:09.0000000+00:00'
