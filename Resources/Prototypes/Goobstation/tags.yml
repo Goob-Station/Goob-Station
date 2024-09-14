@@ -23,6 +23,9 @@
   id: HarpyEmotes
 
 - type: Tag
+  id: HEVSuit
+
+- type: Tag
   id: MedicalPatch
 
 - type: Tag
