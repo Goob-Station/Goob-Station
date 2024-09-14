@@ -1,12 +1,12 @@
 <p align="center"> <img alt="Space Station 14" width="880" height="300" src="https://github.com/Goob-Station/Goob-Station/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
-This is a fork from the primary repo for Space Station 14 called Goob Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
+This is a fork from the primary repo for Goob Station called Boreal Station. To prevent people forking RobustToolbox, a "content" pack is loaded by the client and server. This content pack contains everything needed to play the game on one specific server.
 
 If you want to host or create content for SS14, go to the [Space Station 14 repository](https://github.com/space-wizards/space-station-14) as it contains both RobustToolbox and the content pack for development of new content packs and is the base for your fork.
 
 ## Links
 
-[Goob Station Discord Server](https://discord.gg/gEq2bDxU35) | [Goob Station Forum](https://forums.goobstation.com/)
+
 
 ## Documentation/Wiki
 
@@ -29,7 +29,7 @@ We are not currently accepting translations of the game on our main repository. 
 
 ## License
 
-Content contributed to this repository after commit [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Goob-Station/Goob-Station/commit/8270907bdc509a3fb5ecfecde8cc14e5845ede36) is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See LICENSE-AGPLv3.txt. Content contributed to this repository before commit [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Goob-Station/Goob-Station/commit/8270907bdc509a3fb5ecfecde8cc14e5845ede36) is licensed under the MIT license, unless otherwise stated. See LICENSE.txt.
+Content contributed to this repository after commit [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Boreal-Station/Boreal-Station/pull/1) is licensed under the GNU Affero General Public License version 3.0, unless otherwise stated. See LICENSE-AGPLv3.txt. Content contributed to this repository before commit [8270907bdc509a3fb5ecfecde8cc14e5845ede36](https://github.com/Goob-Station/Goob-Station/commit/8270907bdc509a3fb5ecfecde8cc14e5845ede36) is licensed under the MIT license, unless otherwise stated. See LICENSE.txt.
 
 Most assets are licensed under [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) unless stated otherwise. Assets have their license and the copyright in the metadata file. [Example](https://github.com/space-wizards/space-station-14/blob/master/Resources/Textures/Objects/Tools/crowbar.rsi/meta.json).
 
