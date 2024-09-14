@@ -347,15 +347,15 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndie
-  name: blood-red hardsuit helmet
-  description: A heavily armored helmet designed for work in special operations. Property of Gorlex Marauders.
+  name: Atomwaffen hardsuit helmet # BOREAL STATION
+  description: A custom combat hardsuit helmet in the Atomwaffen colours. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndicate.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndicate.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndicate.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndicate.rsi # BOREAL STATION
   - type: PointLight
-    color: green
+    color: white
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -371,15 +371,15 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieMedic
-  name: blood-red medic hardsuit helmet
-  description: An advanced red hardsuit helmet specifically designed for field medic operations.
+  name: Atomwaffen medic hardsuit helmet
+  description: An advanced Atomwaffen hardsuit helmet specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndiemedic.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndiemedic.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndiemedic.rsi # BOREAL STATION
   - type: PointLight
-    color: green
+    color: white
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000
@@ -395,13 +395,13 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
-  name: syndicate elite helmet
-  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
+  name: Atomwaffen elite helmet # BOREAL STATION
+  description: An elite version of the Atomwaffen hardsuit's helmet, with improved armor and fireproofing. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndieelite.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndieelite.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndieelite.rsi # BOREAL STATION
   - type: PointLight
     color: red
   - type: PressureProtection
@@ -424,15 +424,15 @@
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieCommander
-  name: syndicate commander helmet
-  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: Atomwaffen commander helmet # BOREAL STATION
+  description: A big brain bucket for a big guy. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndiecommander.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
+    sprite: BorealStation/Clothing/Head/Hardsuits/syndiecommander.rsi # BOREAL STATION
   - type: PointLight
-    color: green
+    color: white
   - type: PressureProtection
     highPressureMultiplier: 0.08
     lowPressureMultiplier: 1000

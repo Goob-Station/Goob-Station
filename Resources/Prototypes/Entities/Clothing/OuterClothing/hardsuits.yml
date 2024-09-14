@@ -480,15 +480,15 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndie
-  name: blood-red hardsuit
-  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
+  name: Atomwaffen hardsuit # BOREAL STATION
+  description: Deep black steel with white tape around the arms and legs, these are some well funded terrorists. Property of Atomwaffen. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndicate.rsi # BOREAL STATION
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndicate.rsi # BOREAL STATION
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -519,13 +519,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieMedic
-  name: blood-red medic hardsuit
-  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
+  name: Atomwaffen medic hardsuit # BOREAL STATION
+  description: Give your brothers meth, dont die, nuff said. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi # BOREAL STATION
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
@@ -537,13 +537,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: syndicate elite hardsuit
-  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
+  name: Atomwaffen elite hardsuit # BOREAL STATION
+  description: An elite version of the Atomwaffen hardsuit, with improved mobility and fireproofing. Property of Atomwaffen. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndieelite.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndieelite.rsi # BOREAL STATION
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
@@ -567,7 +567,7 @@
     size: Huge
   - type: ClothingSpeedModifier # goobstation - duke nukies
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0 # BOREAL STATION
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
@@ -576,13 +576,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
-  name: syndicate commander hardsuit
-  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  name: Atomwaffen commander hardsuit # BOREAL STATION
+  description: A massive custom made combat hardsuit, designed for the commander of Atomwaffen itself. you could probably fistfight a gorilla in this thing and win. # BOREAL STATION
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # BOREAL STATION
   - type: Clothing
-    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # BOREAL STATION
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
