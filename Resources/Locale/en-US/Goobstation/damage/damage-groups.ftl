@@ -1,1 +1,1 @@
-damage-group-burn = Electronic
+damage-group-electronic = Electronic
