@@ -1,14 +1,15 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/space_asshole.ogg
+    #- /Audio/Lobby/space_asshole.ogg BOREAL STATION
     # Goobstation - Custom lobby music
-    - /Audio/Lobby/skubstep.ogg
+    #- /Audio/Lobby/skubstep.ogg BOREAL STATION
     - /Audio/Lobby/sneedsfeedandseed.ogg
-    - /Audio/Lobby/honk.ogg
-    - /Audio/Lobby/clownalwayswins.ogg
-    - /Audio/Lobby/clownwmv.ogg
-    - /Audio/Lobby/dawsonschristian.ogg
-    - /Audio/Lobby/thewizard.ogg
-    - /Audio/Lobby/skubstub.ogg
-    - /Audio/Lobby/space_radiation.ogg
+    #- /Audio/Lobby/honk.ogg BOREAL STATION
+    #- /Audio/Lobby/clownalwayswins.ogg BOREAL STATION
+    #- /Audio/Lobby/clownwmv.ogg BOREAL STATION
+    #- /Audio/Lobby/dawsonschristian.ogg BOREAL STATION
+    #- /Audio/Lobby/thewizard.ogg BOREAL STATION
+    #- /Audio/Lobby/skubstub.ogg BOREAL STATION
+    #- /Audio/Lobby/space_radiation.ogg BOREAL STATION
+    - /Audio/Lobby/Buy_This_Track_Goy.ogg #BOREAL STATION
