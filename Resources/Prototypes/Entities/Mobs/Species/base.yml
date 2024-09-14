@@ -285,7 +285,6 @@
   - type: FireVisuals
     alternateState: Standing
   - type: Carriable # Goobstation
-  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
