@@ -1056,3 +1056,9 @@ Entries:
       message: Added the X-01 MultiPhase for the BSO
   id: 132
   time: '2024-09-14T00:49:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: H.E.V suit with a small chance can be found in radiation suit locker
+  id: 133
+  time: '2024-09-14T13:10:34.0000000+00:00'
