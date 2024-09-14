@@ -44,7 +44,7 @@
   equipment:
     back: ClothingBackpack
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
-    shoes: ClothingShoesBootsCombatFilled
+    shoes: ClothingShoesBootsJackFilled
     eyes: ClothingEyesGlassesSecurity
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingBlueshieldArmourVest
