@@ -45,7 +45,7 @@
     back: ClothingBackpack
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
     shoes: ClothingShoesBootsJackFilled
-    eyes: ClothingEyesGlassesSecurity
+    eyes: ClothingEyesGlassesMedical
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingBlueshieldArmourVest
     id: ERTSecurityPDA
