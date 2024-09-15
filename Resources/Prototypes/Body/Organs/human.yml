@@ -253,6 +253,7 @@
     - Organ
     - Stomach
 
+- type: entity
   parent: BaseHumanOrgan
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
