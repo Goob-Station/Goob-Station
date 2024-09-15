@@ -230,6 +230,7 @@
   - Detective
   - Warden
   - Brigmedic # Goob
+  - SecurityClown # event-restricted, Goob
 
 - type: department
   id: Science

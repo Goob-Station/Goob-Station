@@ -13,7 +13,7 @@
   icon: "JobIconSecurityClown"
   supervisors: job-supervisors-security
   canBeAntag: false
-  setPreference: true
+  setPreference: false
   access:
   - Security
   - Brig
@@ -47,7 +47,9 @@
     outerClothing: ClothingOuterArmorBasic
     id: SecurityClownPDA
     ears: ClothingHeadsetSecurity
-    belt: BikeHorn
+    belt: ClothingBeltSecurityFilled
+    pocket1: WeaponPistolMk58
+    pocket2: BookSecurity
   storage:
     back:
     - Flash

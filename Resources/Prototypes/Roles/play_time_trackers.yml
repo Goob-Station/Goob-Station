@@ -103,6 +103,9 @@
   id: JobCBURN
 
 - type: playTimeTracker
+  id: JobFloraInspector
+
+- type: playTimeTracker
   id: JobHeadOfPersonnel
 
 - type: playTimeTracker
@@ -158,6 +161,9 @@
 
 - type: playTimeTracker
   id: JobSecurityCadet
+
+- type: playTimeTracker
+  id: JobSecurityClown
 
 - type: playTimeTracker
   id: JobSecurityOfficer
