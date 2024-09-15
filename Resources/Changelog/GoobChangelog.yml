@@ -1074,3 +1074,9 @@ Entries:
       message: StandUp doafter time increased from 0.5 to 1.5
   id: 134
   time: '2024-09-15T14:22:14.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added new attire for BSO
+  id: 135
+  time: '2024-09-15T14:27:37.0000000+00:00'
