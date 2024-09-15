@@ -480,15 +480,15 @@
 - type: entity
   parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
   id: ClothingOuterHardsuitSyndie
-  name: Atomwaffen hardsuit # BOREAL STATION
-  description: Deep black steel with white tape around the arms and legs, these are some well funded terrorists. Property of Atomwaffen. # BOREAL STATION
+  name: blood-red hardsuit
+  description: A heavily armored hardsuit designed for work in special operations. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndicate.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: Item
     size: Huge
   - type: Clothing
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndicate.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndicate.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -519,13 +519,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieMedic
-  name: Atomwaffen medic hardsuit # BOREAL STATION
-  description: Give your brothers meth, dont die, nuff said. # BOREAL STATION
+  name: blood-red medic hardsuit
+  description: A heavily armored and agile advanced hardsuit specifically designed for field medic operations.
   components:
   - type: Sprite
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
   - type: Clothing
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
@@ -537,19 +537,18 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieElite
-  name: Atomwaffen elite hardsuit # BOREAL STATION
-  description: An elite version of the Atomwaffen hardsuit, with improved mobility and fireproofing. Property of Atomwaffen. # BOREAL STATION
+  name: syndicate elite hardsuit
+  description: An elite version of the blood-red hardsuit, with improved mobility and fireproofing. Property of Gorlex Marauders.
   components:
   - type: Sprite
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndieelite.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: Clothing
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndieelite.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndieelite.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.02
     lowPressureMultiplier: 1000
   - type: TemperatureProtection
-    heatingCoefficient: 0.001
-    coolingCoefficient: 0.001
+    coefficient: 0.001
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: FireProtection
@@ -567,7 +566,7 @@
     size: Huge
   - type: ClothingSpeedModifier # goobstation - duke nukies
     walkModifier: 1.0
-    sprintModifier: 1.0 # BOREAL STATION
+    sprintModifier: 0.9
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
@@ -576,13 +575,13 @@
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
   id: ClothingOuterHardsuitSyndieCommander
-  name: Atomwaffen commander hardsuit # BOREAL STATION
-  description: A massive custom made combat hardsuit, designed for the commander of Atomwaffen itself. you could probably fistfight a gorilla in this thing and win. # BOREAL STATION
+  name: syndicate commander hardsuit
+  description: A bulked up version of the blood-red hardsuit, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
   components:
   - type: Sprite
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: Clothing
-    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi # BOREAL STATION
+    sprite: Clothing/OuterClothing/Hardsuits/syndiecommander.rsi
   - type: PressureProtection
     highPressureMultiplier: 0.05
     lowPressureMultiplier: 1000
@@ -1006,3 +1005,132 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSanta
+
+# Atomwaffen hardsuits
+#Atomwaffen Hardsuit
+- type: entity
+  parent: [ ClothingOuterHardsuitBase, BaseSyndicateContraband ]
+  id: ClothingOuterHardsuitAtomwaffen
+  name: Atomwaffen hardsuit # BOREAL STATION
+  description: Deep black steel with white tape around the arms and legs, these are some well funded terrorists. Property of Atomwaffen. # BOREAL STATION
+  components:
+  - type: Sprite
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffen.rsi # BOREAL STATION
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffen.rsi # BOREAL STATION
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.5
+        Slash: 0.5
+        Piercing: 0.5
+        Heat: 0.5
+        Radiation: 0.5
+        Caustic: 0.5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffen
+  - type: Tag
+    tags:
+    - MonkeyWearable
+    - Hardsuit
+    - WhitelistChameleon
+
+#Atomwaffen Medic Hardsuit BOREAL STATION
+- type: entity
+  parent: [ClothingOuterHardsuitSyndie, BaseSyndicateContraband]
+  id: ClothingOuterHardsuitAtomwaffenMedic
+  name: Atomwaffen medic hardsuit # BOREAL STATION
+  description: Give your brothers meth, dont die, nuff said. # BOREAL STATION
+  components:
+  - type: Sprite
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffenmedic.rsi # BOREAL STATION
+  - type: Clothing
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffenmedic.rsi # BOREAL STATION
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffenMedic
+  - type: Tag
+    tags:
+    - Hardsuit
+    - WhitelistChameleon
+
+#Atomwaffen Elite Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
+  id: ClothingOuterHardsuitAtomwaffenElite
+  name: Atomwaffen elite hardsuit # BOREAL STATION
+  description: An elite version of the Atomwaffen hardsuit, with improved mobility and fireproofing. Property of Atomwaffen. # BOREAL STATION
+  components:
+  - type: Sprite
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffenelite.rsi # BOREAL STATION
+  - type: Clothing
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffenelite.rsi # BOREAL STATION
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.6
+        Heat: 0.2
+        Radiation: 0.01
+        Caustic: 0.5
+  - type: Item
+    size: Huge
+  - type: ClothingSpeedModifier # goobstation - duke nukies
+    walkModifier: 1.0
+    sprintModifier: 1.0 # BOREAL STATION
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffenElite
+
+#Atomwaffen Commander Hardsuit
+- type: entity
+  parent: [ClothingOuterHardsuitBase, BaseSyndicateContraband]
+  id: ClothingOuterHardsuitAtomwaffenCommander
+  name: Atomwaffen commander hardsuit # BOREAL STATION
+  description: A massive custom made combat hardsuit, designed for the commander of Atomwaffen itself. you could probably fistfight a gorilla in this thing and win. # BOREAL STATION
+  components:
+  - type: Sprite
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffencommander.rsi # BOREAL STATION
+  - type: Clothing
+    sprite: BorealStation/Clothing/OuterClothing/Hardsuits/atomwaffencommander.rsi # BOREAL STATION
+  - type: PressureProtection
+    highPressureMultiplier: 0.05
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.4
+        Piercing: 0.3
+        Heat: 0.5
+        Radiation: 0.25
+        Caustic: 0.4
+  - type: ClothingSpeedModifier
+    walkModifier: 1.0
+    sprintModifier: 1.0
+  - type: HeldSpeedModifier
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffenCommander
