@@ -1,7 +1,7 @@
 - type: species
   id: Harpy
   name: species-name-harpy
-  roundStart: false
+  roundStart: false # BOREAL STATION
   prototype: MobHarpy
   sprites: MobHarpySprites
   markingLimits: MobHarpyMarkingLimits

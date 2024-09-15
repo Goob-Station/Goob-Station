@@ -1,7 +1,7 @@
 - type: species
   id: Felinid
   name: species-name-felinid
-  roundStart: false
+  roundStart: false # BOREAL STATION
   prototype: MobFelinid
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
