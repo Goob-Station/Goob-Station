@@ -1,7 +1,7 @@
 - type: species
   id: Vulpkanin
   name: species-name-vulpkanin
-  roundStart: true
+  roundStart: false
   prototype: MobVulpkanin
   sprites: MobVulpkaninSprites
   defaultSkinTone: "#985629"

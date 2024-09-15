@@ -1,7 +1,7 @@
 - type: species
   id: Harpy
   name: species-name-harpy
-  roundStart: true
+  roundStart: false
   prototype: MobHarpy
   sprites: MobHarpySprites
   markingLimits: MobHarpyMarkingLimits
