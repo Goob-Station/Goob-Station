@@ -45,3 +45,9 @@
   name: DJ B1G YAPPA - SKUBSTUB
   path:
     path: /Audio/Lobby/skubstub.ogg
+
+- type: jukebox
+  id: TBOF
+  name: Take Back Our Future - Cyber Nazi
+  path:
+    path: /Audio/Lobby/Take-Back-Our-Future.ogg
