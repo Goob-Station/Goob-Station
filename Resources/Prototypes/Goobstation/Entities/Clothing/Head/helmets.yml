@@ -24,3 +24,14 @@
     - Hair
     - HeadTop
     - HeadSide
+
+- type: entity
+  parent: ClothingHeadHelmetHardsuitBasic
+  id: ClothingHeadHelmetHEV
+  name: H.E.V helmet
+  description: Not included in a set with crowbar, long jump module and gravity manipulation device.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Head/Helmets/hev.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Head/Helmets/hev.rsi
