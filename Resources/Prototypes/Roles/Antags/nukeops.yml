@@ -48,7 +48,7 @@
     ears: ClothingHeadsetAltSyndicate
     gloves: ClothingHandsGlovesCombat
     #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
-    shoes: ClothingShoesBootsJackFilled
+    shoes: ClothingShoesBootsJackFilled # goobstation
     id: SyndiPDA
     pocket1: DoubleEmergencyOxygenTankFilled
     pocket2: PlushieCarp
