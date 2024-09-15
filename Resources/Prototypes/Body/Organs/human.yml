@@ -79,6 +79,7 @@
         name: food-sequence-content-brain
       taco:
         name: food-sequence-content-brain
+
 - type: entity
   id: OrganHumanEyes
   parent: BaseHumanOrgan
@@ -249,12 +250,9 @@
         name: food-sequence-content-stomach
   - type: Tag # goob edit
     tags:
-    - Meat
     - Organ
     - Stomach
 
-- type: entity
-  id: OrganHumanLiver
   parent: BaseHumanOrgan
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
