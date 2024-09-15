@@ -28,7 +28,7 @@
     spreadMultiplier: 1.2
     
 - type: entity
-  name: energy revolver
+  name: EG-4 energy revolver
   parent: [BaseWeaponBatterySmall, BaseCommandContraband]
   id: WeaponEnergyRevolver
   description: A highly advabced energy revolver capable of firing both lethal and disabling bullets.
