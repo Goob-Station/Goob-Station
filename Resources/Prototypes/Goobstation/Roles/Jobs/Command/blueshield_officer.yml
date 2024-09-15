@@ -51,7 +51,7 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyRevolver
     pocket2: DeathAcidifierImplanter
   storage:
     back:
