@@ -11,21 +11,18 @@ namespace Content.Shared.Damage.Components;
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!; // Goobstation
 
     public override void Initialize()
     {
         SubscribeLocalEvent<RequireProjectileTargetComponent, PreventCollideEvent>(PreventCollide);
         SubscribeLocalEvent<RequireProjectileTargetComponent, StoodEvent>(StandingBulletHit);
         SubscribeLocalEvent<RequireProjectileTargetComponent, DownedEvent>(LayingBulletPass);
-
-        SubscribeLocalEvent<RequireProjectileTargetComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
-          return;
+            return;
 
         if (!ent.Comp.Active)
             return;
@@ -37,6 +34,10 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
+                return;
+
+            // Goobstation - Crawling
+            if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing)
                 return;
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))
@@ -60,13 +61,6 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
     private void LayingBulletPass(Entity<RequireProjectileTargetComponent> ent, ref DownedEvent args)
     {
-        if (!_mobState.IsAlive(ent)) // Goobstation - crawling fix
-            SetActive(ent, true);
-    }
-
-    // Goobstation - crawling fix
-    private void OnMobStateChange(Entity<RequireProjectileTargetComponent> ent, ref MobStateChangedEvent args)
-    {
-        SetActive(ent, !_mobState.IsAlive(ent));
+        SetActive(ent, true);
     }
 }

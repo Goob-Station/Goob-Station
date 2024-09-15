@@ -84,6 +84,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             _mobState.IsIncapacitated(uid) || !_standing.Stand(uid))
         {
             component.CurrentState = StandingState.Lying;
+            return;  // Goobstation - Crawling
         }
 
         component.CurrentState = StandingState.Standing;
@@ -123,6 +124,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
+            BreakOnDamage = true, // Goobstation - Crawling
             BreakOnHandChange = false,
             RequireCanInteract = false
         };

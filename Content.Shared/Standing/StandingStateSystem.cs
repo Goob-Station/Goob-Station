@@ -43,6 +43,7 @@ public sealed class StandingStateSystem : EntitySystem
         // TODO: This should actually log missing comps...
         if (!Resolve(uid, ref standingState, false))
             return false;
+
         // Optional component.
         Resolve(uid, ref appearance, ref hands, false);
 
@@ -67,13 +68,13 @@ public sealed class StandingStateSystem : EntitySystem
                 return false;
         }
 
-
         standingState.CurrentState = StandingState.Lying;
-        Dirty(standingState);
+        Dirty(uid, standingState);
         RaiseLocalEvent(uid, new DownedEvent(), false);
 
         // Seemed like the best place to put it
         _appearance.SetData(uid, RotationVisuals.RotationState, RotationState.Horizontal, appearance);
+
         // Change collision masks to allow going under certain entities like flaps and tables
         if (TryComp(uid, out FixturesComponent? fixtureComponent))
         {
@@ -81,6 +82,7 @@ public sealed class StandingStateSystem : EntitySystem
             {
                 if ((fixture.CollisionMask & StandingCollisionLayer) == 0)
                     continue;
+
                 standingState.ChangedFixtures.Add(key);
                 _physics.SetCollisionMask(uid, key, fixture, fixture.CollisionMask & ~StandingCollisionLayer, manager: fixtureComponent);
             }
