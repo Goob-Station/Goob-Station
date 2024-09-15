@@ -31,12 +31,13 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 return;
             }
 
-            if (!_map.TryGetGrid(trans.GridUid, out var grid))
+            if (!TryComp<MapGridComponent>(trans.gridUid, out var grid))
                 continue;
 
             var tileref = grid.GetTileRef(trans.Coordinates);
             var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
-            _tile.ReplaceTile(tileref, tile);
+
+            grid.SetTile(tileref, tile);
         }
     }
 
