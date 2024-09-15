@@ -10,12 +10,24 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 11
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 29
     components:
     - type: MetaData
       name: NT Escape Pod
     - type: Transform
-      parent: invalid
+      parent: 11
     - type: ProtectedGrid
     - type: EscapePod
     - type: MapGrid
@@ -192,10 +204,11 @@ entities:
       rot: 3.141592653589793 rad
       pos: -0.5,-0.5
       parent: 29
+- proto: ComputerShuttle
+  entities:
   - uid: 27
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
       pos: -0.5,0.5
       parent: 29
 - proto: GeneratorWallmountAPU
@@ -211,6 +224,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,1.5
+      parent: 29
+- proto: Gyroscope
+  entities:
+  - uid: 30
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
       parent: 29
 - proto: PoweredSmallLight
   entities:
@@ -243,12 +263,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -1.5,-1.5
-      parent: 29
-  - uid: 11
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 0.5,-1.5
       parent: 29
 - proto: WallShuttle
   entities:
