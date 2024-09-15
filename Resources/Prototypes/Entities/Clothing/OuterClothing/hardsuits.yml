@@ -514,6 +514,8 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 # Syndicate Medic Hardsuit
 - type: entity
@@ -532,6 +534,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 #Syndicate Elite Hardsuit
 - type: entity
@@ -570,6 +574,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieElite
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -602,6 +608,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -634,6 +642,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCybersun
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.25 # 75% resistance
 
 #Wizard Hardsuit
 - type: entity
@@ -1045,6 +1055,8 @@
     - MonkeyWearable
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 #Atomwaffen Medic Hardsuit BOREAL STATION
 - type: entity
@@ -1063,6 +1075,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
 
 #Atomwaffen Elite Hardsuit
 - type: entity
@@ -1102,6 +1116,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffenElite
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% stamdamage resistance
 
 #Atomwaffen Commander Hardsuit
 - type: entity
@@ -1134,3 +1150,5 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitAtomwaffenCommander
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.5 # 50% resistance
