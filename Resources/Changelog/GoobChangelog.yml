@@ -1100,3 +1100,9 @@ Entries:
         as many of them.
   id: 136
   time: '2024-09-15T15:07:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Jermov, a new ion storm lawset. Chat, is this real?
+  id: 137
+  time: '2024-09-15T21:07:56.0000000+00:00'
