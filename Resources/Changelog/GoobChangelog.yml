@@ -1062,3 +1062,15 @@ Entries:
       message: H.E.V suit with a small chance can be found in radiation suit locker
   id: 133
   time: '2024-09-14T13:10:34.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed crawling bug with crawling.
+    - type: Tweak
+      message: >-
+        Now players can shoot lying mobs without keeping cursor on them when
+        they alive.
+    - type: Tweak
+      message: StandUp doafter time increased from 0.5 to 1.5
+  id: 134
+  time: '2024-09-15T14:22:14.0000000+00:00'
