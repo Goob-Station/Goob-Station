@@ -1080,3 +1080,23 @@ Entries:
       message: Added new attire for BSO
   id: 135
   time: '2024-09-15T14:27:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Nukie planet medbay now has more tools
+    - type: Tweak
+      message: The nukie planet now has signs for easier navigation
+    - type: Tweak
+      message: The nuke code papers now come in a folder
+    - type: Tweak
+      message: >-
+        Nukies now get an intellicard and intercom electronics to interact with
+        AI
+    - type: Fix
+      message: The nukie planet's fire axe is now accessible
+    - type: Fix
+      message: >-
+        The nukie shuttle's turrets are not disposable anymore, and there aren't
+        as many of them.
+  id: 136
+  time: '2024-09-15T15:07:04.0000000+00:00'
