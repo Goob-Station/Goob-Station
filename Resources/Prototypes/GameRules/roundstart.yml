@@ -180,8 +180,8 @@
   - type: GameRule
     minPlayers: 5
     delay:
-      min: 240
-      max: 420
+      min: 30
+      max: 60
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
@@ -201,13 +201,13 @@
   parent: BaseGameRule
   components:
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
   - type: RevolutionaryRule
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
-      playerRatio: 15
+      playerRatio: 20 # Goobstation
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
