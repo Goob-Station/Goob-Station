@@ -26,7 +26,7 @@
     zeroVisible: true
   - type: Multishot
     spreadMultiplier: 1.2
-    
+
 - type: entity
   name: EG-4 energy revolver
   parent: [BaseWeaponBatterySmall, BaseCommandContraband]
@@ -45,7 +45,7 @@
       map: ["enum.GunVisualLayers.MagUnshaded"]
       shader: unshaded
   - type: Clothing
-    quickEquip: false 
+    quickEquip: false
     slots:
     - Belt
     - suitStorage
@@ -72,7 +72,7 @@
     - proto: BulletEnergyGunMagnum
       fireCost: 225
       name: lethal
-      state: lethal 
+      state: lethal
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -90,3 +90,4 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 35
+
