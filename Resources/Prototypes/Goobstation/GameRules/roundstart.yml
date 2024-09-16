@@ -223,7 +223,7 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 3
-      playerRatio: 25 # Pretty decent way to scale antags, WaveTraitor also uses this.
+      playerRatio: 25 # Pretty decent way to scale antags
       blacklist:
         components:
         - AntagImmune
