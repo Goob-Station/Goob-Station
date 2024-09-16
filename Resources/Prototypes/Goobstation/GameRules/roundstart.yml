@@ -190,7 +190,7 @@
   id: TriTraitor # For Trifecta
   components:
   - type: GameRule
-    minPlayers: 40
+    minPlayers: 30
     delay:
       min: 30
       max: 60
@@ -214,7 +214,7 @@
   id: TriLing # For Trifecta
   components:
   - type: GameRule
-    minPlayers: 40
+    minPlayers: 30
     delay:
       min: 30
       max: 60
@@ -239,7 +239,7 @@
   id: TriHeretic # For Trifecta
   components:
   - type: GameRule
-    minPlayers: 40
+    minPlayers: 30
     delay:
       min: 30
       max: 60
