@@ -6,6 +6,7 @@ using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
+using Content.Shared.Flight;
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -493,6 +494,13 @@ namespace Content.Shared.Cuffs
             {
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;
+            }
+
+            if (TryComp<FlightComponent>(target, out var flight) && flight.On)
+            {
+                _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
+                    ("targetName", Identity.Name(target, EntityManager, user))), user, user);
+                return true;
             }
 
             var cuffTime = handcuffComponent.CuffTime;

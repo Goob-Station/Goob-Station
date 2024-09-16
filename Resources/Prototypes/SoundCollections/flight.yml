@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: WingFlaps
+  files:
+    - /Audio/Effects/Flight/wingflap1.ogg
+    - /Audio/Effects/Flight/wingflap2.ogg
+    - /Audio/Effects/Flight/wingflap3.ogg

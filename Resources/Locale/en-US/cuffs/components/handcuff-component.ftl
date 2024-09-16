@@ -3,6 +3,7 @@ handcuff-component-cuffs-broken-error = The restraints are broken!
 handcuff-component-target-has-no-hands-error = {$targetName} has no hands!
 handcuff-component-target-has-no-free-hands-error = {$targetName} has no free hands!
 handcuff-component-too-far-away-error = You are too far away to use the restraints!
+handcuff-component-target-flying-error = You cannot reach {$targetName}'s hands!
 handcuff-component-start-cuffing-observer = {$user} starts restraining {$target}!
 handcuff-component-start-cuffing-target-message = You start restraining {$targetName}.
 handcuff-component-start-cuffing-by-other-message = {$otherName} starts restraining you!
