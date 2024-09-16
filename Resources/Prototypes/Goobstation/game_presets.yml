@@ -90,3 +90,21 @@
     - MeteorSwarmScheduler
     - BasicRoundstartVariation
     - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Trifecta
+  alias:
+    - trifecta
+    - dynamicwhen
+    - wyci
+    - traitorlingheretics
+  name: "Trifecta"
+  description: traitorling-description # Literally just Traitorling + Heretics. Heretics is a sub gamemode. 
+  showInVote: false
+  rules:
+    - TriLing
+    - TriTraitor
+    - TriHeretic
+    - BasicStationEventScheduler
+    - MeteorSwarmScheduler
+    - BasicRoundstartVariation
