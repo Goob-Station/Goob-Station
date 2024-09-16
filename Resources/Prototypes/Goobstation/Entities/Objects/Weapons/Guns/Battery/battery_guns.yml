@@ -48,6 +48,8 @@
     quickEquip: false 
     slots:
     - Belt
+    - suitStorage
+    - Back
     sprite: Goobstation/Objects/Weapons/Guns/Battery/erevolver.rsi
   - type: Gun
     fireRate: 1.5
