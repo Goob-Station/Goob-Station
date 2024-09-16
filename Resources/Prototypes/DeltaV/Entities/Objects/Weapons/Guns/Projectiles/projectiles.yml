@@ -93,9 +93,8 @@
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     layers:
-    - state: omnilaser_greyscale
+    - state: heavylaser
       shader: unshaded
-      color: red
   - type: Ammo
   - type: Physics
   - type: Fixtures
