@@ -8,6 +8,9 @@
     sprite: Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Eyes/Glasses/medglasses.rsi
+  - type: FlashImmunity
+  - type: EyeProtection
+    protectionTime: 5
   - type: Tag
     tags:
     - WhitelistChameleon
