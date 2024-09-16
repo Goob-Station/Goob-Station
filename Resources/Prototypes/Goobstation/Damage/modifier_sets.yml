@@ -1,5 +1,7 @@
 - type: damageModifierSet
   id: Silicon
+  coefficients:
+    Heat: 0.8
   flatReductions:
     Blunt: 5
     Slash: 5
