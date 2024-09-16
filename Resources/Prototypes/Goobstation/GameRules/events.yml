@@ -1,0 +1,59 @@
+- type: entity
+  parent: Changeling
+  id: GenomeAwakening
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 15
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Heretic
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+
+- type: entity
+  parent: Heretic
+  id: SuddenEnlightenment
+  components:
+  - type: StationEvent
+    earliestStart: 20 
+    weight: 3 
+    minimumPlayers: 30
+    maxOccurrences: 1 
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Heretic ]
+      min: 1
+      max: 1
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Changeling
+      mindComponents:
+      - type: HereticRole
+        prototype: Heretic
