@@ -153,7 +153,7 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.5
+    weight: 3 # Goobstation
     earliestStart: 40
     reoccurrenceDelay: 20
     minimumPlayers: 20
@@ -183,7 +183,7 @@
   id: NinjaSpawn
   components:
   - type: StationEvent
-    weight: 6
+    weight: 3 # Goobstation
     duration: null
     earliestStart: 30
     reoccurrenceDelay: 20
@@ -233,7 +233,7 @@
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 3
     duration: 1
     earliestStart: 45
     minimumPlayers: 20
@@ -391,7 +391,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 90
+    earliestStart: 60 # Goobstation - This will literally NEVER roll at 90, games barely even hit 90 currently.
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
@@ -426,7 +426,7 @@
   components:
   - type: StationEvent
     earliestStart: 35
-    weight: 5.5
+    weight: 3 # Goobstation
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
@@ -459,8 +459,8 @@
   id: SleeperAgents
   components:
   - type: StationEvent
-    earliestStart: 30
-    weight: 8
+    earliestStart: 20 # Goobstation
+    weight: 6 # Goobstation
     minimumPlayers: 15
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
