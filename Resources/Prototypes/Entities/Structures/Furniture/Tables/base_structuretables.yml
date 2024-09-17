@@ -20,6 +20,7 @@
         - TableMask
         layer:
         - TableLayer
+        - BulletImpassable # Goobstation - Crawling
   - type: SpriteFade
   - type: Sprite
   - type: Icon
@@ -38,6 +39,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepHull
+  - type: RequireProjectileTarget # Goobstation - Crawling
+
 
 - type: entity
   id: CounterBase
@@ -55,4 +58,5 @@
         mask:
         - TableMask
         layer:
-        - TableLayer
+        - TableLayer 
+        - BulletImpassable # Goobstation - Crawling

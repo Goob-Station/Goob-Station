@@ -42,14 +42,12 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    back: ClothingBackpackCaptain
-    neck: ClothingNeckCloakNanotrasen
-    jumpsuit: ClothingUniformJumpsuitNanotrasen
-    shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetBasic
-    eyes: ClothingEyesGlassesSecurity
+    back: ClothingBackpack
+    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    shoes: ClothingShoesBootsJackFilled
+    eyes: ClothingEyesGlassesMedical
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterArmorCaptainCarapace
+    outerClothing: ClothingBlueshieldArmourVest
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
@@ -58,3 +56,5 @@
   storage:
     back:
     - BoxSurvivalSlots
+    - ClothingHeadHatBeretNavy
+    - ClothingHeadHatBeretOfficer

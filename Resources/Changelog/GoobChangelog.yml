@@ -1026,3 +1026,83 @@ Entries:
       message: Updated some heretic related sprites
   id: 128
   time: '2024-09-11T15:55:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: >-
+        Dual welding for guns! Now you can shoot from most weapons with both
+        hands!
+  id: 129
+  time: '2024-09-12T17:04:33.0000000+00:00'
+- author: Daemon
+  changes:
+    - type: Add
+      message: Added religions.
+    - type: Add
+      message: Added new types of bibles.
+  id: 130
+  time: '2024-09-12T17:05:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Gingerbreads now take damage from water
+    - type: Tweak
+      message: Gingerbreads now take 3 times less burn damage
+  id: 131
+  time: '2024-09-13T13:19:35.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added the X-01 MultiPhase for the BSO
+  id: 132
+  time: '2024-09-14T00:49:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: H.E.V suit with a small chance can be found in radiation suit locker
+  id: 133
+  time: '2024-09-14T13:10:34.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed crawling bug with crawling.
+    - type: Tweak
+      message: >-
+        Now players can shoot lying mobs without keeping cursor on them when
+        they alive.
+    - type: Tweak
+      message: StandUp doafter time increased from 0.5 to 1.5
+  id: 134
+  time: '2024-09-15T14:22:14.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added new attire for BSO
+  id: 135
+  time: '2024-09-15T14:27:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Nukie planet medbay now has more tools
+    - type: Tweak
+      message: The nukie planet now has signs for easier navigation
+    - type: Tweak
+      message: The nuke code papers now come in a folder
+    - type: Tweak
+      message: >-
+        Nukies now get an intellicard and intercom electronics to interact with
+        AI
+    - type: Fix
+      message: The nukie planet's fire axe is now accessible
+    - type: Fix
+      message: >-
+        The nukie shuttle's turrets are not disposable anymore, and there aren't
+        as many of them.
+  id: 136
+  time: '2024-09-15T15:07:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Jermov, a new ion storm lawset. Chat, is this real?
+  id: 137
+  time: '2024-09-15T21:07:56.0000000+00:00'
