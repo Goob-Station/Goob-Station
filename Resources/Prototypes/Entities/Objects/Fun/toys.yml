@@ -1592,7 +1592,7 @@
   parent: BasePlushie
   id: DerekPlushie
   name: derek plushie
-  description: A plushie soaking in fentynal, made to help with breathing exercises.
+  description: Used by law enforcement as a model for kneeling on suspects.
   components:
   - type: Sprite
     state: derek
