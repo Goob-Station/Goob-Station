@@ -1106,3 +1106,11 @@ Entries:
       message: Added Jermov, a new ion storm lawset. Chat, is this real?
   id: 137
   time: '2024-09-15T21:07:56.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed throwing objects collision with tables
+    - type: Fix
+      message: 'Fixed turrets couldn''t shoot lying people '
+  id: 138
+  time: '2024-09-17T13:11:07.0000000+00:00'
