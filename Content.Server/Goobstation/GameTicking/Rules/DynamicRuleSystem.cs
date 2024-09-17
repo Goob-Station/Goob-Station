@@ -8,6 +8,7 @@ using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -176,6 +177,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         {
             component.RoundstartBudget = Math.Max(component.RoundstartBudget - rule.Item2.Cost, 0);
             _gameTicker.AddGameRule(rule.Item1.ID);
+            component.ExecutedRules.Add(rule.Item1.ID);
         }
     }
 
@@ -185,7 +187,21 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     {
         foreach (var dynamicRule in EntityQuery<DynamicRuleComponent>())
         {
+            var sb = new StringBuilder();
+            sb.AppendLine(Loc.GetString("dynamic-roundend-totalthreat", ("points", dynamicRule.ThreatLevel)));
 
+            // string is localized name
+            // (int, int) is amount of gamerules executed and total amount of points spent
+            var grdict = new Dictionary<string, (int, float)>();
+            foreach (var gamerule in dynamicRule.ExecutedRules)
+            {
+                if (_proto.Index(gamerule).TryGetComponent<DynamicRulesetComponent>(out var dynset, _compfact))
+                {
+                    var executed = grdict.ContainsKey(dynset.NameLoc) ? grdict[dynset.NameLoc] += 1 : 1;
+
+                    grdict.Add(dynset, );
+                }
+            }
         }
     }
 }

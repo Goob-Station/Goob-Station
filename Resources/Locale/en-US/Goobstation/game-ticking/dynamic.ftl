@@ -2,13 +2,13 @@ dynamic-roundend-totalthreat = Total threat points: {$points}.
 dynamic-roundend-gamerules-title = Executed Gamerules:
 
 dynamic-gamerule-unknown-title = Unknown Gamerule
-dynamic-gamerule-traitor-title = Traitors
-dynamic-gamerule-changeling-title = Changelings
-dynamic-gamerule-heretic-title = Heretics
-dynamic-gamerule-thief-title = Thieves
-dynamic-gamerule-revolutionary-title = Revolutionaries
-dynamic-gamerule-zombies-title = Initial Infected
-dynamic-gamerule-nukeops-title = Nuclear Emergency
+dynamic-gamerule-traitor-title = [color=crimson]Traitors[/color]
+dynamic-gamerule-changeling-title = [color=yellow]Changelings[/color]
+dynamic-gamerule-heretic-title = [color=purple]Heretics[/color]
+dynamic-gamerule-thief-title = [color=gray]Thieves[/color]
+dynamic-gamerule-revolutionary-title = [color=cyan]Revolutionaries[/color]
+dynamic-gamerule-zombies-title = [color=pink]Initial Infected[/color]
+dynamic-gamerule-nukeops-title = [color=red]Nuclear Emergency[/color]
 
 dynamic-gamerule-skeleton-title = Closet Skeleton Spawn
 dynamic-gamerule-ninja-title = Space Ninja Spawn
