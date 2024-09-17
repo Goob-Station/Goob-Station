@@ -111,6 +111,7 @@
     graph: Table
     node: CounterWoodFrame
   - type: RequireProjectileTarget # Goobstation - Crawling
+    ignoreThrow: true
 
 - type: entity
   id: CounterMetalFrame
