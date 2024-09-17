@@ -3,6 +3,8 @@
   abstract: true
   components:
   - type: GameRule
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-unknown-title
 
 - type: entity
   abstract: true

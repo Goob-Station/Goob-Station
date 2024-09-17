@@ -431,12 +431,12 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
-  - type: NukeopsRule
-    roundEndBehavior: Nothing
+    mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml # goob edit
+  #- type: NukeopsRule # goob edit
+  #  roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointLoneNukeOperative
+    - spawnerPrototype: SpawnPointNukeopsCommander
       min: 1
       max: 1
       pickPlayer: false
@@ -444,9 +444,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - SyndicateNamesPrefix
-        - SyndicateNamesNormal
+        nameSegments: [names_death_commando] # goob edit
       - type: NpcFactionMember
         factions:
         - Syndicate

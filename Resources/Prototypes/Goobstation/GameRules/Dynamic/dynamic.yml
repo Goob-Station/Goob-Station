@@ -1,0 +1,21 @@
+# some info on the dynamic gamemode
+# all prototypes are being edited in the game
+# TODO: store gamerules on server
+
+- type: dataset
+  id: DynamicRoundstartGamerules
+  values:
+  - TraitorDynamic
+  - ThiefDynamic
+  - ChangelingDynamic
+  - HereticDynamic
+  - RevolutionDynamic
+  - NukeopsDynamic
+  # cult wyci
+
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: Dynamic
+  components:
+  - type: DynamicRule
+    roundstartRulesPool: DynamicRoundstartGamerules

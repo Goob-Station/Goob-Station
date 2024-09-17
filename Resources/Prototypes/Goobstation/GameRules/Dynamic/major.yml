@@ -5,15 +5,16 @@
   parent: BaseTraitorRuleDynamic
   id: TraitorDynamic
   components:
-  - type: GameRule
-    minPlayers: 5
-    delay:
-      min: 20
-      max: 20
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-traitor-title
+    requiredCandidates: 1
+    weight: 5
+    cost: 8
+    scalingCost: 9
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 10
+      max: 1
       playerRatio: 10
       blacklist:
         components:
@@ -26,24 +27,65 @@
         prototype: Traitor
 
 # Thief (Spy TBD)
-
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: ThiefDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-thief-title
+    requiredCandidates: 1
+    weight: 5
+    cost: 8
+    scalingCost: 9
+  - type: ThiefRule
+  - type: AntagObjectives
+    objectives:
+    - EscapeThiefShuttleObjective
+  - type: AntagRandomObjectives
+    sets:
+    - groups: ThiefBigObjectiveGroups
+      prob: 0.7
+      maxPicks: 1
+    - groups: ThiefObjectiveGroups
+      maxPicks: 10
+    maxDifficulty: 2.5
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 1
+      playerRatio: 15
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      components:
+      - type: Pacified
+      mindComponents:
+      - type: ThiefRole
+        prototype: Thief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
 
 # Changeling
 - type: entity
   parent: BaseGameRuleDynamic
   id: ChangelingDynamic
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-changeling-title
+    requiredCandidates: 1
+    weight: 3
+    cost: 16
+    scalingCost: 10
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 15
-      max: 15
   - type: AntagSelection
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 10
+      max: 1
       playerRatio: 10
       blacklist:
         components:
@@ -60,17 +102,20 @@
   parent: BaseGameRuleDynamic
   id: HereticDynamic
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-heretic-title
+    requiredCandidates: 1
+    weight: 3
+    cost: 10
+    scalingCost: 9
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
-    delay:
-      min: 10
-      max: 10
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 10
+      max: 1
       playerRatio: 15
       blacklist:
         components:
@@ -87,16 +132,19 @@
   id: RevolutionDynamic
   parent: BaseGameRuleDynamic
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-revolutionary-title
+    requiredCandidates: 1
+    weight: 3
+    cost: 20
+    highImpact: true
   - type: RevolutionaryRule
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 10
-      max: 10
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 5
+      max: 1
       playerRatio: 15
       briefing:
         text: head-rev-role-greeting
@@ -115,12 +163,18 @@
   parent: BaseNukeopsRuleDynamic
   id: NukeopsDynamic
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-nukeops-title
+    requiredCandidates: 1
+    weight: 3
+    cost: 20
+    highImpact: true
   - type: GameRule
     minPlayers: 25
   - type: LoadMapRule
     mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    #selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -131,9 +185,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        nameSegments: [ names_death_commando ]
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -149,9 +201,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        nameSegments: [ names_death_commando ]
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -169,9 +219,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        nameSegments: [ names_death_commando ]
       - type: NpcFactionMember
         factions:
         - Syndicate

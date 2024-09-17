@@ -110,9 +110,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-commander
-        - SyndicateNamesElite
+        nameSegments: [ names_death_commando ] # goob edit
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -128,9 +126,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-agent
-        - SyndicateNamesNormal
+        nameSegments: [ names_death_commando ] # goob edit
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -148,9 +144,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments:
-        - nukeops-role-operator
-        - SyndicateNamesNormal
+        nameSegments: [ names_death_commando ] # goob edit
       - type: NpcFactionMember
         factions:
         - Syndicate
