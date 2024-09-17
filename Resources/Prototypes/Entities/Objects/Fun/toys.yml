@@ -1587,3 +1587,32 @@
         reagents:
         - ReagentId: Desoxyephedrine
           Quantity: 20
+          
+- type: entity
+  parent: BasePlushie
+  id: DerekPlushie
+  name: derek plushie
+  description: A plushie soaking in fentynal, made to help with breathing exercises.
+  components:
+  - type: Sprite
+    state: floyd
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
