@@ -1,0 +1,180 @@
+# major antags that get picked once during roundstart
+
+# Traitor
+- type: entity
+  parent: BaseTraitorRuleDynamic
+  id: TraitorDynamic
+  components:
+  - type: GameRule
+    minPlayers: 5
+    delay:
+      min: 20
+      max: 20
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      max: 10
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Changeling
+        - Heretic
+      lateJoinAdditional: true
+      mindComponents:
+      - type: TraitorRole
+        prototype: Traitor
+
+# Thief (Spy TBD)
+
+
+# Changeling
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: ChangelingDynamic
+  components:
+  - type: ChangelingRule
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 15
+      max: 15
+  - type: AntagSelection
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ Changeling ]
+      max: 10
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Heretic
+      lateJoinAdditional: true
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+
+# Heretic
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: HereticDynamic
+  components:
+  - type: HereticRule
+  - type: GameRule
+    minPlayers: 20
+    delay:
+      min: 10
+      max: 10
+  - type: AntagSelection
+    agentName: heretic-roundend-name
+    definitions:
+    - prefRoles: [ Heretic ]
+      max: 10
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        - Changeling
+        - Traitor
+      lateJoinAdditional: true
+      mindComponents:
+      - type: HereticRole
+        prototype: Heretic
+
+# Revolution
+- type: entity
+  id: RevolutionDynamic
+  parent: BaseGameRuleDynamic
+  components:
+  - type: RevolutionaryRule
+  - type: GameRule
+    minPlayers: 15
+    delay:
+      min: 10
+      max: 10
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ HeadRev ]
+      max: 5
+      playerRatio: 15
+      briefing:
+        text: head-rev-role-greeting
+        color: CornflowerBlue
+        sound: "/Audio/Ambience/Antag/headrev_start.ogg"
+      startingGear: HeadRevGear
+      components:
+      - type: Revolutionary
+      - type: HeadRevolutionary
+      mindComponents:
+      - type: RevolutionaryRole
+        prototype: HeadRev
+
+# NukeOps
+- type: entity
+  parent: BaseNukeopsRuleDynamic
+  id: NukeopsDynamic
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: LoadMapRule
+    mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml
+  - type: AntagSelection
+    selectionTime: PrePlayerSpawn
+    definitions:
+    - prefRoles: [ NukeopsCommander ]
+      fallbackRoles: [ Nukeops, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsCommander
+      startingGear: SyndicateCommanderGearFull
+      roleLoadout:
+      - RoleSurvivalSyndicate
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-commander
+        - SyndicateNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: NukeopsCommander
+    - prefRoles: [ NukeopsMedic ]
+      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      spawnerPrototype: SpawnPointNukeopsMedic
+      startingGear: SyndicateOperativeMedicFull
+      roleLoadout:
+      - RoleSurvivalSyndicate
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-agent
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: NukeopsMedic
+    - prefRoles: [ Nukeops ]
+      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsOperative
+      max: 3
+      playerRatio: 10
+      startingGear: SyndicateOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalSyndicate
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - nukeops-role-operator
+        - SyndicateNamesNormal
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: Nukeops
