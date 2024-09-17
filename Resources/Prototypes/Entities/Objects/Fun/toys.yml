@@ -1595,23 +1595,23 @@
   description: A plushie soaking in fentynal, made to help with breathing exercises.
   components:
   - type: Sprite
-    state: floyd
+    state: derek
   - type: EmitSoundOnUse
     sound:
-      path: /Audio/Items/Toys/Floyd.ogg
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
   - type: EmitSoundOnLand
     sound:
-      path: /Audio/Items/Toys/Floyd.ogg
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
   - type: EmitSoundOnActivate
     sound:
       path: /Audio/Items/Toys/Floyd.ogg
   - type: EmitSoundOnTrigger
     sound:
-      path: /Audio/Items/Toys/Floyd.ogg
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
   - type: Food
     requiresSpecialDigestion: true
     useSound:
-      path: /Audio/Items/Toys/Floyd.ogg
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
   - type: MeleeWeapon
     wideAnimationRotation: 180
     soundHit:
