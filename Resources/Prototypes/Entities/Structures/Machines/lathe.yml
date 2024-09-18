@@ -823,6 +823,7 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - WeaponPlasmaRifle # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:

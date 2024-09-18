@@ -49,3 +49,20 @@
     radius: 2
     color: purple
     energy: 1    
+
+- type: entity
+  id: BulletPlasmaCutterStrong
+  parent: BulletPlasmaCutter
+  components:
+  - type: GatheringProjectile
+  - type: Projectile
+    damage:
+      types:
+        Heat: 40
+        Structural: 400
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: PointLight
+    radius: 4
+    color: purple
+    energy: 2
