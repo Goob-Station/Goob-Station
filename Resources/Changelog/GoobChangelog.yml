@@ -1128,3 +1128,11 @@ Entries:
         abuse.
   id: 140
   time: '2024-09-18T13:26:45.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added the EG-4 Energy Revolver.
+    - type: Tweak
+      message: Replaced BSO's MK58 with the EG-4.
+  id: 141
+  time: '2024-09-18T13:28:17.0000000+00:00'
