@@ -102,6 +102,7 @@
     - FootstepSound
     - DoorBumpOpener
     - VulpEmotes
+  - type: DogVision
 
 - type: entity
   save: false

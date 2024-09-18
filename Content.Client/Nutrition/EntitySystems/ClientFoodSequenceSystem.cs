@@ -10,8 +10,6 @@ namespace Content.Client.Nutrition.EntitySystems;
 
 public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<FoodSequenceStartPointComponent, AfterAutoHandleStateEvent>(OnHandleState);
@@ -79,7 +77,6 @@ public sealed class ClientFoodSequenceSystem : SharedFoodSequenceSystem
                 counter++;
                 continue;
             }
-
 
             if (state.Sprite is null)
                 continue;

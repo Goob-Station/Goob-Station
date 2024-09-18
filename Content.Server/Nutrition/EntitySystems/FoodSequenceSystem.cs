@@ -9,10 +9,6 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
 using Robust.Shared.Random;
-using Content.Shared.Item; // Goobstation - anythingburgers
-using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
-using Content.Server.Singularity.Components; // Goobstation - anythingburgers
-using Content.Shared.Singularity.Components; // Goobstation - anythingburgers
 
 namespace Content.Server.Nutrition.EntitySystems;
 
@@ -24,8 +20,6 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!; // Goobstation - anythingburgers
-    [Dependency] private readonly SharedTransformSystem _transform = default!; // Goobstation - anythingburgers
 
     public override void Initialize()
     {
@@ -36,10 +30,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
 
     private void OnInteractUsing(Entity<FoodSequenceStartPointComponent> ent, ref InteractUsingEvent args)
     {
-        if (ent.Comp.AcceptAll) // Goobstation - anythingburgers
-            EnsureComp<FoodSequenceElementComponent>(args.Used);
-
-        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement) && HasComp<ItemComponent>(args.Used) && !HasComp<FoodSequenceStartPointComponent>(args.Used)) // Goobstation - anythingburgers - no non items allowed! otherwise you can grab players and lockers and such and add them to burgers
+        if (TryComp<FoodSequenceElementComponent>(args.Used, out var sequenceElement))
             TryAddFoodElement(ent, (args.Used, sequenceElement), args.User);
     }
 
@@ -48,7 +39,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         FoodSequenceElementEntry? elementData = null;
         foreach (var entry in element.Comp.Entries)
         {
-            if (entry.Key == start.Comp.Key || start.Comp.AcceptAll) // Goobstation - anythingburgers
+            if (entry.Key == start.Comp.Key)
             {
                 elementData = entry.Value;
                 break;
@@ -58,7 +49,7 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (elementData is null)
             return false;
 
-        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead && !start.Comp.AcceptAll) // Goobstation - anythingburgers
+        if (TryComp<FoodComponent>(element, out var elementFood) && elementFood.RequireDead)
         {
             if (_mobState.IsAlive(element))
                 return false;
@@ -77,8 +68,8 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             elementData.Sprite = element.Comp.Sprite;
 
         elementData.LocalOffset = new Vector2(
-            _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
-            _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y));
+            _random.NextFloat(start.Comp.MinLayerOffset.X,start.Comp.MaxLayerOffset.X),
+            _random.NextFloat(start.Comp.MinLayerOffset.Y,start.Comp.MaxLayerOffset.Y));
 
         start.Comp.FoodLayers.Add(elementData);
         Dirty(start);
@@ -87,15 +78,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             start.Comp.Finished = true;
 
         UpdateFoodName(start);
-        UpdateFoodSize(start); // Goobstation - anythingburgers
         MergeFoodSolutions(start, element);
         MergeFlavorProfiles(start, element);
         MergeTrash(start, element);
         MergeTags(start, element);
-
-        if (!IsClientSide(element)) // Goobstation - anythingburgers PSEUDOITEMS FUCK THIS SHIT UP!!
-            QueueDel(element);
-
+        QueueDel(element);
         return true;
     }
 
@@ -139,17 +126,11 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         if (!_solutionContainer.TryGetSolution(start.Owner, start.Comp.Solution, out var startSolutionEntity, out var startSolution))
             return;
 
-        if (TryComp<SolutionContainerManagerComponent>(element, out var elementSolutionContainer))
-        { // Goobstation - anythingburgers We don't give a FUCK if the solution container is food or not, and i dont see why you woold.
-            foreach (var name in elementSolutionContainer.Containers)
-            {
-                if (!_solutionContainer.TryGetSolution(element.Owner, name, out _, out var elementSolution))
-                    continue;
+        if (!_solutionContainer.TryGetSolution(element.Owner, element.Comp.Solution, out _, out var elementSolution))
+            return;
 
-                startSolution.MaxVolume += elementSolution.MaxVolume;
-                _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
-            }
-        }
+        startSolution.MaxVolume += elementSolution.MaxVolume;
+        _solutionContainer.TryAddSolution(startSolutionEntity.Value, elementSolution);
     }
 
     private void MergeFlavorProfiles(Entity<FoodSequenceStartPointComponent> start, Entity<FoodSequenceElementComponent> element)
@@ -189,38 +170,5 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
         EnsureComp<TagComponent>(start.Owner);
 
         _tag.TryAddTags(start.Owner, elementTags.Tags);
-    }
-
-    private void UpdateFoodSize(Entity<FoodSequenceStartPointComponent> start) // Goobstation - anythingburgers dynamic item size
-    {
-        var increment = (start.Comp.FoodLayers.Count / 2);
-
-        if (HasComp<ItemComponent>(start))
-        {
-            var sizeMap = new Dictionary<int, string>
-            {
-                { 1, "Small" },
-                { 2, "Normal" },
-                { 3, "Large" },
-                { 4, "Huge" },
-                { 5, "Ginormous" }
-            };
-
-            if (sizeMap.ContainsKey(increment))
-            {
-                _item.SetSize(start, sizeMap[increment]);
-            }
-            else if (increment == 6)
-            {
-                _transform.DropNextTo(start.Owner, start.Owner);
-                RemComp<ItemComponent>(start);
-            }
-
-            _item.SetShape(start, new List<Box2i> { new Box2i(0, 0, 1, increment) });
-        } else if (increment >= 8) {
-            EnsureComp<GravityWellComponent>(start, out var gravityWell);
-            gravityWell.MaxRange = (float)Math.Sqrt(increment/4);
-            gravityWell.BaseRadialAcceleration = (float)Math.Sqrt(increment/4);
-        }
     }
 }

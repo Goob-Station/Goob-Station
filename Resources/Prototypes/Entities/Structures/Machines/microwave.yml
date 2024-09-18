@@ -6,8 +6,6 @@
   components:
   - type: Microwave
     capacity: 10
-    canMicrowaveIdsSafely: false # Goobstation
-    explosionChance: 0.4 # Goobstation
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -87,11 +85,11 @@
         acts: ["Breakage"]
   - type: Explosive
     explosionType: Default
-    maxIntensity: 5
-    totalIntensity: 2.5
-    intensitySlope: 2.5
+    maxIntensity: 10
+    totalIntensity: 5
+    intensitySlope: 5
     canCreateVacuum: false
-    deleteAfterExplosion: true
+    deleteAfterExplosion: false
   - type: ApcPowerReceiver
     powerLoad: 400
   - type: Machine
@@ -119,21 +117,10 @@
     cookTimeMultiplier: 0.5
     capacity: 10
     canMicrowaveIdsSafely: false
-    explosionChance: 0.15 # Goobstation
+    explosionChance: 0.3
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects
     snapCardinals: true
   - type: Machine
     board: SyndicateMicrowaveMachineCircuitboard
-  - type: Explosive # Goobstation
-    explosionType: Default
-    maxIntensity: 10
-    totalIntensity: 5
-    intensitySlope: 5
-    canCreateVacuum: false
-    deleteAfterExplosion: false
-  - type: FoodRecipeProvider
-    providedRecipes:
-    - RecipeBaguetteSword
-    - RecipeThrowingCroissant

@@ -132,6 +132,7 @@
     - FootstepSound
     - DoorBumpOpener
     - HarpyEmotes
+  - type: UltraVision
 
 - type: entity
   save: false

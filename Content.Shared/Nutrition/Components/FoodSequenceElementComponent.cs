@@ -2,8 +2,6 @@ using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Robust.Shared.Prototypes; // Goobstation - anythingburgers
-using Content.Shared.Goobstation.Nutrition.EntitySystems; // Goobstation - anythingburgers
 
 namespace Content.Shared.Nutrition.Components;
 
@@ -54,9 +52,4 @@ public sealed class FoodSequenceElementEntry
     /// the shear of a particular layer. Allows a little "randomization" of each layer.
     /// </summary>
     public Vector2 LocalOffset { get; set; } = Vector2.Zero;
-
-    /// <summary>
-    /// the original prototype of the layer
-    /// </summary>
-    public string? Proto { get; set; } = null; // Goobstation - anythingburgers
 }
