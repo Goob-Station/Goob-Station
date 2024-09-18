@@ -48,13 +48,13 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: Battery
-    maxCharge: 3000
-    startingCharge: 3000
+    maxCharge: 1500
+    startingCharge: 1500
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutterStrong
-    fireCost: 500
+    fireCost: 300
   - type: WeaponRandomExplode
     explosionChance: 0.16
     multiplyByCharge: true
