@@ -69,7 +69,7 @@
   suffix: Empty
   components:
   - type: Battery
-    maxCharge: 3000
+    maxCharge: 1500
     startingCharge: 0
 
 - type: entity
