@@ -1357,3 +1357,15 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
+
+- type: entity #Boreal
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitCasualJanitor
+  name: casual janitor suit
+  description: He does it for free.
+  components:
+  - type: Sprite
+    sprite: BorealStation/Clothing/Uniforms/Jumpsuit/janitor_casual.rsi
+  - type: Clothing
+    sprite: BorealStation/Clothing/Uniforms/Jumpsuit/janitor_casual.rsi
+
