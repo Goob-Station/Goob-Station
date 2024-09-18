@@ -31,7 +31,7 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
                 return;
             }
 
-            if (!_map.TryGetGrid(trans.GridUid, out var grid))
+            if (!TryComp<MapGridComponent>(trans.GridUid, out var grid))
                 continue;
 
             var tile = _prot.Index<ContentTileDefinition>("FloorAstroSnow");
