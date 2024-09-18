@@ -12,7 +12,6 @@
       components:
       - Anchorable
       - Item
-      - Bot # for funny bot moments
     blacklist:
       components:
       - ChameleonDisguise # no becoming kleiner

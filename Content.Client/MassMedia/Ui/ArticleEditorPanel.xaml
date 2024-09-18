@@ -47,10 +47,8 @@
             </Control>
             <Control HorizontalExpand="True"/>
             <BoxContainer Orientation="Horizontal">
-                <Button Name="ButtonSaveDraft" SetHeight="32" SetWidth="85"
-                        StyleClasses="OpenRight" Text="{Loc news-write-ui-save-text}"/>
                 <Button Name="ButtonPreview" SetHeight="32" SetWidth="85"
-                        StyleClasses="OpenBoth" Text="{Loc news-write-ui-preview-text}"/>
+                        StyleClasses="OpenRight" Text="{Loc news-write-ui-preview-text}"/>
                 <Button Name="ButtonPublish" SetHeight="32" SetWidth="85" Text="{Loc news-write-ui-publish-text}" Access="Public"/>
             </BoxContainer>
         </BoxContainer>

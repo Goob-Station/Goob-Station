@@ -65,12 +65,6 @@
   id: JobERTSecurity
 
 - type: playTimeTracker
-  id: JobDeathSquad
-
-- type: playTimeTracker
-  id: JobCBURN
-
-- type: playTimeTracker
   id: JobHeadOfPersonnel
 
 - type: playTimeTracker

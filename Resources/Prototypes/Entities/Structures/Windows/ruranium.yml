@@ -15,13 +15,13 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 300
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 150
+        damage: 100
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -43,7 +43,7 @@
     node: reinforcedUraniumWindow
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [5, 10, 20]
+    thresholds: [4, 8, 12]
     damageDivisor: 6
     trackAllDamage: true
     damageOverlay:
@@ -74,8 +74,8 @@
     node: uraniumReinforcedWindowDirectional
   - type: Appearance
   - type: DamageVisuals
-    thresholds: [5, 10, 20]
-    damageDivisor: 3
+    thresholds: [4, 8, 12]
+    damageDivisor: 3.333
     trackAllDamage: true
     damageOverlay:
       sprite: Structures/Windows/cracks_directional.rsi
@@ -83,13 +83,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 150
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 75
+        damage: 200
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -99,15 +93,13 @@
           ShardGlassUranium:
             min: 1
             max: 2
-          PartRodMetal:
+          PartRodMetal1:
             min: 1
             max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: StaticPrice
     price: 110
-  - type: RadiationBlocker
-    resistance: 2.5
 
 - type: entity
   parent: ReinforcedUraniumWindow
