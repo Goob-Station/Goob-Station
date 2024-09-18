@@ -63,9 +63,15 @@ public sealed class FoodSequenceSystem : SharedFoodSequenceSystem
             return false;
         }
 
-        //If no specific sprites are specified, standard sprites will be used.
-        if (elementData.Sprite is null && element.Comp.Sprite is not null)
-            elementData.Sprite = element.Comp.Sprite;
+        //Generate new visual layer
+        var flip = start.Comp.AllowHorizontalFlip && _random.Prob(0.5f);
+        var layer = new FoodSequenceVisualLayer(elementIndexed,
+            _random.Pick(elementIndexed.Sprites),
+            new Vector2(flip ? -elementIndexed.Scale.X : elementIndexed.Scale.X, elementIndexed.Scale.Y),
+            new Vector2(
+                _random.NextFloat(start.Comp.MinLayerOffset.X, start.Comp.MaxLayerOffset.X),
+                _random.NextFloat(start.Comp.MinLayerOffset.Y, start.Comp.MaxLayerOffset.Y))
+        );
 
         elementData.LocalOffset = new Vector2(
             _random.NextFloat(start.Comp.MinLayerOffset.X,start.Comp.MaxLayerOffset.X),

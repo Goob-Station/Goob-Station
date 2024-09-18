@@ -271,7 +271,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -842,3 +842,5 @@
     - Sidearm
   - type: StaticPrice
     price: 750
+    maxCharge: 800
+    startingCharge: 800

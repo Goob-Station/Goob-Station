@@ -531,7 +531,6 @@
     Bananium: 100
 
 - type: latheRecipe
-<<<<<<< HEAD
   parent: BaseCheapElectronicsRecipe
   id: FirelockElectronics
   result: FirelockElectronics
@@ -803,6 +802,11 @@
 
 - type: latheRecipe
   parent: BaseGoldCircuitboardRecipe
+  id: SalvageMagnetMachineCircuitboard
+  result: SalvageMagnetMachineCircuitboard
+
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
   id: RipleyCentralElectronics
   result: RipleyCentralElectronics
 
@@ -818,8 +822,6 @@
 
 - type: latheRecipe
   parent: BaseBananiumCircuitboardRecipe
-=======
->>>>>>> parent of f798bcc797 (Merge Upstream (#627))
   id: HonkerPeripheralsElectronics
   result: HonkerPeripheralsElectronics
   category: Circuitry
@@ -980,14 +982,11 @@
 - type: latheRecipe
   id: MicrowaveMachineCircuitboard
   result: MicrowaveMachineCircuitboard
-<<<<<<< HEAD
-=======
   category: Circuitry
   completetime: 4
   materials:
      Steel: 100
      Glass: 500
->>>>>>> parent of f798bcc797 (Merge Upstream (#627))
 
 - type: latheRecipe
   id: ElectricGrillMachineCircuitboard
@@ -1183,15 +1182,12 @@
 - type: latheRecipe
   id: MiniGravityGeneratorCircuitboard
   result: MiniGravityGeneratorCircuitboard
-<<<<<<< HEAD
-=======
   category: Circuitry
   completetime: 6
   materials:
      Steel: 100
      Glass: 500
      Gold: 100
->>>>>>> parent of f798bcc797 (Merge Upstream (#627))
 
 - type: latheRecipe
   id: PowerCageRechargerCircuitboard
