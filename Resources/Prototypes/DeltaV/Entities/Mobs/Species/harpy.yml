@@ -126,12 +126,6 @@
     speciesId: harpy
     templateId: digitigrade
   - type: HarpyVisuals
-  - type: Tag
-    tags:
-    - CanPilot
-    - FootstepSound
-    - DoorBumpOpener
-    - HarpyEmotes
   - type: UltraVision
 
 - type: entity
