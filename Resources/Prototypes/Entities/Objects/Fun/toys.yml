@@ -1546,3 +1546,73 @@
       params:
         volume: -9
         maxDistance: 3
+        
+- type: entity
+  parent: BasePlushie
+  id: FloydPlushie
+  name: floyd plushie
+  description: A plushie soaking in fentynal, made to help with breathing exercises.
+  components:
+  - type: Sprite
+    state: floyd
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Desoxyephedrine
+        Quantity: 30
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 20
+        reagents:
+        - ReagentId: Desoxyephedrine
+          Quantity: 20
+          
+- type: entity
+  parent: BasePlushie
+  id: DerekPlushie
+  name: derek plushie
+  description: Used by law enforcement as a model for kneeling on suspects.
+  components:
+  - type: Sprite
+    state: derek
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/Floyd.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Announcements/RoundEnd/Nagger.ogg

@@ -362,6 +362,12 @@
     {
       "name": "beachb-inhand-right",
       "directions": 4
+    },
+    {
+    "name": "floyd"
+    },
+    {
+    "name": "derek"
     }
   ]
 }
