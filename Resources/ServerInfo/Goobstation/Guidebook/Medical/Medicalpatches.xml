@@ -26,10 +26,6 @@ The large patch holds 60 units and transfers them one unit at a time.
 However the large patch also transfers 15% of its chemicals upon use (10 units if full)
 <GuideEntityEmbed Entity="GenericPatch" Rotation="0"/>
 
-
-
-
-
 ### Makeshift
 The makeshift patch can hold 15 units and transfers 1 unit every 2 seconds.
 However it can by crafted by hand and filled manually without a chemmaster
