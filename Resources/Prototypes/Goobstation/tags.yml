@@ -1,4 +1,7 @@
 - type: Tag
+  id: BreadEmergency
+
+- type: Tag
   id: BreathMask
 
 - type: Tag
@@ -21,6 +24,9 @@
 
 - type: Tag
   id: HarpyEmotes
+
+- type: Tag
+  id: HEVSuit
 
 - type: Tag
   id: MedicalPatch
