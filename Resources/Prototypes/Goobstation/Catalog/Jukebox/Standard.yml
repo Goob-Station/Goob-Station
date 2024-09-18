@@ -51,3 +51,9 @@
   name: Take Back Our Future - Cyber Nazi
   path:
     path: /Audio/Lobby/Take-Back-Our-Future.ogg
+
+- type: jukebox
+  id: Standup
+  name: Stand Up And Be Counted - Triple K
+  path:
+    path: /Audio/Lobby/standupandbecounted.ogg
