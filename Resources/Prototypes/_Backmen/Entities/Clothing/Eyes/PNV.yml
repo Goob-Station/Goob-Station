@@ -1,0 +1,50 @@
+- type: entity
+  name: NVD
+  id: ClothingEyesVision
+  parent: BaseItem
+  description: Night vision device. Provides an image of the terrain in low-light conditions.
+  components:
+  - type: Item
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    state: icon
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+    quickEquip: true
+    slots: [ Eyes ]
+  - type: UseDelay
+    delay: 4
+  - type: PNV
+
+- type: entity
+  parent: [ClothingEyesVision,ShowSecurityIcons]
+  id: ClothingEyesVisionNuki
+  suffix: nuke
+  components:
+  - type: ShowSyndicateIcons
+
+- type: entity
+  id: NVToggleAction
+  name: Switching NVG
+  description: Switching NVG
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 2.5
+    icon:
+      sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+      state: icon
+    event: !type:NVInstantActionEvent
+
+- type: entity
+  id: SwitchNightVision
+  name: Switches Night Vision
+  description: ПSwitches Night Vision
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 2.5
+    icon:
+      sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+      state: icon
+    event: !type:NVInstantActionEvent
