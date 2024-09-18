@@ -37,6 +37,8 @@
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
+    - type: StationAiVision
+      range: 9.5
   placement:
     mode: SnapgridCenter
 
