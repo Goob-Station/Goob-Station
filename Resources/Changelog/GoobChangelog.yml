@@ -1120,3 +1120,11 @@ Entries:
       message: fixed circit printer cna now print all boards agein.
   id: 139
   time: '2024-09-18T13:21:57.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: >-
+        Disposal unit rummage cooldown now start on spawn to prevent rodentia
+        abuse.
+  id: 140
+  time: '2024-09-18T13:26:45.0000000+00:00'
