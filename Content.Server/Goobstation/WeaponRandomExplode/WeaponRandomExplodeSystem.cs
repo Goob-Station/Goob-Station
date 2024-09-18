@@ -19,7 +19,7 @@ namespace Content.Server.Goobstation.WeaponRandomExplode
 
         private void OnShot(EntityUid uid, WeaponRandomExplodeComponent component, ShotAttemptedEvent args)
         {
-            if (component.explosionChance == null)
+            if (component.explosionChance <= 0)
                 return;
 
             if (_random.Prob(component.explosionChance))
