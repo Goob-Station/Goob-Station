@@ -29,7 +29,7 @@ namespace Content.Server.Goobstation.WeaponRandomExplode
                 {
                     intensity = MultiplyByCharge(uid);                   
                 }
-                Console.WriteLine(intensity); // Debug
+
                 _explosionSystem.QueueExplosion(
                     (EntityUid) uid,
                     typeId: "Default",
