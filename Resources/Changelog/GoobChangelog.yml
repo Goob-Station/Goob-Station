@@ -1114,3 +1114,9 @@ Entries:
       message: 'Fixed turrets couldn''t shoot lying people '
   id: 138
   time: '2024-09-17T13:11:07.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: fixed circit printer cna now print all boards agein.
+  id: 139
+  time: '2024-09-18T13:21:57.0000000+00:00'
