@@ -79,7 +79,6 @@
         name: food-sequence-content-brain
       taco:
         name: food-sequence-content-brain
-
 - type: entity
   id: OrganHumanEyes
   parent: BaseHumanOrgan

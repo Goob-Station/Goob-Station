@@ -19,6 +19,7 @@
     containers:
       ballistic-ammo: !type:Container
         ents: []
+  - type: Multishot # Goobstation
 
 - type: entity
   name: china lake
@@ -273,6 +274,7 @@
           unshaded:
             True: { state: base-unshaded }
             False: { state: base-unshaded-off }
+    - type: PacifismAllowedGun
 
 # Admeme
 - type: entity

@@ -33,6 +33,7 @@ public abstract class SharedRatKingSystem : EntitySystem
 
         SubscribeLocalEvent<RatKingServantComponent, ComponentShutdown>(OnServantShutdown);
 
+        SubscribeLocalEvent<RatKingRummageableComponent, ComponentInit>(OnComponentInit); // Goobstation
         SubscribeLocalEvent<RatKingRummageableComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerb);
         SubscribeLocalEvent<RatKingRummageableComponent, RatKingRummageDoAfterEvent>(OnDoAfterComplete);
     }
@@ -104,6 +105,13 @@ public abstract class SharedRatKingSystem : EntitySystem
         _action.StartUseDelay(component.ActionOrderFollowEntity);
         _action.StartUseDelay(component.ActionOrderCheeseEmEntity);
         _action.StartUseDelay(component.ActionOrderLooseEntity);
+    }
+
+    // Goobstation
+    public void OnComponentInit(EntityUid uid, RatKingRummageableComponent component, ComponentInit args)
+    {
+        component.LastLooted = _gameTiming.CurTime;
+        Dirty(uid, component);
     }
 
     private void OnGetVerb(EntityUid uid, RatKingRummageableComponent component, GetVerbsEvent<AlternativeVerb> args)

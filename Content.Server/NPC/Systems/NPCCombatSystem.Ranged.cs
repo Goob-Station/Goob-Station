@@ -202,7 +202,7 @@ public sealed partial class NPCCombatSystem
                 return;
             }
 
-            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates);
+            _gun.AttemptShoot(uid, gunUid, gun, targetCordinates, comp.Target);
         }
     }
 }
