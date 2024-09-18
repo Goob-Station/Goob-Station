@@ -312,7 +312,10 @@
 #ERT Leader Helmet
 - type: entity
   parent: [ BaseCentcommContraband, ClothingHeadHelmetBase ]
+  id: ClothingHeadHelmetERTLeader
+  name: ERT leader helmet
   description: An in-atmosphere helmet worn by the leader of a Nanotrasen Emergency Response Team. Has blue highlights.
+  components:
   - type: Sprite
     sprite: Clothing/Head/Helmets/ert_leader.rsi
   - type: Clothing
