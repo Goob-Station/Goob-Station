@@ -44,7 +44,7 @@
   - type: Clothing
     sprite: Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
   - type: Gun
-    fireRate: 0.5
+    fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: Battery
