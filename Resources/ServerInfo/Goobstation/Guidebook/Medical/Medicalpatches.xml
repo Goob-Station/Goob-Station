@@ -4,7 +4,7 @@
 Patches are a simple and effective way to slowly administer medication to a patient without risking an overdose.
 They can be made with the medfab and filled with the chemmaster. They can be directly applied to a patient and will fall off by themselves once empty.
 
-There are 4 types of patches:
+There are 5 types of patches:
 - Basic
 - Rapid
 - Prefilled
@@ -12,10 +12,10 @@ There are 4 types of patches:
 - Makeshift
 
 ### Basic
-The basic patch hold 40 units of chems and transfers 1 unit at a time.
+The basic patch holds 40 units of chems and transfers 1 unit at a time.
 
 ### Rapid
-The rapid patch hold 40 units and transfers chemicals twice as fast.
+The rapid patch holds 40 units and transfers chemicals twice as fast.
 <GuideEntityEmbed Entity="GenericPatchSmall" Rotation="0"/>
 
 ### Prefilled
@@ -27,7 +27,7 @@ However the large patch also transfers 15% of its chemicals upon use (10 units i
 <GuideEntityEmbed Entity="GenericPatch" Rotation="0"/>
 
 ### Makeshift
-The makeshift patch can hold 15 units and transfers 1 unit every 2 seconds.
-However it can by crafted by hand and filled manually without a chemmaster
+The makeshift patch can hold 15 units and transfer 1 unit every 2 seconds.
+However it can be crafted by hand and filled manually without a chemmaster
 <GuideEntityEmbed Entity="MakeshiftPatch" Rotation="0"/>
-</document>
+</Document>
