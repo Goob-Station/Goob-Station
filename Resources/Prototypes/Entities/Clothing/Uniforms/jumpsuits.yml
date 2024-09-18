@@ -1365,7 +1365,7 @@
   description: He does it for free.
   components:
   - type: Sprite
-    sprite: BorealStation/Clothing/Uniforms/Jumpsuit/janitor_casual.rsi
+    sprite: BorealStation/Clothing/Jumpsuit/janitor_casual.rsi
   - type: Clothing
-    sprite: BorealStation/Clothing/Uniforms/Jumpsuit/janitor_casual.rsi
+    sprite: BorealStation/Clothing/Jumpsuit/janitor_casual.rsi
 
