@@ -10,3 +10,14 @@
   - Trinkets
   - GroupSpeciesBreathTool
   - Survival
+
+- type: roleLoadout
+  id: JobBlueshieldOfficer
+  groups:
+  - BlueshieldOfficerHead
+  - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerOuter
+  - BlueshieldOfficerNeck
+  - Trinkets
+  - GroupSpeciesBreathTool
+  - Survival

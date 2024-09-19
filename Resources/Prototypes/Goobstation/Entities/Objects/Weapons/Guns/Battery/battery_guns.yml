@@ -29,7 +29,7 @@
 
 - type: entity
   name: EG-4 energy revolver
-  parent: [BaseWeaponBatterySmall, BaseCommandContraband]
+  parent: [ BaseWeaponBatterySmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
   description: A highly advabced energy revolver capable of firing both lethal and disabling bullets.
   components:

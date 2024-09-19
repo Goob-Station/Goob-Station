@@ -47,3 +47,14 @@
     sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueshieldShirt
+  name: blueshield officer blue shirt
+  description: An official security uniform. Pretty safe and pretty busy.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
