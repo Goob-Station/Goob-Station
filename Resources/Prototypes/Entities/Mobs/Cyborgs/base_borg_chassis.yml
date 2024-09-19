@@ -166,6 +166,7 @@
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
   - type: Destructible
     thresholds:
     - trigger:
@@ -317,3 +318,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: Damageable #Goobstation - Ion Damage
+    damageContainer: Silicon
+    damageModifierSet: SiliconProtected 
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
