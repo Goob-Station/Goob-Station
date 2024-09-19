@@ -1136,3 +1136,9 @@ Entries:
       message: Replaced BSO's MK58 with the EG-4.
   id: 141
   time: '2024-09-18T13:28:17.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: fixed actions somtimes not showing up.
+  id: 142
+  time: '2024-09-19T13:13:36.0000000+00:00'
