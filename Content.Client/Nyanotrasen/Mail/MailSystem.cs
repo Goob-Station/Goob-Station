@@ -41,8 +41,14 @@ namespace Content.Client.Mail
 
             _appearance.TryGetData(uid, MailVisuals.JobIcon, out string job, args.Component);
 
+            if (string.IsNullOrEmpty(job))
+                job = "JobIconUnknown";
+
             if (!_prototypeManager.TryIndex<JobIconPrototype>(job, out var icon))
+            {
+                args.Sprite.LayerSetTexture(MailVisualLayers.JobStamp, _spriteSystem.Frame0(_prototypeManager.Index("JobIconUnknown")));
                 return;
+            }
 
             args.Sprite.LayerSetTexture(MailVisualLayers.JobStamp, _spriteSystem.Frame0(icon.Icon));
         }
