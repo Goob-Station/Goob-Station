@@ -150,3 +150,11 @@
   - type: FaxMachine
     name: "Nanotrasen Representative"
     notifyAdmins: true
+  - type: Sprite
+    sprite: Goobstation/Objects/Tools/handheld_fax.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - state: scanner
+      shader: unshaded

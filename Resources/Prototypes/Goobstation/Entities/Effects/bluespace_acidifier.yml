@@ -15,7 +15,7 @@
   - type: SpawnOnDespawn
     prototype: AnomalyCoreBluespace
   - type: EmitSoundOnSpawn
-    sound: 
+    sound:
       path: /Audio/Goobstation/Weapons/ChronoLegionnaire/stasisgun_reload.ogg
   - type: PointLight
     color: SkyBlue
