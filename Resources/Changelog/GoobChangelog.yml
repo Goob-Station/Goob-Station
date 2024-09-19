@@ -1142,3 +1142,19 @@ Entries:
       message: fixed actions somtimes not showing up.
   id: 142
   time: '2024-09-19T13:13:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: >-
+        Added new damage type - Ion. Some disabling weapons can now make this
+        damage. Most electonic creatures are weak against this type of damage.
+    - type: Add
+      message: >-
+        All borgs get slight damage resistance for brute and heat damage.
+        Syndicate borgs get more protection.
+    - type: Tweak
+      message: X-01 Ion mode now deal Ion damage instead of cold damage.
+    - type: Tweak
+      message: Syndicate assault borg price increased from 325 to 375 tc.
+  id: 143
+  time: '2024-09-19T13:33:21.0000000+00:00'
