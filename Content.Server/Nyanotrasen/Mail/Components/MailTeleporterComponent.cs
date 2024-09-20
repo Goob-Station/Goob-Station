@@ -110,13 +110,13 @@ namespace Content.Server.Mail.Components
         /// What's the bonus for delivering a large package intact?
         /// </summary>
         [DataField]
-        public int LargeBonus = 1500; //DeltaV; 5000 to 1500
+        public int LargeBonus = 500; //Goob; 5000 to 500
 
         /// <summary>
         /// What's the malus for failing to deliver a large package?
         /// </summary>
         [DataField]
-        public int LargeMalus = -500; //DeltaV; -250 to -500
+        public int LargeMalus = -250; //DeltaV
         // End Frontier: Large mail
     }
 }

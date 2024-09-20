@@ -30,3 +30,14 @@
     sprite: Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Uniforms/Jumpskirt/blueshield_officer.rsi
+
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformSkirtMailCarrier
+  name: mail carrier's jumpskirt
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpskirt/mailman.rsi

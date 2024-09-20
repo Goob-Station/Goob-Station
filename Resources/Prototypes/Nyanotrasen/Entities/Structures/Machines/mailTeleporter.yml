@@ -27,6 +27,7 @@
     - state: icon
     - state: unlit
       shader: unshaded
+      visible: false
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: Damageable
     damageContainer: Inorganic

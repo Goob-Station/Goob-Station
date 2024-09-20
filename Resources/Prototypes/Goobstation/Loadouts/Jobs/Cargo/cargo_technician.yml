@@ -1,0 +1,22 @@
+# Head
+- type: loadout
+  id: CargoTechnicianHeadMail
+  equipment:
+    head: ClothingHeadMailCarrier
+
+# Jumpsuit
+- type: loadout
+  id: CargoTechnicianJumpsuitMail
+  equipment:
+    jumpsuit: ClothingUniformMailCarrier
+
+- type: loadout
+  id: CargoTechnicianJumpskirtMail
+  equipment:
+    jumpsuit: ClothingUniformSkirtMailCarrier
+
+# OuterClothing
+- type: loadout
+  id: CargoTechnicianWintercoatMail
+  equipment:
+    outerClothing: ClothingOuterWinterCoatMail
