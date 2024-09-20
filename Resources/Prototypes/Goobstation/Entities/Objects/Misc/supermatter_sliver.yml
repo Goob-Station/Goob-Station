@@ -1,7 +1,7 @@
 - type: entity
   parent: BaseItem
   id: SupermatterSliver
-  name: supermatter sliver
+  name: goob-steal-target-groups-supermatter-sliver
   description: A shard from the station's supermatter crystal. Highly radioactive.
   components:
     - type: PointLight
