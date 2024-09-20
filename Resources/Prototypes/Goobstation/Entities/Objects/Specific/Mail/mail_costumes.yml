@@ -36,7 +36,7 @@
   components:
   - type: Mail
     contents:
-      - id: ClothingUniformJumpskirtNurse
+      - id: ClothingUniformJumpskirtOfLife
       - id: ClothingHeadNurseHat
       - id: Syringe
 
