@@ -675,6 +675,47 @@
       Taco: Orange
 
 - type: entity
+  name: extradimensional orange
+  parent: FoodProduceBase
+  id: FoodExtradimensionalOrange
+  description: You can hardly wrap your head around this thing.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - truenature
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 14
+        reagents:
+        - ReagentId: Haloperidol
+          Quantity: 5
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Vitamin
+          Quantity: 4
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/extradimensional_orange.rsi
+    scale: 0.5,0.5
+  - type: Produce
+    seedId: extradimensionalOrange
+  - type: PotencyVisuals
+    minimumScale: 0.5 # reduce this in size because the sprite is way too big
+    maximumScale: 1
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: JuiceOrange
+        Quantity: 10
+  - type: Tag
+    tags:
+    - Fruit
+  - type: FoodSequenceElement
+    entries:
+      Burger: ExtradimensionalOrangeBurger
+      Taco: ExtradimensionalOrange
+
+- type: entity
   name: pineapple
   parent: FoodProduceBase
   id: FoodPineapple
@@ -1991,6 +2032,105 @@
       Burger: WatermelonSliceBurger
       Taco: WatermelonSlice
       Skewer: WatermelonSliceSkewer
+
+- type: entity
+  name: holymelon
+  parent: [FoodProduceBase, ItemHeftyBase]
+  id: FoodHolymelon
+  description: The water within this melon has been blessed by some deity that's particularly fond of watermelon.
+  components:
+  - type: Item
+    size: Small
+  - type: FlavorProfile
+    flavors:
+      - holy
+      - watermelon
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 25
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 5
+        - ReagentId: Holywater
+          Quantity: 10
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: Produce
+    seedId: watermelon
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 20
+  - type: Damageable
+    damageContainer: Biological
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 0.1
+    damage:
+      types:
+        Blunt: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpillBehavior
+        solution: food
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: SliceableFood
+    count: 5
+    slice: FoodHolymelonSlice
+  - type: Tag
+    tags:
+    - Fruit
+
+- type: entity
+  name: holymelon slice
+  parent: ProduceSliceBase
+  id: FoodHolymelonSlice
+  description: Juicy golden and red slice.
+  components:
+  - type: Item
+    size: Tiny
+  - type: FlavorProfile
+    flavors:
+      - holy
+      - watermelon
+  - type: Sprite
+    sprite: Objects/Specific/Hydroponics/holymelon.rsi
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 2
+        - ReagentId: Vitamin
+          Quantity: 1
+        - ReagentId: Holywater
+          Quantity: 2
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Wine
+        Quantity: 4
+  - type: Tag
+    tags:
+    - Fruit
+    - Slice
+  - type: FoodSequenceElement
+    entries:
+      Burger: HolymelonSliceBurger
+      Taco: HolymelonSlice
+      Skewer: HolymelonSliceSkewer
 
 - type: entity
   name: grapes

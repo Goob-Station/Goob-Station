@@ -237,7 +237,7 @@
 
 - type: stealTargetGroup
   id: SalvageShuttleConsoleCircuitboard
-  name: salvage shuttle console board
+  name: steal-target-groups-salvage-shuttle-console-board
   sprite:
     sprite: Objects/Misc/module.rsi
     state: cpuboard

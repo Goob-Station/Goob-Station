@@ -3,3 +3,9 @@
 
 - type: playTimeTracker
   id: JobNanotrasenRepresentative
+
+- type: playTimeTracker
+  id: JobDeathSquad
+
+- type: playTimeTracker
+  id: JobCBURN
