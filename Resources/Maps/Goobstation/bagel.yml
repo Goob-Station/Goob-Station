@@ -1402,6 +1402,11 @@ entities:
             3457: 45,-9
             3666: 49,-10
         - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteCornerNe
+          decals:
+            4098: 33,-28
+        - node:
             color: '#79150096'
             id: BrickTileWhiteCornerNe
           decals:
@@ -1614,6 +1619,15 @@ entities:
             806: 19,11
             3351: -4,-11
         - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteInnerNe
+          decals:
+            4110: 30,-33
+            4111: 33,-34
+            4112: 33,-30
+            4113: 32,-28
+            4117: 28,-28
+        - node:
             color: '#79150096'
             id: BrickTileWhiteInnerNe
           decals:
@@ -1636,6 +1650,13 @@ entities:
           decals:
             1842: -21,29
         - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteInnerNw
+          decals:
+            4114: 30,-32
+            4115: 33,-33
+            4116: 30,-28
+        - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteInnerNw
           decals:
@@ -1654,6 +1675,13 @@ entities:
           decals:
             2740: 5,-30
         - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteInnerSe
+          decals:
+            4105: 30,-33
+            4106: 30,-29
+            4107: 33,-30
+        - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteInnerSe
           decals:
@@ -1670,6 +1698,13 @@ entities:
             id: BrickTileWhiteInnerSw
           decals:
             3678: 48,-11
+        - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteInnerSw
+          decals:
+            4102: 33,-29
+            4103: 30,-28
+            4104: 33,-33
         - node:
             color: '#DE3A3A96'
             id: BrickTileWhiteInnerSw
@@ -1714,6 +1749,21 @@ entities:
             3671: 49,-13
             3672: 49,-12
             3673: 49,-11
+        - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteLineE
+          decals:
+            4070: 33,-33
+            4071: 30,-32
+            4072: 30,-31
+            4073: 30,-30
+            4074: 33,-32
+            4075: 33,-31
+            4083: 30,-34
+            4096: 33,-29
+            4097: 33,-28
+            4099: 32,-27
+            4119: 28,-27
         - node:
             color: '#79150096'
             id: BrickTileWhiteLineE
@@ -1784,6 +1834,19 @@ entities:
             id: BrickTileWhiteLineN
           decals:
             3674: 48,-10
+        - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteLineN
+          decals:
+            4084: 31,-33
+            4085: 32,-33
+            4086: 34,-34
+            4087: 35,-34
+            4088: 29,-32
+            4089: 28,-32
+            4100: 34,-30
+            4101: 35,-30
+            4118: 29,-28
         - node:
             color: '#79150096'
             id: BrickTileWhiteLineN
@@ -1898,6 +1961,18 @@ entities:
             3248: 5,-35
             3249: 3,-35
         - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteLineS
+          decals:
+            4090: 28,-28
+            4091: 29,-28
+            4092: 31,-29
+            4093: 32,-29
+            4094: 34,-30
+            4095: 35,-30
+            4108: 32,-33
+            4109: 31,-33
+        - node:
             color: '#79150096'
             id: BrickTileWhiteLineS
           decals:
@@ -2007,6 +2082,18 @@ entities:
             3675: 48,-12
             3676: 48,-13
             3677: 48,-14
+        - node:
+            color: '#73DB5AFF'
+            id: BrickTileWhiteLineW
+          decals:
+            4076: 30,-31
+            4077: 30,-30
+            4078: 30,-29
+            4079: 33,-32
+            4080: 33,-31
+            4081: 33,-30
+            4082: 33,-34
+            4120: 30,-27
         - node:
             color: '#79150096'
             id: BrickTileWhiteLineW
@@ -10914,7 +11001,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -10170.006
+      secondsUntilStateChange: -11885.749
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
