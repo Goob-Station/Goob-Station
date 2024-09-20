@@ -5,8 +5,6 @@
   components:
   - type: Mail
     contents:
-    - id: UniformMaid
-      orGroup: Uniform
     - id: ClothingUniformJumpskirtJanimaid
       orGroup: Uniform
     - id: ClothingUniformJumpskirtJanimaidmini

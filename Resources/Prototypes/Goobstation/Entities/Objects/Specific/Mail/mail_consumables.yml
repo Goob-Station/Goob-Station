@@ -223,9 +223,6 @@
       orGroup: Muffin1
     - id: FoodBakedMuffin
       orGroup: Muffin1
-    - id: FoodMothMoffin
-      orGroup: Muffin1
-      prob: 0.5
       # Muffin 2
     - id: FoodBakedMuffinBerry
       orGroup: Muffin2
@@ -235,9 +232,6 @@
       orGroup: Muffin2
     - id: FoodBakedMuffin
       orGroup: Muffin2
-    - id: FoodMothMoffin
-      orGroup: Muffin2
-      prob: 0.5
       # Muffin 3
     - id: FoodBakedMuffinBerry
       orGroup: Muffin3
@@ -247,9 +241,6 @@
       orGroup: Muffin3
     - id: FoodBakedMuffin
       orGroup: Muffin3
-    - id: FoodMothMoffin
-      orGroup: Muffin3
-      prob: 0.5
       # Muffin 4
     - id: FoodBakedMuffinBerry
       orGroup: Muffin4
@@ -259,9 +250,6 @@
       orGroup: Muffin4
     - id: FoodBakedMuffin
       orGroup: Muffin4
-    - id: FoodMothMoffin
-      orGroup: Muffin4
-      prob: 0.5
 
 - type: entity
   parent: BaseMail

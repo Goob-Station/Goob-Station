@@ -88,15 +88,7 @@
       orGroup: Plushie
     - id: PlushieSnake
       orGroup: Plushie
-    - id: PlushieMothRandom
-      orGroup: Plushie
     - id: PlushieMoth
-      prob: 0.5
-      orGroup: Plushie
-    - id: PlushieMothMusician
-      prob: 0.5
-      orGroup: Plushie
-    - id: PlushieMothBartender
       prob: 0.5
       orGroup: Plushie
 

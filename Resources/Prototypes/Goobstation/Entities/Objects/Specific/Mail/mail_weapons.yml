@@ -21,12 +21,6 @@
   components:
   - type: Mail
     contents:
-    - id: KatanaDulled
-      orGroup: Sword
-      prob: 0.95
-    - id: ClaymoreDulled
-      orGroup: Sword
-      prob: 0.95
     - id: FoamCutlass
       orGroup: Sword
       prob: 0.95
