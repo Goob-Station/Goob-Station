@@ -1,7 +1,0 @@
-- type: entity
-  id: BaseCentcommContraband
-  parent: BaseRestrictedContraband
-  abstract: true
-  components:
-  - type: Contraband
-    allowedDepartments: [ CentralCommand ]
