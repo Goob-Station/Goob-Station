@@ -18,7 +18,7 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: StaminaDamageResistance # goobstation
+  - type: StaminaDamageResistance # borealstation
     coefficient: 0.25 # 25% resistance
 
 #Mercenary web vest
@@ -41,7 +41,7 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
-  - type: StaminaDamageResistance # goobstation
+  - type: StaminaDamageResistance # borealstation
     coefficient: 0.2 # 20% resistance
 
 #Detective's vest
@@ -55,8 +55,6 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
-  - type: StaminaDamageResistance # goobstation
-    coefficient: 0.2 # 20% resistance
 
 #Hazard vest
 - type: entity
