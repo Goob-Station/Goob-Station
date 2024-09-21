@@ -1158,3 +1158,11 @@ Entries:
       message: Syndicate assault borg price increased from 325 to 375 tc.
   id: 143
   time: '2024-09-19T13:33:21.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added Biogenerators to Bagel.
+    - type: Tweak
+      message: Bagel has a proper shuttle building area now.
+  id: 144
+  time: '2024-09-21T13:53:59.0000000+00:00'
