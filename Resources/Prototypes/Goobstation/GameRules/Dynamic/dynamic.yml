@@ -35,5 +35,28 @@
   parent: BaseGameRuleDynamic
   id: Dynamic
   components:
+  - type: GameRule
+    delay:
+      min: 5
+      max: 10
   - type: DynamicRule
     roundstartRulesPool: DynamicRoundstartGamerules
+
+# game preset here for various reasons
+# most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
+- type: gamePreset
+  id: Dynamic
+  alias:
+    - dynamic
+    - dyn
+    - secret2
+  name: gamemode-dynamic-title
+  description: gamemode-dynamic-description
+  showInVote: true
+  rules:
+    - Dynamic
+    - DynamicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation

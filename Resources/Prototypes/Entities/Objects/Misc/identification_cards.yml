@@ -30,7 +30,7 @@
 - type: entity
   parent: IDCardStandard
   id: PassengerIDCard
-  name: passenger ID card
+  name: assistant ID card
   components:
   - type: Sprite
     layers:

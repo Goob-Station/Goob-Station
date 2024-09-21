@@ -1,0 +1,5 @@
+# TODO: finish midrounds up
+
+- type: entity
+  parent: BaseGameRule
+  id: DynamicStationEventScheduler

@@ -49,12 +49,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     /// </summary>
     private float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
     {
-        var location = (float) ((decimal) _rand.Next(-5, 5) * _rand.Next());
-        var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(MathF.Atan((centre - location) / scale)) + .5f;
+        var location = _rand.NextFloat(-5, 5) * _rand.NextFloat();
+        var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(Math.Atan((centre - location) / scale)) + .5f;
         var stdThreat = lorentzResult * maxThreat;
 
         var lowerDeviation = Math.Max(stdThreat * (location - centre) / 5f, 0);
-        var upperDeviation = Math.Max(maxThreat - stdThreat * (centre - location) / 5f, 0);
+        var upperDeviation = Math.Max((maxThreat - stdThreat) * (centre - location) / 5f, 0);
 
         return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
     }
@@ -103,6 +103,9 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         return null;
     }
 
+    /// <summary>
+    ///     Dynamic gamemode roundstart behavior
+    /// </summary>
     protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
     {
         base.Added(uid, component, gameRule, args);
@@ -113,13 +116,13 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
         var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
         var maxThreat = (players.Count < lowpopThreshold) ? lowpopThreat : component.MaxThreat;
-        component.ThreatLevel = _rand.NextFloat(0, maxThreat);
+        component.ThreatLevel = LorentzToAmount(component.ThreatCurveCentre, component.ThreatCurveWidth, maxThreat);
 
         // distribute budgets
-        component.RoundstartBudget = _rand.NextFloat(0, component.ThreatLevel);
+        component.RoundstartBudget = LorentzToAmount(1, 1.8f, component.ThreatLevel, 0.1f);
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
-        // add rules
+        // get gamerules from dataset and add them to draftedRules
         var draftedRules = new List<(EntityPrototype, DynamicRulesetComponent)?>();
         if (component.RoundstartRulesPool != null)
         {
@@ -130,6 +133,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                 || !rule.Item1.TryGetComponent<GameRuleComponent>(out var gamerule, _compfact))
                     continue;
 
+                // exclude gamerules if not enough overall budget or players
                 if (comp.Weight == 0
                 || gamerule.MinPlayers > players.Count
                 || component.RoundstartBudget < comp.Cost)
@@ -139,30 +143,28 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             }
         }
 
-        // the "jesus christ how does that work??" part starts here.
-        // have fun figuring this out.
-        // even i forgot how it works.
+        // remove budget and try to add these drafted rules
         var pickedRules = new List<(EntityPrototype, DynamicRulesetComponent)>();
-        var roundstartBudgetLeft = component.RoundstartBudget;
-        while (roundstartBudgetLeft > 0)
+        var roundstartBudget = component.RoundstartBudget;
+        while (roundstartBudget > 0)
         {
             var ruleset = WeightedPickRule(draftedRules);
 
             if (ruleset == null)
-                // todo write something here
+                // todo write something debug related here
                 break;
 
             var r = ruleset.Value.Item2;
             var rulesetNonNull = ((EntityPrototype, DynamicRulesetComponent)) ruleset;
 
             var cost = pickedRules.Contains(rulesetNonNull) ? r.ScalingCost : r.Cost;
-            if (cost > roundstartBudgetLeft)
+            if (cost > roundstartBudget)
             {
                 draftedRules[draftedRules.IndexOf(ruleset)] = null;
                 continue;
             }
 
-            roundstartBudgetLeft -= cost;
+            roundstartBudget -= cost;
             pickedRules.Add(rulesetNonNull);
 
             // if one chosen ruleset is high impact we cancel every other high impact ruleset
@@ -175,10 +177,13 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // spend budget and start the gamer rule
         foreach (var rule in pickedRules)
         {
-            component.RoundstartBudget = Math.Max(component.RoundstartBudget - rule.Item2.Cost, 0);
             _gameTicker.AddGameRule(rule.Item1.ID);
             component.ExecutedRules.Add(rule.Item1.ID);
         }
+
+        // save up leftout roundstart budget for midround rolls
+        component.MidroundBudget += roundstartBudget;
+        component.MidroundBudgetLeft = component.MidroundBudget;
     }
 
     #endregion

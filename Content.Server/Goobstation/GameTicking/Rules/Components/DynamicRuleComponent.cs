@@ -1,4 +1,5 @@
 using Content.Shared.Dataset;
+using Content.Shared.GameTicking.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.Components;
@@ -6,10 +7,18 @@ namespace Content.Server.GameTicking.Rules.Components;
 [RegisterComponent]
 public sealed partial class DynamicRuleComponent : Component
 {
+    #region Budgets
+
     /// <summary>
-    ///     
+    ///     Ignore major threats and stack one upon each other :trollface:
+    ///     Use this if chaos is your thing or you want a budget AAO
     /// </summary>
-    public float ThreatLevel = 0f;
+    [DataField] public bool Unforgiving = false;
+
+    /// <summary>
+    ///     Max threat available on lowpop
+    /// </summary>
+    [DataField] public float LowpopMaxThreat = 40f;
 
     /// <summary>
     ///     
@@ -19,14 +28,29 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     
     /// </summary>
-    [DataField] public float RoundstartBudget = 0f;
+    public float ThreatLevel = 0f;
 
     /// <summary>
-    ///     
+    ///     Used for EORG display.
     /// </summary>
-    [DataField] public float MidroundBudget = 0f;
+    public float RoundstartBudget = 0f;
+
+    /// <summary>
+    ///     Used for EORG display.
+    /// </summary>
+    public float MidroundBudget = 0f;
+
+    /// <summary>
+    ///     Used for midround rolling.
+    /// </summary>
+    public float MidroundBudgetLeft = 0f;
+
+    #endregion
+
+    #region Gamerules
 
     [DataField] public ProtoId<DatasetPrototype>? RoundstartRulesPool = null;
+
     [DataField] public ProtoId<DatasetPrototype>? MidroundRulesPool = null;
 
     /// <summary>
@@ -38,6 +62,10 @@ public sealed partial class DynamicRuleComponent : Component
     ///     Used for EORG.
     /// </summary>
     public List<EntProtoId> ExecutedRules = new();
+
+    #endregion
+
+    #region Midround Clock
 
     /// <summary>
     ///     How much time it takes in seconds for an antag event to be raised. (min)
@@ -66,14 +94,19 @@ public sealed partial class DynamicRuleComponent : Component
     /// </summary>
     [DataField] public float ThreatPerMidroundRoll = 7f;
 
-    /// <summary>
-    ///     Max threat available on lowpop
-    /// </summary>
-    [DataField] public float LowpopMaxThreat = 40f;
+    #endregion
+
+    #region Calculations
 
     /// <summary>
-    ///     Ignore major threats and stack one upon each other :trollface:
-    ///     Use this if chaos is your thing or you want a budget AAO
+    ///     
     /// </summary>
-    [DataField] public bool Unforgiving = false;
+    [DataField] public float ThreatCurveCentre = 0f;
+
+    /// <summary>
+    ///     
+    /// </summary>
+    public float ThreatCurveWidth = 1.8f;
+
+    #endregion
 }
