@@ -43,7 +43,7 @@ public sealed class PNVSystem : EntitySystem
             _actionsSystem.AddAction(args.Equipee, ref component.ActionContainer, component.ActionProto);
         _actionsSystem.SetCooldown(component.ActionContainer, TimeSpan.FromSeconds(1)); // GCD?
 
-        if (nvcomp.PlaySoundOn)
+        if (nvcomp.PlaySoundOn && nvcomp.IsNightVision)
         {
             if (_net.IsServer)
                 _audioSystem.PlayPvs(nvcomp.OnOffSound, uid);

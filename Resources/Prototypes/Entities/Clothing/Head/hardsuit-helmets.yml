@@ -246,6 +246,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.3
     lowPressureMultiplier: 1000
+  - type: PNV #goob - nigthvision
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -265,6 +266,7 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: PNV #goob - nigthvision
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -282,6 +284,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: PNV #goob - nigthvision
 
 #Research Director's Hardsuit
 - type: entity
@@ -299,6 +302,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.60
     lowPressureMultiplier: 1000
+  - type: PNV #goob - nigthvision
 
 #Head of Security's hardsuit
 - type: entity
@@ -419,6 +423,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PNV #goob - nigthvision
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -443,6 +448,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PNV #goob - nigthvision
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -465,6 +471,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: PNV #goob - nigthvision
 
 #Wizard Hardsuit
 - type: entity

@@ -30,12 +30,13 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         foreach (var comp in component.Components)
         {
             _overlay.NightvisionColor = comp.NightVisionColor;
+            if (comp.IsNightVision)
+                _lightManager.DrawLighting = false;
         }
         if (!_overlayMan.HasOverlay<NightVisionOverlay>())
         {
             _overlayMan.AddOverlay(_overlay);
         }
-        _lightManager.DrawLighting = false;
     }
 
     protected override void DeactivateInternal()
