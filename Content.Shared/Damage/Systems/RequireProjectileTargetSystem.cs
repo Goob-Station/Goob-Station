@@ -11,6 +11,7 @@ namespace Content.Shared.Damage.Components;
 public sealed class RequireProjectileTargetSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
 
     public override void Initialize()
     {
@@ -38,6 +39,10 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
 
             // Goobstation - Crawling
             if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing)
+                return;
+
+            // Goobstation - Crawling
+            if (_mobState.IsAlive(args.OurEntity))
                 return;
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))
