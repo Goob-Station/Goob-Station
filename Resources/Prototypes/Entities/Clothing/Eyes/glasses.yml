@@ -65,6 +65,7 @@
   - type: EyeProtection
   - type: IdentityBlocker
     coverage: EYES
+  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: ClothingEyesBase

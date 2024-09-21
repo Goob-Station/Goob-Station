@@ -198,6 +198,7 @@
   - type: ShowHungerIcons
   - type: ShowThirstIcons
   - type: ShowSyndicateIcons
+  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
@@ -210,7 +211,6 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
-  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
@@ -226,7 +226,6 @@
   - type: ShowHealthBars
     damageContainers:
     - Biological
-  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]

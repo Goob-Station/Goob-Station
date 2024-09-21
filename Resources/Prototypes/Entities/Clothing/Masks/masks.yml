@@ -71,6 +71,7 @@
     - PetWearable
     - WhitelistChameleon
     - SyndicateBreathMask
+  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: ClothingMaskGas
@@ -460,6 +461,7 @@
         Slash: 0.80
         Piercing: 0.90
         Heat: 0.90
+  - type: PNV #goob - nigthvision
 
 - type: entity
   parent: ClothingMaskBase
