@@ -327,7 +327,18 @@
       - PowerCellHigh
 
 - type: entity
-  parent: BaseMech
+  parent: MechHonkerBattery
+  id: MechHonkerFilled
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechSpecialBananaMortar
+      - WeaponMechSpecialMousetrapMortar
+      - MechEquipmentHorn
+
+# HAMTR
+- type: entity
   parent: [ BaseMech, SmallMech ]
   id: MechHamtr
   name: HAMTR
@@ -604,6 +615,18 @@
       mech-battery-slot:
       - PowerCellHyper
 
+- type: entity
+  id: MechMarauderFilled
+  parent: MechMarauderBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatPulseRifle
+      - WeaponMechCombatUltraRifle
+      - WeaponMechCombatMissileRack8
+
 # Seraph
 - type: entity
   id: MechSeraph
@@ -659,6 +682,19 @@
     containers:
       mech-battery-slot:
       - PowerCellAntiqueProto
+
+- type: entity
+  id: MechSeraphFilled
+  parent: MechSeraphBattery
+  suffix: Battery, Filled
+  components:
+  - type: Mech
+    startingEquipment:
+      - WeaponMechChainSword
+      - WeaponMechCombatPulseRifle
+      - WeaponMechCombatShotgun
+      - WeaponMechCombatMissileRack6
+      - WeaponMechCombatUltraRifle
 
 # Syndicate Combat Mech
 
