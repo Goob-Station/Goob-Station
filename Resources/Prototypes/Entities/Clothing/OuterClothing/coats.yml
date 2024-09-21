@@ -73,6 +73,8 @@
         Caustic: 0.75 # not the full 90% from ss13 because of the head
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   abstract: true
@@ -88,6 +90,8 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase]
@@ -363,6 +367,8 @@
         Blunt: 0.8
         Slash: 0.65
         Piercing: 0.85
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   parent: ClothingOuterStorageBase
@@ -415,6 +421,8 @@
         Piercing: 0.65
         Heat: 0.85
         Caustic: 0.75
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   parent: ClothingOuterStorageBase
