@@ -191,7 +191,7 @@
     coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
-    - type: StaminaDamageResistance # borealstation
+  - type: StaminaDamageResistance # borealstation
     coefficient: 0.7 # 30% resistance
 
 #Security Hardsuit
@@ -858,8 +858,6 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
-  - type: StaminaDamageResistance # borealstation
-    coefficient: 0.5 # 50% resistance
 
 #ERT Security Hardsuit
 - type: entity
