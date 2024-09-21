@@ -88,6 +88,8 @@
         Heat: 0.7
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   parent: [ClothingOuterArmorHoS, ClothingOuterStorageBase]
