@@ -45,13 +45,13 @@
     back: ClothingBackpack
     jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
     shoes: ClothingShoesBootsJackFilled
-    eyes: ClothingEyesGlassesMedical
+    eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingBlueshieldArmourVest
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
+    pocket1: WeaponEnergyRevolver
     pocket2: DeathAcidifierImplanter
   storage:
     back:
