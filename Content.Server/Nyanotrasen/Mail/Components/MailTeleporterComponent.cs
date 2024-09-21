@@ -15,7 +15,7 @@ namespace Content.Server.Mail.Components
         public float Accumulator = 285f;
 
         [DataField("teleportInterval")]
-        public TimeSpan TeleportInterval = TimeSpan.FromMinutes(5);
+        public TimeSpan TeleportInterval = TimeSpan.FromMinutes(7.5);
 
         /// <summary>
         /// The sound that's played when new mail arrives.
