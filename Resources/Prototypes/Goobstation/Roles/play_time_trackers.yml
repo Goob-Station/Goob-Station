@@ -3,6 +3,3 @@
 
 - type: playTimeTracker
   id: JobNanotrasenRepresentative
-
-- type: playTimeTracker
-  id: JobSpectator
