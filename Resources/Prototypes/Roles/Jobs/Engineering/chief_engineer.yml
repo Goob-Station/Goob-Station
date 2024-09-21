@@ -17,11 +17,6 @@
       time: 144000 #40 hrs
     - !type:AgeRequirement
       requiredAge: 21
-    - !type:SpeciesRequirement # Goobstation - GMO Free Command
-      inverted: true
-      species:
-      - Felinid
-      - Rodentia
   weight: 10
   startingGear: ChiefEngineerGear
   icon: "JobIconChiefEngineer"
