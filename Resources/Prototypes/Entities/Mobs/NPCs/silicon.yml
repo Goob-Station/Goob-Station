@@ -424,4 +424,4 @@
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
-    range: 1.5
+    range: 1
