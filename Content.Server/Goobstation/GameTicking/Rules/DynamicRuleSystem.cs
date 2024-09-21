@@ -39,24 +39,24 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     {
         base.Initialize();
 
-        SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEnd);
+        SubscribeLocalEvent<GameRuleAddedEvent>(OnGameRuleAdded);
     }
 
-    #region gamerule stuff
+    #region gamerule processing
 
     /// <summary>
     ///     Special TG sauce formula thing.
     /// </summary>
     private float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
     {
-        var location = (float) ((decimal) _rand.Next(5, -5) * _rand.Next());
+        var location = (float) ((decimal) _rand.Next(-5, 5) * _rand.Next());
         var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(MathF.Atan((centre - location) / scale)) + .5f;
         var stdThreat = lorentzResult * maxThreat;
 
         var lowerDeviation = Math.Max(stdThreat * (location - centre) / 5f, 0);
         var upperDeviation = Math.Max(maxThreat - stdThreat * (centre - location) / 5f, 0);
 
-        return (float) Math.Clamp(Math.Round((decimal) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
+        return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
     }
 
     private List<(EntityPrototype, DynamicRulesetComponent)> GetRuleset(ProtoId<DatasetPrototype> dataset)
@@ -112,11 +112,11 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // calculate max threat
         var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
         var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
-        var maxThreat = (players.Count < lowpopThreshold) ? (lowpopThreat) : component.MaxThreat;
-        component.ThreatLevel = LorentzToAmount(component.ThreatCurveCentre, maxThreat: maxThreat);
+        var maxThreat = (players.Count < lowpopThreshold) ? lowpopThreat : component.MaxThreat;
+        component.ThreatLevel = _rand.NextFloat(0, maxThreat);
 
         // distribute budgets
-        component.RoundstartBudget = LorentzToAmount(1f, 1.8f, component.ThreatLevel, 0.1f);
+        component.RoundstartBudget = _rand.NextFloat(0, component.ThreatLevel);
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
         // add rules
@@ -183,25 +183,65 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
     #endregion
 
-    private void OnRoundEnd(ref RoundEndTextAppendEvent args)
+    #region roundend text
+
+    protected override void AppendRoundEndText(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
     {
+        base.AppendRoundEndText(uid, component, gameRule, ref args);
+        var sb = new StringBuilder();
+
         foreach (var dynamicRule in EntityQuery<DynamicRuleComponent>())
         {
-            var sb = new StringBuilder();
-            sb.AppendLine(Loc.GetString("dynamic-roundend-totalthreat", ("points", dynamicRule.ThreatLevel)));
+            // total threat & points:
+            sb.AppendLine(Loc.GetString("dynamic-roundend-totalthreat", ("points", (int) dynamicRule.ThreatLevel)));
+            sb.AppendLine(Loc.GetString("dynamic-roundend-points-roundstart", ("points", (int) dynamicRule.RoundstartBudget)));
+            sb.AppendLine(Loc.GetString("dynamic-roundend-points-midround", ("points", (int) dynamicRule.MidroundBudget)));
 
-            // string is localized name
-            // (int, int) is amount of gamerules executed and total amount of points spent
-            var grdict = new Dictionary<string, (int, float)>();
-            foreach (var gamerule in dynamicRule.ExecutedRules)
-            {
-                if (_proto.Index(gamerule).TryGetComponent<DynamicRulesetComponent>(out var dynset, _compfact))
-                {
-                    var executed = grdict.ContainsKey(dynset.NameLoc) ? grdict[dynset.NameLoc] += 1 : 1;
+            // executed roundstart gamerules:
+            sb.AppendLine($"\n{Loc.GetString("dynamic-roundend-gamerules-title")}");
+            sb.AppendLine(GenerateLocalizedGameruleList(component.ExecutedRules));
 
-                    grdict.Add(dynset, );
-                }
-            }
+            // executed midround gamerules: TODO
         }
+
+        args.AppendAtStart(sb.ToString());
     }
+    private string GenerateLocalizedGameruleList(List<EntProtoId> executedGameRules)
+    {
+        var sb = new StringBuilder();
+
+        var grd = new Dictionary<string, (int, float)>();
+        foreach (var gamerule in executedGameRules)
+        {
+            if (!_proto.Index(gamerule).TryGetComponent<DynamicRulesetComponent>(out var dynset, _compfact))
+                continue;
+
+            var name = dynset.NameLoc;
+
+            var executed = grd.ContainsKey(name);
+            int executedTimes = executed ? grd[name].Item1 + 1 : 1;
+            float cost = executed ? grd[name].Item2 + dynset.ScalingCost : dynset.Cost;
+
+            if (executed)
+                grd[name] = (executedTimes, cost);
+            else grd.Add(name, (executedTimes, cost));
+        }
+        foreach (var gr in grd)
+            sb.AppendLine($"{Loc.GetString(gr.Key)} (x{grd[gr.Key].Item1}) - {Loc.GetString("dynamic-gamerule-threat-perrule", ("num", grd[gr.Key].Item2))}");
+
+        return sb.ToString();
+    }
+
+    #endregion
+
+    #region events
+
+    private void OnGameRuleAdded(ref GameRuleAddedEvent args)
+    {
+        // nothing goes unnoticed
+        foreach (var dgr in EntityQuery<DynamicRuleComponent>())
+            dgr.ExecutedRules.Add(args.RuleId);
+    }
+
+    #endregion
 }

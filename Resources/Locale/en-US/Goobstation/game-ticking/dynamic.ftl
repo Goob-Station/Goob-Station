@@ -1,5 +1,8 @@
 dynamic-roundend-totalthreat = Total threat points: {$points}.
-dynamic-roundend-gamerules-title = Executed Gamerules:
+dynamic-roundend-points-roundstart = Roundstart budget: {$points}.
+dynamic-roundend-points-midround = Midround budget: {$points}.
+
+dynamic-roundend-gamerules-title = Executed Roundstart Gamerules:
 
 dynamic-gamerule-unknown-title = Unknown Gamerule
 dynamic-gamerule-traitor-title = [color=crimson]Traitors[/color]
@@ -9,6 +12,8 @@ dynamic-gamerule-thief-title = [color=gray]Thieves[/color]
 dynamic-gamerule-revolutionary-title = [color=cyan]Revolutionaries[/color]
 dynamic-gamerule-zombies-title = [color=pink]Initial Infected[/color]
 dynamic-gamerule-nukeops-title = [color=red]Nuclear Emergency[/color]
+
+dynamic-gamerule-threat-perrule = {$num} threat.
 
 dynamic-gamerule-skeleton-title = Closet Skeleton Spawn
 dynamic-gamerule-ninja-title = Space Ninja Spawn
@@ -26,41 +31,33 @@ dynamic-gamerule-midround-zombies-title = Romerol Outbreak (Zombies)
 
 
 dynamic-fax-threat-none =
-[color=#1b67a5]█▄ █ ▀█▀    [head=3]Advisory Level[/head]
-█ ▀█     █        Green Star[/color]
-──────────────────────────────────────────
-Your sector's advisory level is Green Star.
-Surveillance information shows no credible threats to Nanotrasen assets within the Spinward Sector at this time.
-As always, the Department of Intelligence advises maintaining vigilance against potential threats, regardless of a lack of known threats.
+    Your station orbits within reliably mundane, secure space.
+    Although Nanotrasen has a firm grip on security in your region, the valuable resources and strategic position aboard your station make it a potential target for infiltrations.
+    Monitor crew for non-loyal behavior, but expect a relatively tame shift free of large-scale destruction.
+    We expect great things from your station.
 
 dynamic-fax-threat-low =
-[color=#1b67a5]█▄ █ ▀█▀    [head=3]Advisory Level[/head]
-█ ▀█     █        Yellow Star[/color]
-──────────────────────────────────────────
-Your sector's advisory level is Yellow Star.
-Surveillance shows a credible risk of enemy attack against our assets in the Spinward Sector.
-We advise a heightened level of security alongside maintaining vigilance against potential threats.
+    Although your station lies within what is generally considered Nanotrasen-controlled space,
+    the course of its orbit has caused it to cross unusually close to exogeological features with anomalous readings.
+    Although these features offer opportunities for our research department,
+    it is known that these little understood readings are often correlated with increased activity from competing interstellar organizations and individuals,
+    among them the Wizard Federation and Cult of the Geometer of Blood - all known competitors for Anomaly Type B sites.
+    Exercise elevated caution.
 
 dynamic-fax-threat-mid =
-[color=#1b67a5]█▄ █ ▀█▀    [head=3]Advisory Level[/head]
-█ ▀█     █        Orange Star[/color]
-──────────────────────────────────────────
-Your sector's advisory level is Orange Star.
-Upon reviewing your sector's intelligence, the Department has determined that the risk of enemy activity is moderate to severe.
-At this advisory, we recommend maintaining a higher degree of security and reviewing red alert protocols with command and the crew.
+    Congratulations and thank you for participating in the NT 'Frontier' space program!
+    Your station is actively orbiting a high value system far from the nearest support stations.
+    Little is known about your region of space, and the opportunity to encounter the unknown invites greater glory.
+    You are encouraged to elevate security as necessary to protect Nanotrasen assets.
 
 dynamic-fax-threat-high =
-[color=#1b67a5]█▄ █ ▀█▀    [head=3]Advisory Level[/head]
-█ ▀█     █        Red Star[/color]
-──────────────────────────────────────────
-Your sector's advisory level is Red Star.
-The Department of Intelligence has decrypted Cybersun communications suggesting a high likelihood of attacks on Nanotrasen assets within the Spinward Sector.
-Stations in the region are advised to remain highly vigilant for signs of enemy activity and to be on high alert.
+    As part of a mandatory security protocol, we are required to inform you that as a result of your orbital pattern directly behind an astrological body (oriented from our nearest observatory), your station will be under decreased monitoring and support.
+    It is anticipated that your extreme location and decreased surveillance could pose security risks.
+    Avoid unnecessary risks and attempt to keep your station in one piece.
 
 dynamic-fax-threat-max =
-[color=#1b67a5]█▄ █ ▀█▀    [head=3]Advisory Level[/head]
-█ ▀█     █        Midnight Sun[/color]
-──────────────────────────────────────────
-Your sector's advisory level is Midnight Sun.
-Credible information passed to us by GDI suggests that the Syndicate is preparing to mount a major concerted offensive on Nanotrasen assets in the Spinward Sector to cripple our foothold there.
-All stations should remain on high alert and prepared to defend themselves.
+    Your station is somehow in the middle of hostile territory, in clear view of any enemy of the corporation.
+    Your likelihood to survive is low, and station destruction is expected and almost inevitable.
+    Secure any sensitive material and neutralize any enemy you will come across.
+    It is important that you at least try to maintain the station
+    Good Luck.

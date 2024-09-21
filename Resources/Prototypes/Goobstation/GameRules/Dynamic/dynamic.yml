@@ -1,17 +1,35 @@
-# some info on the dynamic gamemode
-# all prototypes are being edited in the game
-# TODO: store gamerules on server
+# M stands for Major gamerule
+# it means that
+# - it cannot be spawned more than once
+# - all the other major gamerules are cancelled out (roundstart)
 
+# add all roundstart antags here
 - type: dataset
   id: DynamicRoundstartGamerules
   values:
-  - TraitorDynamic
-  - ThiefDynamic
-  - ChangelingDynamic
-  - HereticDynamic
-  - RevolutionDynamic
-  - NukeopsDynamic
-  # cult wyci
+  - TraitorDynamic # traitors
+  - ThiefDynamic # thieves (spy wyci)
+  - ChangelingDynamic # changelings
+  - HereticDynamic # heretics
+  - RevolutionDynamic # revs (M)
+  - NukeopsDynamic # nukies (M)
+  # cult wyci (M)
+
+# add all antag related events here
+- type: dataset
+  id: DynamicMidroundGamerules
+  values:
+  - TraitorDynamicMidround # sleeper agents
+  - ChangelingDynamicMidround # sleeper lings
+  - HereticDynamicMidround # sleeper heretics
+  - SkeletonDynamicMidround # skeleton spawn
+  - RevolutionDynamicMidround # sleeper revs (M)
+  - NukeopsDynamicMidround # lone operative spawn (M)
+  - NinjaDynamicMidround # space ninja spawn (M)
+  - RatkingDynamicMidround # rat king spawn (M)
+  - DragonDynamicMidround # space dragon spawn (M)
+  - RevenantDynamicMidround # revenant spawn (M)
+  # blob wyci (M)
 
 - type: entity
   parent: BaseGameRuleDynamic

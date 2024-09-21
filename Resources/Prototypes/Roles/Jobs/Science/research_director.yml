@@ -16,17 +16,17 @@
   icon: "JobIconResearchDirector"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  #canBeAntag: false
   access:
   - Research
   - Command
   - Maintenance
   - ResearchDirector
-  - Brig
+  #- Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff

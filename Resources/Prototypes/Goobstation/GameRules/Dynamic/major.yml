@@ -1,4 +1,6 @@
-# major antags that get picked once during roundstart
+# major antags that get picked once during roundstart.
+# the max number of antags is so small because it's used for midround events too.
+# regards.
 
 # Traitor
 - type: entity
@@ -14,13 +16,11 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
-      max: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
         - AntagImmune
-        - Changeling
-        - Heretic
       lateJoinAdditional: true
       mindComponents:
       - type: TraitorRole
@@ -53,14 +53,12 @@
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
-      max: 1
+      max: 2
       playerRatio: 15
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      components:
-      - type: Pacified
       mindComponents:
       - type: ThiefRole
         prototype: Thief
@@ -85,7 +83,7 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 1
+      max: 2
       playerRatio: 10
       blacklist:
         components:
@@ -115,13 +113,11 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 1
+      max: 2
       playerRatio: 15
       blacklist:
         components:
         - AntagImmune
-        - Changeling
-        - Traitor
       lateJoinAdditional: true
       mindComponents:
       - type: HereticRole
@@ -140,12 +136,16 @@
     highImpact: true
   - type: RevolutionaryRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 20
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 1
+      max: 2
       playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+        - CommandStaff
       briefing:
         text: head-rev-role-greeting
         color: CornflowerBlue
