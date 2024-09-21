@@ -22,7 +22,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.90
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.2 # 20% resistance
+    coefficient: 0.8 # 20% resistance
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -59,7 +59,7 @@
     damageCoefficient: 0.9
   - type: GroupExamine
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.3 # 30% resistance
+    coefficient: 0.7 # 30% resistance
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -81,7 +81,7 @@
   - type: ExplosionResistance
     damageCoefficient: 0.80
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.15 # 15% resistance
+    coefficient: 0.85 # 15% resistance
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -179,7 +179,7 @@
     autoRecharge: true
     autoRechargeRate: 2
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.3 # 30% resistance
+    coefficient: 0.7 # 30% resistance
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMinorContraband ]
@@ -200,7 +200,7 @@
         Heat: 0.5
   - type: GroupExamine
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.25 # 25% resistance
+    coefficient: 0.75 # 25% resistance
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -225,7 +225,7 @@
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.35 # 35% resistance
+    coefficient: 0.65 # 35% resistance
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -297,7 +297,7 @@
     damageCoefficient: 0.65
   - type: GroupExamine
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.2 # 20% resistance
+    coefficient: 0.8 # 20% resistance
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -327,7 +327,7 @@
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.3 # 30% resistance
+    coefficient: 0.7 # 30% resistance
     
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -357,7 +357,7 @@
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.15 # 15% resistance
+    coefficient: 0.85 # 15% resistance
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -380,4 +380,4 @@
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
   - type: StaminaDamageResistance # borealstation
-    coefficient: 0.25 # 25% resistance
+    coefficient: 0.75 # 25% resistance
