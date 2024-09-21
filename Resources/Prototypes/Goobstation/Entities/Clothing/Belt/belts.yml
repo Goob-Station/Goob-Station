@@ -22,7 +22,9 @@
     - type: ActiveListener
       range: 10
     - type: Sprite
-      sprite: Clothing/Belt/champion.rsi
+      sprite: Goobstation/Clothing/Belt/nopro.rsi
     - type: Clothing
-      sprite: Clothing/Belt/champion.rsi
+      sprite: Goobstation/Clothing/Belt/nopro.rsi
       quickEquip: true
+    - type: StationAiVision
+      range: 4
