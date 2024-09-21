@@ -124,6 +124,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSpatio
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.9 # 10% resistance
 
 #Salvage Hardsuit
 - type: entity
@@ -155,6 +157,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSalvage
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.9 # 10% resistance
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
@@ -187,6 +191,8 @@
     coolingCoefficient: 0.001
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitMaxim
+    - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #Security Hardsuit
 - type: entity
@@ -217,6 +223,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurity
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #Brigmedic Hardsuit
 - type: entity
@@ -244,6 +252,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBrigmedic
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #Warden's Hardsuit
 - type: entity
@@ -274,6 +284,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWarden
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #Captain's Hardsuit
 - type: entity
@@ -306,6 +318,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitCap
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 #Chief Engineer's Hardsuit
 - type: entity
@@ -443,6 +457,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSecurityRed
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -474,6 +490,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitLuxury
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -676,6 +694,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitWizard
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #Ling Space Suit
 - type: entity
@@ -738,6 +758,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.8 # 20% resistance
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -771,6 +793,8 @@
     clothingPrototype: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.65 # 35% resistance
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -786,6 +810,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTLeader
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -800,6 +826,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTChaplain
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -814,6 +842,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTEngineer
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #ERT Medic Hardsuit
 - type: entity
@@ -828,6 +858,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTMedical
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #ERT Security Hardsuit
 - type: entity
@@ -846,6 +878,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -860,6 +894,8 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitERTJanitor
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.5 # 50% resistance
 
 #Deathsquad
 - type: entity
@@ -897,6 +933,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitDeathsquad
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.40 # 60% resistance
 
 #CBURN Hardsuit
 - type: entity
@@ -934,6 +972,8 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetCBURN
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.7 # 30% resistance
 
 #MISC. HARDSUITS
 #Clown Hardsuit
