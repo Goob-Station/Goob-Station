@@ -18,6 +18,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.25 # 25% resistance
 
 #Mercenary web vest
 - type: entity
@@ -39,6 +41,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.9
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.2 # 20% resistance
 
 #Detective's vest
 - type: entity
@@ -51,6 +55,8 @@
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Vests/detvest.rsi
+  - type: StaminaDamageResistance # goobstation
+    coefficient: 0.2 # 20% resistance
 
 #Hazard vest
 - type: entity
