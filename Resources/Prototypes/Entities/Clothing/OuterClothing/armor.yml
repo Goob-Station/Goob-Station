@@ -21,6 +21,8 @@
         Heat: 0.80
   - type: ExplosionResistance
     damageCoefficient: 0.90
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.2 # 20% resistance
 
 #Alternate / slim basic armor vest
 - type: entity
@@ -37,7 +39,7 @@
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseRestrictedContraband]
-  id: ClothingOuterArmorRiot
+  id: Riot
   name: riot suit
   description: A suit of semi-flexible polycarbonate body armor with heavy padding to protect against melee attacks. Perfect for fighting delinquents around the station.
   components:
@@ -56,6 +58,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.9
   - type: GroupExamine
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.3 # 30% resistance
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -76,6 +80,8 @@
         Heat: 0.9
   - type: ExplosionResistance
     damageCoefficient: 0.80
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.15 # 15% resistance
 
 - type: entity
   parent: ClothingOuterArmorBasic
@@ -98,6 +104,8 @@
     reflectProb: 1
     reflects:
       - Energy
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.20 # 20% resistance
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseSyndicateContraband ]
@@ -170,6 +178,8 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 2
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.3 # 30% resistance
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, BaseMinorContraband ]
@@ -189,6 +199,8 @@
         Piercing: 0.6
         Heat: 0.5
   - type: GroupExamine
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.25 # 25% resistance
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -212,6 +224,8 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.35 # 35% resistance
 
 - type: entity
   parent: ClothingOuterArmorHeavy
@@ -282,6 +296,8 @@
   - type: ExplosionResistance
     damageCoefficient: 0.65
   - type: GroupExamine
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.2 # 20% resistance
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -310,7 +326,9 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.3 # 30% resistance
+    
 - type: entity
   parent: ClothingOuterBaseLarge
   id: ClothingOuterArmorBone
@@ -338,6 +356,8 @@
     node: armor
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.15 # 15% resistance
 
 - type: entity
   parent: ClothingOuterBaseLarge
@@ -359,4 +379,5 @@
   - type: GroupExamine
   - type: ClothingRequiredStepTriggerImmune
     slots: WITHOUT_POCKET
-
+  - type: StaminaDamageResistance # borealstation
+    coefficient: 0.25 # 25% resistance
