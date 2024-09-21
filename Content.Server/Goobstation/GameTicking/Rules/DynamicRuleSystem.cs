@@ -168,7 +168,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             pickedRules.Add(rulesetNonNull);
 
             // if one chosen ruleset is high impact we cancel every other high impact ruleset
-            if (r.HighImpact)
+            if (r.HighImpact && !component.Unforgiving)
                 foreach (var otherRule in draftedRules)
                     if (otherRule != null && otherRule.Value.Item2.HighImpact)
                         draftedRules[draftedRules.IndexOf(otherRule)] = null;
