@@ -7,5 +7,5 @@ public sealed partial class WeaponRandomExplodeComponent : Component
     public float explosionChance;
 
     [DataField, AutoNetworkedField]
-    public bool multiplyByCharge = false;
+    public float multiplyByCharge;
 }

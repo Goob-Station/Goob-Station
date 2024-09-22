@@ -140,7 +140,6 @@
   cost: 10000
   recipeUnlocks:
   - WeaponLaserCannon
-  - WeaponPlasmaRifle # Goobstation
 
 - type: technology
   id: WaveParticleHarnessing

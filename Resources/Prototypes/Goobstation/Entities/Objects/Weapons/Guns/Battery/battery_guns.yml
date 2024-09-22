@@ -29,7 +29,7 @@
 
 - type: entity
   name: Plasma Rifle
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: BaseWeaponBattery
   id: WeaponPlasmaRifle
   description: It may or may not explode in your face.
   components:
@@ -48,16 +48,16 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: Battery
-    maxCharge: 1500
-    startingCharge: 1500
+    maxCharge: 600
+    startingCharge: 600
   - type: MaterialEnergy
     materialWhiteList: [Plasma]
   - type: ProjectileBatteryAmmoProvider
     proto: BulletPlasmaCutterStrong
-    fireCost: 300
+    fireCost: 100
   - type: WeaponRandomExplode
     explosionChance: 0.16
-    multiplyByCharge: true
+    multiplyByCharge: 1.0
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -69,7 +69,7 @@
   suffix: Empty
   components:
   - type: Battery
-    maxCharge: 1500
+    maxCharge: 600
     startingCharge: 0
 
 - type: entity

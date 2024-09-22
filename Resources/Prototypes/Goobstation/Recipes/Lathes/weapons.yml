@@ -12,7 +12,7 @@
   result: WeaponPlasmaRifleEmpty
   completetime: 6
   materials:
-    Steel: 600
-    Glass: 300
-    Plasma: 300
-    Diamond: 100
+    Steel: 400
+    Glass: 100
+    Plastic: 50
+    Plasma: 50

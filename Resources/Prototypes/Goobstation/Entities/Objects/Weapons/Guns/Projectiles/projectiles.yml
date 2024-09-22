@@ -58,8 +58,8 @@
   - type: Projectile
     damage:
       types:
-        Heat: 30
-        Structural: 200
+        Heat: 18
+        Structural: 100
   - type: TimedDespawn
     lifetime: 0.4
   - type: PointLight

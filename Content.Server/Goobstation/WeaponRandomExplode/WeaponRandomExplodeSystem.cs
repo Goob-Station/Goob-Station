@@ -22,12 +22,16 @@ namespace Content.Server.Goobstation.WeaponRandomExplode
             if (component.explosionChance <= 0)
                 return;
 
+            TryComp<BatteryComponent>(uid, out var battery);
+            if (battery == null || battery.CurrentCharge <= 0)
+                return;
+
             if (_random.Prob(component.explosionChance))
             {
                 var intensity = 1; 
-                if (component.multiplyByCharge)
+                if (component.multiplyByCharge > 0)
                 {
-                    intensity = MultiplyByCharge(uid);                   
+                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 100));                 
                 }
 
                 _explosionSystem.QueueExplosion(
@@ -38,14 +42,6 @@ namespace Content.Server.Goobstation.WeaponRandomExplode
                     maxTileIntensity: 10);
                 QueueDel(uid);
             }
-        }
-
-        private int MultiplyByCharge(EntityUid uid)
-        {
-            TryComp<BatteryComponent>(uid, out var battery);
-            if (battery == null)
-                return 1;
-            return Convert.ToInt32(battery.CurrentCharge / 100);
         }
     }
 }
