@@ -1,1 +1,1 @@
-research-technology-weapon-plasma-rifle = Experemental plasma rifle
+research-technology-weapon-plasma-rifle = Experimental plasma rifle
