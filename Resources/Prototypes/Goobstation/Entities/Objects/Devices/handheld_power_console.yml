@@ -1,6 +1,6 @@
 - type: entity
   id: BaseHandheldStationMapPowerCe
-  name: Handheld power console
+  name: handheld power console
   description: Fine-crafted handheld power map console for Chief Engineers. Allows the user to view the powergrid.
   parent: BaseItem
   components:
@@ -9,7 +9,7 @@
       sprite: Goobstation/Objects/Devices/tablets.rsi
       layers:
         - state: tablet
-        - state: genericpowerconsole
+        - state: powerconsole
           shader: unshaded
     - type: ActivatableUI
       inHandsOnly: true

@@ -396,6 +396,7 @@
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
+  - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity
 
@@ -491,11 +492,13 @@
   groups:
   - GroupTankHarness
   - ReporterJumpsuit
+  - ReporterOuterClothing # Goobstation - Bodycams
   - CommonBackpack
   - Glasses
   - Survival
   - Trinkets
   - GroupSpeciesBreathTool
+
 
 - type: roleLoadout
   id: JobPsychologist
@@ -569,6 +572,13 @@
   - SurvivalSyndicate
   - GroupSpeciesBreathTool
   - GroupTankHarness
+
+- type: roleLoadout
+  id: RoleSurvivalNukie
+  groups:
+  - SurvivalSyndicate
+  - GroupSpeciesBreathTool
+  - GroupPocketTankDouble
 
 - type: roleLoadout
   id: RoleSurvivalEVA

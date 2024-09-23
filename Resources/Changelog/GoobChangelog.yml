@@ -1166,3 +1166,31 @@ Entries:
       message: Bagel has a proper shuttle building area now.
   id: 144
   time: '2024-09-21T13:53:59.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Body cameras are now available for security and reporters in the
+        loadout.
+    - type: Add
+      message: Handheld television are here, you aren't allowed to have them though :)
+  id: 145
+  time: '2024-09-23T01:37:21.0000000+00:00'
+- author: Teapug
+  changes:
+    - type: Add
+      message: Added a guidebook entry for medical patches.
+  id: 146
+  time: '2024-09-23T01:40:35.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Mail added to the game.
+  id: 147
+  time: '2024-09-23T01:42:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: AI can now see through the eyes of NT silicon.
+  id: 148
+  time: '2024-09-23T01:42:49.0000000+00:00'
