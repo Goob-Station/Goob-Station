@@ -1,0 +1,9 @@
+- type: loadout
+  id: Bodycam
+  equipment:
+    outerClothing: SurveillanceWirelessCameraBodySecurity
+
+- type: loadout
+  id: NoPro
+  equipment:
+    outerClothing: SurveillanceWirelessCameraBodyEntertainment
