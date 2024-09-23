@@ -32,7 +32,7 @@
   # blob wyci (M)
 
 - type: entity
-  parent: BaseGameRuleDynamic
+  parent: BaseGameRule
   id: Dynamic
   components:
   - type: GameRule
@@ -41,6 +41,21 @@
       max: 10
   - type: DynamicRule
     roundstartRulesPool: DynamicRoundstartGamerules
+
+- type: entity
+  parent: Dynamic
+  id: DynamicUnforgiving
+  components:
+  - type: DynamicRule
+    roundstartRulesPool: DynamicRoundstartGamerules
+    unforgiving: true
+    maxThreat: 1000 # god save us all
+
+- type: entity
+  parent: BaseGameRule
+  id: DynamicStationEventScheduler
+  components:
+  - type: DynamicStationEventScheduler
 
 # game preset here for various reasons
 # most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
@@ -55,6 +70,23 @@
   showInVote: true
   rules:
     - Dynamic
+    - DynamicStationEventScheduler
+    - MeteorSwarmScheduler
+    - SpaceTrafficControlEventScheduler
+    - SpaceTrafficControlFriendlyEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: DynamicUnforgiving
+  alias:
+    - dynamic2
+    - aao2
+    - deathrollercoaster
+  name: gamemode-dynamic-u-title
+  description: gamemode-dynamic-u-description
+  showInVote: true
+  rules:
+    - DynamicUnforgiving
     - DynamicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler

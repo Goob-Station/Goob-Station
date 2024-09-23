@@ -21,7 +21,7 @@ public sealed partial class DynamicRuleComponent : Component
     [DataField] public float LowpopMaxThreat = 40f;
 
     /// <summary>
-    ///     
+    ///     Maximum amount of threat available
     /// </summary>
     [DataField] public float MaxThreat = 100f;
 
