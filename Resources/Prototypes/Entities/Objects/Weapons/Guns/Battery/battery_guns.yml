@@ -821,7 +821,7 @@
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 400
+      fireCost: 200
       name: ion
       state: special
   - type: MagazineVisuals

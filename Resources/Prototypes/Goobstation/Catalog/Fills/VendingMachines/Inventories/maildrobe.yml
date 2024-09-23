@@ -1,0 +1,14 @@
+- type: vendingMachineInventory
+  id: MailDrobeInventory
+  startingInventory:
+    ClothingUniformMailCarrier: 2
+    ClothingUniformSkirtMailCarrier: 2
+    ClothingHeadMailCarrier: 2
+    ClothingHeadsetCargo: 2
+    ClothingOuterWinterCoatMail: 2
+    ClothingShoesColorBrown: 2
+    ClothingEyesGlasses: 2
+    ClothingHandsGlovesColorWhite: 2
+    MailBag: 2
+    WeaponMailLake: 1 # Frontier
+    BoxMailCapsulePrimed: 2 # Frontier

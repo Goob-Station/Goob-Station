@@ -1,0 +1,16 @@
+- type: entity
+  parent: BaseMail
+  id: MailScienceRareMaterials
+  suffix: Rare materials
+  components:
+  - type: Mail
+    contents:
+    - id: IngotGold
+      amount: 0
+      maxAmount: 5
+    - id: IngotSilver
+      amount: 0
+      maxAmount: 5
+    - id: SheetUranium
+      amount: 0
+      maxAmount: 2

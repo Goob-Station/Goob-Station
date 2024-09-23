@@ -21,3 +21,9 @@
   values:
     prefix: advertisement-weebvend-
     count: 3
+
+- type: localizedDataset
+  id: MailDrobeAds
+  values:
+    prefix: advertisement-maildrobe-
+    count: 2

@@ -1,0 +1,4 @@
+- type: guideEntry
+  id: Medicalpatches
+  name: guide-entry-medpatches
+  text: "/ServerInfo/Goobstation/Guidebook/Medical/Medicalpatches.xml"
