@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Timfa, plus edits by portfiend",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cart-cri"
+        },
+        {
+            "name": "cart-mail"
+        }
+    ]
+}
