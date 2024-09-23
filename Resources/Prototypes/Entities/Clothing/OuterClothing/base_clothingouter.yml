@@ -143,6 +143,7 @@
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
+  - type: ProtectedFromStepTriggers
 
 - type: entity
   abstract: true
@@ -162,7 +163,7 @@
   - type: HeldSpeedModifier
   - type: Item
     size: Huge
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: Tag #Goobstation
     tags:
