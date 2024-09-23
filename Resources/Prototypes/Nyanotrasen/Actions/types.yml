@@ -2,7 +2,7 @@
   id: ActionEatMouse
   name: action-name-eat-mouse
   description: action-description-eat-mouse
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: Nyanotrasen/Icons/verbiconfangs.png
@@ -12,7 +12,7 @@
   id: ActionHairball
   name: action-name-hairball
   description: action-description-hairball
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     charges: 1

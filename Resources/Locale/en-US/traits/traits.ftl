@@ -62,3 +62,9 @@ trait-buddhist-desc = You are a Buddhist.
 
 trait-christian-name = Christian
 trait-christian-desc = You are a Christian.
+
+trait-french-name = French accent
+trait-french-desc = Your accent seems to have a certain «je ne sais quoi».
+
+trait-spanish-name = Spanish accent
+trait-spanish-desc = Hola señor, donde esta la biblioteca.
