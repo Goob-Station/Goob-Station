@@ -1166,3 +1166,13 @@ Entries:
       message: Bagel has a proper shuttle building area now.
   id: 144
   time: '2024-09-21T13:53:59.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Body cameras are now available for security and reporters in the
+        loadout.
+    - type: Add
+      message: Handheld television are here, you aren't allowed to have them though :)
+  id: 145
+  time: '2024-09-23T01:37:21.0000000+00:00'
