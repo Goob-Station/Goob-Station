@@ -1176,3 +1176,9 @@ Entries:
       message: Handheld television are here, you aren't allowed to have them though :)
   id: 145
   time: '2024-09-23T01:37:21.0000000+00:00'
+- author: Teapug
+  changes:
+    - type: Add
+      message: Added a guidebook entry for medical patches.
+  id: 146
+  time: '2024-09-23T01:40:35.0000000+00:00'
