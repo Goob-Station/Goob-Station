@@ -73,6 +73,8 @@
           Searching: { state: pai-searching-overlay }
           On: { state: pai-on-overlay }
   - type: StationMap
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]
@@ -105,6 +107,8 @@
           Off: { state: syndicate-pai-off-overlay }
           Searching: { state: syndicate-pai-searching-overlay }
           On: { state: syndicate-pai-on-overlay }
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    enabled: false
 
 - type: entity
   parent: PersonalAI
