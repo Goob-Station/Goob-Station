@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Ghost;
+namespace Content.Shared.Goobstation.Ghost;
 
 /// <summary>
 /// Marker component to identify "ghostly" entities.

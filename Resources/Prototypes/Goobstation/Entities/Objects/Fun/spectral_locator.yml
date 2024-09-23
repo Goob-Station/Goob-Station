@@ -6,7 +6,7 @@
   suffix: Unpowered
   components:
   - type: Sprite
-    sprite: Objects/Fun/spectrallocator.rsi
+    sprite: Goobstation/Objects/Fun/spectrallocator.rsi
     layers:
       - state: icon
       - state: screen
