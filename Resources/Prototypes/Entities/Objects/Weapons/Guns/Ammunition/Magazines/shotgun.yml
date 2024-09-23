@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazineShotgun
   name: ammo drum (.50 shells)
-  parent: BaseItem
+  parent: [ BaseItem, BaseRestrictedContraband ]
   abstract: true
   components:
   - type: Tag
@@ -32,21 +32,6 @@
     steps: 2
     zeroVisible: false
   - type: Appearance
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_pickup.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/ammobox_drop.ogg
-      params:
-        volume: -1
 
 - type: entity
   id: MagazineShotgunEmpty

@@ -5,7 +5,6 @@
   id: BaseMobDiona
   abstract: true
   components:
-  - type: Absorbable # Goobstation - changelings
   - type: HumanoidAppearance
     species: Diona
   - type: Hunger

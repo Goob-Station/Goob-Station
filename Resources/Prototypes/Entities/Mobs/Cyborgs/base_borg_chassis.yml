@@ -166,6 +166,7 @@
   - type: LockedWiresPanel
   - type: Damageable
     damageContainer: Silicon
+    damageModifierSet: Silicon #Goobstation - Iondamage
   - type: Destructible
     thresholds:
     - trigger:
@@ -233,7 +234,7 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -284,6 +285,8 @@
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 3
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -317,3 +320,8 @@
       Unsexed: UnisexSiliconSyndicate
   - type: PointLight
     color: "#dd200b"
+  - type: Damageable #Goobstation - Ion Damage
+    damageContainer: Silicon
+    damageModifierSet: SiliconProtected
+  - type: ExplosionResistance
+    damageCoefficient: 0.5

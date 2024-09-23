@@ -16,6 +16,9 @@
   id: Ambrosia
 
 - type: Tag
+  id: AnomalyHost
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag
@@ -205,6 +208,9 @@
   id: BorgServiceTorso
 
 - type: Tag
+  id: Bot
+
+- type: Tag
   id: BotanyHatchet
 
 - type: Tag
@@ -221,6 +227,9 @@
 
 - type: Tag
   id: BoxHug
+
+- type: Tag # goob edit
+  id: Brain
 
 - type: Tag
   id: BrassInstrument
@@ -581,6 +590,9 @@
 - type: Tag
   id: ExplosivePassable
 
+- type: Tag # goob edit
+  id: Eyes
+
 - type: Tag
   id: Figurine
 
@@ -719,6 +731,9 @@
 - type: Tag
   id: Head
 
+- type: Tag # goob edit
+  id: Heart
+
 - type: Tag
   id: HelmetEVA
 
@@ -812,6 +827,9 @@
 - type: Tag
   id: KeyedInstrument
 
+- type: Tag # goob edit
+  id: Kidneys
+
 - type: Tag
   id: KitchenKnife
 
@@ -829,6 +847,12 @@
 
 - type: Tag
   id: Lime
+
+- type: Tag # goob edit
+  id: Liver
+
+- type: Tag # goob edit
+  id: Lungs
 
 - type: Tag
   id: Machete
@@ -977,6 +1001,9 @@
 
 - type: Tag
   id: Ore
+
+- type: Tag # goob edit
+  id: Organ
 
 - type: Tag
   id: Packet
@@ -1145,6 +1172,15 @@
   id: SecBeltEquip
 
 - type: Tag
+  id: SecurePlasmaWindoor
+
+- type: Tag
+  id: SecureUraniumWindoor
+
+- type: Tag
+  id: SecureWindoor
+
+- type: Tag  
   id: SecurityHelmet
 
 - type: Tag
@@ -1236,6 +1272,9 @@
 - type: Tag
   id: Steak
 
+- type: Tag # goob edit
+  id: Stomach
+
 - type: Tag
   id: StringInstrument
 
@@ -1290,6 +1329,9 @@
 - type: Tag
   id: TimerSignalElectronics
 
+- type: Tag # goob edit
+  id: Tongue
+
 - type: Tag
   id: Toolbox
 
@@ -1328,6 +1370,9 @@
 
 - type: Tag
   id: Vegetable
+
+- type: Tag
+  id: VGRoidInterior
 
 - type: Tag
   id: VimPilot

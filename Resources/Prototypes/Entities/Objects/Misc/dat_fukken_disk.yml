@@ -22,15 +22,6 @@
     - HighRiskItem
   - type: StealTarget
     stealGroup: NukeDisk
-  - type: EmitSoundOnPickup # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/disk_pickup.ogg
-  - type: EmitSoundOnDrop # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/disk_drop.ogg
-  - type: EmitSoundOnLand # goob edit
-    sound:
-      path: /Audio/Goobstation/Items/Handling/disk_drop.ogg
 
 - type: entity
   name: nuclear authentication disk

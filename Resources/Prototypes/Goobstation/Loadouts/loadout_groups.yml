@@ -39,3 +39,9 @@
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+
+- type: loadoutGroup
+  id: ReporterOuterClothing
+  name: loadout-group-reporter-outerclothing
+  loadouts:
+  - NoPro
