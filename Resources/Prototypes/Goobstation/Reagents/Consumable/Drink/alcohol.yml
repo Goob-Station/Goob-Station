@@ -4,7 +4,7 @@
   parent: BaseAlcohol
   desc: reagent-desc-sigmajuice
   physicalDesc: reagent-physical-desc-sigma
-  flavor: sigmajuice
+  flavor: sigma
   color: "#42f5d4"
   metamorphicSprite:
     sprite: Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
