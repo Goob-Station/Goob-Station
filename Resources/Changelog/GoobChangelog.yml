@@ -1188,3 +1188,9 @@ Entries:
       message: Mail added to the game.
   id: 147
   time: '2024-09-23T01:42:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: AI can now see through the eyes of NT silicon.
+  id: 148
+  time: '2024-09-23T01:42:49.0000000+00:00'
