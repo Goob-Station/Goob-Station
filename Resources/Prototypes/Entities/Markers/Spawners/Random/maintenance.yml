@@ -287,6 +287,8 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
+      # Goobstation - Spectral locator
+      - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
 
