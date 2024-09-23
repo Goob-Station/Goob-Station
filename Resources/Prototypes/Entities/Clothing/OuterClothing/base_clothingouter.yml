@@ -136,14 +136,13 @@
     - Hardsuit
     - WhitelistChameleon
     - HidesHarpyWings # Goobstation
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
         Heat: 10 # the average lightbulb only does around four damage!
     slots: OUTERCLOTHING
-  - type: ProtectedFromStepTriggers
 
 - type: entity
   abstract: true

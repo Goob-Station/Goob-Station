@@ -764,10 +764,6 @@
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Burger: ExtradimensionalOrangeBurger
-      Taco: ExtradimensionalOrange
 
 - type: entity
   name: pineapple
@@ -2396,11 +2392,6 @@
     tags:
     - Fruit
     - Slice
-  - type: FoodSequenceElement
-    entries:
-      Burger: HolymelonSliceBurger
-      Taco: HolymelonSlice
-      Skewer: HolymelonSliceSkewer
 
 - type: entity
   name: grapes
@@ -2606,10 +2597,6 @@
   - type: Tag
     tags:
     - Vegetable
-  - type: FoodSequenceElement
-    entries:
-      Taco: WorldPea
-      Burger: WorldPeaBurger
 
 - type: entity
   name: pumpkin
@@ -2875,7 +2862,3 @@
   - type: Tag
     tags:
     - Fruit
-  - type: FoodSequenceElement
-    entries:
-      Taco: AnomalyBerry
-      Burger: AnomalyBerryBurger
