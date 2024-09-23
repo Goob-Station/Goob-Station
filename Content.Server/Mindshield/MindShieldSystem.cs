@@ -64,7 +64,7 @@ public sealed class MindShieldSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
             _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoobStation - turn off headrev ability to convert
-            QueueDel(implant);
+            //QueueDel(implant); - Goobstation - Headrevs should remove implant before turning on ability
             return;
         }
 

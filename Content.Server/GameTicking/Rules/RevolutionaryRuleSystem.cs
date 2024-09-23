@@ -169,7 +169,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
 
         // Goobstation - Turning on headrev ability back
-        if (TryComp<HeadRevolutionaryComponent>(ev.Target, out var headRevComp))
+        if (TryComp<HeadRevolutionaryComponent>(ev.Target, out var headRevComp) && !HasComp<MindShieldComponent>(ev.Target))
         {
             _revolutionarySystem.ToggleConvertAbility((ev.Target, headRevComp), true);
             return;
