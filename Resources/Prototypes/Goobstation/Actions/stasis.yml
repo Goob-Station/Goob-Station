@@ -2,7 +2,7 @@
   id: ActionChronoBlink
   name: Temporary shift
   description: Changes your coordinates, allowing you to teleport to nearby locations
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: WorldTargetAction
     icon:
@@ -18,4 +18,4 @@
       params:
         volume: 5
 
-    
+
