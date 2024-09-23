@@ -59,6 +59,8 @@
   - type: Clothing
     sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
 
+- type: entity
+  parent: ClothingUniformBase
   id: ClothingUniformMailCarrier
   name: mail carrier's uniform
   description: Enemy of dogs everywhere.
