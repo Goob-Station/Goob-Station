@@ -1182,3 +1182,9 @@ Entries:
       message: Added a guidebook entry for medical patches.
   id: 146
   time: '2024-09-23T01:40:35.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Mail added to the game.
+  id: 147
+  time: '2024-09-23T01:42:22.0000000+00:00'
