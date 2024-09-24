@@ -1194,3 +1194,11 @@ Entries:
       message: AI can now see through the eyes of NT silicon.
   id: 148
   time: '2024-09-23T01:42:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Spectral locator, rare maintenance loot that lets you know if any ghosts
+        are nearby. Also found in the chaplain's vendor.
+  id: 149
+  time: '2024-09-24T13:03:14.0000000+00:00'
