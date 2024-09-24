@@ -1202,3 +1202,9 @@ Entries:
         are nearby. Also found in the chaplain's vendor.
   id: 149
   time: '2024-09-24T13:03:14.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Plasma rifle.
+  id: 150
+  time: '2024-09-24T13:04:10.0000000+00:00'
