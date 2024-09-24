@@ -182,6 +182,14 @@ namespace Content.Server.Explosion.EntitySystems
 
         private void HandleDeleteTrigger(EntityUid uid, DeleteOnTriggerComponent component, TriggerEvent args)
         {
+            //Goobstation - bluespace lifeline implanter
+            if (TryComp(uid, out TransformComponent? xform) && xform.ParentUid != null)
+            {
+                EntityManager.QueueDeleteEntity(xform.ParentUid);
+                args.Handled = true;
+                return;
+            }
+
             EntityManager.QueueDeleteEntity(uid);
             args.Handled = true;
         }

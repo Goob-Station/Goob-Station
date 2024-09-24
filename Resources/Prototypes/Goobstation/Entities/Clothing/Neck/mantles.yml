@@ -1,0 +1,10 @@
+- type: entity
+  parent: [ ClothingNeckBase, BaseCentcommContraband ]
+  id: ClothingNeckMantleBlueshield
+  name: blueshield officer mantle
+  description: A comfortable and protective mantle for qualify bodyguards.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Neck/Mantle/bsomantle.rsi

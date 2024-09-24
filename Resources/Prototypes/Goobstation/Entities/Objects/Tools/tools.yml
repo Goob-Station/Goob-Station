@@ -82,3 +82,79 @@
   - type: Item
     sprite: Goobstation/Objects/Tools/rcd_chrono.rsi
   - type: RCD
+
+- type: entity
+  name: handheld fax
+  parent: BaseItem
+  id: HandheldFax
+  description: A tool that can send ton of paper on Centcomm fax.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: Structures/Machines/fax_machine.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+  - type: Icon
+    sprite: Structures/Machines/fax_machine.rsi
+    state: icon
+  - type: Appearance
+  - type: ActivatableUI
+    key: enum.FaxUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.FaxUiKey.Key:
+        type: FaxBoundUi
+  - type: Faxecute
+    damage:
+      types:
+        Blunt: 100
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 250
+  - type: FaxMachine
+    paperSlot:
+      insertSound: /Audio/Machines/scanning.ogg
+      ejectSound: /Audio/Machines/tray_eject.ogg
+      whitelist:
+        components:
+          - FaxableObject #used to be PaperComponent - brainfood1183
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.FaxMachineVisuals.VisualState:
+          True: { state: idle }
+          False: { state: icon }
+      enum.FaxMachineVisuals.VisualState:
+        enum.FaxMachineVisuals.VisualState:
+          Printing: { state: printing }
+          Normal: {state: idle}
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+    receiveFrequencyId: Fax
+    transmitFrequencyId: Fax
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      Paper: !type:ContainerSlot
+  - type: MultiHandedItem
+
+- type: entity
+  name: nanotrasen representative handheld fax
+  parent: HandheldFax
+  id: HandheldFaxNanorep
+  suffix: Nanotrasen Representative
+  components:
+  - type: FaxMachine
+    name: "Nanotrasen Representative"
+    notifyAdmins: true
+  - type: Sprite
+    sprite: Goobstation/Objects/Tools/handheld_fax.rsi
+    drawdepth: SmallObjects
+    layers:
+    - state: icon
+      map: [ "enum.FaxMachineVisuals.VisualState" ]
+    - state: scanner
+      shader: unshaded
