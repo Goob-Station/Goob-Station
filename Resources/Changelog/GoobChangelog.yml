@@ -1223,3 +1223,16 @@ Entries:
         gibbing it and leaves bluespace anomaly core after process.
   id: 151
   time: '2024-09-24T13:05:02.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Head Revolutionaries now spawn with fast draw implanter.
+    - type: Tweak
+      message: >-
+        Now mindshield implant won't destroyed when injected into head
+        revolutionary. It will have broken appearance and show red mindshield
+        icon instead of blue one. Now its necessary to remove mindshield from
+        Head Revolutionaries to toggle his ability back without flashing him
+        from another headrev.
+  id: 152
+  time: '2024-09-24T15:34:32.0000000+00:00'
