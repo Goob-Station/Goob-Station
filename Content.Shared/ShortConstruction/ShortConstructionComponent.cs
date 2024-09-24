@@ -2,6 +2,7 @@
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.ShortConstruction;
 
@@ -9,7 +10,30 @@ namespace Content.Shared.ShortConstruction;
 public sealed partial class ShortConstructionComponent : Component
 {
     [DataField(required: true)]
-    public List<ProtoId<ConstructionPrototype>> Prototypes = new();
+    public List<ShortConstructionEntry> Entries = new();
+}
+
+[DataDefinition]
+public sealed partial class ShortConstructionEntry
+{
+    [DataField]
+    public ProtoId<ConstructionPrototype>? Prototype { get; set; }
+
+    [DataField]
+    public ShortConstructionCategory? Category { get; set; }
+}
+
+[DataDefinition]
+public sealed partial class ShortConstructionCategory
+{
+    [DataField]
+    public string Name { get; set; } = string.Empty;
+
+    [DataField]
+    public SpriteSpecifier Icon { get; set; } = default!;
+
+    [DataField]
+    public List<ShortConstructionEntry> Entries { get; set; } = new();
 }
 
 [NetSerializable, Serializable]
