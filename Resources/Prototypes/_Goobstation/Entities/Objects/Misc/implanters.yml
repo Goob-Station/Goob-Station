@@ -23,9 +23,9 @@
   parent: [ BaseFastDrawImplanter, BaseMajorContraband ]
   components:
     - type: Item
-      sprite: __Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
     - type: Sprite
-      sprite: __Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
       state: implanter1
       layers:
         - state: implanter1
