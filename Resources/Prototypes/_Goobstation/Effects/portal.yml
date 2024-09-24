@@ -1,0 +1,23 @@
+- type: entity
+  id: ChronoPortal
+  name: tachyon portal
+  description: Looks futuristic.
+  parent: [ BasePortal, BaseShadow ]
+  components:
+  - type: Portal
+    arrivalSound: /Audio/Items/hiss.ogg
+    departureSound: /Audio/Items/hiss.ogg
+  - type: Sprite
+    sprite: /Textures/_Goobstation/Effects/portal.rsi
+    state: portal-chrono
+    color: "#FFFFFFFF"
+  - type: PointLight
+    color: "#e4f7ffFF"
+    radius: 5
+    energy: 2
+    netsync: false
+  - type: AmbientSound
+    range: 6
+    volume: -3
+    sound:
+      path: /Audio/Ambience/ambitech2.ogg

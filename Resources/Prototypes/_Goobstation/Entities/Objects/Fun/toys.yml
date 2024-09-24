@@ -1,0 +1,54 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieLouie
+  name: louie plushie
+  description: A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_louie
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 180
+    soundHit:
+      path: /Audio/Items/Toys/mousesqueek.ogg
+
+- type: entity
+  name: Foam Throngler
+  parent: BaseSword
+  id: FoamThrongler
+  description: Not the Throngler you wanted, But the Throngler you deserve.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Fun/Throngler-Foam.rsi
+    - type: StaminaDamageOnHit
+      damage: 8
+    - type: MeleeWeapon
+      attackRate: 1.5
+      damage:
+        types:
+          Blunt: 0
+      soundHit:
+        path: /Audio/Effects/explosion_small1.ogg
+      soundNoDamage:
+        path: /Audio/Effects/explosion_small1.ogg
+    - type: Item
+      size: Large
+      sprite: _Goobstation/Objects/Fun/Throngler-Foam-in-hand.rsi
+    - type: DisarmMalus
+      malus: 0

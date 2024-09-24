@@ -1,0 +1,66 @@
+- type: entity
+  id: TimelineDisruptor
+  name: timeline disruptor
+  description: A device capable of extracting an object placed inside from the current timeline.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Anchorable
+    delay: 4
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/Structures/Machines/timeline_disruptor.rsi
+    layers:
+    - state: base
+    - state: filled
+      map: ["containerLayer"]
+      shader: unshaded
+      visible: false
+    - state: piston
+      map: ["pistonlayer"]
+  - type: ItemSlots
+    slots:
+      disruptionSlot:
+        whitelist:
+          tags:
+          - StasisCage
+  - type: GenericVisualizer
+    visuals:
+      enum.TimelineDisruptiorVisuals.Disrupting:
+        pistonlayer:
+          True: { state: piston-push }
+          False: { state: piston }
+      enum.TimelineDisruptiorVisuals.ContainerInserted:
+        containerLayer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Appearance
+  - type: TimelineDisruptor
+  - type: ContainerContainer
+    containers:
+      disruptionSlot: !type:ContainerSlot
+        showEnts: False
+        occludes: True
+        ent: null
+  - type: Construction
+    deconstructionTarget: null
+    graph: TimelineDisruptor
+    node: timelineDisruptor
+
+

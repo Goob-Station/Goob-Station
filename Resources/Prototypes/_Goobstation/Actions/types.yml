@@ -1,0 +1,15 @@
+- type: entity
+  parent: BaseSuicideAction
+  id: ActionActivateBluespaceLifeline
+  name: Activate Bluespace Lifeline
+  description: Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: _Goobstation/Effects/bluespace_lifeline.rsi
+      state: bluespace_lifeline
+    event: !type:ActivateImplantEvent

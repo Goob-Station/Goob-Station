@@ -3,7 +3,7 @@
   id: Hiss
   name: Hiss
   category: Vocal
-  icon: Goobstation/Interface/Emotes/hiss.png
+  icon: _Goobstation/Interface/Emotes/hiss.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -22,7 +22,7 @@
   id: Meow
   name: Meow
   category: Vocal
-  icon: Goobstation/Interface/Emotes/meow.png
+  icon: _Goobstation/Interface/Emotes/meow.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -47,7 +47,7 @@
   id: Mew
   name: Mew
   category: Vocal
-  icon: Goobstation/Interface/Emotes/mew.png
+  icon: _Goobstation/Interface/Emotes/mew.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -66,7 +66,7 @@
   id: Growl
   name: Growl
   category: Vocal
-  icon: Goobstation/Interface/Emotes/growl.png
+  icon: _Goobstation/Interface/Emotes/growl.png
   whitelist:
     tags:
     - FelinidEmotes
@@ -85,7 +85,7 @@
   id: Purr
   name: Purr
   category: Vocal
-  icon: Goobstation/Interface/Emotes/purr.png
+  icon: _Goobstation/Interface/Emotes/purr.png
   whitelist:
     tags:
     - FelinidEmotes

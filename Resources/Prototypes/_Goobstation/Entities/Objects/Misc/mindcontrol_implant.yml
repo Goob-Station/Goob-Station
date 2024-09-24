@@ -1,0 +1,38 @@
+- type: entity
+  id: MindcontrolImplanter
+  name: mind control implanter
+  parent: BaseImplantOnlyImplanterSyndi
+  components:
+  - type: Implanter
+    implant: MindcontrolImplant
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: MindcontrolImplant
+  name: mind control implant
+  description: commit menticide
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: SubdermalImplant
+      whitelist:
+        components:
+        - MobState  # can implant ian.
+      blacklist:
+        components:
+        - MindShield
+        - Changeling
+        - BorgChassisComponent #dermal means skin. borgs dont have skin
+    - type: MindcontrolImplant
+
+- type: factionIcon #  There are no statusicon for group for what is needed here. a new group is needed whit ShowToUid. Faction will do for now.
+  id: MindcontrolledFaction # All mindcontrolled can tell who else is mindcontrolled.
+  isShaded: true
+  priority: 11
+  locationPreference: Left
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Mindcontrolled
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: Mindcontrolled

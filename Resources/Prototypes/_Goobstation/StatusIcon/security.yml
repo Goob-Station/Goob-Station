@@ -5,5 +5,5 @@
   layer: Mod
   isShaded: true
   icon:
-    sprite: /Textures/_Goobstation/Interface/Misc/security_icons.rsi
+    sprite: /Textures/__Goobstation/Interface/Misc/security_icons.rsi
     state: MindShield-broken

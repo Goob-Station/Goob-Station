@@ -3,7 +3,7 @@
   id: Scream
   name: chat-emote-name-scream
   category: Vocal
-  icon: Goobstation/Interface/Emotes/scream.png #Goobstation icons
+  icon: _Goobstation/Interface/Emotes/scream.png #Goobstation icons
   whitelist:
     components:
     - Vocal

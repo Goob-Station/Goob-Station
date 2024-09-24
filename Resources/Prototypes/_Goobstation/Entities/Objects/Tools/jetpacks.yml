@@ -1,0 +1,35 @@
+- type: entity
+  id: JetpackChrono
+  parent: BaseJetpack
+  name: futuristic jetpack
+  description: Magnetically attached jetpack that holds extreme amount of gas. It is used as an oxygen cylinder.
+  components:
+  - type: Item
+    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+  - type: Clothing
+    sprite: _Goobstation/Objects/Tanks/chronojet.rsi
+    slots:
+      - suitStorage
+  - type: GasTank
+    outputPressure: 1
+    air:
+      volume: 1000
+      temperature: 1
+      moles:
+        - 10000 # oxygen
+        - 10000 # nitrogen
+  - type: Jetpack
+    moleUsage: 0.00002
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1.5
+    weightlessFriction: 1
+    weightlessModifier: 2.5
+
+- type: entity
+  id: JetpackChronoUnremoveable
+  parent: JetpackChrono
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

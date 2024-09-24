@@ -1,0 +1,6 @@
+- type: stealTargetGroup
+  id: SupermatterSliver
+  name: steal-target-groups-cargo-supermatter-sliver
+  sprite:
+    sprite: _Goobstation/Supermatter/supermatter_sliver.rsi
+    state: icon

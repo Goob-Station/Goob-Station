@@ -1,0 +1,36 @@
+- type: entity
+  name: futuristic stunbaton
+  parent: Stunbaton
+  id: StasisBaton
+  description: An advanced security baton for shutting down interfering tiders
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/stasisbaton.rsi
+    layers:
+    - state: stunbaton_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Stunbaton
+    energyPerUse: 10
+  - type: ItemToggle
+    predictable: false
+    soundActivate:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.250
+    soundDeactivate:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.250
+    soundFailToActivate:
+      path: /Audio/Weapons/eblademiss.ogg
+      params:
+        variation: 0.250
+  - type: StaminaDamageOnHit
+    damage: 75
+    sound: /Audio/Weapons/egloves.ogg
+  - type: UseDelay
+  - type: Item
+    size: Small
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 5
