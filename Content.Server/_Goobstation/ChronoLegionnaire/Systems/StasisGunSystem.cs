@@ -1,10 +1,10 @@
-using Content.Server.Goobstation.ChronoLegionnaire.Components;
-using Content.Shared.Goobstation.ChronoLegionnaire.Components;
+using Content.Server._Goobstation.ChronoLegionnaire.Components;
+using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Throwing;
 
-namespace Content.Server.Goobstation.ChronoLegionnaire;
+namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 public sealed partial class StasisGunSystem : EntitySystem
 {

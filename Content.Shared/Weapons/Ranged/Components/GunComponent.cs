@@ -1,4 +1,4 @@
-using Content.Shared.Goobstation.Weapons.Multishot;
+using Content.Shared._Goobstation.Weapons.Multishot;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio;

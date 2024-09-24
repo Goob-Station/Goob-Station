@@ -4,7 +4,7 @@ using JetBrains.Annotations;
 using Robust.Shared.Physics.Dynamics.Joints;
 using Robust.Shared.Physics.Events;
 
-namespace Content.Server.Goobstation.ChronoLegionnaire;
+namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 [UsedImplicitly]
 public sealed class StasisOnCollideSystem : EntitySystem

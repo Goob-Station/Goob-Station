@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.ChronoLegionnaire;
+namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 /// <summary>
 /// Marks projectiles that will apply stasis on hit

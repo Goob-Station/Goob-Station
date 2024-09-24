@@ -1,4 +1,4 @@
-namespace Content.Shared.Goobstation.ChronoLegionnaire.Components
+namespace Content.Shared._Goobstation.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an entity that cannot be affect by stasis

@@ -5,7 +5,7 @@ using Content.Server.Stack;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Components;
 
-namespace Content.Server.Goobstation.MaterialEnergy
+namespace Content.Server._Goobstation.MaterialEnergy
 {
     public sealed class MaterialEnergySystem : EntitySystem
     {
@@ -37,15 +37,15 @@ namespace Content.Server.Goobstation.MaterialEnergy
             {
                 if (_composition.MaterialComposition.ContainsKey(fueltype))
                     AddBatteryCharge(
-                        uid, 
-                        args.Used, 
-                        _composition.MaterialComposition[fueltype], 
+                        uid,
+                        args.Used,
+                        _composition.MaterialComposition[fueltype],
                         materialStack.Count);
             }
         }
 
         private void AddBatteryCharge(
-            EntityUid cutter, 
+            EntityUid cutter,
             EntityUid _material,
             int materialPerSheet,
             int sheetsInStack)
@@ -74,8 +74,8 @@ namespace Content.Server.Goobstation.MaterialEnergy
             _batterySystem.AddCharge(cutter, chargeToAdd);
 
             var toDel = _stack.Split(
-                (EntityUid) _material, 
-                chargeToAdd / materialPerSheet, 
+                (EntityUid) _material,
+                chargeToAdd / materialPerSheet,
                 Transform(_material).Coordinates);
             QueueDel(toDel);
         }

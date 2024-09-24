@@ -6,7 +6,7 @@ using Content.Server.Stack;
 using Content.Server.Implants;
 
 
-namespace Content.Server.Goobstation.BluespaceCrystal;
+namespace Content.Server._Goobstation.BluespaceCrystal;
 
 public sealed partial class BluespaceCrystalSystem : EntitySystem
 {

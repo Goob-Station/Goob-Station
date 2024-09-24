@@ -1,7 +1,7 @@
 using Content.Server.Storage.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Goobstation.ChronoLegionnaire;
-using Content.Shared.Goobstation.ChronoLegionnaire.Components;
+using Content.Shared._Goobstation.ChronoLegionnaire;
+using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Robust.Server.Containers;
@@ -10,7 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Goobstation.ChronoLegionnaire;
+namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 public sealed class TimelineDisruptorSystem : SharedTimelineDisruptorSystem
 {

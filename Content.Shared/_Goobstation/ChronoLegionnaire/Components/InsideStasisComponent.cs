@@ -1,7 +1,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Goobstation.ChronoLegionnaire.Components
+namespace Content.Shared._Goobstation.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an entity that is under a stasis effect at the moment

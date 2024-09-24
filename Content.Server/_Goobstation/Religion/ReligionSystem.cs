@@ -1,10 +1,10 @@
 ﻿//Public Domain Code
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
-using Content.Shared.Goobstation.Religion;
+using Content.Shared._Goobstation.Religion;
 using Content.Shared.Inventory;
 
-namespace Content.Server.Goobstation.Religion;
+namespace Content.Server._Goobstation.Religion;
 
 public sealed class ReligionSystem: EntitySystem
 {
@@ -25,10 +25,10 @@ public sealed class ReligionSystem: EntitySystem
             {
                 var bible = mobReligion.Type switch
                 {
-                    Shared.Goobstation.Religion.Religion.Atheist => "BibleAtheist",
-                    Shared.Goobstation.Religion.Religion.Buddhist => "BibleBuddhist",
-                    Shared.Goobstation.Religion.Religion.Christian => "Bible",
-                    Shared.Goobstation.Religion.Religion.None => "Bible",
+                    Shared._Goobstation.Religion.Religion.Atheist => "BibleAtheist",
+                    Shared._Goobstation.Religion.Religion.Buddhist => "BibleBuddhist",
+                    Shared._Goobstation.Religion.Religion.Christian => "Bible",
+                    Shared._Goobstation.Religion.Religion.None => "Bible",
                 };
                 _inventorySystem.SpawnItemInSlot(args.Mob, "pocket1", bible, true, true);
             }

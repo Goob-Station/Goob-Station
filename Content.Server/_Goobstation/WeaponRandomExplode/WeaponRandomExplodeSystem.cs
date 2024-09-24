@@ -3,7 +3,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Power.Components;
 
-namespace Content.Server.Goobstation.WeaponRandomExplode
+namespace Content.Server._Goobstation.WeaponRandomExplode
 {
     public sealed class WeaponRandomExplodeSystem : EntitySystem
     {
@@ -28,10 +28,10 @@ namespace Content.Server.Goobstation.WeaponRandomExplode
 
             if (_random.Prob(component.explosionChance))
             {
-                var intensity = 1; 
+                var intensity = 1;
                 if (component.multiplyByCharge > 0)
                 {
-                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 100));                 
+                    intensity = Convert.ToInt32(component.multiplyByCharge * (battery.CurrentCharge / 100));
                 }
 
                 _explosionSystem.QueueExplosion(

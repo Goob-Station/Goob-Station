@@ -1,6 +1,6 @@
-using Content.Shared.Goobstation.ChronoLegionnaire;
+using Content.Shared._Goobstation.ChronoLegionnaire;
 
-namespace Content.Server.Goobstation.ChronoLegionnaire;
+namespace Content.Server._Goobstation.ChronoLegionnaire;
 
 public sealed class StasisSystem : SharedStasisSystem
 {

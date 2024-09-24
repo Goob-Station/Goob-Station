@@ -1,10 +1,10 @@
-using Content.Shared.Goobstation.ChronoLegionnaire.Components;
+using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Goobstation.ChronoLegionnaire;
+namespace Content.Client._Goobstation.ChronoLegionnaire;
 
 public sealed class StasisOverlay : Overlay
 {

@@ -10,7 +10,7 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Robust.Shared.Random;
 
-namespace Content.Server.Goobstation.Clothing;
+namespace Content.Server._Goobstation.Clothing;
 
 public sealed partial class MadnessMaskSystem : EntitySystem
 {

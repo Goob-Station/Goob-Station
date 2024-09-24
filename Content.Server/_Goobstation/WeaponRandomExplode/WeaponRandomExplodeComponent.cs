@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.WeaponRandomExplode;
+namespace Content.Server._Goobstation.WeaponRandomExplode;
 
 [RegisterComponent]
 public sealed partial class WeaponRandomExplodeComponent : Component

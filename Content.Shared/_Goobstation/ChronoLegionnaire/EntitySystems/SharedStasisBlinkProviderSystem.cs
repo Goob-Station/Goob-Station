@@ -1,7 +1,7 @@
 using Content.Shared.Actions;
-using Content.Shared.Goobstation.ChronoLegionnaire.Components;
+using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 
-namespace Content.Shared.Goobstation.ChronoLegionnaire;
+namespace Content.Shared._Goobstation.ChronoLegionnaire;
 
 public abstract class SharedStasisBlinkProviderSystem : EntitySystem
 {

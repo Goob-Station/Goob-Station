@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.Ghostbar.Components;
+namespace Content.Server._Goobstation.Ghostbar.Components;
 
 /// <summary>
 /// Target for ghosts to spawn at

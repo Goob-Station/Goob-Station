@@ -1,6 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Server.Goobstation.Objectives.Components;
+using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Objectives.Components;

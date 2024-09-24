@@ -1,6 +1,6 @@
 using Robust.Shared.Audio;
 
-namespace Content.Server.Goobstation.BluespaceCrystal;
+namespace Content.Server._Goobstation.BluespaceCrystal;
 
 /// <summary>
 /// Randomly teleports entity when triggered.

@@ -5,7 +5,7 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Utility;
 
 
-namespace Content.Shared.Goobstation.Nutrition.EntitySystems
+namespace Content.Shared._Goobstation.Nutrition.EntitySystems
 {
     public class FoodSequenceSpriteSystem : SharedFoodSequenceSystem
     {

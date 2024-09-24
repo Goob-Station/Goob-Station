@@ -5,7 +5,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared.Goobstation.Weapons.Multishot;
+namespace Content.Shared._Goobstation.Weapons.Multishot;
 
 public sealed partial class SharedMultishotSystem : EntitySystem
 {

@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.Goobstation.ChronoLegionnaire.Components;
+namespace Content.Shared._Goobstation.ChronoLegionnaire.Components;
 
 /// <summary>
 /// A component of a device that destroys a creature inside a stasis storage placed on that device.

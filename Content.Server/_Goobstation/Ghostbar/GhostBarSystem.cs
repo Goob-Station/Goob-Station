@@ -9,7 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Server.Maps;
 using Robust.Shared.Random;
 using Content.Shared.Ghost;
-using Content.Server.Goobstation.Ghostbar.Components;
+using Content.Server._Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -19,7 +19,7 @@ using Content.Shared.Inventory;
 using Content.Server.Antag.Components;
 using Content.Shared.Mindshield.Components;
 
-namespace Content.Server.Goobstation.Ghostbar;
+namespace Content.Server._Goobstation.Ghostbar;
 
 public sealed class GhostBarSystem : EntitySystem
 {

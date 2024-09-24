@@ -2,7 +2,7 @@
 
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Goobstation.Religion;
+namespace Content.Shared._Goobstation.Religion;
 
 /// <summary>
 ///     Used for religions. Systems will check for this component and its fields in order to determine if religion based

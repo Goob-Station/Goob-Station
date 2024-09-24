@@ -4,7 +4,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Database;
 using Content.Shared.Emoting;
-using Content.Shared.Goobstation.ChronoLegionnaire.Components;
+using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -20,7 +20,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Shared.Goobstation.ChronoLegionnaire;
+namespace Content.Shared._Goobstation.ChronoLegionnaire;
 
 public abstract class SharedStasisSystem : EntitySystem
 {

@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Goobstation.ChronoLegionnaire.Components
+namespace Content.Shared._Goobstation.ChronoLegionnaire.Components
 {
     /// <summary>
     /// Marks an clothing that will give stasis blink ability to wearer
