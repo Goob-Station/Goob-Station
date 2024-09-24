@@ -14,7 +14,7 @@ head-rev-briefing =
     Use flashes to convert people to your cause.
     Get rid of all heads or convert them to take over the station.
 
-head-rev-break-mindshield = The Mindshield neutralized hypnotic powers and was destroyed in the process!
+head-rev-break-mindshield = The Mindshield neutralized hypnotic powers, but its functionality has been compromised!
 
 ## Rev
 
