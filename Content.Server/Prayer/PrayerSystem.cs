@@ -7,7 +7,7 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Chat;
 using Content.Shared.Prayer;
-using Content.Shared.Goobstation.Religion;
+using Content.Shared._Goobstation.Religion;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;

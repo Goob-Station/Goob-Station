@@ -1194,3 +1194,51 @@ Entries:
       message: AI can now see through the eyes of NT silicon.
   id: 148
   time: '2024-09-23T01:42:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Spectral locator, rare maintenance loot that lets you know if any ghosts
+        are nearby. Also found in the chaplain's vendor.
+  id: 149
+  time: '2024-09-24T13:03:14.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Plasma rifle.
+  id: 150
+  time: '2024-09-24T13:04:10.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: BSO finally got loadout!
+    - type: Tweak
+      message: Nanorep got his own stamp
+    - type: Fix
+      message: Nanorep cane blade can now execute like other blades
+    - type: Tweak
+      message: >-
+        BSO death acidifier implant replaced with new centcomm bluespace
+        lifeline implant. Does same thing, but deletes your body instead of
+        gibbing it and leaves bluespace anomaly core after process.
+  id: 151
+  time: '2024-09-24T13:05:02.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Head Revolutionaries now spawn with fast draw implanter.
+    - type: Tweak
+      message: >-
+        Now mindshield implant won't destroyed when injected into head
+        revolutionary. It will have broken appearance and show red mindshield
+        icon instead of blue one. Now its necessary to remove mindshield from
+        Head Revolutionaries to toggle his ability back without flashing him
+        from another headrev.
+  id: 152
+  time: '2024-09-24T15:34:32.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: Core Rule 13 updated.
+  id: 153
+  time: '2024-09-25T13:59:38.0000000+00:00'

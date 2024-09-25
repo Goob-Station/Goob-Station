@@ -340,7 +340,6 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
-      - WeaponPlasmaCutter # Goobstation
       - WeaponTetherGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
@@ -354,6 +353,8 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+      - WeaponPlasmaCutter # Goobstation
+      - WeaponPlasmaRifle # Goobstation
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
