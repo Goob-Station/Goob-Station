@@ -68,7 +68,8 @@
     - type: WarpPoint
       follow: true
       location: supermatter
-    - type: RandomMetadata
+    - type: MetaData # Goobstation
+    - type: RandomMetadata # Goobstation
       nameSegments:
       - goob_generators_names_first
       - goob_generators_names_supermatter_last
