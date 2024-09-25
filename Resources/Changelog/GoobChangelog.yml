@@ -1236,3 +1236,9 @@ Entries:
         from another headrev.
   id: 152
   time: '2024-09-24T15:34:32.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: Core Rule 13 updated.
+  id: 153
+  time: '2024-09-25T13:59:38.0000000+00:00'
