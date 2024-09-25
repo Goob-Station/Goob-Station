@@ -1,0 +1,11 @@
+- type: technology
+  id: WeaponPlasmaRifleTech
+  name: research-technology-weapon-plasma-rifle
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 1
+  cost: 5000
+  recipeUnlocks:
+  - WeaponPlasmaRifle
