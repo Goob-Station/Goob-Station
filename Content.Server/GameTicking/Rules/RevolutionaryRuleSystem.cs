@@ -29,7 +29,8 @@ using Content.Shared.Zombies;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
-using Content.Shared.Revolutionary; // GoobStation
+using Content.Shared.Revolutionary;
+using Content.Server.Communications; // GoobStation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -64,6 +65,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         SubscribeLocalEvent<HeadRevolutionaryComponent, MobStateChangedEvent>(OnHeadRevMobStateChanged);
         SubscribeLocalEvent<RevolutionaryRoleComponent, GetBriefingEvent>(OnGetBriefing);
         SubscribeLocalEvent<HeadRevolutionaryComponent, AfterFlashedEvent>(OnPostFlash);
+        // goob edit
+        SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnTryCallEvac);
     }
 
     protected override void Started(EntityUid uid, RevolutionaryRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
@@ -204,7 +207,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         CheckCommandLose();
     }
 
-    //TODO: Enemies of the revolution
+    //~~TODO: Enemies of the revolution~~
+    // goob edit: too bad wizden goob did it first :trollface:
     private void OnCommandMobStateChanged(EntityUid uid, CommandStaffComponent comp, MobStateChangedEvent ev)
     {
         if (ev.NewMobState == MobState.Dead || ev.NewMobState == MobState.Invalid)
@@ -286,6 +290,15 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         }
 
         return false;
+    }
+
+    private void OnTryCallEvac(ref CommunicationConsoleCallShuttleAttemptEvent ev)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var revs, out _))
+        {
+
+        }
     }
 
     /// <summary>
