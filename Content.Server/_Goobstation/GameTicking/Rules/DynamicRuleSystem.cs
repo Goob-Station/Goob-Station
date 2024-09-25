@@ -1,4 +1,6 @@
 using Content.Server.Antag;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -10,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
 
-namespace Content.Server.GameTicking.Rules;
+namespace Content.Server._Goobstation.GameTicking.Rules;
 
 // basically all that it does is.
 // generate random amount of points.
@@ -115,7 +117,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // calculate max threat
         var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
         var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
-        var maxThreat = (players.Count < lowpopThreshold) ? lowpopThreat : component.MaxThreat;
+        var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
         component.ThreatLevel = LorentzToAmount(component.ThreatCurveCentre, component.ThreatCurveWidth, maxThreat);
 
         // distribute budgets
@@ -224,8 +226,8 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             var name = dynset.NameLoc;
 
             var executed = grd.ContainsKey(name);
-            int executedTimes = executed ? grd[name].Item1 + 1 : 1;
-            float cost = executed ? grd[name].Item2 + dynset.ScalingCost : dynset.Cost;
+            var executedTimes = executed ? grd[name].Item1 + 1 : 1;
+            var cost = executed ? grd[name].Item2 + dynset.ScalingCost : dynset.Cost;
 
             if (executed)
                 grd[name] = (executedTimes, cost);
