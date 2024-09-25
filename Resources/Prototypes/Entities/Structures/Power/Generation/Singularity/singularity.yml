@@ -103,6 +103,6 @@
   - type: SupermatterImmune # Goobstation
   - type: MetaData # Goobstation
   - type: RandomMetadata # Goobstation
-      nameSegments:
-      - goob_generators_names_first
-      - goob_generators_names_singularity_last
+    nameSegments:
+    - goob_generators_names_first
+    - goob_generators_names_singularity_last
