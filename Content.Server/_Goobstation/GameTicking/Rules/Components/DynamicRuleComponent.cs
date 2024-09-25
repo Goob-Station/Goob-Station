@@ -51,13 +51,6 @@ public sealed partial class DynamicRuleComponent : Component
 
     [DataField] public ProtoId<DatasetPrototype>? RoundstartRulesPool = null;
 
-    [DataField] public ProtoId<DatasetPrototype>? MidroundRulesPool = null;
-
-    /// <summary>
-    ///     Midround rules pool for rolling antag related events.
-    /// </summary>
-    public List<EntProtoId> MidroundRules = new();
-
     /// <summary>
     ///     Used for EORG.
     /// </summary>

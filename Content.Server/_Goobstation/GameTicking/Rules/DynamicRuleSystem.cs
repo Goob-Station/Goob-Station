@@ -1,4 +1,5 @@
 using Content.Server.Antag;
+using Content.Server.Antag.Components;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
@@ -14,18 +15,17 @@ using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
 
-// basically all that it does is.
-// generate random amount of points.
-// choose random gamerule which can only spawn 1 antag.
-// decrease points + spawn gamerule.
-// if there's a major gamerule like nukies cancel other major gamemodes out.
-
 // btw this code is god awful.
 // a single look at it burns my retinas.
 // i do not wish to refactor it.
 // all that matters is that it works.
 // regards.
 
+/// <summary>
+///     Dynamic rule system generates a random amount of points each round,
+///     assigns random weighted threats, *edits the dynamic rules minmax antag count correspondingly*
+///     and adds the gamerule to the current pool.
+/// </summary>
 public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 {
     [Dependency] private readonly EntityTableSystem _entTable = default!;
@@ -49,7 +49,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     /// <summary>
     ///     Special TG sauce formula thing.
     /// </summary>
-    private float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
+    public float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
     {
         var location = _rand.NextFloat(-5, 5) * _rand.NextFloat();
         var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(Math.Atan((centre - location) / scale)) + .5f;
@@ -61,31 +61,32 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
     }
 
-    private List<(EntityPrototype, DynamicRulesetComponent)> GetRuleset(ProtoId<DatasetPrototype> dataset)
+    public List<SDynamicRuleset> GetRulesets(ProtoId<DatasetPrototype> dataset)
     {
-        var l = new List<(EntityPrototype, DynamicRulesetComponent)>();
+        var l = new List<SDynamicRuleset>();
 
         foreach (var rprot in _proto.Index(dataset).Values)
         {
             var ruleset = _proto.Index(rprot);
 
-            if (!ruleset.TryGetComponent<DynamicRulesetComponent>(out var comp, _compfact))
+            if (!ruleset.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
+            || !ruleset.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
                 continue;
 
-            if (comp.Weight == 0)
+            if (drc.Weight == 0)
                 continue;
 
-            l.Add((ruleset, comp));
+            l.Add(new SDynamicRuleset(ruleset, drc, grc));
         }
         return l;
     }
-    private (EntityPrototype, DynamicRulesetComponent)? WeightedPickRule(List<(EntityPrototype, DynamicRulesetComponent)?> rules)
+    public SDynamicRuleset? WeightedPickRule(List<SDynamicRuleset?> rules)
     {
         // get total weight of all rules
         var sum = 0f;
         foreach (var rule in rules)
             if (rule != null)
-                sum += rule.Value.Item2.Weight;
+                sum += rule.Value.DynamicRuleset.Weight;
 
         var accumulated = 0f;
 
@@ -96,7 +97,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             if (rule == null)
                 continue;
 
-            accumulated += rule.Value.Item2.Weight;
+            accumulated += rule.Value.DynamicRuleset.Weight;
 
             if (accumulated >= rand)
                 return rule;
@@ -114,10 +115,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         var players = _antag.GetAliveConnectedPlayers(_playerManager.Sessions);
 
-        // calculate max threat
+        // check for lowpop and set max threat
         var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
         var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
         var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
+
+        // generate a random amount of points
         component.ThreatLevel = LorentzToAmount(component.ThreatCurveCentre, component.ThreatCurveWidth, maxThreat);
 
         // distribute budgets
@@ -125,20 +128,20 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
         // get gamerules from dataset and add them to draftedRules
-        var draftedRules = new List<(EntityPrototype, DynamicRulesetComponent)?>();
+        var draftedRules = new List<SDynamicRuleset?>();
         if (component.RoundstartRulesPool != null)
         {
-            var roundstartRules = GetRuleset((ProtoId<DatasetPrototype>) component.RoundstartRulesPool);
+            var roundstartRules = GetRulesets((ProtoId<DatasetPrototype>) component.RoundstartRulesPool);
             foreach (var rule in roundstartRules)
             {
-                if (!rule.Item1.TryGetComponent<DynamicRulesetComponent>(out var comp, _compfact)
-                || !rule.Item1.TryGetComponent<GameRuleComponent>(out var gamerule, _compfact))
+                if (!rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
+                || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
                     continue;
 
                 // exclude gamerules if not enough overall budget or players
-                if (comp.Weight == 0
-                || gamerule.MinPlayers > players.Count
-                || component.RoundstartBudget < comp.Cost)
+                if (drc.Weight == 0
+                || component.RoundstartBudget < drc.Cost
+                || grc.MinPlayers > players.Count)
                     continue;
 
                 draftedRules.Add(rule);
@@ -146,7 +149,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         }
 
         // remove budget and try to add these drafted rules
-        var pickedRules = new List<(EntityPrototype, DynamicRulesetComponent)>();
+        var pickedRules = new List<SDynamicRuleset>();
         var roundstartBudget = component.RoundstartBudget;
         while (roundstartBudget > 0)
         {
@@ -156,8 +159,8 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                 // todo write something debug related here
                 break;
 
-            var r = ruleset.Value.Item2;
-            var rulesetNonNull = ((EntityPrototype, DynamicRulesetComponent)) ruleset;
+            var r = ruleset.Value.DynamicRuleset;
+            var rulesetNonNull = (SDynamicRuleset) ruleset;
 
             var cost = pickedRules.Contains(rulesetNonNull) ? r.ScalingCost : r.Cost;
             if (cost > roundstartBudget)
@@ -172,15 +175,70 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             // if one chosen ruleset is high impact we cancel every other high impact ruleset
             if (r.HighImpact && !component.Unforgiving)
                 foreach (var otherRule in draftedRules)
-                    if (otherRule != null && otherRule.Value.Item2.HighImpact)
+                    if (otherRule != null && otherRule.Value.DynamicRuleset.HighImpact)
                         draftedRules[draftedRules.IndexOf(otherRule)] = null;
+        }
+
+        // now, instead of starting a shit ton of gamemodes...
+        // we count how much of the each rule is there
+        var d = new Dictionary<string, List<SDynamicRuleset>>();
+        foreach (var rule in pickedRules)
+        {
+            var id = rule.Prototype.ID;
+
+            if (d.ContainsKey(id))
+                d[id].Add(rule);
+            else d.Add(rule.Prototype.ID, new() { rule });
+        }
+
+        var totalRules = new List<SDynamicRuleset>();
+        foreach (var rule in d.Values)
+        {
+            // it's supposed to have at least one item in it but we check just in case
+            if (rule.Count == 0)
+                continue;
+
+            var r = rule[0];
+            // get it's prototype and edit the maximum antag count there
+            if (r.Prototype.TryGetComponent<AntagSelectionComponent>(out var antag, _compfact))
+            {
+                for (int i = 0; i < antag.Definitions.Count; i++)
+                {
+                    // got forgive me
+                    // this is officially shitcode galore
+                    var def = antag.Definitions[i];
+                    antag.Definitions[i] = new AntagSelectionDefinition()
+                    {
+                        AllowNonHumans = def.AllowNonHumans,
+                        Blacklist = def.Blacklist,
+                        Briefing = def.Briefing,
+                        Components = def.Components,
+                        FallbackRoles = def.FallbackRoles,
+                        LateJoinAdditional = def.LateJoinAdditional,
+                        Max = rule.Count, // antag count = amount of times this rule got picked
+                        MaxRange = def.MaxRange,
+                        Min = def.Min,
+                        MindComponents = def.MindComponents,
+                        MinRange = def.MinRange,
+                        MultiAntagSetting = def.MultiAntagSetting,
+                        PickPlayer = def.PickPlayer,
+                        PlayerRatio = def.PlayerRatio,
+                        PrefRoles = def.PrefRoles,
+                        RoleLoadout = def.RoleLoadout,
+                        SpawnerPrototype = def.SpawnerPrototype,
+                        StartingGear = def.StartingGear,
+                        Whitelist = def.Whitelist,
+                    };
+                }
+            }
+            totalRules.Add(r);
         }
 
         // spend budget and start the gamer rule
         foreach (var rule in pickedRules)
         {
-            _gameTicker.AddGameRule(rule.Item1.ID);
-            component.ExecutedRules.Add(rule.Item1.ID);
+            _gameTicker.AddGameRule(rule.Prototype.ID);
+            component.ExecutedRules.Add(rule.Prototype.ID);
         }
 
         // save up leftout roundstart budget for midround rolls
@@ -251,4 +309,21 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     }
 
     #endregion
+}
+
+// this struct is used only for making my job of handling all the game rules much easier and cleaner
+// this should not be used outside of coding (e.g. in yaml)
+// regards
+public struct SDynamicRuleset
+{
+    public EntityPrototype Prototype;
+    public DynamicRulesetComponent DynamicRuleset;
+    public GameRuleComponent GameRule;
+
+    public SDynamicRuleset(EntityPrototype prot, DynamicRulesetComponent drc, GameRuleComponent grc)
+    {
+        Prototype = prot;
+        DynamicRuleset = drc;
+        GameRule = grc;
+    }
 }
