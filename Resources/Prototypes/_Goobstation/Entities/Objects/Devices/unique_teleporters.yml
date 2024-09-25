@@ -13,8 +13,6 @@
   - type: UseOnStationOnly
   - type: SpawnItemsOnUse
     sound: /Audio/Items/Mining/fultext_launch.ogg
-    items: 
-    - id: TrashBananaPeel # i need to fill this with something :\
 
 - type: entity
   parent: BaseLockerTeleporter

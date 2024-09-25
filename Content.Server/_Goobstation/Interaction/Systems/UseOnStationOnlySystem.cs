@@ -19,7 +19,7 @@ public sealed partial class UseOnStationOnlySystem : EntitySystem
 
     private void OnUseAttempt(Entity<UseOnStationOnlyComponent> item, ref UseInHandAttemptEvent args)
     {
-        if (_station.GetOwningStation(args.User) is { })
+        if (_station.GetOwningStation(args.User) is not null)
             return;
 
         _popup.PopupEntity(Loc.GetString("use-on-station-only-not-on-station"), args.User, args.User);

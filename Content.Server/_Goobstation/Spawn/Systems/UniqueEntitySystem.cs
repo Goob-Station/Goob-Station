@@ -12,10 +12,10 @@ public sealed partial class UniqueEntitySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<UniqueEntityCheckerComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<UniqueEntityCheckerComponent, ComponentInit>(OnComponentInit);
     }
 
-    public void OnMapInit(Entity<UniqueEntityCheckerComponent> checker, ref MapInitEvent args)
+    public void OnComponentInit(Entity<UniqueEntityCheckerComponent> checker, ref ComponentInit args)
     {
         var comp = checker.Comp;
 
@@ -30,7 +30,7 @@ public sealed partial class UniqueEntitySystem : EntitySystem
                 continue;
 
             // Check if marker on station
-            if (comp.StationOnly && _station.GetOwningStation(uid, xform) is not { } station)
+            if (comp.StationOnly && _station.GetOwningStation(uid, xform) is null)
                 continue;
 
             // Delete it if we found unique entity
