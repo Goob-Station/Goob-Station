@@ -1,0 +1,56 @@
+- type: Tag
+  id: CaveFactory
+
+- type: Tag
+  id: DockTransit
+
+- type: Tag
+  id: LabGrown
+
+- type: Tag
+  id: CatWearable
+
+- type: Tag
+  id: BookSpaceLaw
+
+- type: Tag
+  id: CrossbowBolt
+
+- type: Tag
+  id: WeaponMeleeStake
+
+- type: Tag
+  id: Censer
+
+- type: Tag
+  id: ReligiousSymbol
+
+- type: Tag
+  id: Crucifix
+
+- type: Tag
+  id: ObjectOfSpiritualSignificance
+
+- type: Tag
+  id: Ash
+
+- type: Tag
+  id: LavaMercenary
+
+- type: Tag
+  id: MysteryFigureBox
+
+- type: Tag
+  id: WhoopieCushion
+
+- type: Tag
+  id: Mustard
+
+- type: Tag
+  id: PrizeTicket
+
+- type: Tag
+  id: Mail
+
+- type: Tag
+  id: MailCapsule

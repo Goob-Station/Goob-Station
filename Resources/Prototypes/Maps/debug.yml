@@ -27,6 +27,8 @@
         - type: StationJobs
           availableJobs:
             Captain: [ -1, -1 ]
+            NanotrasenRepresentative: [ -1, -1 ] # Goob - remove it after test
+            BlueshieldOfficer: [ -1, -1 ] # Remove this too
 
 - type: gameMap
   id: TestTeg

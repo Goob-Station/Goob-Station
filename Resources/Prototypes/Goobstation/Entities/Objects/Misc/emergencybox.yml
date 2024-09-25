@@ -42,6 +42,7 @@
         whitelist:
           tags:
           - FoodSnack
+          - BreadEmergency
       flare:
         ejectOnInteract: false
         whitelist:
@@ -94,6 +95,7 @@
         whitelist:
           tags:
           - FoodSnack
+          - BreadEmergency
       flare:
         whitelist:
           tags:
@@ -426,3 +428,49 @@
     currentLabel: reagent-name-nitrogen
   - type: Sprite
     state: box_syndie
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxMimeSlots
+  suffix: Mime, Emergency
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodBreadBaguette
+      flare:
+      - Flare
+      tank:
+      - EmergencyOxygenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+
+- type: entity
+  parent: BoxSurvivalSlots
+  id: BoxMimeSlotsNitrogen
+  suffix: Mime, Emergency N2
+  components:
+  - type: ContainerFill
+    containers:
+      water:
+      - DrinkWaterBottleFull
+      nutriblock:
+      - FoodBreadBaguette
+      flare:
+      - Flare
+      tank:
+      - EmergencyNitrogenTankFilled
+      mask:
+      - ClothingMaskBreath
+      emergencypen:
+      - EmergencyMedipen
+      spacepen:
+      - SpaceMedipen
+  - type: Label
+    currentLabel: reagent-name-nitrogen

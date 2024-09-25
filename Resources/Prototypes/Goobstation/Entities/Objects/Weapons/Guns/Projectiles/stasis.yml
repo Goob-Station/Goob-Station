@@ -2,7 +2,7 @@
   name: stasis bolt
   id: BulletStasis
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     noRot: true

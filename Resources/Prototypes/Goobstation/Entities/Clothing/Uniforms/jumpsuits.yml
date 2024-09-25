@@ -36,3 +36,36 @@
     sprite: Goobstation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
   - type: Clothing
     sprite: Goobstation/Clothing/Uniforms/Jumpsuit/casualsyndicate.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueshieldOfficer
+  name: blueshield officer jumpsuit
+  description: A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_officer.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBlueshieldShirt
+  name: blueshield officer blue shirt
+  description: An official security uniform. Pretty safe and pretty busy.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/blueshield_shirt.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformMailCarrier
+  name: mail carrier's uniform
+  description: Enemy of dogs everywhere.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi

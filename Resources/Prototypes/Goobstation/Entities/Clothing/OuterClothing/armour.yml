@@ -67,3 +67,37 @@
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
     netsync: false
+
+# Blueshield Armour Vest
+- type: entity
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband ]
+  id: ClothingBlueshieldArmourVest
+  name: blueshield's security armour
+  description: An armoured vest with the badge of the blueshield
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Armor/bso_armour.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.60
+        Slash: 0.60
+        Piercing: 0.65
+        Heat: 0.70
+  - type: ExplosionResistance
+    damageCoefficient: 0.8
+
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingBlueshieldArmoredJacket
+  name: blueshield's armored jacket
+  description: A jacket with sewn-in reinforcement layers.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
+  - type: Item
+    size: Normal

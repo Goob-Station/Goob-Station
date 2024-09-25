@@ -12,6 +12,8 @@
   - type: Item
     sprite: Objects/Tools/emag.rsi
     storedRotation: -90
+  - type: SiliconLawProvider #Goobstation
+    laws: SyndicateStatic
 
 - type: entity
   parent: EmagUnlimited

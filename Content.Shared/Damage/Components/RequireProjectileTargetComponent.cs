@@ -11,4 +11,8 @@ public sealed partial class RequireProjectileTargetComponent : Component
 {
     [DataField, AutoNetworkedField]
     public bool Active = true;
+
+    // Goobstation - Crawl fix
+    [DataField, AutoNetworkedField]
+    public bool IgnoreThrow = false;
 }
