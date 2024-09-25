@@ -78,7 +78,6 @@
       speechVerb: SmallMob
       speechSounds: Squeak
     - type: OhioAccent
-        path: /Audio/_Goobstation/Animals/skibidi.wav
 
 - type: entity
   name: OSRS NPC
