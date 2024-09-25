@@ -28,7 +28,7 @@
   - type: CollideOnAnchor
   - type: Damageable
     damageContainer: StructuralInorganic
-    damageModifierSet: Wood
+    damageModifierSet: Cloth
   - type: Destructible
     thresholds:
     - trigger:
