@@ -76,34 +76,43 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     {
         base.ActiveTick(uid, component, gameRule, frameTime);
 
-        // GoobStation
-        if (component.HasAnnouncementPlayed)
-            return;
-
         if (component.CommandCheck <= _timing.CurTime)
         {
             component.CommandCheck = _timing.CurTime + component.TimerWait;
 
-            // Goobstation
-            if (CheckCommandLose())
+            // goob edit
+            if (CheckCommandLose() && !component.HasRevAnnouncementPlayed)
             {
-                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.Nothing,
                     component.ShuttleCallTime,
                     sender: "revolutionaries-win-sender",
                     textCall: "revolutionaries-win-announcement-shuttle-call",
                     textAnnounce: "revolutionaries-win-announcement");
 
                 component.HasAnnouncementPlayed = true;
+
+                foreach (var ms in EntityQuery<MindShieldComponent, MobStateComponent>())
+                {
+                    var entity = ms.Item1.Owner;
+
+                    // assign eotrs
+                    var revenemy = EnsureComp<RevolutionEnemyComponent>(entity);
+                    _antag.SendBriefing(entity, Loc.GetString("rev-eotr-gain"), Color.Red, revenemy.RevStartSound);
+                }
             }
 
-            if (CheckRevsLose())
+            if (CheckRevsLose() && !component.HasAnnouncementPlayed)
             {
-                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.ShuttleCall,
+                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.Nothing,
                     component.ShuttleCallTime,
+                    sender: "revolutionaries-sender-cc",
                     textCall: "revolutionaries-lose-announcement-shuttle-call",
                     textAnnounce: "revolutionaries-lose-announcement");
 
                 component.HasAnnouncementPlayed = true;
+
+                foreach (var eotr in EntityQuery<RevolutionEnemyComponent>())
+                    RemComp<RevolutionEnemyComponent>(eotr.Owner);
             }
         }
     }

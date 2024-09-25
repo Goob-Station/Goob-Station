@@ -12,7 +12,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
 
-namespace Content.Server._Goobstation.GameTicking.Rules;
+namespace Content.Server.GameTicking.Rules;
 
 // basically all that it does is.
 // generate random amount of points.

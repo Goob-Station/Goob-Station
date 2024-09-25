@@ -1,6 +1,7 @@
-namespace Content.Server._Goobstation.StationEvents;
+namespace Content.Server.StationEvents;
 
 [RegisterComponent]
-public class DynamicStationEventSchedulerComponent : Component
+public sealed partial class DynamicStationEventSchedulerComponent : Component
 {
+
 }
