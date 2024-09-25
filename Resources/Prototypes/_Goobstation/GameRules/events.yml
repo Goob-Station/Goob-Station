@@ -5,7 +5,7 @@
   - type: StationEvent
     startAnnouncement: goob-station-event-johns-ai-malf-start-announcement
     startAudio:
-      path: /Audio/Goobstation/Announcements/ailaws.ogg
+      path: /Audio/_Goobstation/Announcements/ailaws.ogg
     weight: 8
     duration: 1
     earliestStart: 5
