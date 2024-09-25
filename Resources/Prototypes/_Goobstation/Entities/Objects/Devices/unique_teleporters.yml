@@ -34,6 +34,9 @@
   components:
   - type: UniqueEntityChecker
     markerName: BlueshieldLocker
+  - type: UniqueEntityMarker
+    markerName: BlueshieldLocker
+    stationOnly: false
 
 - type: entity
   parent: BaseLockerTeleporter
@@ -55,3 +58,6 @@
   components:
   - type: UniqueEntityChecker
     markerName: NanorepLocker
+  - type: UniqueEntityMarker
+    markerName: NanorepLocker
+    stationOnly: false

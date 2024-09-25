@@ -26,14 +26,16 @@ public sealed partial class UniqueEntitySystem : EntitySystem
 
         while (query.MoveNext(out var uid, out var marker, out var xform))
         {
-            if (string.IsNullOrEmpty(marker.MarkerName) || marker.MarkerName != comp.MarkerName)
+            if (string.IsNullOrEmpty(marker.MarkerName)
+                || marker.MarkerName != comp.MarkerName
+                || uid == checker.Owner)
                 continue;
 
             // Check if marker on station
-            if (comp.StationOnly && _station.GetOwningStation(uid, xform) is null)
+            if (marker.StationOnly && _station.GetOwningStation(uid, xform) is null)
                 continue;
 
-            // Delete it if we found unique entity
+            // Delete it if found unique entity
             QueueDel(checker);
             return;
         }

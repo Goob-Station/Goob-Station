@@ -1,7 +1,0 @@
-- type: entity
-  id: BaseUniqueMarkerOnSpawn
-  abstract: true
-  components:
-  - type: TriggerOnSpawn
-  - type: SpawnOnTrigger
-    proto: UniqueMarkerNanorepLocker

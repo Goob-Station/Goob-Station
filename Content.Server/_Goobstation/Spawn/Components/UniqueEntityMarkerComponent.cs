@@ -11,4 +11,11 @@ public sealed partial class UniqueEntityMarkerComponent : Component
     /// </summary>
     [DataField]
     public string? MarkerName;
+
+    /// <summary>
+    ///     If true - marker will work on grids with StationDataComponent
+    ///     If false - marker will work globally
+    /// </summary>
+    [DataField]
+    public bool StationOnly = true;
 }

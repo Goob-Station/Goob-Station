@@ -1,15 +1,17 @@
 - type: entity
   id: UniqueLockerNanorepFilled
   suffix: MAP THIS, Unique, Filled
-  parent: [ LockerNanorepFilled, BaseUniqueMarkerOnSpawn ]
+  parent: LockerNanorepFilled
   components:
-  - type: SpawnOnTrigger
-    proto: UniqueMarkerNanorepLocker
+  - type: ConditionalSpawner
+    prototypes:
+    - UniqueMarkerNanorepLocker 
 
 - type: entity
   id: UniqueLockerBlueshieldOfficerFilled
   suffix: MAP THIS, Unique, Filled
-  parent: [ LockerBlueshieldOfficerFilled, BaseUniqueMarkerOnSpawn ]
+  parent: LockerBlueshieldOfficerFilled
   components:
-  - type: SpawnOnTrigger
-    proto: UniqueMarkerBlueshieldLocker
+  - type: ConditionalSpawner
+    prototypes:
+    - UniqueMarkerBlueshieldLocker

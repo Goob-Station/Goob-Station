@@ -12,11 +12,4 @@ public sealed partial class UniqueEntityCheckerComponent : Component
     /// </summary>
     [DataField]
     public string? MarkerName;
-
-    /// <summary>
-    ///     If true - it will check entities with StationDataComponent
-    ///     If false - it will check entities globally
-    /// </summary>
-    [DataField]
-    public bool StationOnly = true;
 }
