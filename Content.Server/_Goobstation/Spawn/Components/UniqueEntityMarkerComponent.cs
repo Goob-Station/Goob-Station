@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.Spawn.Components;
+namespace Content.Server._Goobstation.Spawn.Components;
 
 /// <summary>
 ///     Component-marker for unique entity

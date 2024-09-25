@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.Spawn.Components;
+namespace Content.Server._Goobstation.Spawn.Components;
 
 /// <summary>
 ///     Ensures that related entity will be on station (like NTR or BSO lockers) and will be not duplicate.

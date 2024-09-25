@@ -1,4 +1,4 @@
-namespace Content.Server.Goobstation.Interaction.Components;
+namespace Content.Server._Goobstation.Interaction.Components;
 
 /// <summary>
 ///     Allows use item with component on stations only

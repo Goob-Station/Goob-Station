@@ -1,4 +1,4 @@
-namespace Content.Shared.Goobstation.Interaction;
+namespace Content.Shared._Goobstation.Interaction;
 
 /// <summary>
 ///     UseAttempt, but for item.

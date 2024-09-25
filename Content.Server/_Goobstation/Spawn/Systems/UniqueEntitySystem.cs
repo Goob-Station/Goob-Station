@@ -1,8 +1,8 @@
-using Content.Server.Goobstation.Spawn.Components;
+using Content.Server._Goobstation.Spawn.Components;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 
-namespace Content.Server.Goobstation.Spawn.Systems;
+namespace Content.Server._Goobstation.Spawn.Systems;
 
 public sealed partial class UniqueEntitySystem : EntitySystem
 {

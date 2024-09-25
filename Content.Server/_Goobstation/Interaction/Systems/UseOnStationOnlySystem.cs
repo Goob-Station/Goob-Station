@@ -1,9 +1,9 @@
-using Content.Server.Goobstation.Interaction.Components;
+using Content.Server._Goobstation.Interaction.Components;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
-using Content.Shared.Goobstation.Interaction;
+using Content.Shared._Goobstation.Interaction;
 
-namespace Content.Server.Goobstation.Interaction.Systems;
+namespace Content.Server._Goobstation.Interaction.Systems;
 
 public sealed partial class UseOnStationOnlySystem : EntitySystem
 {
