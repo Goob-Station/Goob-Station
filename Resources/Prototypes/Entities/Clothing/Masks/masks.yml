@@ -227,9 +227,9 @@
   components:
   - type: SelfUnremovableClothing
   - type: Sprite
-    sprite: Goobstation/Heretic/mad_mask.rsi
+    sprite: _Goobstation/Heretic/mad_mask.rsi
   - type: Clothing
-    sprite: Goobstation/Heretic/mad_mask.rsi
+    sprite: _Goobstation/Heretic/mad_mask.rsi
   - type: BreathMask
   - type: IdentityBlocker
   - type: Tag
