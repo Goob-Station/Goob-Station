@@ -70,5 +70,5 @@
             - ReagentId: SigmaJuice
               Quantity: 30
     - type: Icon
-      sprite: Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
+      sprite: _Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
       state: icon
