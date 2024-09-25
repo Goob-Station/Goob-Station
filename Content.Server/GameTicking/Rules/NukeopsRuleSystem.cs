@@ -319,7 +319,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 }
 
                 // goob edit - can't call evac while nukies are present on the station
-
                 if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
                 {
                     ev.Cancelled = true;

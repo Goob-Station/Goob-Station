@@ -30,7 +30,8 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
-using Content.Server.Communications; // GoobStation
+using Content.Server.Communications;
+using System.Linq; // GoobStation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -52,7 +53,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // GoobStation
+    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // GoobStation // why
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -292,12 +293,27 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         return false;
     }
 
+    // goob edit - no shuttle call until internal affairs are figured out
     private void OnTryCallEvac(ref CommunicationConsoleCallShuttleAttemptEvent ev)
     {
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var revs, out _))
-        {
+        var revs = EntityQuery<RevolutionaryComponent, MobStateComponent>();
+        var revenemies = EntityQuery<RevolutionEnemyComponent, MobStateComponent>();
+        var minds = EntityQuery<MindContainerComponent>();
 
+        var revsNormalized = revs.Count() / (minds.Count() - revs.Count());
+        var enemiesNormalized = revenemies.Count() / (minds.Count() - revenemies.Count());
+
+        // calling evac will result in an error if:
+        // - command is gone & there are more than 35% of enemies
+        // - or if there are more than 35% of revolutionaries
+        // hardcoded values because idk why not
+        // regards
+        if (CheckCommandLose() && enemiesNormalized >= .35f
+        || revsNormalized >= .35f)
+        {
+            ev.Cancelled = true;
+            ev.Reason = Loc.GetString("shuttle-call-error");
+            return;
         }
     }
 
