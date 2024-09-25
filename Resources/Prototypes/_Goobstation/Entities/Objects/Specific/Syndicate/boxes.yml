@@ -13,5 +13,5 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Storage/boxes.rsi
     layers:
-      - state: box-doom
+      - state: box_of_doom
       - state: brainrot
