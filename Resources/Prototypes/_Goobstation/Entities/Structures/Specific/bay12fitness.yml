@@ -1,0 +1,80 @@
+- type: entity
+  parent: SeatBase
+  id: FitnessWeightsBench1
+  name: weights bench
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Anchorable
+  - type: Rotatable
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: fitnessweight
+
+- type: entity
+  parent: FitnessWeightsBench1
+  id: FitnessWeightLifter
+  name: weight lifter
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: fitnesslifter
+
+
+# Bags
+# TODO: Need a way to change to animation state on trigger in world (click) or use damage state visualiser and instant healing to change state on attack.
+#soundOnTrigger ?
+#TriggerOnActivate ?
+#TriggerOnCollide ?
+
+- type: entity
+  id: FitnessPunchingBagBopClown
+  parent: BaseStructure
+  name: clown bop bag
+  description: A fitness training bag with a clown printed on it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: bopbag
+
+- type: entity
+  id: FitnessPunchingBag
+  parent: BaseStructure
+  name: punching bag
+  description: A fitness training bag.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: punchingbag
+
+- type: entity
+  id: FitnessPunchingBagCaptain
+  parent: FitnessPunchingBag
+  suffix: captain
+  description: A fitness training bag with a captain printed on it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: punchingbagcaptain
+
+- type: entity
+  id: FitnessPunchingBagSyndicate
+  parent: FitnessPunchingBag
+  suffix: syndicate
+  description: A fitness training bag with a syndicate agent printed on it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: punchingbagsyndie
+
+- type: entity
+  id: FitnessPunchingBagWizard
+  parent: FitnessPunchingBag
+  suffix: wizard
+  description: A fitness training bag with a wizard printed on it.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Specific/fitness.rsi
+    state: punchingbagwizard
