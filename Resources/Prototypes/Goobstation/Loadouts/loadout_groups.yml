@@ -39,3 +39,42 @@
   - NanotrasenRepresentativeBoots
   - NanotrasenRepresentativeShoes
   - NanotrasenRepresentativeHeels
+
+# BSO
+- type: loadoutGroup
+  id: BlueshieldOfficerHead
+  name: loadout-group-bso-head
+  minLimit: 0
+  loadouts:
+  - BlueshieldOfficerHeadSwatHelmet
+  - BlueshieldOfficerHeadBeretNavy
+  - BlueshieldOfficerHeadBeretBlack
+
+- type: loadoutGroup
+  id: BlueshieldOfficerJumpsuit
+  name: loadout-group-bso-jumpsuit
+  loadouts:
+  - BlueshieldOfficerInnerBlueshieldSkirt
+  - BlueshieldOfficerInnerBlueshieldSuit
+  - BlueshieldOfficerInnerBlueshieldShirt
+
+- type: loadoutGroup
+  id: BlueshieldOfficerOuter
+  name: loadout-group-bso-outer
+  loadouts:
+  - BlueshieldOfficerOuterBlueshieldArmorVest
+  - BlueshieldOfficerOuterBlueshieldArmoredJacket
+
+- type: loadoutGroup
+  id: BlueshieldOfficerNeck
+  name: loadout-group-bso-neck
+  minLimit: 0
+  loadouts:
+  - BlueshieldOfficerOuterBlueshieldMantle
+
+- type: loadoutGroup
+  id: ReporterOuterClothing
+  name: loadout-group-reporter-outerclothing
+  loadouts:
+  - NoPro
+

@@ -407,7 +407,7 @@
 
 # trash
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketTrash
   id: FoodPacketLunacakeTrash
   name: lunacake wrapper
@@ -418,7 +418,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMochicakeTrash
   name: mochicake wrapper
@@ -428,7 +428,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMooncakeTrash
   name: mooncake wrapper
@@ -438,7 +438,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketTidegobsTrash
   name: tidegobs trash
@@ -448,7 +448,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketSaturnosTrash
   name: saturn-os trash
@@ -458,7 +458,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketJoveGelloTrash
   name: jove gello trash
@@ -468,7 +468,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketPlutoniumrodsTrash
   name: plutonium rods trash
@@ -478,7 +478,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketMarsFroukaTrash
   name: mars frouka trash
@@ -488,7 +488,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketVenusTrash
   name: venus hot cakes trash
@@ -498,7 +498,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketOortrocksTrash
   name: oort rocks trash
@@ -509,7 +509,7 @@
 
 # weebo vend
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketRedalertnutsTrash
   name: red alert nuts packet
@@ -519,7 +519,7 @@
   - type: Item
 
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketStickTrash
   name: stick
@@ -530,7 +530,7 @@
 
 #
 - type: entity
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   parent: FoodPacketLunacakeTrash
   id: FoodPacketProteinbarTrash
   name: protein bar wrapper

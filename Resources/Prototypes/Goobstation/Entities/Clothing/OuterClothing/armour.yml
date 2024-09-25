@@ -70,7 +70,7 @@
 
 # Blueshield Armour Vest
 - type: entity
-  parent: [ClothingOuterBaseMedium, AllowSuitStorageClothing]
+  parent: [ ClothingOuterBaseMedium, AllowSuitStorageClothing, BaseCentcommContraband ]
   id: ClothingBlueshieldArmourVest
   name: blueshield's security armour
   description: An armoured vest with the badge of the blueshield
@@ -88,3 +88,16 @@
         Heat: 0.70
   - type: ExplosionResistance
     damageCoefficient: 0.8
+
+- type: entity
+  parent: ClothingBlueshieldArmourVest
+  id: ClothingBlueshieldArmoredJacket
+  name: blueshield's armored jacket
+  description: A jacket with sewn-in reinforcement layers.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/OuterClothing/Armor/blueshield_jacket.rsi
+  - type: Item
+    size: Normal

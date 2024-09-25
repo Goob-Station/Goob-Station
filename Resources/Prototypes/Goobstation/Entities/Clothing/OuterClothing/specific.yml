@@ -26,3 +26,51 @@
   - type: Tag
     tags:
       - HEVSuit
+
+- type: entity
+  parent: ClothingOuterBase
+  id: SurveillanceWirelessCameraBodyEntertainment
+  name: nopro camera
+  description: A body mounted camera. It's watching you.
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCameraEntertainment
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+      nameSet: True
+      id: NoPro Camera
+    - type: Eye
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: SurveillanceCameraMicrophone
+      blacklist:
+        components:
+          - SurveillanceCamera
+          - SurveillanceCameraMonitor
+          - RadioSpeaker
+    - type: ActiveListener
+      range: 10
+    - type: StationAiVision
+      range: 4
+    - type: Sprite
+      sprite: Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+    - type: Clothing
+      sprite: Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+      quickEquip: true
+
+- type: entity
+  parent: SurveillanceWirelessCameraBodyEntertainment
+  id: SurveillanceWirelessCameraBodySecurity
+  name: security bodycam
+  description: A body mounted camera. It's watching you.
+  components:
+    - type: DeviceNetwork
+      deviceNetId: Wired # :clueless:
+      receiveFrequencyId: SurveillanceCameraSecurity
+      transmitFrequencyId: SurveillanceCamera
+    - type: SurveillanceCamera
+      networkSet: true
+      nameSet: True
+      id: Bodycam

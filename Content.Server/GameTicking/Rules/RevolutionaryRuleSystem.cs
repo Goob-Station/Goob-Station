@@ -157,8 +157,7 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         if (!_mind.TryGetMind(ev.Target, out var mindId, out var mind) && !alwaysConvertible)
             return;
 
-        // GoobStation - added check if rev is head rev to enable back his convert ability
-        if (HasComp<RevolutionaryComponent>(ev.Target) && !HasComp<HeadRevolutionaryComponent>(ev.Target) ||
+        if (HasComp<RevolutionaryComponent>(ev.Target) ||
             HasComp<MindShieldComponent>(ev.Target) ||
             !HasComp<HumanoidAppearanceComponent>(ev.Target) &&
             !alwaysConvertible ||
@@ -166,13 +165,6 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             HasComp<ZombieComponent>(ev.Target)
             || HasComp<CommandStaffComponent>(ev.Target)) // goob edit - rev no command flashing
         {
-            return;
-        }
-
-        // Goobstation - Turning on headrev ability back
-        if (TryComp<HeadRevolutionaryComponent>(ev.Target, out var headRevComp))
-        {
-            _revolutionarySystem.ToggleConvertAbility((ev.Target, headRevComp), true);
             return;
         }
 

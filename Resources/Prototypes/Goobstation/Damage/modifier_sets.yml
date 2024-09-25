@@ -1,0 +1,20 @@
+- type: damageModifierSet
+  id: Silicon
+  coefficients:
+    Heat: 0.8
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
+
+- type: damageModifierSet
+  id: SiliconProtected
+  coefficients:
+    Blunt: 0.6
+    Slash: 0.6
+    Piercing: 0.6
+    Heat: 0.5
+  flatReductions:
+    Blunt: 5
+    Slash: 5
+    Piercing: 5
