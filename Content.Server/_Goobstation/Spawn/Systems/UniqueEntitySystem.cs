@@ -30,9 +30,7 @@ public sealed partial class UniqueEntitySystem : EntitySystem
                 continue;
 
             // Check if marker on station
-            if (comp.StationOnly
-                && (_station.GetOwningStation(uid, xform) is not { } station
-                || !HasComp<StationDataComponent>(station)))
+            if (comp.StationOnly && _station.GetOwningStation(uid, xform) is not { } station)
                 continue;
 
             // Delete it if we found unique entity
