@@ -6,3 +6,12 @@
   components:
   - type: Sprite
     sprite: Goobstation/Clothing/Back/Backpacks/centcom.rsi
+
+- type: entity
+  parent: [ClothingBackpack, BaseCentcommContraband]
+  id: ClothingBackpackBlueshield
+  name: bluesheild backpack
+  description: A very protective backpack, smells like energy gun.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Back/Backpacks/blueshield.rsi

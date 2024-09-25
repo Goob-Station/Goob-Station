@@ -108,7 +108,7 @@
   - type: TypingIndicator
     proto: robot
   - type: ZombieImmune
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
 
@@ -251,6 +251,8 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Item # Goobstation
     size: Large
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 0
 
 - type: entity
   parent:
@@ -320,6 +322,8 @@
     pack: MedibotAds
   - type: Inventory
     templateId: medibot
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1
 
 - type: entity
   parent:
@@ -419,3 +423,5 @@
     - Binary
     - Common
     - Supply
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1

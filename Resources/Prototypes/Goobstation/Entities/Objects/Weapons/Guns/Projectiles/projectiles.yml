@@ -2,7 +2,7 @@
   id: BulletMic
   name: MIC bolt
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Sprite
@@ -19,12 +19,12 @@
     lifetime: 0.4
   - type: StaminaDamageOnCollide
     damage: 65
-    
+
 - type: entity
   id: BulletPlasmaCutter
   name: cutter bolt
   parent: BaseBullet
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   description: Not too bad, but you still don't want to get hit by it.
   components:
   - type: Reflective
@@ -48,4 +48,21 @@
   - type: PointLight
     radius: 2
     color: purple
-    energy: 1    
+    energy: 1
+
+- type: entity
+  id: BulletPlasmaCutterStrong
+  parent: BulletPlasmaCutter
+  components:
+  - type: GatheringProjectile
+  - type: Projectile
+    damage:
+      types:
+        Heat: 18
+        Structural: 100
+  - type: TimedDespawn
+    lifetime: 0.4
+  - type: PointLight
+    radius: 4
+    color: purple
+    energy: 2
