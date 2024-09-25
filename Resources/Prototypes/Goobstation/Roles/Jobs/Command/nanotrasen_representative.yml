@@ -24,7 +24,7 @@
   - Maintenance
   - Engineering
   - Medical
-  - Research
+  - Research  
   - Command
   special:
   - !type:AddImplantSpecial
@@ -41,4 +41,4 @@
     pocket1: CaneSheathFilledNanotrasen
   storage:
     back:
-    - RubberStampCentcom
+    - RubberStampNanorep

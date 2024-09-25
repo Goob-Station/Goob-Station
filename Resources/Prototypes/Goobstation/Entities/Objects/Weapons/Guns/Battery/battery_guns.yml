@@ -28,8 +28,53 @@
     spreadMultiplier: 1.2
 
 - type: entity
+  name: Plasma Rifle
+  parent: BaseWeaponBattery
+  id: WeaponPlasmaRifle
+  description: It may or may not explode in your face.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
+  - type: Gun
+    fireRate: 2
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 600
+  - type: MaterialEnergy
+    materialWhiteList: [Plasma]
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletPlasmaCutterStrong
+    fireCost: 100
+  - type: WeaponRandomExplode
+    explosionChance: 0.16
+    multiplyByCharge: 1.0
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: false
+
+- type: entity
+  parent: WeaponPlasmaRifle
+  id: WeaponPlasmaRifleEmpty
+  suffix: Empty
+  components:
+  - type: Battery
+    maxCharge: 600
+    startingCharge: 0
+
+- type: entity
   name: EG-4 energy revolver
-  parent: [BaseWeaponBatterySmall, BaseCommandContraband]
+  parent: [ BaseWeaponBatterySmall, BaseCentcommContraband ]
   id: WeaponEnergyRevolver
   description: A highly advabced energy revolver capable of firing both lethal and disabling bullets.
   components:
@@ -90,4 +135,3 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 35
-

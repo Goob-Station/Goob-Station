@@ -27,3 +27,14 @@
     tags:
     - ClothMade
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadMailCarrier
+  name: mail carrier's hat
+  description: Smells like a good pension.
+  components:
+  - type: Sprite
+    sprite: Goobstation/Clothing/Head/Hats/mailman.rsi
+  - type: Clothing
+    sprite: Goobstation/Clothing/Head/Hats/mailman.rsi
