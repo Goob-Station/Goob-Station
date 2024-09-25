@@ -33,7 +33,8 @@ public abstract class SharedRevolutionarySystem : EntitySystem
     {
         if (HasComp<HeadRevolutionaryComponent>(uid))
         {
-            RemCompDeferred<MindShieldComponent>(uid);
+            comp.Broken = true; // Goobstation - Broken mindshield implant instead of break it
+            Dirty(uid, comp);
             return;
         }
 

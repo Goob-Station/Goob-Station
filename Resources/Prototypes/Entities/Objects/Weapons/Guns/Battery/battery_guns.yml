@@ -271,7 +271,7 @@
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -821,7 +821,7 @@
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 400
+      fireCost: 200
       name: ion
       state: special
   - type: MagazineVisuals

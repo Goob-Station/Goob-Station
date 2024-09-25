@@ -167,7 +167,7 @@
           - Stunbaton
         blacklist:  # Goobstation
           components:
-          - BatteryRecharge
+          - MaterialEnergy
 
 - type: entity
   parent: BaseItemRecharger
@@ -195,7 +195,7 @@
           tags:
           - PotatoBattery
           components:  # Goobstation
-          - BatteryRecharge
+          - MaterialEnergy
 
 - type: entity
   parent: BaseItemRecharger

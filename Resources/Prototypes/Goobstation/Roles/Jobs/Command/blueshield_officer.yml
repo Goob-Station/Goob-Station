@@ -32,6 +32,7 @@
   - Medical
   - Research
   - Command
+  - CentralCommand
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -42,19 +43,16 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    back: ClothingBackpack
-    jumpsuit: ClothingUniformJumpsuitBlueshieldOfficer
+    back: ClothingBackpackBlueshield
     shoes: ClothingShoesBootsJackFilled
-    eyes: ClothingEyesGlassesMedical
+    eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingBlueshieldArmourVest
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
-    pocket1: WeaponPistolMk58
-    pocket2: DeathAcidifierImplanter
+    pocket1: WeaponEnergyRevolver
   storage:
     back:
     - BoxSurvivalSlots
-    - ClothingHeadHatBeretNavy
-    - ClothingHeadHatBeretOfficer
+    - Flash
+    - BluespaceLifelineImplanter
