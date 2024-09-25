@@ -7,7 +7,7 @@
   flavor: sigma
   color: "#42f5d4"
   metamorphicSprite:
-    sprite: Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
+    sprite: _Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 3
   metamorphicFillBaseName: fill-
