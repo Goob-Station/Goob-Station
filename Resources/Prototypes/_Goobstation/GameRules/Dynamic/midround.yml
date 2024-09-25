@@ -3,3 +3,263 @@
 - type: entity
   parent: BaseGameRule
   id: DynamicStationEventScheduler
+
+# Midround Traitors
+- type: entity
+  parent: BaseTraitorRule
+  id: TraitorDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 30
+    weight: 8
+    minimumPlayers: 15
+    maxOccurrences: 1 # can only happen once per round
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null # the rule has to last the whole round not 1 second
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ TraitorSleeper ]
+      fallbackRoles: [ Traitor ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+      mindComponents:
+      - type: TraitorRole
+        prototype: TraitorSleeper
+
+# Midround Changelings
+- type: entity
+  parent: Changeling
+  id: ChangelingDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 20
+    weight: 3
+    minimumPlayers: 15
+    maxOccurrences: 1
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Changeling ]
+      min: 1
+      max: 2
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Heretic
+      mindComponents:
+      - type: ChangelingRole
+        prototype: Changeling
+
+# Midround Heretics
+- type: entity
+  parent: Heretic
+  id: HereticDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 20 
+    weight: 3 
+    minimumPlayers: 30
+    maxOccurrences: 1 
+    startAnnouncement: station-event-communication-interception
+    startAudio:
+      path: /Audio/Announcements/intercept.ogg
+    duration: null
+    occursDuringRoundEnd: false
+  - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Heretic ]
+      min: 1
+      max: 1
+      playerRatio: 10
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Changeling
+      mindComponents:
+      - type: HereticRole
+        prototype: Heretic
+
+# Midround Revolutionaries
+
+
+# Skeleton Spawn
+- type: entity
+  parent: BaseGameRule
+  id: SkeletonDynamicMidround
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: 1
+    minimumPlayers: 15
+  - type: RandomEntityStorageSpawnRule
+    prototype: MobSkeletonCloset
+
+# Dragon Spawn
+- type: entity
+  parent: BaseGameRule
+  id: DragonDynamicMidround
+  components:
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 30
+    minimumPlayers: 20
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: MobDragon
+  - type: DragonRule
+  - type: AntagObjectives
+    objectives:
+    - CarpRiftsObjective
+    - DragonSurviveObjective
+  - type: AntagSelection
+    agentName: dragon-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDragon
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindComponents:
+      - type: DragonRole
+        prototype: Dragon
+
+# Space Ninja Spawn
+- type: entity
+  parent: BaseGameRule
+  id: NinjaDynamicMidround
+  components:
+  - type: StationEvent
+    weight: 6
+    duration: null
+    earliestStart: 30
+    minimumPlayers: 30
+  - type: SpaceSpawnRule
+  - type: AntagLoadProfileRule
+  - type: AntagObjectives
+    objectives:
+    - StealResearchObjective
+    - DoorjackObjective
+    - SpiderChargeObjective
+    - TerrorObjective
+    - MassArrestObjective
+    - NinjaSurviveObjective
+  - type: AntagSelection
+    agentName: ninja-round-end-agent-name
+    definitions:
+    - spawnerPrototype: SpawnPointGhostSpaceNinja
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SpaceNinjaGear
+      roleLoadout:
+      - RoleSurvivalEVA
+      briefing:
+        text: ninja-role-greeting
+        color: Green
+        sound: /Audio/Misc/ninja_greeting.ogg
+      components:
+      - type: SpaceNinja
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      - type: AutoImplant
+        implants:
+        - DeathAcidifierImplant
+      - type: RandomMetadata
+        nameSegments:
+        - names_ninja_title
+        - names_ninja
+      mindComponents:
+      - type: NinjaRole
+        prototype: SpaceNinja
+
+# Revenant Spawn
+- type: entity
+  parent: BaseGameRule
+  id: RevenantDynamicMidround
+  components:
+  - type: StationEvent
+    weight: 7.5
+    duration: 1
+    earliestStart: 45
+    minimumPlayers: 20
+  - type: RandomSpawnRule
+    prototype: MobRevenant
+
+# Zombie Outbreak
+- type: entity
+  id: ZombiesDynamicMidround
+  parent: BaseGameRule
+  components:
+  - type: StationEvent
+    earliestStart: 90
+    minimumPlayers: 40
+    weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
+    duration: 1
+  - type: ZombieRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ InitialInfected ]
+      max: 3
+      playerRatio: 10
+      blacklist:
+        components:
+        - ZombieImmune
+        - AntagImmune
+      briefing:
+        text: zombie-patientzero-role-greeting
+        color: Plum
+        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
+      components:
+      - type: PendingZombie #less time to prepare than normal
+        minInitialInfectedGrace: 300
+        maxInitialInfectedGrace: 450
+      - type: ZombifyOnDeath
+      - type: IncurableZombie
+      - type: InitialInfected
+      mindComponents:
+      - type: InitialInfectedRole
+        prototype: InitialInfected
+
+# Lone Operative Spawn
+- type: entity
+  parent: BaseNukeopsRule
+  id: NukeopsDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 35
+    weight: 5.5
+    minimumPlayers: 20
+    duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml # goob edit
+  - type: NukeopsRule
+    warDeclarationMinOps: 1 # challenge mode
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointNukeopsCommander
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: SyndicateLoneOperativeGearFull
+      roleLoadout:
+      - RoleSurvivalNukie

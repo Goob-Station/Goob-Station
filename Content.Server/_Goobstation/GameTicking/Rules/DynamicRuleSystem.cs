@@ -129,23 +129,20 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         // get gamerules from dataset and add them to draftedRules
         var draftedRules = new List<SDynamicRuleset?>();
-        if (component.RoundstartRulesPool != null)
+        var roundstartRules = GetRulesets( component.RoundstartRulesPool);
+        foreach (var rule in roundstartRules)
         {
-            var roundstartRules = GetRulesets((ProtoId<DatasetPrototype>) component.RoundstartRulesPool);
-            foreach (var rule in roundstartRules)
-            {
-                if (!rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
-                || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
-                    continue;
+            if (!rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
+            || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
+                continue;
 
-                // exclude gamerules if not enough overall budget or players
-                if (drc.Weight == 0
-                || component.RoundstartBudget < drc.Cost
-                || grc.MinPlayers > players.Count)
-                    continue;
+            // exclude gamerules if not enough overall budget or players
+            if (drc.Weight == 0
+            || component.RoundstartBudget < drc.Cost
+            || grc.MinPlayers > players.Count)
+                continue;
 
-                draftedRules.Add(rule);
-            }
+            draftedRules.Add(rule);
         }
 
         // remove budget and try to add these drafted rules
@@ -191,6 +188,8 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             else d.Add(rule.Prototype.ID, new() { rule });
         }
 
+        // this will stay here as a big distraction
+        // until i think of a way of excluding rules from such selection, like Nukeops
         var totalRules = new List<SDynamicRuleset>();
         foreach (var rule in d.Values)
         {
@@ -304,6 +303,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     private void OnGameRuleAdded(ref GameRuleAddedEvent args)
     {
         // nothing goes unnoticed
+        // killing 2 birds here because now i don't need to hook up to it from another system
         foreach (var dgr in EntityQuery<DynamicRuleComponent>())
             dgr.ExecutedRules.Add(args.RuleId);
     }

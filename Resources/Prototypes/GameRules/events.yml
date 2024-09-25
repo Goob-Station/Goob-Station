@@ -455,8 +455,8 @@
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml # goob edit
-  #- type: NukeopsRule # goob edit
-  #  roundEndBehavior: Nothing
+  - type: NukeopsRule # goob edit
+    roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
     - spawnerPrototype: SpawnPointNukeopsCommander

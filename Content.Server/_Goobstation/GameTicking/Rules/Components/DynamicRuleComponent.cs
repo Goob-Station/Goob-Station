@@ -49,43 +49,12 @@ public sealed partial class DynamicRuleComponent : Component
 
     #region Gamerules
 
-    [DataField] public ProtoId<DatasetPrototype>? RoundstartRulesPool = null;
+    [DataField] public ProtoId<DatasetPrototype> RoundstartRulesPool;
 
     /// <summary>
     ///     Used for EORG.
     /// </summary>
     public List<EntProtoId> ExecutedRules = new();
-
-    #endregion
-
-    #region Midround Clock
-
-    /// <summary>
-    ///     How much time it takes in seconds for an antag event to be raised. (min)
-    /// </summary>
-    /// <remarks>Default is 10 minutes</remarks>
-    [DataField] public float MidroundLowerBound = 600f;
-
-    /// <summary>
-    ///     How much time it takes in seconds for an antag event to be raised. (max)
-    /// </summary>
-    /// <remarks>Default is 20 minutes</remarks>
-    [DataField] public float MidroundUpperBound = 1200f;
-
-    /// <summary>
-    ///     Clock for midround rolls.
-    /// </summary>
-    public float MidroundRollClock = 0f;
-    /// <summary>
-    ///     The first midround antag roll will happen 20 minutes into the shift.
-    ///     After that it's all about random.
-    /// </summary>
-    public float MidroundRollTime = 1200f;
-
-    /// <summary>
-    ///     
-    /// </summary>
-    [DataField] public float ThreatPerMidroundRoll = 7f;
 
     #endregion
 
