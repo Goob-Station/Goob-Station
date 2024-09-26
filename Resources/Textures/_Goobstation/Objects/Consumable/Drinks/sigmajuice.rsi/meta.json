@@ -19,16 +19,42 @@
       ]
     },
     {
-        "name": "icon_empty"
+      "name": "icon_empty"
     },
     {
-        "name": "fill-1"
+      "name": "fill-1",
+      "delays": [
+        [
+          0.6,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
     },
     {
-        "name": "fill-2"
+      "name": "fill-2",
+      "delays": [
+        [
+          0.6,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+
     },
     {
-        "name": "fill-3"
+      "name": "fill-3",
+      "delays": [
+        [
+          0.6,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+
     }
   ]
 }
