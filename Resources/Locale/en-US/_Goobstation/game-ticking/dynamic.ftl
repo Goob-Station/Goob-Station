@@ -2,7 +2,7 @@ dynamic-roundend-totalthreat = Total threat points: {$points}.
 dynamic-roundend-points-roundstart = Roundstart budget: {$points}.
 dynamic-roundend-points-midround = Midround budget: {$points}.
 
-dynamic-roundend-gamerules-title = Executed Roundstart Gamerules:
+dynamic-roundend-gamerules-title = Executed Gamerules:
 
 dynamic-gamerule-unknown-title = Unknown Gamerule
 dynamic-gamerule-traitor-title = [color=crimson]Traitors[/color]
