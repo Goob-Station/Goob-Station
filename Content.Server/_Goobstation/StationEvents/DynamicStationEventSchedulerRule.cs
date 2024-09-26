@@ -18,7 +18,7 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
             if (events.EventClock <= 0)
             {
                 RollRandomAntagEvent();
-                ResetTimer(component);
+                ResetTimer(events);
             }
         }
     }
