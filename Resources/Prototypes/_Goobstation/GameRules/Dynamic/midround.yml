@@ -1,10 +1,6 @@
 # same with roundstart, highImpact means it can only be spawned once
 # the only weights that work are in DynamicRuleset
 
-- type: entity
-  parent: BaseGameRule
-  id: DynamicStationEventScheduler
-
 # Midround Traitors
 - type: entity
   parent: TraitorDynamic
