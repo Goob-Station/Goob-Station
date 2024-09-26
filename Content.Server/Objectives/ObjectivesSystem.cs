@@ -19,6 +19,8 @@ using Robust.Shared.Utility;
 
 namespace Content.Server.Objectives;
 
+// heavily edited by goobstation contributor gang
+// if you wanna upstream something think twice
 public sealed class ObjectivesSystem : SharedObjectivesSystem
 {
     [Dependency] private readonly GameTicker _gameTicker = default!;
