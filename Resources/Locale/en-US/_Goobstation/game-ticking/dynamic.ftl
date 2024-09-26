@@ -22,6 +22,7 @@ dynamic-gamerule-dragon-title = Space Dragon Spawn
 dynamic-gamerule-spiders-title = Spider Infestation
 dynamic-gamerule-xenos-title = Xenobiology Outbreak
 dynamic-gamerule-revenant-title = Revenant Spawn
+dynamic-gamerule-ratking-title = Rat Migration
 
 dynamic-gamerule-midround-traitor-title = Sleeper Agents (Traitors)
 dynamic-gamerule-midround-changeling-title = Genome Awakening (Changelings)

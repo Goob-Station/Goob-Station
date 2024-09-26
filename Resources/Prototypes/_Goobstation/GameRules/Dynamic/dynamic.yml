@@ -26,7 +26,7 @@
   - RevolutionDynamicMidround # sleeper revs (M)
   - NukeopsDynamicMidround # lone operative spawn (M)
   - NinjaDynamicMidround # space ninja spawn (M)
-  - RatkingDynamicMidround # rat king spawn (M)
+  - RatKingDynamicMidround # rat king spawn (M)
   - DragonDynamicMidround # space dragon spawn (M)
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
