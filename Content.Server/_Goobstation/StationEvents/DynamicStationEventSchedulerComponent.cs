@@ -14,6 +14,8 @@ public sealed partial class DynamicStationEventSchedulerComponent : Component
     /// </summary>
     [DataField] public float EventClock;
 
+    [DataField] public float? Budget = null;
+
     /// <summary>
     ///     How much time it takes in seconds for an antag event to be raised. (min)
     /// </summary>

@@ -26,7 +26,7 @@
       - type: TraitorRole
         prototype: Traitor
 
-# Thief (Spy TBD)
+# Thief (Spy wyci)
 - type: entity
   parent: BaseGameRuleDynamic
   id: ThiefDynamic

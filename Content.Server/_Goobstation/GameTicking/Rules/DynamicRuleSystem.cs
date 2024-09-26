@@ -28,7 +28,6 @@ namespace Content.Server.GameTicking.Rules;
 /// </summary>
 public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleComponent>
 {
-    [Dependency] private readonly EntityTableSystem _entTable = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
@@ -242,7 +241,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         // save up leftout roundstart budget for midround rolls
         component.MidroundBudget += roundstartBudget;
-        component.MidroundBudgetLeft = component.MidroundBudget;
     }
 
     #endregion

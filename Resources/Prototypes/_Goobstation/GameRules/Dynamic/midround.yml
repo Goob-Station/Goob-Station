@@ -1,4 +1,4 @@
-# TODO: finish midrounds up
+# same with roundstart, highImpact means it can only be spawned once
 
 - type: entity
   parent: BaseGameRule
@@ -6,104 +6,86 @@
 
 # Midround Traitors
 - type: entity
-  parent: BaseTraitorRule
+  parent: TraitorDynamic
   id: TraitorDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-traitor-title
+    weight: 5
   - type: StationEvent
     earliestStart: 30
     weight: 8
     minimumPlayers: 15
-    maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
-    duration: null # the rule has to last the whole round not 1 second
+    duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ TraitorSleeper ]
-      fallbackRoles: [ Traitor ]
-      min: 1
-      max: 2
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
 
 # Midround Changelings
 - type: entity
-  parent: Changeling
+  parent: ChangelingDynamic
   id: ChangelingDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-changeling-title
+    weight: 7
   - type: StationEvent
     earliestStart: 20
     weight: 3
     minimumPlayers: 15
-    maxOccurrences: 1
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Changeling ]
-      min: 1
-      max: 2
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-        - Traitor
-        - Heretic
-      mindComponents:
-      - type: ChangelingRole
-        prototype: Changeling
 
 # Midround Heretics
 - type: entity
-  parent: Heretic
+  parent: HereticDynamic
   id: HereticDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-heretic-title
+    weight: 9
   - type: StationEvent
     earliestStart: 20 
     weight: 3 
     minimumPlayers: 30
-    maxOccurrences: 1 
     startAnnouncement: station-event-communication-interception
     startAudio:
       path: /Audio/Announcements/intercept.ogg
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ Heretic ]
-      min: 1
-      max: 1
-      playerRatio: 10
-      blacklist:
-        components:
-        - AntagImmune
-        - Traitor
-        - Changeling
-      mindComponents:
-      - type: HereticRole
-        prototype: Heretic
 
 # Midround Revolutionaries
-
+- type: entity
+  parent: RevolutionDynamic
+  id: RevolutionDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-revolutionary-title
+    weight: 11
+    highImpact: true
+  - type: StationEvent
+    earliestStart: 20 
+    weight: 3 
+    minimumPlayers: 30
+    maxOccurrences: 1
+    duration: null
+    occursDuringRoundEnd: false
 
 # Skeleton Spawn
 - type: entity
   parent: BaseGameRule
   id: SkeletonDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-skeleton-title
+    weight: 5
   - type: StationEvent
     weight: 5
     duration: 1
@@ -116,6 +98,10 @@
   parent: BaseGameRule
   id: DragonDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-dragon-title
+    weight: 9
+    highImpact: true
   - type: StationEvent
     weight: 6.5
     earliestStart: 30
@@ -146,6 +132,10 @@
   parent: BaseGameRule
   id: NinjaDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-ninja-title
+    weight: 7
+    highImpact: true
   - type: StationEvent
     weight: 6
     duration: null
@@ -196,6 +186,10 @@
   parent: BaseGameRule
   id: RevenantDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-revenant-title
+    weight: 7
+    highImpact: true
   - type: StationEvent
     weight: 7.5
     duration: 1
@@ -209,6 +203,10 @@
   id: ZombiesDynamicMidround
   parent: BaseGameRule
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-midround-zombies-title
+    weight: 13 # the heaviest one
+    highImpact: true
   - type: StationEvent
     earliestStart: 90
     minimumPlayers: 40
@@ -244,6 +242,10 @@
   parent: BaseNukeopsRule
   id: NukeopsDynamicMidround
   components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-loneop-title
+    weight: 11
+    highImpact: true
   - type: StationEvent
     earliestStart: 35
     weight: 5.5

@@ -1,5 +1,4 @@
 using Content.Shared.Dataset;
-using Content.Shared.GameTicking.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.Components;
@@ -39,11 +38,6 @@ public sealed partial class DynamicRuleComponent : Component
     ///     Used for EORG display.
     /// </summary>
     public float MidroundBudget = 0f;
-
-    /// <summary>
-    ///     Used for midround rolling.
-    /// </summary>
-    public float MidroundBudgetLeft = 0f;
 
     #endregion
 
