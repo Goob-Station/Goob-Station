@@ -260,6 +260,7 @@
 
 # event schedulers
 
+# goob edit - separate event schedulers
 - type: entityTable
   id: BasicGameRulesTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
@@ -267,14 +268,20 @@
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
       - !type:NestedSelector
-        tableId: BasicAntagEventsTable
-      - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector
         tableId: CalmPestEventsTable
       - !type:NestedSelector
         tableId: SpicyPestEventsTable
 
+- type: entityTable
+  id: AllGameRulesTable
+  table: !type:AllSelector
+    children:
+    - !type:NestedSelector
+      tableId: BasicGameRulesTable
+    - !type:NestedSelector
+      tableId: BasicAntagEventsTable
 
 - type: entityTable
   id: SpaceTrafficControlTable
@@ -296,12 +303,21 @@
       tableId: BasicGameRulesTable
 
 - type: entity
+  id: AntagStationEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    schedulesGameRules: !type:AllSelector
+      tableId: BasicAntagEventsTable
+
+- type: entity
   id: RampingStationEventScheduler
   parent: BaseGameRule
   components:
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: AllGameRulesTable
+# goob edit end
 
 - type: entity
   id: SpaceTrafficControlEventScheduler # iff we make a selector for EntityTables that can respect StationEventComp restrictions, or somehow impliment them otherwise in said tables,

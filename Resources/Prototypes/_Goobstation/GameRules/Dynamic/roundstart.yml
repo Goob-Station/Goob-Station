@@ -75,7 +75,7 @@
     scalingCost: 10
   - type: ChangelingRule
   - type: GameRule
-    #minPlayers: 15
+    minPlayers: 15
   - type: AntagSelection
     agentName: changeling-roundend-name
     definitions:
@@ -104,7 +104,7 @@
     scalingCost: 9
   - type: HereticRule
   - type: GameRule
-    #minPlayers: 20
+    minPlayers: 20
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
@@ -131,7 +131,7 @@
     highImpact: true
   - type: RevolutionaryRule
   - type: GameRule
-    #minPlayers: 20
+    minPlayers: 20
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
@@ -164,7 +164,7 @@
     cost: 20
     highImpact: true
   - type: GameRule
-    #minPlayers: 25
+    minPlayers: 25
   - type: LoadMapRule
     mapPath: /Maps/Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection

@@ -12,8 +12,6 @@
   id: BaseTraitorRuleDynamic
   components:
   - type: TraitorRule
-  # TODO: codewords in yml
-  # TODO: uplink in yml
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
@@ -26,7 +24,7 @@
   parent: BaseGameRuleDynamic
   id: BaseNukeopsRuleDynamic
   components:
-  - type: RandomMetadata #this generates the random operation name cuz it's cool. 
+  - type: RandomMetadata
     nameSegments:
     - operationPrefix
     - operationSuffix

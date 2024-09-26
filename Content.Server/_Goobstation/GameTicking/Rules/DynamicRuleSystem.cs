@@ -235,6 +235,8 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // spend budget and start the gamer rule
         foreach (var rule in pickedRules)
         {
+            // forcibly start gamerules.
+            // shouldn't be a problem. hopefully.
             _gameTicker.StartGameRule(rule.Prototype.ID);
             component.ExecutedRules.Add(rule.Prototype.ID);
         }
@@ -252,19 +254,25 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         base.AppendRoundEndText(uid, component, gameRule, ref args);
         var sb = new StringBuilder();
 
+        var threatLevel = 0f;
+        var roundstartBudget = 0f;
+        var midroundBudget = 0f;
+
         foreach (var dynamicRule in EntityQuery<DynamicRuleComponent>())
         {
-            // total threat & points:
-            sb.AppendLine(Loc.GetString("dynamic-roundend-totalthreat", ("points", (int) dynamicRule.ThreatLevel)));
-            sb.AppendLine(Loc.GetString("dynamic-roundend-points-roundstart", ("points", (int) dynamicRule.RoundstartBudget)));
-            sb.AppendLine(Loc.GetString("dynamic-roundend-points-midround", ("points", (int) dynamicRule.MidroundBudget)));
-
-            // executed roundstart gamerules:
-            sb.AppendLine($"\n{Loc.GetString("dynamic-roundend-gamerules-title")}");
-            sb.AppendLine(GenerateLocalizedGameruleList(component.ExecutedRules));
-
-            // executed midround gamerules: TODO
+            threatLevel += dynamicRule.ThreatLevel;
+            roundstartBudget += dynamicRule.RoundstartBudget;
+            midroundBudget += dynamicRule.MidroundBudget;
         }
+
+        // total threat & points:
+        sb.AppendLine(Loc.GetString("dynamic-roundend-totalthreat", ("points", (int) threatLevel)));
+        sb.AppendLine(Loc.GetString("dynamic-roundend-points-roundstart", ("points", (int) roundstartBudget)));
+        sb.AppendLine(Loc.GetString("dynamic-roundend-points-midround", ("points", (int) midroundBudget)));
+
+        // all executed gamerules:
+        sb.AppendLine($"\n{Loc.GetString("dynamic-roundend-gamerules-title")}");
+        sb.AppendLine(GenerateLocalizedGameruleList(component.ExecutedRules));
 
         args.AppendAtStart(sb.ToString());
     }
