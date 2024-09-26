@@ -80,6 +80,6 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
     {
         base.Ended(uid, component, gameRule, args);
 
-        component.EventClock = component.FirstEventDelay;
+        ResetTimer(component);
     }
 }

@@ -14,7 +14,7 @@ public sealed partial class DynamicStationEventSchedulerComponent : Component
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.
     /// </summary>
-    [DataField] public float EventClock;
+    [DataField] public float EventClock = 1200f; // = FirstEventDelay
 
     [DataField] public float? Budget = null;
 
