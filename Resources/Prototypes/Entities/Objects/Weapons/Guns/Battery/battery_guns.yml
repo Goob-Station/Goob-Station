@@ -771,9 +771,6 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-  - type: BatterySelfRecharger # Goobstation
-    autoRecharge: true
-    autoRechargeRate: 20
 
 - type: entity
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
