@@ -47,3 +47,62 @@
     containers:
       entity_storage: !type:NestedSelector
         tableId: LockerFillBlueshieldOfficer
+
+# No hardsuit table
+- type: entityTable
+  id: LockerFillHeadOfSecurityNoHardsuit
+  table: !type:AllSelector
+    children:
+#    - id: WeaponEnergyShotgun
+    - id: WeaponEnergyGunMultiphase # Goobstation
+    - id: BookSpaceLaw
+    - id: BoxEncryptionKeySecurity
+    - id: CigarGoldCase
+      prob: 0.50
+    - id: ClothingBeltSecurityFilled
+    - id: ClothingEyesGlassesSecurity
+    - id: ClothingHeadsetAltSecurity
+    - id: ClothingMaskNeckGaiter
+    - id: ClothingOuterCoatHoSTrench
+    - id: ClothingShoesBootsJack
+    - id: DoorRemoteSecurity
+    - id: HoloprojectorSecurity
+    - id: RubberStampHos
+    - id: SecurityTechFabCircuitboard
+    - id: WeaponDisabler
+    - id: WantedListCartridge
+# Hardsuit table, used for suit storage as well
+- type: entityTable
+  id: FillHeadOfSecurityHardsuit
+  table: !type:AllSelector
+    children:
+    - id: ClothingMaskGasSwat
+    - id: ClothingOuterHardsuitSecurityRed
+    - id: JetpackSecurityFilled
+    - id: OxygenTankFilled
+
+# No hardsuit locker
+- type: entity
+  id: LockerHeadOfSecurityFilled
+  suffix: Filled
+  parent: LockerHeadOfSecurity
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:NestedSelector
+        tableId: LockerFillHeadOfSecurityNoHardsuit
+
+# No hardsuit + Hardsuit locker
+- type: entity
+  id: LockerHeadOfSecurityFilledHardsuit
+  suffix: Filled, Hardsuit
+  parent: LockerHeadOfSecurity
+  components:
+  - type: EntityTableContainerFill
+    containers:
+      entity_storage: !type:AllSelector
+        children:
+        - !type:NestedSelector
+          tableId: LockerFillHeadOfSecurityNoHardsuit
+        - !type:NestedSelector
+          tableId: FillHeadOfSecurityHardsuit
