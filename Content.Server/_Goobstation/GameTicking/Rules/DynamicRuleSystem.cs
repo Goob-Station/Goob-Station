@@ -235,8 +235,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // spend budget and start the gamer rule
         foreach (var rule in pickedRules)
         {
-            // forcibly start gamerules.
-            // shouldn't be a problem. hopefully.
             _gameTicker.StartGameRule(rule.Prototype.ID);
             component.ExecutedRules.Add(rule.Prototype.ID);
         }

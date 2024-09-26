@@ -31,13 +31,16 @@ using Robust.Shared.Timing;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Revolutionary;
 using Content.Server.Communications;
-using System.Linq; // GoobStation
+using System.Linq;
+using Content.Shared.Chat;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.GameTicking.Rules;
 
 /// <summary>
 /// Where all the main stuff for Revolutionaries happens (Assigning Head Revs, Command on station, and checking for the game to end.)
 /// </summary>
+// Heavily edited by goobstation. If you want to upstream something think twice
 public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleComponent>
 {
     [Dependency] private readonly IAdminLogManager _adminLogManager = default!;
@@ -53,7 +56,8 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
-    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!; // GoobStation // why
+    [Dependency] private readonly SharedRevolutionarySystem _revolutionarySystem = default!;
+    [Dependency] private readonly ChatSystem _chatSystem = default!;
 
     //Used in OnPostFlash, no reference to the rule component is available
     public readonly ProtoId<NpcFactionPrototype> RevolutionaryNpcFaction = "Revolutionary";
@@ -85,21 +89,25 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
             component.CommandCheck = _timing.CurTime + component.TimerWait;
 
             // goob edit
-            if (CheckCommandLose() && !component.HasRevAnnouncementPlayed)
+            if (CheckCommandLose())
             {
-                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.Nothing,
-                    component.ShuttleCallTime,
-                    sender: "revolutionaries-win-sender",
-                    textCall: "revolutionaries-win-announcement-shuttle-call",
-                    textAnnounce: "revolutionaries-win-announcement");
+                if (!component.HasRevAnnouncementPlayed)
+                {
+                    _chatSystem.DispatchGlobalAnnouncement(
+                        Loc.GetString("revolutionaries-win-announcement"),
+                        Loc.GetString("revolutionaries-win-sender"),
+                        colorOverride: Color.Gold);
 
-                component.HasAnnouncementPlayed = true;
+                    component.HasRevAnnouncementPlayed = true;
+                }
 
                 foreach (var ms in EntityQuery<MindShieldComponent, MobStateComponent>())
                 {
                     var entity = ms.Item1.Owner;
 
                     // assign eotrs
+                    if (HasComp<RevolutionEnemyComponent>(entity))
+                        continue;
                     var revenemy = EnsureComp<RevolutionEnemyComponent>(entity);
                     _antag.SendBriefing(entity, Loc.GetString("rev-eotr-gain"), Color.Red, revenemy.RevStartSound);
                 }
@@ -107,16 +115,12 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
 
             if (CheckRevsLose() && !component.HasAnnouncementPlayed)
             {
-                _roundEnd.DoRoundEndBehavior(RoundEndBehavior.Nothing,
-                    component.ShuttleCallTime,
-                    sender: "revolutionaries-sender-cc",
-                    textCall: "revolutionaries-lose-announcement-shuttle-call",
-                    textAnnounce: "revolutionaries-lose-announcement");
+                _chatSystem.DispatchGlobalAnnouncement(
+                    Loc.GetString("revolutionaries-lose-announcement"),
+                    Loc.GetString("revolutionaries-sender-cc"),
+                    colorOverride: Color.Gold);
 
                 component.HasAnnouncementPlayed = true;
-
-                foreach (var eotr in EntityQuery<RevolutionEnemyComponent>())
-                    RemComp<RevolutionEnemyComponent>(eotr.Owner);
             }
         }
     }
@@ -180,6 +184,9 @@ public sealed class RevolutionaryRuleSystem : GameRuleSystem<RevolutionaryRuleCo
         {
             return;
         }
+
+        if (HasComp<RevolutionEnemyComponent>(ev.Target))
+            RemComp<RevolutionEnemyComponent>(ev.Target);
 
         _npcFaction.AddFaction(ev.Target, RevolutionaryNpcFaction);
         var revComp = EnsureComp<RevolutionaryComponent>(ev.Target);

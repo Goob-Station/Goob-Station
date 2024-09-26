@@ -307,7 +307,7 @@
   parent: BaseGameRule
   components:
   - type: BasicStationEventScheduler
-    schedulesGameRules: !type:AllSelector
+    scheduledGameRules: !type:AllSelector
       tableId: BasicAntagEventsTable
 
 - type: entity
