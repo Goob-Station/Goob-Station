@@ -159,7 +159,7 @@
   icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
   productEntity: ClothingSatchelSmuggler
   cost:
-    Telecrystal: 10
+    Telecrystal: 15
   categories:
   - UplinkDeception
   saleLimit: 1
