@@ -10,7 +10,7 @@
 - type: entity
   parent: ClothingBackpackSatchel
   id: ClothingSatchelSmuggler
-  name: Smugglers Satchel
+  name: Satchel
   description: A satchel you can hide under floor tiles
   components:
   - type: Storage
