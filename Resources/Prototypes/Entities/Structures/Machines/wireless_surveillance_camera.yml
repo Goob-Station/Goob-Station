@@ -38,7 +38,6 @@
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
     - type: StationAiVision # GOOB - AI can see entertainment
-      range: 9.5
   placement:
     mode: SnapgridCenter
 
