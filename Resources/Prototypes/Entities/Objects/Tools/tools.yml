@@ -336,8 +336,6 @@
   - type: ActivatableUI
     inHandsOnly: true
     key: enum.RcdUiKey.Key
-  - type: MaterialCharge # Goobstation
-    materialWhiteList: [Steel, Glass, Plastic, Plasma, Plasteel, ReinforcedGlass, PlasmaGlass, ReinforcedPlasmaGlass, UraniumGlass, ReinforcedUraniumGlass] # Goobstation
 
 - type: entity
   id: RCDEmpty
