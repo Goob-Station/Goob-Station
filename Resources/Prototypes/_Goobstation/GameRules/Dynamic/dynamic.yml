@@ -60,6 +60,7 @@
   id: DynamicStationEventScheduler
   components:
   - type: DynamicStationEventScheduler
+    midroundRulesPool: DynamicMidroundGamerules
 
 # game preset here for various reasons
 # most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
