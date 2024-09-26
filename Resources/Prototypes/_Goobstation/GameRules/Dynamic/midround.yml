@@ -8,11 +8,11 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-traitor-title
-    weight: 5
+    weight: 8
+    cost: 3
   - type: StationEvent
     earliestStart: 30
     weight: 10
-    cost: 3
     minimumPlayers: 15
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -48,7 +48,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-heretic-title
-    weight: 7
+    weight: 4
     cost: 5
   - type: StationEvent
     earliestStart: 20 
