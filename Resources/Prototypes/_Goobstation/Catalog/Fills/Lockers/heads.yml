@@ -6,9 +6,9 @@
     - id: WeaponDisabler
     - id: BriefcaseBrownFilled
     - id: BedsheetCentcom
-    # -id: CaneSheathFilledNanotrasen - when we map lockers on maps
+    - id: CaneSheathFilledNanotrasen
     - id: HandheldFaxNanorep
-    #- id: RubberStampNanorep - when we map lockers on maps
+    - id: RubberStampNanorep
     - id: Paper
       amount: !type:ConstantNumberSelector
         value: 5
@@ -36,7 +36,7 @@
     - id: ClothingEyesGlassesMedSec
     - id: PinpointerNuclear
     - id: ClothingHandsGlovesCombat
-    #- id: WeaponEnergyRevolver - when we map lockers on maps
+    - id: WeaponEnergyRevolver
 
 - type: entity
   id: LockerBlueshieldOfficerFilled
