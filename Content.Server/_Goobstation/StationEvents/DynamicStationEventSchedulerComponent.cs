@@ -1,3 +1,4 @@
+using Content.Server.GameTicking.Rules;
 using Content.Shared.Dataset;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;
@@ -8,6 +9,7 @@ namespace Content.Server.StationEvents;
 public sealed partial class DynamicStationEventSchedulerComponent : Component
 {
     [DataField] public ProtoId<DatasetPrototype> MidroundRulesPool;
+    public List<EntProtoId> ExecutedRules;
 
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.

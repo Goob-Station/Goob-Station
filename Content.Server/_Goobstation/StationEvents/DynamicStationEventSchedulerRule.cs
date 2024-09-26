@@ -1,12 +1,15 @@
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.GameTicking.Components;
+using System.Linq;
 
 namespace Content.Server.StationEvents;
 
 public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<DynamicStationEventSchedulerComponent>
 {
     [Dependency] private readonly DynamicRuleSystem _dynamic = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
 
     public override void Update(float frameTime)
     {
@@ -17,15 +20,43 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
             events.EventClock -= frameTime;
             if (events.EventClock <= 0)
             {
-                RollRandomAntagEvent();
+                RollRandomAntagEvent(events);
                 ResetTimer(events);
             }
         }
     }
 
-    public void RollRandomAntagEvent()
+    public void RollRandomAntagEvent(DynamicStationEventSchedulerComponent component, float attempt = 0, float attemptLimit = 5)
     {
-        // todo finish
+        var rules = _dynamic.GetRulesets(component.MidroundRulesPool);
+        var toReroll = false;
+
+        var pickedRule = _dynamic.WeightedPickRule(rules);
+        if (pickedRule == null)
+            return; // should never happen
+
+        // cancel multiple high impacts
+        if (pickedRule.DynamicRuleset.HighImpact
+        && component.ExecutedRules.Contains(pickedRule.Prototype.ID))
+            toReroll = true;
+
+        // check budget
+        var budget = component.Budget - pickedRule.DynamicRuleset.Cost;
+        if (budget < 0)
+            toReroll = true;
+
+        // try rerolling events until success
+        if (toReroll && attempt < attemptLimit)
+            RollRandomAntagEvent(component, attempt: attempt += 1);
+        else
+        {
+            // todo: write debug stuff here
+        }
+
+        // start game rule
+        component.Budget = budget;
+        _gameTicker.StartGameRule(pickedRule.Prototype.ID);
+        component.ExecutedRules.Add(pickedRule.Prototype.ID);
     }
 
     private void ResetTimer(DynamicStationEventSchedulerComponent component)

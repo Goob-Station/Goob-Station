@@ -60,9 +60,9 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
     }
 
-    public List<SDynamicRuleset> GetRulesets(ProtoId<DatasetPrototype> dataset)
+    public List<SDynamicRuleset?> GetRulesets(ProtoId<DatasetPrototype> dataset)
     {
-        var l = new List<SDynamicRuleset>();
+        var l = new List<SDynamicRuleset?>();
 
         foreach (var rprot in _proto.Index(dataset).Values)
         {
@@ -85,7 +85,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var sum = 0f;
         foreach (var rule in rules)
             if (rule != null)
-                sum += rule.Value.DynamicRuleset.Weight;
+                sum += rule.DynamicRuleset.Weight;
 
         var accumulated = 0f;
 
@@ -96,7 +96,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             if (rule == null)
                 continue;
 
-            accumulated += rule.Value.DynamicRuleset.Weight;
+            accumulated += rule.DynamicRuleset.Weight;
 
             if (accumulated >= rand)
                 return rule;
@@ -128,10 +128,11 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         // get gamerules from dataset and add them to draftedRules
         var draftedRules = new List<SDynamicRuleset?>();
-        var roundstartRules = GetRulesets( component.RoundstartRulesPool);
+        var roundstartRules = GetRulesets(component.RoundstartRulesPool);
         foreach (var rule in roundstartRules)
         {
-            if (!rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
+            if (rule == null
+            || !rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
             || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
                 continue;
 
@@ -155,10 +156,9 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                 // todo write something debug related here
                 break;
 
-            var r = ruleset.Value.DynamicRuleset;
-            var rulesetNonNull = (SDynamicRuleset) ruleset;
+            var r = ruleset.DynamicRuleset;
 
-            var cost = pickedRules.Contains(rulesetNonNull) ? r.ScalingCost : r.Cost;
+            var cost = pickedRules.Contains(ruleset) ? r.ScalingCost : r.Cost;
             if (cost > roundstartBudget)
             {
                 draftedRules[draftedRules.IndexOf(ruleset)] = null;
@@ -166,12 +166,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             }
 
             roundstartBudget -= cost;
-            pickedRules.Add(rulesetNonNull);
+            pickedRules.Add(ruleset);
 
             // if one chosen ruleset is high impact we cancel every other high impact ruleset
             if (r.HighImpact && !component.Unforgiving)
                 foreach (var otherRule in draftedRules)
-                    if (otherRule != null && otherRule.Value.DynamicRuleset.HighImpact)
+                    if (otherRule != null && otherRule.DynamicRuleset.HighImpact)
                         draftedRules[draftedRules.IndexOf(otherRule)] = null;
         }
 
@@ -235,7 +235,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // spend budget and start the gamer rule
         foreach (var rule in pickedRules)
         {
-            _gameTicker.AddGameRule(rule.Prototype.ID);
+            _gameTicker.StartGameRule(rule.Prototype.ID);
             component.ExecutedRules.Add(rule.Prototype.ID);
         }
 
@@ -312,7 +312,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 // this struct is used only for making my job of handling all the game rules much easier and cleaner
 // this should not be used outside of coding (e.g. in yaml)
 // regards
-public struct SDynamicRuleset
+public sealed class SDynamicRuleset
 {
     public EntityPrototype Prototype;
     public DynamicRulesetComponent DynamicRuleset;

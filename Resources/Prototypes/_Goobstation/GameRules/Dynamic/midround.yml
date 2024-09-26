@@ -1,4 +1,5 @@
 # same with roundstart, highImpact means it can only be spawned once
+# the only weights that work are in DynamicRuleset
 
 - type: entity
   parent: BaseGameRule
@@ -14,7 +15,8 @@
     weight: 5
   - type: StationEvent
     earliestStart: 30
-    weight: 8
+    weight: 10
+    cost: 3
     minimumPlayers: 15
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -30,7 +32,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-changeling-title
-    weight: 7
+    weight: 4
+    cost: 6
   - type: StationEvent
     earliestStart: 20
     weight: 3
@@ -49,7 +52,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-heretic-title
-    weight: 9
+    weight: 7
+    cost: 5
   - type: StationEvent
     earliestStart: 20 
     weight: 3 
@@ -68,7 +72,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-revolutionary-title
-    weight: 11
+    weight: 3
+    cost: 7
     highImpact: true
   - type: StationEvent
     earliestStart: 20 
@@ -85,7 +90,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-skeleton-title
-    weight: 5
+    weight: 6
+    cost: 3
   - type: StationEvent
     weight: 5
     duration: 1
@@ -100,7 +106,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-dragon-title
-    weight: 9
+    weight: 4
+    cost: 7
     highImpact: true
   - type: StationEvent
     weight: 6.5
@@ -134,7 +141,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ninja-title
-    weight: 7
+    weight: 4
+    cost: 7
     highImpact: true
   - type: StationEvent
     weight: 6
@@ -188,7 +196,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-revenant-title
-    weight: 7
+    weight: 4
+    cost: 5
     highImpact: true
   - type: StationEvent
     weight: 7.5
@@ -205,7 +214,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-zombies-title
-    weight: 13 # the heaviest one
+    weight: 2
+    cost: 10
     highImpact: true
   - type: StationEvent
     earliestStart: 90
@@ -244,7 +254,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-loneop-title
-    weight: 11
+    weight: 4
+    cost: 7
     highImpact: true
   - type: StationEvent
     earliestStart: 35
