@@ -323,5 +323,6 @@
   - type: Damageable #Goobstation - Ion Damage
     damageContainer: Silicon
     damageModifierSet: SiliconProtected
-  - type: ExplosionResistance
+  - type: ExplosionResistance #Goobstation - Ion Damage
     damageCoefficient: 0.5
+  - type: FlashImmunity
