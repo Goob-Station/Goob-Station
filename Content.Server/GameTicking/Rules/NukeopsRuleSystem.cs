@@ -27,6 +27,7 @@ using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Store.Components;
 using Content.Server.Station.Systems;
+using Content.Server.Chat.Systems;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -41,6 +42,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly TagSystem _tag = default!;
     // goob edit
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    // goob edit end
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -479,10 +482,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             : WinCondition.AllNukiesDead);
 
         SetWinType(ent, WinType.CrewMajor, false);
-        _roundEndSystem.DoRoundEndBehavior(
-            // goob edit - straight up overriding roundend behavior
-            // because nukies are made more dynamic than just get in die and end round
-            RoundEndBehavior.Nothing, nukeops.EvacShuttleTime, nukeops.RoundEndTextSender, nukeops.RoundEndTextShuttleCall, nukeops.RoundEndTextAnnouncement);
+
+        // goob edit - no more roundend behavior, just announcement
+        _chat.DispatchGlobalAnnouncement(
+            Loc.GetString(nukeops.RoundEndTextAnnouncement),
+            Loc.GetString(nukeops.RoundEndTextSender));
 
         // prevent it called multiple times
         nukeops.RoundEndBehavior = RoundEndBehavior.Nothing;
