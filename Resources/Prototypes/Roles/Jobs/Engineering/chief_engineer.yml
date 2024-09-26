@@ -22,7 +22,7 @@
   icon: "JobIconChiefEngineer"
   requireAdminNotify: true
   supervisors: job-supervisors-captain
-  #canBeAntag: false
+  canBeAntag: false
   access:
   - Maintenance
   - Engineering
@@ -30,11 +30,11 @@
   - External
   - ChiefEngineer
   - Atmospherics
-  #- Brig
+  - Brig
   - Cryogenics
   special:
-  #- !type:AddImplantSpecial
-  #  implants: [ MindShieldImplant ]
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
