@@ -74,6 +74,7 @@
   showInVote: true
   rules:
     - Dynamic
+    - BasicStationEventScheduler
     - DynamicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
@@ -91,6 +92,7 @@
   showInVote: true
   rules:
     - DynamicUnforgiving
+    - BasicStationEventScheduler
     - DynamicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler
