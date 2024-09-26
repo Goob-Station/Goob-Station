@@ -1242,3 +1242,15 @@ Entries:
       message: Core Rule 13 updated.
   id: 153
   time: '2024-09-25T13:59:38.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Un-buffed security helmet armor values, it is no longer on par with the
+        RAID SUIT HELMET
+    - type: Tweak
+      message: >-
+        Nerfed the SWAT helmet (available to BSO) so it is now on par with the
+        raid suit helmet (why the fuck did it resist radiation?)
+  id: 154
+  time: '2024-09-26T13:41:44.0000000+00:00'
