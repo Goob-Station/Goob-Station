@@ -21,18 +21,18 @@
   startingGear: QuartermasterGear
   icon: "JobIconQuarterMaster"
   supervisors: job-supervisors-captain
-  canBeAntag: false
+  #canBeAntag: false
   access:
   - Cargo
   - Salvage
   - Quartermaster
   - Maintenance
   - Command
-  - Brig
+  #- Brig
   - Cryogenics
   special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
+  #- !type:AddImplantSpecial
+  #  implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
