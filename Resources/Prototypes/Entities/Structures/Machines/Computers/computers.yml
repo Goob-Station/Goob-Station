@@ -1,10 +1,9 @@
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerAlert
   name: atmospheric alerts computer
   description: Used to access the station's atmospheric automated alert system.
   components:
-  - type: StationAiWhitelist
   - type: Computer
     board: AlertsComputerCircuitboard
   - type: Sprite
@@ -17,6 +16,8 @@
       state: alert-0
     - map: ["computerLayerKeys"]
       state: atmos_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: GenericVisualizer
     visuals:
       enum.ComputerVisuals.Powered:
@@ -25,7 +26,7 @@
           False: { visible: false }
         computerLayerKeys:
           True: { visible: true, shader: unshaded }
-          False: { visible: true, shader: shaded }   
+          False: { visible: true, shader: shaded }
       enum.AtmosAlertsComputerVisuals.ComputerLayerScreen:
         computerLayerScreen:
           0: { state: alert-0 }
@@ -33,6 +34,10 @@
           2: { state: alert-1 }
           3: { state: alert-2 }
           4: { state: alert-2 }
+      enum.WiresVisuals.MaintenancePanelState:
+        enum.WiresVisualLayers.MaintenancePanel:
+          True: { visible: false }
+          False: { visible: true }
   - type: AtmosAlertsComputer
   - type: ActivatableUI
     singleUser: true
@@ -41,6 +46,8 @@
     interfaces:
         enum.AtmosAlertsComputerUiKey.Key:
             type: AtmosAlertsComputerBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
 
 - type: entity
   parent: BaseComputer
@@ -58,6 +65,8 @@
     interfaces:
         enum.EmergencyConsoleUiKey.Key:
           type: EmergencyConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -89,6 +98,8 @@
     interfaces:
         enum.ShuttleConsoleUiKey.Key:
           type: ShuttleConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: RadarConsole
   - type: WorldLoader
     radius: 256
@@ -131,6 +142,8 @@
       state: shuttle
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Computer
     board: ShuttleConsoleCircuitboard
 
@@ -150,6 +163,8 @@
       state: syndishuttle
     - map: ["computerLayerKeys"]
       state: syndie_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Tag
     tags:
       - Syndicate
@@ -180,6 +195,8 @@
       state: shuttle
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: DroneConsole
     components:
       - type: CargoShuttle
@@ -225,12 +242,11 @@
       stealGroup: SalvageShuttleConsoleCircuitboard
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerIFF
   name: IFF computer
   description: Allows you to control the IFF characteristics of this vessel.
   components:
-  - type: StationAiWhitelist
   - type: IFFConsole
   - type: Sprite
     layers:
@@ -243,12 +259,16 @@
       state: helm
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ActivatableUI
     key: enum.IFFConsoleUiKey.Key
   - type: UserInterface
     interfaces:
         enum.IFFConsoleUiKey.Key:
           type: IFFConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: Computer
     board: ComputerIFFCircuitboard
 
@@ -269,16 +289,17 @@
     interfaces:
         enum.IFFConsoleUiKey.Key:
           type: IFFConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: Computer
     board: ComputerIFFSyndicateCircuitboard
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerPowerMonitoring
   name: power monitoring computer
   description: It monitors power levels across the station.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -289,6 +310,8 @@
       state: power_monitor
     - map: ["computerLayerKeys"]
       state: power_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -310,14 +333,15 @@
     interfaces:
       enum.PowerMonitoringConsoleUiKey.Key:
         type: PowerMonitoringConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerMedicalRecords
   name: medical records computer
   description: This can be used to check medical records.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -328,6 +352,8 @@
       state: medcomp
     - map: ["computerLayerKeys"]
       state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -336,17 +362,18 @@
     board: MedicalRecordsComputerCircuitboard
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerCriminalRecords
   name: criminal records computer
   description: This can be used to check criminal records. Only security can modify them.
   components:
-  - type: StationAiWhitelist
   - type: CriminalRecordsConsole
   - type: UserInterface
     interfaces:
       enum.CriminalRecordsConsoleKey.Key:
         type: CriminalRecordsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ActivatableUI
     key: enum.CriminalRecordsConsoleKey.Key
   - type: Sprite
@@ -359,6 +386,8 @@
       state: explosive
     - map: ["computerLayerKeys"]
       state: security_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -372,17 +401,18 @@
     - CriminalRecords
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerStationRecords
   name: station records computer
   description: This can be used to check station records.
   components:
-  - type: StationAiWhitelist
   - type: GeneralStationRecordConsole
   - type: UserInterface
     interfaces:
         enum.GeneralStationRecordConsoleKey.Key:
           type: GeneralStationRecordConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: ActivatableUI
     key: enum.GeneralStationRecordConsoleKey.Key
   - type: PointLight
@@ -396,12 +426,11 @@
     - Forensics
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerCrewMonitoring
   name: crew monitoring console
   description: Used to monitor active health sensors built into most of the crew's uniforms.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -412,6 +441,8 @@
       state: crew
     - map: ["computerLayerKeys"]
       state: med_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: PointLight
     radius: 1.5
     energy: 1.6
@@ -424,6 +455,8 @@
     interfaces:
         enum.CrewMonitoringUIKey.Key:
           type: CrewMonitoringBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: CrewMonitoringConsole
   - type: DeviceNetwork
     deviceNetId: Wireless
@@ -432,12 +465,11 @@
     range: 1200
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerResearchAndDevelopment
   name: R&D computer
   description: A computer used to interface with R&D tools.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -448,6 +480,8 @@
       state: rdcomp
     - map: ["computerLayerKeys"]
       state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ResearchClient
   - type: ResearchConsole
   - type: ActiveRadio
@@ -462,6 +496,8 @@
         type: ResearchConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
@@ -477,12 +513,11 @@
     - Science
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerAnalysisConsole
   name: analysis console
   description: A computer used to interface with the artifact analyzer.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -493,6 +528,8 @@
       state: artifact
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ResearchClient
   - type: AnalysisConsole
     reportEntityId: PaperArtifactAnalyzer
@@ -511,6 +548,8 @@
         type: AnalysisConsoleBoundUserInterface
       enum.ResearchClientUiKey.Key:
         type: ResearchClientBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer
@@ -524,12 +563,11 @@
     - Xenoarchaeology
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerId
   name: ID card computer
   description: Terminal for programming Nanotrasen employee ID cards to access parts of the station.
   components:
-  - type: StationAiWhitelist
   - type: IdCardConsole
     privilegedIdSlot:
       name: id-card-console-privileged-id
@@ -555,6 +593,8 @@
     interfaces:
       enum.IdCardConsoleUiKey.Key:
         type: IdCardConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: CrewManifestViewer
     ownerKey: enum.IdCardConsoleUiKey.Key
   - type: Sprite
@@ -567,6 +607,8 @@
       state: id
     - map: ["computerLayerKeys"]
       state: id_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Computer
     board: IDComputerCircuitboard
   - type: PointLight
@@ -584,12 +626,11 @@
       IdCardConsole-targetId: !type:ContainerSlot
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: computerBodyScanner
   name: body scanner computer
   description: A body scanner.
   components:
-  - type: StationAiWhitelist
   - type: ApcPowerReceiver
     powerLoad: 500
   - type: Computer
@@ -600,12 +641,11 @@
     color: "#1f8c28"
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerComms
   name: communications computer
   description: A computer used to make station wide announcements via keyboard, set the appropriate alert level, and call the emergency shuttle.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -616,6 +656,8 @@
       state: comm
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: AccessReader
     access: [[ "Command" ]]
   - type: CommunicationsConsole
@@ -628,6 +670,8 @@
     interfaces:
       enum.CommunicationsConsoleUiKey.Key:
         type: CommunicationsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: CommsComputerCircuitboard
   - type: PointLight
@@ -654,6 +698,8 @@
       state: comm_syndie
     - map: ["computerLayerKeys"]
       state: syndie_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: AccessReader
     access: [[ "NuclearOperative" ]]
   - type: CommunicationsConsole
@@ -670,12 +716,11 @@
     color: "#f71713"
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerSolarControl
   name: solar control computer
   description: A controller for solar panel arrays.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -686,6 +731,8 @@
       state: solar_screen
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: SolarControlConsole
   - type: ActivatableUI
     key: enum.SolarControlConsoleUiKey.Key
@@ -693,6 +740,8 @@
     interfaces:
       enum.SolarControlConsoleUiKey.Key:
         type: SolarControlConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: SolarControlComputerCircuitboard
   - type: PointLight
@@ -701,12 +750,11 @@
     color: "#e6e227"
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerRadar
   name: mass scanner computer
   description: A computer for detecting nearby bodies, displaying them by position and mass.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -717,6 +765,8 @@
       state: solar_screen
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: RadarConsole
   - type: ActivatableUI
     key: enum.RadarConsoleUiKey.Key
@@ -724,6 +774,8 @@
     interfaces:
         enum.RadarConsoleUiKey.Key:
           type: RadarConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: Computer
     board: RadarConsoleCircuitboard
   - type: PointLight
@@ -733,11 +785,10 @@
 
 - type: entity
   id: ComputerCargoShuttle
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   name: cargo shuttle computer
   description: Used to order the shuttle.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -748,6 +799,8 @@
       state: supply
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: CargoShuttleConsole
   - type: ActivatableUI
     key: enum.CargoConsoleUiKey.Shuttle
@@ -755,6 +808,8 @@
     interfaces:
       enum.CargoConsoleUiKey.Shuttle:
         type: CargoShuttleConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: CargoShuttleComputerCircuitboard
   - type: PointLight
@@ -769,11 +824,10 @@
 
 - type: entity
   id: ComputerCargoOrders
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   name: cargo request computer
   description: Used to order supplies and approve requests.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -784,6 +838,8 @@
       state: request
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: CargoOrderConsole
   - type: BankClient
   - type: ActiveRadio
@@ -795,6 +851,8 @@
     interfaces:
       enum.CargoConsoleUiKey.Orders:
         type: CargoOrderConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: CargoRequestComputerCircuitboard
   - type: PointLight
@@ -818,11 +876,10 @@
 
 - type: entity
   id: ComputerCargoBounty
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   name: cargo bounty computer
   description: Used to manage currently active bounties.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -833,6 +890,8 @@
       state: bounty
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: CargoBountyConsole
   - type: ActivatableUI
     key: enum.CargoConsoleUiKey.Bounty
@@ -840,6 +899,8 @@
     interfaces:
       enum.CargoConsoleUiKey.Bounty:
         type: CargoBountyConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: CargoBountyComputerCircuitboard
   - type: PointLight
@@ -854,12 +915,11 @@
     - Cargo
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerCloningConsole
   name: cloning console computer
   description: The centerpiece of the cloning system, medicine's greatest accomplishment. It has lots of ports and wires.
   components:
-  - type: StationAiWhitelist
   - type: CloningConsole
   - type: DeviceList
   - type: DeviceNetwork
@@ -874,6 +934,8 @@
       state: dna
     - map: ["computerLayerKeys"]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ApcPowerReceiver
     powerLoad: 3100 #We want this to fail first so I transferred most of the scanner and pod's power here. (3500 in total)
   - type: Computer
@@ -893,6 +955,8 @@
     interfaces:
         enum.CloningConsoleUiKey.Key:
           type: CloningConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
   - type: Speech
     speechVerb: Robotic
     speechSounds: Pai
@@ -905,11 +969,10 @@
 
 - type: entity
   id: ComputerSalvageExpedition
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   name: salvage expeditions computer
   description: Used to accept salvage missions, if you're tough enough.
   components:
-    - type: StationAiWhitelist
     - type: Sprite
       layers:
         - map: ["computerLayerBody"]
@@ -920,6 +983,8 @@
           state: mining
         - map: ["computerLayerKeys"]
           state: tech_key
+        - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+          state: generic_panel_open
     - type: Appearance
     - type: GenericVisualizer
       visuals:
@@ -930,6 +995,10 @@
           computerLayerKeys:
             True: { visible: true, shader: unshaded }
             False: { visible: true }
+        enum.WiresVisuals.MaintenancePanelState:
+          enum.WiresVisualLayers.MaintenancePanel:
+            True: { visible: false }
+            False: { visible: true }
     - type: SalvageExpeditionConsole
     - type: ActivatableUI
       key: enum.SalvageConsoleUiKey.Expedition
@@ -938,6 +1007,8 @@
       interfaces:
         enum.SalvageConsoleUiKey.Expedition:
           type: SalvageExpeditionConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
     - type: Computer
       board: SalvageExpeditionsComputerCircuitboard
     - type: PointLight
@@ -965,6 +1036,8 @@
       state: cameras
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Computer
     board: SurveillanceCameraMonitorCircuitboard
   - type: DeviceNetwork
@@ -983,6 +1056,8 @@
     interfaces:
         enum.SurveillanceCameraMonitorUiKey.Key:
           type: SurveillanceCameraMonitorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
 
 - type: entity
   parent: BaseComputer
@@ -1000,6 +1075,8 @@
       state: cameras
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Computer
     board: SurveillanceWirelessCameraMonitorCircuitboard
   - type: DeviceNetwork
@@ -1020,14 +1097,15 @@
     interfaces:
         enum.SurveillanceCameraMonitorUiKey.Key:
           type: SurveillanceCameraMonitorBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
 
 - type: entity
   id: ComputerPalletConsole
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   name: cargo sale computer
   description: Used to sell goods loaded onto cargo pallets.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -1038,6 +1116,8 @@
       state: request
     - map: ["computerLayerKeys"]
       state: tech_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Anchorable
     flags:
     - Anchorable
@@ -1048,6 +1128,8 @@
     interfaces:
       enum.CargoPalletConsoleUiKey.Sale:
         type: CargoPalletConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: Computer
     board: CargoSaleComputerCircuitboard
   - type: PointLight
@@ -1059,12 +1141,11 @@
     - Cargo
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerMassMedia
   name: news manager console
   description: Write your message to the world!
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -1075,6 +1156,8 @@
       state: service
     - map: ["computerLayerKeys"]
       state: service_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: Computer
     board: ComputerMassMediaCircuitboard
   - type: DeviceNetworkRequiresPower
@@ -1090,6 +1173,8 @@
     interfaces:
         enum.NewsWriterUiKey.Key:
           type: NewsWriterBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
 
 - type: entity
   parent: BaseComputer
@@ -1110,6 +1195,8 @@
           state: sensors
         - map: ["computerLayerKeys"]
           state: atmos_key
+        - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+          state: generic_panel_open
     - type: PointLight
       radius: 1.5
       energy: 1.6
@@ -1123,6 +1210,8 @@
       interfaces:
         enum.SensorMonitoringConsoleUiKey.Key:
           type: SensorMonitoringConsoleBoundUserInterface
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
     - type: DeviceNetwork
       deviceNetId: AtmosDevices
       receiveFrequencyId: AtmosMonitor
@@ -1135,12 +1224,11 @@
     - type: AtmosDevice
 
 - type: entity
-  parent: BaseComputer
+  parent: BaseComputerAiAccess
   id: ComputerRoboticsControl
   name: robotics control console
   description: Used to remotely monitor, disable and destroy the station's cyborgs.
   components:
-  - type: StationAiWhitelist
   - type: Sprite
     layers:
     - map: ["computerLayerBody"]
@@ -1151,6 +1239,8 @@
       state: robot
     - map: ["computerLayerKeys"]
       state: rd_key
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: RoboticsConsole
   - type: ActiveRadio
     channels:
@@ -1161,6 +1251,8 @@
     interfaces:
       enum.RoboticsConsoleUiKey.Key:
         type: RoboticsConsoleBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: DeviceNetwork
@@ -1190,6 +1282,8 @@
       state: aiupload
     - map: [ "computerLayerKeys" ]
       state: generic_keys
+    - map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      state: generic_panel_open
   - type: ApcPowerReceiver
     powerLoad: 1000
   - type: Computer

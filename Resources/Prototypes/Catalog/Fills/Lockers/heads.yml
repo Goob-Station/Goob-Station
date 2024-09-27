@@ -18,6 +18,7 @@
     - id: RubberStampDenied
     - id: RubberStampQm
     - id: SalvageShuttleConsoleCircuitboard
+    - id: AstroNavCartridge
 
 - type: entity
   id: LockerQuarterMasterFilled
