@@ -1274,3 +1274,13 @@ Entries:
       message: Deconstruction with RCD returns charges.
   id: 157
   time: '2024-09-27T15:11:58.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Syndicate borgs got flash protection.
+    - type: Tweak
+      message: >-
+        Nuke ops now gain 225 TC instead of 250 TC. Increased price for all
+        nukie armor.
+  id: 158
+  time: '2024-09-27T15:13:27.0000000+00:00'
