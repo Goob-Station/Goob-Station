@@ -1268,3 +1268,9 @@ Entries:
       message: Added Smuggler's Satchel as an uplink and thief item.
   id: 156
   time: '2024-09-26T15:24:41.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Deconstruction with RCD returns charges.
+  id: 157
+  time: '2024-09-27T15:11:58.0000000+00:00'
