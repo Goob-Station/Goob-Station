@@ -8,6 +8,16 @@
 # Weaponry
 
 - type: listing
+  id: UplinkExperimentalSyndicateTeleporter
+  name: uplink-experimental-syndicate-teleporter-name
+  description: uplink-experimental-syndicate-teleporter-desc
+  productEntity: ExperimentalSyndicateTeleporter
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkUtility
+
+- type: listing
   id: UplinkBetrayalKnife
   name: uplink-betrayal-knife-name
   description: uplink-betrayal-knife-desc

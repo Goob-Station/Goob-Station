@@ -1,0 +1,16 @@
+- type: entity
+  id: ExperimentalSyndicateTeleporter
+  parent: BaseItem
+  name: experimental syndicate teleporter
+  description: Syndicate teleporter, when used, moves 3-8 meters forward. In case of teleportation into a wall, uses emergency teleportation. Has 4 charge.
+  components:
+  - type: Sprite
+    sprite: /Textures/_White/Objects/Devices/experimentalsyndicateteleporter.rsi
+    layers:
+    - state: icon
+  - type: ExperimentalTeleporter
+  - type: LimitedCharges
+    maxCharges: 4
+    charges: 4
+  - type: AutoRecharge
+    rechargeDuration: 10

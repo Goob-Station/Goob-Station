@@ -1,0 +1,39 @@
+- type: entity
+  id: ExperimentalTeleporterInEffect
+  name: experimental syndicate teleporter in effect
+  components:
+    - type: TimedDespawn
+      lifetime: 0.6
+    - type: EvaporationSparkle
+    - type: Transform
+      noRot: true
+      anchored: true
+    - type: Sprite
+      layers:
+        - sprite: /Textures/_White/Objects/Devices/experimentalsyndicateteleporter.rsi
+          state: in
+          shader: unshaded
+      netsync: false
+      drawdepth: Effects
+    - type: PointLight
+      color: "#008DFE"
+
+- type: entity
+  id: ExperimentalTeleporterOutEffect
+  name: experimental syndicate teleporter out effect
+  components:
+    - type: TimedDespawn
+      lifetime: 0.6
+    - type: EvaporationSparkle
+    - type: Transform
+      noRot: true
+      anchored: true
+    - type: Sprite
+      layers:
+        - sprite: /Textures/_White/Objects/Devices/experimentalsyndicateteleporter.rsi
+          state: out
+          shader: unshaded
+      netsync: false
+      drawdepth: Effects
+    - type: PointLight
+      color: "#008DFE"
