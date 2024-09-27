@@ -966,11 +966,8 @@
   name: uplink-antimov-law-name
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
-    Telecrystal: 14
+    Telecrystal: 70 # goob
   categories:
   - UplinkDisruption
   conditions:
@@ -984,11 +981,8 @@
   name: uplink-antimov-law-name
   description: uplink-antimov-law-desc
   productEntity: AntimovCircuitBoard
-  discountCategory: rareDiscounts
-  discountDownTo:
-    Telecrystal: 20
   cost:
-    Telecrystal: 24
+    Telecrystal: 120 # goob
   categories:
   - UplinkDisruption
   conditions:
