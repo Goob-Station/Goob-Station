@@ -1490,7 +1490,7 @@
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 40
+    Telecrystal: 50
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1502,7 +1502,8 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Armor/syndie-raid.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateRaidBundle
   cost:
-    Telecrystal: 30 # Goobstation
+    # Goobstation - Telecrystal rework
+    Telecrystal: 50
   categories:
   - UplinkWearables
   conditions:
@@ -1520,7 +1521,7 @@
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 70
+    Telecrystal: 75
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -1533,7 +1534,7 @@
   productEntity: CrateCybersunJuggernautBundle
   cost:
     # Goobstation - Telecrystal rework
-    Telecrystal: 100
+    Telecrystal: 75
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
