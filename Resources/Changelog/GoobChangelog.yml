@@ -1284,3 +1284,17 @@ Entries:
         nukie armor.
   id: 158
   time: '2024-09-27T15:13:27.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: Spelling mistake on the X-01 Multiphase's description.
+    - type: Tweak
+      message: the X-01 Multiphase has been added to the HoS's locker.
+    - type: Tweak
+      message: >-
+        the Energy shotgun has been removed from the HoS's locker, and placed in
+        the Warden's Locker.
+    - type: Tweak
+      message: the Energy shotgun no longer self-recharges.
+  id: 159
+  time: '2024-09-27T19:53:05.0000000+00:00'
