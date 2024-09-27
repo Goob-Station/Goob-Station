@@ -319,7 +319,8 @@
   id: LockerFillHeadOfSecurityNoHardsuit
   table: !type:AllSelector
     children:
-    - id: WeaponEnergyShotgun
+#    - id: WeaponEnergyShotgun
+    - id: WeaponEnergyGunMultiphase # Goobstation, replace energy shotgun with the X-01 Multiphase.
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity
     - id: CigarGoldCase
@@ -336,7 +337,6 @@
     - id: SecurityTechFabCircuitboard
     - id: WeaponDisabler
     - id: WantedListCartridge
-
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillHeadOfSecurityHardsuit
