@@ -1,11 +1,8 @@
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
-using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -108,9 +105,9 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     /// <summary>
     ///     Dynamic gamemode roundstart behavior
     /// </summary>
-    protected override void Added(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleAddedEvent args)
+    protected override void Started(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
     {
-        base.Added(uid, component, gameRule, args);
+        base.Started(uid, component, gameRule, args);
 
         var players = _antag.GetAliveConnectedPlayers(_playerManager.Sessions);
 
