@@ -48,7 +48,7 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     Used for EORG.
     /// </summary>
-    public List<EntProtoId> ExecutedRules = new();
+    public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
     #endregion
 

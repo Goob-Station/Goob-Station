@@ -233,17 +233,24 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         }
 
         // spend budget and start the gamer rule
+        // it will automatically get added using OnGameRuleAdded()
         foreach (var rule in pickedRules)
-        {
             _gameTicker.StartGameRule(rule.Prototype.ID);
-            component.ExecutedRules.Add(rule.Prototype.ID);
-        }
 
         // save up leftout roundstart budget for midround rolls
         component.MidroundBudget += roundstartBudget;
     }
 
     #endregion
+
+    protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
+    {
+        base.Ended(uid, component, gameRule, args);
+
+        // end all other game rules because i'm evil and because it's the parent gamemode
+        foreach (var rule in component.ExecutedRules)
+            if (rule.Item2 != null) _gameTicker.EndGameRule((EntityUid) rule.Item2);
+    }
 
     #region roundend text
 
@@ -274,14 +281,14 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         args.AppendAtStart(sb.ToString());
     }
-    private string GenerateLocalizedGameruleList(List<EntProtoId> executedGameRules)
+    private string GenerateLocalizedGameruleList(List<(EntProtoId, EntityUid?)> executedGameRules)
     {
         var sb = new StringBuilder();
 
         var grd = new Dictionary<string, (int, float)>();
         foreach (var gamerule in executedGameRules)
         {
-            if (!_proto.Index(gamerule).TryGetComponent<DynamicRulesetComponent>(out var dynset, _compfact))
+            if (!_proto.Index(gamerule.Item1).TryGetComponent<DynamicRulesetComponent>(out var dynset, _compfact))
                 continue;
 
             var name = dynset.NameLoc;
@@ -309,7 +316,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         // nothing goes unnoticed
         // killing 2 birds here because now i don't need to hook up to it from another system
         foreach (var dgr in EntityQuery<DynamicRuleComponent>())
-            dgr.ExecutedRules.Add(args.RuleId);
+            dgr.ExecutedRules.Add((args.RuleId, args.RuleEntity));
     }
 
     #endregion
