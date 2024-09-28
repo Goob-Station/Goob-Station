@@ -28,15 +28,12 @@
     interfaces:
       enum.VoiceMaskUIKey.Key:
         type: VoiceMaskBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
       enum.HumanoidMarkingModifierKey.Key:
         type: HumanoidMarkingModifierBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      # Goobstation - changelings
-      enum.StoreUiKey.Key:
-        type: StoreBoundUserInterface
-      enum.StorageUiKey.Key:
-        type: StorageBoundUserInterface
   # to prevent bag open/honk spam
   - type: UseDelay
     delay: 0.5

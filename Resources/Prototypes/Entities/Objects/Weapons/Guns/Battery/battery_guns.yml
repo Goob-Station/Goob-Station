@@ -771,16 +771,12 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-  - type: BatterySelfRecharger # Goobstation
-    autoRecharge: true
-    autoRechargeRate: 20
 
 - type: entity
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
-  suffix: DO NOT MAP # Frontier - Add DO NOT MAP, this is the sheriff's gun
   parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
   id: WeaponEnergyGunMultiphase
-  description: This is an expensive, modern recreation of an antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time. On the handle is a label that says 'for authorized use only.'
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
   - type: Sprite
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
@@ -814,7 +810,7 @@
     fireModes:
     - proto: BulletDisabler
       fireCost: 100
-      name: disable
+      name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
       fireCost: 200
