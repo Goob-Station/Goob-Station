@@ -1298,3 +1298,9 @@ Entries:
       message: the Energy shotgun no longer self-recharges.
   id: 159
   time: '2024-09-27T19:53:05.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: fix station deletion bug
+  id: 160
+  time: '2024-09-28T18:55:36.0000000+00:00'
