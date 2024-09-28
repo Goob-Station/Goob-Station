@@ -19,3 +19,6 @@ uplink-mobroach-microbomb-desc = Call in a handy mothroach equipped with a micro
 
 uplink-advanced-combat-medipen-name = Advanced Combat Medipen
 uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
+
+uplink-smugglers-satchel-name = Smuggler's Satchel
+uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!

@@ -8,7 +8,7 @@
     sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Mask/chronolegioneer.rsi
-  - type: VoiceMasker
+  - type: VoiceMask
   - type: Tag
     tags:
     - WhitelistChameleon

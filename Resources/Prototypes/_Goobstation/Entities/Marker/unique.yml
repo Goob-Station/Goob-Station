@@ -1,0 +1,27 @@
+- type: entity
+  name: blueshield locker unique marker
+  id: UniqueMarkerBlueshieldLocker
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Goobstation/Structures/Storage/closet.rsi
+        state: bso
+  - type: UniqueEntityMarker
+    markerName: BlueshieldLocker
+
+- type: entity
+  name: nanorep locker unique marker
+  id: UniqueMarkerNanorepLocker
+  parent: MarkerBase
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+      - state: red
+      - sprite: _Goobstation/Structures/Storage/closet.rsi
+        state: ntr
+  - type: UniqueEntityMarker
+    markerName: NanorepLocker

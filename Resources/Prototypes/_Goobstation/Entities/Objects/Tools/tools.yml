@@ -149,7 +149,6 @@
   components:
   - type: FaxMachine
     name: "Nanotrasen Representative"
-    notifyAdmins: true
   - type: Sprite
     sprite: _Goobstation/Objects/Tools/handheld_fax.rsi
     drawdepth: SmallObjects
