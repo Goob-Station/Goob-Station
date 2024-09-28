@@ -7,7 +7,7 @@
   - type: Microwave
     capacity: 10
     canMicrowaveIdsSafely: false # Goobstation
-    explosionChance: 0.4 # Goobstation
+    explosionChance: .25 # Goobstation
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -119,7 +119,7 @@
     cookTimeMultiplier: 0.5
     capacity: 10
     canMicrowaveIdsSafely: false
-    explosionChance: 0.15 # Goobstation
+    explosionChance: 0.10 # Goobstation
   - type: Sprite
     sprite: Structures/Machines/microwave_syndie.rsi
     drawdepth: SmallObjects
