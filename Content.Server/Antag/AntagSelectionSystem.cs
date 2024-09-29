@@ -8,6 +8,7 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Preferences.Managers;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Server.Shuttles.Components;
@@ -243,6 +244,11 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     Log.Warning($"Somehow picked {session} for an antag when this rule already selected them previously");
                     continue;
                 }
+
+                // goob station - heads of staff get much lower chance to roll. (50% on being picked)
+                if (session != null && session.AttachedEntity != null
+                && HasComp<CommandStaffComponent>(session.AttachedEntity) && !RobustRandom.Prob(.5f))
+                    continue;
             }
 
             MakeAntag(ent, session, def);
