@@ -1352,3 +1352,13 @@ Entries:
       message: AI can now view the Entertainment channels.
   id: 165
   time: '2024-09-29T15:18:20.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Microwave gambling will actually let you get accesses now
+    - type: Tweak
+      message: Chance for IDs to sizzle increased
+    - type: Tweak
+      message: Microwave exploding chances decreased overall
+  id: 166
+  time: '2024-09-29T15:21:46.0000000+00:00'
