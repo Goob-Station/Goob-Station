@@ -1,0 +1,8 @@
+- type: entity
+  parent: DefaultStationBeacon
+  id: DefaultStationBeaconCentcommOffice
+  suffix: Centcomm Office
+  components:
+  - type: NavMapBeacon
+    defaultText: station-beacon-centcomm-office
+    color: "#159415"
