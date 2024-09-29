@@ -82,6 +82,7 @@
     types:
       Heat: 10
       Radiation: 10
+      Ion: 15 #Goobstation
   muzzleFlash:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
     state: muzzle_xray

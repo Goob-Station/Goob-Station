@@ -2,7 +2,7 @@
   id: ActionCancelEscape
   name: Stop escaping
   description: Calm down and sit peacefuly in your carrier's inventory
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     icon: DeltaV/Actions/escapeinventory.rsi/cancel-escape.png

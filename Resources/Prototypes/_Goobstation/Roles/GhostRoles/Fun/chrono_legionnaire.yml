@@ -1,0 +1,16 @@
+- type: startingGear
+  id: ChronoLegionnaireGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitRecruitNT
+    back: ClothingBackpackStasisBatteryUnremoveableFilled
+    mask: ClothingMaskGasChronoUnremoveable
+    eyes: ClothingEyesHudChronoUnremoveable
+    ears: ClothingHeadsetChronolegioneerUnremoveable
+    gloves: ClothingHandsGlovesChronoLegioneerUnremoveable
+    outerClothing: ClothingOuterHardsuitChronolegioneerUnremoveable
+    suitstorage: JetpackChronoUnremoveable
+    shoes: ClothingShoesBootsChronoUnremoveable
+    id: ChronoPDA
+    belt: WeaponStasisGun
+    pocket1: PinpointerStation
+    pocket2: SonicScrewdriver

@@ -1,0 +1,30 @@
+- type: entity
+  id: BaseHandheldTelevision
+  name: handheld television
+  description: Finally, some decent reception around here...
+  parent: BaseItem
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Objects/Devices/tablets.rsi
+      layers:
+        - state: tablet
+        - state: television
+          shader: unshaded
+    - type: ActivatableUI
+      inHandsOnly: true
+      singleUser: true
+      key: enum.SurveillanceCameraMonitorUiKey.Key
+    - type: DeviceNetwork
+      deviceNetId: Wireless
+      receiveFrequencyId: SurveillanceCamera
+      transmitFrequencyId: SurveillanceCamera
+    - type: WirelessNetworkConnection
+      range: 200
+    - type: UserInterface
+      interfaces:
+          enum.SurveillanceCameraMonitorUiKey.Key:
+            type: SurveillanceCameraMonitorBoundUserInterface
+    - type: Speech
+      speechVerb: Robotic
+    - type: SurveillanceCameraSpeaker
+    - type: SurveillanceCameraMonitor
