@@ -1316,3 +1316,9 @@ Entries:
       message: Fixed spelling mistake when examining the EG-4 energy revolver.
   id: 161
   time: '2024-09-28T20:12:30.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: fixed actions not actioning
+  id: 162
+  time: '2024-09-29T14:40:32.0000000+00:00'
