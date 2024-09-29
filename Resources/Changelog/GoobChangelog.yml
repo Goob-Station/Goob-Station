@@ -1322,3 +1322,21 @@ Entries:
       message: fixed actions not actioning
   id: 162
   time: '2024-09-29T14:40:32.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added dynamic gamemode.
+    - type: Tweak
+      message: >-
+        Nuclear operatives now spawn with random syndicate reinforcement agent
+        names.
+    - type: Tweak
+      message: Lone Operative now spawns on nukie planet.
+    - type: Add
+      message: Added traitor variety.
+    - type: Tweak
+      message: Now certain gamemodes will not end the round instantly (nukies/revs).
+    - type: Tweak
+      message: Changed passenger role to assistant.
+  id: 163
+  time: '2024-09-29T15:15:48.0000000+00:00'
