@@ -1346,3 +1346,9 @@ Entries:
       message: Added new Frizzy Braid hair.
   id: 164
   time: '2024-09-29T15:16:34.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: AI can now view the Entertainment channels.
+  id: 165
+  time: '2024-09-29T15:18:20.0000000+00:00'
