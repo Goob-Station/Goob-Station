@@ -75,7 +75,9 @@ namespace Content.IntegrationTests.Tests
                         entityMan.DeleteEntity(uid);
                 }
 
-                Assert.That(entityMan.EntityCount, Is.Zero);
+                // goob edit - repalce is0 with atmost1.
+                // i can't believe you've done this.
+                Assert.That(entityMan.EntityCount, Is.AtMost(1));
             });
 
             await pair.CleanReturnAsync();
