@@ -436,6 +436,13 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> GameEntityMenuLookup =
             CVarDef.Create("game.entity_menu_lookup", 0.25f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
+        /// <summary>
+        ///     Goobstation - indicates how much players are required for the round to be considered lowpop.
+        ///     Used for dynamic gamemode.
+        /// </summary>
+        public static readonly CVarDef<float> LowpopThreshold =
+            CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
+
         /*
          * Discord
          */
