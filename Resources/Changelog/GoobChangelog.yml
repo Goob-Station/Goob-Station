@@ -1298,3 +1298,21 @@ Entries:
       message: the Energy shotgun no longer self-recharges.
   id: 159
   time: '2024-09-27T19:53:05.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: fix station deletion bug
+  id: 160
+  time: '2024-09-28T18:55:36.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: >-
+        the X-01 Multiphase and the EG-4 energy revolver now show their fire
+        mode when examined.
+    - type: Tweak
+      message: Buffed the Auto-recharge rate of the EG-4 energy revolver.
+    - type: Fix
+      message: Fixed spelling mistake when examining the EG-4 energy revolver.
+  id: 161
+  time: '2024-09-28T20:12:30.0000000+00:00'
