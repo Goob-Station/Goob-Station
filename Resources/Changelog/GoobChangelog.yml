@@ -1340,3 +1340,9 @@ Entries:
       message: Changed passenger role to assistant.
   id: 163
   time: '2024-09-29T15:15:48.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Added new Frizzy Braid hair.
+  id: 164
+  time: '2024-09-29T15:16:34.0000000+00:00'
