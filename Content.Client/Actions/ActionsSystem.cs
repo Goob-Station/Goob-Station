@@ -51,28 +51,32 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<EntityWorldTargetActionComponent, ComponentHandleState>(OnEntityWorldTargetHandleState);
         }
 
-        public override void FrameUpdate(float frameTime)
-        {
-            base.FrameUpdate(frameTime);
+        // goob edit - man fuck them actions bruh
+        // (it was breaking our actions system so i smashed it)
+        // (regards)
 
-            var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
-            while (worldActionQuery.MoveNext(out var uid, out var action))
-            {
-                UpdateAction(uid, action);
-            }
+        //public override void FrameUpdate(float frameTime)
+        //{
+        //    base.FrameUpdate(frameTime);
 
-            var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
-            while (instantActionQuery.MoveNext(out var uid, out var action))
-            {
-                UpdateAction(uid, action);
-            }
+        //    var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
+        //    while (worldActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
 
-            var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
-            while (entityActionQuery.MoveNext(out var uid, out var action))
-            {
-                UpdateAction(uid, action);
-            }
-        }
+        //    var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
+        //    while (instantActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
+
+        //    var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
+        //    while (entityActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
+        //}
 
         private void OnInstantHandleState(EntityUid uid, InstantActionComponent component, ref ComponentHandleState args)
         {
