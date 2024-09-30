@@ -18,7 +18,7 @@
 - type: startingGear
   id: MimeGear
   equipment:
-    mask: ClothingMaskClown
+    #no mask for mime i guess ;-;.
     gloves: ClothingHandsGlovesColorWhite
     shoes: ClothingShoesColorWhite
     pocket1: CrayonMime
