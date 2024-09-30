@@ -19,6 +19,7 @@
 - type: startingGear
   id: MedicalInternGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorWhite
     id: MedicalInternPDA
     ears: ClothingHeadsetMedical
