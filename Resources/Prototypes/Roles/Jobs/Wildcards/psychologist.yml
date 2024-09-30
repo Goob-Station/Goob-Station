@@ -15,6 +15,7 @@
 - type: startingGear
   id: PsychologistGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesLeather
     id: PsychologistPDA
     ears: ClothingHeadsetMedical
