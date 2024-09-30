@@ -42,6 +42,7 @@
 - type: startingGear
   id: HoSGear
   equipment:
+    mask: ClothingMaskClown
     eyes: ClothingEyesGlassesSecurity
     id: HoSPDA
     gloves: ClothingHandsGlovesCombat
