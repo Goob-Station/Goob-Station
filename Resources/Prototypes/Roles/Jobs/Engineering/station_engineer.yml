@@ -20,6 +20,7 @@
 - type: startingGear
   id: StationEngineerGear
   equipment:
+    mask: ClothingMaskClown
     eyes: ClothingEyesGlassesMeson
     belt: ClothingBeltUtilityEngineering
     ears: ClothingHeadsetEngineering
