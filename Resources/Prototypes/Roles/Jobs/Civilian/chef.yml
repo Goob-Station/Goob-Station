@@ -20,6 +20,7 @@
 - type: startingGear
   id: ChefGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorBlack
     id: ChefPDA
     ears: ClothingHeadsetService
