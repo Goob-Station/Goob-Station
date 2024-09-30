@@ -26,6 +26,7 @@
 - type: startingGear
   id: DetectiveGear
   equipment:
+    mask: ClothingMaskClown
     eyes: ClothingEyesGlassesSecurity
     id: DetectivePDA
     ears: ClothingHeadsetSecurity
