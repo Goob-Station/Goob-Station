@@ -8,8 +8,7 @@
     Meta:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationNameSetup
-          mapNameTemplate: '{0} Meta Station {1}'
+        - type: StationNameSetup          mapNameTemplate: '{0} Meta Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'TG'
@@ -57,7 +56,7 @@
             CargoTechnician: [ 3, 3 ]
             #civilian
             Passenger: [ -1, -1 ]
-            Clown: [ 1, 1 ]
+            Clown: [ -1, -1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #silicon
