@@ -58,7 +58,8 @@ public sealed partial class StandingStateRequirement : InteractionRequirement
         if (!deps.EntMan.TryGetComponent<StandingStateComponent>(args.Target, out var state))
             return false;
 
-        return state.Standing ? AllowStanding : AllowLaying;
+        return state.CurrentState == StandingState.Standing && AllowStanding
+            || state.CurrentState == StandingState.Lying && AllowLaying;
     }
 }
 
