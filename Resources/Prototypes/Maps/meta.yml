@@ -8,7 +8,7 @@
     Meta:
       stationProto: StandardNanotrasenStation
       components:
-        - type: StationNameSetup          
+        - type: StationNameSetup
           mapNameTemplate: '{0} Meta Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
