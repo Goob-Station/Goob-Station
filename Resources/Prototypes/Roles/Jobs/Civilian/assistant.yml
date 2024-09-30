@@ -1,4 +1,4 @@
-- type: job
+- type: job # goob edit
   id: Passenger
   name: job-name-passenger
   description: job-description-passenger

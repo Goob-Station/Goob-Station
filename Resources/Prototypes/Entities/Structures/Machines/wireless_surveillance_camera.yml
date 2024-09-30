@@ -37,6 +37,7 @@
       interfaces:
         enum.SurveillanceCameraSetupUiKey.Camera:
           type: SurveillanceCameraSetupBoundUi
+    - type: StationAiVision # GOOB - AI can see entertainment
   placement:
     mode: SnapgridCenter
 
