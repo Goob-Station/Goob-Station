@@ -4,7 +4,7 @@
       "x": 32,
       "y": 32
     },
-    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime",
+    "copyright": "Sprited by Bloomyex and implemented by RobynTheWarcrime, FrizzyBraid by Renee - https://discord.com/channels/1202734573247795300/1288192265319223387/1288887697917607936",
     "license": "CC-BY-SA-3.0",
     "states": [
       {
@@ -89,6 +89,10 @@
       },
       {
         "name": "unkemptScientist",
+        "directions": 4
+      },
+      {
+        "name": "frizzyBraid",
         "directions": 4
       }
     ]
