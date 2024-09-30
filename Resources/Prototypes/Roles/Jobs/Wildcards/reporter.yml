@@ -13,6 +13,7 @@
 - type: startingGear
   id: ReporterGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorWhite
     id: ReporterPDA
     ears: ClothingHeadsetService
