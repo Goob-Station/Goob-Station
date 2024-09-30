@@ -28,6 +28,7 @@
 - type: startingGear
   id: SecurityCadetGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
