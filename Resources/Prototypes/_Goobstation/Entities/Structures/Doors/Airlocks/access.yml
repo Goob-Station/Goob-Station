@@ -15,3 +15,21 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCommand ]
+
+- type: entity
+  parent: AirlockCommand
+  id: AirlockCommandCommandLocked
+  suffix: CentCommCap, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandCaptain ]
+
+- type: entity
+  parent: AirlockCommandGlass
+  id: AirlockCommandCommandGlassLocked
+  suffix: CentCommCap, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsCentralCommandCaptain ]
