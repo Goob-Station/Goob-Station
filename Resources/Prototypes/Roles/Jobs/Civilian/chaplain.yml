@@ -17,6 +17,7 @@
 - type: startingGear
   id: ChaplainGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorBlack
     id: ChaplainPDA
     ears: ClothingHeadsetService
