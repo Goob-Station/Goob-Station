@@ -41,6 +41,7 @@
 - type: startingGear
   id: CMOGear
   equipment:
+    mask: ClothingMaskClown
     id: CMOPDA
     ears: ClothingHeadsetCMO
     belt: ClothingBeltMedicalFilled
