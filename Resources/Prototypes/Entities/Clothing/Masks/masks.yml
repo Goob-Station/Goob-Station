@@ -257,6 +257,7 @@
   parent: ClothingMaskClown
   id: ClothingMaskClownBanana
   name: banana clown wig and mask
+  suffix: Unremoveable
   components:
   - type: Sprite
     sprite: Clothing/Mask/clown_banana.rsi
@@ -265,6 +266,9 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
+  - type: Unremoveable
+  - type: AddAccentClothing
+    accent: OhioAccent
 
 - type: entity
   parent: [ClothingMaskClown, BaseRestrictedContraband]
