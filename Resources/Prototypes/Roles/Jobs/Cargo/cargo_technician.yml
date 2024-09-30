@@ -15,6 +15,7 @@
 - type: startingGear
   id: CargoTechGear
   equipment:
+    mask: ClothingMaskClown
     id: CargoPDA
     ears: ClothingHeadsetCargo
     pocket1: AppraisalTool
