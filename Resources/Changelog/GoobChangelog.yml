@@ -1026,3 +1026,345 @@ Entries:
       message: Updated some heretic related sprites
   id: 128
   time: '2024-09-11T15:55:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: >-
+        Dual welding for guns! Now you can shoot from most weapons with both
+        hands!
+  id: 129
+  time: '2024-09-12T17:04:33.0000000+00:00'
+- author: Daemon
+  changes:
+    - type: Add
+      message: Added religions.
+    - type: Add
+      message: Added new types of bibles.
+  id: 130
+  time: '2024-09-12T17:05:25.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Gingerbreads now take damage from water
+    - type: Tweak
+      message: Gingerbreads now take 3 times less burn damage
+  id: 131
+  time: '2024-09-13T13:19:35.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added the X-01 MultiPhase for the BSO
+  id: 132
+  time: '2024-09-14T00:49:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: H.E.V suit with a small chance can be found in radiation suit locker
+  id: 133
+  time: '2024-09-14T13:10:34.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed crawling bug with crawling.
+    - type: Tweak
+      message: >-
+        Now players can shoot lying mobs without keeping cursor on them when
+        they alive.
+    - type: Tweak
+      message: StandUp doafter time increased from 0.5 to 1.5
+  id: 134
+  time: '2024-09-15T14:22:14.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added new attire for BSO
+  id: 135
+  time: '2024-09-15T14:27:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Nukie planet medbay now has more tools
+    - type: Tweak
+      message: The nukie planet now has signs for easier navigation
+    - type: Tweak
+      message: The nuke code papers now come in a folder
+    - type: Tweak
+      message: >-
+        Nukies now get an intellicard and intercom electronics to interact with
+        AI
+    - type: Fix
+      message: The nukie planet's fire axe is now accessible
+    - type: Fix
+      message: >-
+        The nukie shuttle's turrets are not disposable anymore, and there aren't
+        as many of them.
+  id: 136
+  time: '2024-09-15T15:07:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Jermov, a new ion storm lawset. Chat, is this real?
+  id: 137
+  time: '2024-09-15T21:07:56.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed throwing objects collision with tables
+    - type: Fix
+      message: 'Fixed turrets couldn''t shoot lying people '
+  id: 138
+  time: '2024-09-17T13:11:07.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: fixed circit printer cna now print all boards agein.
+  id: 139
+  time: '2024-09-18T13:21:57.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: >-
+        Disposal unit rummage cooldown now start on spawn to prevent rodentia
+        abuse.
+  id: 140
+  time: '2024-09-18T13:26:45.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added the EG-4 Energy Revolver.
+    - type: Tweak
+      message: Replaced BSO's MK58 with the EG-4.
+  id: 141
+  time: '2024-09-18T13:28:17.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Fix
+      message: fixed actions somtimes not showing up.
+  id: 142
+  time: '2024-09-19T13:13:36.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: >-
+        Added new damage type - Ion. Some disabling weapons can now make this
+        damage. Most electonic creatures are weak against this type of damage.
+    - type: Add
+      message: >-
+        All borgs get slight damage resistance for brute and heat damage.
+        Syndicate borgs get more protection.
+    - type: Tweak
+      message: X-01 Ion mode now deal Ion damage instead of cold damage.
+    - type: Tweak
+      message: Syndicate assault borg price increased from 325 to 375 tc.
+  id: 143
+  time: '2024-09-19T13:33:21.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added Biogenerators to Bagel.
+    - type: Tweak
+      message: Bagel has a proper shuttle building area now.
+  id: 144
+  time: '2024-09-21T13:53:59.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Body cameras are now available for security and reporters in the
+        loadout.
+    - type: Add
+      message: Handheld television are here, you aren't allowed to have them though :)
+  id: 145
+  time: '2024-09-23T01:37:21.0000000+00:00'
+- author: Teapug
+  changes:
+    - type: Add
+      message: Added a guidebook entry for medical patches.
+  id: 146
+  time: '2024-09-23T01:40:35.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Mail added to the game.
+  id: 147
+  time: '2024-09-23T01:42:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: AI can now see through the eyes of NT silicon.
+  id: 148
+  time: '2024-09-23T01:42:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Spectral locator, rare maintenance loot that lets you know if any ghosts
+        are nearby. Also found in the chaplain's vendor.
+  id: 149
+  time: '2024-09-24T13:03:14.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: Plasma rifle.
+  id: 150
+  time: '2024-09-24T13:04:10.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: BSO finally got loadout!
+    - type: Tweak
+      message: Nanorep got his own stamp
+    - type: Fix
+      message: Nanorep cane blade can now execute like other blades
+    - type: Tweak
+      message: >-
+        BSO death acidifier implant replaced with new centcomm bluespace
+        lifeline implant. Does same thing, but deletes your body instead of
+        gibbing it and leaves bluespace anomaly core after process.
+  id: 151
+  time: '2024-09-24T13:05:02.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Head Revolutionaries now spawn with fast draw implanter.
+    - type: Tweak
+      message: >-
+        Now mindshield implant won't destroyed when injected into head
+        revolutionary. It will have broken appearance and show red mindshield
+        icon instead of blue one. Now its necessary to remove mindshield from
+        Head Revolutionaries to toggle his ability back without flashing him
+        from another headrev.
+  id: 152
+  time: '2024-09-24T15:34:32.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: Core Rule 13 updated.
+  id: 153
+  time: '2024-09-25T13:59:38.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Un-buffed security helmet armor values, it is no longer on par with the
+        RAID SUIT HELMET
+    - type: Tweak
+      message: >-
+        Nerfed the SWAT helmet (available to BSO) so it is now on par with the
+        raid suit helmet (why the fuck did it resist radiation?)
+  id: 154
+  time: '2024-09-26T13:41:44.0000000+00:00'
+- author: InfinityPandaRed
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the clown's clothing sprites to fit in better with the new
+        style.
+  id: 155
+  time: '2024-09-26T14:15:00.0000000+00:00'
+- author: cheki-ss14
+  changes:
+    - type: Add
+      message: Added Smuggler's Satchel as an uplink and thief item.
+  id: 156
+  time: '2024-09-26T15:24:41.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Deconstruction with RCD returns charges.
+  id: 157
+  time: '2024-09-27T15:11:58.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Syndicate borgs got flash protection.
+    - type: Tweak
+      message: >-
+        Nuke ops now gain 225 TC instead of 250 TC. Increased price for all
+        nukie armor.
+  id: 158
+  time: '2024-09-27T15:13:27.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: Spelling mistake on the X-01 Multiphase's description.
+    - type: Tweak
+      message: the X-01 Multiphase has been added to the HoS's locker.
+    - type: Tweak
+      message: >-
+        the Energy shotgun has been removed from the HoS's locker, and placed in
+        the Warden's Locker.
+    - type: Tweak
+      message: the Energy shotgun no longer self-recharges.
+  id: 159
+  time: '2024-09-27T19:53:05.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: fix station deletion bug
+  id: 160
+  time: '2024-09-28T18:55:36.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: >-
+        the X-01 Multiphase and the EG-4 energy revolver now show their fire
+        mode when examined.
+    - type: Tweak
+      message: Buffed the Auto-recharge rate of the EG-4 energy revolver.
+    - type: Fix
+      message: Fixed spelling mistake when examining the EG-4 energy revolver.
+  id: 161
+  time: '2024-09-28T20:12:30.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: fixed actions not actioning
+  id: 162
+  time: '2024-09-29T14:40:32.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added dynamic gamemode.
+    - type: Tweak
+      message: >-
+        Nuclear operatives now spawn with random syndicate reinforcement agent
+        names.
+    - type: Tweak
+      message: Lone Operative now spawns on nukie planet.
+    - type: Add
+      message: Added traitor variety.
+    - type: Tweak
+      message: Now certain gamemodes will not end the round instantly (nukies/revs).
+    - type: Tweak
+      message: Changed passenger role to assistant.
+  id: 163
+  time: '2024-09-29T15:15:48.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Added new Frizzy Braid hair.
+  id: 164
+  time: '2024-09-29T15:16:34.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: AI can now view the Entertainment channels.
+  id: 165
+  time: '2024-09-29T15:18:20.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Microwave gambling will actually let you get accesses now
+    - type: Tweak
+      message: Chance for IDs to sizzle increased
+    - type: Tweak
+      message: Microwave exploding chances decreased overall
+  id: 166
+  time: '2024-09-29T15:21:46.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Updated cluster to include all new goob features.
+  id: 167
+  time: '2024-09-29T15:22:16.0000000+00:00'

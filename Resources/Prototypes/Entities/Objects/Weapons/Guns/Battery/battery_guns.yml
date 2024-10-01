@@ -122,6 +122,7 @@
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: Multishot # Goobstation
 
 - type: entity
   name: retro laser blaster
@@ -145,6 +146,7 @@
     steps: 5
     zeroVisible: true
   - type: Appearance
+  - type: Multishot # Goobstation
 
 - type: entity
   name: makeshift laser pistol
@@ -168,6 +170,7 @@
   - type: Battery
     maxCharge: 500
     startingCharge: 500
+  - type: Multishot # Goobstation
 
 - type: entity
   name: tesla gun
@@ -264,10 +267,11 @@
   - type: Battery
     maxCharge: 2000
     startingCharge: 2000
+  - type: Multishot # Goobstation
 
 - type: entity
   name: pulse carbine
-  parent: [BaseWeaponBattery, BaseGunWieldable]
+  parent: [BaseWeaponBattery, BaseGunWieldable, BaseCentcommContraband]
   id: WeaponPulseCarbine
   description: A high tech energy carbine favoured by the NT-ERT operatives.
   components:
@@ -588,6 +592,7 @@
     flavorKind: station-event-random-sentience-flavor-inanimate
     weight: 0.0002 # 5,000 times less likely than 1 regular animal
     # not putting a BlockMovement component here cause that's funny.
+  - type: Multishot # Goobstation
 
 - type: entity
   name: advanced laser pistol
@@ -623,6 +628,7 @@
   - type: Appearance
   - type: StaticPrice
     price: 63
+  - type: Multishot # Goobstation
 
 - type: entity
   name: C.H.I.M.P. handcannon
@@ -669,6 +675,7 @@
     node: start
   - type: StaticPrice
     price: 100
+  - type: Multishot # Goobstation
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon
@@ -764,6 +771,70 @@
   - type: Battery
     maxCharge: 1050 # Goobstation
     startingCharge: 1050
-  - type: BatterySelfRecharger # Goobstation
-    autoRecharge: true
-    autoRechargeRate: 20
+
+- type: entity
+  name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
+  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  id: WeaponEnergyGunMultiphase
+  description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
+  components:
+  - type: Sprite
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mode-disabler
+      shader: unshaded
+      map: [ "Firemode" ]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    quickEquip: false # Frontier
+    slots: # Frontier
+    # - Back # Frontier
+    - suitStorage #Frontier
+    sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/DeltaV/Weapons/Guns/Gunshots/laser.ogg
+    soundEmpty:
+      path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
+  - type: Battery
+    maxCharge: 2000
+    startingCharge: 2000
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: EnergyGun
+    fireModes:
+    - proto: BulletDisabler
+      fireCost: 100
+      name: disabling
+      state: disabler
+    - proto: BulletEnergyGunLaser
+      fireCost: 200
+      name: lethal
+      state: lethal
+    - proto: BulletEnergyGunIon
+      fireCost: 200
+      name: ion
+      state: special
+  - type: MagazineVisuals
+    magState: mag
+    steps: 5
+    zeroVisible: true
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.EnergyGunFireModeVisuals.State:
+        Firemode:
+          Disabler: { state: mode-disabler }
+          Lethal: { state: mode-lethal }
+          Special: { state: mode-ion }
+  - type: Tag
+    tags:
+    - HighRiskItem
+    - Sidearm
+  - type: StaticPrice
+    price: 750

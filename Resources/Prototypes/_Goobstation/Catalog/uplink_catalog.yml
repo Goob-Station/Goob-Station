@@ -1,0 +1,165 @@
+# Disruption
+
+- type: listing
+  id: UplinkCrateNPCGondola
+  name: uplink-gondola-name
+  description: uplink-gondola-desc
+  productEntity: CrateNPCGondola
+  cost:
+    Telecrystal: 30
+  categories:
+    -  UplinkDisruption
+  saleLimit: 1
+
+- type: listing
+  id: UplinkBoxReagentGrenades
+  name: Box of Reagent Grenades
+  description: Contains 2 Glue grenades and 2 Lube Grenades
+  productEntity: BoxReagentGrenades
+  cost:
+    Telecrystal: 30
+  categories:
+    -  UplinkDisruption
+  saleLimit: 1
+
+# Weaponry
+
+- type: listing
+  id: UplinkEswordDouble
+  name: uplink-esword-double-name
+  description: uplink-esword-double-desc
+  icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
+  productEntity: EnergySwordDouble
+  cost:
+    Telecrystal: 100
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
+
+- type: listing
+  id: UplinkFireAxeFlaming
+  name: uplink-fire-axe-flaming-name
+  description: uplink-fire-axe-flaming-desc
+  productEntity: FireAxeFlaming
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
+
+- type: listing
+  id: UplinkMiniatureEnergyCrossbow
+  name: uplink-miniature-energy-crossbow-name
+  description: uplink-miniature-energy-crossbow-desc
+  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Battery/miniature_ebow.rsi, state: icon }
+  productEntity: MiniatureEnergyCrossbow
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+  saleLimit: 1
+
+# Job specific
+- type: listing
+  id: UplinkPieCannon
+  name: uplink-pie-cannon-name
+  description: uplink-pie-cannon-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Cannons/pie_cannon.rsi, state: piecannon }
+  productEntity: LauncherCreamPieRegenerating
+  cost:
+    Telecrystal: 40
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+  saleLimit: 1
+
+- type: listing
+  id: UplinkLubeGrenade
+  name: Lube grenade
+  description: Make the floor slippery!
+  productEntity: LubeGrenade
+  cost:
+    Telecrystal: 14
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Mime
+  saleLimit: 1
+
+- type: listing
+  id: UplinkGlueGrenade
+  name: Glue grenade
+  description: Make the floor hard to walk in!
+  productEntity: GlueGrenade
+  cost:
+    Telecrystal: 5
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Mime
+  saleLimit: 1
+
+- type: listing
+  id: UplinkMobRoachMicrobomb
+  name: uplink-mobroach-microbomb-name
+  description: uplink-mobroach-microbomb-desc
+  icon: { sprite: _Goobstation/Objects/Devices/communication.rsi, state: radio-syndiroach }
+  productEntity: ReinforcementRadioSyndicateSyndiRoach
+  cost:
+    Telecrystal: 30
+  categories:
+    - UplinkAllies
+  saleLimit: 1
+
+# chemicals
+
+- type: listing
+  id: UplinkAdvancedCombatMedipen
+  name: uplink-advanced-combat-medipen-name
+  description: uplink-advanced-combat-medipen-desc
+  productEntity: AdvancedCombatMedipen
+  cost:
+    Telecrystal: 28
+  categories:
+  - UplinkChemicals
+  saleLimit: 1
+
+# Implants
+
+- type: listing
+  id: UplinkMindcontrolImplanter
+  name: uplink-mindcontrol-implant-name
+  description: uplink-mindcontrol-implant-desc
+  icon: { sprite: /Textures/Objects/Specific/Medical/syndi_implanter.rsi, state: implanter0 }
+  productEntity: MindcontrolImplanter
+  cost:
+    Telecrystal: 50 # Half the budget
+  categories:
+    - UplinkImplants
+  conditions:
+    - !type:StoreWhitelistCondition
+      blacklist:
+        tags:
+          - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+  saleLimit: 1
+  
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smugglers-satchel-name
+  description: uplink-smugglers-satchel-desc
+  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
+  productEntity: ClothingSatchelSmuggler
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDeception
+  saleLimit: 1

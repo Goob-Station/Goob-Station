@@ -32,12 +32,8 @@
     factions:
     - SimpleNeutral
   - type: IntrinsicRadioReceiver
-  - type: IntrinsicRadioTransmitter
-    channels:
-    - Binary
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
   - type: HealthExaminable
     examinableTypes:
@@ -108,7 +104,7 @@
   - type: TypingIndicator
     proto: robot
   - type: ZombieImmune
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Insulated
 
@@ -251,6 +247,8 @@
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: Item # Goobstation
     size: Large
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 0
 
 - type: entity
   parent:
@@ -288,7 +286,7 @@
           enum.DamageStateVisualLayers.BaseUnshaded:
             powered: Rainbow
   - type: Sprite
-    sprite: Goobstation/Mobs/Silicon/Bots/medibot.rsi
+    sprite: _Goobstation/Mobs/Silicon/Bots/medibot.rsi
     layers:
       - state: medibot
         map: [ "enum.DamageStateVisualLayers.Base" ]
@@ -320,6 +318,8 @@
     pack: MedibotAds
   - type: Inventory
     templateId: medibot
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1
 
 - type: entity
   parent:
@@ -416,6 +416,7 @@
     - Bot
   - type: ActiveRadio
     channels:
-    - Binary
     - Common
     - Supply
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 1

@@ -1,3 +1,5 @@
+using Content.Server.Atmos.Components;
+using Content.Server.Atmos.EntitySystems;
 using Content.Server.Bible.Components;
 using Content.Server.Ghost.Roles.Events;
 using Content.Server.Popups;
@@ -13,6 +15,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared._Goobstation.Religion;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -33,6 +36,7 @@ namespace Content.Server.Bible
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly UseDelaySystem _delay = default!;
         [Dependency] private readonly SharedTransformSystem _transform = default!;
+        [Dependency] private readonly FlammableSystem _flammableSystem = default!;
 
         public override void Initialize()
         {
@@ -115,6 +119,35 @@ namespace Content.Server.Bible
                 return;
             }
 
+            //Goobstation Edit Begin - Religion
+            //Public Domain Code Begins
+            if (EntityManager.TryGetComponent(args.Target, out ReligionComponent? targetReligion))
+            {
+                EntityManager.TryGetComponent(args.User, out ReligionComponent? userReligion);
+                switch (targetReligion.Type)
+                {
+                    //Atheist Chaplains set non atheists on fire and heal atheists
+                    case Religion.Atheist:
+                        if (userReligion != null && userReligion.Type != targetReligion.Type)
+                        {
+                            DoBibleSmite(uid, useDelay, args);
+                            return;
+                        }
+                        break;
+
+                    //Non-Atheist Chaplains set atheists on fire and heal non-atheists
+                    default:
+                        if (userReligion != null && userReligion.Type == Religion.Atheist)
+                        {
+                            DoBibleSmite(uid, useDelay, args);
+                            return;
+                        }
+                        break;
+                }
+            }
+            //Public Domain Code Ends
+            //Goobstation Edit End - Religion
+
             // This only has a chance to fail if the target is not wearing anything on their head and is not a familiar.
             if (!_invSystem.TryGetSlotEntity(args.Target.Value, "head", out var _) && !HasComp<FamiliarComponent>(args.Target.Value))
             {
@@ -154,6 +187,26 @@ namespace Content.Server.Bible
                 _delay.TryResetDelay((uid, useDelay));
             }
         }
+
+        //Goobstation Edit Begin - Religion
+        //Public Domain Code begin
+        private void DoBibleSmite(EntityUid uid, UseDelayComponent useDelay, AfterInteractEvent args)
+        {
+            _popupSystem.PopupEntity(Loc.GetString("bible-religion-opposing"),
+                args.User,
+                args.User,
+                PopupType.MediumCaution);
+            if (EntityManager.TryGetComponent(args.Target, out FlammableComponent? flammable))
+            {
+                _flammableSystem.SetFireStacks(args.Target.Value, 1);
+                _flammableSystem.Ignite(args.Target.Value, args.User);
+                _delay.TryResetDelay((uid, useDelay));
+                return;
+            }
+            return;
+        }
+        //Public Domain Code end
+        //Goobstation Edit End - Religion
 
         private void AddSummonVerb(EntityUid uid, SummonableComponent component, GetVerbsEvent<AlternativeVerb> args)
         {

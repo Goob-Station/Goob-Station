@@ -215,6 +215,15 @@ public abstract partial class SharedGunSystem : EntitySystem
         gun.ShotCounter = 0;
     }
 
+    // Goobstation - Crawling turret fix
+    public void AttemptShoot(EntityUid user, EntityUid gunUid, GunComponent gun, EntityCoordinates toCoordinates, EntityUid target)
+    {
+        gun.Target = target;
+        gun.ShootCoordinates = toCoordinates;
+        AttemptShoot(user, gunUid, gun);
+        gun.ShotCounter = 0;
+    }
+
     /// <summary>
     /// Shoots by assuming the gun is the user at default coordinates.
     /// </summary>
@@ -361,6 +370,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         Dirty(gunUid, gun);
+        UpdateAmmoCount(gunUid); //GoobStation - Multishot
     }
 
     public void Shoot(

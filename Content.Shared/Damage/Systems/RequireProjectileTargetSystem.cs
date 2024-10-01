@@ -3,6 +3,8 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mobs;
 
 namespace Content.Shared.Damage.Components;
 
@@ -20,7 +22,7 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
     private void PreventCollide(Entity<RequireProjectileTargetComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
-          return;
+            return;
 
         if (!ent.Comp.Active)
             return;
@@ -32,6 +34,10 @@ public sealed class RequireProjectileTargetSystem : EntitySystem
             // Prevents shooting out of while inside of crates
             var shooter = projectile.Shooter;
             if (!shooter.HasValue)
+                return;
+
+            // Goobstation - Crawling
+            if (TryComp<StandingStateComponent>(shooter, out var standingState) && standingState.CurrentState != StandingState.Standing)
                 return;
 
             if (!_container.IsEntityOrParentInContainer(shooter.Value))

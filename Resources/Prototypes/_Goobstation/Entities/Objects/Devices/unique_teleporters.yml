@@ -1,0 +1,62 @@
+- type: entity
+  parent: BaseItem
+  id: BaseLockerTeleporter
+  abstract: true
+  name: special equipment teleporter
+  description: Device that allows you to request delivery of special equipment.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+  - type: Item
+    sprite: _Goobstation/Objects/Devices/unique_teleporters.rsi
+  - type: UseOnStationOnly
+  - type: SpawnItemsOnUse
+    sound: /Audio/Items/Mining/fultext_launch.ogg
+
+- type: entity
+  parent: BaseLockerTeleporter
+  id: BlueshieldOfficerLockerTeleporter
+  name: blueshield locker teleporter
+  description: Device that allows you to request delivery of blueshield officer locker.
+  components:
+  - type: Sprite
+    state: bso
+  - type: SpawnItemsOnUse
+    items: 
+    - id: UniqueLockerBlueshieldOfficerFilled
+
+- type: entity
+  parent: BlueshieldOfficerLockerTeleporter
+  id: UniqueBlueshieldOfficerLockerTeleporter
+  suffix: Unique
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: UniqueEntityChecker
+    markerName: BlueshieldLocker
+  - type: UniqueEntityMarker
+    markerName: BlueshieldLocker
+    stationOnly: false
+
+- type: entity
+  parent: BaseLockerTeleporter
+  id: NanorepLockerTeleporter
+  name: nanotrasen representative locker teleporter
+  description: Device that allows you to request delivery of nanotrasen representative locker.
+  components:
+  - type: Sprite
+    state: ntr
+  - type: SpawnItemsOnUse
+    items: 
+    - id: UniqueLockerNanorepFilled
+
+- type: entity
+  parent: NanorepLockerTeleporter
+  id: UniqueNanorepLockerTeleporter
+  suffix: Unique
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: UniqueEntityChecker
+    markerName: NanorepLocker
+  - type: UniqueEntityMarker
+    markerName: NanorepLocker
+    stationOnly: false

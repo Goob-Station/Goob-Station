@@ -49,6 +49,8 @@
       path: /Audio/Weapons/Guns/MagIn/revolver_magin.ogg
   - type: StaticPrice
     price: 500
+  - type: Multishot # Goobstation
+    spreadMultiplier: 1.2
 
 - type: entity
   name: Deckard
