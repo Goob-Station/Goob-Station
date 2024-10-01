@@ -115,7 +115,12 @@
         visible: false
   - type: Inventory
     templateId: arachnid
-
+  - type: Paracusia
+    minTimeBetweenIncidents: 0.1
+    maxTimeBetweenIncidents: 60
+    maxSoundDistance: 7
+    sounds:
+      collection: SpookyParacusia
 
 - type: entity
   parent: BaseSpeciesDummy

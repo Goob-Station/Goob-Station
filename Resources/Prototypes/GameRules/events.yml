@@ -508,22 +508,6 @@
         prototype: TraitorSleeper
 
 - type: entity
-  id: MassHallucinations
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 7
-    duration: 150
-    maxDuration: 300
-    reoccurrenceDelay: 30
-  - type: MassHallucinationsRule
-    minTimeBetweenIncidents: 0.1
-    maxTimeBetweenIncidents: 300
-    maxSoundDistance: 7
-    sounds:
-      collection: Paracusia
-
-- type: entity
   parent: BaseGameRule
   id: IonStorm
   components:
