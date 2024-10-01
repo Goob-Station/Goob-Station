@@ -1374,3 +1374,19 @@ Entries:
       message: Revoked unforgiving dynamic from proletariat hands
   id: 168
   time: '2024-09-30T13:25:38.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added BSO and NTR rooms to Bagel.
+    - type: Add
+      message: Added a Mail area to Bagel.
+    - type: Add
+      message: Added Airlock using Central Command and Captain access.
+  id: 169
+  time: '2024-10-01T00:10:48.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed BSO bluespace lifeline implant
+  id: 170
+  time: '2024-10-01T00:17:51.0000000+00:00'
