@@ -72,7 +72,7 @@
     - DoorBumpOpener
     - FelinidEmotes
   - type: Paracusia
-    minTimeBetweenIncidents: 0.1
+    minTimeBetweenIncidents: 5
     maxTimeBetweenIncidents: 60
     maxSoundDistance: 7
     sounds:
