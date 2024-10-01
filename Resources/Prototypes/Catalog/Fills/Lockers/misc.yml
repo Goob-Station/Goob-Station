@@ -155,10 +155,6 @@
     - !type:NestedSelector
       tableId: MaintWeaponTable
       prob: 0.075
-    # Syndie Loot
-    - !type:NestedSelector
-      tableId: SyndieMaintLoot
-      prob: 0.05
 
 - type: entity
   id: ClosetMaintenanceFilledRandom
