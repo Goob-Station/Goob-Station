@@ -9,6 +9,7 @@
 - files: ["amber_focus.png", "ash_blade.png", "ashlord_rite.png", "eldritch_armor.png", "final_hymn.png", "flesh_blade.png", "flesh_stalker.png", "raw_prophet.png", "void_blade.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station, some edited by whateverusername0 and blooodyspy"
+  source: "https://github.com/tgstation/tgstation/commit/93e81ee348ef6555c6959347e27874221ef143ed"
 
 - files: ["mad_mask.png"]
   license: "CC-BY-SA-3.0"
@@ -28,4 +29,4 @@
 - files: ["low_temperature.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
-  source: "https://github.com/tgstation/tgstation at 1c7401722f397d8ac8afdd10e550c5962e0f38d4"
+  source: "https://github.com/tgstation/tgstation/commit/1c7401722f397d8ac8afdd10e550c5962e0f38d4"
