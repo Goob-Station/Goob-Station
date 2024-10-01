@@ -12,7 +12,6 @@
     - id: GasLeak
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
-    - id: MassHallucinations
     - id: MimicVendorRule
     - id: MouseMigration
     - id: PowerGridCheck
