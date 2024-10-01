@@ -130,12 +130,7 @@
           32:
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
-  - type: Paracusia
-    minTimeBetweenIncidents: 5
-    maxTimeBetweenIncidents: 60
-    maxSoundDistance: 7
-    sounds:
-      collection: SpookyParacusia
+
 
 - type: entity
   parent: BaseSpeciesDummy

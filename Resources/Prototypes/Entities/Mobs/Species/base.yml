@@ -286,6 +286,12 @@
     alternateState: Standing
   - type: Carriable # Goobstation
   - type: LayingDown # WD EDIT
+  - type: Paracusia # Insanity Sim
+    minTimeBetweenIncidents: 5
+    maxTimeBetweenIncidents: 60
+    maxSoundDistance: 7
+    sounds:
+      collection: SpookyParacusia
 
 - type: entity
   save: false

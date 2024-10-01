@@ -102,12 +102,7 @@
     - FootstepSound
     - DoorBumpOpener
     - VulpEmotes
-  - type: Paracusia
-    minTimeBetweenIncidents: 5
-    maxTimeBetweenIncidents: 60
-    maxSoundDistance: 7
-    sounds:
-      collection: SpookyParacusia
+
 
 - type: entity
   save: false

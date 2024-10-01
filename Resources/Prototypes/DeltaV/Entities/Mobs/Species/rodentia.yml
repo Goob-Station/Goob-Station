@@ -111,12 +111,7 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
-  - type: Paracusia
-    minTimeBetweenIncidents: 5
-    maxTimeBetweenIncidents: 60
-    maxSoundDistance: 7
-    sounds:
-      collection: SpookyParacusia
+
 
 - type: entity
   save: false

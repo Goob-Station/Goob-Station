@@ -118,12 +118,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
-  - type: Paracusia
-    minTimeBetweenIncidents: 5
-    maxTimeBetweenIncidents: 60
-    maxSoundDistance: 7
-    sounds:
-      collection: SpookyParacusia
+
 
 - type: entity
   parent: MobHumanDummy
