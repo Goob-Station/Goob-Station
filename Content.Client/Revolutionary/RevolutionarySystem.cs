@@ -18,6 +18,7 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
 
         SubscribeLocalEvent<RevolutionaryComponent, GetStatusIconsEvent>(GetRevIcon);
         SubscribeLocalEvent<HeadRevolutionaryComponent, GetStatusIconsEvent>(GetHeadRevIcon);
+        SubscribeLocalEvent<RevolutionEnemyComponent, GetStatusIconsEvent>(EnemyGetIcon); // goob edit - enemies of the revolution
     }
 
     private void GetRevIcon(Entity<RevolutionaryComponent> ent, ref GetStatusIconsEvent args)
@@ -31,6 +32,16 @@ public sealed class RevolutionarySystem : SharedRevolutionarySystem
 
     private void GetHeadRevIcon(Entity<HeadRevolutionaryComponent> ent, ref GetStatusIconsEvent args)
     {
+        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
+    }
+
+    private void EnemyGetIcon(Entity<RevolutionEnemyComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (HasComp<RevolutionEnemyComponent>(ent)
+        || !HasComp<RevolutionaryComponent>(ent))
+            return;
+
         if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
             args.StatusIcons.Add(iconPrototype);
     }

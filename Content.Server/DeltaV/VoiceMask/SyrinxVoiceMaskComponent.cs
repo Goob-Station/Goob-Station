@@ -1,3 +1,4 @@
+/* Goobstation - I don't see this being used anywhere and it uses the old voicemasker system
 using Content.Shared.Speech;
 using Robust.Shared.Prototypes;
 
@@ -17,3 +18,4 @@ public sealed partial class SyrinxVoiceMaskComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public ProtoId<SpeechVerbPrototype>? SpeechVerb;
 }
+*/

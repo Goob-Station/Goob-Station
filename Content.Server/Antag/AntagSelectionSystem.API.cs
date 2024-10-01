@@ -78,6 +78,20 @@ public sealed partial class AntagSelectionSystem
         return count;
     }
 
+    // goob edit
+    public List<ICommonSession> GetAliveConnectedPlayers(IList<ICommonSession> pool)
+    {
+        var l = new List<ICommonSession>();
+        foreach (var session in pool)
+        {
+            if (session.Status is SessionStatus.Disconnected or SessionStatus.Zombie)
+                continue;
+            l.Add(session);
+        }
+        return l;
+    }
+    // goob edit end
+
     /// <summary>
     /// Gets the number of antagonists that should be present for a given antag definition based on the provided pool.
     /// A null pool will simply use the player count.

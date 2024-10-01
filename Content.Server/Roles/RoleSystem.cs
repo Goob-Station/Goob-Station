@@ -22,7 +22,7 @@ public sealed class RoleSystem : SharedRoleSystem
         SubscribeAntagEvents<ChangelingRoleComponent>(); // goobstation - changelings
         SubscribeAntagEvents<HereticRoleComponent>(); // goobstation - heretics
         SubscribeAntagEvents<GhoulRoleComponent>(); // heretics
-        SubscribeAntagEvents<MindcontrolledRoleComponent>();
+        SubscribeAntagEvents<MindcontrolledRoleComponent>(); // goob edit - mindslave implant
     }
 
     public string? MindGetBriefing(EntityUid? mindId)

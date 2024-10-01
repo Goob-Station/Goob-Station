@@ -151,3 +151,15 @@
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
   saleLimit: 1
+  
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smugglers-satchel-name
+  description: uplink-smugglers-satchel-desc
+  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
+  productEntity: ClothingSatchelSmuggler
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDeception
+  saleLimit: 1

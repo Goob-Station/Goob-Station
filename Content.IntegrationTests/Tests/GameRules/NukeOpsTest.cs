@@ -244,8 +244,9 @@ public sealed class NukeOpsTest
             // Delete the last nukie and make sure the round ends.
             entMan.DeleteEntity(nukies[^1]);
 
-            Assert.That(roundEndSys.IsRoundEndRequested,
-                "All nukies were deleted, but the round didn't end!");
+            // goob edit - dynamic changes - nukies don't end the round instantly anymore
+            //Assert.That(roundEndSys.IsRoundEndRequested,
+            //    "All nukies were deleted, but the round didn't end!");
         });
 
         ticker.SetGamePreset((GamePresetPrototype?) null);
