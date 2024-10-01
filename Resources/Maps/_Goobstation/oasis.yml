@@ -91083,8 +91083,6 @@ entities:
       pos: -47.5,-4.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 71
   - uid: 10087
@@ -93288,8 +93286,6 @@ entities:
       pos: -47.5,-3.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 71
   - uid: 26982
