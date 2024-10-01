@@ -9,7 +9,7 @@ namespace Content.Server.StationEvents;
 public sealed partial class DynamicStationEventSchedulerComponent : Component
 {
     [DataField] public ProtoId<DatasetPrototype> MidroundRulesPool;
-    public List<EntProtoId> ExecutedRules;
+    public List<EntProtoId> ExecutedRules = new();
 
     /// <summary>
     /// How long until the next check for an event runs, is initially set based on MinimumTimeUntilFirstEvent & MinMaxEventTiming.
