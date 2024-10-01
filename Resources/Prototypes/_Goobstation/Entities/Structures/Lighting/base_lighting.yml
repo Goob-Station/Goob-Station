@@ -1,0 +1,12 @@
+- type: entity
+  id: AlwaysPoweredlightNight
+  suffix: Always Powered
+  parent: AlwaysPoweredWallLight
+  components:
+  - type: PointLight
+    radius: 8
+    energy: 12
+    softness: 0.5
+    color: "#05071c"
+  - type: Stealth
+    lastVisibility: 0
