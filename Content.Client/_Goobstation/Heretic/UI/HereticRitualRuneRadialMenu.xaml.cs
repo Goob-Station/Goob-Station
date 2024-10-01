@@ -37,8 +37,10 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
 
     private void RefreshUI()
     {
-
         var main = FindControl<RadialContainer>("Main");
+        if (main == null)
+            return;
+
         var player = _playerManager.LocalEntity;
 
         if (!_entityManager.TryGetComponent<HereticComponent>(player, out var heretic))
@@ -47,7 +49,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
         foreach (var ritual in heretic.KnownRituals)
         {
             if (!_prototypeManager.TryIndex(ritual, out var ritualPrototype))
-                return;
+                continue;
 
             var button = new HereticRitualMenuButton
             {
@@ -82,7 +84,7 @@ public sealed partial class HereticRitualRuneRadialMenu : RadialMenu
             var castChild = child as HereticRitualMenuButton;
 
             if (castChild == null)
-                return;
+                continue;
 
             castChild.OnButtonUp += _ =>
             {
