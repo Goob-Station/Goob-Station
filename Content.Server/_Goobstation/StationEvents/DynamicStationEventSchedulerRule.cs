@@ -48,7 +48,7 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
         // try rerolling events until success
         if (toReroll && attempt < attemptLimit)
             RollRandomAntagEvent(component, attempt: attempt += 1);
-        else
+        else if (attempt > attemptLimit)
         {
             // todo: write debug stuff here
             return;
@@ -72,9 +72,9 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
         ResetTimer(component);
 
         // get all dynamic budgets at once
-        if (component.Budget == null)
-            foreach (var dyn in EntityQuery<DynamicRuleComponent>())
-                component.Budget += dyn.MidroundBudget;
+        component.Budget = 0;
+        foreach (var dyn in EntityQuery<DynamicRuleComponent>())
+            component.Budget += dyn.MidroundBudget;
     }
     protected override void Ended(EntityUid uid, DynamicStationEventSchedulerComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
     {

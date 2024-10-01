@@ -27,17 +27,17 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     
     /// </summary>
-    public float ThreatLevel = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float ThreatLevel = 0f;
 
     /// <summary>
     ///     Used for EORG display.
     /// </summary>
-    public float RoundstartBudget = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float RoundstartBudget = 0f;
 
     /// <summary>
     ///     Used for EORG display.
     /// </summary>
-    public float MidroundBudget = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float MidroundBudget = 0f;
 
     #endregion
 
