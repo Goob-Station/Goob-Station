@@ -88,6 +88,7 @@
     - !type:GroupSelector
       weight: 75
       children:
+      - id: SpectralLocator # More revenants, more spectral locators.
       - id: FlashlightLantern
       - id: ToolboxEmergencyFilled
       - !type:GroupSelector
@@ -187,8 +188,6 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
-      # Goobstation - Spectral locator
-      - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
 
@@ -209,7 +208,7 @@
       prob: 0.6
 
 - type: entityTable
-  id: MaintWeaponTable # SPooky maints loot
+  id: MaintWeaponTable
   table: !type:GroupSelector
     children:
     # Common Group
