@@ -201,7 +201,6 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref xform))
                 return;
 
-
             if (physics.BodyType != BodyType.Static
                 && !float.IsPositiveInfinity(component.MoveResist))
             {
