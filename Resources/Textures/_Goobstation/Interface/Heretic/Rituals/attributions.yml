@@ -1,0 +1,32 @@
+# Attempted to keep the files in alphabetical order so its easier to audit.
+# Finding individual authors is an unfeasible task. If you can reference the author please do so.
+
+- files: ["abomination.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by brainfood1183 (github) for ss14"
+  source: "https://github.com/space-wizards/space-station-14/pull/15876"
+
+- files: ["amber_focus.png", "ash_blade.png", "ashlord_rite.png", "eldritch_armor.png", "final_hymn.png", "flesh_blade.png", "flesh_stalker.png", "raw_prophet.png", "void_blade.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG station, some edited by whateverusername0 and blooodyspy"
+  source: "i have no idea when john found it"
+
+- files: ["mad_mask.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG station"
+  source: "https://github.com/tgstation/tgstation/commit/93e81ee348ef6555c6959347e27874221ef143ed"
+
+- files: ["book_icon.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Splitted by TheShudEd"
+  source: "https://github.com/tgstation/tgstation/commit/37fb6bc6dd20005775dde8d886f48f7722606b77"
+
+- files: ["heart_off.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG station"
+  source: "aken from tgstation and cev-eris at https://github.com/tgstation/tgstation/commit/c4b7f3c41b6742aca260fe60cc358a778ba9b8c8 and https://github.com/discordia-space/CEV-Eris/commit/476e374cea95ff5e8b1603c48342bf700e2cd7af"
+
+- files: ["low_temperature.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from TG station"
+  source: "Taken from https://github.com/tgstation/tgstation at 1c7401722f397d8ac8afdd10e550c5962e0f38d4"

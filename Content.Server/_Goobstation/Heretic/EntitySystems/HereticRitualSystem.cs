@@ -11,6 +11,7 @@ using System.Text;
 using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
+using Content.Shared._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -22,6 +23,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -167,6 +169,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<HereticRitualRuneComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<HereticRitualRuneComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HereticRitualRuneComponent, HereticRitualMessage>(OnRitualChosenMessage);
     }
 
     private void OnInteract(Entity<HereticRitualRuneComponent> ent, ref InteractHandEvent args)
@@ -180,22 +183,22 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
         }
 
-        if (heretic.ChosenRitual == null)
-            heretic.ChosenRitual = heretic.KnownRituals[0];
+        _uiSystem.OpenUi(ent.Owner, HereticRitualRuneUiKey.Key, args.User);
+    }
 
-        else if (heretic.ChosenRitual != null)
-        {
-            var index = heretic.KnownRituals.FindIndex(m => m == heretic.ChosenRitual) + 1;
+    private void OnRitualChosenMessage(Entity<HereticRitualRuneComponent> ent, ref HereticRitualMessage args)
+    {
+        var user = args.Actor;
 
-            if (index >= heretic.KnownRituals.Count)
-                index = 0;
+        if (!TryComp<HereticComponent>(user, out var heretic))
+            return;
 
-            heretic.ChosenRitual = heretic.KnownRituals[index];
-        }
+        heretic.ChosenRitual = args.ProtoId;
 
         var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).Name);
-        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), args.User, args.User);
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
     }
+
     private void OnInteractUsing(Entity<HereticRitualRuneComponent> ent, ref InteractUsingEvent args)
     {
         if (!TryComp<HereticComponent>(args.User, out var heretic))
