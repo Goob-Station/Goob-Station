@@ -266,7 +266,6 @@
   - type: Construction
     graph: BananaClownMask
     node: mask
-  - type: Unremoveable
   - type: AddAccentClothing
     accent: OhioAccent
 
