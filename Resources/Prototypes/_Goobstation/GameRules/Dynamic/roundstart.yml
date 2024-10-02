@@ -135,7 +135,7 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ HeadRev ]
-      max: 2
+      max: 3
       playerRatio: 15
       blacklist:
         components:

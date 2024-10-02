@@ -42,9 +42,10 @@
   id: Dynamic
   components:
   - type: GameRule
-    delay:
-      min: 5
-      max: 10
+    # what if i removed delays to counter nukies being shit?
+    #delay:
+    #  min: 5
+    #  max: 10
   - type: DynamicRule
     roundstartRulesPool: DynamicRoundstartGamerules
 
@@ -92,7 +93,7 @@
     - deathrollercoaster
   name: gamemode-dynamic-u-title
   description: gamemode-dynamic-u-description
-  showInVote: true
+  showInVote: false # admeme only
   rules:
     - DynamicUnforgiving
     - BasicStationEventScheduler
