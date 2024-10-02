@@ -59,6 +59,7 @@
 - type: startingGear
   id: HoPGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorBrown
     id: HoPPDA
     gloves: ClothingHandsGlovesHop

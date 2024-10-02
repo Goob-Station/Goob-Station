@@ -12,6 +12,7 @@
 - type: startingGear
   id: PassengerGear
   equipment:
+    mask: ClothingMaskClown
     id: PassengerPDA
     ears: ClothingHeadsetGrey
   #storage:

@@ -18,6 +18,7 @@
 - type: startingGear
   id: ServiceWorkerGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorBlack
     id: ServiceWorkerPDA
     ears: ClothingHeadsetService

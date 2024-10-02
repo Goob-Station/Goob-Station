@@ -17,6 +17,7 @@
 - type: startingGear
   id: BotanistGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorBrown
     id: BotanistPDA
     ears: ClothingHeadsetService

@@ -13,6 +13,7 @@
 - type: startingGear
   id: LibrarianGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesBootsLaceup
     id: LibrarianPDA
     ears: ClothingHeadsetService

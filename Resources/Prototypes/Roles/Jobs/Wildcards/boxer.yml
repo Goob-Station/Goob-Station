@@ -13,6 +13,7 @@
 - type: startingGear
   id: BoxerGear
   equipment:
+    mask: ClothingMaskClown
     id: BoxerPDA
     ears: ClothingHeadsetService
     shoes: ClothingShoesColorRed

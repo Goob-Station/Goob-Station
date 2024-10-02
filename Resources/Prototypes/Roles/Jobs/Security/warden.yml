@@ -28,6 +28,7 @@
 - type: startingGear
   id: WardenGear
   equipment:
+    mask: ClothingMaskClown
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
     ears: ClothingHeadsetSecurity

@@ -13,6 +13,7 @@
 - type: startingGear
   id: ZookeeperGear
   equipment:
+    mask: ClothingMaskClown
     jumpsuit: ClothingUniformJumpsuitSafari
     head: ClothingHeadSafari
     shoes: ClothingShoesColorWhite

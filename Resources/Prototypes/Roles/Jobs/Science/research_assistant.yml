@@ -19,6 +19,7 @@
 - type: startingGear
   id: ResearchAssistantGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesColorWhite
     id: ResearchAssistantPDA
     ears: ClothingHeadsetScience

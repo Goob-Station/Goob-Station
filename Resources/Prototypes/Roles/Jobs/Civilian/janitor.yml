@@ -18,6 +18,7 @@
 - type: startingGear
   id: JanitorGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesGaloshes
     id: JanitorPDA
     ears: ClothingHeadsetService

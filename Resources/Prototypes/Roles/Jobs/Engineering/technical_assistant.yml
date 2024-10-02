@@ -22,6 +22,7 @@
 - type: startingGear
   id: TechnicalAssistantGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesBootsWork
     id: TechnicalAssistantPDA
     belt: ClothingBeltUtilityEngineering

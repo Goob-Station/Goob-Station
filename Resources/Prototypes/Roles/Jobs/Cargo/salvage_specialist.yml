@@ -21,6 +21,7 @@
 - type: startingGear
   id: SalvageSpecialistGear
   equipment:
+    mask: ClothingMaskClown
     jumpsuit: ClothingUniformJumpsuitSalvageSpecialist
     id: SalvagePDA
     ears: ClothingHeadsetCargo

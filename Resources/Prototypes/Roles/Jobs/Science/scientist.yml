@@ -17,6 +17,7 @@
 - type: startingGear
   id: ScientistGear
   equipment:
+    mask: ClothingMaskClown
     ears: ClothingHeadsetScience
   #storage:
     #back:

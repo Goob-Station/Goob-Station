@@ -17,6 +17,7 @@
 - type: startingGear
   id: MusicianGear
   equipment:
+    mask: ClothingMaskClown
     eyes: ClothingEyesGlassesSunglasses
     shoes: ClothingShoesBootsLaceup
     id: MusicianPDA

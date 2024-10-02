@@ -38,6 +38,7 @@
 - type: startingGear
   id: QuartermasterGear
   equipment:
+    mask: ClothingMaskClown
     id: QuartermasterPDA
     ears: ClothingHeadsetQM
     belt: BoxFolderClipboard

@@ -21,6 +21,7 @@
 - type: startingGear
   id: ParamedicGear
   equipment:
+    mask: ClothingMaskClown
     id: ParamedicPDA
     ears: ClothingHeadsetMedical
     belt: ClothingBeltMedicalEMTFilled

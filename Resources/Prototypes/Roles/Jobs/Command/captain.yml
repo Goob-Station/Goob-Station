@@ -35,6 +35,7 @@
 - type: startingGear
   id: CaptainGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesBootsLaceup
     eyes: ClothingEyesGlassesSunglasses
     gloves: ClothingHandsGlovesCaptain

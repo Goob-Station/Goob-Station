@@ -18,6 +18,7 @@
 - type: startingGear
   id: LawyerGear
   equipment:
+    mask: ClothingMaskClown
     shoes: ClothingShoesBootsLaceup
     id: LawyerPDA
     ears: ClothingHeadsetSecurity
