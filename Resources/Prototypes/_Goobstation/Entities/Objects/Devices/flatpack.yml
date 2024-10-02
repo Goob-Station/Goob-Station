@@ -11,3 +11,25 @@
     - state: fax-machine
   - type: StaticPrice
     price: 1500
+
+- type: entity
+  parent: BaseFlatpack
+  id: MicrowaveFlatpack
+  name: microwave flatpack
+  description: 5 speso flatpack.
+  components:
+  - type: Flatpack
+    entity: KitchenMicrowave
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: BaseFlatpack
+  id: IDComputerFlatpack
+  name: ID card computer flatpack
+  description: 200 speso flatpack.
+  components:
+  - type: Flatpack
+    entity: ComputerID
+  - type: StaticPrice
+    price: 200
