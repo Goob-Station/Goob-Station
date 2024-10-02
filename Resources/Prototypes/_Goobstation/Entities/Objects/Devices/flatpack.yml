@@ -30,6 +30,6 @@
   description: 200 speso flatpack.
   components:
   - type: Flatpack
-    entity: ComputerID
+    entity: ComputerId
   - type: StaticPrice
     price: 200
