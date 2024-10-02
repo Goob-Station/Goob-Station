@@ -287,9 +287,9 @@
   - type: Carriable # Goobstation
   - type: LayingDown # WD EDIT
   - type: Paracusia # Insanity Sim
-    minTimeBetweenIncidents: 5
-    maxTimeBetweenIncidents: 60
-    maxSoundDistance: 7
+    minTimeBetweenIncidents: 30
+    maxTimeBetweenIncidents: 300
+    maxSoundDistance: 10
     sounds:
       collection: SpookyParacusia
 
