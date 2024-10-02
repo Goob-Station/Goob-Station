@@ -1,8 +1,8 @@
 - type: entity
-  id: CrateMicrowaveIDKit
+  id: CrateMicrowaveIdKit
   parent: CrateGenericSteel
   name: ID microwaving crate
-  description: 3 microwaves, a ID card console, and 3 boxes of ID cards. Get to work. Safety equipment NOT included.
+  description: 3 microwaves, a ID card console, and 3 boxes of ID cards. ID.
   components:
   - type: StorageFill
     contents:
@@ -11,4 +11,6 @@
       - id: MicrowaveFlatpack
         amount: 3
       - id: IDComputerFlatpack
+        amount: 1
+      - id: Multitool
         amount: 1

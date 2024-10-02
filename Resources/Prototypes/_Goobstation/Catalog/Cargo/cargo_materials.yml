@@ -1,0 +1,9 @@
+- type: cargoProduct
+  id: MaterialMicrowaveId
+  icon:
+    sprite: Structures/Machines/microwave.rsi
+    state: mwbloody
+  product: CrateMicrowaveIdKit
+  cost: 1500
+  category: cargoproduct-category-name-materials
+  group: market
