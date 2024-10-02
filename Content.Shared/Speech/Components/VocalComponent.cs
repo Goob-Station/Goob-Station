@@ -25,7 +25,7 @@ public sealed partial class VocalComponent : Component
 
     [DataField("screamId", customTypeSerializer: typeof(PrototypeIdSerializer<EmotePrototype>))]
     [AutoNetworkedField]
-    public string ScreamId = "Scream";
+    public string ScreamId = "Boo";
 
     [DataField("wilhelm")]
     [AutoNetworkedField]

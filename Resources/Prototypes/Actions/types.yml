@@ -11,8 +11,8 @@
 
 - type: entity
   id: ActionScream
-  name: Scream
-  description: AAAAAAAAAAAAAAAAAAAAAAAAA
+  name: Boo!
+  description: Spooked ya!
   components:
   - type: InstantAction
     useDelay: 10
