@@ -45,10 +45,6 @@
     event: !type:EventHereticLivingHeart {}
   - type: HereticAction
     requireMagicItem: false
-  - type: UserInterface
-    interfaces:
-       enum.HereticLivingHeartKey.Key:
-        type: LivingHeartMenuBoundUserInterface
 
 - type: entity
   id: ActionHereticMansusLink

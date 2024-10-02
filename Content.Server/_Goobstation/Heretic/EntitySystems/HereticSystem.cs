@@ -99,10 +99,13 @@ public sealed partial class HereticSystem : EntitySystem
         RaiseLocalEvent(ent, new EventHereticRerollTargets());
     }
 
-    #region Internal events (target reroll, asecnsion, etc.)
+    #region Internal events (target reroll, ascension, etc.)
 
     private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
     {
+        // welcome to my linq smorgasbord of doom
+        // have fun figuring that out
+
         var targets = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
             .Where(ics => ics.AttachedEntity.HasValue && HasComp<HumanoidAppearanceComponent>(ics.AttachedEntity));
 
@@ -110,23 +113,24 @@ public sealed partial class HereticSystem : EntitySystem
         foreach (var target in targets)
             eligibleTargets.Add(target.AttachedEntity!.Value); // it can't be null because see .Where(HasValue)
 
+        // no heretics or other baboons
+        eligibleTargets = eligibleTargets.Where(t => !HasComp<GhoulComponent>(t) && !HasComp<HereticComponent>(t)).ToList();
+
         var pickedTargets = new List<EntityUid?>();
 
-        // TARGET RULES:
-        // one must be a head of department
-        // one must be a security member
-        // one must be from your own department
-        // everyone else must be random
         var predicates = new List<Func<EntityUid, bool>>();
 
+        // pick one command staff
         predicates.Add(t => HasComp<CommandStaffComponent>(t));
 
+        // p[ick one secoff
         predicates.Add(t =>
             _prot.TryIndex<DepartmentPrototype>("Security", out var dept) // can we get sec jobs?
             && _mind.TryGetMind(t, out var mindid, out _) // does it have a mind?
             && TryComp<JobComponent>(mindid, out var jobc) && jobc.Prototype.HasValue // does it have a job?
             && dept.Roles.Contains(jobc.Prototype!.Value)); // is that job being shitsec?
 
+        // pick one person from the same department
         predicates.Add(t =>
             _mind.TryGetMind(t, out var tmind, out _) && _mind.TryGetMind(ent, out var ownmind, out _) // get minds
             && TryComp<JobComponent>(tmind, out var tjob) && tjob.Prototype.HasValue // get jobs
@@ -147,14 +151,17 @@ public sealed partial class HereticSystem : EntitySystem
             // pick and take
             var picked = _rand.PickAndTake<EntityUid>(list);
             pickedTargets.Add(picked);
-            eligibleTargets.RemoveAt(eligibleTargets.IndexOf(picked));
         }
 
         // add whatever more until satisfied
         for (int i = 0; i < ent.Comp.MaxTargets - pickedTargets.Count; i++)
-            pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
+            if (eligibleTargets.Count > 0)
+                pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
 
-        ent.Comp.SacrificeTargets = pickedTargets;
+        // leave only unique entityuids
+        pickedTargets = pickedTargets.Distinct().ToList();
+
+        ent.Comp.SacrificeTargets = pickedTargets.ConvertAll(t => GetNetEntity(t)).ToList();
     }
 
     // notify the crew of how good the person is and play the cool sound :godo:

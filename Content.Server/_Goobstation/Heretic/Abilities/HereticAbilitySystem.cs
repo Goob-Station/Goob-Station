@@ -171,7 +171,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        _ui.OpenUi(ent.Owner, HereticLivingHeartKey.Key, args.Action);
+        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
+            return;
+
+        _ui.OpenUi((ent, uic), HereticLivingHeartKey.Key, ent);
         args.Handled = true;
     }
     private void OnLivingHeartActivate(Entity<HereticComponent> ent, ref EventHereticLivingHeartActivate args)
@@ -188,22 +191,21 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var targetStation = _station.GetOwningStation(target);
         var ownStation = _station.GetOwningStation(ent);
+        var targetPos = _transform.GetWorldPosition((EntityUid) target);
+        var ownPos = _transform.GetWorldPosition(ent);
 
         var isOnStation = targetStation != null && targetStation == ownStation;
 
+        var vector = targetPos - ownPos;
+        var direction = ContentLocalizationManager.FormatDirection(vector.GetDir());
+
+        var locstate = state.ToString().ToLower();
+
         if (isOnStation)
-        {
-            var direction = string.Empty;
-            var targetPos = _transform.GetWorldPosition((EntityUid) target);
-            var ownPos = _transform.GetWorldPosition(ent);
+            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", direction));
+        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", direction));
 
-            var vector = targetPos - ownPos;
-            direction = ContentLocalizationManager.FormatDirection(vector.GetDir());
-            loc = Loc.GetString("heretic-livingheart-onstation", ("state", state.ToString()), ("direction", direction));
-        }
-        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", state.ToString()));
-
-        _popup.PopupEntity(Loc.GetString(loc), ent, ent, PopupType.Medium);
+        _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 

@@ -16,8 +16,8 @@ heretic-manselink-fail-nomind = This creature does not have a mind!
 heretic-manselink-start = You begin to connect this creature's mind to yours.
 heretic-manselink-start-target = You feel your mind being pulled somewhere...
 
-heretic-livingheart-offstation = It's {$state}, off station!
-heretic-liningheart-onstation = It's {$state}, {$direction}!
+heretic-livingheart-offstation = It's {$state}, off station, {$direction}!
+heretic-livingheart-onstation = It's {$state}, {$direction}!
 
 ## speech
 heretic-speech-mansusgrasp = R'CH T'H TR'TH!

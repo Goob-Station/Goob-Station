@@ -6,7 +6,7 @@ using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 
-namespace Content.Client.Heretic;
+namespace Content.Client._Goobstation.Heretic.UI;
 
 public sealed partial class LivingHeartMenu : RadialMenu
 {
@@ -44,23 +44,24 @@ public sealed partial class LivingHeartMenu : RadialMenu
         {
             if (target == null) continue;
 
-            var netent = _ent.GetNetEntity(target);
-            if (netent == null) continue;
+            var ent = _ent.GetEntity(target);
+            if (ent == null) continue;
 
             var button = new EmbeddedEntityMenuButton
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
-                ToolTip = _ent.GetComponent<MetaDataComponent>((EntityUid) target).EntityName,
-                NetEntity = netent.Value,
+                ToolTip = _ent.GetComponent<MetaDataComponent>(ent.Value).EntityName,
+                NetEntity = (NetEntity) target,
             };
 
-            var texture = new SpriteView(netent.Value, _ent)
+            var texture = new SpriteView(ent.Value, _ent)
             {
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
-                SetSize = new Vector2(64, 64),
+                SetSize = new Vector2(32, 32),
                 VerticalExpand = true,
+                Stretch = SpriteView.StretchMode.Fill,
             };
             button.AddChild(texture);
 

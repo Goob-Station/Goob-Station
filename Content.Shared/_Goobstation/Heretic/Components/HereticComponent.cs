@@ -25,7 +25,7 @@ public sealed partial class HereticComponent : Component
     /// <summary>
     ///     Contains the list of targets that are eligible for sacrifice.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField] public List<EntityUid?> SacrificeTargets = new();
+    [DataField, AutoNetworkedField] public List<NetEntity?> SacrificeTargets = new();
 
     /// <summary>
     ///     How much targets can a heretic have?
