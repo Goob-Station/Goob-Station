@@ -25,4 +25,12 @@
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\XamlIL.targets" />
+  <ItemGroup>
+    <EmbeddedResource Remove="_goobstation\heretic\ui\LivingHeartMenu.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Update="_Goobstation\Heretic\UI\LivingHeartMenu.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </AdditionalFiles>
+  </ItemGroup>
 </Project>

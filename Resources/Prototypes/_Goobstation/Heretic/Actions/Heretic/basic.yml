@@ -31,9 +31,29 @@
     requireMagicItem: false
 
 - type: entity
+  id: ActionHereticLivingHeart
+  name: Living Heart
+  description: Use your heart to get your sacrifice targets location.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: living_heart
+    event: !type:EventHereticLivingHeart {}
+  - type: HereticAction
+    requireMagicItem: false
+  - type: UserInterface
+    interfaces:
+       enum.HereticLivingHeartKey.Key:
+        type: LivingHeartMenuBoundUserInterface
+
+- type: entity
   id: ActionHereticMansusLink
   name: Manse Link
-  description: This spell allows you to pierce through reality and connect minds to one another via your Mansus Link.
+  description: Pierce through reality and connect minds to one another. Default radio key is :z
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

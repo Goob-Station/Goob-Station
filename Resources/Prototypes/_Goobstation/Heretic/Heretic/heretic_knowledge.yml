@@ -16,12 +16,11 @@
   - AmberFocus
 
 - type: hereticKnowledge
-  id: CodexCicatrix
-  # ritualPrototypes:
-
-- type: hereticKnowledge
-  id: CloakOfShadow
-  # actionPrototypes:
+  id: LivingHeart
+  ritualPrototypes:
+  - LivingHeart
+  actionPrototypes:
+  - ActionHereticLivingHeart
 
 - type: hereticKnowledge
   id: RitualOfKnowledge

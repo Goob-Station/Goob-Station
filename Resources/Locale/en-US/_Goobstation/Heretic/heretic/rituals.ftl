@@ -8,7 +8,7 @@ heretic-ritual-noritual = No ritual chosen!
 
 heretic-ritual-basic-sacrifice = Heartbeat of the Mansus
 heretic-ritual-basic-focus = Amber Focus
-heretic-ritual-basic-codex = Codex Cicatrix
+heretic-ritual-basic-heart = Relentless Heartbeat
 
 heretic-ritual-fail-sacrifice = There is no corpse to sacrifice.
 heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.

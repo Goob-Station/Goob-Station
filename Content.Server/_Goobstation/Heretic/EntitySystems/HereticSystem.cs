@@ -13,6 +13,16 @@ using Content.Server.Body.Components;
 using Content.Server.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Server.Heretic.Components;
+using Content.Server.Antag;
+using Robust.Shared.Random;
+using System.Linq;
+using Content.Shared.Humanoid;
+using Robust.Server.Player;
+using Content.Server.Revolutionary.Components;
+using Content.Shared.Random.Helpers;
+using Content.Shared.Roles.Jobs;
+using Robust.Shared.Prototypes;
+using Content.Shared.Roles;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -23,6 +33,10 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly IRobustRandom _rand = default!;
+    [Dependency] private readonly IPlayerManager _playerMan = default!;
+    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private float _timer = 0f;
     private float _passivePointCooldown = 20f * 60f;
@@ -32,10 +46,14 @@ public sealed partial class HereticSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
-        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
+
+        SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
+
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
+
+        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
     }
 
     public override void Update(float frameTime)
@@ -77,34 +95,66 @@ public sealed partial class HereticSystem : EntitySystem
 
         foreach (var knowledge in ent.Comp.BaseKnowledge)
             _knowledge.AddKnowledge(ent, ent.Comp, knowledge);
+
+        RaiseLocalEvent(ent, new EventHereticRerollTargets());
     }
 
-    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
-    {
-        if (!HasComp<HereticComponent>(args.Examiner))
-            return;
+    #region Internal events (target reroll, asecnsion, etc.)
 
-        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
-    }
-
-    private void OnBeforeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
+    private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
     {
-        // ignore damage from heretic stuff
-        if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
-            args.Cancelled = true;
-    }
-    private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
-    {
-        if (!ent.Comp.Ascended)
-            return;
+        var targets = _antag.GetAliveConnectedPlayers(_playerMan.Sessions)
+            .Where(ics => ics.AttachedEntity.HasValue && HasComp<HumanoidAppearanceComponent>(ics.AttachedEntity));
 
-        switch (ent.Comp.CurrentPath)
+        var eligibleTargets = new List<EntityUid>();
+        foreach (var target in targets)
+            eligibleTargets.Add(target.AttachedEntity!.Value); // it can't be null because see .Where(HasValue)
+
+        var pickedTargets = new List<EntityUid?>();
+
+        // TARGET RULES:
+        // one must be a head of department
+        // one must be a security member
+        // one must be from your own department
+        // everyone else must be random
+        var predicates = new List<Func<EntityUid, bool>>();
+
+        predicates.Add(t => HasComp<CommandStaffComponent>(t));
+
+        predicates.Add(t =>
+            _prot.TryIndex<DepartmentPrototype>("Security", out var dept) // can we get sec jobs?
+            && _mind.TryGetMind(t, out var mindid, out _) // does it have a mind?
+            && TryComp<JobComponent>(mindid, out var jobc) && jobc.Prototype.HasValue // does it have a job?
+            && dept.Roles.Contains(jobc.Prototype!.Value)); // is that job being shitsec?
+
+        predicates.Add(t =>
+            _mind.TryGetMind(t, out var tmind, out _) && _mind.TryGetMind(ent, out var ownmind, out _) // get minds
+            && TryComp<JobComponent>(tmind, out var tjob) && tjob.Prototype.HasValue // get jobs
+            && TryComp<JobComponent>(ownmind, out var ownjob) && ownjob.Prototype.HasValue
+            && _prot.EnumeratePrototypes<DepartmentPrototype>() // compare jobs for all
+                .Where(d =>
+                    d.Roles.Contains(tjob.Prototype.Value)
+                    && d.Roles.Contains(ownjob.Prototype.Value)) // true = same department
+                .ToList().Count != 0);
+
+        foreach (var predicate in predicates)
         {
-            case "Ash":
-                // nullify heat damage because zased
-                args.Damage.DamageDict["Heat"] = 0;
-                break;
+            var list = eligibleTargets.Where(predicate).ToList();
+
+            if (list.Count == 0)
+                continue;
+
+            // pick and take
+            var picked = _rand.PickAndTake<EntityUid>(list);
+            pickedTargets.Add(picked);
+            eligibleTargets.RemoveAt(eligibleTargets.IndexOf(picked));
         }
+
+        // add whatever more until satisfied
+        for (int i = 0; i < ent.Comp.MaxTargets - pickedTargets.Count; i++)
+            pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
+
+        ent.Comp.SacrificeTargets = pickedTargets;
     }
 
     // notify the crew of how good the person is and play the cool sound :godo:
@@ -133,4 +183,44 @@ public sealed partial class HereticSystem : EntitySystem
                 break;
         }
     }
+
+    #endregion
+
+    #region External events (damage, etc.)
+
+    private void OnBeforeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
+    {
+        // ignore damage from heretic stuff
+        if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
+            args.Cancelled = true;
+    }
+    private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
+    {
+        if (!ent.Comp.Ascended)
+            return;
+
+        switch (ent.Comp.CurrentPath)
+        {
+            case "Ash":
+                // nullify heat damage because zased
+                args.Damage.DamageDict["Heat"] = 0;
+                break;
+        }
+    }
+
+    #endregion
+
+
+
+    #region Miscellaneous
+
+    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
+    {
+        if (!HasComp<HereticComponent>(args.Examiner))
+            return;
+
+        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
+    }
+
+    #endregion
 }
