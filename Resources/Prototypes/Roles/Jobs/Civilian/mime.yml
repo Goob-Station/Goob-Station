@@ -27,6 +27,7 @@
   storage:
     back:
     - RubberStampMime
+    - CandyBagRandom
 
 - type: entity
   id: ActionMimeInvisibleWall
