@@ -59,7 +59,7 @@ public sealed partial class LivingHeartMenu : RadialMenu
             {
                 OverrideDirection = Direction.South,
                 VerticalAlignment = VAlignment.Center,
-                SetSize = new Vector2(32, 32),
+                SetSize = new Vector2(64, 64),
                 VerticalExpand = true,
                 Stretch = SpriteView.StretchMode.Fill,
             };
