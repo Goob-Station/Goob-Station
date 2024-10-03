@@ -4,6 +4,6 @@
     sprite: Structures/Machines/microwave.rsi
     state: mwbloody
   product: CrateMicrowaveIdKit
-  cost: 1500
+  cost: 150000
   category: cargoproduct-category-name-materials
   group: market
