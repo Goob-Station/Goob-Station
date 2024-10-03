@@ -199,7 +199,7 @@ public sealed class TipsSystem : EntitySystem
         } else
         {
             _chat.ChatMessageToManyFiltered(Filter.Broadcast(), ChatChannel.OOC, tip, msg,
-            EntityUid.Invalid, false, false, Color.MediumPurple);
+            EntityUid.Invalid, false, false, Color.Red);
         }
     }
 
