@@ -18,9 +18,9 @@
     - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    #- id: SnakeSpawn
+    #- id: SpiderClownSpawn
+    #- id: SpiderSpawn
     - id: VentClog
 
 - type: entityTable
