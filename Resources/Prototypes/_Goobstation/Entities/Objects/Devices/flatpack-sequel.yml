@@ -1,0 +1,32 @@
+- type: entity
+  parent: BaseFlatpack
+  id: SupermatterFlatpack
+  name: supermatter flatpack
+  description: centcomm extreme flatpacking technology
+  components:
+  - type: Flatpack
+    entity: Supermatter
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: BaseFlatpack
+  id: TeslaBallFlatpack
+  name: energy flatpack
+  description: free power
+  components:
+  - type: Flatpack
+    entity: TeslaEnergyBall
+  - type: StaticPrice
+    price: 50
+
+- type: entity
+  parent: BaseFlatpack
+  id: SupermatterFlatpack
+  name: gravity flatpack
+  description: early version of a gravity generator
+  components:
+  - type: Flatpack
+    entity: Singularity
+  - type: StaticPrice
+    price: 50
