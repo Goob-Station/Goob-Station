@@ -69,11 +69,11 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: TrainFlatpack
-  name: train flatpack
-  description: the only station worth living on
+  id: CancerMouseFlatpack
+  name: cancer flatpack
+  description: just a normal mouse!
   components:
   - type: Flatpack
-    entity: Train
+    entity: MobMouseCancer
   - type: StaticPrice
     price: 5
