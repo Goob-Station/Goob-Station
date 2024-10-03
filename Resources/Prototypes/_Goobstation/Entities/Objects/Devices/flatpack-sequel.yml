@@ -1,3 +1,6 @@
+# dont fucking put these in cargo/uplink crates
+# its not worth it
+
 - type: entity
   parent: BaseFlatpack
   id: SupermatterFlatpack
@@ -22,7 +25,7 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: SupermatterFlatpack
+  id: SingularityFlatpack
   name: gravity flatpack
   description: early version of a gravity generator
   components:
@@ -30,3 +33,47 @@
     entity: Singularity
   - type: StaticPrice
     price: 50
+
+- type: entity
+  parent: BaseFlatpack
+  id: FelinidFlatpack
+  name: felinid flatpack
+  description: this is to start up the supermatter flatpack
+  components:
+  - type: Flatpack
+    entity: MobFelinidBase
+  - type: StaticPrice
+    price: 2
+
+- type: entity
+  parent: BaseFlatpack
+  id: ImmovableSkibidiFlatpack
+  name: normal immovable toilet flatpack
+  description: just a immovable toilet...
+  components:
+  - type: Flatpack
+    entity: ImmovableRodSkibidi
+  - type: StaticPrice
+    price: 135870000
+
+- type: entity
+  parent: BaseFlatpack
+  id: SkibidiFlatpack
+  name: normal toilet flatpack
+  description: just a normal toilet...
+  components:
+  - type: Flatpack
+    entity: MobSkibidiToilet
+  - type: StaticPrice
+    price: 5
+
+- type: entity
+  parent: BaseFlatpack
+  id: AsteroidFlatpack
+  name: asteroid flatpack
+  description: worth 6 spesos
+  components:
+  - type: Flatpack
+    entity: AsteroidDebrisLarger
+  - type: StaticPrice
+    price: 6
