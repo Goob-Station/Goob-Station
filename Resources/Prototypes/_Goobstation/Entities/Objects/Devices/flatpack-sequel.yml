@@ -66,3 +66,14 @@
     entity: AsteroidDebrisLarger
   - type: StaticPrice
     price: 6
+
+- type: entity
+  parent: BaseFlatpack
+  id: TrainFlatpack
+  name: train flatpack
+  description: the only station worth living on
+  components:
+  - type: Flatpack
+    entity: Train
+  - type: StaticPrice
+    price: 5
