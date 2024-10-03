@@ -36,17 +36,6 @@
 
 - type: entity
   parent: BaseFlatpack
-  id: FelinidFlatpack
-  name: felinid flatpack
-  description: this is to start up the supermatter flatpack
-  components:
-  - type: Flatpack
-    entity: MobFelinidBase
-  - type: StaticPrice
-    price: 2
-
-- type: entity
-  parent: BaseFlatpack
   id: ImmovableSkibidiFlatpack
   name: normal immovable toilet flatpack
   description: just a immovable toilet...
