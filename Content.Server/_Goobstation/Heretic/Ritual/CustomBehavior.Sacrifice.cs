@@ -30,6 +30,11 @@ namespace Content.Server.Heretic.Ritual;
     /// </summary>
     [DataField] public float Max = 1;
 
+    /// <summary>
+    ///     Should we count only targets?
+    /// </summary>
+    [DataField] public bool OnlyTargets = false;
+
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
@@ -65,7 +70,7 @@ namespace Content.Server.Heretic.Ritual;
         {
             if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
             || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
-            || !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(look))) // only targets
+            || (OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(look)))) // only targets
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)

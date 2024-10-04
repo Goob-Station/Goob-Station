@@ -62,6 +62,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throw = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -202,19 +203,19 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         var isOnStation = targetStation != null && targetStation == ownStation;
 
-        var globalVector = _transform.GetWorldPosition((EntityUid) target, xquery) - _transform.GetWorldPosition(ent, xquery);
-        var globalDirection = ContentLocalizationManager.FormatDirection(globalVector.GetDir());
+        var ang = Angle.Zero;
+        if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
+            ang = Transform(grid).LocalRotation;
 
-        var localVector = Transform((EntityUid) target).LocalPosition - Transform(ent).LocalPosition;
-        var localDirection = ContentLocalizationManager.FormatDirection(localVector.GetDir());
+        var vector = _transform.GetWorldPosition((EntityUid) target, xquery) - _transform.GetWorldPosition(ent, xquery);
+        var direction = (vector.ToWorldAngle() - ang).GetDir();
 
+        var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
         var locstate = state.ToString().ToLower();
 
         if (isOnStation)
-            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", localDirection));
-        else if (Transform((EntityUid) target).MapID != Transform(ent).MapID)
-            loc = Loc.GetString("heretic-livingheart-unknown");
-        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", globalDirection));
+            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", locdir));
+        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", locdir));
 
         _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));

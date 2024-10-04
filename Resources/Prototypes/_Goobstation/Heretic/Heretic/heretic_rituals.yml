@@ -6,6 +6,7 @@
   name: heretic-ritual-basic-sacrifice
   customBehaviors:
   - !type:RitualSacrificeBehavior
+    onlyTargets: true
 
 # Amber Focus
 - type: hereticRitual
