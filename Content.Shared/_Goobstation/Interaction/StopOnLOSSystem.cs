@@ -18,7 +18,6 @@ public sealed class SharedStopOnLOSSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    private ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -33,16 +32,16 @@ public sealed class SharedStopOnLOSSystem : EntitySystem
         {
             List<EntityUid> observers = new List<EntityUid>();
 
-            foreach (var ent in _faction.GetNearbyHostiles(entity, 12f))
+            foreach (var ent in _faction.GetNearbyHostiles(entity, comp.SightRange))
             {
-                if (!TryComp<MobStateComponent>(ent, out var state))
+                if (!TryComp<MobStateComponent>(ent, out var state) || HasComp<StopOnLOSComponent>(ent))
                     continue;
                 if(_mind.TryGetMind(ent, out var mindId, out var mind) && state.CurrentState == Shared.Mobs.MobState.Alive)
                     observers.Add(ent);
             }
 
             if(!observers.Any())
-                comp.canMove = true;
+                comp.CanMove = true;
 
             foreach (var target in observers)
             {
@@ -54,16 +53,16 @@ public sealed class SharedStopOnLOSSystem : EntitySystem
                     Math.Abs(direction.ToWorldAngle().Degrees - _transform.GetWorldPositionRotation(target).WorldRotation.Degrees),
                     Math.Abs(_transform.GetWorldPositionRotation(target).WorldRotation.Degrees - direction.ToWorldAngle().Degrees));
 
-                var notoccluded = _examine.InRangeUnOccluded(target, entity, 12f, null);
+                var notoccluded = _examine.InRangeUnOccluded(target, entity, comp.SightRange, null);
 
-                if (difference < 120 && notoccluded && comp.canMove)
+                if (difference < comp.SightAngle && notoccluded && comp.CanMove)
                 {
-                    comp.canMove = false;
+                    comp.CanMove = false;
                     break;
                 }
-                else if (difference >= 120 && !comp.canMove || !notoccluded && !comp.canMove)
+                else if (difference >= comp.SightAngle && !comp.CanMove || !notoccluded && !comp.CanMove)
                 {
-                    comp.canMove = true;
+                    comp.CanMove = true;
                 }
             }
 
@@ -73,7 +72,7 @@ public sealed class SharedStopOnLOSSystem : EntitySystem
 
     private void OnAttempt(EntityUid uid, StopOnLOSComponent comp, CancellableEntityEventArgs args)
     {
-        if(!comp.canMove)
+        if(!comp.CanMove)
             args.Cancel();
     }
 }

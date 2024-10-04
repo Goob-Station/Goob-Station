@@ -6,7 +6,14 @@ namespace Content.Shared._Goobstation.Interaction.Components;
 [AutoGenerateComponentState]
 public sealed partial class StopOnLOSComponent : Component
 {
+    [AutoNetworkedField]
+    public bool CanMove = false;
+
     [DataField]
     [AutoNetworkedField]
-    public bool canMove = false;
+    public float SightRange = 12f;
+
+    [DataField]
+    [AutoNetworkedField]
+    public float SightAngle = 120f;
 }

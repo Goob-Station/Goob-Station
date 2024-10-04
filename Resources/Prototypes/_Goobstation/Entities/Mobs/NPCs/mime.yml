@@ -14,8 +14,8 @@
     allowed:
     - SlowedDown
   - type: MovementSpeedModifier
-    baseWalkSpeed : 1
-    baseSprintSpeed : 1.5
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 2.5
   - type: Fixtures
     fixtures:
       fix1:
