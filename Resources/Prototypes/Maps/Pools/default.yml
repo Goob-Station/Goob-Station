@@ -2,6 +2,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
+  - Amber
   - Bagel
   - Box
   - Cluster
