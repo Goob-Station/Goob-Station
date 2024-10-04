@@ -6,6 +6,14 @@
   name: Mime
   description: Something seems off...
   components:
+  - type: Eye
+    drawFov: false
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#b51d02"
+    castShadows: false
+  - type: Perishable
   - type: Stamina
   - type: Damageable
     damageContainer: Biological
