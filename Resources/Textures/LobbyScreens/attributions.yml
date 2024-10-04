@@ -87,6 +87,11 @@
   license: "CC-BY-SA-3.0"
   copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
+  
+- files: ["heretic.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
+  source: "https://forums.goobstation.com"
 
 - files: ["cqcm.webp"]
   license: "CC-BY-SA-3.0"
