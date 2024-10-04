@@ -1390,3 +1390,21 @@ Entries:
       message: Fixed BSO bluespace lifeline implant
   id: 170
   time: '2024-10-01T00:17:51.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Origin to include all new goob features
+  id: 171
+  time: '2024-10-01T22:59:35.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed dynamic midround rolling
+  id: 172
+  time: '2024-10-01T23:01:44.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Fland to include all new goob features
+  id: 173
+  time: '2024-10-03T23:30:53.0000000+00:00'
