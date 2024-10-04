@@ -1422,3 +1422,9 @@ Entries:
       message: Added 4 new lobby screens made by blooodyspy!!
   id: 175
   time: '2024-10-04T13:49:04.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Atlas to include all new goob features
+  id: 176
+  time: '2024-10-04T13:51:02.0000000+00:00'
