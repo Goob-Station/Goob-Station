@@ -6,6 +6,7 @@
   id: SupermatterFlatpack
   name: supermatter flatpack
   description: centcomm extreme flatpacking technology
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: Supermatter
@@ -17,6 +18,7 @@
   id: TeslaBallFlatpack
   name: energy flatpack
   description: free power
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: TeslaEnergyBall
@@ -28,6 +30,7 @@
   id: SingularityFlatpack
   name: gravity flatpack
   description: early version of a gravity generator
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: Singularity
@@ -39,6 +42,7 @@
   id: ImmovableSkibidiFlatpack
   name: normal immovable toilet flatpack
   description: just a immovable toilet...
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: ImmovableRodSkibidi
@@ -50,6 +54,7 @@
   id: SkibidiFlatpack
   name: normal toilet flatpack
   description: just a normal toilet...
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: MobSkibidiToilet
@@ -61,6 +66,7 @@
   id: AsteroidFlatpack
   name: asteroid flatpack
   description: worth 6 spesos
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: AsteroidDebrisLarger
@@ -71,7 +77,8 @@
   parent: BaseFlatpack
   id: CancerMouseFlatpack
   name: cancer flatpack
-  description: just a normal mouse!
+  description: just a normal mouse...
+  suffix: Admeme
   components:
   - type: Flatpack
     entity: MobMouseCancer
