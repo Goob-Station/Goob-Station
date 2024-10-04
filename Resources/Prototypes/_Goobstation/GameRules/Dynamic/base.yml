@@ -1,0 +1,37 @@
+- type: entity
+  id: BaseGameRuleDynamic
+  abstract: true
+  components:
+  - type: GameRule
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-unknown-title
+
+- type: entity
+  abstract: true
+  parent: BaseGameRuleDynamic
+  id: BaseTraitorRuleDynamic
+  components:
+  - type: TraitorRule
+  - type: AntagRandomObjectives
+    sets:
+    - groups: TraitorObjectiveGroups
+    maxDifficulty: 10
+  - type: AntagSelection
+    agentName: traitor-round-end-agent-name
+
+- type: entity
+  abstract: true
+  parent: BaseGameRuleDynamic
+  id: BaseNukeopsRuleDynamic
+  components:
+  - type: RandomMetadata
+    nameSegments:
+    - operationPrefix
+    - operationSuffix
+  - type: NukeopsRule
+  - type: RuleGrids
+  - type: AntagSelection
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Vox

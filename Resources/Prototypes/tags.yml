@@ -16,6 +16,9 @@
   id: Ambrosia
 
 - type: Tag
+  id: AnomalyHost
+
+- type: Tag
   id: AppraisalTool
 
 - type: Tag
@@ -634,6 +637,9 @@
 
 - type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
+
+- type: Tag
+  id: FreezerElectronics
 
 - type: Tag
   id: Fruit
@@ -1367,6 +1373,9 @@
 
 - type: Tag
   id: Vegetable
+
+- type: Tag
+  id: VGRoidInterior
 
 - type: Tag
   id: VimPilot

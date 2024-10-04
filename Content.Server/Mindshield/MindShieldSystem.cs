@@ -64,7 +64,7 @@ public sealed class MindShieldSystem : EntitySystem
         {
             _popupSystem.PopupEntity(Loc.GetString("head-rev-break-mindshield"), implanted);
             _revolutionarySystem.ToggleConvertAbility((implanted, headRevComp), false); // GoobStation - turn off headrev ability to convert
-            QueueDel(implant);
+            //QueueDel(implant); - Goobstation - Headrevs should remove implant before turning on ability
             return;
         }
 
@@ -86,8 +86,10 @@ public sealed class MindShieldSystem : EntitySystem
         if (!_tag.HasTag(args.Implant, MindShieldTag))
             return;
 
-        if (!HasComp<HeadRevolutionaryComponent>(mindshielded))
-            _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), mindshielded, mindshielded);
+        _popupSystem.PopupEntity(Loc.GetString("mindshield-implant-effect-removed"), mindshielded, mindshielded);
+
+        if (TryComp<HeadRevolutionaryComponent>(mindshielded, out var headRevComp))
+            _revolutionarySystem.ToggleConvertAbility((mindshielded, headRevComp), true);
 
         RemComp<MindShieldComponent>(mindshielded);
     }

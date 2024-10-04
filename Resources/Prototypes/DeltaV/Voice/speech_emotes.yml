@@ -3,7 +3,7 @@
   id: Ring
   name: Ring
   category: Vocal
-  icon: Goobstation/Interface/Emotes/ring.png
+  icon: _Goobstation/Interface/Emotes/ring.png
   whitelist:
     tags:
     - HarpyEmotes
@@ -21,7 +21,7 @@
   id: Pew
   name: Pew
   category: Vocal
-  icon: Goobstation/Interface/Emotes/pew.png
+  icon: _Goobstation/Interface/Emotes/pew.png
   whitelist:
     tags:
     - HarpyEmotes
@@ -37,7 +37,7 @@
   id: Bang
   name: Bang
   category: Vocal
-  icon: Goobstation/Interface/Emotes/bang.png
+  icon: _Goobstation/Interface/Emotes/bang.png
   whitelist:
     tags:
     - HarpyEmotes
@@ -65,7 +65,7 @@
   id: Rev
   name: Rev
   category: Vocal
-  icon: Goobstation/Interface/Emotes/rev.png
+  icon: _Goobstation/Interface/Emotes/rev.png
   whitelist:
     tags:
     - HarpyEmotes
@@ -93,7 +93,7 @@
   id: Caw
   name: Caw
   category: Vocal
-  icon: Goobstation/Interface/Emotes/caw.png
+  icon: _Goobstation/Interface/Emotes/caw.png
   whitelist:
     tags:
     - HarpyEmotes
@@ -112,7 +112,7 @@
   id: Bark
   name: Bark
   category: Vocal
-  icon: Goobstation/Interface/Emotes/bark.png
+  icon: _Goobstation/Interface/Emotes/bark.png
   whitelist:
     tags:
     - VulpEmotes
@@ -131,7 +131,7 @@
   id: Snarl
   name: Snarl
   category: Vocal
-  icon: Goobstation/Interface/Emotes/snarl.png
+  icon: _Goobstation/Interface/Emotes/snarl.png
   whitelist:
     tags:
     - VulpEmotes
@@ -150,7 +150,7 @@
   id: Whine
   name: Whine
   category: Vocal
-  icon: Goobstation/Interface/Emotes/whine.png
+  icon: _Goobstation/Interface/Emotes/whine.png
   whitelist:
     tags:
     - VulpEmotes
@@ -169,7 +169,7 @@
   id: Howl
   name: Howl
   category: Vocal
-  icon: Goobstation/Interface/Emotes/howl.png
+  icon: _Goobstation/Interface/Emotes/howl.png
   whitelist:
     tags:
     - VulpEmotes
@@ -188,7 +188,7 @@
   id: Awoo
   name: Awoo
   category: Vocal
-  icon: Goobstation/Interface/Emotes/awoo.png
+  icon: _Goobstation/Interface/Emotes/awoo.png
   whitelist:
     tags:
     - VulpEmotes

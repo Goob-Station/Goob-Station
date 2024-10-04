@@ -7,6 +7,7 @@ using Content.Shared.Database;
 using Content.Shared.Popups;
 using Content.Shared.Chat;
 using Content.Shared.Prayer;
+using Content.Shared._Goobstation.Religion;
 using Content.Shared.Verbs;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
@@ -48,6 +49,14 @@ public sealed class PrayerSystem : EntitySystem
             Icon = comp.VerbImage,
             Act = () =>
             {
+                //Public Domain Code start
+                if (EntityManager.TryGetComponent(args.User, out ReligionComponent? religionComponent) && religionComponent.Type == Religion.Atheist)
+                {
+                    _popupSystem.PopupEntity(Loc.GetString("prayer-popup-notify-pray-atheist"), uid, actor.PlayerSession, PopupType.Large);
+                    return;
+                }
+                //Public Domain Code end
+
                 if (comp.BibleUserOnly && !EntityManager.TryGetComponent<BibleUserComponent>(args.User, out var bibleUser))
                 {
                     _popupSystem.PopupEntity(Loc.GetString("prayer-popup-notify-pray-locked"), uid, actor.PlayerSession, PopupType.Large);

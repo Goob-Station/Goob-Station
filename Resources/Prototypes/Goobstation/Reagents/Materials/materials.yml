@@ -1,8 +1,0 @@
-- type: material
-  id: BSCrystal
-  stackEntity: MaterialBSCrystal1
-  name: materials-bscrystal
-  unit: materials-unit-piece
-  icon: { sprite: Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
-  color: "#80ffff"
-  price: 30

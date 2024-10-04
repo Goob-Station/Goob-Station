@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseMail
+  id: MailSignallerKit
+  suffix: signallerkit
+  components:
+  - type: Mail
+    contents:
+    - id: Multitool
+    - id: RemoteSignaller
+
+- type: entity
+  parent: BaseMail
+  id: MailFlashlight
+  suffix: Flashlight
+  components:
+  - type: Mail
+    contents:
+    - id: FlashlightLantern

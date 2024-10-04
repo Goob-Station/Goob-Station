@@ -1,0 +1,21 @@
+- type: entity
+  id: EffectStasis
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 2
+    energy: 1
+    color: "#6BA9E6"
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+    - shader: unshaded
+      map: ["enum.EffectLayers.Unshaded"]
+      sprite: _Goobstation/Effects/stasis.rsi
+      state: effect
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: AnimationPlayer
