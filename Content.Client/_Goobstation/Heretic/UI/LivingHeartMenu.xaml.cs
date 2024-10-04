@@ -45,13 +45,14 @@ public sealed partial class LivingHeartMenu : RadialMenu
             if (target == null) continue;
 
             var ent = _ent.GetEntity(target);
-            if (ent == null) continue;
+            if (!ent.HasValue || ent.Value == EntityUid.Invalid)
+                continue;
 
             var button = new EmbeddedEntityMenuButton
             {
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = new Vector2(64, 64),
-                ToolTip = _ent.GetComponent<MetaDataComponent>(ent.Value).EntityName,
+                ToolTip = _ent.TryGetComponent<MetaDataComponent>(ent.Value, out var md) ? md.EntityName : "Unknown",
                 NetEntity = (NetEntity) target,
             };
 

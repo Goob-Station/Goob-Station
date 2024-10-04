@@ -60,7 +60,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
     {
         return SpawnFireball(source, target, ignoredTargets);
     }
-    private bool SpawnFireball(EntityUid uid, EntityUid target, List<EntityUid> ignoredTargets)
+    public bool SpawnFireball(EntityUid uid, EntityUid target, List<EntityUid> ignoredTargets)
     {
         var ball = Spawn("FireballChain", Transform(uid).Coordinates);
         if (TryComp<ChainFireballComponent>(ball, out var sfc))
@@ -86,7 +86,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
 
-        _gun.ShootProjectile(ball, direction, userVelocity, uid, ball);
+        _gun.ShootProjectile(ball, direction, userVelocity, uid, uid);
 
         return true;
     }
