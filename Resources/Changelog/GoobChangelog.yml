@@ -1402,3 +1402,9 @@ Entries:
       message: Fixed dynamic midround rolling
   id: 172
   time: '2024-10-01T23:01:44.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Fland to include all new goob features
+  id: 173
+  time: '2024-10-03T23:30:53.0000000+00:00'
