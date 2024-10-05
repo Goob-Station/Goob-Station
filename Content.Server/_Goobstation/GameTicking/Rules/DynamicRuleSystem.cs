@@ -117,7 +117,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
 
         // generate a random amount of points
-        component.ThreatLevel = LorentzToAmount(component.ThreatCurveCentre, component.ThreatCurveWidth, maxThreat);
+        component.ThreatLevel = LorentzToAmount(0, 1.8f, maxThreat);
 
         // distribute budgets
         component.RoundstartBudget = LorentzToAmount(1, 1.8f, component.ThreatLevel, 0.1f);
@@ -150,7 +150,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
             var ruleset = WeightedPickRule(draftedRules);
 
             if (ruleset == null)
-                // todo write something debug related here
                 break;
 
             var r = ruleset.DynamicRuleset;
