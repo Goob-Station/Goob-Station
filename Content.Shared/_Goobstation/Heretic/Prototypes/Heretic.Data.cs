@@ -68,7 +68,7 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// <summary>
     ///     Icon for ritual in radial menu.
     /// </summary>
-    [DataField] public SpriteSpecifier? Icon;
+    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
 
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
     public object Clone()
