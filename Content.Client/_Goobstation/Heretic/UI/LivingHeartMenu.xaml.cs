@@ -45,7 +45,7 @@ public sealed partial class LivingHeartMenu : RadialMenu
             if (target == null) continue;
 
             var ent = _ent.GetEntity(target);
-            if (!ent.HasValue || ent.Value == EntityUid.Invalid)
+            if (ent == null)
                 continue;
 
             var button = new EmbeddedEntityMenuButton

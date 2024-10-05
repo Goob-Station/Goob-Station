@@ -47,6 +47,7 @@ public sealed partial class HereticSystem : EntitySystem
 
         SubscribeLocalEvent<HereticComponent, ComponentInit>(OnCompInit);
 
+        SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
 
@@ -100,6 +101,17 @@ public sealed partial class HereticSystem : EntitySystem
     }
 
     #region Internal events (target reroll, ascension, etc.)
+
+    private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
+    {
+        foreach (var target in ent.Comp.SacrificeTargets)
+        {
+            // check if sacrificed or whatnot
+            if (!TryGetEntity(target, out var tent) || !Exists(tent))
+                ent.Comp.SacrificeTargets.Remove(target);
+        }
+        Dirty<HereticComponent>(ent); // update client
+    }
 
     private void OnRerollTargets(Entity<HereticComponent> ent, ref EventHereticRerollTargets args)
     {
@@ -162,6 +174,7 @@ public sealed partial class HereticSystem : EntitySystem
         pickedTargets = pickedTargets.Distinct().ToList();
 
         ent.Comp.SacrificeTargets = pickedTargets.ConvertAll(t => GetNetEntity(t)).ToList();
+        Dirty<HereticComponent>(ent); // update client
     }
 
     // notify the crew of how good the person is and play the cool sound :godo:

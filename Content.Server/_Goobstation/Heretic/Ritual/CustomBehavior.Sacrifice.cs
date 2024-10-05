@@ -122,5 +122,6 @@ namespace Content.Server.Heretic.Ritual;
 
         // reset it because it refuses to work otherwise.
         uids = new();
+        args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
     }
 }
