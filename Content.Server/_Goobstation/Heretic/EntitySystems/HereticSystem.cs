@@ -104,12 +104,9 @@ public sealed partial class HereticSystem : EntitySystem
 
     private void OnUpdateTargets(Entity<HereticComponent> ent, ref EventHereticUpdateTargets args)
     {
-        foreach (var target in ent.Comp.SacrificeTargets)
-        {
-            // check if sacrificed or whatnot
-            if (!TryGetEntity(target, out var tent) || !Exists(tent))
-                ent.Comp.SacrificeTargets.Remove(target);
-        }
+        ent.Comp.SacrificeTargets = ent.Comp.SacrificeTargets
+            .Where(target => TryGetEntity(target, out var tent) && Exists(tent))
+            .ToList();
         Dirty<HereticComponent>(ent); // update client
     }
 
