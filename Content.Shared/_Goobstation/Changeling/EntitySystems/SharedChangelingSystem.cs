@@ -14,16 +14,17 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 using System.Numerics;
 
-namespace Content.Shared._Goobstation.Changeling;
+namespace Content.Shared._Goobstation.Changeling.EntitySystems;
 
 public abstract class SharedChangelingSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
@@ -34,21 +35,22 @@ public abstract class SharedChangelingSystem : EntitySystem
 
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
+        //SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
 
     // TODO: MOVE THIS TO SEPARATE STRAINED MUSCLES ACTION
-    private void OnRefreshSpeed(Entity<ChangelingComponent> changeling, ref RefreshMovementSpeedModifiersEvent args)
+    /*private void OnRefreshSpeed(Entity<ChangelingComponent> changeling, ref RefreshMovementSpeedModifiersEvent args)
     {
         if (changeling.Comp.StrainedMusclesActive)
             args.ModifySpeed(1.25f, 1.5f);
         else
             args.ModifySpeed(1f, 1f);
-    }
+    }*/
 
     public bool TryUseChangelingAbility(Entity<ChangelingComponent> changeling, BaseActionEvent action)
     {
@@ -223,32 +225,42 @@ public abstract class SharedChangelingSystem : EntitySystem
         return true;
     }
 
-    /// <summary>
-    ///     Toggles item in ling's hand. Like armblade or meat shield.
-    /// </summary>
-    public bool TryToggleItem(Entity<ChangelingComponent> changeling, EntProtoId proto, string? clothingSlot = null)
+    public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
+        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
+        || !TryComp<MetaDataComponent>(target, out var metadata)
+        || !TryComp<DnaComponent>(target, out var dna)
+        || !TryComp<FingerprintComponent>(target, out var fingerprint))
+            return false;
+
+        foreach (var storedDNA in comp.AbsorbedDNA)
         {
-            item = Spawn(proto, Transform(uid).Coordinates);
-            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item, clothingSlot, force: true))
-            {
-                QueueDel(item);
+            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
                 return false;
-            }
-            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
-                QueueDel(item);
-                return false;
-            }
-            comp.Equipment.Add(proto.Id, item);
-            return true;
         }
 
-        QueueDel(item);
-        // assuming that it exists
-        comp.Equipment.Remove(proto.Id);
+        var data = new TransformData
+        {
+            Name = metadata.EntityName,
+            DNA = dna.DNA,
+            Appearance = appearance
+        };
+
+        if (fingerprint.Fingerprint != null)
+            data.Fingerprint = fingerprint.Fingerprint;
+
+        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
+            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
+        else comp.AbsorbedDNA.Add(data);
+
+        if (countObjective
+        && _mind.TryGetMind(uid, out var mindId, out var mind)
+        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        {
+            objective.DNAStolen += 1;
+        }
+
+        comp.TotalStolenDNA++;
 
         return true;
     }

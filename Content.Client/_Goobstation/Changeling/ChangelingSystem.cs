@@ -1,7 +1,6 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
-using Content.Shared._Goobstation.Changeling;
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 

@@ -1,73 +1,38 @@
-using Content.Server.DoAfter;
 using Content.Server.Forensics;
-using Content.Server.Polymorph.Systems;
-using Content.Server.Popups;
-using Content.Server.Store.Systems;
 using Content.Server.Zombies;
-using Content.Shared.Alert;
-using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Cuffs.Components;
-using Content.Shared.FixedPoint;
-using Content.Shared.Humanoid;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Store.Components;
-using Robust.Server.Audio;
-using Robust.Shared.Audio;
 using Robust.Shared.Random;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Server.Body.Systems;
-using Content.Shared.Actions;
 using Content.Shared.Polymorph;
-using Robust.Shared.Serialization.Manager;
-using Content.Server.Actions;
-using Content.Server.Humanoid;
 using Content.Server.Polymorph.Components;
-using Content.Shared.Chemistry.EntitySystems;
-using Content.Server.Flash;
-using Content.Server.Emp;
-using Robust.Server.GameObjects;
-using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Damage.Systems;
-using Content.Shared.Mind;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.StatusEffect;
-using Content.Shared.Movement.Pulling.Systems;
-using Content.Shared.Cuffs;
 using Content.Shared.Fluids;
 using Content.Shared.Revolutionary.Components;
-using Robust.Shared.Player;
-using System.Numerics;
-using Content.Shared.Camera;
 using Robust.Shared.Timing;
-using Content.Shared.Damage.Components;
-using Content.Server.Gravity;
 using Content.Shared.Mobs.Components;
-using Content.Server.Stunnable;
-using Content.Shared.Jittering;
-using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Shared._Goobstation.Changeling.Components;
-using Content.Shared._Goobstation.Changeling;
 using Content.Server.Jittering;
+using Content.Shared._Goobstation.Changeling.EntitySystems;
+using Content.Shared.Inventory;
+using Content.Shared.Hands.EntitySystems;
 
-namespace Content.Server.Changeling;
+namespace Content.Server._Goobstation.Changeling;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -90,8 +55,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
         SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChange);
         SubscribeLocalEvent<ChangelingComponent, ComponentRemove>(OnComponentRemove);
-
-        SubscribeAbilities();
     }
 
     /// <summary>
@@ -106,7 +69,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (comp.Biomass <= comp.MaxBiomass * 0.1)
         {
             PopupSystem.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), changeling, changeling, PopupType.LargeCaution);
-            _jitteringSystem.DoJitter(changeling, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+            _jitteringSystem.DoJitter(changeling, comp.BiomassUpdateCooldown, true, amplitude: 5, frequency: 10);
             return;
         }
 
@@ -166,6 +129,42 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
         }
     }
+
+    /// <summary>
+    ///     Toggle and places item into ling's hand. Like armblade or meat shield.
+    /// </summary>
+    public bool TryToggleItem(Entity<ChangelingComponent> changeling, EntProtoId proto, string? clothingSlot = null)
+    {
+        var comp = changeling.Comp;
+
+        // TODO: I think it's better to keep all equipment in ling's inner container instead of spawn/deleting them each time.
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
+        {
+            item = Spawn(proto, Transform(changeling).Coordinates);
+            if (clothingSlot != null && !_inventorySystem.TryEquip(changeling, (EntityUid) item, clothingSlot, force: true))
+            {
+                QueueDel(item);
+                return false;
+            }
+
+            if (!_handsSystem.TryForcePickupAnyHand(changeling, item.Value))
+            {
+                PopupSystem.PopupEntity(Loc.GetString("changeling-fail-hands"), changeling, changeling);
+                QueueDel(item);
+                return false;
+            }
+
+            comp.Equipment.Add(proto.Id, item);
+            return true;
+        }
+
+        QueueDel(item);
+        // assuming that it exists
+        comp.Equipment.Remove(proto.Id);
+
+        return true;
+    }
+
     /*public void Cycle(EntityUid uid, ChangelingComponent comp)
     {
         UpdateChemicals(uid, comp);
@@ -197,47 +196,27 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     #region Helper Methods
 
 
-
-    public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
+    private ChangelingComponent? CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
-        || !TryComp<DnaComponent>(target, out var dna)
-        || !TryComp<FingerprintComponent>(target, out var fingerprint))
-            return false;
+        var newComp = EnsureComp<ChangelingComponent>(target);
+        newComp.AbsorbedDNA = comp.AbsorbedDNA;
+        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
 
-        foreach (var storedDNA in comp.AbsorbedDNA)
-        {
-            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
-                return false;
-        }
+        newComp.Chemicals = comp.Chemicals;
+        newComp.MaxChemicals = comp.MaxChemicals;
 
-        var data = new TransformData
-        {
-            Name = metadata.EntityName,
-            DNA = dna.DNA,
-            Appearance = appearance
-        };
+        newComp.Biomass = comp.Biomass;
+        newComp.MaxBiomass = comp.MaxBiomass;
 
-        if (fingerprint.Fingerprint != null)
-            data.Fingerprint = fingerprint.Fingerprint;
+        newComp.IsInLesserForm = comp.IsInLesserForm;
+        newComp.IsInLastResort = comp.IsInLastResort;
+        newComp.CurrentForm = comp.CurrentForm;
 
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else comp.AbsorbedDNA.Add(data);
+        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
+        newComp.TotalStolenDNA = comp.TotalStolenDNA;
 
-        if (countObjective
-        && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
-        {
-            objective.DNAStolen += 1;
-        }
-
-        comp.TotalStolenDNA++;
-
-        return true;
+        return comp;
     }
-
     private EntityUid? TransformEntity(
         EntityUid uid, 
         TransformData? data = null, 
