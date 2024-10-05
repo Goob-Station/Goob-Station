@@ -4,11 +4,12 @@ using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
-[AutoGenerateComponentState]
+[AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class ChangelingComponent : Component
 {
     #region Prototypes
@@ -18,9 +19,6 @@ public sealed partial class ChangelingComponent : Component
 
     [DataField]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg");
-
-    [DataField, AutoNetworkedField]
-    public float ShriekPower = 2.5f;
 
     public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
     {
@@ -51,9 +49,7 @@ public sealed partial class ChangelingComponent : Component
     #endregion
 
     // TODO: MOVE THIS TO FAST RUN ABILITY
-    public bool StrainedMusclesActive = false;
-
-    public ChangelingFormType FormType = ChangelingFormType.HumanoidForm;
+    //public bool StrainedMusclesActive = false;
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
@@ -107,14 +103,17 @@ public sealed partial class ChangelingComponent : Component
     [DataField, AutoNetworkedField]
     public bool IsEmptyBiomass = false;
 
-    /// <summary>
-    ///     Cooldown between chem regen events.
-    /// </summary>
-    public TimeSpan UpdateTimer = TimeSpan.Zero;
-    public float UpdateCooldown = 1f;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan LastChemicalsUpdate = TimeSpan.Zero;
 
-    public float BiomassUpdateTimer = 0f;
-    public float BiomassUpdateCooldown = 60f;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan LastBiomassUpdate = TimeSpan.Zero;
+
+    [DataField]
+    public TimeSpan ChemicalsUpdateCooldown = TimeSpan.FromSeconds(1);
+
+    [DataField]
+    public TimeSpan BiomassUpdateCooldown = TimeSpan.FromMinutes(1);
 
     #endregion
 
@@ -144,11 +143,16 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadWrite)]
     public int TotalStolenDNA = 0;
 
+    #region Ling forms
+    [DataField, AutoNetworkedField]
+    public ChangelingFormType FormType = ChangelingFormType.HumanoidForm;
+
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? CurrentForm;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
+    #endregion
 }
 
 [DataDefinition]
@@ -173,8 +177,8 @@ public sealed partial class TransformData
     public string DNA;
 
     /// <summary>
-    ///     Entity's humanoid appearance component.
+    ///     Entity humanoid that contain data appearance.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly), NonSerialized]
-    public HumanoidAppearanceComponent Appearance;
+    [DataField]
+    public NetEntity AppearanceEntity;
 }

@@ -64,6 +64,7 @@ namespace Content.Server.Changeling;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
@@ -96,7 +97,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// <summary>
     ///     Override from shared to work with bloodstream.
     /// </summary>
-    protected override void UpdateBiomass(Entity<ChangelingComponent> changeling, float? amount = null)
+    public override void UpdateBiomass(Entity<ChangelingComponent> changeling, float? amount = null)
     {
         base.UpdateBiomass(changeling, amount);
         var comp = changeling.Comp;
@@ -149,19 +150,23 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        foreach (var comp in EntityManager.EntityQuery<ChangelingComponent>())
+        var query = EntityQueryEnumerator<ChangelingComponent>();
+        while (query.MoveNext(out var uid, out var comp))
         {
-            var uid = comp.Owner;
+            if (_timing.CurTime > comp.LastChemicalsUpdate)
+            {
+                comp.LastChemicalsUpdate = _timing.CurTime + comp.ChemicalsUpdateCooldown;
+                UpdateChemicals((uid, comp));
+            }
 
-            if (_timing.CurTime < comp.UpdateTimer)
-                continue;
-
-            comp.UpdateTimer = _timing.CurTime + TimeSpan.FromSeconds(comp.UpdateCooldown);
-
-            Cycle(uid, comp);
+            if (!comp.IsEmptyBiomass && _timing.CurTime > comp.LastBiomassUpdate)
+            {
+                comp.LastBiomassUpdate = _timing.CurTime + comp.BiomassUpdateCooldown;
+                UpdateBiomass((uid, comp));
+            }
         }
     }
-    public void Cycle(EntityUid uid, ChangelingComponent comp)
+    /*public void Cycle(EntityUid uid, ChangelingComponent comp)
     {
         UpdateChemicals(uid, comp);
 
@@ -172,8 +177,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             UpdateBiomass(uid, comp);
         }
 
-        UpdateAbilities(uid, comp);
-    }
+        //UpdateAbilities(uid, comp);
+    }*/
 
 
     /* MOVE THIS TO FAST RUNNING ABILITY
@@ -191,104 +196,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     #region Helper Methods
 
-    public void DoScreech(EntityUid uid, ChangelingComponent comp)
-    {
-        _audio.PlayPvs(comp.ShriekSound, uid);
 
-        var center = Transform(uid).MapPosition;
-        var gamers = Filter.Empty();
-        gamers.AddInRange(center, comp.ShriekPower, _player, EntityManager);
-
-        foreach (var gamer in gamers.Recipients)
-        {
-            if (gamer.AttachedEntity == null)
-                continue;
-
-            var pos = Transform(gamer.AttachedEntity!.Value).WorldPosition;
-            var delta = center.Position - pos;
-
-            if (delta.EqualsApprox(Vector2.Zero))
-                delta = new(.01f, 0);
-
-            _recoil.KickCamera(uid, -delta.Normalized());
-        }
-    }
-
-    public bool TrySting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
-    {
-        if (!TryUseAbility(uid, comp, action))
-            return false;
-
-        var target = action.Target;
-
-        // can't get his dna if he doesn't have it!
-        if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
-            return false;
-        }
-
-        if (HasComp<ChangelingComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-            _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
-            return false;
-        }
-        if (!overrideMessage)
-            _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
-        return true;
-    }
-    public bool TryInjectReagents(EntityUid uid, List<(string, FixedPoint2)> reagents)
-    {
-        var solution = new Solution();
-        foreach (var reagent in reagents)
-            solution.AddReagent(reagent.Item1, reagent.Item2);
-
-        if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
-            return false;
-
-        if (!_solution.TryAddSolution(targetSolution.Value, solution))
-            return false;
-
-        return true;
-    }
-    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
-    {
-        var target = action.Target;
-        if (!TrySting(uid, comp, action))
-            return false;
-
-        if (!TryInjectReagents(target, reagents))
-            return false;
-
-        return true;
-    }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp, string? clothingSlot = null)
-    {
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
-        {
-            item = Spawn(proto, Transform(uid).Coordinates);
-            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item, clothingSlot, force: true))
-            {
-                QueueDel(item);
-                return false;
-            }
-            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
-            {
-                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
-                QueueDel(item);
-                return false;
-            }
-            comp.Equipment.Add(proto.Id, item);
-            return true;
-        }
-
-        QueueDel(item);
-        // assuming that it exists
-        comp.Equipment.Remove(proto.Id);
-
-        return true;
-    }
 
     public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
     {
@@ -330,27 +238,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return true;
     }
 
-    private ChangelingComponent? CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
-    {
-        var newComp = EnsureComp<ChangelingComponent>(target);
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
-
-        newComp.Biomass = comp.Biomass;
-        newComp.MaxBiomass = comp.MaxBiomass;
-
-        newComp.IsInLesserForm = comp.IsInLesserForm;
-        newComp.IsInLastResort = comp.IsInLastResort;
-        newComp.CurrentForm = comp.CurrentForm;
-
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
-
-        return comp;
-    }
     private EntityUid? TransformEntity(
         EntityUid uid, 
         TransformData? data = null, 

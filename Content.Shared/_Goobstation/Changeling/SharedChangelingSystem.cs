@@ -1,17 +1,24 @@
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.Camera;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Jittering;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using System.Numerics;
 
 namespace Content.Shared._Goobstation.Changeling;
 
@@ -20,6 +27,10 @@ public abstract class SharedChangelingSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
 
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
@@ -85,7 +96,7 @@ public abstract class SharedChangelingSystem : EntitySystem
     /// <summary>
     ///     Updates chemicals amount and updates client alert sprite
     /// </summary>
-    private void UpdateChemicals(Entity<ChangelingComponent> changeling, float? amount = null)
+    public void UpdateChemicals(Entity<ChangelingComponent> changeling, float? amount = null)
     {
         var comp = changeling.Comp;
 
@@ -101,7 +112,7 @@ public abstract class SharedChangelingSystem : EntitySystem
     /// <summary>
     ///     Updates biomass amount, updates client alert sprite and applys jittering/chemicalBonus depending on biomass count
     /// </summary>
-    protected virtual void UpdateBiomass(Entity<ChangelingComponent> changeling, float? amount = null)
+    public virtual void UpdateBiomass(Entity<ChangelingComponent> changeling, float? amount = null)
     {
         var comp = changeling.Comp;
 
@@ -120,6 +131,126 @@ public abstract class SharedChangelingSystem : EntitySystem
             comp.IsEmptyBiomass = true;
 
         Dirty(changeling);
+    }
+
+    /// <summary>
+    ///     Playing loudsound making client's camera to 
+    /// </summary>
+    public void DoScreech(Entity<ChangelingComponent> changeling, float radius = 2.5f)
+    {
+        var comp = changeling.Comp;
+
+        _audio.PlayPredicted(comp.ShriekSound, changeling, changeling);
+
+        var lingCoordinates = _transform.GetMapCoordinates(changeling);
+        var gamers = Filter.Empty().AddInRange(lingCoordinates, radius);
+
+        foreach (var gamer in gamers.Recipients)
+        {
+            if (gamer.AttachedEntity == null)
+                continue;
+
+            var gamerPosition = _transform.GetWorldPosition(gamer.AttachedEntity.Value);
+            var delta = lingCoordinates.Position - gamerPosition;
+
+            if (delta.EqualsApprox(Vector2.Zero))
+                delta = new(.01f, 0);
+
+            _recoil.KickCamera(changeling, -delta.Normalized());
+        }
+    }
+
+    /// <summary>
+    ///     Tries to sting someone by action
+    /// </summary>
+    /// <returns></returns>
+    public bool TrySting(Entity<ChangelingComponent> changeling, EntityTargetActionEvent action)
+    {
+        if (!TryUseChangelingAbility(changeling, action))
+            return false;
+
+        var target = action.Target;
+
+        // Can't get DNA from body which DNA was absorbed already
+        if (!TryComp<AbsorbableComponent>(target, out var absorbable) || absorbable.Absorbed)
+        {
+            PopupSystem.PopupClient(Loc.GetString("changeling-sting-extract-fail"), changeling);
+            return false;
+        }
+
+        // You can't sting another ling
+        if (HasComp<ChangelingComponent>(target))
+        {
+            PopupSystem.PopupClient(Loc.GetString("changeling-sting-fail-self", ("target", Identity.Entity(target, EntityManager))), changeling);
+            PopupSystem.PopupClient(Loc.GetString("changeling-sting-fail-ling"), target, target);
+            return false;
+        }
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Adds reagents in target's injectable solution
+    /// </summary>
+    public bool TryInjectReagents(EntityUid target, List<(string, FixedPoint2)> reagents)
+    {
+        var solution = new Solution();
+
+        foreach (var reagent in reagents)
+            solution.AddReagent(reagent.Item1, reagent.Item2);
+
+        if (!_solution.TryGetInjectableSolution(target, out var targetSolution, out var _))
+            return false;
+
+        if (!_solution.TryAddSolution(targetSolution.Value, solution))
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Combination of TrySting and TryInjectReagents
+    /// </summary>
+    public bool TryReagentSting(Entity<ChangelingComponent> changeling, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
+    {
+        var target = action.Target;
+        if (!TrySting(changeling, action))
+            return false;
+
+        if (!TryInjectReagents(target, reagents))
+            return false;
+
+        return true;
+    }
+
+    /// <summary>
+    ///     Toggles item in ling's hand. Like armblade or meat shield.
+    /// </summary>
+    public bool TryToggleItem(Entity<ChangelingComponent> changeling, EntProtoId proto, string? clothingSlot = null)
+    {
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
+        {
+            item = Spawn(proto, Transform(uid).Coordinates);
+            if (clothingSlot != null && !_inventory.TryEquip(uid, (EntityUid) item, clothingSlot, force: true))
+            {
+                QueueDel(item);
+                return false;
+            }
+            else if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
+            {
+                _popup.PopupEntity(Loc.GetString("changeling-fail-hands"), uid, uid);
+                QueueDel(item);
+                return false;
+            }
+            comp.Equipment.Add(proto.Id, item);
+            return true;
+        }
+
+        QueueDel(item);
+        // assuming that it exists
+        comp.Equipment.Remove(proto.Id);
+
+        return true;
     }
 }
 
