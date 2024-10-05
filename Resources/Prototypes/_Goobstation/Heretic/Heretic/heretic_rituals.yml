@@ -2,14 +2,18 @@
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
-  icon: _Goobstation/Interface/Heretic/Rituals/heart-off.png
+  icon: 
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
   customBehaviors:
   - !type:RitualSacrificeBehavior
 
 - type: hereticRitual
   id: AmberFocus
   name: heretic-ritual-basic-focus
-  icon: _Goobstation/Interface/Heretic/Rituals/amber_focus.png
+  icon: 
+    sprite: _Goobstation/Heretic/amber_focus.rsi
+    state: icon
   requiredTags:
     GlassShard: 1
     Eyes: 1
@@ -20,7 +24,9 @@
 - type: hereticRitual
   id: BladeAsh
   name: heretic-ritual-ash-blade
-  icon: _Goobstation/Interface/Heretic/Rituals/ash_blade.png
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    state: icon
   requiredTags:
     Knife: 1
     Matchstick: 1
@@ -30,7 +36,9 @@
 - type: hereticRitual
   id: MaskOfMadness
   name: heretic-ritual-ash-mask
-  icon: _Goobstation/Interface/Heretic/Rituals/mad_mask.png
+  icon: 
+    sprite: _Goobstation/Heretic/mad_mask.rsi
+    state: icon
   requiredTags:
     Mask: 1
     Candle: 4
@@ -41,7 +49,9 @@
 - type: hereticRitual
   id: AscensionAsh
   name: heretic-ritual-ash-ascend
-  icon: _Goobstation/Interface/Heretic/Rituals/ashlord_rite.png
+  icon: 
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: ashlord_rite2
   customBehaviors:
   - !type:RitualAshAscendBehavior
     min: 3
@@ -53,7 +63,9 @@
 - type: hereticRitual
   id: BladeFlesh
   name: heretic-ritual-flesh-blade
-  icon: _Goobstation/Interface/Heretic/Rituals/flesh_blade.png
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    state: icon
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -65,7 +77,9 @@
 - type: hereticRitual
   id: ImperfectRitual
   name: heretic-ritual-flesh-ghoul
-  icon: _Goobstation/Interface/Heretic/Rituals/abomination.png
+  icon: 
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: full
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
   requiredEntityNames:
@@ -74,7 +88,9 @@
 - type: hereticRitual
   id: RawRitual
   name: heretic-ritual-flesh-prophet
-  icon: _Goobstation/Interface/Heretic/Rituals/raw_prophet.png
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: raw_prophet
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -87,7 +103,9 @@
 - type: hereticRitual
   id: LonelyRitual
   name: heretic-ritual-flesh-stalker
-  icon: _Goobstation/Interface/Heretic/Rituals/flesh_stalker.png
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: stalker
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -102,7 +120,9 @@
 - type: hereticRitual
   id: AscensionFlesh
   name: heretic-ritual-flesh-ascend
-  icon: _Goobstation/Interface/Heretic/Rituals/final_hymn.png
+  icon: 
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: final_hymn
   customBehaviors:
   - !type:RitualSacrificeBehavior
     min: 4
@@ -114,7 +134,9 @@
 - type: hereticRitual
   id: BladeVoid
   name: heretic-ritual-void-blade
-  icon: _Goobstation/Interface/Heretic/Rituals/void_blade.png
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    state: icon
   customBehaviors:
   - !type:RitualTemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
@@ -126,7 +148,9 @@
 - type: hereticRitual
   id: AscensionVoid
   name: heretic-ritual-void-ascend
-  icon: _Goobstation/Interface/Heretic/Rituals/low_temperature.png
+  icon: 
+    sprite: Interface/Alerts/temperature.rsi
+    state: cold3
   customBehaviors:
   - !type:RitualSacrificeBehavior
     min: 3
@@ -140,14 +164,18 @@
 - type: hereticRitual
   id: RitualOfKnowledge
   name: heretic-ritual-side-knowledge
-  icon: _Goobstation/Interface/Heretic/Rituals/book_icon.png
+  icon: 
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
   customBehaviors:
   - !type:RitualKnowledgeBehavior
 
 - type: hereticRitual
   id: ArmorerRitual
   name: heretic-ritual-side-armor
-  icon: _Goobstation/Interface/Heretic/Rituals/eldritch_armor.png
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    state: icon
   requiredTags:
     Table: 1
     GasMask: 1

@@ -32,12 +32,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Add(_ritual.GetRitual(ritual));
 
-        // For updating rituals on client side... John, why it's not shared Q_Q
-        RaiseNetworkEvent(new HereticRitualsUpdateMessage()
-        {
-            Entity = GetNetEntity(uid),
-            KnownRituals = comp.KnownRituals,
-        });
+        Dirty(uid, comp);
 
         // set path if out heretic doesn't have it, or if it's different from whatever he has atm
         if (string.IsNullOrWhiteSpace(comp.CurrentPath))
@@ -72,12 +67,7 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
 
-        // For updating rituals on client side... John, why it's not shared Q_Q
-        RaiseNetworkEvent(new HereticRitualsUpdateMessage()
-        {
-            Entity = GetNetEntity(uid),
-            KnownRituals = comp.KnownRituals,
-        });
+        Dirty(uid, comp);
 
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);

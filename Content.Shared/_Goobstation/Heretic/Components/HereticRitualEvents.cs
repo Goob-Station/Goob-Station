@@ -20,10 +20,3 @@ public enum HereticRitualRuneUiKey : byte
 {
     Key
 }
-
-[Serializable, NetSerializable]
-public sealed class HereticRitualsUpdateMessage : EntityEventArgs
-{
-    public NetEntity Entity;
-    public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
-}
