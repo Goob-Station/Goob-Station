@@ -19,10 +19,11 @@ using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
+using Content.Shared._Goobstation.Changeling;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     public void SubscribeAbilities()
     {
@@ -110,7 +111,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         };
         _doAfter.TryStartDoAfter(dargs);
     }
-    public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Genetic";
+    
     private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
     {
         if (args.Args.Target == null)

@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Changeling;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
@@ -6,17 +7,17 @@ namespace Content.Shared.Changeling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component
 {
-    [DataField] public bool RequireBiomass = true;
+    [DataField]
+    public float ChemicalCost = 0;
 
-    [DataField] public float ChemicalCost = 0;
+    [DataField]
+    public float BiomassCost = 0;
 
-    [DataField] public float BiomassCost = 0;
+    [DataField]
+    public ChangelingFormType RequiredFormType = ChangelingFormType.NoForm;
 
-    [DataField] public bool UseInLastResort = false;
-
-    [DataField] public bool UseInLesserForm = false;
-
-    [DataField] public float RequireAbsorbed = 0;
+    [DataField]
+    public float RequireAbsorbed = 0;
 }
 
 #region Events - Basic

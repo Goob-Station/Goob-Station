@@ -1,10 +1,11 @@
+using Content.Shared.Alert;
 using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling.Components;
 
 [RegisterComponent, NetworkedComponent]
 [AutoGenerateComponentState]
@@ -12,18 +13,13 @@ public sealed partial class ChangelingComponent : Component
 {
     #region Prototypes
 
-    [DataField("soundMeatPool")]
-    public List<SoundSpecifier?> SoundPool = new()
-    {
-        new SoundPathSpecifier("/Audio/Effects/gib1.ogg"),
-        new SoundPathSpecifier("/Audio/Effects/gib2.ogg"),
-        new SoundPathSpecifier("/Audio/Effects/gib3.ogg"),
-    };
+    [DataField]
+    public SoundSpecifier MeatSounds = new SoundCollectionSpecifier("gib");
 
-    [DataField("soundShriek")]
+    [DataField]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
-    [DataField("shriekPower")]
+    [DataField, AutoNetworkedField]
     public float ShriekPower = 2.5f;
 
     public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
@@ -44,18 +40,24 @@ public sealed partial class ChangelingComponent : Component
     [DataField, ViewVariables(VVAccess.ReadOnly)]
     public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 
+    [DataField]
+    public ProtoId<AlertPrototype> ChemicalsAlert = "ChangelingChemicals";
+
+    [DataField]
+    public ProtoId<AlertPrototype> BiomassAlert = "ChangelingChemicals";
+
+    [DataField]
+    public string ChangelingBloodPrototype = "BloodChangeling";
     #endregion
 
-    public bool IsInStasis = false;
-
+    // TODO: MOVE THIS TO FAST RUN ABILITY
     public bool StrainedMusclesActive = false;
 
-    public bool IsInLesserForm = false;
-
-    public bool IsInLastResort = false;
-
+    public ChangelingFormType FormType = ChangelingFormType.HumanoidForm;
 
     public Dictionary<string, EntityUid?> Equipment = new();
+
+    #region Biomass and Chemicals
 
     /// <summary>
     ///     Amount of biomass changeling currently has.
@@ -94,6 +96,18 @@ public sealed partial class ChangelingComponent : Component
     public float BonusChemicalRegen = 0f;
 
     /// <summary>
+    ///     Maximum bonus that ling can get from having 0 biomass
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float MaxBonusChemicalRegen = 3f;
+
+    /// <summary>
+    ///     Turns off biomass gain until ling get new one. Just for optimization.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool IsEmptyBiomass = false;
+
+    /// <summary>
     ///     Cooldown between chem regen events.
     /// </summary>
     public TimeSpan UpdateTimer = TimeSpan.Zero;
@@ -102,8 +116,11 @@ public sealed partial class ChangelingComponent : Component
     public float BiomassUpdateTimer = 0f;
     public float BiomassUpdateCooldown = 60f;
 
+    #endregion
+
     [ViewVariables(VVAccess.ReadOnly)]
     public List<TransformData> AbsorbedDNA = new();
+
     /// <summary>
     ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
     /// </summary>

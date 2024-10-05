@@ -1,12 +1,13 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
+using Content.Shared._Goobstation.Changeling;
 using Content.Shared.Changeling;
 using Content.Shared.StatusIcon.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Client.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;
