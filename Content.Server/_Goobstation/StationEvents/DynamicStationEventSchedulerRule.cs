@@ -63,7 +63,7 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
 
         // start game rule
         component.Budget = budget;
-        _gameTicker.StartGameRule(pickedRule.Prototype.ID);
+        _gameTicker.AddGameRule(pickedRule.Prototype.ID);
         component.ExecutedRules.Add(pickedRule.Prototype.ID);
     }
 

@@ -1408,3 +1408,23 @@ Entries:
       message: Updated Fland to include all new goob features
   id: 173
   time: '2024-10-03T23:30:53.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added BSO and NTR shared room on Oasis.
+    - type: Add
+      message: Added Mail equipment to Cargo on Oasis.
+  id: 174
+  time: '2024-10-04T13:22:16.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added 4 new lobby screens made by blooodyspy!!
+  id: 175
+  time: '2024-10-04T13:49:04.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Atlas to include all new goob features
+  id: 176
+  time: '2024-10-04T13:51:02.0000000+00:00'
