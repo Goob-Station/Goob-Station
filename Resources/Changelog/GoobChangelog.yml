@@ -1444,3 +1444,9 @@ Entries:
       message: Updated heretic guidebook GO READ IT!!!
   id: 177
   time: '2024-10-05T16:00:16.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed midround nukies weren't count as real syndicate members
+  id: 178
+  time: '2024-10-06T06:34:20.0000000+00:00'
