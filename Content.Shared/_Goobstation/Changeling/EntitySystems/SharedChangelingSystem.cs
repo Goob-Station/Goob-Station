@@ -271,8 +271,8 @@ public abstract class SharedChangelingSystem : EntitySystem
     /// </summary>
     public void TransferComponent<T>(EntityUid fromEntity, EntityUid toEntity, T component) where T : IComponent
     {
-        var newComponent = EnsureComp<T>(toEntity);
-        _serializationManager.CopyTo<T>(component, newComponent);
+        var newComponent = _serializationManager.CreateCopy<T>(component);
+        AddComp(toEntity, newComponent);
         RemCompDeferred(fromEntity, component);
     }
 
