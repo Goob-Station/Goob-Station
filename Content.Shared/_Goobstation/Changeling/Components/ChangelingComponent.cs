@@ -121,16 +121,16 @@ public sealed partial class ChangelingComponent : Component
     public ChangelingFormType FormType = ChangelingFormType.HumanoidForm;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? CurrentForm;
+    public HumanoidTransformData? CurrentForm;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public TransformData? SelectedForm;
+    public HumanoidTransformData? SelectedForm;
     #endregion
 
     #region DNA
 
     [DataField, AutoNetworkedField]
-    public List<TransformData> AbsorbedDNA = new();
+    public List<HumanoidTransformData> AbsorbedDNA = new();
 
     // Delete this - replace with radial ui
     /// <summary>
@@ -161,7 +161,7 @@ public sealed partial class ChangelingComponent : Component
 }
 
 [DataDefinition, Serializable, NetSerializable]
-public sealed partial class TransformData
+public sealed partial class HumanoidTransformData
 {
     /// <summary>
     ///     Entity's name.

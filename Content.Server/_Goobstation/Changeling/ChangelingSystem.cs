@@ -204,9 +204,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     #region Helper Methods
 
     /// <summary>
-    ///     Used to soft change humanoid appearance and dna data of entity by using TransformData.
+    ///     Used to soft change humanoid appearance and dna data of entity by using HumanoidTransformData.
     /// </summary>
-    public void ChangeHumanoidData(EntityUid target, TransformData data)
+    public void ChangeHumanoidData(EntityUid target, HumanoidTransformData data)
     {
         var dataEntity = GetEntity(data.AppearanceEntity);
 
@@ -245,7 +245,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 return false;
         }
 
-        var data = new TransformData
+        var data = new HumanoidTransformData
         {
             Name = MetaData(target).EntityName,
             DNA = targetDna.DNA,
@@ -268,6 +268,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return true;
     }
+
+    
 
     private EntityUid? TransformEntity(
         EntityUid uid, 
