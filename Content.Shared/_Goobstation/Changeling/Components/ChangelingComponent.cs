@@ -1,9 +1,10 @@
+using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Alert;
-using Content.Shared.Humanoid;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._Goobstation.Changeling.Components;
@@ -48,9 +49,7 @@ public sealed partial class ChangelingComponent : Component
     public string ChangelingBloodPrototype = "BloodChangeling";
     #endregion
 
-    // TODO: MOVE THIS TO FAST RUN ABILITY
-    //public bool StrainedMusclesActive = false;
-
+    // TODO: Replace this with Container
     public Dictionary<string, EntityUid?> Equipment = new();
 
     #region Biomass and Chemicals
@@ -117,32 +116,6 @@ public sealed partial class ChangelingComponent : Component
 
     #endregion
 
-    [ViewVariables(VVAccess.ReadOnly)]
-    public List<TransformData> AbsorbedDNA = new();
-
-    /// <summary>
-    ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)]
-    public int AbsorbedDNAIndex = 0;
-
-    /// <summary>
-    ///     Maximum amount of DNA a changeling can absorb.
-    /// </summary>
-    public int MaxAbsorbedDNA = 5;
-
-    /// <summary>
-    ///     Total absorbed DNA. Counts towards objectives.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int TotalAbsorbedEntities = 0;
-
-    /// <summary>
-    ///     Total stolen DNA. Counts towards objectives.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadWrite)]
-    public int TotalStolenDNA = 0;
-
     #region Ling forms
     [DataField, AutoNetworkedField]
     public ChangelingFormType FormType = ChangelingFormType.HumanoidForm;
@@ -153,9 +126,41 @@ public sealed partial class ChangelingComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TransformData? SelectedForm;
     #endregion
+
+    #region DNA
+
+    [DataField, AutoNetworkedField]
+    public List<TransformData> AbsorbedDNA = new();
+
+    // Delete this - replace with radial ui
+    /// <summary>
+    ///     Index of <see cref="AbsorbedDNA"/>. Used for switching forms.
+    /// </summary>
+    [DataField]
+    public int AbsorbedDNAIndex = 0;
+
+    /// <summary>
+    ///     Maximum amount of DNA a changeling can absorb.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int MaxAbsorbedDNA = 5;
+
+    /// <summary>
+    ///     Total absorbed DNA. Counts towards objectives.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int TotalAbsorbedEntities = 0;
+
+    /// <summary>
+    ///     Total stolen DNA. Counts towards objectives.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public int TotalStolenDNA = 0;
+
+    #endregion
 }
 
-[DataDefinition]
+[DataDefinition, Serializable, NetSerializable]
 public sealed partial class TransformData
 {
     /// <summary>

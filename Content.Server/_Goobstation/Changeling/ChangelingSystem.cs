@@ -22,6 +22,11 @@ using Content.Server.Jittering;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Humanoid;
+using Content.Server.Humanoid;
+using Content.Shared.Mind;
+using Content.Server.Objectives.Components;
+using Content.Server._Goobstation.Objectives.Components;
 
 namespace Content.Server._Goobstation.Changeling;
 
@@ -32,7 +37,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
+    [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
+    [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -195,28 +203,72 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     #region Helper Methods
 
-
-    private ChangelingComponent? CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
+    /// <summary>
+    ///     Used to soft change humanoid appearance and dna data of entity by using TransformData.
+    /// </summary>
+    public void ChangeHumanoidData(EntityUid target, TransformData data)
     {
-        var newComp = EnsureComp<ChangelingComponent>(target);
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
+        var dataEntity = GetEntity(data.AppearanceEntity);
 
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
+        if (TryComp<DnaComponent>(target, out var targetDna))
+            targetDna.DNA = data.DNA;
 
-        newComp.Biomass = comp.Biomass;
-        newComp.MaxBiomass = comp.MaxBiomass;
+        if (TryComp<FingerprintComponent>(target, out var targetFingerprints) && !string.IsNullOrEmpty(data.Fingerprint))
+            targetFingerprints.Fingerprint = data.Fingerprint;
 
-        newComp.IsInLesserForm = comp.IsInLesserForm;
-        newComp.IsInLastResort = comp.IsInLastResort;
-        newComp.CurrentForm = comp.CurrentForm;
+        if (TryComp<HumanoidAppearanceComponent>(target, out var targetAppearance) && TryComp<HumanoidAppearanceComponent>(dataEntity, out var dataAppearance))
+            _humanoidAppearance.CloneAppearance(dataEntity, target, dataAppearance, targetAppearance);
 
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
-
-        return comp;
+        _metadata.SetEntityName(target, data.Name);
     }
+
+    /// <summary>
+    ///     Tries to steal humanoid data including DNA and Fingerprints
+    /// </summary>
+    public bool TryStealHumanoidData(Entity<ChangelingComponent> changeling, EntityUid target, bool countObjective = false)
+    {
+        var comp = changeling.Comp;
+
+        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
+        {
+            PopupSystem.PopupEntity(Loc.GetString("changeling-sting-extract-max"), changeling, changeling);
+            return false;
+        }
+
+        // DNA and Appearance is main thing of lings
+        if (!TryComp<DnaComponent>(target, out var targetDna) || !HasComp<HumanoidAppearanceComponent>(target))
+            return false;
+
+        foreach (var storedDNA in comp.AbsorbedDNA)
+        {
+            if (storedDNA.DNA == targetDna.DNA)
+                return false;
+        }
+
+        var data = new TransformData
+        {
+            Name = MetaData(target).EntityName,
+            DNA = targetDna.DNA,
+            AppearanceEntity = GetNetEntity(target)
+        };
+
+        if (TryComp<FingerprintComponent>(target, out var targetFingerprint) && !string.IsNullOrEmpty(targetFingerprint.Fingerprint))
+            data.Fingerprint = targetFingerprint.Fingerprint;
+
+        comp.AbsorbedDNA.Add(data);
+        comp.TotalStolenDNA++;
+        Dirty(changeling);
+
+        if (countObjective
+        && _mindSystem.TryGetMind(changeling, out var mindId, out var mind)
+        && _mindSystem.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
+        {
+            objective.DNAStolen += 1;
+        }
+
+        return true;
+    }
+
     private EntityUid? TransformEntity(
         EntityUid uid, 
         TransformData? data = null, 

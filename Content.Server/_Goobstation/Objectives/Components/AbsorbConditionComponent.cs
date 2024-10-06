@@ -1,7 +1,7 @@
-using Content.Server.Changeling;
-using Content.Server.Objectives.Systems;
+using Content.Server._Goobstation.Changeling;
+using Content.Server._Goobstation.Objectives.Systems;
 
-namespace Content.Server.Objectives.Components;
+namespace Content.Server._Goobstation.Objectives.Components;
 
 [RegisterComponent, Access(typeof(ChangelingObjectiveSystem), typeof(ChangelingSystem))]
 public sealed partial class AbsorbConditionComponent : Component

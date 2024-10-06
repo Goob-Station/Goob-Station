@@ -7,10 +7,7 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
-using Content.Shared.Fluids;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Jittering;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
@@ -79,13 +76,14 @@ public abstract class SharedChangelingSystem : EntitySystem
             PopupSystem.PopupClient(Loc.GetString("changeling-chemicals-deficit"), changeling);
             return false;
         }
-
+        /* MOVE THIS
         if (comp.TotalAbsorbedEntities < lingAction.RequireAbsorbed) 
         {
             var delta = lingAction.RequireAbsorbed - comp.TotalAbsorbedEntities;
             PopupSystem.PopupClient(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), changeling);
             return false;
         }
+        */
 
         UpdateChemicals(changeling, -lingAction.ChemicalCost);
         UpdateBiomass(changeling, -lingAction.BiomassCost);
@@ -225,44 +223,28 @@ public abstract class SharedChangelingSystem : EntitySystem
         return true;
     }
 
-    public bool TryStealDNA(EntityUid uid, EntityUid target, ChangelingComponent comp, bool countObjective = false)
+    /// <summary>
+    ///     Ensures new copy of given ChangelingComponent on targetEntity
+    /// </summary>
+    protected ChangelingComponent CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
     {
-        if (!TryComp<HumanoidAppearanceComponent>(target, out var appearance)
-        || !TryComp<MetaDataComponent>(target, out var metadata)
-        || !TryComp<DnaComponent>(target, out var dna)
-        || !TryComp<FingerprintComponent>(target, out var fingerprint))
-            return false;
+        var newComp = EnsureComp<ChangelingComponent>(target);
 
-        foreach (var storedDNA in comp.AbsorbedDNA)
-        {
-            if (storedDNA.DNA != null && storedDNA.DNA == dna.DNA)
-                return false;
-        }
+        newComp.Chemicals = comp.Chemicals;
+        newComp.MaxChemicals = comp.MaxChemicals;
 
-        var data = new TransformData
-        {
-            Name = metadata.EntityName,
-            DNA = dna.DNA,
-            Appearance = appearance
-        };
+        newComp.Biomass = comp.Biomass;
+        newComp.MaxBiomass = comp.MaxBiomass;
 
-        if (fingerprint.Fingerprint != null)
-            data.Fingerprint = fingerprint.Fingerprint;
+        newComp.FormType = comp.FormType;
+        newComp.CurrentForm = comp.CurrentForm;
 
-        if (comp.AbsorbedDNA.Count >= comp.MaxAbsorbedDNA)
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-max"), uid, uid);
-        else comp.AbsorbedDNA.Add(data);
+        newComp.AbsorbedDNA = comp.AbsorbedDNA;
+        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
+        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
+        newComp.TotalStolenDNA = comp.TotalStolenDNA;
 
-        if (countObjective
-        && _mind.TryGetMind(uid, out var mindId, out var mind)
-        && _mind.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
-        {
-            objective.DNAStolen += 1;
-        }
-
-        comp.TotalStolenDNA++;
-
-        return true;
+        return newComp;
     }
 }
 
