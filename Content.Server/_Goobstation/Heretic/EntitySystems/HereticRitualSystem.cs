@@ -54,7 +54,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // check for all conditions
         // this is god awful but it is that it is
         var behaviors = rit.CustomBehaviors ?? new();
-        var requiredNames = rit.RequiredEntityNames?.ToDictionary(e => e.Key, e => e.Value) ?? new();
         var requiredTags = rit.RequiredTags?.ToDictionary(e => e.Key, e => e.Value) ?? new();
 
         foreach (var behavior in behaviors)
@@ -71,19 +70,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         foreach (var look in lookup)
         {
-            // check for matching entity names
-            foreach (var name in requiredNames)
-            {
-                if (Name(look) == name.Key)
-                {
-                    requiredNames[name.Key] -= 1;
-
-                    // prevent deletion of more items than needed
-                    if (requiredNames[name.Key] >= 0)
-                        toDelete.Add(look);
-                }
-            }
-
             // check for matching tags
             foreach (var tag in requiredTags)
             {
@@ -101,11 +87,6 @@ public sealed partial class HereticRitualSystem : EntitySystem
                 }
             }
         }
-
-        // add missing names
-        foreach (var name in requiredNames)
-            if (name.Value > 0)
-                missingList.Add(name.Key);
 
         // add missing tags
         foreach (var tag in requiredTags)
@@ -214,6 +195,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
             return;
 
         _audio.PlayPvs(RitualSuccessSound, ent, AudioParams.Default.WithVolume(-3f));
+        _popup.PopupEntity(Loc.GetString("heretic-ritual-success"), ent, args.User);
         Spawn("HereticRuneRitualAnimation", Transform(ent).Coordinates);
     }
 

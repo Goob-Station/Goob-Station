@@ -30,7 +30,8 @@ public sealed partial class ChainFireballSystem : EntitySystem
         if (_random.Prob(ent.Comp.DisappearChance))
             return;
 
-        Spawn(ent, ent.Comp.IgnoredTargets);
+        // spawn new fireball on target
+        Spawn(args.Target, ent.Comp.IgnoredTargets);
 
         QueueDel(ent);
     }
@@ -43,7 +44,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
         foreach (var look in lookup)
         {
             if (ignoredTargets.Contains(look)
-            || !HasComp<StatusEffectsComponent>(look)) // ignore non mobs whatsoever
+            || !HasComp<StatusEffectsComponent>(look)) // ignore non mobs
                 continue;
 
             mobs.Add(look);
@@ -60,16 +61,13 @@ public sealed partial class ChainFireballSystem : EntitySystem
     {
         return SpawnFireball(source, target, ignoredTargets);
     }
-    private bool SpawnFireball(EntityUid uid, EntityUid target, List<EntityUid> ignoredTargets)
+    public bool SpawnFireball(EntityUid uid, EntityUid target, List<EntityUid> ignoredTargets)
     {
         var ball = Spawn("FireballChain", Transform(uid).Coordinates);
-        if (TryComp<ChainFireballComponent>(ball, out var sfc))
-        {
-            sfc.IgnoredTargets = sfc.IgnoredTargets.Count > 0 ? sfc.IgnoredTargets : ignoredTargets;
 
-            if (TryComp<ChainFireballComponent>(uid, out var usfc))
-                sfc.DisappearChance = usfc.DisappearChance + sfc.DisappearChanceDelta;
-        }
+        // set ignore list if it wasn't set already
+        if (TryComp<ChainFireballComponent>(ball, out var sfc))
+            sfc.IgnoredTargets = sfc.IgnoredTargets.Count > 0 ? sfc.IgnoredTargets : ignoredTargets;
 
         // launch it towards the target
         var fromCoords = Transform(uid).Coordinates;
@@ -86,7 +84,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
 
-        _gun.ShootProjectile(ball, direction, userVelocity, uid, ball);
+        _gun.ShootProjectile(ball, direction, userVelocity, uid, uid);
 
         return true;
     }
