@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Changeling.Components;
+using Content.Shared._Goobstation.Map;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
@@ -7,7 +8,9 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
@@ -15,7 +18,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using System.Numerics;
+using Robust.Shared.Serialization.Manager;
 
 namespace Content.Shared._Goobstation.Changeling.EntitySystems;
 
@@ -23,12 +26,16 @@ public abstract class SharedChangelingSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
+    [Dependency] private readonly SharedStorageMapSystem _storageMap = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
@@ -222,6 +229,53 @@ public abstract class SharedChangelingSystem : EntitySystem
 
         return true;
     }
+
+    // TODO: Make this separate system (something like HiddenItem?? dunno how to call it). Will be also useful for heretic.
+    /// <summary>
+    ///     Toggle and places item into ling's hand. Like armblade or meat shield.
+    /// </summary>
+    public bool TryToggleItem(Entity<ChangelingComponent> changeling, EntProtoId proto, string? clothingSlot = null)
+    {
+        var comp = changeling.Comp;
+
+        if (!_proto.TryIndex(proto, out _))
+            return false;
+
+        // If equipment not spawned already it spawn new one and put it in hands
+        if (!comp.EquipmentList.TryGetValue(proto.Id, out var item))
+        {
+            var spawnedEntity = Spawn(proto);
+            comp.EquipmentList.Add(proto.Id, spawnedEntity);
+            _hands.TryForcePickupAnyHand(changeling, spawnedEntity);
+
+            Dirty(changeling);
+
+            return true;
+        }
+
+        // If item have clothingSlot - try to equip it
+        if (_storageMap.IsInPausedMap(item))
+        {
+            if (clothingSlot != null)
+                return _inventory.TryEquip(changeling, item, clothingSlot, force: true);
+
+            return _hands.TryForcePickupAnyHand(changeling, item);
+        }
+
+        _storageMap.SendToPausedStorageMap(item);
+        return true;
+    }
+
+    /// <summary>
+    ///     Used to transfer components from one entity to another entity.
+    /// </summary>
+    public void TransferComponent<T>(EntityUid fromEntity, EntityUid toEntity, T component) where T : IComponent
+    {
+        var newComponent = EnsureComp<T>(toEntity);
+        _serializationManager.CopyTo<T>(component, newComponent);
+        RemCompDeferred(fromEntity, component);
+    }
+
 
     /// <summary>
     ///     Ensures new copy of given ChangelingComponent on targetEntity

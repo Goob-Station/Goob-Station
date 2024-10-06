@@ -25,8 +25,8 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
 using Content.Shared.Mind;
-using Content.Server.Objectives.Components;
 using Content.Server._Goobstation.Objectives.Components;
+using Content.Server.Polymorph.Systems;
 
 namespace Content.Server._Goobstation.Changeling;
 
@@ -39,6 +39,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
+    [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
@@ -138,41 +139,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
     }
 
-    /// <summary>
-    ///     Toggle and places item into ling's hand. Like armblade or meat shield.
-    /// </summary>
-    public bool TryToggleItem(Entity<ChangelingComponent> changeling, EntProtoId proto, string? clothingSlot = null)
-    {
-        var comp = changeling.Comp;
-
-        // TODO: I think it's better to keep all equipment in ling's inner container instead of spawn/deleting them each time.
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
-        {
-            item = Spawn(proto, Transform(changeling).Coordinates);
-            if (clothingSlot != null && !_inventorySystem.TryEquip(changeling, (EntityUid) item, clothingSlot, force: true))
-            {
-                QueueDel(item);
-                return false;
-            }
-
-            if (!_handsSystem.TryForcePickupAnyHand(changeling, item.Value))
-            {
-                PopupSystem.PopupEntity(Loc.GetString("changeling-fail-hands"), changeling, changeling);
-                QueueDel(item);
-                return false;
-            }
-
-            comp.Equipment.Add(proto.Id, item);
-            return true;
-        }
-
-        QueueDel(item);
-        // assuming that it exists
-        comp.Equipment.Remove(proto.Id);
-
-        return true;
-    }
-
     /*public void Cycle(EntityUid uid, ChangelingComponent comp)
     {
         UpdateChemicals(uid, comp);
@@ -269,7 +235,51 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return true;
     }
 
-    
+    /// <summary>
+    ///     Transform entity to new one. Cooldown can be set.
+    /// </summary>
+    /// <param name="revertCooldown">If null it won't revert</param>
+    public EntityUid? TransformEntityInto(EntityUid uid, EntProtoId prototype, bool dropInventory = false, bool transferDamage = true, int? revertCooldown = null)
+    {
+        var config = new PolymorphConfiguration()
+        {
+            Entity = prototype,
+            TransferDamage = transferDamage,
+            Forced = true,
+            Inventory = dropInventory ? PolymorphInventoryChange.Drop : PolymorphInventoryChange.Transfer,
+            RevertOnCrit = false,
+            RevertOnDeath = false,
+            Duration = revertCooldown
+        };
+
+        var newEntity = _polymorphSystem.PolymorphEntity(uid, config);
+
+        if (newEntity == null)
+            return null;
+
+        
+
+        // If this transform unrevertable - removes polymorph component and moves important components to it.
+        // For example: We need to move HeadRev component if we unrevertably transform someone to monkey (monkey revs :godo:)
+        if (revertCooldown == null)
+        {
+            if (HasComp<HeadRevolutionaryComponent>(uid))
+                EnsureComp<HeadRevolutionaryComponent>(newEntity);
+            if (HasComp<RevolutionaryComponent>(uid))
+                EnsureComp<RevolutionaryComponent>(newEntity);
+
+            RemCompDeferred<PolymorphedEntityComponent>(newEntity);
+        }
+        
+    }
+
+    /// <summary>
+    ///     Used to transfer components from one entity to another entity
+    /// </summary>
+    public void TransferComponent(EntityUid fromEntity, EntityUid toEntity)
+    {
+
+    }
 
     private EntityUid? TransformEntity(
         EntityUid uid, 
@@ -340,10 +350,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         // exceptional comps check
         // there's no foreach for types i believe so i gotta thug it out yandev style.
-        if (HasComp<HeadRevolutionaryComponent>(uid))
-            EnsureComp<HeadRevolutionaryComponent>(newEnt);
-        if (HasComp<RevolutionaryComponent>(uid))
-            EnsureComp<RevolutionaryComponent>(newEnt);
+
 
         QueueDel(uid);
 

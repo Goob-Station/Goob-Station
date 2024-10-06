@@ -1,6 +1,5 @@
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Alert;
-using Content.Shared.StatusIcon;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -36,9 +35,6 @@ public sealed partial class ChangelingComponent : Component
     ///     The status icon corresponding to the Changlings.
     /// </summary>
 
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
-    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
-
     [DataField]
     public ProtoId<AlertPrototype> ChemicalsAlert = "ChangelingChemicals";
 
@@ -47,10 +43,13 @@ public sealed partial class ChangelingComponent : Component
 
     [DataField]
     public string ChangelingBloodPrototype = "BloodChangeling";
-    #endregion
 
-    // TODO: Replace this with Container
-    public Dictionary<string, EntityUid?> Equipment = new();
+    /// <summary>
+    ///     Contains the dictionary of ling's prototypeId and existing equipment to find them easily in his container
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, EntityUid> EquipmentList = new();
+    #endregion
 
     #region Biomass and Chemicals
 
