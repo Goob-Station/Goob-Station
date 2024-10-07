@@ -57,7 +57,7 @@
     </BoxContainer>
     <PanelContainer>
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BorderThickness="2 0 0 0" BorderColor="#1d1d22"/>
+            <graphics:StyleBoxFlat BorderThickness="2 0 0 0" BorderColor="#3b2509"/>
         </PanelContainer.PanelOverride>
     </PanelContainer>
     <PanelContainer HorizontalAlignment="Left" VerticalAlignment="Top" SetHeight="27" SetWidth="2">
@@ -67,7 +67,7 @@
     </PanelContainer>
     <PanelContainer HorizontalAlignment="Left" VerticalAlignment="Top" SetHeight="25" SetWidth="2">
         <PanelContainer.PanelOverride>
-            <graphics:StyleBoxFlat BackgroundColor="#1b1b1f"/>
+            <graphics:StyleBoxFlat BackgroundColor="#69451c"/>
         </PanelContainer.PanelOverride>
     </PanelContainer>
 </Control>

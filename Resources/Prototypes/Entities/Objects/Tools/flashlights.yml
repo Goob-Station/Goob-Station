@@ -58,10 +58,11 @@
     sprite: Objects/Tools/flashlight.rsi
     storedRotation: -90
   - type: PointLight
+    color: "#ffb5b5"
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true
-    radius: 6
+    radius: 5
     netsync: false
   - type: Appearance
   - type: StaticPrice
@@ -116,8 +117,9 @@
   - type: Item
     sprite: Objects/Tools/seclite.rsi
   - type: PointLight
+    color: "#ffb5b5"
     enabled: false
-    radius: 8
+    radius: 7
   - type: Clothing
     sprite: Objects/Tools/seclite.rsi
     quickEquip: false

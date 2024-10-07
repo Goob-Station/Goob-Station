@@ -39,7 +39,8 @@
       required: false
     HeadTop:
       points: 1
-      required: false
+      required: true
+      defaultMarkings: [ DionaPumpkinHead ]
     HeadSide:
       points: 1
       required: false

@@ -4,9 +4,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticKnowledge")]
-[DataDefinition] 
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -27,9 +26,8 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     [DataField] public List<EntProtoId>? ActionPrototypes;
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticRitual")]
-[DataDefinition]
 public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -82,3 +80,5 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 }
 
 [Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticAscension : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticRerollTargets : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticUpdateTargets : EntityEventArgs { }

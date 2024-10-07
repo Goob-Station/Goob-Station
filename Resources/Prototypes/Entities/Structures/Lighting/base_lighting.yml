@@ -32,8 +32,8 @@
       shader: unshaded
     state: base
   - type: PointLight
-    color: "#FFE4CE" # 5000K color temp
-    energy: 0.8
+    color: "#2b0508" # 5000K color temp
+    energy: 10
     radius: 10
     softness: 1
     offset: "0, -0.5"
@@ -43,7 +43,7 @@
   - type: RCDDeconstructable
     cost: 4
     delay: 2
-    fx: EffectRCDDeconstruct2  
+    fx: EffectRCDDeconstruct2
   - type: Destructible
     thresholds:
     - trigger:
@@ -74,7 +74,7 @@
     mode: SnapgridCenter
     snap:
     - Wallmount
-    
+
 - type: entity
   name: light
   description: "A light fixture. Draws power and produces light when equipped with a light tube."
@@ -130,6 +130,8 @@
     state: base
   - type: PointLight
     enabled: true
+    color: "#2b0508"
+    energy: 10
   - type: PoweredLight
     hasLampOnSpawn: LightTube
   - type: AmbientOnPowered
@@ -157,7 +159,7 @@
     radius: 15
     energy: 1
     softness: 0.9
-    color: "#EEEEFF"
+    color: "#2b0508"
   - type: DamageOnInteract
     damage:
       types:
@@ -171,9 +173,9 @@
   components:
   - type: PointLight
     radius: 10
-    energy: 2.5
+    energy: 15
     softness: 0.9
-    color: "#EEEEFF"
+    color: "#2b0508"
 
 #Exterior lights
 - type: entity
@@ -197,9 +199,9 @@
   components:
   - type: PointLight
     radius: 12
-    energy: 4.5
+    energy: 8
     softness: 0.5
-    color: "#B4FCF0"
+    color: "#2b0508"
 
 #Sodium lights
 - type: entity
@@ -211,10 +213,10 @@
   - type: PoweredLight
     hasLampOnSpawn: SodiumLightTube
   - type: PointLight
-    radius: 10
+    radius: 7.5
     energy: 2.5
     softness: 0.9
-    color: "#FFAF38"
+    color: "#2b0508"
   - type: DamageOnInteract
     damage:
       types:
@@ -228,9 +230,9 @@
   components:
   - type: PointLight
     radius: 10
-    energy: 4
+    energy: 7.5
     softness: 0.5
-    color: "#FFAF38"
+    color: "#2b0508"
 
 #Small lights
 - type: entity
@@ -249,10 +251,11 @@
       sprite: Structures/Wallmounts/Lighting/light_small.rsi
       state: base
     - type: PointLight
-      energy: 1.0
+      energy: 5
       radius: 6
       softness: 1.1
       enabled: true
+      color: "#2b0508"
     - type: Damageable
       damageContainer: Inorganic
     - type: Destructible
@@ -335,9 +338,9 @@
   - type: PointLight
     enabled: true
     radius: 8
-    energy: 1
+    energy: 5
     softness: 1
-    color: "#EEEEFF"
+    color: "#2b0508"
   - type: PoweredLight
     hasLampOnSpawn: LedLightBulb
   - type: DamageOnInteract
@@ -355,6 +358,8 @@
     state: base
   - type: PointLight
     enabled: true
+    color: "#2b0508"
+    energy: 5
   - type: PoweredLight
     hasLampOnSpawn: LightBulb
   - type: DamageOnInteract
@@ -385,7 +390,7 @@
     startingCharge: 0
   - type: EmergencyLight
   - type: RotatingLight
-    speed: 40
+    speed: 20
   - type: Sprite
     sprite: Structures/Wallmounts/Lighting/emergency_light.rsi
     layers:

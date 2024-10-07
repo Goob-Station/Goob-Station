@@ -1,0 +1,15 @@
+- type: emote
+  id: Boo
+  name: chat-emote-name-boo
+  category: Vocal #heehehee
+  icon: _Goobstation/Interface/Emotes/scream.png #Goobstation icons
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-boo"]
+  chatTriggers:
+    - boo
+    - boos

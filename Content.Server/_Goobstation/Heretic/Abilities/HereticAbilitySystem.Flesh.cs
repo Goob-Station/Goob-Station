@@ -86,6 +86,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnFleshSurgeryDoAfter(Entity<HereticComponent> ent, ref EventHereticFleshSurgeryDoAfter args)
     {
+        if (args.Cancelled)
+            return;
+
         if (args.Target == null) // shouldn't really happen. just in case
             return;
 

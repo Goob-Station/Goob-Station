@@ -43,7 +43,7 @@
             <!-- Vent devices -->
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                 </PanelContainer.PanelOverride>
 
                 <ScrollContainer>
@@ -53,7 +53,7 @@
             <!-- Scrubber devices -->
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                 </PanelContainer.PanelOverride>
 
                 <ScrollContainer>
@@ -63,7 +63,7 @@
             <!-- Sensors -->
             <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                 </PanelContainer.PanelOverride>
 
                 <ScrollContainer>

@@ -14,13 +14,23 @@ public sealed partial class HereticComponent : Component
         "BreakOfDawn",
         "HeartbeatOfMansus",
         "AmberFocus",
-        "CodexCicatrix",
-        "CloakOfShadow"
+        "LivingHeart",
     };
 
     #endregion
 
-    [DataField, AutoNetworkedField] public bool Ascended = false;
+    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
+    [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
+
+    /// <summary>
+    ///     Contains the list of targets that are eligible for sacrifice.
+    /// </summary>
+    [DataField, AutoNetworkedField] public List<NetEntity?> SacrificeTargets = new();
+
+    /// <summary>
+    ///     How much targets can a heretic have?
+    /// </summary>
+    [DataField, AutoNetworkedField] public int MaxTargets = 5;
 
     // hardcoded paths because i hate it
     // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"
@@ -34,18 +44,12 @@ public sealed partial class HereticComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField] public int PathStage = 0;
 
-    [DataField, AutoNetworkedField] public List<ProtoId<HereticRitualPrototype>> KnownRituals = new();
-    [DataField] public ProtoId<HereticRitualPrototype>? ChosenRitual;
+    [DataField, AutoNetworkedField] public bool Ascended = false;
 
     /// <summary>
     ///     Used to prevent double casting mansus grasp.
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)] public bool MansusGraspActive = false;
-
-    /// <summary>
-    ///     Doubles the eldritch influence if true.
-    /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public bool CodexActive = false;
 
     /// <summary>
     ///     Indicates if a heretic is able to cast advanced spells.

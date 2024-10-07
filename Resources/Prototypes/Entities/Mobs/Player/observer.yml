@@ -72,7 +72,7 @@
     icon: Interface/Actions/scream.png
     checkCanInteract: false
     event: !type:BooActionEvent
-    useDelay: 120
+    useDelay: 30
 
 - type: entity
   id: ActionToggleLighting

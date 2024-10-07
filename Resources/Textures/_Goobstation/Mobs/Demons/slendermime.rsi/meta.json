@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Created by @renee_aria on Discord",
+  "size": {
+    "x": 38,
+    "y": 38
+  },
+  "states": [
+    {
+      "name": "alive",
+      "directions": 4
+    },
+    {
+      "name": "dead"
+    }
+  ]
+}

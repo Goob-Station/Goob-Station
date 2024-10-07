@@ -191,6 +191,8 @@
       # Goobstation - changelings
       enum.StoreUiKey.Key:
         type: StoreBoundUserInterface
+      enum.HereticLivingHeartKey.Key: # goob edit - heretics
+        type: LivingHeartMenuBoundUserInterface
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -215,6 +217,7 @@
     - FootstepSound
     - DoorBumpOpener
     - AnomalyHost
+  - type: LayingDown # WD EDIT
 
 - type: entity
   save: false
@@ -286,6 +289,12 @@
     alternateState: Standing
   - type: Carriable # Goobstation
   - type: LayingDown # WD EDIT
+  - type: Paracusia # Insanity Sim
+    minTimeBetweenIncidents: 30
+    maxTimeBetweenIncidents: 300
+    maxSoundDistance: 10
+    sounds:
+      collection: SpookyParacusia
 
 - type: entity
   save: false

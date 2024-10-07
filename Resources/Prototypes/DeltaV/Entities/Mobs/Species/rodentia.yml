@@ -112,6 +112,7 @@
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
 
+
 - type: entity
   save: false
   name: Rodentia Dummy

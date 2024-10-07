@@ -66,3 +66,7 @@
   id: GoobNukie
   background: /Textures/LobbyScreens/GoobNukie.webp
   
+- type: lobbyBackground
+  id: GoobHeretic
+  background: /Textures/LobbyScreens/heretic.webp
+  

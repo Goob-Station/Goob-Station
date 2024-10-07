@@ -122,9 +122,9 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FFD1A3" # 4000K color temp
-    lightEnergy: 1.0
-    lightRadius: 6
+    color: "#2e0004" # 4000K color temp
+    lightEnergy: 12
+    lightRadius: 9
     lightSoftness: 1.1
   - type: Tag
     tags:
@@ -138,8 +138,8 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#EEEEFF"
-    lightEnergy: 1
+    color: "#2e0004"
+    lightEnergy: 12
     lightRadius: 8
     lightSoftness: 1
     BurningTemperature: 350 #LEDs are colder than incandescent bulbs
@@ -156,8 +156,8 @@
   components:
   - type: LightBulb
     bulb: Bulb
-    color: "#FFD1A3" # 4000K color temp
-    lightEnergy: 0.3 # old incandescents just arent as bright
+    color: "#2e0004" # 4000K color temp
+    lightEnergy: 9 # old incandescents just arent as bright
     lightRadius: 6
     lightSoftness: 1.1
   - type: Tag
@@ -198,8 +198,8 @@
   description: A light fixture.
   components:
   - type: LightBulb
-    color: "#FFE4CE" # 5000K color temp
-    lightEnergy: 0.8
+    color: "#2e0004"
+    lightEnergy: 14
     lightRadius: 10
     lightSoftness: 1
     PowerUse: 25
@@ -211,8 +211,8 @@
   description: An aging light fixture.
   components:
   - type: LightBulb
-    color: "#FFDABB" # old fluorescents are yellower-4500K temp
-    lightEnergy: 0.5
+    color: "#2e0004"
+    lightEnergy: 12
     lightRadius: 10
     lightSoftness: 1
     PowerUse: 10
@@ -234,8 +234,8 @@
   id: LedLightTube
   components:
   - type: LightBulb
-    color: "#EEEEFF"
-    lightEnergy: 1
+    color: "#2e0004"
+    lightEnergy: 17
     lightRadius: 15
     lightSoftness: 0.9
     BurningTemperature: 350
@@ -248,8 +248,8 @@
   id: ExteriorLightTube
   components:
   - type: LightBulb
-    color: "#B4FCF0"
-    lightEnergy: 4.5
+    color: "#2e0004"
+    lightEnergy: 10
     lightRadius: 12
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -262,8 +262,8 @@
   id: SodiumLightTube
   components:
   - type: LightBulb
-    color: "#FFAF38"
-    lightEnergy: 4
+    color: "#2e0004"
+    lightEnergy: 10
     lightRadius: 10
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -277,7 +277,7 @@
   components:
   - type: LightBulb
     color: "#47f8ff"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -297,7 +297,7 @@
   components:
   - type: LightBulb
     color: "#39a1ff"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -317,7 +317,7 @@
   components:
   - type: LightBulb
     color: "#ff66cc"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -337,7 +337,7 @@
   components:
   - type: LightBulb
     color: "#ff8227"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -357,7 +357,7 @@
   components:
   - type: LightBulb
     color: "#fb4747"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350
@@ -377,7 +377,7 @@
   components:
   - type: LightBulb
     color: "#52ff39"
-    lightEnergy: 3
+    lightEnergy: 2
     lightRadius: 8
     lightSoftness: 0.5
     BurningTemperature: 350

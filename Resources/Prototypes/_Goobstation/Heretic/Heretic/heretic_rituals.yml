@@ -1,10 +1,14 @@
-# basic
+### basic
+
+# Heartbeat of the Mansus (sacrifice)
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
   customBehaviors:
   - !type:RitualSacrificeBehavior
+    onlyTargets: true
 
+# Amber Focus
 - type: hereticRitual
   id: AmberFocus
   name: heretic-ritual-basic-focus
@@ -14,7 +18,20 @@
   output:
     ClothingNeckAmberFocus: 1
 
-# ash path
+# Relentless Heartbeat (sacrifice target reroll)
+- type: hereticRitual
+  id: LivingHeart
+  name: heretic-ritual-basic-heart
+  requiredTags:
+    Heart: 1
+    Pen: 1
+    Paper: 1
+  outputEvent: !type:EventHereticRerollTargets
+
+
+
+### ash path
+
 - type: hereticRitual
   id: BladeAsh
   name: heretic-ritual-ash-blade
@@ -44,7 +61,10 @@
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 
-# flesh path
+
+
+### flesh path
+
 - type: hereticRitual
   id: BladeFlesh
   name: heretic-ritual-flesh-blade
@@ -61,8 +81,8 @@
   name: heretic-ritual-flesh-ghoul
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
-  requiredEntityNames:
-    poppy: 1
+  requiredTags:
+    Poppy: 1
 
 - type: hereticRitual
   id: RawRitual
@@ -100,7 +120,10 @@
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
 
-# void path
+
+
+### void path
+
 - type: hereticRitual
   id: BladeVoid
   name: heretic-ritual-void-blade
@@ -124,7 +147,10 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
 
-# side path
+
+
+### side knowledge
+
 - type: hereticRitual
   id: RitualOfKnowledge
   name: heretic-ritual-side-knowledge

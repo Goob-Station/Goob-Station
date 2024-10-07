@@ -215,6 +215,7 @@
       isLooped: true
   - type: ToggleableLightVisuals
   - type: PointLight
+    color: "#ffb5b5"
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
     autoRot: true

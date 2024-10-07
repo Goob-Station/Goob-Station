@@ -51,9 +51,11 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         var ignoredTargets = new List<EntityUid>();
+
         // all ghouls are immune to heretic shittery
         foreach (var e in EntityQuery<GhoulComponent>())
             ignoredTargets.Add(e.Owner);
+
         // all heretics with the same path are also immune
         foreach (var e in EntityQuery<HereticComponent>())
             if (e.CurrentPath == ent.Comp.CurrentPath)

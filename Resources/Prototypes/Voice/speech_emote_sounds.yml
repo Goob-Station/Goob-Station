@@ -4,6 +4,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: MaleScreams
     Laugh:
@@ -44,6 +46,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: FemaleScreams
     Laugh:
@@ -84,6 +88,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
@@ -106,6 +112,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Voice/Reptilian/reptilian_scream.ogg
     Laugh:
@@ -126,6 +134,8 @@
 - type: emoteSounds
   id: MaleSlime
   sounds:
+    Boo:
+      collection: Boos
     Squish:
       collection: Squishes
     Scream:
@@ -168,6 +178,8 @@
 - type: emoteSounds
   id: FemaleSlime
   sounds:
+    Boo:
+      collection: Boos
     Squish:
       collection: Squishes
     Scream:
@@ -210,6 +222,8 @@
 - type: emoteSounds
   id: UnisexVox
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Voice/Vox/shriek1.ogg
     Laugh:
@@ -221,6 +235,8 @@
 - type: emoteSounds
   id: UnisexDiona
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Voice/Diona/diona_scream.ogg
     Laugh:
@@ -241,6 +257,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Voice/Arachnid/arachnid_scream.ogg
     Laugh:
@@ -259,6 +277,8 @@
 - type: emoteSounds
   id: UnisexDwarf
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: MaleScreams
     Laugh:
@@ -300,6 +320,8 @@
 - type: emoteSounds
   id: FemaleDwarf
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: FemaleScreams
     Laugh:
@@ -343,6 +365,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Buzz:
       path: /Audio/Voice/Moth/moth_scream.ogg
     Scream:

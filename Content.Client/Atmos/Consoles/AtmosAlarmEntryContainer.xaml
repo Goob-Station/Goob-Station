@@ -25,7 +25,7 @@
     <!-- Panel that appears on selecting the device -->
     <PanelContainer Name="FocusContainer" HorizontalExpand="True" Margin="1 -1 1 0" ReservesSpace="False" Visible="False" Access="Public">
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#25252a"/>
+            <gfx:StyleBoxFlat BackgroundColor="#2e1f0e"/>
         </PanelContainer.PanelOverride>
         <BoxContainer HorizontalExpand="True" VerticalExpand="True" Orientation="Vertical">
 
@@ -41,7 +41,7 @@
                     </BoxContainer>
                     <PanelContainer HorizontalExpand="True">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#202023"/>
+                            <gfx:StyleBoxFlat BackgroundColor="#30250e"/>
                         </PanelContainer.PanelOverride>
                         <BoxContainer HorizontalExpand="True" Orientation="Horizontal">
                             <Label Name="TemperatureLabel" Text="???" HorizontalAlignment="Center" HorizontalExpand="True" FontColorOverride="#5A5A5A" Margin="0 2 0 0" SetHeight="24"></Label>
@@ -54,7 +54,7 @@
                     </BoxContainer>
                     <PanelContainer HorizontalExpand="True">
                         <PanelContainer.PanelOverride>
-                            <gfx:StyleBoxFlat BackgroundColor="#202023"/>
+                            <gfx:StyleBoxFlat BackgroundColor="#30250e"/>
                         </PanelContainer.PanelOverride>
 
                         <!-- Gas entries added via C# code -->

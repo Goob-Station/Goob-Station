@@ -7,10 +7,10 @@
   components:
   - type: Sprite
     drawdepth: Mobs
-    sprite: Mobs/Aliens/slimes.rsi
+    sprite: _Goobstation/Mobs/Demons/pumpkinslime.rsi
     layers:
     - map: [ "enum.DamageStateVisualLayers.Base" ]
-      state: blue_adult_slime
+      state: alive
   - type: Fixtures
     fixtures:
       fix1:
@@ -151,9 +151,9 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: blue_adult_slime
+        Base: alive
       Dead:
-        Base: blue_adult_slime_dead
+        Base: dead
 
 - type: entity
   name: blue slime
@@ -178,13 +178,13 @@
     - type: Sprite
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: green_adult_slime
+        state: alive
     - type: DamageStateVisuals
       states:
         Alive:
-          Base: green_adult_slime
+          Base: alive
         Dead:
-          Base: green_adult_slime_dead
+          Base: dead
     - type: MeleeWeapon
       damage:
         types:
@@ -216,13 +216,13 @@
     - type: Sprite
       layers:
       - map: [ "enum.DamageStateVisualLayers.Base" ]
-        state: yellow_adult_slime
+        state: alive
     - type: DamageStateVisuals
       states:
         Alive:
-          Base: yellow_adult_slime
+          Base: alive
         Dead:
-          Base: yellow_adult_slime_dead
+          Base: dead
     - type: MeleeWeapon
       damage:
         types:

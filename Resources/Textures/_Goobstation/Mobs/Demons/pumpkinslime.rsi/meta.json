@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by @perzonaz on Discord",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "alive",
+      "delays": [
+        [
+          0.4,
+          0.4
+        ]
+	   ]
+    },
+    {
+      "name": "dead"
+    }
+  ]
+}

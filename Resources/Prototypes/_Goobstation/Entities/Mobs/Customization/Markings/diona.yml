@@ -1,0 +1,13 @@
+- type: marking
+  id: DionaPumpkinHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Diona]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/diona.rsi
+    state: pumpkin_head

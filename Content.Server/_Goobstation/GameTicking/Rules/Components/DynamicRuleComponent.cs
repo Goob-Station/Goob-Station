@@ -48,21 +48,7 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     Used for EORG.
     /// </summary>
-    public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
-
-    #endregion
-
-    #region Calculations
-
-    /// <summary>
-    ///     
-    /// </summary>
-    [DataField] public float ThreatCurveCentre = 0f;
-
-    /// <summary>
-    ///     
-    /// </summary>
-    public float ThreatCurveWidth = 1.8f;
+    [ViewVariables(VVAccess.ReadOnly)] public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
     #endregion
 }
