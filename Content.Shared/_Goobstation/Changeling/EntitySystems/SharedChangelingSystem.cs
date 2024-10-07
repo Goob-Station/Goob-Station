@@ -7,28 +7,30 @@ using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.Manager;
+using System.Numerics;
 
 namespace Content.Shared._Goobstation.Changeling.EntitySystems;
 
 public abstract class SharedChangelingSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISerializationManager _serializationManager = default!;
     [Dependency] private readonly AlertsSystem _alerts = default!;
-    [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
@@ -40,10 +42,17 @@ public abstract class SharedChangelingSystem : EntitySystem
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
     [Dependency] protected readonly SharedStunSystem StunSystem = default!;
 
+    public SoundSpecifier MeatSounds = new SoundCollectionSpecifier("gib");
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnChangelingMobStateChanged);
+        SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChanged);
+
+        SubscribeLocalEvent<AbsorbableComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<AbsorbableComponent, MobStateChangedEvent>(OnAbsorbableMobStateChanged);
         //SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
     }
 
@@ -125,8 +134,8 @@ public abstract class SharedChangelingSystem : EntitySystem
 
         comp.Biomass += amount ?? -1;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
-        comp.BonusChemicalRegen = -4 * comp.MaxBonusChemicalRegen / MathF.Pow(comp.MaxBiomass, 2)
-            * MathF.Pow(comp.Biomass - comp.MaxBiomass / 2, 2) + comp.MaxBonusChemicalRegen;
+        comp.BonusChemicalRegen = 2 * comp.MaxBonusChemicalRegen / comp.MaxBiomass
+            * (comp.MaxBiomass / 2 - MathF.Abs(comp.Biomass - comp.MaxBiomass / 2));
         // ↑ This formula makes maximumChemicalRegen on the half between 0 and MaxBiomass.
         // So, ling will be more powerful when he have half of biomass, because he don't want to eat on all biomass and will be weak on 0 biomass
 
@@ -266,39 +275,97 @@ public abstract class SharedChangelingSystem : EntitySystem
         return true;
     }
 
+    // TODO: This really should be in different system.
     /// <summary>
     ///     Used to transfer components from one entity to another entity.
     /// </summary>
     public void TransferComponent<T>(EntityUid fromEntity, EntityUid toEntity, T component) where T : IComponent
     {
         var newComponent = _serializationManager.CreateCopy<T>(component);
-        AddComp(toEntity, newComponent);
+        AddComp(toEntity, newComponent, true);
+        Dirty(toEntity, newComponent);
         RemCompDeferred(fromEntity, component);
+    }
+
+    public bool TryTransferComponent<T>(EntityUid fromEntity, EntityUid toEntity) where T : IComponent
+    {
+        if (!TryComp<T>(fromEntity, out var component))
+            return false;
+
+        TransferComponent<T>(fromEntity, toEntity, component);
+        return true;
+    }
+
+    /// <summary>
+    ///     Changes ling's form type. Basic form type is humanoid.
+    /// </summary>
+    public void ChangeFormType(Entity<ChangelingComponent> changeling, ChangelingFormType formType = ChangelingFormType.HumanoidForm)
+    {
+        if (changeling.Comp.FormType == formType)
+            return;
+
+        changeling.Comp.FormType = formType;
+        Dirty(changeling);
+    }
+
+    /// <summary>
+    ///     Function to play ling's meat sound specifically 
+    /// </summary>
+    public void PlayMeatySound(EntityUid target)
+    {
+        _audio.PlayPredicted(MeatSounds, target, target);
+    }
+
+    /// <summary>
+    ///     Hides all lings equipment if ling died / missclicked stasis button 
+    /// </summary>
+    private void OnChangelingMobStateChanged(Entity<ChangelingComponent> changeling, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        foreach (var item in changeling.Comp.EquipmentList)
+        {
+            _storageMap.SendToPausedStorageMap(item.Value);
+        }
     }
 
 
     /// <summary>
-    ///     Ensures new copy of given ChangelingComponent on targetEntity
+    ///     Prevents ling to be gibbed by blunting/burning his body
     /// </summary>
-    protected ChangelingComponent CopyChangelingComponent(EntityUid target, ChangelingComponent comp)
+    private void OnDamageChanged(Entity<ChangelingComponent> changeling, ref DamageChangedEvent args)
     {
-        var newComp = EnsureComp<ChangelingComponent>(target);
+        var target = args.Damageable;
 
-        newComp.Chemicals = comp.Chemicals;
-        newComp.MaxChemicals = comp.MaxChemicals;
+        if (!TryComp<MobStateComponent>(changeling, out var mobState))
+            return;
 
-        newComp.Biomass = comp.Biomass;
-        newComp.MaxBiomass = comp.MaxBiomass;
+        if (mobState.CurrentState != MobState.Dead)
+            return;
 
-        newComp.FormType = comp.FormType;
-        newComp.CurrentForm = comp.CurrentForm;
+        if (!args.DamageIncreased)
+            return;
 
-        newComp.AbsorbedDNA = comp.AbsorbedDNA;
-        newComp.AbsorbedDNAIndex = comp.AbsorbedDNAIndex;
-        newComp.TotalAbsorbedEntities = comp.TotalAbsorbedEntities;
-        newComp.TotalStolenDNA = comp.TotalStolenDNA;
+        target.Damage.ClampMax(200);
+    }
 
-        return newComp;
+    /// <summary>
+    ///     Removed absorbed if body somehow revived
+    /// </summary>
+    private void OnAbsorbableMobStateChanged(Entity<AbsorbableComponent> absorbable, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            absorbable.Comp.Absorbed = false;
+    }
+
+    /// <summary>
+    ///     Adds hollowed text to text on examine if body is absorbed
+    /// </summary>
+    private void OnExamined(Entity<AbsorbableComponent> absorbable, ref ExaminedEvent args)
+    {
+        if (absorbable.Comp.Absorbed)
+            args.PushMarkup(Loc.GetString("changeling-absorb-onexamine"));
     }
 }
 

@@ -15,9 +15,6 @@ public sealed partial class ChangelingComponent : Component
     #region Prototypes
 
     [DataField]
-    public SoundSpecifier MeatSounds = new SoundCollectionSpecifier("gib");
-
-    [DataField]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
     public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()

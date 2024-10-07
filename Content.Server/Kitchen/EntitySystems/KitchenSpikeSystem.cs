@@ -22,7 +22,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using static Content.Shared.Kitchen.Components.KitchenSpikeComponent;
-using Content.Shared.Changeling; // Goobstation
+using Content.Shared._Goobstation.Changeling.Components; // Goobstation
 
 namespace Content.Server.Kitchen.EntitySystems
 {
@@ -230,7 +230,7 @@ namespace Content.Server.Kitchen.EntitySystems
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-changeling", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;
             }
-            if (HasComp<AbsorbedComponent>(victimUid))
+            if (TryComp<AbsorbableComponent>(victimUid, out var absorbable) && absorbable.Absorbed)
             {
                 _popupSystem.PopupEntity(Loc.GetString("comp-kitchen-spike-deny-absorbed", ("victim", Identity.Entity(victimUid, EntityManager)), ("this", uid)), victimUid, userUid);
                 return false;

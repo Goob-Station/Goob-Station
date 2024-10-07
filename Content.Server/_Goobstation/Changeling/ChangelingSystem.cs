@@ -2,21 +2,16 @@ using Content.Server.Forensics;
 using Content.Server.Zombies;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.IdentityManagement;
-using Content.Shared.Mobs;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Store.Components;
 using Robust.Shared.Random;
 using Content.Shared.Popups;
-using Content.Shared.Damage;
 using Robust.Shared.Prototypes;
 using Content.Server.Body.Systems;
 using Content.Shared.Polymorph;
-using Content.Server.Polymorph.Components;
 using Content.Shared.Fluids;
 using Content.Shared.Revolutionary.Components;
 using Robust.Shared.Timing;
-using Content.Shared.Mobs.Components;
-using System.Linq;
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Server.Jittering;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
@@ -27,6 +22,7 @@ using Content.Server.Humanoid;
 using Content.Shared.Mind;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Polymorph.Systems;
+using Content.Shared.Actions;
 
 namespace Content.Server._Goobstation.Changeling;
 
@@ -40,6 +36,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
+    [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
@@ -60,10 +57,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<ChangelingComponent, MobStateChangedEvent>(OnMobStateChange);
-        SubscribeLocalEvent<ChangelingComponent, DamageChangedEvent>(OnDamageChange);
-        SubscribeLocalEvent<ChangelingComponent, ComponentRemove>(OnComponentRemove);
+        SubscribeLocalEvent<ChangelingComponent, ComponentInit>(OnComponentInit);
     }
 
     /// <summary>
@@ -172,7 +166,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     /// <summary>
     ///     Used to soft change humanoid appearance and dna data of entity by using HumanoidTransformData.
     /// </summary>
-    public void ChangeHumanoidData(EntityUid target, HumanoidTransformData data)
+    public void ChangeHumanoidAppearance(EntityUid target, HumanoidTransformData data)
     {
         var dataEntity = GetEntity(data.AppearanceEntity);
 
@@ -186,6 +180,8 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _humanoidAppearance.CloneAppearance(dataEntity, target, dataAppearance, targetAppearance);
 
         _metadata.SetEntityName(target, data.Name);
+
+        PopupSystem.PopupEntity(Loc.GetString("changeling-transform-finish", ("target", data.Name)), target, target);
     }
 
     /// <summary>
@@ -201,7 +197,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        // DNA and Appearance is main thing of lings
+        // We can ignore fingerprints, but we can't ignore DNA and Appearance because these are main ling things
         if (!TryComp<DnaComponent>(target, out var targetDna) || !HasComp<HumanoidAppearanceComponent>(target))
             return false;
 
@@ -236,10 +232,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
 
     /// <summary>
-    ///     Transform entity to new one. Cooldown can be set.
+    ///     Used to remove Humanoid data from ling component
     /// </summary>
-    /// <param name="revertCooldown">If null it won't revert</param>
-    public EntityUid? TransformEntityInto(EntityUid uid, EntProtoId prototype, bool dropInventory = false, bool transferDamage = true, int? revertCooldown = null)
+    public void SpendDNA(Entity<ChangelingComponent> changeling, HumanoidTransformData data)
+    {
+        changeling.Comp.AbsorbedDNA.RemoveAll(lingData => lingData.DNA == data.DNA);
+    }
+
+    // Most of this should be in polymorphSystem, but i don't want to refactor whole wizden :godo:
+    /// <summary>
+    ///     Transform entity to new one
+    /// </summary>
+    public EntityUid? TransformEntityInto(EntityUid uid, EntProtoId prototype, bool dropInventory = false, bool transferDamage = true)
     {
         var config = new PolymorphConfiguration()
         {
@@ -248,8 +252,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             Forced = true,
             Inventory = dropInventory ? PolymorphInventoryChange.Drop : PolymorphInventoryChange.Transfer,
             RevertOnCrit = false,
-            RevertOnDeath = false,
-            Duration = revertCooldown
+            RevertOnDeath = false
         };
 
         var newEntity = _polymorphSystem.PolymorphEntity(uid, config);
@@ -257,210 +260,59 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         if (newEntity == null)
             return null;
 
-        
+        // TODO: This should be moved to own Prototype (ChangingData?) that will contain revertable components. Not sure how to do it now.
+        // Because of this it's hardcoded.
+        TryTransferComponent<HeadRevolutionaryComponent>(uid, newEntity.Value);
+        TryTransferComponent<RevolutionaryComponent>(uid, newEntity.Value);
+        TryTransferComponent<ZombieImmuneComponent>(uid, newEntity.Value);
+        TryTransferComponent<ChangelingComponent>(uid, newEntity.Value);
+        TryTransferComponent<StoreComponent>(uid, newEntity.Value);
 
-        // If this transform unrevertable - removes polymorph component and moves important components to it.
-        // For example: We need to move HeadRev component if we unrevertably transform someone to monkey (monkey revs :godo:)
-        if (revertCooldown == null)
-        {
-            if (HasComp<HeadRevolutionaryComponent>(uid))
-                EnsureComp<HeadRevolutionaryComponent>(newEntity);
-            if (HasComp<RevolutionaryComponent>(uid))
-                EnsureComp<RevolutionaryComponent>(newEntity);
+        var identity = Identity.Name(newEntity.Value, EntityManager);
+        PopupSystem.PopupEntity(Loc.GetString("changeling-transform-others", ("user", identity)), newEntity.Value, PopupType.LargeCaution);
 
-            RemCompDeferred<PolymorphedEntityComponent>(newEntity);
-        }
-        
+        return newEntity;
     }
 
     /// <summary>
-    ///     Used to transfer components from one entity to another entity
+    ///     Reverts entity transformation
     /// </summary>
-    public void TransferComponent(EntityUid fromEntity, EntityUid toEntity)
+    public void RevertTransform(EntityUid uid)
     {
+        var oldEntity = _polymorphSystem.Revert(uid);
 
-    }
-
-    private EntityUid? TransformEntity(
-        EntityUid uid, 
-        TransformData? data = null, 
-        EntProtoId? protoId = null, 
-        ChangelingComponent? comp = null, 
-        bool dropInventory = false, 
-        bool transferDamage = true,
-        bool persistentDna = false)
-    {
-        EntProtoId? pid = null;
-
-        if (data != null)
-        {
-            if (!_proto.TryIndex(data.Appearance.Species, out var species))
-                return null;
-            pid = species.Prototype;
-        }
-        else if (protoId != null)
-            pid = protoId;
-        else return null;
-
-        var config = new PolymorphConfiguration()
-        {
-            Entity = (EntProtoId) pid,
-            TransferDamage = transferDamage,
-            Forced = true,
-            Inventory = (dropInventory) ? PolymorphInventoryChange.Drop : PolymorphInventoryChange.Transfer,
-            RevertOnCrit = false,
-            RevertOnDeath = false
-        };
-
-        
-        var newUid = _polymorph.PolymorphEntity(uid, config);
-
-        if (newUid == null)
-            return null;
-
-        var newEnt = newUid.Value;
-
-        if (data != null)
-        {
-            Comp<FingerprintComponent>(newEnt).Fingerprint = data.Fingerprint;
-            Comp<DnaComponent>(newEnt).DNA = data.DNA;
-            _humanoid.CloneAppearance(data.Appearance.Owner, newEnt);
-            _metaData.SetEntityName(newEnt, data.Name);
-            var message = Loc.GetString("changeling-transform-finish", ("target", data.Name));
-            _popup.PopupEntity(message, newEnt, newEnt);
-        }
-
-        RemCompDeferred<PolymorphedEntityComponent>(newEnt);
-
-        if (comp != null)
-        {
-            // copy our stuff
-            var newLingComp = CopyChangelingComponent(newEnt, comp);
-            if (!persistentDna && data != null)
-                newLingComp?.AbsorbedDNA.Remove(data);
-            RemCompDeferred<ChangelingComponent>(uid);
-
-            if (TryComp<StoreComponent>(uid, out var storeComp))
-            {
-                var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(newUid.Value);
-                EntityManager.AddComponent(newUid.Value, storeCompCopy);
-            }
-        }
-
-        // exceptional comps check
-        // there's no foreach for types i believe so i gotta thug it out yandev style.
-
-
-        QueueDel(uid);
-
-        return newUid;
-    }
-    public bool TryTransform(EntityUid target, ChangelingComponent comp, bool sting = false, bool persistentDna = false)
-    {
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-absorbed"), target, target);
-            return false;
-        }
-
-        var data = comp.SelectedForm;
-
-        if (data == null)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-self"), target, target);
-            return false;
-        }
-        if (data == comp.CurrentForm)
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-transform-fail-choose"), target, target);
-            return false;
-        }
-
-        var locName = Identity.Entity(target, EntityManager);
-        EntityUid? newUid = null;
-        if (sting)
-            newUid = TransformEntity(target, data: data, persistentDna: persistentDna);
-        else 
-        {
-            comp.IsInLesserForm = false;
-            newUid = TransformEntity(target, data: data, comp: comp, persistentDna: persistentDna);
-        }
-
-        if (newUid != null)
-        {
-            PlayMeatySound((EntityUid) newUid, comp);
-            var loc = Loc.GetString("changeling-transform-others", ("user", locName));
-            _popup.PopupEntity(loc, (EntityUid) newUid, PopupType.LargeCaution);
-        }
-
-        return true;
-    }
-
-    public void RemoveAllChangelingEquipment(EntityUid target, ChangelingComponent comp)
-    {
-        // check if there's no entities or all entities are null
-        if (comp.Equipment.Values.Count == 0
-        || comp.Equipment.Values.All(ent => ent == null ? true : false))
+        if (oldEntity == null)
             return;
 
-        foreach (var equip in comp.Equipment.Values)
-            QueueDel(equip);
-
-        PlayMeatySound(target, comp);
+        TryTransferComponent<HeadRevolutionaryComponent>(uid, oldEntity.Value);
+        TryTransferComponent<RevolutionaryComponent>(uid, oldEntity.Value);
+        TryTransferComponent<ZombieImmuneComponent>(uid, oldEntity.Value);
+        TryTransferComponent<ChangelingComponent>(uid, oldEntity.Value);
+        TryTransferComponent<StoreComponent>(uid, oldEntity.Value);
     }
-
     #endregion
 
     #region Event Handlers
-
-    private void OnStartup(EntityUid uid, ChangelingComponent comp, ref ComponentStartup args)
+    private void OnComponentInit(Entity<ChangelingComponent> changeling, ref ComponentInit args)
     {
-        RemComp<HungerComponent>(uid);
-        RemComp<ThirstComponent>(uid);
-        EnsureComp<ZombieImmuneComponent>(uid);
+        RemComp<HungerComponent>(changeling);
+        RemComp<ThirstComponent>(changeling);
+        EnsureComp<ZombieImmuneComponent>(changeling);
 
-        // add actions
+        var comp = changeling.Comp;
+
         foreach (var actionId in comp.BaseChangelingActions)
-            _actions.AddAction(uid, actionId);
+            _actionsSystem.AddAction(changeling, actionId);
 
-        // making sure things are right in this world
         comp.Chemicals = comp.MaxChemicals;
         comp.Biomass = comp.MaxBiomass;
 
-        // show alerts
-        UpdateChemicals(uid, comp, 0);
-        UpdateBiomass(uid, comp, 0);
-        // make their blood unreal
-        _blood.ChangeBloodReagent(uid, "BloodChangeling");
+        Dirty(changeling);
+
+        UpdateChemicals(changeling, 0);
+        UpdateBiomass(changeling, 0);
+
+        _bloodstreamSystem.ChangeBloodReagent(changeling, comp.ChangelingBloodPrototype);
     }
-
-    private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
-    {
-        if (args.NewMobState == MobState.Dead)
-            RemoveAllChangelingEquipment(uid, comp);
-    }
-
-    private void OnDamageChange(Entity<ChangelingComponent> ent, ref DamageChangedEvent args)
-    {
-        var target = args.Damageable;
-
-        if (!TryComp<MobStateComponent>(ent, out var mobState))
-            return;
-
-        if (mobState.CurrentState != MobState.Dead)
-            return;
-
-        if (!args.DamageIncreased)
-            return;
-        
-        target.Damage.ClampMax(200); // we never die. UNLESS??
-    }
-
-    private void OnComponentRemove(Entity<ChangelingComponent> ent, ref ComponentRemove args)
-    {
-        RemoveAllChangelingEquipment(ent, ent.Comp);
-    }
-
     #endregion
 }
