@@ -380,10 +380,13 @@
     - VolumetricPump
     - PressurePump
     - VentScrubber
+    - PressureValve
+    - DualPortVent
     - VentGas
     - VentPassive
     - MixerGas
     - Radiator
+    - SignalValve
     - CanisterPort
     - FilterGas
     - Deconstruct
