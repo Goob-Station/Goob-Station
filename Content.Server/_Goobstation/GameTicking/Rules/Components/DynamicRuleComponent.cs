@@ -27,17 +27,17 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     
     /// </summary>
-    public float ThreatLevel = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float ThreatLevel = 0f;
 
     /// <summary>
     ///     Used for EORG display.
     /// </summary>
-    public float RoundstartBudget = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float RoundstartBudget = 0f;
 
     /// <summary>
     ///     Used for EORG display.
     /// </summary>
-    public float MidroundBudget = 0f;
+    [ViewVariables(VVAccess.ReadOnly)] public float MidroundBudget = 0f;
 
     #endregion
 
@@ -48,21 +48,7 @@ public sealed partial class DynamicRuleComponent : Component
     /// <summary>
     ///     Used for EORG.
     /// </summary>
-    public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
-
-    #endregion
-
-    #region Calculations
-
-    /// <summary>
-    ///     
-    /// </summary>
-    [DataField] public float ThreatCurveCentre = 0f;
-
-    /// <summary>
-    ///     
-    /// </summary>
-    public float ThreatCurveWidth = 1.8f;
+    [ViewVariables(VVAccess.ReadOnly)] public List<(EntProtoId, EntityUid?)> ExecutedRules = new();
 
     #endregion
 }
