@@ -39,3 +39,9 @@
   name: PigeonBeans - Sunset
   path:
     path: /Audio/Jukebox/sunset.ogg
+
+- type: jukebox
+  id: yakub
+  name: BadEmpanada - How Yakub Created White People
+  path:
+    path: /Audio/Jukebox/yakub.ogg
