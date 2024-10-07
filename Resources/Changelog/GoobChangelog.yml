@@ -1450,3 +1450,9 @@ Entries:
       message: Fixed midround nukies weren't count as real syndicate members
   id: 178
   time: '2024-10-06T06:34:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: If you're reading this dynamic works
+  id: 179
+  time: '2024-10-07T04:18:45.0000000+00:00'
