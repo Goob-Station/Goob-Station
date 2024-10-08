@@ -1,8 +1,8 @@
-using Content.Shared._Goobstation.Changeling;
+using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class ChangelingActionComponent : Component

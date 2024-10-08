@@ -1,4 +1,3 @@
-using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
@@ -8,9 +7,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Store.Components;
 using Content.Shared.Popups;
 using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Objectives.Components;
 using Content.Server.Light.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
@@ -26,10 +22,7 @@ namespace Content.Server.Changeling;
 public sealed partial class ChangelingSystem
 {
     public void SubscribeAbilities()
-    {
-        SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
+    {        
         SubscribeLocalEvent<ChangelingComponent, StingExtractDNAEvent>(OnStingExtractDNA);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformCycleEvent>(OnTransformCycle);
         SubscribeLocalEvent<ChangelingComponent, ChangelingTransformEvent>(OnTransform);
@@ -65,105 +58,6 @@ public sealed partial class ChangelingSystem
     }
 
     #region Basic Abilities
-
-    private void OnOpenEvolutionMenu(EntityUid uid, ChangelingComponent comp, ref OpenEvolutionMenuEvent args)
-    {
-        if (!TryComp<StoreComponent>(uid, out var store))
-            return;
-
-        _store.ToggleUi(uid, uid, store);
-    }
-
-    private void OnAbsorb(EntityUid uid, ChangelingComponent comp, ref AbsorbDNAEvent args)
-    {
-        var target = args.Target;
-
-        if (!IsIncapacitated(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), uid, uid);
-            return;
-        }
-        if (HasComp<AbsorbedComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), uid, uid);
-            return;
-        }
-        if (!HasComp<AbsorbableComponent>(target))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), uid, uid);
-            return;
-        }
-
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        var popupOthers = Loc.GetString("changeling-absorb-start", ("user", Identity.Entity(uid, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        _popup.PopupEntity(popupOthers, uid, PopupType.LargeCaution);
-        PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(15), new AbsorbDNADoAfterEvent(), uid, target)
-        {
-            DistanceThreshold = 1.5f,
-            BreakOnDamage = true,
-            BreakOnHandChange = false,
-            BreakOnMove = true,
-            BreakOnWeightlessMove = true,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
-        };
-        _doAfter.TryStartDoAfter(dargs);
-    }
-    
-    private void OnAbsorbDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbDNADoAfterEvent args)
-    {
-        if (args.Args.Target == null)
-            return;
-
-        var target = args.Args.Target.Value;
-
-        if (args.Cancelled || !IsIncapacitated(target) || HasComp<AbsorbedComponent>(target))
-            return;
-
-        PlayMeatySound(args.User, comp);
-
-        UpdateBiomass(uid, comp, comp.MaxBiomass - comp.TotalAbsorbedEntities);
-
-        var dmg = new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 200);
-        _damage.TryChangeDamage(target, dmg, false, false);
-        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
-        _blood.SpillAllSolutions(target);
-
-        EnsureComp<AbsorbedComponent>(target);
-
-        var popup = Loc.GetString("changeling-absorb-end-self-ling");
-        var bonusChemicals = 0f;
-        var bonusEvolutionPoints = 0f;
-        if (TryComp<ChangelingComponent>(target, out var targetComp))
-        {
-            bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += 10;
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
-        }
-        else
-        {
-            popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-        }
-        TryStealDNA(uid, target, comp, true);
-        comp.TotalAbsorbedEntities++;
-
-        _popup.PopupEntity(popup, args.User, args.User);
-        comp.MaxChemicals += bonusChemicals;
-
-        if (TryComp<StoreComponent>(args.User, out var store))
-        {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
-            _store.UpdateUserInterface(args.User, args.User, store);
-        }
-
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
-                objective.Absorbed += 1;
-    }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)
     {

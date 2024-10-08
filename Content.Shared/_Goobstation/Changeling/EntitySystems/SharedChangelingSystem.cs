@@ -3,7 +3,6 @@ using Content.Shared._Goobstation.Map;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
-using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
@@ -64,50 +63,6 @@ public abstract class SharedChangelingSystem : EntitySystem
         else
             args.ModifySpeed(1f, 1f);
     }*/
-
-    public bool TryUseChangelingAbility(Entity<ChangelingComponent> changeling, BaseActionEvent action)
-    {
-        if (action.Handled)
-            return false;
-
-        var comp = changeling.Comp;
-
-        if (!TryComp<ChangelingActionComponent>(action.Action, out var lingAction))
-            return false;
-
-        if (comp.Biomass < lingAction.BiomassCost)
-        {
-            PopupSystem.PopupClient(Loc.GetString("changeling-biomass-deficit"), changeling);
-            return false;
-        }
-
-        if (comp.FormType < lingAction.RequiredFormType)
-        {
-            PopupSystem.PopupClient(Loc.GetString("changeling-action-fail-lesserform"), changeling);
-            return false;
-        }
-
-        if (comp.Chemicals < lingAction.ChemicalCost)
-        {
-            PopupSystem.PopupClient(Loc.GetString("changeling-chemicals-deficit"), changeling);
-            return false;
-        }
-        /* MOVE THIS
-        if (comp.TotalAbsorbedEntities < lingAction.RequireAbsorbed) 
-        {
-            var delta = lingAction.RequireAbsorbed - comp.TotalAbsorbedEntities;
-            PopupSystem.PopupClient(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), changeling);
-            return false;
-        }
-        */
-
-        UpdateChemicals(changeling, -lingAction.ChemicalCost);
-        UpdateBiomass(changeling, -lingAction.BiomassCost);
-
-        action.Handled = true;
-
-        return true;
-    }
 
     /// <summary>
     ///     Updates chemicals amount and updates client alert sprite
@@ -176,6 +131,7 @@ public abstract class SharedChangelingSystem : EntitySystem
         }
     }
 
+    /* It should just subscribe on StingActionEvent and cancel it when something happened maaaan
     /// <summary>
     ///     Tries to sting someone by action
     /// </summary>
@@ -238,6 +194,7 @@ public abstract class SharedChangelingSystem : EntitySystem
 
         return true;
     }
+    */
 
     // TODO: Make this separate system (something like HiddenItem?? dunno how to call it). Will be also useful for heretic.
     /// <summary>
@@ -367,6 +324,11 @@ public abstract class SharedChangelingSystem : EntitySystem
         if (absorbable.Comp.Absorbed)
             args.PushMarkup(Loc.GetString("changeling-absorb-onexamine"));
     }
+
+    /// <summary>
+    ///     Change target's blood type 
+    /// </summary>
+    public abstract void ChangeTargetBloodType(EntityUid target, EntProtoId bloodPrototype);
 }
 
 [Serializable, NetSerializable]

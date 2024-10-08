@@ -182,4 +182,10 @@ public sealed partial class HumanoidTransformData
     /// </summary>
     [DataField]
     public NetEntity AppearanceEntity;
+
+    /// <summary>
+    ///     Changes entities blood prototype
+    /// </summary>
+    [DataField]
+    public string BloodPrototype;
 }

@@ -15,8 +15,6 @@ using Robust.Shared.Timing;
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Server.Jittering;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
-using Content.Shared.Inventory;
-using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
 using Content.Shared.Mind;
@@ -31,13 +29,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
 
@@ -220,13 +216,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         comp.AbsorbedDNA.Add(data);
         comp.TotalStolenDNA++;
         Dirty(changeling);
-
-        if (countObjective
-        && _mindSystem.TryGetMind(changeling, out var mindId, out var mind)
-        && _mindSystem.TryGetObjectiveComp<StealDNAConditionComponent>(mindId, out var objective, mind))
-        {
-            objective.DNAStolen += 1;
-        }
 
         return true;
     }
