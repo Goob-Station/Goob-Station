@@ -219,9 +219,10 @@
   name: evolutionmenu-utility-eyesight-name
   description: evolutionmenu-utility-eyesight-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: augmented_eyesight }
-  productAction: ActionAugmentedEyesight
+  productEvent: !type:BuyAugmentedEyesEvent
+  raiseProductEventOnUser: true
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 2
   categories:
   - ChangelingAbilityUtility
   conditions:
@@ -331,7 +332,8 @@
   name: evolutionmenu-utility-hivemindaccess-name
   description: evolutionmenu-utility-hivemindaccess-desc
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: hivemind_access }
-  productAction: ActionHivemindAccess
+  productEvent: !type:BuyHivemindAccessEvent
+  raiseProductEventOnUser: true
   cost:
     EvolutionPoint: 4
   categories:

@@ -2,6 +2,7 @@ using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Changeling;
 
@@ -57,8 +58,13 @@ public sealed partial class StingLayEggsEvent : EntityTargetActionEvent { }
 
 #region Events - Utility
 
+[Serializable, NetSerializable]
+public sealed partial class BuyAugmentedEyesEvent : EntityEventArgs { }
+
+[Serializable, NetSerializable]
+public sealed partial class BuyHivemindAccessEvent : EntityEventArgs { }
+
 public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent { }
-public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionEphedrineOverdoseEvent : InstantActionEvent { }

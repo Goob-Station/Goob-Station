@@ -46,7 +46,6 @@ namespace Content.Server.Changeling;
         SubscribeLocalEvent<ChangelingComponent, StingLayEggsEvent>(OnLayEgg);
 
         SubscribeLocalEvent<ChangelingComponent, ActionAnatomicPanaceaEvent>(OnAnatomicPanacea);
-        SubscribeLocalEvent<ChangelingComponent, ActionAugmentedEyesightEvent>(OnAugmentedEyesight);
         SubscribeLocalEvent<ChangelingComponent, ActionBiodegradeEvent>(OnBiodegrade);
         SubscribeLocalEvent<ChangelingComponent, ActionChameleonSkinEvent>(OnChameleonSkin);
         SubscribeLocalEvent<ChangelingComponent, ActionEphedrineOverdoseEvent>(OnEphedrineOverdose);
@@ -398,20 +397,7 @@ namespace Content.Server.Changeling;
         else return;
         PlayMeatySound(uid, comp);
     }
-    public void OnAugmentedEyesight(EntityUid uid, ChangelingComponent comp, ref ActionAugmentedEyesightEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
 
-        if (HasComp<FlashImmunityComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
-            return;
-        }
-
-        EnsureComp<FlashImmunityComponent>(uid);
-        _popup.PopupEntity(Loc.GetString("changeling-passive-activate"), uid, uid);
-    }
     public void OnBiodegrade(EntityUid uid, ChangelingComponent comp, ref ActionBiodegradeEvent args)
     {
         if (!TryUseAbility(uid, comp, args))
@@ -557,26 +543,5 @@ namespace Content.Server.Changeling;
 
         PlayMeatySound(uid, comp);
     }
-    public void OnHivemindAccess(EntityUid uid, ChangelingComponent comp, ref ActionHivemindAccessEvent args)
-    {
-        if (!TryUseAbility(uid, comp, args))
-            return;
-
-        if (HasComp<HivemindComponent>(uid))
-        {
-            _popup.PopupEntity(Loc.GetString("changeling-passive-active"), uid, uid);
-            return;
-        }
-
-        EnsureComp<HivemindComponent>(uid);
-        var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(uid);
-        var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(uid);
-        var radio = EnsureComp<ActiveRadioComponent>(uid);
-        radio.Channels = new() { "Hivemind" };
-        transmitter.Channels = new() { "Hivemind" };
-
-        _popup.PopupEntity(Loc.GetString("changeling-hivemind-start"), uid, uid);
-    }
-
     #endregion
 }*/

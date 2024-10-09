@@ -20,6 +20,7 @@ using Content.Server.Humanoid;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Server.Flash.Components;
 
 namespace Content.Server._Goobstation.Changeling.EntitySystems;
 
@@ -258,6 +259,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         TryTransferComponent<ZombieImmuneComponent>(uid, newEntity.Value);
         TryTransferComponent<ChangelingComponent>(uid, newEntity.Value);
         TryTransferComponent<StoreComponent>(uid, newEntity.Value);
+        TryTransferComponent<FlashImmunityComponent>(uid, newEntity.Value);
 
         var identity = Identity.Name(newEntity.Value, EntityManager);
         PopupSystem.PopupEntity(Loc.GetString("changeling-transform-others", ("user", identity)), newEntity.Value, PopupType.LargeCaution);
@@ -280,6 +282,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         TryTransferComponent<ZombieImmuneComponent>(uid, oldEntity.Value);
         TryTransferComponent<ChangelingComponent>(uid, oldEntity.Value);
         TryTransferComponent<StoreComponent>(uid, oldEntity.Value);
+        TryTransferComponent<FlashImmunityComponent>(uid, oldEntity.Value);
     }
     #endregion
 

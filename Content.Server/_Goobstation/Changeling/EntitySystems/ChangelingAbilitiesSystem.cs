@@ -33,6 +33,8 @@ public sealed partial class ChangelingAbilitiesSystem : SharedChangelingAbilitie
         SubscribeLocalEvent<ChangelingComponent, OpenEvolutionMenuEvent>(OnOpenEvolutionMenu);
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
         SubscribeLocalEvent<ChangelingComponent, ToggleChangelingStasisEvent>(OnStasisEvent);
+
+        SubscribeUtilityAbilities();
     }
 
     /// <summary>

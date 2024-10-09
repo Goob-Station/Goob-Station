@@ -1,0 +1,9 @@
+- type: transferGroup
+  id: ChangelingTransfer
+  components:
+  - type: ChangelingComponent
+  - type: HivemindComponent
+  - type: FlashImmunityComponent
+  - type: IntrinsicRadioReceiverComponent
+  - type: IntrinsicRadioTransmitterComponent
+  - type: ActiveRadioComponent

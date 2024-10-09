@@ -1,6 +1,5 @@
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Actions.Events;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;

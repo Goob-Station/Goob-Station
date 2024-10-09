@@ -381,22 +381,6 @@
     useInLesserForm: true
 
 - type: entity
-  id: ActionAugmentedEyesight
-  name: Augmented Eyesight
-  description: Toggle flash protection.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: InstantAction
-    checkCanInteract: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/Changeling/changeling_abilities.rsi
-      state: augmented_eyesight
-    event: !type:ActionAugmentedEyesightEvent {}
-  - type: ChangelingAction
-    chemicalCost: 0
-
-- type: entity
   id: ActionBiodegrade
   name: Biodegrade
   description: Vomit a caustic substance onto any restraints, or someone's face. Costs 30 chemicals.

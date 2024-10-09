@@ -3,7 +3,7 @@ using Content.Client.UserInterface.Systems.Alerts.Controls;
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 
-namespace Content.Client._Goobstation.Changeling;
+namespace Content.Client._Goobstation.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
@@ -12,7 +12,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
-        // MOVE TO ABILITIES SubscribeLocalEvent<ChangelingComponent, GetStatusIconsEvent>(GetChanglingIcon);
     }
 
     private void OnUpdateAlert(Entity<ChangelingComponent> changeling, ref UpdateAlertSpriteEvent args)
@@ -36,10 +35,4 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         var sprite = args.SpriteViewEnt.Comp;
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
     }
-
-    /* MOVE TO ABILITIES private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
-     {
-         if (HasComp<HivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-             args.StatusIcons.Add(iconPrototype);
-     }*/
 }

@@ -187,6 +187,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductUpgradeId = ProductUpgradeId,
             ProductActionEntity = ProductActionEntity,
             ProductEvent = ProductEvent,
+            RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit, wizden just ignored it for some reason
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
