@@ -31,7 +31,6 @@ changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-toggle-fail = Can't use stasis!
 changeling-stasis-exit = You exit regenerative stasis
-changeling-stasis-exit-no-chemicals = Not enough chemicals!
 
 changeling-fail-hands = Need to drop something beforehand
 

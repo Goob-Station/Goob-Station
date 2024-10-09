@@ -179,6 +179,7 @@ public sealed partial class ChangelingAbilitiesSystem : SharedChangelingAbilitie
         PopupSystem.PopupEntity(Loc.GetString("changeling-stasis-exit"), changeling, changeling);
 
         comp.InStasis = false;
+        _changelingSystem.UpdateChemicals(changeling, -(comp.MaxChemicals / 2));
         _alertsSystem.ShowAlert(changeling, comp.StasisAlert, _changelingSystem.GetStasisAlertSeverity(changeling.Comp));
 
         Dirty(changeling);
