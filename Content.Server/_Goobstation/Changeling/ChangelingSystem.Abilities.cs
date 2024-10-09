@@ -19,7 +19,7 @@ using Content.Shared._Goobstation.Changeling;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem
+/*public sealed partial class ChangelingSystem
 {
     public void SubscribeAbilities()
     {        
@@ -579,4 +579,4 @@ public sealed partial class ChangelingSystem
     }
 
     #endregion
-}
+}*/

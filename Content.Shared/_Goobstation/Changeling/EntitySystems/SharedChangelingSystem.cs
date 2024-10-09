@@ -1,15 +1,11 @@
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared._Goobstation.Map;
-using Content.Shared.Actions;
 using Content.Shared.Alert;
 using Content.Shared.Camera;
-using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
-using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -34,7 +30,6 @@ public abstract class SharedChangelingSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SharedStorageMapSystem _storageMap = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -63,6 +58,17 @@ public abstract class SharedChangelingSystem : EntitySystem
         else
             args.ModifySpeed(1f, 1f);
     }*/
+
+    /// <summary>
+    ///     Gets stasis alert severity
+    /// </summary>
+    public short GetStasisAlertSeverity(ChangelingComponent changelingComp)
+    {
+        if (changelingComp.InStasis)
+            return 1;
+
+        return 0;
+    }
 
     /// <summary>
     ///     Updates chemicals amount and updates client alert sprite
@@ -232,7 +238,7 @@ public abstract class SharedChangelingSystem : EntitySystem
         return true;
     }
 
-    // TODO: This really should be in different system.
+    // TODO: This really should be in separate system.
     /// <summary>
     ///     Used to transfer components from one entity to another entity.
     /// </summary>
@@ -324,11 +330,6 @@ public abstract class SharedChangelingSystem : EntitySystem
         if (absorbable.Comp.Absorbed)
             args.PushMarkup(Loc.GetString("changeling-absorb-onexamine"));
     }
-
-    /// <summary>
-    ///     Change target's blood type 
-    /// </summary>
-    public abstract void ChangeTargetBloodType(EntityUid target, EntProtoId bloodPrototype);
 }
 
 [Serializable, NetSerializable]

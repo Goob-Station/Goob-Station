@@ -21,4 +21,10 @@ public sealed partial class AbsorbableComponent : Component
     ///     Group of damage that will be dealed to absorbed person / ling on death
     /// </summary>
     public ProtoId<DamageGroupPrototype> AbsorbedDamageGroup = "Genetic";
+
+    /// <summary>
+    ///     Type of blood that absorbed body will have.
+    /// </summary>
+    [DataField]
+    public string AbsorbedBloodType = "FerrochromicAcid";
 }

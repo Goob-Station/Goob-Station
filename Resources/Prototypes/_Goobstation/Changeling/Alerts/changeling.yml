@@ -33,3 +33,16 @@
     sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
+
+- type: alert
+  id: ChangelingStasis
+  clickEvent: !type:ToggleChangelingStasisEvent
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_stasis.rsi
+    state: stasis0
+  - sprite: /Textures/_Goobstation/Changeling/changeling_stasis.rsi
+    state: stasis1
+  name: alerts-changeling-stasis-name
+  description: alerts-changeling-stasis-desc
+  minSeverity: 0
+  maxSeverity: 1

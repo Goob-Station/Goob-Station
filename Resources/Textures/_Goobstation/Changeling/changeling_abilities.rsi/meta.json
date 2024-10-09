@@ -66,13 +66,6 @@
             "name": "space_adaptation"
         },
         {
-            "name": "stasis_enter"
-        },
-        {
-            "name": "stasis_exit",
-            "delays": [ [ 0.5, 0.5 ] ]
-        },
-        {
             "name": "sting_armblade"
         },
         {

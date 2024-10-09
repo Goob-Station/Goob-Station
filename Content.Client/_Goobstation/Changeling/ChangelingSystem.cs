@@ -3,7 +3,7 @@ using Content.Client.UserInterface.Systems.Alerts.Controls;
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 
-namespace Content.Client.Changeling;
+namespace Content.Client._Goobstation.Changeling;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
@@ -17,18 +17,18 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnUpdateAlert(Entity<ChangelingComponent> changeling, ref UpdateAlertSpriteEvent args)
     {
-        var stateNormalized = 0f;
+        var stateNormalized = 0;
         var comp = changeling.Comp;
 
         // hardcoded because uhh umm i don't know. send help.
         switch (args.Alert.AlertKey.AlertType)
         {
             case "ChangelingChemicals":
-                stateNormalized = (comp.Chemicals / comp.MaxChemicals * 18);
+                stateNormalized = (int) (comp.Chemicals / comp.MaxChemicals * 18);
                 break;
 
             case "ChangelingBiomass":
-                stateNormalized = (comp.Biomass / comp.MaxBiomass * 16);
+                stateNormalized = (int) (comp.Biomass / comp.MaxBiomass * 16);
                 break;
             default:
                 return;

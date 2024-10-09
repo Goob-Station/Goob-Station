@@ -1,0 +1,18 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "stasis1"
+        },
+        {
+            "name": "stasis0",
+            "delays": [ [ 0.5, 0.5 ] ]
+        }
+    ]
+}

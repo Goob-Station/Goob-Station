@@ -23,9 +23,7 @@ public sealed partial class ChangelingComponent : Component
         "ActionAbsorbDNA",
         "ActionStingExtractDNA",
         "ActionChangelingTransformCycle",
-        "ActionChangelingTransform",
-        "ActionEnterStasis",
-        "ActionExitStasis"
+        "ActionChangelingTransform"
     };
 
     /// <summary>
@@ -36,17 +34,24 @@ public sealed partial class ChangelingComponent : Component
     public ProtoId<AlertPrototype> ChemicalsAlert = "ChangelingChemicals";
 
     [DataField]
-    public ProtoId<AlertPrototype> BiomassAlert = "ChangelingChemicals";
+    public ProtoId<AlertPrototype> BiomassAlert = "ChangelingBiomass";
+
+    [DataField]
+    public ProtoId<AlertPrototype> StasisAlert = "ChangelingStasis";
 
     [DataField]
     public string ChangelingBloodPrototype = "BloodChangeling";
+
+    #endregion
 
     /// <summary>
     ///     Contains the dictionary of ling's prototypeId and existing equipment to find them easily in his container
     /// </summary>
     [DataField, AutoNetworkedField]
     public Dictionary<string, EntityUid> EquipmentList = new();
-    #endregion
+
+    [DataField, AutoNetworkedField]
+    public bool InStasis = false;
 
     #region Biomass and Chemicals
 

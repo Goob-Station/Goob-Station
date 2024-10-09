@@ -17,24 +17,23 @@ using Content.Server.Jittering;
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Server.Humanoid;
-using Content.Shared.Mind;
-using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Polymorph.Systems;
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 
-namespace Content.Server._Goobstation.Changeling;
+namespace Content.Server._Goobstation.Changeling.EntitySystems;
 
 public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AlertsSystem _alertSystem = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstreamSystem = default!;
     [Dependency] private readonly JitteringSystem _jitteringSystem = default!;
     [Dependency] private readonly HumanoidAppearanceSystem _humanoidAppearance = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly PolymorphSystem _polymorphSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly SharedPuddleSystem _puddleSystem = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
@@ -178,6 +177,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         _metadata.SetEntityName(target, data.Name);
 
         PopupSystem.PopupEntity(Loc.GetString("changeling-transform-finish", ("target", data.Name)), target, target);
+
+        if (TryComp<ChangelingComponent>(target, out var changelingComp))
+            changelingComp.CurrentForm = data;
     }
 
     /// <summary>
@@ -296,11 +298,10 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         comp.Chemicals = comp.MaxChemicals;
         comp.Biomass = comp.MaxBiomass;
 
-        Dirty(changeling);
-
         UpdateChemicals(changeling, 0);
         UpdateBiomass(changeling, 0);
 
+        _alertSystem.ShowAlert(changeling, comp.StasisAlert, GetStasisAlertSeverity(comp));
         _bloodstreamSystem.ChangeBloodReagent(changeling, comp.ChangelingBloodPrototype);
     }
     #endregion

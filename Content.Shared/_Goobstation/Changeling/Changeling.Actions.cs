@@ -1,5 +1,6 @@
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Actions;
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Changeling;
@@ -27,9 +28,7 @@ public sealed partial class AbsorbDNAEvent : EntityTargetActionEvent { }
 public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformCycleEvent : InstantActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
-public sealed partial class EnterStasisEvent : InstantActionEvent { }
-public sealed partial class ExitStasisEvent : InstantActionEvent { }
-
+public sealed partial class ToggleChangelingStasisEvent : BaseAlertEvent { }
 #endregion
 
 #region Events - Combat

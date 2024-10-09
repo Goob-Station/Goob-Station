@@ -1,7 +1,6 @@
 using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
-using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
@@ -13,21 +12,27 @@ namespace Content.Shared._Goobstation.Changeling.EntitySystems;
 public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
 {
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-    [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly SharedChangelingSystem _changelingSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
 
     [Dependency] protected readonly IPrototypeManager ProtoManager = default!;
-    [Dependency] protected readonly SharedChangelingSystem ChangelingSystem = default!;
     [Dependency] protected readonly SharedPopupSystem PopupSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
-        SubscribeLocalEvent<ChangelingComponent, AbsorbDNADoAfterEvent>(OnAbsorbDoAfter);
-
         SubscribeLocalEvent<ChangelingActionComponent, ActionAttemptEvent>(OnTryUseAbility);
+
+        SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
+    }
+
+    /// <summary>
+    ///     Check if user can interact with something.
+    /// </summary>
+    public bool CanInteract(EntityUid target)
+    {
+        return _actionBlockerSystem.CanInteract(target, null);
     }
 
     /// <summary>
@@ -42,60 +47,69 @@ public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
         var user = args.User;
 
         if (!TryComp<ChangelingComponent>(user, out var changelingComp))
+        {
+            args.Cancelled = true;
             return;
+        }
 
         if (changelingComp.Biomass < comp.BiomassCost)
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-biomass-deficit"), user);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-biomass-deficit"), user, user);
             args.Cancelled = true;
+            return;
         }
 
         if (changelingComp.FormType < comp.RequiredFormType)
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-action-fail-lesserform"), user);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), user, user);
             args.Cancelled = true;
+            return;
         }
 
         if (changelingComp.Chemicals < comp.ChemicalCost)
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-chemicals-deficit"), user);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), user, user);
             args.Cancelled = true;
+            return;
         }
 
         if (changelingComp.TotalAbsorbedEntities < comp.RequireAbsorbed)
         {
             var delta = comp.RequireAbsorbed - changelingComp.TotalAbsorbedEntities;
-            PopupSystem.PopupClient(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), user);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), user, user);
             args.Cancelled = true;
+            return;
         }
 
-        ChangelingSystem.UpdateChemicals((user, changelingComp), -comp.ChemicalCost);
-        ChangelingSystem.UpdateBiomass((user, changelingComp), -comp.BiomassCost);
+        _changelingSystem.UpdateChemicals((user, changelingComp), -comp.ChemicalCost);
+        _changelingSystem.UpdateBiomass((user, changelingComp), -comp.BiomassCost);
     }
 
     private void OnAbsorb(Entity<ChangelingComponent> changeling, ref AbsorbDNAEvent args)
     {
         var target = args.Target;
 
-        if (_actionBlockerSystem.CanInteract(target, null))
+        if (CanInteract(target))
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-absorb-fail-incapacitated"), changeling);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-absorb-fail-incapacitated"), changeling, changeling);
             return;
         }
+
         if (!TryComp<AbsorbableComponent>(target, out var absorbable))
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-absorb-fail-unabsorbable"), changeling);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-absorb-fail-unabsorbable"), changeling, changeling);
             return;
         }
+
         if (absorbable.Absorbed)
         {
-            PopupSystem.PopupClient(Loc.GetString("changeling-absorb-fail-absorbed"), changeling);
+            PopupSystem.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), changeling, changeling);
             return;
         }
 
         var popupOthers = Loc.GetString("changeling-absorb-start", ("user", Identity.Entity(changeling, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
-        PopupSystem.PopupPredicted(popupOthers, changeling, changeling, PopupType.LargeCaution);
-        ChangelingSystem.PlayMeatySound(changeling);
+        PopupSystem.PopupEntity(popupOthers, changeling, PopupType.LargeCaution);
+        _changelingSystem.PlayMeatySound(changeling);
 
         var doAfterArgs = new DoAfterArgs(EntityManager, changeling, TimeSpan.FromSeconds(15), new AbsorbDNADoAfterEvent(), changeling, target)
         {
@@ -108,63 +122,6 @@ public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
         };
 
         _doAfterSystem.TryStartDoAfter(doAfterArgs);
-    }
-
-    private void OnAbsorbDoAfter(Entity<ChangelingComponent> changeling, ref AbsorbDNADoAfterEvent args)
-    {
-        if (args.Target == null)
-            return;
-
-        var target = args.Target.Value;
-        var comp = changeling.Comp;
-
-        if (args.Cancelled || _actionBlockerSystem.CanInteract(target, null) || !TryComp<AbsorbableComponent>(target, out var absorbable))
-            return;
-
-        ChangelingSystem.PlayMeatySound(changeling);
-
-        ChangelingSystem.UpdateBiomass(changeling, comp.MaxBiomass - comp.TotalAbsorbedEntities);
-
-        var dmg = new DamageSpecifier(ProtoManager.Index(absorbable.AbsorbedDamageGroup), 200);
-        _damageableSystem.TryChangeDamage(target, dmg, false, false);
-
-        absorbable.Absorbed = true;
-
-        var popup = Loc.GetString("changeling-absorb-end-self-ling");
-        var bonusChemicals = 0f;
-        var bonusEvolutionPoints = 0f;
-
-        if (TryComp<ChangelingComponent>(target, out var targetComp))
-        {
-            bonusChemicals += targetComp.MaxChemicals / 2;
-            bonusEvolutionPoints += 10;
-            comp.MaxBiomass += targetComp.MaxBiomass / 2;
-        }
-        else
-        {
-            popup = Loc.GetString("changeling-absorb-end-self");
-            bonusChemicals += 10;
-            bonusEvolutionPoints += 2;
-        }
-        if (ChangelingSystem.TryStea(uid, target, comp, true);
-        comp.TotalAbsorbedEntities++;
-
-        _popup.PopupEntity(popup, args.User, args.User);
-        comp.MaxChemicals += bonusChemicals;
-
-        if (TryComp<StoreComponent>(args.User, out var store))
-        {
-            _store.TryAddCurrency(new Dictionary<string, FixedPoint2> { { "EvolutionPoint", bonusEvolutionPoints } }, args.User, store);
-            _store.UpdateUserInterface(args.User, args.User, store);
-        }
-
-        // Override ths on server
-        _blood.ChangeBloodReagent(target, "FerrochromicAcid");
-        _blood.SpillAllSolutions(target);
-
-        if (_mind.TryGetMind(uid, out var mindId, out var mind))
-            if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
-                objective.Absorbed += 1;
     }
 }
 
