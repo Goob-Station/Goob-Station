@@ -22,8 +22,6 @@ public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ChangelingActionComponent, ActionAttemptEvent>(OnTryUseAbility);
-
         SubscribeLocalEvent<ChangelingComponent, AbsorbDNAEvent>(OnAbsorb);
     }
 
@@ -36,53 +34,41 @@ public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
     }
 
     /// <summary>
-    ///     Trying to use changeling ability. If user don't have changeling component - it'll be cancelled
+    ///     Trying to use changeling action ability.
     /// </summary>
-    public void OnTryUseAbility(Entity<ChangelingActionComponent> action, ref ActionAttemptEvent args)
+    public bool TryUseLingAbility(Entity<ChangelingComponent> changeling, IChangelingAction action)
     {
-        if (args.Cancelled)
-            return;
+        var comp = changeling.Comp;
 
-        var comp = action.Comp;
-        var user = args.User;
-
-        if (!TryComp<ChangelingComponent>(user, out var changelingComp))
+        if (comp.Biomass < action.BiomassCost)
         {
-            args.Cancelled = true;
-            return;
+            PopupSystem.PopupEntity(Loc.GetString("changeling-biomass-deficit"), changeling, changeling);
+            return false;
         }
 
-        if (changelingComp.Biomass < comp.BiomassCost)
+        if (comp.FormType < action.RequiredForm)
         {
-            PopupSystem.PopupEntity(Loc.GetString("changeling-biomass-deficit"), user, user);
-            args.Cancelled = true;
-            return;
+            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), changeling, changeling);
+            return false;
         }
 
-        if (changelingComp.FormType < comp.RequiredFormType)
+        if (comp.Chemicals < action.ChemicalCost)
         {
-            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-lesserform"), user, user);
-            args.Cancelled = true;
-            return;
+            PopupSystem.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), changeling, changeling);
+            return false;
         }
 
-        if (changelingComp.Chemicals < comp.ChemicalCost)
+        if (comp.TotalAbsorbedEntities < action.RequiredAbsorbed)
         {
-            PopupSystem.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), user, user);
-            args.Cancelled = true;
-            return;
+            var delta = action.RequiredAbsorbed - comp.TotalAbsorbedEntities;
+            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), changeling, changeling);
+            return false;
         }
 
-        if (changelingComp.TotalAbsorbedEntities < comp.RequireAbsorbed)
-        {
-            var delta = comp.RequireAbsorbed - changelingComp.TotalAbsorbedEntities;
-            PopupSystem.PopupEntity(Loc.GetString("changeling-action-fail-absorbed", ("number", delta)), user, user);
-            args.Cancelled = true;
-            return;
-        }
+        _changelingSystem.UpdateChemicals(changeling, -action.ChemicalCost);
+        _changelingSystem.UpdateBiomass(changeling, -action.BiomassCost);
 
-        _changelingSystem.UpdateChemicals((user, changelingComp), -comp.ChemicalCost);
-        _changelingSystem.UpdateBiomass((user, changelingComp), -comp.BiomassCost);
+        return true;
     }
 
     private void OnAbsorb(Entity<ChangelingComponent> changeling, ref AbsorbDNAEvent args)
@@ -106,6 +92,8 @@ public abstract partial class SharedChangelingAbilitiesSystem : EntitySystem
             PopupSystem.PopupEntity(Loc.GetString("changeling-absorb-fail-absorbed"), changeling, changeling);
             return;
         }
+
+        TryUseLingAbility(changeling, args);
 
         var popupOthers = Loc.GetString("changeling-absorb-start", ("user", Identity.Entity(changeling, EntityManager)), ("target", Identity.Entity(target, EntityManager)));
         PopupSystem.PopupEntity(popupOthers, changeling, PopupType.LargeCaution);

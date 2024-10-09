@@ -35,11 +35,8 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: absorb_dna
-    event: !type:AbsorbDNAEvent {}
-  - type: ChangelingAction
-    chemicalCost: 25
-    requireBiomass: false
-    useInLesserForm: true
+    event: !type:AbsorbDNAEvent 
+      chemicalCost: 25
 
 - type: entity
   id: ActionStingExtractDNA

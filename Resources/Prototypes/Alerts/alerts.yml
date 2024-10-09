@@ -9,8 +9,8 @@
     - category: Health
     - category: Stamina
     - alertType: SuitPower
-    - category: Internals
     - alertType: ChangelingStasis # goobstation - changelings
+    - category: Internals
     - alertType: Fire
     - alertType: Handcuffed
     - alertType: Ensnared

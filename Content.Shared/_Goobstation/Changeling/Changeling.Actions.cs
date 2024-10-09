@@ -24,7 +24,7 @@ public sealed partial class ChangelingActionComponent : Component
 #region Events - Basic
 
 public sealed partial class OpenEvolutionMenuEvent : InstantActionEvent { }
-public sealed partial class AbsorbDNAEvent : EntityTargetActionEvent { }
+public sealed partial class AbsorbDNAEvent : ChangelingEntityTargetActionEvent { }
 public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformCycleEvent : InstantActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
@@ -70,3 +70,48 @@ public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
 #endregion
+
+
+public abstract partial class ChangelingEntityTargetActionEvent : EntityTargetActionEvent, IChangelingAction
+{
+    [DataField]
+    public float ChemicalCost { get; set; }
+
+    [DataField]
+    public float BiomassCost { get; set; }
+
+    [DataField]
+    public float RequiredAbsorbed { get; set; }
+
+    [DataField]
+    public ChangelingFormType RequiredForm { get; set; }
+}
+
+public abstract partial class ChangelingInstantActionEvent : InstantActionEvent, IChangelingAction
+{
+    [DataField]
+    public float ChemicalCost { get; set; }
+
+    [DataField]
+    public float BiomassCost { get; set; }
+
+    [DataField]
+    public float RequiredAbsorbed { get; set; }
+
+    [DataField]
+    public ChangelingFormType RequiredForm { get; set; }
+}
+
+/// <summary>
+///     Interface that uses to give biomass/chemicals price for events
+/// </summary>
+public interface IChangelingAction
+{
+    public float ChemicalCost { get; set; }
+
+    public float BiomassCost { get; set; }
+
+    public ChangelingFormType RequiredForm { get; set; }
+
+    public float RequiredAbsorbed { get; set; }
+}
