@@ -11,7 +11,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Antag.Components;
 
-[RegisterComponent, Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))]
+// goob edit - no more specified access.
+// will it turn out to be a bad decision? probably yes
+// do i care? :trollface:
+[RegisterComponent, /*Access(typeof(AntagSelectionSystem), typeof(AdminVerbSystem))*/]
 public sealed partial class AntagSelectionComponent : Component
 {
     /// <summary>

@@ -1,0 +1,18 @@
+- type: latheRecipe 
+  id: WeaponPlasmaCutter
+  result: WeaponPlasmaCutterEmpty
+  completetime: 3
+  materials:
+    Steel: 500
+    Glass: 300
+    Plasma: 300
+
+- type: latheRecipe 
+  id: WeaponPlasmaRifle
+  result: WeaponPlasmaRifleEmpty
+  completetime: 6
+  materials:
+    Steel: 400
+    Glass: 100
+    Plastic: 50
+    Plasma: 50

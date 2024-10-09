@@ -234,7 +234,7 @@
     guides:
     - Cyborgs
     - Robotics
-  - type: StepTriggerImmune
+  - type: ProtectedFromStepTriggers
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:
@@ -285,6 +285,8 @@
     access: [["Command"], ["Research"]]
   - type: ShowJobIcons
   - type: ShowMindShieldIcons
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 3
 
 - type: entity
   id: BaseBorgChassisSyndicate
@@ -320,6 +322,7 @@
     color: "#dd200b"
   - type: Damageable #Goobstation - Ion Damage
     damageContainer: Silicon
-    damageModifierSet: SiliconProtected 
-  - type: ExplosionResistance
+    damageModifierSet: SiliconProtected
+  - type: ExplosionResistance #Goobstation - Ion Damage
     damageCoefficient: 0.5
+  - type: FlashImmunity

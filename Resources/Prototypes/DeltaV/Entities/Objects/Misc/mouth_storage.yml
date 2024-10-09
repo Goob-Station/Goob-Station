@@ -2,14 +2,14 @@
   id: CheekStorage
   name: cheek storage
   description: The cheeks of an animal, capable of storing small objects.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: Storage
     clickInsert: false
     grid:
     - 0,0,1,1
     maxItemSize: Small
-    blacklist: 
+    blacklist:
       components:
       - Sharp
       - MindContainer

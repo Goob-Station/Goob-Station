@@ -200,7 +200,8 @@
       - ClothingHeadHatWelding
       - WetFloorSign
       - ClothingHeadHatCone
-
+      - FreezerElectronics
+      - Flare
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -340,7 +341,6 @@
       - WeaponForceGun
       - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
-      - WeaponPlasmaCutter # Goobstation
       - WeaponTetherGun
       - ClothingBackpackHolding
       - ClothingBackpackSatchelHolding
@@ -354,6 +354,8 @@
       - FauxTileAstroSnow
       - OreBagOfHolding
       - DeviceQuantumSpinInverter
+      - WeaponPlasmaCutter # Goobstation
+      - WeaponPlasmaRifle # Goobstation
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -453,6 +455,7 @@
     - SpaceHeaterMachineCircuitBoard
     - CutterMachineCircuitboard
     - StationAnchorCircuitboard
+    - SalvageMagnetMachineCircuitboard
     dynamicRecipes:
       - ThermomachineFreezerMachineCircuitBoard
       - HellfireFreezerMachineCircuitBoard

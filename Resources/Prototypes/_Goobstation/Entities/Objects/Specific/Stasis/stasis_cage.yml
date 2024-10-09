@@ -1,0 +1,54 @@
+- type: entity
+  id: StasisCage
+  name: stasis container
+  description: It's smaller on the outside than it is on the inside.
+  parent: BaseStructureDynamic
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: Objects
+    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+    layers:
+    - state: stasis_cage-base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: stasis_cage-closed
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+    state: icon
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 25
+        mask:
+        - SmallMobMask
+        layer:
+        - MachineLayer
+  - type: EntityStorage
+    capacity: 1
+    airtight: false
+    itemCanStoreMobs: true
+    openOnMove: false
+  - type: ResistLocker
+  - type: PlaceableSurface
+    isPlaceable: false
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: stasis_cage-opened
+    stateDoorClosed: stasis_cage-closed
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+  - type: ItemSlots
+  - type: StasisContainer
+  - type: Item
+    size: Normal
+    sprite: _Goobstation/Objects/Specific/ChronoLegionnaire/stasis_cage.rsi
+  - type: Tag
+    tags:
+      - StasisCage

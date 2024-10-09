@@ -1,0 +1,86 @@
+- type: entity
+  id: BaseFastDrawImplanter
+  parent: BaseImplanter
+  name: fast draw implanter
+  description: A syringe with tools for quick implant removal. It has small gold stars on its body.
+  abstract: true
+  components:
+    - type: Sprite
+      sprite: Objects/Specific/Medical/implanter.rsi
+      state: implanter0
+      layers:
+        - state: implanter1
+          map: [ "implantFull" ]
+          visible: true
+        - state: implanter0
+          map: [ "implantOnly" ]
+    - type: Implanter
+      currentMode: Draw
+      drawTime: 30
+
+- type: entity
+  id: RevsFastDrawImplanter
+  parent: [ BaseFastDrawImplanter, BaseMajorContraband ]
+  components:
+    - type: Item
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+    - type: Sprite
+      sprite: _Goobstation/Objects/Specific/Medical/revs_implanter.rsi
+      state: implanter1
+      layers:
+        - state: implanter1
+          map: [ "implantFull" ]
+          visible: false
+        - state: implanter0
+          map: [ "implantOnly" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.ImplanterVisuals.Full:
+          implantFull:
+            True: {visible: true}
+            False: {visible: false}
+        enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+          implantOnly:
+            True: {state: broken}
+            False: {state: implanter1}
+    - type: Tag
+      tags: []
+
+- type: entity
+  id: BaseImplantOnlyImplanterCentcomm
+  parent: [ BaseImplantOnlyImplanter, BaseCentcommContraband ]
+  name: centcomm implanter
+  description: A compact disposable syringe exclusively designed for the injection of subdermal implants. The insertion needle is coated with an anesthetic.
+  abstract: true
+  components:
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/nt_implanter.rsi
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/nt_implanter.rsi
+    state: implanter1
+    layers:
+      - state: implanter0
+        map: [ "implantFull" ]
+        visible: true
+      - state: implanter1
+        map: [ "implantOnly" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ImplanterVisuals.Full:
+        implantFull:
+          True: {visible: true}
+          False: {visible: false}
+      enum.ImplanterImplantOnlyVisuals.ImplantOnly:
+        implantOnly:
+          True: {state: broken}
+          False: {state: implanter1}
+  - type: Tag
+    tags: []
+
+- type: entity
+  id: BluespaceLifelineImplanter
+  suffix: bluespace lifeline
+  parent: BaseImplantOnlyImplanterCentcomm
+  components:
+  - type: Implanter
+    implant: BluespaceLifelineImplant
