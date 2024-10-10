@@ -25,7 +25,7 @@
       - type: TraitorRole
         prototype: Traitor
 
-# Thief (Spy wyci)
+# Thief (spy wyci)
 - type: entity
   parent: BaseGameRuleDynamic
   id: ThiefDynamic
@@ -36,6 +36,25 @@
     cost: 8
     scalingCost: 9
   - type: ThiefRule
+  - type: AntagSelection
+    agentName: thief-round-end-agent-name
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 2
+      playerRatio: 15
+      blacklist:
+        components:
+        - AntagImmune
+      lateJoinAdditional: true
+      startingGear: ThiefGear
+      mindComponents:
+      - type: ThiefRole
+        prototype: Thief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
+      special:
+      - !type:AddImplantSpecial
+        implants: [ PacifismImplant ]
   - type: AntagObjectives
     objectives:
     - EscapeThiefShuttleObjective
@@ -47,21 +66,6 @@
     - groups: ThiefObjectiveGroups
       maxPicks: 10
     maxDifficulty: 2.5
-  - type: AntagSelection
-    agentName: thief-round-end-agent-name
-    definitions:
-    - prefRoles: [ Thief ]
-      max: 2
-      playerRatio: 15
-      lateJoinAdditional: true
-      allowNonHumans: true
-      multiAntagSetting: NotExclusive
-      startingGear: ThiefGear
-      mindComponents:
-      - type: ThiefRole
-        prototype: Thief
-      briefing:
-        sound: "/Audio/Misc/thief_greeting.ogg"
 
 # Changeling
 - type: entity
@@ -85,8 +89,6 @@
       blacklist:
         components:
         - AntagImmune
-        - Traitor
-        - Heretic
       lateJoinAdditional: true
       mindComponents:
       - type: ChangelingRole

@@ -29,7 +29,7 @@
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-changeling-title
     weight: 4
-    cost: 6
+    cost: 5
   - type: StationEvent
     earliestStart: 20
     weight: 3
@@ -102,7 +102,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-dragon-title
-    weight: 4
+    weight: 3
     cost: 7
     highImpact: true
   - type: StationEvent
@@ -137,7 +137,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ninja-title
-    weight: 4
+    weight: 3
     cost: 7
     highImpact: true
   - type: StationEvent
@@ -192,7 +192,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-revenant-title
-    weight: 4
+    weight: 3
     cost: 5
     highImpact: true
   - type: StationEvent
@@ -250,7 +250,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-loneop-title
-    weight: 4
+    weight: 3
     cost: 7
     highImpact: true
   - type: StationEvent

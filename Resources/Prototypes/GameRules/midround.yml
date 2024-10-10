@@ -24,8 +24,9 @@
       allowNonHumans: true
       multiAntagSetting: NotExclusive
       startingGear: ThiefGear
-      components:
-      - type: Pacified
+      special: # goob edit - actual pacifism implant
+      - !type:AddImplantSpecial
+        implants: [ PacifismImplant ]
       mindComponents:
       - type: ThiefRole
         prototype: Thief
