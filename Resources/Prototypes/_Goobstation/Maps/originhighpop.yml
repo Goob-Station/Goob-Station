@@ -1,24 +1,23 @@
 - type: gameMap
-  id: FlandHighPop
-  mapName: 'Fland Installation'
-  mapPath: /Maps/_Goobstation/fland.yml
+  id: OriginHighPop
+  mapName: 'Origin'
+  mapPath: /Maps/_Goobstation/origin.yml
   minPlayers: 85
   stations:
-    Fland:
+    Origin:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Fland Installation {1}'
+          mapNameTemplate: '{0} Origin {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'B'
+            prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_delta.yml
-        - type: StationCargoShuttle
-          path: /Maps/Shuttles/cargo_fland.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
         - type: StationJobs
           availableJobs:
             #service
+            StationAi: [ 1, 1 ]
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
@@ -30,6 +29,7 @@
             Chaplain: [ 2, 2 ]
             Librarian: [ 2, 2 ]
             ServiceWorker: [ 4, 4 ]
+            Reporter: [ 3, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
             AtmosphericTechnician: [ 5, 5 ]
@@ -63,3 +63,5 @@
             Clown: [ 2, 2 ]
             Mime: [ 2, 2 ]
             Musician: [ 3, 3 ]
+            Boxer: [ 2, 2 ]
+
