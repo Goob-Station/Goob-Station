@@ -55,3 +55,18 @@
       - id: HandHeldMassScanner
       - id: Flash
       - id: TimelineDisruptorFlatpack
+
+- type: entity
+  parent: ClothingBackpackMerc
+  id: ClothingBackpackMercFilledHECU
+  suffix: Filled, HECU
+  components:
+  - type: StorageFill
+    contents:
+      - id: BoxMagazinePistolSubMachineGun
+      - id: MindShieldImplanter
+      - id: Ziptie
+      - id: Ziptie
+      - id: MedkitAdvancedFilled
+      - id: WeaponPistolEchis
+      - id: Flash
