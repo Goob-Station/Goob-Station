@@ -69,3 +69,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformHecu
+  name: HECU uniform
+  description: Hunt down the Freeman.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/ancient.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/ancient.rsi

@@ -34,3 +34,22 @@
   - type: IdCard
     jobTitle: Salvage Diver
     jobIcon: JobIconShaftMiner
+
+# HECU
+- type: entity
+  parent: IDCardStandard
+  id: HecuIDCard
+  name: HECU ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: HECU Operative
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand

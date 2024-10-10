@@ -1,0 +1,41 @@
+- type: job
+  id: HecuOperative
+  name: job-name-hecu
+  description: job-description-hecu
+  playTimeTracker: JobHecuOperative
+  setPreference: false
+  startingGear: HecuGear
+  icon: "JobIconNanotrasen"
+  supervisors: job-supervisors-centcom
+  canBeAntag: false
+  accessGroups:
+  - AllAccess
+  access:
+  - CentralCommand
+
+- type: startingGear
+  id: HecuGear
+  equipment:
+    jumpsuit: ClothingUniformHecu
+    back: ClothingBackpackMerc
+    mask: ClothingMaskGasAtmos
+    eyes: ClothingEyesGlassesMedSec
+    ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesCombat
+    outerClothing: ClothingOuterVestWeb
+    suitstorage: WeaponRifleLecter
+    shoes: ClothingShoesBootsJackFilled
+    head: ClothingHeadHelmetHecu
+    id: HecuPDA
+    belt: ClothingBeltMilitaryWebbing
+    pocket1: MagazineRifle
+    pocket2: MagazineRifle
+  storage:
+    back:
+     - id: BoxSurvivalSecurity
+     - id: BaseMagazineRifle
+     - id: BaseMagazineRifle
+     - id: MagazineBoxRifleBig
+     - id: MedicatedSuture
+     - id: RegenerativeMesh
+     - id: BoxZiptie

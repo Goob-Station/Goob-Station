@@ -35,3 +35,14 @@
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Helmets/hev.rsi
+
+- type: entity
+  parent: ClothingHeadHelmetBase
+  id: ClothingHeadHelmetHecu
+  name: HECU helmet
+  description: Hunt down the Freeman.
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/merc_helmet.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/merc_helmet.rsi

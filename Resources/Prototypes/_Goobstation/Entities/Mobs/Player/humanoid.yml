@@ -36,3 +36,39 @@
     - type: Loadout
       prototypes: [ LostFrontierProspectorSuit ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+## HECU
+
+- type: entity
+  id: RandomHumanoidSpawnerHECU
+  name: HECU operative
+  suffix: ERTRole, HECU
+  components:
+    - type: Sprite
+      sprite: Clothing/Head/Helmets/merc_helmet.rsi
+      state: icon
+    - type: RandomMetadata
+      nameSegments:
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
+    - type: RandomHumanoidSpawner
+      settings: HecuSoldier
+
+- type: randomHumanoidSettings
+  id: HecuSoldier
+  parent: EventHumanoidMindShielded
+  randomizeName: false
+  components:
+    - type: GhostRole
+      name: ghost-role-information-Hecu-name
+      description: ghost-role-information-Hecu-description
+      rules: ghost-role-information-Hecu-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [HecuGear]
+      roleLoadout: [HecuGear]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
