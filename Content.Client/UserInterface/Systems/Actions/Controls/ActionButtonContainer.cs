@@ -32,12 +32,24 @@ public class ActionButtonContainer : GridContainer
 
     private void BuildActionButtons(int count)
     {
+        var uniqueCount = Math.Min(system.GetClientActions().Count(), actionTypes.Length + 1);
         var keys = ContentKeyFunctions.GetHotbarBoundKeys();
 
-        Children.Clear();
-        for (var index = 0; index < count; index++)
+        for (var i = 0; i < uniqueCount; i++)
         {
-            Children.Add(MakeButton(index));
+            if (i >= ChildCount)
+            {
+                AddChild(MakeButton(i));
+            }
+
+            if (!actionTypes.TryGetValue(i, out var action))
+                action = null;
+            ((ActionButton) GetChild(i)).UpdateData(action, system);
+        }
+
+        for (var i = ChildCount - 1; i >= uniqueCount; i--)
+        {
+            RemoveChild(GetChild(i));
         }
 
         ActionButton MakeButton(int index)
