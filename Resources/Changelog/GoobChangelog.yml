@@ -1408,3 +1408,51 @@ Entries:
       message: Updated Fland to include all new goob features
   id: 173
   time: '2024-10-03T23:30:53.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added BSO and NTR shared room on Oasis.
+    - type: Add
+      message: Added Mail equipment to Cargo on Oasis.
+  id: 174
+  time: '2024-10-04T13:22:16.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added 4 new lobby screens made by blooodyspy!!
+  id: 175
+  time: '2024-10-04T13:49:04.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Atlas to include all new goob features
+  id: 176
+  time: '2024-10-04T13:51:02.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added the Living Heart to heretic's arsenal.
+    - type: Tweak
+      message: >-
+        Eldritch gods will not accept anyone as a valid sacrifice for heretics
+        anymore.
+    - type: Fix
+      message: Fixed some heretics abilities bugs.
+    - type: Tweak
+      message: Made ash heretic's volcano blast ability not suck
+    - type: Tweak
+      message: Updated heretic guidebook GO READ IT!!!
+  id: 177
+  time: '2024-10-05T16:00:16.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed midround nukies weren't count as real syndicate members
+  id: 178
+  time: '2024-10-06T06:34:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: If you're reading this dynamic works
+  id: 179
+  time: '2024-10-07T04:18:45.0000000+00:00'
