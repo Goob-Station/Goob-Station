@@ -266,4 +266,5 @@
   id: MedibotAds
   values:
     prefix: advertisement-medibot-
-    count: 17
+    # Goobstation - Medibot AM advertisement; originally 17
+    count: 18
