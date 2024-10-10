@@ -1,19 +1,19 @@
 - type: gameMap
-  id: OasisHighPop
-  mapName: 'Oasis'
-  mapPath: /Maps/_Goobstation/oasis.yml
+  id: OriginHighPop
+  mapName: 'Origin'
+  mapPath: /Maps/_Goobstation/origin.yml
   minPlayers: 85
   stations:
-    Oasis:
+    Origin:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Oasis {1}'
+          mapNameTemplate: '{0} Origin {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
-            prefixCreator: 'B'
+            prefixCreator: '14'
         - type: StationEmergencyShuttle
-          emergencyShuttlePath: /Maps/Shuttles/emergency_delta.yml
+          emergencyShuttlePath: /Maps/Shuttles/emergency_courser.yml
         - type: StationJobs
           availableJobs:
             #service
@@ -29,7 +29,6 @@
             Chaplain: [ 2, 2 ]
             Librarian: [ 2, 2 ]
             ServiceWorker: [ 4, 4 ]
-            Zookeeper: [ 2, 2 ]
             Reporter: [ 3, 3 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
@@ -64,3 +63,5 @@
             Clown: [ 2, 2 ]
             Mime: [ 2, 2 ]
             Musician: [ 3, 3 ]
+            Boxer: [ 2, 2 ]
+
