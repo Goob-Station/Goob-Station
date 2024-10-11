@@ -24,7 +24,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Store.Components;
 using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Audio; // Goobstation - BSCrystal
 
 namespace Content.Server.Implants;
 
@@ -96,7 +95,7 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
     {
         args.Handled = true;
     }
-    // Goobstation - BSCrystals - start
+
     private void OnScramImplant(EntityUid uid, SubdermalImplantComponent component, UseScramImplantEvent args)
     {
         if (component.ImplantedEntity is not { } ent)
@@ -105,29 +104,21 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
         if (!TryComp<ScramImplantComponent>(uid, out var implant))
             return;
 
-        if (TeleportEnt((EntityUid) ent, implant.TeleportRadius, implant.TeleportSound)) // Goobstation - BSCrystal
-            args.Handled = true;
-    }
-
-    public bool TeleportEnt(EntityUid uid, float teleportRadius, SoundSpecifier sound) // Goobstation - BSCrystal
-    {
         // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
         // This can for example happen when the user is cuffed and being pulled.
-        if (TryComp<PullableComponent>(uid, out var pull) && _pullingSystem.IsPulled(uid, pull))
-            _pullingSystem.TryStopPull(uid, pull);
+        if (TryComp<PullableComponent>(ent, out var pull) && _pullingSystem.IsPulled(ent, pull))
+            _pullingSystem.TryStopPull(ent, pull);
 
-        var xform = Transform(uid);
-        var targetCoords = SelectRandomTileInRange(xform, teleportRadius);
+        var xform = Transform(ent);
+        var targetCoords = SelectRandomTileInRange(xform, implant.TeleportRadius);
 
         if (targetCoords != null)
         {
-            _xform.SetCoordinates(uid, targetCoords.Value);
-            _audio.PlayPvs(sound, uid);
-            return true;
+            _xform.SetCoordinates(ent, targetCoords.Value);
+            _audio.PlayPvs(implant.TeleportSound, ent);
+            args.Handled = true;
         }
-        return false;
     }
-    // Goobstation - BSCrystals - end
 
     private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)
     {

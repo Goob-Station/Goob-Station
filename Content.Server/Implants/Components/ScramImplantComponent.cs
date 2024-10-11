@@ -13,7 +13,7 @@ public sealed partial class ScramImplantComponent : Component
     /// Up to how far to teleport the user
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float TeleportRadius = 500f;  // Goobstation - Scrambler buff
+    public float TeleportRadius = 100f;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
