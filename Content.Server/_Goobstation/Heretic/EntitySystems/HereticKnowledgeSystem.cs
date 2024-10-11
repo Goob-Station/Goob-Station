@@ -3,6 +3,7 @@ using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Heretic;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
+using Content.Shared._Goobstation.Heretic.Components;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -30,6 +31,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Add(_ritual.GetRitual(ritual));
+
+        Dirty(uid, comp);
 
         // set path if out heretic doesn't have it, or if it's different from whatever he has atm
         if (string.IsNullOrWhiteSpace(comp.CurrentPath))
@@ -64,6 +67,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
         if (data.RitualPrototypes != null && data.RitualPrototypes.Count > 0)
             foreach (var ritual in data.RitualPrototypes)
                 comp.KnownRituals.Remove(_ritual.GetRitual(ritual));
+
+        Dirty(uid, comp);
 
         if (!silent)
             _popup.PopupEntity(Loc.GetString("heretic-knowledge-loss"), uid, uid);
