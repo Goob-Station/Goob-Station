@@ -3,7 +3,7 @@ using Content.Server.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction.Events;
 using Content.Server.Stack;
-using Content.Server.Implants;
+using Content.Server.Teleportation;
 
 
 namespace Content.Server._Goobstation.BluespaceCrystal;
@@ -11,7 +11,7 @@ namespace Content.Server._Goobstation.BluespaceCrystal;
 public sealed partial class BluespaceCrystalSystem : EntitySystem
 {
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SubdermalImplantSystem _implantSys = default!;
+    [Dependency] private readonly TeleportSystem _teleportSys = default!;
     [Dependency] private readonly StackSystem _stack = default!;
 
     public override void Initialize()
@@ -26,9 +26,12 @@ public sealed partial class BluespaceCrystalSystem : EntitySystem
         if (args.Handled)
             return;
 
+        if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
+            return;
+
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
 
-        _implantSys.TeleportEnt((EntityUid) args.User, component.TeleportRadius, component.TeleportSound);
+        _teleportSys.RandomTeleport((EntityUid) args.User, teleport);
         var toDel = _stack.Split((EntityUid) uid, 1, Transform(uid).Coordinates);
         QueueDel(toDel);
     }

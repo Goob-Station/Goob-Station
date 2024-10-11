@@ -1,13 +1,12 @@
-using Content.Server.Implants;
 using Robust.Shared.Audio;
 
-namespace Content.Server.Implants.Components;
+namespace Content.Server.Teleportation;
 
 /// <summary>
-/// Randomly teleports entity when triggered.
+/// Component to store parameters for entities that teleport randomly.
 /// </summary>
 [RegisterComponent]
-public sealed partial class ScramImplantComponent : Component
+public sealed partial class RandomTeleportComponent : Component
 {
     /// <summary>
     /// Up to how far to teleport the user
@@ -16,9 +15,9 @@ public sealed partial class ScramImplantComponent : Component
     public float TeleportRadius = 100f;
 
     /// <summary>
-    /// How many times to check for a valid tile to teleport to
+    /// How many times to check for a valid tile to teleport to, higher number means less teleports into walls or open space
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
     public int TeleportAttempts = 20;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
