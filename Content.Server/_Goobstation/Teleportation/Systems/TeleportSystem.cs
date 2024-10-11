@@ -1,6 +1,11 @@
+using Content.Server.Administration.Logs;
+using Content.Server.Stack;
+using Content.Shared.Database;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
+using Content.Shared.Stacks;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -17,6 +22,8 @@ public sealed class TeleportSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
+    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly StackSystem _stack = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -24,7 +31,32 @@ public sealed class TeleportSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<RandomTeleportOnUseComponent, UseInHandEvent>(OnUseInHand);
+
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+    }
+
+    private void OnUseInHand(EntityUid uid, RandomTeleportOnUseComponent component, UseInHandEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
+            return;
+
+        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
+
+        RandomTeleport((EntityUid) args.User, teleport);
+
+        if (!component.ConsumeOnUse)
+            return;
+
+        if (!TryComp<StackComponent>(uid, out var stack))
+            QueueDel(uid);
+            return;
+
+        var toDel = _stack.Split((EntityUid) uid, 1, Transform(uid).Coordinates, stack);
+        QueueDel(toDel);
     }
 
     public void RandomTeleport(EntityUid uid, RandomTeleportComponent component)
