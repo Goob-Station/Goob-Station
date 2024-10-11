@@ -1,7 +1,9 @@
 using Content.Shared._Goobstation.Changeling.EntitySystems;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
+using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Changeling;
@@ -45,6 +47,20 @@ public sealed partial class ToggleStrainedMusclesEvent : InstantActionEvent { }
 #endregion
 
 #region Events - Sting
+public sealed partial class ChangelingStingEvent : ChangelingEntityTargetActionEvent
+{
+    [DataField(required: true)]
+    public ProtoId<StingPrototype> Sting { get; set; }
+}
+
+[Serializable, NetSerializable]
+public sealed partial class ReagentStingEvent : EntityEventArgs
+{
+    [DataField(required: true)]
+    public Dictionary<string, FixedPoint2> Reagents { get; set; } = default!;
+
+    public float Latency { get; set; }
+}
 
 public sealed partial class StingBlindEvent : EntityTargetActionEvent { }
 public sealed partial class StingCryoEvent : EntityTargetActionEvent { }
@@ -76,7 +92,6 @@ public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
 
 #endregion
-
 
 public abstract partial class ChangelingEntityTargetActionEvent : EntityTargetActionEvent, IChangelingAction
 {

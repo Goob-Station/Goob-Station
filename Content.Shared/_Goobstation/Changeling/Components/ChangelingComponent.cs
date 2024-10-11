@@ -17,7 +17,7 @@ public sealed partial class ChangelingComponent : Component
     [DataField]
     public SoundSpecifier ShriekSound = new SoundPathSpecifier("/Audio/_Goobstation/Changeling/Effects/changeling_shriek.ogg");
 
-    public readonly List<ProtoId<EntityPrototype>> BaseChangelingActions = new()
+    public readonly HashSet<ProtoId<EntityPrototype>> BaseChangelingActions = new()
     {
         "ActionEvolutionMenu",
         "ActionAbsorbDNA",
