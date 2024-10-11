@@ -10269,8 +10269,6 @@ entities:
       pos: -12.5,-264.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 73
 - proto: AltarSpawner
@@ -67020,8 +67018,6 @@ entities:
       pos: -13.5,-263.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 73
   - uid: 9869
@@ -67040,8 +67036,6 @@ entities:
       pos: -13.5,-265.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 73
   - uid: 9871
