@@ -46,17 +46,19 @@ public sealed class TeleportSystem : EntitySystem
 
         _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
 
-        RandomTeleport((EntityUid) args.User, teleport);
+        RandomTeleport(args.User, teleport);
 
         if (!component.ConsumeOnUse)
             return;
 
-        if (!TryComp<StackComponent>(uid, out var stack))
-            QueueDel(uid);
+        if (TryComp<StackComponent>(uid, out var stack))
+        {
+            _stack.SetCount(uid, stack.Count - 1, stack);
             return;
+        }
 
-        var toDel = _stack.Split((EntityUid) uid, 1, Transform(uid).Coordinates, stack);
-        QueueDel(toDel);
+        // It's consumed on use and it's not a stack so delete it
+        QueueDel(uid);
     }
 
     public void RandomTeleport(EntityUid uid, RandomTeleportComponent component)
