@@ -53,8 +53,8 @@
     radius: 1.0
     energy: 9.0
     netsync: false
-  - type: IgnitionSource
-    temperature: 1000
+  #- type: IgnitionSource Goobstation - causes a fuck ton of lag during high pop
+  #  temperature: 1000
   - type: LightBehaviour
     behaviours:
       - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
