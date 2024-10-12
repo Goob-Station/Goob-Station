@@ -6,9 +6,8 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 
-namespace Content.Client._Goobstation.Administation.UI.TimeTransferPanel;
+namespace Content.Client._Goobstation.Administration.UI.TimeTransferPanel;
 
 [GenerateTypedNameReferences]
 public sealed partial class TimeTransferPanel : DefaultWindow

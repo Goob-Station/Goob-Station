@@ -2,7 +2,7 @@ using Content.Client.Eui;
 using Content.Shared._Goobstation.Administration;
 using Content.Shared.Eui;
 
-namespace Content.Client._Goobstation.Administation.UI.TimeTransferPanel;
+namespace Content.Client._Goobstation.Administration.UI.TimeTransferPanel;
 
 public sealed class TimeTransferPanelEui : BaseEui
 {

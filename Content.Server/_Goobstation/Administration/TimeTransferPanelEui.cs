@@ -61,6 +61,13 @@ public sealed class TimeTransferPanelEui : BaseEui
         }
 
         var session = _playerMan.GetSessionById(playerId);
+        if (session == null)
+        {
+            _sawmill.Warning($"Session for player {playerId} not found");
+            return;
+        }
+            
+
         _playTimeMan.AddTimeToTracker(session, jobId, TimeSpan.FromMinutes(time));
         _playTimeMan.SaveSession(session);
 
