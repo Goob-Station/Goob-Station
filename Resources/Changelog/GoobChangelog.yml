@@ -1464,3 +1464,13 @@ Entries:
       message: Round end shouldn't cause insane lag spikes anymore (hopefully)
   id: 180
   time: '2024-10-10T19:05:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Meteors are gone.
+    - type: Remove
+      message: Asteroids are also gone.
+    - type: Tweak
+      message: Flares can no longer ignite stuff.
+  id: 181
+  time: '2024-10-12T21:50:41.0000000+00:00'
