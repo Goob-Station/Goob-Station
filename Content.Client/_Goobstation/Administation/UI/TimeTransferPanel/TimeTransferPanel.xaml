@@ -1,0 +1,31 @@
+<DefaultWindow xmlns="https://spacestation14.io"
+                xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                Title="{Loc time-transfer-panel-title}"
+                MinWidth="400">
+    <BoxContainer Orientation="Vertical" VerticalExpand = "True">
+        <BoxContainer Orientation="Horizontal" Margin="2">
+            <Label Name="PlayerLabel" Text="{Loc time-transfer-panel-player}"/>
+            <Control MinWidth="4" />
+            <OptionButton Name="PlayerOptionButton" HorizontalExpand="True"/>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Margin="2">
+            <Label Name="JobLabel" Text="{Loc time-transfer-panel-job}"/>
+            <Control MinWidth="18" />
+            <OptionButton Name="JobOptionButton" HorizontalExpand="True"/>
+        </BoxContainer>   
+        <Control MinHeight="20" />
+        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <Label Name="HoursLabel" Text="{Loc time-transfer-panel-hours}" HorizontalAlignment="Center"/>
+                <LineEdit Name="HoursLine" PlaceHolder="0" />
+            </BoxContainer>
+            <Control MinWidth="4" />
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <Label Name="MinutesLabel" Text="{Loc time-transfer-panel-minutes}" HorizontalAlignment="Center"/>
+                <LineEdit Name="MinutesLine" PlaceHolder="0" />
+            </BoxContainer>
+        </BoxContainer>
+        <Label Name="WarningLabel" HorizontalAlignment="Center"/>
+        <Button Name="SendButton" Text="{Loc time-transfer-panel-submit}" Margin="0 10 0 0" />
+    </BoxContainer>
+</DefaultWindow>
