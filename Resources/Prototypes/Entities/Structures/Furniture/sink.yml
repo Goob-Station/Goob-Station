@@ -25,13 +25,16 @@
       drainBuffer:
         maxVol: 100
       tank:
-        maxVol: 500
-  - type: SolutionRegeneration
-    solution: tank
-    generated:
-      reagents:
-      - ReagentId: Water
-        Quantity: 1
+        maxVol: 9999999 # Goobstation - No regenerating water, so lets just give it a fuck ton.
+        reagents:
+        - ReagentId: Water
+          Quantity: 9999999
+  #- type: SolutionRegeneration Goobstation - laggy
+  #  solution: tank
+  #  generated:
+  #    reagents:
+  #    - ReagentId: Water
+  #      Quantity: 1
   - type: DrainableSolution
     solution: tank
   - type: ReagentTank
