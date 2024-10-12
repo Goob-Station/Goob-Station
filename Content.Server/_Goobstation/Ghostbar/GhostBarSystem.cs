@@ -85,6 +85,7 @@ public sealed class GhostBarSystem : EntitySystem
         var mobUid = _spawningSystem.SpawnPlayerMob(randomSpawnPoint, randomJob, profile, null);
 
         _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
+        _entityManager.EnsureComponent<PacifiedComponent>(mobUid);
         _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
 
