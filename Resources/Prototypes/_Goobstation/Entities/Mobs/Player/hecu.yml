@@ -1,0 +1,32 @@
+- type: entity
+  id: RandomHumanoidHECU
+  parent: RandomHumanoidSpawnerERTLeader
+  name: HECU Operative
+  suffix: ERTRole
+  components:
+    - type: Sprite
+      sprite: Mobs/Species/Human/parts.rsi
+      state: full
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: RandomHumanoidSpawner
+      settings: HecuSoldier
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+
+- type: randomHumanoidSettings
+  id: HecuSoldier
+  components:
+    - type: GhostRole
+      name: ghost-role-information-Hecu-name
+      description: ghost-role-information-Hecu-description
+      rules: ghost-role-information-Hecu-rules
+      raffle:
+        settings: short
+    - type: Loadout
+      prototypes: [HecuOperativeGear]
+      roleLoadout: [ RoleSurvivalStandard ]
+

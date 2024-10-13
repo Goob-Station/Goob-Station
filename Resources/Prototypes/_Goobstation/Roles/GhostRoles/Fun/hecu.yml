@@ -4,7 +4,7 @@
   description: job-description-hecu
   playTimeTracker: JobHecuOperative
   setPreference: false
-  startingGear: HecuGear
+  startingGear: HecuOperativeGear
   icon: "JobIconNanotrasen"
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -14,28 +14,29 @@
   - CentralCommand
 
 - type: startingGear
-  id: HecuGear
+  id: HecuOperativeGear
   equipment:
     jumpsuit: ClothingUniformHecu
     back: ClothingBackpackMerc
-    mask: ClothingMaskGasAtmos
+    mask: ClothingMaskGasExplorer
     eyes: ClothingEyesGlassesMedSec
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
     outerClothing: ClothingOuterVestWeb
-    suitstorage: WeaponRifleLecter
     shoes: ClothingShoesBootsJackFilled
-    head: ClothingHeadHelmetHecu
+    head: ClothingHeadHelmetMerc
     id: HecuPDA
-    belt: ClothingBeltMilitaryWebbing
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    belt: ClothingBeltMercWebbing
+    pocket1: MagazinePistolSubMachineGun
+    pocket2: MagazinePistolSubMachineGun
   storage:
     back:
-     - id: BoxSurvivalSecurity
-     - id: BaseMagazineRifle
-     - id: BaseMagazineRifle
-     - id: MagazineBoxRifleBig
+     - id: MagazinePistolSubMachineGun
+     - id: MagazinePistolSubMachineGun
+     - id: BaseMagazineBoxPistol
      - id: MedicatedSuture
      - id: RegenerativeMesh
      - id: BoxZiptie
+     - id: ToolDebug
+  inhand:
+  - WeaponSubMachineGunDrozd

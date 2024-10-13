@@ -7,5 +7,5 @@ ghost-role-information-SyndiRoach-description = You're the faithful trained pet 
 ghost-role-information-SyndiRoach-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the agent who summoned you.
 
 ghost-role-information-Hecu-name = HECU Operative
-ghost-role-information-Hecu-description = NT needs something done, and doesn't want to send their ERT. You will do their duty for them.
+ghost-role-information-Hecu-description = Central Command needs something done.
 ghost-role-information-Hecu-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
