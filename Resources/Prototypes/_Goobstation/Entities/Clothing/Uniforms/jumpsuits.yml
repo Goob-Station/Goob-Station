@@ -77,6 +77,6 @@
   description: Hunt down the Freeman.
   components:
   - type: Sprite
-    sprite: Clothing/Uniforms/Jumpsuit/ancient.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
-    sprite: Clothing/Uniforms/Jumpsuit/ancient.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
