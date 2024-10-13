@@ -1,6 +1,5 @@
 - type: entity
-  id: RandomHumanoidHECU
-  parent: RandomHumanoidSpawnerERTLeader
+  id: RandomHumanoidHECUSpawner
   name: HECU Operative
   suffix: ERTRole
   components:
@@ -13,9 +12,6 @@
       - NamesLastMilitary
     - type: RandomHumanoidSpawner
       settings: HecuSoldier
-    - type: AutoImplant
-      implants:
-      - MindShieldImplant
 
 - type: randomHumanoidSettings
   id: HecuSoldier
@@ -27,6 +23,5 @@
       raffle:
         settings: short
     - type: Loadout
-      prototypes: [HecuOperativeGear]
-      roleLoadout: [ RoleSurvivalStandard ]
+      prototypes: [HECUOperativeGear]
 
