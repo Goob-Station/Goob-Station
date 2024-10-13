@@ -39,7 +39,7 @@
       enabled: false
       radius: 3
       energy: 2.5
-      color: "#FFC458"
+      color: "#ff5858"
       netsync: false
     - type: Appearance
     - type: ToggleableLightVisuals
@@ -85,6 +85,7 @@
     - type: PointLight
       radius: 5
       energy: 10
+      color: "#ff5858"
     - type: Flash
     - type: LimitedCharges
       maxCharges: 15

@@ -84,6 +84,9 @@
         },
         {
             "name": "immovable_rod"
+        },
+        {
+            "name": "living_heart"
         }
     ]
 }

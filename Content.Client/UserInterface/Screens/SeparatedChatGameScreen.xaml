@@ -21,14 +21,14 @@
             <inventory:InventoryGui Name="Inventory" Access="Protected"/>
             <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
             <BoxContainer Name="TopLeftContainer" Orientation="Horizontal"> <!--goobstation-->
-                <actions:ActionsBar Name="Actions" Access="Protected" /> 
+                <actions:ActionsBar Name="Actions" Access="Protected" />
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
             <alerts:AlertsUI Name="Alerts" Access="Protected" />
         </LayoutContainer>
         <PanelContainer HorizontalExpand="True" MinWidth="300">
             <PanelContainer.PanelOverride>
-                <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
+                <graphics:StyleBoxFlat BackgroundColor="#4f3a2b" />
             </PanelContainer.PanelOverride>
 
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" SeparationOverride="10" Margin="10">

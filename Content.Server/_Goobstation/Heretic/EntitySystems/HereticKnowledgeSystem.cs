@@ -38,7 +38,8 @@ public sealed partial class HereticKnowledgeSystem : EntitySystem
                 comp.CurrentPath = data.Path;
         }
 
-        if (data.Stage > comp.PathStage)
+        // make sure we only progress when buying current path knowledge
+        if (data.Stage > comp.PathStage && data.Path == comp.CurrentPath)
             comp.PathStage = data.Stage;
 
         if (!silent)

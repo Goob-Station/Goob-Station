@@ -9,14 +9,14 @@
         <!-- First status label -->
         <PanelContainer Margin="0 0 0 5">
             <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#001c00" />
+                <gfx:StyleBoxFlat BackgroundColor="#1c1500" />
             </PanelContainer.PanelOverride>
             <Label Name="FirstStatusLabel"/>
         </PanelContainer>
         <!-- Second status label -->
         <PanelContainer Margin="0 0 0 5">
             <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#001c00" />
+                <gfx:StyleBoxFlat BackgroundColor="#1c1500" />
             </PanelContainer.PanelOverride>
             <Label Name="SecondStatusLabel"/>
         </PanelContainer>

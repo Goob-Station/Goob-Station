@@ -1,0 +1,120 @@
+- type: entity
+  parent:
+  - BaseMob
+  - MobCombat
+  id: slendermimeplayer
+  name: Mime
+  description: Something seems off...
+  components:
+  - type: Eye
+    drawFov: false
+  - type: PointLight
+    radius: 1.5
+    energy: 2.0
+    color: "#b51d02"
+    castShadows: false
+  - type: Perishable
+  - type: Stamina
+  - type: Damageable
+    damageContainer: Biological
+  - type: NoSlip
+  - type: StatusEffects
+    allowed:
+    - SlowedDown
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 1.5
+    baseSprintSpeed : 2.5
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        density: 230
+        mask:
+        - MobMask
+        layer:
+        - MobMask
+  - type: StopOnLOS
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      collection: MetalThud
+    damage:
+      groups:
+        Brute: 500
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Demons/slendermime.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Critical:
+        Base: dead
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      450: Critical
+      500: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      250: 0.7
+      400: 0.5
+  - type: MobState
+  - type: MobStateActions
+    actions:
+      Critical:
+      - ActionCritSuccumb
+
+- type: entity
+  parent: slendermimeplayer
+  id: slendermimeai
+  name: Mime
+  suffix: AI
+  description: Something seems off...
+  components:
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+    blackboard:
+      NavClimb: !type:Bool
+        true
+      NavSmash: !type:Bool
+        true
+      VisionRadius: !type:Single
+        15
+      AggroVisionRadius: !type:Single
+        15
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - FootstepSound
+  - type: MovementAlwaysTouching
+  - type: ReplacementAccent
+    accent: genericAggressive
+
+- type: entity
+  parent: slendermimeai
+  id: slendermimeghostrole
+  name: Mime
+  suffix: AI, Ghost role
+  description: Something seems off...
+  components:
+  - type: GhostRole
+    allowMovement: true
+    allowSpeech: false
+    makeSentient: true
+    name: ghost-role-information-slendermime-name
+    description: ghost-role-information-slendermime-description
+    rules: ghost-role-information-slendermime-rules
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable

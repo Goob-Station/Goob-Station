@@ -1450,7 +1450,7 @@ namespace Content.Shared.CCVar
         ///     See vote.enabled, but specific to map votes
         /// </summary>
         public static readonly CVarDef<bool> VoteMapEnabled =
-            CVarDef.Create("vote.map_enabled", false, CVar.SERVERONLY);
+            CVarDef.Create("vote.map_enabled", true, CVar.SERVERONLY);
 
         /// <summary>
         ///     The required ratio of the server that must agree for a restart round vote to go through.

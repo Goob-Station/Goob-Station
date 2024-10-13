@@ -4,6 +4,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: HarpyScreams
     Laugh:
@@ -68,6 +70,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: FemaleScreams
     Laugh:
@@ -108,6 +112,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: MaleScreams
     Laugh:
@@ -166,6 +172,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Animals/mouse_squeak.ogg
     Laugh:
@@ -196,6 +204,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       path: /Audio/Animals/mouse_squeak.ogg
     Laugh:

@@ -103,6 +103,7 @@
     - DoorBumpOpener
     - VulpEmotes
 
+
 - type: entity
   save: false
   name: Vulpkanin Dummy

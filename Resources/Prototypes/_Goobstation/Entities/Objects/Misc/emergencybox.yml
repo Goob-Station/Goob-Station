@@ -36,7 +36,7 @@
         ejectOnInteract: false
         whitelist:
           tags:
-          - DrinkBottle
+          - DrinkCup
       nutriblock:
         ejectOnInteract: false
         whitelist:
@@ -76,7 +76,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -150,7 +150,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -176,7 +176,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -200,7 +200,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -228,7 +228,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -252,7 +252,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -280,7 +280,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -304,7 +304,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -332,7 +332,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -361,7 +361,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -387,7 +387,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -411,7 +411,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodSnackNutribrick
       flare:
@@ -437,7 +437,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodBreadBaguette
       flare:
@@ -459,7 +459,7 @@
   - type: ContainerFill
     containers:
       water:
-      - DrinkWaterBottleFull
+      - DrinkCafePumpkinLatte
       nutriblock:
       - FoodBreadBaguette
       flare:

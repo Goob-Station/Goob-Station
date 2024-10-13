@@ -24,7 +24,7 @@
   - Maintenance
   - Engineering
   - Medical
-  - Research  
+  - Research
   - Command
   special:
   - !type:AddImplantSpecial
@@ -42,3 +42,4 @@
   storage:
     back:
     - Flash
+    - CandyBagRandom

@@ -76,3 +76,26 @@
   - /Audio/Voice/Zombie/zombie-2.ogg
   - /Audio/Voice/Zombie/zombie-3.ogg
   - /Audio/Voice/Vox/shriek1.ogg
+
+- type: soundCollection
+  id: SpookyParacusia
+  files:
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave1.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave2.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave3.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave4.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave5.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave6.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave7.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave8.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave9.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave10.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave11.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave12.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave13.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave14.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave15.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave16.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave17.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave18.ogg
+  - /Audio/_Goobstation/Ambience/SpookyParacusia/Cave19.ogg

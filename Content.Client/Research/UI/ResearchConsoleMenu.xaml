@@ -37,7 +37,7 @@
                 <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
                 <PanelContainer VerticalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                     </PanelContainer.PanelOverride>
                     <ScrollContainer
                         HScrollEnabled="False"
@@ -55,7 +55,7 @@
                 <customControls:HSeparator StyleClasses="LowDivider" Margin="0 0 0 10"/>
                 <PanelContainer VerticalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                     </PanelContainer.PanelOverride>
                     <ScrollContainer
                         HScrollEnabled="False"
@@ -76,7 +76,7 @@
                           Margin="0 0 10 10">
                 <PanelContainer VerticalExpand="True" MinSize="0 200">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                        <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                     </PanelContainer.PanelOverride>
                     <ScrollContainer
                         HScrollEnabled="False"

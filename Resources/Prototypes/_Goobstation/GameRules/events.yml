@@ -1,0 +1,11 @@
+- type: entity
+  parent: BaseGameRule
+  id: MimeSpawn
+  components:
+  - type: StationEvent
+    weight: 10
+    duration: 1
+    earliestStart: 15
+    minimumPlayers: 10
+  - type: RandomSpawnRule
+    prototype: slendermimeghostrole

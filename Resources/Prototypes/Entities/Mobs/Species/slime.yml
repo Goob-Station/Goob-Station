@@ -119,6 +119,7 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
 
+
 - type: entity
   parent: MobHumanDummy
   id: MobSlimePersonDummy

@@ -1,47 +1,23 @@
 - type: jukebox
-  id: skubstep
-  name: Finket - Skubstep
+  id: blackfairy
+  name: Silent Hill 2 - Black Fairy
   path:
-    path: /Audio/Lobby/skubstep.ogg
+    path: /Audio/Lobby/blackfairy.ogg
 
 - type: jukebox
-  id: sneeds
-  name: Burgerchild - Sneeds Feed and Seed
+  id: cavetheme1
+  name: Earthbound - Cave Theme 1
   path:
-    path: /Audio/Lobby/sneedsfeedandseed.ogg
+    path: /Audio/Lobby/cavetheme1.ogg
 
 - type: jukebox
-  id: clownwmv
-  name: Admiral Hippie - Clown.wmv
+  id: silence2
+  name: Metroid Fusion - Silence 2
   path:
-    path: /Audio/Lobby/clownwmv.ogg
+    path: /Audio/Lobby/silence2.ogg
 
 - type: jukebox
-  id: clownalwayswins
-  name: NИTRODE - Clown Always Wins
+  id: unhealing
+  name: Majora's Mask - Song of Unhealing
   path:
-    path: /Audio/Lobby/clownalwayswins.ogg
-
-- type: jukebox
-  id: honk
-  name: SlendyMawn - Honk!
-  path:
-    path: /Audio/Lobby/honk.ogg
-
-- type: jukebox
-  id: thewizard
-  name: Chris Remo - The Wizard
-  path:
-    path: /Audio/Lobby/thewizard.ogg
-
-- type: jukebox
-  id: dawsonschristian
-  name: Vic Tyler - Dawson's Christian
-  path:
-    path: /Audio/Lobby/dawsonschristian.ogg
-
-- type: jukebox
-  id: skubstub
-  name: DJ B1G YAPPA - SKUBSTUB
-  path:
-    path: /Audio/Lobby/skubstub.ogg
+    path: /Audio/Lobby/songofunhealing.ogg

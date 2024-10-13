@@ -62,7 +62,7 @@
                              MinHeight="50">
                 <PanelContainer VerticalExpand="True">
                     <PanelContainer.PanelOverride>
-                        <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+                        <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                     </PanelContainer.PanelOverride>
                     <BoxContainer Name="ContainerInfo"
                                   Orientation="Vertical"

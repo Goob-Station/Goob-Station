@@ -45,3 +45,4 @@
   storage:
     back:
     - Flash
+    - CandyBagRandom

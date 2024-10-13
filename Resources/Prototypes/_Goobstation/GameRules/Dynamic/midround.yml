@@ -272,6 +272,16 @@
       startingGear: SyndicateLoneOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments: [names_death_commando] # goob edit
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindComponents:
+      - type: NukeopsRole
+        prototype: Nukeops
 
 # Rat King Spawn
 - type: entity
