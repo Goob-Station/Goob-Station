@@ -26,8 +26,6 @@ public sealed partial class TimeTransferPanel : DefaultWindow
         PlayerOptionButton.OnItemSelected += args => PlayerOptionButton.SelectId(args.Id);
         JobOptionButton.OnItemSelected += args => JobOptionButton.SelectId(args.Id);
 
-        WarningLabel.Text = "";
-
         SendButton.OnButtonUp += TimeTransferPressed;
 
         PopulatePlayers(_adminSystem.PlayerList);
@@ -50,6 +48,7 @@ public sealed partial class TimeTransferPanel : DefaultWindow
             var job = jobs[i];
             JobOptionButton.AddItem(job, i);
             JobOptionButton.SetItemMetadata(i, job);
+            JobContainer.AddChild(new TimeTransferEntry());
         }
     }
 

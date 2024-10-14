@@ -1,0 +1,28 @@
+<BoxContainer xmlns="https://spacestation14.io"
+              xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+              xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
+              HorizontalExpand="True"
+              Visible="True">
+    <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
+        <PanelContainer.PanelOverride>
+            <gfx:StyleBoxFlat BackgroundColor="#1b1b1e" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+            <Label Name="JobLabel" Text=" " HorizontalAlignment="Center"/>
+            <Control MinHeight="4"/>
+            <BoxContainer Orientation="Horizontal">
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                    <Label Name="Hours" Text="{Loc time-transfer-panel-hours}" HorizontalAlignment="Center"/>
+                    <Control MinWidth="4"/>
+                    <LineEdit Name="HoursLine" PlaceHolder="0" MinWidth = "70"/>
+                </BoxContainer>
+                <Control MinWidth="8"/>
+                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                    <Label Name="Minutes" Text="{Loc time-transfer-panel-minutes}" HorizontalAlignment="Center"/>
+                    <Control MinWidth="4"/>
+                    <LineEdit Name="MinutesLine" PlaceHolder="0" MinWidth = "70"/>
+                </BoxContainer>
+            </BoxContainer>
+        </BoxContainer>
+    </PanelContainer>
+</BoxContainer>
