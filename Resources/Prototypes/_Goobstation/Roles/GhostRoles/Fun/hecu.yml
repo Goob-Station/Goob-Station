@@ -17,7 +17,7 @@
   id: HECUOperativeGear
   equipment:
     jumpsuit: ClothingUniformHecu
-    back: ClothingBackpackMerc
+    back: ClothingBackpackMercFilledHECU
     mask: ClothingMaskGasExplorer
     eyes: ClothingEyesGlassesMedSec
     ears: ClothingHeadsetAltCentCom
