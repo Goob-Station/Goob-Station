@@ -1474,3 +1474,9 @@ Entries:
       message: Flares can no longer ignite stuff.
   id: 181
   time: '2024-10-12T21:50:41.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added jermov A.I. lawboard
+  id: 182
+  time: '2024-10-14T23:29:30.0000000+00:00'
