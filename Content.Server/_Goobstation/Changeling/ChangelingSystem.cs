@@ -377,7 +377,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp)
     {
-        if (!comp.Equipment.TryGetValue(proto.Id, out var item) && item == null)
+        if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
             if (!_hands.TryForcePickupAnyHand(uid, (EntityUid) item))
@@ -409,9 +409,9 @@ public sealed partial class ChangelingSystem : EntitySystem
                 EntityUid armor = EntityManager.SpawnEntity(proto, coords);
                 if (!_inventory.TryEquip(uid, armor, slot, force: true))
                 {
-                    Del(armor);
+                    QueueDel(armor);
                     foreach (var delArmor in newArmor)
-                        Del(delArmor);
+                        QueueDel(delArmor);
 
                     return false;
                 }
