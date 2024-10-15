@@ -8,7 +8,7 @@
         <BoxContainer Orientation="Horizontal" Margin="2">
             <Label Name="PlayerLabel" Text="{Loc time-transfer-panel-player-label}" MinWidth = "120"/>
             <Control MinWidth ="10"/>
-            <OptionButton Name="PlayerOptionButton" HorizontalExpand="True"/>
+            <LineEdit Name="PlayerLine" PlaceHolder="PlayerUid" HorizontalExpand="True" />
         </BoxContainer>
         <BoxContainer Orientation="Horizontal" Margin="2">
             <CheckBox Name="GroupCheckbox" Text="{Loc time-transfer-panel-checkbox-group}" MinWidth = "120"/>
@@ -16,7 +16,7 @@
             <LineEdit Name="GroupTimeLine" PlaceHolder="0h0m" HorizontalExpand="True" />
         </BoxContainer>
         <Control MinHeight="5"/>
-        <LineEdit Name="TypeSearch" Access="Public" StyleClasses="actionSearchBox" HorizontalExpand="True" PlaceHolder="{Loc time-transfer-panel-search-placeholder}"/>
+        <LineEdit Name="JobSearch" Access="Public" StyleClasses="actionSearchBox" HorizontalExpand="True" PlaceHolder="{Loc time-transfer-panel-search-placeholder}"/>
         <Control MinHeight="10"/>
         <PanelContainer VerticalExpand="True">
                 <PanelContainer.PanelOverride>
@@ -32,7 +32,7 @@
         </PanelContainer>
         <Control MinHeight="10" />
         <controls:StripeBack>
-            <Label Name="WarningLabel" Text=" test" HorizontalAlignment="Center" Margin="4 4 0 4"/>
+            <Label Name="WarningLabel" Text=" " HorizontalAlignment="Center" Margin="4 4 0 4"/>
         </controls:StripeBack>
         <Control MinHeight="10" />
         <Button Name="AddTimeButton" Text="{Loc time-transfer-panel-add-time}"/>

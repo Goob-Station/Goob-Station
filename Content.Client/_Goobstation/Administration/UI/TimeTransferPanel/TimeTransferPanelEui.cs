@@ -11,7 +11,7 @@ public sealed class TimeTransferPanelEui : BaseEui
     public TimeTransferPanelEui()
     {
         TimeTransferPanel = new TimeTransferPanel();
-        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.playerId, args.time));
+        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.player, args.time));
     }
 
     public override void Opened()

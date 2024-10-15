@@ -12,7 +12,8 @@
             <customControls:VSeparator Margin="0 0 10 0"/>
             <BoxContainer Orientation="Vertical" HorizontalExpand="True">
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                    <SpriteView Name="JobIcon" OverrideDirection="South" Scale="1 1" Access="Public" SetSize="8 8"/>
+                    <TextureRect Name="JobIcon" VerticalAlignment="Center" TextureScale="2 2"/>
+                    <Control MinWidth="4"/>
                     <Label Name="JobLabel" Text=" " HorizontalAlignment="Center"/>
                 </BoxContainer>
                 <Control MinHeight="4"/>

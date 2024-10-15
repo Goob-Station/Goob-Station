@@ -19,10 +19,10 @@ public sealed class TimeTransferPanelEuiState : EuiStateBase
 [Serializable, NetSerializable]
 public sealed class TimeTransferEuiMessage : EuiMessageBase
 {
-    public NetUserId Player { get; }
+    public string Player { get; }
     public float Time { get; }
 
-    public TimeTransferEuiMessage(NetUserId player, float time)
+    public TimeTransferEuiMessage(string player, float time)
     {
         Player = player;
         Time = time;
