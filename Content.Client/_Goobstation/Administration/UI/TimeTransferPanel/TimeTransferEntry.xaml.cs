@@ -33,4 +33,14 @@ public sealed partial class TimeTransferEntry : BoxContainer
         TimeEdit.Visible = !inGroup;
         GroupCheckbox.Visible = inGroup;
     }
+
+    public string GetJobTimeString()
+    {
+        return TimeEdit.Text;
+    }
+
+    public bool InGroup()
+    {
+        return GroupCheckbox.Pressed;
+    }
 }

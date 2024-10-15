@@ -1,4 +1,5 @@
 using Content.Client.Administration.Systems;
+using Content.Shared._Goobstation.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Localizations;
 using Content.Shared.Roles;
@@ -22,20 +23,15 @@ public sealed partial class TimeTransferPanel : DefaultWindow
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
 
     private readonly SpriteSystem _spriteSystem;
-    private readonly AdminSystem _adminSystem;
 
-    public Action<(string player, float time)>? OnTransferMessageSend;
+    public Action<(string playerId, List<TimeTransferData> transferList, bool overwrite)>? OnTransferMessageSend;
     private TimeSpan? SetButtonResetOn { get; set; }
 
     public TimeTransferPanel()
     {
         RobustXamlLoader.Load(this);
         IoCManager.InjectDependencies(this);
-        _adminSystem = _entityManager.System<AdminSystem>();
         _spriteSystem = _entityManager.System<SpriteSystem>();
-
-        //PlayerOptionButton.OnItemSelected += args => PlayerOptionButton.SelectId(args.Id);
-        //JobOptionButton.OnItemSelected += args => JobOptionButton.SelectId(args.Id);
 
         AddTimeButton.OnButtonUp += OnAddTimeButtonPressed;
         SetTimeButton.OnButtonUp += OnSetTimeButtonPressed;
@@ -45,6 +41,7 @@ public sealed partial class TimeTransferPanel : DefaultWindow
 
         PopulateJobs();
         UpdateGroup();
+        UpdateWarning(" ", Color.LightGreen);
     }
 
     public void PopulateJobs()
@@ -65,42 +62,76 @@ public sealed partial class TimeTransferPanel : DefaultWindow
     {
         AddTimeButton.Visible = hasFlag;
         SetTimeButton.Visible = hasFlag;
-        WarningLabel.Text = !hasFlag ? Loc.GetString("time-transfer-panel-warning-no-perms") : " ";
-        WarningLabel.FontColorOverride = !hasFlag ? Color.Red : Color.LightGreen;
+
+        if (!hasFlag)
+            UpdateWarning(Loc.GetString("time-transfer-panel-warning-no-perms"), Color.DarkRed);
+        else
+            UpdateWarning(" ", Color.LightGreen);
     }
 
-    public void TimeTransferPressed()
+    public void TimeTransfer(bool overwrite = false)
     {
-        /*var playerId = (NetUserId?) PlayerOptionButton.SelectedMetadata;
-        if (playerId == null)
-        {
-            WarningLabel.FontColorOverride = Color.Red;
-            WarningLabel.Text = Loc.GetString("time-transfer-panel-warning-no-player");
-            return;
-        }*/
+        var player = PlayerLine.Text;
 
-        /*var job = (string?) JobOptionButton.SelectedMetadata;
-        if (job == null)
+        if (string.IsNullOrEmpty(player))
         {
-            WarningLabel.FontColorOverride = Color.Red;
-            WarningLabel.Text = Loc.GetString("time-transfer-panel-warning-no-job");
-            return;
-        }*/
-
-        var hours = /*UserInputParser.TryFloat(HoursLine.Text, out var parsedHours) ? parsedHours :*/ 0f;
-        var minutes = /*UserInputParser.TryFloat(MinutesLine.Text, out var parsedMinutes) ? parsedMinutes :*/ 0f;
-
-        var totalTime = hours * 60 + minutes;
-        if (totalTime == 0)
-        {
-            WarningLabel.FontColorOverride = Color.Red;
-            WarningLabel.Text = Loc.GetString("time-transfer-panel-warning-zero-time");
+            UpdateWarning(Loc.GetString("time-transfer-panel-warning-no-player"), Color.DarkRed);
             return;
         }
 
-        WarningLabel.FontColorOverride = Color.LightGreen;
-        WarningLabel.Text = Loc.GetString("time-transfer-panel-warning-success");
-        OnTransferMessageSend?.Invoke((" ", totalTime));
+        var dataList = new List<TimeTransferData>();
+
+        if (GroupCheckbox.Pressed)
+        {
+            if (string.IsNullOrEmpty(GroupTimeLine.Text))
+            {
+                UpdateWarning(Loc.GetString("time-transfer-panel-warning-group-no-time"), Color.DarkRed);
+                return;
+            }
+
+            var entryList = GetGroupEntries();
+            foreach (var entry in entryList)
+            {
+                var data = new TimeTransferData(entry.PlaytimeTracker, GroupTimeLine.Text);
+                dataList.Add(data);
+            }
+        }
+        else
+        {
+            foreach (var entry in JobContainer.Children)
+            {
+                if (entry is not TimeTransferEntry jobEntry)
+                    continue;
+
+                var tracker = jobEntry.PlaytimeTracker;
+                var timeString = jobEntry.GetJobTimeString();
+
+                if (string.IsNullOrEmpty(timeString))
+                    continue;
+
+                var data = new TimeTransferData(tracker, timeString);
+                dataList.Add(data);
+            }
+        }
+
+        OnTransferMessageSend?.Invoke((player, dataList, overwrite));
+        UpdateWarning(Loc.GetString("time-transfer-panel-warning-transfer-proccess"), Color.Gold);
+    }
+
+    public List<TimeTransferEntry> GetGroupEntries()
+    {
+        var list = new List<TimeTransferEntry>();
+
+        foreach (var entry in JobContainer.Children)
+        {
+            if (entry is not TimeTransferEntry jobEntry)
+                continue;
+
+            if (jobEntry.InGroup())
+                list.Add(jobEntry);
+        }
+
+        return list;
     }
 
     public void UpdateGroup()
@@ -132,6 +163,12 @@ public sealed partial class TimeTransferPanel : DefaultWindow
         }
     }
 
+    public void UpdateWarning(string text, Color color)
+    {
+        WarningLabel.FontColorOverride = color;
+        WarningLabel.Text = text;
+    }
+
     public bool ShouldShowJob(TimeTransferEntry jobEntry)
     {
         return jobEntry.JobName != null && jobEntry.JobName.Contains(JobSearch.Text, StringComparison.OrdinalIgnoreCase);
@@ -144,7 +181,7 @@ public sealed partial class TimeTransferPanel : DefaultWindow
 
     public void OnAddTimeButtonPressed(BaseButton.ButtonEventArgs obj)
     {
-
+        TimeTransfer(false);
     }
 
     public void OnSetTimeButtonPressed(BaseButton.ButtonEventArgs obj)
@@ -152,10 +189,12 @@ public sealed partial class TimeTransferPanel : DefaultWindow
         if (SetButtonResetOn is null)
         {
             SetButtonResetOn = _gameTiming.CurTime.Add(TimeSpan.FromSeconds(3));
-            SetTimeButton.ModulateSelfOverride = Color.Red;
+            SetTimeButton.ModulateSelfOverride = Color.DarkRed;
             SetTimeButton.Text = Loc.GetString("time-transfer-panel-set-time-confirm");
             return;
         }
+
+        TimeTransfer(true);
     }
 
     protected override void FrameUpdate(FrameEventArgs args)

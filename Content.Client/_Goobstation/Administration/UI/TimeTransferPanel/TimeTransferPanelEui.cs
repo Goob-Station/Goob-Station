@@ -11,7 +11,7 @@ public sealed class TimeTransferPanelEui : BaseEui
     public TimeTransferPanelEui()
     {
         TimeTransferPanel = new TimeTransferPanel();
-        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.player, args.time));
+        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.playerId, args.transferList, args.overwrite));
     }
 
     public override void Opened()
@@ -30,5 +30,15 @@ public sealed class TimeTransferPanelEui : BaseEui
             return;
 
         TimeTransferPanel.UpdateFlag(cast.HasFlag);
+    }
+
+    public override void HandleMessage(EuiMessageBase msg)
+    {
+        base.HandleMessage(msg);
+
+        if (msg is not TimeTransferWarningEuiMessage warning)
+            return;
+
+        TimeTransferPanel.UpdateWarning(warning.Message, warning.WarningColor);
     }
 }
