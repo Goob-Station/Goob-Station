@@ -1,7 +1,8 @@
 - type: entity
   name: pen
   suffix: Exploding
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   description: A dark ink pen.
   id: PenExploding
   components:
