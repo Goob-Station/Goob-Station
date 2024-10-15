@@ -1,6 +1,4 @@
 using Content.Shared.Eui;
-using Content.Shared.Roles;
-using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Administration;
@@ -8,7 +6,7 @@ namespace Content.Shared._Goobstation.Administration;
 [Serializable, NetSerializable]
 public sealed class TimeTransferPanelEuiState : EuiStateBase
 {
-    public bool HasFlag { get; set; }
+    public bool HasFlag { get; }
 
     public TimeTransferPanelEuiState(bool hasFlag)
     {
@@ -50,10 +48,10 @@ public sealed class TimeTransferWarningEuiMessage : EuiMessageBase
 public partial record struct TimeTransferData
 {
     [DataField]
-    public string TimeString { get; set; } = string.Empty;
+    public string TimeString { get; init; }
 
     [DataField]
-    public string PlaytimeTracker { get; set; } = string.Empty;
+    public string PlaytimeTracker { get; init; }
 
     public TimeTransferData(string tracker, string timeString)
     {

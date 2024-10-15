@@ -83,7 +83,7 @@ public sealed class TimeTransferPanelEui : BaseEui
 
         await _databaseMan.UpdatePlayTimes(updateList);
 
-        _sawmill.Info($"{Player.Name} ({Player.UserId} saved {updateList.Count} trackers for {userId}");
+        _sawmill.Info($"{Player.Name} ({Player.UserId} saved {updateList.Count} trackers for {userId})");
 
         SendMessage(new TimeTransferWarningEuiMessage(Loc.GetString("time-transfer-panel-warning-set-success"), Color.LightGreen));
     }
@@ -112,7 +112,7 @@ public sealed class TimeTransferPanelEui : BaseEui
 
         await _databaseMan.UpdatePlayTimes(updateList);
 
-        _sawmill.Info($"{Player.Name} ({Player.UserId} saved {updateList.Count} trackers for {userId}");
+        _sawmill.Info($"{Player.Name} ({Player.UserId} saved {updateList.Count} trackers for {userId})");
 
         SendMessage(new TimeTransferWarningEuiMessage(Loc.GetString("time-transfer-panel-warning-add-success"), Color.LightGreen));
     }

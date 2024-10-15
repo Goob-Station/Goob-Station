@@ -27,16 +27,16 @@ public sealed partial class TimeTransferEntry : BoxContainer
             JobIcon.Texture = spriteSystem.Frame0(jobIcon.Icon);
     }
 
-    public void UpdateGroupVisiblity(bool inGroup)
+    public void UpdateGroupVisibility(bool inGrouped)
     {
-        TimeLabel.Visible = !inGroup;
-        TimeEdit.Visible = !inGroup;
-        GroupCheckbox.Visible = inGroup;
+        TimeLabel.Visible = !inGrouped;
+        TimeEdit.Visible = !inGrouped;
+        GroupCheckbox.Visible = inGrouped;
     }
 
     public string GetJobTimeString()
     {
-        return TimeEdit.Text;
+        return TimeEdit.Text != null ? TimeEdit.Text : "";
     }
 
     public bool InGroup()
