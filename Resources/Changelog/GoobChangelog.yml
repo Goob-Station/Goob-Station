@@ -1480,3 +1480,17 @@ Entries:
       message: Added jermov A.I. lawboard
   id: 182
   time: '2024-10-14T23:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed heretic and ling ui on Hapry and Slime.
+    - type: Fix
+      message: Fixed RPDS contraband group
+    - type: Fix
+      message: Fixed anomaly cores flying away from following target
+    - type: Fix
+      message: SM objective now check SM existence
+    - type: Tweak
+      message: Standing up doafter not breaking by damage anymore
+  id: 183
+  time: '2024-10-15T18:42:09.0000000+00:00'
