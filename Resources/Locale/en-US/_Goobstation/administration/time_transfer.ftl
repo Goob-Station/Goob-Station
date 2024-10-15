@@ -1,7 +1,6 @@
 time-transfer-panel-title = Time Transfer
-time-transfer-panel-player-label = Player:
-time-transfer-panel-hours = Hours
-time-transfer-panel-minutes = Minutes
+time-transfer-panel-player-label = Player
+time-transfer-panel-time = Time
 time-transfer-panel-add-time = Add time to player
 time-transfer-panel-set-time = Set player's time
 time-transfer-panel-warning-no-player = Player not selected

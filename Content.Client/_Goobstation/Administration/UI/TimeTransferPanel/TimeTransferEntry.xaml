@@ -5,24 +5,21 @@
               HorizontalExpand="True"
               Visible="True">
     <PanelContainer StyleClasses="AngleRect" HorizontalExpand="True">
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" SizeFlagsStretchRatio="0.2">
-            <CheckBox Name="GroupCheckbox"/>
-        </BoxContainer>
-        <customControls:VSeparator Margin="0 0 0 10"/>
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-            <Label Name="JobLabel" Text=" " HorizontalAlignment="Center"/>
-            <Control MinHeight="4"/>
-            <BoxContainer Orientation="Horizontal">
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Name="Hours" Text="{Loc time-transfer-panel-hours}" HorizontalAlignment="Center"/>
-                    <Control MinWidth="4"/>
-                    <LineEdit Name="HoursLine" PlaceHolder="0" MinWidth = "70"/>
+        <BoxContainer Orientation="Horizontal">
+            <BoxContainer Orientation="Vertical" VerticalAlignment="Center">
+                <CheckBox Name="GroupCheckbox" HorizontalAlignment="Center"/>
+            </BoxContainer>
+            <customControls:VSeparator Margin="0 0 10 0"/>
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <SpriteView Name="JobIcon" OverrideDirection="South" Scale="1 1" Access="Public" SetSize="8 8"/>
+                    <Label Name="JobLabel" Text=" " HorizontalAlignment="Center"/>
                 </BoxContainer>
-                <Control MinWidth="8"/>
-                <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-                    <Label Name="Minutes" Text="{Loc time-transfer-panel-minutes}" HorizontalAlignment="Center"/>
-                    <Control MinWidth="4"/>
-                    <LineEdit Name="MinutesLine" PlaceHolder="0" MinWidth = "70"/>
+                <Control MinHeight="4"/>
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Label Name="TimeLabel" Text="{Loc time-transfer-panel-time}" HorizontalAlignment="Center"/>
+                    <Control MinWidth="5"/>
+                    <LineEdit Name="TimeEdit" PlaceHolder="0h0m" HorizontalExpand="True"/>
                 </BoxContainer>
             </BoxContainer>
         </BoxContainer>
