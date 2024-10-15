@@ -1494,3 +1494,15 @@ Entries:
       message: Standing up doafter not breaking by damage anymore
   id: 183
   time: '2024-10-15T18:42:09.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        added station AI to train, mail drobe/teleporter to train cargo, and a
+        singular pickaxe to train engi, more cameras for AI, edited atmos so the
+        salv shuttle can fit (you have been compensated with a fireaxe and
+        combat gloves atmosians...), 
+    - type: Tweak
+      message: put train back in the map pool (min pop 30, max pop 60)
+  id: 184
+  time: '2024-10-15T19:56:04.0000000+00:00'
