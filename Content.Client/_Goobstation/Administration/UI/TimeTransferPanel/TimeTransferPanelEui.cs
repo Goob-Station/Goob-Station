@@ -11,7 +11,7 @@ public sealed class TimeTransferPanelEui : BaseEui
     public TimeTransferPanelEui()
     {
         TimeTransferPanel = new TimeTransferPanel();
-        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.playerId, args.jobId, args.time));
+        TimeTransferPanel.OnTransferMessageSend += args => SendMessage(new TimeTransferEuiMessage(args.playerId, args.time));
     }
 
     public override void Opened()
@@ -29,7 +29,6 @@ public sealed class TimeTransferPanelEui : BaseEui
         if (state is not TimeTransferPanelEuiState cast)
             return;
 
-        TimeTransferPanel.PopulateJobs(cast.PlaytrackerRoles);
         TimeTransferPanel.UpdateFlag(cast.HasFlag);
     }
 }

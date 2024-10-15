@@ -5,11 +5,9 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Shared._Goobstation.Administration;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
-using Content.Shared.Players.PlayTimeTracking;
 using Robust.Server.Player;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using System.Linq;
 
 namespace Content.Server._Goobstation.Administration;
 
@@ -32,14 +30,9 @@ public sealed class TimeTransferPanelEui : BaseEui
 
     public override TimeTransferPanelEuiState GetNewState()
     {
-        var jobs = _protoMan.EnumeratePrototypes<PlayTimeTrackerPrototype>()
-            .Select(job => job.ID)
-            .OrderBy(id => id)
-            .ToList();
-
         var hasFlag = _adminMan.HasAdminFlag(Player, AdminFlags.Moderator);
 
-        return new TimeTransferPanelEuiState(jobs, hasFlag);
+        return new TimeTransferPanelEuiState(hasFlag);
     }
 
     public override void HandleMessage(EuiMessageBase msg)
@@ -49,7 +42,7 @@ public sealed class TimeTransferPanelEui : BaseEui
         if (msg is not TimeTransferEuiMessage message)
             return;
 
-        AddTime(message.Player, message.Job, message.Time);
+       // AddTime(message.Player, message.Job, message.Time);
     }
 
     public async void AddTime(NetUserId playerId, string jobId, float time)
@@ -66,7 +59,6 @@ public sealed class TimeTransferPanelEui : BaseEui
             _sawmill.Warning($"Session for player {playerId} not found");
             return;
         }
-            
 
         _playTimeMan.AddTimeToTracker(session, jobId, TimeSpan.FromMinutes(time));
         _playTimeMan.SaveSession(session);
@@ -77,7 +69,6 @@ public sealed class TimeTransferPanelEui : BaseEui
     public override async void Opened()
     {
         base.Opened();
-        StateDirty();
         _adminMan.OnPermsChanged += OnPermsChanged;
     }
 

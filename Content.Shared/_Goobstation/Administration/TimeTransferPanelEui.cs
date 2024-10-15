@@ -1,4 +1,5 @@
 using Content.Shared.Eui;
+using Content.Shared.Roles;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
@@ -7,13 +8,10 @@ namespace Content.Shared._Goobstation.Administration;
 [Serializable, NetSerializable]
 public sealed class TimeTransferPanelEuiState : EuiStateBase
 {
-    public List<string> PlaytrackerRoles { get; }
-
     public bool HasFlag { get; set; }
 
-    public TimeTransferPanelEuiState(List<string> roles, bool hasFlag)
+    public TimeTransferPanelEuiState(bool hasFlag)
     {
-        PlaytrackerRoles = roles;
         HasFlag = hasFlag;
     }
 }
@@ -22,13 +20,11 @@ public sealed class TimeTransferPanelEuiState : EuiStateBase
 public sealed class TimeTransferEuiMessage : EuiMessageBase
 {
     public NetUserId Player { get; }
-    public string Job { get; }
     public float Time { get; }
 
-    public TimeTransferEuiMessage(NetUserId player, string job, float time)
+    public TimeTransferEuiMessage(NetUserId player, float time)
     {
         Player = player;
-        Job = job;
         Time = time;
     }
 }
