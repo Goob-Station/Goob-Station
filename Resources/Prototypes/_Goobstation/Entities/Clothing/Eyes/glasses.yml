@@ -19,14 +19,14 @@
 
 - type: entity
   parent: ClothingEyesBase
-  id: ClothingEyesBurgalarMask
-  name: burgalar mask
+  id: ClothingEyesBurglarMask
+  name: burglar mask
   description: They will never know your true identity.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Eyes/burgalar.rsi
+    sprite: _Goobstation/Clothing/Eyes/burglar.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Eyes/burgalar.rsi
+    sprite: _Goobstation/Clothing/Eyes/burglar.rsi
   - type: Tag
     tags:
     - WhitelistChameleon

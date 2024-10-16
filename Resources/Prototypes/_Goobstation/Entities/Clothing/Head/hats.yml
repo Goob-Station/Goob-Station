@@ -41,14 +41,14 @@
 
 - type: entity
   parent: ClothingHeadBase
-  id: ClothingHeadBurgalar
-  name: Burgalar Beanie
-  description: a burgalars delight.
+  id: ClothingHeadBurglar
+  name: Burglar Beanie
+  description: a burglars delight.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Head/Hats/burgalar.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/burglar.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Head/Hats/burgalar.rsi
+    sprite: _Goobstation/Clothing/Head/Hats/burglar.rsi
   - type: Tag
     tags:
     - WhitelistChameleon

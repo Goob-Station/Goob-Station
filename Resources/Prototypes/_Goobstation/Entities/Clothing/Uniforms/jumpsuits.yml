@@ -72,11 +72,11 @@
 
 - type: entity
   parent: ClothingUniformBase
-  id: ClothingUniformJumpsuitBurgalar
-  name: burgalar outfit
+  id: ClothingUniformJumpsuitBurglar
+  name: burglar outfit
   description: A devious outfit for a devious fella.
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burgalar.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burglar.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burgalar.rsi
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burglar.rsi
