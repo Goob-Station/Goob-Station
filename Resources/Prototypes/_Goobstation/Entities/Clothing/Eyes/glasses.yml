@@ -16,3 +16,19 @@
     - WhitelistChameleon
   - type: IdentityBlocker
     coverage: EYES
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesBurgalarMask
+  name: burgalar mask
+  description: They will never know your true identity.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Eyes/burgalar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Eyes/burgalar.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+  - type: IdentityBlocker
+    coverage: EYES

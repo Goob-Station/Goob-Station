@@ -30,3 +30,4 @@
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
     event: !type:HailerActionEvent
+

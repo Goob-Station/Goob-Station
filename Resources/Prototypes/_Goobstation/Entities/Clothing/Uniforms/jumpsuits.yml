@@ -69,3 +69,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformJumpsuitBurgalar
+  name: burgalar outfit
+  description: A devious outfit for a devious fella.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burgalar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/burgalar.rsi

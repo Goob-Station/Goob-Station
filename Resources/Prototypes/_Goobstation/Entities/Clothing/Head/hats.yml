@@ -38,3 +38,17 @@
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadBurgalar
+  name: Burgalar Beanie
+  description: a burgalars delight.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/burgalar.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/burgalar.rsi
+  - type: Tag
+    tags:
+    - WhitelistChameleon
