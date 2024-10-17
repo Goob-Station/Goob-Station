@@ -46,7 +46,7 @@
     layers:
     - state: ert_security
   - type: IdCard
-    jobTitle: HECU Operative
+    jobTitle: job-name-hecu
     jobIcon: JobIconNanotrasen
   - type: Access
     groups:
