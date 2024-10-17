@@ -3,6 +3,7 @@
   mapName: 'Origin'
   mapPath: /Maps/_Goobstation/origin.yml
   minPlayers: 50
+  maxPlayers: 85
   stations:
     Origin:
       stationProto: StandardNanotrasenStation

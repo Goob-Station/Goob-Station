@@ -1,0 +1,11 @@
+- type: entity
+  id: JermovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Jermov)
+  description: An electronics board containing the Jermov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: JermovLawset

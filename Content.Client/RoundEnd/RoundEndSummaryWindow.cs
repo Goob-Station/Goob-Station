@@ -123,7 +123,7 @@ namespace Content.Client.RoundEnd
                     VerticalAlignment = VAlignment.Center,
                     VerticalExpand = true,
                 };
-
+                /* This causes so much lag holy fuck
                 if (playerInfo.PlayerNetEntity != null)
                 {
                     hBox.AddChild(new SpriteView(playerInfo.PlayerNetEntity.Value, _entityManager)
@@ -134,7 +134,7 @@ namespace Content.Client.RoundEnd
                             VerticalExpand = true,
                         });
                 }
-
+                */
                 if (playerInfo.PlayerICName != null)
                 {
                     if (playerInfo.Observer)

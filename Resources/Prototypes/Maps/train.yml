@@ -1,11 +1,11 @@
 - type: gameMap
   id: Train
-  mapName: 'Poo Poo Train Map'
+  mapName: 'Train'
   mapPath: /Maps/train.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 35
-  maxPlayers: 70
+  minPlayers: 30
+  maxPlayers: 60
   stations:
     Train:
       stationProto: StandardNanotrasenStation
@@ -19,10 +19,11 @@
           emergencyShuttlePath: /Maps/Shuttles/emergency_omega.yml # TODO - add railway station
         - type: StationJobs
           availableJobs:
-            #service
+            #command
             Captain: [ 1, 1 ]
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
+            #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 1, 1 ]
             Botanist: [ 2, 2 ]
@@ -62,5 +63,7 @@
             Clown: [ 1, 1 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
-            Borg: [ 2, 2 ]
             Reporter: [ 1, 1 ]
+            #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 2, 2 ]

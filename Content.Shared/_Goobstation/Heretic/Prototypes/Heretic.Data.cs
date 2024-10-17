@@ -1,12 +1,12 @@
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared.Heretic.Prototypes;
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticKnowledge")]
-[DataDefinition] 
 public sealed partial class HereticKnowledgePrototype : IPrototype
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -27,9 +27,8 @@ public sealed partial class HereticKnowledgePrototype : IPrototype
     [DataField] public List<EntProtoId>? ActionPrototypes;
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, DataDefinition]
 [Prototype("hereticRitual")]
-[DataDefinition]
 public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
 {
     [IdDataField] public string ID { get; private set; } = default!;
@@ -64,6 +63,11 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
     /// </summary>
     [DataField] public ProtoId<HereticKnowledgePrototype>? OutputKnowledge;
 
+    /// <summary>
+    ///     Icon for ritual in radial menu.
+    /// </summary>
+    [DataField] public SpriteSpecifier Icon = new SpriteSpecifier.Rsi(new("_Goobstation/Heretic/amber_focus.rsi"), "icon");
+
     /// <remarks> Please use this instead of editing the prototype. Shit WILL break if you don't. </remarks>
     public object Clone()
     {
@@ -76,9 +80,12 @@ public sealed partial class HereticRitualPrototype : IPrototype, ICloneable
             CustomBehaviors = CustomBehaviors,
             Output = Output,
             OutputEvent = OutputEvent,
-            OutputKnowledge = OutputKnowledge
+            OutputKnowledge = OutputKnowledge,
+            Icon = Icon
         };
     }
 }
 
 [Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticAscension : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticRerollTargets : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class EventHereticUpdateTargets : EntityEventArgs { }
