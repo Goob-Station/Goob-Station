@@ -163,7 +163,7 @@ public sealed partial class HereticSystem : EntitySystem
         }
 
         // add whatever more until satisfied
-        for (int i = 0; i < ent.Comp.MaxTargets - pickedTargets.Count; i++)
+        for (int i = 0; i <= ent.Comp.MaxTargets - pickedTargets.Count; i++)
             if (eligibleTargets.Count > 0)
                 pickedTargets.Add(_rand.PickAndTake<EntityUid>(eligibleTargets));
 
