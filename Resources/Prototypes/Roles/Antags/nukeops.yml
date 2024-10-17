@@ -63,7 +63,7 @@
   id: SyndicateOperativeGearFull
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio250TC # Goobstation - Telecrystal rework
+    pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
 
 #Nuclear Operative Commander Gear
 - type: startingGear

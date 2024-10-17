@@ -31,14 +31,31 @@ public sealed class IdCardSystem : SharedIdCardSystem
     private void OnMicrowaved(EntityUid uid, IdCardComponent component, BeingMicrowavedEvent args)
     {
         if (!component.CanMicrowave || !TryComp<MicrowaveComponent>(args.Microwave, out var micro) || micro.Broken)
-            return;   
+            return;
 
         if (TryComp<AccessComponent>(uid, out var access))
         {
             float randomPick = _random.NextFloat();
 
+            //basically, it does a small check to decide if its mango is to blow up -Space
+
+            //roll microwave exploding -Space
+            if (!micro.CanMicrowaveIdsSafely)
+            {
+                float explodeCheck = _random.NextFloat();
+
+                if (explodeCheck <= micro.ExplosionChance)
+                {
+                    _microwave.Explode((args.Microwave, micro));
+                    return;
+                }
+
+            }
+
+            // then continue like normal -Space
+
             // if really unlucky, burn card
-            if (randomPick <= 0.15f)
+            if (randomPick <= 0.10f)
             {
                 TryComp(uid, out TransformComponent? transformComponent);
                 if (transformComponent != null)
@@ -54,15 +71,9 @@ public sealed class IdCardSystem : SharedIdCardSystem
                 return;
             }
 
-            //Explode if the microwave can't handle it
-            if (!micro.CanMicrowaveIdsSafely)
-            {
-                _microwave.Explode((args.Microwave, micro));
-                return;
-            }
 
             // If they're unlucky, brick their ID
-            if (randomPick <= 0.25f)
+            if (randomPick <= 0.4f)
             {
                 _popupSystem.PopupEntity(Loc.GetString("id-card-component-microwave-bricked", ("id", uid)), uid);
 

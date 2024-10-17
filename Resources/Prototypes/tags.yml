@@ -609,6 +609,12 @@
   id: FirelockElectronics
 
 - type: Tag
+  id: FireExtinguisher
+
+- type: Tag
+  id: FireHelmet
+
+- type: Tag
   id: Flare
 
 - type: Tag
@@ -637,6 +643,9 @@
 
 - type: Tag
   id: ForceNoFixRotations # fixrotations command WON'T target this
+
+- type: Tag
+  id: FreezerElectronics
 
 - type: Tag
   id: Fruit
@@ -994,6 +1003,9 @@
   id: Nugget # for chicken nuggets
 
 - type: Tag
+  id: FakeNukeDisk
+
+- type: Tag
   id: NukeOpsUplink
 
 - type: Tag
@@ -1079,6 +1091,9 @@
 
 - type: Tag
   id: PlushieSharkPink
+
+- type: Tag # goob edit
+  id: Poppy
 
 - type: Tag
   id: Potato
@@ -1180,7 +1195,7 @@
 - type: Tag
   id: SecureWindoor
 
-- type: Tag  
+- type: Tag
   id: SecurityHelmet
 
 - type: Tag

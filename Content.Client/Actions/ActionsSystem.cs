@@ -51,6 +51,33 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<EntityWorldTargetActionComponent, ComponentHandleState>(OnEntityWorldTargetHandleState);
         }
 
+        // goob edit - man fuck them actions bruh
+        // (it was breaking our actions system so i smashed it)
+        // (regards)
+
+        //public override void FrameUpdate(float frameTime)
+        //{
+        //    base.FrameUpdate(frameTime);
+
+        //    var worldActionQuery = EntityQueryEnumerator<WorldTargetActionComponent>();
+        //    while (worldActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
+
+        //    var instantActionQuery = EntityQueryEnumerator<InstantActionComponent>();
+        //    while (instantActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
+
+        //    var entityActionQuery = EntityQueryEnumerator<EntityTargetActionComponent>();
+        //    while (entityActionQuery.MoveNext(out var uid, out var action))
+        //    {
+        //        UpdateAction(uid, action);
+        //    }
+        //}
+
         private void OnInstantHandleState(EntityUid uid, InstantActionComponent component, ref ComponentHandleState args)
         {
             if (args.Current is not InstantActionComponentState state)
@@ -95,6 +122,8 @@ namespace Content.Client.Actions
             component.Icon = state.Icon;
             component.IconOn = state.IconOn;
             component.IconColor = state.IconColor;
+            component.OriginalIconColor = state.OriginalIconColor;
+            component.DisabledIconColor = state.DisabledIconColor;
             component.Keywords.Clear();
             component.Keywords.UnionWith(state.Keywords);
             component.Enabled = state.Enabled;
@@ -124,6 +153,8 @@ namespace Content.Client.Actions
         {
             if (!ResolveActionData(actionId, ref action))
                 return;
+
+            action.IconColor = action.Charges < 1 ? action.DisabledIconColor : action.OriginalIconColor;
 
             base.UpdateAction(actionId, action);
             if (_playerManager.LocalEntity != action.AttachedEntity)

@@ -16,6 +16,7 @@
     - HamsterWearable
     - WhitelistChameleon
     - GasMask # goob edit
+    - Mask # goob edit
   - type: HideLayerClothing
     slots:
     - Snout
@@ -215,27 +216,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
-  - type: HideLayerClothing
-    slots:
-    - Snout
-
-- type: entity
-  parent: ClothingMaskBase
-  id: ClothingMaskMad
-  name: abyssal mask
-  description: A mask created from suffering. When you look into its eyes, it looks back.
-  components:
-  - type: SelfUnremovableClothing
-  - type: Sprite
-    sprite: Goobstation/Heretic/mad_mask.rsi
-  - type: Clothing
-    sprite: Goobstation/Heretic/mad_mask.rsi
-  - type: BreathMask
-  - type: IdentityBlocker
-  - type: Tag
-    tags:
     - Mask
-    - WhitelistChameleon
   - type: HideLayerClothing
     slots:
     - Snout

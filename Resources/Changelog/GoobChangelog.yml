@@ -1236,3 +1236,279 @@ Entries:
         from another headrev.
   id: 152
   time: '2024-09-24T15:34:32.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Tweak
+      message: Core Rule 13 updated.
+  id: 153
+  time: '2024-09-25T13:59:38.0000000+00:00'
+- author: JoeHammad
+  changes:
+    - type: Tweak
+      message: >-
+        Un-buffed security helmet armor values, it is no longer on par with the
+        RAID SUIT HELMET
+    - type: Tweak
+      message: >-
+        Nerfed the SWAT helmet (available to BSO) so it is now on par with the
+        raid suit helmet (why the fuck did it resist radiation?)
+  id: 154
+  time: '2024-09-26T13:41:44.0000000+00:00'
+- author: InfinityPandaRed
+  changes:
+    - type: Tweak
+      message: >-
+        Updated the clown's clothing sprites to fit in better with the new
+        style.
+  id: 155
+  time: '2024-09-26T14:15:00.0000000+00:00'
+- author: cheki-ss14
+  changes:
+    - type: Add
+      message: Added Smuggler's Satchel as an uplink and thief item.
+  id: 156
+  time: '2024-09-26T15:24:41.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Deconstruction with RCD returns charges.
+  id: 157
+  time: '2024-09-27T15:11:58.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Syndicate borgs got flash protection.
+    - type: Tweak
+      message: >-
+        Nuke ops now gain 225 TC instead of 250 TC. Increased price for all
+        nukie armor.
+  id: 158
+  time: '2024-09-27T15:13:27.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: Spelling mistake on the X-01 Multiphase's description.
+    - type: Tweak
+      message: the X-01 Multiphase has been added to the HoS's locker.
+    - type: Tweak
+      message: >-
+        the Energy shotgun has been removed from the HoS's locker, and placed in
+        the Warden's Locker.
+    - type: Tweak
+      message: the Energy shotgun no longer self-recharges.
+  id: 159
+  time: '2024-09-27T19:53:05.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: fix station deletion bug
+  id: 160
+  time: '2024-09-28T18:55:36.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Fix
+      message: >-
+        the X-01 Multiphase and the EG-4 energy revolver now show their fire
+        mode when examined.
+    - type: Tweak
+      message: Buffed the Auto-recharge rate of the EG-4 energy revolver.
+    - type: Fix
+      message: Fixed spelling mistake when examining the EG-4 energy revolver.
+  id: 161
+  time: '2024-09-28T20:12:30.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: fixed actions not actioning
+  id: 162
+  time: '2024-09-29T14:40:32.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added dynamic gamemode.
+    - type: Tweak
+      message: >-
+        Nuclear operatives now spawn with random syndicate reinforcement agent
+        names.
+    - type: Tweak
+      message: Lone Operative now spawns on nukie planet.
+    - type: Add
+      message: Added traitor variety.
+    - type: Tweak
+      message: Now certain gamemodes will not end the round instantly (nukies/revs).
+    - type: Tweak
+      message: Changed passenger role to assistant.
+  id: 163
+  time: '2024-09-29T15:15:48.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Added new Frizzy Braid hair.
+  id: 164
+  time: '2024-09-29T15:16:34.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: AI can now view the Entertainment channels.
+  id: 165
+  time: '2024-09-29T15:18:20.0000000+00:00'
+- author: JohnnyDangerSpace
+  changes:
+    - type: Fix
+      message: Microwave gambling will actually let you get accesses now
+    - type: Tweak
+      message: Chance for IDs to sizzle increased
+    - type: Tweak
+      message: Microwave exploding chances decreased overall
+  id: 166
+  time: '2024-09-29T15:21:46.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Updated cluster to include all new goob features.
+  id: 167
+  time: '2024-09-29T15:22:16.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Remove
+      message: Revoked unforgiving dynamic from proletariat hands
+  id: 168
+  time: '2024-09-30T13:25:38.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added BSO and NTR rooms to Bagel.
+    - type: Add
+      message: Added a Mail area to Bagel.
+    - type: Add
+      message: Added Airlock using Central Command and Captain access.
+  id: 169
+  time: '2024-10-01T00:10:48.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed BSO bluespace lifeline implant
+  id: 170
+  time: '2024-10-01T00:17:51.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Origin to include all new goob features
+  id: 171
+  time: '2024-10-01T22:59:35.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed dynamic midround rolling
+  id: 172
+  time: '2024-10-01T23:01:44.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Fland to include all new goob features
+  id: 173
+  time: '2024-10-03T23:30:53.0000000+00:00'
+- author: Icepicked
+  changes:
+    - type: Add
+      message: Added BSO and NTR shared room on Oasis.
+    - type: Add
+      message: Added Mail equipment to Cargo on Oasis.
+  id: 174
+  time: '2024-10-04T13:22:16.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added 4 new lobby screens made by blooodyspy!!
+  id: 175
+  time: '2024-10-04T13:49:04.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Atlas to include all new goob features
+  id: 176
+  time: '2024-10-04T13:51:02.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added the Living Heart to heretic's arsenal.
+    - type: Tweak
+      message: >-
+        Eldritch gods will not accept anyone as a valid sacrifice for heretics
+        anymore.
+    - type: Fix
+      message: Fixed some heretics abilities bugs.
+    - type: Tweak
+      message: Made ash heretic's volcano blast ability not suck
+    - type: Tweak
+      message: Updated heretic guidebook GO READ IT!!!
+  id: 177
+  time: '2024-10-05T16:00:16.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed midround nukies weren't count as real syndicate members
+  id: 178
+  time: '2024-10-06T06:34:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: If you're reading this dynamic works
+  id: 179
+  time: '2024-10-07T04:18:45.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Highpop maps have higher role limits
+    - type: Tweak
+      message: Round end shouldn't cause insane lag spikes anymore (hopefully)
+  id: 180
+  time: '2024-10-10T19:05:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Meteors are gone.
+    - type: Remove
+      message: Asteroids are also gone.
+    - type: Tweak
+      message: Flares can no longer ignite stuff.
+  id: 181
+  time: '2024-10-12T21:50:41.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added jermov A.I. lawboard
+  id: 182
+  time: '2024-10-14T23:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed heretic and ling ui on Hapry and Slime.
+    - type: Fix
+      message: Fixed RPDS contraband group
+    - type: Fix
+      message: Fixed anomaly cores flying away from following target
+    - type: Fix
+      message: SM objective now check SM existence
+    - type: Tweak
+      message: Standing up doafter not breaking by damage anymore
+  id: 183
+  time: '2024-10-15T18:42:09.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        added station AI to train, mail drobe/teleporter to train cargo, and a
+        singular pickaxe to train engi, more cameras for AI, edited atmos so the
+        salv shuttle can fit (you have been compensated with a fireaxe and
+        combat gloves atmosians...), 
+    - type: Tweak
+      message: put train back in the map pool (min pop 30, max pop 60)
+  id: 184
+  time: '2024-10-15T19:56:04.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a reference to the man for whom all places are alike.
+  id: 185
+  time: '2024-10-16T06:39:49.0000000+00:00'

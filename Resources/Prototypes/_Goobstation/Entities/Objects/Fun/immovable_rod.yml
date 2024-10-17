@@ -1,0 +1,16 @@
+﻿#Goobstation - add a skibidi toilet as an immovable rod sprite
+- type: entity
+  parent: ImmovableRodKeepTilesStill
+  id: ImmovableRodSkibidi
+  name: immovable Skibidi
+  description: skibidi dob dob yes yes
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Demons/skibidi.rsi
+    drawdepth: Mobs
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+    state: icon
+    rotation: 0
+    noRot: false

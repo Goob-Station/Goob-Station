@@ -1,0 +1,35 @@
+- type: entity
+  parent: MaterialBase
+  id: MaterialBSCrystal
+  name: bluespace crystal
+  suffix: Full
+  components:
+  - type: Stack
+    stackType: BSCrystal
+    baseLayer: base
+    layerStates:
+    - bluespace_crystal
+    - bluespace_crystal_2
+    - bluespace_crystal_3
+  - type: Sprite
+    sprite: _Goobstation/Objects/Materials/materials.rsi
+    state: bluespace_crystal
+    layers:
+    - state: bluespace_crystal
+      map: ["base"]
+  - type: Appearance
+  - type: Item
+    heldPrefix: bluespace_crystal
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      BSCrystal: 100
+  - type: BluespaceCrystal
+
+- type: entity
+  parent: MaterialBSCrystal
+  id: MaterialBSCrystal1
+  suffix: Single
+  components:
+  - type: Stack
+    count: 1
