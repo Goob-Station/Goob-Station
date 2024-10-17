@@ -65,8 +65,8 @@
     contents:
       - id: BoxMagazinePistolSubMachineGun
       - id: MindShieldImplanter
-      - id: Ziptie
-      - id: Ziptie
+      - id: Zipties
+      - id: Zipties
       - id: MedkitAdvancedFilled
       - id: WeaponPistolEchis
       - id: Flash
