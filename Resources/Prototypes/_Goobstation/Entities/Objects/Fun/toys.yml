@@ -52,3 +52,33 @@
       sprite: _Goobstation/Objects/Fun/Throngler-Foam-in-hand.rsi
     - type: DisarmMalus
       malus: 0
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDurk
+  name: Durk plushie
+  description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_durk
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Effects/adminhelp.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Effects/adminhelp.ogg
+  
