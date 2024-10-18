@@ -187,7 +187,7 @@
     - type: SubdermalImplant
       implantAction: ActionActivateScramImplant
     - type: TriggerImplantAction
-    - type: ScramImplant
+    - type: RandomTeleport
 
 - type: entity
   parent: BaseSubdermalImplant
