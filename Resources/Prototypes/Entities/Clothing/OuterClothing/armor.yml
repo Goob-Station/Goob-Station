@@ -360,3 +360,22 @@
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
+- type: entity
+  parent: [ClothingOuterStorageBase, AllowSuitStorageClothing, BaseSyndicateContraband]
+  id: ClothingOuterSyndieSuit
+  name: compact armorsuit
+  description: A tactical Syndicate armorsuit, quick and non-spaceproof, designed for CQC fights. Made in Gorlex LLC 
+  components:
+  - type: Sprite
+    sprite: Clothing/OuterClothing/Armor/syndie_oper.rsi
+  - type: Clothing
+    sprite: Clothing/OuterClothing/Armor/syndie_oper.rsi
+  - type: Armor 
+    modifiers:
+      coefficients:
+        Blunt: 0.40 # If my idea with 100% shove gloves will work, this stats makes sense since you have one hand with esword and other empty to disarm, so you're mainly goes into Melee fights
+        Slash: 0.40 #
+        Piercing: 0.60 # If you're rushing in armor you'd like to not die after 10 shots of MK 56 dont you :troll: 
+        Heat: 0.80
+  - type: ExplosionResistance
+    damageCoefficient: 0.90

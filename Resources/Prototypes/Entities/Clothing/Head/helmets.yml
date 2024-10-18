@@ -502,3 +502,24 @@
     useDelay: 1
     itemIconStyle: BigItem
     event: !type:ToggleActionEvent
+
+- type: entity
+  parent: [ BaseSyndicateContraband, ClothingHeadEVAHelmetBase, ClothingHeadHelmetBase ]
+  id: ClothingSyndieLeatherMask
+  name: syndicate leather mask #FUCK YOUUUU, NO FUCK YOU LEATHER MAN. 
+  description: An armored mask made of goliath skin and painted black. Looks robust
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Helmets/syndie_leather_mask.rsi
+  - type: Clothing
+    sprite: Clothing/Head/Helmets/syndie_leather_mask.rsi
+  - type: Armor
+    modifiers: # Syka blyadi 
+      coefficients:
+        Slash: 0.95
+        Piercing: 0.95
+        Heat: 0.85
+  - type: PressureProtection
+    highPressureMultiplier: 1
+    lowPressureMultiplier: 1
+

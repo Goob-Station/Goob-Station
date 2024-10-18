@@ -712,3 +712,18 @@
     whitelist:
       tags:
       - WizardWand
+
+- type: entity
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseSyndicateContraband]
+  id: ClothingBeltSyndieWest
+  name: compact chest rig
+  description: A brand new chest rig for an operation. Gorlex LLC provides it as an addition to compact armorsuit.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/syndie_west.rsi
+  - type: Clothing
+    sprite: Clothing/Belt/syndie_west.rsi
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: Item
+    size: Normal

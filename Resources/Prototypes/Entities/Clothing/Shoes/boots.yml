@@ -234,3 +234,19 @@
     sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/cowboybootsfancy.rsi
+
+- type: entity
+  parent: [ClothingShoesMilitaryBase, BaseMajorContraband]
+  id: ClothingShoesSyndieBoots
+  name: silenced boots
+  description: Tactical Gorlex operators boots developed by Silenced.CO mad scientist. 
+  components:
+  - type: Sprite
+    sprite: Clothing/Shoes/Boots/syndie_silenced_boots.rsi
+  - type: Clothing
+    sprite: Clothing/Shoes/Boots/syndie_silenced_boots.rsi
+  - type: ClothingSlowOnDamageModifier
+    modifier: 0.65 # I NEED TO MAKE IT SILENT but how....
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepSilencedBoots #cant code it, make an actuall silenced footstep :troll:

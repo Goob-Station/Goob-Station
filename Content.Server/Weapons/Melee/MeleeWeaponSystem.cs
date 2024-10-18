@@ -16,6 +16,7 @@ using Content.Shared.Speech.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -39,6 +40,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
     public override void Initialize()
     {
         base.Initialize();
+        SubscribeLocalEvent<DisarmBonusComponent, InventoryRelayedEvent<GetBonusDisarmChanceEvent>>(ProgrevGoev);
         SubscribeLocalEvent<MeleeSpeechComponent, MeleeHitEvent>(OnSpeechHit);
         SubscribeLocalEvent<MeleeWeaponComponent, DamageExamineEvent>(OnMeleeExamineDamage);
     }
@@ -129,7 +131,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (attemptEvent.Cancelled)
             return false;
 
-        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode);
+        var chance = CalculateDisarmChance(user, target, inTargetHand, combatMode); 
 
         if (_random.Prob(chance))
         {
@@ -141,7 +143,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         AdminLogger.Add(LogType.DisarmedAction, $"{ToPrettyString(user):user} used disarm on {ToPrettyString(target):target}");
 
-        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance };
+        var eventArgs = new DisarmedEvent { Target = target, Source = user, PushProbability = 1 - chance }; // if you put + 1 itll drop person with just one shove lmao
         RaiseLocalEvent(target, eventArgs);
 
         if (!eventArgs.Handled)
@@ -201,7 +203,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     private float CalculateDisarmChance(EntityUid disarmer, EntityUid disarmed, EntityUid? inTargetHand, CombatModeComponent disarmerComp)
     {
-        if (HasComp<DisarmProneComponent>(disarmer))
+    if (HasComp<DisarmProneComponent>(disarmer))
             return 1.0f;
 
         if (HasComp<DisarmProneComponent>(disarmed))
@@ -209,12 +211,16 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         var chance = disarmerComp.BaseDisarmFailChance;
 
-        if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
-        {
-            chance += malus.Malus;
-        }
-
-        return Math.Clamp(chance, 0f, 1f);
+    // If there's an item in the target's hand, check for disarm malus
+    if (inTargetHand != null && TryComp<DisarmMalusComponent>(inTargetHand, out var malus))
+    {
+        chance += malus.Malus;
+    }
+       var ev = new GetBonusDisarmChanceEvent(chance);
+       RaiseLocalEvent(disarmer, ref ev);
+       chance = ev.Modifier;
+       // ГООООООООООООООООООООЛ
+    return Math.Clamp(chance, 0f, 1f);
     }
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
@@ -235,8 +241,7 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     private void OnSpeechHit(EntityUid owner, MeleeSpeechComponent comp, MeleeHitEvent args)
     {
-        if (!args.IsHit ||
-        !args.HitEntities.Any())
+        if (!args.IsHit ||!args.HitEntities.Any())
         {
             return;
         }
@@ -245,6 +250,13 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
         {
             _chat.TrySendInGameICMessage(args.User, comp.Battlecry, InGameICChatType.Speak, true, true, checkRadioPrefix: false);  //Speech that isn't sent to chat or adminlogs
         }
-
     }
-}
+    private void ProgrevGoev(EntityUid uid, DisarmBonusComponent component, ref InventoryRelayedEvent<GetBonusDisarmChanceEvent> args)
+        {
+         args.Args.Modifier *= component.Bonus;
+        }
+    }   
+    
+
+
+    
