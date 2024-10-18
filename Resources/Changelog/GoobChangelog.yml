@@ -1512,3 +1512,9 @@ Entries:
       message: Added a reference to the man for whom all places are alike.
   id: 185
   time: '2024-10-16T06:39:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Random sentience events can target cleanbots and medibots once again.
+  id: 186
+  time: '2024-10-18T02:23:02.0000000+00:00'
