@@ -55,6 +55,9 @@
     ClothingShoesBootsCowboyBrown: 1
     ClothingShoesBootsCowboyBlack: 1
     ClothingShoesBootsCowboyWhite: 1
+    ClothingUniformJumpsuitBurglar: 2
+    ClothingEyesBurglarMask: 2
+    ClothingHeadBurglar: 2
   emaggedInventory:
     ClothingShoesBling: 1
     ClothingShoesBootsCowboyFancy: 1
