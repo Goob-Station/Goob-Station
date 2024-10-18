@@ -9,6 +9,7 @@
     layers:
     - state: icon
   - type: HandTeleporter
+    allowPortalsOnDifferentGrids: true
   - type: Tag
     tags:
     - HighRiskItem
