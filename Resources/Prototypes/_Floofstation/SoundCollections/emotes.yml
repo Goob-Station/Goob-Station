@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: Yip
+  files:
+  - /Audio/Floof/Voice/Reptilian/yip.ogg
+
+- type: soundCollection
+  id: ReptilianHiss
+  files:
+  - /Audio/Floof/Voice/Reptilian/hiss.ogg

@@ -1,0 +1,15 @@
+- type: emote
+  id: Yip
+  category: Vocal
+  chatMessages: [ yips ]
+  chatTriggers:
+  - yip
+  - yips
+
+- type: emote
+  id: ReptilianHiss
+  category: Vocal
+  chatMessages: [ hiss ]
+  chatTriggers:
+  - hiss
+  - hisses
