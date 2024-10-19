@@ -9,6 +9,7 @@
     layers:
     - state: icon
   - type: HandTeleporter
+    # Goobstation - Let RD teleporter work crossgrid
     allowPortalsOnDifferentGrids: true
   - type: Tag
     tags:
