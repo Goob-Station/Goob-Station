@@ -32,19 +32,21 @@
     activatedDamage:
       types:
         Blunt: 0
-  - type: MeleeWeapon
+  - type: MeleeWeapon # goob edited
+    angle: 0
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 7
     bluntStaminaDamageFactor: 2.0
-    angle: 60
     animation: WeaponArcSlash
-  - type: StaminaDamageOnHit
-    damage: 35
+  - type: StaminaDamageOnHit # goob edited
+    damage: 20
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide
-    damage: 35
+  - type: StaminaDamageOnCollide # goob edited
+    damage: 20
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
