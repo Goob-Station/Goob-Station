@@ -1,4 +1,5 @@
 using Content.Shared.Damage.Systems;
+using Robust.Shared.Network;
 using System.Text;
 
 namespace Content.Shared.Stunnable;
@@ -6,6 +7,7 @@ namespace Content.Shared.Stunnable;
 public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 {
     [Dependency] private readonly StaminaSystem _stamina = default!;
+    [Dependency] private readonly INetManager _net = default!;
 
     public override void Initialize()
     {
@@ -16,7 +18,15 @@ public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
 
     private void OnInit(Entity<OvertimeStaminaDamageComponent> ent, ref ComponentInit args)
     {
+        // UNDER NO CIRCUMSTANCES ALLOW THIS SHIT TO RUN ON CLIENT
+        if (_net.IsClient)
+        {
+            RemComp<OvertimeStaminaDamageComponent>(ent);
+            return;
+        }
+
         ent.Comp.Timer = ent.Comp.Delay;
+        ent.Comp.Damage = ent.Comp.Amount;
     }
 
     public override void Update(float frameTime)
@@ -27,16 +37,23 @@ public sealed partial class OvertimeStaminaDamageSystem : EntitySystem
         {
             overtime.Timer -= frameTime;
 
-            if (overtime.Timer <= overtime.Delay)
+            if (overtime.Timer <= 0)
             {
-                var damage = overtime.Amount / overtime.Delta;
-
-                _stamina.TakeStaminaDamage(overtime.Owner, damage, immediate: false, visual: false);
-
-                overtime.Amount -= damage;
-
+                Update((overtime.Owner, overtime));
                 overtime.Timer = overtime.Delay;
             }
         }
+    }
+
+    private void Update(Entity<OvertimeStaminaDamageComponent> ent)
+    {
+        var damage = ent.Comp.Amount / ent.Comp.Delta;
+
+        _stamina.TakeStaminaDamage(ent, damage, immediate: false, visual: false);
+
+        ent.Comp.Damage -= damage;
+
+        if (ent.Comp.Damage <= 0)
+            RemComp<OvertimeStaminaDamageComponent>(ent);
     }
 }

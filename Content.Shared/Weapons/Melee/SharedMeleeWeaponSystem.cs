@@ -5,6 +5,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Systems;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
@@ -683,6 +684,11 @@ public abstract class SharedMeleeWeaponSystem : EntitySystem
         {
             DoDamageEffect(targets, user, Transform(targets[0]));
         }
+
+        // goob edit - stunmeta
+        if (TryComp<StaminaComponent>(user, out var stamina))
+            // make it not immediate to prevent annoying stamcrits
+            _stamina.TakeStaminaDamage(user, component.HeavyStaminaCost, stamina, visual: false, immediate: false);
 
         return true;
     }
