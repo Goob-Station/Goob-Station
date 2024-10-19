@@ -124,7 +124,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {
-            BreakOnDamage = true,
             BreakOnHandChange = false,
             RequireCanInteract = false
         };
