@@ -410,6 +410,7 @@ public sealed partial class StaminaSystem : EntitySystem
         // paralyzing gets handled by TakeStaminaDamage.
         // _stunSystem.TryParalyze(uid, component.StunTime, true);
 
+        component.NextUpdate = _timing.CurTime + component.StunTime + StamCritBufferTime;
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
