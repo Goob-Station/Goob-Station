@@ -18,3 +18,8 @@
   license: "CC-BY-3.0"
   copyright: "Created by mryikes"
   source: "https://www.youtube.com/watch?v=WtDZEMxHY6U"
+  
+- files: ["chip_nightmare.ogg"]
+  license: "CC-BY-SA-4.0"
+  copyright: "Created by BasedUser on top of chip-meltdown.mod by Reanimator (Thom)."
+  source: "https://github.com/Simple-Station/Einstein-Engines"
