@@ -43,6 +43,10 @@
   - type: Stack
     stackType: Ointment
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: StackPrice
     price: 5
 
@@ -93,7 +97,15 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: RegenerativeMesh
+<<<<<<< HEAD
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+=======
+    count: 10
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+>>>>>>> 440bba2673 (add UI component to protos)
   - type: StackPrice
     price: 20
 
@@ -130,7 +142,15 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Brutepack
+<<<<<<< HEAD
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+=======
+    count: 10
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+>>>>>>> 440bba2673 (add UI component to protos)
   - type: StackPrice
     price: 5
 
@@ -180,7 +200,15 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: MedicatedSuture
+<<<<<<< HEAD
     count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
+=======
+    count: 10
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+>>>>>>> 440bba2673 (add UI component to protos)
   - type: StackPrice
     price: 20
 
@@ -218,7 +246,15 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Bloodpack
+<<<<<<< HEAD
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+=======
+    count: 10
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+>>>>>>> 440bba2673 (add UI component to protos)
   - type: StackPrice
     price: 10
 
@@ -287,7 +323,15 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Gauze
+<<<<<<< HEAD
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+=======
+    count: 10
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
+>>>>>>> 440bba2673 (add UI component to protos)
   - type: StackPrice
     price: 10
 
