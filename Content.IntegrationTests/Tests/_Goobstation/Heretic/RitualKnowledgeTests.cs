@@ -60,6 +60,7 @@ public sealed class RitualKnowledgeTests
             // Loop through every entity prototype and assemble a used tags set
             var usedTags = new HashSet<string>();
 
+            // Ensure that every tag is used by a non-abstract entity
             foreach (var entProto in protoMan.EnumeratePrototypes<EntityPrototype>())
             {
                 if (entProto.Abstract)
@@ -71,9 +72,8 @@ public sealed class RitualKnowledgeTests
                 }
             }
 
-            // Ensure that every tag has a valid item
             var unusedTags = dataset.Except(usedTags).ToHashSet();
-            Assert.That(unusedTags, Is.Empty);
+            Assert.That(unusedTags, Is.Empty, $"The following ritual item tags are not used by any obtainable entity prototypes: {string.Join(", ", unusedTags)}");
         });
 
         await pair.CleanReturnAsync();
