@@ -31,6 +31,7 @@ using Content.Server.Station.Systems;
 using Content.Shared.Localizations;
 using Robust.Shared.Audio;
 using Content.Shared.Mobs.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -63,6 +64,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
