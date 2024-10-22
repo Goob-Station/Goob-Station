@@ -1532,3 +1532,11 @@ Entries:
       message: Fixed saying "lol" not making you laugh.
   id: 188
   time: '2024-10-18T02:24:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        HECU operative job/loadout (admeme, ghostrole, like how ERT is) and a
+        jumpsuit for them
+  id: 189
+  time: '2024-10-22T15:17:56.0000000+00:00'
