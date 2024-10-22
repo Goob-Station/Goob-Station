@@ -286,8 +286,7 @@ public sealed partial class StaminaSystem : EntitySystem
         // Have we already reached the point of max stamina damage?
         if (component.Critical && immediate)
         {
-            // prolong the stun
-            _stunSystem.TryParalyze(uid, component.StunTime, true); // refreshes
+            EnterStamCrit(uid, component, true); // enter stamcrit
             return;
         }
 
@@ -394,6 +393,7 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
         }
 
+        // if our entity is under stims make threshold bigger
         if (TryComp<StamcritResistComponent>(uid, out var stamres)
         && component.StaminaDamage < component.CritThreshold * stamres.Multiplier)
             return;
@@ -402,17 +402,18 @@ public sealed partial class StaminaSystem : EntitySystem
         {
             if (!_statusEffect.HasStatusEffect(uid, "KnockedDown"))
                 _stunSystem.TryKnockdown(uid, component.StunTime, true);
-
             return;
         }
 
+        // you got batonned hard.
         component.Critical = true;
-        // paralyzing gets handled by TakeStaminaDamage.
-        // _stunSystem.TryParalyze(uid, component.StunTime, true);
+        _stunSystem.TryParalyze(uid, component.StunTime, true);
 
         component.NextUpdate = _timing.CurTime + component.StunTime + StamCritBufferTime;
+
         EnsureComp<ActiveStaminaComponent>(uid);
         Dirty(uid, component);
+
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 

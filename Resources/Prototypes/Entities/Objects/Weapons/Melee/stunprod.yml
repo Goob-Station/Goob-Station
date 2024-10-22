@@ -38,13 +38,14 @@
       types:
         Blunt: 9
     animation: WeaponArcThrust
+  # it was ~35 now it's 55 so it's a buff ig
   - type: StaminaDamageOnHit # goob edited
-    damage: 20
-    overtime: 50
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: StaminaDamageOnCollide # goob edited
-    damage: 20
-    overtime: 50
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery
