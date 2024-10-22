@@ -11,6 +11,7 @@ using System.Text;
 using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
+using Content.Shared._Goobstation.Heretic.Components;
 using Robust.Shared.Containers;
 
 namespace Content.Server.Heretic.EntitySystems;

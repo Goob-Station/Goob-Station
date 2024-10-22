@@ -80,7 +80,7 @@
     - Dynamic
     - BasicStationEventScheduler
     - DynamicStationEventScheduler
-    - MeteorSwarmScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
