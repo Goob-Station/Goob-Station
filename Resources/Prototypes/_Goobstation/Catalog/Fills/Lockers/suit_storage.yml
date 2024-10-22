@@ -9,3 +9,4 @@
         - id: OxygenTankFilled
         - id: ClothingOuterHardsuitBlueshield
         - id: ClothingMaskBreath
+        - id: NitrogenTankFilled
