@@ -272,7 +272,11 @@ public class RCDSystem : EntitySystem
 
         // Play audio and consume charges
         _audio.PlayPredicted(component.SuccessSound, uid, args.User);
-        _charges.UseCharges(uid, args.Cost);
+        // Goobstation - start
+        if (component.CachedPrototype.Mode == RcdMode.Deconstruct)
+            _charges.AddCharges(uid, args.Cost / 2);
+        else _charges.UseCharges(uid, args.Cost);
+        // Goobstation - end
     }
 
     private void OnRCDconstructionGhostRotationEvent(RCDConstructionGhostRotationEvent ev, EntitySessionEventArgs session)

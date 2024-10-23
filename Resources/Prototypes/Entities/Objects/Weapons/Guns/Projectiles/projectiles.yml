@@ -947,6 +947,7 @@
     damage:
       types:
         Heat: 2
+        Ion: 4 #Goobstation
     soundHit:
       collection: WeakHit
     forceSound: true

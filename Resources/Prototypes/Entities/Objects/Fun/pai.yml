@@ -75,6 +75,10 @@
   - type: StationMap
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 1
+  - type: ChangeVoiceInContainer
+    whitelist:
+      components:
+        - SecretStash
 
 - type: entity
   parent: [ PersonalAI, BaseSyndicateContraband]

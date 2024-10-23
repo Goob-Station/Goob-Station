@@ -1,3 +1,6 @@
+# goob edit - separated antag and basic event schedulers
+# if you see a AntagStationEventScheduler it's from goobstation
+
 - type: gamePreset
   id: Survival
   alias:
@@ -6,7 +9,7 @@
   showInVote: false # secret
   description: survival-description
   rules:
-    - MeteorSwarmScheduler
+    # - MeteorSwarmScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
@@ -39,7 +42,7 @@
     - Traitor
     - Revolutionary
     - Zombie
-    - KesslerSyndromeScheduler
+    # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
@@ -80,7 +83,7 @@
   description: extended-description
   rules:
   - BasicStationEventScheduler
-  - MeteorSwarmScheduler
+  # - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -116,7 +119,7 @@
   description: secret-description
   rules:
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -154,7 +157,8 @@
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -182,7 +186,8 @@
     - Nukeops
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -199,7 +204,8 @@
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -217,7 +223,8 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - MeteorSwarmScheduler
+  - AntagStationEventScheduler
+#  - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
 
@@ -233,6 +240,7 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
+  - AntagStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation

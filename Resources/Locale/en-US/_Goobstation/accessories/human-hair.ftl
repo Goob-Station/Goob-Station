@@ -4,6 +4,7 @@ marking-HumanHairFantasyHair = Fantasy Hair
 marking-HumanHairFlatTwistsUpdo = Flat Twists Updo
 marking-HumanHairFloorlengthBraid = Floorlength Braid
 marking-HumanHairFloorlengthWavy = Floorlength Wavy
+marking-HumanHairFrizzyBraid = Frizzy Braid
 marking-HumanHairFrontBraidsLong = Front Braids Long
 marking-HumanHairFrontBraidsMedium = Front Braids Medium
 marking-HumanHairFrontBraidsShort = Front Braids Short

@@ -11,7 +11,8 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -26,7 +27,8 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -42,7 +44,8 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -57,7 +60,8 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
 - type: gamePreset
@@ -73,7 +77,8 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
 
 - type: gamePreset
   id: RevLing
@@ -87,6 +92,7 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    - MeteorSwarmScheduler
+    - AntagStationEventScheduler
+    #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
     - BasicRoundstartVariation

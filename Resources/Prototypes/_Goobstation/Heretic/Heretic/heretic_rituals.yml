@@ -1,23 +1,49 @@
-# basic
+### basic
+
+# Heartbeat of the Mansus (sacrifice)
 - type: hereticRitual
   id: Sacrifice
   name: heretic-ritual-basic-sacrifice
+  icon: 
+    sprite: Mobs/Species/Human/organs.rsi
+    state: heart-on
   customBehaviors:
   - !type:RitualSacrificeBehavior
+    onlyTargets: true
 
+# Amber Focus
 - type: hereticRitual
   id: AmberFocus
   name: heretic-ritual-basic-focus
+  icon: 
+    sprite: _Goobstation/Heretic/amber_focus.rsi
+    state: icon
   requiredTags:
     GlassShard: 1
     Eyes: 1
   output:
     ClothingNeckAmberFocus: 1
 
-# ash path
+# Relentless Heartbeat (sacrifice target reroll)
+- type: hereticRitual
+  id: LivingHeart
+  name: heretic-ritual-basic-heart
+  requiredTags:
+    Heart: 1
+    Pen: 1
+    Paper: 1
+  outputEvent: !type:EventHereticRerollTargets
+
+
+
+### ash path
+
 - type: hereticRitual
   id: BladeAsh
   name: heretic-ritual-ash-blade
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_ash.rsi
+    state: icon
   requiredTags:
     Knife: 1
     Matchstick: 1
@@ -27,6 +53,9 @@
 - type: hereticRitual
   id: MaskOfMadness
   name: heretic-ritual-ash-mask
+  icon: 
+    sprite: _Goobstation/Heretic/mad_mask.rsi
+    state: icon
   requiredTags:
     Mask: 1
     Candle: 4
@@ -37,6 +66,9 @@
 - type: hereticRitual
   id: AscensionAsh
   name: heretic-ritual-ash-ascend
+  icon: 
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: ashlord_rite2
   customBehaviors:
   - !type:RitualAshAscendBehavior
     min: 3
@@ -44,10 +76,16 @@
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 
-# flesh path
+
+
+### flesh path
+
 - type: hereticRitual
   id: BladeFlesh
   name: heretic-ritual-flesh-blade
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_flesh.rsi
+    state: icon
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -59,14 +97,20 @@
 - type: hereticRitual
   id: ImperfectRitual
   name: heretic-ritual-flesh-ghoul
+  icon: 
+    sprite: Mobs/Species/Skeleton/parts.rsi
+    state: full
   customBehaviors:
   - !type:RitualMuteGhoulifyBehavior
-  requiredEntityNames:
-    poppy: 1
+  requiredTags:
+    Poppy: 1
 
 - type: hereticRitual
   id: RawRitual
   name: heretic-ritual-flesh-prophet
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: raw_prophet
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -79,6 +123,9 @@
 - type: hereticRitual
   id: LonelyRitual
   name: heretic-ritual-flesh-stalker
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_mobs.rsi
+    state: stalker
   customBehaviors:
   - !type:RitualReagentPuddleBehavior
     reagent: Blood
@@ -93,6 +140,9 @@
 - type: hereticRitual
   id: AscensionFlesh
   name: heretic-ritual-flesh-ascend
+  icon: 
+    sprite: _Goobstation/Heretic/abilities_heretic.rsi
+    state: final_hymn
   customBehaviors:
   - !type:RitualSacrificeBehavior
     min: 4
@@ -100,10 +150,16 @@
   outputKnowledge: PriestFinalHymn
   outputEvent: !type:EventHereticAscension
 
-# void path
+
+
+### void path
+
 - type: hereticRitual
   id: BladeVoid
   name: heretic-ritual-void-blade
+  icon: 
+    sprite: _Goobstation/Heretic/Blades/blade_void.rsi
+    state: icon
   customBehaviors:
   - !type:RitualTemperatureBehavior
     minThreshold: 0 # ~= -1 celcius. or sub zero temperatures
@@ -115,6 +171,9 @@
 - type: hereticRitual
   id: AscensionVoid
   name: heretic-ritual-void-ascend
+  icon: 
+    sprite: Interface/Alerts/temperature.rsi
+    state: cold3
   customBehaviors:
   - !type:RitualSacrificeBehavior
     min: 3
@@ -124,16 +183,25 @@
   outputKnowledge: WaltzAtTheEndOfTime
   outputEvent: !type:EventHereticAscension
 
-# side path
+
+
+### side knowledge
+
 - type: hereticRitual
   id: RitualOfKnowledge
   name: heretic-ritual-side-knowledge
+  icon: 
+    sprite: Objects/Misc/books.rsi
+    state: book_icon
   customBehaviors:
   - !type:RitualKnowledgeBehavior
 
 - type: hereticRitual
   id: ArmorerRitual
   name: heretic-ritual-side-armor
+  icon: 
+    sprite: _Goobstation/Heretic/eldritch_armor.rsi
+    state: icon
   requiredTags:
     Table: 1
     GasMask: 1

@@ -131,6 +131,22 @@
     - UplinkAllies
   saleLimit: 1
 
+- type: listing
+  id: UplinkJermovCircuitBoard
+  name: jermov circuit board
+  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
+  productEntity: JermovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Passenger
+  saleLimit: 1
+
 # chemicals
 
 - type: listing
@@ -161,4 +177,16 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
+  saleLimit: 1
+  
+- type: listing
+  id: UplinkSmugglerSatchel
+  name: uplink-smugglers-satchel-name
+  description: uplink-smugglers-satchel-desc
+  icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
+  productEntity: ClothingSatchelSmuggler
+  cost:
+    Telecrystal: 15
+  categories:
+  - UplinkDeception
   saleLimit: 1

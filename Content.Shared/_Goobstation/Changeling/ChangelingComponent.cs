@@ -54,6 +54,7 @@ public sealed partial class ChangelingComponent : Component
 
     public bool IsInLastResort = false;
 
+    public List<EntityUid>? ActiveArmor = null;
 
     public Dictionary<string, EntityUid?> Equipment = new();
 
@@ -61,7 +62,7 @@ public sealed partial class ChangelingComponent : Component
     ///     Amount of biomass changeling currently has.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float Biomass = 30f;
+    public float Biomass = 60f;
 
     /// <summary>
     ///     Maximum amount of biomass a changeling can have.
