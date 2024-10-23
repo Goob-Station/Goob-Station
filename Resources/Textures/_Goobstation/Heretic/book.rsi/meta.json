@@ -8,7 +8,7 @@
     },
     "states": [
         {
-            "name": "icon_off"
+            "name": "icon"
         },
         {
             "name": "icon_opening",

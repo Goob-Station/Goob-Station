@@ -143,7 +143,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
         sb.AppendLine(Loc.GetString("heretic-blade-examine"));
         if (isUpgradedVoid) sb.AppendLine(Loc.GetString("heretic-blade-void-examine"));
 
-        args.PushMarkup(Loc.GetString("heretic-blade-examine"));
+        args.PushMarkup(sb.ToString());
     }
 
     private void OnMeleeHit(Entity<HereticBladeComponent> ent, ref MeleeHitEvent args)

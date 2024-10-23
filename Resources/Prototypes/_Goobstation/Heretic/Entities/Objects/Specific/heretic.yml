@@ -1,13 +1,13 @@
 - type: entity
-  parent: [ BaseItem ]
+  parent: [ BaseItem, BaseMagicContraband ]
   id: CodexCicatrix
   name: codex cicatrix
-  description: 
+  description: An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
   components:
   - type: Sprite
     sprite: _Goobstation/Heretic/book.rsi
-    - state: icon_off
-      map: [ "enum.ToggleVisuals.Layer" ]
+    state: icon
+    map: [ "enum.ToggleVisuals.Layer" ]
   - type: Item
     size: Small
     sprite: _Goobstation/Heretic/book.rsi
@@ -17,7 +17,7 @@
     enabled: false
     radius: 1
     energy: 1
-    color: green
+    color: "#329a00"
     netsync: false
   - type: Appearance
   - type: ItemToggle
@@ -27,5 +27,4 @@
     - type: HereticMagicItem
   - type: ItemTogglePointLight
   - type: ItemToggleSize
-    activatedSize: Huge
-  
+    activatedSize: Medium

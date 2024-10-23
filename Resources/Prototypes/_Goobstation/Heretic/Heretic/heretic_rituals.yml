@@ -34,7 +34,16 @@
     Paper: 1
   outputEvent: !type:EventHereticRerollTargets
 
-
+# Codex Cicatrix (in case you lost yours)
+- type: hereticRitual
+  id: CodexCicatrix
+  name: heretic-ritual-basic-codex
+  requiredTags:
+    Eyes: 1
+    Book: 1
+    Pen: 1
+  output:
+    CodexCicatrix: 1
 
 ### ash path
 
