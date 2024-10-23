@@ -1,0 +1,31 @@
+- type: entity
+  parent: [ BaseItem ]
+  id: CodexCicatrix
+  name: codex cicatrix
+  description: 
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/book.rsi
+    - state: icon_off
+      map: [ "enum.ToggleVisuals.Layer" ]
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Heretic/book.rsi
+  - type: UseDelay
+    delay: 1.0
+  - type: PointLight
+    enabled: false
+    radius: 1
+    energy: 1
+    color: green
+    netsync: false
+  - type: Appearance
+  - type: ItemToggle
+    predictable: false
+  - type: ComponentToggler
+    components:
+    - type: HereticMagicItem
+  - type: ItemTogglePointLight
+  - type: ItemToggleSize
+    activatedSize: Huge
+  

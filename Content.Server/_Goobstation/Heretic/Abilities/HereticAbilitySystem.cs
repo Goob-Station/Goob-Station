@@ -90,8 +90,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HereticMagicItemComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
-
         SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
         SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
 
@@ -133,12 +131,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         return true;
     }
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
-    {
-        // no need to check fo anythign because the event gets processed only by magic items
-        args.Args.Handled = true;
-    }
-
     private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
     {
         if (!TryComp<StoreComponent>(ent, out var store))
