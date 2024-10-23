@@ -53,6 +53,8 @@ public sealed partial class BlockingSystem
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
             blockFraction = Math.Clamp(blockFraction, 0, 1);
+            if (!_toggle.IsActivated(uid)) // Goobstation
+                blockFraction = 0f;
             _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
 
             var modify = new DamageModifierSet();
