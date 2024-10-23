@@ -53,7 +53,6 @@
       startingCharge: 1000
     - type: Gun
       fireRate: 1
-      useKey: false
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
