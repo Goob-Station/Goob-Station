@@ -1,4 +1,14 @@
-- files: ["mindcontrol_start.ogg", "changeling_start.ogg", "bloodcult_eyes.ogg", "bloodcult_gain.ogg", "bloodcult_halos.ogg", "bloodcult_scribe.ogg"]
+- files: ["mindcontrol_start.ogg"]
+  license: "CC0-1.0"
+  copyright: "Made by https://www.youtube.com/@a-guy173"
+  source: https://github.com/A-Guy173/Music/blob/main/getitdone.mp3
+
+- files: ["rev_start.ogg"]
+  license: "CC-BY-NC-SA-4.0"
+  copyright: "Used with permission from the creator, Cuboos"
+  source: "https://soundcloud.com/cuboos/engrev?in=cuboos/sets/space-station-13-audio-logs"
+
+- files: ["changeling_start.ogg", "bloodcult_eyes.ogg", "bloodcult_gain.ogg", "bloodcult_halos.ogg", "bloodcult_scribe.ogg"]
   license: "CC-BY-SA-3.0"
   copyright: "Taken from TG station"
   source: "https://github.com/tgstation/tgstation/tree/master"

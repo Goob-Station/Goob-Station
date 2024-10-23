@@ -22,6 +22,17 @@
     -  UplinkDisruption
   saleLimit: 1
 
+- type: listing
+  id: UplinkBoxSkibidiRizz
+  name: Box of Skibidi Rizz
+  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
+  productEntity: BoxSkibidiRizz
+  cost:
+    Telecrystal: 30
+  categories:
+    - UplinkDisruption
+  saleLimit: 1
+
 # Weaponry
 
 - type: listing
