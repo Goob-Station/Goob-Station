@@ -154,6 +154,9 @@
     - id: Medicine
     - id: Poison
   - type: Butcherable
+    spawned:
+    - id: RandomAnomalySpawner
+      amount: 3 # 3 anoms on heretic butcher holy shit eh
   - type: Tag
     tags:
     - CannotSuicide

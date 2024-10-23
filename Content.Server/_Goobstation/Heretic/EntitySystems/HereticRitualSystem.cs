@@ -180,7 +180,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         heretic.ChosenRitual = args.ProtoId;
 
-        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).Name);
+        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
     }
 
@@ -211,7 +211,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var h))
             return;
 
-        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).Name : null;
+        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
         var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }
