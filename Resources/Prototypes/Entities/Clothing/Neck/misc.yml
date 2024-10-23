@@ -94,3 +94,18 @@
     tags:
     - Trash
     - WhitelistChameleon
+
+- type: entity
+  parent: ClothingNeckBase
+  id: DeathTagSyndie
+  name: death tag
+  description: Gorlex LLC cares about their clients. The death tag has only two words on it W.A.S R.O.B.U.S.T
+  components:
+  - type: Sprite
+    sprite: Clothing/Neck/Misc/syndie_number.rsi
+    state: icon
+  - type: Item
+    size: Tiny
+  - type: Tag
+    tags:
+    - Trash

@@ -1357,3 +1357,14 @@
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
   - type: Clothing
     sprite: Clothing/Uniforms/Jumpsuit/familiar_garbs.rsi
+
+- type: entity
+  parent: [ClothingUniformBase, BaseSyndicateContraband] #Big chad, big balls, one word - SYNDICATE #Goob
+  id: ClothingUniformJumpsuitSyndieass
+  name: grey jumpsuit
+  description: A tasteful grey jumpsuit that reminds you of the good old days... The back looks very Robust. 
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Jumpsuit/syndie_drip.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Jumpsuit/syndie_drip.rsi

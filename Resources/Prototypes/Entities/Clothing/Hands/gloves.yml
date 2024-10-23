@@ -443,3 +443,20 @@
     fiberMaterial: fibers-rubber
     fiberColor: fibers-yellow
   - type: FingerprintMask
+
+- type: entity
+  parent: [ ClothingHandsBase, BaseMajorContraband ]
+  id: ClothingHandsSyndieCombat
+  name: close quaters potholders
+  description: The Gorlex and Waffle.CO heart of compact combat kit. These gloves have insulated blood-red coating with palm side especially covered in blue combat velctro squares for quick disarming attacks.  
+  components: # TO DO, somehow make disarming attack 100%
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/syndie_disarming_gloves.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/syndie_disarming_gloves.rsi
+  - type: DisarmBonus
+    bonus: -1 #
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-clingy
+    fiberColorL: fibers-blood-blue

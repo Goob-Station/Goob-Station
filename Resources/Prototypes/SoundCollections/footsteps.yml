@@ -211,3 +211,8 @@
   id: FootstepHoverBorg
   files:
   - /Audio/Effects/Footsteps/borgwalk2.ogg
+
+- type: soundCollection
+  id: FootstepSilencedBoots
+  files:
+  - /Audio/Effects/Footsteps/silencedbootsstep.ogg
