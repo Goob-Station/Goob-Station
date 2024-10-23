@@ -1,0 +1,12 @@
+#bso hardsuit
+- type: entity
+  id: SuitStorageBlueshield
+  parent: SuitStorageBase
+  suffix: BSO Hardsuit
+  components:
+  - type: StorageFill
+    contents:
+        - id: OxygenTankFilled
+        - id: ClothingOuterHardsuitBlueshield
+        - id: ClothingMaskBreath
+        - id: NitrogenTankFilled
