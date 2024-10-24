@@ -10,7 +10,7 @@ heretic-blade-use = The blade shatters, and you feel the voices pulling you away
 
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!
-heretic-blade-void-examine = [color=cyan]While there is at least a single marked heathen in a large proximity, teleport behind it's back without breaking the blade.[/color]
+heretic-blade-void-examine = [color=cyan]While there is at least a single marked heathen in a large proximity, teleport behind its back without breaking the blade.[/color]
 
 ## mansus link
 heretic-manselink-fail-exists = This creature is already connected!

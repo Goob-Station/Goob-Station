@@ -23,7 +23,7 @@ knowledge-path-side-s7-uncuff-name = Wave of Desperation
 knowledge-path-side-s7-uncuff-desc =
     My shackles undone in dark fury, their feeble bindings crumble before my power.
     
-    Grants you Wave Of Desparation, a spell which can only be cast while restrained.
+    Grants you Wave Of Desperation, a spell which can only be cast while restrained.
     It removes your restraints, repels and knocks down adjacent people, and applies the Mansus Grasp to everything nearby.
     However, you will fall unconscious a short time after casting this spell.
 
