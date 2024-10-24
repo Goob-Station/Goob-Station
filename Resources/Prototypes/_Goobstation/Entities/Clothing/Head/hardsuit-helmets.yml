@@ -1,3 +1,5 @@
+#chrono/future soldier hardsuit
+
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitChronolegioneer
@@ -29,3 +31,35 @@
         Cold: 0.10
         Radiation: 0.10
         Caustic: 0.10
+
+#bso hardsuit
+
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitBlueshield
+  name: blueshield helmet
+  description: The helmet of the captain's bodyguard's hardsuit.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hardsuits/bso.rsi
+  - type: PointLight
+    color: "#4d7ae3"
+    rotation: 30
+    energy: 10
+    radius: 5
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 1000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.85
+        Heat: 0.9
+        Cold: 0.9
+        Radiation: 0.95
+        Caustic: 0.95

@@ -1512,3 +1512,45 @@ Entries:
       message: Added a reference to the man for whom all places are alike.
   id: 185
   time: '2024-10-16T06:39:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Random sentience events can target cleanbots and medibots once again.
+  id: 186
+  time: '2024-10-18T02:23:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Binary channel access readded to silicons without laws (pAI, vending
+        machines, bots).
+  id: 187
+  time: '2024-10-18T02:23:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed saying "lol" not making you laugh.
+  id: 188
+  time: '2024-10-18T02:24:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        HECU operative job/loadout (admeme, ghostrole, like how ERT is) and a
+        jumpsuit for them
+  id: 189
+  time: '2024-10-22T15:17:56.0000000+00:00'
+- author: Vlax2nd
+  changes:
+    - type: Fix
+      message: AI can spawn in highpop Fland
+  id: 190
+  time: '2024-10-22T15:30:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
+        losers)
+  id: 191
+  time: '2024-10-23T00:09:49.0000000+00:00'

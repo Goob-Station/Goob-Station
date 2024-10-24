@@ -32,8 +32,12 @@
     factions:
     - SimpleNeutral
   - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
   - type: ActiveRadio
     channels:
+    - Binary
     - Common
   - type: HealthExaminable
     examinableTypes:
@@ -258,6 +262,8 @@
   - type: Construction
     graph: CleanBot
     node: bot
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Absorbent
     pickupAmount: 10
   - type: UseDelay
@@ -344,6 +350,8 @@
   - type: Construction
     graph: MediBot
     node: bot
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
   - type: Anchorable
   - type: InteractionPopup
     interactSuccessString: petting-success-medibot
@@ -459,6 +467,7 @@
     - Bot
   - type: ActiveRadio
     channels:
+    - Binary
     - Common
     - Supply
   - type: StationAiVision # Goobstation - AI can see through NT silicon
