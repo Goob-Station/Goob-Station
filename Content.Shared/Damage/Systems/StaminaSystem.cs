@@ -37,7 +37,7 @@ public sealed partial class StaminaSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly SharedStunSystem _stunSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!; // goob edit
     [Dependency] private readonly SharedStutteringSystem _stutter = default!; // goob edit
     [Dependency] private readonly SharedJitteringSystem _jitter = default!; // goob edit
 
