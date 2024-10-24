@@ -1,0 +1,5 @@
+- type: entity
+  parent: DrinkCafeLatte
+  id: DrinkCafePumpkinLatte
+  name: pumpkin spice latte
+  description: A nice, strong and tasty beverage while you are reading.

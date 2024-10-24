@@ -22,7 +22,7 @@ namespace Content.Client.VendingMachines.UI
 
         public event Action<GUIBoundKeyEventArgs, ListData>? OnItemSelected;
 
-        private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(70, 73, 102) };
+        private readonly StyleBoxFlat _styleBox = new() { BackgroundColor = new Color(112, 79, 29) };
 
         public VendingMachineMenu()
         {

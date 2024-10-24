@@ -4,6 +4,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: FelinidScreams
     Laugh:
@@ -42,6 +44,8 @@
   params:
     variation: 0.125
   sounds:
+    Boo:
+      collection: Boos
     Scream:
       collection: FelinidScreams
     Laugh:

@@ -14,7 +14,7 @@
                 MinSize="300 128"
                 Margin="5 5">
                 <PanelContainer.PanelOverride>
-                    <gfx:StyleBoxFlat BackgroundColor="#1B1B1E" />
+                    <gfx:StyleBoxFlat BackgroundColor="#69451c" />
                 </PanelContainer.PanelOverride>
                 <ItemList
                     Name="IngredientsList"
@@ -107,7 +107,7 @@
     </BoxContainer>
     <PanelContainer Name="DisableCookingPanelOverlay" MouseFilter="Stop">
         <PanelContainer.PanelOverride>
-            <gfx:StyleBoxFlat BackgroundColor="#1B1B1E66" />
+            <gfx:StyleBoxFlat BackgroundColor="#69451c66" />
         </PanelContainer.PanelOverride>
     </PanelContainer>
 </controls:FancyWindow>

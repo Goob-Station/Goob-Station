@@ -131,6 +131,7 @@
             sprite: Mobs/Species/Vox/displacement.rsi
             state: shoes
 
+
 - type: entity
   parent: BaseSpeciesDummy
   id: MobVoxDummy

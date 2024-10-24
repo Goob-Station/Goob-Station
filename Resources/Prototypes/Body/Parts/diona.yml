@@ -17,7 +17,7 @@
 
 - type: entity
   id: HeadDiona
-  name: "diona head"
+  name: "pumpkin head"
   parent: [PartDiona, BaseHead]
   components:
   - type: Sprite

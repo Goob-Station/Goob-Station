@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by @renee_aria on discord",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "candy_bag"
+    },
+    {
+      "name": "toofbrush"
+    },
+    {
+      "name": "candywrapper3"
+    },
+    {
+      "name": "candywrapper2"
+    },
+    {
+      "name": "candywrapper1"
+    },
+    {
+      "name": "candywrapped2"
+    },
+    {
+      "name": "candywrapped3"
+    },
+    {
+      "name": "candyunwrapped1"
+    },
+    {
+      "name": "candyunwrapped2"
+    },
+    {
+      "name": "candyunwrapped3"
+    },
+    {
+      "name": "candywrapped1"
+    },
+    {
+      "name": "chocolateunwrapped1"
+    },
+    {
+      "name": "chocolatewrapped1"
+    },
+    {
+      "name": "chocolatewrapper2"
+    },
+    {
+      "name": "chocolateunwrapped2"
+    },
+    {
+      "name": "chocolatewrapped2"
+    },
+    {
+      "name": "chocolatewrapper1"
+    }
+  ]
+}

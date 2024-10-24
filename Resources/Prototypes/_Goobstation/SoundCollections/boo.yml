@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: Boos
+  files:
+    - /Audio/_Goobstation/Voice/Boo/boo1.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo2.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo3.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo4.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo5.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo6.ogg
+    - /Audio/_Goobstation/Voice/Boo/boo7.ogg
+

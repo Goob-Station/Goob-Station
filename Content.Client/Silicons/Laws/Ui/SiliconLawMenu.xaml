@@ -9,7 +9,7 @@
                   VerticalExpand="True">
         <PanelContainer VerticalExpand="True" Margin="10 10 10 10">
             <PanelContainer.PanelOverride>
-                <gfx:StyleBoxFlat BackgroundColor="#1B1B1E"/>
+                <gfx:StyleBoxFlat BackgroundColor="#69451c"/>
             </PanelContainer.PanelOverride>
             <ScrollContainer
                 HScrollEnabled="False"

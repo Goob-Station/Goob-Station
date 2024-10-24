@@ -1,14 +1,7 @@
 - type: soundCollection
   id: LobbyMusic
   files:
-    - /Audio/Lobby/space_asshole.ogg
-    # Goobstation - Custom lobby music
-    - /Audio/Lobby/skubstep.ogg
-    - /Audio/Lobby/sneedsfeedandseed.ogg
-    - /Audio/Lobby/honk.ogg
-    - /Audio/Lobby/clownalwayswins.ogg
-    - /Audio/Lobby/clownwmv.ogg
-    - /Audio/Lobby/dawsonschristian.ogg
-    - /Audio/Lobby/thewizard.ogg
-    - /Audio/Lobby/skubstub.ogg
-    - /Audio/Lobby/space_radiation.ogg
+    - /Audio/Lobby/blackfairy.ogg
+    - /Audio/Lobby/cavetheme1.ogg
+    - /Audio/Lobby/silence2.ogg
+    - /Audio/Lobby/songofunhealing.ogg

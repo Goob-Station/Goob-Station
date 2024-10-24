@@ -9,3 +9,7 @@ ghost-role-information-SyndiRoach-rules = You are a [color=red][bold]Team Antago
 ghost-role-information-Hecu-name = HECU Operative
 ghost-role-information-Hecu-description = Central Command needs something done.
 ghost-role-information-Hecu-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
+
+ghost-role-information-slendermime-name = Mime
+ghost-role-information-slendermime-description = Something seems off...
+ghost-role-information-slendermime-rules = You are a [color=red][bold]Team Antagonist[/bold][/color].

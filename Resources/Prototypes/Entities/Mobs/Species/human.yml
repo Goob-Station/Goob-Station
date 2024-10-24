@@ -29,6 +29,7 @@
             state: jumpsuit-female
 
 
+
 - type: entity
   parent: BaseSpeciesDummy
   id: MobHumanDummy

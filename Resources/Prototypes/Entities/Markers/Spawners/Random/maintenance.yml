@@ -1,33 +1,20 @@
 - type: entityTable
-  id: MaintFluffTable
+  id: MaintFluffTable # Spooky maints loot
   table: !type:GroupSelector
     children:
     # Common Group
     - !type:GroupSelector
       weight: 75
       children:
-      # Smoker's specialty
-      - !type:AllSelector
-        children:
-        - id: Lighter
-        - id: CigCartonBlue
       # Gar glasses
       - !type:GroupSelector
         children:
         - id: ClothingEyesGlassesGar
         - id: ClothingEyesGlassesGarOrange
         - id: ClothingEyesGlassesGarGiga
-      - id: Wristwatch
-        weight: 0.5
-      - id: ClothingHeadHatCake
       - id: ClothingHeadHatSkub
-      - id: ClothingHeadHatCone
-      - id: ClothingNeckBling
       - id: ClothingHeadHelmetCosmonaut
-      - id: ClothingHeadHelmetBasic
       - id: ClothingShoeSlippersDuck
-      - id: ClothingUnderSocksBee
-      - id: ClothingUnderSocksCoder
       - id: ClothingHeadHatSquid
       # Animal Masks
       - !type:GroupSelector
@@ -39,82 +26,22 @@
         - id: ClothingMaskRaven
         - id: ClothingMaskJackal
         - id: ClothingMaskBat
-      - id: ClothingBeltSuspendersRed
-      - id: ClothingBeltSuspendersBlack
-      - id: ClothingEyesEyepatch
-      - id: ClothingEyesGlasses
-      - id: ClothingHandsGlovesLatex
-      - id: ClothingHandsGlovesFingerless
-      - id: ClothingHandsGlovesColorBlack
-      - id: ClothingHeadHatBeret
-      - id: ClothingHeadHatBowlerHat
-      - id: ClothingHeadHatFedoraBrown
-        weight: 0.5
-      - id: ClothingHeadHatFedoraGrey
-        weight: 0.5
       - id: ClothingHeadHatFez
       - id: ClothingHeadHatPaper
       - id: ClothingHeadHatPirate
-      - id: ClothingMaskSterile
-      - id: ClothingNeckHeadphones
-      - id: ClothingNeckTieRed
-      - id: ClothingOuterCoatGentle
-      - !type:AllSelector
-        children:
-        - id: ClothingOuterCoatJensen
-        - id: ClothingEyesGlassesJensen
-      - id: ClothingOuterCoatLab
       - !type:AllSelector
         children:
         - id: ClothingOuterCoatPirate
         - id: ClothingHeadHatPirateTricord
-      - id: ClothingHeadHatTophat
-      - id: ClothingOuterHoodieBlack
-        weight: 0.5
-      - id: ClothingOuterHoodieGrey
-        weight: 0.5
-      - !type:GroupSelector
-        children:
-        - id: ClothingOuterFlannelRed
-        - id: ClothingOuterFlannelBlue
-        - id: ClothingOuterFlannelGreen
-      - id: ClothingOuterVestHazard
-      - id: ClothingShoesBootsJack
-      - id: ClothingShoesHighheelBoots
-      - id: ClothingShoesBootsLaceup
-      - id: ClothingShoesLeather
-      - id: ClothingShoesBootsSalvage
-      - id: ClothingShoesBootsWork
-      - id: ClothingShoesTourist
-      - id: ClothingUniformJumpsuitLoungewear
       - id: ClothingHeadHatCowboyRed
+      - id: ClothingOuterGhostSheet
+      - id: ToySkeleton
     # Uncommon Group
     - !type:GroupSelector
       weight: 23
       children:
       - id: ClothingNeckCloakHerald
       - id: ClothingHeadHelmetTemplar
-      # Cloaks
-      - !type:GroupSelector
-        children:
-        - id: ClothingNeckCloakTrans
-        - id: ClothingNeckCloakAdmin
-        - id: ClothingNeckCloakMoth
-        - id: ClothingNeckCloakVoid
-        - id: ClothingNeckCloakGoliathCloak
-        - id: ClothingNeckCloakAce
-        - id: ClothingNeckCloakAro
-        - id: ClothingNeckCloakBi
-        - id: ClothingNeckCloakIntersex
-        - id: ClothingNeckCloakLesbian
-        - id: ClothingNeckCloakGay
-        - id: ClothingNeckCloakEnby
-        - id: ClothingNeckCloakPan
-      - id: ToySkeleton
-      - id: Basketball
-      - id: Football
-      - id: BalloonNT
-      - id: BalloonCorgi
       - id: MysteryFigureBox
       - id: RubberChicken
       # Cult
@@ -122,18 +49,9 @@
         children:
         - id: ClothingOuterRobesCult
         - id: ClothingShoesCult
-      - id: ClothingHandsGlovesMercFingerless
-      - id: ClothingHandsGlovesNitrile
       - id: ClothingHandsGlovesPowerglove
       - id: ClothingHeadHatAnimalHeadslime
-      - id: ClothingHeadHatBeretMerc
-      - id: ClothingHeadHatOutlawHat
-      - id: ClothingHeadHatUshanka
       - id: ClothingHeadHatBunny
-      - id: ClothingMaskNeckGaiter
-      - id: ClothingNeckScarfStripedZebra
-      - id: ClothingOuterGhostSheet
-      - id: ClothingUniformJumpsuitAncient
       - id: ClothingUniformJumpsuitPirate
       - id: ClothingShoesBootsCowboyFancy
       - id: ClothingHeadHatCowboyBountyHunter
@@ -153,17 +71,12 @@
         - id: ClothingNeckAutismPin
     # Rare Group
     - !type:GroupSelector
-      weight: 2
+      weight: 10
       children:
       - id: Skub
       - id: PonderingOrb
-      - id: CluwneHorn
       - id: ClothingShoesSkates
-      - id: DrinkMugDog
-      - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
-      - id: WristwatchGold
-      - id: RubberStampGreytide
 
 - type: entity
   name: Maint Loot Spawner
@@ -189,6 +102,7 @@
     - !type:GroupSelector
       weight: 75
       children:
+      - id: SpectralLocator # More revenants, more spectral locators.
       - id: FlashlightLantern
       - id: ToolboxEmergencyFilled
       - !type:GroupSelector
@@ -288,8 +202,6 @@
       - id: ResearchDisk5000
       - id: PetCarrier
       - id: DrinkMopwataBottleRandom
-      # Goobstation - Spectral locator
-      - id: SpectralLocator
       - id: LidSalami
         weight: 0.05
 

@@ -21,6 +21,6 @@
     shoes: ClothingShoesBootsLaceup
     id: MusicianPDA
     ears: ClothingHeadsetService
-  #storage:
-    #back:
-    #- Stuff
+  storage:
+    back:
+    - CandyBagRandom

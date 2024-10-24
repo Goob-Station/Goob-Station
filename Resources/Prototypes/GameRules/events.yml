@@ -12,29 +12,29 @@
     - id: GasLeak
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
-    - id: MassHallucinations
     - id: MimicVendorRule
     - id: MouseMigration
     - id: PowerGridCheck
     - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
-    - id: SnakeSpawn
-    - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    #- id: SnakeSpawn
+    #- id: SpiderClownSpawn
+    #- id: SpiderSpawn
     - id: VentClog
 
 - type: entityTable
   id: BasicAntagEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: ClosetSkeleton
-    - id: DragonSpawn
-    - id: KingRatMigration
-    - id: NinjaSpawn
     - id: RevenantSpawn
-    - id: SleeperAgents
-    - id: ZombieOutbreak
+    - id: MimeSpawn
+    #- id: ClosetSkeleton
+    #- id: DragonSpawn
+    #- id: KingRatMigration
+    #- id: NinjaSpawn
+    #- id: SleeperAgents
+    #- id: ZombieOutbreak
 
 - type: entity
   id: BaseStationEvent
@@ -506,22 +506,6 @@
       mindComponents:
       - type: TraitorRole
         prototype: TraitorSleeper
-
-- type: entity
-  id: MassHallucinations
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 7
-    duration: 150
-    maxDuration: 300
-    reoccurrenceDelay: 30
-  - type: MassHallucinationsRule
-    minTimeBetweenIncidents: 0.1
-    maxTimeBetweenIncidents: 300
-    maxSoundDistance: 7
-    sounds:
-      collection: Paracusia
 
 - type: entity
   parent: BaseGameRule

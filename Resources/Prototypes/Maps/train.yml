@@ -1,11 +1,11 @@
 - type: gameMap
   id: Train
-  mapName: 'Train'
+  mapName: 'Train :skull:'
   mapPath: /Maps/train.yml
   maxRandomOffset: 0
   randomRotation: false
-  minPlayers: 30
-  maxPlayers: 60
+  minPlayers: 0
+  maxPlayers: 250
   stations:
     Train:
       stationProto: StandardNanotrasenStation
