@@ -13,6 +13,7 @@
   - type: MeleeWeapon
     wideAnimationRotation: 90
     attackRate: 0.75
+    heavyStaminaCost: 10 # goob edit
     damage:
       types:
         Slash: 25

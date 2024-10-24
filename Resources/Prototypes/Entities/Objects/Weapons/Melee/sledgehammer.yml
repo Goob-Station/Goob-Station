@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Melee/sledgehammer.rsi
     state: icon
   - type: MeleeWeapon
+    heavyStaminaCost: 20 # goob edit
     wideAnimationRotation: -135
     damage:
       types:

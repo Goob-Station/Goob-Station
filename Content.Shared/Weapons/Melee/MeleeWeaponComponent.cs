@@ -97,6 +97,13 @@ public sealed partial class MeleeWeaponComponent : Component
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
     public float Range = 1.5f;
 
+    // goob edit - stunmeta
+    /// <summary>
+    ///     Applies stamina damage on each successful wideswing hit to the attacker.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float HeavyStaminaCost = 5f;
+
     /// <summary>
     /// Total width of the angle for wide attacks.
     /// </summary>

@@ -28,6 +28,7 @@
   - type: Sprite
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
   - type: MeleeWeapon
+    heavyStaminaCost: 2.5 # goob edit
     attackRate: 1.5
     damage:
       types:
