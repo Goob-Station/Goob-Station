@@ -11,6 +11,10 @@
     sprite: _Goobstation/Heretic/ritual_rune.rsi
     state: icon
   - type: Clickable
+  - type: UserInterface
+    interfaces:
+       enum.HereticRitualRuneUiKey.Key:
+        type: HereticRitualRuneBoundUserInterface
 
 - type: entity
   id: HereticRuneRitualDrawAnimation

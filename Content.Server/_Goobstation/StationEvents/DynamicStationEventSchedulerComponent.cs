@@ -19,8 +19,7 @@ public sealed partial class DynamicStationEventSchedulerComponent : Component
     [DataField] public float? Budget = null;
 
     /// <summary>
-    ///     How much time it takes in seconds for an antag event to be raised. (min)
+    ///     How much time it takes in seconds for an antag event to be raised.
     /// </summary>
-    /// <remarks>Default is 10 minutes</remarks>
-    [DataField] public MinMax Delays = new(20 * 60, 30 * 60);
+    [DataField] public MinMax Delays = new(15 * 60, 20 * 60);
 }

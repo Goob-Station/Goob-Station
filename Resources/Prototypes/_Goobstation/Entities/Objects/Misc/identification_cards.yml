@@ -12,7 +12,7 @@
   - type: Item
     heldPrefix: blue
   - type: IdCard
-    jobTitle: Future Agent
+    jobTitle: job-name-futureagent
     jobIcon: JobIconFuture
   - type: Access
     groups:
@@ -32,5 +32,24 @@
     layers:
     - state: idhelldiver
   - type: IdCard
-    jobTitle: Salvage Diver
+    jobTitle: job-name-salvagediver
     jobIcon: JobIconShaftMiner
+
+# HECU
+- type: entity
+  parent: IDCardStandard
+  id: HecuIDCard
+  name: HECU ID card
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/id_cards.rsi
+    layers:
+    - state: ert_security
+  - type: IdCard
+    jobTitle: job-name-hecu
+    jobIcon: JobIconNanotrasen
+  - type: Access
+    groups:
+    - AllAccess
+    tags:
+    - CentralCommand

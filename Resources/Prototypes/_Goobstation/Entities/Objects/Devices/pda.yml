@@ -38,3 +38,22 @@
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-heccd
+
+- type: entity
+  parent: CentcomPDA
+  id: HecuPDA
+  name: HECU PDA
+  description: Smells of gunpowder.
+  components:
+  - type: Pda
+    id: HecuIDCard
+    state: pda-centcom
+    penSlot:
+      startingItem: PenCentcom
+      whitelist:
+        tags:
+        - Write
+  - type: PdaBorderColor
+    borderColor: "#00842e"
+  - type: Icon
+    state: pda-centcom

@@ -68,3 +68,5 @@
     - type: WarpPoint
       follow: true
       location: supermatter
+    - type: StealTarget
+      stealGroup: SupermatterSliver # uses to verify sm existense on map

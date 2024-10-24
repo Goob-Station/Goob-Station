@@ -1,0 +1,4 @@
+- type: job
+  id: Overall
+  name: job-name-overall
+  playTimeTracker: Overall
