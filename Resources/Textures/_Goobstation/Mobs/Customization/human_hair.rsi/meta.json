@@ -32,6 +32,10 @@
         "directions": 4
       },
       {
+        "name": "frizzyBraid",
+        "directions": 4
+      },
+      {
         "name": "frontBraidsLong",
         "directions": 4
       },
@@ -45,7 +49,7 @@
       },
       {
         "name": "hairnet",
-        "directiions": 4
+        "directions": 4
       },
       {
         "name": "jellyfish",
@@ -129,10 +133,6 @@
       },
       {
         "name": "unkemptScientist",
-        "directions": 4
-      },
-      {
-        "name": "frizzyBraid",
         "directions": 4
       },
       {

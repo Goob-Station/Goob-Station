@@ -110,7 +110,7 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: longCurvy
-      
+
 - type: marking
   id: HumanHairLongPompadour
   bodyPart: Hair
@@ -254,7 +254,7 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frizzyBraid
-      
+
 - type: marking
   id: HumanHairWispy
   bodyPart: Hair
