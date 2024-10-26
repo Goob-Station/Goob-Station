@@ -1554,3 +1554,25 @@ Entries:
         losers)
   id: 191
   time: '2024-10-23T00:09:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Skibidi Toilet mobs are now ghost roles, and have the Ohio accent.
+    - type: Tweak
+      message: The Ohio accent has been updated & improved.
+    - type: Tweak
+      message: >-
+        The Supermatter, Singularity, and Tesla now get silly first and last
+        names.
+    - type: Add
+      message: Added SigmaJuice, a drink that gives you the Ohio accent.
+    - type: Add
+      message: Added a mid-round Skibidi Toilet invasion event.
+    - type: Add
+      message: >-
+        Added a new Syndicate item, the "Box of Skibidi Rizz". It contains 3
+        dehydrated Skibidi Toilets and 3 glasses of Sigma Juice.
+    - type: Add
+      message: Added some new interesting borg names
+  id: 192
+  time: '2024-10-26T13:41:18.0000000+00:00'
