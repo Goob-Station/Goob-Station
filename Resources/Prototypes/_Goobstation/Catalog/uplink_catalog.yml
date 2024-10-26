@@ -120,6 +120,22 @@
     - UplinkAllies
   saleLimit: 1
 
+- type: listing
+  id: UplinkJermovCircuitBoard
+  name: jermov circuit board
+  description: A very un-dangerous Lawset to use when you want to cause the A.I. to get brainrot, use when bored.
+  productEntity: JermovCircuitBoard
+  cost:
+    Telecrystal: 15
+  categories:
+    -  UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Clown
+    - Passenger
+  saleLimit: 1
+
 # chemicals
 
 - type: listing

@@ -59,6 +59,7 @@
   - type: Objective
     difficulty: 3.5
   - type: StealCondition
+    verifyMapExistence: true
     stealGroup: SupermatterSliver
     objectiveNoOwnerText: objective-condition-steal-smsliver-title
     descriptionText: objective-condition-steal-smsliver-description

@@ -1464,3 +1464,93 @@ Entries:
       message: Round end shouldn't cause insane lag spikes anymore (hopefully)
   id: 180
   time: '2024-10-10T19:05:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Meteors are gone.
+    - type: Remove
+      message: Asteroids are also gone.
+    - type: Tweak
+      message: Flares can no longer ignite stuff.
+  id: 181
+  time: '2024-10-12T21:50:41.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added jermov A.I. lawboard
+  id: 182
+  time: '2024-10-14T23:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed heretic and ling ui on Hapry and Slime.
+    - type: Fix
+      message: Fixed RPDS contraband group
+    - type: Fix
+      message: Fixed anomaly cores flying away from following target
+    - type: Fix
+      message: SM objective now check SM existence
+    - type: Tweak
+      message: Standing up doafter not breaking by damage anymore
+  id: 183
+  time: '2024-10-15T18:42:09.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        added station AI to train, mail drobe/teleporter to train cargo, and a
+        singular pickaxe to train engi, more cameras for AI, edited atmos so the
+        salv shuttle can fit (you have been compensated with a fireaxe and
+        combat gloves atmosians...), 
+    - type: Tweak
+      message: put train back in the map pool (min pop 30, max pop 60)
+  id: 184
+  time: '2024-10-15T19:56:04.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a reference to the man for whom all places are alike.
+  id: 185
+  time: '2024-10-16T06:39:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Random sentience events can target cleanbots and medibots once again.
+  id: 186
+  time: '2024-10-18T02:23:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Binary channel access readded to silicons without laws (pAI, vending
+        machines, bots).
+  id: 187
+  time: '2024-10-18T02:23:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed saying "lol" not making you laugh.
+  id: 188
+  time: '2024-10-18T02:24:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        HECU operative job/loadout (admeme, ghostrole, like how ERT is) and a
+        jumpsuit for them
+  id: 189
+  time: '2024-10-22T15:17:56.0000000+00:00'
+- author: Vlax2nd
+  changes:
+    - type: Fix
+      message: AI can spawn in highpop Fland
+  id: 190
+  time: '2024-10-22T15:30:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
+        losers)
+  id: 191
+  time: '2024-10-23T00:09:49.0000000+00:00'
