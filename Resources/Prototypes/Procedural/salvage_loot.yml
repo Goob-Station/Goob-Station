@@ -105,6 +105,12 @@
         - proto: WeaponTeslaGun
           prob: 0.1
           cost: 2
+        # WD EDIT START
+        - proto: ClothingEyesNightVisionGoggles
+          cost: 8
+        - proto: ClothingEyesGlassesThermal
+          cost: 8
+        # WD EDIT END
 
 # Mob loot table
 

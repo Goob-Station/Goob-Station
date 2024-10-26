@@ -1,0 +1,71 @@
+# Night Vision Goggles
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesNightVisionGoggles
+  name: night vision goggles
+  description: Now you can see in the dark!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: ClothingGrantComponent
+    component:
+    - type: NightVision
+
+- type: entity
+  parent: ClothingEyesNightVisionGoggles
+  id: ClothingEyesNightVisionGogglesSyndie
+  suffix: "Chameleon"
+  components:
+  - type: ChameleonClothing
+    slot: [eyes]
+    default: ClothingEyesGlassesSunglasses
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: [ClothingEyesNightVisionGogglesSyndie, ShowSecurityIcons]
+  id: ClothingEyesNightVisionGogglesNukie
+  suffix: "Chameleon, NukeOps"
+  components:
+  - type: ShowSyndicateIcons
+
+# Thermal Vision Goggles
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesThermalVisionGoggles
+  name: thermal vision goggles
+  description: Now you can see everyone!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: ClothingGrantComponent
+    component:
+    - type: ThermalVision
+
+- type: entity
+  parent: ClothingEyesThermalVisionGoggles
+  id: ClothingEyesThermalVisionGogglesSyndie
+  suffix: "Chameleon"
+  components:
+  - type: ChameleonClothing
+    slot: [eyes]
+    default: ClothingEyesGlassesSunglasses
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: [ClothingEyesThermalVisionGogglesSyndie, ShowSecurityIcons]
+  id: ClothingEyesThermalVisionGogglesNukie
+  suffix: "Chameleon, NukeOps"
+  components:
+  - type: ShowSyndicateIcons

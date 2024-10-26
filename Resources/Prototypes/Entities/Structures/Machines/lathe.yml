@@ -382,6 +382,10 @@
       - EnergyScalpel # Shitmed Change
       - EnergyCautery # Shitmed Change
       - AdvancedRetractor # Shitmed Change
+      # WD EDIT START
+      - ClothingEyesNightVisionGoggles
+      - ClothingEyesThermalVisionGoggles
+      # WD EDIT END
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag

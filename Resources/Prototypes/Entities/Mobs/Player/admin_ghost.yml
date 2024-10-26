@@ -28,6 +28,7 @@
     bodyType: Kinematic
   - type: Body
     prototype: Aghost
+    thermalVisibility: false # WD EDIT
   - type: Access
     groups:
     - AllAccess
