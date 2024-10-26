@@ -6,7 +6,7 @@
   components:
   - type: StorageFill
     contents:
-        - id: OxygenTankFilled
         - id: ClothingOuterHardsuitBlueshield
         - id: ClothingMaskBreath
+        - id: OxygenTankFilled
         - id: NitrogenTankFilled

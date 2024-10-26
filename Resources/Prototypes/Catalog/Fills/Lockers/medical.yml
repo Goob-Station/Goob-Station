@@ -142,5 +142,7 @@
       - id: ClothingHeadsetMedical
       - id: ClothingMaskSterile
       - id: HandheldGPSBasic
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: MedkitFilled
         prob: 0.3

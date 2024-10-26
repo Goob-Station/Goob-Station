@@ -13,6 +13,8 @@
       - id: HandheldGPSBasic
       - id: RadioHandheld
       - id: SeismicCharge
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
         amount: 2
       - id: OreBag
         prob: 0.5
