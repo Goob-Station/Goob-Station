@@ -1532,3 +1532,25 @@ Entries:
       message: Fixed saying "lol" not making you laugh.
   id: 188
   time: '2024-10-18T02:24:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        HECU operative job/loadout (admeme, ghostrole, like how ERT is) and a
+        jumpsuit for them
+  id: 189
+  time: '2024-10-22T15:17:56.0000000+00:00'
+- author: Vlax2nd
+  changes:
+    - type: Fix
+      message: AI can spawn in highpop Fland
+  id: 190
+  time: '2024-10-22T15:30:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
+        losers)
+  id: 191
+  time: '2024-10-23T00:09:49.0000000+00:00'
