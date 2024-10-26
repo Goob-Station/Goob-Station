@@ -21,8 +21,6 @@
       - id: ClothingOuterHardsuitWarden
       - id: HoloprojectorSecurity
       - id: BookSpaceLaw
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: ClothingBackpackElectropack
         amount: 2
       - id: RemoteSignaller
@@ -95,8 +93,6 @@
       - id: TrackingImplanter
         amount: 2
       - id: ClothingOuterHardsuitBrigmedic
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: BoxSterileMask
       - id: ClothingHeadHatBeretBrigmedic
       - id: ClothingOuterCoatAMG

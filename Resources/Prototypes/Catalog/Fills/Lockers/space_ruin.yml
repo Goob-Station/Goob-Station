@@ -10,8 +10,6 @@
       - id: ClothingHeadHelmetAncient
       - id: ClothingOuterHardsuitAncientEVA
       - id: JetpackVoidFilled
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
 
 #Syndicate ship armory stuff
 - type: entity

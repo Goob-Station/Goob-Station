@@ -97,8 +97,6 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -130,8 +128,6 @@
       - id: ClothingShoesBootsMag
       - id: RCD
       - id: RCDAmmo
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
 
 - type: entity
   id: LockerEngineerFilled
@@ -157,7 +153,5 @@
         amount: 2
       - id: GeigerCounter
         amount: 2
-      - id: OxygenTankFilled
-      - id: NitrogenTankFilled
       - id: ClothingOuterSuitHEV
         prob: 0.05
