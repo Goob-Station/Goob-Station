@@ -1594,3 +1594,13 @@ Entries:
       message: Wideswing now deals stamina damage.
   id: 193
   time: '2024-10-26T13:55:23.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        BSO hardsuit is now command restricted contra also its 55% pierce
+        instead of 60% now
+    - type: Fix
+      message: HECU ghostrole actually works now lmao
+  id: 194
+  time: '2024-10-27T02:27:04.0000000+00:00'
