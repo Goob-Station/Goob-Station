@@ -1546,11 +1546,3 @@ Entries:
       message: AI can spawn in highpop Fland
   id: 190
   time: '2024-10-22T15:30:04.0000000+00:00'
-- author: starch70
-  changes:
-    - type: Add
-      message: >-
-        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
-        losers)
-  id: 191
-  time: '2024-10-23T00:09:49.0000000+00:00'

@@ -1,8 +1,26 @@
+# Senior Time
+- type: loadoutEffectGroup
+  id: SeniorCargoTechnician
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 216000 # 60 hrs
+
 # Head
 - type: loadout
   id: CargoTechnicianHeadMail
   equipment:
     head: ClothingHeadMailCarrier
+
+- type: loadout
+  id: CargoTechnicianHeadSenior
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargoTechnician
+  equipment:
+    head: ClothingHeadSeniorCargo
 
 # Jumpsuit
 - type: loadout
@@ -11,12 +29,29 @@
     jumpsuit: ClothingUniformMailCarrier
 
 - type: loadout
-  id: CargoTechnicianJumpskirtMail
+  id: CargoTechnicianJumpsuitMail
   equipment:
-    jumpsuit: ClothingUniformSkirtMailCarrier
+    jumpsuit: ClothingUniformMailCarrier
+
+- type: loadout
+  id: CargoTechnicianJumpsuitSenior
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargoTechnician
+  equipment:
+    jumpsuit: ClothingUniformSeniorCargoTech
 
 # OuterClothing
 - type: loadout
   id: CargoTechnicianWintercoatMail
   equipment:
     outerClothing: ClothingOuterWinterCoatMail
+
+# PDA
+- type: loadout
+  id: CargoTechnicianSeniorPDA
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorCargoTechnician
+  equipment:
+    id: SeniorCargoPDA

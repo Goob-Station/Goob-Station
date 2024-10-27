@@ -80,3 +80,14 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
+
+- type: entity
+  parent: ClothingUniformBase
+  id: ClothingUniformSeniorCargoTech
+  name: senior cargo technnician
+  description: you know a thing or two about trading.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/senior_cargo.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/senior_cargo.rsi

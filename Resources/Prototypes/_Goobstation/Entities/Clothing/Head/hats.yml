@@ -38,3 +38,14 @@
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadSeniorCargo
+  name: senior cargo technicians hat
+  description: Not your average cargo technician.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/senior_cargo_soft.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/senior_cargo_soft.rsi

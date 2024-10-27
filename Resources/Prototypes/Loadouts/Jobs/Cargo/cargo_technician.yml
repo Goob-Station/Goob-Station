@@ -42,3 +42,10 @@
   id: CargoWinterBoots
   equipment:
     shoes: ClothingShoesBootsWinterCargo
+
+# goobstation
+# ID
+- type: loadout
+  id: CargoTechnicianPDA
+  equipment:
+    id: CargoPDA

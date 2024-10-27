@@ -57,3 +57,21 @@
     borderColor: "#00842e"
   - type: Icon
     state: pda-centcom
+
+- type: entity
+  parent: CargoPDA
+  id: SeniorCargoPDA
+  name: senior cargo technician PDA
+  description: Your a senior cargonian.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+  - type: Pda
+    id: SeniorCargoIDCard
+    state: pda-seniorcargo
+  - type: PdaBorderColor
+    borderColor: "#272727"
+    accentVColor: "#cec100"
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-seniorcargo

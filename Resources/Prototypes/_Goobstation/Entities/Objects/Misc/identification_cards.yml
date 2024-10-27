@@ -53,3 +53,14 @@
     - AllAccess
     tags:
     - CentralCommand
+
+# Senior Cargo
+- type: entity
+  parent: CargoIDCard
+  id: SeniorCargoIDCard
+  name: Senior cargo ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: default
+    - state: idseniorcargotechnician

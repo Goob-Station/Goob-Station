@@ -606,6 +606,7 @@
   loadouts:
   - CargoTechnicianHead
   - CargoTechnicianHeadMail # Goob/DeltaV - Mail
+  - CargoTechnicianHeadSenior # Goob/DeltaV - Senior
 
 - type: loadoutGroup
   id: CargoTechnicianJumpsuit
@@ -615,6 +616,7 @@
   - CargoTechnicianJumpskirt
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
+  - CargoTechnicianJumpsuitSenior # Goob/DeltaV - Senior
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
@@ -638,6 +640,13 @@
   loadouts:
   - BlackShoes
   - CargoWinterBoots
+
+- type: loadoutGroup
+  id: CargoTechnicianID # Goobsttion
+  name: loadout-group-cargo-technician-id
+  loadouts:
+  - CargoTechnicianPDA
+  - CargoTechnicianSeniorPDA
 
 - type: loadoutGroup
   id: SalvageSpecialistBackpack
