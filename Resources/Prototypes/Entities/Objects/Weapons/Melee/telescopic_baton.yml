@@ -1,0 +1,71 @@
+﻿- type: entity
+  id: TelescopicBaton
+  parent: BaseItem
+  name: telescopic baton
+  description: A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/telebaton.rsi
+    layers:
+    - state: icon
+      map: [ "enum.TelescopicBatonVisuals.Layer" ]
+  - type: Item
+    size: Small
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -2
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -2
+  - type: ItemToggleDisarmMalus
+    activatedDisarmMalus: 0.6
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 12
+  - type: ItemToggleSize
+    activatedSize: Normal
+  - type: UseDelay
+    delay: 2
+  - type: TelescopicBaton
+  - type: KnockdownOnHit
+    duration: 1.5
+    dropHeldItemsBehavior: NoDrop
+  - type: MeleeWeapon
+    attackRate: 0.8
+    bluntStaminaDamageFactor: 1.5
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 5
+    maxTargets: 1
+    angle: 40
+    damage:
+      types:
+        Blunt: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.TelescopicBatonVisuals.State:
+        enum.TelescopicBatonVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon-off }
+
+- type: entity
+  parent: TelescopicBaton
+  id: TelescopicBatonAdmeme
+  name: robust telescopic baton
+  description: A compact and HARMFUL personal defense weapon. Sturdy enough to break legs of the attackers, making them unable to walk again.
+  suffix: admeme, DO NOT MAP
+  components:
+  - type: TelescopicBaton
+    attackTimeframe: 300 # one minute after activation
+  - type: KnockdownOnHit
+    duration: 60 #
+  - type: MeleeWeapon
+    attackRate: 1.2
+  - type: ItemToggleMeleeWeapon
+    activatedDamage:
+      types:
+        Blunt: 20

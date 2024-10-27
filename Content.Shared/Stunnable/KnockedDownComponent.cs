@@ -1,6 +1,6 @@
+using Content.Shared.Standing;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Stunnable;
 
@@ -12,6 +12,9 @@ public sealed partial class KnockedDownComponent : Component
 
     [DataField("helpAttemptSound")]
     public SoundSpecifier StunAttemptSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg");
+
+    [DataField]
+    public DropHeldItemsBehavior DropHeldItemsBehavior = DropHeldItemsBehavior.DropIfStanding;
 
     [ViewVariables, AutoNetworkedField]
     public float HelpTimer = 0f;

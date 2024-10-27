@@ -28,6 +28,8 @@ namespace Content.Shared.Stunnable;
 
 public abstract class SharedStunSystem : EntitySystem
 {
+    [Dependency] private readonly IComponentFactory _componentFactory = default!;
+
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
@@ -147,7 +149,7 @@ public abstract class SharedStunSystem : EntitySystem
     {
         _layingDown.UpdateSpriteRotation(uid); // Goobstation
         RaiseLocalEvent(uid, new CheckAutoGetUpEvent()); // WD EDIT
-        _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.DropIfStanding); // WD EDIT
+        _layingDown.TryLieDown(uid, null, null, component.DropHeldItemsBehavior); // WD EDIT
     }
 
     private void OnKnockShutdown(EntityUid uid, KnockedDownComponent component, ComponentShutdown args)
@@ -218,6 +220,26 @@ public abstract class SharedStunSystem : EntitySystem
         RaiseLocalEvent(uid, ref ev);
 
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} stunned for {time.Seconds} seconds");
+        return true;
+    }
+
+    /// <summary>
+    ///     Knocks down the entity, making it fall to the ground.
+    /// </summary>
+    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
+        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding,
+        StatusEffectsComponent? status = null)
+    {
+        if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
+            return false;
+
+        var component = _componentFactory.GetComponent<KnockedDownComponent>();
+        component.DropHeldItemsBehavior = behavior;
+        if (!_statusEffect.TryAddStatusEffect(uid, "KnockedDown", time, refresh, component))
+            return false;
+
+        var ev = new KnockedDownEvent();
+        RaiseLocalEvent(uid, ref ev);
         return true;
     }
 
