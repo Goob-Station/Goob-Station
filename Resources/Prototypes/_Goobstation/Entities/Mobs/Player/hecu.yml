@@ -15,6 +15,7 @@
 
 - type: randomHumanoidSettings
   id: HecuSoldier
+  parent: EventHumanoidMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-Hecu-name
@@ -24,4 +25,8 @@
         settings: short
     - type: Loadout
       prototypes: [HECUOperativeGear]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary
 
