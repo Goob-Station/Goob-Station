@@ -29,11 +29,6 @@
     jumpsuit: ClothingUniformMailCarrier
 
 - type: loadout
-  id: CargoTechnicianJumpsuitMail
-  equipment:
-    jumpsuit: ClothingUniformMailCarrier
-
-- type: loadout
   id: CargoTechnicianJumpsuitSenior
   effects:
   - !type:GroupLoadoutEffect

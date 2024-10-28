@@ -84,7 +84,7 @@
 - type: entity
   parent: ClothingUniformBase
   id: ClothingUniformSeniorCargoTech
-  name: senior cargo technnician
+  name: senior cargo technnician uniform
   description: you know a thing or two about trading.
   components:
   - type: Sprite

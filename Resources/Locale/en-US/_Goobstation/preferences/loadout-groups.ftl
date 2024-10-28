@@ -11,3 +11,5 @@ loadout-group-bso-neck = Blueshield Officer neck
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
+# cargo
+loadout-group-cargo-technician-id = Cargo Technician ID

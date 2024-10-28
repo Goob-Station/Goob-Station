@@ -1546,3 +1546,64 @@ Entries:
       message: AI can spawn in highpop Fland
   id: 190
   time: '2024-10-22T15:30:04.0000000+00:00'
+<<<<<<< HEAD
+=======
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
+        losers)
+  id: 191
+  time: '2024-10-23T00:09:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Skibidi Toilet mobs are now ghost roles, and have the Ohio accent.
+    - type: Tweak
+      message: The Ohio accent has been updated & improved.
+    - type: Tweak
+      message: >-
+        The Supermatter, Singularity, and Tesla now get silly first and last
+        names.
+    - type: Add
+      message: Added SigmaJuice, a drink that gives you the Ohio accent.
+    - type: Add
+      message: Added a mid-round Skibidi Toilet invasion event.
+    - type: Add
+      message: >-
+        Added a new Syndicate item, the "Box of Skibidi Rizz". It contains 3
+        dehydrated Skibidi Toilets and 3 glasses of Sigma Juice.
+    - type: Add
+      message: Added some new interesting borg names
+  id: 192
+  time: '2024-10-26T13:41:18.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Stamina damage reworked. After reaching stamcrit you will get knocked
+        down. While in stamcrit it takes only one hit to fully paralyze you.
+    - type: Tweak
+      message: Reworked stunbaton. Apply it on the nearest assistant to find out more.
+    - type: Tweak
+      message: High stamina damage will now make you jitter and stutter.
+    - type: Tweak
+      message: >-
+        Stimulants, ephedrine, meth and other specific drugs give hardstun
+        resistance and adrenaline effect.
+    - type: Tweak
+      message: Wideswing now deals stamina damage.
+  id: 193
+  time: '2024-10-26T13:55:23.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        BSO hardsuit is now command restricted contra also its 55% pierce
+        instead of 60% now
+    - type: Fix
+      message: HECU ghostrole actually works now lmao
+  id: 194
+  time: '2024-10-27T02:27:04.0000000+00:00'
+>>>>>>> master

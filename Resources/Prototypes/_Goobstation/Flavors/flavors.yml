@@ -12,3 +12,8 @@
   flavorType: Base
   description: flavor-base-offensive
 # END OF MIT-LICENSED CODE
+
+- type: flavor
+  id: sigma
+  flavorType: Base
+  description: flavor-base-sigma

@@ -2,7 +2,7 @@
   name: Skibidi Toilet
   id: MobSkibidiToilet
   parent: SimpleMobBase
-  description: Skibidi dop dop mmm yes yes
+  description: Skibidi dop dop dop yes yes
   components:
     - type: NpcFactionMember
       factions:
@@ -37,8 +37,8 @@
         0: Alive
         100: Dead
     - type: MovementSpeedModifier
-      baseWalkSpeed: 2
-      baseSprintSpeed: 5
+      baseWalkSpeed: 1.5 # literally 1984
+      baseSprintSpeed: 3.75 # literally 1984
     - type: Tag
       tags:
         - FootstepSound
@@ -53,7 +53,6 @@
       startingCharge: 1000
     - type: Gun
       fireRate: 1
-      useKey: false
       selectedMode: SemiAuto
       availableModes:
         - SemiAuto
@@ -61,10 +60,24 @@
     - type: CombatMode
     - type: InteractionPopup
       successChance: 0.3
-      interactSuccessString: petting-success-reptile
-      interactFailureString: petting-failure-generic
+      interactSuccessString: petting-success-skibidi-toilet
+      interactFailureString: petting-failure-skibidi-toilet
       interactSuccessSound:
         path: /Audio/_Goobstation/Animals/skibidi.wav
+    - type: GhostRole
+      makeSentient: true
+      allowSpeech: true
+      allowMovement: true
+      name: ghost-role-information-skibidi-toilet-name
+      description: ghost-role-information-skibidi-toilet-description
+      rules: ghost-role-information-skibidi-toilet-rules
+      raffle:
+        settings: short
+    - type: GhostTakeoverAvailable
+    - type: Speech
+      speechVerb: SmallMob
+      speechSounds: Squeak
+    - type: OhioAccent
 
 - type: entity
   name: OSRS NPC

@@ -616,7 +616,7 @@
   - CargoTechnicianJumpskirt
   - CargoTechnicianJumpsuitMail # Goob/DeltaV - Mail
   - CargoTechnicianJumpskirtMail # Goob/DeltaV - Mail
-  - CargoTechnicianJumpsuitSenior # Goob/DeltaV - Senior
+  - CargoTechnicianJumpsuitSenior # Goob - Senior
 
 - type: loadoutGroup
   id: CargoTechnicianBackpack
