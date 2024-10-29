@@ -13,7 +13,7 @@
   startingGear: SecurityCadetGear
   icon: "JobIconSecurityCadet"
   supervisors: job-supervisors-security
-  canBeAntag: false
+  canBeAntag: true
   access:
   - Security
   - Brig
@@ -21,9 +21,6 @@
   - Service
   - External
   - Cryogenics
-  special:
-  - !type:AddImplantSpecial
-    implants: [ MindShieldImplant ]
 
 - type: startingGear
   id: SecurityCadetGear
