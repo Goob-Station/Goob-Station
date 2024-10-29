@@ -258,7 +258,7 @@
       - Stutter
   - type: Bloodstream
     bloodMaxVolume: 1500000
-    bloodReagent: Hyperzine # sportacus essence
+    bloodReagent: JuiceApple # sportacus essence
   - type: Climbing
   - type: SlowOnDamage
     speedModifierThresholds:
