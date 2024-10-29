@@ -642,7 +642,7 @@
   - CargoWinterBoots
 
 - type: loadoutGroup
-  id: CargoTechnicianID # Goobsttion
+  id: CargoTechnicianID # Goobstation
   name: loadout-group-cargo-technician-id
   loadouts:
   - CargoTechnicianPDA

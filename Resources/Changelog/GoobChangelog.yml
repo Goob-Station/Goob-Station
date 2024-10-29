@@ -1547,7 +1547,10 @@ Entries:
   id: 190
   time: '2024-10-22T15:30:04.0000000+00:00'
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 25c358e3be96c531186b1cffe919a73dc94fc36c
 - author: starch70
   changes:
     - type: Add
@@ -1606,4 +1609,7 @@ Entries:
       message: HECU ghostrole actually works now lmao
   id: 194
   time: '2024-10-27T02:27:04.0000000+00:00'
+<<<<<<< HEAD
 >>>>>>> master
+=======
+>>>>>>> 25c358e3be96c531186b1cffe919a73dc94fc36c

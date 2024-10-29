@@ -29,6 +29,11 @@
     jumpsuit: ClothingUniformMailCarrier
 
 - type: loadout
+  id: CargoTechnicianJumpskirtMail
+  equipment:
+    jumpsuit: ClothingUniformSkirtMailCarrier
+
+- type: loadout
   id: CargoTechnicianJumpsuitSenior
   effects:
   - !type:GroupLoadoutEffect
@@ -43,6 +48,11 @@
     outerClothing: ClothingOuterWinterCoatMail
 
 # PDA
+- type: loadout
+  id: CargoTechnicianPDA
+  equipment:
+    id: CargoPDA
+
 - type: loadout
   id: CargoTechnicianSeniorPDA
   effects:
