@@ -203,3 +203,92 @@
   - type: Grammar
     attributes:
       gender: male
+
+- type: entity
+  name: Sportacus
+  description: my admin event antag will have stun immunity, health regen, and can instantly kill people
+  id: MobSportacus
+  parent: [BaseSimpleMob, MobCombat, MobBloodstream]
+  components:
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 10
+  - type: CombatMode
+  - type: Deathgasp
+  - type: ComplexInteraction
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 200000
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeat
+      amount: 30000
+  - type: Puller
+    needsHands: false
+  - type: CanHostGuardian
+  - type: FactionException
+  - type: NpcFactionMember
+    factions:
+      - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: IdExaminable
+  - type: Hunger
+    thresholds:
+      Overfed: 100000
+      Okay: 50000
+      Peckish: 25000
+      Starving: 10000
+      Dead: 0
+    baseDecayRate: 0
+  - type: Thirst
+    thresholds:
+      OverHydrated: 200000
+      Okay: 150000
+      Thirsty: 100000
+      Parched: 50000
+      Dead: 0
+    baseDecayRate: 0
+  - type: StatusEffects
+    allowed:
+      - SlowedDown
+      - Stutter
+  - type: Bloodstream
+    bloodMaxVolume: 1500000
+    bloodReagent: Hyperzine # sportacus essence
+  - type: Climbing
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60000: 0.7
+      80000: 0.5
+  - type: MobPrice
+    price: 150000
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Sprite
+    scale: 0.125, 0.125
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/sportacus.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: alive
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: idle
+      Dead:
+        Base: dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100000: Critical
+      200000: Dead
+  - type: ZombieImmune
+  - type: ProtectedFromStepTriggers
+  - type: Grammar
+    attributes:
+      gender: male
