@@ -1622,3 +1622,9 @@ Entries:
       message: Geiger counters and appraisal tools should now work in rituals
   id: 197
   time: '2024-10-30T23:16:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Metashield rule for changeling
+  id: 198
+  time: '2024-10-30T23:17:07.0000000+00:00'
