@@ -2,3 +2,8 @@
   id: FrontierProspector
   path: /Maps/_Goobstation/Shuttles/ShuttleEvent/prospector.yml
   copies: 1
+
+- type: preloadedGrid
+  id: SyndieStriker
+  path: /Maps/_Goobstation/Shuttles/ShuttleEvent/striker.yml
+  copies: 1

@@ -3,6 +3,18 @@
   id: UnknownShuttleFrontierProspector
   components:
   - type: StationEvent
-    weight: 2
+    weight: 3
   - type: LoadMapRule
     preloadedGrid: FrontierProspector
+
+
+- type: entity
+  id: UnknownShuttleStriker
+  parent: BaseUnknownShuttleRule
+  components:
+  - type: StationEvent
+    startAnnouncement: null #why would i do this
+    weight: 2.5 # 2 syndie borgs and a budget loneop though??
+    earliestStart: 15 # good enough for warops good enough for me
+  - type: LoadMapRule
+    preloadedGrid: SyndieStriker
