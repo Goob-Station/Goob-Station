@@ -7,35 +7,6 @@
   flavor: apple
   color: "#FDAD01"
   recognizable: true
-  metabolisms:
-    Medicine:
-      effects:
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        damage:
-          groups:
-              Brute: -100
-              Burn: -100
-              Airloss: -100
-              Toxin: -100
-              Genetic: -100
-      - !type:ModifyBloodLevel
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        amount: 100000
-      - !type:ModifyBleedAmount
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        amount: -2000
-      - !type:ReduceRotting
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        seconds: 360
 
 - type: reagent
   id: JuiceBanana
