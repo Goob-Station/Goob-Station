@@ -1,30 +1,28 @@
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Server.Teleportation;
 
 /// <summary>
-///     Component to store parameters for entities that teleport randomly.
+/// Component to store parameters for entities that teleport randomly.
 /// </summary>
-[RegisterComponent, Virtual]
-public partial class RandomTeleportComponent : Component
+[RegisterComponent]
+public sealed partial class RandomTeleportComponent : Component
 {
     /// <summary>
-    ///     Up to how far to teleport the user in tiles.
+    /// Up to how far to teleport the user
     /// </summary>
-    [DataField] public MinMax Radius = new MinMax(10, 20);
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float TeleportRadius = 100f;
 
     /// <summary>
-    ///     How many times to try to pick the destination. Larger number means the teleport is more likely to be safe.
+    /// How many times to check for a valid tile to teleport to, higher number means less teleports into walls or open space
     /// </summary>
-    [DataField] public int TeleportAttempts = 10;
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public int TeleportAttempts = 20;
 
-    /// <summary>
-    ///     Will try harder to find a safe teleport.
-    /// </summary>
-    [DataField] public bool ForceSafeTeleport = true;
-
-    [DataField] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
-    [DataField] public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public SoundSpecifier TeleportSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
 }
