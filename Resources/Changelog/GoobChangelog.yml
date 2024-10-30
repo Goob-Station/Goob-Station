@@ -1604,3 +1604,9 @@ Entries:
       message: HECU ghostrole actually works now lmao
   id: 194
   time: '2024-10-27T02:27:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed Train Station from the map pool.
+  id: 195
+  time: '2024-10-30T23:07:42.0000000+00:00'
