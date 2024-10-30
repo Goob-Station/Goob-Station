@@ -39,6 +39,14 @@
       - !type:ModifyBleedAmount
         amount: -0.25
       - !type:SatiateHunger #Numbers are balanced with this in mind + it helps limit how much healing you can get from food
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Athletic
+        damage:
+          groups:
+            Brute: -50
+            Burn: -50
   # Lets plants benefit too
   plantMetabolism:
   - !type:PlantAdjustNutrition
@@ -86,6 +94,16 @@
           reagent: Nutriment
           min: 0.1
         factor: 1
+    Poison:
+      metabolismRate: 2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Athletic
+        damage:
+          types:
+            Poison: 1000000
   plantMetabolism:
   - !type:PlantAdjustNutrition
     amount: 0.1
