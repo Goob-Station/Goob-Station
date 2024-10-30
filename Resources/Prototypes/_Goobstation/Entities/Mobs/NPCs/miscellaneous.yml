@@ -211,8 +211,8 @@
   parent: [BaseSimpleMob, MobCombat, MobBloodstream]
   components:
   - type: MovementSpeedModifier
-    baseWalkSpeed: 4.5
-    baseSprintSpeed: 10
+    baseWalkSpeed: 3
+    baseSprintSpeed: 5
   - type: CombatMode
   - type: Deathgasp
   - type: ComplexInteraction
@@ -261,7 +261,7 @@
       - Stutter
   - type: Bloodstream
     bloodMaxVolume: 1500000
-    bloodReagent: JuiceApple # sportacus essence
+    bloodReagent: Stimulants # sportacus essence
   - type: Climbing
   - type: SlowOnDamage
     speedModifierThresholds:
@@ -292,6 +292,14 @@
       200000: Dead
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
+  - type: Metabolizer
+    solutionOnBody: false
+    updateInterval: 0.25
+    metabolizerTypes: [ Athletic ]
+    groups:
+      - id: Medicine
+      - id: Narcotic
+      - id: Poison
   - type: Grammar
     attributes:
       gender: male

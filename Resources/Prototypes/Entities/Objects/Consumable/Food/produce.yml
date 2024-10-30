@@ -1062,12 +1062,14 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 14
+        maxVol: 24
         reagents:
         - ReagentId: Nutriment
           Quantity: 10
         - ReagentId: Vitamin
           Quantity: 4
+        - ReagentId: JuiceApple
+          Quantity: 10
   - type: Sprite
     sprite: Objects/Specific/Hydroponics/apple.rsi
   - type: Produce
