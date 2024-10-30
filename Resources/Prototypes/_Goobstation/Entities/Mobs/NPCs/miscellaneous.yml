@@ -292,14 +292,6 @@
       200000: Dead
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
-  - type: Metabolizer
-    solutionOnBody: false
-    updateInterval: 0.25
-    metabolizerTypes: [ Athletic ]
-    groups:
-      - id: Medicine
-      - id: Narcotic
-      - id: Poison
   - type: Grammar
     attributes:
       gender: male
