@@ -1616,3 +1616,9 @@ Entries:
       message: Added 11 crazy new hairdo's
   id: 196
   time: '2024-10-30T23:13:54.0000000+00:00'
+- author: TGRCdev
+  changes:
+    - type: Fix
+      message: Geiger counters and appraisal tools should now work in rituals
+  id: 197
+  time: '2024-10-30T23:16:09.0000000+00:00'
