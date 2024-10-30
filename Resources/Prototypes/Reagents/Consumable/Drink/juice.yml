@@ -36,17 +36,6 @@
         - !type:OrganType
           type: Athletic
         seconds: 360
-    Narcotic:
-      metabolismRate: 2.0
-      effects:
-      - !type:MovespeedModifier
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        walkSpeedModifier: 4.5
-        sprintSpeedModifier: 10
-        type: Add
-        time: 30
 
 - type: reagent
   id: JuiceBanana
