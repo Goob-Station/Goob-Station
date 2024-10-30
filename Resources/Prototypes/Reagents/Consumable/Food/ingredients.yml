@@ -18,13 +18,6 @@
       - !type:AdjustReagent
         reagent: Nutriment
         amount: 0.1
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Athletic
-        damage:
-          groups:
-            Poison: 100000000
 
 - type: reagent
   id: Cornmeal
