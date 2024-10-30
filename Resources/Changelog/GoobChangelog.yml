@@ -1634,3 +1634,11 @@ Entries:
       message: Made changeling armblade more armey
   id: 199
   time: '2024-10-30T23:20:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Scram implant will now properly randomly teleport you over long
+        distances, and less often into space.
+  id: 200
+  time: '2024-10-30T23:22:15.0000000+00:00'
