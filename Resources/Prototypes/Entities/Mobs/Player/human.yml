@@ -3,7 +3,7 @@
   name: Urist McHands
   parent: BaseMobHuman
   id: MobHuman
-
+  
 #Syndie
 - type: entity
   parent: MobHuman
