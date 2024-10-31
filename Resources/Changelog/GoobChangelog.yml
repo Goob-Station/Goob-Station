@@ -1648,3 +1648,11 @@ Entries:
       message: added sportacus
   id: 201
   time: '2024-10-31T00:01:12.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The logo doesn't look completely awful anymore
+    - type: Add
+      message: Detroit / Barratry has been re-added!!!!!
+  id: 202
+  time: '2024-10-31T01:50:08.0000000+00:00'
