@@ -42808,11 +42808,6 @@ entities:
       parent: 1
 - proto: CrateEngineeringAMEShielding
   entities:
-  - uid: 670
-    components:
-    - type: Transform
-      pos: -70.5,23.5
-      parent: 1
   - uid: 10657
     components:
     - type: Transform
@@ -74994,16 +74989,6 @@ entities:
       parent: 1
 - proto: LandMineExplosive
   entities:
-  - uid: 1896
-    components:
-    - type: Transform
-      pos: 4.503215,47.21454
-      parent: 1
-  - uid: 1897
-    components:
-    - type: Transform
-      pos: 18.723274,34.87799
-      parent: 1
   - uid: 1908
     components:
     - type: Transform
@@ -75049,16 +75034,6 @@ entities:
     - type: Transform
       pos: 23.543427,27.892862
       parent: 1
-  - uid: 2994
-    components:
-    - type: Transform
-      pos: 15.073994,46.516182
-      parent: 1
-  - uid: 13771
-    components:
-    - type: Transform
-      pos: -67.49912,53.16432
-      parent: 1
   - uid: 13772
     components:
     - type: Transform
@@ -75068,11 +75043,6 @@ entities:
     components:
     - type: Transform
       pos: 10.531658,41.504982
-      parent: 1
-  - uid: 13794
-    components:
-    - type: Transform
-      pos: 20.402067,40.975136
       parent: 1
   - uid: 13808
     components:
@@ -75098,41 +75068,6 @@ entities:
     components:
     - type: Transform
       pos: -50.497593,19.92967
-      parent: 1
-  - uid: 13872
-    components:
-    - type: Transform
-      pos: -64.40504,48.54422
-      parent: 1
-  - uid: 13873
-    components:
-    - type: Transform
-      pos: -67.46754,43.127975
-      parent: 1
-  - uid: 13874
-    components:
-    - type: Transform
-      pos: -72.57618,53.588524
-      parent: 1
-  - uid: 13875
-    components:
-    - type: Transform
-      pos: -69.5866,54.464134
-      parent: 1
-  - uid: 13876
-    components:
-    - type: Transform
-      pos: -75.44896,49.957848
-      parent: 1
-  - uid: 13877
-    components:
-    - type: Transform
-      pos: -74.438545,42.263145
-      parent: 1
-  - uid: 13878
-    components:
-    - type: Transform
-      pos: -70.76773,37.359077
       parent: 1
   - uid: 13879
     components:
@@ -89653,6 +89588,7 @@ entities:
       beepSound: !type:SoundPathSpecifier
         path: /Audio/Machines/timer.ogg
       beepInterval: 1
+      user: invalid
       timeRemaining: 180
 - proto: Syringe
   entities:
