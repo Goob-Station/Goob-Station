@@ -1656,3 +1656,9 @@ Entries:
       message: Detroit / Barratry has been re-added!!!!!
   id: 202
   time: '2024-10-31T01:50:08.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Barratry no longer has land mines in maintenance due to issues of skill.
+  id: 203
+  time: '2024-11-01T21:44:20.0000000+00:00'
