@@ -89465,7 +89465,6 @@ entities:
       beepSound: !type:SoundPathSpecifier
         path: /Audio/Machines/timer.ogg
       beepInterval: 1
-      user: invalid
       timeRemaining: 180
 - proto: Syringe
   entities:
