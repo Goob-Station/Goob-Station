@@ -9119,9 +9119,6 @@ entities:
           - 1670
           - 1671
     - type: UserInterface
-      actors:
-        enum.StorageUiKey.Key:
-        - invalid
     - type: Physics
       angularDamping: 0
       linearDamping: 0
@@ -46665,8 +46662,6 @@ entities:
       pos: -2.5,14.5
       parent: 2
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2204
   - uid: 2169
