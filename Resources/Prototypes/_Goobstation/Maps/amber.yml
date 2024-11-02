@@ -5,7 +5,7 @@
   minPlayers: 40
   maxPlayers: 90
   stations:
-    Bagel:
+    Amber:
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup

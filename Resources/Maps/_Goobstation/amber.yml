@@ -75,10 +75,12 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: LoadedMap
+    - type: BecomesStation
+      id: Amber
   - uid: 2
     components:
     - type: MetaData
-      name: grid
+      name: Amber
     - type: Transform
       rot: 0.00013608029985334724 rad
       pos: -0.6873069,-0.35918117
@@ -4663,6 +4665,8 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: BecomesStation
+      id: Amber
 - proto: AccordionInstrument
   entities:
   - uid: 11057
@@ -9118,7 +9122,6 @@ entities:
           - 1669
           - 1670
           - 1671
-    - type: UserInterface
     - type: Physics
       angularDamping: 0
       linearDamping: 0
