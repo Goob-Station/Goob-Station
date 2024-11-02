@@ -1,0 +1,13 @@
+- type: reaction
+  id: SigmaJuice
+  reactants:
+    CogChamp:
+      amount: 1
+    Water:
+      amount: 1
+    WeldingFuel:
+      amount: 1
+  products:
+    SigmaJuice: 3
+  sound:
+    path: /Audio/_Goobstation/Animals/skibidi.wav

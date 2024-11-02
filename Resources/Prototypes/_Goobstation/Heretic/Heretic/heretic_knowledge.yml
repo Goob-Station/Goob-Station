@@ -16,17 +16,11 @@
   - AmberFocus
 
 - type: hereticKnowledge
-  id: CodexCicatrix
-  # ritualPrototypes:
-
-- type: hereticKnowledge
-  id: CloakOfShadow
-  # actionPrototypes:
-
-- type: hereticKnowledge
-  id: RitualOfKnowledge
+  id: LivingHeart
   ritualPrototypes:
-  - RitualOfKnowledge
+  - LivingHeart
+  actionPrototypes:
+  - ActionHereticLivingHeart
 
 # ash path
 - type: hereticKnowledge
@@ -43,6 +37,8 @@
 
 - type: hereticKnowledge
   id: AshenShift
+  path: Ash
+  sideKnowledge: true
   stage: 3
   actionPrototypes:
   - ActionHereticJaunt
@@ -61,6 +57,8 @@
 
 - type: hereticKnowledge
   id: MaskOfMadness
+  path: Ash
+  sideKnowledge: true
   stage: 6
   ritualPrototypes:
   - MaskOfMadness
@@ -72,6 +70,8 @@
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
+  path: Ash
+  sideKnowledge: true
   stage: 8
   actionPrototypes:
   - ActionHereticNightwatcherRebirth
@@ -106,6 +106,8 @@
 
 - type: hereticKnowledge
   id: ImperfectRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 3
   ritualPrototypes:
   - ImperfectRitual
@@ -124,6 +126,8 @@
 
 - type: hereticKnowledge
   id: RawRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 6
   ritualPrototypes:
   - RawRitual
@@ -135,6 +139,8 @@
 
 - type: hereticKnowledge
   id: LonelyRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 8
   ritualPrototypes:
   - LonelyRitual
@@ -168,6 +174,8 @@
 
 - type: hereticKnowledge
   id: AristocratWay
+  path: Void
+  sideKnowledge: true
   stage: 3
   event: !type:HereticAristocratWayEvent
 
@@ -185,6 +193,8 @@
 
 - type: hereticKnowledge
   id: VoidPhase
+  path: Void
+  sideKnowledge: true
   stage: 6
   actionPrototypes:
   - ActionHereticVoidPhase
@@ -196,6 +206,8 @@
 
 - type: hereticKnowledge
   id: VoidPull
+  path: Void
+  sideKnowledge: true
   stage: 8
   actionPrototypes:
   - ActionHereticVoidPull
@@ -215,7 +227,14 @@
 
 # side paths
 - type: hereticKnowledge
+  id: RitualOfKnowledge
+  sideKnowledge: true
+  ritualPrototypes:
+  - RitualOfKnowledge
+
+- type: hereticKnowledge
   id: ArmorerRitual
+  sideKnowledge: true
   stage: 3
   ritualPrototypes:
   - ArmorerRitual  

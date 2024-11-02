@@ -48,6 +48,14 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: StamcritResist
+        time: 5
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -101,6 +109,14 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: StamcritResist
+        time: 5
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -164,6 +180,14 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: StamcritResist
+        time: 5
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       metabolismRate: 1.0
       effects:

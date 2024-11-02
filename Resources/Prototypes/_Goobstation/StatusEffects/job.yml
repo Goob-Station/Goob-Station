@@ -4,7 +4,7 @@
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: Future
-  jobName: Future Agent
+  jobName: job-name-futureagent
 
 - type: jobIcon
   parent: JobIcon
@@ -12,7 +12,7 @@
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: nanotrasenrepresentative
-  jobName: Nanotrasen Representative
+  jobName: job-name-ntr
 
 - type: jobIcon
   parent: JobIcon
@@ -20,4 +20,4 @@
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: blueshield
-  jobName: Blueshield
+  jobName: job-name-bs

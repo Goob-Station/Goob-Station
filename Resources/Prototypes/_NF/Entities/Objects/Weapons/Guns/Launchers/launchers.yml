@@ -1,6 +1,6 @@
 - type: entity
   name: mail RPDS
-  parent: WeaponLauncherChinaLake
+  parent: [BaseCargoContraband, WeaponLauncherChinaLake]
   id: WeaponMailLake
   description: Rap(b?)id Parcel Delivery System
   components:
