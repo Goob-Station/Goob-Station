@@ -57052,11 +57052,6 @@ entities:
     - type: Transform
       pos: 25.5,30.5
       parent: 82
-  - uid: 18809
-    components:
-    - type: Transform
-      pos: 28.5,20.5
-      parent: 82
   - uid: 18810
     components:
     - type: Transform
@@ -141636,6 +141631,113 @@ entities:
       - SurveillanceCameraCommand
       nameSet: True
       id: Telecomms
+  - uid: 26284
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 25.5,-47.5
+      parent: 82
+  - uid: 26286
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,-67.5
+      parent: 82
+  - uid: 26352
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,-13.5
+      parent: 82
+  - uid: 26353
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 16.5,-13.5
+      parent: 82
+  - uid: 26354
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-16.5
+      parent: 82
+  - uid: 26355
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-15.5
+      parent: 82
+  - uid: 26358
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,2.5
+      parent: 82
+  - uid: 26378
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 26.5,-100.5
+      parent: 82
+  - uid: 26379
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-99.5
+      parent: 82
+  - uid: 26380
+    components:
+    - type: Transform
+      pos: 33.5,-93.5
+      parent: 82
+  - uid: 26381
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,-88.5
+      parent: 82
+  - uid: 26382
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 16.5,-88.5
+      parent: 82
+  - uid: 26383
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,-91.5
+      parent: 82
+  - uid: 26384
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,-95.5
+      parent: 82
+  - uid: 26385
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,-100.5
+      parent: 82
+  - uid: 26386
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 16.5,-104.5
+      parent: 82
+  - uid: 26387
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,-81.5
+      parent: 82
+  - uid: 26388
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,-59.5
+      parent: 82
 - proto: SurveillanceCameraEngineering
   entities:
   - uid: 3845
@@ -141713,6 +141815,12 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Atmos Lobby
+  - uid: 4222
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,15.5
+      parent: 82
   - uid: 10500
     components:
     - type: Transform
@@ -141724,6 +141832,61 @@ entities:
       - SurveillanceCameraEngineering
       nameSet: True
       id: Gravity Gen
+  - uid: 26314
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,15.5
+      parent: 82
+  - uid: 26315
+    components:
+    - type: Transform
+      pos: 17.5,19.5
+      parent: 82
+  - uid: 26316
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 11.5,27.5
+      parent: 82
+  - uid: 26317
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,27.5
+      parent: 82
+  - uid: 26318
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -1.5,20.5
+      parent: 82
+  - uid: 26319
+    components:
+    - type: Transform
+      pos: -3.5,19.5
+      parent: 82
+  - uid: 26320
+    components:
+    - type: Transform
+      pos: 7.5,19.5
+      parent: 82
+  - uid: 26321
+    components:
+    - type: Transform
+      pos: 2.5,19.5
+      parent: 82
+  - uid: 26322
+    components:
+    - type: Transform
+      pos: 11.5,19.5
+      parent: 82
+  - uid: 26359
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -9.5,53.5
+      parent: 82
 - proto: SurveillanceCameraGeneral
   entities:
   - uid: 13928
@@ -141856,6 +142019,380 @@ entities:
       - SurveillanceCameraGeneral
       nameSet: True
       id: Dorms
+  - uid: 26136
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-1.5
+      parent: 82
+  - uid: 26140
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 14.5,-1.5
+      parent: 82
+  - uid: 26155
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-1.5
+      parent: 82
+  - uid: 26156
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 24.5,-2.5
+      parent: 82
+  - uid: 26157
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,-9.5
+      parent: 82
+  - uid: 26158
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,-15.5
+      parent: 82
+  - uid: 26159
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-22.5
+      parent: 82
+  - uid: 26160
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,-23.5
+      parent: 82
+  - uid: 26161
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-23.5
+      parent: 82
+  - uid: 26162
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-23.5
+      parent: 82
+  - uid: 26163
+    components:
+    - type: Transform
+      pos: -3.5,-25.5
+      parent: 82
+  - uid: 26164
+    components:
+    - type: Transform
+      pos: -9.5,-27.5
+      parent: 82
+  - uid: 26165
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,-24.5
+      parent: 82
+  - uid: 26183
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-31.5
+      parent: 82
+  - uid: 26280
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -3.5,-44.5
+      parent: 82
+  - uid: 26281
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,-52.5
+      parent: 82
+  - uid: 26282
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,-56.5
+      parent: 82
+  - uid: 26283
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 15.5,-47.5
+      parent: 82
+  - uid: 26285
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-54.5
+      parent: 82
+  - uid: 26310
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 51.5,4.5
+      parent: 82
+  - uid: 26311
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 42.5,4.5
+      parent: 82
+  - uid: 26312
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 34.5,4.5
+      parent: 82
+  - uid: 26313
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,21.5
+      parent: 82
+  - uid: 26323
+    components:
+    - type: Transform
+      pos: 27.5,22.5
+      parent: 82
+  - uid: 26324
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,31.5
+      parent: 82
+  - uid: 26325
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,31.5
+      parent: 82
+  - uid: 26326
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,31.5
+      parent: 82
+  - uid: 26327
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -23.5,39.5
+      parent: 82
+  - uid: 26328
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,31.5
+      parent: 82
+  - uid: 26329
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -57.5,31.5
+      parent: 82
+  - uid: 26330
+    components:
+    - type: Transform
+      pos: -48.5,29.5
+      parent: 82
+  - uid: 26331
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -55.5,41.5
+      parent: 82
+  - uid: 26332
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -53.5,39.5
+      parent: 82
+  - uid: 26333
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -56.5,51.5
+      parent: 82
+  - uid: 26334
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -59.5,55.5
+      parent: 82
+  - uid: 26335
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -53.5,48.5
+      parent: 82
+  - uid: 26336
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,21.5
+      parent: 82
+  - uid: 26337
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,13.5
+      parent: 82
+  - uid: 26338
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,3.5
+      parent: 82
+  - uid: 26339
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,-1.5
+      parent: 82
+  - uid: 26340
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -29.5,-1.5
+      parent: 82
+  - uid: 26341
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -37.5,-2.5
+      parent: 82
+  - uid: 26342
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -42.5,-7.5
+      parent: 82
+  - uid: 26343
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -40.5,-16.5
+      parent: 82
+  - uid: 26348
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 0.5,-41.5
+      parent: 82
+  - uid: 26349
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-34.5
+      parent: 82
+  - uid: 26350
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,-34.5
+      parent: 82
+  - uid: 26351
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,-33.5
+      parent: 82
+  - uid: 26356
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -5.5,-10.5
+      parent: 82
+  - uid: 26357
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,-2.5
+      parent: 82
+  - uid: 26360
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -6.5,50.5
+      parent: 82
+  - uid: 26361
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 1.5,51.5
+      parent: 82
+  - uid: 26362
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,51.5
+      parent: 82
+  - uid: 26363
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 21.5,51.5
+      parent: 82
+  - uid: 26364
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,52.5
+      parent: 82
+  - uid: 26372
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,33.5
+      parent: 82
+  - uid: 26373
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,42.5
+      parent: 82
+  - uid: 26389
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 85.5,-2.5
+      parent: 82
+  - uid: 26390
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 85.5,-11.5
+      parent: 82
+  - uid: 26391
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 73.5,-8.5
+      parent: 82
+  - uid: 26392
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 68.5,4.5
+      parent: 82
+  - uid: 26393
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 74.5,13.5
+      parent: 82
+  - uid: 26394
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 84.5,13.5
+      parent: 82
 - proto: SurveillanceCameraMedical
   entities:
   - uid: 6906
@@ -141956,6 +142493,52 @@ entities:
       - SurveillanceCameraMedical
       nameSet: True
       id: Cryogenics
+  - uid: 26166
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,-24.5
+      parent: 82
+  - uid: 26167
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,-29.5
+      parent: 82
+  - uid: 26169
+    components:
+    - type: Transform
+      pos: -25.5,-35.5
+      parent: 82
+  - uid: 26171
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,-32.5
+      parent: 82
+  - uid: 26344
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -48.5,-28.5
+      parent: 82
+  - uid: 26345
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -56.5,-31.5
+      parent: 82
+  - uid: 26346
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -41.5,-39.5
+      parent: 82
+  - uid: 26347
+    components:
+    - type: Transform
+      pos: -36.5,-40.5
+      parent: 82
 - proto: SurveillanceCameraRouterCommand
   entities:
   - uid: 6650
@@ -142065,6 +142648,47 @@ entities:
       - SurveillanceCameraScience
       nameSet: True
       id: Robotics Bay
+  - uid: 26365
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,56.5
+      parent: 82
+  - uid: 26366
+    components:
+    - type: Transform
+      pos: 20.5,69.5
+      parent: 82
+  - uid: 26367
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 12.5,74.5
+      parent: 82
+  - uid: 26368
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 10.5,76.5
+      parent: 82
+  - uid: 26369
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 23.5,76.5
+      parent: 82
+  - uid: 26370
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 30.5,79.5
+      parent: 82
+  - uid: 26371
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,71.5
+      parent: 82
 - proto: SurveillanceCameraSecurity
   entities:
   - uid: 3843
@@ -142197,6 +142821,143 @@ entities:
       - SurveillanceCameraSecurity
       nameSet: True
       id: Security 1
+  - uid: 26287
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 43.5,-46.5
+      parent: 82
+  - uid: 26288
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 53.5,-43.5
+      parent: 82
+  - uid: 26289
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.5,-36.5
+      parent: 82
+  - uid: 26290
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 59.5,-40.5
+      parent: 82
+  - uid: 26291
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.5,-32.5
+      parent: 82
+  - uid: 26292
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 54.5,-22.5
+      parent: 82
+  - uid: 26293
+    components:
+    - type: Transform
+      pos: 50.5,-20.5
+      parent: 82
+  - uid: 26294
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 62.5,-14.5
+      parent: 82
+  - uid: 26295
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 67.5,-20.5
+      parent: 82
+  - uid: 26296
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 62.5,-18.5
+      parent: 82
+  - uid: 26297
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 51.5,-12.5
+      parent: 82
+  - uid: 26298
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 62.5,-9.5
+      parent: 82
+  - uid: 26299
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 60.5,0.5
+      parent: 82
+  - uid: 26300
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 52.5,-0.5
+      parent: 82
+  - uid: 26301
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 46.5,-7.5
+      parent: 82
+  - uid: 26302
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,-8.5
+      parent: 82
+  - uid: 26303
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 36.5,0.5
+      parent: 82
+  - uid: 26304
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,-10.5
+      parent: 82
+  - uid: 26305
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 36.5,-19.5
+      parent: 82
+  - uid: 26306
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 42.5,-19.5
+      parent: 82
+  - uid: 26307
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 34.5,-19.5
+      parent: 82
+  - uid: 26308
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 28.5,-14.5
+      parent: 82
+  - uid: 26309
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 48.5,-7.5
+      parent: 82
 - proto: SurveillanceCameraService
   entities:
   - uid: 2148
@@ -142285,6 +143046,23 @@ entities:
       - SurveillanceCameraService
       nameSet: True
       id: Cafe
+  - uid: 26172
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-32.5
+      parent: 82
+  - uid: 26181
+    components:
+    - type: Transform
+      pos: -12.5,-43.5
+      parent: 82
+  - uid: 26182
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -8.5,-37.5
+      parent: 82
 - proto: SurveillanceCameraSupply
   entities:
   - uid: 3853
@@ -142340,6 +143118,30 @@ entities:
       - SurveillanceCameraSupply
       nameSet: True
       id: Salvage
+  - uid: 26374
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 48.5,24.5
+      parent: 82
+  - uid: 26375
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 49.5,35.5
+      parent: 82
+  - uid: 26376
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 52.5,38.5
+      parent: 82
+  - uid: 26377
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 45.5,14.5
+      parent: 82
 - proto: SurveillanceCameraWirelessRouterEntertainment
   entities:
   - uid: 6398
@@ -145244,11 +146046,6 @@ entities:
       parent: 82
 - proto: ToiletDirtyWater
   entities:
-  - uid: 4222
-    components:
-    - type: Transform
-      pos: 7.5,-15.5
-      parent: 82
   - uid: 15525
     components:
     - type: Transform
@@ -145295,6 +146092,13 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 59.5,-36.5
+      parent: 82
+- proto: ToiletGoldenDirtyWater
+  entities:
+  - uid: 18809
+    components:
+    - type: Transform
+      pos: 7.5,-15.5
       parent: 82
 - proto: ToolboxArtistic
   entities:
