@@ -1,0 +1,10 @@
+- type: listing
+  id: EvolutionMenuStingBlind
+  name: evolutionmenu-sting-blind-name
+  description: evolutionmenu-sting-blind-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: sting_blind }
+  productAction: ActionStingBlind
+  cost:
+    ControlPower: 4
+  categories:
+  - ChangelingAbilitySting

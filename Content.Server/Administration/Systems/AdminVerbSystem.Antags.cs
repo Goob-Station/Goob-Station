@@ -181,5 +181,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+
+        // goobstation - malfuntioning ai
+        Verb malfai = new()
+        {
+            Text = Loc.GetString("admin-verb-make-malf"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Mobs/Silicon/station_ai.rsi"), "ai_dead"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfunctionalAi");
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-text-make-malf"),
+        };
+        args.Verbs.Add(malfai);
     }
 }

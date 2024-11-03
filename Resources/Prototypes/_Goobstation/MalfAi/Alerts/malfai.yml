@@ -1,0 +1,8 @@
+- type: alert
+  id: MalfAiControlPower
+  icons:
+  - sprite: /Textures/_Goobstation/Changeling/changeling_biomass.rsi
+    state: 0
+  alertViewEntity: AlertChangelingBiomassSpriteView
+  name: alerts-malfai-controlpower-name
+  description: alerts-malfai-controlpower-desc

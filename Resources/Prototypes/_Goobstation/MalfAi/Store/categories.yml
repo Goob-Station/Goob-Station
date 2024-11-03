@@ -1,0 +1,9 @@
+- type: storeCategory
+  id: MalfAiAbilityElectronics
+  name: store-malfai-category-electronics
+  priority: 0
+
+- type: storeCategory
+  id: MalfAiAbilityExplosive
+  name: store-malfai-category-explosive
+  priority: 1

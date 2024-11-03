@@ -1,0 +1,14 @@
+# roundstart abilities
+
+- type: entity
+  id: OpenDevelopmentMenuEvent
+  name: Development menu
+  description: Opens the development menu.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Resources/Textures/Structures/Power/apc.rsi/emag_unlit.png
+      state: 2
+    event: type:OpenDevelopmentMenuEvent {}
