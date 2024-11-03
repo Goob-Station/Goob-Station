@@ -11586,17 +11586,11 @@ entities:
     - type: Transform
       pos: -8.6922035,7.454777
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
   - uid: 1161
     components:
     - type: Transform
       pos: -8.5047035,7.683943
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
 - proto: AirCanister
   entities:
   - uid: 542
@@ -66779,9 +66773,6 @@ entities:
     - type: Transform
       pos: 8.382109,39.69766
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
 - proto: ContainmentFieldGenerator
   entities:
   - uid: 5626
@@ -75623,33 +75614,21 @@ entities:
     - type: Transform
       pos: 8.712664,33.630993
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
   - uid: 4198
     components:
     - type: Transform
       pos: 8.7904415,33.378216
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
   - uid: 6786
     components:
     - type: Transform
       pos: -42.66987,43.748577
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
   - uid: 6787
     components:
     - type: Transform
       pos: -42.494865,43.573578
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
   - uid: 7298
     components:
     - type: Transform
@@ -78238,9 +78217,6 @@ entities:
     - type: Transform
       pos: 8.362663,34.622658
       parent: 82
-    - type: Tag
-      tags:
-      - DroneUsable
 - proto: FireAxeCabinetFilled
   entities:
   - uid: 11395
