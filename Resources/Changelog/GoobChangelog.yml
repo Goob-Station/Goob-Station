@@ -1662,3 +1662,23 @@ Entries:
       message: Barratry no longer has land mines in maintenance due to issues of skill.
   id: 203
   time: '2024-11-01T21:44:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Items with magical properties are now illegal on Nanotrasen territory.
+    - type: Add
+      message: Some heretic items now have better tooltips.
+    - type: Fix
+      message: Fixed void pull being extremely OP
+    - type: Fix
+      message: Heretics are now unable to transmute items using their own organs.
+    - type: Add
+      message: Added codex cicatrix for Heretics as an early progression tool.
+    - type: Tweak
+      message: Mansus grasp and codex cicatrix now glow in the dark.
+    - type: Add
+      message: >-
+        Added eldritch flask - a stage 3 side path for Heretics that provides a
+        cryostasis flask filled with heals.
+  id: 204
+  time: '2024-11-03T17:08:03.0000000+00:00'
