@@ -5,6 +5,10 @@ accent-words-gondola-1 = ...
 accent-ohio-prefix-1 = Gyatt dang,
 accent-ohio-prefix-2 = Chat...
 accent-ohio-prefix-3 = Epic win,
+accent-ohio-prefix-4 = Widewawwy...
+accent-ohio-prefix-5 = BRO...
+accent-ohio-prefix-6 = Call me the rizzler cause,
+accent-ohio-prefix-7 = It's giving...
 
 accent-ohio-suffix-1 = . Like in Ohio.
 accent-ohio-suffix-2 = . From Ohio...
@@ -14,12 +18,17 @@ accent-ohio-suffix-5 = . For the Rizzler.
 accent-ohio-suffix-6 = . Chat is this real?
 accent-ohio-suffix-7 = . Bro knew what he was doing.
 accent-ohio-suffix-8 = . Goofy ahh.
+accent-ohio-suffix-9 = . Like erm... what the sigma???
+accent-ohio-suffix-10 = . What the scallop?
+accent-ohio-suffix-11 = . It's so over.
+accent-ohio-suffix-12 = . I oop!!!!!!11!!!111!
+accent-ohio-suffix-13 = . I need to work on my mewing.
 
 accent-ohio-words-1 = charisma
 accent-ohio-words-replace-1 = rizz
 
 accent-ohio-words-2 = cool
-accent-ohio-words-replace-2 = rizz
+accent-ohio-words-replace-2 = sigma
 
 accent-ohio-words-3 = amazing
 accent-ohio-words-replace-3 = rizzlike
@@ -297,3 +306,116 @@ accent-ohio-words-replace-93 = skibidi
 accent-ohio-words-94 = shit
 accent-ohio-words-replace-94 = skibidi
 
+accent-ohio-words-95 = im high
+accent-ohio-words-replace-95 = im tweaking
+
+accent-ohio-words-96 = i'm high
+accent-ohio-words-replace-96 = i'm tweaking
+
+accent-ohio-words-97 = supermatter
+accent-ohio-words-replace-97 = fanum crystal
+
+accent-ohio-words-98 = erping
+accent-ohio-words-replace-98 = going to freaky town
+
+accent-ohio-words-99 = erp
+accent-ohio-words-replace-99 = freaky
+
+accent-ohio-words-100 = sm
+accent-ohio-words-replace-100 = fanum crystal
+
+accent-ohio-words-101 = changeling
+accent-ohio-words-replace-101 = shapeshifting ohioan
+
+accent-ohio-words-102 = cling
+accent-ohio-words-replace-102 = shapeshifting ohioan
+
+accent-ohio-words-103 = heretic
+accent-ohio-words-replace-103 = facebook crystal worshipper
+
+accent-ohio-words-104 = heretics
+accent-ohio-words-replace-104 = members of a crystal-worshipping facebook group
+
+accent-ohio-words-105 = news
+accent-ohio-words-replace-105 = fake news
+
+accent-ohio-words-106 = tax
+accent-ohio-words-replace-106 = fanum tax
+
+accent-ohio-words-107 = cool guy
+accent-ohio-words-replace-107 = real sigma alpha male guy
+
+accent-ohio-words-108 = fed
+accent-ohio-words-replace-108 = fanum taxer
+
+accent-ohio-words-109 = athlete
+accent-ohio-words-replace-109 = ishowspeed
+
+accent-ohio-words-110 = meth
+accent-ohio-words-replace-110 = speed
+
+accent-ohio-words-111 = chemistry
+accent-ohio-words-replace-111 = walter white
+
+accent-ohio-words-112 = chem
+accent-ohio-words-replace-112 = walter white
+
+accent-ohio-words-113 = real news
+accent-ohio-words-replace-113 = fake news
+
+accent-ohio-words-114 = important
+accent-ohio-words-replace-114 = important like paying your fanum taxes
+
+accent-ohio-words-115 = literally
+accent-ohio-words-replace-115 = widewawwy
+
+accent-ohio-words-116 = best friend
+accent-ohio-words-replace-116 = bestie
+
+accent-ohio-words-117 = caught
+accent-ohio-words-replace-117 = caught in 4k
+
+accent-ohio-words-118 = delusional
+accent-ohio-words-replace-118 = delulu
+
+accent-ohio-words-119 = toes
+accent-ohio-words-replace-119 = dogs
+
+accent-ohio-words-120 = boss
+accent-ohio-words-replace-120 = girlboss
+
+accent-ohio-words-121 = make-over
+accent-ohio-words-replace-121 = glow-up
+
+accent-ohio-words-122 = makeover
+accent-ohio-words-replace-122 = glowup
+
+accent-ohio-words-123 = make over
+accent-ohio-words-replace-123 = glow up
+
+accent-ohio-words-124 = greatest
+accent-ohio-words-replace-124 = goat
+
+accent-ohio-words-125 = gross
+accent-ohio-words-replace-125 = icky
+
+accent-ohio-words-126 = pun pun
+accent-ohio-words-replace-126 = ipad-addicted monkey
+
+accent-ohio-words-127 = security
+accent-ohio-words-replace-127 = karen department
+
+accent-ohio-words-128 = secoff
+accent-ohio-words-replace-128 = pig
+
+accent-ohio-words-129 = hos
+accent-ohio-words-replace-129 = donut-feasting karen
+
+accent-ohio-words-130 = rumor
+accent-ohio-words-replace-130 = tea
+
+accent-ohio-words-131 = throw
+accent-ohio-words-replace-131 = yeet
+
+accent-ohio-words-132 = gay
+accent-ohio-words-replace-132 = zesty

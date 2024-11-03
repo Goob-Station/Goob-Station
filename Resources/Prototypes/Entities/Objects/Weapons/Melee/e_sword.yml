@@ -43,6 +43,7 @@
         Heat: 15
         Structural: 20
   - type: MeleeWeapon
+    heavyStaminaCost: 2.5 # goob edit
     wideAnimationRotation: -135
     attackRate: 1
     damage:
@@ -138,6 +139,7 @@
         shader: unshaded
         map: [ "blade" ]
   - type: MeleeWeapon
+    heavyStaminaCost: 1 # goob edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
@@ -214,6 +216,7 @@
     color: white
     netsync: false
   - type: MeleeWeapon
+    heavyStaminaCost: 1 # goob edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
@@ -308,6 +311,7 @@
   - type: Wieldable
     wieldSound: null # esword light sound instead
   - type: MeleeWeapon
+    heavyStaminaCost: 0 # goob edit
     wideAnimationRotation: -135
     attackRate: 1.5
     angle: 100

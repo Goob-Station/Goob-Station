@@ -47,7 +47,7 @@
 #bso hardsuit
 
 - type: entity
-  parent: ClothingOuterHardsuitBase
+  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
   id: ClothingOuterHardsuitBlueshield
   name: blueshield hardsuit
   description: A hardsuit for the captains personal bodyguard.
@@ -66,7 +66,7 @@
       coefficients:
         Blunt: 0.75
         Slash: 0.7
-        Piercing: 0.40
+        Piercing: 0.45
         Heat: 0.9
         Cold: 0.9
         Radiation: 0.8

@@ -1554,3 +1554,111 @@ Entries:
         losers)
   id: 191
   time: '2024-10-23T00:09:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Skibidi Toilet mobs are now ghost roles, and have the Ohio accent.
+    - type: Tweak
+      message: The Ohio accent has been updated & improved.
+    - type: Tweak
+      message: >-
+        The Supermatter, Singularity, and Tesla now get silly first and last
+        names.
+    - type: Add
+      message: Added SigmaJuice, a drink that gives you the Ohio accent.
+    - type: Add
+      message: Added a mid-round Skibidi Toilet invasion event.
+    - type: Add
+      message: >-
+        Added a new Syndicate item, the "Box of Skibidi Rizz". It contains 3
+        dehydrated Skibidi Toilets and 3 glasses of Sigma Juice.
+    - type: Add
+      message: Added some new interesting borg names
+  id: 192
+  time: '2024-10-26T13:41:18.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Stamina damage reworked. After reaching stamcrit you will get knocked
+        down. While in stamcrit it takes only one hit to fully paralyze you.
+    - type: Tweak
+      message: Reworked stunbaton. Apply it on the nearest assistant to find out more.
+    - type: Tweak
+      message: High stamina damage will now make you jitter and stutter.
+    - type: Tweak
+      message: >-
+        Stimulants, ephedrine, meth and other specific drugs give hardstun
+        resistance and adrenaline effect.
+    - type: Tweak
+      message: Wideswing now deals stamina damage.
+  id: 193
+  time: '2024-10-26T13:55:23.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        BSO hardsuit is now command restricted contra also its 55% pierce
+        instead of 60% now
+    - type: Fix
+      message: HECU ghostrole actually works now lmao
+  id: 194
+  time: '2024-10-27T02:27:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed Train Station from the map pool.
+  id: 195
+  time: '2024-10-30T23:07:42.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 11 crazy new hairdo's
+  id: 196
+  time: '2024-10-30T23:13:54.0000000+00:00'
+- author: TGRCdev
+  changes:
+    - type: Fix
+      message: Geiger counters and appraisal tools should now work in rituals
+  id: 197
+  time: '2024-10-30T23:16:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Metashield rule for changeling
+  id: 198
+  time: '2024-10-30T23:17:07.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made changeling armblade more armey
+  id: 199
+  time: '2024-10-30T23:20:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Scram implant will now properly randomly teleport you over long
+        distances, and less often into space.
+  id: 200
+  time: '2024-10-30T23:22:15.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: added sportacus
+  id: 201
+  time: '2024-10-31T00:01:12.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The logo doesn't look completely awful anymore
+    - type: Add
+      message: Detroit / Barratry has been re-added!!!!!
+  id: 202
+  time: '2024-10-31T01:50:08.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Barratry no longer has land mines in maintenance due to issues of skill.
+  id: 203
+  time: '2024-11-01T21:44:20.0000000+00:00'
