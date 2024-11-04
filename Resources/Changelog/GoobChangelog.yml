@@ -1682,3 +1682,9 @@ Entries:
         cryostasis flask filled with heals.
   id: 204
   time: '2024-11-03T17:08:03.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Kettle (before it was Gemini)!
+  id: 205
+  time: '2024-11-04T19:51:55.0000000+00:00'
