@@ -1,9 +1,14 @@
 - type: storeCategory
-  id: MalfAiAbilityElectronics
-  name: store-malfai-category-electronics
+  id: MalfAiUtilityModules
+  name: store-malfai-category-utility
   priority: 0
 
 - type: storeCategory
-  id: MalfAiAbilityExplosive
-  name: store-malfai-category-explosive
+  id: MalfAiDestructiveModules
+  name: store-malfai-category-destructive
   priority: 1
+
+- type: storeCategory
+  id: MalfAiUpgradeModules
+  name: store-malfai-category-upgrade
+  priority: 2

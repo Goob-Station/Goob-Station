@@ -12,7 +12,7 @@ public sealed partial class MalfAiComponent : Component
     public List<ProtoId<EntityPrototype>> BaseMalfAiActions = new()
     {
         "ModuleMenu",
-        "Cyborg Hijack"
+        "CyborgHijack"
     };
     [DataField, AutoNetworkedField] public float ControlPower = 5f;
     [DataField, AutoNetworkedField] public float MaxControlPower = 250f;

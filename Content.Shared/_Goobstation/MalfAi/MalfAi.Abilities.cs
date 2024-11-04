@@ -10,4 +10,4 @@ public sealed partial class MalfAiActionComponent : Component
 }
 
 public sealed partial class OpenModuleMenuEvent : InstantActionEvent { }
-public sealed partial class BorgHijackEvent : EntityTargetActionEvent { }
+public sealed partial class CyborgHijackEvent : EntityTargetActionEvent { }
