@@ -295,6 +295,7 @@
   - type: ProtectedFromStepTriggers
   - type: NoSlip
   - type: Magboots
+  - type: SupermatterImmune
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
