@@ -269,7 +269,7 @@
       60000: 0.7
       80000: 0.5
   - type: MobPrice
-    price: 150000
+    price: 1500000
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -333,10 +333,18 @@
   - type: Insulated
   - type: ContainmentField
     throwForce: 0
-  - type: StasisProtection
+  - type: StasisImmunity
+  - type: ProtectionImmunity
   - type: WarpPoint
     follow: true
     location: Sportacus
   - type: Grammar
     attributes:
       gender: male
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 1250
+    damage:
+      types:
+        Heat: -500
