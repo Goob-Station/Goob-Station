@@ -20,7 +20,7 @@
   - type: Hands
   - type: ComplexInteraction
   - type: Puller
-    needsHands: false
+    needsHands: false # Goobstation - admin ghosts no longer need a free hand to pull
   - type: CombatMode
   - type: Physics
     ignorePaused: true
