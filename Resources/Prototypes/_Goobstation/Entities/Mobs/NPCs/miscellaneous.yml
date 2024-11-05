@@ -294,7 +294,7 @@
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
   - type: NoSlip
-  - type: MovementIgnoreGravity
+  - type: Magboots
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter
     channels:
