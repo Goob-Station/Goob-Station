@@ -312,7 +312,6 @@
     - Freelance
     - Handheld
     - Future
-    globalReceive: true
   - type: ActiveRadio
     channels:
     - Binary
