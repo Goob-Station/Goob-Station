@@ -11,7 +11,7 @@
   - Maintenance
   extendedAccess:
   - Salvage
-  - External
+  - External # goobstation
 
 - type: startingGear
   id: CargoTechGear
