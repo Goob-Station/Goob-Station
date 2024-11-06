@@ -334,7 +334,7 @@
   - type: ContainmentField
     throwForce: 0
   - type: StasisImmunity
-  - type: ProtectionImmunity
+  - type: PressureImmunity
   - type: WarpPoint
     follow: true
     location: Sportacus
