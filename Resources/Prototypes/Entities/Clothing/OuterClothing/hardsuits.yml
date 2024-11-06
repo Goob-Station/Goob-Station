@@ -57,6 +57,8 @@
         Piercing: 0.9
         Heat: 0.8
         Radiation: 0.5
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -89,6 +91,8 @@
         Shock: 0.8
         Caustic: 0.5
         Radiation: 0.2
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -118,6 +122,8 @@
         Piercing: 0.9
         Radiation: 0.3 #salv is supposed to have radiation hazards in the future
         Caustic: 0.8
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.8
@@ -149,6 +155,8 @@
         Piercing: 0.5
         Radiation: 0.3
         Caustic: 0.7
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.75
@@ -180,6 +188,8 @@
         Piercing: 0.5
         Heat: 0.3
         Radiation: 0.1
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ExplosionResistance
     damageCoefficient: 0.2
   - type: TemperatureProtection
@@ -238,6 +248,8 @@
         Blunt: 0.8
         Slash: 0.8
         Piercing: 0.7
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.65
     sprintModifier: 0.65
@@ -268,6 +280,8 @@
         Slash: 0.6
         Piercing: 0.6
         Caustic: 0.7
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.7
     sprintModifier: 0.7
@@ -334,6 +348,8 @@
         Heat: 0.4
         Radiation: 0.0
         Caustic: 0.7
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.75
     sprintModifier: 0.8
@@ -437,6 +453,8 @@
         Piercing: 0.5
         Radiation: 0.5
         Caustic: 0.6
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -447,7 +465,7 @@
 #Luxury Mining Hardsuit
 - type: entity
   parent: ClothingOuterHardsuitBase
-  id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
+  id: ClothingOuterHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738 # goobstation - god you guys are fucking boring
   name: luxury mining hardsuit
   description: A refurbished mining hardsuit, fashioned after the Quartermaster's colors. Graphene lining provides less protection, but is much easier to move.
   components:
@@ -468,6 +486,8 @@
         Piercing: 0.8
         Radiation: 0.5
         Caustic: 0.8
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.9
@@ -503,6 +523,8 @@
         Heat: 0.5
         Radiation: 0.5
         Caustic: 0.5
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -526,6 +548,15 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
+  - type: Armor # goobstation - medic hardsuit tiniest bit better
+    modifiers:
+      coefficients:
+        Blunt: 0.4
+        Slash: 0.45
+        Piercing: 0.45
+        Heat: 0.35
+        Radiation: 0.35
+        Caustic: 0.2
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
@@ -563,6 +594,8 @@
         Heat: 0.2
         Radiation: 0.01
         Caustic: 0.5
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: Item
     size: Huge
   - type: ClothingSpeedModifier # goobstation - duke nukies
@@ -597,6 +630,8 @@
         Heat: 0.5
         Radiation: 0.25
         Caustic: 0.4
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -629,6 +664,8 @@
         Heat: 0.2
         Radiation: 0.2
         Caustic: 0.2
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.65
@@ -876,12 +913,14 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.1 #best armor in the game
+        Blunt: 0.1 #best armor in the game # goobstation - lolno chrono sweeps low diff :fire:
         Slash: 0.1
         Piercing: 0.1
         Heat: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0
@@ -919,6 +958,8 @@
         Shock: 0.1
         Radiation: 0.1
         Caustic: 0.1
+  - type: Insulated # goobstation
+  - type: FingerprintMask # goobstation
   - type: ClothingSpeedModifier
     walkModifier: 1.0
     sprintModifier: 1.0

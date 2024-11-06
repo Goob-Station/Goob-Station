@@ -1,0 +1,60 @@
+
+- type: technology
+  id: BasicHardsuitSci
+  name: research-technology-hardsuit-base
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/basic.rsi
+    state: icon
+  discipline: Industrial
+  tier: 1
+  cost: 7500
+  recipeUnlocks:
+  - ClothingOuterHardsuitBasic
+  - ClothingOuterHardsuitVoidParamed
+
+- type: technology
+  id: EngiHardsuits
+  name: research-technology-hardsuits-engi
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/engineering.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - ClothingOuterHardsuitAtmos
+  - ClothingOuterHardsuitEngineering
+  technologyPrerequisites:
+  - BasicHardsuitSci
+
+- type: technology
+  id: SalvHardsuits
+  name: research-technology-hardsuits-salv
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/salvage.rsi
+    state: icon
+  discipline: Industrial
+  tier: 2
+  cost: 12500
+  recipeUnlocks:
+  - ClothingOuterHardsuitSpatio
+  - ClothingOuterHardsuitSalvage
+  technologyPrerequisites:
+  - BasicHardsuitSci
+
+- type: technology
+  id: AdvancedEngiHardsuit
+  name: research-technology-ert-engi
+  icon:
+    sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
+    state: icon
+  discipline: Industrial
+  tier: 3
+  cost: 25000 # mfw lategame sci
+  recipeUnlocks:
+  - ClothingOuterHardsuitAdvancedEngineering
+  technologyPrerequisites:
+  - BasicHardsuitSci
+  - EngiHardsuits
+  - SecHardsuits
+  - SalvHardsuits # salvage gear should be a prerequisite to any combat related hardsuits

@@ -356,6 +356,13 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - ClothingOuterHardsuitBasic # Goobstation
+      - ClothingOuterHardsuitVoidParamed # Goobstation
+      - ClothingOuterHardsuitSpatio # Goobstation
+      - ClothingOuterHardsuitSalvage # Goobstation
+      - ClothingOuterHardsuitEngineering # Goobstation
+      - ClothingOuterHardsuitAtmos # Goobstation
+      - ClothingOuterHardsuitERTEngineer # Goobstation
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -397,6 +404,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - ClothingOuterHardsuitSecurity # Goobstation
+      - ClothingOuterHardsuitERTSecurity # Goobstation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -828,6 +837,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - ClothingOuterHardsuitSecurity # Goobstation
+      - ClothingOuterHardsuitERTSecurity # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:

@@ -28,7 +28,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitAtmos
   name: atmos hardsuit helmet
-  description: A special hardsuit helmet designed for working in low-pressure, high thermal environments.
+  description: A special hardsuit helmet designed for working in low-pressure, high thermal environments. Additionally has inbuilt eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/atmospherics.rsi
@@ -64,13 +64,14 @@
     coolingCoefficient: 0.005
   - type: FireProtection
     reduction: 0.2
+  - type: EyeProtection # goobstation
 
 #Engineering Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineering
   name: engineering hardsuit helmet
-  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments.
+  description: An engineering hardsuit helmet designed for working in low-pressure, high radioactive environments. Additionally has inbuilt eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering.rsi
@@ -81,13 +82,14 @@
   - type: PressureProtection
     highPressureMultiplier: 0.1
     lowPressureMultiplier: 1000
+  - type: EyeProtection # goobstation
 
 #Spationaut Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSpatio
   name: spationaut hardsuit helmet
-  description: A sturdy helmet designed for complex industrial operations in space.
+  description: A sturdy helmet designed for complex industrial operations in space. Additionally has inbuilt eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/spatiohelm.rsi
@@ -117,13 +119,14 @@
   - type: PressureProtection
     highPressureMultiplier: 0.72
     lowPressureMultiplier: 1000
+  - type: EyeProtection # goobstation
 
 #Salvage Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSalvage
   name: salvage hardsuit helmet
-  description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights.
+  description: A special helmet designed for work in a hazardous, low pressure environment. Has reinforced plating for wildlife encounters and dual floodlights. Additionally has inbuilt eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/salvage.rsi
@@ -135,6 +138,7 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: EyeProtection # goobstation
 
 - type: entity
   parent: ClothingHeadHardsuitBase
@@ -157,10 +161,11 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # goobstation
 
 #Security Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowSecurityIcons ] # goobstation add sec icons
   id: ClothingHeadHelmetHardsuitSecurity
   name: security hardsuit helmet
   description: Armored hardsuit helmet for security needs.
@@ -184,7 +189,7 @@
 
 #Brigmedic Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowMedicalIcons, ShowSecurityIcons ] # goobstation add med and sec icons
   id: ClothingHeadHelmetHardsuitBrigmedic
   name: brigmedic hardsuit helmet
   description: The lightweight helmet of the brigmedic hardsuit. Protects against viruses, and clowns.
@@ -210,7 +215,7 @@
 
 #Warden's Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowSecurityIcons ] # goobstation add sec icons
   id: ClothingHeadHelmetHardsuitWarden
   name: warden's hardsuit helmet
   description: A modified riot helmet. Oddly comfortable.
@@ -252,7 +257,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitEngineeringWhite
   name: chief engineer's hardsuit helmet
-  description: Special hardsuit helmet, made for the chief engineer of the station.
+  description: Special hardsuit helmet, made for the chief engineer of the station. Features eye protection too obviously.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/engineering-white.rsi
@@ -265,10 +270,11 @@
     lowPressureMultiplier: 1000
   - type: FireProtection
     reduction: 0.2
+  - type: EyeProtection # goobstation
 
 #Chief Medical Officer's Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowMedicalIcons ] # goobstation add medicons
   id: ClothingHeadHelmetHardsuitMedical
   name: chief medical officer's hardsuit helmet
   description: Lightweight medical hardsuit helmet that doesn't restrict your head movements.
@@ -282,6 +288,7 @@
   - type: PressureProtection
     highPressureMultiplier: 0.6
     lowPressureMultiplier: 1000
+  - type: SolutionScanner # goobstation
 
 #Research Director's Hardsuit
 - type: entity
@@ -302,7 +309,7 @@
 
 #Head of Security's hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ] # goobstation - literally says "TOP SECRET NT-HUD SOFTWARE" in the desc
   id: ClothingHeadHelmetHardsuitSecurityRed
   name: head of security's hardsuit helmet
   description: Security hardsuit helmet with the latest top secret NT-HUD software. Belongs to the HoS.
@@ -329,7 +336,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitLuxury #DO NOT MAP - https://github.com/space-wizards/space-station-14/pull/19738#issuecomment-1703486738
   name: luxury mining hardsuit helmet
-  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra.
+  description: A refurbished mining hardsuit helmet, fitted with satin cushioning and an extra (non-functioning) antenna, because you're that extra. Features eye protection, surprisingly.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/luxury.rsi
@@ -341,6 +348,7 @@
   - type: PointLight
     radius: 7
     energy: 3
+  - type: EyeProtection # goobstation
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -369,7 +377,7 @@
 
 #Blood-red Medic Hardsuit
 - type: entity
-  parent: ClothingHeadHardsuitWithLightBase
+  parent: [ ClothingHeadHardsuitWithLightBase, ShowMedicalIcons ] # goobstation add medicons
   id: ClothingHeadHelmetHardsuitSyndieMedic
   name: blood-red medic hardsuit helmet
   description: An advanced red hardsuit helmet specifically designed for field medic operations.
@@ -396,7 +404,7 @@
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieElite
   name: syndicate elite helmet
-  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders.
+  description: An elite version of the blood-red hardsuit's helmet, with improved armor and fireproofing. Property of Gorlex Marauders. Features eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndieelite.rsi
@@ -419,13 +427,14 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # goobstation
 
 #Syndicate Commander Hardsuit
 - type: entity
   parent: ClothingHeadHardsuitWithLightBase
   id: ClothingHeadHelmetHardsuitSyndieCommander
   name: syndicate commander helmet
-  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights.
+  description: A bulked up version of the blood-red hardsuit's helmet, purpose-built for the commander of a syndicate operative squad. Has significantly improved armor for those deadly front-lines firefights. Features eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/syndiecommander.rsi
@@ -443,6 +452,7 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # goobstation
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -540,7 +550,7 @@
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieCommander, ShowSecurityIcons ] # goobstation - add sec icons
   id: ClothingHeadHelmetHardsuitERTLeader
   name: ERT leader hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -578,7 +588,7 @@
   parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
   id: ClothingHeadHelmetHardsuitERTEngineer
   name: ERT engineer hardsuit helmet
-  description: A special hardsuit helmet worn by members of an emergency response team.
+  description: A special hardsuit helmet worn by members of an emergency response team. Features eye protection for welding.
   components:
   - type: Sprite
     sprite: Clothing/Head/Hardsuits/ERThelmets/ertengineer.rsi
@@ -593,10 +603,11 @@
         Slash: 0.9
         Piercing: 0.9
         Heat: 0.9
+  - type: EyeProtection # goobstation
 
 #ERT Medical Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndieElite, ShowMedicalIcons ] # goobstation - add med icons
   id: ClothingHeadHelmetHardsuitERTMedical
   name: ERT medic hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -610,7 +621,7 @@
 
 #ERT Security Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie ]
+  parent: [ BaseCentcommContraband, ClothingHeadHelmetHardsuitSyndie, ShowSecurityIcons ] # goobstation - add sec icons
   id: ClothingHeadHelmetHardsuitERTSecurity
   name: ERT security hardsuit helmet
   description: A special hardsuit helmet worn by members of an emergency response team.
@@ -645,7 +656,7 @@
 
 #CBURN Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase, ShowSecurityIcons, ShowMedicalIcons ] # goobstation - add sec and med icons
   id: ClothingHeadHelmetCBURN
   name: CBURN exosuit helmet
   description: A pressure resistant and fireproof hood worn by special cleanup units.
@@ -684,7 +695,7 @@
 
 #Deathsquad Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase, ShowSecurityIcons, ShowMedicalIcons ] # goobstation - add sec and med icons
   id: ClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -708,6 +719,7 @@
         Heat: 0.80
         Radiation: 0.80
         Caustic: 0.95
+  - type: EyeProtection # goobstation
 
 #MISC. HARDSUITS
 #Clown Hardsuit

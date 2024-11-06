@@ -47,7 +47,7 @@
 #bso hardsuit
 
 - type: entity
-  parent: [ClothingOuterHardsuitBase, BaseCommandContraband]
+  parent: [ ClothingOuterHardsuitBase, BaseCentcommContraband ]
   id: ClothingOuterHardsuitBlueshield
   name: blueshield hardsuit
   description: A hardsuit for the captains personal bodyguard.
@@ -75,5 +75,85 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: HeldSpeedModifier
+  - type: Insulated
+  - type: FingerprintMask
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHardsuitBlueshield
+
+
+# advanced engi hardsuit
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase]
+  id: ClothingOuterHardsuitAdvancedEngi
+  name: advanced engineering hardsuit
+  description: An engineering hardsuit capable of doing engineering in any environment. Includes thermal protection on the same level as atmospherics hardsuits.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/advancedengi.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/advancedengi.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.02
+    lowPressureMultiplier: 1000
+  - type: TemperatureProtection
+    heatingCoefficient: 0.001
+    coolingCoefficient: 0.001
+  - type: FireProtection
+    reduction: 0.8
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.6
+        Slash: 0.6
+        Piercing: 0.65
+        Heat: 0.6
+        Cold: 0.6
+        Radiation: 0.2
+        Caustic: 0.9
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: Insulated
+  - type: FingerprintMask
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAdvancedEngi
+
+# advanced combat hardsuit
+
+- type: entity
+  parent: [ClothingOuterHardsuitBase]
+  id: ClothingOuterHardsuitAdvancedCombat
+  name: advanced combat hardsuit
+  description: Combat hardsuit reinforced with plasteel, durathread, and light amounts of DU plating.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/advancedcombat.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/OuterClothing/Hardsuits/advancedcombat.rsi
+  - type: PressureProtection
+    highPressureMultiplier: 0.4
+    lowPressureMultiplier: 1000
+  - type: ExplosionResistance
+    damageCoefficient: 0.4
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.55
+        Slash: 0.55
+        Piercing: 0.5
+        Heat: 0.7
+        Cold: 0.7
+        Radiation: 0.8
+        Caustic: 0.8
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+  - type: HeldSpeedModifier
+  - type: Insulated
+  - type: FingerprintMask
+  - type: ToggleableClothing
+    clothingPrototype: ClothingHeadHelmetHardsuitAdvancedCombat

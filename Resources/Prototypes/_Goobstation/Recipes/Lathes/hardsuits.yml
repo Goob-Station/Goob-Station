@@ -1,0 +1,97 @@
+- type: latheRecipe 
+  id: ClothingOuterHardsuitBasic
+  result: ClothingOuterHardsuitBasic
+  completetime: 5
+  materials: # please base all hardsuit recipes off these mats
+    Steel: 1000
+    Glass: 300
+    Durathread: 300
+    Cloth: 1000
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitVoidParamed
+  result: ClothingOuterHardsuitVoidParamed
+  completetime: 5
+  materials: # slightly more because caustic resist, i guess, just durathread though
+    Steel: 1000
+    Glass: 300
+    Durathread: 500
+    Cloth: 1000
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitSpatio
+  result: ClothingOuterHardsuitSpatio
+  completetime: 10
+  materials: # salv hardsuit has more because general protection, generic ass hardsuit
+    Steel: 1200
+    Glass: 200
+    Durathread: 500
+    Cloth: 1000
+    Plasteel: 500
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitSalvage
+  result: ClothingOuterHardsuitSalvage
+  completetime: 10
+  materials: # good light and shit. more glass because it doesnt have a flat ass face for a helmet.
+    Steel: 1400
+    Glass: 300
+    Durathread: 500
+    Cloth: 1000
+    Plasteel: 400
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitEngineering
+  result: ClothingOuterHardsuitEngineering
+  completetime: 5
+  materials: # resists explosive and pressure pretty good, plus rads
+    Steel: 1200
+    Glass: 500
+    Durathread: 500
+    Cloth: 1200
+    Plasteel: 500
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitAtmos
+  result: ClothingOuterHardsuitAtmos
+  completetime: 5
+  materials: # lots of pressure and heat resistance you know, it should cost 800 plasteel.
+    Steel: 1200
+    Glass: 500
+    Durathread: 700
+    Cloth: 1200
+    Plasteel: 800
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitSecurity
+  result: ClothingOuterHardsuitSecurity
+  completetime: 5
+  materials: # combat shit
+    Steel: 1400
+    Glass: 500
+    Durathread: 500
+    Cloth: 1200
+    Plasteel: 500
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitERTEngineer
+  result: ClothingOuterHardsuitAdvancedEngineering
+  completetime: 5
+  materials: # basically a ERT hardsuit
+    Steel: 3000
+    Glass: 1000
+    Durathread: 1500
+    Cloth: 1500
+    Plasteel: 2000
+
+- type: latheRecipe 
+  id: ClothingOuterHardsuitERTSecurity
+  result: ClothingOuterHardsuitAdvancedCombat
+  completetime: 5
+  materials: # basically a ERT hardsuit
+    Steel: 2500
+    Glass: 1000
+    Durathread: 1000
+    Cloth: 1500
+    Plasteel: 2500
+    Uranium: 200 # DU armor maybe?
