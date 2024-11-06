@@ -1688,3 +1688,11 @@ Entries:
       message: Added Kettle (before it was Gemini)!
   id: 205
   time: '2024-11-04T19:51:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: >-
+        Vulps, Felinids, and Harpies no longer have their hands the wrong way
+        around.
+  id: 206
+  time: '2024-11-06T23:35:43.0000000+00:00'
