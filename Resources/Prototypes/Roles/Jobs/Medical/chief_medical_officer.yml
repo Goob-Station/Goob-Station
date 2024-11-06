@@ -29,7 +29,7 @@
   - ChiefMedicalOfficer
   - Brig
   - Cryogenics
-  - External
+  - External # goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
