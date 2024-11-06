@@ -79,7 +79,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
   cost:
-    Telecrystal: 65 # novelty item for the larp
+    Telecrystal: 55 # novelty item for the larp
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
@@ -91,7 +91,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
   productEntity: ClothingOuterHardsuitSyndieCommander
   cost:
-    Telecrystal: 75 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
   categories:
   - UplinkWearables
   saleLimit: 1 # WD EDIT
