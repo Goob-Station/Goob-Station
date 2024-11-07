@@ -6,11 +6,11 @@ using Robust.Shared.Serialization;
 namespace Content.Shared.Emoting;
 
 // use as a template
-//[Serializable, NetSerializable, DataDefinition] public sealed class AnimationNameEmoteEvent : EntityEventArgs { }
+//[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }
 
-[Serializable, NetSerializable, DataDefinition] public sealed class AnimationFlipEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed class AnimationSpinEmoteEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed class AnimationJumpEmoteEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationFlipEmoteEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationSpinEmoteEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationJumpEmoteEvent : EntityEventArgs { }
 
 [RegisterComponent, NetworkedComponent] public sealed partial class AnimatedEmotesComponent : Component
 {
