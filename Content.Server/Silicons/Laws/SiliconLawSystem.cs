@@ -21,6 +21,9 @@ using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Toolshed;
+//goobstation
+using Content.Server.MalfAi;
+using Content.Shared.MalfAi;
 
 namespace Content.Server.Silicons.Laws;
 
@@ -51,6 +54,8 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         SubscribeLocalEvent<SiliconLawProviderComponent, GotEmaggedEvent>(OnEmagLawsAdded);
         SubscribeLocalEvent<EmagSiliconLawComponent, MindAddedMessage>(OnEmagMindAdded);
         SubscribeLocalEvent<EmagSiliconLawComponent, MindRemovedMessage>(OnEmagMindRemoved);
+
+        SubscribeLocalEvent<SiliconLawProviderComponent, CyborgHijackEvent>(OnObeyLawAdded); //goob
     }
 
     private void OnMapInit(EntityUid uid, SiliconLawBoundComponent component, MapInitEvent args)
@@ -140,6 +145,20 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         {
             LawString = Loc.GetString("law-emag-secrecy", ("faction", Loc.GetString(component.Lawset.ObeysTo))),
             Order = component.Lawset.Laws.Max(law => law.Order) + 1
+        });
+    }
+
+    //laws for cyborg hijack, idk how to make it work in _Goobstation
+    private void OnObeyLawAdded(EntityUid uid, SiliconLawProviderComponent component, ref CyborgHijackEvent args)
+    {
+
+        if (component.Lawset == null)
+            component.Lawset = GetLawset(component.Laws);
+
+        component.Lawset?.Laws.Insert(0, new SiliconLaw
+        {
+            LawString = Loc.GetString("law-obey-ai"),
+            Order = 0
         });
     }
 

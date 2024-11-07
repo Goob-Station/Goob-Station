@@ -1,4 +1,7 @@
 {
+    "version": 1,
+    "license": ".",
+    "copyright": ".",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +12,9 @@
         },
         {
             "name": "cyborg_hijack"
-        }
+        },
+		{
+			"name": "program_override"
+		}
     ]
 }

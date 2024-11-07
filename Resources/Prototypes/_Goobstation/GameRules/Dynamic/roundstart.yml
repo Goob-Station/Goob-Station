@@ -119,6 +119,36 @@
       - type: HereticRole
         prototype: Heretic
 
+# Malfunctional AI
+- type: entity
+  parent: BaseGameRuleDynamic
+  id: MalfAiDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-changeling-title
+    weight: 3
+    cost: 20
+    highImpact: true
+    scalingCost: 10
+  - type: MalfAiRule
+  - type: GameRule
+    minPlayers: 25
+  - type: AntagSelection
+    agentName: changeling-roundend-name
+    definitions:
+    - prefRoles: [ MalfAi ]
+      max: 1
+      playerRatio: 30
+      blacklist:
+        components:
+        - AntagImmune
+        - Traitor
+        - Heretic
+      lateJoinAdditional: true
+      mindComponents:
+      - type: MalfAiRole
+        prototype: MalfAi
+
 # Revolution
 - type: entity
   id: RevolutionDynamic

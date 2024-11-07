@@ -1,5 +1,5 @@
 - type: antag
-  id: MalfunctionalAi
+  id: MalfAi
   name: roles-antag-malfai-name
   antagonist: true
   setPreference: true

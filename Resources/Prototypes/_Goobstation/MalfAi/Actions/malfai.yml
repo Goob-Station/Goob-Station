@@ -1,3 +1,5 @@
+# starter abilities
+
 - type: entity
   id: ModuleMenu
   name: Module menu
@@ -20,7 +22,7 @@
   - type: EntityTargetAction
     whitelist:
       components:
-      - Body
+      - BorgChassis
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
@@ -28,3 +30,19 @@
       sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
       state: cyborg_hijack
     event: !type:CyborgHijackEvent {}
+
+- type: entity
+  id: ProgramOverride
+  name: Program override
+  description: Overrides APC programming granting you 15 Control Power, this is a lenghty process which will also disable most of your modules.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 15
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
+      state: program_override
+    event: !type:ProgramOverrideEvent {}
