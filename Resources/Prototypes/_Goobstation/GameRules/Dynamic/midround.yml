@@ -181,7 +181,7 @@
         - names_ninja_title
         - names_ninja
       mindRoles:
-      - MindRoleSpaceNinja
+      - MindRoleNinja
 
 # Revenant Spawn
 - type: entity
