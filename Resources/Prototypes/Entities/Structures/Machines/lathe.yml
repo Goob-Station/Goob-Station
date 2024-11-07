@@ -362,7 +362,7 @@
       - ClothingOuterHardsuitSalvage # Goobstation
       - ClothingOuterHardsuitEngineering # Goobstation
       - ClothingOuterHardsuitAtmos # Goobstation
-      - ClothingOuterHardsuitERTEngineer # Goobstation
+      - ClothingOuterHardsuitAdvancedEngi # Goobstation
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -405,7 +405,7 @@
       - WeaponLaserCarbine
       - WeaponXrayCannon
       - ClothingOuterHardsuitSecurity # Goobstation
-      - ClothingOuterHardsuitERTSecurity # Goobstation
+      - ClothingOuterHardsuitAdvancedCombat # Goobstation
 
 - type: entity
   id: ProtolatheHyperConvection
@@ -838,7 +838,7 @@
       - WeaponLaserCarbine
       - WeaponXrayCannon
       - ClothingOuterHardsuitSecurity # Goobstation
-      - ClothingOuterHardsuitERTSecurity # Goobstation
+      - ClothingOuterHardsuitAdvancedCombat # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
