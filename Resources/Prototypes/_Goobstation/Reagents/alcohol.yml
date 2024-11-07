@@ -1,0 +1,25 @@
+- type: reagent
+  id: SigmaJuice
+  name: reagent-name-sigmajuice
+  parent: BaseAlcohol
+  desc: reagent-desc-sigmajuice
+  physicalDesc: reagent-physical-desc-sigma
+  flavor: sigma
+  color: "#42f5d4"
+  metamorphicSprite:
+    sprite: _Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+  metabolisms:
+    Drink:
+      effects:
+        - !type:GenericStatusEffect
+          key: Brainrotted
+          component: OhioAccent
+        - !type:SatiateThirst
+          factor: 4
+        - !type:AdjustReagent
+          reagent: Ethanol
+          amount: 0.15
