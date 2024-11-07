@@ -179,6 +179,7 @@
     exclusiveAntag: true
   - type: ZombieRole
 
+# goob edit - antags
 - type: entity
   parent: BaseMindRoleAntag
   id: MindRoleChangeling
@@ -198,3 +199,14 @@
     antagPrototype: Heretic
     exclusiveAntag: true
   - type: HereticRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBrainwashed
+  name: Brainwashed Role
+  components:
+  - type: MindRole
+    antagPrototype: Mindcontrolled
+    exclusiveAntag: true
+  - type: MindcontrolledRole
+# goob edit end

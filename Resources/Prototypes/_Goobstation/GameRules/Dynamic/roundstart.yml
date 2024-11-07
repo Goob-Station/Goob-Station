@@ -74,6 +74,11 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+  - type: AntagObjectives
+    objectives:
+    - ChangelingStealDNAObjective
+    - EscapeIdentityObjective
+    - ChangelingSurviveObjective
   - type: AntagSelection
     agentName: changeling-roundend-name
     definitions:
@@ -114,6 +119,11 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
 
 # Revolution
 - type: entity
