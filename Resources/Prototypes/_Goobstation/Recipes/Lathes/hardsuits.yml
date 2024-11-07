@@ -63,8 +63,8 @@
     Plasteel: 800
 
 - type: latheRecipe 
-  id: ClothingOuterHardsuitSecurity
-  result: ClothingOuterHardsuitSecurity
+  id: ClothingOuterHardsuitCombat
+  result: ClothingOuterHardsuitCombat
   completetime: 5
   materials: # combat shit
     Steel: 1400
@@ -74,8 +74,8 @@
     Plasteel: 500
 
 - type: latheRecipe 
-  id: ClothingOuterHardsuitERTEngineer
-  result: ClothingOuterHardsuitAdvancedEngineering
+  id: ClothingOuterHardsuitAdvancedEngi
+  result: ClothingOuterHardsuitAdvancedEngi
   completetime: 5
   materials: # basically a ERT hardsuit
     Steel: 3000
