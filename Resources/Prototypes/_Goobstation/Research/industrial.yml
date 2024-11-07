@@ -52,7 +52,7 @@
   tier: 3
   cost: 25000 # mfw lategame sci
   recipeUnlocks:
-  - ClothingOuterHardsuitAdvancedEngineering
+  - ClothingOuterHardsuitAdvancedEngi
   technologyPrerequisites:
   - BasicHardsuitSci
   - EngiHardsuits
