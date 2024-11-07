@@ -54,7 +54,7 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
         SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
 
-        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
+        
     }
 
     public override void Update(float frameTime)
@@ -207,20 +207,6 @@ public sealed partial class HereticSystem : EntitySystem
                 args.Damage.DamageDict["Heat"] = 0;
                 break;
         }
-    }
-
-    #endregion
-
-
-
-    #region Miscellaneous
-
-    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
-    {
-        if (!HasComp<HereticComponent>(args.Examiner))
-            return;
-
-        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 
     #endregion

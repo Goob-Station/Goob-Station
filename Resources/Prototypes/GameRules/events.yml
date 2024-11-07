@@ -451,7 +451,7 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
+    preloadedGrid: ShuttleStriker
   - type: NukeopsRule # goob edit
     roundEndBehavior: Nothing
   - type: AntagSelection

@@ -1,5 +1,3 @@
-# Best job.
-
 - type: job
   id: ChiefMedicalOfficer
   name: job-name-cmo
@@ -31,6 +29,7 @@
   - ChiefMedicalOfficer
   - Brig
   - Cryogenics
+  - External # goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

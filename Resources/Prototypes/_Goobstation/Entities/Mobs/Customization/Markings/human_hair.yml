@@ -72,6 +72,14 @@
       state: frontBraidsShort
 
 - type: marking
+  id: HumanHairHairnet
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: hairnet
+
+- type: marking
   id: HumanHairJellyfish
   bodyPart: Hair
   markingCategory: Hair
@@ -104,6 +112,22 @@
       state: longCurvy
 
 - type: marking
+  id: HumanHairLongPompadour
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: longPompadour
+
+- type: marking
+  id: HumanHairMediumCurls
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: mediumCurls
+
+- type: marking
   id: HumanHairMullet
   bodyPart: Hair
   markingCategory: Hair
@@ -118,6 +142,30 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: pelvicLengthBraid
+
+- type: marking
+  id: HumanHairPlateau
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: plateau
+
+- type: marking
+  id: HumanHairQueenBee
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: queenBee
+
+- type: marking
+  id: HumanHairSaggedMohawk
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: saggedMohawk
 
 - type: marking
   id: HumanHairSharpMohawk
@@ -152,6 +200,38 @@
       state: shoulderLengthBraid
 
 - type: marking
+  id: HumanHairSideSpike
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: sideSpike
+
+- type: marking
+  id: HumanHairSpaceLoops
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: spaceLoops
+
+- type: marking
+  id: HumanHairStar
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: star
+
+- type: marking
+  id: HumanHairStarFro
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: starFro
+
+- type: marking
   id: HumanHairStyledCurls
   bodyPart: Hair
   markingCategory: Hair
@@ -174,3 +254,11 @@
   sprites:
     - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
       state: frizzyBraid
+
+- type: marking
+  id: HumanHairWispy
+  bodyPart: Hair
+  markingCategory: Hair
+  sprites:
+    - sprite: _Goobstation/Mobs/Customization/human_hair.rsi
+      state: wispy

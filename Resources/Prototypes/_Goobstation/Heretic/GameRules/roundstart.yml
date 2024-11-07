@@ -8,6 +8,11 @@
     delay:
       min: 30
       max: 60
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
   - type: AntagSelection
     agentName: heretic-roundend-name
     definitions:
@@ -17,8 +22,4 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-  - type: AntagObjectives
-    objectives:
-    - HereticKnowledgeObjective
-    - HereticSacrificeObjective
-    - HereticSacrificeHeadObjective
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
