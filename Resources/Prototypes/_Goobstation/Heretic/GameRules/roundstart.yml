@@ -15,6 +15,5 @@
       max: 5
       playerRatio: 20
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
-        prototype: Heretic
+      mindRoles:
+      - MindRoleHeretic
