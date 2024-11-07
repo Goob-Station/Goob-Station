@@ -85,7 +85,7 @@
     Plasteel: 2000
 
 - type: latheRecipe 
-  id: ClothingOuterHardsuitERTSecurity
+  id: ClothingOuterHardsuitAdvancedCombat
   result: ClothingOuterHardsuitAdvancedCombat
   completetime: 5
   materials: # basically a ERT hardsuit
