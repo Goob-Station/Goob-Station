@@ -1730,3 +1730,9 @@ Entries:
         again
   id: 209
   time: '2024-11-07T00:05:12.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Fix
+      message: Mistakes in Core Rule 13 should now be corrected.
+  id: 210
+  time: '2024-11-07T00:06:13.0000000+00:00'
