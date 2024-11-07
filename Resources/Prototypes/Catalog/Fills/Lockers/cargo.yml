@@ -6,8 +6,11 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitSpatio
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingShoesBootsMag
       - id: ClothingMaskGasExplorer
+      - id: ClothingEyesGlassesMeson
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife
       - id: HandheldGPSBasic
@@ -30,8 +33,7 @@
   components:
   - type: StorageFill
     contents:
-# Currently do not function as 'true' mesons, so they're useless for salvagers.
-#      - id: ClothingEyesGlassesMeson
+      - id: ClothingEyesGlassesMeson
       - id: ClothingBeltUtilityFilled
       - id: SurvivalKnife
       - id: HandheldGPSBasic

@@ -32,6 +32,10 @@
         "directions": 4
       },
       {
+        "name": "frizzyBraid",
+        "directions": 4
+      },
+      {
         "name": "frontBraidsLong",
         "directions": 4
       },
@@ -41,6 +45,10 @@
       },
       {
         "name": "frontBraidsShort",
+        "directions": 4
+      },
+      {
+        "name": "hairnet",
         "directions": 4
       },
       {
@@ -60,11 +68,31 @@
         "directions": 4
       },
       {
+        "name": "longPompadour",
+        "directions": 4
+      },
+      {
+        "name": "mediumCurls",
+        "directions": 4
+      },
+      {
         "name": "mullet",
         "directions": 4
       },
       {
         "name": "pelvicLengthBraid",
+        "directions": 4
+      },
+      {
+        "name": "plateau",
+        "directions": 4
+      },
+      {
+        "name": "queenBee",
+        "directions": 4
+      },
+      {
+        "name": "saggedMohawk",
         "directions": 4
       },
       {
@@ -84,6 +112,22 @@
         "directions": 4
       },
       {
+        "name": "sideSpike",
+        "directions": 4
+      },
+      {
+        "name": "spaceLoops",
+        "directions": 4
+      },
+      {
+        "name": "star",
+        "directions": 4
+      },
+      {
+        "name": "starFro",
+        "directions": 4
+      },
+      {
         "name": "styledCurls",
         "directions": 4
       },
@@ -92,7 +136,7 @@
         "directions": 4
       },
       {
-        "name": "frizzyBraid",
+        "name": "wispy",
         "directions": 4
       }
     ]
