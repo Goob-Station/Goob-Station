@@ -1716,3 +1716,9 @@ Entries:
         nitrogen tanks.
   id: 207
   time: '2024-11-07T00:03:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Admin ghosts no longer need a free hand to pull things.
+  id: 208
+  time: '2024-11-07T00:04:19.0000000+00:00'
