@@ -1696,3 +1696,23 @@ Entries:
         around.
   id: 206
   time: '2024-11-06T23:35:43.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        Added nukeops agent and commander hardsuit back to the uplink, for 65
+        and 75 TC respectively.
+    - type: Add
+      message: RD has the binary key again in their locker.
+    - type: Add
+      message: >-
+        Ronald Reagen has implemented trickle-down economics to the Gorlex
+        Marauders, and the commander now has 350 TC instead of 225.
+    - type: Tweak
+      message: Sportacus' power grows...
+    - type: Fix
+      message: >-
+        Lockers with EVA gear, and suit storage units now all have oxygen and
+        nitrogen tanks.
+  id: 207
+  time: '2024-11-07T00:03:44.0000000+00:00'
