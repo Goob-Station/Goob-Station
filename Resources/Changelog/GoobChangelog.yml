@@ -1688,3 +1688,51 @@ Entries:
       message: Added Kettle (before it was Gemini)!
   id: 205
   time: '2024-11-04T19:51:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: >-
+        Vulps, Felinids, and Harpies no longer have their hands the wrong way
+        around.
+  id: 206
+  time: '2024-11-06T23:35:43.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        Added nukeops agent and commander hardsuit back to the uplink, for 65
+        and 75 TC respectively.
+    - type: Add
+      message: RD has the binary key again in their locker.
+    - type: Add
+      message: >-
+        Ronald Reagen has implemented trickle-down economics to the Gorlex
+        Marauders, and the commander now has 350 TC instead of 225.
+    - type: Tweak
+      message: Sportacus' power grows...
+    - type: Fix
+      message: >-
+        Lockers with EVA gear, and suit storage units now all have oxygen and
+        nitrogen tanks.
+  id: 207
+  time: '2024-11-07T00:03:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Admin ghosts no longer need a free hand to pull things.
+  id: 208
+  time: '2024-11-07T00:04:19.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Lone operatives spawn with their shuttle rather than an entire planet
+        again
+  id: 209
+  time: '2024-11-07T00:05:12.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Fix
+      message: Mistakes in Core Rule 13 should now be corrected.
+  id: 210
+  time: '2024-11-07T00:06:13.0000000+00:00'

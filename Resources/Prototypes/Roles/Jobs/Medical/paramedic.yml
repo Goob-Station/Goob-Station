@@ -15,6 +15,7 @@
   access:
   - Medical
   - Maintenance
+  - External # goobstation
   extendedAccess:
   - Chemistry
 
