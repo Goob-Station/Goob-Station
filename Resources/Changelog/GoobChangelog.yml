@@ -1722,3 +1722,11 @@ Entries:
       message: Admin ghosts no longer need a free hand to pull things.
   id: 208
   time: '2024-11-07T00:04:19.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Lone operatives spawn with their shuttle rather than an entire planet
+        again
+  id: 209
+  time: '2024-11-07T00:05:12.0000000+00:00'
