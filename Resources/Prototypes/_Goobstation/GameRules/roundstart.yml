@@ -20,6 +20,28 @@
         prototype: Changeling
 
 - type: entity
+  id: MalfAi
+  parent: BaseGameRule
+  components:
+  - type: GameRule
+    minPlayers: 25
+  - type: MalfAiRule
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ MalfAi ]
+      max: 1
+      playerRatio: 20
+      briefing:
+        text: malfai-role-greeting
+        color: Green
+        sound: "/Audio/Ambience/Antag/emagged_borg.ogg"
+      components:
+      - type: MalfAi
+      mindComponents:
+      - type: MalfAiRole
+        prototype: MalfAi
+
+- type: entity
   parent: BaseTraitorRule
   id: CalmTraitor # For Dual Antag Gamemodes
   components:

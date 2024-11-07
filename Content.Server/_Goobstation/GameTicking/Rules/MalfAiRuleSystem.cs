@@ -19,7 +19,7 @@ public sealed partial class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponen
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly SharedRoleSystem _role = default!;
     public readonly SoundSpecifier BriefingSound = new SoundPathSpecifier("/Audio/Ambience/Antag/emagged_borg.ogg");
-    public readonly ProtoId<AntagPrototype> MalfAiPrototypeId = "MalfunctionalAi";
+    public readonly ProtoId<AntagPrototype> MalfAiPrototypeId = "MalfAi";
     public readonly ProtoId<CurrencyPrototype> Currency = "ControlPower";
 
     public override void Initialize()

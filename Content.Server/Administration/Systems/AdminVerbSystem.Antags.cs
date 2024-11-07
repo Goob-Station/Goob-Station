@@ -190,7 +190,7 @@ public sealed partial class AdminVerbSystem
             Icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/Mobs/Silicon/station_ai.rsi"), "ai_dead"),
             Act = () =>
             {
-                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfunctionalAi");
+                _antag.ForceMakeAntag<MalfAiRuleComponent>(targetPlayer, "MalfAi");
             },
             Impact = LogImpact.High,
             Message = Loc.GetString("admin-verb-text-make-malf"),
