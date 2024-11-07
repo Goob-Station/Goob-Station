@@ -353,7 +353,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 55 # goob
+    Telecrystal: 60 # goob - the no restock tax of 5tc... devastating to the economy...
   categories:
     - UplinkExplosives
   conditions:
