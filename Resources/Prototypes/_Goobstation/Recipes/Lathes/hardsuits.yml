@@ -63,8 +63,8 @@
     Plasteel: 800
 
 - type: latheRecipe 
-  id: ClothingOuterHardsuitCombat
-  result: ClothingOuterHardsuitCombat
+  id: ClothingOuterHardsuitSecurity
+  result: ClothingOuterHardsuitSecurity
   completetime: 5
   materials: # combat shit
     Steel: 1400
