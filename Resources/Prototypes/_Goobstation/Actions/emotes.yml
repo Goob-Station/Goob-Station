@@ -1,10 +1,12 @@
 - type: emote
   id: Flip
   name: chat-emote-name-flip
-  category: Hands
   chatMessages: ["chat-emote-msg-flip"]
   chatTriggers:
   - flip
+  - flips
+  - flips.
+  - flips!
   - does a flip
   - does a flip.
   - does a flip!
@@ -13,7 +15,6 @@
 - type: emote
   id: Spin
   name: chat-emote-name-spin
-  category: Hands
   chatMessages: ["chat-emote-msg-spin"]
   chatTriggers:
   - spin
@@ -25,7 +26,6 @@
 - type: emote
   id: Jump
   name: chat-emote-name-jump
-  category: Hands
   chatMessages: ["chat-emote-msg-jump"]
   chatTriggers:
   - jump
