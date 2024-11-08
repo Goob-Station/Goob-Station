@@ -69,7 +69,8 @@ namespace Content.IntegrationTests.Tests
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",
-            "Barratry" // Goobstation - add Barratry
+            "Barratry", // Goobstation - add Barratry
+            "Kettle" // Goobstation - add Kettle
         };
 
         /// <summary>

@@ -70,6 +70,32 @@
   - UplinkWeaponry
   saleLimit: 1
 
+# Wearables
+
+- type: listing
+  id: UplinkHardsuitSyndieMedic
+  name: uplink-hardsuit-syndiemedic-name
+  description: uplink-hardsuit-syndiemedic-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
+  cost:
+    Telecrystal: 55 # novelty item for the larp
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkHardsuitSyndieCommander
+  name: uplink-hardsuit-syndiecommander-name
+  description: uplink-hardsuit-syndiecommander-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieCommander
+  cost:
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
+
 # Job specific
 - type: listing
   id: UplinkPieCannon
