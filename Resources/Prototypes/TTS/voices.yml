@@ -1,0 +1,90 @@
+- type: ttsVoice
+  id: Bryce
+  name: Bryce
+  model: Bryce
+  sex: Male
+
+- type: ttsVoice
+  id: Arctic
+  name: Arctic
+  model: Arctic
+  sex: Male
+
+- type: ttsVoice
+  id: Danny
+  name: Danny
+  model: Danny
+  sex: Male
+
+- type: ttsVoice
+  id: Jeff
+  name: Jeff
+  model: hfc_male
+  sex: Male
+
+- type: ttsVoice
+  id: Joe
+  name: Joe
+  model: Joe
+  sex: Male
+
+- type: ttsVoice
+  id: John
+  name: John
+  model: John
+  sex: Male
+
+- type: ttsVoice
+  id: Norman
+  name: Norman
+  model: Norman
+  sex: Male
+
+- type: ttsVoice
+  id: Ryan
+  name: Ryan
+  model: Ryan
+  sex: Male
+
+- type: ttsVoice
+  id: Fiona
+  name: Fiona
+  model: hfc_female
+  sex: Female
+
+- type: ttsVoice
+  id: Kathleen
+  name: Kathleen
+  model: Kathleen
+  sex: Female
+
+- type: ttsVoice
+  id: Kristin
+  name: Kristin
+  model: Kristin
+  sex: Female
+
+- type: ttsVoice
+  id: Kusal
+  name: Kusal
+  model: Kusal
+  sex: Male
+
+- type: ttsVoice
+  id: Brit
+  name: Brit
+  model: Libritts
+  sex: Female
+
+- type: ttsVoice
+  id: Kait
+  name: Kait
+  model: Ljspeech
+  sex: Female
+
+- type: ttsVoice
+  id: Lessac
+  name: Lessac
+  model: Lessac
+  sex: Female
+
