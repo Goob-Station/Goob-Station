@@ -55,7 +55,7 @@ public sealed partial class AudioTab : Control
             CCVars.TTSVolume,
             SliderVolumeTTS,
             scale: ContentAudioSystem.TtsMultiplier
-        )
+        );
 
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,

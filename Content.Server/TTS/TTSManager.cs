@@ -98,14 +98,14 @@ public sealed class TTSManager
     public async Task<byte[]?> ConvertTextToSpeech(string model, string speaker, string text)
     {
         var fileName = text.GetHashCode() + ".wav";
-        var strCmdText = $"echo '{text}' | piper --model {_modelPath}/{model}.onnx --output_file {fileName} --speaker {speaker}";
+        var strCmdText = $"echo '{text}' | piper --model {_modelPath}\\{model}.onnx --output_file {fileName} --speaker {speaker}";
 
         var proc = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "/bin/sh",
-                Arguments = $"-c \"{strCmdText}\"",
+                FileName = "cmd.exe",
+                Arguments = $"/C \"{strCmdText}\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,

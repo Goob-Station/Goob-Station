@@ -6,8 +6,14 @@ namespace Content.Shared.TTS;
 
 [Prototype("ttsVoice")]
 // ReSharper disable once InconsistentNaming
-public sealed class TTSVoicePrototype : LocalizedPrototype
+public sealed class TTSVoicePrototype : IPrototype
 {
+    [IdDataField]
+    public string ID { get; } = default!;
+
+    [DataField("name")]
+    public string Name { get; } = string.Empty;
+
     [DataField(required: true)]
     public Sex Sex;
 

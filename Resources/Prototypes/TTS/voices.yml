@@ -1,18 +1,5 @@
-# https://huggingface.co/poisson-fish/piper-vasco/tree/main/onnx
 - type: ttsVoice
-  id: Vasco
-  sex: Male
-  model: Vasco
-
-# https://huggingface.co/DavesArmoury/GLaDOS_TTS/tree/main
-- type: ttsVoice
-  id: GLaDOS
-  sex: Female
-  model: GLaDOS
-
-# Couldn't find a good unisex voice so you get this nerd
-# https://huggingface.co/rhasspy/piper-voices/tree/main/en/en_US/ryan/high
-- type: ttsVoice
-  id: Ryan
+  id: Bryce
+  name: Bryce
   sex: Unsexed
-  model: Ryan
+  model: Bryce

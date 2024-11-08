@@ -144,6 +144,7 @@ namespace Content.Shared.Preferences
             string flavortext,
             string species,
             string borgname,
+            string voice,
             int age,
             Sex sex,
             Gender gender,
@@ -160,6 +161,7 @@ namespace Content.Shared.Preferences
             FlavorText = flavortext;
             Species = species;
             BorgName = borgname;
+            Voice = voice;
             Age = age;
             Sex = sex;
             Gender = gender;
@@ -193,6 +195,7 @@ namespace Content.Shared.Preferences
                 other.Species,
                 // #Goobstation - Borg Preferred Name
                 other.BorgName,
+                other.Voice,
                 other.Age,
                 other.Sex,
                 other.Gender,
@@ -327,6 +330,10 @@ namespace Content.Shared.Preferences
             return new(this) { Species = species };
         }
 
+        public HumanoidCharacterProfile WithVoice(string voice)
+        {
+             return new(this) { Voice = voice };
+        }
 
         public HumanoidCharacterProfile WithCharacterAppearance(HumanoidCharacterAppearance appearance)
         {
@@ -556,11 +563,11 @@ namespace Content.Shared.Preferences
             {
                 name = Name;
             }
-            prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
-            if (voice is null || !CanHaveVoice(voice, Sex))
-                Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex]; _loadoutPreferences.Clear();
             name = name.Trim();
 
+            prototypeManager.TryIndex<TTSVoicePrototype>(Voice, out var voice);
+            if (voice is null || !CanHaveVoice(voice, Sex))
+                Voice = SharedHumanoidAppearanceSystem.DefaultSexVoice[sex];
 
             if (configManager.GetCVar(CCVars.RestrictedNames))
             {
@@ -703,7 +710,7 @@ namespace Content.Shared.Preferences
 
         public static bool CanHaveVoice(TTSVoicePrototype voice, Sex sex)
         {
-            return voice.RoundStart && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
+            return voice.CanSelect && sex == Sex.Unsexed || (voice.Sex == sex || voice.Sex == Sex.Unsexed);
         }
 
 
