@@ -236,6 +236,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
 
     /// Can be "file" to store in the cache_path, or "memory" to store it in memory.
+    /// Memory is way faster, but servers are usually more limited by memory than storage, pick your poison.
     public static readonly CVarDef<string> TTSCacheType =
         CVarDef.Create("tts.cache_type", "memory", CVar.SERVERONLY);
 
