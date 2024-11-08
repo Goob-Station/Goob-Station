@@ -1,32 +1,22 @@
 using Content.Shared.Humanoid;
+using Content.Shared.Prototypes;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.TTS;
 
-/// <summary>
-/// Prototype represent available TTS voices
-/// </summary>
 [Prototype("ttsVoice")]
 // ReSharper disable once InconsistentNaming
-public sealed class TTSVoicePrototype : IPrototype
+public sealed class TTSVoicePrototype : LocalizedPrototype
 {
-    [IdDataField]
-    public string ID { get; } = default!;
+    [DataField(required: true)]
+    public Sex Sex;
 
-    [DataField("name")]
-    public string Name { get; } = string.Empty;
+    [DataField(required: true)]
+    public string Model = string.Empty;
 
-    [DataField("sex", required: true)]
-    public Sex Sex { get; } = default!;
+    [DataField]
+    public string Speaker = "0";
 
-    [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("speaker", required: true)]
-    public string Speaker { get; } = string.Empty;
-
-    /// <summary>
-    /// Whether the species is available "at round start" (In the character editor)
-    /// </summary>
-    [DataField("roundStart")]
-    public bool RoundStart { get; } = true;
-
+    [DataField]
+    public bool CanSelect = true;
 }

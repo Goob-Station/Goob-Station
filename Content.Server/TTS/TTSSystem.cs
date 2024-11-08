@@ -20,23 +20,22 @@ public sealed partial class TTSSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
 
-    private readonly List<string> _sampleText =
-        new()
-        {
-        "Вітаю станція я телепортував борга прибиральника на станцію СЛАВА НТ.",
-        "Так, пані Саро, щодо питання театру. Чи буде інженерія займатись ним?",
-        "Так, цей, раз затримали Семуєля, то зелений код?",
-        "Він хоче якесь інтерв'ю взяти... Де вас знайти можна?",
-        "Семуель Родігрез взламав якоюсь карточкою двері на місток!",
-        "Хочу дати належне - газета працює, і доволі непогафно. Мені подобається",
-        "Хвала і слава від НТ. Можливо медаль, якщо ще й з виступом для цього подіуму",
-        "інженерія, вітаю. Все ж, хтось буде добровольцем у тому, щоб побудувати в театрі подіум?",
-        "Клоун, хто у вас що вкрав?",
-        "Шефе, в мене буде інтерв'ю брати буде, відійду на 10 хвилин",
-        "Наскільки розумію, аномалія зламала з'єднання сингулярності до станції... Саме в тих смесах!"
-        };
+    private readonly List<string> _sampleText = new()
+    {
+        "Hello station, I have teleported the janitor.",
+        "Yes, Ms. Sarah, about the theater issue -- will Engineering be dealing with it?",
+        "Since Samuel was detained should we change it to a code green?",
+        "He wants to do an interview, where are you?",
+        "Samuel Rodriguez broke the door to the bridge with an e-mag!",
+        "I want to give credit where it's due -- the newspaper is working, and it's doing quite well. I like it.",
+        "Praise and glory from NT.",
+        "Will someone build a podium in the theater?",
+        "Clown, I'm about to be interviewed, I'll be gone about 10 minutes.",
+        "Chief, I'm about to be interviewed, I'll be gone for about 10 minutes.",
+        "As far as I understand, the anomaly broke the barrier between the Singularity and the station.",
+    };
 
-    private const int MaxMessageChars = 100 * 2; // same as SingleBubbleCharLimit * 2
+    private const int MaxMessageChars = 100 * 2; // Same as SingleBubbleCharLimit * 2
     private bool _isEnabled = true;
 
     public override void Initialize()
@@ -62,7 +61,7 @@ public sealed partial class TTSSystem : EntitySystem
             return;
 
         var previewText = _rng.Pick(_sampleText);
-        var soundData = await GenerateTTS(previewText, protoVoice.Speaker);
+        var soundData = await GenerateTTS(previewText, protoVoice.Model, protoVoice.Speaker);
         if (soundData is null)
             return;
 
@@ -86,24 +85,24 @@ public sealed partial class TTSSystem : EntitySystem
 
         if (args.IsWhisper)
         {
-            HandleWhisper(uid, args.Message, protoVoice.Speaker);
+            HandleWhisper(uid, args.Message, protoVoice.Model, protoVoice.Speaker);
             return;
         }
 
-        HandleSay(uid, args.Message, protoVoice.Speaker);
+        HandleSay(uid, args.Message, protoVoice.Model, protoVoice.Speaker);
     }
 
-    private async void HandleSay(EntityUid uid, string message, string speaker)
+    private async void HandleSay(EntityUid uid, string message, string model, string speaker)
     {
-        var soundData = await GenerateTTS(message, speaker);
+        var soundData = await GenerateTTS(message, model, speaker);
         if (soundData is null)
             return;
         RaiseNetworkEvent(new PlayTTSEvent(soundData, GetNetEntity(uid)), Filter.Pvs(uid));
     }
 
-    private async void HandleWhisper(EntityUid uid, string message, string speaker)
+    private async void HandleWhisper(EntityUid uid, string message, string model, string speaker)
     {
-        var fullSoundData = await GenerateTTS(message, speaker, true);
+        var fullSoundData = await GenerateTTS(message, model, speaker, true);
         if (fullSoundData is null)
             return;
 
@@ -127,7 +126,7 @@ public sealed partial class TTSSystem : EntitySystem
     }
 
     // ReSharper disable once InconsistentNaming
-    private async Task<byte[]?> GenerateTTS(string text, string speaker, bool isWhisper = false)
+    private async Task<byte[]?> GenerateTTS(string text, string model, string speaker, bool isWhisper = false)
     {
         var textSanitized = Sanitize(text);
         if (textSanitized == "")
@@ -140,7 +139,8 @@ public sealed partial class TTSSystem : EntitySystem
             ssmlTraits = SoundTraits.PitchVerylow;
         var textSsml = ToSsmlText(textSanitized, ssmlTraits);
 
-        return await _ttsManager.ConvertTextToSpeech(speaker, textSsml);
+        // return await _ttsManager.ConvertTextToSpeech(speaker, textSsml); //TODO: What is this ssml?
+        return await _ttsManager.ConvertTextToSpeech(model, speaker, textSanitized);
     }
 }
 

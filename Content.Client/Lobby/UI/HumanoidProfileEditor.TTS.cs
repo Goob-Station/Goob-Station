@@ -32,7 +32,7 @@ public sealed partial class HumanoidProfileEditor
         _ttsSys = _entManager.System<TTSSystem>();
         _voiceList = _prototypeManager
             .EnumeratePrototypes<TTSVoicePrototype>()
-            .Where(o => o.RoundStart)
+            .Where(o => o.CanSelect)
             .OrderBy(o => Loc.GetString(o.Name))
             .ToList();
 

@@ -453,6 +453,8 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<bool> TTSEnabled =
             CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
 
+        public static readonly CVarDef<string> TTSModelPath =
+            CVarDef.Create("tts.model_path", "data/tts/models", CVar.SERVERONLY);
 
         /*
          * Discord

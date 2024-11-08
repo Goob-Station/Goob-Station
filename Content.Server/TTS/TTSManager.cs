@@ -8,8 +8,11 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.CCVar;
 using Prometheus;
 using Robust.Shared.Configuration;
+using Robust.Shared.ContentPack;
+using Robust.Shared.Utility;
 
 namespace Content.Server.TTS;
 
@@ -34,19 +37,31 @@ public sealed class TTSManager
         "Amount of reused TTS audio from cache.");
 
     [Dependency] private readonly IConfigurationManager _cfg = default!;
-
+    [Dependency] private readonly IResourceManager _resource = default!;
     private readonly HttpClient _httpClient = new();
-
     private ISawmill _sawmill = default!;
+
+    private string _modelPath = "";
     private readonly Dictionary<string, byte[]> _cache = new();
     private readonly List<string> _cacheKeysSeq = new();
-    private int _maxCachedCount = 200;
+    private int _maxCachedCount = 256;
     private string _apiUrl = string.Empty;
     private string _apiToken = string.Empty;
 
+    public TTSManager()
+    {
+        Initialize();
+    }
+
     public void Initialize()
     {
+        IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("tts");
+
+        _sawmill.Log(LogLevel.Info, _modelPath);
+        UpdateModelPath(_cfg.GetCVar(CCVars.TTSModelPath));
+        _cfg.OnValueChanged(CCVars.TTSModelPath, UpdateModelPath);
+
         // _cfg.OnValueChanged(CCCVars.TTSMaxCache, val =>
         // {
         //     _maxCachedCount = val;
@@ -54,6 +69,24 @@ public sealed class TTSManager
         // }, true);
         // _cfg.OnValueChanged(CCCVars.TTSApiUrl, v => _apiUrl = v, true);
         // _cfg.OnValueChanged(CCCVars.TTSApiToken, v => _apiToken = v, true);
+
+        return;
+
+        void UpdateModelPath(string path)
+        {
+            if (string.IsNullOrEmpty(path) && _cfg.GetCVar(CCVars.TTSEnabled))
+            {
+                DebugTools.Assert(false, "CVar TTSModelPath is unset but TTS is enabled.");
+                return;
+            }
+
+            if (path.StartsWith("data/"))
+                _modelPath = _resource.UserData.RootDir + path.Remove(0, 5);
+            else
+                _modelPath = path; // Hope it's valid
+
+            _sawmill.Log(LogLevel.Info, _modelPath);
+        }
     }
 
     /// <summary>
@@ -62,27 +95,25 @@ public sealed class TTSManager
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
     /// <returns>OGG audio bytes or null if failed</returns>
-    public async Task<byte[]?> ConvertTextToSpeech(string speaker, string text)
+    public async Task<byte[]?> ConvertTextToSpeech(string model, string speaker, string text)
     {
-
-        var fileName = text.GetHashCode().ToString() + ".wav";
-        string strCmdText;
-        strCmdText = "echo '" + text + "'| /home/alwyzon/piper/piper --model /home/alwyzon/piper/uk_UA-ukrainian_tts-medium.onnx --output_file " + fileName + " --speaker " + speaker;
-        // strCmdText = "export DYLD_LIBRARY_PATH=~/downloads/tts/piper/modules/piper/pp/install/lib && echo '" + text + "'| ~/downloads/tts/piper/piper --model ~/downloads/tts/piper/uk_UA-ukrainian_tts-medium.onnx --output_file " + fileName + " --speaker " + speaker; // For my local dev config
+        var fileName = text.GetHashCode() + ".wav";
+        var strCmdText = $"echo '{text}' | piper --model {_modelPath}/{model}.onnx --output_file {fileName} --speaker {speaker}";
 
         var proc = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "/bin/bash",
-                Arguments = "-c \""+ strCmdText + "\"",
+                FileName = "/bin/sh",
+                Arguments = $"-c \"{strCmdText}\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
-                CreateNoWindow = true
+                CreateNoWindow = true,
             }
         };
         var reqTime = DateTime.UtcNow;
-        try{
+        try
+        {
             proc.Start();
             await proc.WaitForExitAsync().ConfigureAwait(false);
         }
