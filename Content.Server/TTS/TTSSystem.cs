@@ -49,9 +49,17 @@ public sealed partial class TTSSystem : EntitySystem
         SubscribeNetworkEvent<RequestPreviewTTSEvent>(OnRequestPreviewTTS);
     }
 
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        _ttsManager.ClearCache();
+    }
+
+
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        _ttsManager.ResetCache();
+        _ttsManager.ClearCache();
     }
 
     private async void OnRequestPreviewTTS(RequestPreviewTTSEvent ev, EntitySessionEventArgs args)

@@ -225,17 +225,28 @@ public sealed partial class GoobCVars
     #endregion
 
     #region TTS
+
     public static readonly CVarDef<float> TTSVolume =
         CVarDef.Create("tts.volume", 0.5f * 4, CVar.ARCHIVE | CVar.CLIENTONLY);
+
+    public static readonly CVarDef<float> TTSUnknownVolume =
+        CVarDef.Create("tts.unknown_volume", 0.2f * 4, CVar.ARCHIVE | CVar.CLIENTONLY);
 
     public static readonly CVarDef<bool> TTSEnabled =
         CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
 
+    /// Can be "file" to store in the cache_path, or "memory" to store it in memory.
+    public static readonly CVarDef<string> TTSCacheType =
+        CVarDef.Create("tts.cache_type", "memory", CVar.SERVERONLY);
+
+    public static readonly CVarDef<string> TTSCachePath =
+        CVarDef.Create("tts.cache_path", "data/tts/cache", CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> TTSMaxCached =
+        CVarDef.Create("tts.max_cached", 256, CVar.SERVERONLY);
+
     public static readonly CVarDef<string> TTSModelPath =
         CVarDef.Create("tts.model_path", "data/tts/models", CVar.SERVERONLY);
-
-    public static readonly CVarDef<bool> HostWindows =
-        CVarDef.Create("tts.host_windows", false, CVar.SERVERONLY);
 
     #endregion
 }

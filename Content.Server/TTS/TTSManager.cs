@@ -38,97 +38,98 @@ public sealed class TTSManager
 
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _resource = default!;
-    private readonly HttpClient _httpClient = new();
     private ISawmill _sawmill = default!;
 
-    private string _modelPath = "";
-    private readonly Dictionary<string, byte[]> _cache = new();
-    private readonly List<string> _cacheKeysSeq = new();
-    private int _maxCachedCount = 256;
-    private string _apiUrl = string.Empty;
-    private string _apiToken = string.Empty;
+    private readonly Dictionary<int, byte[]> _memoryCache = new();
+    private ResPath _cachePath = new();
+    private ResPath _modelPath = new();
 
     public TTSManager()
     {
         Initialize();
     }
 
-    public void Initialize()
+    private void Initialize()
     {
         IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("tts");
 
-        _sawmill.Log(LogLevel.Info, _modelPath);
-        UpdateModelPath(_cfg.GetCVar(GoobCvars.TTSModelPath));
-        _cfg.OnValueChanged(GoobCvars.TTSModelPath, UpdateModelPath);
+        _cachePath = MakeDataPath(_cfg.GetCVar(GoobCvars.TTSCachePath));
+        _cfg.OnValueChanged(GoobCvars.TTSCachePath, OnCachePathChanged);
+        _modelPath = MakeDataPath(_cfg.GetCVar(GoobCvars.TTSModelPath));
+        _cfg.OnValueChanged(GoobCvars.TTSModelPath, OnModelPathChanged);
 
-        // _cfg.OnValueChanged(CGoobCvars.TTSMaxCache, val =>
-        // {
-        //     _maxCachedCount = val;
-        //     ResetCache();
-        // }, true);
-        // _cfg.OnValueChanged(CGoobCvars.TTSApiUrl, v => _apiUrl = v, true);
-        // _cfg.OnValueChanged(CGoobCvars.TTSApiToken, v => _apiToken = v, true);
-
-        return;
-
-        void UpdateModelPath(string path)
+        // Make the needed directories if they don't exist
+        new Process
         {
-            if (string.IsNullOrEmpty(path) && _cfg.GetCVar(GoobCvars.TTSEnabled))
+            StartInfo = new ProcessStartInfo
             {
-                DebugTools.Assert(false, "CVar TTSModelPath is unset but TTS is enabled.");
-                return;
-            }
-
-            if (path.StartsWith("data/"))
-                _modelPath = _resource.UserData.RootDir + path.Remove(0, 5);
-            else
-                _modelPath = path; // Hope it's valid
-
-            _sawmill.Log(LogLevel.Info, _modelPath);
-        }
+                #if WINDOWS
+                FileName = "cmd.exe",
+                Arguments = $"/C \"mkdir {_cachePath} {_modelPath}\"",
+                #else
+                FileName = "/bin/sh",
+                Arguments = $"-c \"mkdir -p {_cachePath} {_modelPath}\"",
+                #endif
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true,
+            },
+        }.Start();
     }
+
+    private void OnCachePathChanged(string path)
+        => _cachePath = MakeDataPath(path);
+    private void OnModelPathChanged(string path)
+        => _modelPath = MakeDataPath(path);
+
+    private ResPath MakeDataPath(string path)
+    {
+        if (path.StartsWith("data/"))
+            return new(_resource.UserData.RootDir + path.Remove(0, 5));
+        else
+            return new(path); // Hope it's valid
+    }
+
 
     /// <summary>
     /// Generates audio with passed text by API
     /// </summary>
+    /// <param name="model">File name for the model</param>
     /// <param name="speaker">Identifier of speaker</param>
     /// <param name="text">SSML formatted text</param>
     /// <returns>OGG audio bytes or null if failed</returns>
     public async Task<byte[]?> ConvertTextToSpeech(string model, string speaker, string text)
     {
-        var fileName = text.GetHashCode() + ".wav";
-        var strCmdText = $"echo '{text}' | piper --model {_modelPath}/{model}.onnx --output_file {fileName} --speaker {speaker}";
+        WantedCount.Inc();
+
+        var key = $"{model}/{speaker}/{text}".GetHashCode();
+        var file = await TryGetCached(key);
+        if (file != null)
+        {
+            ReusedCount.Inc();
+            return file;
+        }
+
+        var fileName = _cachePath + ResPath.SystemSeparatorStr + key + ".wav";
+        var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_file {fileName}";
 
         var proc = new Process
         {
             StartInfo = new ProcessStartInfo
             {
+                #if WINDOWS
+                FileName = "cmd.exe",
+                Arguments = $"/C \"{strCmdText}\"",
+                #else
                 FileName = "/bin/sh",
                 Arguments = $"-c \"{strCmdText}\"",
+                #endif
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,
-            }
+            },
         };
-
-        if (_cfg.GetCVar(GoobCvars.HostWindows))
-        {
-            strCmdText = $"echo '{text}' | piper --model {_modelPath}\\{model}.onnx --output_file {fileName} --speaker {speaker}";
-
-            proc = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    FileName = "cmd.exe",
-                    Arguments = $"/C \"{strCmdText}\"",
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true,
-                    CreateNoWindow = true,
-                }
-            };
-        }
-
 
         var reqTime = DateTime.UtcNow;
         try
@@ -143,140 +144,56 @@ public sealed class TTSManager
             return null;
         }
 
-        // proc.WaitForExit();
-
-        byte[] file = File.ReadAllBytes(fileName);
+        file = await File.ReadAllBytesAsync(fileName);
+        TryCache(key, file);
         return file;
+    }
 
-        WantedCount.Inc();
-        var cacheKey = GenerateCacheKey(speaker, text);
-        if (_cache.TryGetValue(cacheKey, out var data))
+    private bool TryCache(int key, byte[] file)
+    {
+        if (_cfg.GetCVar(CCVars.TTSCacheType) != "memory")
+            return false;
+
+        File.Delete(_cachePath + ResPath.SystemSeparatorStr + key + ".wav");
+        return _memoryCache.TryAdd(key, file);
+    }
+
+    /// Tries to find an existing audio file so we don't have to make another
+    private async Task<byte[]?> TryGetCached(int key)
+    {
+        var type = _cfg.GetCVar(CCVars.TTSCacheType);
+        switch (type)
         {
-            ReusedCount.Inc();
-            _sawmill.Verbose($"Use cached sound for '{text}' speech by '{speaker}' speaker");
-            return data;
-        }
-
-        _sawmill.Verbose($"Generate new audio for '{text}' speech by '{speaker}' speaker");
-
-        var body = new GenerateVoiceRequest
-        {
-            ApiToken = _apiToken,
-            Text = text,
-            Speaker = speaker,
-        };
-
-        reqTime = DateTime.UtcNow;
-        try
-        {
-            var timeout = 0.25;
-            // var timeout = _cfg.GetCVar(CGoobCvars.TTSApiTimeout);
-            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeout));
-            var response = await _httpClient.PostAsJsonAsync(_apiUrl, body, cts.Token);
-            if (!response.IsSuccessStatusCode)
-            {
-                if (response.StatusCode == HttpStatusCode.TooManyRequests)
-                {
-                    _sawmill.Warning("TTS request was rate limited");
-                    return null;
-                }
-
-                _sawmill.Error($"TTS request returned bad status code: {response.StatusCode}");
+            case "file":
+                var path = _cachePath + ResPath.SystemSeparatorStr + key + ".wav";
+                return !File.Exists(path) ? null : await File.ReadAllBytesAsync(path);
+            case "memory":
+                return _memoryCache.GetValueOrDefault(key);
+            default:
+                DebugTools.Assert(false, "TTSCacheType is invalid, must be one of \"file\", \"memory\"");
                 return null;
-            }
+        }
+    }
 
-            var json = await response.Content.ReadFromJsonAsync<GenerateVoiceResponse>(cancellationToken: cts.Token);
-            var soundData = Convert.FromBase64String(json.Results.First().Audio);
-
-            _cache.Add(cacheKey, soundData);
-            _cacheKeysSeq.Add(cacheKey);
-            if (_cache.Count > _maxCachedCount)
+    /// Deletes every file with the .wav extension in the _cachePath and clears the memory cache
+    public void ClearCache()
+    {
+        new Process
+        {
+            StartInfo = new ProcessStartInfo
             {
-                var firstKey = _cacheKeysSeq.First();
-                _cache.Remove(firstKey);
-                _cacheKeysSeq.Remove(firstKey);
-            }
-
-            _sawmill.Debug($"Generated new audio for '{text}' speech by '{speaker}' speaker ({soundData.Length} bytes)");
-            RequestTimings.WithLabels("Success").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-
-            return soundData;
-        }
-        catch (TaskCanceledException)
-        {
-            RequestTimings.WithLabels("Timeout").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Timeout of request generation new audio for '{text}' speech by '{speaker}' speaker");
-            return null;
-        }
-        catch (Exception e)
-        {
-            RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Failed of request generation new sound for '{text}' speech by '{speaker}' speaker\n{e}");
-            return null;
-        }
-    }
-
-    public void ResetCache()
-    {
-        _cache.Clear();
-        _cacheKeysSeq.Clear();
-    }
-
-    private string GenerateCacheKey(string speaker, string text)
-    {
-        var key = $"{speaker}/{text}";
-        byte[] keyData = Encoding.UTF8.GetBytes(key);
-        var sha256 = System.Security.Cryptography.SHA256.Create();
-        var bytes = sha256.ComputeHash(keyData);
-        return Convert.ToHexString(bytes);
-    }
-
-    private struct GenerateVoiceRequest
-    {
-        public GenerateVoiceRequest()
-        {
-        }
-
-        [JsonPropertyName("api_token")]
-        public string ApiToken { get; set; } = "";
-
-        [JsonPropertyName("text")]
-        public string Text { get; set; } = "";
-
-        [JsonPropertyName("speaker")]
-        public string Speaker { get; set; } = "";
-
-        [JsonPropertyName("ssml")]
-        public bool SSML { get; private set; } = true;
-
-        [JsonPropertyName("word_ts")]
-        public bool WordTS { get; private set; } = false;
-
-        [JsonPropertyName("put_accent")]
-        public bool PutAccent { get; private set; } = true;
-
-        [JsonPropertyName("put_yo")]
-        public bool PutYo { get; private set; } = false;
-
-        [JsonPropertyName("sample_rate")]
-        public int SampleRate { get; private set; } = 24000;
-
-        [JsonPropertyName("format")]
-        public string Format { get; private set; } = "ogg";
-    }
-
-    private struct GenerateVoiceResponse
-    {
-        [JsonPropertyName("results")]
-        public List<VoiceResult> Results { get; set; }
-
-        [JsonPropertyName("original_sha1")]
-        public string Hash { get; set; }
-    }
-
-    private struct VoiceResult
-    {
-        [JsonPropertyName("audio")]
-        public string Audio { get; set; }
+                #if WINDOWS
+                FileName = "cmd.exe",
+                Arguments = $"/C \"del /q {_cachePath}\*.wav\"",
+                #else
+                FileName = "/bin/sh",
+                Arguments = $"-c \"rm {_cachePath}/*.wav\"",
+                #endif
+                UseShellExecute = false,
+                RedirectStandardOutput = true,
+                CreateNoWindow = true,
+            },
+        }.Start();
+        _memoryCache.Clear();
     }
 }
