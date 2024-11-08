@@ -151,9 +151,21 @@ public sealed class TTSManager
 
     private bool TryCache(int key, byte[] file)
     {
+        // Delete extra files
         if (_cfg.GetCVar(CCVars.TTSCacheType) != "memory")
+        {
+            var files = Directory.GetFiles(_cachePath + ResPath.SystemSeparatorStr).ToList()
+                .OrderBy(f => File.GetLastWriteTimeUtc(f).Ticks);
+            var count = files.Count();
+            var toDelete = count - _cfg.GetCVar(CCVars.TTSMaxCached);
+            for (var i = toDelete; i > 0; i--)
+                File.Delete(files.ElementAt(i));
             return false;
+        }
+        while (_memoryCache.Count > _cfg.GetCVar(CCVars.TTSMaxCached))
+            _memoryCache.Remove(_memoryCache.First().Key);
 
+        // Cache to memory
         File.Delete(_cachePath + ResPath.SystemSeparatorStr + key + ".wav");
         return _memoryCache.TryAdd(key, file);
     }
