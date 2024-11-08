@@ -34,7 +34,7 @@ public sealed class TTSSystem : EntitySystem
     /// </summary>
     private const float MinimalVolume = -10f;
 
-    private float _volume = 0.5f;
+    private float _volume = CCVars.TTSVolume.DefaultValue;
     private int _fileIdx = 0;
 
     public override void Initialize()
@@ -77,14 +77,10 @@ public sealed class TTSSystem : EntitySystem
             .WithMaxDistance(AdjustDistance(ev.IsWhisper));
 
         if (ev.SourceUid != null)
-        {
-            var sourceUid = GetEntity(ev.SourceUid.Value);
-            _audio.PlayEntity(audioResource.AudioStream, sourceUid, audioParams);
-        }
+            _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.SourceUid.Value), audioParams);
         else
-        {
             _audio.PlayGlobal(audioResource.AudioStream, audioParams);
-        }
+
 
         _contentRoot.RemoveFile(filePath);
     }
@@ -94,9 +90,7 @@ public sealed class TTSSystem : EntitySystem
         var volume = MinimalVolume + SharedAudioSystem.GainToVolume(_volume);
 
         if (isWhisper)
-        {
             volume -= SharedAudioSystem.GainToVolume(WhisperFade);
-        }
 
         return volume;
     }

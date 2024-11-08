@@ -14,11 +14,6 @@ public sealed partial class TTSSystem
         args.Message = args.Message.Replace("+", "");
     }
 
-    private const string EmptyRegex = @"[^a-zA-Zа-яА-ЯёЁ0-9-Є-ЯҐа-їґ,\-+?!. ]";
-    private const string WordRegex = "(?<![a-zA-Zа-яёА-ЯЁ-Є-ЯҐа-їґ])[a-zA-Zа-яёА-ЯЁ-Є-ЯҐа-їґ]+?(?![a-zA-Zа-яёА-ЯЁ-Є-ЯҐа-їґ])";
-    private const string NumberPointRegex = @"(?<=[1-90])(\.|,)(?=[1-90])";
-    private const string WordToNumberRegex = @"\d+";
-
     private static string Sanitize(string text)
     {
         text = text.Trim();

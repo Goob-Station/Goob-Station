@@ -24,7 +24,7 @@ public sealed class TTSManager
         "Timings of TTS API requests",
         new HistogramConfiguration()
         {
-            LabelNames = new[] {"type"},
+            LabelNames = new[] { "type" },
             Buckets = Histogram.ExponentialBuckets(.1, 1.5, 10),
         });
 
@@ -98,19 +98,38 @@ public sealed class TTSManager
     public async Task<byte[]?> ConvertTextToSpeech(string model, string speaker, string text)
     {
         var fileName = text.GetHashCode() + ".wav";
-        var strCmdText = $"echo '{text}' | piper --model {_modelPath}\\{model}.onnx --output_file {fileName} --speaker {speaker}";
+        var strCmdText = $"echo '{text}' | piper --model {_modelPath}/{model}.onnx --output_file {fileName} --speaker {speaker}";
 
         var proc = new Process
         {
             StartInfo = new ProcessStartInfo
             {
-                FileName = "cmd.exe",
-                Arguments = $"/C \"{strCmdText}\"",
+                FileName = "/bin/sh",
+                Arguments = $"-c \"{strCmdText}\"",
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,
             }
         };
+
+        if (_cfg.GetCVar(CCVars.HostWindows))
+        {
+            strCmdText = $"echo '{text}' | piper --model {_modelPath}\\{model}.onnx --output_file {fileName} --speaker {speaker}";
+
+            proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = $"/C \"{strCmdText}\"",
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true,
+                    CreateNoWindow = true,
+                }
+            };
+        }
+
+
         var reqTime = DateTime.UtcNow;
         try
         {
