@@ -457,7 +457,7 @@ namespace Content.Shared.CCVar
             CVarDef.Create("tts.model_path", "data/tts/models", CVar.SERVERONLY);
 
         public static readonly CVarDef<bool> HostWindows =
-            CVarDef.Create("tts.host_windows", true, CVar.SERVERONLY);
+            CVarDef.Create("tts.host_windows", false, CVar.SERVERONLY);
 
         /*
          * Discord
