@@ -1742,3 +1742,9 @@ Entries:
       message: Added new emotes. Check them in the emote menu
   id: 211
   time: '2024-11-07T22:34:07.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: TTS
+  id: 212
+  time: '2024-11-08T08:28:30.0000000+00:00'
