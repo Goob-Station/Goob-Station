@@ -196,7 +196,7 @@ public sealed class TTSManager
             {
                 #if WINDOWS
                 FileName = "cmd.exe",
-                Arguments = $"/C \"del /q {_cachePath}\*.wav\"",
+                Arguments = $"/C \"del /q {_cachePath}\\*.wav\"",
                 #else
                 FileName = "/bin/sh",
                 Arguments = $"-c \"rm {_cachePath}/*.wav\"",
