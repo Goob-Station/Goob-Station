@@ -51,7 +51,7 @@ public sealed partial class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponen
         foreach (var category in rule.StoreCategories)
             store.Categories.Add(category);
         store.CurrencyWhitelist.Add(Currency);
-        store.Balance.Add(Currency, 16);
+        store.Balance.Add(Currency, 10);
 
         rule.MalfAiMind.Add(mindId);
 

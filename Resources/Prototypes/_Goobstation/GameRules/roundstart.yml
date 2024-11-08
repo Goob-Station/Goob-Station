@@ -31,10 +31,9 @@
     - prefRoles: [ MalfAi ]
       max: 1
       playerRatio: 20
-      briefing:
-        text: malfai-role-greeting
-        color: Green
-        sound: "/Audio/Ambience/Antag/emagged_borg.ogg"
+      whitelist:
+        components:
+        - StationAiCore
       components:
       - type: MalfAi
       mindComponents:
