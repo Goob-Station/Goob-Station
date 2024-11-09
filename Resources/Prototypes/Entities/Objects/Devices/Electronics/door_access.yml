@@ -287,22 +287,6 @@
   - type: AccessReader
     access: [["CentralCommand"]]
 
-- type: entity # GOOBSTATION - TOO LAZY TO MAKE A FILE IN GOOBSTATION FOLDER
-  parent: DoorElectronics
-  id: DoorElectronicsNTR
-  suffix: NanotrasenRepresentative, Locked
-  components:
-  - type: AccessReader
-    access: [["NanotrasenRepresentative"]]
-
-- type: entity # GOOBSTATION - TOO LAZY TO MAKE A FILE IN GOOBSTATION FOLDER
-  parent: DoorElectronics
-  id: DoorElectronicsBSO
-  suffix: BlueshieldOfficer, Locked
-  components:
-  - type: AccessReader
-    access: [["BlueshieldOfficer"]]
-
 - type: entity
   parent: DoorElectronics
   id: DoorElectronicsExternal
