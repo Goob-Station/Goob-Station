@@ -103,6 +103,7 @@
     - DoorBumpOpener
     - VulpEmotes
   - type: FootPrints # WD EDIT
+  - type: SolutionScanner # Innate ability to identify solutions because dog nose.
 
 - type: entity
   save: false
