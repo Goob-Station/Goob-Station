@@ -47,6 +47,12 @@
   sex: Male
 
 - type: ttsVoice
+  id: Amy
+  name: Amy
+  model: Amy
+  sex: Female
+
+- type: ttsVoice
   id: Fiona
   name: Fiona
   model: hfc_female
