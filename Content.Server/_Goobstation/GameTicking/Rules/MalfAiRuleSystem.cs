@@ -40,11 +40,11 @@ public sealed partial class MalfAiRuleSystem : GameRuleSystem<MalfAiRuleComponen
 
         if (TryComp<MetaDataComponent>(target, out var metaData))
         {
-            var briefing = Loc.GetString("malfai-role-greeting", ("name", metaData?.EntityName ?? "Unknown"));
-            var briefingShort = Loc.GetString("malfai-role-greeting-short", ("name", metaData?.EntityName ?? "Unknown"));
+            _antag.SendBriefing(target, Loc.GetString("malfai-role-greeting"), Color.Green, BriefingSound);
+            var briefingShort = Loc.GetString("malfai-role-greeting-short");
 
-            _antag.SendBriefing(target, briefing, Color.Green, BriefingSound);
-            _role.MindAddRole(mindId, new RoleBriefingComponent { Briefing = briefingShort }, mind, true);
+            if (_role.MindHasRole<MalfAiComponent>(mindId, out var mr))
+                AddComp(mr.Value, new RoleBriefingComponent { Briefing = briefingShort }, overwrite: true);
         }
         EnsureComp<MalfAiComponent>(target);
         var store = EnsureComp<StoreComponent>(target);
