@@ -1762,3 +1762,13 @@ Entries:
       message: You can now also use *flips to access the flip emote.
   id: 214
   time: '2024-11-09T01:57:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added Bloodstains, Body Dragging Marks, and Bloody Footprints to the
+        game. Characters that walk through puddles of blood will now leave
+        behind bloody footprints. Dragging a corpse leaves a trail of blood
+        wherever the corpse was moved.
+  id: 215
+  time: '2024-11-09T02:58:50.0000000+00:00'
