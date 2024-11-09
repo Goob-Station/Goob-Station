@@ -3,7 +3,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared._White.FootPrint;
-using Content.Shared.Standing;
+using Content.Shared._White.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Map;
@@ -53,7 +53,7 @@ public sealed class FootPrintsSystem : EntitySystem
             return;
 
         var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead
-                       || _layingQuery.TryComp(uid, out var laying) && laying.IsCrawlingUnder;
+                       || _layingQuery.TryComp(uid, out var laying);
         var distance = (transform.LocalPosition - component.StepPos).Length();
         var stepSize = dragging ? component.DragSize : component.StepSize;
 
