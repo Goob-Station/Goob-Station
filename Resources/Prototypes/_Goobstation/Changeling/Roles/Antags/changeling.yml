@@ -4,4 +4,10 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-changeling-description
+  - !type:DepartmentTimeRequirement
+  requirements:
+  department: Security
+  time: 36000 #10 hrs
+  - !type:OverallPlaytimeRequirement
+  time: 108000 #30 hrs
   guides: [ Changelings ]
