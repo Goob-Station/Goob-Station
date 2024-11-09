@@ -1748,3 +1748,17 @@ Entries:
       message: TTS
   id: 212
   time: '2024-11-08T08:28:30.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Fixed some errors with text/strings and options menu.
+  id: 213
+  time: '2024-11-09T01:56:22.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: All mobs can now flip, not just ones with hands
+    - type: Tweak
+      message: You can now also use *flips to access the flip emote.
+  id: 214
+  time: '2024-11-09T01:57:17.0000000+00:00'
