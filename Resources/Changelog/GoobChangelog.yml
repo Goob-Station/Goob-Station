@@ -1748,3 +1748,9 @@ Entries:
       message: TTS
   id: 212
   time: '2024-11-08T08:28:30.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Fixed some errors with text/strings and options menu.
+  id: 213
+  time: '2024-11-09T01:56:22.0000000+00:00'
