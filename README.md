@@ -1,4 +1,4 @@
-<p align="center"> <img alt="ShibaStation" width="880" height="300" src="https://github.com/AstroDogeDX/ShibaStation-GS/blob/master/Resources/Textures/Logo/logo.png" /></p>
+<p align="center"> <img alt="ShibaStation" src="https://github.com/AstroDogeDX/ShibaStation-GS/blob/master/Resources/Textures/Logo/logo.png" /></p>
 
 _ShibaStation_ is a fork of _Goob-Station_, which is itself a fork of _Space Station 14_. This fork is primarily for features that may not fit with or be approved by the _Goob-Station_ team, as well as being adjusted for a MRP environment, however any general fixes are submitted to the original repo for everyone's benefit.
 
