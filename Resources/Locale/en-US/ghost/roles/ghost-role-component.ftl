@@ -150,7 +150,7 @@ ghost-role-information-skeleton-biker-name = Skeleton Biker
 ghost-role-information-skeleton-biker-description = Ride around on your sweet ride.
 
 ghost-role-information-closet-skeleton-name = Closet Skeleton
-ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or cause chaos! The world is yours to shape.
+ghost-role-information-closet-skeleton-description = You are arguably one of the oldest members of the station! Get your old job back, or that overdue promotion! Your NanoTrasen contract is still valid.
 
 ghost-role-information-remilia-name = Remilia, the chaplain's familiar
 ghost-role-information-remilia-description = Follow and obey the chaplain. Eat fruit. Screech loudly into people's ears and write it off as echolocation.
@@ -252,7 +252,7 @@ ghost-role-information-medical-description = You are a medical professional, but
 ghost-role-information-cargo-name = Cargo
 ghost-role-information-cargo-description = You are part of a logistics mission, but seem to have found yourself in a strange situation...
 
-ghost-role-information-engineering-name = Engineering 
+ghost-role-information-engineering-name = Engineering
 ghost-role-information-engineering-description = You are on an engineering job, but seem to have found yourself in a strange situation...
 
 ghost-role-information-science-name = Science
