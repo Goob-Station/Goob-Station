@@ -1,0 +1,8 @@
+Entries:
+- author: AstroDogeDX
+  changes:
+  - message: Rebrand to ShibaStation, preserved Goob-Station changelog and credits,
+      etc.
+    type: Tweak
+  id: 0
+  time: '2024-11-10T15:43:03.920133'
