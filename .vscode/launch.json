@@ -32,6 +32,23 @@
             "stopAtEntry": false
         },
         {
+            "name": "Server (Release)",
+            "type": "coreclr",
+            "request": "launch",
+            "program": "dotnet",
+            "args": [
+                "run",
+                "--project",
+                "${workspaceFolder}/Content.Server",
+                "--configuration",
+                "Release",
+                "--config-file",
+                "${workspaceFolder}/bin/Content.Server/data/server_config.toml"
+            ],
+            "console": "integratedTerminal",
+            "stopAtEntry": false
+        },
+        {
             "name": "YAML Linter",
             "type": "coreclr",
             "request": "launch",
@@ -47,6 +64,14 @@
             "name": "Server/Client",
             "configurations": [
                 "Server",
+                "Client"
+            ],
+            "preLaunchTask": "build"
+        },
+        {
+            "name": "Server/Client (Release)",
+            "configurations": [
+                "Server (Release)",
                 "Client"
             ],
             "preLaunchTask": "build"
