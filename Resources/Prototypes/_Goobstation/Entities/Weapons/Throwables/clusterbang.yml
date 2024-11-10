@@ -22,3 +22,6 @@
   - type: EmitSoundOnTrigger
     sound:
       path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
