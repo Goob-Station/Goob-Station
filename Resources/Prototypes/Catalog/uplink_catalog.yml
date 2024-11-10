@@ -1927,3 +1927,18 @@
     - Chef
     - Mime
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: uplinkBeeNades    #goob - bee update
+  name: uplink-beenades-name
+  description: uplink-beenades-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+    - Zookeeper
