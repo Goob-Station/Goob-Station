@@ -1,7 +1,20 @@
 - type: soundCollection
   id: RoundEnd
   files:
-  - /Audio/Announcements/RoundEnd/apc_destroyed.ogg
-  - /Audio/Announcements/RoundEnd/disappointed.ogg
-  - /Audio/Announcements/RoundEnd/notevenpaidforthis.ogg
-  - /Audio/Announcements/RoundEnd/stalemate.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/apc_destroyed.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/cdilinkiwon.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/disappointed.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/eyyowtf.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/gotothebathroom.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/gratsyouwon.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/greatjob.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/guilty.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/l4dsaferoom.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/mgsvrcomplete.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/nintendogstricklearned.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/notevenpaidforthis.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/sm64starget.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/thatswhatimtalkingaboutwow.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/wahoo.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/wariowins.ogg
+    - /Audio/_ShibaStation/Announcements/RoundEnd/yeahbaby.ogg
