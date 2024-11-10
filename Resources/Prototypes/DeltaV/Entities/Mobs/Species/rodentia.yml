@@ -111,7 +111,6 @@
     spitDamageThreshold: 3
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
-  - type: FootPrints # WD EDIT
 
 - type: entity
   save: false
