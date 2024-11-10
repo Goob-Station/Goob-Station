@@ -6,7 +6,7 @@
   objective: roles-antag-rev-head-objective
   requirements:
   - !type:OverallPlaytimeRequirement
-  time: 54000 # 10h
+  time: 36000 # 10h
   - !type:DepartmentTimeRequirement
   guides: [ Revolutionaries ]
 
