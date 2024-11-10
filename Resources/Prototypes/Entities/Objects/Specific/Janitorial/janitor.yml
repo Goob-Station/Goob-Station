@@ -115,7 +115,7 @@
 - type: entity
   name: wet floor sign
   id: WetFloorSign
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, AllowSuitStorageClothing]
   description: Caution! Wet Floor!
   components:
   - type: Sprite
