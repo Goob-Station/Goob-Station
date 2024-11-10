@@ -7,10 +7,10 @@
   requirements:
   - !type:DepartmentTimeRequirement
   department: Security
-  time: 36000 # 10h
+  time: 18000 # 5h
   - !type:DepartmentTimeRequirement
   department: Medical
-  time: 36000 # 10h
+  time: 18000 # 5h
   guides: [ Heretics ]
 
 - type: startingGear
