@@ -7,7 +7,5 @@
   - !type:DepartmentTimeRequirement
   requirements:
   department: Security
-  time: 36000 #10 hrs
-  - !type:OverallPlaytimeRequirement
-  time: 108000 #30 hrs
+  time: 18000 #5 hrs
   guides: [ Changelings ]
