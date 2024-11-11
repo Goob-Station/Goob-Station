@@ -1780,3 +1780,11 @@ Entries:
         normal on the Mass Scanner!
   id: 216
   time: '2024-11-11T01:36:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        NTrep and BSO are separate access now (currently only affects their
+        lockers)
+  id: 217
+  time: '2024-11-11T01:45:10.0000000+00:00'
