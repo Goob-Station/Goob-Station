@@ -3,7 +3,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared._White.FootPrint;
-using Content.Shared._White.Standing;
+using Content.Shared.Standing;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Robust.Shared.Map;
@@ -24,7 +24,7 @@ public sealed class FootPrintsSystem : EntitySystem
     private EntityQuery<TransformComponent> _transformQuery;
     private EntityQuery<MobThresholdsComponent> _mobThresholdQuery;
     private EntityQuery<AppearanceComponent> _appearanceQuery;
-    private EntityQuery<LayingDownComponent> _layingQuery;
+    private EntityQuery<StandingStateComponent> _standStateQuery;
 
    public override void Initialize()
    {
@@ -33,7 +33,7 @@ public sealed class FootPrintsSystem : EntitySystem
        _transformQuery = GetEntityQuery<TransformComponent>();
        _mobThresholdQuery = GetEntityQuery<MobThresholdsComponent>();
        _appearanceQuery = GetEntityQuery<AppearanceComponent>();
-       _layingQuery = GetEntityQuery<LayingDownComponent>();
+       _standStateQuery = GetEntityQuery<StandingStateComponent>();
 
        SubscribeLocalEvent<FootPrintsComponent, ComponentStartup>(OnStartupComponent);
        SubscribeLocalEvent<FootPrintsComponent, MoveEvent>(OnMove);
@@ -53,7 +53,7 @@ public sealed class FootPrintsSystem : EntitySystem
             return;
 
         var dragging = mobThreshHolds.CurrentThresholdState is MobState.Critical or MobState.Dead
-                       || _layingQuery.TryComp(uid, out var laying);
+                       || _standStateQuery.TryComp(uid, out var standState) && standState.CurrentState == StandingState.Lying;
         var distance = (transform.LocalPosition - component.StepPos).Length();
         var stepSize = dragging ? component.DragSize : component.StepSize;
 
