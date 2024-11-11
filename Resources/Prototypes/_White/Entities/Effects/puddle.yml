@@ -35,3 +35,7 @@
     - type: Puddle
       solution: step
     - type: Appearance
+    - type: SpawnOnDespawn
+      prototype: PuddleSparkle
+    - type: TimedDespawn
+      lifetime: 60
