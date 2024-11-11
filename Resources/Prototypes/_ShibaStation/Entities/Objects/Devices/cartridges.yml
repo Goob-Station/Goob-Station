@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseItem
+  id: SciScanCartridge
+  name: SciScan cartridge
+  description: A program that provides anomalous research tools.
+  components:
+    - type: Sprite
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-tear
+    - type: Icon
+      sprite: Objects/Devices/cartridge.rsi
+      state: cart-tear
+    - type: Cartridge
+      programName: sci-scan-program-name
+      icon:
+        sprite: Objects/Specific/Research/anomalyscanner.rsi
+        state: icon
+    - type: SciScanCartridge
