@@ -56,7 +56,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDurk
-  name: Durk plushie
+  name: durk plushie
   description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
   components:
   - type: Sprite
@@ -81,4 +81,123 @@
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Effects/adminhelp.ogg
-  
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieDesislavaBlackburn
+  name: desislava plushie
+  description: A tiny version of the regular blackburn designed to fit in tankettes.
+  components:
+  - type: RandomWalk
+    accumulatorRatio: 0
+    maxSpeed: 4
+    minSpeed: 2
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_desislava
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/generator-tug-1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/trayhit2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/explosion_small2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/trayhit1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/explosion4.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBlackburnMatryoskya
+  name: matryoskya plushie
+  description: A urban legend told by nanotrasen veterans; a beast uncontrolled by both yukon insurgents and nanotrasen, now in as a plushie.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_matryoskya
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Animals/fox1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBlackburnPlyushkina
+  name: Plyushkina plushie
+  description: A more slim blackburn designed to clear out fox holes and trenches.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_plyushkina
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Animals/fox1.ogg
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBlackburn
+  name: blackburn plushie
+  description: A generic blackburn plushie; nothing special, nothing bad.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_blackburn
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Animals/fox1.ogg
