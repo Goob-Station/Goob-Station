@@ -1788,3 +1788,11 @@ Entries:
         lockers)
   id: 217
   time: '2024-11-11T01:45:10.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Autodespawn Footsteps/Dragging
+    - type: Fix
+      message: Footsteps are actually footsteps now.
+  id: 218
+  time: '2024-11-11T02:29:14.0000000+00:00'
