@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Did like, a lot of stuff that I forgot to log. Mostly rebranding, readding
+      stuff from Old ShibaStation and fixing some bugs.
+    type: Tweak
+  id: 1
+  time: '2024-11-11T13:23:10.467225'
+- author: AstroDogeDX
+  changes:
   - message: Rebrand to ShibaStation, preserved Goob-Station changelog and credits,
       etc.
     type: Tweak
