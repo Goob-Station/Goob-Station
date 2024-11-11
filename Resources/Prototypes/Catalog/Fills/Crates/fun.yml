@@ -39,6 +39,10 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    - id: PlushieBlackburnMatryoskya
+    - id: PlushieBlackburnPlyushkina
+    - id: PlushieBlackburn
+    - id: PlushieDesislavaBlackburn
 
 - type: entity
   id: CrateFunPlushie
