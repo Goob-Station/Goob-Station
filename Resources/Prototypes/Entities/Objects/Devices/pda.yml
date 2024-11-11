@@ -99,6 +99,8 @@
         type: InstrumentBoundUserInterface
       enum.HealthAnalyzerUiKey.Key:
         type: HealthAnalyzerBoundUserInterface
+      enum.AnomalyScannerUiKey.Key:
+        type: AnomalyScannerBoundUserInterface
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -138,6 +140,19 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+
+- type: entity
+  parent: BasePDA
+  id: BaseSciencePDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    uiKey: enum.PdaUiKey.Key
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - SciScanCartridge
 
 - type: entity
   parent: BasePDA
@@ -200,7 +215,7 @@
     state: pda-interncadet
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: ResearchAssistantPDA
   name: research assistant PDA
   description: Why isn't it purple?
@@ -337,9 +352,9 @@
 
 - type: entity
   name: chaplain PDA
-  parent: BasePDA
+  parent: BaseMedicalPDA
   id: ChaplainPDA
-  description: God's chosen PDA.
+  description: God's chosen PDA. Has a built in health scanner.
   components:
   - type: Pda
     id: ChaplainIDCard
@@ -646,7 +661,7 @@
     state: pda-chemistry
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: RnDPDA
   name: research director PDA
   description: It appears surprisingly ordinary.
@@ -662,7 +677,7 @@
     state: pda-rd
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: SciencePDA
   name: science PDA
   description: It's covered with an unknown gooey substance.
@@ -760,6 +775,7 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
+      - SciScanCartridge
 
 - type: entity
   parent: CentcomPDA
@@ -1081,7 +1097,7 @@
     state: pda-seniorengineer
 
 - type: entity
-  parent: BasePDA
+  parent: BaseSciencePDA
   id: SeniorResearcherPDA
   name: senior researcher PDA
   description: Looks like it's been through years of chemical burns and explosions.
