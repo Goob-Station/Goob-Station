@@ -148,8 +148,7 @@
     - Syndicate
 
 - type: entity
-  name: bee
-  suffix: Syndicate
+  name: syndie bee
   parent: [ MobAngryBee ]
   id: MobSyndieAngryBee
   description: How nice a bee. Oh no, it looks angry and wants my pizza.
