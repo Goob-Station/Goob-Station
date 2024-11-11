@@ -146,3 +146,14 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+
+- type: entity
+  name: syndie bee
+  parent: [ MobAngryBee ]
+  id: MobSyndieAngryBee
+  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    - Syndicate

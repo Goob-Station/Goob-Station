@@ -450,3 +450,6 @@ uplink-combat-bakery-desc = A kit of clandestine baked weapons. Contains a bague
 
 uplink-business-card-name = Syndicate business card.
 uplink-business-card-desc = A business card that you can give to someone to demonstrate your involvement in the syndicate or leave at the crime scene in order to make fun of the detective. You can buy no more than three of them.
+
+uplink-beenades-name = Beenades
+uplink-beenades-desc = A non-explosive grenade full of... bees?! NOT THE BEES!!!
