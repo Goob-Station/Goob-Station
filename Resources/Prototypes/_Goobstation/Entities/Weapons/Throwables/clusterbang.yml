@@ -10,7 +10,7 @@
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
   - type: ClusterGrenade
-    fillPrototype: MobAngryBee
+    fillPrototype: MobSyndieAngryBee
     maxGrenadesCount: 5
   - type: OnUseTimerTrigger
     beepSound:
