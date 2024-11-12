@@ -1,8 +1,8 @@
 - type: entity
   parent: ReinforcementRadio
   id: ReinforcementRadioSyndicateSyndiRoach
-  name: syndiroach reinforcement radio
-  description: Calls in a faithfully trained mothroach with a microbomb to assist you.
+  name: syndimaggot reinforcement radio
+  description: Calls in a faithfully trained moth maggot with a microbomb to assist you.
   components:
   - type: GhostRole
     name: ghost-role-information-SyndiRoach-name
