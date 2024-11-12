@@ -1,5 +1,5 @@
 - type: entity
-  name: Footstep
+  name: footstep
   id: Footstep
   save: false
   description: Trace of liquid
@@ -35,3 +35,7 @@
     - type: Puddle
       solution: step
     - type: Appearance
+    - type: SpawnOnDespawn
+      prototype: PuddleSparkle
+    - type: TimedDespawn
+      lifetime: 60

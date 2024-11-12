@@ -1772,3 +1772,39 @@ Entries:
         wherever the corpse was moved.
   id: 215
   time: '2024-11-09T02:58:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Added missing datasets for ATS and Salvage Shuttle names, now they look
+        normal on the Mass Scanner!
+  id: 216
+  time: '2024-11-11T01:36:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        NTrep and BSO are separate access now (currently only affects their
+        lockers)
+  id: 217
+  time: '2024-11-11T01:45:10.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Autodespawn Footsteps/Dragging
+    - type: Fix
+      message: Footsteps are actually footsteps now.
+  id: 218
+  time: '2024-11-11T02:29:14.0000000+00:00'
+- author: TwoDucksOnnaPlane
+  changes:
+    - type: Tweak
+      message: Buffed .30 and .20 caliber damages.
+  id: 219
+  time: '2024-11-12T05:37:52.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Replaced moth roaches with moth maggots.
+  id: 220
+  time: '2024-11-12T06:50:04.0000000+00:00'
