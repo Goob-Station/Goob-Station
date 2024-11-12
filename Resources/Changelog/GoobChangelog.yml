@@ -1802,3 +1802,9 @@ Entries:
       message: Buffed .30 and .20 caliber damages.
   id: 219
   time: '2024-11-12T05:37:52.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Replaced moth roaches with moth maggots.
+  id: 220
+  time: '2024-11-12T06:50:04.0000000+00:00'
