@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Mothroaches are cute again!
+    type: Fix
+  id: 4
+  time: '2024-11-12T12:36:20.005336'
+- author: AstroDogeDX
+  changes:
   - message: Sinks now fill with water again.
     type: Fix
   id: 3
