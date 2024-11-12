@@ -1796,3 +1796,9 @@ Entries:
       message: Footsteps are actually footsteps now.
   id: 218
   time: '2024-11-11T02:29:14.0000000+00:00'
+- author: TwoDucksOnnaPlane
+  changes:
+    - type: Tweak
+      message: Buffed .30 and .20 caliber damages.
+  id: 219
+  time: '2024-11-12T05:37:52.0000000+00:00'
