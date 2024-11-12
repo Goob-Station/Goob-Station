@@ -1,6 +1,19 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Sinks now fill with water again.
+    type: Fix
+  id: 3
+  time: '2024-11-11T18:28:17.482955'
+- author: AstroDogeDX
+  changes:
+  - message: Science PDAs now have an anomaly scanner program preinstalled. Med can't
+      have all the fun!
+    type: Add
+  id: 2
+  time: '2024-11-11T18:29:54.453554'
+- author: AstroDogeDX
+  changes:
   - message: Did like, a lot of stuff that I forgot to log. Mostly rebranding, readding
       stuff from Old ShibaStation and fixing some bugs.
     type: Tweak
