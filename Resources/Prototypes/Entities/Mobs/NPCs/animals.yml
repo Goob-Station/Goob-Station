@@ -431,10 +431,10 @@
     - id: FoodMeatSlime
 
 - type: entity
-  name: mothroach
+  name: moth maggot
   parent: MobCockroach
   id: MobMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with maggots.
   components:
   - type: GhostRole
     makeSentient: true
@@ -1762,7 +1762,7 @@
         name: food-sequence-content-rat
       skewer:
         name: food-sequence-content-rat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
 
@@ -3407,7 +3407,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-      
+
 - type: entity
   name: diona nymph
   parent: [SimpleMobBase, StripableInventoryBase]

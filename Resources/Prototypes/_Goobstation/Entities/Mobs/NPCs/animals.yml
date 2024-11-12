@@ -116,10 +116,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndiroach
+  name: syndimaggot
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: Explosive maggot.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
