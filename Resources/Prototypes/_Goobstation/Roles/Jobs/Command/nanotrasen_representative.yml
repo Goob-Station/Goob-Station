@@ -26,6 +26,7 @@
   - Medical
   - Research  
   - Command
+  - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

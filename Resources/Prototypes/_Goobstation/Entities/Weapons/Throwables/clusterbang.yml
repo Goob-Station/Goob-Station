@@ -1,0 +1,27 @@
+- type: entity
+  parent: [GrenadeBase, BaseSyndicateContraband]
+  id: BeeGrenade
+  name: Beenade
+  description: Not the bee's!!!
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    layers:
+    - state: icon
+      map: ["enum.TriggerVisualLayers.Base"]
+  - type: ClusterGrenade
+    fillPrototype: MobSyndieAngryBee
+    maxGrenadesCount: 5
+  - type: OnUseTimerTrigger
+    beepSound:
+      path: "/Audio/_Goobstation/Effects/Grenades/beenade_buzz.ogg"
+      params:
+        volume: 5
+    initialBeepDelay: 0
+    beepInterval: 0.5
+  - type: EmitSoundOnTrigger
+    sound:
+      path: "/Audio/Machines/door_lock_off.ogg"
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
