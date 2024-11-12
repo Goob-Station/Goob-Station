@@ -56,7 +56,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDurk
-  name: durk plushie
+  name: Durk plushie
   description: A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
   components:
   - type: Sprite
@@ -85,7 +85,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieDesislavaBlackburn
-  name: desislava plushie
+  name: Desislava plushie
   description: A tiny version of the regular blackburn designed to fit in tankettes.
   components:
   - type: RandomWalk
@@ -118,7 +118,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBlackburnMatryoskya
-  name: matryoskya plushie
+  name: Matryoskya plushie
   description: A urban legend told by nanotrasen veterans; a beast uncontrolled by both yukon insurgents and nanotrasen, now in as a plushie.
   components:
   - type: Sprite
@@ -176,7 +176,7 @@
 - type: entity
   parent: BasePlushie
   id: PlushieBlackburn
-  name: blackburn plushie
+  name: Blackburn plushie
   description: A generic blackburn plushie; nothing special, nothing bad.
   components:
   - type: Sprite
