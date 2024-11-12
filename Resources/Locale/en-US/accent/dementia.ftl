@@ -1,6 +1,6 @@
-accent-dementia-prefix-2 = Now I’m not sure but,
-accent-dementia-prefix-3 = Hey-… shit, I forgot… Oh, right!
-accent-dementia-prefix-4 = What was it again… Ah!
+accent-dementia-prefix-1 = Now I’m not sure but,
+accent-dementia-prefix-2 = Hey-… shit, I forgot… Oh, right!
+accent-dementia-prefix-3 = What was it again… Ah!
 
 accent-dementia-suffix-1 = , wait, what was I saying again?
 accent-dementia-suffix-2 = , or something…
