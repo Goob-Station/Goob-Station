@@ -119,7 +119,7 @@
   parent: BasePlushie
   id: PlushieBlackburnMatryoskya
   name: Matryoskya plushie
-  description: A urban legend told by nanotrasen veterans; a beast uncontrolled by both yukon insurgents and nanotrasen, now in as a plushie.
+  description:  description: An urban legend told by Nanotrasen veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
