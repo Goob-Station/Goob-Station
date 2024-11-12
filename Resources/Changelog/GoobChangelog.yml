@@ -1808,3 +1808,9 @@ Entries:
       message: Replaced moth roaches with moth maggots.
   id: 220
   time: '2024-11-12T06:50:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mining drills stunlocking you.
+  id: 221
+  time: '2024-11-12T20:30:06.0000000+00:00'
