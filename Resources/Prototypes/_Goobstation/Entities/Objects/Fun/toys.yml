@@ -115,7 +115,7 @@
   parent: PlushieBlackburn
   id: PlushieBlackburnPlyushkina
   name: Plyushkina plushie
-  description: A more slim blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "plyushkinas" as they are insurgency's first self designed sub species.
+  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Plyushkinas" as they are the Insurgency's first self-designed subspecies.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
