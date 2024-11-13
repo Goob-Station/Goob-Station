@@ -122,7 +122,7 @@
     state: plushie_plyushkina
 
 - type: entity
-parent:PlushieBlackburn
+parent: PlushieBlackburn
 id: PlushieBlackburnMatryoskya
 name: Matryoskya plushie
 description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
