@@ -118,8 +118,8 @@
   description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Plyushkinas" as they are the Insurgency's first self-designed subspecies.
   components:
   - type: Sprite
-  sprite: _Goobstation/Objects/Fun/toys.rsi
-  state: plushie_plyushkina
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_plyushkina
 
 - type: entity
   parent: PlushieBlackburn
@@ -127,9 +127,9 @@
   name: Matryoskya plushie
   description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
   components:
-- type: Sprite
-  sprite: _Goobstation/Objects/Fun/toys.rsi
-  state: plushie_matryoskya
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_matryoskya
 
 - type: entity
   parent: PlushieBlackburn
