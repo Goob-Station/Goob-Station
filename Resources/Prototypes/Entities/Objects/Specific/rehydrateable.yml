@@ -84,7 +84,7 @@
 - type: entity
   parent: MonkeyCube
   id: MothroachCube
-  name: moth maggot cube
+  name: mothroach cube
   components:
   - type: Rehydratable
     possibleSpawns:
