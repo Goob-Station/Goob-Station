@@ -86,7 +86,7 @@
   parent: BasePlushie
   id: PlushieBlackburn
   name: Blackburn plushie
-  description: description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
+  description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
