@@ -86,7 +86,7 @@
   parent: BasePlushie
   id: PlushieBlackburn
   name: Blackburn plushie
-  description: A "kitsune-like" human hybrid plushie made by Nanotresan as charity for blackburnians displaced by the Yukon Insurgency's tyrannical ways.
+  description: description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -122,21 +122,21 @@
     state: plushie_plyushkina
 
 - type: entity
-parent: PlushieBlackburn
-id: PlushieBlackburnMatryoskya
-name: Matryoskya plushie
-description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
-components:
+  parent: PlushieBlackburn
+  id: PlushieBlackburnMatryoskya
+  name: Matryoskya plushie
+  description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
+  components:
 - type: Sprite
   sprite: _Goobstation/Objects/Fun/toys.rsi
   state: plushie_matryoskya
 
 - type: entity
-parent: PlushieBlackburn
-id: PlushieDesislavaBlackburn
-name: Desislava plushie
-description: A tiny sub-species of the BKv1 blackburn designed to fit in tankettes and some tank variants, this one is in a "Darwin 6A2M C7 YKN."
-components:
+  parent: PlushieBlackburn
+  id: PlushieDesislavaBlackburn
+  name: Desislava plushie
+  description: A tiny sub-species of the BKv1 blackburn designed to fit in tankettes and some tank variants, this one is in a "Darwin 6A2M C7 YKN."
+  components:
 - type: RandomWalk
   accumulatorRatio: 0
   maxSpeed: 4
