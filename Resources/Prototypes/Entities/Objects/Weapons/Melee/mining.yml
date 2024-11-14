@@ -57,6 +57,7 @@
     soundHit:
       path: "/Audio/Items/drill_hit.ogg"
     attackRate: 4
+    heavyStaminaCost: 0 # GoobStation: Mining drill is for mining
     damage:
       groups:
         Brute: 3
