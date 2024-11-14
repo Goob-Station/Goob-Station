@@ -8,7 +8,7 @@
     - !type:OverallPlaytimeRequirement
     time: 36000 # 10h
     - !type:DepartmentTimeRequirement
-    guides: [ Revolutionaries ]
+  guides: [ Revolutionaries ]
 
 - type: antag
   id: Rev
