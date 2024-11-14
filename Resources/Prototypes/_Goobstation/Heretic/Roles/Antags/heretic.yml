@@ -6,11 +6,11 @@
   objective: roles-antag-heretic-description
   requirements:
     - !type:DepartmentTimeRequirement
-    department: Security
-    time: 18000 # 5h
+      department: Security
+      time: 18000 # 5h
     - !type:DepartmentTimeRequirement
-    department: Medical
-    time: 18000 # 5h
+      department: Medical
+      time: 18000 # 5h
   guides: [ Heretics ]
 
 - type: startingGear
