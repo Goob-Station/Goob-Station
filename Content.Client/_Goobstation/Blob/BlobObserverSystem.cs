@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Antag;
 using Content.Shared.Blob;
 using Content.Shared.Blob.Components;
-using Content.Shared.Flesh;
+//using Content.Shared.Flesh;
 using Content.Shared.GameTicking;
 using Content.Shared.Ghost;
 using Content.Shared.StatusIcon;

@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Server.Blob.Components;
-using Content.Server.Language;
-using Content.Server.Language.Events;
+//using Content.Server.Language;
+//using Content.Server.Language.Events;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
@@ -12,8 +12,8 @@ using Content.Server.Radio.EntitySystems;
 using Content.Shared.Blob;
 using Content.Shared.Blob.Chemistry;
 using Content.Shared.Blob.Components;
-using Content.Shared.Language;
-using Content.Shared.Targeting;
+//using Content.Shared.Language;
+//using Content.Shared.Targeting;
 using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
@@ -33,7 +33,7 @@ namespace Content.Server.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {
-    [Dependency] private readonly LanguageSystem _language = default!;
+    //[Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly INetManager _netMan = default!;
     [Dependency] private readonly RadioSystem _radioSystem = default!;
@@ -45,12 +45,12 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
 
-        SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
-        SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
-        SubscribeLocalEvent<BlobSpeakComponent, ComponentShutdown>(OnSpokeRemove);
-        SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
-        SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
-        SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
+       // SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
+       // SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
+       // SubscribeLocalEvent<BlobSpeakComponent, ComponentShutdown>(OnSpokeRemove);
+       // SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
+       // SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
+       // SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
         SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         //SubscribeLocalEvent<SmokeOnTriggerComponent, TriggerEvent>(HandleSmokeTrigger);
 
@@ -64,7 +64,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
         }
     }
-
+    /*
     private void OnSpoke(Entity<BlobSpeakComponent> ent, ref EntitySpokeEvent args)
     {
         if(args.Channel == null)
@@ -124,7 +124,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         var radio = EnsureComp<ActiveRadioComponent>(ent);
         radio.Channels.Add(ent.Comp.Channel);
-    }
+    }*/
 
     private void OnPulsed(EntityUid uid, BlobMobComponent component, BlobMobGetPulseEvent args)
     {

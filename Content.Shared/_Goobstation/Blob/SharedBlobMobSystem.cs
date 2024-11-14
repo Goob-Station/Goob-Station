@@ -31,7 +31,7 @@ public abstract class SharedBlobMobSystem : EntitySystem
 
     private void OnGetDefaultRadioChannel(Entity<BlobSpeakComponent> ent, ref GetDefaultRadioChannelEvent args)
     {
-        args.Channel = ent.Comp.Channel;
+       // args.Channel = ent.Comp.Channel;
     }
 
 

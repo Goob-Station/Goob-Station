@@ -1,13 +1,13 @@
 ﻿using Content.Server.Actions;
 using Content.Server.Blob.Components;
-using Content.Server.Language;
+//using Content.Server.Language;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
 using Content.Shared.Blob;
 using Content.Shared.Blob.Components;
-using Content.Shared.Language;
+// using Content.Shared.Language;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Robust.Shared.Map.Components;
@@ -23,7 +23,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
     [Dependency] private readonly GhostRoleSystem _ghost = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
+   // [Dependency] private readonly LanguageSystem _language = default!;
 
     public override void Initialize()
     {
@@ -33,7 +33,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
         SubscribeLocalEvent<BlobCarrierComponent, TransformToBlobActionEvent>(OnTransformToBlobChanged);
 
         SubscribeLocalEvent<BlobCarrierComponent, MapInitEvent>(OnStartup);
-        SubscribeLocalEvent<BlobCarrierComponent, DetermineEntityLanguagesEvent>(OnApplyLang);
+        //SubscribeLocalEvent<BlobCarrierComponent, DetermineEntityLanguagesEvent>(OnApplyLang);
         SubscribeLocalEvent<BlobCarrierComponent, ComponentRemove>(OnRemove);
 
         SubscribeLocalEvent<BlobCarrierComponent, MindAddedMessage>(OnMindAdded);
@@ -42,10 +42,10 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string ActionTransformToBlob = "ActionTransformToBlob";
-    [ValidatePrototypeId<LanguagePrototype>]
-    private const string BlobLang = "Blob";
+    //[ValidatePrototypeId<LanguagePrototype>]
+    //private const string BlobLang = "Blob";
 
-    private void OnApplyLang(Entity<BlobCarrierComponent> ent, ref DetermineEntityLanguagesEvent args)
+    /*private void OnApplyLang(Entity<BlobCarrierComponent> ent, ref DetermineEntityLanguagesEvent args)
     {
         if(ent.Comp.LifeStage is
            ComponentLifeStage.Removing
@@ -55,11 +55,11 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
         args.SpokenLanguages.Add(BlobLang);
         args.UnderstoodLanguages.Add(BlobLang);
-    }
+    }*/
 
     private void OnRemove(Entity<BlobCarrierComponent> ent, ref ComponentRemove args)
     {
-        _language.UpdateEntityLanguages(ent.Owner);
+       // _language.UpdateEntityLanguages(ent.Owner);
     }
 
     private void OnMindAdded(EntityUid uid, BlobCarrierComponent component, MindAddedMessage args)

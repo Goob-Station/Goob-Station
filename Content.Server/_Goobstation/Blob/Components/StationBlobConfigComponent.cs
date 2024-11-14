@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Content.Server.SpecForces;
+//using Content.Server.SpecForces;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Blob.Components;
@@ -20,6 +20,6 @@ public sealed partial class StationBlobConfigComponent : Component
     [DataField("stageTheEnd")]
     public int StageTheEnd { get; set; } = DefaultStageEnd;
 
-    [DataField("specForceTeam")]
-    public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";
+    /*[DataField("specForceTeam")]
+    public ProtoId<SpecForceTeamPrototype> SpecForceTeam { get; set; } = "RXBZZBlobDefault";*/
 }
