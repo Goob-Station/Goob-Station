@@ -5,10 +5,10 @@
   setPreference: true
   objective: roles-antag-rev-head-objective
   requirements:
-  - !type:OverallPlaytimeRequirement
-  time: 36000 # 10h
-  - !type:DepartmentTimeRequirement
-  guides: [ Revolutionaries ]
+    - !type:OverallPlaytimeRequirement
+    time: 36000 # 10h
+    - !type:DepartmentTimeRequirement
+    guides: [ Revolutionaries ]
 
 - type: antag
   id: Rev
