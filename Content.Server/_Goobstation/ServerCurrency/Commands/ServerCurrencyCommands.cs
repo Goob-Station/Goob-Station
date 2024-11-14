@@ -11,9 +11,9 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     {
         [Dependency] private readonly ServerCurrencySystem _Currency = default!;
 
-        public string Command => "addservercurrency";
-        public string Description => "Adds server currency to a player.";
-        public string Help => "Usage: addservercurrency <player> <value>";
+        public string Command => Loc.GetString("server-currency-add-command");
+        public string Description => Loc.GetString("server-currency-add-command-description");
+        public string Help => Loc.GetString("server-currency-add-command-help");
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -26,18 +26,28 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             var plyMgr = IoCManager.Resolve<IPlayerManager>();
             if (!plyMgr.TryGetUserId(args[0], out var targetPlayer))
             {
-                shell.WriteError("Unable to find a player by that name.");
+                shell.WriteError(Loc.GetString("server-currency-command-error-1"));
                 return;
             }
 
             if (!int.TryParse(args[1], out int currency))
             {
-                shell.WriteError("Value must be an integer!");
+                shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
             }
 
-            var newCurrency = await _Currency.AddCurrency(targetPlayer, currency);
-            shell.WriteLine($"Currency added, {args[0]} now has {newCurrency}");
+            var newCurrency = _Currency.Stringify(await _Currency.AddCurrency(targetPlayer, currency));
+            shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            return args.Length switch
+            {
+                1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("server-currency-command-completion-1")),
+                2 => CompletionResult.FromHint(Loc.GetString("server-currency-command-completion-2")),
+                _ => CompletionResult.Empty
+            };
         }
     }
 
@@ -46,9 +56,9 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     {
         [Dependency] private readonly ServerCurrencySystem _Currency = default!;
 
-        public string Command => "remservercurrency";
-        public string Description => "Removes server currency to a player.";
-        public string Help => "Usage: remservercurrency <player> <value>";
+        public string Command => Loc.GetString("server-currency-remove-command");
+        public string Description => Loc.GetString("server-currency-remove-command-description");
+        public string Help => Loc.GetString("server-currency-remove-command-help");
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -61,18 +71,28 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             var plyMgr = IoCManager.Resolve<IPlayerManager>();
             if (!plyMgr.TryGetUserId(args[0], out var targetPlayer))
             {
-                shell.WriteError("Unable to find a player by that name.");
+                shell.WriteError(Loc.GetString("server-currency-command-error-1"));
                 return;
             }
 
             if (!int.TryParse(args[1], out int currency))
             {
-                shell.WriteError("Value must be an integer!");
+                shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
             }
 
-            var newCurrency = await _Currency.SubtractCurrency(targetPlayer, currency);
-            shell.WriteLine($"Currency removed, {args[0]} now has {newCurrency}");
+            var newCurrency = _Currency.Stringify(await _Currency.RemoveCurrency(targetPlayer, currency));
+            shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            return args.Length switch
+            {
+                1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("server-currency-command-completion-1")),
+                2 => CompletionResult.FromHint(Loc.GetString("server-currency-command-completion-2")),
+                _ => CompletionResult.Empty
+            };
         }
     }
 
@@ -81,9 +101,9 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     {
         [Dependency] private readonly ServerCurrencySystem _Currency = default!;
 
-        public string Command => "setservercurrency";
-        public string Description => "Sets server currency for a player.";
-        public string Help => "Usage: setservercurrency <player> <value>";
+        public string Command => Loc.GetString("server-currency-set-command");
+        public string Description => Loc.GetString("server-currency-set-command-description");
+        public string Help => Loc.GetString("server-currency-set-command-help");
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -96,18 +116,28 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             var plyMgr = IoCManager.Resolve<IPlayerManager>();
             if (!plyMgr.TryGetUserId(args[0], out var targetPlayer))
             {
-                shell.WriteError("Unable to find a player by that name.");
+                shell.WriteError(Loc.GetString("server-currency-command-error-1"));
                 return;
             }
 
-            if (int.TryParse(args[1], out int currency))
+            if (!int.TryParse(args[1], out int currency))
             {
-                shell.WriteError("Value must be an integer!");
+                shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
             }
 
-            var newCurrency = await _Currency.SetCurrency(targetPlayer, currency);
-            shell.WriteLine($"Currency set, {args[0]} now has {newCurrency}");
+            var newCurrency = _Currency.Stringify(await _Currency.SetCurrency(targetPlayer, currency));
+            shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            return args.Length switch
+            {
+                1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("server-currency-command-completion-1")),
+                2 => CompletionResult.FromHint(Loc.GetString("server-currency-command-completion-2")),
+                _ => CompletionResult.Empty
+            };
         }
     }
 
@@ -116,9 +146,9 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     {
         [Dependency] private readonly ServerCurrencySystem _Currency = default!;
 
-        public string Command => "getservercurrency";
-        public string Description => "Gets the server currency of a player.";
-        public string Help => "Usage: getservercurrency <player>";
+        public string Command => Loc.GetString("server-currency-get-command");
+        public string Description => Loc.GetString("server-currency-get-command-description");
+        public string Help => Loc.GetString("server-currency-get-command-help");
 
         public async void Execute(IConsoleShell shell, string argStr, string[] args)
         {
@@ -131,12 +161,21 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             var plyMgr = IoCManager.Resolve<IPlayerManager>();
             if (!plyMgr.TryGetUserId(args[0], out var targetPlayer))
             {
-                shell.WriteError("Unable to find a player by that name.");
+                shell.WriteError(Loc.GetString("server-currency-command-error-1"));
                 return;
             }
 
-            var currency = await _Currency.GetCurrency(targetPlayer);
-            shell.WriteLine($"{args[0]} has {currency}");
+            var currency = _Currency.Stringify(await _Currency.GetCurrency(targetPlayer));
+            shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", currency)));
+        }
+
+        public CompletionResult GetCompletion(IConsoleShell shell, string[] args)
+        {
+            return args.Length switch
+            {
+                1 => CompletionResult.FromHintOptions(CompletionHelper.SessionNames(), Loc.GetString("server-currency-command-completion-1")),
+                _ => CompletionResult.Empty
+            };
         }
     }
 }
