@@ -8,4 +8,4 @@
   requirements:
     department: Security
     time: 18000 #5 hrs
-    guides: [ Changelings ]
+  guides: [ Changelings ]
