@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.ServerCurrency.Systems;
+using Content.Server._Goobstation.ServerCurrency;
 using Content.Shared.Administration;
 using Content.Server.Administration;
 using Robust.Shared.Console;
@@ -9,13 +9,13 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class AddServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ServerCurrencySystem _Currency = default!;
+        [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-add-command");
         public string Description => Loc.GetString("server-currency-add-command-description");
         public string Help => Loc.GetString("server-currency-add-command-help");
 
-        public async void Execute(IConsoleShell shell, string argStr, string[] args)
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 2)
             {
@@ -36,7 +36,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            var newCurrency = _Currency.Stringify(await _Currency.AddCurrency(targetPlayer, currency));
+            var newCurrency = _currencyMan.Stringify(_currencyMan.AddCurrency(targetPlayer, currency));
             shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
         }
 
@@ -54,13 +54,13 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class RemoveServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ServerCurrencySystem _Currency = default!;
+        [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-remove-command");
         public string Description => Loc.GetString("server-currency-remove-command-description");
         public string Help => Loc.GetString("server-currency-remove-command-help");
 
-        public async void Execute(IConsoleShell shell, string argStr, string[] args)
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 2)
             {
@@ -81,7 +81,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            var newCurrency = _Currency.Stringify(await _Currency.RemoveCurrency(targetPlayer, currency));
+            var newCurrency = _currencyMan.Stringify(_currencyMan.RemoveCurrency(targetPlayer, currency));
             shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
         }
 
@@ -99,13 +99,13 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class SetServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ServerCurrencySystem _Currency = default!;
+        [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-set-command");
         public string Description => Loc.GetString("server-currency-set-command-description");
         public string Help => Loc.GetString("server-currency-set-command-help");
 
-        public async void Execute(IConsoleShell shell, string argStr, string[] args)
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 2)
             {
@@ -126,7 +126,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            var newCurrency = _Currency.Stringify(await _Currency.SetCurrency(targetPlayer, currency));
+            var newCurrency = _currencyMan.Stringify(_currencyMan.SetBalance(targetPlayer, currency));
             shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", newCurrency)));
         }
 
@@ -144,13 +144,13 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
     [AdminCommand(AdminFlags.Admin)]
     public sealed class GetServerCurrencyCommand : IConsoleCommand
     {
-        [Dependency] private readonly ServerCurrencySystem _Currency = default!;
+        [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
 
         public string Command => Loc.GetString("server-currency-get-command");
         public string Description => Loc.GetString("server-currency-get-command-description");
         public string Help => Loc.GetString("server-currency-get-command-help");
 
-        public async void Execute(IConsoleShell shell, string argStr, string[] args)
+        public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length != 1)
             {
@@ -165,7 +165,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            var currency = _Currency.Stringify(await _Currency.GetCurrency(targetPlayer));
+            var currency = _currencyMan.Stringify(_currencyMan.GetBalance(targetPlayer));
             shell.WriteLine(Loc.GetString("server-currency-command-return", ("player", args[0]), ("amount", currency)));
         }
 
