@@ -1,0 +1,12 @@
+- type: entity
+  id: SwitchNightVision
+  name: Switches Night Vision
+  description: Switches Night Vision
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 2.5
+    icon:
+      sprite: Clothing/Eyes/Glasses/ninjavisor.rsi
+      state: icon
+    event: !type:NVInstantActionEvent
