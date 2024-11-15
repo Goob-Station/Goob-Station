@@ -6,7 +6,7 @@
   requirements:
     - !type:RoleTimeRequirement
       role: JobSecurityOfficer
-      time: 36000 #10 hrs
+      time: 36000 # 10 hrs
   startingGear: WardenGear
   icon: "JobIconWarden"
   requireAdminNotify: true
