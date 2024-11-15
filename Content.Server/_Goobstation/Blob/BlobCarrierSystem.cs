@@ -79,7 +79,7 @@ public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 
     private void OnStartup(EntityUid uid, BlobCarrierComponent component, MapInitEvent args)
     {
-        _language.UpdateEntityLanguages(uid);
+        //_language.UpdateEntityLanguages(uid);
         _action.AddAction(uid, ref component.TransformToBlob, ActionTransformToBlob);
         //EnsureComp<BlobSpeakComponent>(uid).OverrideName = false;
 

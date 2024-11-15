@@ -36,7 +36,7 @@ public sealed class BlobResourceSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("blob-get-resource", ("point", component.PointsPerPulsed)),
             uid,
             blobCoreComponent.Observer.Value,
-            PopupType.LargeGreen);
+            PopupType.Large);
 
         var points = component.PointsPerPulsed;
 
@@ -50,7 +50,7 @@ public sealed class BlobResourceSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("blob-get-resource", ("point", points)),
                 uid,
                 blobCoreComponent.Observer.Value,
-                PopupType.LargeGreen);
+                PopupType.Large);
         }
     }
 }

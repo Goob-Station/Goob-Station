@@ -43,7 +43,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
+       // SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
 
        // SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
        // SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
@@ -51,20 +51,20 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
        // SubscribeLocalEvent<BlobSpeakComponent, TransformSpeakerNameEvent>(OnSpokeName);
        // SubscribeLocalEvent<BlobSpeakComponent, SpeakAttemptEvent>(OnSpokeCan, after: new []{ typeof(SpeechSystem) });
        // SubscribeLocalEvent<BlobSpeakComponent, EntitySpokeEvent>(OnSpoke, before: new []{ typeof(RadioSystem), typeof(HeadsetSystem) });
-        SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
+       // SubscribeLocalEvent<BlobSpeakComponent, RadioReceiveEvent>(OnIntrinsicReceive);
         //SubscribeLocalEvent<SmokeOnTriggerComponent, TriggerEvent>(HandleSmokeTrigger);
 
         _activeBSpeak = GetEntityQuery<BlobSpeakComponent>();
     }
 
-    private void OnIntrinsicReceive(Entity<BlobSpeakComponent> ent, ref RadioReceiveEvent args)
+   /* private void OnIntrinsicReceive(Entity<BlobSpeakComponent> ent, ref RadioReceiveEvent args)
     {
         if (TryComp(ent, out ActorComponent? actor) && args.Channel.ID == ent.Comp.Channel)
         {
             _netMan.ServerSendMessage(args.ChatMsg, actor.PlayerSession.Channel);
         }
     }
-    /*
+
     private void OnSpoke(Entity<BlobSpeakComponent> ent, ref EntitySpokeEvent args)
     {
         if(args.Channel == null)
@@ -124,12 +124,12 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         var radio = EnsureComp<ActiveRadioComponent>(ent);
         radio.Channels.Add(ent.Comp.Channel);
-    }*/
+    }
 
     private void OnPulsed(EntityUid uid, BlobMobComponent component, BlobMobGetPulseEvent args)
     {
         _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
-    }
+    }*/
 
 
 }

@@ -602,7 +602,7 @@ public sealed class BlobCoreSystem : EntitySystem
         _popup.PopupCoordinates(Loc.GetString("blob-get-resource", ("point", returnCost)),
             Transform(target).Coordinates,
             core.Comp.Observer.Value,
-            PopupType.LargeGreen);
+            PopupType.Large);
     }
 
     public bool ChangeBlobPoint(Entity<BlobCoreComponent> core, FixedPoint2 amount, StoreComponent? store = null)
