@@ -1,6 +1,27 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Role times have been greatly reduced; with department specific requirements
+      being no more than about 3 shifts.
+    type: Tweak
+  id: 7
+  time: '2024-11-15T15:48:37.113582'
+- author: AstroDogeDX
+  changes:
+  - message: Harpies can now emote more specifically and some of their randomness
+      has been removed from core emotes. Try 'laughs like a moth' or 'whirrs like
+      a blender'!
+    type: Add
+  id: 6
+  time: '2024-11-15T15:49:28.799922'
+- author: AstroDogeDX
+  changes:
+  - message: Intern roles can now roll for antag (matching Upstream).
+    type: Tweak
+  id: 5
+  time: '2024-11-15T15:48:35.162404'
+- author: AstroDogeDX
+  changes:
   - message: Mothroaches are cute again!
     type: Fix
   id: 4
