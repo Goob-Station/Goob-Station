@@ -81,4 +81,85 @@
     requiresSpecialDigestion: false
     useSound:
       path: /Audio/Effects/adminhelp.ogg
-  
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieBlackburn
+  name: Blackburn plushie
+  description: A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_blackburn
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Animals/fox1.ogg
+  - type: Food
+    requiresSpecialDigestion: false
+    useSound:
+      path: /Audio/Animals/fox1.ogg
+
+- type: entity
+  parent: PlushieBlackburn
+  id: PlushieBlackburnPlyushkina
+  name: Plyushkina plushie
+  description: A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Plyushkinas" as they are the Insurgency's first self-designed subspecies.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_plyushkina
+
+- type: entity
+  parent: PlushieBlackburn
+  id: PlushieBlackburnMatryoskya
+  name: Matryoskya plushie
+  description: An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_matryoskya
+
+- type: entity
+  parent: PlushieBlackburn
+  id: PlushieDesislavaBlackburn
+  name: Desislava plushie
+  description: A tiny sub-species of the BKv1 blackburn designed to fit in tankettes and some tank variants, this one is in a "Darwin 6A2M C7 YKN."
+  components:
+  - type: RandomWalk
+    accumulatorRatio: 0
+    maxSpeed: 4
+    minSpeed: 2
+  - type: Sprite
+    sprite: _Goobstation/Objects/Fun/toys.rsi
+    state: plushie_desislava
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Machines/generator-tug-1.ogg
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/trayhit2.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Effects/explosion_small2.ogg
+  - type: EmitSoundOnTrigger
+    sound:
+      path: /Audio/Items/toolbox_drop.ogg
+  - type: EmitSoundOnCollide
+    sound:
+      path: /Audio/Items/trayhit1.ogg
+  - type: Food
+    requiresSpecialDigestion: true
+    useSound:
+      path: /Audio/Effects/explosion4.ogg

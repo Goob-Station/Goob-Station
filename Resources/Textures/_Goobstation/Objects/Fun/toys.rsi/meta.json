@@ -12,6 +12,24 @@
         },
         {
             "name": "plushie_durk"
+        },
+        {
+            "name": "plushie_blackburn"
+        },
+        {
+            "name": "plushie_matryoskya"
+        },
+        {
+            "name": "plushie_plyushkina"
+        },
+        {
+            "name": "plushie_desislava",
+            "delays": [
+                [
+                    0.5,
+                    0.25
+                ]
+            ]
         }
     ]
 }
