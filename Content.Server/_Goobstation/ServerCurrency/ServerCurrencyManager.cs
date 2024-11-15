@@ -103,7 +103,11 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency needed.</param>
         /// <returns>Returns true if the player has enough in their balance.</returns>
-        public bool CanAfford(NetUserId userId, int amount) => GetBalance(userId) >= amount;
+        public bool CanAfford(NetUserId userId, int amount, out int balance)
+        {
+            balance = GetBalance(userId);
+            return balance >= amount && (balance - amount) >= 0;
+        }
 
         /// <summary>
         /// Converts an integer to a string representing the count followed by the appropriate currency localization (singular or plural) defined in server_currency.ftl.
