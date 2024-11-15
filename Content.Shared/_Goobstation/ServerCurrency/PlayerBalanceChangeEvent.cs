@@ -6,17 +6,23 @@ namespace Content.Shared._Goobstation.ServerCurrency.Events;
 ///     Arguments for when a player's currency is changed.
 /// </summary>
 [ByRefEvent]
-public readonly record struct PlayerCurrencyChangeEvent
+public readonly record struct PlayerBalanceChangeEvent
 {
     /// <summary>
     ///     Creates a new instance of this class.
     /// </summary>
-    public PlayerCurrencyChangeEvent(NetUserId userId, int newAmount, int oldAmount)
+    public PlayerBalanceChangeEvent(EntityUid entId, NetUserId userId,  int newAmount, int oldAmount)
     {
+        EntID = entId;
         UserID = userId;
         NewAmount = newAmount;
         OldAmount = oldAmount;
     }
+
+    /// <summary>
+    ///     NetUserId of the player with the currency change.
+    /// </summary>
+    public readonly EntityUid EntID;
 
     /// <summary>
     ///     NetUserId of the player with the currency change.

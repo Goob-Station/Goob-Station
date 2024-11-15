@@ -5,7 +5,9 @@ using Robust.Shared.Player;
 using Robust.Shared.Asynchronous;
 using Robust.Shared.Timing;
 using Content.Server.Database;
+using Robust.Server.Player;
 using Content.Shared._Goobstation.ServerCurrency;
+using Content.Shared._Goobstation.ServerCurrency.Events;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
@@ -15,12 +17,14 @@ namespace Content.Server._Goobstation.ServerCurrency
         [Dependency] private readonly UserDbDataManager _userDb = default!;
         [Dependency] private readonly ITaskManager _task = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IPlayerManager _player = default!;
         private ISawmill _sawmill = default!;
-
         private Dictionary<NetUserId, BalanceData> _balances = new();
         private readonly List<Task> _pendingSaveTasks = new();
         private TimeSpan _saveInterval = TimeSpan.FromSeconds(600); // Yeah, players will only gain coins mid round from gifting/admins, so we dont need to update often.
         private TimeSpan _lastSave;
+        public event Action<PlayerBalanceChangeEvent>? BalanceChange;
+
         public void Initialize()
         {
             _sawmill = Logger.GetSawmill("server_currency");
@@ -102,6 +106,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         /// </summary>
         /// <param name="userId">The player's NetUserId</param>
         /// <param name="amount">The amount of currency needed.</param>
+        /// <param name="balance">The player's balance.</param>
         /// <returns>Returns true if the player has enough in their balance.</returns>
         public bool CanAfford(NetUserId userId, int amount, out int balance)
         {
@@ -147,6 +152,10 @@ namespace Content.Server._Goobstation.ServerCurrency
                 throw new InvalidOperationException("Balance is not yet loaded for this player!");
 
             var balanceData = _balances[userId];
+
+            if(_player.TryGetSessionById(userId, out var userSession) && userSession.AttachedEntity != null)
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession.AttachedEntity.Value, userId, amount, balanceData.Balance));
+
             balanceData.Balance = amount;
             balanceData.IsDirty = true;
             return amount;
