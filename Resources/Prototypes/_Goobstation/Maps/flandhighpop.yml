@@ -55,7 +55,7 @@
             Lawyer: [ 2, 2 ]
             #supply
             Quartermaster: [ 1, 1 ]
-            CargoTechnician: [ -1, -1 ]
+            CargoTechnician: [ -1, -1 ] # this has a merge conflict for some reason
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
