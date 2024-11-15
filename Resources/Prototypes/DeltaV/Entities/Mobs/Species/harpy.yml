@@ -113,11 +113,12 @@
   - type: Speech
     speechSounds: Harpy
     speechVerb: Harpy
+    allowedEmotes: ['Squeak', 'Chitter', 'Click', 'Squish', 'Weh']
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
+      Unsexed: SoundsHarpyFemale
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
