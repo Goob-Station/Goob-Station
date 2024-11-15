@@ -6,13 +6,16 @@ using Content.Shared.Emoting;
 using System.Numerics;
 using Robust.Shared.Prototypes;
 using Content.Shared.Chat.Prototypes;
-
+using Content.Shared.Jittering;
+using Content.Client.Jittering;
+using Robust.Shared.Timing;
 namespace Content.Client.Emoting;
 
 public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
 {
     [Dependency] private readonly AnimationPlayerSystem _anim = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
+    [Dependency] private readonly JitteringSystem _jitter = default!;
 
     public override void Initialize()
     {
@@ -23,6 +26,7 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationFlipEmoteEvent>(OnFlip);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationSpinEmoteEvent>(OnSpin);
         SubscribeLocalEvent<AnimatedEmotesComponent, AnimationJumpEmoteEvent>(OnJump);
+        SubscribeLocalEvent<AnimatedEmotesComponent, AnimationVibrateEmoteEvent>(OnVibrate);
     }
 
     public void PlayEmote(EntityUid uid, Animation anim, string animationKey = "emoteAnimKeyId")
@@ -117,5 +121,15 @@ public sealed partial class AnimatedEmotesSystem : SharedAnimatedEmotesSystem
             }
         };
         PlayEmote(ent, a);
+    }
+
+    private void OnVibrate(Entity<AnimatedEmotesComponent> ent, ref AnimationVibrateEmoteEvent args)
+    {
+        _jitter.AddJitter(ent, -10, 100);
+        // Schedule removal of jitter after 3 seconds
+        Timer.Spawn(TimeSpan.FromSeconds(3), () =>
+        {
+            RemComp<JitteringComponent>(ent);
+        });
     }
 }
