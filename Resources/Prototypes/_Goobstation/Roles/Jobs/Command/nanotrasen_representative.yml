@@ -6,7 +6,7 @@
   requirements:
     - !type:DepartmentTimeRequirement
       department: Command
-      time: 180000  #50 hours
+      time: 72000 # 20 hrs
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20
@@ -24,7 +24,7 @@
   - Maintenance
   - Engineering
   - Medical
-  - Research  
+  - Research
   - Command
   - NanotrasenRepresentative
   special:
