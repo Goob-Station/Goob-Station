@@ -9,6 +9,7 @@
   - CaptainOuterClothing
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -23,6 +24,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 # Silicons
@@ -45,6 +47,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -58,6 +61,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -69,6 +73,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -83,6 +88,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -94,6 +100,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -106,6 +113,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -121,6 +129,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -135,6 +144,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - JanitorPlunger
   - GroupSpeciesBreathTool
 
@@ -149,6 +159,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -163,6 +174,7 @@
   - Glasses
   - SurvivalClown
   - Trinkets
+  - Pins
 
 - type: roleLoadout
   id: JobMime
@@ -177,6 +189,7 @@
   - Glasses
   - SurvivalMime
   - Trinkets
+  - Pins
 
 - type: roleLoadout
   id: JobMusician
@@ -188,6 +201,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - Instruments
   - GroupSpeciesBreathTool
 
@@ -205,6 +219,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -219,6 +234,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -231,6 +247,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 # Engineering
@@ -246,6 +263,7 @@
   - ChiefEngineerShoes
   - SurvivalExtended
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -256,6 +274,7 @@
   - StationEngineerBackpack
   - SurvivalExtended
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -270,6 +289,7 @@
   - StationEngineerID
   - SurvivalExtended
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -283,6 +303,7 @@
   - AtmosphericTechnicianShoes
   - SurvivalExtended
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 # Science
@@ -300,6 +321,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -317,6 +339,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -328,6 +351,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 # Security
@@ -343,6 +367,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -357,6 +382,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -372,6 +398,7 @@
   - SecurityBelt
   - SurvivalSecurity
   - Trinkets
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -387,6 +414,7 @@
   - SecurityShoes
   - SurvivalSecurity
   - Trinkets
+  - Pins
   - SecurityStar
   - GroupSpeciesBreathToolSecurity
 
@@ -398,6 +426,7 @@
   - SurvivalSecurity
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolSecurity
 
 # Medical
@@ -416,6 +445,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -433,6 +463,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -444,6 +475,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -458,6 +490,7 @@
   - MedicalShoes
   - SurvivalMedical
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 - type: roleLoadout
@@ -474,6 +507,7 @@
   - Glasses
   - SurvivalMedical
   - Trinkets
+  - Pins
   - GroupSpeciesBreathToolMedical
 
 # Wildcards
@@ -485,6 +519,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -497,6 +532,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 
@@ -509,6 +545,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 - type: roleLoadout
@@ -521,6 +558,7 @@
   - Glasses
   - Survival
   - Trinkets
+  - Pins
   - GroupSpeciesBreathTool
 
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
