@@ -1,4 +1,5 @@
-﻿- type: body
+﻿# Why the fuck are the aghost and human the only ones with snake case body parts?
+- type: body
   id: Aghost
   name: "aghost"
   root: torso
@@ -6,17 +7,17 @@
     torso:
       part: TorsoHuman
       connections:
-      - right_arm
-      - left_arm
-    right_arm:
+      - right arm
+      - left arm
+    right arm:
       part: RightArmHuman
       connections:
-      - right_hand
-    left_arm:
+      - right hand
+    left arm:
       part: LeftArmHuman
       connections:
-      - left_hand
-    right_hand:
+      - left hand
+    right hand:
       part: RightHandHuman
-    left_hand:
+    left hand:
       part: LeftHandHuman
