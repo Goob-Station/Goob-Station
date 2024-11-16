@@ -6,7 +6,34 @@
     requirement:
       !type:DepartmentTimeRequirement
       department: Command
-      time: 3600 # 1 hour
+      time: 14400 # 4 hrs
+
+- type: loadoutEffectGroup
+  id: Medical
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Medical
+      time: 14400 # 4 hrs
+
+- type: loadoutEffectGroup
+  id: Science
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Science
+      time: 14400 # 4 hrs
+
+- type: loadoutEffectGroup
+  id: Engineering
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 14400 # 4 hrs
 
 # Flowers
 - type: loadout
@@ -34,12 +61,48 @@
     back:
     - PlushieSpaceLizard
 
+- type: loadout
+  id: PlushieSharkBlue
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Medical
+  storage:
+    back:
+    - PlushieSharkBlue
+
+- type: loadout
+  id: PlushieSharkPink
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Engineering
+  storage:
+    back:
+    - PlushieSharkPink
+
+- type: loadout
+  id: PlushieSharkGrey
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Science
+  storage:
+    back:
+    - PlushieSharkGrey
+
 # Smokeables
 - type: loadout
   id: Lighter
   storage:
     back:
     - Lighter
+
+- type: loadout
+  id: FlippoLighter
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: Command
+  storage:
+    back:
+    - FlippoLighter
 
 - type: loadout
   id: CigPackGreen
@@ -73,15 +136,6 @@
   storage:
     back:
     - CigarCase
-
-- type: loadout
-  id: CigarGold
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Command
-  storage:
-    back:
-    - CigarGold
 
 # Pins
 - type: loadout

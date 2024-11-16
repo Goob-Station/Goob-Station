@@ -9,13 +9,23 @@
   - Hairflower
   - PlushieLizard
   - PlushieSpaceLizard
+  - PlushieSharkBlue
+  - PlushieSharkPink
+  - PlushieSharkGrey
   - Lighter
+  - FlippoLighter
   - CigPackGreen
   - CigPackRed
   - CigPackBlue
   - CigPackBlack
   - CigarCase
-  - CigarGold
+
+- type: loadoutGroup
+  id: Pins
+  name: loadout-group-pins
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
   - ClothingNeckLGBTPin
   - ClothingNeckAromanticPin
   - ClothingNeckAsexualPin
