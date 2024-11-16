@@ -132,9 +132,11 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
         {
             foreach (var station in _station.GetStations())
-            {
-                _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
-            }
+                _chat.DispatchStationAnnouncement(station,
+                    Loc.GetString("zombie-shuttle-call"),
+                    colorOverride: Color.Crimson,
+                    announcementSound: new SoundPathSpecifier("/Audio/_Goobstation/Announcements/violet.ogg"));
+
             _roundEnd.RequestRoundEnd(null, false);
         }
 
