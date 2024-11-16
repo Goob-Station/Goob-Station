@@ -135,3 +135,37 @@
   - type: BatterySelfRecharger
     autoRecharge: true
     autoRechargeRate: 40
+
+- type: entity
+  name: A Light Shining in Darkness
+  parent: BaseWeaponBatterySmall
+  id: WeaponGodGun
+  description: The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men.
+  components:
+  - type: Sprite
+    sprite:  _Goobstation/Objects/Weapons/Guns/Battery/godgun.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-1
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Battery/godgun.rsi
+  - type: Gun
+    fireRate: 1.35
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/godgun.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: HolyLaser
+    fireCost: 75
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+  - type: MagazineVisuals
+    magState: mag
+    steps: 2
+    zeroVisible: true
+  - type: Appearance
+  - type: StaticPrice
+    price: 300

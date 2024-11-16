@@ -3,3 +3,12 @@
   name: damage-group-electronic
   damageTypes:
     - Ion
+
+- type: damageGroup
+  id: Paranormal
+  name: damage-group-paranormal
+  damageTypes:
+    - Holy
+    - Unholy
+    - Spectral
+    - Psychological

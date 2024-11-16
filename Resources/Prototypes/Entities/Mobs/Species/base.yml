@@ -142,6 +142,8 @@
   - type: Body
     prototype: Human
     requiredLegs: 2
+  - type: Damageable # Goobstation
+    damageModifierSet: TheHolyOne # Goobstation - makes shit not all be damaged by holy
   - type: Identity
   - type: IdExaminable
   - type: Hands

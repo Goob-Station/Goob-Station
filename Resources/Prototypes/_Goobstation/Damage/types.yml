@@ -3,3 +3,31 @@
   name: damage-type-ion
   armorCoefficientPrice: 1
   armorFlatPrice: 1
+
+#Damage that's only really meant for specific cases against "Unholy things"(really just for use by chaplain)
+- type: damageType
+  id: Holy
+  name: damage-type-holy
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+
+#Damage that's meant for everything BUT "Unholy things"(really just for use by heretics)
+- type: damageType
+  id: Unholy
+  name: damage-type-unholy
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+
+#OooOoOOooOOooOoOh GHOOOOOSSSSSSSST DAMAGE
+- type: damageType
+  id: Spectral
+  name: damage-type-spectral
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1
+
+#Im assuming this is probably going to be for the damage and costs of psychic shit if we ever get stuff like that
+- type: damageType
+  id: Psychological
+  name: damage-type-psychological
+  armorCoefficientPrice: 1
+  armorFlatPrice: 1

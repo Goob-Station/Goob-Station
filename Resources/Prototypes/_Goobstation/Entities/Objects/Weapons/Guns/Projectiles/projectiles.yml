@@ -66,3 +66,19 @@
     radius: 4
     color: purple
     energy: 2
+
+- type: hitscan
+  id: HolyLaser
+  damage:
+    types:
+      Heat: 1
+      Holy: 17
+  muzzleFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/holylaser.rsi
+    state: muzzle_holy
+  travelFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/holylaser.rsi
+    state: beam_holy
+  impactFlash:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/holylaser.rsi
+    state: impact_holy
