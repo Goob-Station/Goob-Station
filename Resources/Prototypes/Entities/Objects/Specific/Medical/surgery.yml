@@ -8,9 +8,9 @@
   - type: Sprite
   - type: StaticPrice
     price: 20
-#  - type: Tag
-#    tags:
-#    - SurgeryTool
+  - type: Tag
+    tags:
+    - SurgeryTool
   - type: SurgeryTool # Shitmed Change
 
 # Cautery
@@ -39,7 +39,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
-  - type: Cautery  
+  - type: Cautery
 
 # Drill
 
@@ -105,7 +105,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
-  - type: Scalpel      
+  - type: Scalpel
 
 - type: entity
   name: shiv
