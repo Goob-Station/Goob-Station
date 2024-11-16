@@ -1832,3 +1832,9 @@ Entries:
       message: Fixed borg UI not be able to eject anything from borg.
   id: 224
   time: '2024-11-16T22:12:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added the Cybersun Stealth Hardsuit to the syndicate uplink for 75 TC
+  id: 225
+  time: '2024-11-16T22:18:52.0000000+00:00'
