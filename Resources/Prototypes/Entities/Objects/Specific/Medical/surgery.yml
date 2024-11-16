@@ -11,6 +11,7 @@
   - type: Tag
     tags:
     - SurgeryTool
+  - type: SurgeryTool # Shitmed Change
 
 # Cautery
 
@@ -32,6 +33,13 @@
         Heat: 5
     soundHit:
       path: /Audio/Effects/lightburn.ogg
+  # Shitmed Change
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
+  - type: Cautery
 
 # Drill
 
@@ -57,6 +65,11 @@
       path: /Audio/Items/drill_hit.ogg
   - type: StaticPrice
     price: 40
+  # Shitmed Change
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: SurgicalDrill
 
 # Scalpel
 
@@ -86,6 +99,13 @@
         Slash: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
+  # Shitmed Change
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: Scalpel
 
 - type: entity
   name: shiv
@@ -138,25 +158,61 @@
   - type: Item
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     storedRotation: 90
+  # Shitmed Change
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: Retractor
 
 - type: entity
   name: hemostat
   id: Hemostat
-  parent: Retractor
+  parent: BaseToolSurgery # Shitmed Change
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Shitmed Change
     state: hemostat
   - type: Item
     heldPrefix: hemostat
+    sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Shitmed Change
     storedRotation: 90
+  # Shitmed CHange
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  - type: Hemostat
 
-  # - type: entity
-  #   name: bone setter
-  #   id: BoneSetter
-  #   parent: Retractor
-  #   description: A surgical tool used for setting bones.
-  #   components:
+# Bone setter - Shitmed Change
+- type: entity
+  parent: BaseToolSurgery
+  id: Bonesetter
+  name: bone setter
+  description: Used for setting bones back into place.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+    state: bonesetter
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
+  - type: BoneSetter
+
+# Bone Gel - Shitmed Change
+- type: entity
+  parent: BaseToolSurgery
+  id: BoneGel
+  name: bottle of bone gel
+  description: A container for bone gel that often needs to be refilled from a specialized machine.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    state: bone-gel
+  - type: BoneGel
+
 # Saws
 
 - type: entity
@@ -179,6 +235,11 @@
   - type: Tool
     qualities:
       - Sawing
+  # Shitmed Change
+  - type: BoneSaw
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 # No melee for regular saw because have you ever seen someone use a band saw as a weapon? It's dumb.
 
 - type: entity
@@ -234,3 +295,112 @@
     attackRate: 1.5
   - type: Tool
     speedModifier: 2.0
+
+# ORGANS - SHITMED
+
+- type: entity
+  parent: OrganHumanHeart
+  id: BioSynthHeart
+  name: bio-synthetic heart
+  description: This heart can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: OrganHumanLiver
+  id: BioSynthLiver
+  name: bio-synthetic liver
+  description: This liver can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: OrganHumanLungs
+  id: BioSynthLungs
+  name: bio-synthetic lungs
+  description: These lungs can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: OrganHumanEyes
+  id: BioSynthEyes
+  name: bio-synthetic eyes
+  description: These eyes can be transplanted into any living organism and it will adapt to its recipient.
+
+
+# PARTS - SHITMED
+
+- type: entity
+  parent: LeftArmHuman
+  id: BioSynthLeftArm
+  name: bio-synthetic left arm
+  description: This left arm can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: RightArmHuman
+  id: BioSynthRightArm
+  name: bio-synthetic right arm
+  description: This right arm can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: LeftHandHuman
+  id: BioSynthLeftHand
+  name: bio-synthetic left hand
+  description: This left hand can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: RightHandHuman
+  id: BioSynthRightHand
+  name: bio-synthetic right hand
+  description: This right hand can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: LeftLegHuman
+  id: BioSynthLeftLeg
+  name: bio-synthetic left leg
+  description: This left leg can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: RightLegHuman
+  id: BioSynthRightLeg
+  name: bio-synthetic right leg
+  description: This right leg can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: LeftFootHuman
+  id: BioSynthLeftFoot
+  name: bio-synthetic left foot
+  description: This left foot can be transplanted into any living organism and it will adapt to its recipient.
+
+- type: entity
+  parent: RightFootHuman
+  id: BioSynthRightFoot
+  name: bio-synthetic right foot
+  description: This right foot can be transplanted into any living organism and it will adapt to its recipient.
+
+# JOKE ITEMS - SHITMED
+
+- type: entity
+  parent: LeftArmHuman
+  id: PizzaLeftArm
+  name: pizza left arm
+  description: For when you want to turn someone into a Space John's.
+  components:
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+    toolName: "a left arm"
+    baseLayerId: MobPizzaLArm
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  parent: RightArmHuman
+  id: PizzaRightArm
+  name: pizza right arm
+  description: For when you want to turn someone into a Space John's.
+  components:
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+    toolName: "a right arm"
+    baseLayerId: MobPizzaRArm
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    state: "r_arm"
