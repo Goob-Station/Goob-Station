@@ -13,15 +13,15 @@
   <Box>
   <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
   <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Lepidopteran"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Amorphian"/>
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentian"/>
   </Box>
 
 </Document>
