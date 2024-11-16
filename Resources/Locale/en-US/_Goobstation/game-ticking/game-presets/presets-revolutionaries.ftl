@@ -12,4 +12,4 @@ revolutionaries-win-announcement =
     Viva la revolution!
 
 revolutionaries-win-sender = Taipan Communications
-revolutionaries-sender-cc = Nanotrasen Loyalty Division
+revolutionaries-sender-cc = NanoTrasen Loyalty Division
