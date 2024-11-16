@@ -1,6 +1,44 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Moth people, slime people and rodentia now have better fitting species
+      names. (Lepidopterans, Amorphians and Rodentians respectively).
+    type: Tweak
+  id: 12
+  time: '2024-11-16T19:40:20.236336'
+- author: AstroDogeDX
+  changes:
+  - message: Removed stupid capitalisation from the pizza party message, making it
+      read consistently.
+    type: Fix
+  id: 11
+  time: '2024-11-16T19:41:11.412721'
+- author: AstroDogeDX
+  changes:
+  - message: Pins are now moved to their own loadout category, and there have been
+      more trinkets added with some new requirements to unlock! Finally, round start
+      Blahaj my beloved.
+    type: Tweak
+  id: 10
+  time: '2024-11-16T19:41:46.729757'
+- author: AstroDogeDX
+  changes:
+  - message: As per NanoTrasen's Law Branch request, all mention of NanoTrasen has
+      been correctly capitalised. As a result, NT is seeking damages and everyone
+      has to work double shifts for the next 100 years.
+    type: Fix
+  id: 9
+  time: '2024-11-16T19:42:37.061434'
+- author: AstroDogeDX
+  changes:
+  - message: Artifacts can now be anchored on top of the artifact analyzer. They cannot
+      be scanned in this state, but it should help with 'tool usage' and the pesky
+      ones that like to move about.
+    type: Tweak
+  id: 8
+  time: '2024-11-16T19:43:19.398121'
+- author: AstroDogeDX
+  changes:
   - message: Role times have been greatly reduced; with department specific requirements
       being no more than about 3 shifts.
     type: Tweak
