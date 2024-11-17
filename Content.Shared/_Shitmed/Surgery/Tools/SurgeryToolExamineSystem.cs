@@ -56,7 +56,7 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
             _ => "white"
         };
         var key = "surgery-tool-" + (comp.Used == true ? "used" : "unlimited");
-        var speed = speed.ToString("N2"); // 2 decimal places to not get trolled by float
+        var speed = comp.Speed.ToString("N2"); // 2 decimal places to not get trolled by float
         msg.PushMarkup(Loc.GetString(key, ("tool", comp.ToolName), ("speed", speed), ("color", color)));
     }
 }
