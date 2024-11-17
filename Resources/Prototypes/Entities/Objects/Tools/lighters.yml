@@ -92,9 +92,9 @@
     speed: 0.45
   - type: SurgeryTool # GoobStation
     startSound:
-      collection: LighterOnSounds
+      collection: lighterOnSounds
     endSound:
-      collection: LighterOffSounds
+      collection: lighterOffSounds
 
 - type: entity
   name: cheap lighter
