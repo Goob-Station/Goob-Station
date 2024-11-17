@@ -2,6 +2,7 @@
   id: OrganVoxLungs
   parent: OrganHumanLungs
   suffix: "vox"
+  name: vox longs # GoobStation
   components:
   - type: Metabolizer
     metabolizerTypes: [ Vox ]
