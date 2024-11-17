@@ -109,9 +109,9 @@
     speed: 0.7
   - type: SurgeryTool # GoobStation
     startSound:
-      path: Welder
+      collection: Welder
     endSound:
-      path: WelderOff
+      collection: WelderOff
 
 - type: entity
   name: industrial welding tool
