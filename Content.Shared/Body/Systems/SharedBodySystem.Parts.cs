@@ -565,6 +565,18 @@ public partial class SharedBodySystem
             && Containers.CanInsert(partId, container);
     }
 
+    /// <summary>
+    /// GoobStation: Returns true if this parentId supports attaching a new part to the specified slot.
+    /// </summary>
+    public bool CanAttachToSlot(
+        EntityUid parentId,
+        string slotId,
+        BodyPartComponent? parentPart = null)
+    {
+        return Resolve(parentId, ref parentPart, logMissing: false)
+            && parentPart.Children.ContainsKey(slotId);
+    }
+
     public bool AttachPartToRoot(
         EntityUid bodyId,
         EntityUid partId,
