@@ -29,7 +29,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
         if (ent.Comp.Activated)
             return;
 
-        _popup.PopupClient(Loc.GetString("surgery-tool-turn-on"), ent, args.User);
+        _popup.PopupEntity(Loc.GetString("surgery-tool-turn-on"), ent, args.User);
         args.Cancelled = true;
     }
 
@@ -40,7 +40,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
         if (ev.Ammo.Count > 0)
             return;
 
-        _popup.PopupClient(Loc.GetString("surgery-tool-reload"), ent, args.User);
+        _popup.PopupEntity(Loc.GetString("surgery-tool-reload"), ent, args.User);
         args.Cancelled = true;
     }
 
@@ -51,7 +51,7 @@ public sealed class SurgeryToolConditionsSystem : EntitySystem
             return;
 
         var key = "surgery-tool-match-" + (state == SmokableState.Burnt ? "replace" : "light");
-        _popup.PopupClient(Loc.GetString(key), ent, args.User);
+        _popup.PopupEntity(Loc.GetString(key), ent, args.User);
         args.Cancelled = true;
     }
 }
