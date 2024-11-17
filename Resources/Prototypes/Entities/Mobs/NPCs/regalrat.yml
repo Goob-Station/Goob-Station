@@ -60,6 +60,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -241,6 +246,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
