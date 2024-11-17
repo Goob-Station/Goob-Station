@@ -1,3 +1,4 @@
+using Content.Shared.Body.Components; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
 using Content.Shared.Input;
@@ -117,10 +118,11 @@ public abstract class SharedLayingDownSystem : EntitySystem
             !Resolve(uid, ref layingDown, false) ||
             standingState.CurrentState is not StandingState.Lying ||
             !_mobState.IsAlive(uid) ||
-            TerminatingOrDeleted(uid))
-        {
+            TerminatingOrDeleted(uid) ||
+            // Shitmed Change
+            !TryComp<BodyComponent>(uid, out var body) ||
+            body.LegEntities.Count == 0)
             return false;
-        }
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
         {

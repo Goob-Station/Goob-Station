@@ -228,6 +228,8 @@
     - id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
     - id: MedTekCartridge
+    # Shitmed
+    - id: MedicalBiofabMachineBoard
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable

@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
+using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Mobs.Systems;
 
@@ -101,6 +102,9 @@ public partial class MobStateSystem
         var oldState = component.CurrentState;
         //make sure we are allowed to enter the new state
         if (oldState == newState || !component.AllowedStates.Contains(newState))
+            return;
+
+        if (oldState == MobState.Dead && HasComp<DebrainedComponent>(target)) // Shitmed Change
             return;
 
         OnExitState(target, component, oldState);

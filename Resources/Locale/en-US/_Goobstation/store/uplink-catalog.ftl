@@ -6,6 +6,11 @@ uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit
 uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
 uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
+# Cybersun Stealth
+
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
+uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
+
 # Misc
 
 uplink-gondola-name = Gondola Crate
