@@ -37,6 +37,7 @@ public sealed class SurgeryToolExamineSystem : EntitySystem
             return;
 
         var msg = FormattedMessage.FromMarkupOrThrow(Loc.GetString("surgery-tool-header"));
+        msg.PushNewline();
         var ev = new SurgeryToolExaminedEvent(msg);
         RaiseLocalEvent(ent, ref ev);
 
