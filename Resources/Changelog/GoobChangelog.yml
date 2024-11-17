@@ -1844,3 +1844,19 @@ Entries:
       message: Added EE build/run scripts
   id: 226
   time: '2024-11-17T12:58:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now operate on a bunch of animals like mice, spiders and
+        monkeys.
+    - type: Add
+      message: >-
+        You can now remove and install stomachs, including special diets like
+        moths or lizards!
+    - type: Fix
+      message: Fixed not being able to reinstall some species organs.
+    - type: Fix
+      message: Fixed harpies being immune to the scalpel.
+  id: 227
+  time: '2024-11-17T13:36:48.0000000+00:00'
