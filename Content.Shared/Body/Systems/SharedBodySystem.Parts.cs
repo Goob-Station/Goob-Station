@@ -670,6 +670,11 @@ public partial class SharedBodySystem
             sprintSpeed += legModifier.SprintSpeed;
             acceleration += legModifier.Acceleration;
         }
+
+        walkSpeed = walkSpeed == 0 ? MovementSpeedModifierComponent.DefaultBaseWalkSpeed : walkSpeed;
+        sprintSpeed = sprintSpeed == 0 ? MovementSpeedModifierComponent.DefaultBaseSprintSpeed : sprintSpeed;
+        acceleration = acceleration == 0 ? MovementSpeedModifierComponent.DefaultAcceleration : acceleration;
+
         walkSpeed /= body.RequiredLegs;
         sprintSpeed /= body.RequiredLegs;
         acceleration /= body.RequiredLegs;
