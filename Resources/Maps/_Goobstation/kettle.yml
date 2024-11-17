@@ -13065,7 +13065,7 @@ entities:
       pos: -5.5,-58.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -990.1326
+      secondsUntilStateChange: -1740.5632
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -137089,8 +137089,6 @@ entities:
         - Pressed: Toggle
         21623:
         - Pressed: Toggle
-        10525:
-        - Pressed: Toggle
   - uid: 26135
     components:
     - type: Transform
@@ -138915,6 +138913,11 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -34.5,-44.5
+      parent: 82
+  - uid: 26491
+    components:
+    - type: Transform
+      pos: -34.5,-26.5
       parent: 82
 - proto: Skub
   entities:
