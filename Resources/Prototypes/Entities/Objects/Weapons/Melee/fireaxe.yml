@@ -52,6 +52,13 @@
     stealGroup: FireAxe
   - type: IgniteOnMeleeHit
     fireStacks: -4
+  - type: Scalpel # GoobStation
+    speed: 0.3
+  - type: BoneSaw # GoobStation
+    speed: 0.5
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   id: FireAxeFlaming
