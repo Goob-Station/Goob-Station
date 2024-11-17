@@ -1,0 +1,10 @@
+# Monkey head for borging/transplanting pun pun
+- type: entity
+  parent: [PartAnimal, BaseHead]
+  id: HeadAnimal
+  name: animal head
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: head_m
