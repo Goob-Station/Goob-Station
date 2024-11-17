@@ -7,4 +7,5 @@ public sealed partial class RetractorComponent : Component, ISurgeryToolComponen
 {
     public string ToolName => "a retractor";
     public bool? Used { get; set; } = null;
+    public float Speed { get; set; } = 1f;
 }

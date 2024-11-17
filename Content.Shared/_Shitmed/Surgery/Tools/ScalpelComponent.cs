@@ -7,4 +7,5 @@ public sealed partial class ScalpelComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a scalpel";
     public bool? Used { get; set; } = null;
+    public float Speed { get; set; } = 1f;
 }

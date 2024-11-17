@@ -7,4 +7,5 @@ public sealed partial class SurgicalDrillComponent : Component, ISurgeryToolComp
 {
     public string ToolName => "a surgical drill";
     public bool? Used { get; set; } = null;
+    public float Speed { get; set; } = 1f;
 }

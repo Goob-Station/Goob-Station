@@ -7,4 +7,5 @@ public sealed partial class CauteryComponent : Component, ISurgeryToolComponent
 {
     public string ToolName => "a cautery";
     public bool? Used { get; set; } = null;
+    public float Speed { get; set; } = 1f;
 }
