@@ -48,3 +48,10 @@
         maxVol: 300
   - type: UseDelay
     delay: 1
+  - type: BoneSaw # GoobStation
+    speed: 0.5 # TODO: arm-mounted version becomes 0.65
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/Weapons/chainsawwield.ogg
+    endSound:
+      path: /Audio/Weapons/chainsaw.ogg

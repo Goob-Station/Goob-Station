@@ -132,6 +132,8 @@
     damage:
       types:
         Slash: 12
+  - type: Scalpel # GoobStation
+    speed: 1.25
 
 - type: entity
   name: laser scalpel
@@ -143,6 +145,9 @@
     state: laser
   - type: Item
     heldPrefix: laser
+  - type: Scalpel # GoobStation
+    speed: 1.5
+  # TODO: prevent bleeding from incisions
 
 # Scissors
 
@@ -186,6 +191,8 @@
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
   - type: Hemostat
+  - type: Tweezers # GoobStation
+  - type: Tending # GoobStation
 
 # Bone setter - Shitmed Change
 - type: entity
@@ -261,6 +268,8 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: Tool
     speedModifier: 0.5
+  - type: BoneSaw # GoobStation
+    speed: 0.5
 
 - type: entity
   name: circular saw
@@ -280,6 +289,8 @@
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
     speedModifier: 1.5
+  - type: BoneSaw # GoobStation
+    speed: 1.5
 
 - type: entity
   name: advanced circular saw
@@ -295,6 +306,8 @@
     attackRate: 1.5
   - type: Tool
     speedModifier: 2.0
+  - type: BoneSaw # GoobStation
+    speed: 2
 
 # ORGANS - SHITMED
 

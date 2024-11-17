@@ -29,6 +29,13 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+  - type: Hemostat # GoobStation
+    speed: 0.15
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 - type: entity
   id: CableHVStack

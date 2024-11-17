@@ -105,6 +105,13 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: Cautery # GoobStation
+    speed: 0.7
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: Welder
+    endSound:
+      path: WelderOff
 
 - type: entity
   name: industrial welding tool
