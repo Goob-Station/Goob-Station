@@ -1838,3 +1838,9 @@ Entries:
       message: Added the Cybersun Stealth Hardsuit to the syndicate uplink for 75 TC
   id: 225
   time: '2024-11-16T22:18:52.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added EE build/run scripts
+  id: 226
+  time: '2024-11-17T12:58:49.0000000+00:00'
