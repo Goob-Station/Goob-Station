@@ -436,6 +436,13 @@
 
 - type: entity
   parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertStomach
+  name: Add stomach
+  categories: [ HideSpawnMenu ]
+  # no effect its just for minmaxing metabolism
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
   id: SurgeryStepInsertLiver
   name: Add liver
   categories: [ HideSpawnMenu ]

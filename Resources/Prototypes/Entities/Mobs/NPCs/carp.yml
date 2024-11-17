@@ -236,6 +236,11 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
+    - type: SurgeryTarget # GoobStation
+    - type: UserInterface # GoobStation
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
