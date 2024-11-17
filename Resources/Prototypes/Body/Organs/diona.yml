@@ -21,7 +21,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Brain # GoobStation: Lets you transplant diona brains (once nypmh is gibbed) into other bodies
   - type: FlavorProfile
     flavors:
       - people
