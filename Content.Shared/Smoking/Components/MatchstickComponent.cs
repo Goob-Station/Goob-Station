@@ -4,7 +4,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared.Smoking.Components;
 
-[RegisterComponent, Access(typeof(SharedMatchstickSystem))]
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedMatchstickSystem))]
 [AutoGenerateComponentState]
 public sealed partial class MatchstickComponent : Component
 {
