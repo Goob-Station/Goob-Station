@@ -2399,5 +2399,12 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<bool> DebugPow3rDisableParallel =
             CVarDef.Create("debug.pow3r_disable_parallel", true, CVar.SERVERONLY);
+        
+        #region Surgery
+
+        public static readonly CVarDef<bool> CanOperateOnSelf =
+            CVarDef.Create("surgery.can_operate_on_self", false, CVar.SERVERONLY);
+
+        #endregion
     }
 }
