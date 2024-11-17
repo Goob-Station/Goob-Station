@@ -296,7 +296,7 @@ public partial class SharedBodySystem
         var integrity = damageable.TotalDamage;
 
         // KILL the body part
-        if (partEnt.Comp.Enabled && integrity >= partEnt.Comp.IntegrityThresholds[TargetIntegrity.CriticallyWounded])
+        if (partEnt.Comp.Enabled && integrity >= partEnt.Comp.IntegrityThresholds[TargetIntegrity.ModeratelyWounded])
         {
             var ev = new BodyPartEnableChangedEvent(false);
             RaiseLocalEvent(partEnt, ref ev);

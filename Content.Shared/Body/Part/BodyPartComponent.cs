@@ -105,7 +105,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     ///     to make possible severing it.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float SeverIntegrity = 90;
+    public float SeverIntegrity = 50;
 
     /// <summary>
     ///     Shitmed Change: The ID of the base layer for this body part.
@@ -122,12 +122,12 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     [DataField, AutoNetworkedField]
     public Dictionary<TargetIntegrity, float> IntegrityThresholds = new()
     {
-        { TargetIntegrity.CriticallyWounded, 90 },
-        { TargetIntegrity.HeavilyWounded, 75 },
-        { TargetIntegrity.ModeratelyWounded, 60 },
-        { TargetIntegrity.SomewhatWounded, 40},
-        { TargetIntegrity.LightlyWounded, 20 },
-        { TargetIntegrity.Healthy, 10 },
+        { TargetIntegrity.CriticallyWounded, 70 },
+        { TargetIntegrity.HeavilyWounded, 50 },
+        { TargetIntegrity.ModeratelyWounded, 30 },
+        { TargetIntegrity.SomewhatWounded, 20},
+        { TargetIntegrity.LightlyWounded, 10 },
+        { TargetIntegrity.Healthy, 5 },
     };
 
     // Shitmed Change End
