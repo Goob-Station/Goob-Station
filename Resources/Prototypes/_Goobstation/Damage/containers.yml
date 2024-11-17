@@ -1,0 +1,11 @@
+- type: damageContainer
+  id: UnholyBiological
+  supportedGroups:
+    - Brute
+    - Burn
+    - Toxin
+    - Airloss
+    - Genetic
+  supportedTypes:
+    - Psychic
+    - Holy

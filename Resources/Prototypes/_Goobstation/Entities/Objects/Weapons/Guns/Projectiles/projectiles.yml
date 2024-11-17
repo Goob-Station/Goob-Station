@@ -72,7 +72,7 @@
   damage:
     types:
       Heat: 1
-      Holy: 17
+      Holy: 15
   muzzleFlash:
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/holylaser.rsi
     state: muzzle_holy

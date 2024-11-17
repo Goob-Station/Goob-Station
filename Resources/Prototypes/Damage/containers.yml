@@ -6,7 +6,9 @@
     - Toxin
     - Airloss
     - Genetic
-    - Paranormal #Goobstation
+  supportedTypes: #Goobstation
+    - Psychic #Goobstation
+    - Unholy #Goobstation
 
 - type: damageContainer
   id: Inorganic

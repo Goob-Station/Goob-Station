@@ -23,6 +23,10 @@
           - !type:OrganType
             type: Human
             shouldHave: false
+      - !type:HealthChange #Goobstation
+        damage: #Goobstation
+          types: #Goobstation
+            Unholy: -0.25 #Goobstation
     Food:
       effects:
         - !type:AdjustReagent

@@ -18,16 +18,9 @@
   armorCoefficientPrice: 1
   armorFlatPrice: 1
 
-#OooOoOOooOOooOoOh GHOOOOOSSSSSSSST DAMAGE
-- type: damageType
-  id: Spectral
-  name: damage-type-spectral
-  armorCoefficientPrice: 1
-  armorFlatPrice: 1
-
 #Im assuming this is probably going to be for the damage and costs of psychic shit if we ever get stuff like that
 - type: damageType
-  id: Psychological
-  name: damage-type-psychological
+  id: Psychic
+  name: damage-type-psychic
   armorCoefficientPrice: 1
   armorFlatPrice: 1

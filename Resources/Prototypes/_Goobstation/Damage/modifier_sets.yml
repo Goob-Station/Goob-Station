@@ -18,8 +18,3 @@
     Blunt: 5
     Slash: 5
     Piercing: 5
-
-- type: damageModifierSet
-  id: TheHolyOne
-  coefficients:
-    Holy: 0.0

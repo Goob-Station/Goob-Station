@@ -11,6 +11,9 @@
       groups:
         Brute: -15
         Burn: -15
+        Paranormal: -20 #Goobstation
+      types: #Goobstation
+        Unholy: -10 #Goobstation
     damageOnFail:
       groups:
         Brute: 15
@@ -58,6 +61,7 @@
     damage:
       types:
         Caustic: 20 ## ~15 dps
+        Holy: -30 #Goobstation
     damageOnFail:
       groups:
         Brute: 15

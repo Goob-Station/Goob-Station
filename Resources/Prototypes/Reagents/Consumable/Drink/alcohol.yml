@@ -162,6 +162,10 @@
   metabolisms:
     Alcohol:
       effects:
+      - !type:HealthChange #Goobstation
+        damage: #Goobstation
+          groups: #Goobstation
+            Paranormal: -1.0 #Goobstation
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
