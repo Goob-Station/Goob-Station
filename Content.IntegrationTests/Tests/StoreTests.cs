@@ -120,7 +120,7 @@ public sealed class StoreTests
                     server.EntMan.EventBus.RaiseComponentEvent(pda, storeComponent, buyMsg);
 
                     var newBalance = storeComponent.Balance[UplinkSystem.TelecrystalCurrencyPrototype];
-                    Assert.That(newBalance.Value, Is.EqualTo((originalBalance - plainDiscountedCost).Value), "Expected to have balance reduced by discounted cost");
+                    Assert.That(newBalance.Value, Is.EqualTo((originalBalance - plainDiscountedCost).Value), $"Expected to have balance reduced by discounted cost: {discountedListingItem.Name}"); // Goobstation
                     Assert.That(
                         discountedListingItem.IsCostModified,
                         Is.False,
