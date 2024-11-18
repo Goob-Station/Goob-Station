@@ -23,6 +23,7 @@
       - left arm
       - right leg
       - left leg
+      - head # GoobStation
     right arm:
       part: RightArmMoth
       connections:

@@ -1820,3 +1820,81 @@ Entries:
       message: gass prices
   id: 222
   time: '2024-11-14T13:44:37.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: What's a week? Anyway surgery is here.
+  id: 223
+  time: '2024-11-16T22:10:27.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed borg UI not be able to eject anything from borg.
+  id: 224
+  time: '2024-11-16T22:12:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added the Cybersun Stealth Hardsuit to the syndicate uplink for 75 TC
+  id: 225
+  time: '2024-11-16T22:18:52.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added EE build/run scripts
+  id: 226
+  time: '2024-11-17T12:58:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now operate on a bunch of animals like mice, spiders and
+        monkeys.
+    - type: Add
+      message: >-
+        You can now remove and install stomachs, including special diets like
+        moths or lizards!
+    - type: Fix
+      message: Fixed not being able to reinstall some species organs.
+    - type: Fix
+      message: Fixed harpies being immune to the scalpel.
+  id: 227
+  time: '2024-11-17T13:36:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added sink to Chemistry on Kettle.
+    - type: Fix
+      message: >-
+        Kettle's lockdown button no longer opens/closes the door, only the blast
+        doors.
+  id: 228
+  time: '2024-11-18T00:19:11.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Ghetto surgery is now possible, read the TG wiki!
+  id: 229
+  time: '2024-11-18T00:23:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now become immune to pressure and breathing by harvesting carp
+        hearts and lungs respectively.
+  id: 230
+  time: '2024-11-18T01:27:13.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: >-
+        Eliminated a catastrophic breach of GDPR so severe it might've summoned
+        Europol.
+  id: 231
+  time: '2024-11-18T01:33:10.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Cryosleep Beacon to Barratry.
+  id: 232
+  time: '2024-11-18T01:36:39.0000000+00:00'

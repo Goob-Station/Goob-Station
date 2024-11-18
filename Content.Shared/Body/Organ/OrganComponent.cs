@@ -27,6 +27,9 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
     [DataField]
     public string ToolName { get; set; } = "An organ";
 
+    [DataField]
+    public float Speed { get; set; } = 1f;
+
     /// <summary>
     ///     Shitmed Change: If true, the organ will not heal an entity when transplanted into them.
     /// </summary>

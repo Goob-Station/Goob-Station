@@ -309,7 +309,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tending
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -327,7 +327,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tending
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -399,7 +399,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tweezers
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -433,6 +433,13 @@
         Asphyxiation: -2147483648 # Literally the max 32 bit value, if your patient has gone higher than this, maybe it's time to restart the round.
     sleepModifier: 1
     isConsumable: true
+
+- type: entity
+  parent: SurgeryStepInsertOrgan
+  id: SurgeryStepInsertStomach
+  name: Add stomach
+  categories: [ HideSpawnMenu ]
+  # no effect its just for minmaxing metabolism
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -561,3 +568,17 @@
 #  - type: Sprite
 #    sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
 #    state: insertion
+
+#- type: entity
+#  parent: SurgeryStepBase
+#  id: SurgeryStepWingReconstruction
+#  name: Start wing reconstruction
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: SurgeryStep
+#    duration: 6 # On TG success chance is lower, so here the surgery slower
+#    tool:
+#    - type: Tending
+#  - type: ??? moth ops go here when wings can be destroyed
+#  - type: Sprite
+#    sprite: Interface/Emotes/chitter.png
