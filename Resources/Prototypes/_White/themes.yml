@@ -12,3 +12,5 @@
     concerningOrangeFore: "#A5762F"
     dangerousRedFore: "#BB3232"
     disabledFore: "#5A5A5A"
+    _itemstatus_content_margin_right: "#06060604"
+    _itemstatus_content_margin_left: "#06060604"
