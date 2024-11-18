@@ -1870,3 +1870,9 @@ Entries:
         doors.
   id: 228
   time: '2024-11-18T00:19:11.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Ghetto surgery is now possible, read the TG wiki!
+  id: 229
+  time: '2024-11-18T00:23:43.0000000+00:00'
