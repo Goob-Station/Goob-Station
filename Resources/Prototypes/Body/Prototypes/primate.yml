@@ -3,7 +3,7 @@
   name: "primate"
   root: torso
   slots:
-    head: # GoobStation: put pun pun into a humans body
+    head: # Shitmed: put pun pun into a humans body
       part: HeadAnimal
       connections:
       - torso
@@ -15,7 +15,7 @@
       connections:
       - hands
       - legs
-      - head # GoobStation
+      - head # Shitmed
       organs:
         lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach

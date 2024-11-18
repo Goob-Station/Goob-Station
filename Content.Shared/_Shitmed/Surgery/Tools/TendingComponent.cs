@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 
 /// <summary>
-/// GoobStation: Like Hemostat but lets ghetto tools be used differently for clamping and tending wounds.
+///     Like Hemostat but lets ghetto tools be used differently for clamping and tending wounds.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TendingComponent : Component, ISurgeryToolComponent

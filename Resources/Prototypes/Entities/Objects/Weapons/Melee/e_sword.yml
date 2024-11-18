@@ -72,11 +72,11 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
-  - type: Scalpel # GoobStation
+  - type: Scalpel # Shitmed
     speed: 0.75
-  - type: Cautery # GoobStation: you have to be very, very careful to cauterize with it
+  - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
     speed: 0.2
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/Weapons/ebladehum.ogg
     endSound:

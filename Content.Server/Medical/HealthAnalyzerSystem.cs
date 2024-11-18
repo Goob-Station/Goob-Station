@@ -2,6 +2,7 @@ using Content.Server.Body.Components;
 using Content.Server.Medical.Components;
 using Content.Server.PowerCell;
 using Content.Server.Temperature.Components;
+using Content.Server.Traits.Assorted;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
@@ -247,6 +248,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
 
         var bloodAmount = float.NaN;
         var bleeding = false;
+        var unrevivable = false;
 
         if (TryComp<BloodstreamComponent>(target, out var bloodstream) &&
             _solutionContainerSystem.ResolveSolution(target, bloodstream.BloodSolutionName,
@@ -261,6 +263,8 @@ public sealed class HealthAnalyzerSystem : EntitySystem
         if (HasComp<TargetingComponent>(target))
             body = _bodySystem.GetBodyPartStatus(target);
         // Shitmed Change End
+        if (HasComp<UnrevivableComponent>(target))
+            unrevivable = true;
 
         _uiSystem.ServerSendUiMessage(healthAnalyzer, HealthAnalyzerUiKey.Key, new HealthAnalyzerScannedUserMessage(
             GetNetEntity(target),
@@ -268,6 +272,7 @@ public sealed class HealthAnalyzerSystem : EntitySystem
             bloodAmount,
             scanMode,
             bleeding,
+            unrevivable,
             // Shitmed Change
             body,
             part != null ? GetNetEntity(part) : null

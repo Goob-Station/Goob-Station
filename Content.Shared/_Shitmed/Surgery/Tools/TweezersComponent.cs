@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 
 /// <summary>
-/// GoobStation: Like Hemostat but lets ghetto tools be used differently for clamping and removing organs.
+///     Like Hemostat but lets ghetto tools be used differently for clamping and removing organs.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class TweezersComponent : Component, ISurgeryToolComponent

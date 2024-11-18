@@ -105,9 +105,9 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
-  - type: Cautery # GoobStation
+  - type: Cautery # Shitmed
     speed: 0.7
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       collection: Welder
     endSound:

@@ -1,0 +1,45 @@
+- type: body
+  id: Yowie
+  name: yowie
+  root: torso
+  slots:
+    head:
+      part: HeadYowie
+      connections:
+      - torso
+      organs:
+        brain: OrganHumanBrain
+    torso:
+      part: TorsoYowie
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      organs:
+        stomach: OrganHumanStomach
+        lungs: OrganHumanLungs
+    right arm:
+      part: RightArmYowie
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmYowie
+      connections:
+      - left hand
+    right hand:
+      part: RightHandYowie
+    left hand:
+      part: LeftHandYowie
+    right leg:
+      part: RightLegYowie
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegYowie
+      connections:
+      - left foot
+    right foot:
+      part: RightFootYowie
+    left foot:
+      part: LeftFootYowie
