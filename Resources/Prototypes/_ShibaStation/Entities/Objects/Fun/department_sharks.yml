@@ -18,7 +18,7 @@
     storedRotation: -90
   - type: Tag
     tags:
-      # - PlushieSharkBlue # May need this for the buckets.
+      - PlushieSharkCommand
       - Payload
 
 - type: entity
@@ -41,6 +41,7 @@
     storedRotation: -90
   - type: Tag
     tags:
+      - PlushieSharkMedical
       - Payload
 
 - type: entity
@@ -63,6 +64,7 @@
     storedRotation: -90
   - type: Tag
     tags:
+      - PlushieSharkScience
       - Payload
 
 - type: entity
@@ -85,6 +87,7 @@
     storedRotation: -90
   - type: Tag
     tags:
+      - PlushieSharkEngineering
       - Payload
 
 - type: entity
@@ -107,6 +110,7 @@
     storedRotation: -90
   - type: Tag
     tags:
+      - PlushieSharkSecurity
       - Payload
 
 - type: entity
@@ -129,4 +133,5 @@
     storedRotation: -90
   - type: Tag
     tags:
+      - PlushieSharkCargo
       - Payload
