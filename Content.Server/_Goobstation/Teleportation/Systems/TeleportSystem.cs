@@ -24,6 +24,7 @@ namespace Content.Server.Teleportation;
 
 public sealed class TeleportSystem : EntitySystem
 {
+    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
@@ -34,11 +35,15 @@ public sealed class TeleportSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly IPrototypeManager _prot = default!;
 
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RandomTeleportOnUseComponent, UseInHandEvent>(OnUseInHand);
+
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     private void OnUseInHand(EntityUid uid, RandomTeleportOnUseComponent component, UseInHandEvent args)
@@ -73,54 +78,83 @@ public sealed class TeleportSystem : EntitySystem
 
     public void RandomTeleport(EntityUid uid, RandomTeleportComponent component)
     {
-        RandomTeleport(uid, component.Radius);
+        RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport);
     }
 
-    public void RandomTeleport(EntityUid uid, MinMax radius)
+    public Vector2 GetTeleportVector(float minRadius, float extraRadius)
+    {
+        // Generate a random number from 0 to 1 and multiply by radius to get distance we should teleport to
+        // A square root is taken from the random number so we get an uniform distribution of teleports, else you would get more teleports close to you
+        var distance = minRadius + extraRadius * MathF.Sqrt(_random.NextFloat());
+        // Generate a random vector with the length we've chosen
+        return _random.NextAngle().ToVec() * distance;
+    }
+
+    public void RandomTeleport(EntityUid uid, MinMax radius, int triesBase = 10, bool forceSafe = true)
     {
         var xform = Transform(uid);
-        var localpos = xform.Coordinates.Position;
+        // break any active pulls e.g. secoff pulling you with cuffs
+        if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
+            _pullingSystem.TryStopPull(uid, pullable);
 
         // if we teleport the pulled entity goes with us
         EntityUid? pullableEntity = null;
         if (TryComp<PullerComponent>(uid, out var puller))
             pullableEntity = puller.Pulling;
 
-        // break any active pulls e.g. secoff pulling you with cuffs
-        if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
-            _pullingSystem.TryStopPull(uid, pullable);
+        var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
 
-        var tiles = new List<TileRef>();
-        // find a random good** position for teleportation (which isn't space or a wall)
-        if (TryComp<MapGridComponent>(xform.GridUid, out var grid))
+        var targetCoords = new MapCoordinates();
+        // Randomly picks tiles in range until it finds a valid tile
+        // If attempts is 1 or less, degenerates to a completely random teleport
+        var tries = triesBase;
+        // If forcing a safe teleport, try double the attempts but gradually lower radius in the second half of them
+        if (forceSafe)
+            tries *= 2;
+        // How far outwards from the minimum radius we can teleport
+        var extraRadiusBase = radius.Max - radius.Min;
+        var foundValid = false;
+        for (var i = 0; i < tries; i++)
         {
-            var max = new Vector2(radius.Max, radius.Max);
-            var box = new Box2(localpos - max, localpos + max);
+            var extraRadius = extraRadiusBase;
+            // If we're trying to force a safe teleport and haven't found a valid destination in a while, gradually lower the search radius so we're searching in a smaller area
+            if (forceSafe && i >= triesBase)
+                extraRadius *= (tries - i) / triesBase;
 
-            tiles = _map.GetLocalTilesIntersecting(uid, grid, box)
-                .Where(t => !t.Tile.IsEmpty) // NO SPACE
-                .Where(t => t.GetEntitiesInTile(LookupFlags.Static, _lookup).ToList().Count == 0) // prevent teleporting into a wall
-                .Where(t => (t.GridIndices - localpos).Length() >= radius.Min) // no less than minimal radius
-                .ToList();
-        }
+            targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadius));
 
-        if (tiles.Count() == 0)
-        {
-            // just teleport randomly
-            var distance = _random.Next(radius.Min, radius.Max);
-            var targetCoords = _xform.ToMapCoordinates(xform.Coordinates).Offset(_random.NextAngle().ToVec() * distance);
-            _xform.SetWorldPosition(uid, targetCoords.Position);
-        }
-        else
-        {
-            var tile = _random.Pick(tiles.ToList());
-            _xform.SetLocalPosition(uid, tile.GridIndices, xform);
-        }
+            // Try to not teleport into open space
+            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
+                continue;
+            // Check if we picked a position inside a solid object
+            var valid = true;
+            foreach (var entity in grid.GetAnchoredEntities(targetCoords))
+            {
+                if (!_physicsQuery.TryGetComponent(entity, out var body))
+                    continue;
 
+                if (body.BodyType != BodyType.Static ||
+                    !body.Hard ||
+                    (body.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
+                    continue;
+
+                valid = false;
+                break;
+            }
+            // Current target coordinates are not inside a solid body, can go ahead and teleport
+            if (valid)
+            {
+                foundValid = true;
+                break;
+            }
+        }
+        // We haven't found a valid teleport, so just teleport to any spot in range
+        if (!foundValid)
+            targetCoords = entityCoords.Offset(GetTeleportVector(radius.Min, extraRadiusBase));
+
+        _xform.SetWorldPosition(uid, targetCoords.Position);
         // pulled entity goes with us
         if (pullableEntity != null)
-        {
             _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
-        }
     }
 }

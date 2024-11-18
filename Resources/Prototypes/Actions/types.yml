@@ -140,7 +140,7 @@
   - type: InstantAction
     checkCanInteract: false
     # charges: 2 # Goobstation - Scrambler buff
-    useDelay: 120 # Goobstation - Scrambler buff, Goobstation - Fix scram
+    useDelay: 300 # Goobstation - Scrambler buff, Goobstation - Fix scram
     itemIconStyle: BigAction
     priority: -20
     icon:

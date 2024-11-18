@@ -15,5 +15,15 @@ public partial class RandomTeleportComponent : Component
     /// </summary>
     [DataField] public MinMax Radius = new MinMax(10, 20);
 
+    /// <summary>
+    ///     How many times to try to pick the destination. Larger number means the teleport is more likely to be safe.
+    /// </summary>
+    [DataField] public int TeleportAttempts = 10;
+
+    /// <summary>
+    ///     Will try harder to find a safe teleport.
+    /// </summary>
+    [DataField] public bool ForceSafeTeleport = true;
+
     [DataField] public ProtoId<SoundCollectionPrototype> TeleportSounds = "sparks";
 }
