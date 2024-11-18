@@ -1,0 +1,132 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkCommand
+  name: command shark soft toy
+  description: Captain Shark at the helm!
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: command
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: command
+    storedRotation: -90
+  - type: Tag
+    tags:
+      # - PlushieSharkBlue # May need this for the buckets.
+      - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkMedical
+  name: medical shark soft toy
+  description: I guess this is a Nurse Shark?
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: medical
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: medical
+    storedRotation: -90
+  - type: Tag
+    tags:
+      - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkScience
+  name: science shark soft toy
+  description: Super-Human Anomalous Research Kutie.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: science
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: science
+    storedRotation: -90
+  - type: Tag
+    tags:
+      - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkEngineering
+  name: engineering shark soft toy
+  description: Would a Hammerhead be more fitting?
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: engineering
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: engineering
+    storedRotation: -90
+  - type: Tag
+    tags:
+      - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkSecurity
+  name: security shark soft toy
+  description: Prone to biting the clown.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: security
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: security
+    storedRotation: -90
+  - type: Tag
+    tags:
+      - Payload
+
+- type: entity
+  parent: BasePlushie
+  id: PlushieSharkCargo
+  name: cargo shark soft toy
+  description: Can we order a big fishtank for this one?
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Fun/departmentsharks.rsi
+    state: cargo
+  - type: EmitSoundOnUse
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: EmitSoundOnActivate
+    sound:
+      path: /Audio/Items/Toys/rawr.ogg
+  - type: Item
+    heldPrefix: cargo
+    storedRotation: -90
+  - type: Tag
+    tags:
+      - Payload
