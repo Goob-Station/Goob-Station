@@ -4,12 +4,15 @@ namespace Content.Client.Chat.Managers
 {
     public interface IChatManager : ISharedChatManager
     {
-        public void SendMessage(string text, ChatSelectChannel channel);
+        void Initialize();
 
         /// <summary>
-        ///     Nyano - Summary:. Will refresh perms.
+        ///     Will refresh perms.
         /// </summary>
         event Action PermissionsUpdated;
+
+        public void SendMessage(string text, ChatSelectChannel channel);
+
         public void UpdatePermissions();
     }
 }

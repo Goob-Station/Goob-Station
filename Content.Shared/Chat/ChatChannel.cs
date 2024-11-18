@@ -79,11 +79,16 @@ namespace Content.Shared.Chat
         ///     Admin chat
         /// </summary>
         AdminChat = 1 << 13,
+        
+        /// <summary>
+        ///     Collective mind channel for entities who have comp.
+        /// </summary>
+        CollectiveMind = 1 << 14,
 
         /// <summary>
         ///     Unspecified.
         /// </summary>
-        Unspecified = 1 << 14,
+        Unspecified = 1 << 15,
 
         /// <summary>
         ///     Nyano - Summary:: Telepathic channel for all psionic entities.
@@ -93,7 +98,7 @@ namespace Content.Shared.Chat
         /// <summary>
         ///     Channels considered to be IC.
         /// </summary>
-        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | Notifications, //Nyano - Summary: Adds telepathic as an 'IC' labelled chat..
+        IC = Local | Whisper | Radio | Dead | Emotes | Damage | Visual | Telepathic | CollectiveMind | Notifications,
 
         AdminRelated = Admin | AdminAlert | AdminChat,
     }
