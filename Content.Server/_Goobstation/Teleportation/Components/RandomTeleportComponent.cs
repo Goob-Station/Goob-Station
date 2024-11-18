@@ -25,5 +25,6 @@ public partial class RandomTeleportComponent : Component
     /// </summary>
     [DataField] public bool ForceSafeTeleport = true;
 
-    [DataField] public ProtoId<SoundCollectionPrototype> TeleportSounds = "sparks";
+    [DataField] public SoundSpecifier ArrivalSound = new SoundPathSpecifier("/Audio/Effects/teleport_arrival.ogg");
+    [DataField] public SoundSpecifier DepartureSound = new SoundPathSpecifier("/Audio/Effects/teleport_departure.ogg");
 }

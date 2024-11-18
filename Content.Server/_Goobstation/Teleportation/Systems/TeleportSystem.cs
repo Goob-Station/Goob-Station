@@ -51,15 +51,7 @@ public sealed class TeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        var sound = _random.Pick(_prot.Index<SoundCollectionPrototype>(component.TeleportSounds).PickFiles);
-
-        _audio.PlayPvs(new SoundPathSpecifier(sound), Transform(uid).Coordinates, AudioParams.Default);
-
         RandomTeleport(args.User, component);
-
-        // play before and after teleport
-        // TODO: replace spark sounds with an actual spark system that makes spark particles go off.
-        _audio.PlayPvs(new SoundPathSpecifier(sound), Transform(uid).Coordinates, AudioParams.Default);
 
         if (component.ConsumeOnUse)
         {
@@ -76,9 +68,17 @@ public sealed class TeleportSystem : EntitySystem
         _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} randomly teleported with {ToPrettyString(uid)}");
     }
 
-    public void RandomTeleport(EntityUid uid, RandomTeleportComponent component)
+    public void RandomTeleport(EntityUid uid, RandomTeleportComponent component, bool playSound = true)
     {
+        // play sound before and after teleport if playSound is true
+        if (playSound)
+            _audio.PlayPvs(component.DepartureSound, Transform(uid).Coordinates, AudioParams.Default);
+
         RandomTeleport(uid, component.Radius, component.TeleportAttempts, component.ForceSafeTeleport);
+
+        if (playSound)
+            _audio.PlayPvs(component.ArrivalSound, Transform(uid).Coordinates, AudioParams.Default);
+
     }
 
     public Vector2 GetTeleportVector(float minRadius, float extraRadius)
