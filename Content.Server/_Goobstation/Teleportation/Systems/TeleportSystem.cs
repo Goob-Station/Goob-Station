@@ -90,36 +90,37 @@ public sealed class TeleportSystem : EntitySystem
         if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
             _pullingSystem.TryStopPull(uid, pullable);
 
+        var tiles = new List<TileRef>();
         // find a random good** position for teleportation (which isn't space or a wall)
         if (TryComp<MapGridComponent>(xform.GridUid, out var grid))
         {
             var max = new Vector2(radius.Max, radius.Max);
             var box = new Box2(localpos - max, localpos + max);
 
-            var tiles = _map.GetLocalTilesIntersecting(uid, grid, box)
+            tiles = _map.GetLocalTilesIntersecting(uid, grid, box)
                 .Where(t => !t.Tile.IsEmpty) // NO SPACE
                 .Where(t => t.GetEntitiesInTile(LookupFlags.Static, _lookup).ToList().Count == 0) // prevent teleporting into a wall
                 .Where(t => (t.GridIndices - localpos).Length() >= radius.Min) // no less than minimal radius
                 .ToList();
+        }
 
-            if (tiles.Count() == 0)
-            {
-                // just teleport randomly
-                var distance = _random.Next(radius.Min, radius.Max);
-                var targetCoords = _xform.ToMapCoordinates(xform.Coordinates).Offset(_random.NextAngle().ToVec() * distance);
-                _xform.SetWorldPosition(uid, targetCoords.Position);
-            }
-            else
-            {
-                var tile = _random.Pick(tiles.ToList());
-                _xform.SetLocalPosition(uid, tile.GridIndices, xform);
-            }
+        if (tiles.Count() == 0)
+        {
+            // just teleport randomly
+            var distance = _random.Next(radius.Min, radius.Max);
+            var targetCoords = _xform.ToMapCoordinates(xform.Coordinates).Offset(_random.NextAngle().ToVec() * distance);
+            _xform.SetWorldPosition(uid, targetCoords.Position);
+        }
+        else
+        {
+            var tile = _random.Pick(tiles.ToList());
+            _xform.SetLocalPosition(uid, tile.GridIndices, xform);
+        }
 
-            // pulled entity goes with us
-            if (pullableEntity != null)
-            {
-                _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
-            }
+        // pulled entity goes with us
+        if (pullableEntity != null)
+        {
+            _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
         }
     }
 }
