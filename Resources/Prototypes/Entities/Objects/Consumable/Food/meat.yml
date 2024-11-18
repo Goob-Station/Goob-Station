@@ -696,6 +696,7 @@
   - type: Tag
     tags:
     - Raw
+    - Meat
   - type: Sprite
     state: snake
   - type: SolutionContainerManager

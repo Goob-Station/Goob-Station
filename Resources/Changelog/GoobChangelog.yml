@@ -1898,3 +1898,11 @@ Entries:
       message: Added Cryosleep Beacon to Barratry.
   id: 232
   time: '2024-11-18T01:36:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        The scram implant will no longer teleport you into open space or very
+        close to your original position.
+  id: 233
+  time: '2024-11-18T21:30:57.0000000+00:00'

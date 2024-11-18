@@ -187,6 +187,20 @@
       - MindRoleTraitor
 
 - type: entity
+  id: TraitorReinforcement
+  parent: BaseTraitorRule
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
   id: Revolutionary
   parent: BaseGameRule
   components:

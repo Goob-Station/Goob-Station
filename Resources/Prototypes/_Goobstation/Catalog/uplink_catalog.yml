@@ -9,7 +9,6 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -20,7 +19,6 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
 
 - type: listing
   id: UplinkBoxSkibidiRizz
@@ -31,7 +29,7 @@
     Telecrystal: 30
   categories:
     - UplinkDisruption
-  saleLimit: 1
+
 
 # Weaponry
 
@@ -45,7 +43,7 @@
     Telecrystal: 100
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -56,7 +54,7 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkMiniatureEnergyCrossbow
@@ -68,7 +66,7 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
 
 # Wearables
 
@@ -82,7 +80,7 @@
     Telecrystal: 55 # novelty item for the larp
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHardsuitSyndieCommander
@@ -94,7 +92,7 @@
     Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHardsuitCybersunStealth
@@ -106,7 +104,7 @@
     Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
   categories:
   - UplinkWearables
-  saleLimit: 1
+
 
 # Job specific
 - type: listing
@@ -123,7 +121,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkLubeGrenade
@@ -139,7 +137,7 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkGlueGrenade
@@ -155,7 +153,7 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -167,7 +165,7 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkJermovCircuitBoard
@@ -183,7 +181,7 @@
     whitelist:
     - Clown
     - Passenger
-  saleLimit: 1
+
 
 # chemicals
 
@@ -196,7 +194,7 @@
     Telecrystal: 28
   categories:
   - UplinkChemicals
-  saleLimit: 1
+
 
 # Implants
 
@@ -215,8 +213,8 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-  saleLimit: 1
-  
+
+
 - type: listing
   id: UplinkSmugglerSatchel
   name: uplink-smugglers-satchel-name
@@ -227,4 +225,4 @@
     Telecrystal: 15
   categories:
   - UplinkDeception
-  saleLimit: 1
+
