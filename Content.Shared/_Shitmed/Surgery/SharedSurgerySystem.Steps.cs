@@ -423,6 +423,12 @@ public abstract partial class SharedSurgerySystem
                 && _body.InsertOrgan(args.Part, tool, insertedOrgan.SlotId, partComp, insertedOrgan))
             {
                 EnsureComp<OrganReattachedComponent>(tool);
+                if (_body.TrySetOrganUsed(tool, true, insertedOrgan)
+                    && insertedOrgan.OriginalBody != args.Body)
+                {
+                    var ev = new SurgeryStepDamageChangeEvent(args.User, args.Body, args.Part, ent);
+                    RaiseLocalEvent(ent, ref ev);
+                }
                 break;
             }
         }
@@ -593,26 +599,29 @@ public abstract partial class SharedSurgerySystem
         if (!CanPerformStep(user, body, part, step, true, out _, out _, out var validTools))
             return;
 
-        // make the doafter longer for ghetto tools, or shorter for advanced ones
         var speed = 1f;
         var usedEv = new SurgeryToolUsedEvent(user, body);
-        foreach (var (tool, toolSpeed) in validTools!)
+        // We need to check for nullability because of surgeries that dont require a tool, like Cavity Implants
+        if (validTools?.Count > 0)
         {
-            RaiseLocalEvent(tool, ref usedEv);
-            if (usedEv.Cancelled)
-                return;
-
-            speed *= toolSpeed;
-        }
-
-        if (_net.IsServer)
-        {
-            foreach (var tool in validTools.Keys)
+            foreach (var (tool, toolSpeed) in validTools)
             {
-                if (TryComp(tool, out SurgeryToolComponent? toolComp) &&
-                    toolComp.EndSound != null)
+                RaiseLocalEvent(tool, ref usedEv);
+                if (usedEv.Cancelled)
+                    return;
+
+                speed *= toolSpeed;
+            }
+
+            if (_net.IsServer)
+            {
+                foreach (var tool in validTools.Keys)
                 {
-                    _audio.PlayEntity(toolComp.StartSound, user, tool);
+                    if (TryComp(tool, out SurgeryToolComponent? toolComp) &&
+                        toolComp.EndSound != null)
+                    {
+                        _audio.PlayEntity(toolComp.StartSound, user, tool);
+                    }
                 }
             }
         }
@@ -622,7 +631,7 @@ public abstract partial class SharedSurgerySystem
 
         var ev = new SurgeryDoAfterEvent(args.Surgery, args.Step);
         // TODO: Move 2 seconds to a field of SurgeryStepComponent
-        var duration = 2f * speed;
+        var duration = 2f / speed;
         if (TryComp(user, out SurgerySpeedModifierComponent? surgerySpeedMod)
             && surgerySpeedMod is not null)
             duration = duration / surgerySpeedMod.SpeedModifier;

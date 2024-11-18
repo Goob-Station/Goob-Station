@@ -40,9 +40,9 @@
     heldPrefix: brain
   - type: Sprite
     state: brain
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: Brain
-  - type: Brain # GoobStation
+  - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -74,7 +74,7 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: eyes
   - type: Tag # goob edit
     tags:
@@ -99,7 +99,7 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: stomach
   - type: Stomach
   - type: Metabolizer
@@ -131,7 +131,7 @@
   components:
   - type: Sprite
     state: lungs
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: lungs
   - type: Item
     size: Small
