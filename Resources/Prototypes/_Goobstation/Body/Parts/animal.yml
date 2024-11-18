@@ -8,3 +8,41 @@
   - type: Sprite
     layers:
     - state: head_m
+
+- type: entity
+  abstract: true
+  parent: PartAnimal
+  id: BaseCarpPart
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Aliens/Carps/carp_parts.rsi
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCarpPart
+  id: TailCarp
+  name: carp tail
+  description: Unique glands in this tail let space carp fly in a vacuum.
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+  - type: BodyPart
+    partType: Tail
+  - type: MovementBodyPart
+    walkSpeed: 2.5
+    sprintSpeed: 3.5
+  # TODO: Make it actually needed. Legs are hardcoded to be the only parts that matter for movement.
+  # TODO: space flight stuff
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseCarpPart
+  id: TorsoCarp
+  name: carp torso
+  components:
+  - type: Sprite
+    layers:
+    - state: torso
+  - type: BodyPart
+    partType: Torso
