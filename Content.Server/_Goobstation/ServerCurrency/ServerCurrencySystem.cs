@@ -1,6 +1,8 @@
 using Content.Shared.GameTicking;
 using Content.Server._Goobstation.ServerCurrency;
 using Content.Shared._Goobstation.ServerCurrency.Events;
+using Content.Server.Popups;
+using Content.Shared.Popups;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
@@ -10,7 +12,7 @@ namespace Content.Server._Goobstation.ServerCurrency
     public sealed class ServerCurrencySystem : EntitySystem
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
-
+        [Dependency] private readonly PopupSystem _popupSystem = default!;
         public override void Initialize()
         {
             base.Initialize();
@@ -35,6 +37,12 @@ namespace Content.Server._Goobstation.ServerCurrency
         private void OnPlayerBalanceChange(PlayerBalanceChangeEvent ev)
         {
             RaiseLocalEvent(ev.EntID, ref ev);
+
+            if(ev.NewAmount > ev.OldAmount)
+                _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewAmount - ev.OldAmount), ev.EntID, ev.EntID, PopupType.Medium);
+            else if (ev.NewAmount < ev.OldAmount)
+                _popupSystem.PopupEntity("-" + _currencyMan.Stringify(ev.OldAmount - ev.NewAmount), ev.EntID, ev.EntID, PopupType.MediumCaution);
+            // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
         }
     }
 }
