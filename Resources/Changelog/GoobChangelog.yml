@@ -1860,3 +1860,13 @@ Entries:
       message: Fixed harpies being immune to the scalpel.
   id: 227
   time: '2024-11-17T13:36:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added sink to Chemistry on Kettle.
+    - type: Fix
+      message: >-
+        Kettle's lockdown button no longer opens/closes the door, only the blast
+        doors.
+  id: 228
+  time: '2024-11-18T00:19:11.0000000+00:00'
