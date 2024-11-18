@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Server.Administration.Logs;
 using Content.Server.Stack;
 using Content.Shared.Database;
@@ -12,28 +13,32 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Random;
+using Content.Shared.Destructible.Thresholds;
+using Content.Shared.Maps;
+using Content.Shared.Tiles;
+using Robust.Shared.Map.Components;
+using System.Linq;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Teleportation;
 
 public sealed class TeleportSystem : EntitySystem
 {
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedTransformSystem _xform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
-    [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly IAdminLogManager _alog = default!;
     [Dependency] private readonly StackSystem _stack = default!;
-
-    private EntityQuery<PhysicsComponent> _physicsQuery;
+    [Dependency] private readonly SharedMapSystem _map = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
+    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<RandomTeleportOnUseComponent, UseInHandEvent>(OnUseInHand);
-
-        _physicsQuery = GetEntityQuery<PhysicsComponent>();
     }
 
     private void OnUseInHand(EntityUid uid, RandomTeleportOnUseComponent component, UseInHandEvent args)
@@ -41,73 +46,80 @@ public sealed class TeleportSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
-            return;
+        var sound = _random.Pick(_prot.Index<SoundCollectionPrototype>(component.TeleportSounds).PickFiles);
 
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
+        _audio.PlayPvs(new SoundPathSpecifier(sound), Transform(uid).Coordinates, AudioParams.Default);
 
-        RandomTeleport(args.User, teleport);
+        RandomTeleport(args.User, component);
 
-        if (!component.ConsumeOnUse)
-            return;
+        // play before and after teleport
+        // TODO: replace spark sounds with an actual spark system that makes spark particles go off.
+        _audio.PlayPvs(new SoundPathSpecifier(sound), Transform(uid).Coordinates, AudioParams.Default);
 
-        if (TryComp<StackComponent>(uid, out var stack))
+        if (component.ConsumeOnUse)
         {
-            _stack.SetCount(uid, stack.Count - 1, stack);
-            return;
+            if (TryComp<StackComponent>(uid, out var stack))
+            {
+                _stack.SetCount(uid, stack.Count - 1, stack);
+                return;
+            }
+
+            // It's consumed on use and it's not a stack so delete it
+            QueueDel(uid);
         }
 
-        // It's consumed on use and it's not a stack so delete it
-        QueueDel(uid);
+        _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} randomly teleported with {ToPrettyString(uid)}");
     }
 
     public void RandomTeleport(EntityUid uid, RandomTeleportComponent component)
     {
-        RandomTeleport(uid, component.TeleportRadius, component.TeleportSound, component.TeleportAttempts);
+        RandomTeleport(uid, component.Radius);
     }
 
-    public void RandomTeleport(EntityUid uid, float radius, SoundSpecifier sound, int attempts)
+    public void RandomTeleport(EntityUid uid, MinMax radius)
     {
-        // We need stop the user from being pulled so they don't just get "attached" with whoever is pulling them.
-        // This can for example happen when the user is cuffed and being pulled.
-        if (TryComp<PullableComponent>(uid, out var pull) && _pullingSystem.IsPulled(uid, pull))
-            _pullingSystem.TryStopPull(uid, pull);
-
         var xform = Transform(uid);
-        var entityCoords = xform.Coordinates.ToMap(EntityManager, _xform);
+        var localpos = xform.Coordinates.Position;
 
-        var targetCoords = new MapCoordinates();
-        // Try to find a valid position to teleport to, teleport to whatever works if we can't
-        // If attempts is 1 or less, degenerates to a completely random teleport
-        for (var i = 0; i < Math.Max(attempts, 1); i++)
+        // if we teleport the pulled entity goes with us
+        EntityUid? pullableEntity = null;
+        if (TryComp<PullerComponent>(uid, out var puller))
+            pullableEntity = puller.Pulling;
+
+        // break any active pulls e.g. secoff pulling you with cuffs
+        if (TryComp<PullableComponent>(uid, out var pullable) && _pullingSystem.IsPulled(uid, pullable))
+            _pullingSystem.TryStopPull(uid, pullable);
+
+        // find a random good** position for teleportation (which isn't space or a wall)
+        if (TryComp<MapGridComponent>(xform.GridUid, out var grid))
         {
-            var distance = radius * MathF.Sqrt(_random.NextFloat()); // to get an uniform distribution
-            targetCoords = entityCoords.Offset(_random.NextAngle().ToVec() * distance);
+            var max = new Vector2(radius.Max, radius.Max);
+            var box = new Box2(localpos - max, localpos + max);
 
-            // Prefer teleporting to grids
-            if (!_mapManager.TryFindGridAt(targetCoords, out var gridUid, out var grid))
-                continue;
+            var tiles = _map.GetLocalTilesIntersecting(uid, grid, box)
+                .Where(t => !t.Tile.IsEmpty) // NO SPACE
+                .Where(t => t.GetEntitiesInTile(LookupFlags.Static, _lookup).ToList().Count == 0) // prevent teleporting into a wall
+                .Where(t => (t.GridIndices - localpos).Length() >= radius.Min) // no less than minimal radius
+                .ToList();
 
-            // If attempts is specified, whatever's being teleported probably does not want to be in your walls
-            var valid = true;
-            foreach (var entity in grid.GetAnchoredEntities(targetCoords))
+            if (tiles.Count() == 0)
             {
-                if (!_physicsQuery.TryGetComponent(entity, out var body))
-                    continue;
-
-                if (body.BodyType != BodyType.Static ||
-                    !body.Hard ||
-                    (body.CollisionLayer & (int) CollisionGroup.Impassable) == 0)
-                    continue;
-
-                valid = false;
-                break;
+                // just teleport randomly
+                var distance = _random.Next(radius.Min, radius.Max);
+                var targetCoords = _xform.ToMapCoordinates(xform.Coordinates).Offset(_random.NextAngle().ToVec() * distance);
+                _xform.SetWorldPosition(uid, targetCoords.Position);
             }
-            if (valid)
-                break;
-        }
+            else
+            {
+                var tile = _random.Pick(tiles.ToList());
+                _xform.SetLocalPosition(uid, tile.GridIndices, xform);
+            }
 
-        _xform.SetWorldPosition(uid, targetCoords.Position);
-        _audio.PlayPvs(sound, uid);
+            // pulled entity goes with us
+            if (pullableEntity != null)
+            {
+                _xform.SetWorldPosition((EntityUid) pullableEntity, _xform.GetWorldPosition(uid));
+            }
+        }
     }
 }
