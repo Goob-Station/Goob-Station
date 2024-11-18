@@ -94,7 +94,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         component.ObjectiveIssuer = issuer;
 
         Note[]? code = null;
-        if (giveUplink)
+        if (component.GiveUplink)
         {
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
@@ -116,11 +116,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         }
 
         _antag.SendBriefing(traitor, GenerateBriefing(component.Codewords, code, issuer), Color.Crimson, component.GreetSoundNotification);
-
-        var issuer = _random.Pick(_prototypeManager.Index(component.ObjectiveIssuers).Values);
-
-        // Uplink code will go here if applicable, but we still need the variable if there aren't any
-        Note[]? code = null;
 
         if (component.GiveUplink)
         {
@@ -222,21 +217,17 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?
-    private string GenerateBriefing(string[] codewords, Note[]? uplinkCode, string objectiveIssuer)
+    private string GenerateBriefing(string[]? codewords, Note[]? uplinkCode, string? objectiveIssuer = null)
     {
         var sb = new StringBuilder();
-        sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-intro"));
-
+        sb.AppendLine(Loc.GetString("traitor-role-greeting", ("corporation", objectiveIssuer ?? Loc.GetString("objective-issuer-unknown"))));
+        if (codewords != null)
+            sb.AppendLine(Loc.GetString("traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
         if (uplinkCode != null)
-        {
-            sb.AppendLine("\n" + Loc.GetString($"traitor-{objectiveIssuer}-uplink"));
-            sb.AppendLine(Loc.GetString($"traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
-        }
-        else sb.AppendLine("\n" + Loc.GetString($"traitor-role-nouplink"));
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-code", ("code", string.Join("-", uplinkCode).Replace("sharp", "#"))));
+        else
+            sb.AppendLine(Loc.GetString("traitor-role-uplink-implant"));
 
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-codewords", ("codewords", string.Join(", ", codewords))));
-
-        sb.AppendLine("\n" + Loc.GetString($"traitor-role-moreinfo"));
 
         return sb.ToString();
     }

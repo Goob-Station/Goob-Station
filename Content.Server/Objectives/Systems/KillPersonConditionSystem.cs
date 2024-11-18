@@ -4,6 +4,7 @@ using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Robust.Shared.Configuration;
@@ -20,6 +21,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly TraitorRuleSystem _traitor = default!;
 
@@ -90,7 +92,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         }
 
         var allHeads = new List<EntityUid>();
-        foreach (var person in allHumans)
+        foreach (var mind in allHumans)
         {
             // RequireAdminNotify used as a cheap way to check for command department
             if (_job.MindTryGetJob(mind, out var prototype) && prototype.RequireAdminNotify)

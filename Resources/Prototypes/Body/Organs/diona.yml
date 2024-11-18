@@ -130,13 +130,9 @@
   description: "A spongy mess of slimy, leaf-like structures. Capable of breathing both carbon dioxide and oxygen."
   components:
   - type: Sprite
-    sprite: Mobs/Species/Human/organs.rsi
-    layers:
-      - state: lung-l
-      - state: lung-r
+    state: lungs
   - type: Organ # GoobStation
     slotId: lungs
-    state: lungs
   - type: Item
     size: Small
     heldPrefix: lungs

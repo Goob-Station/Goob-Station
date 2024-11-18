@@ -1,11 +1,13 @@
 using Content.Server.Objectives.Components;
-using Content.Server.Revolutionary.Components;
 using Content.Shared.Objectives.Components;
+using Content.Shared.Roles.Jobs;
 
 namespace Content.Server.Objectives.Systems;
 
 public sealed class NotCommandRequirementSystem : EntitySystem
 {
+    [Dependency] private readonly SharedJobSystem _job = default!;
+
     public override void Initialize()
     {
         base.Initialize();

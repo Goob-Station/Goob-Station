@@ -1,4 +1,3 @@
-using Content.Shared._White.StoreDiscount;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -86,11 +85,6 @@ public sealed partial class StoreComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? StartingMap;
-
-    // WD EDIT START
-    [DataField]
-    public SalesSpecifier Sales { get; private set; } = new();
-    // WD EDIT END
 
     #region audio
     /// <summary>
