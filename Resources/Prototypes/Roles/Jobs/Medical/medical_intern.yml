@@ -15,6 +15,11 @@
   access:
   - Medical
   - Maintenance
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      SpeedModifier: 1.5
 
 - type: startingGear
   id: MedicalInternGear

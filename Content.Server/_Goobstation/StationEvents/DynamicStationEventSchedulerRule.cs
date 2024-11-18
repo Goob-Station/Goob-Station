@@ -1,6 +1,8 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.GameTicking.Components;
 using System.Linq;
 
@@ -10,6 +12,7 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
 {
     [Dependency] private readonly DynamicRuleSystem _dynamic = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
 
     public override void Update(float frameTime)
     {
@@ -46,11 +49,15 @@ public sealed partial class DynamicStationEventSchedulerRule : GameRuleSystem<Dy
             toReroll = true;
 
         // try rerolling events until success
-        if (toReroll && attempt < attemptLimit)
-            RollRandomAntagEvent(component, attempt: attempt += 1);
-        else if (attempt > attemptLimit)
+        if (toReroll)
         {
-            // todo: write debug stuff here
+            if (attempt >= attemptLimit)
+            {
+                _adminLog.Add(LogType.EventRan, LogImpact.Low, $"Could not spawn another midround event due to lack of budget.");
+                return;
+            }
+
+            RollRandomAntagEvent(component, attempt: attempt += 1);
             return;
         }
 

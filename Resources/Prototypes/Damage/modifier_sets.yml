@@ -306,3 +306,14 @@
   id: PotassiumIodide
   coefficients:
     Radiation: 0.1
+
+# Shitmed modification: Change this if you want to alter how damage types affect part severing/integrity.
+- type: damageModifierSet
+  id: PartDamage
+  coefficients:
+    Blunt: 0.8
+    Slash: 1.2
+    Piercing: 0.5
+    Cold: 0.5
+    Heat: 0.8
+    Shock: 0.5

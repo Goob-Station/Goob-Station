@@ -46,6 +46,8 @@
     layers:
       - state: lung-l-slime
       - state: lung-r-slime
+  - type: Organ # GoobStation
+    slotId: lungs
   - type: Lung
     alert: LowNitrogen
   - type: Metabolizer

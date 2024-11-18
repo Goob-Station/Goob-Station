@@ -39,6 +39,12 @@ public sealed partial class HealthAnalyzerComponent : Component
     public EntityUid? ScannedEntity;
 
     /// <summary>
+    /// Shitmed Change: The body part that is currently being scanned.
+    /// </summary>
+    [DataField]
+    public EntityUid? CurrentBodyPart;
+
+    /// <summary>
     /// The maximum range in tiles at which the analyzer can receive continuous updates
     /// </summary>
     [DataField]
@@ -54,7 +60,7 @@ public sealed partial class HealthAnalyzerComponent : Component
     /// Sound played on scanning end
     /// </summary>
     [DataField]
-    public SoundSpecifier? ScanningEndSound;
+    public SoundSpecifier ScanningEndSound = new SoundPathSpecifier("/Audio/Items/Medical/healthscanner.ogg");
 
     /// <summary>
     /// Whether to show up the popup

@@ -22,6 +22,7 @@
   - ResearchDirector
   - Brig
   - Cryogenics
+  - External # goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

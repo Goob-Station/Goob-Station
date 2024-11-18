@@ -1428,3 +1428,473 @@ Entries:
       message: Updated Atlas to include all new goob features
   id: 176
   time: '2024-10-04T13:51:02.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added the Living Heart to heretic's arsenal.
+    - type: Tweak
+      message: >-
+        Eldritch gods will not accept anyone as a valid sacrifice for heretics
+        anymore.
+    - type: Fix
+      message: Fixed some heretics abilities bugs.
+    - type: Tweak
+      message: Made ash heretic's volcano blast ability not suck
+    - type: Tweak
+      message: Updated heretic guidebook GO READ IT!!!
+  id: 177
+  time: '2024-10-05T16:00:16.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed midround nukies weren't count as real syndicate members
+  id: 178
+  time: '2024-10-06T06:34:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: If you're reading this dynamic works
+  id: 179
+  time: '2024-10-07T04:18:45.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Highpop maps have higher role limits
+    - type: Tweak
+      message: Round end shouldn't cause insane lag spikes anymore (hopefully)
+  id: 180
+  time: '2024-10-10T19:05:22.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Meteors are gone.
+    - type: Remove
+      message: Asteroids are also gone.
+    - type: Tweak
+      message: Flares can no longer ignite stuff.
+  id: 181
+  time: '2024-10-12T21:50:41.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: Added jermov A.I. lawboard
+  id: 182
+  time: '2024-10-14T23:29:30.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed heretic and ling ui on Hapry and Slime.
+    - type: Fix
+      message: Fixed RPDS contraband group
+    - type: Fix
+      message: Fixed anomaly cores flying away from following target
+    - type: Fix
+      message: SM objective now check SM existence
+    - type: Tweak
+      message: Standing up doafter not breaking by damage anymore
+  id: 183
+  time: '2024-10-15T18:42:09.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        added station AI to train, mail drobe/teleporter to train cargo, and a
+        singular pickaxe to train engi, more cameras for AI, edited atmos so the
+        salv shuttle can fit (you have been compensated with a fireaxe and
+        combat gloves atmosians...), 
+    - type: Tweak
+      message: put train back in the map pool (min pop 30, max pop 60)
+  id: 184
+  time: '2024-10-15T19:56:04.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Added a reference to the man for whom all places are alike.
+  id: 185
+  time: '2024-10-16T06:39:49.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Random sentience events can target cleanbots and medibots once again.
+  id: 186
+  time: '2024-10-18T02:23:02.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: >-
+        Binary channel access readded to silicons without laws (pAI, vending
+        machines, bots).
+  id: 187
+  time: '2024-10-18T02:23:15.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed saying "lol" not making you laugh.
+  id: 188
+  time: '2024-10-18T02:24:47.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        HECU operative job/loadout (admeme, ghostrole, like how ERT is) and a
+        jumpsuit for them
+  id: 189
+  time: '2024-10-22T15:17:56.0000000+00:00'
+- author: Vlax2nd
+  changes:
+    - type: Fix
+      message: AI can spawn in highpop Fland
+  id: 190
+  time: '2024-10-22T15:30:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        added BSO hardsuit (finally) (stop stealing sec/engi/anything else now
+        losers)
+  id: 191
+  time: '2024-10-23T00:09:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Skibidi Toilet mobs are now ghost roles, and have the Ohio accent.
+    - type: Tweak
+      message: The Ohio accent has been updated & improved.
+    - type: Tweak
+      message: >-
+        The Supermatter, Singularity, and Tesla now get silly first and last
+        names.
+    - type: Add
+      message: Added SigmaJuice, a drink that gives you the Ohio accent.
+    - type: Add
+      message: Added a mid-round Skibidi Toilet invasion event.
+    - type: Add
+      message: >-
+        Added a new Syndicate item, the "Box of Skibidi Rizz". It contains 3
+        dehydrated Skibidi Toilets and 3 glasses of Sigma Juice.
+    - type: Add
+      message: Added some new interesting borg names
+  id: 192
+  time: '2024-10-26T13:41:18.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: >-
+        Stamina damage reworked. After reaching stamcrit you will get knocked
+        down. While in stamcrit it takes only one hit to fully paralyze you.
+    - type: Tweak
+      message: Reworked stunbaton. Apply it on the nearest assistant to find out more.
+    - type: Tweak
+      message: High stamina damage will now make you jitter and stutter.
+    - type: Tweak
+      message: >-
+        Stimulants, ephedrine, meth and other specific drugs give hardstun
+        resistance and adrenaline effect.
+    - type: Tweak
+      message: Wideswing now deals stamina damage.
+  id: 193
+  time: '2024-10-26T13:55:23.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        BSO hardsuit is now command restricted contra also its 55% pierce
+        instead of 60% now
+    - type: Fix
+      message: HECU ghostrole actually works now lmao
+  id: 194
+  time: '2024-10-27T02:27:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed Train Station from the map pool.
+  id: 195
+  time: '2024-10-30T23:07:42.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added 11 crazy new hairdo's
+  id: 196
+  time: '2024-10-30T23:13:54.0000000+00:00'
+- author: TGRCdev
+  changes:
+    - type: Fix
+      message: Geiger counters and appraisal tools should now work in rituals
+  id: 197
+  time: '2024-10-30T23:16:09.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Tweak
+      message: Updated Metashield rule for changeling
+  id: 198
+  time: '2024-10-30T23:17:07.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: Made changeling armblade more armey
+  id: 199
+  time: '2024-10-30T23:20:32.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: >-
+        Scram implant will now properly randomly teleport you over long
+        distances, and less often into space.
+  id: 200
+  time: '2024-10-30T23:22:15.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: added sportacus
+  id: 201
+  time: '2024-10-31T00:01:12.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: The logo doesn't look completely awful anymore
+    - type: Add
+      message: Detroit / Barratry has been re-added!!!!!
+  id: 202
+  time: '2024-10-31T01:50:08.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Barratry no longer has land mines in maintenance due to issues of skill.
+  id: 203
+  time: '2024-11-01T21:44:20.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Items with magical properties are now illegal on Nanotrasen territory.
+    - type: Add
+      message: Some heretic items now have better tooltips.
+    - type: Fix
+      message: Fixed void pull being extremely OP
+    - type: Fix
+      message: Heretics are now unable to transmute items using their own organs.
+    - type: Add
+      message: Added codex cicatrix for Heretics as an early progression tool.
+    - type: Tweak
+      message: Mansus grasp and codex cicatrix now glow in the dark.
+    - type: Add
+      message: >-
+        Added eldritch flask - a stage 3 side path for Heretics that provides a
+        cryostasis flask filled with heals.
+  id: 204
+  time: '2024-11-03T17:08:03.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added Kettle (before it was Gemini)!
+  id: 205
+  time: '2024-11-04T19:51:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: >-
+        Vulps, Felinids, and Harpies no longer have their hands the wrong way
+        around.
+  id: 206
+  time: '2024-11-06T23:35:43.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        Added nukeops agent and commander hardsuit back to the uplink, for 65
+        and 75 TC respectively.
+    - type: Add
+      message: RD has the binary key again in their locker.
+    - type: Add
+      message: >-
+        Ronald Reagen has implemented trickle-down economics to the Gorlex
+        Marauders, and the commander now has 350 TC instead of 225.
+    - type: Tweak
+      message: Sportacus' power grows...
+    - type: Fix
+      message: >-
+        Lockers with EVA gear, and suit storage units now all have oxygen and
+        nitrogen tanks.
+  id: 207
+  time: '2024-11-07T00:03:44.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Admin ghosts no longer need a free hand to pull things.
+  id: 208
+  time: '2024-11-07T00:04:19.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Lone operatives spawn with their shuttle rather than an entire planet
+        again
+  id: 209
+  time: '2024-11-07T00:05:12.0000000+00:00'
+- author: Verbalase
+  changes:
+    - type: Fix
+      message: Mistakes in Core Rule 13 should now be corrected.
+  id: 210
+  time: '2024-11-07T00:06:13.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added new emotes. Check them in the emote menu
+  id: 211
+  time: '2024-11-07T22:34:07.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: TTS
+  id: 212
+  time: '2024-11-08T08:28:30.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Fixed some errors with text/strings and options menu.
+  id: 213
+  time: '2024-11-09T01:56:22.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: All mobs can now flip, not just ones with hands
+    - type: Tweak
+      message: You can now also use *flips to access the flip emote.
+  id: 214
+  time: '2024-11-09T01:57:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added Bloodstains, Body Dragging Marks, and Bloody Footprints to the
+        game. Characters that walk through puddles of blood will now leave
+        behind bloody footprints. Dragging a corpse leaves a trail of blood
+        wherever the corpse was moved.
+  id: 215
+  time: '2024-11-09T02:58:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Added missing datasets for ATS and Salvage Shuttle names, now they look
+        normal on the Mass Scanner!
+  id: 216
+  time: '2024-11-11T01:36:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        NTrep and BSO are separate access now (currently only affects their
+        lockers)
+  id: 217
+  time: '2024-11-11T01:45:10.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Autodespawn Footsteps/Dragging
+    - type: Fix
+      message: Footsteps are actually footsteps now.
+  id: 218
+  time: '2024-11-11T02:29:14.0000000+00:00'
+- author: TwoDucksOnnaPlane
+  changes:
+    - type: Tweak
+      message: Buffed .30 and .20 caliber damages.
+  id: 219
+  time: '2024-11-12T05:37:52.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Replaced moth roaches with moth maggots.
+  id: 220
+  time: '2024-11-12T06:50:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mining drills stunlocking you.
+  id: 221
+  time: '2024-11-12T20:30:06.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: gass prices
+  id: 222
+  time: '2024-11-14T13:44:37.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: What's a week? Anyway surgery is here.
+  id: 223
+  time: '2024-11-16T22:10:27.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed borg UI not be able to eject anything from borg.
+  id: 224
+  time: '2024-11-16T22:12:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added the Cybersun Stealth Hardsuit to the syndicate uplink for 75 TC
+  id: 225
+  time: '2024-11-16T22:18:52.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added EE build/run scripts
+  id: 226
+  time: '2024-11-17T12:58:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now operate on a bunch of animals like mice, spiders and
+        monkeys.
+    - type: Add
+      message: >-
+        You can now remove and install stomachs, including special diets like
+        moths or lizards!
+    - type: Fix
+      message: Fixed not being able to reinstall some species organs.
+    - type: Fix
+      message: Fixed harpies being immune to the scalpel.
+  id: 227
+  time: '2024-11-17T13:36:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added sink to Chemistry on Kettle.
+    - type: Fix
+      message: >-
+        Kettle's lockdown button no longer opens/closes the door, only the blast
+        doors.
+  id: 228
+  time: '2024-11-18T00:19:11.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Ghetto surgery is now possible, read the TG wiki!
+  id: 229
+  time: '2024-11-18T00:23:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now become immune to pressure and breathing by harvesting carp
+        hearts and lungs respectively.
+  id: 230
+  time: '2024-11-18T01:27:13.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: >-
+        Eliminated a catastrophic breach of GDPR so severe it might've summoned
+        Europol.
+  id: 231
+  time: '2024-11-18T01:33:10.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Cryosleep Beacon to Barratry.
+  id: 232
+  time: '2024-11-18T01:36:39.0000000+00:00'

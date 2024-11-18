@@ -1,5 +1,3 @@
-# Best job.
-
 - type: job
   id: ChiefMedicalOfficer
   name: job-name-cmo
@@ -31,12 +29,18 @@
   - ChiefMedicalOfficer
   - Brig
   - Cryogenics
+  - External # goobstation
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  # Shitmed Change
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      SpeedModifier: 2.5
 
 - type: startingGear
   id: CMOGear

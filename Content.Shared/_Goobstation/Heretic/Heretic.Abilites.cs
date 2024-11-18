@@ -20,7 +20,10 @@ public sealed partial class HereticActionComponent : Component
 
 #region DoAfters
 
-[Serializable, NetSerializable] public sealed partial class EldritchInfluenceDoAfterEvent : SimpleDoAfterEvent { }
+[Serializable, NetSerializable] public sealed partial class EldritchInfluenceDoAfterEvent : SimpleDoAfterEvent
+{
+    public bool MagicItemActive = false;
+}
 [Serializable, NetSerializable] public sealed partial class DrawRitualRuneDoAfterEvent : SimpleDoAfterEvent
 {
     [NonSerialized] public EntityCoordinates Coords;
@@ -66,6 +69,15 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 // basic
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
+public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
+[Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
+{
+    public NetEntity? Target { get; set; }
+}
+[Serializable, NetSerializable] public enum HereticLivingHeartKey : byte
+{
+    Key
+}
 
 // for mobs
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }

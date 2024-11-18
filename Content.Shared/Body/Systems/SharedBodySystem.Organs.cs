@@ -209,4 +209,19 @@ public partial class SharedBodySystem
         comps = null;
         return false;
     }
+
+    // Shitmed Change Start
+    
+    public bool TrySetOrganUsed(EntityUid organId, bool used, OrganComponent? organ = null)
+    {
+        if (!Resolve(organId, ref organ)
+            || organ.Used == true)
+            return false;
+
+        organ.Used = true;
+        Dirty(organId, organ);
+        return true;
+    }
+
+    // Shitmed Change End
 }

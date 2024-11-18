@@ -26,12 +26,7 @@
         maxDistance: 2
   - type: UseDelay
     delay: 1.5
-
-- type: entity
-  parent: Pen
-  id: PenEmbeddable
-  abstract: true
-  components:
+  # Goobstation - Return pen embeddability
   - type: EmbeddableProjectile
     offset: 0.3,0.0
     removalTime: 0.0
@@ -42,6 +37,13 @@
     damage:
       types:
         Piercing: 3
+  - type: Tending # GoobStation
+    speed: 0.55
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
@@ -58,7 +60,8 @@
 
 - type: entity
   id: BaseAdvancedPen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   abstract: true
   components:
   - type: Tag
@@ -104,7 +107,8 @@
 
 - type: entity
   name: captain's fountain pen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   id: PenCap
   description: A luxurious fountain pen for the captain of the station.
   components:
@@ -113,7 +117,8 @@
 
 - type: entity
   name: hop's fountain pen
-  parent: PenEmbeddable
+  # Goobstation - Return pen embeddability
+  parent: Pen
   id: PenHop
   description: A luxurious fountain pen for the hop of the station.
   components:

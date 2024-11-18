@@ -53,3 +53,10 @@
   id: ShadowHaze
   supportedTypes:
     - Heat
+
+# Shitmed
+- type: damageContainer
+  id: OrganicPart
+  supportedGroups:
+    - Brute
+    - Burn

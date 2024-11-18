@@ -141,3 +141,9 @@ guide-entry-rules-ban-durations = Ban Durations
 
 guide-entry-writing = Writing
 guide-entry-glossary = Glossary
+
+## Shitmed Change
+guide-entry-surgery = Surgery
+guide-entry-partmanipulation = Part Manipulation
+guide-entry-organmanipulation = Organ Manipulation
+guide-entry-utilitysurgeries = Utility Surgeries

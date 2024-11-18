@@ -27,6 +27,11 @@ using Content.Shared.Stunnable;
 using Robust.Shared.Map;
 using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
+using Content.Server.Station.Systems;
+using Content.Shared.Localizations;
+using Robust.Shared.Audio;
+using Content.Shared.Mobs.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -56,6 +61,10 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     [Dependency] private readonly PhysicsSystem _phys = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throw = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IMapManager _mapMan = default!;
+    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private List<EntityUid> GetNearbyPeople(Entity<HereticComponent> ent, float range)
     {
@@ -81,10 +90,11 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HereticMagicItemComponent, InventoryRelayedEvent<CheckMagicItemEvent>>(OnCheckMagicItem);
-
         SubscribeLocalEvent<HereticComponent, EventHereticOpenStore>(OnStore);
         SubscribeLocalEvent<HereticComponent, EventHereticMansusGrasp>(OnMansusGrasp);
+
+        SubscribeLocalEvent<HereticComponent, EventHereticLivingHeart>(OnLivingHeart);
+        SubscribeLocalEvent<HereticComponent, EventHereticLivingHeartActivate>(OnLivingHeartActivate);
 
         SubscribeLocalEvent<GhoulComponent, EventHereticMansusLink>(OnMansusLink);
         SubscribeLocalEvent<GhoulComponent, HereticMansusLinkDoAfter>(OnMansusLinkDoafter);
@@ -105,9 +115,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // check if any magic items are worn
         if (TryComp<HereticComponent>(ent, out var hereticComp) && actionComp.RequireMagicItem && !hereticComp.Ascended)
         {
-            if (hereticComp.CodexActive)
-                return true;
-
             var ev = new CheckMagicItemEvent();
             RaiseLocalEvent(ent, ev);
 
@@ -124,12 +131,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         return true;
     }
-    private void OnCheckMagicItem(Entity<HereticMagicItemComponent> ent, ref InventoryRelayedEvent<CheckMagicItemEvent> args)
-    {
-        // no need to check fo anythign because the event gets processed only by magic items
-        args.Args.Handled = true;
-    }
-
     private void OnStore(Entity<HereticComponent> ent, ref EventHereticOpenStore args)
     {
         if (!TryComp<StoreComponent>(ent, out var store))
@@ -159,6 +160,59 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         ent.Comp.MansusGraspActive = true;
         args.Handled = true;
+    }
+    private void OnLivingHeart(Entity<HereticComponent> ent, ref EventHereticLivingHeart args)
+    {
+        if (!TryUseAbility(ent, args))
+            return;
+
+        if (!TryComp<UserInterfaceComponent>(ent, out var uic))
+            return;
+
+        if (ent.Comp.SacrificeTargets.Count == 0)
+        {
+            _popup.PopupEntity(Loc.GetString("heretic-livingheart-notargets"), ent, ent);
+            args.Handled = true;
+            return;
+        }
+
+        _ui.OpenUi((ent, uic), HereticLivingHeartKey.Key, ent);
+        args.Handled = true;
+    }
+    private void OnLivingHeartActivate(Entity<HereticComponent> ent, ref EventHereticLivingHeartActivate args)
+    {
+        var loc = string.Empty;
+
+        var target = GetEntity(args.Target);
+        if (target == null)
+            return;
+
+        if (!TryComp<MobStateComponent>(target, out var mobstate))
+            return;
+        var state = mobstate.CurrentState;
+
+        var xquery = GetEntityQuery<TransformComponent>();
+        var targetStation = _station.GetOwningStation(target);
+        var ownStation = _station.GetOwningStation(ent);
+
+        var isOnStation = targetStation != null && targetStation == ownStation;
+
+        var ang = Angle.Zero;
+        if (_mapMan.TryFindGridAt(_transform.GetMapCoordinates(Transform(ent)), out var grid, out var _))
+            ang = Transform(grid).LocalRotation;
+
+        var vector = _transform.GetWorldPosition((EntityUid) target, xquery) - _transform.GetWorldPosition(ent, xquery);
+        var direction = (vector.ToWorldAngle() - ang).GetDir();
+
+        var locdir = ContentLocalizationManager.FormatDirection(direction).ToLower();
+        var locstate = state.ToString().ToLower();
+
+        if (isOnStation)
+            loc = Loc.GetString("heretic-livingheart-onstation", ("state", locstate), ("direction", locdir));
+        else loc = Loc.GetString("heretic-livingheart-offstation", ("state", locstate), ("direction", locdir));
+
+        _popup.PopupEntity(loc, ent, ent, PopupType.Medium);
+        _aud.PlayPvs(new SoundPathSpecifier("/Audio/_Goobstation/Heretic/heartbeat.ogg"), ent, AudioParams.Default.WithVolume(-3f));
     }
 
     private void OnMansusLink(Entity<GhoulComponent> ent, ref EventHereticMansusLink args)
@@ -191,6 +245,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnMansusLinkDoafter(Entity<GhoulComponent> ent, ref HereticMansusLinkDoAfter args)
     {
+        if (args.Cancelled)
+            return;
+
         var reciever = EnsureComp<IntrinsicRadioReceiverComponent>(args.Target);
         var transmitter = EnsureComp<IntrinsicRadioTransmitterComponent>(args.Target);
         var radio = EnsureComp<ActiveRadioComponent>(args.Target);

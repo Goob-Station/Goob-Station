@@ -1,4 +1,4 @@
-# basic knowledge
+### basic knowledge
 - type: hereticKnowledge
   id: BreakOfDawn
   actionPrototypes:
@@ -17,18 +17,17 @@
 
 - type: hereticKnowledge
   id: CodexCicatrix
-  # ritualPrototypes:
-
-- type: hereticKnowledge
-  id: CloakOfShadow
-  # actionPrototypes:
-
-- type: hereticKnowledge
-  id: RitualOfKnowledge
   ritualPrototypes:
-  - RitualOfKnowledge
+  - CodexCicatrix
 
-# ash path
+- type: hereticKnowledge
+  id: LivingHeart
+  ritualPrototypes:
+  - LivingHeart
+  actionPrototypes:
+  - ActionHereticLivingHeart
+
+### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
   path: Ash
@@ -43,6 +42,8 @@
 
 - type: hereticKnowledge
   id: AshenShift
+  path: Ash
+  sideKnowledge: true
   stage: 3
   actionPrototypes:
   - ActionHereticJaunt
@@ -61,6 +62,8 @@
 
 - type: hereticKnowledge
   id: MaskOfMadness
+  path: Ash
+  sideKnowledge: true
   stage: 6
   ritualPrototypes:
   - MaskOfMadness
@@ -72,6 +75,8 @@
 
 - type: hereticKnowledge
   id: NightwatcherRebirth
+  path: Ash
+  sideKnowledge: true
   stage: 8
   actionPrototypes:
   - ActionHereticNightwatcherRebirth
@@ -91,7 +96,7 @@
   - ActionHereticAscension1
   - ActionHereticAscension2
 
-# flesh path
+### flesh path
 - type: hereticKnowledge
   id: PrincipleOfHunger
   path: Flesh
@@ -106,6 +111,8 @@
 
 - type: hereticKnowledge
   id: ImperfectRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 3
   ritualPrototypes:
   - ImperfectRitual
@@ -124,6 +131,8 @@
 
 - type: hereticKnowledge
   id: RawRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 6
   ritualPrototypes:
   - RawRitual
@@ -135,6 +144,8 @@
 
 - type: hereticKnowledge
   id: LonelyRitual
+  path: Flesh
+  sideKnowledge: true
   stage: 8
   ritualPrototypes:
   - LonelyRitual
@@ -153,7 +164,7 @@
   actionPrototypes:
   - ActionPolymorphHereticHorror
 
-# void path
+### void path
 - type: hereticKnowledge
   id: GlimmerOfWinter
   path: Void
@@ -168,6 +179,8 @@
 
 - type: hereticKnowledge
   id: AristocratWay
+  path: Void
+  sideKnowledge: true
   stage: 3
   event: !type:HereticAristocratWayEvent
 
@@ -185,6 +198,8 @@
 
 - type: hereticKnowledge
   id: VoidPhase
+  path: Void
+  sideKnowledge: true
   stage: 6
   actionPrototypes:
   - ActionHereticVoidPhase
@@ -196,6 +211,8 @@
 
 - type: hereticKnowledge
   id: VoidPull
+  path: Void
+  sideKnowledge: true
   stage: 8
   actionPrototypes:
   - ActionHereticVoidPull
@@ -213,9 +230,26 @@
   path: Void
   event: !type:HereticAscensionVoidEvent
 
-# side paths
+### side paths
+- type: hereticKnowledge
+  id: RitualOfKnowledge
+  sideKnowledge: true
+  ritualPrototypes:
+  - RitualOfKnowledge
+
+## stage 3
 - type: hereticKnowledge
   id: ArmorerRitual
+  sideKnowledge: true
   stage: 3
   ritualPrototypes:
   - ArmorerRitual  
+
+- type: hereticKnowledge
+  id: PriestRitual
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - PriestRitual
+
+## stage 7

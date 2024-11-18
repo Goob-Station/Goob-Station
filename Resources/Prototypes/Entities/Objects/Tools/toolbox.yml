@@ -17,6 +17,7 @@
   - type: Item
     size: Ginormous
   - type: MeleeWeapon
+    heavyStaminaCost: 10 # goob edit
     damage:
       types:
         Blunt: 12
@@ -128,6 +129,7 @@
     grid:
     - 0,0,7,3
   - type: MeleeWeapon
+    heavyStaminaCost: 10 # goob edit
     damage:
       types:
         Blunt: 20

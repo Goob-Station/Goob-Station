@@ -5,12 +5,20 @@ using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
+// Shitmed Change
+using Robust.Shared.Serialization.Manager;
+using Content.Shared.Random;
+using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+
 namespace Content.Shared.Inventory;
 
 public partial class InventorySystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
+    [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
+    [Dependency] private readonly ISerializationManager _serializationManager = default!; // Shitmed Change
 
     private void InitializeSlots()
     {
@@ -57,7 +65,7 @@ public partial class InventorySystem : EntitySystem
         if (!_prototypeManager.TryIndex(component.TemplateId, out InventoryTemplatePrototype? invTemplate))
             return;
 
-        component.Slots = invTemplate.Slots;
+        _serializationManager.CopyTo(invTemplate.Slots, ref component.Slots, notNullableOverride: true); // Shitmed Change
         component.Containers = new ContainerSlot[component.Slots.Length];
         for (var i = 0; i < component.Containers.Length; i++)
         {
@@ -115,7 +123,7 @@ public partial class InventorySystem : EntitySystem
 
         foreach (var slotDef in inventory.Slots)
         {
-            if (!slotDef.Name.Equals(slot))
+            if (!slotDef.Name.Equals(slot) || slotDef.Disabled) // Shitmed Change
                 continue;
             slotDefinition = slotDef;
             return true;
@@ -203,7 +211,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 var slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0)
+                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
                     continue;
 
                 container = _containers[i];
@@ -243,7 +251,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0)
+                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
                     continue;
 
                 var container = _containers[i];
@@ -259,4 +267,37 @@ public partial class InventorySystem : EntitySystem
             return false;
         }
     }
+
+    // Shitmed Change Start
+    public void SetSlotStatus(EntityUid uid, string slotName, bool isDisabled, InventoryComponent? inventory = null)
+    {
+        if (!Resolve(uid, ref inventory))
+            return;
+
+        foreach (var slot in inventory.Slots)
+        {
+            if (slot.Name != slotName)
+                continue;
+
+            if (isDisabled)
+            {
+                if (!TryGetSlotContainer(uid, slotName, out var container, out _, inventory))
+                    break;
+
+                if (container.ContainedEntity is { } entityUid && TryComp(entityUid, out TransformComponent? transform) && _gameTiming.IsFirstTimePredicted)
+                {
+                    _transform.AttachToGridOrMap(entityUid, transform);
+                    _randomHelper.RandomOffset(entityUid, 0.5f);
+                }
+                //_containerSystem.ShutdownContainer(container);
+            }
+            //else
+                //_containerSystem.EnsureContainer<ContainerSlot>(uid, slotName);
+            slot.Disabled = isDisabled;
+            break;
+        }
+
+        Dirty(uid, inventory);
+    }
+    // Shitmed Change End
 }

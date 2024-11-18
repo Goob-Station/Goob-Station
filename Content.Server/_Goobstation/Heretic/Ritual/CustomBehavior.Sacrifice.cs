@@ -30,6 +30,11 @@ namespace Content.Server.Heretic.Ritual;
     /// </summary>
     [DataField] public float Max = 1;
 
+    /// <summary>
+    ///     Should we count only targets?
+    /// </summary>
+    [DataField] public bool OnlyTargets = false;
+
     // this is awful but it works so i'm not complaining
     protected SharedMindSystem _mind = default!;
     protected HereticSystem _heretic = default!;
@@ -63,9 +68,9 @@ namespace Content.Server.Heretic.Ritual;
         // get all the dead ones
         foreach (var look in lookup)
         {
-            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate)
-            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look)
-            || args.EntityManager.HasComponent<ChangelingComponent>(look))
+            if (!args.EntityManager.TryGetComponent<MobStateComponent>(look, out var mobstate) // only mobs
+            || !args.EntityManager.HasComponent<HumanoidAppearanceComponent>(look) // only humans
+            || (OnlyTargets && !hereticComp.SacrificeTargets.Contains(args.EntityManager.GetNetEntity(look)))) // only targets
                 continue;
 
             if (mobstate.CurrentState == Shared.Mobs.MobState.Dead)
@@ -74,7 +79,7 @@ namespace Content.Server.Heretic.Ritual;
 
         if (uids.Count < Min)
         {
-            outstr = Loc.GetString("heretic-ritual-fail-sacrifice");
+            outstr = Loc.GetString("heretic-ritual-fail-sacrifice-ineligible");
             return false;
         }
 
@@ -117,5 +122,6 @@ namespace Content.Server.Heretic.Ritual;
 
         // reset it because it refuses to work otherwise.
         uids = new();
+        args.EntityManager.EventBus.RaiseLocalEvent(args.Performer, new EventHereticUpdateTargets());
     }
 }

@@ -1288,3 +1288,19 @@
       Capacitor: 1
       Manipulator: 1
       Cable: 1
+
+# Shitmed Change Start
+- type: entity
+  id: MedicalBiofabMachineBoard
+  parent: BaseMachineCircuitboard
+  name: medical biofab machine board
+  description: A machine printed circuit board for a medical biofab.
+  components:
+    - type: Sprite
+      state: medical
+    - type: MachineBoard
+      prototype: MedicalBiofabricator
+      stackRequirements:
+        MatterBin: 2
+        Manipulator: 2
+# Shitmed Change End
