@@ -9,31 +9,58 @@
       time: 14400 # 4 hrs
 
 - type: loadoutEffectGroup
-  id: Medical
+  id: CommandDedicated
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Medical
-      time: 14400 # 4 hrs
+      time: 72000 # 20 hrs
 
 - type: loadoutEffectGroup
-  id: Science
-  effects:
-  - !type:JobRequirementLoadoutEffect
-    requirement:
-      !type:DepartmentTimeRequirement
-      department: Science
-      time: 14400 # 4 hrs
-
-- type: loadoutEffectGroup
-  id: Engineering
+  id: EngineeringDedicated
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:DepartmentTimeRequirement
       department: Engineering
-      time: 14400 # 4 hrs
+      time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: ScienceDedicated
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Science
+      time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: SecurityDedicated
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Security
+      time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: CargoDedicated
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 72000 # 20 hrs
+
+- type: loadoutEffectGroup
+  id: MedicalDedicated
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:DepartmentTimeRequirement
+      department: Medical
+      time: 72000 # 20 hrs
 
 # Flowers
 - type: loadout
@@ -63,30 +90,75 @@
 
 - type: loadout
   id: PlushieSharkBlue
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Medical
   storage:
     back:
     - PlushieSharkBlue
 
 - type: loadout
   id: PlushieSharkPink
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Engineering
   storage:
     back:
     - PlushieSharkPink
 
 - type: loadout
   id: PlushieSharkGrey
-  effects:
-  - !type:GroupLoadoutEffect
-    proto: Science
   storage:
     back:
     - PlushieSharkGrey
+
+- type: loadout
+  id: PlushieSharkCommand
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CommandDedicated
+  storage:
+    back:
+    - PlushieSharkCommand
+
+- type: loadout
+  id: PlushieSharkMedical
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: MedicalDedicated
+  storage:
+    back:
+    - PlushieSharkMedical
+
+- type: loadout
+  id: PlushieSharkScience
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: ScienceDedicated
+  storage:
+    back:
+    - PlushieSharkScience
+
+- type: loadout
+  id: PlushieSharkEngineering
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EngineeringDedicated
+  storage:
+    back:
+    - PlushieSharkEngineering
+
+- type: loadout
+  id: PlushieSharkSecurity
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SecurityDedicated
+  storage:
+    back:
+    - PlushieSharkSecurity
+
+- type: loadout
+  id: PlushieSharkCargo
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: CargoDedicated
+  storage:
+    back:
+    - PlushieSharkCargo
 
 # Smokeables
 - type: loadout

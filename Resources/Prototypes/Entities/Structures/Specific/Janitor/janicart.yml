@@ -47,6 +47,30 @@
         whitelist:
           tags:
             - PlushieSharkGrey
+      mopbucket_shark_command:
+        whitelist:
+          tags:
+            - PlushieSharkCommand
+      mopbucket_shark_medical:
+        whitelist:
+          tags:
+            - PlushieSharkMedical
+      mopbucket_shark_science:
+        whitelist:
+          tags:
+            - PlushieSharkScience
+      mopbucket_shark_engineering:
+        whitelist:
+          tags:
+            - PlushieSharkEngineering
+      mopbucket_shark_security:
+        whitelist:
+          tags:
+            - PlushieSharkSecurity
+      mopbucket_shark_cargo:
+        whitelist:
+          tags:
+            - PlushieSharkCargo
     sprite: Objects/Fun/sharkplush.rsi
   - type: Transform
     noRot: true
@@ -59,6 +83,12 @@
             - PlushieSharkBlue
             - PlushieSharkPink
             - PlushieSharkGrey
+            - PlushieSharkCommand
+            - PlushieSharkMedical
+            - PlushieSharkScience
+            - PlushieSharkEngineering
+            - PlushieSharkSecurity
+            - PlushieSharkCargo
         priority: 3 # Higher than drinking priority
   - type: Drink
     solution: bucket
