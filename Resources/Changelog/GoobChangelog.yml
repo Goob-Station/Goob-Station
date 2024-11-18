@@ -1884,3 +1884,11 @@ Entries:
         hearts and lungs respectively.
   id: 230
   time: '2024-11-18T01:27:13.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: >-
+        Eliminated a catastrophic breach of GDPR so severe it might've summoned
+        Europol.
+  id: 231
+  time: '2024-11-18T01:33:10.0000000+00:00'
