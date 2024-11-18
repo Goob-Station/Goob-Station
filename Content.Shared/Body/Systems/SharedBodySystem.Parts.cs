@@ -106,12 +106,13 @@ public partial class SharedBodySystem
     public void ChangeSlotState(Entity<BodyPartComponent> partEnt, bool disable)
     {
         if (partEnt.Comp.Body is not null
+            && TryComp<InventoryComponent>(partEnt.Comp.Body, out var inventory) // GoobStation: Prevent error for non-humanoids
             && GetBodyPartCount(partEnt.Comp.Body.Value, partEnt.Comp.PartType) == 1
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
             {
-                _inventorySystem.SetSlotStatus(partEnt.Comp.Body.Value, containerName, disable);
+                _inventorySystem.SetSlotStatus(partEnt.Comp.Body.Value, containerName, disable, inventory); // GoobStation: pass inventory
                 var ev = new RefreshInventorySlotsEvent(containerName);
                 RaiseLocalEvent(partEnt.Comp.Body.Value, ev);
             }
