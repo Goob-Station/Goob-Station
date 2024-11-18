@@ -29,4 +29,4 @@
     Shock: 1
     Cold: 0.7  # Fur = Keep warm
     Bloodloss: 0.9
-    Toxin: 0.5 # Should be more resistant to toxin
+    Poison: 0.5 # Should be more resistant to toxin

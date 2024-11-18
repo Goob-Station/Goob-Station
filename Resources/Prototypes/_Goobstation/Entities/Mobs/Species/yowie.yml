@@ -42,7 +42,7 @@
   - type: Damageable
     damageModifierSet: Yowie
   - type: Metabolizer
-    UpdateInterval: 3
+    updateInterval: 3
   - type: BoganAccent
   - type: Carriable 
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
@@ -50,7 +50,6 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobYowieDummy
-  noSpawn: true
   components:
   - type: HumanoidAppearance
     species: Yowie

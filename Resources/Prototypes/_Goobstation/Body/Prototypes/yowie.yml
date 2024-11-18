@@ -8,7 +8,7 @@
       connections:
       - torso
       organs:
-        brain: OrganYowieBrain
+        brain: OrganHumanBrain
     torso:
       part: TorsoYowie
       connections:
@@ -17,8 +17,8 @@
       - right leg
       - left leg
       organs:
-        stomach: OrganYowieStomach
-        lungs: OrganYowieLungs
+        stomach: OrganHumanStomach
+        lungs: OrganHumanLungs
     right arm:
       part: RightArmYowie
       connections:
