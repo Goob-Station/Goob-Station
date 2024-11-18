@@ -443,6 +443,13 @@ namespace Content.Shared.CCVar
         public static readonly CVarDef<float> LowpopThreshold =
             CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
 
+        /// <summary>
+        ///     Goobstation - indicates how much players are required for the round to be considered highpop.
+        ///     Used for dynamic gamemode.
+        /// </summary>
+        public static readonly CVarDef<float> HighpopThreshold =
+            CVarDef.Create("game.players.highpop_threshold", 70f, CVar.SERVERONLY);
+
         /*
          * Discord
          */
