@@ -243,5 +243,5 @@ accent-bogan-words-replace-77 = fuck up
 accent-bogan-words-78 = go away
 accent-bogan-words-replace-78 = piss off
 
-accent-bogan-word-79 = sec off
-accent-bogan-word-replace-79 = coppa
+accent-bogan-words-79 = sec off
+accent-bogan-words-replace-79 = coppa
