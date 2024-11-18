@@ -309,7 +309,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tending
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -327,7 +327,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tending
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -399,7 +399,7 @@
   components:
   - type: SurgeryStep
     tool:
-    - type: Hemostat
+    - type: Tweezers
   - type: Sprite
     sprite: Objects/Specific/Medical/Surgery/scissors.rsi
     state: hemostat
@@ -568,3 +568,17 @@
 #  - type: Sprite
 #    sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
 #    state: insertion
+
+#- type: entity
+#  parent: SurgeryStepBase
+#  id: SurgeryStepWingReconstruction
+#  name: Start wing reconstruction
+#  categories: [ HideSpawnMenu ]
+#  components:
+#  - type: SurgeryStep
+#    duration: 6 # On TG success chance is lower, so here the surgery slower
+#    tool:
+#    - type: Tending
+#  - type: ??? moth ops go here when wings can be destroyed
+#  - type: Sprite
+#    sprite: Interface/Emotes/chitter.png
