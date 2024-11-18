@@ -85,10 +85,10 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
-    - type: Body # GoobStation: Special carp organs
+    - type: Body # Shitmed: Special carp organs
       prototype: Carp
-    - type: SurgeryTarget # GoobStation
-    - type: UserInterface # GoobStation
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
       interfaces:
         enum.SurgeryUIKey.Key:
           type: SurgeryBui
@@ -243,8 +243,8 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
-    - type: SurgeryTarget # GoobStation
-    - type: UserInterface # GoobStation
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
       interfaces:
         enum.SurgeryUIKey.Key:
           type: SurgeryBui

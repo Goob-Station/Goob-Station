@@ -47,8 +47,10 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
         SubscribeLocalEvent<SurgeryToolComponent, AfterInteractEvent>(OnToolAfterInteract);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryStepDamageEvent>(OnSurgeryStepDamage);
-        SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepEvent>(OnSurgeryDamageChange);
-        SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepEvent>(OnSurgerySpecialDamageChange);
+        // You might be wondering "why aren't we using StepEvent for these two?" reason being that StepEvent fires off regardless of success on the previous functions
+        // so this would heal entities even if you had a used or incorrect organ.
+        SubscribeLocalEvent<SurgerySpecialDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgerySpecialDamageChange);
+        SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgeryDamageChange);
         SubscribeLocalEvent<SurgeryStepEmoteEffectComponent, SurgeryStepEvent>(OnStepScreamComplete);
         SubscribeLocalEvent<SurgeryStepSpawnEffectComponent, SurgeryStepEvent>(OnStepSpawnComplete);
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
@@ -129,15 +131,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
     private void OnSurgeryStepDamage(Entity<SurgeryTargetComponent> ent, ref SurgeryStepDamageEvent args) =>
         SetDamage(args.Body, args.Damage, args.PartMultiplier, args.User, args.Part);
 
-    private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepEvent args)
+    private void OnSurgeryDamageChange(Entity<SurgeryDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
-        // This unintentionally punishes the user if they have an organ in another hand that is already used.
-        // Imo surgery shouldn't let you automatically pick tools on both hands anyway, it should only use the one you've got in your selected hand.
-        if (ent.Comp.IsConsumable
-            && args.Tools.Where(tool => TryComp<OrganComponent>(tool, out var organComp)
-            && !_body.TrySetOrganUsed(tool, true, organComp)).Any())
-            return;
-
         var damageChange = ent.Comp.Damage;
         if (HasComp<ForcedSleepingComponent>(args.Body))
             damageChange = damageChange * ent.Comp.SleepModifier;
@@ -145,17 +140,12 @@ public sealed class SurgerySystem : SharedSurgerySystem
         SetDamage(args.Body, damageChange, 0.5f, args.User, args.Part);
     }
 
-    private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepEvent args)
+    private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
-        if (ent.Comp.IsConsumable
-            && args.Tools.Where(tool => TryComp<OrganComponent>(tool, out var organComp)
-            && !_body.TrySetOrganUsed(tool, true, organComp)).Any())
-            return;
-
         if (ent.Comp.DamageType == "Rot")
             _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
         else if (ent.Comp.DamageType == "Eye"
-            && TryComp(args.Body, out BlindableComponent? blindComp)
+            && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)
             _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);
     }

@@ -15,7 +15,7 @@
   id: BaseCarpPart
   components:
   - type: Sprite
-    sprite: _Goobstation/Mobs/Aliens/Carps/carp_parts.rsi
+    sprite: _Shitmed/Mobs/Aliens/Carps/carp_parts.rsi
 
 - type: entity
   categories: [ HideSpawnMenu ]

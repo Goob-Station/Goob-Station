@@ -92,8 +92,8 @@
   - type: Body
     prototype: Slimes
     requiredLegs: 1
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

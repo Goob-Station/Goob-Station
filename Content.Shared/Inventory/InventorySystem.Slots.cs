@@ -289,10 +289,7 @@ public partial class InventorySystem : EntitySystem
                     _transform.AttachToGridOrMap(entityUid, transform);
                     _randomHelper.RandomOffset(entityUid, 0.5f);
                 }
-                //_containerSystem.ShutdownContainer(container);
             }
-            //else
-                //_containerSystem.EnsureContainer<ContainerSlot>(uid, slotName);
             slot.Disabled = isDisabled;
             break;
         }

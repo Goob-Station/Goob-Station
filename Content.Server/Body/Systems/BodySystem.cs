@@ -165,7 +165,8 @@ public sealed class BodySystem : SharedBodySystem
         var ev = new BeingGibbedEvent(gibs);
         RaiseLocalEvent(partId, ref ev);
 
-        QueueDel(partId);
+        if (gibs.Any())
+            QueueDel(partId);
 
         return gibs;
     }

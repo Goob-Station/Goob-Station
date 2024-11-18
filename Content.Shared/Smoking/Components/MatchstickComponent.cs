@@ -1,3 +1,5 @@
+// Shitmed Change Start
+
 using Content.Shared.Smoking.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -26,3 +28,5 @@ public sealed partial class MatchstickComponent : Component
     [DataField(required: true)]
     public SoundSpecifier IgniteSound = default!;
 }
+
+// Shitmed Change End

@@ -2,7 +2,7 @@
   id: OrganVoxLungs
   parent: OrganHumanLungs
   suffix: "vox"
-  name: vox lungs # GoobStation
+  name: vox lungs # Shitmed
   components:
   - type: Metabolizer
     metabolizerTypes: [ Vox ]

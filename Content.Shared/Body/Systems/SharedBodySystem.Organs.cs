@@ -3,6 +3,7 @@ using Content.Shared.Body.Components;
 using Content.Shared.Body.Events;
 using Content.Shared.Body.Organ;
 using Content.Shared.Body.Part;
+using Content.Shared.Damage; // Shitmed Change
 using Robust.Shared.Containers;
 
 namespace Content.Shared.Body.Systems;
@@ -20,9 +21,16 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is not null)
         {
+            organEnt.Comp.OriginalBody = organEnt.Comp.Body; // Shitmed Change
             var addedInBodyEv = new OrganAddedToBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref addedInBodyEv);
         }
+
+        // Shitmed Change Start
+        if (TryComp(parentPartUid, out DamageableComponent? damageable)
+            && damageable.TotalDamage > 200)
+            TrySetOrganUsed(organEnt, true, organEnt.Comp);
+        // Shitmed Change End
 
         Dirty(organEnt, organEnt.Comp);
     }
@@ -211,14 +219,14 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change Start
-    
+
     public bool TrySetOrganUsed(EntityUid organId, bool used, OrganComponent? organ = null)
     {
         if (!Resolve(organId, ref organ)
-            || organ.Used == true)
+            || organ.Used == used)
             return false;
 
-        organ.Used = true;
+        organ.Used = used;
         Dirty(organId, organ);
         return true;
     }

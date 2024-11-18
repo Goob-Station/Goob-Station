@@ -7,7 +7,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._Shitmed.Medical.Surgery.Tools;
 
 /// <summary>
-/// GoobStation: Examining a surgical or ghetto tool shows everything it can be used for.
+///     Examining a surgical or ghetto tool shows everything it can be used for.
 /// </summary>
 public sealed class SurgeryToolExamineSystem : EntitySystem
 {

@@ -34,7 +34,7 @@
           - ReagentId: Slime
             Quantity: 10
 
-      
+
 - type: entity
   id: OrganSlimeLungs
   parent: BaseHumanOrgan
@@ -46,7 +46,7 @@
     layers:
       - state: lung-l-slime
       - state: lung-r-slime
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: lungs
   - type: Lung
     alert: LowNitrogen
