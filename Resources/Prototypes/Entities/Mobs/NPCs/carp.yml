@@ -85,6 +85,13 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: Body # GoobStation: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # GoobStation
+    - type: UserInterface # GoobStation
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
 
 - type: entity
   parent: BaseMobCarp

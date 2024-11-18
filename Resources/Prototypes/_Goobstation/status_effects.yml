@@ -13,3 +13,7 @@
 
 - type: statusEffect
   id: Brainrotted
+
+- type: statusEffect
+  id: BreathingImmunity
+  alwaysAllowed: true # Used by space animal lungs to work on anything
