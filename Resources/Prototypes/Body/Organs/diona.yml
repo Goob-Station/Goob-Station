@@ -37,6 +37,9 @@
   components:
   - type: Sprite
     state: brain
+  - type: Organ # GoobStation
+    slotId: Brain
+  - type: Brain # GoobStation
   - type: SolutionContainerManager
     solutions:
       organ:
@@ -68,6 +71,8 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
+  - type: Organ # GoobStation
+    slotId: eyes
   - type: Tag # goob edit
     tags:
     - Meat
@@ -91,6 +96,8 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Organ # GoobStation
+    slotId: stomach
   - type: Stomach
   - type: Metabolizer
     maxReagents: 6
@@ -121,6 +128,8 @@
     layers:
       - state: lung-l
       - state: lung-r
+  - type: Organ # GoobStation
+    slotId: lungs
   - type: Lung 
   - type: Metabolizer
     removeEmpty: true

@@ -43,6 +43,19 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: Retractor # GoobStation
+    speed: 0.35
+  - type: Hemostat # GoobStation
+    speed: 0.6
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
+    endSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
 
 - type: entity
   name: screwdriver
@@ -87,6 +100,15 @@
       Steel: 100
   - type: StaticPrice
     price: 30
+  - type: Retractor # GoobStation
+    speed: 0.45
+  - type: Tending # GoobStation
+    speed: 0.65
+  - type: SurgeryTool # GoobStation
+    startSound:
+      collection: Screwdriver
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
 
 - type: entity
   name: wrench

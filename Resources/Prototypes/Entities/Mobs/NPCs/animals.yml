@@ -545,6 +545,7 @@
     - Mouse
   - type: Body
     prototype: Mothroach
+  - type: SurgeryTarget # GoobStation
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -563,6 +564,8 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # GoobStation
+        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -849,6 +852,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -924,6 +932,11 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1011,6 +1024,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1228,9 +1246,8 @@
   abstract: true
   components:
   - type: CombatMode
-  #- type: SurgeryTarget
-  #  canOperate: false
-  #- type: Targeting
+  - type: SurgeryTarget # GoobStation
+  - type: Targeting # GoobStation
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1284,6 +1301,12 @@
   - type: Body
     prototype: Primate
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: UserInterface # GoobStation: Add SurgeryUIKey on top of stripping ui
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1597,6 +1620,11 @@
   components:
   - type: Body
     prototype: Mouse
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2345,6 +2373,11 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive

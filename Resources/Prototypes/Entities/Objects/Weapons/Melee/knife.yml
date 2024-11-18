@@ -27,6 +27,13 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: Scalpel # GoobStation
+    speed: 0.65
+  - type: SurgeryTool # GoobStation
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: kitchen knife
@@ -74,6 +81,10 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: Scalpel # GoobStation
+    speed: 0.3
+  - type: BoneSaw # GoobStation: Better than tg 25% because its a cleaver its meant to hack off limbs
+    speed: 0.5
 
 - type: entity
   name: combat knife

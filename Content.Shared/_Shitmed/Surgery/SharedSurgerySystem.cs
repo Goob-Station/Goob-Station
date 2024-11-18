@@ -171,6 +171,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
     private void OnPartRemovedConditionValid(Entity<SurgeryPartRemovedConditionComponent> ent, ref SurgeryValidEvent args)
     {
+        if (!_body.CanAttachToSlot(args.Part, ent.Comp.Connection))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
         var results = _body.GetBodyChildrenOfType(args.Body, ent.Comp.Part, symmetry: ent.Comp.Symmetry);
         if (results is not { } || !results.Any())
             return;
