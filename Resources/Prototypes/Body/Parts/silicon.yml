@@ -29,9 +29,9 @@
   # Shitmed Change Start
   - type: SurgeryTool
     startSound:
-      path: /Audio/Medical/Surgery/organ1.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
     endSound:
-      path: /Audio/Medical/Surgery/organ2.ogg
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
   - type: Gibbable
   # Shitmed Change End
 
