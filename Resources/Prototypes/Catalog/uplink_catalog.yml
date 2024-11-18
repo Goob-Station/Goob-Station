@@ -353,7 +353,7 @@
   description: uplink-exploding-syndicate-bomb-desc
   productEntity: SyndicateBomb
   cost:
-    Telecrystal: 55 # goob
+    Telecrystal: 60 # goob - the no restock tax of 5tc... devastating to the economy...
   categories:
     - UplinkExplosives
   conditions:
@@ -1927,3 +1927,18 @@
     - Chef
     - Mime
   saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: uplinkBeeNades    #goob - bee update
+  name: uplink-beenades-name
+  description: uplink-beenades-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+    - Zookeeper

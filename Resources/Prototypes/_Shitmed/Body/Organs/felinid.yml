@@ -1,0 +1,24 @@
+- type: entity
+  id: OrganFelinidEars
+  parent: OrganHumanEars
+  name: cat ears
+  description: "Holding these might potentially be contagious."
+  components:
+  - type: Sprite
+    sprite: Clothing/Head/Hats/catears.rsi
+    state: icon
+  - type: MarkingContainer
+    marking: FelinidEarsBasic
+
+- type: entity
+  id: OrganFelinidTail
+  parent: BaseHumanOrgan
+  name: cat tail
+  description: "Should you really have this?"
+  components:
+  - type: Sprite
+    sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
+    state: basic_tail_tip
+  - type: MarkingContainer
+    marking: FelinidTailBasic
+  - type: Tail

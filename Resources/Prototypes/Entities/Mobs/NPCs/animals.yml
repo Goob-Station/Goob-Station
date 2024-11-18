@@ -385,7 +385,8 @@
         damageType: Blunt
         damage: 10
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior # Shitmed Change
+        gibContents: Skip # Shitmed Change
   - type: NonSpreaderZombie
   - type: SentienceTarget
     flavorKind: station-event-random-sentience-flavor-organic
@@ -431,10 +432,10 @@
     - id: FoodMeatSlime
 
 - type: entity
-  name: mothroach
+  name: moth maggot
   parent: MobCockroach
   id: MobMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with maggots.
   components:
   - type: GhostRole
     makeSentient: true
@@ -544,6 +545,7 @@
     - Mouse
   - type: Body
     prototype: Mothroach
+  - type: SurgeryTarget # GoobStation
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -562,6 +564,8 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key: # GoobStation
+        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -848,6 +852,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -923,6 +932,11 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1010,6 +1024,11 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1227,6 +1246,8 @@
   abstract: true
   components:
   - type: CombatMode
+  - type: SurgeryTarget # GoobStation
+  - type: Targeting # GoobStation
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1280,6 +1301,12 @@
   - type: Body
     prototype: Primate
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: UserInterface # GoobStation: Add SurgeryUIKey on top of stripping ui
+    interfaces:
+      enum.StrippingUiKey.Key:
+        type: StrippableBoundUserInterface
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1593,6 +1620,11 @@
   components:
   - type: Body
     prototype: Mouse
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -1762,7 +1794,7 @@
         name: food-sequence-content-rat
       skewer:
         name: food-sequence-content-rat
-        sprite: 
+        sprite:
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
 
@@ -2341,6 +2373,11 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -3407,7 +3444,7 @@
   - type: HTN
     rootTask:
       task: RuminantCompound
-      
+
 - type: entity
   name: diona nymph
   parent: [SimpleMobBase, StripableInventoryBase]

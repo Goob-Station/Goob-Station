@@ -31,18 +31,21 @@
         Shock: 5
   - type: Stunbaton
     energyPerUse: 120
-  - type: MeleeWeapon
+  - type: MeleeWeapon # goob edited
+    angle: 0
     wideAnimationRotation: -135
     damage:
       types:
         Blunt: 9
-    angle: 60
     animation: WeaponArcThrust
-  - type: StaminaDamageOnHit
-    damage: 35
+  # it was ~35 now it's 55 so it's a buff ig
+  - type: StaminaDamageOnHit # goob edited
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
-  - type: StaminaDamageOnCollide
-    damage: 35
+  - type: StaminaDamageOnCollide # goob edited
+    damage: 15
+    overtime: 40
     sound: /Audio/Weapons/egloves.ogg
   - type: LandAtCursor # it deals stamina damage when thrown
   - type: Battery

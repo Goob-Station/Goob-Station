@@ -4,7 +4,7 @@ changeling-chemicals-deficit = Not enough chemicals!
 changeling-action-fail-lesserform = Can't use it while in lesser form!
 changeling-action-fail-absorbed = Need to absorb {$number} more organics to use it!
 
-changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s!
+changeling-absorb-start = {CAPITALIZE(THE($user))} starts absorbing {CAPITALIZE(THE($target))}'s DNA!
 changeling-absorb-fail-incapacitated = You can't absorb it until it's not incapacitated.
 changeling-absorb-fail-absorbed = You've already absorbed it.
 changeling-absorb-fail-unabsorbable = The target is not absorbable.
@@ -55,3 +55,5 @@ changeling-chameleon-start = You adapt your skin to the environment
 changeling-chameleon-end = Your skin is losing it's translucency
 
 changeling-hivemind-start = You tune your brainwaves to match the hivemind frequency
+
+changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.

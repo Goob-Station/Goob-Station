@@ -241,3 +241,12 @@
   materials:
     Steel: 100
     Plastic: 100
+
+# Shitmed Change
+- type: latheRecipe
+  id: BoneGel
+  result: BoneGel
+  completetime: 2
+  materials:
+    Plastic: 200
+    Plasma: 200

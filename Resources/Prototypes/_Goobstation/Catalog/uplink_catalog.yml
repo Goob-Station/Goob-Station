@@ -22,6 +22,17 @@
     -  UplinkDisruption
   saleLimit: 1
 
+- type: listing
+  id: UplinkBoxSkibidiRizz
+  name: Box of Skibidi Rizz
+  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
+  productEntity: BoxSkibidiRizz
+  cost:
+    Telecrystal: 30
+  categories:
+    - UplinkDisruption
+  saleLimit: 1
+
 # Weaponry
 
 - type: listing
@@ -57,6 +68,44 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  saleLimit: 1
+
+# Wearables
+
+- type: listing
+  id: UplinkHardsuitSyndieMedic
+  name: uplink-hardsuit-syndiemedic-name
+  description: uplink-hardsuit-syndiemedic-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
+  cost:
+    Telecrystal: 55 # novelty item for the larp
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkHardsuitSyndieCommander
+  name: uplink-hardsuit-syndiecommander-name
+  description: uplink-hardsuit-syndiecommander-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieCommander
+  cost:
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+  categories:
+  - UplinkWearables
+  saleLimit: 1 # WD EDIT
+
+- type: listing
+  id: UplinkHardsuitCybersunStealth
+  name: uplink-hardsuit-cybersun-stealth-name
+  description: uplink-hardsuit-cybersun-stealth-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  cost:
+    Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
+  categories:
+  - UplinkWearables
   saleLimit: 1
 
 # Job specific

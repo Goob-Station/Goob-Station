@@ -92,6 +92,11 @@
   - type: Body
     prototype: Slimes
     requiredLegs: 1
+  - type: SurgeryTarget # GoobStation
+  - type: UserInterface # GoobStation
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: MeleeWeapon
     altDisarm: false
     soundHit:

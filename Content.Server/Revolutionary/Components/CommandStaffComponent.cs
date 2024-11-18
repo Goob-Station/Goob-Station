@@ -16,3 +16,5 @@ public sealed partial class CommandStaffComponent : Component
     [DataField]
     public bool Enabled = true; 
 }
+
+//TODO this should probably be on a mind role, not the mob

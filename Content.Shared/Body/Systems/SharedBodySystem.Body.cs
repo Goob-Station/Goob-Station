@@ -15,6 +15,19 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
+// Shitmed Change
+using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Damage;
+using Content.Shared.FixedPoint;
+using Content.Shared.Humanoid;
+using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Body.Part;
+using Content.Shared._Shitmed.Body.Events;
+using Content.Shared.Rejuvenate;
+using Content.Shared.Standing;
+using Content.Shared._Shitmed.Targeting;
+using Robust.Shared.Timing;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -29,6 +42,8 @@ public partial class SharedBodySystem
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly GibbingSystem _gibbingSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly ItemSlotsSystem _slots = default!; // Shitmed Change
+    [Dependency] private readonly IGameTiming _gameTiming = default!; // Shitmed Change
 
     private const float GibletLaunchImpulse = 8;
     private const float GibletLaunchImpulseVariance = 3;
@@ -42,6 +57,8 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ComponentInit>(OnBodyInit);
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
+                SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
+        SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
     }
 
     private void OnBodyInserted(Entity<BodyComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -114,12 +131,13 @@ public partial class SharedBodySystem
         // This should already handle adding the entity to the root.
         var rootPartUid = SpawnInContainerOrDrop(protoRoot.Part, bodyEntity, BodyRootContainerId);
         var rootPart = Comp<BodyPartComponent>(rootPartUid);
+        rootPart.OriginalBody = bodyEntity; // Shitmed Change
         rootPart.Body = bodyEntity;
         Dirty(rootPartUid, rootPart);
 
         // Setup the rest of the body entities.
         SetupOrgans((rootPartUid, rootPart), protoRoot.Organs);
-        MapInitParts(rootPartUid, prototype);
+        MapInitParts(rootPartUid, rootPart, prototype); // Shitmed Change
     }
 
     private void OnBodyCanDrag(Entity<BodyComponent> ent, ref CanDragEvent args)
@@ -130,7 +148,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// Sets up all of the relevant body parts for a particular body entity and root part.
     /// </summary>
-    private void MapInitParts(EntityUid rootPartId, BodyPrototype prototype)
+    private void MapInitParts(EntityUid rootPartId, BodyPartComponent rootPart, BodyPrototype prototype) // Shitmed Change
     {
         // Start at the root part and traverse the body graph, setting up parts as we go.
         // Basic BFS pathfind.
@@ -168,6 +186,11 @@ public partial class SharedBodySystem
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
                 var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
+                // Shitmed Change Start
+                childPartComponent.ParentSlot = partSlot;
+                childPartComponent.OriginalBody = rootPart.Body;
+                Dirty(childPart, childPartComponent);
+                // Shitmed Change End
                 var cont = Containers.GetContainer(parentEntity, GetPartSlotContainerId(connection));
 
                 if (partSlot is null || !Containers.Insert(childPart, cont))
@@ -234,6 +257,8 @@ public partial class SharedBodySystem
         if (id is null
             || !Resolve(id.Value, ref body, logMissing: false)
             || body.RootContainer.ContainedEntity is null
+            || body is null // Shitmed Change
+            || body.RootContainer == default // Shitmed Change
             || !Resolve(body.RootContainer.ContainedEntity.Value, ref rootPart))
         {
             yield break;
@@ -291,7 +316,10 @@ public partial class SharedBodySystem
         Vector2? splatDirection = null,
         float splatModifier = 1,
         Angle splatCone = default,
-        SoundSpecifier? gibSoundOverride = null)
+        SoundSpecifier? gibSoundOverride = null,
+        // Shitmed Change
+        GibType gib = GibType.Gib,
+        GibContentsOption contents = GibContentsOption.Drop)
     {
         var gibs = new HashSet<EntityUid>();
 
@@ -308,9 +336,9 @@ public partial class SharedBodySystem
         foreach (var part in parts)
         {
 
-            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, GibType.Gib, GibContentsOption.Skip, ref gibs,
-                playAudio: false, launchGibs:true, launchDirection:splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
-                launchImpulseVariance:GibletLaunchImpulseVariance, launchCone: splatCone);
+            _gibbingSystem.TryGibEntityWithRef(bodyId, part.Id, gib, contents, ref gibs, // Shitmed Change
+                playAudio: false, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
+                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
 
             if (!gibOrgans)
                 continue;
@@ -335,4 +363,69 @@ public partial class SharedBodySystem
         _audioSystem.PlayPredicted(gibSoundOverride, bodyTransform.Coordinates, null);
         return gibs;
     }
+
+    // Shitmed Change Start
+
+        public virtual HashSet<EntityUid> GibPart(
+        EntityUid partId,
+        BodyPartComponent? part = null,
+        bool launchGibs = true,
+        Vector2? splatDirection = null,
+        float splatModifier = 1,
+        Angle splatCone = default,
+        SoundSpecifier? gibSoundOverride = null)
+    {
+        var gibs = new HashSet<EntityUid>();
+
+        if (!Resolve(partId, ref part, logMissing: false))
+            return gibs;
+
+        if (part.Body is { } bodyEnt)
+        {
+            if (IsPartRoot(bodyEnt, partId, part: part))
+                return gibs;
+
+            RemovePartChildren((partId, part), bodyEnt);
+            foreach (var organ in GetPartOrgans(partId, part))
+            {
+                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
+                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse * splatModifier,
+                    launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
+            }
+            var ev = new BodyPartDroppedEvent((partId, part));
+            RaiseLocalEvent(bodyEnt, ref ev);
+        }
+
+        _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Drop, ref gibs,
+                playAudio: true, launchGibs: true, launchDirection: splatDirection, launchImpulse: GibletLaunchImpulse * splatModifier,
+                launchImpulseVariance: GibletLaunchImpulseVariance, launchCone: splatCone);
+
+
+        if (HasComp<InventoryComponent>(partId))
+        {
+            foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
+            {
+                SharedTransform.AttachToGridOrMap(item);
+                gibs.Add(item);
+            }
+        }
+        _audioSystem.PlayPredicted(gibSoundOverride, Transform(partId).Coordinates, null);
+        return gibs;
+    }
+
+    private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)
+    {
+        if (!HasComp<HumanoidAppearanceComponent>(uid)
+            || TerminatingOrDeleted(uid))
+
+        foreach (var part in GetBodyChildren(uid, component))
+            EnsureComp<BodyPartAppearanceComponent>(part.Id);
+    }
+    private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
+    {
+        if (ent.Comp.LegEntities.Count == 0)
+            args.Cancel();
+    }
+
+    // Shitmed Change End
 }
