@@ -38,6 +38,10 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathGasp:
+      collection: FemaleDeathGasp
 
 - type: emoteSounds
   id: MaleVulpkanin
@@ -78,6 +82,10 @@
       collection: VulpkaninHowls
     Awoo:
       collection: VulpkaninHowls
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathGasp:
+      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: MobDog
@@ -124,6 +132,10 @@
       collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
+    Gasp:
+      collection: MaleGasp
+    DefaultDeathGasp:
+      collection: MaleDeathGasp
 
 - type: emoteSounds
   id: FemaleRodentia
@@ -154,3 +166,8 @@
       collection: Weh
     Squeak:
       path: /Audio/Animals/mouse_squeak.ogg
+    Gasp:
+      collection: FemaleGasp
+    DefaultDeathGasp:
+      collection: FemaleDeathGasp
+

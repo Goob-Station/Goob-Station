@@ -159,6 +159,21 @@
   files:
     - /Audio/Voice/Human/female_sneeze_1.ogg
 
+# Gasps
+
+- type: soundCollection
+  id: HarpyGaspsLikeMan
+  files:
+    - /Audio/Effects/Gasp/gasp_male1.ogg
+    - /Audio/Effects/Gasp/gasp_male2.ogg
+
+- type: soundCollection
+  id: HarpyGaspsLikeWoman
+  files:
+    - /Audio/Effects/Gasp/gasp_female1.ogg
+    - /Audio/Effects/Gasp/gasp_female2.ogg
+    - /Audio/Effects/Gasp/gasp_female3.ogg
+
 ## Shared Emotes
 # Vulp/Dogs
 

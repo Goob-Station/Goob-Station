@@ -73,14 +73,14 @@
       collection: HarpyCoughsLikeWoman
     # Gasp
     Gasp:
-      collection: HarpyGaspLikeWoman
-    HarpyGaspLikeMan:
-      collection: HarpyGaspLikeMan
-    HarpyGaspLikeWoman:
-      collection: HarpyGaspLikeWoman
+      collection: HarpyGaspsLikeWoman
+    HarpyGaspsLikeMan:
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeWoman:
+      collection: HarpyGaspsLikeWoman
     # Default Death Gasp
     DefaultDeathGasp:
-      collection: HarpyGaspLikeWoman
+      collection: FemaleDeathGasp
     ## Shared Namespace Emotes
     Bark:
       collection: HarpyVulpBarks
@@ -238,14 +238,14 @@
       collection: HarpyCoughsLikeWoman
     # Gasp
     Gasp:
-      collection: HarpyGaspLikeMan
-    HarpyGaspLikeMan:
-      collection: HarpyGaspLikeMan
-    HarpyGaspLikeWoman:
-      collection: HarpyGaspLikeWoman
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeMan:
+      collection: HarpyGaspsLikeMan
+    HarpyGaspsLikeWoman:
+      collection: HarpyGaspsLikeWoman
     # Default Death Gasp
     DefaultDeathGasp:
-      collection: HarpyGaspLikeWoman
+      collection: MaleDeathGasp
     ## Shared Namespace Emotes
     Bark:
       collection: HarpyVulpBarks
