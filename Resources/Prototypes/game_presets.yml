@@ -93,7 +93,8 @@
   - greenshift
   - shittersafarideluxeedition
   name: greenshift-title
-  showInVote: false #4boring4vote
+  showInVote: true # zero pop easy mode, higher pop admin only
+  maxPlayers: 5
   description: greenshift-description
   rules:
   - SpaceTrafficControlFriendlyEventScheduler
