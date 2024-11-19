@@ -1,0 +1,13 @@
+- type: roleLoadout
+  id: JobMailCarrier
+  groups:
+  - MailCarrierHead
+  - MailCarrierJumpsuit
+  - MailCarrierGloves
+  - MailCarrierBackpack
+  - MailCarrierShoes
+  - Glasses
+  - Trinkets
+  - Pins
+  - GroupSpeciesBreathTool
+  - Survival

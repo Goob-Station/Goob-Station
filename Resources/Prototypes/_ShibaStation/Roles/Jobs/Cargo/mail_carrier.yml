@@ -1,0 +1,18 @@
+- type: job
+  id: MailCarrier
+  name: Mail Carrier
+  description: "Shake the packages. Check if there's money inside. Demand a tip on delivery. The mail always comes through."
+  playTimeTracker: JobMailCarrier
+  startingGear: MailCarrierGear
+  icon: "JobIconMailCarrier"
+  supervisors: job-supervisors-qm
+  access:
+  - Maintenance
+  - Cargo
+
+- type: startingGear
+  id: MailCarrierGear
+  equipment:
+    id: MailPDA
+    ears: ClothingHeadsetCargo
+    belt: MailBag

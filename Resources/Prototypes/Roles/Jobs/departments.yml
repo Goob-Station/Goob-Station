@@ -7,6 +7,7 @@
   - CargoTechnician
   - Quartermaster
   - SalvageSpecialist
+  - MailCarrier # ShibaStation
 
 - type: department
   id: Civilian
