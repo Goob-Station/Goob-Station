@@ -13124,7 +13124,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -435694.5
+      secondsUntilStateChange: -435727.97
       state: Opening
   - uid: 309
     components:
@@ -13554,7 +13554,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -551862.06
+      secondsUntilStateChange: -551895.5
       state: Opening
   - uid: 376
     components:
@@ -155081,6 +155081,13 @@ entities:
     - type: Transform
       pos: -11.5,32.5
       parent: 2
+- proto: SpawnPointMailCarrier
+  entities:
+  - uid: 15427
+    components:
+    - type: Transform
+      pos: -49.5,-3.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 18323
@@ -182581,7 +182588,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -329993.75
+      secondsUntilStateChange: -330027.22
       state: Opening
 - proto: WoodenBench
   entities:
