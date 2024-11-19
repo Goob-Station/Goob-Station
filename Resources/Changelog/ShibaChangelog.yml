@@ -1,6 +1,34 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Added the dedicated Mail Carrier role into cargo, with their own loadout
+      and slots on the maps that support them. (Train, Atlas, Bagel, Cluster, Fland,
+      Oasis and Origin)
+    type: Add
+  id: 16
+  time: '2024-11-19T17:52:11.037014'
+- author: AstroDogeDX
+  changes:
+  - message: Greenshift is now voteable at low pop. Admin intervention required at
+      higher pop.
+    type: Tweak
+  id: 15
+  time: '2024-11-19T17:59:48.496480'
+- author: AstroDogeDX
+  changes:
+  - message: Harpies, Vulpkanin and Rodentians now gasp and deathgasp.
+    type: Fix
+  id: 14
+  time: '2024-11-19T18:11:38.194161'
+- author: AstroDogeDX
+  changes:
+  - message: Added six new shark plushies that represent each department, unlockable
+      after putting in some serious hours (find them in the trinkets loadout)!
+    type: Add
+  id: 13
+  time: '2024-11-19T17:51:20.657928'
+- author: AstroDogeDX
+  changes:
   - message: Moth people, slime people and rodentia now have better fitting species
       names. (Lepidopterans, Amorphians and Rodentians respectively).
     type: Tweak
