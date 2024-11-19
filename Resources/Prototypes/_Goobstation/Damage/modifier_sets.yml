@@ -18,3 +18,15 @@
     Blunt: 5
     Slash: 5
     Piercing: 5
+    
+- type: damageModifierSet
+  id: Yowie
+  coefficients:
+    Blunt: 0.85
+    Slash: 0.85
+    Piercing: 0.85
+    Heat: 1.5 # Fur = Overheating
+    Shock: 1
+    Cold: 0.7  # Fur = Keep warm
+    Bloodloss: 0.9
+    Poison: 0.5 # Should be more resistant to toxin

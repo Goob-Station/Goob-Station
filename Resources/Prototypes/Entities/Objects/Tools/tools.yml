@@ -43,11 +43,11 @@
       Steel: 100
   - type: StaticPrice
     price: 30
-  - type: Retractor # GoobStation
+  - type: Retractor # Shitmed
     speed: 0.35
-  - type: Hemostat # GoobStation
+  - type: Hemostat # Shitmed
     speed: 0.6
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/Items/wirecutter.ogg
       params:
@@ -100,11 +100,11 @@
       Steel: 100
   - type: StaticPrice
     price: 30
-  - type: Retractor # GoobStation
+  - type: Retractor # Shitmed
     speed: 0.45
-  - type: Tending # GoobStation
+  - type: Tending # Shitmed
     speed: 0.65
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       collection: Screwdriver
     endSound:

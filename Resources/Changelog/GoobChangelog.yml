@@ -1898,3 +1898,45 @@ Entries:
       message: Added Cryosleep Beacon to Barratry.
   id: 232
   time: '2024-11-18T01:36:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        The scram implant will no longer teleport you into open space or very
+        close to your original position.
+  id: 233
+  time: '2024-11-18T21:30:57.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: Cyborg arms/legs can now be used as suplementary body parts.
+    - type: Tweak
+      message: Entities now properly take asphyxiation damage after losing their brain.
+    - type: Tweak
+      message: Entities now perish after 60 seconds of losing their heart and/or brain.
+    - type: Fix
+      message: >-
+        Items not being removed from their respective slots if the parts were
+        gibbed rather than dropped.
+    - type: Fix
+      message: TORSOS NO LONGER DISAPPEAR, PRAISE BE THE LORD.
+    - type: Fix
+      message: Ghetto surgical tools are no longer faster than the advanced ones.
+    - type: Fix
+      message: Fixed Cavity Insertions not working due to shitcode.
+    - type: Fix
+      message: >-
+        You can no longer reuse your organs over and over to abuse transplant
+        healing.
+    - type: Fix
+      message: >-
+        Organs are now properly "spent" once they've been used in a transplant
+        surgery.
+  id: 234
+  time: '2024-11-18T21:38:06.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added Yowie as a new roundstart species with the Bogan accent
+  id: 235
+  time: '2024-11-18T21:40:20.0000000+00:00'

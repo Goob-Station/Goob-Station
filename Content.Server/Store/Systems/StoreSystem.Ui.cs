@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
@@ -9,8 +8,6 @@ using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -19,6 +16,9 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Heretic; // Goob
+using Content.Shared.Heretic.Prototypes; // Goob
+using Content.Server.Heretic.EntitySystems; // Goob
 
 namespace Content.Server.Store.Systems;
 
@@ -33,9 +33,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-
-    // goobstation - heretics
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
 
     private void InitializeUi()
     {
@@ -96,7 +94,8 @@ public sealed partial class StoreSystem
         //this is the person who will be passed into logic for all listing filtering.
         if (user != null) //if we have no "buyer" for this update, then don't update the listings
         {
-            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component).ToHashSet();
+            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
+                .ToHashSet();
         }
 
         //dictionary for all currencies, including 0 values for currencies on the whitelist
@@ -114,6 +113,7 @@ public sealed partial class StoreSystem
 
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
+
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -133,7 +133,7 @@ public sealed partial class StoreSystem
     /// </summary>
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        var listing = component.Listings.FirstOrDefault(x => x.Equals(msg.Listing));
+        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
 
         if (listing == null) //make sure this listing actually exists
         {
@@ -158,9 +158,10 @@ public sealed partial class StoreSystem
         }
 
         //check that we have enough money
-        foreach (var currency in listing.Cost)
+        var cost = listing.Cost;
+        foreach (var (currency, amount) in cost)
         {
-            if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
+            if (!component.Balance.TryGetValue(currency, out var balance) || balance < amount)
             {
                 return;
             }
@@ -170,13 +171,13 @@ public sealed partial class StoreSystem
             component.RefundAllowed = false;
 
         //subtract the cash
-        foreach (var (currency, value) in listing.Cost)
+        foreach (var (currency, amount) in cost)
         {
-            component.Balance[currency] -= value;
+            component.Balance[currency] -= amount;
 
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
 
-            component.BalanceSpent[currency] += value;
+            component.BalanceSpent[currency] += amount;
         }
 
         // goobstation - heretics
@@ -228,7 +229,7 @@ public sealed partial class StoreSystem
 
                 if (listing.ProductUpgradeId != null)
                 {
-                    foreach (var upgradeListing in component.Listings)
+                    foreach (var upgradeListing in component.FullListingsCatalog)
                     {
                         if (upgradeListing.ID == listing.ProductUpgradeId)
                         {
@@ -269,6 +270,11 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
+        if (listing.DisableRefund)
+        {
+            component.RefundAllowed = false;
+        }
+
         //log dat shit.
         _admin.Add(LogType.StorePurchase,
             LogImpact.Low,
@@ -277,13 +283,12 @@ public sealed partial class StoreSystem
         listing.PurchaseAmount++; //track how many times something has been purchased
         _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
 
-        //WD EDIT START
-        if (listing.SaleLimit != 0 && listing.DiscountValue > 0 && listing.PurchaseAmount >= listing.SaleLimit)
+        var buyFinished = new StoreBuyFinishedEvent
         {
-            listing.DiscountValue = 0;
-            listing.Cost = listing.OldCost;
-        }
-        //WD EDIT END
+            PurchasedItem = listing,
+            StoreUid = uid
+        };
+        RaiseLocalEvent(ref buyFinished);
 
         UpdateUserInterface(buyer, uid, component);
     }
@@ -373,6 +378,7 @@ public sealed partial class StoreSystem
         {
             component.Balance[currency] += value;
         }
+
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();
@@ -403,3 +409,14 @@ public sealed partial class StoreSystem
         component.RefundAllowed = false;
     }
 }
+
+/// <summary>
+/// Event of successfully finishing purchase in store (<see cref="StoreSystem"/>.
+/// </summary>
+/// <param name="StoreUid">EntityUid on which store is placed.</param>
+/// <param name="PurchasedItem">ListingItem that was purchased.</param>
+[ByRefEvent]
+public readonly record struct StoreBuyFinishedEvent(
+    EntityUid StoreUid,
+    ListingDataWithCostModifiers PurchasedItem
+);

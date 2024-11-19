@@ -35,8 +35,11 @@
   - type: Sprite
     sprite: Mobs/Species/Arachnid/organs.rsi
     state: stomach
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
   - type: Stomach
     updateInterval: 1.5
   - type: SolutionContainerManager
@@ -66,7 +69,7 @@
     layers:
       - state: lung-l
       - state: lung-r
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: lungs
   - type: Lung
   - type: Metabolizer
@@ -106,6 +109,9 @@
   components:
   - type: Sprite
     state: heart-on
+  - type: Item
+    size: Small
+    heldPrefix: heart
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 2
@@ -114,9 +120,9 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: heart
-  - type: Heart # GoobStation: Lets you transplant spider hearts into other species
+  - type: Heart # Shitmed: Lets you transplant spider hearts into other species
   - type: Tag # goob edit
     tags:
     - Meat
@@ -130,6 +136,9 @@
   description: "Pairing suggestion: chianti and fava beans."
   categories: [ HideSpawnMenu ]
   components:
+  - type: Item
+    size: Small
+    heldPrefix: liver
   - type: Sprite
     state: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
@@ -139,9 +148,9 @@
     groups:
     - id: Alcohol
       rateModifier: 0.1 # removes alcohol very slowly along with the stomach removing it as a drink
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: liver
-  - type: Liver # GoobStation
+  - type: Liver # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
@@ -160,6 +169,9 @@
       - state: kidney-l
       - state: kidney-r
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
   - type: Metabolizer
     updateInterval: 1.5
     maxReagents: 5
@@ -181,14 +193,17 @@
     layers:
       - state: eyeball-l
       - state: eyeball-r
-  - type: Organ # GoobStation
+  - type: Organ # Shitmed
     slotId: eyes
-  - type: Eyes # GoobStation
+  - type: Eyes # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
     - Organ
     - Eyes
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
 
 - type: entity
   id: OrganArachnidTongue

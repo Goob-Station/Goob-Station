@@ -498,6 +498,9 @@ public abstract class SharedRoleSystem : EntitySystem
             _audio.PlayGlobal(sound, mind.Session);
     }
 
+    // TODO ROLES Change to readonly.
+    // Passing around a reference to a prototype's hashset makes me uncomfortable because it might be accidentally
+    // mutated.
     public HashSet<JobRequirement>? GetJobRequirement(JobPrototype job)
     {
         if (_requirementOverride != null && _requirementOverride.Jobs.TryGetValue(job.ID, out var req))
@@ -506,6 +509,7 @@ public abstract class SharedRoleSystem : EntitySystem
         return job.Requirements;
     }
 
+    // TODO ROLES Change to readonly.
     public HashSet<JobRequirement>? GetJobRequirement(ProtoId<JobPrototype> job)
     {
         if (_requirementOverride != null && _requirementOverride.Jobs.TryGetValue(job, out var req))
@@ -514,6 +518,7 @@ public abstract class SharedRoleSystem : EntitySystem
         return _prototypes.Index(job).Requirements;
     }
 
+    // TODO ROLES Change to readonly.
     public HashSet<JobRequirement>? GetAntagRequirement(ProtoId<AntagPrototype> antag)
     {
         if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag, out var req))
@@ -522,6 +527,7 @@ public abstract class SharedRoleSystem : EntitySystem
         return _prototypes.Index(antag).Requirements;
     }
 
+    // TODO ROLES Change to readonly.
     public HashSet<JobRequirement>? GetAntagRequirement(AntagPrototype antag)
     {
         if (_requirementOverride != null && _requirementOverride.Antags.TryGetValue(antag.ID, out var req))

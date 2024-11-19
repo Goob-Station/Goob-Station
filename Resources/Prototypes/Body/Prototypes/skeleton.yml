@@ -14,7 +14,7 @@
       - left arm
       - right leg
       - left leg
-      - head # GoobStation
+      - head # Shitmed
     right arm:
       part: RightArmSkeleton
       connections:
