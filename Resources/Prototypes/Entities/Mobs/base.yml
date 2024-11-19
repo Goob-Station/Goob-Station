@@ -45,6 +45,7 @@
     active: False
   - type: AnimatedEmotes
   - type: Fart
+  - type: CollectiveMind
 
 - type: entity
   save: false
