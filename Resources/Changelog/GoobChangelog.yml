@@ -1946,3 +1946,11 @@ Entries:
       message: EMAG no longer works as Syndicate lawboard for AI upload.
   id: 236
   time: '2024-11-19T22:08:11.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        higher grade power cells now deal more damage when used in the svallin
+        pistol and machine gun.
+  id: 237
+  time: '2024-11-19T22:10:11.0000000+00:00'
