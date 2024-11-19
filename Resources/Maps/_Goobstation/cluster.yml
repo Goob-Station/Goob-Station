@@ -67711,6 +67711,13 @@ entities:
     - type: Transform
       pos: -37.5,-9.5
       parent: 2
+- proto: SpawnPointMailCarrier
+  entities:
+  - uid: 12733
+    components:
+    - type: Transform
+      pos: 20.5,-26.5
+      parent: 2
 - proto: SpawnPointMedicalDoctor
   entities:
   - uid: 10326

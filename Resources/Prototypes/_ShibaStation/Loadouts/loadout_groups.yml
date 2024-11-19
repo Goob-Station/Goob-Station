@@ -1,0 +1,39 @@
+- type: loadoutGroup
+  id: MailCarrierHead
+  name: Mail Carrier head
+  loadouts:
+  - MailCarrierHead
+
+- type: loadoutGroup
+  id: MailCarrierJumpsuit
+  name: Mail Carrier jumpsuit
+  loadouts:
+  - MailCarrierJumpsuit
+  - MailCarrierJumpskirt
+
+- type: loadoutGroup
+  id: MailCarrierGloves
+  name: Mail Carrier gloves
+  loadouts:
+  - MailCarrierGloves
+
+- type: loadoutGroup
+  id: MailCarrierBackpack
+  name: Mail Carrier backpack
+  loadouts:
+  - MailCarrierBackpack
+  - MailCarrierSatchel
+  - MailCarrierDuffel
+
+- type: loadoutGroup
+  id: MailCarrierOuterClothing
+  name: Mail Carrier outer clothing
+  loadouts:
+  - MailCarrierWintercoat
+
+- type: loadoutGroup
+  id: MailCarrierShoes
+  name: Mail Carrier shoes
+  loadouts:
+  - MailCarrierShoes
+  - MailCarrierWinterBoots

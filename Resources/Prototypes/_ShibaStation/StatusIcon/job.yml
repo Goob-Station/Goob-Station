@@ -1,0 +1,7 @@
+- type: jobIcon
+  parent: JobIcon
+  id: JobIconMailCarrier
+  icon:
+    sprite: /Textures/_ShibaStation/Interface/Misc/job_icons.rsi
+    state: MailCarrier
+  jobName: job-name-mailcarrier
