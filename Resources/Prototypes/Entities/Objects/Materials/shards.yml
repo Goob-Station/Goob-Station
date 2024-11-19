@@ -80,9 +80,9 @@
   - type: DeleteOnTrigger
   - type: StaticPrice
     price: 0
-  - type: Scalpel # GoobStation
+  - type: Scalpel # Shitmed
     speed: 0.45
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
     endSound:

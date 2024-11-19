@@ -7,7 +7,7 @@ namespace Content.Shared._Shitmed.Medical.Surgery.Conditions;
 public sealed partial class SurgeryPartRemovedConditionComponent : Component
 {
     /// <summary>
-    /// GoobStation: Requires that the parent part can attach a new part to this slot.
+    ///     Requires that the parent part can attach a new part to this slot.
     /// </summary>
     [DataField(required: true)]
     public string Connection = string.Empty;

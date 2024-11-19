@@ -31,9 +31,9 @@
       Steel: 15
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right
-  #- type: Hemostat # GoobStation
+  #- type: Hemostat # Shitmed
   #  speed: 0.15
-  #- type: SurgeryTool # GoobStation
+  #- type: SurgeryTool # Shitmed
   #  used: true
   #  startSound:
   #    path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg

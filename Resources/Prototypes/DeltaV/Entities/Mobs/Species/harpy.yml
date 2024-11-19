@@ -34,7 +34,7 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
-      enum.SurgeryUIKey.Key: # GoobStation
+      enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: Sprite
     scale: 0.9, 0.9

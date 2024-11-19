@@ -12942,6 +12942,10 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 30.5,-42.5
       parent: 2
+    - type: DeviceList
+      devices:
+      - 20006
+      - 20005
   - uid: 8436
     components:
     - type: Transform
@@ -63749,6 +63753,13 @@ entities:
     - type: Transform
       pos: 54.5,-33.5
       parent: 2
+- proto: DefaultStationBeaconVox
+  entities:
+  - uid: 16173
+    components:
+    - type: Transform
+      pos: -31.5,-2.5
+      parent: 2
 - proto: DefaultStationBeaconWardensOffice
   entities:
   - uid: 20871
@@ -95454,6 +95465,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 26.5,-42.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8434
     - type: AtmosPipeColor
       color: '#0335FCFF'
   - uid: 20037
@@ -96655,6 +96669,9 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 26.5,-45.5
       parent: 2
+    - type: DeviceNetwork
+      deviceLists:
+      - 8434
     - type: AtmosPipeColor
       color: '#FF1212FF'
   - uid: 20038

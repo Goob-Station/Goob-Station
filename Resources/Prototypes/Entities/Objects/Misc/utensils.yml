@@ -8,9 +8,9 @@
   - type: Item # TODO add inhand sprites for all utensils
     sprite: Objects/Misc/utensils.rsi
   - type: SpaceGarbage
-  - type: Tweezers # GoobStation: Any utensil can poorly remove organs
+  - type: Tweezers # Shitmed: Any utensil can poorly remove organs
     speed: 0.2
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
@@ -57,7 +57,7 @@
     damage:
       types:
         Piercing: 5
-  - type: Tweezers # GoobStation: Forks are better than spoons
+  - type: Tweezers # Shitmed: Forks are better than spoons
     speed: 0.35
 
 - type: entity
@@ -71,7 +71,7 @@
   - type: Utensil
     types:
     - Fork
-  - type: Tweezers # GoobStation: Forks are better than spoons
+  - type: Tweezers # Shitmed: Forks are better than spoons
     speed: 0.35
 
 - type: entity

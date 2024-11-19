@@ -5,12 +5,16 @@ dynamic-roundend-points-midround = Midround budget: {$points}.
 dynamic-roundend-gamerules-title = Executed Gamerules:
 
 dynamic-gamerule-unknown-title = Unknown Gamerule
-dynamic-gamerule-traitor-title = [color=crimson]Traitors[/color]
-dynamic-gamerule-changeling-title = [color=yellow]Changelings[/color]
-dynamic-gamerule-heretic-title = [color=purple]Heretics[/color]
+dynamic-gamerule-traitor-low-title = [color=crimson]Traitor - Low[/color]
+dynamic-gamerule-traitor-medium-title = [color=crimson]Traitor - Medium[/color]
+dynamic-gamerule-traitor-high-title = [color=crimson]Traitor - High[/color]
+dynamic-gamerule-changeling-low-title = [color=yellow]Changeling - Low[/color]
+dynamic-gamerule-changeling-high-title = [color=yellow]Changeling - High[/color]
+dynamic-gamerule-heretic-low-title = [color=purple]Heretic - Low[/color]
+dynamic-gamerule-heretic-high-title = [color=purple]Heretic - High[/color]
 dynamic-gamerule-thief-title = [color=gray]Thieves[/color]
-dynamic-gamerule-revolutionary-title = [color=cyan]Revolutionaries[/color]
-dynamic-gamerule-zombies-title = [color=pink]Initial Infected[/color]
+dynamic-gamerule-revolutionary-title = [color=cyan]Revolution[/color]
+dynamic-gamerule-zombies-title = [color=pink]Zombies[/color]
 dynamic-gamerule-nukeops-title = [color=red]Nuclear Emergency[/color]
 
 dynamic-gamerule-threat-perrule = {$num} threat.

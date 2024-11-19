@@ -40,11 +40,11 @@
   - type: Item
     sprite: Objects/Tools/Hydroponics/clippers.rsi
     storedRotation: -90
-  - type: Retractor # GoobStation: Same as wirecutters
+  - type: Retractor # Shitmed: Same as wirecutters
     speed: 0.35
   - type: Hemostat
     speed: 0.6
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
@@ -96,9 +96,9 @@
         Piercing: 2
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
-  - type: BoneSaw # GoobStation
+  - type: BoneSaw # Shitmed
     speed: 0.35
-  - type: SurgeryTool # GoobStation
+  - type: SurgeryTool # Shitmed
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 

@@ -545,7 +545,7 @@
     - Mouse
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # GoobStation
+  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -564,7 +564,7 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # GoobStation
+      enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
@@ -852,8 +852,8 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -932,8 +932,8 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -1024,8 +1024,8 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -1246,8 +1246,8 @@
   abstract: true
   components:
   - type: CombatMode
-  - type: SurgeryTarget # GoobStation
-  - type: Targeting # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: Targeting # Shitmed
   - type: Inventory
     templateId: monkey
     speciesId: monkey
@@ -1301,7 +1301,7 @@
   - type: Body
     prototype: Primate
     requiredLegs: 1 # TODO: More than 1 leg
-  - type: UserInterface # GoobStation: Add SurgeryUIKey on top of stripping ui
+  - type: UserInterface # Shitmed: Add SurgeryUIKey on top of stripping ui
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
@@ -1434,8 +1434,7 @@
   components:
     # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobMonkeySyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1459,11 +1458,14 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
+    allowedEmotes: ['Thump']
   - type: Vocal
     sounds:
       Male: MaleReptilian
       Female: FemaleReptilian
       Unsexed: MaleReptilian
+  - type: BodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
     proto: lizard
   - type: InteractionPopup
@@ -1593,8 +1595,7 @@
   components:
     # make the player a traitor once its taken
   - type: AutoTraitor
-    giveUplink: false
-    giveObjectives: false
+    profile: TraitorReinforcement
 
 - type: entity
   id: MobKoboldSyndicateAgentNukeops # Reinforcement exclusive to nukeops uplink
@@ -1620,8 +1621,8 @@
   components:
   - type: Body
     prototype: Mouse
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
@@ -1825,6 +1826,11 @@
   # intended for swarms that eat pills so only temporary
   - type: TimedDespawn
     lifetime: 60
+  - type: Hunger
+    baseDecayRate: 10 # always hungry
+    starvingSlowdownModifier: 1
+  - type: Thirst
+    baseDecayRate: 10 # always thirsty
 
 - type: entity
   parent: MobMouse
@@ -2373,8 +2379,8 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # GoobStation
-  - type: UserInterface # GoobStation
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
     interfaces:
       enum.SurgeryUIKey.Key:
         type: SurgeryBui

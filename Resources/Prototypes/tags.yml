@@ -997,6 +997,9 @@
   id: NoBlockAnchoring
 
 - type: Tag
+  id: NoConsoleSound
+
+- type: Tag
   id: NozzleBackTank
 
 - type: Tag
@@ -1079,6 +1082,9 @@
 
 - type: Tag
   id: Plunger
+
+- type: Tag
+  id: PlushieCarp
 
 - type: Tag
   id: PlushieGhost
@@ -1208,6 +1214,9 @@
   id: ShellShotgun
 
 - type: Tag
+  id: ShellShotgunLight # shotgun shells that are compatible with the flare gun.
+
+- type: Tag
   id: Shiv
 
 - type: Tag
@@ -1319,6 +1328,9 @@
 
 - type: Tag
   id: Syringe
+
+- type: Tag
+  id: SyringeGunAmmo
 
 - type: Tag
   id: Spellbook
