@@ -16,7 +16,7 @@ Entries:
   time: '2024-11-19T17:59:48.496480'
 - author: AstroDogeDX
   changes:
-  - message: Harpies, Vulpkanin and Rodentians now gasp and deathgasp.
+  - message: Harpies, Vulpkanin, Felinids and Rodentians now gasp and deathgasp correctly.
     type: Fix
   id: 14
   time: '2024-11-19T18:11:38.194161'
