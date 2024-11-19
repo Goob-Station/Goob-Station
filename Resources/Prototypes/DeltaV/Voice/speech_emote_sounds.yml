@@ -40,7 +40,7 @@
       collection: VulpkaninHowls
     Gasp:
       collection: FemaleGasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: FemaleDeathGasp
 
 - type: emoteSounds
@@ -84,7 +84,7 @@
       collection: VulpkaninHowls
     Gasp:
       collection: MaleGasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: MaleDeathGasp
 
 - type: emoteSounds
@@ -134,7 +134,7 @@
       path: /Audio/Animals/mouse_squeak.ogg
     Gasp:
       collection: MaleGasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: MaleDeathGasp
 
 - type: emoteSounds
@@ -168,6 +168,6 @@
       path: /Audio/Animals/mouse_squeak.ogg
     Gasp:
       collection: FemaleGasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: FemaleDeathGasp
 

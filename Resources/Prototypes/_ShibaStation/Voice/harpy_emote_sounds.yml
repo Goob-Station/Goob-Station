@@ -79,7 +79,7 @@
     HarpyGaspsLikeWoman:
       collection: HarpyGaspsLikeWoman
     # Default Death Gasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: FemaleDeathGasp
     ## Shared Namespace Emotes
     Bark:
@@ -244,7 +244,7 @@
     HarpyGaspsLikeWoman:
       collection: HarpyGaspsLikeWoman
     # Default Death Gasp
-    DefaultDeathGasp:
+    DefaultDeathgasp:
       collection: MaleDeathGasp
     ## Shared Namespace Emotes
     Bark:
