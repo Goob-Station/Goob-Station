@@ -281,6 +281,24 @@
     part: Foot
     symmetry: Right
 
+- type: entity
+  parent: SurgeryBase
+  id: SurgeryAttachTail
+  name: Attach Tail
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Surgery
+    requirement: SurgeryOpenIncision
+    steps:
+    - SurgeryStepInsertFeature
+    - SurgeryStepSealWounds
+  - type: SurgeryPartCondition
+    part: Torso
+  - type: SurgeryPartRemovedCondition
+    connection: tail
+    part: Tail
+    symmetry: None
+
 #- type: entity
 #  parent: SurgeryBase
 #  id: SurgeryAlienEmbryoRemoval

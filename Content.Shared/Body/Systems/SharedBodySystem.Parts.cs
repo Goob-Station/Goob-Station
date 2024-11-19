@@ -106,12 +106,13 @@ public partial class SharedBodySystem
     public void ChangeSlotState(Entity<BodyPartComponent> partEnt, bool disable)
     {
         if (partEnt.Comp.Body is not null
+            && TryComp<InventoryComponent>(partEnt.Comp.Body, out var inventory) // Prevent error for non-humanoids
             && GetBodyPartCount(partEnt.Comp.Body.Value, partEnt.Comp.PartType) == 1
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
             {
-                _inventorySystem.SetSlotStatus(partEnt.Comp.Body.Value, containerName, disable);
+                _inventorySystem.SetSlotStatus(partEnt.Comp.Body.Value, containerName, disable, inventory);
                 var ev = new RefreshInventorySlotsEvent(containerName);
                 RaiseLocalEvent(partEnt.Comp.Body.Value, ev);
             }
@@ -566,7 +567,7 @@ public partial class SharedBodySystem
     }
 
     /// <summary>
-    /// GoobStation: Returns true if this parentId supports attaching a new part to the specified slot.
+    /// Shitmed Change: Returns true if this parentId supports attaching a new part to the specified slot.
     /// </summary>
     public bool CanAttachToSlot(
         EntityUid parentId,

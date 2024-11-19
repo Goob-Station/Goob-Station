@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobYowie
+  name: Urist McYowie
+  abstract: true
+  components:
+  - type: Sprite
+    scale: 1.3, 1.3 
+  - type: Hunger
+  - type: Icon # It will not have an icon in the adminspawn menu without this. Body parts seem fine for whatever reason.
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: full
+  - type: Thirst
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodMeatHuman
+      amount: 5
+  
+  - type: HumanoidAppearance
+    species: Yowie
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Temperature # Fur = bad with heat, stole numbers from moth
+    heatDamageThreshold: 320
+    coldDamageThreshold: 230
+    currentTemperature: 310.15
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold : 0.05 #per second, scales with temperature & other constants
+    heatDamage:
+      types:
+        Heat : 3 #per second, scales with temperature & other constants
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 8
+  - type: Inventory
+    templateId: yowie
+  - type: Damageable
+    damageModifierSet: Yowie
+  - type: Metabolizer
+    updateInterval: 3
+  - type: BoganAccent
+  - type: Carriable 
+    freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobYowieDummy
+  components:
+  - type: HumanoidAppearance
+    species: Yowie

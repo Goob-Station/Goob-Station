@@ -385,6 +385,7 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part))
                 return gibs;
 
+            ChangeSlotState((partId, part), true);
             RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
             {

@@ -1,6 +1,7 @@
 using Content.Server.Administration.Logs;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
+using Content.Shared._Shitmed.Body.Components; // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.EffectConditions;
@@ -19,6 +20,7 @@ using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
+
 
 namespace Content.Server.Body.Systems;
 
@@ -72,12 +74,12 @@ public sealed class RespiratorSystem : EntitySystem
 
             respirator.NextUpdate += respirator.UpdateInterval;
 
-            if (_mobState.IsDead(uid))
+            if (_mobState.IsDead(uid) || HasComp<BreathingImmunityComponent>(uid)) // Shitmed: BreathingImmunity
                 continue;
 
             UpdateSaturation(uid, -(float) respirator.UpdateInterval.TotalSeconds, respirator);
 
-            if (!_mobState.IsIncapacitated(uid) || HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
+            if (!_mobState.IsIncapacitated(uid) && !HasComp<DebrainedComponent>(uid)) // Shitmed Change - Cannot breathe in crit or when no brain.
             {
                 switch (respirator.Status)
                 {
@@ -295,7 +297,7 @@ public sealed class RespiratorSystem : EntitySystem
             }
         }
 
-        _damageableSys.TryChangeDamage(ent, ent.Comp.Damage, interruptsDoAfters: false);
+        _damageableSys.TryChangeDamage(ent, HasComp<DebrainedComponent>(ent) ? ent.Comp.Damage * 4.5f : ent.Comp.Damage, interruptsDoAfters: false);
     }
 
     private void StopSuffocation(Entity<RespiratorComponent> ent)

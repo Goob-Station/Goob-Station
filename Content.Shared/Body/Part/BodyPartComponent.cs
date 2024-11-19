@@ -46,6 +46,9 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     [DataField, AutoNetworkedField]
     public bool? Used { get; set; } = null;
 
+    [DataField]
+    public float Speed { get; set; } = 1f;
+
     /// <summary>
     /// Shitmed Change: What's the max health this body part can have?
     /// </summary>

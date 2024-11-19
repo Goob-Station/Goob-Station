@@ -22,3 +22,10 @@
     size: Normal
     sprite: Objects/Weapons/Melee/armblade.rsi
   - type: Prying
+  - type: Scalpel # Shitmed
+    speed: 0.3
+  - type: BoneSaw # Shitmed
+    speed: 0.75
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
