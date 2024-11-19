@@ -39,24 +39,6 @@
     {
       "name": "grey-inhand-right",
       "directions": 4
-    },
-    {
-      "name": "mopbucket_shark_command"
-    },
-    {
-      "name": "mopbucket_shark_medical"
-    },
-    {
-      "name": "mopbucket_shark_science"
-    },
-    {
-      "name": "mopbucket_shark_engineering"
-    },
-    {
-      "name": "mopbucket_shark_security"
-    },
-    {
-      "name": "mopbucket_shark_cargo"
     }
   ]
 }
