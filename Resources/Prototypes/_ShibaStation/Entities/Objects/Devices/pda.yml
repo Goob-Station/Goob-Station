@@ -4,12 +4,14 @@
   name: mail carrier PDA
   description: Tastes like stamp glue.
   components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Devices/pda.rsi
   - type: Pda
-    id: CargoIDCard
-    state: pda-cargo
+    id: MailIDCard
+    state: pda-mail
   - type: PdaBorderColor
-    borderColor: "#e39751"
-    accentHColor: "#949137"
+    borderColor: "#394DC6"
+    accentHColor: "#DCDCDC"
   - type: Icon
     state: pda-cargo
   - type: CartridgeLoader
