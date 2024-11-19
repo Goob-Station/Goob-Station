@@ -1940,3 +1940,9 @@ Entries:
       message: Added Yowie as a new roundstart species with the Bogan accent
   id: 235
   time: '2024-11-18T21:40:20.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: EMAG no longer works as Syndicate lawboard for AI upload.
+  id: 236
+  time: '2024-11-19T22:08:11.0000000+00:00'
