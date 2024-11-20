@@ -16,7 +16,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgery>(OnFleshSurgery);
         SubscribeLocalEvent<HereticComponent, EventHereticFleshSurgeryDoAfter>(OnFleshSurgeryDoAfter);
-        SubscribeLocalEvent<HereticComponent, EventHereticFleshAscend>(OnFleshAscendPolymorph);
+        SubscribeLocalEvent<HereticComponent, HereticAscensionFleshEvent>(OnFleshAscendPolymorph);
     }
 
     private void OnFleshSurgery(Entity<HereticComponent> ent, ref EventHereticFleshSurgery args)
@@ -99,7 +99,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         _dmg.SetAllDamage((EntityUid) args.Target, dmg, 0);
         args.Handled = true;
     }
-    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref EventHereticFleshAscend args)
+    private void OnFleshAscendPolymorph(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
     {
         if (!TryUseAbility(ent, args))
             return;
