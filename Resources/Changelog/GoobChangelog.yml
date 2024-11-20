@@ -2010,3 +2010,9 @@ Entries:
       message: Gave borgs a station map by default.
   id: 243
   time: '2024-11-20T22:12:59.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added...uhh, what was it? Oh right, Dementia
+  id: 244
+  time: '2024-11-20T22:15:26.0000000+00:00'
