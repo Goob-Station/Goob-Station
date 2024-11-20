@@ -30,3 +30,4 @@
     Cold: 0.7  # Fur = Keep warm
     Bloodloss: 0.9
     Poison: 0.5 # Should be more resistant to toxin
+    Radiation : 0.7 # Engie yowies need some help against anti-rads

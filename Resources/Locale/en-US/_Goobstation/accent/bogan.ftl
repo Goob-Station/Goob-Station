@@ -5,7 +5,7 @@ accent-bogan-prefix-4 = Mmmmm,
 
 accent-bogan-suffix-1 = , cunt.
 accent-bogan-suffix-2 = , fuckin' oath.
-accent-bogan-suffix-3 = , fuck oath cunt.
+accent-bogan-suffix-3 = , fuckin' oath cunt.
 accent-bogan-suffix-4 = , ya fuckin druggo.
 accent-bogan-suffix-5 = , you fucking drug addict.
 
@@ -27,8 +27,8 @@ accent-bogan-words-replace-5 = fuckin' skitz
 accent-bogan-words-6 = cool
 accent-bogan-words-replace-6 = skiz
 
-accent-bogan-words-7 = what
-accent-bogan-words-replace-7 = whuddyatalkinabeet
+accent-bogan-words-7 = what?
+accent-bogan-words-replace-7 = whuddyatalkinabeet?
 
 accent-bogan-words-8 = weed
 accent-bogan-words-replace-8 = yoweed
@@ -129,7 +129,7 @@ accent-bogan-words-replace-39 = me
 accent-bogan-words-40 = ok
 accent-bogan-words-replace-40 = no worries
 
-accent-bogan-words-41 = break
+accent-bogan-words-41 = smoke
 accent-bogan-words-replace-41 = smoko
 
 accent-bogan-words-42 = friend
