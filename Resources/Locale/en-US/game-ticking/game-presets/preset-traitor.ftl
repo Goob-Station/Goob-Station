@@ -1,5 +1,4 @@
 ## Traitor
-## GOOB EDITED
 
 traitor-round-end-codewords = The codewords were: [color=White]{$codewords}[/color]
 traitor-round-end-agent-name = traitor
@@ -24,6 +23,11 @@ traitor-death-match-end-round-description-entry = {$originalName}'s PDA, with {$
 ## TraitorRole
 
 # TraitorRole
+traitor-role-greeting =
+    You are an agent sent by {$corporation} on behalf of [color = darkred]The Syndicate.[/color]
+    Your objectives and codewords are listed in the character menu.
+    Use your uplink to buy the tools you'll need for this mission.
+    Death to Nanotrasen!
 traitor-role-codewords =
     The codewords are: [color = lightgray]
     {$codewords}.[/color]
@@ -35,18 +39,6 @@ traitor-role-uplink-code =
 traitor-role-uplink-implant =
     Your uplink implant has been activated, access it from your hotbar.
     The uplink is secure unless someone removes it from your body.
-
-traitor-role-moreinfo =
-    Find more information about your role in the character menu.
-
-traitor-role-nouplink =
-    You do not have a syndicate uplink. Make it count.
-
-traitor-role-allegiances =
-    Your allegiances:
-
-traitor-role-notes =
-    Notes from your employer:
 
 # don't need all the flavour text for character menu
 traitor-role-codewords-short =

@@ -117,9 +117,9 @@
     speechVerb: Harpy
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
+      Unsexed: SoundsHarpyFemale
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
