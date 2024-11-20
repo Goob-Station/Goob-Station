@@ -22,7 +22,7 @@ uplink-operative-radio-desc = Radio in a nuclear operative of extremely question
 # bang bang pew pew eat it up i gota go
 
 uplink-m90-name = M-90 Bundle
-uplink-m90-desc = A bundle with a M-90 and 3 .20 rifle mags.
+uplink-m90-desc = A bundle with a M-90 and 2 .20 rifle mags.
 
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
