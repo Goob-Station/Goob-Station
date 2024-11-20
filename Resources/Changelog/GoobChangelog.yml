@@ -1940,3 +1940,27 @@ Entries:
       message: Added Yowie as a new roundstart species with the Bogan accent
   id: 235
   time: '2024-11-18T21:40:20.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: EMAG no longer works as Syndicate lawboard for AI upload.
+  id: 236
+  time: '2024-11-19T22:08:11.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        higher grade power cells now deal more damage when used in the svallin
+        pistol and machine gun.
+  id: 237
+  time: '2024-11-19T22:10:11.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Yowie's spawn with survival boxes now
+    - type: Fix
+      message: Fixed some bogan accent annoyances
+    - type: Add
+      message: Yowie's are now more rad proof
+  id: 238
+  time: '2024-11-20T05:16:19.0000000+00:00'
