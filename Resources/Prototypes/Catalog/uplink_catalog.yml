@@ -8,7 +8,7 @@
   productEntity: WeaponPistolViper
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 14 # goob - this +1 mag = 20 TC
   categories:
@@ -62,7 +62,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   productEntity: EnergySword
   cost:
     Telecrystal: 40 # goob
@@ -107,7 +107,7 @@
   productEntity: ClothingHandsGlovesNorthStar
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 40 # goob
   categories:
@@ -141,7 +141,7 @@
   productEntity: EnergyShield
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 40 # goob
   categories:
@@ -176,7 +176,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledSMG
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 85 # goob
   categories:
@@ -191,7 +191,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 100 # goob
   categories:
@@ -206,7 +206,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledGrenadeLauncher
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 150 # goob
   categories:
@@ -221,7 +221,7 @@
   productEntity: ClothingBackpackDuffelSyndicateFilledLMG
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 150 # goob
   categories:
@@ -237,7 +237,7 @@
   productEntity: ExGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 12 # goob - Better than C4 combat wise, less utility elsewhere. Don't want crazy spam on ops however.
   categories:
@@ -301,7 +301,7 @@
   productEntity: WhiteholeGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 8 # goob - it's an emergency escape tool and distraction, not a real nade.
   categories:
@@ -334,7 +334,7 @@
   productEntity: C4
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 8 # goob - We have a ten tens or 100 TC system, lets use the bastard. Better than 13's yet 10 TC's a pretty crappy price.
   categories:
@@ -348,7 +348,7 @@
   productEntity: ClothingBeltMilitaryWebbingGrenadeFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 50 # goob
   categories:
@@ -367,7 +367,7 @@
   productEntity: ClothingBackpackDuffelSyndicateC4tBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 60 # goob - you're buying bulk so its a 25% discount
   categories:
@@ -381,7 +381,7 @@
   productEntity: EmpGrenade
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 8 # goob - Pretty decent, but underused for a reason at 10 TC.
   categories:
@@ -483,7 +483,7 @@
   productEntity: ElectricalDisruptionKit
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 20 # goob
   categories:
@@ -605,7 +605,7 @@
   productEntity: HypoDartBox
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -682,7 +682,7 @@
   productEntity: CombatMedipen
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
@@ -696,7 +696,7 @@
   productEntity: Stimpack
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob - 1 TC per 3 seconds.
   categories:
@@ -724,7 +724,7 @@
   productEntity: CigPackSyndicate
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -763,7 +763,7 @@
   productEntity: AgentIDCard
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 15 # goob
   categories:
@@ -806,7 +806,7 @@
   productEntity: BoxEncryptionKeySyndie # Two for the price of one
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -851,7 +851,7 @@
   productEntity: LanternFlash
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -904,7 +904,7 @@
   productEntity: SyndicateBombFake
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -919,7 +919,7 @@
   productEntity: Emag
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 40 # goob
   categories:
@@ -962,7 +962,7 @@
   icon: { sprite: /Textures/Objects/Specific/Robotics/borgmodule.rsi, state: syndicateborgbomb }
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 20 # goob
   categories:
@@ -987,7 +987,7 @@
   productEntity: SlipocalypseClusterSoap
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 12 # goob - Not a GREAT item but has some effects. Bomb Balance.
   categories:
@@ -1001,7 +1001,7 @@
   productEntity: ToolboxSyndicateFilled
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1015,7 +1015,7 @@
   productEntity: SyndicateJawsOfLife
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1271,7 +1271,7 @@
   productEntity: DehydratedSpaceCarp
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1343,7 +1343,7 @@
   productEntity: FreedomImplanter
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 25 # goob
   categories:
@@ -1358,7 +1358,7 @@
   productEntity: ScramImplanter
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
@@ -1388,7 +1388,7 @@
   productEntity: EmpImplanter
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1462,7 +1462,7 @@
   productEntity: UplinkImplanter
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1503,7 +1503,7 @@
   productEntity: JetpackBlackFilled
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1517,7 +1517,7 @@
   productEntity: ClothingMaskGasVoiceChameleon
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1568,7 +1568,7 @@
   productEntity: ClothingShoesChameleonNoSlips
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 10 # goob
   categories:
@@ -1582,7 +1582,7 @@
   productEntity: ThievingGloves
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 20 # goob
   categories:
@@ -1655,7 +1655,7 @@
   productEntity: ClothingBackpackDuffelSyndicateHardsuitBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 50 # goob
   categories:
@@ -1702,7 +1702,7 @@
   productEntity: CrateCybersunJuggernautBundle
   discountCategory: veryRareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 10
   cost:
     Telecrystal: 75 # goob
   categories:
@@ -1776,7 +1776,7 @@
   productEntity: RevolverCapGun
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 1
   cost:
     Telecrystal: 4 # goob - Funny, but not 20 TC Funny.
   categories:
@@ -1789,7 +1789,7 @@
   productEntity: RubberStampSyndicate
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 8 # goob - Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
   categories:
@@ -2043,7 +2043,7 @@
   productEntity: TrashBananaPeelExplosiveUnarmed
   discountCategory: rareDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 8 # goob
   categories:
@@ -2119,7 +2119,7 @@
   productEntity: WeaponPistolCHIMPUpgradeKit
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 5
+    Telecrystal: 2
   cost:
     Telecrystal: 10 # goob - Weak but very cheap
   categories:
