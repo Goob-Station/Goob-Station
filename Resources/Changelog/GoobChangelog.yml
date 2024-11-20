@@ -1954,3 +1954,13 @@ Entries:
         pistol and machine gun.
   id: 237
   time: '2024-11-19T22:10:11.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Yowie's spawn with survival boxes now
+    - type: Fix
+      message: Fixed some bogan accent annoyances
+    - type: Add
+      message: Yowie's are now more rad proof
+  id: 238
+  time: '2024-11-20T05:16:19.0000000+00:00'
