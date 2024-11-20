@@ -1964,3 +1964,13 @@ Entries:
       message: Yowie's are now more rad proof
   id: 238
   time: '2024-11-20T05:16:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Discount buttons are red now
+    - type: Tweak
+      message: Everything can discount much lower
+    - type: Fix
+      message: Briefing show up correctly now
+  id: 239
+  time: '2024-11-20T21:45:19.0000000+00:00'
