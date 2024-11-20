@@ -44,6 +44,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkM90Bundle
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateM90Bundle
+  cost:
+    Telecrystal: 90 # - C-20よりも優れていますが、より多くの在庫スペースとより少ないマガジン容量を必要とします
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -226,3 +236,15 @@
   categories:
   - UplinkDeception
 
+# 弾薬
+
+- type: listing
+  id: UplinkRifleMag
+  name: uplink-rifle-mag-name
+  description: uplink-rifle-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: icon }
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
+  categories:
+  - UplinkAmmo
