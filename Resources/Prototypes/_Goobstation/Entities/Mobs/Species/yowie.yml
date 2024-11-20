@@ -50,6 +50,16 @@
 - type: entity
   parent: BaseSpeciesDummy
   id: MobYowieDummy
+  categories: [ HideSpawnMenu ]
   components:
   - type: HumanoidAppearance
-    species: Yowie
+    species: Diona
+  - type: Inventory
+    templateId: diona
+    femaleDisplacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: Mobs/Species/Human/displacement.rsi
+            state: jumpsuit-female
+ 
