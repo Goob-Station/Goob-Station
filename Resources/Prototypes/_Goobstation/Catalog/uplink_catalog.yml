@@ -242,7 +242,7 @@
   id: UplinkRifleMag
   name: uplink-rifle-mag-name
   description: uplink-rifle-mag-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: icon }
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
   cost:
     Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
