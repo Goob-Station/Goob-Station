@@ -1994,3 +1994,13 @@ Entries:
         deathgasping when dying.
   id: 241
   time: '2024-11-20T22:08:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Hijack shuttle objective for traitors is back.
+    - type: Add
+      message: >-
+        It is now once again possible to EMAG emergency shuttle console for
+        early launch.
+  id: 242
+  time: '2024-11-20T22:12:11.0000000+00:00'
