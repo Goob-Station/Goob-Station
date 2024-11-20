@@ -42,9 +42,9 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: Ointment
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 5
+    price: 10 #Was 5, now 10, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   id: Ointment1
@@ -93,9 +93,9 @@
       path: "/Audio/Items/Medical/ointment_end.ogg"
   - type: Stack
     stackType: RegenerativeMesh
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 20
+    price: 40 #Was 20, now 40, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   id: OintmentAdvanced1
@@ -130,9 +130,9 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Brutepack
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 5
+    price: 10 #Was 5, now 10, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   id: Brutepack1
@@ -180,9 +180,9 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: MedicatedSuture
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 20
+    price: 40 #Was 20, now 40, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   id: BrutepackAdvanced1
@@ -218,9 +218,9 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Bloodpack
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 10
+    price: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   parent: Bloodpack
@@ -285,9 +285,9 @@
       path: "/Audio/Items/Medical/brutepack_end.ogg"
   - type: Stack
     stackType: Gauze
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
   - type: StackPrice
-    price: 10
+    price: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   id: Gauze1
@@ -317,7 +317,7 @@
     state: cream
   - type: Stack
     stackType: AloeCream
-    count: 10
+    count: 20 #Was 10, now 20, Buffed due to surgery changes (Goobstation)
 
 - type: entity
   parent: BaseHealingItem
