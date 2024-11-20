@@ -26,6 +26,14 @@
     guides:
     - Cyborgs
     - Robotics
+  # Shitmed Change Start
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Gibbable
+  # Shitmed Change End
 
 - type: entity
   id: BaseBorgArmLeft
@@ -34,7 +42,7 @@
   abstract: true
   components:
   - type: BodyPart
-    partType: Hand
+    partType: Arm # Shitmed Change
     symmetry: Left
   - type: Tag
     tags:
@@ -48,7 +56,7 @@
   abstract: true
   components:
   - type: BodyPart
-    partType: Hand
+    partType: Arm # Shitmed Change
     symmetry: Right
   - type: Tag
     tags:
@@ -68,6 +76,7 @@
     tags:
     - Trash
     - BorgLeg
+  - type: MovementBodyPart # Shitmed Change
 
 - type: entity
   id: BaseBorgLegRight
@@ -82,6 +91,7 @@
     tags:
     - Trash
     - BorgLeg
+  - type: MovementBodyPart # Shitmed Change
 
 - type: entity
   id: BaseBorgHead

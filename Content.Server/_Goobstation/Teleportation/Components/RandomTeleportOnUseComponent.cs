@@ -3,14 +3,13 @@ using Robust.Shared.Prototypes;
 namespace Content.Server.Teleportation;
 
 /// <summary>
-/// Entity that will randomly teleport the user when used in hand.
+///     Entity that will randomly teleport the user when used in hand.
 /// </summary>
 [RegisterComponent]
-public sealed partial class RandomTeleportOnUseComponent : Component
+public sealed partial class RandomTeleportOnUseComponent : RandomTeleportComponent
 {
     /// <summary>
-    /// Whether to consume this item on use; consumes only one if it's a stack
+    ///     Whether to consume this item on use; consumes only one if it's a stack
     /// </summary>
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool ConsumeOnUse = true;
+    [DataField] public bool ConsumeOnUse = true;
 }

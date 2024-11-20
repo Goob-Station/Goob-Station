@@ -18,6 +18,43 @@
   - type: Tag
     tags:
       - Trash
+  # Shitmed Change Start
+  - type: Gibbable
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 110
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 150
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+    # Shitmed Change End
 
 - type: entity
   id: TorsoVulpkanin
@@ -31,8 +68,44 @@
   - type: Icon
     sprite: DeltaV/Mobs/Species/Vulpkanin/parts.rsi
     state: "torso_m"
+  # Shitmed Change Start
   - type: BodyPart
     partType: Torso
+    toolName: "a torso"
+    containerName: "torso_slot"
+  - type: ContainerContainer
+    containers:
+      torso_slot: !type:ContainerSlot {}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Heat
+        damage: 400
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawnInContainer: true
+        spawn:
+          Ash:
+            min: 1
+            max: 1
+      - !type:BurnBodyBehavior { }
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MeatLaserImpact
+  # Shitmed Change End
 
 - type: entity
   id: HeadVulpkanin
@@ -49,6 +122,7 @@
   - type: BodyPart
     partType: Head
     vital: true
+    toolName: "a head" # Shitmed Change
   - type: Input
     context: "ghost"
   - type: InputMover
@@ -72,6 +146,7 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
+    toolName: "a left arm" # Shitmed Change
 
 - type: entity
   id: RightArmVulpkanin
@@ -88,6 +163,7 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
+    toolName: "a right arm" # Shitmed Change
 
 - type: entity
   id: LeftHandVulpkanin
@@ -104,6 +180,7 @@
   - type: BodyPart
     partType: Hand
     symmetry: Left
+    toolName: "a left hand" # Shitmed Change
 
 - type: entity
   id: RightHandVulpkanin
@@ -120,6 +197,7 @@
   - type: BodyPart
     partType: Hand
     symmetry: Right
+    toolName: "a right hand" # Shitmed Change
 
 - type: entity
   id: LeftLegVulpkanin
@@ -136,6 +214,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
+    toolName: "a left leg" # Shitmed Change
   - type: MovementBodyPart
 
 - type: entity
@@ -153,6 +232,7 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+    toolName: "a right leg" # Shitmed Change
   - type: MovementBodyPart
 
 - type: entity
@@ -170,6 +250,7 @@
   - type: BodyPart
     partType: Foot
     symmetry: Left
+    toolName: "a left foot" # Shitmed Change
 
 - type: entity
   id: RightFootVulpkanin
@@ -186,3 +267,4 @@
   - type: BodyPart
     partType: Foot
     symmetry: Right
+    toolName: "a right foot" # Shitmed Change

@@ -42,6 +42,7 @@
     - state: lung-l
     - state: lung-r
   - type: Organ
+    slotId: lungs # Shitmed
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -66,6 +67,9 @@
     - Meat
     - Organ
     - Lungs
+  - type: Item
+    size: Small
+    heldPrefix: lungs
 
 - type: entity
   id: OrganAnimalStomach
@@ -76,6 +80,7 @@
   - type: Sprite
     state: stomach
   - type: Organ
+    slotId: stomach # Shitmed
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -97,6 +102,9 @@
     - Meat
     - Organ
     - Stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganMouseStomach
@@ -108,6 +116,9 @@
     solutions:
       stomach:
         maxVol: 30
+  - type: Item
+    size: Small
+    heldPrefix: stomach
 
 - type: entity
   id: OrganAnimalLiver
@@ -118,17 +129,22 @@
   - type: Sprite
     state: liver
   - type: Organ
+    slotId: liver # Shitmed
   - type: Metabolizer
     maxReagents: 1
     metabolizerTypes: [ Animal ]
     groups:
     - id: Alcohol
       rateModifier: 0.1
+  - type: Liver # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
     - Organ
     - Liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
 
 - type: entity
   id: OrganAnimalHeart
@@ -139,6 +155,7 @@
   - type: Sprite
     state: heart-on
   - type: Organ
+    slotId: heart # Shitmed
   - type: Metabolizer
     maxReagents: 2
     metabolizerTypes: [ Animal ]
@@ -146,11 +163,15 @@
     - id: Medicine
     - id: Poison
     - id: Narcotic
+  - type: Heart # Shitmed
   - type: Tag # goob edit
     tags:
     - Meat
     - Organ
     - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
 
 - type: entity
   id: OrganAnimalKidneys
@@ -163,6 +184,7 @@
     - state: kidney-l
     - state: kidney-r
   - type: Organ
+    slotId: kidneys # Shitmed
   - type: Metabolizer
     maxReagents: 5
     metabolizerTypes: [ Animal ]
@@ -172,3 +194,6 @@
     - Meat
     - Organ
     - Kidneys
+  - type: Item
+    size: Small
+    heldPrefix: kidneys

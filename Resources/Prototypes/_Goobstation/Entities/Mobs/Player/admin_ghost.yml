@@ -1,0 +1,12 @@
+- type: entity
+  id: ActionAGhostShowStationMap
+  name: Station Map Interface
+  description: View a Station Map Interface.
+  components:
+  - type: InstantAction
+    # TODO: Make a sprite for the station map interface.
+    icon: { sprite: Interface/Actions/actions_ai.rsi, state: mass_scanner }
+    iconOn: Interface/Actions/actions_ai.rsi/mass_scanner.png
+    keywords: [ "AI", "console", "interface" ]
+    priority: -8
+    event: !type:ToggleIntrinsicUIEvent { key: enum.StationMapUiKey.Key }

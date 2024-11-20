@@ -275,6 +275,7 @@
         - Injector
         - Pill
         - HandLabeler
+        - SurgeryTool # Shitmed Change
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -487,7 +488,6 @@
         - CartridgeAmmo
         - DoorRemote
         - Whistle
-        - HolosignProjector
         - BalloonPopper
   - type: ItemMapper
     mapLayers:

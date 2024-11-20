@@ -1,9 +1,10 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Light.Components;
 using Content.Shared.Audio;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Smoking;
+using Content.Shared.Smoking.Components; // Shitmed Change
+using Content.Shared.Smoking.Systems; // Shitmed Change
 using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -12,7 +13,7 @@ using Robust.Shared.Player;
 
 namespace Content.Server.Light.EntitySystems
 {
-    public sealed class MatchstickSystem : EntitySystem
+    public sealed class MatchstickSystem : SharedMatchstickSystem // Shitmed Change
     {
         [Dependency] private readonly AtmosphereSystem _atmosphereSystem = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -84,18 +85,24 @@ namespace Content.Server.Light.EntitySystems
             _audio.PlayPvs(component.IgniteSound, matchstick, AudioParams.Default.WithVariation(0.125f).WithVolume(-0.125f));
 
             // Change state
-            SetState(matchstick, component, SmokableState.Lit);
+            SetState((matchstick, component), SmokableState.Lit); // Shitmed Change
             _litMatches.Add(matchstick);
             matchstick.Owner.SpawnTimer(component.Duration * 1000, delegate
             {
-                SetState(matchstick, component, SmokableState.Burnt);
+                SetState((matchstick, component), SmokableState.Burnt); // Shitmed Change
                 _litMatches.Remove(matchstick);
             });
         }
 
-        private void SetState(EntityUid uid, MatchstickComponent component, SmokableState value)
+        // Shitmed Change Start
+        public override bool SetState(Entity<MatchstickComponent> ent, SmokableState value)
         {
-            component.CurrentState = value;
+            if (!base.SetState(ent, value))
+                return false;
+
+            var (uid, component) = ent;
+
+        // Shitmed Change End
 
             if (_lights.TryGetLight(uid, out var pointLightComponent))
             {
@@ -119,6 +126,9 @@ namespace Content.Server.Light.EntitySystems
             {
                 _appearance.SetData(uid, SmokingVisuals.Smoking, component.CurrentState, appearance);
             }
+
+
+            return true; // Shitmed Change
         }
     }
 }
