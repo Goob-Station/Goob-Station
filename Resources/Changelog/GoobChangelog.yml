@@ -1974,3 +1974,15 @@ Entries:
       message: Briefing show up correctly now
   id: 239
   time: '2024-11-20T21:45:19.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Tweak
+      message: Increased applicable medication heal values.
+    - type: Tweak
+      message: Increased stack size of applicable medications.
+    - type: Tweak
+      message: Slightly increased dylovene, burn, and brute chemicals heal values.
+    - type: Tweak
+      message: Decreased Medical item application time from 3s to 2s
+  id: 240
+  time: '2024-11-20T21:46:28.0000000+00:00'
