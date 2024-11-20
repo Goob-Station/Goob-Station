@@ -35,7 +35,7 @@
         Heat: -15
         Cold: -15
         Shock: -15
-        Caustic: -4.5 #Was 5 per type, 1.5 caustic, Buffed due to surgery changes (Goobstation)
+        Caustic: -4.5 #Was 5 per type & 1.5 caustic, Buffed due to surgery changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -83,10 +83,10 @@
       - Biological
     damage:
       types:
-        Heat: -25
-        Cold: -25
-        Shock: -25
-        Caustic: -25 #Was 10 per type, Buffed due to surgery changes (Goobstation)
+        Heat: -20
+        Cold: -20
+        Shock: -20
+        Caustic: -20 #Was 10 per type, Buffed due to surgery changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
     healingEndSound:
@@ -172,7 +172,7 @@
       - Biological
     damage:
       groups:
-        Brute: -75 # was 10 for each, 25 for each type in the group, Buffed due to surgery changes (Goobstation)
+        Brute: -60 # was 10 for each, now 20 for each type in the group, Buffed due to surgery changes (Goobstation)
     bloodlossModifier: -10 # a suture should stop ongoing bleeding
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
@@ -210,8 +210,8 @@
       - Biological
     damage:
       types:
-        Bloodloss: -0.5 #lowers bloodloss damage
-    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to surgery changes (Goobstation)
+        Bloodloss: -5 #lowers bloodloss damage, was .5 buffed to 5 due to Surgery Changes (Goobstation)
+    ModifyBloodLevel: 30 #used to restore 5% blood per use, now restores about 10% blood per use on standard Buffed due to Surgery Changes (Goobstation)
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
     healingEndSound:
