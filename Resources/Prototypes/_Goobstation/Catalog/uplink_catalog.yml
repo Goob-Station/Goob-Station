@@ -66,6 +66,11 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 
 # Wearables

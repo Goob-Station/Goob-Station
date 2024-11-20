@@ -12,8 +12,11 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    resetOnHandSelected: false
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -10
   - type: ProjectileBatteryAmmoProvider
     proto: BulletMic
     fireCost: 900
@@ -24,8 +27,6 @@
     magState: mag
     steps: 2
     zeroVisible: true
-  - type: Multishot
-    spreadMultiplier: 1.2
 
 - type: entity
   name: Plasma Rifle
