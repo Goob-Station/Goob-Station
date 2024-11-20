@@ -51,7 +51,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateM90Bundle
   cost:
-    Telecrystal: 90 # - C-20よりも優れていますが、より多くの在庫スペースとより少ないマガジン容量を必要とします
+    Telecrystal: 85 # - C-20よりも優れていますが、より多くの在庫スペースとより少ないマガジン容量を必要とします
   categories:
   - UplinkWeaponry
 
