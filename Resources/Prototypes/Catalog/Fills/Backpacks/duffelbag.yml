@@ -124,6 +124,8 @@
     contents:
       - id: MagazinePistolSubMachineGun
         amount: 4
+      - id: MagazineRifle # goobstation - m90がアップリンクに戻る
+        amount: 3
       - id: MagazineShotgun
         amount: 4
       - id: MagazineLightRifleBox
