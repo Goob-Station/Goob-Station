@@ -1,0 +1,18 @@
+- type: gameMap
+  id: Fnaf
+  mapName: Fnaf
+  mapPath: /Maps/_Goobstation/Nonstations/fnaf.yml
+  minPlayers: 5
+  maxPlayers: 9999
+  stations:
+    Fnaf:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: 'Freddy Fazbears Pizzeria'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'R4'
+        - type: StationJobs
+          availableJobs: # - 4 つのサイボーグ ゴーストロール
+            Passenger: [ -1, -1 ]
