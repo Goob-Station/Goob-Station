@@ -1986,3 +1986,11 @@ Entries:
       message: Decreased Medical item application time from 3s to 2s
   id: 240
   time: '2024-11-20T21:46:28.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Harpies/Vulps/Rodentia/Felinids not gasping when crit and
+        deathgasping when dying.
+  id: 241
+  time: '2024-11-20T22:08:44.0000000+00:00'
