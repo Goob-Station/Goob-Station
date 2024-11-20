@@ -2004,3 +2004,9 @@ Entries:
         early launch.
   id: 242
   time: '2024-11-20T22:12:11.0000000+00:00'
+- author: CMDR-JohnAlex
+  changes:
+    - type: Add
+      message: Gave borgs a station map by default.
+  id: 243
+  time: '2024-11-20T22:12:59.0000000+00:00'
