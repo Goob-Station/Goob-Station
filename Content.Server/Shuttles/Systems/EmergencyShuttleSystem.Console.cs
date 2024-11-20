@@ -123,8 +123,13 @@ public sealed partial class EmergencyShuttleSystem
 
     private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args)
     {
+        if (!EarlyLaunch())
+        {
+            args.Handled = false;
+            return;
+        }
         _logger.Add(LogType.EmergencyShuttle, LogImpact.Extreme, $"{ToPrettyString(args.UserUid):player} emagged shuttle console for early launch");
-        EarlyLaunch();
+        args.Handled = true;
     }
 
     private void SetAuthorizeTime(float obj)
