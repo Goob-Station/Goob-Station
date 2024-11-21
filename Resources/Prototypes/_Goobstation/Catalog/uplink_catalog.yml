@@ -71,7 +71,7 @@
   id: UplinkWeaponRifleBurner
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
-  icon: { sprite: /Textures/_Goobstation\Objects\Weapons\Guns\Rifles\burner.rsi, state: icon }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateBurner
   cost:
     Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
