@@ -1,0 +1,54 @@
+- type: emote
+  id: Fart
+  name: chat-emote-name-fart
+  category: General
+  icon: _Goobstation/Interface/Emotes/fart.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-fart"]
+  chatTriggers:
+    - fart
+    - farts
+    - farting
+    - farted
+    - toot
+    - toots
+    - tooted
+    - tooting
+    - pass gas
+    - passes gas
+    - passing gas
+    - passed gas
+    - break wind
+    - breaks wind
+    - breaking wind
+    - broke wind
+    - flatulate
+    - flatulates
+    - flatulating
+    - flatulated
+    - let one rip
+    - lets one rip
+    - letting one rip
+    - cut cheese
+    - cuts cheese
+    - cutting cheese
+    - cut the cheese
+    - cuts the cheese
+    - cutting the cheese
+    - let out a stinker
+    - lets out a stinker
+    - letting out a stinker
+    - exhales anally
+    - burps from the rear
+    - burps from the butt
+    - bowel howl
+    - bowel howls
+    - bowel howling
+    - bowel howled
+    - accelerates climate change
+  event: !type:FartEmoteEvent
