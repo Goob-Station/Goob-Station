@@ -567,7 +567,7 @@
   description: uplink-ammo-bundle-desc
   productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 90 # goob - 75 -> 90 because .50 mags were added.
   categories:
   - UplinkAmmo
   conditions:

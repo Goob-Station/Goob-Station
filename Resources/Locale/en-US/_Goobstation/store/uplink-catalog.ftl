@@ -40,3 +40,8 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 uplink-weapon-burner-name = Burner Heavy Rifle Bundle
 uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle, 1 magazine of .50 high-explosive rounds, 1 magazine of .50 anti-materiel rounds and a box of .50 anti-materiel rounds.
+
+# Ammo
+
+uplink-high-caliber-box-name = 30 round .50 Box
+uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.

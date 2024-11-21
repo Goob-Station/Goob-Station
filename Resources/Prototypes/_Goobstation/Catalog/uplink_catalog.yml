@@ -235,3 +235,15 @@
   categories:
   - UplinkDeception
 
+# Ammo
+
+- type: listing
+  id: UplinkHighCaliberBox
+  name: uplink-high-caliber-box-name
+  description: uplink-high-caliber-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxHighCaliber
+  cost:
+    Telecrystal: 25
+  categories:
+  - UplinkAmmo
