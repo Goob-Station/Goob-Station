@@ -2024,3 +2024,11 @@ Entries:
         now.
   id: 245
   time: '2024-11-20T21:45:58.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Vox NanoTrasen Representatives now spawn with a tank harness. Accounting
+        found enough in the budget to outfit them.
+  id: 246
+  time: '2024-11-21T19:35:38.0000000+00:00'
