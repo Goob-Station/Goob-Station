@@ -2040,3 +2040,14 @@ Entries:
         you could bind those to keys? I didn't.
   id: 247
   time: '2024-11-21T19:37:41.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        Surgery step descriptions (like making an incision, removing/attaching
+        limbs and organs) are now shown as popups to everyone in range upon the
+        start of the step. This makes it clear which surgical procedure is being
+        done and to which body part. No more stealthy brain-stealing in front of
+        everyone!
+  id: 248
+  time: '2024-11-21T19:38:09.0000000+00:00'
