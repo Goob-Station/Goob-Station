@@ -37,3 +37,9 @@
   id: MobMouseCancerBlob
   components:
   - type: BlobCarrier # backmen: blob
+
+- type: damageContainer
+  id: Blob
+  supportedGroups:
+  - Brute
+  - Burn
