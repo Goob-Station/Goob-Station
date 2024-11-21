@@ -12,7 +12,7 @@
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
-    fireRate: 2.5
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider

@@ -88,14 +88,15 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15 # explosion deals most of the damage
-        Structural: 20 # explosions do plenty of structural
+        Piercing: 15
+        Heat: 15
+        Structural: 20
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
     maxIntensity: 7
     intensitySlope: 2
-    totalIntensity: 15 # about 40-60 damage on single target, 30 damage to area.
+    totalIntensity: 15 # about the same as the API
     maxTileBreak: 0
   - type: PointLight
     radius: 3.5
