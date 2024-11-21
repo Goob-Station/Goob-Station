@@ -129,7 +129,7 @@
       - id: MagazineLightRifleBox
         amount: 2
       - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
-      - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
+      - id: MagazineBoxHighCaliber # Goobstation - Burner Heavy Assault Rifle
 
 - type: entity
   parent: ClothingBackpackDuffelClown
