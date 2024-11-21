@@ -1,0 +1,8 @@
+- type: entity
+  id: Butt
+  name: "butt"
+  parent: [BaseItem]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/butt.rsi
+    state: "butt"

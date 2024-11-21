@@ -1964,3 +1964,96 @@ Entries:
       message: Yowie's are now more rad proof
   id: 238
   time: '2024-11-20T05:16:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Discount buttons are red now
+    - type: Tweak
+      message: Everything can discount much lower
+    - type: Fix
+      message: Briefing show up correctly now
+  id: 239
+  time: '2024-11-20T21:45:19.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Tweak
+      message: Increased applicable medication heal values.
+    - type: Tweak
+      message: Increased stack size of applicable medications.
+    - type: Tweak
+      message: Slightly increased dylovene, burn, and brute chemicals heal values.
+    - type: Tweak
+      message: Decreased Medical item application time from 3s to 2s
+  id: 240
+  time: '2024-11-20T21:46:28.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Harpies/Vulps/Rodentia/Felinids not gasping when crit and
+        deathgasping when dying.
+  id: 241
+  time: '2024-11-20T22:08:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Hijack shuttle objective for traitors is back.
+    - type: Add
+      message: >-
+        It is now once again possible to EMAG emergency shuttle console for
+        early launch.
+  id: 242
+  time: '2024-11-20T22:12:11.0000000+00:00'
+- author: CMDR-JohnAlex
+  changes:
+    - type: Add
+      message: Gave borgs a station map by default.
+  id: 243
+  time: '2024-11-20T22:12:59.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added...uhh, what was it? Oh right, Dementia
+  id: 244
+  time: '2024-11-20T22:15:26.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the arbitrary nukie limit, high-pop nukies should have a chance
+        now.
+  id: 245
+  time: '2024-11-20T21:45:58.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Vox NanoTrasen Representatives now spawn with a tank harness. Accounting
+        found enough in the budget to outfit them.
+  id: 246
+  time: '2024-11-21T19:35:38.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed missing locale strings for Limb Targeting keybinds. Did you know
+        you could bind those to keys? I didn't.
+  id: 247
+  time: '2024-11-21T19:37:41.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        Surgery step descriptions (like making an incision, removing/attaching
+        limbs and organs) are now shown as popups to everyone in range upon the
+        start of the step. This makes it clear which surgical procedure is being
+        done and to which body part. No more stealthy brain-stealing in front of
+        everyone!
+  id: 248
+  time: '2024-11-21T19:38:09.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added farting!
+  id: 249
+  time: '2024-11-21T20:35:07.0000000+00:00'
