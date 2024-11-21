@@ -2032,3 +2032,11 @@ Entries:
         found enough in the budget to outfit them.
   id: 246
   time: '2024-11-21T19:35:38.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed missing locale strings for Limb Targeting keybinds. Did you know
+        you could bind those to keys? I didn't.
+  id: 247
+  time: '2024-11-21T19:37:41.0000000+00:00'
