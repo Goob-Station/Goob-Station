@@ -12,6 +12,6 @@ public abstract class SharedFartSystem : EntitySystem
 
     private void OnGetState(Entity<FartComponent> ent, ref ComponentGetState args)
     {
-        args.State = new FartComponentState(ent.Comp.Emote, ent.Comp.FartTimeout);
+        args.State = new FartComponentState(ent.Comp.Emote, ent.Comp.FartTimeout, ent.Comp.FartInhale, ent.Comp.SuperFarted);
     }
 }

@@ -410,8 +410,13 @@
         volume: -6
     Salute:
       collection: Salutes
-    Fart: # Goobstation - Add farting
+    # Goobstation - Add farting
+    Fart:
       collection: Fart
+    FartInhale:
+      collection: Fart
+    FartSuper:
+      collection: ExplosionSmall
 
 - type: emoteSounds
   id: DionaBodyEmotes

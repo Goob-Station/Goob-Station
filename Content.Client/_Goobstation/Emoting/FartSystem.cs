@@ -15,8 +15,6 @@ public sealed partial class FartSystem : SharedFartSystem
         base.Initialize();
 
         SubscribeLocalEvent<FartComponent, ComponentHandleState>(OnHandleState);
-
-        SubscribeLocalEvent<FartComponent, FartEmoteEvent>(OnFart);
     }
 
     private void OnHandleState(EntityUid uid, FartComponent component, ref ComponentHandleState args)
@@ -27,10 +25,5 @@ public sealed partial class FartSystem : SharedFartSystem
 
         if (emote.Event != null)
             RaiseLocalEvent(uid, emote.Event);
-    }
-
-    private void OnFart(Entity<FartComponent> ent, ref FartEmoteEvent args)
-    {
-        // idk
     }
 }

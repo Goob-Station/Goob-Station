@@ -15,6 +15,8 @@ public sealed partial class FartComponent : Component
 {
     [DataField] public ProtoId<EmotePrototype>? Emote;
     [DataField] public bool FartTimeout = false;
+    [DataField] public bool FartInhale = false;
+    [DataField] public bool SuperFarted = false;
     [DataField] public float MolesAmmoniaPerFart = 5f;
 }
 
@@ -23,10 +25,14 @@ public sealed partial class FartComponentState : ComponentState
 {
     public ProtoId<EmotePrototype>? Emote;
     public bool FartTimeout;
+    public bool FartInhale;
+    public bool SuperFarted;
 
-    public FartComponentState(ProtoId<EmotePrototype>? emote, bool fartTimeout)
+    public FartComponentState(ProtoId<EmotePrototype>? emote, bool fartTimeout, bool fartInhale, bool superFarted)
     {
         Emote = emote;
         FartTimeout = fartTimeout;
+        FartInhale = fartInhale;
+        SuperFarted = superFarted;
     }
 }
