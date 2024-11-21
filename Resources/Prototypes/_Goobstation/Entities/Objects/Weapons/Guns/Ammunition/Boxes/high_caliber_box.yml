@@ -32,11 +32,6 @@
 - type: entity
   parent: BaseMagazineBoxHighCaliber
   id: MagazineBoxHighCaliber
-  name: ammunition box (.50 anti-materiel)
-  components:
-  - type: BallisticAmmoProvider
-    capacity: 30
-    proto: CartridgeHighCaliber
 
 - type: entity
   parent: BaseMagazineBoxHighCaliber

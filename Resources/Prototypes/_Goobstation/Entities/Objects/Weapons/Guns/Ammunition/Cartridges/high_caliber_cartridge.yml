@@ -6,7 +6,7 @@
   - type: Tag
     tags:
     - Cartridge
-    - CartridgeAntiMateriel
+    - CartridgeHighCaliber
   - type: CartridgeAmmo
     proto: BulletHighCaliber
   - type: Sprite
