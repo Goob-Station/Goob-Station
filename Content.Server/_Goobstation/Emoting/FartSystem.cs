@@ -8,6 +8,12 @@ using Robust.Server.Audio;
 using Robust.Shared.Random;
 using Robust.Shared.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Map;
+using Robust.Server.Player;
+using Content.Shared.Camera;
+using System.Numerics;
+using FastAccessors;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Goobstation.Emoting;
 
@@ -17,6 +23,10 @@ public sealed partial class FartSystem : SharedFartSystem
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly IRobustRandom _rng = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
+    [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+    [Dependency] private readonly SharedCameraRecoilSystem _recoilSystem = default!;
 
     private readonly string[] _fartSounds = [
         "/Audio/Effects/Emotes/parp1.ogg",
@@ -128,6 +138,10 @@ public sealed partial class FartSystem : SharedFartSystem
             // Play a fart sound
             _audio.PlayEntity(_superFartSounds[0], Filter.Pvs(uid), uid, true, AudioParams.Default.WithVolume(0f));
 
+            // Screen shake
+            var xformSystem = _entMan.System<SharedTransformSystem>();
+            CameraShake(200f, xformSystem.GetMapCoordinates(uid), 100f);
+
             // Release ammonia into the air
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
             tileMix?.AdjustMoles(Gas.Ammonia, component.MolesAmmoniaPerFart * 2);
@@ -139,6 +153,29 @@ public sealed partial class FartSystem : SharedFartSystem
             {
                 component.FartTimeout = false;
             });
+        }
+    }
+
+    private void CameraShake(float range, MapCoordinates epicenter, float totalIntensity)
+    {
+        var players = Filter.Empty();
+        players.AddInRange(epicenter, range, _playerManager, EntityManager);
+
+        foreach (var player in players.Recipients)
+        {
+            if (player.AttachedEntity is not EntityUid uid)
+                continue;
+
+            var playerPos = _transformSystem.GetWorldPosition(player.AttachedEntity!.Value);
+            var delta = epicenter.Position - playerPos;
+
+            if (delta.EqualsApprox(Vector2.Zero))
+                delta = new(0.01f, 0);
+
+            var distance = delta.Length();
+            var effect = 5 * MathF.Pow(totalIntensity, 0.5f) * (1 - distance / range);
+            if (effect > 0.01f)
+                _recoilSystem.KickCamera(uid, -delta.Normalized() * effect);
         }
     }
 }
