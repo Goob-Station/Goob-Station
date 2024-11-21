@@ -2016,3 +2016,11 @@ Entries:
       message: Added...uhh, what was it? Oh right, Dementia
   id: 244
   time: '2024-11-20T22:15:26.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the arbitrary nukie limit, high-pop nukies should have a chance
+        now.
+  id: 245
+  time: '2024-11-20T21:45:58.0000000+00:00'
