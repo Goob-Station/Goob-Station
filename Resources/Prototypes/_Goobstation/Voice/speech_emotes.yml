@@ -51,7 +51,6 @@
     - bowel howling
     - bowel howled
     - accelerates climate change
-  event: !type:FartEmoteEvent
 
 - type: emote
   id: FartInhale

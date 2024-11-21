@@ -8,8 +8,6 @@ namespace Content.Shared._Goobstation.Emoting;
 // use as a template
 //[Serializable, NetSerializable, DataDefinition] public sealed partial class AnimationNameEmoteEvent : EntityEventArgs { }
 
-[Serializable, NetSerializable, DataDefinition] public sealed partial class FartEmoteEvent : EntityEventArgs { }
-
 [RegisterComponent, NetworkedComponent]
 public sealed partial class FartComponent : Component
 {
@@ -17,7 +15,7 @@ public sealed partial class FartComponent : Component
     [DataField] public bool FartTimeout = false;
     [DataField] public bool FartInhale = false;
     [DataField] public bool SuperFarted = false;
-    [DataField] public float MolesAmmoniaPerFart = 5f;
+    [DataField] public const float MolesAmmoniaPerFart = 5f;
 }
 
 [Serializable, NetSerializable]
