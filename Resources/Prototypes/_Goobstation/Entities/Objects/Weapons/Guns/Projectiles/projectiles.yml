@@ -66,3 +66,46 @@
     radius: 4
     color: purple
     energy: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliber
+  name: bullet (.50 anti-materiel)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 45
+        Structural: 160 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletHighCaliberExplosive
+  name: bullet (.50 high-explosive)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 15 # explosion deals most of the damage
+        Structural: 20 # explosions do plenty of structural
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 7
+    intensitySlope: 2
+    totalIntensity: 15 # about 40-60 damage on single target, 30 damage to area.
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+
+

@@ -67,6 +67,16 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkWeaponRifleBurner
+  name: uplink-weapon-burner-name
+  description: uplink-weapon-burner-desc
+  icon: { sprite: /Textures/_Goobstation\Objects\Weapons\Guns\Rifles\burner.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateBurner
+  cost:
+    Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
+  categories:
+  - UplinkWeaponry
 
 # Wearables
 
@@ -104,7 +114,6 @@
     Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
   categories:
   - UplinkWearables
-
 
 # Job specific
 - type: listing
