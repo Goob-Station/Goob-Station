@@ -67,6 +67,8 @@ public sealed partial class StoreListingControl : Control
         {
             DiscountSubText.Text = _discount;
             StoreItemBuyButton.Text = _price;
+            if (!string.IsNullOrEmpty(_discount)) // Goob
+                StoreItemBuyButton.AddStyleClass("ButtonColorRed");
         }
     }
 
