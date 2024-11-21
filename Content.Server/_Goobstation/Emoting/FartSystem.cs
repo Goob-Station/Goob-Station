@@ -106,6 +106,13 @@ public sealed partial class FartSystem : SharedFartSystem
                 return;
             }
 
+            args.Handled = true;
+
+            if (component.FartInhale)
+            {
+                _popup.PopupEntity(Loc.GetString("emote-already-loaded"), uid, uid);
+            }
+
             component.FartInhale = true;
 
             // Shuffle the fart sounds

@@ -9,6 +9,7 @@ chat-emote-msg-fart-inhale = breathes in a big fart.
 chat-emote-msg-fart-super = super farts.
 
 # Misc
+emote-already-loaded = You already have a fart loaded!
 emote-ass-off = You don't have a butt to fart with!
 emote-out-of-farts = You're all out of farts!
 emote-super-fart = You (literally) fart your ass off!
