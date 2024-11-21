@@ -30,7 +30,7 @@
       - !type:HealthChange
         damage:
           types:
-            Poison: -1
+            Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -140,7 +140,7 @@
       - !type:HealthChange
         damage:
           groups:
-            Brute: -2
+            Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -223,9 +223,9 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -1.5
-            Shock: -1.5
-            Cold: -1.5
+            Heat: -2
+            Shock: -2 
+            Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -323,8 +323,8 @@
             Asphyxiation: -3
             Poison: -0.5
           groups:
-            Brute: -0.5
-            Burn: -0.5
+            Brute: -1
+            Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -446,9 +446,9 @@
       - !type:HealthChange
         damage:
           types:
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
       - !type:SatiateThirst
         factor: -10
         conditions:
@@ -515,13 +515,6 @@
         damage:
           types:
             Heat: 0.5
-      - !type:HealthChange
-        conditions:
-          - !type:ReagentThreshold
-            min: 30
-        damage:
-          types:
-            Poison: 3
       - !type:ChemVomit
         probability: 0.15
         conditions:
@@ -769,9 +762,9 @@
             Brute: -1
           types:
             Poison: -0.5 ##Should be about what it was when it healed the toxin group
-            Heat: -0.33
-            Shock: -0.33
-            Cold: -0.33
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5 # Was .33, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Lipozine
@@ -803,10 +796,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -2
-            Toxin: -2
-            Airloss: -2
-            Brute: -2
+            Burn: -3
+            Toxin: -3
+            Airloss: -3
+            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
 
 - type: reagent
   id: Ultravasculine
@@ -988,7 +981,7 @@
       - !type:HealthChange
         damage:
           types:
-            Slash: -3
+            Slash: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -1035,7 +1028,7 @@
       - !type:HealthChange
         damage:
           types:
-            Blunt: -3.5
+            Blunt: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

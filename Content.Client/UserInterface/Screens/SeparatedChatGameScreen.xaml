@@ -10,23 +10,25 @@
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:inventory="clr-namespace:Content.Client.UserInterface.Systems.Inventory.Widgets"
+    xmlns:targeting="clr-namespace:Content.Client._Shitmed.UserInterface.Systems.Targeting.Widgets"
     Name="SeparatedChatHud"
     VerticalExpand="False"
     VerticalAlignment="Bottom"
     HorizontalAlignment="Center">
-    <controls:RecordedSplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
+    <SplitContainer Name="ScreenContainer" HorizontalExpand="True" VerticalExpand="True" SplitWidth="0" StretchDirection="TopLeft">
         <LayoutContainer Name="ViewportContainer" HorizontalExpand="True" VerticalExpand="True">
             <controls:MainViewport Name="MainViewport"/>
             <widgets:GhostGui Name="Ghost" Access="Protected" />
             <inventory:InventoryGui Name="Inventory" Access="Protected"/>
             <hotbar:HotbarGui Name="Hotbar" Access="Protected"/>
+            <targeting:TargetingControl Name="Targeting" Access="Protected"/> <!-- Shitmed Change -->
             <BoxContainer Name="TopLeftContainer" Orientation="Horizontal"> <!--goobstation-->
                 <actions:ActionsBar Name="Actions" Access="Protected" /> 
                 <BoxContainer Name="VoteMenu" Access="Public" Orientation="Vertical"/>
             </BoxContainer>
             <alerts:AlertsUI Name="Alerts" Access="Protected" />
         </LayoutContainer>
-        <PanelContainer HorizontalExpand="True" MinWidth="300">
+        <PanelContainer Name="SeparatedChatPanel" MinWidth="300">
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat BackgroundColor="#2B2C3B" />
             </PanelContainer.PanelOverride>
@@ -36,5 +38,5 @@
                 <chat:ChatBox VerticalExpand="True" HorizontalExpand="True" Name="Chat" Access="Protected" MinSize="0 0"/>
             </BoxContainer>
         </PanelContainer>
-    </controls:RecordedSplitContainer>
+    </SplitContainer>
 </screens:SeparatedChatGameScreen>

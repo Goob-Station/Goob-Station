@@ -195,6 +195,9 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      # Shitmed
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Puller
   - type: Speech
     speechSounds: Alto
@@ -220,6 +223,8 @@
     - DoorBumpOpener
     - AnomalyHost
   - type: LayingDown # WD EDIT
+  - type: Targeting # Shitmed Change
+  - type: SurgeryTarget # Shitmed Change
 
 - type: entity
   save: false

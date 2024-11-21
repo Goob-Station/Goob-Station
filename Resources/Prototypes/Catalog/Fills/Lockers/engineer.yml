@@ -88,6 +88,8 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitAtmos
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingMaskGasAtmos
       - id: ClothingOuterSuitAtmosFire
       - id: ClothingHeadHelmetAtmosFire
@@ -123,6 +125,8 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitEngineering
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingHandsGlovesColorYellow
       - id: ClothingMaskGas
       - id: ClothingShoesBootsMag

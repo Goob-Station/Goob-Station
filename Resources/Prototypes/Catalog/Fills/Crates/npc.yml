@@ -257,8 +257,8 @@
 - type: entity
   id: CrateNPCMothroach
   parent: CrateLivestock
-  name: crate of mothroaches
-  description: A crate containing four mothroaches.
+  name: crate of moth maggots
+  description: A crate containing four moth maggots.
   components:
   - type: StorageFill
     contents:

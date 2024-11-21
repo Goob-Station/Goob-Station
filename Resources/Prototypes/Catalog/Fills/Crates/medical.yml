@@ -68,6 +68,10 @@
       - id: Saw
       - id: Hemostat
       - id: ClothingMaskSterile
+      # Shitmed Change
+      - id: BoneGel
+      - id: BoxLatexGloves
+      - id: BoxSterileMask
 
 - type: entity
   id: CrateMedicalScrubs

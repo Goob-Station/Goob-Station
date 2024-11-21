@@ -31,13 +31,9 @@ public sealed class GhostBarSystem : EntitySystem
     [Dependency] private readonly MindSystem _mindSystem = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
-    private static readonly List<JobComponent> _jobComponents = new()
+    private static readonly List<ProtoId<JobPrototype>> _jobComponents = new()
     {
-        new JobComponent { Prototype = "Passenger" },
-        new JobComponent { Prototype = "Bartender" },
-        new JobComponent { Prototype = "Botanist" },
-        new JobComponent { Prototype = "Chef" },
-        new JobComponent { Prototype = "Janitor" }
+        "Passenger", "Bartender", "Botanist", "Chef", "Janitor"
     };
 
     public override void Initialize()
