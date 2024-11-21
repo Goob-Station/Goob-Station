@@ -146,6 +146,8 @@ public sealed partial class FartSystem : SharedFartSystem
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
             tileMix?.AdjustMoles(Gas.Ammonia, component.MolesAmmoniaPerFart * 2);
 
+            _entMan.SpawnEntity("Butt", xformSystem.GetMapCoordinates(uid));
+
             _popup.PopupEntity(Loc.GetString("emote-super-fart"), uid, uid);
 
             // One minute timeout for ammonia release (60000MS = 60S)
