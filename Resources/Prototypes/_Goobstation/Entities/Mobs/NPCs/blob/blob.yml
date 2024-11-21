@@ -1,0 +1,39 @@
+- type: npcFaction
+  id: Blob
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Dragon
+    #- RatPassive
+    #- RatHostile
+    #- Pet
+    #- FleshHuman
+    #- Flesh
+    #- MalfunctioningRobot
+    - Revolutionary
+
+- type: explosion
+  id: Blob
+  damagePerIntensity:
+    groups:
+      Brute: 10
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: Red
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+- type: Tag
+  id: BlobMob
+
+
+- type: entity
+  name: blob mouse
+  description: Toxic. Squeak!
+  parent: MobMouseCancer
+  id: MobMouseCancerBlob
+  components:
+  - type: BlobCarrier # backmen: blob
