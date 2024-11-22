@@ -1,0 +1,27 @@
+{
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station 13",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "soul_stone"
+    },
+    {
+      "name": "soul_stone_blessed"
+    },
+    {
+      "name": "soul_stone_glow",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

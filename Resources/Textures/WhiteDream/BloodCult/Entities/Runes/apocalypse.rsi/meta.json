@@ -1,0 +1,14 @@
+{
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station 13, edited by @kilath (discord 493110710377906196)",
+  "version": 1,
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "icon"
+    }
+  ]
+}

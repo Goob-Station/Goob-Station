@@ -211,6 +211,11 @@
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
         enum.SurgeryUIKey.Key: # Shitmed
+        enum.RadialSelectorUiKey.Key:
+          type: RadialSelectorMenuBUI
+        enum.ListViewSelectorUiKey.Key:
+          type: ListViewSelectorBUI
+        enum.SurgeryUIKey.Key:
           type: SurgeryBui
     - type: Emoting
     - type: Grammar

@@ -10,6 +10,8 @@ using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
 using Robust.Shared.Utility;
+using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 
 namespace Content.Shared.UserInterface;
 
@@ -17,6 +19,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminManager _adminManager = default!;
     [Dependency] private readonly ActionBlockerSystem _blockerSystem = default!;
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;

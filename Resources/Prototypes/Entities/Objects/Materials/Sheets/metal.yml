@@ -205,6 +205,21 @@
         - ReagentId: Carbon
           Quantity: 1
         canReact: false
+  # WD Cult start
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false
+  - type: ShortConstruction
+    entries:
+    - prototype: SecureWindoor
+  - type: TwistedConstructionTarget
+    replacementProto: RunedMetal1
+  # WD Cult end
 
 - type: entity
   parent: SheetPlasteel

@@ -4,4 +4,4 @@ namespace Content.Shared.Weapons.Melee.Events;
 /// Raised directed on a weapon when attempt a melee attack.
 /// </summary>
 [ByRefEvent]
-public record struct AttemptMeleeEvent(EntityUid User, bool Cancelled = false, string? Message = null);
+public record struct AttemptMeleeEvent(bool Cancelled, string? Message, EntityUid PlayerUid); // White Dream: Add PlayerUid argument

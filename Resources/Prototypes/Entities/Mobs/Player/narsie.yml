@@ -87,13 +87,6 @@
     bodyType: Dynamic
     bodyStatus: InAir
   - type: CanMoveInAir
-  # singulose components
-  - type: EventHorizon
-    radius: 5
-    canBreachContainment: true
-  - type: GravityWell
-    baseRadialAcceleration: 6
-    maxRange: 8
   - type: WarpPoint
     follow: true
     location: Nar'Sie

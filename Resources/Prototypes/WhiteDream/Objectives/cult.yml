@@ -1,0 +1,19 @@
+﻿- type: entity
+  parent: BaseObjective
+  id: KillTargetCultObjective
+  description: This fool person should be sacrificed in the glory of our Goddess.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Objective
+    issuer: The Geometer of Blood
+    unique: true
+    difficulty: 3
+    icon:
+      sprite: Objects/Weapons/Melee/cult_dagger.rsi
+      state: icon
+  - type: RoleRequirement
+    roles:
+      components:
+      - BloodCultistRole
+  - type: KillTargetCult
+    title: objective-condition-kill-person-title

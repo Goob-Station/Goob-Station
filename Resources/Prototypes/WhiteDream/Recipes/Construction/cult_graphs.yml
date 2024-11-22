@@ -1,0 +1,114 @@
+﻿- type: constructionGraph
+  id: CultPylon
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: pylon
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 4
+        doAfter: 3
+  - node: pylon
+    entity: CultPylon
+
+- type: constructionGraph
+  id: CultFactoryAltar
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: altar
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 3
+        doAfter: 3
+  - node: altar
+    entity: CultFactoryAltar
+
+- type: constructionGraph
+  id: CultFactoryForge
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: forge
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 3
+        doAfter: 3
+  - node: forge
+    entity: CultFactoryForge
+
+- type: constructionGraph
+  id: CultFactoryArchives
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: archives
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 3
+        doAfter: 3
+  - node: archives
+    entity: CultFactoryArchives
+
+- type: constructionGraph
+  id: CultDoor
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: door
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 1
+        doAfter: 3
+  - node: door
+    entity: CultDoor
+
+- type: constructionGraph
+  id: CultGirder
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: girder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: RunedMetalSheets
+        amount: 1
+        doAfter: 3
+  - node: girder
+    entity: CultGirder
+    edges:
+    - to: wall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored { }
+      steps:
+      - material: RunedMetalSheets
+        amount: 1
+        doAfter: 2
+  - node: wall
+    entity: WallCult

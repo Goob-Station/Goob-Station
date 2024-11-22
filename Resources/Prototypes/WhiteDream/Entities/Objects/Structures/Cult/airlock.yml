@@ -1,0 +1,54 @@
+﻿- type: entity
+  id: CultDoor
+  parent: BaseMaterialDoor
+  name: runed door
+  description: It opens, it closes, and maybe crushes you. This one has a strange glowing rune on it.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Airtight
+    fixVacuum: true
+    noAirWhenFullyAirBlocked: false
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Door
+    bumpOpen: true
+    occludes: false
+    crushDamage:
+      types:
+        Blunt: 15
+    openSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+    closeSound:
+      path: /Audio/Effects/stonedoor_openclose.ogg
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_airlock.rsi
+    layers:
+    - state: closed
+      map: ["enum.DoorVisualLayers.Base"]
+  - type: MeleeSound
+    soundGroups:
+      Brute:
+        collection: GlassSmash
+  - type: Physics
+    bodyType: Static
+  - type: Occluder
+    enabled: false
+  - type: RadiationBlocker
+    resistance: 2
+  - type: RCDDeconstructable
+    deconstructable: false
+  - type: RunedDoor
+  - type: Repulse
+  - type: RepulseOnTouch
+  - type: PlacementReplacement
+    key: walls
+  - type: Construction
+    graph: CultDoor
+    node: door

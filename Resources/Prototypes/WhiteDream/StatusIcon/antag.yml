@@ -1,0 +1,15 @@
+﻿- type: statusIcon
+  id: BloodCultMember
+  priority: 11
+  locationPreference: left
+  icon:
+    sprite: /Textures/WhiteDream/BloodCult/cult_hud.rsi
+    state: cult_member
+
+- type: statusIcon
+  id: BloodCultLeader
+  priority: 11
+  locationPreference: left
+  icon:
+    sprite: /Textures/WhiteDream/BloodCult/cult_hud.rsi
+    state: cult_leader

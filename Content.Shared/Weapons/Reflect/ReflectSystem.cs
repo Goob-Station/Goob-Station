@@ -13,6 +13,8 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.WhiteDream.BloodCult.BloodCultist;
+using Content.Shared.WhiteDream.BloodCult.Items;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -98,9 +100,17 @@ public sealed class ReflectSystem : EntitySystem
             !_toggle.IsActivated(reflector) ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
-            !_random.Prob(reflect.ReflectProb) ||
-            !TryComp<PhysicsComponent>(projectile, out var physics))
-        {
+            !TryComp<PhysicsComponent>(projectile, out var physics) ||
+            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
+            _standing.IsDown(reflector)
+        )
+            return false;
+
+        // Non cultists can't use cult items to reflect anything.
+        if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
+            return false;
+
+        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
             return false;
         }
 
@@ -163,13 +173,19 @@ public sealed class ReflectSystem : EntitySystem
         Vector2 direction,
         [NotNullWhen(true)] out Vector2? newDirection)
     {
+        newDirection = null;
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
-            !_toggle.IsActivated(reflector) ||
-            !_random.Prob(reflect.ReflectProb))
-        {
-            newDirection = null;
+            !reflect.Enabled ||
+            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
+            _standing.IsDown(reflector))
             return false;
-        }
+
+        // Non cultists can't use cult items to reflect anything.
+        if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
+            return false;
+
+        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
+            return false;
 
         if (_netManager.IsServer)
         {

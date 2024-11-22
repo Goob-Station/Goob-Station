@@ -1371,3 +1371,47 @@
       - !type:AdjustReagent
         reagent: MindbreakerToxin
         amount: -3.0
+
+- type: reagent
+  id: HolyWater
+  name: reagent-name-holywater
+  group: Medicine
+  desc: reagent-desc-holywater
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: holy
+  color: "#75b1f0"
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  reactiveEffects:
+    Acidic:
+      methods: [ Touch ]
+      effects:
+      - !type:HealthChange
+        scaleByQuantity: true
+        ignoreResistances: false
+        damage:
+          types:
+            Holy: 0.5
+  metabolisms: #Could nullify debuffs of feeding.
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+    Medicine:
+      effects:
+      - !type:ModifyBloodLevel
+        amount: 0.1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
+          types:
+            Holy: 1
+      - !type:PurifyEvil
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+  plantMetabolism: #Heals plants a little with the holy power within it.
+  - !type:PlantAdjustHealth
+    amount: 0.1

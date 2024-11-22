@@ -1,6 +1,7 @@
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;
+using Content.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Server.Zombies;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared.Administration;
@@ -33,6 +34,9 @@ public sealed partial class AdminVerbSystem
 
     [ValidatePrototypeId<EntityPrototype>]
     private const string DefaultThiefRule = "Thief";
+
+    [ValidatePrototypeId<EntityPrototype>]
+    private const string DefaultBloodCultRule = "BloodCult";
 
     [ValidatePrototypeId<StartingGearPrototype>]
     private const string PirateGearId = "PirateGear";
@@ -184,5 +188,20 @@ public sealed partial class AdminVerbSystem
             Message = Loc.GetString("admin-verb-make-heretic"),
         };
         args.Verbs.Add(heretic);
+
+        // WD Cult
+        Verb cultist = new()
+        {
+            Text = Loc.GetString("admin-verb-text-make-blood-cultist"),
+            Category = VerbCategory.Antag,
+            Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Weapons/Melee/cult_dagger.rsi"), "icon"),
+            Act = () =>
+            {
+                _antag.ForceMakeAntag<BloodCultRuleComponent>(player, DefaultBloodCultRule);
+            },
+            Impact = LogImpact.High,
+            Message = Loc.GetString("admin-verb-make-blood-cultist"),
+        };
+        args.Verbs.Add(cultist);
     }
 }

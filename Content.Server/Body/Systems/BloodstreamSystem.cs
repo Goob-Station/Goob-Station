@@ -359,7 +359,8 @@ public sealed class BloodstreamSystem : EntitySystem
     /// <summary>
     ///     Attempts to modify the blood level of this entity directly.
     /// </summary>
-    public bool TryModifyBloodLevel(EntityUid uid, FixedPoint2 amount, BloodstreamComponent? component = null)
+    public bool TryModifyBloodLevel(EntityUid uid, FixedPoint2 amount, BloodstreamComponent? component = null,
+        bool createPuddle = true)
     {
         if (!Resolve(uid, ref component, logMissing: false)
             || !_solutionContainerSystem.ResolveSolution(uid, component.BloodSolutionName, ref component.BloodSolution))
@@ -380,7 +381,7 @@ public sealed class BloodstreamSystem : EntitySystem
 
         tempSolution.AddSolution(newSol, _prototypeManager);
 
-        if (tempSolution.Volume > component.BleedPuddleThreshold)
+        if (tempSolution.Volume > component.BleedPuddleThreshold && createPuddle)
         {
             // Pass some of the chemstream into the spilled blood.
             if (_solutionContainerSystem.ResolveSolution(uid, component.ChemicalSolutionName, ref component.ChemicalSolution))

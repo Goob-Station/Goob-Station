@@ -278,6 +278,8 @@
     intensitySlope: 20
     maxIntensity: 20
     canCreateVacuum: false # its for killing the borg not the station
+  - type: TwistedConstructionTarget # WD Cult
+    replacementProto: ConstructShell
 
 - type: entity
   id: BaseBorgChassisNT

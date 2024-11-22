@@ -1,0 +1,16 @@
+﻿- type: antag
+  id: BloodCultist
+  name: roles-antag-blood-cultist-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-blood-cultist-objective
+  requirements:
+  - !type:CharacterOverallTimeRequirement
+    min: 43200
+
+- type: startingGear
+  id: BloodCultistGear
+  storage:
+    back:
+    - RitualDagger
+    - RunedMetal20

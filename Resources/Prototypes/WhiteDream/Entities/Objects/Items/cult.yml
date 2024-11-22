@@ -1,0 +1,200 @@
+- type: entity
+  parent: BaseItem
+  id: ShuttleCurse
+  name: cursed orb
+  description: You peer within this smokey orb and glimpse terrible fates befalling the emergency escape shuttle.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/shuttle_curse.rsi
+    state: icon
+  - type: CultItem
+  - type: ShuttleCurse
+
+- type: entity
+  parent: BaseItem
+  id: WhetstoneCult
+  name: eldritch whetstone
+  description: A block, empowered by dark magic. Sharp weapons will be enhanced when used on the stone.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/whetstone_cult.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: Whetstone
+    whitelist:
+      components:
+      - Sharp
+    blacklist:
+      components:
+      - EnergySword
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+
+- type: entity
+  parent: BaseItem
+  id: VeilShifter
+  name: veil shifter
+  description: This relic instantly teleports you, and anything you're pulling, forward by a moderate distance.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/veil_shifter.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: VeilShifter
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+
+- type: entity
+  parent: BaseItem
+  id: VoidTorch
+  name: void torch
+  description: Used by veteran cultists to instantly transport items to their needful brethren
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/void_torch.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: CultItem
+  - type: VoidTorch
+  - type: IgnitionSource
+    temperature: 400
+    ignited: false
+  - type: PointLight
+    enabled: false
+    color: "#e33119"
+    radius: 1.0
+    energy: 5.0
+    netsync: false
+  - type: LightBehaviour
+    behaviours:
+    - !type:RandomizeBehaviour # immediately make it bright and flickery
+      id: turn_on
+      interpolate: Nearest
+      minDuration: 0.02
+      maxDuration: 0.06
+      startValue: 6.0
+      endValue: 9.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour # have the radius start small and get larger as it starts to burn
+      id: turn_on
+      maxDuration: 8.0
+      startValue: 1.0
+      endValue: 6.0
+    - !type:RandomizeBehaviour # weaker flicker as it fades out
+      id: fade_out
+      interpolate: Nearest
+      minDuration: 0.02
+      maxDuration: 0.06
+      startValue: 4.0
+      endValue: 8.0
+      property: Energy
+      isLooped: true
+    - !type:FadeBehaviour # fade out radius as it burns out
+      id: fade_out
+      maxDuration: 4.0
+      startValue: 6.0
+      endValue: 1.0
+  - type: UserInterface
+    interfaces:
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: icon }
+          False: { state: icon_off }
+  - type: Tag
+    tags:
+    - Torch
+
+- type: entity
+  parent: BaseItem
+  id: ShadowShackles
+  name: shadow shackles
+  description: Shackles that bind the wrists with sinister magic.
+  components:
+  - type: Item
+    size: Small
+    storedRotation: 90
+  - type: Handcuff
+    breakoutTime: 5
+    breakOnRemove: true
+    cuffedRSI: Objects/Misc/cablecuffs.rsi
+    bodyIconState: body-overlay
+    color: black
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: cuff
+
+- type: entity
+  parent: BaseItem
+  id: MirrorShieldCult
+  name: mirror shield
+  description: An infamous shield used by Nar'Sien sects to confuse and disorient their enemies. Its edges are weighted for use as a throwing weapon - capable of disabling multiple foes with preternatural accuracy.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/mirror_shield.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+  - type: CultItem
+  - type: StunOnCollide
+    blacklist:
+      components:
+      - BloodCultist
+  - type: Reflect
+    reflectProb: 0.75
+    innate: true
+    reflects:
+    - Energy
+  - type: Blocking
+    passiveBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+    activeBlockModifier:
+      coefficients:
+        Blunt: 0.8
+        Slash: 0.8
+        Piercing: 0.8
+        Heat: 0.8
+      flatReductions:
+        Blunt: 1
+        Slash: 1
+        Piercing: 1
+        Heat: 1
+    blockSound: !type:SoundPathSpecifier
+      path: /Audio/Effects/glass_step.ogg
+  - type: Damageable
+    damageContainer: Shield
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak

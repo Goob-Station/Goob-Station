@@ -1,0 +1,58 @@
+﻿- type: entity
+  id: CultTileSpawnEffect
+  name: cult tile effect
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: WhiteDream/BloodCult/Effects/tiles_spawn.rsi
+      state: floorglow
+      shader: unshaded
+    netsync: false
+    drawdepth: FloorObjects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: CultTeleportInEffect
+  name: Teleport in
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: WhiteDream/BloodCult/Effects/cult_in_out.rsi
+      state: cult_in
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"
+
+- type: entity
+  id: CultTeleportOutEffect
+  name: Teleport out
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Transform
+    noRot: true
+    anchored: true
+  - type: Sprite
+    layers:
+    - sprite: WhiteDream/BloodCult/Effects/cult_in_out.rsi
+      state: cult_out
+      shader: unshaded
+    netsync: false
+    drawdepth: Effects
+  - type: PointLight
+    color: "#FF0000"

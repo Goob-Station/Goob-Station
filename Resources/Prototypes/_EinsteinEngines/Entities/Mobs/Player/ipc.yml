@@ -102,6 +102,26 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: PsionicInsulation
+  - type: OfferItem
+  - type: LayingDown
+  - type: Carriable
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Shard
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 185
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
 
 - type: entity
   save: false

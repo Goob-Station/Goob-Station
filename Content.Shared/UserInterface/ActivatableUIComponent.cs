@@ -46,6 +46,12 @@ namespace Content.Shared.UserInterface
         public EntityWhitelist? RequiredItems;
 
         /// <summary>
+        ///     Whitelist for the user who is trying to open this UI.
+        /// </summary>
+        [DataField]
+        public EntityWhitelist? UserWhitelist;
+
+        /// <summary>
         ///     If true, then this UI can only be opened via verbs. I.e., normal interactions/activations will not open
         ///     the UI.
         /// </summary>

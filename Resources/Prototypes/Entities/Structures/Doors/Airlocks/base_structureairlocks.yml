@@ -153,6 +153,12 @@
       # This tag is used to nagivate the Airlock construction graph. It's needed because the construction graph is shared between Airlock, AirlockGlass, and HighSecDoor
   - type: PryUnpowered
   - type: BlockWeather
+  - type: InteractionVerbs # WD Cult
+    allowedVerbs:
+    - KnockOn
+  - type: TwistedConstructionTarget # WD Cult
+    replacementProto: CultDoor
+    doAfterDelay: 10
   placement:
     mode: SnapgridCenter
 

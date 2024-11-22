@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Magic.Events;
@@ -21,4 +22,6 @@ public sealed partial class ChangeComponentsSpellEvent : EntityTargetActionEvent
 
     [DataField("speech")]
     public string? Speech { get; private set; }
+
+    public InGameICChatType ChatType { get; } = InGameICChatType.Speak;
 }

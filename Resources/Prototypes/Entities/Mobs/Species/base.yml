@@ -196,6 +196,13 @@
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
       # Shitmed
+      enum.InstrumentUiKey.Key:
+        type: InstrumentBoundUserInterface
+        requireInputValidation: false
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+      enum.ListViewSelectorUiKey.Key:
+        type: ListViewSelectorBUI
       enum.SurgeryUIKey.Key:
         type: SurgeryBui
   - type: Puller

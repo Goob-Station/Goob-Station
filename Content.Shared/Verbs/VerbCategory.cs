@@ -28,10 +28,23 @@ namespace Content.Shared.Verbs
         /// </remarks>
         public readonly bool IconsOnly;
 
-        public VerbCategory(string text, string? icon, bool iconsOnly = false)
+        public VerbCategory(string text, bool iconsOnly = false)
         {
             Text = Loc.GetString(text);
-            Icon = icon == null ? null : new SpriteSpecifier.Texture(new(icon));
+            IconsOnly = iconsOnly;
+        }
+
+        public VerbCategory(string text, string icon, bool iconsOnly = false)
+        {
+            Text = Loc.GetString(text);
+            Icon = new SpriteSpecifier.Texture(new ResPath(icon));
+            IconsOnly = iconsOnly;
+        }
+
+        public VerbCategory(string text, SpriteSpecifier? sprite, bool iconsOnly = false)
+        {
+            Text = Loc.GetString(text);
+            Icon = sprite;
             IconsOnly = iconsOnly;
         }
 
@@ -39,7 +52,8 @@ namespace Content.Shared.Verbs
             new("verb-categories-admin", "/Textures/Interface/character.svg.192dpi.png");
 
         public static readonly VerbCategory Antag =
-            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true) { Columns = 5 };
+            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true)
+                { Columns = 5 };
 
         public static readonly VerbCategory Examine =
             new("verb-categories-examine", "/Textures/Interface/VerbIcons/examine.svg.192dpi.png");
@@ -85,5 +99,12 @@ namespace Content.Shared.Verbs
         public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
 
         public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
+
+        // WD Cult start
+        public static readonly VerbCategory Interaction = new("verb-categories-interaction");
+
+        public static readonly VerbCategory BloodSpells = new("verb-categories-blood-cult",
+            new SpriteSpecifier.Rsi(new ResPath("/Textures/WhiteDream/BloodCult/actions.rsi"), "blood_spells"));
+        // WD Cult end
     }
 }

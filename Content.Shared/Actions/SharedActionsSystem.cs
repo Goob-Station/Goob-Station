@@ -701,7 +701,11 @@ public abstract class SharedActionsSystem : EntitySystem
             dirty = true;
             action.Charges--;
             if (action is { Charges: 0, RenewCharges: false })
+            {
+                var disabledEv = new ActionGettingDisabledEvent(performer);
+                RaiseLocalEvent(actionId, ref disabledEv);
                 action.Enabled = false;
+            }
         }
 
         action.Cooldown = null;
