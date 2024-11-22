@@ -7,6 +7,21 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 180000  #50 hours
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Medical
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 7200 # 2 hrs
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20
