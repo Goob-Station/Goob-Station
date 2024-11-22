@@ -1,8 +1,0 @@
-- type: entity
-  parent: MonkeyCube
-  id: SkibidiCube
-  name: skibidi toilet cube
-  components:
-  - type: Rehydratable
-    possibleSpawns:
-    - MobSkibidiToilet

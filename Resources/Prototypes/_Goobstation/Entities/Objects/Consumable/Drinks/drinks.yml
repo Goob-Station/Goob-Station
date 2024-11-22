@@ -56,19 +56,3 @@
       effects:
       - !type:SatiateThirst
         factor: 4
-
-- type: entity
-  parent: DrinkGlass
-  id: DrinkSigmaJuiceBase
-  suffix: sigmajuice
-  components:
-    - type: SolutionContainerManager
-      solutions:
-        drink:
-          maxVol: 30
-          reagents:
-            - ReagentId: SigmaJuice
-              Quantity: 30
-    - type: Icon
-      sprite: _Goobstation/Objects/Consumable/Drinks/sigmajuice.rsi
-      state: icon
