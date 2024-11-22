@@ -44,6 +44,13 @@
   - ClothingNeckPansexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
+
+- type: loadoutGroup
+  id: Towels
+  name: loadout-group-towels
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
   - TowelColorBlack
   - TowelColorDarkBlue
   - TowelColorDarkGreen
