@@ -13,6 +13,15 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 90000 # 25 hours
+    - !type:DepartmentTimeRequirement
+      department: Engineering
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Cargo
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement
+      department: Science
+      time: 7200 # 2 hrs
     - !type:AgeRequirement
       requiredAge: 21
   weight: 20
