@@ -21,7 +21,6 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is not null)
         {
-            organEnt.Comp.OriginalBody = organEnt.Comp.Body; // Shitmed Change
             var addedInBodyEv = new OrganAddedToBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref addedInBodyEv);
         }
@@ -42,6 +41,7 @@ public partial class SharedBodySystem
 
         if (organEnt.Comp.Body is { Valid: true } bodyUid)
         {
+            organEnt.Comp.OriginalBody = organEnt.Comp.Body; // Shitmed Change
             var removedInBodyEv = new OrganRemovedFromBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref removedInBodyEv);
         }

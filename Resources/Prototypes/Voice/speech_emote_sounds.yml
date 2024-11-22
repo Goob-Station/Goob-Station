@@ -424,7 +424,7 @@
       path: /Audio/Voice/Diona/diona_salute.ogg
       params:
        volume: -5
-       
+
 - type: emoteSounds
   id: ReptilianBodyEmotes
   sounds:

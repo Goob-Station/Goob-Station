@@ -4,6 +4,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.Store;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
+
 [Serializable, NetSerializable]
 public enum StoreUiKey : byte
 {
@@ -13,7 +16,7 @@ public enum StoreUiKey : byte
 [Serializable, NetSerializable]
 public sealed class StoreUpdateState : BoundUserInterfaceState
 {
-    public readonly HashSet<ListingDataWithCostModifiers> Listings;
+    public readonly HashSet<ListingData> Listings;
 
     public readonly Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Balance;
 
@@ -21,7 +24,7 @@ public sealed class StoreUpdateState : BoundUserInterfaceState
 
     public readonly bool AllowRefund;
 
-    public StoreUpdateState(HashSet<ListingDataWithCostModifiers> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
+    public StoreUpdateState(HashSet<ListingData> listings, Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> balance, bool showFooter, bool allowRefund)
     {
         Listings = listings;
         Balance = balance;
@@ -37,9 +40,14 @@ public sealed class StoreRequestUpdateInterfaceMessage : BoundUserInterfaceMessa
 }
 
 [Serializable, NetSerializable]
-public sealed class StoreBuyListingMessage(ProtoId<ListingPrototype> listing) : BoundUserInterfaceMessage
+public sealed class StoreBuyListingMessage : BoundUserInterfaceMessage
 {
-    public ProtoId<ListingPrototype> Listing = listing;
+    public ListingData Listing;
+
+    public StoreBuyListingMessage(ListingData listing)
+    {
+        Listing = listing;
+    }
 }
 
 [Serializable, NetSerializable]
