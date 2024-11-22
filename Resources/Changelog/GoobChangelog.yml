@@ -2091,3 +2091,19 @@ Entries:
         damage.
   id: 253
   time: '2024-11-22T15:34:32.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: c4 bundle gets remote signaller and network configurator now
+    - type: Add
+      message: advanced signaller in uplink 8 tc
+    - type: Tweak
+      message: >-
+        remote signaller range is now 40m and advanced one is practically
+        infinite range now
+    - type: Fix
+      message: >-
+        universal access configurator has NTrep and BSO in it now (this means
+        nothing to not-shitmins/mappers)
+  id: 254
+  time: '2024-11-22T17:39:32.0000000+00:00'
