@@ -87055,13 +87055,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -31.5,44.5
       parent: 1
-- proto: SkibidiCube
-  entities:
-  - uid: 14651
-    components:
-    - type: Transform
-      pos: -28.31974,45.552948
-      parent: 1
 - proto: SmartFridge
   entities:
   - uid: 1936
