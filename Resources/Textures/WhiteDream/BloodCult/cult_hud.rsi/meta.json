@@ -1,0 +1,23 @@
+{
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TG station 13",
+  "version": 1,
+  "size": {
+    "x": 16,
+    "y": 16
+  },
+  "states": [
+    {
+      "name": "cult_member"
+    },
+    {
+      "name": "cult_leader",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  ]
+}

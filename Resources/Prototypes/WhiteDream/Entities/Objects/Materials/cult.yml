@@ -1,0 +1,78 @@
+﻿- type: entity
+  parent: SheetOtherBase
+  id: RunedMetal
+  name: runic metal
+  description: An unusual sheet of metal with a pulsating rune.
+  suffix: Full
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/runic_metal.rsi
+    layers:
+    - state: runic_3
+      map: [ "base" ]
+  - type: Tag
+    tags:
+    - Sheet
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      RunedMetal: 100
+  - type: Stack
+    stackType: RunedMetalSheets
+    baseLayer: base
+    layerStates:
+    - runic
+    - runic_2
+    - runic_3
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: CultItem
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.RadialSelectorUiKey.Key
+    userWhitelist:
+      components:
+      - BloodCultist
+  - type: ShortConstruction
+    entries:
+    - prototype: CultPylon
+    - prototype: CultFactoryArchives
+    - prototype: CultFactoryForge
+    - prototype: CultFactoryAltar
+    - prototype: CultGirder
+    - prototype: CultDoor
+
+- type: entity
+  parent: RunedMetal
+  id: RunedMetal1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: runic
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: RunedMetal
+  id: RunedMetal4
+  suffix: 4
+  components:
+  - type: Sprite
+    state: runic
+  - type: Stack
+    count: 4
+
+- type: entity
+  parent: RunedMetal
+  id: RunedMetal20
+  suffix: 20
+  components:
+  - type: Sprite
+    state: runic
+  - type: Stack
+    count: 20

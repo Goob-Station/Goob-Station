@@ -1,0 +1,195 @@
+﻿- type: entity
+  id: ActionBloodCultStun
+  name: Stun
+  description: Empowers your hand to stun and mute a victim on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: stun
+  - type: EntityTargetAction
+    checkCanAccess: false
+    range: 3
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    canTargetSelf: false
+    interactOnMiss: false
+    whitelist:
+      components:
+      - Body
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: stun
+    event: !type:BloodCultStunEvent
+      speech: "Fuu ma'jin!"
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultTeleport
+  name: Teleport
+  description: Empowers your hand to teleport yourself or another cultist to a teleport rune on contact.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: teleport
+  - type: EntityTargetAction
+    checkCanAccess: false
+    range: 3
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    interactOnMiss: false
+    whitelist:
+      components:
+      - BloodCultist
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: teleport
+    event: !type:BloodCultTeleportEvent
+      speech: "Sas'so c'arta forbici"
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultEmp
+  name: Electromagnetic Pulse
+  description: Emits a large electromagnetic pulse.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: create_emp
+  - type: InstantAction
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: teleport
+    event: !type:BloodCultEmpEvent
+      speech: "Ta'gh fara'qha fel d'amar det!"
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultShadowShackles
+  name: shadow shackles
+  description: Empowers your hand to handcuff a victim on contact, and mute them if successful.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: shackles
+  - type: EntityTargetAction
+    checkCanAccess: false
+    range: 3
+    itemIconStyle: BigAction
+    charges: 4
+    temporary: true
+    canTargetSelf: false
+    interactOnMiss: false
+    whitelist:
+      components:
+      - Body
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: shackles
+    event: !type:BloodCultShacklesEvent
+      speech: "In'totum Lig'abis!"
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultTwistedConstruction
+  name: twisted construction
+  description: Empowers your hand to corrupt certain metallic objects.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: transmute
+  - type: EntityTargetAction
+    checkCanAccess: false
+    range: 3
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    canTargetSelf: false
+    interactOnMiss: false
+    whitelist:
+      components:
+      - TwistedConstructionTarget
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: transmute
+    event: !type:BloodCultTwistedConstructionEvent
+      speech: "Ethra p'ni dedol!"
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultSummonCombatEquipment
+  name: summon combat equipment
+  description: Allows you to summon combat cult gear, including cult armor, a cult bola and a cult sword.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: summon_combat_equipment
+  - type: InstantAction
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: summon_combat_equipment
+    event: !type:SummonEquipmentEvent
+      speech: "Wur d'dai leev'mai k'sagan!"
+      prototypes:
+        outerClothing: ClothingOuterCultArmor
+        hand1: EldritchLongsword
+        hand2: CultBola
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultSummonRitualDagger
+  name: summon ritual dagger
+  description: Allows you to summon a ritual dagger, in case you've lost the dagger that was given to you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: summon_dagger
+  - type: InstantAction
+    itemIconStyle: BigAction
+    charges: 1
+    temporary: true
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: summon_dagger
+    event: !type:SummonEquipmentEvent
+      speech: "Wur d'dai leev'mai k'sagan!"
+      prototypes:
+        hand: RitualDagger
+  - type: BaseCultSpell
+
+- type: entity
+  id: ActionBloodCultBloodRites
+  name: blood rites
+  description: Empowers your hand to absorb blood to be used for advanced rites, or heal a cultist on contact. Use the spell in-hand to cast advanced rites
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/actions.rsi
+    state: blood_rites
+  - type: InstantAction
+    itemIconStyle: BigAction
+    charges: 1
+    useDelay: 3
+    temporary: true
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: blood_rites
+    event: !type:SummonEquipmentEvent
+      speech: "Fel'th Dol Ab'orod!"
+      prototypes:
+        hand1: BloodRitesAura
+  - type: BaseCultSpell

@@ -1,0 +1,7 @@
+﻿- type: material
+  id: RunedMetal
+  stackEntity: RunedMetal1
+  name: materials-runed-metal
+  icon: { sprite: /Textures/WhiteDream/BloodCult/Entities/runic_metal.rsi, state: runic}
+  color: "#9d2b39"
+  price: 0.05

@@ -1,0 +1,71 @@
+﻿- type: entity
+  name: cult barrier
+  description: Can be destroyed with ritual dagger.
+  id: BloodCultBarrier
+  parent: BaseStructure
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    layers:
+    - sprite: WhiteDream/BloodCult/Entities/Structures/barrier.rsi
+      state: barrier
+      shader: unshaded
+  - type: Appearance
+  - type: InteractionOutline
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.45
+        density: 75
+        mask:
+        - MachineMask
+        layer:
+        - WallLayer
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 600
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          RunedMetal:
+            min: 5
+            max: 5
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PointLight
+    enabled: false
+    radius: 3
+    color: red
+  - type: BloodCultBarrier
+  - type: Airtight
+    noAirWhenFullyAirBlocked: false
+
+- type: entity
+  id: WallForceCult
+  parent: WallForce
+  name: glowing wall
+  description: An unholy shield that blocks all attacks.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
+    state: icon
+  - type: Icon
+    sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
+    state: icon

@@ -249,6 +249,10 @@
         enum.WizardTeleportUiKey.Key: # Goobstation - wizard
           type: WizardTeleportBoundUserInterface
           requireInputValidation: false
+        enum.RadialSelectorUiKey.Key:
+          type: RadialSelectorMenuBUI
+        enum.ListViewSelectorUiKey.Key:
+          type: ListViewSelectorBUI
     - type: Emoting
     - type: Grammar
       attributes:

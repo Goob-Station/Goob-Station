@@ -919,5 +919,4 @@ public abstract class SharedMagicSystem : EntitySystem
     #endregion
     // End Spells
     #endregion
-
 }

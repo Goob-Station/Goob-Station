@@ -1,0 +1,158 @@
+﻿- type: entity
+  name: ritual dagger
+  parent: BaseKnife
+  id: RitualDagger
+  description: A strange dagger used by sinister groups for rituals and sacrifices.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/cult_dagger.rsi
+    state: icon
+  - type: MeleeWeapon # TODO: It should have armor piercing effect (around 50%?) but we have no such system yet. Sucks.
+    wideAnimationRotation: -135
+    maxTargets: 1
+    heavyRateModifier: 0.95
+    heavyStaminaCost: 5
+    damage:
+      types:
+        Piercing: 15
+  - type: Clothing
+    sprite: Objects/Weapons/Melee/cult_dagger.rsi
+    slots:
+    - back
+  - type: DisarmMalus
+  - type: CultItem
+  - type: RuneDrawer
+  - type: ActivatableUI
+    key: enum.RuneDrawerBuiKey.Key
+    inHandsOnly: true
+    userWhitelist:
+      components:
+      - BloodCultist
+  - type: UserInterface
+    interfaces:
+      enum.RuneDrawerBuiKey.Key:
+        type: RuneDrawerBUI
+
+- type: entity
+  name: eldritch longsword
+  parent: BaseItem
+  id: EldritchLongsword
+  description: A sword humming with unholy energy. It glows with a dim red light.
+  components:
+  - type: Sharp
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_blade.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    range: 1.65
+    damage:
+      types:
+        Slash: 24
+    heavyDamageBaseModifier: 1.2
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 90
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    size: Normal
+  - type: Clothing
+    slots:
+    - back
+  - type: DisarmMalus
+  - type: CultItem
+  - type: PointLight
+    color: Red
+    radius: 2
+    softness: 1
+
+- type: entity
+  parent: BaseItem
+  id: BloodSpear
+  name: blood halberd
+  description: A sickening spear composed entirely of crystallized blood.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_spear.rsi
+    state: icon
+  - type: EmbeddableProjectile
+    offset: 0.15,0.15
+  - type: ThrowingAngle
+    angle: 225
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PolygonShape
+          vertices:
+          - -0.20,-0.10
+          - -0.10,-0.20
+          - 0.40,0.30
+          - 0.30,0.40
+        density: 20
+        mask:
+        - BulletImpassable
+        restitution: 0.3
+        friction: 0.2
+  - type: Sharp
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Piercing: 36
+    angle: 0
+    animation: WeaponArcThrust
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+    range: 2
+    attackRate: 0.7
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        Piercing: 40
+  - type: Item
+    sprite: WhiteDream/BloodCult/Entities/Items/Weapons/cult_spear.rsi
+    storedRotation: 44
+    size: Huge
+    shape:
+    - 0,0,5,0
+  - type: Clothing
+    slots:
+    - back
+    - suitStorage
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Piercing: 8
+  - type: UseDelay
+  - type: DisarmMalus
+  - type: CultItem
+  - type: BloodSpear
+
+- type: entity
+  parent: BaseItem
+  id: BloodRitesAura
+  name: blood rite aura
+  description: Absorbs blood from anything you touch. Touching cultists and constructs can heal them. Use in-hand to cast an advanced rite.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/rites.rsi
+    state: icon
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 0
+    heavyStaminaCost: 0
+    maxTargets: 1
+  - type: Unremoveable
+  - type: BloodRitesAura
+  - type: UserInterface
+    interfaces:
+      enum.BloodRitesUiKey.Key:
+        type: BloodRitesUi
+  - type: ActivatableUI
+    key: enum.BloodRitesUiKey.Key
+    inHandsOnly: true
+    requireActiveHand: false

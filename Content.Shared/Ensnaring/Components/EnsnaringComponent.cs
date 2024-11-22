@@ -11,10 +11,12 @@
 //
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Ensnaring.Components;
+
 /// <summary>
 /// Use this on something you want to use to ensnare an entity with
 /// </summary>
@@ -84,6 +86,12 @@ public sealed partial class EnsnaringComponent : Component
     /// </summary>
     [DataField]
     public bool DestroyOnRemove;
+
+    /// <summary>
+    /// Entites which bola will pass through.
+    /// </summary>
+    [DataField]
+    public EntityWhitelist? IgnoredTargets;
 }
 
 /// <summary>

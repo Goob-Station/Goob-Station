@@ -1,0 +1,83 @@
+{
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from Bee Station 13",
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "back"
+        },
+        {
+            "name": "barrier"
+        },
+        {
+            "name": "blood_barrage"
+        },
+        {
+            "name": "blood_rites"
+        },
+        {
+            "name": "blood_spells"
+        },
+        {
+            "name": "create_cult_floor"
+        },
+        {
+            "name": "create_emp"
+        },
+        {
+            "name": "create_soul_stone"
+        },
+        {
+            "name": "cuff"
+        },
+        {
+            "name": "cult_mark"
+        },
+        {
+            "name": "final_reckoning"
+        },
+        {
+            "name": "gone"
+        },
+        {
+            "name": "lesser_construct"
+        },
+        {
+            "name": "phase_shift"
+        },
+        {
+            "name": "revealing"
+        },
+        {
+            "name": "shackles"
+        },
+        {
+            "name": "stun"
+        },
+        {
+            "name": "summon_blood_spear"
+        },
+        {
+            "name": "summon_combat_equipment"
+        },
+        {
+            "name": "summon_dagger"
+        },
+        {
+            "name": "summon_force_wall"
+        },
+        {
+            "name": "teleport"
+        },
+        {
+            "name": "transmute"
+        },
+        {
+            "name": "veiling"
+        }
+    ]
+}
