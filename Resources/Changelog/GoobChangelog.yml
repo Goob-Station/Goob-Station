@@ -2016,3 +2016,50 @@ Entries:
       message: Added...uhh, what was it? Oh right, Dementia
   id: 244
   time: '2024-11-20T22:15:26.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the arbitrary nukie limit, high-pop nukies should have a chance
+        now.
+  id: 245
+  time: '2024-11-20T21:45:58.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Vox NanoTrasen Representatives now spawn with a tank harness. Accounting
+        found enough in the budget to outfit them.
+  id: 246
+  time: '2024-11-21T19:35:38.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed missing locale strings for Limb Targeting keybinds. Did you know
+        you could bind those to keys? I didn't.
+  id: 247
+  time: '2024-11-21T19:37:41.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        Surgery step descriptions (like making an incision, removing/attaching
+        limbs and organs) are now shown as popups to everyone in range upon the
+        start of the step. This makes it clear which surgical procedure is being
+        done and to which body part. No more stealthy brain-stealing in front of
+        everyone!
+  id: 248
+  time: '2024-11-21T19:38:09.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added farting!
+  id: 249
+  time: '2024-11-21T20:35:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Superfarts from an entire station away don't cause screen shake anymore.
+  id: 250
+  time: '2024-11-22T01:41:47.0000000+00:00'
