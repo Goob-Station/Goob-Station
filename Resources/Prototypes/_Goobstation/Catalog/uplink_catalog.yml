@@ -73,11 +73,8 @@
   description: uplink-hardlight-bow-desc
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
-  discountCategory: veryRareDiscounts
-  discountDownTo:
-    Telecrystal: 10
   cost:
-    Telecrystal: 60
+    Telecrystal: 80
   categories:
   - UplinkWeaponry
   conditions:
