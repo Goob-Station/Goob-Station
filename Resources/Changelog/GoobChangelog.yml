@@ -2071,3 +2071,15 @@ Entries:
         again.
   id: 251
   time: '2024-11-22T14:07:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: made shop great again.
+    - type: Fix
+      message: heretics work properly.
+    - type: Tweak
+      message: Flesh ascension now permanently transforms you into meatball man.
+    - type: Fix
+      message: Fixed heretic ash path not being fully fire immune.
+  id: 252
+  time: '2024-11-22T15:24:58.0000000+00:00'
