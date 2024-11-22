@@ -2,6 +2,7 @@
     <BoxContainer Margin="8,8,8,8" Orientation="Vertical">
         <BoxContainer Orientation="Horizontal">
             <Label Name="StoreItemName" HorizontalExpand="True" />
+            <!-- goob edit - fuck newstore -->
             <Button
                 Name="StoreItemBuyButton"
                 MinWidth="64"

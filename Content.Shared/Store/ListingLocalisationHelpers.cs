@@ -4,6 +4,8 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Store;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public static class ListingLocalisationHelpers
 {
     /// <summary>

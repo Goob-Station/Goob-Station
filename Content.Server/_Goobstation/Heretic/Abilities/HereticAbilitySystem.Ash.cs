@@ -8,6 +8,7 @@ using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
+using Content.Shared.Armor;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -145,11 +146,25 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         args.Handled = true;
     }
 
+
     private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
     {
         RemComp<TemperatureComponent>(ent);
         RemComp<TemperatureSpeedComponent>(ent);
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
+
+        // add fire immunity
+        var modifiers = new DamageModifierSet()
+        {
+            Coefficients = new() { { "Heat", 0 } }
+        };
+
+        var armor = new ArmorComponent() { Modifiers = modifiers };
+
+        // add armor directly to entity.
+        // shouldn't work? perhaps.
+        // check armorsystem event handlers.
+        AddComp<ArmorComponent>(ent, armor, true);
     }
 }

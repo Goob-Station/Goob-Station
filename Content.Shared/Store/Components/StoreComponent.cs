@@ -11,6 +11,8 @@ namespace Content.Shared.Store.Components;
 /// This component manages a store which players can use to purchase different listings
 /// through the ui. The currency, listings, and categories are defined in yaml.
 /// </summary>
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 [RegisterComponent, NetworkedComponent]
 public sealed partial class StoreComponent : Component
 {
