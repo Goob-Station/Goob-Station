@@ -13,6 +13,18 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 54000 # 15 hrs
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Engineering
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Science
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Cargo
+      time: 7200 # 2 hrs
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Medical
+      time: 7200 # 2 hrs
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
   weight: 10
