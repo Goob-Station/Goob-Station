@@ -35,6 +35,7 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
+    - id: LoneOpsSpawn
 
 - type: entity
   id: BaseStationEvent
@@ -445,18 +446,18 @@
   id: LoneOpsSpawn
   components:
   - type: StationEvent
-    earliestStart: 45
-    weight: 3.5
+    earliestStart: 35
+    weight: 5.5
     minimumPlayers: 20
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
-  - type: NukeopsRule # goob edit
+    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+  - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointNukeopsCommander
+    - spawnerPrototype: SpawnPointLoneNukeOperative
       min: 1
       max: 1
       pickPlayer: false
@@ -466,7 +467,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [names_death_commando] # goob edit
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate

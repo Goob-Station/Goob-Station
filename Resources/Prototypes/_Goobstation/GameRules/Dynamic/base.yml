@@ -15,7 +15,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 10
+    maxDifficulty: 6 # Funky Station - Fixes upstream objective hell 
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 

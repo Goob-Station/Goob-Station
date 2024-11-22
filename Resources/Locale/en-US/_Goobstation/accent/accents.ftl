@@ -1,7 +1,7 @@
 # Gondola
 accent-words-gondola-1 = ...
 
-#Ohio
+# Ohio
 accent-ohio-prefix-1 = Gyatt dang,
 accent-ohio-prefix-2 = Chat...
 accent-ohio-prefix-3 = Epic win,
