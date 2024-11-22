@@ -33,7 +33,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 - type: entity
   parent: BaseTraitorRuleDynamic
   id: TraitorDynamicMedium
@@ -54,7 +54,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 - type: entity
   parent: BaseTraitorRuleDynamic
   id: TraitorDynamicHigh
@@ -77,7 +77,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleTraitor
-      
+
 # Thief (Spy wyci) - Low Threat Solo, Side Antag
 - type: entity
   parent: BaseGameRuleDynamic
@@ -115,7 +115,7 @@
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 
-# Changeling - Medium Threat Solo 
+# Changeling - Medium Threat Solo
 - type: entity
   parent: BaseGameRuleDynamic
   id: ChangelingDynamicLow
@@ -159,7 +159,7 @@
     scalingCost: 23
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 20 # Changelings are great low pop antags but it doesn't work for dynamic that well :[ 
+    minPlayers: 20 # Changelings are great low pop antags but it doesn't work for dynamic that well :[
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -324,7 +324,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
+      #max: 3 - Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 10
       startingGear: SyndicateOperativeGearFull
       roleLoadout:

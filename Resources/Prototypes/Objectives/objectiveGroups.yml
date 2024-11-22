@@ -37,7 +37,7 @@
   id: TraitorObjectiveGroupState
   weights:
     EscapeShuttleObjective: 1
-    #HijackShuttleObjective: 0.02
+    HijackShuttleObjective: 0.02 # Goobstation - reenable hijack
 
 - type: weightedRandom
   id: TraitorObjectiveGroupSocial

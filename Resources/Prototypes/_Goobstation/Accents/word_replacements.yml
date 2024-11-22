@@ -83,6 +83,37 @@
     accent-bogan-words-79: accent-bogan-words-replace-79
 
 - type: accent
+  id: dementia
+  wordReplacements:
+    accent-dementia-words-1: accent-dementia-words-replace-1
+    accent-dementia-words-2: accent-dementia-words-replace-2
+    accent-dementia-words-3: accent-dementia-words-replace-3
+    accent-dementia-words-4: accent-dementia-words-replace-4
+    accent-dementia-words-5: accent-dementia-words-replace-5
+    accent-dementia-words-6: accent-dementia-words-replace-6
+    accent-dementia-words-7: accent-dementia-words-replace-7
+    accent-dementia-words-8: accent-dementia-words-replace-8
+    accent-dementia-words-9: accent-dementia-words-replace-9
+    accent-dementia-words-10: accent-dementia-words-replace-10
+    accent-dementia-words-11: accent-dementia-words-replace-11
+    accent-dementia-words-12: accent-dementia-words-replace-12
+    accent-dementia-words-13: accent-dementia-words-replace-13
+    accent-dementia-words-14: accent-dementia-words-replace-14
+    accent-dementia-words-15: accent-dementia-words-replace-15
+    accent-dementia-words-16: accent-dementia-words-replace-16
+    accent-dementia-words-17: accent-dementia-words-replace-17
+    accent-dementia-words-18: accent-dementia-words-replace-18
+    accent-dementia-words-19: accent-dementia-words-replace-19
+    accent-dementia-words-20: accent-dementia-words-replace-20
+    accent-dementia-words-21: accent-dementia-words-replace-21
+    accent-dementia-words-22: accent-dementia-words-replace-22
+    accent-dementia-words-23: accent-dementia-words-replace-23
+    accent-dementia-words-24: accent-dementia-words-replace-24
+    accent-dementia-words-25: accent-dementia-words-replace-25
+    accent-dementia-words-26: accent-dementia-words-replace-26
+    accent-dementia-words-27: accent-dementia-words-replace-27
+
+- type: accent
   id: ohio
   wordReplacements:
     accent-ohio-words-1: accent-ohio-words-replace-1
