@@ -2083,3 +2083,11 @@ Entries:
       message: Fixed heretic ash path not being fully fire immune.
   id: 252
   time: '2024-11-22T15:24:58.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Fix
+      message: >-
+        Piercing damage can now dismember body parts, just like Blunt and Slash
+        damage.
+  id: 253
+  time: '2024-11-22T15:34:32.0000000+00:00'
