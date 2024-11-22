@@ -18,3 +18,8 @@
   license: "CC-BY-3.0"
   copyright: "Created by mryikes"
   source: "https://www.youtube.com/watch?v=WtDZEMxHY6U"
+
+- files: ["tansume.ogg"]
+  license: "CC-BY-3.0"
+  copyright: "Moranbong Band"
+  source: "https://goobstation.com"
