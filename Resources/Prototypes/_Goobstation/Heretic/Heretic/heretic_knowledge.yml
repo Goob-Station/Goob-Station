@@ -1,4 +1,4 @@
-# basic knowledge
+### basic knowledge
 - type: hereticKnowledge
   id: BreakOfDawn
   actionPrototypes:
@@ -16,13 +16,18 @@
   - AmberFocus
 
 - type: hereticKnowledge
+  id: CodexCicatrix
+  ritualPrototypes:
+  - CodexCicatrix
+
+- type: hereticKnowledge
   id: LivingHeart
   ritualPrototypes:
   - LivingHeart
   actionPrototypes:
   - ActionHereticLivingHeart
 
-# ash path
+### ash path
 - type: hereticKnowledge
   id: NightwatcherSecret
   path: Ash
@@ -90,8 +95,9 @@
   actionPrototypes:
   - ActionHereticAscension1
   - ActionHereticAscension2
+  event: !type:HereticAscensionAshEvent
 
-# flesh path
+### flesh path
 - type: hereticKnowledge
   id: PrincipleOfHunger
   path: Flesh
@@ -156,10 +162,9 @@
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  actionPrototypes:
-  - ActionPolymorphHereticHorror
+  event: !type:HereticAscensionFleshEvent
 
-# void path
+### void path
 - type: hereticKnowledge
   id: GlimmerOfWinter
   path: Void
@@ -225,16 +230,26 @@
   path: Void
   event: !type:HereticAscensionVoidEvent
 
-# side paths
+### side paths
 - type: hereticKnowledge
   id: RitualOfKnowledge
   sideKnowledge: true
   ritualPrototypes:
   - RitualOfKnowledge
 
+## stage 3
 - type: hereticKnowledge
   id: ArmorerRitual
   sideKnowledge: true
   stage: 3
   ritualPrototypes:
   - ArmorerRitual  
+
+- type: hereticKnowledge
+  id: PriestRitual
+  sideKnowledge: true
+  stage: 3
+  ritualPrototypes:
+  - PriestRitual
+
+## stage 7

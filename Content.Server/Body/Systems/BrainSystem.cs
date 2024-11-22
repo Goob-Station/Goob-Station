@@ -6,20 +6,48 @@ using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Pointing;
 
+// Shitmed Change
+using Content.Shared._Shitmed.Body.Organ;
+using Content.Server._Shitmed.DelayedDeath;
+using Content.Shared.Body.Systems;
+
 namespace Content.Server.Body.Systems
 {
     public sealed class BrainSystem : EntitySystem
     {
         [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-
+        [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
         public override void Initialize()
         {
             base.Initialize();
 
-            SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>((uid, _, args) => HandleMind(args.Body, uid));
-            SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>((uid, _, args) => HandleMind(uid, args.OldBody));
+            SubscribeLocalEvent<BrainComponent, OrganAddedToBodyEvent>(HandleAddition);
+        // Shitmed Change Start
+            SubscribeLocalEvent<BrainComponent, OrganRemovedFromBodyEvent>(HandleRemoval);
             SubscribeLocalEvent<BrainComponent, PointAttemptEvent>(OnPointAttempt);
         }
+
+        private void HandleRemoval(EntityUid uid, BrainComponent _, ref OrganRemovedFromBodyEvent args)
+        {
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.OldBody))
+                return;
+
+            // Prevents revival, should kill the user within a given timespan too.
+            EnsureComp<DebrainedComponent>(args.OldBody);
+            EnsureComp<DelayedDeathComponent>(args.OldBody);
+            HandleMind(uid, args.OldBody);
+        }
+        private void HandleAddition(EntityUid uid, BrainComponent _, ref OrganAddedToBodyEvent args)
+        {
+            if (TerminatingOrDeleted(uid) || TerminatingOrDeleted(args.Body))
+                return;
+
+            RemComp<DebrainedComponent>(args.Body);
+            if (_bodySystem.TryGetBodyOrganEntityComps<HeartComponent>(args.Body, out var _))
+                RemComp<DelayedDeathComponent>(args.Body);
+            HandleMind(args.Body, uid);
+        }
+        // Shitmed Change End
 
         private void HandleMind(EntityUid newEntity, EntityUid oldEntity)
         {

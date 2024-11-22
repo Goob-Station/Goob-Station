@@ -24,7 +24,10 @@
   - type: PhysicalComposition
     materialComposition:
       BSCrystal: 100
-  - type: BluespaceCrystal
+  - type: RandomTeleportOnUse
+    radius:
+      min: 2
+      max: 5
 
 - type: entity
   parent: MaterialBSCrystal

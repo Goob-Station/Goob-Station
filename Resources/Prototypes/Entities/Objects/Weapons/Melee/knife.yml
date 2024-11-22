@@ -27,6 +27,13 @@
       - Slicing
     useSound:
       path: /Audio/Items/Culinary/chop.ogg
+  - type: Scalpel # Shitmed
+    speed: 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: kitchen knife
@@ -74,6 +81,10 @@
     guides:
     - Chef
     - FoodRecipes
+  - type: Scalpel # Shitmed
+    speed: 0.3
+  - type: BoneSaw # Shitmed: Better than tg 25% because its a cleaver its meant to hack off limbs
+    speed: 0.5
 
 - type: entity
   name: combat knife
@@ -103,6 +114,9 @@
         Slash: 10
   - type: Item
     sprite: Objects/Weapons/Melee/combat_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
     malus: 0.225
 
@@ -117,6 +131,9 @@
     state: icon
   - type: Item
     sprite: Objects/Weapons/Melee/survival_knife.rsi
+    storedSprite:
+      state: storage
+      sprite: Objects/Weapons/Melee/survival_knife.rsi
 
 - type: entity
   name: kukri knife

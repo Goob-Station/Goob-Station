@@ -5,3 +5,19 @@
   components:
   - type: AccessReader
     access: [["CentralCommand"], [Captain]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsNTR
+  suffix: NanotrasenRepresentative, Locked
+  components:
+  - type: AccessReader
+    access: [["NanotrasenRepresentative"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsBSO
+  suffix: BlueshieldOfficer, Locked
+  components:
+  - type: AccessReader
+    access: [["BlueshieldOfficer"]]

@@ -16,6 +16,7 @@
       - left arm
       - right leg
       - left leg
+      - head # Shitmed
       organs:
         stomach: OrganDionaStomachNymph
         lungs: OrganDionaLungsNymph

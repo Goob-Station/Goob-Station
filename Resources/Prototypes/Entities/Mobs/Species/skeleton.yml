@@ -40,7 +40,8 @@
         !type:DamageTrigger
         damage: 150
       behaviors:
-      - !type:GibBehavior { }
+      - !type:GibBehavior # Shitmed Change
+        gibContents: Skip # Shitmed Change
   - type: SlowOnDamage #modified speeds because they're so weak
     speedModifierThresholds:
       60: 0.9
@@ -110,6 +111,7 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FootPrints # WD EDIT
 
 - type: entity
   parent: BaseSpeciesDummy

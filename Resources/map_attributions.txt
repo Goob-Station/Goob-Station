@@ -5,7 +5,7 @@
   authors: Emisse
 
 - files: ["barratry.yml"]
-  authors: Emogarbage, Scribbles0
+  authors: Emogarbage, Scribbles0, Piras314
 
 - files: ["box.yml"]
   authors: ACJM, Emisse
@@ -23,7 +23,7 @@
   authors: DogZeroX, Emisse
 
 - files: ["kettle.yml"]
-  authors: Checkraze
+  authors: Checkraze, Piras314
 
 - files: ["gemini.yml"]
   authors: Checkraze, TsjipTsjip, Luckyshotpictures

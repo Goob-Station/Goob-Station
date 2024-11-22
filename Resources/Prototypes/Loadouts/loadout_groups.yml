@@ -7,6 +7,7 @@
   loadouts:
   - FlowerWreath
   - Hairflower
+  - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -27,6 +28,22 @@
   - ClothingNeckPansexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorWhite
+  - TowelColorYellow
 
 - type: loadoutGroup
   id: Glasses

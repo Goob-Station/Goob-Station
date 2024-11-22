@@ -1,9 +1,12 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Systems;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {
     /// <summary>
@@ -14,7 +17,7 @@ public sealed partial class StoreSystem
     public void RefreshAllListings(StoreComponent component)
     {
         component.Listings = GetAllListings();
-        _storeDiscount.ApplyDiscounts(component.Listings, component); // goob edit
+        _storeDiscount.ApplyDiscounts(component.Listings, component); // WD edit
     }
 
     /// <summary>
@@ -40,7 +43,7 @@ public sealed partial class StoreSystem
     /// </summary>
     /// <param name="component">The store to add the listing to</param>
     /// <param name="listingId">The id of the listing</param>
-    /// <returns>Whetehr or not the listing was added successfully</returns>
+    /// <returns>Whether or not the listing was added successfully</returns>
     public bool TryAddListing(StoreComponent component, string listingId)
     {
         if (!_proto.TryIndex<ListingPrototype>(listingId, out var proto))
@@ -48,6 +51,7 @@ public sealed partial class StoreSystem
             Log.Error("Attempted to add invalid listing.");
             return false;
         }
+
         return TryAddListing(component, proto);
     }
 
@@ -57,7 +61,7 @@ public sealed partial class StoreSystem
     /// <param name="component">The store to add the listing to</param>
     /// <param name="listing">The listing</param>
     /// <returns>Whether or not the listing was add successfully</returns>
-    public bool TryAddListing(StoreComponent component, ListingData listing)
+    public bool TryAddListing(StoreComponent component, ListingPrototype listing)
     {
         return component.Listings.Add(listing);
     }

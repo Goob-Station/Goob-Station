@@ -515,9 +515,11 @@
   description: Abandon your current body and escape in the form of a headslug. Costs 20 chemicals.
   categories: [ HideSpawnMenu ]
   components:
+  - type: ConfirmableAction
+    popup: changeling-lastresort-activate
   - type: InstantAction
-    useDelay: 5
     checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi

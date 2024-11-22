@@ -114,9 +114,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsCommander
+      mindRoles:
+      - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
@@ -130,13 +129,12 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsMedic
+      mindRoles:
+      - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
+      #max: 3 - Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 10
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
@@ -148,9 +146,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
 
 - type: entity
   abstract: true
@@ -186,9 +183,22 @@
         - AntagImmune
         - Changeling # Goobstation
       lateJoinAdditional: true
-      mindComponents:
-      - type: TraitorRole
-        prototype: Traitor
+      mindRoles:
+      - MindRoleTraitor
+
+- type: entity
+  id: TraitorReinforcement
+  parent: BaseTraitorRule
+  components:
+  - type: TraitorRule
+    giveUplink: false
+    giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
+    giveBriefing: false
+  - type: AntagSelection
+    definitions:
+    - prefRoles: [ Traitor ]
+      mindRoles:
+      - MindRoleTraitor
 
 - type: entity
   id: Revolutionary
@@ -210,9 +220,8 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      mindComponents:
-      - type: RevolutionaryRole
-        prototype: HeadRev
+      mindRoles:
+      - MindRoleHeadRevolutionary
 
 - type: entity
   id: Sandbox
@@ -254,9 +263,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 # event schedulers
 

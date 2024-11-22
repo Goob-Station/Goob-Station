@@ -85,6 +85,13 @@
       interactFailureString: petting-failure-carp
       interactFailureSound:
         path: /Audio/Effects/bite.ogg
+    - type: Body # Shitmed: Special carp organs
+      prototype: Carp
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
 
 - type: entity
   parent: BaseMobCarp
@@ -236,6 +243,11 @@
     - type: Body
       prototype: Bloodsucker
       requiredLegs: 1
+    - type: SurgeryTarget # Shitmed
+    - type: UserInterface # Shitmed
+      interfaces:
+        enum.SurgeryUIKey.Key:
+          type: SurgeryBui
     - type: Butcherable
       spawned:
         - id: FoodMeatFish
