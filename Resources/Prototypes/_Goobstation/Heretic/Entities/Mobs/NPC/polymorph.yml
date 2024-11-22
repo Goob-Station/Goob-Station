@@ -66,12 +66,14 @@
 
 # heretic ascend flesh form
 - type: entity
-  parent: BaseMob
+  parent: [ SimpleSpaceMobBase, FlyingMobBase ]
   id: MobHereticFleshAscend
   name: eldritch horror
   description: An incomprehensible mess of limbs and eyes. You can feel it's stare into your soul.
   suffix: DO NOT MAP
   components:
+  - type: Bloodstream
+    bloodMaxVolume: 1984
   - type: NpcFactionMember
     factions:
     - Heretic
@@ -115,7 +117,6 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Critical
       1000: Dead
   - type: Damageable
     damageContainer: Biological
@@ -139,7 +140,7 @@
     foodPreference: Humanoid
     shouldStoreDevoured: true
     chemical: Ichor
-    healRate: 15.0
+    healRate: 50.0
     whitelist:
       components:
       - MobState
@@ -170,3 +171,15 @@
     - Mansus
   - type: Examiner
   - type: Pullable
+  - type: Reflect
+    reflectProb: 0.7
+    reflects:
+      - Energy
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: FootstepThud
+  - type: Flammable
+    damage:
+      types: {}
+  - type: Puller
+    needsHands: false

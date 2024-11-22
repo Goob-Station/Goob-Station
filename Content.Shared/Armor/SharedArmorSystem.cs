@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Silicons.Borgs;
@@ -19,12 +19,18 @@ public abstract class SharedArmorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnDamageModify);
+        SubscribeLocalEvent<ArmorComponent, DamageModifyEvent>(OnDamageModify); // goob edit - why hasn't anyone done this yet?
+        SubscribeLocalEvent<ArmorComponent, InventoryRelayedEvent<DamageModifyEvent>>(OnRelayDamageModify);
         SubscribeLocalEvent<ArmorComponent, BorgModuleRelayedEvent<DamageModifyEvent>>(OnBorgDamageModify);
         SubscribeLocalEvent<ArmorComponent, GetVerbsEvent<ExamineVerb>>(OnArmorVerbExamine);
     }
 
-    private void OnDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
+    // goob edit - why hasn't anyone done this yet?
+    private void OnDamageModify(EntityUid uid, ArmorComponent component, DamageModifyEvent args)
+    {
+        args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, component.Modifiers);
+    }
+    private void OnRelayDamageModify(EntityUid uid, ArmorComponent component, InventoryRelayedEvent<DamageModifyEvent> args)
     {
         args.Args.Damage = DamageSpecifier.ApplyModifierSet(args.Args.Damage, component.Modifiers);
     }
