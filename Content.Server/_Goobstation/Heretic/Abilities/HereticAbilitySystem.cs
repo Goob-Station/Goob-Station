@@ -13,7 +13,6 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Systems;
 using Content.Shared.DoAfter;
 using Content.Shared.Heretic;
-using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Store.Components;
@@ -102,6 +101,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeAsh();
         SubscribeFlesh();
         SubscribeVoid();
+        SubscribeBlade();
+        SubscribeLock();
     }
 
     private bool TryUseAbility(EntityUid ent, BaseActionEvent args)
