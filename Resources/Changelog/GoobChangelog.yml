@@ -2063,3 +2063,11 @@ Entries:
       message: Superfarts from an entire station away don't cause screen shake anymore.
   id: 250
   time: '2024-11-22T01:41:47.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Organ transplants now properly heal their values when used in surgeries
+        again.
+  id: 251
+  time: '2024-11-22T14:07:11.0000000+00:00'
