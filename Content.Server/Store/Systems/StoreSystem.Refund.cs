@@ -4,6 +4,8 @@ using Robust.Shared.Containers;
 
 namespace Content.Server.Store.Systems;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {
     private void InitializeRefund()
@@ -16,7 +18,7 @@ public sealed partial class StoreSystem
 
     private void OnEntityRemoved(EntityUid uid, StoreRefundComponent component, EntRemovedFromContainerMessage args)
     {
-        if (component.StoreEntity == null || _actions.TryGetActionData(uid, out _, false) || !TryComp<StoreComponent>(component.StoreEntity.Value, out var storeComp))
+        if (component.StoreEntity == null || _actions.TryGetActionData(uid, out _) || !TryComp<StoreComponent>(component.StoreEntity.Value, out var storeComp))
             return;
 
         DisableRefund(component.StoreEntity.Value, storeComp);
