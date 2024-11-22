@@ -104,7 +104,7 @@ public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
 // ascensions
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : InstantActionEvent { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : InstantActionEvent { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : InstantActionEvent { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 #endregion

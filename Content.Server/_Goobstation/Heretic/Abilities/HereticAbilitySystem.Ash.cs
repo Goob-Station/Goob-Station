@@ -154,17 +154,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         RemComp<RespiratorComponent>(ent);
         RemComp<BarotraumaComponent>(ent);
 
-        // add fire immunity
-        var modifiers = new DamageModifierSet()
-        {
-            Coefficients = new() { { "Heat", 0 } }
-        };
-
-        var armor = new ArmorComponent() { Modifiers = modifiers };
-
-        // add armor directly to entity.
-        // shouldn't work? perhaps.
-        // check armorsystem event handlers.
-        AddComp<ArmorComponent>(ent, armor, true);
+        // fire immunity
+        var flam = EnsureComp<FlammableComponent>(ent);
+        flam.Damage = new(); // reset damage dict
     }
 }

@@ -162,8 +162,6 @@
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  actionPrototypes:
-  - ActionPolymorphHereticHorror
   event: !type:HereticAscensionFleshEvent
 
 ### void path
