@@ -145,7 +145,7 @@ public sealed partial class FartSystem : SharedFartSystem
 
             // Screen shake
             var xformSystem = _entMan.System<SharedTransformSystem>();
-            CameraShake(200f, xformSystem.GetMapCoordinates(uid), 100f);
+            CameraShake(10f, xformSystem.GetMapCoordinates(uid), 0.75f);
 
             // Release ammonia into the air
             var tileMix = _atmos.GetTileMixture(uid, excite: true);

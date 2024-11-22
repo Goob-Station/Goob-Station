@@ -2057,3 +2057,9 @@ Entries:
       message: Added farting!
   id: 249
   time: '2024-11-21T20:35:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Superfarts from an entire station away don't cause screen shake anymore.
+  id: 250
+  time: '2024-11-22T01:41:47.0000000+00:00'
