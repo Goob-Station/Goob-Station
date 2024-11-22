@@ -193,6 +193,8 @@
       contents:
         - id: C4
           amount: 8
+        - id: RemoteSignaller # goobstation
+        - id: NetworkConfigurator # goobstation
 
 - type: entity
   parent: ClothingBackpackChameleon
