@@ -59,21 +59,22 @@ public sealed partial class FartSystem : SharedFartSystem
 
         if (args.Emote.ID == "Fart")
         {
+            args.Handled = true;
+
             if (component.SuperFarted)
             {
-                _popup.PopupEntity(Loc.GetString("emote-ass-off"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
                 return;
             }
 
             // Make sure we aren't in timeout
             if (component.FartTimeout)
             {
-                _popup.PopupEntity(Loc.GetString("emote-out-of-farts"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("emote-fart-out-of-farts"), uid, uid);
                 return;
             }
 
             // Handle our bools
-            args.Handled = true;
             component.FartTimeout = true;
 
             if (component.FartInhale)
@@ -100,17 +101,17 @@ public sealed partial class FartSystem : SharedFartSystem
         }
         else if (args.Emote.ID == "FartInhale")
         {
+            args.Handled = true;
+
             if (component.SuperFarted)
             {
-                _popup.PopupEntity(Loc.GetString("emote-ass-off"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
                 return;
             }
 
-            args.Handled = true;
-
             if (component.FartInhale)
             {
-                _popup.PopupEntity(Loc.GetString("emote-already-loaded"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("emote-fart-already-loaded"), uid, uid);
             }
 
             component.FartInhale = true;
@@ -125,14 +126,20 @@ public sealed partial class FartSystem : SharedFartSystem
         }
         else if (args.Emote.ID == "FartSuper")
         {
+            args.Handled = true;
+
             if (component.SuperFarted)
             {
-                _popup.PopupEntity(Loc.GetString("emote-ass-off"), uid, uid);
+                _popup.PopupEntity(Loc.GetString("emote-fart-ass-off"), uid, uid);
                 return;
             }
 
+            if (!component.FartInhale)
+            {
+                _popup.PopupEntity(Loc.GetString("emote-fart-not-loaded"), uid, uid);
+            }
+
             // Handle bools
-            args.Handled = true;
             component.FartTimeout = true;
             component.FartInhale = false;
             component.SuperFarted = true;
