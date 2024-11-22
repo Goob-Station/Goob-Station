@@ -137,6 +137,7 @@ public sealed partial class FartSystem : SharedFartSystem
             if (!component.FartInhale)
             {
                 _popup.PopupEntity(Loc.GetString("emote-fart-not-loaded"), uid, uid);
+                return;
             }
 
             // Handle bools
@@ -160,7 +161,7 @@ public sealed partial class FartSystem : SharedFartSystem
 
             _entMan.SpawnEntity("Butt", xformSystem.GetMapCoordinates(uid));
 
-            _popup.PopupEntity(Loc.GetString("emote-super-fart"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("emote-fart-super-fart"), uid, uid);
 
             // One minute timeout for ammonia release (60000MS = 60S)
             Timer.Spawn(60000, () =>
