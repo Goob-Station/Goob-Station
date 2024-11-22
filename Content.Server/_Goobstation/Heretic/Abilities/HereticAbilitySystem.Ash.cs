@@ -5,10 +5,6 @@ using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Atmos;
 using Content.Server.Polymorph.Systems;
-using Content.Server.Temperature.Components;
-using Content.Shared.Temperature.Components;
-using Content.Server.Body.Components;
-using Content.Shared.Armor;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -24,8 +20,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
         SubscribeLocalEvent<HereticComponent, EventHereticFlames>(OnFlames);
         SubscribeLocalEvent<HereticComponent, EventHereticCascade>(OnCascade);
-
-        SubscribeLocalEvent<HereticComponent, HereticAscensionAshEvent>(OnAscensionAsh);
     }
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
@@ -144,18 +138,5 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             _flammable.AdjustFireStacks(ent, 20f, ignite: true);
 
         args.Handled = true;
-    }
-
-
-    private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
-    {
-        RemComp<TemperatureComponent>(ent);
-        RemComp<TemperatureSpeedComponent>(ent);
-        RemComp<RespiratorComponent>(ent);
-        RemComp<BarotraumaComponent>(ent);
-
-        // fire immunity
-        var flam = EnsureComp<FlammableComponent>(ent);
-        flam.Damage = new(); // reset damage dict
     }
 }

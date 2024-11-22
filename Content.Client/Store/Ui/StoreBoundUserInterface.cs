@@ -7,8 +7,6 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Store.Ui;
 
-// goob edit - fuck newstore
-// do not touch unless you want to shoot yourself in the leg
 [UsedImplicitly]
 public sealed class StoreBoundUserInterface : BoundUserInterface
 {
@@ -21,7 +19,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
     private string _search = string.Empty;
 
     [ViewVariables]
-    private HashSet<ListingData> _listings = new();
+    private HashSet<ListingDataWithCostModifiers> _listings = new();
 
     public StoreBoundUserInterface(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
@@ -35,7 +33,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
 
         _menu.OnListingButtonPressed += (_, listing) =>
         {
-            SendMessage(new StoreBuyListingMessage(listing));
+            SendMessage(new StoreBuyListingMessage(listing.ID));
         };
 
         _menu.OnCategoryButtonPressed += (_, category) =>
@@ -83,7 +81,7 @@ public sealed class StoreBoundUserInterface : BoundUserInterface
         if (_menu == null)
             return;
 
-        var filteredListings = new HashSet<ListingData>(_listings);
+        var filteredListings = new HashSet<ListingDataWithCostModifiers>(_listings);
         if (!string.IsNullOrEmpty(_search))
         {
             filteredListings.RemoveWhere(listingData => !ListingLocalisationHelpers.GetLocalisedNameOrEntityName(listingData, _prototypeManager).Trim().ToLowerInvariant().Contains(_search) &&

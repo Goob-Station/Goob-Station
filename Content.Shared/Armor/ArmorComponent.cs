@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+﻿using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
 
@@ -7,7 +7,7 @@ namespace Content.Shared.Armor;
 /// <summary>
 /// Used for clothing that reduces damage when worn.
 /// </summary>
-[RegisterComponent, NetworkedComponent] // goob edit - remove access restrictions
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedArmorSystem))]
 public sealed partial class ArmorComponent : Component
 {
     /// <summary>
