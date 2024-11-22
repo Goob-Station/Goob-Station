@@ -5,6 +5,7 @@ loadout-group-species-restriction = This item is not available for your current 
 loadout-group-trinkets = Trinkets
 loadout-group-pins = Pins
 loadout-group-towels = Towels
+loadout-group-sharks = Sharks
 loadout-group-glasses = Glasses
 loadout-group-backpack = Backpack
 loadout-group-instruments = Instruments
