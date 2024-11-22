@@ -13,6 +13,12 @@
     - !type:DepartmentTimeRequirement
       department: Security
       time: 18000 # 5 hrs
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Cargo
+      time: 18000 # 5 hours
+    - !type:DepartmentTimeRequirement # goobstation
+      department: Science
+      time: 18000 # 5 hours
     - !type:DepartmentTimeRequirement
       department: Command
       time: 36000 # 10 hours
