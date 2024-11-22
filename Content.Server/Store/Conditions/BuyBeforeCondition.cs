@@ -4,6 +4,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Server.Store.Conditions;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class BuyBeforeCondition : ListingCondition
 {
     /// <summary>
@@ -22,7 +24,7 @@ public sealed partial class BuyBeforeCondition : ListingCondition
         if (!args.EntityManager.TryGetComponent<StoreComponent>(args.StoreEntity, out var storeComp))
             return false;
 
-        var allListings = storeComp.FullListingsCatalog;
+        var allListings = storeComp.Listings;
 
         var purchasesFound = false;
 
