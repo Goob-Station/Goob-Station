@@ -1,3 +1,5 @@
+# CC locked
+
 - type: entity
   parent: AirlockCentralCommand
   id: AirlockCentralCommandCommandLocked
@@ -16,6 +18,8 @@
     containers:
       board: [ DoorElectronicsCommand ]
 
+# CC/cap locked
+
 - type: entity
   parent: AirlockCommand
   id: AirlockCommandCommandLocked
@@ -33,3 +37,43 @@
   - type: ContainerFill
     containers:
       board: [ DoorElectronicsCentralCommandCaptain ]
+
+# BSO locked
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockBlueshieldOfficerCommandLocked
+  suffix: Blueshield, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBSO ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockBlueshieldOfficerCommandGlassLocked
+  suffix: Blueshield, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsBSO ]
+
+# NTR locked
+
+- type: entity
+  parent: AirlockCentralCommand
+  id: AirlockNanotrasenRepresentativeCommandLocked
+  suffix: NTRep, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNTR ]
+
+- type: entity
+  parent: AirlockCentralCommandGlass
+  id: AirlockNanotrasenRepresentativeCommandGlassLocked
+  suffix: NTRep, Locked
+  components:
+  - type: ContainerFill
+    containers:
+      board: [ DoorElectronicsNTR ]

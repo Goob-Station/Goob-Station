@@ -39,6 +39,15 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    - !type:GroupSelector
+      children:
+      - id: PlushieBlackburn
+      - id: PlushieBlackburnPlyushkina
+        weight: 0.25
+      - id: PlushieBlackburnMatryoskya
+        weight: 0.25
+      - id: PlushieDesislavaBlackburn
+        weight: 0.15
 
 - type: entity
   id: CrateFunPlushie

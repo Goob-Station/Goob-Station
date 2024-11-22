@@ -17,6 +17,7 @@
       - left arm
       - right leg
       - left leg
+      - head # Shitmed
       organs:
         heart: OrganHumanHeart
         lungs: OrganVoxLungs

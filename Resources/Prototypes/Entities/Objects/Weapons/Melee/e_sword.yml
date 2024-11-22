@@ -72,6 +72,17 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
+    speed: 0.2
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
 
 - type: entity
   name: energy sword

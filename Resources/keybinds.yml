@@ -69,25 +69,32 @@ binds:
 - function: ShuttleBrake
   type: State
   key: Space
-# Camera
+# Camera - Shitmed Change Start
 - function: CameraRotateLeft
   type: State
   key: NumpadNum7
+  mod1: Control
 - function: CameraRotateRight
   type: State
   key: NumpadNum9
+  mod1: Control
 - function: CameraReset
   type: State
   key: NumpadNum8
+  mod1: Control
 - function: ZoomOut
   type: State
   key: NumpadNum4
+  mod1: Control
 - function: ZoomIn
   type: State
   key: NumpadNum6
+  mod1: Control
 - function: ResetZoom
   type: State
   key: NumpadNum5
+  mod1: Control
+# Shitmed Change End
 # Misc
 - function: ShowEscapeMenu
   type: State

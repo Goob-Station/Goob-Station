@@ -1,4 +1,5 @@
 using System.Linq;
+using System.Text;
 using Content.Client.Actions;
 using Content.Client.Message;
 using Content.Shared.FixedPoint;
@@ -13,6 +14,8 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Store.Ui;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 [GenerateTypedNameReferences]
 public sealed partial class StoreMenu : DefaultWindow
 {
@@ -71,6 +74,7 @@ public sealed partial class StoreMenu : DefaultWindow
     public void UpdateListing(List<ListingData> listings)
     {
         _cachedListings = listings;
+
         UpdateListing();
     }
 
@@ -167,9 +171,10 @@ public sealed partial class StoreMenu : DefaultWindow
         return true;
     }
 
-    public string GetListingPriceString(ListingData listing)
+    private string GetListingPriceString(ListingData listing)
     {
         var text = string.Empty;
+
         if (listing.Cost.Count < 1)
             text = Loc.GetString("store-currency-free");
         else
@@ -177,8 +182,12 @@ public sealed partial class StoreMenu : DefaultWindow
             foreach (var (type, amount) in listing.Cost)
             {
                 var currency = _prototypeManager.Index(type);
-                text += Loc.GetString("store-ui-price-display", ("amount", amount),
-                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount))));
+
+                text += Loc.GetString(
+                    "store-ui-price-display",
+                    ("amount", amount),
+                    ("currency", Loc.GetString(currency.DisplayName, ("amount", amount)))
+                );
             }
         }
 

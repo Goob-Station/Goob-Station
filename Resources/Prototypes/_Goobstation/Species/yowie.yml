@@ -1,0 +1,163 @@
+- type: species
+  id: Yowie
+  name: species-name-yowie
+  roundStart: true
+  prototype: MobYowie
+  sprites: MobYowieSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobYowieDummy
+  skinColoration: TintedHues
+  maleFirstNames: names_yowie_male
+  femaleFirstNames: names_yowie_female
+  lastNames: names_yowie_last
+
+# The lack of a layer means that
+# this person cannot have round-start anything
+# applied to that layer. It has to instead
+# be defined as a 'custom base layer'
+# in either the mob's starting marking prototype,
+# or it has to be added in C#.
+- type: speciesBaseSprites
+  id: MobYowieSprites
+  sprites:
+    Head: MobYowieHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobYowieTorso
+    Eyes: MobHumanoidEyes
+    LArm: MobYowieLArm
+    RArm: MobYowieRArm
+    LHand: MobYowieLHand
+    RHand: MobYowieRHand
+    LLeg: MobYowieLLeg
+    RLeg: MobYowieRLeg
+    LFoot: MobYowieLFoot
+    RFoot: MobYowieRFoot
+    Tail: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    
+- type: markingPoints
+  id: MobYowieMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobYowieEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobYowieAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobYowieMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobYowieHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobYowieHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobYowieHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobYowieTorso
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobYowieTorsoMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobYowieTorsoFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobYowieLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobYowieLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobYowieLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobYowieLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobYowieRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobYowieRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobYowieRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobYowieRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Yowie/parts.rsi
+    state: r_foot

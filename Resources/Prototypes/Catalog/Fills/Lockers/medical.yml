@@ -132,6 +132,8 @@
   - type: StorageFill
     contents:
       - id: ClothingOuterHardsuitVoidParamed
+      - id: OxygenTankFilled
+      - id: NitrogenTankFilled
       - id: ClothingOuterCoatParamedicWB
       - id: ClothingHeadHatParamedicsoft
       - id: ClothingOuterWinterPara

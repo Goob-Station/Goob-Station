@@ -206,7 +206,7 @@
 
 - type: entity
   name: Sportacus
-  description: my admin event antag will have stun immunity, health regen, and can instantly kill people
+  description: ding dong eat it up i gota go
   id: MobSportacus
   parent: [BaseSimpleMob, MobCombat, MobBloodstream]
   components:
@@ -215,6 +215,7 @@
     baseSprintSpeed: 5
   - type: CombatMode
   - type: Deathgasp
+  - type: Hands
   - type: ComplexInteraction
   - type: Body
     prototype: Human
@@ -268,7 +269,7 @@
       60000: 0.7
       80000: 0.5
   - type: MobPrice
-    price: 150000
+    price: 1500000
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -292,6 +293,58 @@
       200000: Dead
   - type: ZombieImmune
   - type: ProtectedFromStepTriggers
+  - type: NoSlip
+  - type: Magboots
+  - type: SupermatterImmune
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    - Freelance
+    - Handheld
+    - Future
+  - type: ActiveRadio
+    channels:
+    - Binary
+    - Common
+    - Command
+    - CentCom
+    - Engineering
+    - Medical
+    - Science
+    - Security
+    - Service
+    - Supply
+    - Syndicate
+    - Freelance
+    - Handheld
+    - Future
+    globalReceive: true
+  - type: Insulated
+  - type: ContainmentField
+    throwForce: 0
+  - type: StasisImmunity
+  - type: PressureImmunity
+  - type: WarpPoint
+    follow: true
+    location: Sportacus
   - type: Grammar
     attributes:
       gender: male
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damageCap: 1250
+    damage:
+      types:
+        Heat: -500

@@ -43,6 +43,8 @@
   - type: MovementSpeedModifier
   - type: RequireProjectileTarget
     active: False
+  - type: AnimatedEmotes
+  - type: Fart
 
 - type: entity
   save: false
