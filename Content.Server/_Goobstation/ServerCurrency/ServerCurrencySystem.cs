@@ -3,6 +3,10 @@ using Content.Server._Goobstation.ServerCurrency;
 using Content.Shared._Goobstation.ServerCurrency.Events;
 using Content.Server.Popups;
 using Content.Shared.Popups;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
+using Content.Server.GameTicking;
+using Content.Shared.Humanoid;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
@@ -13,11 +17,13 @@ namespace Content.Server._Goobstation.ServerCurrency
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
         [Dependency] private readonly PopupSystem _popupSystem = default!;
+        [Dependency] private readonly SharedMindSystem _mind = default!;
         public override void Initialize()
         {
             base.Initialize();
             _currencyMan.BalanceChange += OnPlayerBalanceChange;
-            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEnd);
+            SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
+            SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
         }
 
         public override void Shutdown()
@@ -26,19 +32,36 @@ namespace Content.Server._Goobstation.ServerCurrency
             _currencyMan.BalanceChange -= OnPlayerBalanceChange;
         }
 
-        private void OnRoundEnd(RoundRestartCleanupEvent ev)
+        private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
         {
             _currencyMan.Save();
         }
 
+        private void OnRoundEndText(RoundEndTextAppendEvent ev)
+        {
+            var query = EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent>();
+
+            while (query.MoveNext(out _, out var mindContainer, out _))
+            {
+                if (mindContainer.Mind.HasValue)
+                {
+                    var mind = Comp<MindComponent>(mindContainer.Mind.Value);
+                    if (mind is not null && !_mind.IsCharacterDeadIc(mind))
+                        if (mind.OriginalOwnerUserId.HasValue)
+                            _currencyMan.AddCurrency(mind.OriginalOwnerUserId.Value, 10);
+                }
+            }
+        }
+
         /// <summary>
-        /// Local event that gets called when a player's balance is updated.
+        /// Calls event that when a player's balance is updated.
+        /// Also handles popups
         /// </summary>
         private void OnPlayerBalanceChange(PlayerBalanceChangeEvent ev)
         {
             RaiseLocalEvent(ev.EntID, ref ev);
 
-            if(ev.NewAmount > ev.OldAmount)
+            if (ev.NewAmount > ev.OldAmount)
                 _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewAmount - ev.OldAmount), ev.EntID, ev.EntID, PopupType.Medium);
             else if (ev.NewAmount < ev.OldAmount)
                 _popupSystem.PopupEntity("-" + _currencyMan.Stringify(ev.OldAmount - ev.NewAmount), ev.EntID, ev.EntID, PopupType.MediumCaution);

@@ -6,5 +6,6 @@ public interface ISharedServerCurrencyManager
 {
     bool CanAfford(NetUserId userId, int amount, out int balance);
     int GetBalance(NetUserId userId);
+    string Stringify(int amount);
 }
 
