@@ -8,9 +8,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
-using Content.Server.Temperature.Components;
-using Content.Server.Body.Components;
-using Content.Server.Atmos.Components;
 using Content.Shared.Damage;
 using Content.Server.Heretic.Components;
 using Content.Server.Antag;
@@ -20,9 +17,7 @@ using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
-using Content.Shared.Roles;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -52,9 +47,6 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
 
         SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
-        SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
-
-        
     }
 
     public override void Update(float frameTime)
@@ -170,19 +162,6 @@ public sealed partial class HereticSystem : EntitySystem
         var pathLoc = ent.Comp.CurrentPath!.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
-
-        // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.CurrentPath!)
-        {
-            case "Ash":
-                RemComp<TemperatureComponent>(ent);
-                RemComp<RespiratorComponent>(ent);
-                RemComp<BarotraumaComponent>(ent);
-                break;
-
-            default:
-                break;
-        }
     }
 
     #endregion
@@ -194,19 +173,6 @@ public sealed partial class HereticSystem : EntitySystem
         // ignore damage from heretic stuff
         if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
             args.Cancelled = true;
-    }
-    private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
-    {
-        if (!ent.Comp.Ascended)
-            return;
-
-        switch (ent.Comp.CurrentPath)
-        {
-            case "Ash":
-                // nullify heat damage because zased
-                args.Damage.DamageDict["Heat"] = 0;
-                break;
-        }
     }
 
     #endregion
