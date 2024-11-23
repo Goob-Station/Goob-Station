@@ -186,5 +186,5 @@
       types:
         Heat: 0
   - type: SpawnEntitiesOnHit
-    proto: MobSyndieAngryBeeWeak
+    proto: MobAngryBeeWeak
     amount: 4

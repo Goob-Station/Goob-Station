@@ -160,14 +160,13 @@
     - Syndicate
 
 - type: entity
-  suffix: Angry, syndicate, weak
-  id: MobSyndieAngryBeeWeak
-  parent: MobSyndieAngryBee
+  suffix: Angry, weak
+  id: MobAngryBeeWeak
+  parent: MobAngryBee
   components:
   - type: MeleeWeapon
     damage:
       types:
-        Poison: 0.8
-        Piercing: 0.4
+        Piercing: 1.5
   - type: TimedDespawn
     lifetime: 5
