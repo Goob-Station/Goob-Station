@@ -45,7 +45,7 @@
   id: CMOGear
   equipment:
     id: CMOPDA
-    ears: ClothingHeadsetCMO
+    ears: ClothingHeadsetAltMedical # Goobstation
     belt: ClothingBeltMedicalFilled
   storage:
     back:
