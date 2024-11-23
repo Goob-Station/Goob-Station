@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 table: "player",
                 type: "INTEGER",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: 0);
         }
 
         /// <inheritdoc />
