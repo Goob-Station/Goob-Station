@@ -60,7 +60,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
@@ -84,19 +84,19 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
             return;
         }
 
-        var allHeads = new List<EntityUid>();
-        foreach (var mind in allHumans)
+        var allHeads = new HashSet<Entity<MindComponent>>();
+        foreach (var person in allHumans)
         {
             // RequireAdminNotify used as a cheap way to check for command department
-            if (_job.MindTryGetJob(mind, out var prototype) && prototype.RequireAdminNotify)
-                allHeads.Add(mind);
+            if (_job.MindTryGetJob(person, out var prototype) && prototype.RequireAdminNotify)
+                allHeads.Add(person);
         }
 
         if (allHeads.Count == 0)
@@ -118,7 +118,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
