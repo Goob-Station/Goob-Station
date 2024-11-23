@@ -9,7 +9,7 @@
   - type: RoleRequirement
     roles:
       components:
-      - MalfAiRole
+      - MalfAi
 
 - type: entity
   parent: [BaseMalfAiObjective, BaseSurviveObjective]

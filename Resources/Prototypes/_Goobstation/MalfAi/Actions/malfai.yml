@@ -38,7 +38,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    useDelay: 15
+    useDelay: 20
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
@@ -46,3 +46,23 @@
       sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
       state: program_override
     event: !type:ProgramOverrideEvent {}
+
+
+- type: entity
+  id: MachineOverload
+  name: Machine overload
+  description: Overloads a machine power supply, causing a small explosion. This is your single, most potent ability.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    useDelay: 5
+    whitelist:
+      components:
+      - ApcPowerReceiver
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
+      state: machine_overload
+    event: !type:MachineOverloadEvent {}
