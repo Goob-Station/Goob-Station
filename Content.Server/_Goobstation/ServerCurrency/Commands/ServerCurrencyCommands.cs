@@ -5,6 +5,7 @@ using Robust.Shared.Console;
 using Robust.Server.Player;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
+using System.Math;
 
 namespace Content.Server._Goobstation.ServerCurrency.Commands
 {
@@ -72,7 +73,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            if (!int.TryParse(args[1], out int amount))
+            if (Math.Abs(!int.TryParse(args[1], out int amount)))
             {
                 shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
