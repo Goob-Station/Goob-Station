@@ -2167,3 +2167,9 @@ Entries:
         attack speed to 1, and increased damage to 17 slash and 17 heat.
   id: 262
   time: '2024-11-23T18:40:41.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Nuclear Operative evacuation lockdown
+  id: 263
+  time: '2024-11-23T23:41:42.0000000+00:00'
