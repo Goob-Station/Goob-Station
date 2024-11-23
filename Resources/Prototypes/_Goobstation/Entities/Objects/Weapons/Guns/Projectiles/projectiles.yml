@@ -76,8 +76,8 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 45
-        Structural: 160 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
+        Piercing: 35
+        Structural: 130 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -88,15 +88,15 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 15
-        Heat: 15
+        Piercing: 10
+        Heat: 5
         Structural: 20
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    maxIntensity: 7
+    maxIntensity: 2
     intensitySlope: 2
-    totalIntensity: 15 # about the same as the API
+    totalIntensity: 18 # about the same as the API
     maxTileBreak: 0
   - type: PointLight
     radius: 3.5
