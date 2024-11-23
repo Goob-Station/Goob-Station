@@ -43,3 +43,93 @@
   supportedGroups:
   - Brute
   - Burn
+
+- type: damageModifierSet
+  id: BaseBlob # ReactiveSpines
+  coefficients:
+    Blunt: 0.25
+    Slash: 0.25
+    Piercing: 0.25
+    Heat: 2.00
+
+- type: damageModifierSet
+  id: ElectromagneticWebBlob # Explosive Lattice
+  coefficients:
+    Blunt: 0.50
+    Slash: 0.50
+    Piercing: 0.50
+    Heat: 2.50
+    Shock: 0.50
+
+- type: damageModifierSet
+  id: ExplosiveLatticeBlob # Explosive Lattice
+  coefficients:
+    Blunt: 0.25
+    Slash: 0.25
+    Piercing: 0.25
+    Heat: 3.00
+    Shock: 1.50
+
+- type: damageModifierSet
+  id: BlobMob # Blob mobs
+  coefficients:
+    Blunt: 0.5
+    Slash: 0.5
+    Piercing: 0.5
+    Heat: 1.5
+
+- type: damageModifierSet
+  id: BlobReflective # If it reflects lasers, then it must be fragile?
+  coefficients:
+    Blunt: 0.9
+    Slash: 0.9
+    Piercing: 0.9
+    Heat: 1.5
+
+
+- type: entity
+  id: SpawnPointGhostBlobRat
+  name: точка спавна мыши блоба
+  suffix: Блоб, роль призрак
+  parent: BaseAntagSpawner
+  components:
+    - type: GhostRoleMobSpawner
+      prototype: MobMouseCancer
+    - type: GhostRole
+      makeSentient: true
+      name: blob-carrier-role-name
+      description: blob-carrier-role-desc
+      rules: blob-carrier-role-rules
+      raffle:
+        settings: default
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Mobs/Animals/bat.rsi
+          state: bat
+
+# Blob
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBlob
+  name: Blob Role
+#  description: mind-role-blob-description
+  components:
+  - type: MindRole
+    antagPrototype: Blob
+    exclusiveAntag: true
+  - type: BlobRole
+
+- type: factionIcon
+  id: BlobFaction
+  priority: 10
+  showTo:
+    components:
+    - BlobCarrier
+    - BlobObserver
+    - ZombieBlob
+    - Blobbernaut
+  icon:
+    sprite: /Textures/Backmen/Interface/Misc/antag_icon.rsi
+    state: blob
