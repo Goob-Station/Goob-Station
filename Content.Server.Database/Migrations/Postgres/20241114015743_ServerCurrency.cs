@@ -15,7 +15,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 table: "player",
                 type: "integer",
                 nullable: false,
-                defaultValue: "");
+                defaultValue: 0);
         }
 
         /// <inheritdoc />
