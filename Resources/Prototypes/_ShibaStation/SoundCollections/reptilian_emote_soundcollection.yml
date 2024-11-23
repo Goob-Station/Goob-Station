@@ -1,0 +1,30 @@
+- type: soundCollection
+  id: ReptilianChirps
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp3.ogg
+
+- type: soundCollection
+  id: ReptilianTrills
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill2.ogg
+
+- type: soundCollection
+  id: ReptilianRattles
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle3.ogg
+
+- type: soundCollection
+  id: ReptilianSighs
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_sigh.ogg
+
+- type: soundCollection
+  id: ReptilianHisses
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss2.ogg

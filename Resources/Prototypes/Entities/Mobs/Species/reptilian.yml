@@ -30,7 +30,7 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Weh', 'Thump']
+    allowedEmotes: ['Weh', 'Thump', 'Chirp', 'Hiss']
   - type: TypingIndicator
     proto: lizard
   - type: Vocal
@@ -79,6 +79,12 @@
   - type: FootPrints # WD EDIT
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - ReptilianEmotes
 
 - type: entity
   parent: BaseSpeciesDummy

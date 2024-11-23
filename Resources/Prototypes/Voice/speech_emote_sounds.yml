@@ -96,6 +96,16 @@
       collection: MaleCry
     Weh:
       collection: Weh
+    Chirp:
+      collection: ReptilianChirps
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
+    Sigh:
+      collection: ReptilianSighs
+    Hiss:
+      collection: ReptilianHisses
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -118,6 +128,16 @@
       collection: FemaleCry
     Weh:
       collection: Weh
+    Chirp:
+      collection: ReptilianChirps
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
+    Sigh:
+      collection: ReptilianSighs
+    Hiss:
+      collection: ReptilianHisses
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

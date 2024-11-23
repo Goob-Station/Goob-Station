@@ -362,6 +362,7 @@
     - Nymph
     tags:
     - HarpyEmotes
+    - ReptilianEmotes
   chatMessages: ["chat-emote-msg-chirp"]
   chatTriggers:
     - chirp
@@ -443,3 +444,32 @@
     - pings
     - pinged
     - pinging
+
+# More Reptilian Emotes
+- type: emote
+  id: Trill
+  name: chat-emote-name-trill
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-trill"]
+  chatTriggers:
+    - trill
+    - trills
+    - trilled
+    - trilling
+
+- type: emote
+  id: Rattle
+  name: chat-emote-name-rattle
+  category: Vocal
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["chat-emote-msg-rattle"]
+  chatTriggers:
+    - rattle
+    - rattles
+    - rattled
+    - rattling

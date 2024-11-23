@@ -8,6 +8,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - ReptilianEmotes
   blacklist:
     components:
     - BorgChassis
