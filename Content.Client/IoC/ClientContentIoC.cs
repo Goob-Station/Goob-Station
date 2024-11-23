@@ -24,7 +24,7 @@ using Content.Shared.Administration.Managers;
 using Content.Shared.Chat;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
-using Content.Client._Goobstation.ServerCurrency;
+using Content.Client._Goobstation.ServerCurrency; // Goob Station - Goob Coin
 
 namespace Content.Client.IoC
 {
@@ -60,7 +60,7 @@ namespace Content.Client.IoC
             collection.Register<PlayerRateLimitManager>();
             collection.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             collection.Register<TitleWindowManager>();
-            collection.Register<ServerCurrencySystem>();
+            collection.Register<ServerCurrencySystem>(); // Goob Station - Goob Coin
         }
     }
 }

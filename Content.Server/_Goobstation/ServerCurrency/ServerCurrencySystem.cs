@@ -57,7 +57,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             var senderSession = eventArgs.SenderSession;
             var balance = _currencyMan.GetBalance(senderSession.UserId);
-            RaiseNetworkEvent(new PlayerBalanceUpdateEvent(balance, balance));
+            RaiseNetworkEvent(new PlayerBalanceUpdateEvent(balance, balance), senderSession);
 
         }
 
