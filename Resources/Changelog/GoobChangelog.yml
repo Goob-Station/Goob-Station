@@ -2153,3 +2153,9 @@ Entries:
       message: Recycler to Salvage
   id: 260
   time: '2024-11-23T18:36:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Vents contain less slimes, spiders and snakes.
+  id: 261
+  time: '2024-11-23T18:40:17.0000000+00:00'
