@@ -16,6 +16,8 @@ using Content.Shared.Prototypes;
 using Content.Shared.Roles.Jobs;
 using Robust.Server.Player;
 using Robust.Shared.Utility;
+using Content.Server._Goobstation.ServerCurrency;
+using Robust.Shared.Player;
 
 namespace Content.Server.Objectives;
 
@@ -29,6 +31,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly SharedJobSystem _job = default!;
+    [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
 
     private IEnumerable<string>? _objectives;
 
@@ -138,6 +141,7 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
             if (!TryComp<MindComponent>(mindId, out var mind))
                 continue;
 
+            var userid = mind.OriginalOwnerUserId;
             var title = GetTitle((mindId, mind), name);
             var custody = IsInCustody(mindId, mind) ? Loc.GetString("objectives-in-custody") : string.Empty;
 
@@ -179,20 +183,24 @@ public sealed class ObjectivesSystem : SharedObjectivesSystem
                             ("markupColor", "green")
                         ));
                         completedObjectives++;
+
+                         // Easiest place to give people points for completing objectives lol
+                        if(userid.HasValue)
+                            _currencyMan.AddCurrency(userid.Value, 5);
                     }
                     else
                     {
                         agentSummary.AppendLine(Loc.GetString(
                             "objectives-objective-fail",
                             ("objective", objectiveTitle),
-                            ("progress", (int) (progress * 100)),
+                            ("progress", (int)(progress * 100)),
                             ("markupColor", "red")
                         ));
                     }
                 }
             }
 
-            var successRate = totalObjectives > 0 ? (float) completedObjectives / totalObjectives : 0f;
+            var successRate = totalObjectives > 0 ? (float)completedObjectives / totalObjectives : 0f;
             agentSummaries.Add((agentSummary.ToString(), successRate, completedObjectives));
         }
 

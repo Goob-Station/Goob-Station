@@ -656,6 +656,28 @@ namespace Content.Server.Database
                 player.LastSeenHWId?.ToImmutableArray());
         }
 
+        public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Player
+                .Where(dbPlayer => dbPlayer.UserId == userId)
+                .Select(dbPlayer => dbPlayer.ServerCurrency)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
+            if (dbPlayer == null)
+                return;
+
+            dbPlayer.ServerCurrency = currency;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Connection Logs
