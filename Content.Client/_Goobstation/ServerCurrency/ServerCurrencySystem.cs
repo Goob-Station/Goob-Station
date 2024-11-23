@@ -10,7 +10,7 @@ public sealed class ServerCurrencySystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeNetworkEvent<PlayerBalanceUpdateEvent>(UpdateBalance);
+        SubscribeNetworkEvent<PlayerBalanceUpdateEvent>(UpdateBalance); // We should probably be using net messages here instead, but I dont feel like messing with that right now.
         RaiseNetworkEvent(new PlayerBalanceRequestEvent());
     }
     private void UpdateBalance(PlayerBalanceUpdateEvent ev)
