@@ -2113,3 +2113,9 @@ Entries:
       message: You can't super fart without reverse farting anymore.
   id: 255
   time: '2024-11-23T09:34:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: You can now clone living people.
+  id: 256
+  time: '2024-11-23T09:35:56.0000000+00:00'
