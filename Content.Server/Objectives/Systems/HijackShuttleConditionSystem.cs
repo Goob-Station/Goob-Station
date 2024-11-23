@@ -1,4 +1,4 @@
-﻿using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Cuffs.Components;
@@ -63,7 +63,6 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
         var gridPlayers = Filter.BroadcastGrid(shuttleGridId).Recipients;
         var humanoids = GetEntityQuery<HumanoidAppearanceComponent>();
         var cuffable = GetEntityQuery<CuffableComponent>();
-        EntityQuery<MobStateComponent>();
 
         var agentOnShuttle = false;
         foreach (var player in gridPlayers)
@@ -82,7 +81,7 @@ public sealed class HijackShuttleConditionSystem : EntitySystem
             if (!isHumanoid) // Only humanoids count as enemies
                 continue;
 
-            var isAntagonist = _role.MindIsAntagonist(mindId);
+            var isAntagonist = _role.MindIsAntagonist(crewMindId); // Goobstation
             if (isAntagonist) // Allow antagonist
                 continue;
 
