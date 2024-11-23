@@ -2135,3 +2135,13 @@ Entries:
         goob coin yet, but you can earn it :-)
   id: 258
   time: '2024-11-23T18:31:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Violet by mrjajkes now plays when the shuttle is automatically called
+        during Zombies!
+    - type: Fix
+      message: The SFX for the zombie outbreak warning actually work now
+  id: 259
+  time: '2024-11-23T18:35:00.0000000+00:00'
