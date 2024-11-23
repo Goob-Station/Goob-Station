@@ -304,8 +304,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 12
-            Heat: 12
+            Slash: 17   #Goob Station rebalance, was originally 12
+            Heat: 17    #Goob Station rebalance, was originally 12
             Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
@@ -324,7 +324,7 @@
   - type: MeleeWeapon
     heavyStaminaCost: 0 # goob edit
     wideAnimationRotation: -135
-    attackRate: 1.5
+    attackRate: 1 #Goob Station rebalance, was originally 1.5
     angle: 100
     damage:
       types:
