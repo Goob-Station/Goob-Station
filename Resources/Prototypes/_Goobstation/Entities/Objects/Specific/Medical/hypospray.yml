@@ -25,3 +25,38 @@
           Quantity: 10
   - type: Tag
     tags: []
+
+- type: entity
+  name: epinephrine autoinjector
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: Used for rapid administration of epinephrine to wounded people. Epinephrine negates damage slowdown, reduces stuns, speeds up lightly and heals slightly while in critical state. Solution regenerates extremely slowly.
+  id: SecHypo
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Medical/hypospray.rsi
+    state: combat_hypo
+  - type: Item
+    sprite: Objects/Specific/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: UseDelay
+    delay: 0.5
+  - type: SolutionRegeneration # 5 minutes to refill fully
+    solution: hypospray
+    generated:
+      reagents:
+      - ReagentId: Epinephrine
+        Quantity: 1
+    duration: 30

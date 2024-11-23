@@ -5,6 +5,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: SecHypo # Goobstation
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun
       - id: WeaponDisabler
@@ -35,6 +36,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: SecHypo # Goobstation
       - id: FlashlightSeclite
       - id: WeaponEnergyShotgun # Goobstation
       - id: WeaponDisabler
@@ -62,6 +64,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: SecHypo # Goobstation
       - id: FlashlightSeclite
         prob: 0.8
       - id: WeaponDisabler
@@ -90,6 +93,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: SecHypo # Goobstation
       - id: ClothingEyesGlassesSecurity
       - id: WeaponDisabler
       - id: TrackingImplanter
@@ -127,6 +131,7 @@
   components:
   - type: StorageFill
     contents:
+      - id: SecHypo # Goobstation
       - id: ClothingEyesGlassesSecurity
         prob: 0.3
       - id: ClothingHeadHatFedoraBrown
