@@ -326,25 +326,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                     ev.Reason = Loc.GetString("war-ops-shuttle-call-unavailable");
                     return;
                 }
-
-                // goob edit - can't call evac while nukies are present on the station
-                if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
-                {
-                    ev.Cancelled = true;
-                    ev.Reason = Loc.GetString("shuttle-call-warops-nukies-present");
-                    return;
-                }
             }
 
-            // goob edit - can't call evac while nukies are present on the station
-            // during stealth ops this might become a problem
-            // but an error in the shuttle call must mean something bad is coming so it's probably a sign to go witch hunting
-            if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
-            {
-                ev.Cancelled = true;
-                ev.Reason = Loc.GetString("shuttle-call-error");
-                return;
-            }
         }
     }
 
