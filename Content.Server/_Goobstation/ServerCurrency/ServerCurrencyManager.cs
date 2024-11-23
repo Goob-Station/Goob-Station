@@ -11,7 +11,7 @@ using Content.Shared._Goobstation.ServerCurrency.Events;
 
 namespace Content.Server._Goobstation.ServerCurrency
 {
-    public sealed class ServerCurrencyManager : ISharedServerCurrencyManager, IPostInjectInit
+    public sealed class ServerCurrencyManager : IPostInjectInit
     {
         [Dependency] private readonly IServerDbManager _db = default!;
         [Dependency] private readonly UserDbDataManager _userDb = default!;
@@ -111,7 +111,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         public bool CanAfford(NetUserId userId, int amount, out int balance)
         {
             balance = GetBalance(userId);
-            return balance >= amount && (balance - amount) >= 0;
+            return balance >= amount && balance - amount >= 0;
         }
 
         /// <summary>
@@ -153,8 +153,8 @@ namespace Content.Server._Goobstation.ServerCurrency
 
             var balanceData = _balances[userId];
 
-            if(_player.TryGetSessionById(userId, out var userSession) && userSession.AttachedEntity != null)
-                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession.AttachedEntity.Value, userId, amount, balanceData.Balance));
+            if(_player.TryGetSessionById(userId, out var userSession))
+                BalanceChange?.Invoke(new PlayerBalanceChangeEvent(userSession, userId, amount, balanceData.Balance));
 
             balanceData.Balance = amount;
             balanceData.IsDirty = true;

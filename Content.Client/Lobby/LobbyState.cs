@@ -11,8 +11,7 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
-using Content.Shared._Goobstation.ServerCurrency; // Goobstation - Goob Coin
-using Robust.Shared.Player; // Goobstation - Goob Coin
+using Content.Client._Goobstation.ServerCurrency; // Goobstation - Goob Coin
 
 namespace Content.Client.Lobby
 {
@@ -25,8 +24,7 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        // [Dependency] private readonly ISharedServerCurrencyManager _currencyMan = default!; // Goobstation - Goob Coin
-        [Dependency] private readonly ISharedPlayerManager _playerMan = default!; // Goobstation - Goob Coin
+        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - Goob Coin
 
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
@@ -62,6 +60,9 @@ namespace Content.Client.Lobby
             _gameTicker.InfoBlobUpdated += UpdateLobbyUi;
             _gameTicker.LobbyStatusUpdated += LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated += LobbyLateJoinStatusUpdated;
+
+            _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
+
         }
 
         protected override void Shutdown()
@@ -72,6 +73,7 @@ namespace Content.Client.Lobby
             _gameTicker.LobbyStatusUpdated -= LobbyStatusUpdated;
             _gameTicker.LobbyLateJoinStatusUpdated -= LobbyLateJoinStatusUpdated;
             _contentAudioSystem.LobbySoundtrackChanged -= UpdateLobbySoundtrackInfo;
+            _serverCur.BalanceChange -= UpdatePlayerBalance; // Goobstation - Goob Coin
 
             _voteManager.ClearPopupContainer();
 
@@ -183,10 +185,7 @@ namespace Content.Client.Lobby
                 Lobby!.ServerInfo.SetInfoBlob(_gameTicker.ServerInfoBlob);
             }
 
-            var _currencyMan = IoCManager.Resolve<ISharedServerCurrencyManager>();
-
-            if(_playerMan.LocalUser.HasValue) // Goobstation - Goob Coin
-                Lobby!.Balance.Text = _currencyMan.Stringify(_currencyMan.GetBalance(_playerMan.LocalUser.Value));
+            UpdatePlayerBalance(); // Goobstation - Goob Coin
         }
 
         private void UpdateLobbySoundtrackInfo(LobbySoundtrackChangedEvent ev)
@@ -239,6 +238,11 @@ namespace Content.Client.Lobby
             }
 
             _consoleHost.ExecuteCommand($"toggleready {newReady}");
+        }
+
+        private void UpdatePlayerBalance() // Goobstation - Goob Coin
+        {
+            Lobby!.Balance.Text = _serverCur.Stringify(_serverCur.GetBalance());
         }
     }
 }

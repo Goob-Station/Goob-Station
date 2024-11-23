@@ -93,12 +93,13 @@
                                      Margin="3 3 3 3" MaxWidth="400" HorizontalAlignment="Left" />
                     <Label Name="StationTime" Access="Public" FontColorOverride="{x:Static maths:Color.LightGray}"
                            Margin="3 3 3 3" HorizontalAlignment="Left" />
-                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
-                            HorizontalExpand="True" HorizontalAlignment="Center" />
                     <controls:HSpacer Spacing="5" />
                     <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
+                    <!-- Server Currency -->
+                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
+                            HorizontalExpand="True" HorizontalAlignment="Center" />
                     <!-- Gold line -->
                     <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
                     <controls:HSpacer Spacing="10" />

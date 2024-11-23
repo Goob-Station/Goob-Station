@@ -1,5 +1,4 @@
 using Content.Shared.GameTicking;
-using Content.Server._Goobstation.ServerCurrency;
 using Content.Shared._Goobstation.ServerCurrency.Events;
 using Content.Server.Popups;
 using Content.Shared.Popups;
@@ -21,15 +20,16 @@ namespace Content.Server._Goobstation.ServerCurrency
         public override void Initialize()
         {
             base.Initialize();
-            _currencyMan.BalanceChange += OnPlayerBalanceChange;
+            _currencyMan.BalanceChange += OnBalanceChange;
             SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundEndCleanup);
             SubscribeLocalEvent<RoundEndTextAppendEvent>(OnRoundEndText);
+            SubscribeNetworkEvent<PlayerBalanceRequestEvent>(OnBalanceRequest);
         }
 
         public override void Shutdown()
         {
             base.Shutdown();
-            _currencyMan.BalanceChange -= OnPlayerBalanceChange;
+            _currencyMan.BalanceChange -= OnBalanceChange;
         }
 
         private void OnRoundEndCleanup(RoundRestartCleanupEvent ev)
@@ -53,19 +53,31 @@ namespace Content.Server._Goobstation.ServerCurrency
             }
         }
 
+        private void OnBalanceRequest(PlayerBalanceRequestEvent ev, EntitySessionEventArgs eventArgs)
+        {
+            var senderSession = eventArgs.SenderSession;
+            var balance = _currencyMan.GetBalance(senderSession.UserId);
+            RaiseNetworkEvent(new PlayerBalanceUpdateEvent(balance, balance));
+
+        }
+
         /// <summary>
         /// Calls event that when a player's balance is updated.
         /// Also handles popups
         /// </summary>
-        private void OnPlayerBalanceChange(PlayerBalanceChangeEvent ev)
+        private void OnBalanceChange(PlayerBalanceChangeEvent ev)
         {
-            RaiseLocalEvent(ev.EntID, ref ev);
+            RaiseNetworkEvent(new PlayerBalanceUpdateEvent(ev.NewBalance, ev.OldBalance), ev.UserSes);
 
-            if (ev.NewAmount > ev.OldAmount)
-                _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewAmount - ev.OldAmount), ev.EntID, ev.EntID, PopupType.Medium);
-            else if (ev.NewAmount < ev.OldAmount)
-                _popupSystem.PopupEntity("-" + _currencyMan.Stringify(ev.OldAmount - ev.NewAmount), ev.EntID, ev.EntID, PopupType.MediumCaution);
-            // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
+
+            if(ev.UserSes.AttachedEntity.HasValue){
+                var userEnt = ev.UserSes.AttachedEntity.Value;
+                if (ev.NewBalance > ev.OldBalance)
+                    _popupSystem.PopupEntity("+" + _currencyMan.Stringify(ev.NewBalance - ev.OldBalance), userEnt, userEnt, PopupType.Medium);
+                else if (ev.NewBalance < ev.OldBalance)
+                    _popupSystem.PopupEntity("-" + _currencyMan.Stringify(ev.OldBalance - ev.NewBalance), userEnt, userEnt, PopupType.MediumCaution);
+                // I really wanted to do some fancy shit where we also display a little sprite next to the pop-up, but that gets pretty complex for such a simple interaction, so, you get this.
+            }
         }
     }
 }

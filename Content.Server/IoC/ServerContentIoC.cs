@@ -30,7 +30,6 @@ using Content.Shared.Kitchen;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Players.RateLimiting;
 using Content.Server._Goobstation.ServerCurrency; // Goobstation - Server Currency
-using Content.Shared._Goobstation.ServerCurrency; // Goobstation - Server Currency
 
 namespace Content.Server.IoC
 {
@@ -76,7 +75,6 @@ namespace Content.Server.IoC
             IoCManager.Register<SharedPlayerRateLimitManager, PlayerRateLimitManager>();
             IoCManager.Register<MappingManager>();
             IoCManager.Register<ServerCurrencyManager>(); // Goobstation - Server Currency
-            IoCManager.Register<ISharedServerCurrencyManager, ServerCurrencyManager>(); // Goobstation - Server Currency
         }
     }
 }
