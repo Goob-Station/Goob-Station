@@ -76,12 +76,16 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             {
                 shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
-            } else if (!_currencyMan.CanAfford(shell.Player.UserId, amount, out int balance)){
+            }
+            
+            amount = Math.Abs(amount);
+            
+            if (!_currencyMan.CanAfford(shell.Player.UserId, amount, out int balance)){
                 shell.WriteError(Loc.GetString("server-currency-gift-command-error-2", ("balance", balance)));
                 return;
             }
 
-            amount = Math.Abs(amount);
+
             _currencyMan.RemoveCurrency(shell.Player.UserId, amount);
             _currencyMan.AddCurrency(targetPlayer, amount);
 
