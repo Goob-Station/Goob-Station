@@ -5,7 +5,6 @@ using Robust.Shared.Console;
 using Robust.Server.Player;
 using Content.Shared.Chat;
 using Content.Server.Chat.Managers;
-using System.Math;
 
 namespace Content.Server._Goobstation.ServerCurrency.Commands
 {
