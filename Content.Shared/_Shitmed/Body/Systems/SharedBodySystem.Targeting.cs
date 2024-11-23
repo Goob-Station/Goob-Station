@@ -223,6 +223,7 @@ public partial class SharedBodySystem
         var delta = args.DamageDelta;
 
         if (args.CanSever
+            && partEnt.Comp.CanSever
             && partIdSlot is not null
             && delta != null
             && !HasComp<BodyPartReattachedComponent>(partEnt)

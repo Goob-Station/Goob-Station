@@ -132,7 +132,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         // yeah. it just generates a ton of plasma which just burns.
         // lame, but we don't have anything fire related atm, so, it works.
-        var tilepos = _xform.GetGridOrMapTilePosition(ent, Transform(ent));
+        var tilepos = _transform.GetGridOrMapTilePosition(ent, Transform(ent));
         var enumerator = _atmos.GetAdjacentTileMixtures(Transform(ent).GridUid!.Value, tilepos, false, false);
         while (enumerator.MoveNext(out var mix))
         {

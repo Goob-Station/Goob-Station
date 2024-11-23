@@ -1,5 +1,5 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Heretic;
@@ -14,7 +14,7 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 
-namespace Content.Server.Heretic.EntitySystems;
+namespace Content.Server.Heretic.EntitySystems.PathSpecific;
 
 // void path heretic exclusive
 public sealed partial class AristocratSystem : EntitySystem
@@ -33,13 +33,16 @@ public sealed partial class AristocratSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        foreach (var aristocrat in EntityQuery<AristocratComponent>())
+        while (EntityQueryEnumerator<AristocratComponent>().MoveNext(out var uid, out var aristocrat))
         {
+            if (!uid.IsValid())
+                continue;
+
             aristocrat.UpdateTimer += frameTime;
 
             if (aristocrat.UpdateTimer >= aristocrat.UpdateDelay)
             {
-                Cycle((aristocrat.Owner, aristocrat));
+                Cycle((uid, aristocrat));
                 aristocrat.UpdateTimer = 0;
             }
         }

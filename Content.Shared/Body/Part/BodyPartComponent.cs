@@ -1,4 +1,4 @@
-﻿using Content.Shared.Body.Components;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
@@ -15,7 +15,7 @@ using Content.Shared._Shitmed.Targeting;
 namespace Content.Shared.Body.Part;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBodySystem))]
+//[Access(typeof(SharedBodySystem))] // goob edit - all access :godo:
 public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent // Shitmed Change
 {
     // Need to set this on container changes as it may be several transform parents up the hierarchy.
@@ -26,6 +26,9 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     public EntityUid? Body;
 
     // Shitmed Change Start
+
+    [DataField, AutoNetworkedField]
+    public bool CanSever = true;
 
     [DataField, AutoNetworkedField]
     public EntityUid? OriginalBody;

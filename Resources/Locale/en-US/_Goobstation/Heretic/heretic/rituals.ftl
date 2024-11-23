@@ -24,6 +24,7 @@ heretic-ritual-fail-reagentpuddle = There is no {$reagentname} present.
 heretic-ritual-fail-temperature-hot = It is too hot here.
 heretic-ritual-fail-temperature-cold = It is not cold enough here.
 heretic-ritual-fail-sacrifice-ash = There's either not enough of them dead, or burning.
+heretic-ritual-fail-sacrifice-blade = Some of them are still having a head on their shoulders.
 
 ## side quests
 heretic-ritual-side-knowledge = Ritual of Knowledge

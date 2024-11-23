@@ -57,7 +57,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ComponentInit>(OnBodyInit);
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
-                SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
+        SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
     }
 
@@ -366,7 +366,7 @@ public partial class SharedBodySystem
 
     // Shitmed Change Start
 
-        public virtual HashSet<EntityUid> GibPart(
+    public virtual HashSet<EntityUid> GibPart(
         EntityUid partId,
         BodyPartComponent? part = null,
         bool launchGibs = true,
@@ -382,7 +382,7 @@ public partial class SharedBodySystem
 
         if (part.Body is { } bodyEnt)
         {
-            if (IsPartRoot(bodyEnt, partId, part: part))
+            if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
                 return gibs;
 
             ChangeSlotState((partId, part), true);
