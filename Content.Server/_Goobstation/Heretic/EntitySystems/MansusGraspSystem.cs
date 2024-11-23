@@ -159,7 +159,8 @@ public sealed partial class MansusGraspSystem : EntitySystem
                     if (heretic.PathStage >= 7 && HasComp<ItemComponent>(target))
                     {
                         // empowering blades and shit
-                        EnsureComp<MansusInfusedComponent>(target);
+                        var infusion = EnsureComp<MansusInfusedComponent>(target);
+                        infusion.AvailableCharges = infusion.MaxCharges;
                         break;
                     }
 
