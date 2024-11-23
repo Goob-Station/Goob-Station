@@ -2127,3 +2127,11 @@ Entries:
       message: Cyborg legs make you 25% faster.
   id: 257
   time: '2024-11-23T17:28:39.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Goob coin! Super simple setup right now, you can't buy anything with
+        goob coin yet, but you can earn it :-)
+  id: 258
+  time: '2024-11-23T18:31:49.0000000+00:00'
