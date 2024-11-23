@@ -76,7 +76,11 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
             {
                 shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
-            } else if (!_currencyMan.CanAfford(shell.Player.UserId, amount, out int balance)){
+            }
+            
+            amount = Math.Abs(amount);
+            
+            if (!_currencyMan.CanAfford(shell.Player.UserId, amount, out int balance)){
                 shell.WriteError(Loc.GetString("server-currency-gift-command-error-2", ("balance", balance)));
                 return;
             }
@@ -105,7 +109,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Host)]
     public sealed class AddServerCurrencyCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
@@ -150,7 +154,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Host)]
     public sealed class RemoveServerCurrencyCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
@@ -195,7 +199,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Host)]
     public sealed class SetServerCurrencyCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
@@ -240,7 +244,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
         }
     }
 
-    [AdminCommand(AdminFlags.Admin)]
+    [AdminCommand(AdminFlags.Host)]
     public sealed class GetServerCurrencyCommand : IConsoleCommand
     {
         [Dependency] private readonly ServerCurrencyManager _currencyMan = default!;
