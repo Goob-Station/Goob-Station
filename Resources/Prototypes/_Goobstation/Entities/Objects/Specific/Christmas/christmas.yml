@@ -1,0 +1,7 @@
+- type: entity
+  id: ChristmasTinselWhite
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    state: tinsel_white
