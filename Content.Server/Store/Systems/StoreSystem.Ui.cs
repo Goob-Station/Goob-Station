@@ -267,11 +267,6 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
-        if (listing.DisableRefund)
-        {
-            component.RefundAllowed = false;
-        }
-
         //log dat shit.
         _admin.Add(LogType.StorePurchase,
             LogImpact.Low,
