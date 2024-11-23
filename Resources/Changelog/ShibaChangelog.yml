@@ -1,6 +1,26 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Asteroids and wrecks have been re-added; assuming salvage will do their
+      job properly.
+    type: Add
+  id: 19
+  time: '2024-11-23T03:49:44.581606'
+- author: AstroDogeDX
+  changes:
+  - message: Sharks and Towels now have their own loadout groups; and their requirements
+      to unlock have been adjusted.
+    type: Tweak
+  id: 18
+  time: '2024-11-23T03:48:10.320837'
+- author: AstroDogeDX
+  changes:
+  - message: Lizards can now hiss, rattle, chirp, trill and sigh - noisy lizzers.
+    type: Add
+  id: 17
+  time: '2024-11-23T03:55:44.770351'
+- author: AstroDogeDX
+  changes:
   - message: Added the dedicated Mail Carrier role into cargo, with their own loadout
       and slots on the maps that support them. (Train, Atlas, Bagel, Cluster, Fland,
       Oasis and Origin)
