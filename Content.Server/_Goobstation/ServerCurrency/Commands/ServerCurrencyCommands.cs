@@ -85,7 +85,6 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-
             _currencyMan.RemoveCurrency(shell.Player.UserId, amount);
             _currencyMan.AddCurrency(targetPlayer, amount);
 
