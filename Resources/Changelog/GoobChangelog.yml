@@ -2145,3 +2145,11 @@ Entries:
       message: The SFX for the zombie outbreak warning actually work now
   id: 259
   time: '2024-11-23T18:35:00.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Biogenerator to Botany
+    - type: Add
+      message: Recycler to Salvage
+  id: 260
+  time: '2024-11-23T18:36:33.0000000+00:00'
