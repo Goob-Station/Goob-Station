@@ -8348,6 +8348,13 @@ entities:
     - type: Transform
       pos: 21.5,-25.5
       parent: 2
+- proto: Biogenerator
+  entities:
+  - uid: 12733
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
 - proto: BlastDoor
   entities:
   - uid: 507
@@ -15623,6 +15630,11 @@ entities:
     components:
     - type: Transform
       pos: -14.5,27.5
+      parent: 2
+  - uid: 12735
+    components:
+    - type: Transform
+      pos: 20.5,-23.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -63123,6 +63135,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -33.5,24.5
       parent: 2
+  - uid: 12734
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,-23.5
+      parent: 2
 - proto: ReinforcedPlasmaWindow
   entities:
   - uid: 9564
@@ -71540,6 +71558,17 @@ entities:
         4369:
         - Left: Forward
         - Right: Reverse
+        - Middle: Off
+  - uid: 12736
+    components:
+    - type: Transform
+      pos: 21.5,-23.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12734:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
 - proto: UniformPrinter
   entities:
