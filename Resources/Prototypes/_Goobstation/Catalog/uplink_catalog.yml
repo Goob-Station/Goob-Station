@@ -74,7 +74,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 80
+    Telecrystal: 60
   categories:
   - UplinkWeaponry
   conditions:

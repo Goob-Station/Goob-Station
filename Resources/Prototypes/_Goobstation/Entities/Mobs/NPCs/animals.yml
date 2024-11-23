@@ -167,7 +167,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        Poison: 0.66
-        Piercing: 0.33
+        Poison: 0.8
+        Piercing: 0.4
   - type: TimedDespawn
-    lifetime: 20
+    lifetime: 5

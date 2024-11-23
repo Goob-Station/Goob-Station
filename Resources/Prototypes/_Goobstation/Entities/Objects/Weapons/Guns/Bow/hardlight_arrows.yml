@@ -34,7 +34,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 40
+        Heat: 30
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -98,9 +98,9 @@
   - type: Projectile
     damage:
       types:
-        Heat: 25
+        Heat: 15
   - type: IgniteOnCollide
-    fireStacks: 1
+    fireStacks: 1.5
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -115,9 +115,9 @@
   - type: Projectile
     damage:
       types:
-        Cold: 25
+        Cold: 20
   - type: ChangeTemperatureOnHit
-    delta: -30
+    delta: -25
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -138,9 +138,9 @@
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
-    totalIntensity: 15
-    intensitySlope: 0.5
-    maxIntensity: 5
+    totalIntensity: 12
+    intensitySlope: 0.4
+    maxIntensity: 4
     canCreateVacuum: false
 
 - type: entity
@@ -157,7 +157,7 @@
     penetrate: true
     damage:
       types:
-        Heat: 30
+        Heat: 24
   - type: Fixtures
     fixtures:
       projectile:
@@ -167,6 +167,8 @@
         hard: false
         mask:
         - Opaque
+  - type: TimedDespawn
+    lifetime: 2
 
 - type: entity
   parent: BaseHardlightArrow
