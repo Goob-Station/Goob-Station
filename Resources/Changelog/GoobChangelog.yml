@@ -2107,3 +2107,9 @@ Entries:
         nothing to not-shitmins/mappers)
   id: 254
   time: '2024-11-22T17:39:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: You can't super fart without reverse farting anymore.
+  id: 255
+  time: '2024-11-23T09:34:46.0000000+00:00'
