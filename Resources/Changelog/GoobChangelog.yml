@@ -2119,3 +2119,11 @@ Entries:
       message: You can now clone living people.
   id: 256
   time: '2024-11-23T09:35:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to install hands onto cyborg arms.
+    - type: Tweak
+      message: Cyborg legs make you 25% faster.
+  id: 257
+  time: '2024-11-23T17:28:39.0000000+00:00'
