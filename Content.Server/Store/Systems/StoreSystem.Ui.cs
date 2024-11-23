@@ -114,7 +114,6 @@ public sealed partial class StoreSystem
 
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
-
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -181,7 +180,6 @@ public sealed partial class StoreSystem
             component.BalanceSpent[currency] += value;
         }
 
-        // goobstation - heretics
         // i am too tired of making separate systems for knowledge adding
         // and all that shit. i've had like 4 failed attempts
         // so i'm just gonna shitcode my way out of my misery
@@ -190,8 +188,6 @@ public sealed partial class StoreSystem
             if (TryComp<HereticComponent>(buyer, out var heretic))
                 _heretic.AddKnowledge(buyer, heretic, (ProtoId<HereticKnowledgePrototype>) listing.ProductHereticKnowledge);
         }
-
-        //spawn entity
         if (listing.ProductEntity != null)
         {
             var product = Spawn(listing.ProductEntity, Transform(buyer).Coordinates);
@@ -380,7 +376,6 @@ public sealed partial class StoreSystem
         {
             component.Balance[currency] += value;
         }
-
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();

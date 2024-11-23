@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Server.Store.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
