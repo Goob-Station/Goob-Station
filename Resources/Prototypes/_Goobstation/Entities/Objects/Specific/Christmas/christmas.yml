@@ -4,4 +4,7 @@
   components:
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
-    state: tinsel_white
+    state: white
+  - type: PointLight
+    color: "#f9f375"
+    radius: 2

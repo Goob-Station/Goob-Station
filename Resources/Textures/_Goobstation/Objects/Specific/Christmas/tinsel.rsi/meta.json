@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Piras314",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+
+  "states": [
+    {
+      "name": "white",
+      "delays":[
+        [
+          5,
+          0.2,
+          0.2,
+          0.4,
+          0.2,
+          0.2
+        ]
+      ]
+    }
+  ]
+}
