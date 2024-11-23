@@ -2159,3 +2159,11 @@ Entries:
       message: Vents contain less slimes, spiders and snakes.
   id: 261
   time: '2024-11-23T18:40:17.0000000+00:00'
+- author: Tryded
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Double Bladed Energy Sword's price to 80 TC, decreased
+        attack speed to 1, and increased damage to 17 slash and 17 heat.
+  id: 262
+  time: '2024-11-23T18:40:41.0000000+00:00'
