@@ -73,7 +73,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
-            if (Math.Abs(!int.TryParse(args[1], out int amount)))
+            if (!int.TryParse(args[1], out int amount))
             {
                 shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
@@ -82,6 +82,7 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 return;
             }
 
+            amount = Math.Abs(amount);
             _currencyMan.RemoveCurrency(shell.Player.UserId, amount);
             _currencyMan.AddCurrency(targetPlayer, amount);
 
