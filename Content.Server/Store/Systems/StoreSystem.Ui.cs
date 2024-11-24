@@ -22,6 +22,8 @@ using Content.Server.Heretic.EntitySystems; // Goob
 
 namespace Content.Server.Store.Systems;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {
     [Dependency] private readonly IAdminLogManager _admin = default!;
@@ -94,8 +96,7 @@ public sealed partial class StoreSystem
         //this is the person who will be passed into logic for all listing filtering.
         if (user != null) //if we have no "buyer" for this update, then don't update the listings
         {
-            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component)
-                .ToHashSet();
+            component.LastAvailableListings = GetAvailableListings(component.AccountOwner ?? user.Value, store, component).ToHashSet();
         }
 
         //dictionary for all currencies, including 0 values for currencies on the whitelist
@@ -133,7 +134,7 @@ public sealed partial class StoreSystem
     /// </summary>
     private void OnBuyRequest(EntityUid uid, StoreComponent component, StoreBuyListingMessage msg)
     {
-        var listing = component.FullListingsCatalog.FirstOrDefault(x => x.ID.Equals(msg.Listing.Id));
+        var listing = component.Listings.FirstOrDefault(x => x.Equals(msg.Listing));
 
         if (listing == null) //make sure this listing actually exists
         {
@@ -159,9 +160,9 @@ public sealed partial class StoreSystem
 
         //check that we have enough money
         var cost = listing.Cost;
-        foreach (var (currency, amount) in cost)
+        foreach (var currency in listing.Cost)
         {
-            if (!component.Balance.TryGetValue(currency, out var balance) || balance < amount)
+            if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
             {
                 return;
             }
@@ -171,13 +172,13 @@ public sealed partial class StoreSystem
             component.RefundAllowed = false;
 
         //subtract the cash
-        foreach (var (currency, amount) in cost)
+        foreach (var (currency, value) in listing.Cost)
         {
-            component.Balance[currency] -= amount;
+            component.Balance[currency] -= value;
 
             component.BalanceSpent.TryAdd(currency, FixedPoint2.Zero);
 
-            component.BalanceSpent[currency] += amount;
+            component.BalanceSpent[currency] += value;
         }
 
         // goobstation - heretics
@@ -229,7 +230,7 @@ public sealed partial class StoreSystem
 
                 if (listing.ProductUpgradeId != null)
                 {
-                    foreach (var upgradeListing in component.FullListingsCatalog)
+                    foreach (var upgradeListing in component.Listings)
                     {
                         if (upgradeListing.ID == listing.ProductUpgradeId)
                         {
@@ -270,11 +271,6 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
-        if (listing.DisableRefund)
-        {
-            component.RefundAllowed = false;
-        }
-
         //log dat shit.
         _admin.Add(LogType.StorePurchase,
             LogImpact.Low,
@@ -283,12 +279,13 @@ public sealed partial class StoreSystem
         listing.PurchaseAmount++; //track how many times something has been purchased
         _audio.PlayEntity(component.BuySuccessSound, msg.Actor, uid); //cha-ching!
 
-        var buyFinished = new StoreBuyFinishedEvent
+        //WD EDIT START
+        if (listing.SaleLimit != 0 && listing.DiscountValue > 0 && listing.PurchaseAmount >= listing.SaleLimit)
         {
-            PurchasedItem = listing,
-            StoreUid = uid
-        };
-        RaiseLocalEvent(ref buyFinished);
+            listing.DiscountValue = 0;
+            listing.Cost = listing.OldCost;
+        }
+        //WD EDIT END
 
         UpdateUserInterface(buyer, uid, component);
     }
@@ -409,14 +406,3 @@ public sealed partial class StoreSystem
         component.RefundAllowed = false;
     }
 }
-
-/// <summary>
-/// Event of successfully finishing purchase in store (<see cref="StoreSystem"/>.
-/// </summary>
-/// <param name="StoreUid">EntityUid on which store is placed.</param>
-/// <param name="PurchasedItem">ListingItem that was purchased.</param>
-[ByRefEvent]
-public readonly record struct StoreBuyFinishedEvent(
-    EntityUid StoreUid,
-    ListingDataWithCostModifiers PurchasedItem
-);
