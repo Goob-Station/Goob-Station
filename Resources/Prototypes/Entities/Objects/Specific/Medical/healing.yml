@@ -229,6 +229,7 @@
   components:
   - type: Stack
     lingering: true
+    count: 10 # Goobstation
 
 - type: entity
   parent: BaseHealingItem
@@ -304,7 +305,7 @@
   components:
   - type: Stack
     lingering: true
-    count: 15
+    count: 10 # Goobstation
 
 - type: entity
   name: aloe cream
