@@ -94,6 +94,12 @@ public sealed partial class BorgTypePrototype : IPrototype
     //
 
     /// <summary>
+    /// DeltaV: Components only added on the client.
+    /// </summary>
+    [DataField]
+    public ComponentRegistry? ClientComponents;
+
+    /// <summary>
     /// The sprite state for the main borg body.
     /// </summary>
     [DataField]
