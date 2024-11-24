@@ -329,7 +329,6 @@
   table: !type:AllSelector
     children:
 #    - id: WeaponEnergyShotgun
-    - id: SecHypo # Goobstation
     - id: WeaponEnergyGunMultiphase # Goobstation, replace energy shotgun with the X-01 Multiphase.
     - id: BookSpaceLaw
     - id: BoxEncryptionKeySecurity

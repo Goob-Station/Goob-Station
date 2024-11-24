@@ -49,14 +49,14 @@
   - type: Hypospray
     solutionName: hypospray
     transferAmount: 10
-    onlyAffectsMobs: false
+    onlyAffectsMobs: true
     injectOnly: true
   - type: UseDelay
     delay: 0.5
-  - type: SolutionRegeneration # 5 minutes to refill fully
+  - type: SolutionRegeneration # 10 minutes to refill fully
     solution: hypospray
     generated:
       reagents:
       - ReagentId: Epinephrine
         Quantity: 1
-    duration: 30
+    duration: 60
