@@ -65,11 +65,15 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction TargetHead = "TargetHead";
         public static readonly BoundKeyFunction TargetTorso = "TargetTorso";
         public static readonly BoundKeyFunction TargetLeftArm = "TargetLeftArm";
+        public static readonly BoundKeyFunction TargetLeftHand = "TargetLeftHand";
         public static readonly BoundKeyFunction TargetRightArm = "TargetRightArm";
+        public static readonly BoundKeyFunction TargetRightHand = "TargetRightHand";
         public static readonly BoundKeyFunction TargetLeftLeg = "TargetLeftLeg";
+        public static readonly BoundKeyFunction TargetLeftFoot = "TargetLeftFoot";
         public static readonly BoundKeyFunction TargetRightLeg = "TargetRightLeg";
-
+        public static readonly BoundKeyFunction TargetRightFoot = "TargetRightFoot";
         // Shitmed Change End
+
         public static readonly BoundKeyFunction ArcadeUp = "ArcadeUp";
         public static readonly BoundKeyFunction ArcadeDown = "ArcadeDown";
         public static readonly BoundKeyFunction ArcadeLeft = "ArcadeLeft";
