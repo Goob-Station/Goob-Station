@@ -50,6 +50,12 @@ public partial class SharedBodySystem
             _slots.AddItemSlot(ent, ent.Comp.ContainerName, ent.Comp.ItemInsertionSlot);
             Dirty(ent, ent.Comp);
         }
+        // Shitmed Change Start
+        foreach (var connection in ent.Comp.Children.Keys)
+        {
+            Containers.EnsureContainer<ContainerSlot>(ent, GetPartSlotContainerId(connection));
+        }
+        // Shitmed Change End
     }
 
     private void OnBodyPartRemove(Entity<BodyPartComponent> ent, ref ComponentRemove args)

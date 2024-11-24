@@ -213,7 +213,7 @@ namespace Content.Server.Cloning
                 {
                     scanBodyInfo = MetaData(scanBody.Value).EntityName;
 
-                    if (!_mobStateSystem.IsDead(scanBody.Value))
+                    if (false) // GoobStation: Lets you clone living people
                     {
                         clonerStatus = ClonerStatus.ScannerOccupantAlive;
                     }
