@@ -2181,3 +2181,11 @@ Entries:
       message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
   id: 264
   time: '2024-11-24T21:41:38.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where applicable medication stacks would revert back to 10
+        after 1 use from fullstack.
+  id: 265
+  time: '2024-11-24T23:28:28.0000000+00:00'
