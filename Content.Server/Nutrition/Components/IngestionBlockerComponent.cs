@@ -25,5 +25,5 @@ public sealed partial class IngestionBlockerComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
     [DataField]
-    public bool BlockSmokeIngestion { get; set; };
+    public bool BlockSmokeIngestion { get; set; }
 }
