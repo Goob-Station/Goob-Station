@@ -22,6 +22,14 @@ uplink-operative-radio-desc = Radio in a nuclear operative of extremely question
 uplink-signaller-name = Advanced Remote Signaller
 uplink-signaller-desc = A device that can trigger signals at any distance. You can link items with a multitool or network configurator.
 
+# bang bang pew pew eat it up i gota go
+
+uplink-m90-name = M-90 Bundle
+uplink-m90-desc = A bundle with a M-90 and 2 .20 rifle mags.
+
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
+
 uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
