@@ -478,6 +478,7 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        - BolaEnergy # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger

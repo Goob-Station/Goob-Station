@@ -5,3 +5,10 @@
   materials:
     Steel: 100
     Plastic: 100
+
+- type: latheRecipe
+  id: BolaEnergy
+  result: BolaEnergy
+  completetime: 3
+  materials:
+    Steel: 200
