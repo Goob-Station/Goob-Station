@@ -47,6 +47,7 @@
                         <BoxContainer Orientation="Vertical" SeparationOverride="4" Name="VoteContainer"
                                       Access="Public" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0 8" />
                     </BoxContainer>
+                    <TextureRect Access="Public" Name="FUCKINGMARIAH" Margin="100 100 100 100" MaxWidth="50" />
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
