@@ -95,6 +95,7 @@
   actionPrototypes:
   - ActionHereticAscension1
   - ActionHereticAscension2
+  event: !type:HereticAscensionAshEvent
 
 ### flesh path
 - type: hereticKnowledge
@@ -161,8 +162,7 @@
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  actionPrototypes:
-  - ActionPolymorphHereticHorror
+  event: !type:HereticAscensionFleshEvent
 
 ### void path
 - type: hereticKnowledge

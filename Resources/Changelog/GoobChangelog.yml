@@ -2063,3 +2063,121 @@ Entries:
       message: Superfarts from an entire station away don't cause screen shake anymore.
   id: 250
   time: '2024-11-22T01:41:47.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Organ transplants now properly heal their values when used in surgeries
+        again.
+  id: 251
+  time: '2024-11-22T14:07:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: made shop great again.
+    - type: Fix
+      message: heretics work properly.
+    - type: Tweak
+      message: Flesh ascension now permanently transforms you into meatball man.
+    - type: Fix
+      message: Fixed heretic ash path not being fully fire immune.
+  id: 252
+  time: '2024-11-22T15:24:58.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Fix
+      message: >-
+        Piercing damage can now dismember body parts, just like Blunt and Slash
+        damage.
+  id: 253
+  time: '2024-11-22T15:34:32.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: c4 bundle gets remote signaller and network configurator now
+    - type: Add
+      message: advanced signaller in uplink 8 tc
+    - type: Tweak
+      message: >-
+        remote signaller range is now 40m and advanced one is practically
+        infinite range now
+    - type: Fix
+      message: >-
+        universal access configurator has NTrep and BSO in it now (this means
+        nothing to not-shitmins/mappers)
+  id: 254
+  time: '2024-11-22T17:39:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: You can't super fart without reverse farting anymore.
+  id: 255
+  time: '2024-11-23T09:34:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: You can now clone living people.
+  id: 256
+  time: '2024-11-23T09:35:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to install hands onto cyborg arms.
+    - type: Tweak
+      message: Cyborg legs make you 25% faster.
+  id: 257
+  time: '2024-11-23T17:28:39.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Goob coin! Super simple setup right now, you can't buy anything with
+        goob coin yet, but you can earn it :-)
+  id: 258
+  time: '2024-11-23T18:31:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Violet by mrjajkes now plays when the shuttle is automatically called
+        during Zombies!
+    - type: Fix
+      message: The SFX for the zombie outbreak warning actually work now
+  id: 259
+  time: '2024-11-23T18:35:00.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Biogenerator to Botany
+    - type: Add
+      message: Recycler to Salvage
+  id: 260
+  time: '2024-11-23T18:36:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Vents contain less slimes, spiders and snakes.
+  id: 261
+  time: '2024-11-23T18:40:17.0000000+00:00'
+- author: Tryded
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Double Bladed Energy Sword's price to 80 TC, decreased
+        attack speed to 1, and increased damage to 17 slash and 17 heat.
+  id: 262
+  time: '2024-11-23T18:40:41.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Nuclear Operative evacuation lockdown
+  id: 263
+  time: '2024-11-23T23:41:42.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
