@@ -235,12 +235,3 @@
   components:
     - type: Foldable
       folded: true
-
-- type: latheRecipe
-  id: VehicleWheelchairFolded
-  result: VehicleWheelchairFolded
-  completetime: 2
-  materials:
-    Plastic: 500
-    Cloth: 1000
-    Steel: 1000

@@ -3,5 +3,6 @@
   result: VehicleWheelchairFolded
   completetime: 1
   materials:
-    Steel: 500
-    Plastic: 300
+    Plastic: 500
+    Cloth: 500
+    Steel: 1000
