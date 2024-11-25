@@ -24,7 +24,7 @@ namespace Content.Shared.Damage
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly INetManager _netMan = default!;
-                [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
+        [Dependency] private readonly SharedBodySystem _body = default!; // Shitmed Change
         [Dependency] private readonly IRobustRandom _random = default!; // Shitmed Change
         [Dependency] private readonly MobThresholdSystem _mobThreshold = default!;
 
@@ -146,12 +146,20 @@ namespace Content.Shared.Damage
                 return damage;
             }
 
-            var before = new BeforeDamageChangedEvent(damage, origin, targetPart, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f); // Shitmed Change
+            var before = new BeforeDamageChangedEvent(damage, origin, targetPart); // Shitmed Change
             RaiseLocalEvent(uid.Value, ref before);
 
-            if (before.Cancelled
-                || before.Evaded) // Shitmed Change
+            if (before.Cancelled)
                 return null;
+
+            // Shitmed Change Start
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            RaiseLocalEvent(uid.Value, ref partDamage);
+
+            if (partDamage.Evaded || partDamage.Cancelled)
+                return null;
+
+            // Shitmed Change End
 
             // Apply resistances
             if (!ignoreResistances)
@@ -224,6 +232,19 @@ namespace Content.Shared.Damage
             // Setting damage does not count as 'dealing' damage, even if it is set to a larger value, so we pass an
             // empty damage delta.
             DamageChanged(uid, component, new DamageSpecifier());
+
+            // Shitmed Change Start
+            if (HasComp<TargetingComponent>(uid))
+            {
+                foreach (var (part, _) in _body.GetBodyChildren(uid))
+                {
+                    if (!TryComp(part, out DamageableComponent? damageComp))
+                        continue;
+
+                    SetAllDamage(part, damageComp, newValue);
+                }
+            }
+            // Shitmed Change End
         }
 
         public void SetDamageModifierSetId(EntityUid uid, string damageModifierSetId, DamageableComponent? comp = null)
@@ -267,11 +288,6 @@ namespace Content.Shared.Damage
             TryComp<MobThresholdsComponent>(uid, out var thresholds);
             _mobThreshold.SetAllowRevives(uid, true, thresholds); // do this so that the state changes when we set the damage
             SetAllDamage(uid, component, 0);
-            // Shitmed Start
-            if (HasComp<TargetingComponent>(uid))
-                foreach (var part in _body.GetBodyChildren(uid))
-                    RaiseLocalEvent(part.Id, new RejuvenateEvent());
-            // Shitmed End
             _mobThreshold.SetAllowRevives(uid, false, thresholds);
         }
 
@@ -303,6 +319,16 @@ namespace Content.Shared.Damage
     /// </summary>
     [ByRefEvent]
     public record struct BeforeDamageChangedEvent(
+        DamageSpecifier Damage,
+        EntityUid? Origin = null,
+        TargetBodyPart? TargetPart = null, // Shitmed Change
+        bool Cancelled = false);
+
+    /// <summary>
+    ///     Shitmed Change: Raised on parts before damage is done so we can cancel the damage if they evade.
+    /// </summary>
+    [ByRefEvent]
+    public record struct TryChangePartDamageEvent(
         DamageSpecifier Damage,
         EntityUid? Origin = null,
         // Shitmed Change
