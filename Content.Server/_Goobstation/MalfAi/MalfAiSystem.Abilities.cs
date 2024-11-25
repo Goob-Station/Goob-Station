@@ -1,10 +1,8 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Chat.Managers;
-using Content.Server.Silicons.Laws;
 using Content.Server.Power.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.Silicons.Laws;
 using Content.Shared.MalfAi;
 using Content.Shared.FixedPoint;
 using Content.Shared.Actions;
@@ -15,19 +13,18 @@ using Content.Shared.Store.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server.MalfAi;
 
 public sealed partial class MalfAiSystem : EntitySystem
 {
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
-    //[Dependency] private readonly IChatManager _chatManager = default!;
 
     public void SubscribeAbilities()
     {
         SubscribeLocalEvent<MalfAiComponent, OpenModuleMenuEvent>(OnOpenModuleMenu);
         SubscribeLocalEvent<MalfAiComponent, ProgramOverrideEvent>(OnProgramOverride);
-        //SubscribeLocalEvent<MalfAiComponent, CyborgHijackEvent>(OnCyborgHijack);
         SubscribeLocalEvent<MalfAiComponent, MachineOverloadEvent>(OnMachineOverload);
     }
     private void OnOpenModuleMenu(EntityUid uid, MalfAiComponent comp, ref OpenModuleMenuEvent args)
@@ -44,11 +41,11 @@ public sealed partial class MalfAiSystem : EntitySystem
         if (HasComp<OverrideComponent>(target))
             return;
 
-        var bonusControlPower = 0f;
+        var addedControlPower = 0f;
 
         if (TryComp<ApcPowerProviderComponent>(target, out var targetComp))
         {
-        bonusControlPower += 2;
+        addedControlPower += 2;
         EnsureComp<OverrideComponent>(target);
         }
 
@@ -58,30 +55,20 @@ public sealed partial class MalfAiSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
     }
-    /* how do i do this shit i have no clue
-    private void OnCyborgHijack(EntityUid uid, MalfAiComponent comp, ref CyborgHijackEvent args)
-    {
-        comp.Lawset?.Laws.Insert(0, new SiliconLaw
-        {
-            LawString = Loc.GetString("law-obey-ai"),
-            Order = 0
-        });
-        var msg = Loc.GetString("laws-update-notify");
-        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", msg));
-        _chatManager.ChatMessageToOne(ChatChannel.Server, msg, wrappedMessage, default, false, actor.PlayerSession.Channel, colorOverride: Color.Red);
-    }
-    */
     private void OnMachineOverload(EntityUid uid, MalfAiComponent comp, ref MachineOverloadEvent args)
     {
         var target = args.Target;
-        _audio.PlayPvs(comp.AlarmSound, uid);
-        await Delay(TimeSpan.FromSeconds(2.5));
-        _explosionSystem.QueueExplosion(
-            (EntityUid) target,
-            typeId: "Default",
-            totalIntensity: 5f,
-            slope: 3,
-            maxTileIntensity: 10);
+        var timespan = TimeSpan.FromSeconds(3f);
+        _audio.PlayPvs(comp.AlarmSound, target);
+        Timer.Spawn(timespan, () =>
+        {
+            _explosionSystem.QueueExplosion(
+                (EntityUid) target,
+                typeId: "Default",
+                totalIntensity: 50,
+                slope: 5,
+                maxTileIntensity: 7);
+        });
     }
 
 }
