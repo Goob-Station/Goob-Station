@@ -17,6 +17,7 @@
       - left arm
       - right leg
       - left leg
+      - head # Shitmed Change
       organs:
         heart: OrganHumanHeart
         lungs: OrganHarpyLungs

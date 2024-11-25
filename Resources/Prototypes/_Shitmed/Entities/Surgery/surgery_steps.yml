@@ -15,8 +15,9 @@
     - type: Scalpel
     add:
     - type: IncisionOpen
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryDamageChangeEffect
     damage:
@@ -36,8 +37,9 @@
     - type: Hemostat
     add:
     - type: BleedersClamped
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryDamageChangeEffect
     damage:
@@ -56,8 +58,9 @@
     - type: Retractor
     add:
     - type: SkinRetracted
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
 
 - type: entity
@@ -71,9 +74,10 @@
     - type: BoneSaw
     add:
     - type: RibcageSawed
+    duration: 4
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/saw.rsi
-    state: saw
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    state: circular-saw
   - type: SurgeryStepEmoteEffect
 
 - type: entity
@@ -87,8 +91,9 @@
     - type: Retractor
     add:
     - type: RibcageOpen
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
 
 #- type: entity
@@ -137,8 +142,9 @@
     - type: Retractor
     remove:
     - type: RibcageOpen
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
 
 - type: entity
@@ -152,8 +158,9 @@
     - type: BoneGel
     remove:
     - type: RibcageSawed
+    duration: 2
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
 
 - type: entity
@@ -173,8 +180,9 @@
     - type: IncisionOpen
     - type: BodyPartReattached
     - type: InternalBleedersClamped
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryDamageChangeEffect
     damage:
@@ -194,6 +202,7 @@
   - type: SurgeryStep
     tool:
     - type: BodyPart
+    duration: 6
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -213,9 +222,10 @@
     - type: BleedersClamped
     - type: IncisionOpen
     - type: InternalBleedersClamped
+    duration: 2
   - type: SurgeryAffixPartStep
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
@@ -237,9 +247,10 @@
     - type: BoneSaw
     add:
     - type: BodyPartSawed
+    duration: 4
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/saw.rsi
-    state: saw
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    state: circular-saw
   - type: SurgeryStepEmoteEffect
 
 - type: entity
@@ -253,8 +264,9 @@
     - type: Hemostat
     add:
     - type: InternalBleedersClamped
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryDamageChangeEffect
     damage:
@@ -277,9 +289,10 @@
     - type: BleedersClamped
     - type: InternalBleedersClamped
     - type: IncisionOpen
+    duration: 8
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/saw.rsi
-    state: saw
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    state: circular-saw
   - type: SurgeryRemovePartStep
   - type: SurgeryStepEmoteEffect
 
@@ -296,8 +309,9 @@
     - type: Scalpel
     add:
     - type: IncisionOpen
+    duration: 3
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: SurgeryStepEmoteEffect
 
@@ -310,8 +324,9 @@
   - type: SurgeryStep
     tool:
     - type: Tending
+    duration: 1
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryTendWoundsEffect
     damage:
@@ -328,8 +343,9 @@
   - type: SurgeryStep
     tool:
     - type: Tending
+    duration: 1
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryTendWoundsEffect
     mainGroup: Burn
@@ -349,8 +365,9 @@
     - type: Cautery
     remove:
     - type: IncisionOpen
+    duration: 2
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryDamageChangeEffect
     damage:
@@ -368,6 +385,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
+    duration: 4
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -382,6 +400,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SurgeryStep
+    duration: 4
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -400,8 +419,9 @@
   - type: SurgeryStep
     tool:
     - type: Tweezers
+    duration: 8
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat
   - type: SurgeryRemoveOrganStep
   - type: SurgeryStepEmoteEffect
@@ -415,6 +435,7 @@
   - type: SurgeryStep
     tool:
     - type: Organ
+    duration: 6
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/manipulation.rsi
     state: insertion
@@ -459,10 +480,6 @@
   id: SurgeryStepInsertEyes
   name: Add eyes
   categories: [ HideSpawnMenu ]
-  components:
-  - type: SurgerySpecialDamageChangeEffect
-    damageType: Eye
-    isConsumable: true
 
 - type: entity
   parent: SurgeryStepInsertOrgan
@@ -483,9 +500,10 @@
   - type: SurgeryStep
     tool:
     - type: Cautery
+    duration: 2
   - type: SurgeryAffixOrganStep
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: SurgeryStepEmoteEffect
   - type: SurgeryDamageChangeEffect
@@ -493,6 +511,48 @@
       types:
         Heat: -5
     sleepModifier: 2
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepLobotomize
+  name: Lobotomize patient
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Drill
+    bodyAdd:
+    - type: OhioAccent
+    - type: RatvarianLanguage
+    - type: SlurredAccent
+    duration: 5
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    state: drill
+  - type: SurgeryStepEmoteEffect
+  - type: SurgeryDamageChangeEffect
+    damage:
+      types:
+        Piercing: 10
+
+- type: entity
+  parent: SurgeryStepBase
+  id: SurgeryStepMendBrainTissue
+  name: Mend brain tissue
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SurgeryStep
+    tool:
+    - type: Hemostat
+    duration: 5
+    bodyRemove:
+    - type: OhioAccent
+    - type: RatvarianLanguage
+    - type: SlurredAccent
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
+    state: drill
+  - type: SurgeryStepEmoteEffect
 
 # The lengths I go to just for a joke... I HATE HARDCODING AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
 # Maybe I should modify species prototypes to include tails and ears properly...
