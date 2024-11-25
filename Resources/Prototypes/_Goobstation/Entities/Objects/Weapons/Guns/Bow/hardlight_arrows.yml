@@ -116,8 +116,8 @@
     damage:
       types:
         Cold: 20
-  - type: ChangeTemperatureOnHit
-    delta: -25
+  - type: ChangeTemperatureOnCollide
+    heat: -70000
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
