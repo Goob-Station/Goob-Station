@@ -7,7 +7,6 @@
   - type: Vehicle
     renderOver: East, SouthEast, South, SouthWest, West
   - type: Strap
-    maxBuckleDistance: 1
     position: Stand
   - type: Appearance
   - type: AmbientSound
@@ -124,15 +123,15 @@
     slots:
       key_slot:
         name: vehicle-slot-component-slot-name-keys
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
         whitelist:
           requireAll: true
           tags:
           - VehicleKey
           - SyndicateSegwayKeys
-          insertSound:
-            path: /Audio/Effects/Vehicle/vehiclestartup.ogg
-            params:
-              volume: -3
 
 - type: entity
   id: VehicleATV
