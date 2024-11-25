@@ -1,0 +1,10 @@
+- type: entity
+  id: CrateFunATV
+  parent: CrateLivestock
+  name: ATV crate
+  description: An Absolutely Taxable Vehicle to help cargo with hauling.
+  components:
+  - type: StorageFill
+    contents:
+      - id: VehicleATV
+      - id: VehicleKeyATV

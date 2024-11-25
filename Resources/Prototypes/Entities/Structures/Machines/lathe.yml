@@ -175,7 +175,7 @@
       - TrashBag
       - PowerCellSmall
       - PowerCellMedium
-      - VehicleWheelchairFolded
+      - VehicleWheelchairFolded # Goobstation
       - RollerBedSpawnFolded
       - CheapRollerBedSpawnFolded
       - EmergencyRollerBedSpawnFolded
@@ -310,7 +310,7 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
-      - VehicleWheelchairFolded
+      - VehicleWheelchairFolded # Goobstation
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
