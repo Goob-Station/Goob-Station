@@ -2265,3 +2265,25 @@ Entries:
         ghost bar.
   id: 269
   time: '2024-11-25T22:22:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Re-added vehicles.
+    - type: Add
+      message: >-
+        Wheelchairs and the wheelchair bound trait have been re-added (and
+        re-worked to work with surgery).
+    - type: Add
+      message: Added Secways & Syndicate Segways, ATVs & Janicarts
+    - type: Add
+      message: >-
+        Mapped ATVs, Janicarts & Secways on Atlas, Bagel, Barratry, Cluster,
+        Fland, Kettle, Oasis, Origin and Saltern
+    - type: Add
+      message: The Syndicate Segway has been added to the Syndicate Uplink for 25tc!
+    - type: Tweak
+      message: The medivend now has 3 folded wheelchairs included in it
+    - type: Tweak
+      message: You can now print wheelchairs in the medlathe
+  id: 270
+  time: '2024-11-25T23:20:59.0000000+00:00'
