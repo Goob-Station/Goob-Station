@@ -123,7 +123,6 @@
       - id: ClothingMaskSterile
       - id: HandLabeler
         prob: 0.5
-      - id: SyringeGun # GoobStation
 
 - type: entity
   id: LockerParamedicFilled
