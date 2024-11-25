@@ -94,7 +94,8 @@ public enum CollisionGroup
     BlobMobLayer = Opaque | BulletImpassable,
 
     FlyingBlobMobMask = Impassable | HighImpassable,
-    FlyingBlobMobLayer = Opaque | BulletImpassable
+    FlyingBlobMobLayer = Opaque | BulletImpassable,
 
+    BlobTileLayer = Opaque | BlobImpassable | BulletImpassable
     // end-goobstation: blob
 }
