@@ -175,6 +175,7 @@
       - TrashBag
       - PowerCellSmall
       - PowerCellMedium
+      - VehicleWheelchairFolded # Goobstation
       - RollerBedSpawnFolded
       - CheapRollerBedSpawnFolded
       - EmergencyRollerBedSpawnFolded
@@ -309,6 +310,7 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
+      - VehicleWheelchairFolded # Goobstation
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
@@ -965,6 +967,7 @@
       - MedicalPatchRapid #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
+      - VehicleWheelchairFolded # Goobstation - Vehicles
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
