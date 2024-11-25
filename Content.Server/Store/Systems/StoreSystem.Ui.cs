@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Administration.Logs;
-using Content.Server.Heretic.EntitySystems;
 using Content.Server.PDA.Ringer;
 using Content.Server.Stack;
 using Content.Server.Store.Components;
@@ -9,8 +8,6 @@ using Content.Shared.Actions;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Heretic;
-using Content.Shared.Heretic.Prototypes;
 using Content.Shared.Mind;
 using Content.Shared.Store;
 using Content.Shared.Store.Components;
@@ -19,9 +16,14 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
+using Content.Shared.Heretic; // Goob
+using Content.Shared.Heretic.Prototypes; // Goob
+using Content.Server.Heretic.EntitySystems; // Goob
 
 namespace Content.Server.Store.Systems;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem
 {
     [Dependency] private readonly IAdminLogManager _admin = default!;
@@ -33,9 +35,7 @@ public sealed partial class StoreSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
-
-    // goobstation - heretics
-    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!;
+    [Dependency] private readonly HereticKnowledgeSystem _heretic = default!; // goobstation - heretics
 
     private void InitializeUi()
     {
@@ -114,6 +114,7 @@ public sealed partial class StoreSystem
 
         // only tell operatives to lock their uplink if it can be locked
         var showFooter = HasComp<RingerUplinkComponent>(store);
+
         var state = new StoreUpdateState(component.LastAvailableListings, allCurrency, showFooter, component.RefundAllowed);
         _ui.SetUiState(store, StoreUiKey.Key, state);
     }
@@ -158,6 +159,7 @@ public sealed partial class StoreSystem
         }
 
         //check that we have enough money
+        var cost = listing.Cost;
         foreach (var currency in listing.Cost)
         {
             if (!component.Balance.TryGetValue(currency.Key, out var balance) || balance < currency.Value)
@@ -373,6 +375,7 @@ public sealed partial class StoreSystem
         {
             component.Balance[currency] += value;
         }
+
         // Reset store back to its original state
         RefreshAllListings(component);
         component.BalanceSpent = new();

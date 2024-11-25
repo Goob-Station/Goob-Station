@@ -1,0 +1,5 @@
+- type: dataset
+  id: TradeStationNames
+  values:
+  - Automated Trade Station
+  # You could add more here, if you want the ATS to have a random name every round?

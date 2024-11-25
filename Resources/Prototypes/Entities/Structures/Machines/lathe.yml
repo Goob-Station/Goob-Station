@@ -165,6 +165,7 @@
       - FoodPlateSmallPlastic
       - FoodBowlBig
       - FoodPlateTin
+      - FoodPlateMuffinTin
       - FoodKebabSkewer
       - SprayBottle
       - MopItem
@@ -201,11 +202,9 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
-      - Flare
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunSlug
       - CombatKnife
       - MagazineBoxLightRifle
@@ -356,6 +355,9 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -618,6 +620,7 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -655,6 +658,13 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -738,7 +748,6 @@
     runningState: icon
     staticRecipes:
       - BoxLethalshot
-      - BoxShotgunFlare
       - BoxShotgunPractice
       - BoxShotgunSlug
       - ClothingEyesHudSecurity
@@ -775,6 +784,7 @@
       - TargetHuman
       - TargetSyndicate
       - WeaponDisablerPractice
+      - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
     dynamicRecipes:
@@ -828,6 +838,8 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - SecurityCyberneticEyes # Shitmed Change
+      - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -861,7 +873,6 @@
       runningState: icon
       staticRecipes:
         - BoxLethalshot
-        - BoxShotgunFlare
         - BoxShotgunSlug
         - BoxShellTranquilizer
         - MagazineBoxLightRifle
@@ -950,12 +961,19 @@
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
+      - BoneGel # Shitmed Change
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget
@@ -1187,8 +1205,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    insertOnInteract: false
-    canEjectStoredMaterials: false
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:
@@ -1409,3 +1425,52 @@
         - Wooden
         - RawMaterial
         - Plastic
+
+# Shitmed Change Start
+- type: entity
+  id: MedicalBiofabricator
+  parent: BaseLathe
+  name: medical biofabricator
+  description: Produces organs and other organic matter that can be surgically grafted onto patients with biomass.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/limbgrower.rsi
+    snapCardinals: true
+    layers:
+    - state: limbgrower_idleoff
+      map: ["enum.LatheVisualLayers.IsRunning"]
+#    - state: limbgrower_idleoff
+#      shader: unshaded
+#      map: ["enum.PowerDeviceVisualLayers.Powered"]
+#    - state: inserting
+#      map: ["enum.MaterialStorageVisualLayers.Inserting"]
+#    - state: panel
+#      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Machine
+    board: MedicalBiofabMachineBoard
+  - type: MaterialStorage
+    whitelist:
+      tags:
+        - Sheet
+        - RawMaterial
+  - type: Lathe
+    idleState: limbgrower_idleoff
+    runningState: limbgrower_idleon
+    staticRecipes:
+    - SynthLiver
+    - SynthHeart
+    - SynthLungs
+    - SynthEyes
+    - SynthLeftLeg
+    - SynthRightLeg
+    - SynthLeftFoot
+    - SynthRightFoot
+    - SynthLeftArm
+    - SynthRightArm
+    - SynthLeftHand
+    - SynthRightHand
+  - type: EmagLatheRecipes
+    emagStaticRecipes:
+      - PizzaLeftArm
+      - PizzaRightArm
+# Shitmed Change End

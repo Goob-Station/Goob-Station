@@ -4,6 +4,8 @@ using Robust.Shared.Random;
 
 namespace Content.Shared.Store;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public static class ListingLocalisationHelpers
 {
     /// <summary>
@@ -48,6 +50,7 @@ public static class ListingLocalisationHelpers
             desc += "\n" + discountString;
         else if (listingData.OldCost.Count > 0)
             desc += "\n" + Loc.GetString("store-sales-over");
+        // goob edit end
 
         return desc;
     }

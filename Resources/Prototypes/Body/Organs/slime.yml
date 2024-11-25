@@ -33,8 +33,11 @@
           reagents:
           - ReagentId: Slime
             Quantity: 10
+    - type: Item
+      size: Small
+      heldPrefix: brain
 
-      
+
 - type: entity
   id: OrganSlimeLungs
   parent: BaseHumanOrgan
@@ -46,6 +49,8 @@
     layers:
       - state: lung-l-slime
       - state: lung-r-slime
+  - type: Organ # Shitmed
+    slotId: lungs
   - type: Lung
     alert: LowNitrogen
   - type: Metabolizer
@@ -70,3 +75,6 @@
         reagents:
         - ReagentId: UncookedAnimalProteins
           Quantity: 5
+  - type: Item
+    size: Small
+    heldPrefix: lungs

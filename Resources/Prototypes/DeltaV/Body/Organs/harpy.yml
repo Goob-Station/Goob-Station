@@ -9,6 +9,8 @@
       - state: lung-l
       - state: lung-r
   - type: Lung
+  - type: Organ
+    slotId: lungs
   - type: Metabolizer
     updateInterval: 2.0
     removeEmpty: true

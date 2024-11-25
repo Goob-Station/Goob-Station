@@ -14,6 +14,12 @@
   - Medical
   - Chemistry
   - Maintenance
+  # Shitmed Change
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: SurgerySpeedModifier
+      SpeedModifier: 1.75
 
 - type: startingGear
   id: ChemistGear
