@@ -1,13 +1,5 @@
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
-using Content.Shared.Body.Systems;
-using Content.Shared.Buckle.Components;
-using Content.Shared.Construction.Components;
-using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Standing;
-using Content.Shared.Throwing;
 
 namespace Content.Shared.Traits.Assorted;
 
