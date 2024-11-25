@@ -63,7 +63,7 @@
   components:
     - type: BuckleOnMapInit
       prototype: VehicleWheelchair
-    - type: LegsParalyzed
+    - type: LegsStartParalyzed
 
 - type: trait
   id: Paracusia
