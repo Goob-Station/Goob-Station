@@ -2167,3 +2167,91 @@ Entries:
         attack speed to 1, and increased damage to 17 slash and 17 heat.
   id: 262
   time: '2024-11-23T18:40:41.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Nuclear Operative evacuation lockdown
+  id: 263
+  time: '2024-11-23T23:41:42.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where applicable medication stacks would revert back to 10
+        after 1 use from fullstack.
+  id: 265
+  time: '2024-11-24T23:28:28.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added different step durations to each surgery step.
+    - type: Add
+      message: Added a T2 research for advanced surgical tools
+    - type: Add
+      message: Added a T3 research for an omnitool for surgery.
+    - type: Add
+      message: Added Surgical and Advanced Surgical modules for Mediborgs
+    - type: Add
+      message: Mediborgs can now perform surgery!
+    - type: Add
+      message: Added lobotomies as an operation. Godspeed you psychopaths.
+    - type: Add
+      message: Added cybernetic arms, legs and eyes.
+    - type: Add
+      message: >-
+        Added EMP weaknesses to all cybernetic parts (the day of reckoning will
+        come for IPCs soon)
+    - type: Add
+      message: Losing your eyes now blinds you.
+    - type: Fix
+      message: >-
+        Fixed a few species that did not inherit from BasePart's, thus taking
+        damage types they shouldn't on their limbs.
+    - type: Fix
+      message: 'Fixed harpy lungs not being usable in surgeries. '
+    - type: Fix
+      message: Fixed fire being able to destroy your chest.
+    - type: Fix
+      message: >-
+        Fixed entities being able to take over your body by just inserting a
+        brain or another head on top of you.
+    - type: Fix
+      message: Fixed some shitcode that didnt let rejuvenate or godmode work properly.
+    - type: Fix
+      message: >-
+        Fixed bionic arm, and cybernetic eyes traits not working properly due to
+        shitty networking.
+    - type: Fix
+      message: Fixed cybernetic limbs being a free hand/feet generator due to shitcode.
+    - type: Tweak
+      message: >-
+        Increased tend wounds's speed by double, and bumped up the values on its
+        calculations. DEATH TO TOPICALS, LEAVE THOSE TO TIDERS.
+    - type: Tweak
+      message: >-
+        Beheading an entity now doesnt let it move, speak, and forces it to the
+        ground immediately (literally 1984!!11!!)
+    - type: Tweak
+      message: Changed sprites on most surgical tools to now use /tg/ sprites.
+  id: 266
+  time: '2024-11-25T01:02:23.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Various station event / lobby songs have been added to the jukebox!
+  id: 267
+  time: '2024-11-25T01:46:27.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Fixed Sawn-off Shotguns not being correctly marked as contraband
+  id: 268
+  time: '2024-11-25T13:26:40.0000000+00:00'
