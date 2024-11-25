@@ -1,11 +1,11 @@
-using Content.Server.Backmen.Blob.NPC.BlobPod;
+using Content.Server.Blob.NPC.BlobPod;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared.Backmen.Blob.Components;
-using Content.Shared.Backmen.Blob.NPC.BlobPod;
+using Content.Shared.Blob.Components;
+using Content.Shared.Blob.NPC.BlobPod;
 
-namespace Content.Server.Backmen.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class BlobPodZombifyOperator : HTNOperator
 {
