@@ -34,8 +34,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Corvax/Adminbuse/Outbreak5.ogg");
-
+    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/bloblarm.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -158,7 +157,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     blobRuleComp.AlertAudio,
                     Color.Red);
 
-                _nukeCode.SendNukeCodes(stationUid);
+                _nukeCode.SendNukeCodes(stationUid); //send the nuke code?
                 _alertLevelSystem.SetLevel(stationUid, StationGamma, true, true, true, true);
 
                 RaiseLocalEvent(stationUid,
