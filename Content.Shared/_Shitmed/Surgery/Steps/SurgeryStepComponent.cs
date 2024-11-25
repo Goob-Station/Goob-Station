@@ -15,8 +15,14 @@ public sealed partial class SurgeryStepComponent : Component
     public ComponentRegistry? Add;
 
     [DataField]
+    public ComponentRegistry? BodyAdd;
+
+    [DataField]
     public ComponentRegistry? Remove;
 
     [DataField]
     public ComponentRegistry? BodyRemove;
+
+    [DataField]
+    public float Duration = 2f;
 }
