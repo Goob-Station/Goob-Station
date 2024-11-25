@@ -20,19 +20,19 @@
   id: Constellations
   name: Qwertyquerty - Constellations
   path:
-    path: /Audio/Ambiance/constellations.ogg # Goobstation
+    path: /Audio/Ambience/constellations.ogg # Goobstation
 
 - type: jukebox
   id: Drifting
   name: Qwertyquerty - Drifting
   path:
-    path: /Audio/Ambiance/drifting.ogg # Goobstation
+    path: /Audio/Ambience/drifting.ogg # Goobstation
 
 - type: jukebox
   id: starlight
   name: Qwertyquerty - Starlight
   path:
-    path: /Audio/Ambiance/starlight.ogg # Goobstation
+    path: /Audio/Ambience/starlight.ogg # Goobstation
 
 - type: jukebox
   id: sunset
