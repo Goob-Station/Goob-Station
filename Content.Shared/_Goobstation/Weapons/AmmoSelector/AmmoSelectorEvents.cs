@@ -4,14 +4,9 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
 
 [Serializable, NetSerializable]
-public sealed class AmmoSelectedMessage : BoundUserInterfaceMessage
+public sealed class AmmoSelectedMessage(ProtoId<SelectableAmmoPrototype> protoId) : BoundUserInterfaceMessage
 {
-    public ProtoId<SelectableAmmoPrototype> ProtoId;
-
-    public AmmoSelectedMessage(ProtoId<SelectableAmmoPrototype> protoId)
-    {
-        ProtoId = protoId;
-    }
+    public ProtoId<SelectableAmmoPrototype> ProtoId { get; } = protoId;
 }
 
 [Serializable, NetSerializable]

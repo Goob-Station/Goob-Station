@@ -53,7 +53,6 @@ public sealed class UnwieldOnShootSystem : EntitySystem
         if (!_protoManager.TryIndex(proto, out var index))
             return false;
 
-        ent.Comp.CurrentProto = proto;
         provider.Proto = index.ProtoId;
 
         if (index.Color != null && TryComp(ent, out AppearanceComponent? appearance))

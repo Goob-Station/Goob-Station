@@ -39,6 +39,7 @@ public sealed partial class AmmoSelectorMenu : RadialMenu
     public void Refresh()
     {
         var main = FindControl<RadialContainer>("Main");
+        main.RemoveAllChildren();
 
         if (!_entManager.TryGetComponent(_item, out AmmoSelectorComponent? ammoSelector))
             return;
