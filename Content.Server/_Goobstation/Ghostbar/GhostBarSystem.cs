@@ -1,8 +1,6 @@
 using Robust.Server.GameObjects;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Events;
-using Content.Server.Station.Components;
-using Content.Server.Station.Events;
 using Content.Server.Station.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -11,13 +9,11 @@ using Robust.Shared.Random;
 using Content.Shared.Ghost;
 using Content.Server._Goobstation.Ghostbar.Components;
 using Content.Server.Mind;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
-using Content.Shared.Roles.Jobs;
 using Content.Shared.Roles;
-using Content.Shared.Inventory;
 using Content.Server.Antag.Components;
 using Content.Shared.Mindshield.Components;
+using Content.Shared.Players;
 
 namespace Content.Server._Goobstation.Ghostbar;
 
@@ -55,9 +51,11 @@ public sealed class GhostBarSystem : EntitySystem
 
     public void SpawnPlayer(GhostBarSpawnEvent msg, EntitySessionEventArgs args)
     {
-        if (!_entityManager.HasComponent<GhostComponent>(args.SenderSession.AttachedEntity))
+        var player = args.SenderSession;
+
+        if (!_entityManager.HasComponent<GhostComponent>(player.AttachedEntity))
         {
-            Log.Warning($"User {args.SenderSession.Name} tried to spawn at ghost bar without being a ghost.");
+            Log.Warning($"User {player.Name} tried to spawn at ghost bar without being a ghost.");
             return;
         }
 
@@ -74,6 +72,13 @@ public sealed class GhostBarSystem : EntitySystem
             return;
         }
 
+        var data = player.ContentData();
+
+        if (data == null)
+        {
+            Log.Warning($"ContentData was null when trying to spawn {player.Name} in ghost bar.");
+            return;
+        }
 
         var randomSpawnPoint = _random.Pick(spawnPoints);
         var randomJob = _random.Pick(_jobComponents);
@@ -83,14 +88,11 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.EnsureComponent<GhostBarPlayerComponent>(mobUid);
         _entityManager.EnsureComponent<MindShieldComponent>(mobUid);
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
+        _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
 
-        var targetMind = _mindSystem.GetMind(args.SenderSession.UserId);
-
-
-        if (targetMind != null)
-        {
-            _mindSystem.TransferTo(targetMind.Value, mobUid, true);
-        }
+        _mindSystem.WipeMind(player);
+        var newMind = _mindSystem.CreateMind(data.UserId, profile.Name);
+        _mindSystem.TransferTo(newMind, mobUid, true);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)
