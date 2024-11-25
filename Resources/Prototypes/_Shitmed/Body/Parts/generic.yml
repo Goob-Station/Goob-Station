@@ -3,12 +3,24 @@
   id: BioSynthLeftArm
   name: bio-synthetic left arm
   description: This left arm can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: BodyPart
+    children:
+      left hand:
+        id: "left hand"
+        type: Hand
 
 - type: entity
   parent: RightArmHuman
   id: BioSynthRightArm
   name: bio-synthetic right arm
   description: This right arm can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: BodyPart
+    children:
+      right hand:
+        id: "right hand"
+        type: Hand
 
 - type: entity
   parent: LeftHandHuman
@@ -27,12 +39,24 @@
   id: BioSynthLeftLeg
   name: bio-synthetic left leg
   description: This left leg can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: BodyPart
+    children:
+      right foot:
+        id: "right foot"
+        type: Foot
 
 - type: entity
   parent: RightLegHuman
   id: BioSynthRightLeg
   name: bio-synthetic right leg
   description: This right leg can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: BodyPart
+    children:
+      right foot:
+        id: "right foot"
+        type: Foot
 
 - type: entity
   parent: LeftFootHuman
@@ -60,7 +84,7 @@
     toolName: "a left arm"
     baseLayerId: MobPizzaLArm
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    sprite: Mobs/Species/Misc/Pizza/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -75,5 +99,5 @@
     toolName: "a right arm"
     baseLayerId: MobPizzaRArm
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    sprite: Mobs/Species/Misc/Pizza/parts.rsi
     state: "r_arm"
