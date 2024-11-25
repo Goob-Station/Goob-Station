@@ -960,10 +960,11 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
-      - MedicalPatchBasic  #Goobstation - MedicalPatch
-      - MedicalPatchRapid #Goobstation - MedicalPatch
-      - MedicalPatchLarge #Goobstation - MedicalPatch
+      - MedicalPatchBasic  # Goobstation - MedicalPatch
+      - MedicalPatchRapid # Goobstation - MedicalPatch
+      - MedicalPatchLarge # Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
+      - VehicleWheelchairFolded # Goobstation - Vehicles
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
