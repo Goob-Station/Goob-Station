@@ -92,12 +92,19 @@ public sealed partial class EventHereticCascade : InstantActionEvent { }
 
 // flesh
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
-public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
+
 
 // void (including upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
+
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
+// ascensions
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 #endregion

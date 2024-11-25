@@ -142,12 +142,13 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
+        // Im killing this shit soon too, inshallah.
         if (ent.Comp.DamageType == "Rot")
             _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
-        else if (ent.Comp.DamageType == "Eye"
+        /*else if (ent.Comp.DamageType == "Eye"
             && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)
-            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);
+            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);*/
     }
 
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)

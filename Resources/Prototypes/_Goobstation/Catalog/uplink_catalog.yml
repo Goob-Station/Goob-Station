@@ -21,6 +21,16 @@
     -  UplinkDisruption
 
 - type: listing
+  id: UplinkRemoteSignallerAdvanced
+  name: uplink-signaller-name
+  description: uplink-signaller-desc
+  productEntity: RemoteSignallerAdvanced
+  cost:
+    Telecrystal: 8
+  categories:
+    -  UplinkDisruption
+
+- type: listing
   id: UplinkBoxSkibidiRizz
   name: Box of Skibidi Rizz
   description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
@@ -40,10 +50,20 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    Telecrystal: 100
+    Telecrystal: 80
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkM90Bundle
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateM90Bundle
+  cost:
+    Telecrystal: 85 # - C-20よりも優れていますが、より多くの在庫スペースとより少ないマガジン容量を必要とします
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -226,3 +246,15 @@
   categories:
   - UplinkDeception
 
+# 弾薬
+
+- type: listing
+  id: UplinkRifleMag
+  name: uplink-rifle-mag-name
+  description: uplink-rifle-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
+  categories:
+  - UplinkAmmo
