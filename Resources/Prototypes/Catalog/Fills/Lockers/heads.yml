@@ -228,6 +228,8 @@
     - id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
     - id: MedTekCartridge
+    - id: RapidSyringeGun
+    - id: BoxSyringePax
     # Shitmed
     - id: MedicalBiofabMachineBoard
 
