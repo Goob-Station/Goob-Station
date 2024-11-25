@@ -148,9 +148,15 @@
   - type: StorageFill
     contents:
         - id: OxygenTankFilled
+          amount: 2 # goobstation
         - id: NitrogenTankFilled
+          amount: 2 # goobstation
         - id: ClothingOuterHardsuitSecurity
+          amount: 2 # goobstation
         - id: ClothingMaskBreath
+          amount: 2 # goobstation
+        - id: ClothingShoesBootsMag # goobstation
+          amount: 2 # goobstation
   - type: AccessReader
     access: [["Security"]]
 
@@ -218,6 +224,7 @@
         - id: NitrogenTankFilled
         - id: ClothingOuterHardsuitWarden
         - id: ClothingMaskBreath
+        - id: ClothingShoesBootsMag # goobstation
   - type: AccessReader
     access: [["Armory"]]
 
