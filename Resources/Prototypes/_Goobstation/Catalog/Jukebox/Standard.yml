@@ -45,3 +45,57 @@
   name: DJ B1G YAPPA - SKUBSTUB
   path:
     path: /Audio/Lobby/skubstub.ogg
+
+- type: jukebox
+  id: violet
+  name: Mrjajkes - Violet
+  path:
+    path: /Audio/_Goobstation/Announcements/violet.ogg
+
+- type: jukebox
+  id: redsun
+  name: Red Sun in the Sky
+  path:
+    path: /Audio/Lobby/redsun.ogg
+
+- type: jukebox
+  id: chollima
+  name: Pochonbo Electronic Ensemble - Chollima on the Wing
+  path:
+    path: /Audio/Lobby/chollima.ogg
+
+- type: jukebox
+  id: clearly_nuclear
+  name: Mrjajkes - Clearly Nuclear
+  path:
+    path: /Audio/StationEvents/clearly_nuclear.ogg
+
+- type: jukebox
+  id: countdown
+  name: Qwertyqwerty - Countdown
+  path:
+    path: /Audio/StationEvents/countdown.ogg
+
+- type: jukebox
+  id: last_call
+  name: Mrjajkes - Last Call
+  path:
+    path: /Audio/StationEvents/last_call.ogg
+
+- type: jukebox
+  id: running_out
+  name: Bolgarich - Running Out
+  path:
+    path: /Audio/StationEvents/running_out.ogg
+
+- type: jukebox
+  id: sound_station_14
+  name: Donchan - Sound Station 14
+  path:
+    path: /Audio/StationEvents/sound_station_14.ogg
+
+- type: jukebox
+  id: tansume
+  name: Moranbong Band - Tansume
+  path:
+    path: /Audio/StationEvents/tansume.ogg
