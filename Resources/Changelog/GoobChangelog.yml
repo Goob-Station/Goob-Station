@@ -2255,3 +2255,13 @@ Entries:
       message: Fixed Sawn-off Shotguns not being correctly marked as contraband
   id: 268
   time: '2024-11-25T13:26:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now survive objective is marked as failed if a person is in ghost bar.
+    - type: Fix
+      message: >-
+        Now kill objectives are marked as completed if the targeted person is in
+        ghost bar.
+  id: 269
+  time: '2024-11-25T22:22:04.0000000+00:00'
