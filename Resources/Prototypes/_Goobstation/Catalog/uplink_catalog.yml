@@ -264,7 +264,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
   productEntity: MagazineBoxHighCaliber
   cost:
-    Telecrystal: 20 # may wanna change this number later
+    Telecrystal: 40 # ammo should be a big cost for this
   categories:
   - UplinkAmmo
 
