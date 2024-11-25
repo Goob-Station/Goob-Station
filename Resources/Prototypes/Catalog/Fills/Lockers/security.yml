@@ -166,7 +166,7 @@
   - type: StorageFill
     contents:
     - id: WeaponDisabler
-      amount: 5
+      amount: 10 # goobstation
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
@@ -176,9 +176,9 @@
   - type: StorageFill
     contents:
     - id: WeaponPistolMk58
-      amount: 4
+      amount: 8 # goobstation
     - id: MagazinePistol
-      amount: 8
+      amount: 16 # goobstation
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
@@ -188,9 +188,9 @@
   - type: StorageFill
     contents:
     - id: WeaponRifleLecter
-      amount: 2
+      amount: 4 # goobstation
     - id: MagazineRifle
-      amount: 4
+      amount: 12 # goobstation
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
@@ -200,9 +200,9 @@
   - type: StorageFill
     contents:
     - id: WeaponSubMachineGunDrozd
-      amount: 2
+      amount: 6 # goobstation
     - id: MagazinePistolSubMachineGun
-      amount: 4
+      amount: 18 # goobstation
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
@@ -212,9 +212,9 @@
   - type: StorageFill
     contents:
     - id: WeaponShotgunEnforcer
-      amount: 2
+      amount: 4 # goobstation
     - id: MagazineShotgun
-      amount: 4
+      amount: 8 # goobstation
 
 - type: entity
   parent: [GunSafe, BaseRestrictedContraband]
@@ -224,9 +224,9 @@
   - type: StorageFill
     contents:
     - id: WeaponShotgunKammerer
-      amount: 2
+      amount: 6 # goobstation
     - id: MagazineShotgun
-      amount: 4
+      amount: 12 # goobstation
 
 - type: entity
   id: GunSafeSubMachineGunWt550
@@ -237,9 +237,9 @@
   - type: StorageFill
     contents:
     - id: WeaponSubMachineGunWt550
-      amount: 2
+      amount: 4 # goobstation
     - id: MagazinePistolSubMachineGunTopMounted
-      amount: 4
+      amount: 8 # goobstation
 
 - type: entity
   parent: GunSafe
@@ -249,4 +249,4 @@
   - type: StorageFill
     contents:
     - id: WeaponLaserCarbine
-      amount: 3
+      amount: 8 # goobstation
