@@ -2243,3 +2243,9 @@ Entries:
       message: Changed sprites on most surgical tools to now use /tg/ sprites.
   id: 266
   time: '2024-11-25T01:02:23.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Various station event / lobby songs have been added to the jukebox!
+  id: 267
+  time: '2024-11-25T01:46:27.0000000+00:00'
