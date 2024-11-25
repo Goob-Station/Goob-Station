@@ -389,6 +389,13 @@ entities:
           decals:
             1004: -16,14
         - node:
+            color: '#FFFF00FF'
+            id: BrickTileWhiteLineE
+          decals:
+            1020: 7,15
+            1021: 7,16
+            1022: 7,17
+        - node:
             color: '#464646FF'
             id: BrickTileWhiteLineN
           decals:
@@ -400,6 +407,11 @@ entities:
           decals:
             754: 3,-12
             755: 4,-12
+        - node:
+            color: '#FFFF00FF'
+            id: BrickTileWhiteLineN
+          decals:
+            1023: 7,14
         - node:
             color: '#464646FF'
             id: BrickTileWhiteLineS
@@ -413,10 +425,22 @@ entities:
             756: 5,-13
             757: 4,-13
         - node:
+            color: '#FFFF00FF'
+            id: BrickTileWhiteLineS
+          decals:
+            1024: 7,18
+        - node:
             color: '#52B4E9FF'
             id: BrickTileWhiteLineW
           decals:
             1005: -17,14
+        - node:
+            color: '#FFFF00FF'
+            id: BrickTileWhiteLineW
+          decals:
+            1025: 7,15
+            1026: 7,16
+            1027: 7,17
         - node:
             color: '#FFFFFFFF'
             id: Bushb3
@@ -1416,9 +1440,6 @@ entities:
             554: 15,16
             555: 15,15
             556: 15,13
-            954: 7,17
-            955: 7,16
-            956: 7,15
             957: 7,14
         - node:
             color: '#EFB34196'
@@ -1885,11 +1906,6 @@ entities:
             id: ThreeQuarterTileOverlayGreyscale90
           decals:
             33: -2,-6
-        - node:
-            color: '#DE3A3A96'
-            id: ThreeQuarterTileOverlayGreyscale90
-          decals:
-            961: 7,18
         - node:
             color: '#FFFFFFFF'
             id: WarnBox
@@ -4953,8 +4969,6 @@ entities:
     - type: Transform
       pos: 14.5,20.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 234
     components:
     - type: MetaData
@@ -5019,8 +5033,6 @@ entities:
     - type: Transform
       pos: 13.5,0.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 243
     components:
     - type: MetaData
@@ -5107,8 +5119,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 4.5,14.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 255
     components:
     - type: Transform
@@ -20611,8 +20621,10 @@ entities:
   - uid: 3230
     components:
     - type: Transform
-      pos: 23.5,-0.5
+      pos: 23.735682,-0.5000522
       parent: 2
+    - type: Physics
+      sleepTime: 0.1333332
 - proto: ClosetL3VirologyFilled
   entities:
   - uid: 3231
@@ -21813,6 +21825,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,20.5
+      parent: 2
+- proto: CrateFunATV
+  entities:
+  - uid: 9042
+    components:
+    - type: Transform
+      pos: -19.5,13.5
       parent: 2
 - proto: CrateHydroponicsSeedsMedicinal
   entities:
@@ -42062,13 +42081,23 @@ entities:
   - uid: 6327
     components:
     - type: Transform
-      pos: 21.491993,-2.5611682
+      pos: 22.894403,-0.707397
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: Pullable
+      prevFixedRotation: True
   - uid: 6328
     components:
     - type: Transform
-      pos: 22.021795,-2.5635958
+      pos: 22.94196,-1.1415873
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: Pullable
+      prevFixedRotation: True
 - proto: MopItem
   entities:
   - uid: 6329
@@ -49415,6 +49444,33 @@ entities:
     - type: Transform
       pos: 9.5,18.5
       parent: 2
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 9238
+    components:
+    - type: Transform
+      pos: 21.5,-2.5
+      parent: 2
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 9235
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,17.5
+      parent: 2
+  - uid: 9236
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,16.5
+      parent: 2
+  - uid: 9237
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 7.5,15.5
+      parent: 2
 - proto: SprayBottleSpaceCleaner
   entities:
   - uid: 7476
@@ -51159,6 +51215,11 @@ entities:
     components:
     - type: Transform
       pos: 8.5,11.5
+      parent: 2
+  - uid: 9239
+    components:
+    - type: Transform
+      pos: 7.5,14.5
       parent: 2
 - proto: TableCarpet
   entities:
@@ -58496,11 +58557,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,7.5
-      parent: 2
-  - uid: 9042
-    components:
-    - type: Transform
-      pos: 7.5,14.5
       parent: 2
 - proto: WaterTankFull
   entities:
