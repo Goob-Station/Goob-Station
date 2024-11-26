@@ -67,7 +67,12 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             _sharedCameraRecoil.KickCamera(target, direction);
         }
 
-        component.DamagedEntity = true;
+        // Goobstation start
+        if (component.Penetrate)
+            component.IgnoredEntities.Add(target);
+        else
+            component.DamagedEntity = true;
+        // Goobstation end
 
         if (component.DeleteOnCollide)
             QueueDel(uid);
