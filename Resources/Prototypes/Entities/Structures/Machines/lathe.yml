@@ -789,6 +789,7 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - SyringeGun #Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -840,6 +841,7 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change
       - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
@@ -960,9 +962,10 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
-      - MedicalPatchBasic  # Goobstation - MedicalPatch
-      - MedicalPatchRapid # Goobstation - MedicalPatch
-      - MedicalPatchLarge # Goobstation - MedicalPatch
+      - SyringeGun #Goobstation
+      - MedicalPatchBasic  #Goobstation - MedicalPatch
+      - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
       - VehicleWheelchairFolded # Goobstation - Vehicles
     dynamicRecipes:
@@ -971,6 +974,7 @@
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      - RapidSyringeGun # Goobstation
       # Shitmed Change
       - EnergyScalpel
       - EnergyCautery

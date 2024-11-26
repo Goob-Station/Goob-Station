@@ -28,7 +28,6 @@ public sealed class SolutionInjectWhileEmbeddedSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        
         SubscribeLocalEvent<SolutionInjectWhileEmbeddedComponent, MapInitEvent>(OnMapInit);
     }
 
