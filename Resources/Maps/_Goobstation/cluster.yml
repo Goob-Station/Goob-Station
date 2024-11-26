@@ -71669,6 +71669,20 @@ entities:
     - type: Transform
       pos: -14.498325,-10.477551
       parent: 2
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 12739
+    components:
+    - type: Transform
+      pos: 12.393618,-0.69570446
+      parent: 2
+- proto: VehicleKeySecway
+  entities:
+  - uid: 12740
+    components:
+    - type: Transform
+      pos: 19.004622,15.574389
+      parent: 2
 - proto: VendingBarDrobe
   entities:
   - uid: 10899
