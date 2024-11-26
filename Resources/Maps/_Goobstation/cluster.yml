@@ -8348,6 +8348,13 @@ entities:
     - type: Transform
       pos: 21.5,-25.5
       parent: 2
+- proto: Biogenerator
+  entities:
+  - uid: 12733
+    components:
+    - type: Transform
+      pos: -2.5,-3.5
+      parent: 2
 - proto: BlastDoor
   entities:
   - uid: 507
@@ -8616,8 +8623,11 @@ entities:
   - uid: 550
     components:
     - type: Transform
-      pos: 21.502325,15.64172
+      pos: 19.636047,15.602262
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BoxFolderBase
   entities:
   - uid: 551
@@ -8858,8 +8868,11 @@ entities:
   - uid: 594
     components:
     - type: Transform
-      pos: 21.022184,15.646895
+      pos: 20.615215,15.591838
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BoxLatexGloves
   entities:
   - uid: 595
@@ -8929,8 +8942,11 @@ entities:
   - uid: 605
     components:
     - type: Transform
-      pos: 20.533396,15.646895
+      pos: 20.136047,15.570991
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: BrbSign
   entities:
   - uid: 606
@@ -15623,6 +15639,11 @@ entities:
     components:
     - type: Transform
       pos: -14.5,27.5
+      parent: 2
+  - uid: 12735
+    components:
+    - type: Transform
+      pos: 20.5,-23.5
       parent: 2
 - proto: CableApcStack
   entities:
@@ -28890,6 +28911,13 @@ entities:
     components:
     - type: Transform
       pos: -1.5,1.5
+      parent: 2
+- proto: CrateFunATV
+  entities:
+  - uid: 12737
+    components:
+    - type: Transform
+      pos: 16.5,-27.5
       parent: 2
 - proto: CrateHydroponicsSeedsExotic
   entities:
@@ -63123,6 +63151,12 @@ entities:
       rot: 3.141592653589793 rad
       pos: -33.5,24.5
       parent: 2
+  - uid: 12734
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,-23.5
+      parent: 2
 - proto: ReinforcedPlasmaWindow
   entities:
   - uid: 9564
@@ -67877,6 +67911,21 @@ entities:
     - type: Transform
       pos: 28.5,17.5
       parent: 2
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 12738
+    components:
+    - type: Transform
+      pos: 15.5,-1.5
+      parent: 2
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 10591
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 21.5,15.5
+      parent: 2
 - proto: SpawnVendingMachineRestockDrink
   entities:
   - uid: 10352
@@ -68145,13 +68194,19 @@ entities:
   - uid: 10398
     components:
     - type: Transform
-      pos: 19.341703,15.5968685
+      pos: 19.240215,15.643958
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 10399
     components:
     - type: Transform
-      pos: 19.622953,15.5812435
+      pos: 19.115215,15.685653
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: SubstationBasic
   entities:
   - uid: 10400
@@ -69623,11 +69678,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -12.5,-1.5
-      parent: 2
-  - uid: 10591
-    components:
-    - type: Transform
-      pos: 21.5,15.5
       parent: 2
   - uid: 10592
     components:
@@ -71540,6 +71590,17 @@ entities:
         4369:
         - Left: Forward
         - Right: Reverse
+        - Middle: Off
+  - uid: 12736
+    components:
+    - type: Transform
+      pos: 21.5,-23.5
+      parent: 2
+    - type: DeviceLinkSource
+      linkedPorts:
+        12734:
+        - Left: Reverse
+        - Right: Forward
         - Middle: Off
 - proto: UniformPrinter
   entities:
@@ -81015,18 +81076,27 @@ entities:
   - uid: 12591
     components:
     - type: Transform
-      pos: 19.372377,15.690639
+      pos: 18.427715,15.675229
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 12592
     components:
     - type: Transform
-      pos: 19.544252,15.612514
+      pos: 18.542297,15.51887
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 12593
     components:
     - type: Transform
-      pos: 19.747377,15.550014
+      pos: 18.646465,15.487599
       parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 12594
     components:
     - type: Transform
