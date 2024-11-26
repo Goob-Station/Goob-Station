@@ -2293,3 +2293,27 @@ Entries:
       message: Vehicle spawners now spawn with keys
   id: 271
   time: '2024-11-26T00:45:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added 3 different flavors of syringe guns, 2 obtainable by crew, 1 by
+        traitors
+    - type: Add
+      message: >-
+        CMOs lockers now contain a Rapid Syringe Gun and a box filled with 6 pax
+        syringes. Don't validhunt too much with them will you?
+    - type: Tweak
+      message: >-
+        The CMO now spawns with a webbing filled with advanced surgical
+        instruments along with their usual gear.
+    - type: Tweak
+      message: >-
+        Syringes shot from a syringe gun do not pierce armor unless they are
+        shot from a gun with the necessary components.
+    - type: Tweak
+      message: >-
+        Throwing syringes now embeds them on entities, and transfers 2u of the
+        contents. Doesn't pierce armor.
+  id: 272
+  time: '2024-11-26T01:56:11.0000000+00:00'
