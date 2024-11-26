@@ -13932,8 +13932,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -46.5,27.5
       parent: 1
-    - type: Apc
-      hasAccess: True
   - uid: 5103
     components:
     - type: MetaData
@@ -42919,6 +42917,13 @@ entities:
     components:
     - type: Transform
       pos: -27.5,44.5
+      parent: 1
+- proto: CrateFunATV
+  entities:
+  - uid: 2327
+    components:
+    - type: Transform
+      pos: -35.5,-5.5
       parent: 1
 - proto: CrateMaterialGlass
   entities:
@@ -88095,6 +88100,21 @@ entities:
     components:
     - type: Transform
       pos: -47.5,61.5
+      parent: 1
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 2328
+    components:
+    - type: Transform
+      pos: -51.5,35.5
+      parent: 1
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -61.5,55.5
       parent: 1
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:

@@ -57,4 +57,10 @@ public abstract partial class BaseSolutionInjectOnEventComponent : Component
     /// </summary>
     [DataField]
     public SlotFlags BlockSlots = SlotFlags.NONE;
+
+    /// <summary>
+    ///     GoobStation: If this injection transfers EVERYTHING as soon as it is embedded after a gunshot.
+    /// </summary>
+    [DataField]
+    public bool Shot = false;
 }

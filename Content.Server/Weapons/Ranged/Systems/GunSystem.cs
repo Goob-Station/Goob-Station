@@ -134,7 +134,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                         RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
                         {
-                            FiredProjectiles = shotProjectiles,
+                            FiredProjectiles = shotProjectiles
                         });
 
                         SetCartridgeSpent(ent.Value, cartridge, true);
