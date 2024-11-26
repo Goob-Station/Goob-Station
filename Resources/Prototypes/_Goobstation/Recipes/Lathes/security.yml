@@ -12,3 +12,10 @@
   completetime: 3
   materials:
     Steel: 200
+
+- type: latheRecipe
+  id: CartridgeEpinephrine
+  result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Glass: 100

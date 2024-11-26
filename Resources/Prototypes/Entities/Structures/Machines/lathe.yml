@@ -230,6 +230,7 @@
       - SpeedLoaderMagnumEmpty
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -793,6 +794,7 @@
       - Zipties
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
       - SyringeGun #Goobstation
     dynamicRecipes:
       - BoxBeanbag
