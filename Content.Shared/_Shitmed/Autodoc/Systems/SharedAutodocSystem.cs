@@ -1,0 +1,434 @@
+using Content.Shared._Shitmed.Autodoc;
+using Content.Shared._Shitmed.Autodoc.Components;
+using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery.Steps;
+using Content.Shared.Bed.Sleep;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Buckle.Components;
+using Content.Shared.DeviceLinking;
+using Content.Shared.DeviceLinking.Events;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Storage;
+using Content.Shared.Storage.EntitySystems;
+using Content.Shared.Whitelist;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
+using System.Linq;
+
+namespace Content.Shared._Shitmed.Autodoc.Systems;
+
+public abstract class SharedAutodocSystem : EntitySystem
+{
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] protected readonly IGameTiming Timing = default!;
+    [Dependency] private readonly SharedBodySystem _body = default!;
+    [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedStorageSystem _storage = default!;
+    [Dependency] private readonly SharedSurgerySystem _surgery = default!;
+    [Dependency] private readonly SleepingSystem _sleeping = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<AutodocComponent, NewLinkEvent>(OnNewLink);
+        SubscribeLocalEvent<AutodocComponent, PortDisconnectedEvent>(OnPortDisconnected);
+        Subs.BuiEvents<AutodocComponent>(AutodocUiKey.Key, s =>
+        {
+            s.Event<AutodocCreateProgramMessage>(OnCreateProgram);
+            s.Event<AutodocToggleProgramSafetyMessage>(OnToggleProgramSafety);
+            s.Event<AutodocRemoveProgramMessage>(OnRemoveProgram);
+            s.Event<AutodocAddStepMessage>(OnAddStep);
+            s.Event<AutodocRemoveStepMessage>(OnRemoveStep);
+            s.Event<AutodocStartMessage>(OnStart);
+            s.Event<AutodocStopMessage>(OnStop);
+        });
+
+        SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepEvent>(OnSurgeryStep);
+        SubscribeLocalEvent<ActiveAutodocComponent, ComponentShutdown>(OnActiveShutdown);
+    }
+
+    private void OnNewLink(Entity<AutodocComponent> ent, ref NewLinkEvent args)
+    {
+        if (args.SinkPort == ent.Comp.OperatingTablePort &&
+            HasComp<OperatingTableComponent>(args.Source))
+        {
+            ent.Comp.OperatingTable = args.Source;
+            Dirty(ent);
+        }
+    }
+
+    private void OnPortDisconnected(Entity<AutodocComponent> ent, ref PortDisconnectedEvent args)
+    {
+        if (args.Port != ent.Comp.OperatingTablePort)
+            return;
+
+        ent.Comp.OperatingTable = null;
+        Dirty(ent);
+    }
+
+    #region UI Handling
+
+    // TODO: add admin logging for all of this
+    private void OnCreateProgram(Entity<AutodocComponent> ent, ref AutodocCreateProgramMessage args)
+    {
+        CreateProgram(ent);
+    }
+
+    private void OnToggleProgramSafety(Entity<AutodocComponent> ent, ref AutodocToggleProgramSafetyMessage args)
+    {
+        if (IsActive(ent))
+            return;
+
+        if (args.Program >= ent.Comp.Programs.Count)
+            return;
+
+        var program = ent.Comp.Programs[args.Program];
+        program.SkipFailed ^= true;
+        Dirty(ent);
+    }
+
+    private void OnRemoveProgram(Entity<AutodocComponent> ent, ref AutodocRemoveProgramMessage args)
+    {
+        RemoveProgram(ent, args.Program);
+    }
+
+    private void OnAddStep(Entity<AutodocComponent> ent, ref AutodocAddStepMessage args)
+    {
+        if (!args.Step.Validate(ent, this))
+        {
+            Log.Warning($"User {ToPrettyString(args.Actor)} tried to add an invalid autodoc step!");
+            return;
+        }
+
+        AddStep(ent, args.Program, args.Step);
+    }
+
+    private void OnRemoveStep(Entity<AutodocComponent> ent, ref AutodocRemoveStepMessage args)
+    {
+        RemoveStep(ent, args.Program, args.Step);
+    }
+
+    private void OnStart(Entity<AutodocComponent> ent, ref AutodocStartMessage args)
+    {
+        StartProgram(ent, args.Program);
+    }
+
+    private void OnStop(Entity<AutodocComponent> ent, ref AutodocStopMessage args)
+    {
+        RemComp<ActiveAutodocComponent>(ent);
+    }
+
+    #endregion
+
+    private void OnSurgeryStep(Entity<ActiveAutodocComponent> ent, ref SurgeryStepEvent args)
+    {
+        if (args.Complete)
+        {
+            // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
+            ent.Comp.Waiting = ent.Comp.CurrentSurgery is {} surgery && _surgery.GetNextStep(args.Body, args.Part, surgery) != null;
+            return;
+        }
+
+        // for tend wounds dont abort, more wounds need tending
+        if (HasComp<SurgeryRepeatableStepComponent>(args.Step))
+            return;
+
+        ent.Comp.Waiting = false;
+
+        if (!TryComp<AutodocComponent>(ent, out var comp))
+            return;
+
+        var program = comp.Programs[ent.Comp.CurrentProgram];
+        var error = Loc.GetString("autodoc-error-surgery-failed");
+        if (program.SkipFailed)
+        {
+            Say(ent, Loc.GetString("autodoc-error", ("error", error)));
+            ent.Comp.ProgramStep++;
+        }
+        else
+        {
+            Say(ent, Loc.GetString("autodoc-fatal-error", ("error", error)));
+            RemCompDeferred<ActiveAutodocComponent>(ent);
+        }
+    }
+
+    private void OnActiveShutdown(Entity<ActiveAutodocComponent> ent, ref ComponentShutdown args)
+    {
+        if (!TryComp<AutodocComponent>(ent, out var comp))
+            return;
+
+        // wake the patient when program completes or errors out
+        if (GetPatient((ent.Owner, comp)) is {} patient)
+            _sleeping.TryWaking(patient);
+    }
+
+    #region Step API
+
+    public bool IsSurgery(EntProtoId id)
+    {
+        // this is O(n) so with a fuck ton of surgeries it could slow down the server
+        return _surgery.AllSurgeries.Contains(id);
+    }
+
+    public EntityUid? FindItem(EntityUid uid, string name)
+    {
+        var storage = Comp<StorageComponent>(uid);
+        foreach (var item in storage.Container.ContainedEntities)
+        {
+            if (Name(item) == name)
+                return uid;
+        }
+
+        return null;
+    }
+
+    public EntityUid? FindItem(EntityUid uid, EntityWhitelist? whitelist)
+    {
+        var storage = Comp<StorageComponent>(uid);
+        foreach (var item in storage.Container.ContainedEntities)
+        {
+            if (_whitelist.IsWhitelistPassOrNull(whitelist, uid))
+                return uid;
+        }
+
+        return null;
+    }
+
+    public bool GrabItem(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
+    {
+        return _hands.TryPickup(ent, item, ent.Comp1.ItemSlot, animate: false, handsComp: ent.Comp2);
+    }
+
+    public void GrabItemOrThrow(Entity<AutodocComponent, HandsComponent> ent, EntityUid item)
+    {
+        if (!GrabItem(ent, item))
+            throw new AutodocError("hand-full");
+    }
+
+    public bool StoreItem(Entity<AutodocComponent, HandsComponent> ent)
+    {
+        if (!_hands.TryGetHand(ent, ent.Comp1.ItemSlot, out var hand, ent.Comp2))
+            return false;
+
+        if (hand.HeldEntity is not {} item)
+            return false;
+
+        return _storage.Insert(ent, item, out _);
+    }
+
+    public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
+    {
+        if (!StoreItem(ent))
+            throw new AutodocError("storage-full");
+    }
+
+    public EntityUid? GetPatient(Entity<AutodocComponent> ent)
+    {
+        if (!TryComp<StrapComponent>(ent.Comp.OperatingTable, out var strap))
+            return null;
+
+        var buckled = strap.BuckledEntities;
+        if (buckled.Count == 0)
+            return null;
+
+        var patient = buckled.First();
+        if (!HasComp<SurgeryTargetComponent>(patient))
+            return null; // TODO: auto draping anything with a body
+
+        return patient;
+    }
+
+    public EntityUid GetPatientOrThrow(Entity<AutodocComponent> ent)
+    {
+        if (GetPatient(ent) is not {} patient)
+            throw new AutodocError("missing-patient");
+
+        return patient;
+    }
+
+    public EntityUid? FindPart(EntityUid patient, BodyPartType type, BodyPartSymmetry? symmetry)
+    {
+        foreach (var ent in _body.GetBodyChildrenOfType(patient, type, symmetry: symmetry))
+        {
+            return ent.Id;
+        }
+
+        return null;
+    }
+
+    /// <summary>
+    /// Starts doing a surgery, returns true if successful.
+    /// </summary>
+    public bool StartSurgery(Entity<AutodocComponent> ent, EntityUid patient, EntityUid part, EntProtoId surgery)
+    {
+        if (ent.Comp.RequireSleeping && !HasComp<SleepingComponent>(patient))
+            throw new AutodocError("patient-unsedated");
+
+        if (_surgery.GetSingleton(surgery) is not {} singleton)
+            return false;
+
+        if (_surgery.GetNextStep(patient, part, singleton) is not {} pair)
+            return false;
+
+        var nextSurgery = pair.Item1;
+        var index = pair.Item2;
+        var nextStep = nextSurgery.Comp.Steps[index];
+        if (!_surgery.TryDoSurgeryStep(patient, part, ent, MetaData(nextSurgery).EntityPrototype!.ID, nextStep))
+            return false;
+
+        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = singleton;
+        return true;
+    }
+
+    /// <summary>
+    /// Create a blank program and return the index to it.
+    /// Programs cannot be created while operating or if there are too many, in which case it will return null.
+    /// </summary>
+    public int? CreateProgram(Entity<AutodocComponent> ent)
+    {
+        var index = ent.Comp.Programs.Count;
+        if (IsActive(ent) || index >= ent.Comp.MaxPrograms)
+            return null;
+
+        ent.Comp.Programs.Add(new AutodocProgram());
+        Dirty(ent);
+        return index;
+    }
+
+    /// <summary>
+    /// Removes a program at an index, returning true if it succeeded.
+    /// </summary>
+    public bool RemoveProgram(Entity<AutodocComponent> ent, int index)
+    {
+        if (IsActive(ent) || index >= ent.Comp.Programs.Count)
+            return false;
+
+        ent.Comp.Programs.RemoveAt(index);
+        Dirty(ent);
+        return true;
+    }
+
+    /// <summary>
+    /// Adds a step to a program at an index, returning true if it succeeded.
+    /// </summary>
+    public bool AddStep(Entity<AutodocComponent> ent, int programIndex, IAutodocStep step)
+    {
+        if (IsActive(ent) || programIndex >= ent.Comp.Programs.Count)
+            return false;
+
+        var program = ent.Comp.Programs[programIndex];
+        if (program.Steps.Count >= ent.Comp.MaxProgramSteps)
+            return false;
+
+        program.Steps.Add(step);
+        Dirty(ent);
+        return true;
+    }
+
+    /// <summary>
+    /// Removes a step from a program, returning true if it succeeded.
+    /// </summary>
+    public bool RemoveStep(Entity<AutodocComponent> ent, int programIndex, int step)
+    {
+        if (IsActive(ent) || programIndex >= ent.Comp.Programs.Count)
+            return false;
+
+        var program = ent.Comp.Programs[programIndex];
+        if (step >= program.Steps.Count)
+            return false;
+
+        program.Steps.RemoveAt(step);
+        Dirty(ent);
+        return true;
+    }
+
+    public bool IsActive(EntityUid uid)
+    {
+        return HasComp<ActiveAutodocComponent>(uid);
+    }
+
+    public AutodocProgram CurrentProgram(Entity<AutodocComponent, ActiveAutodocComponent> ent)
+    {
+        // not checking if it exists since Programs isnt allowed to be changed while operating
+        return ent.Comp1.Programs[ent.Comp2.CurrentProgram];
+    }
+
+    public bool StartProgram(Entity<AutodocComponent> ent, int index)
+    {
+        // no error since UI checks this too
+        if (IsActive(ent) || index >= ent.Comp.Programs.Count || GetPatient(ent) is not {} patient)
+            return false;
+
+        var active = EnsureComp<ActiveAutodocComponent>(ent);
+        active.CurrentProgram = index;
+        active.NextUpdate = Timing.CurTime + ent.Comp.UpdateDelay;
+        Dirty(ent.Owner, active);
+        return true;
+    }
+
+    /// <summary>
+    /// Tries to start the next step, shouting the error if it fails.
+    /// Returns true if the program is being stopped.
+    /// </summary>
+    public bool Proceed(Entity<AutodocComponent, ActiveAutodocComponent> ent)
+    {
+        if (ent.Comp2.Waiting)
+            return false;
+
+        var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
+        var index = ent.Comp2.ProgramStep;
+        if (index >= program.Steps.Count)
+        {
+            Say(ent, Loc.GetString("autodoc-program-completed"));
+            return true;
+        }
+
+        try
+        {
+            var step = program.Steps[index];
+            if (step.Run((ent.Owner, ent.Comp1, Comp<HandsComponent>(ent)), this))
+                ent.Comp2.ProgramStep++;
+            else
+                ent.Comp2.Waiting = true;
+        }
+        catch (AutodocError e)
+        {
+            var error = Loc.GetString("autodoc-error-" + e.Message);
+            if (program.SkipFailed)
+            {
+                Say(ent, Loc.GetString("autodoc-error", ("error", error)));
+                ent.Comp2.ProgramStep++;
+            }
+            else
+            {
+                Say(ent, Loc.GetString("autodoc-fatal-error", ("error", error)));
+                return true;
+            }
+        }
+
+        Dirty(ent.Owner, ent.Comp1);
+        return false;
+    }
+
+    #endregion
+
+    protected virtual void Say(EntityUid uid, string msg)
+    {
+    }
+}
+
+/// <summary>
+/// Error autodoc steps can use to abort the program execution and shout an error message.
+/// </summary>
+public sealed class AutodocError : Exception
+{
+    /// <summary>
+    /// Message has "autodoc-error-" prepended to it, then it gets localized.
+    /// </summary>
+    public AutodocError(string message) : base(message)
+    {
+    }
+}

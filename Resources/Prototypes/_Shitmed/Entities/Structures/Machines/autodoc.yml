@@ -1,0 +1,128 @@
+# Autodocs
+
+- type: entity
+  parent: [ConstructibleMachine, BaseMachinePowered]
+  id: Autodoc
+  name: Autodoc Mk.XIV
+  description: A programmable robotic surgeon capable of automatically operating on patients.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/autodoc.rsi
+    layers:
+    - state: idle
+  - type: Hands
+  - type: HandsFill
+    hands:
+      cautery: CauteryAutodoc
+      drill: DrillAutodoc
+      scalpel: ScalpelAutodoc
+      retractor: RetractorAutodoc
+      hemostat: HemostatAutodoc
+      bonesetter: BonesetterAutodoc
+      bonegel: BoneGelAutodoc
+      saw: SawAutodoc
+      surgery_specific: null
+  - type: WiresPanel
+  - type: Machine
+    board: AutodocCircuitboard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+     - surgery_specific
+     - storagebase
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - surgery_specific
+    - storagebase
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+    - OperatingTableReceiver
+  - type: UserInterface
+    interfaces:
+      enum.AutodocUiKey.Key:
+        type: AutodocBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ActivatableUI
+    key: enum.AutodocUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: Autodoc
+    programs:
+    - steps:
+      - !type:SurgeryAutodocStep
+        part: Leg
+        symmetry: Left
+        surgery: SurgeryRemovePart
+      - !type:StoreItemAutodocStep
+      - !type:GrabItemAutodocStep
+        name: "left cyborg leg"
+      - !type:SurgeryAutodocStep
+        part: Torso
+        symmetry: None
+        surgery: SurgeryAttachLeftLeg
+  - type: Storage
+    grid:
+    - 0,0,3,3
+  - type: SurgerySpeedModifier
+    speed: 0.5 # worse than a surgeon but you can use it solo
+
+- type: entity
+  parent: Autodoc
+  id: AutodocSyndie
+  # TODO: make it valid
+  suffix: Syndie
+  components:
+  - type: Machine
+    board: AutodocSyndieCircuitboard
+  - type: SurgerySpeedModifier
+    speed: 1.0 # as good as a surgeon, nukies need it or something
+
+# Autodoc tools
+
+- type: entity
+  abstract: true
+  id: BaseAutodocTool
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable
+
+- type: entity
+  parent: [Cautery, BaseAutodocTool]
+  id: CauteryAutodoc
+
+- type: entity
+  parent: [Drill, BaseAutodocTool]
+  id: DrillAutodoc
+
+- type: entity
+  parent: [ScalpelLaser, BaseAutodocTool]
+  id: ScalpelAutodoc
+
+- type: entity
+  parent: [Retractor, BaseAutodocTool]
+  id: RetractorAutodoc
+
+- type: entity
+  parent: [Hemostat, BaseAutodocTool]
+  id: HemostatAutodoc
+
+- type: entity
+  parent: [Bonesetter, BaseAutodocTool]
+  id: BonesetterAutodoc
+
+- type: entity
+  parent: [BoneGel, BaseAutodocTool]
+  id: BoneGelAutodoc
+
+- type: entity
+  parent: [SawAdvanced, BaseAutodocTool]
+  id: SawAutodoc
