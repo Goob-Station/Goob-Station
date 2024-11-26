@@ -27,6 +27,12 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     /// </summary>
     public int NumOrdersCreated;
 
+    /// <summary>
+    /// Used to check if an order is on cooldown.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), DataField]
+    public Dictionary<string, TimeSpan> ProductCooldownTime = new Dictionary<string, TimeSpan>();
+
     // TODO: Can probably dump this
     /// <summary>
     /// The cargo shuttle assigned to this station.

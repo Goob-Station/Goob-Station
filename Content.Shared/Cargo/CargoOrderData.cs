@@ -30,6 +30,12 @@ namespace Content.Shared.Cargo
         public string ProductName { get; private set; }
 
         /// <summary>
+        /// The cooldown before this product can be bought again.
+        /// </summary>
+        [DataField]
+        public int Cooldown { get; private set; }
+
+        /// <summary>
         /// The number of items in the order. Not readonly, as it might change
         /// due to caps on the amount of orders that can be placed.
         /// </summary>
@@ -52,7 +58,7 @@ namespace Content.Shared.Cargo
         [DataField]
         public string? Approver;
 
-        public CargoOrderData(int orderId, string productId, string productName, int price, int amount, string requester, string reason)
+        public CargoOrderData(int orderId, string productId, string productName, int price, int amount, string requester, string reason, int cooldown)
         {
             OrderId = orderId;
             ProductId = productId;
@@ -61,6 +67,7 @@ namespace Content.Shared.Cargo
             OrderQuantity = amount;
             Requester = requester;
             Reason = reason;
+            Cooldown = cooldown;
         }
 
         public void SetApproverData(string? approver)

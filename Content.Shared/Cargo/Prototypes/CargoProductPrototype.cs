@@ -84,6 +84,12 @@ namespace Content.Shared.Cargo.Prototypes
         public int Cost { get; private set; }
 
         /// <summary>
+        ///     The cooldown before this product can be bought again.
+        /// </summary>
+        [DataField]
+        public int Cooldown { get; private set; } = 0;
+
+        /// <summary>
         ///     The prototype category of the product. (e.g. Engineering, Medical)
         /// </summary>
         [DataField]
