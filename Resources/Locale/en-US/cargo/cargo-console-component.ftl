@@ -27,13 +27,13 @@ cargo-console-station-not-found = No available station
 cargo-console-invalid-product = Invalid product ID
 cargo-console-too-many = Too many approved orders
 cargo-console-snip-snip = Order trimmed to capacity
-cargo-console-cooldown-count = Cannot order more than one {$product} at a time.
+cargo-console-insufficient-funds = Insufficient funds (require {$cost})
 cargo-console-unfulfilled = No room to fulfill order
 cargo-console-trade-station = Sent to {$destination}
 cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], which cost [bold]{$cost}[/bold], was approved by [bold]{$approver}[/bold]
 
 # GoobStation - cooldown on Cargo Orders (specifically gamba)
-cargo-console-insufficient-funds = Insufficient funds (require {$cost})
+cargo-console-cooldown-count = Cannot order more than one {$product} at a time.
 cargo-console-cooldown-active = Orders for {$product} cannot be placed for another {$timeCount} {$timeUnits}.
 
 cargo-console-paper-print-name = Order #{$orderNumber}
