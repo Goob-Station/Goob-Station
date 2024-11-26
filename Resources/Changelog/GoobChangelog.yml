@@ -2331,3 +2331,11 @@ Entries:
       message: Heretics and changelings are now properly hunted by turrets.
   id: 273
   time: '2024-11-26T13:31:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New traitor item hardlight bow.
+    - type: Tweak
+      message: Bows are now automatically unwielded after firing.
+  id: 274
+  time: '2024-11-26T13:53:10.0000000+00:00'
