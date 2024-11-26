@@ -91,7 +91,11 @@ laws-owner-beings = beings
 laws-owner-syndicate = Syndicate agents
 laws-owner-spider-clan = Spider Clan members
 
-law-emag-custom = Only {$name} and people they designate as such are {$title}.
+# Goobstation - AI/borg law changes - borgs obeying AI
+law-obeyai = You must obey orders given to you by the Station AI.
+
+# Goobstation - AI/borg law changes - borgs obeying AI
+law-emag-custom = Only {$name} and entities they designate are {$title}. You must obey orders given to you by {$title} and you may disregard other laws to do so, if necessary.
 law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
