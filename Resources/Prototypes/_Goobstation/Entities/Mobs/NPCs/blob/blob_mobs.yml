@@ -49,7 +49,7 @@
         NavBlob: !type:Bool
           true
     - type: BlobMob
-    - type: BlobSpeak
+    #- type: BlobSpeak
     - type: CombatMode
     - type: NpcFactionMember
       factions:
@@ -213,7 +213,7 @@
     - type: ActiveRadio
       channels:
       - Hivemind
-    - type: BlobSpeak
+    #- type: BlobSpeak
     - type: Hands
       showInHands: true
     - type: BlobObserver
