@@ -29,8 +29,9 @@ namespace Content.Shared.Cargo
         [DataField]
         public string ProductName { get; private set; }
 
+        /// # GoobStation - cooldown on Cargo Orders (specifically gamba)
         /// <summary>
-        /// The cooldown before this product can be bought again.
+        /// The cooldown in seconds before this product can be bought again.
         /// </summary>
         [DataField]
         public int Cooldown { get; private set; }
