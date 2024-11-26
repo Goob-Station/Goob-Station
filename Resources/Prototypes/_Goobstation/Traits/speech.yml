@@ -1,4 +1,14 @@
 - type: trait
+  id: Dementia
+  name: trait-dementia-name
+  description: trait-dementia-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: ReplacementAccent
+    accent: dementia
+
+- type: trait
   id: ScottishAccent
   name: trait-scottish-name
   description: trait-scottish-desc

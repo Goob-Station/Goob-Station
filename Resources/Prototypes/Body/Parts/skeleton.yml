@@ -6,7 +6,7 @@
   abstract: true
   components:
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: OrganicPart # Shitmed Change
   - type: BodyPart
   - type: ContainerContainer
     containers:

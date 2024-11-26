@@ -55,3 +55,5 @@ changeling-chameleon-start = You adapt your skin to the environment
 changeling-chameleon-end = Your skin is losing it's translucency
 
 changeling-hivemind-start = You tune your brainwaves to match the hivemind frequency
+
+changeling-lastresort-activate = CURRENT BODY WILL BE LOST! Use it again to confirm.

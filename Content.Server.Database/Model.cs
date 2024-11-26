@@ -527,6 +527,8 @@ namespace Content.Server.Database
         public List<Round> Rounds { get; set; } = null!;
         public List<AdminLogPlayer> AdminLogs { get; set; } = null!;
 
+        public int ServerCurrency { get; set; } // Goobstation - Goob coin
+
         public DateTime? LastReadRules { get; set; }
 
         public List<AdminNote> AdminNotesReceived { get; set; } = null!;

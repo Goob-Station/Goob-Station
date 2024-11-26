@@ -36,6 +36,7 @@
 
 - type: statusEffect
   id: PressureImmunity
+  alwaysAllowed: true # Shitmed: Used by space animal heart to work on anything
 
 - type: statusEffect
   id: Muted

@@ -228,6 +228,10 @@
     - id: CloningConsoleComputerCircuitboard
     - id: BiomassReclaimerMachineCircuitboard
     - id: MedTekCartridge
+    - id: RapidSyringeGun
+    - id: BoxSyringePax
+    # Shitmed
+    - id: MedicalBiofabMachineBoard
 
 # Hardsuit table, used for suit storage as well
 - type: entityTable
@@ -270,6 +274,7 @@
   id: LockerFillResearchDirectorNoHardsuit
   table: !type:AllSelector
     children:
+    - id: Intellicard
     - id: BoxEncryptionKeyScience
     - id: CircuitImprinterMachineCircuitboard
     - id: ClothingBeltUtilityFilled

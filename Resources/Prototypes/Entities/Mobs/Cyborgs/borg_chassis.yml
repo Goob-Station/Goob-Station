@@ -274,7 +274,8 @@
     interactFailureString: petting-failure-medical-cyborg
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
-
+  - type: SurgeryTarget
+  
 - type: entity
   id: BorgChassisService
   parent: BaseBorgChassisNT
@@ -391,8 +392,6 @@
     - type: Construction
       node: syndicatemedical
     - type: ShowHealthBars
-      damageContainers:
-      - Biological
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
       interactFailureString: petting-failure-syndicate-cyborg
