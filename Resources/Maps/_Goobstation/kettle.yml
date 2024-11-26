@@ -78734,8 +78734,6 @@ entities:
       pos: -21.5,-23.5
       parent: 82
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2077
       - 24540
@@ -78764,8 +78762,6 @@ entities:
       pos: -22.5,-23.5
       parent: 82
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 2077
       - 24540
