@@ -42,8 +42,8 @@
   components:
   - type: BodyPart
     children:
-      right foot:
-        id: "right foot"
+      left foot:
+        id: "left foot"
         type: Foot
 
 - type: entity
@@ -84,7 +84,7 @@
     toolName: "a left arm"
     baseLayerId: MobPizzaLArm
   - type: Sprite
-    sprite: Mobs/Species/Misc/Pizza/parts.rsi
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
     state: "l_arm"
 
 - type: entity
@@ -99,5 +99,5 @@
     toolName: "a right arm"
     baseLayerId: MobPizzaRArm
   - type: Sprite
-    sprite: Mobs/Species/Misc/Pizza/parts.rsi
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
     state: "r_arm"
