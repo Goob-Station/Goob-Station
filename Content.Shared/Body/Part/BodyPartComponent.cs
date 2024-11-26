@@ -29,9 +29,6 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     // Shitmed Change Start
 
     [DataField, AutoNetworkedField]
-    public bool CanSever = true;
-
-    [DataField, AutoNetworkedField]
     public EntityUid? OriginalBody;
 
     [DataField, AutoNetworkedField]

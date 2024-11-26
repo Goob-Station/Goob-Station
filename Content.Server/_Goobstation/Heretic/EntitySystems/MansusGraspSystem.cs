@@ -1,5 +1,7 @@
+using Content.Server.Atmos.Commands;
 using Content.Server.Chat.Systems;
 using Content.Server.EntityEffects.Effects.StatusEffects;
+using Content.Server.Hands.Systems;
 using Content.Server.Heretic.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Temperature.Components;
@@ -13,6 +15,7 @@ using Content.Shared.Doors.Systems;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
 using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
@@ -40,6 +43,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
     [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly HandsSystem _hands = default!;
 
     public override void Initialize()
     {
@@ -228,6 +232,9 @@ public sealed partial class MansusGraspSystem : EntitySystem
             _stamina.TakeStaminaDamage(target, 80f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
+
+        if (TryComp<HandsComponent>(target, out var hands))
+            _hands.TryDrop(target, Transform(target).Coordinates, handsComp: hands);
 
         SpendInfusionCharges(ent, charges: ent.Comp.MaxCharges); // spend all because RCHTHTRTH
     }

@@ -80,7 +80,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var lookup = _lookup.GetEntitiesInRange(ent, 5f);
+        var range = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 2.5f;
+        var lookup = _lookup.GetEntitiesInRange(ent, range);
 
         foreach (var look in lookup)
         {
@@ -96,7 +97,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     _stam.TryTakeStamina(ent, -10);
                     var dmgdict = dmgc.Damage.DamageDict;
                     foreach (var key in dmgdict.Keys)
-                        dmgdict[key] = -10f;
+                        dmgdict[key] -= 10f;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
                     _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
