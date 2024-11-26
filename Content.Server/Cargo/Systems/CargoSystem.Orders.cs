@@ -173,7 +173,7 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
-            // # GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
             if (order.Cooldown > 0)
             {
                 if (orderDatabase.ProductCooldownTime.TryGetValue(order.ProductId, out var cooldownTime) && cooldownTime > _timing.CurTime)
@@ -208,7 +208,7 @@ namespace Content.Server.Cargo.Systems
                 }
             }
 
-            // # GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
             if (order.Cooldown > 0)
             {
                 orderDatabase.ProductCooldownTime[order.ProductId] = _timing.CurTime + TimeSpan.FromSeconds(order.Cooldown);
@@ -383,7 +383,7 @@ namespace Content.Server.Cargo.Systems
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id)
         {
-            // # GoobStation - cooldown on Cargo Orders (specifically gamba)
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
             return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, cargoProduct.Cooldown);
         }
 

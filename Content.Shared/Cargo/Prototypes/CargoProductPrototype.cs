@@ -83,9 +83,8 @@ namespace Content.Shared.Cargo.Prototypes
         [DataField]
         public int Cost { get; private set; }
 
-        // # GoobStation - cooldown on Cargo Orders (specifically gamba)
         /// <summary>
-        ///     The cooldown in seconds before this product can be bought again.
+        ///     GoobStation - The cooldown in seconds before this product can be bought again.
         /// </summary>
         [DataField]
         public int Cooldown { get; private set; } = 0;
