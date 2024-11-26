@@ -83,3 +83,8 @@
   icon:
     sprite: /Textures/Backmen/Interface/Misc/antag_icon.rsi
     state: blob
+
+- type: currency
+  id: BlobPoint
+  displayName: store-currency-display-blob-points
+  canWithdraw: false

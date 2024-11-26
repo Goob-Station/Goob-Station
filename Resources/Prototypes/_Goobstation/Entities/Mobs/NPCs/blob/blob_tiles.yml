@@ -21,6 +21,84 @@
 
 - type: entity
   parent: BaseBlob
+  id: CoreBlobTile
+  name: Core Blob
+  description: The most important part of you. This is the brain and heart of the Blob. You cannot have more than one core (if you have a second one, it is not controlled by you), so you must protect it at all costs, otherwise you will die. The core itself restores health over time; with the regenerative chemical, health is restored 10 times faster. The core produces FIVE resource points per two seconds.
+  save: false
+  components:
+  - type: Temperature
+    heatDamage:
+      types:
+        Heat: 5
+    coldDamage: {}
+    coldDamageThreshold: 0
+  - type: Flammable
+    fireSpread: true
+    damage:
+      types:
+        Heat: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: BlobTile
+    blobTileType: Core
+  - type: Store
+    currencyWhitelist:
+    - BlobPoint
+  - type: BlobCore
+    blobTileCosts:
+      !type:BlobTileCosts
+      core: 0
+      invalid: 0
+      resource: 60
+      factory: 80
+      node: 50
+      reflective: 15
+      strong: 15
+      normal: 6
+#      storage: 50
+#      turret: 75
+    actionPrototypes:
+      - ActionSwapBlobChem
+      - ActionTeleportBlobToCore
+      - ActionCreateBlobFactory
+      - ActionCreateBlobResource
+      - ActionCreateBlobNode
+      - ActionCreateBlobbernaut
+      - ActionSplitBlobCore
+      - ActionSwapBlobCore
+      - ActionDowngradeBlob
+  - type: BlobNode
+  - type: BlobResource
+    pointsPerPulsed: 5
+  - type: Sprite
+    sprite: Backmen/Mobs/Aliens/Blob/blob.rsi
+    drawdepth: BlobTiles
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: blob_core
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: blob_core_glow
+#        shader: unshaded
+      - state: blob_core_overlay
+  - type: WarpPoint
+    location: blob core
+  - type: GhostRole
+    name: ghost-role-information-blob-name
+    description: ghost-role-information-blob-description
+    rules: You are an antagonist, destroy the station!
+    reregister: false
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseBlob
   id: NormalBlobTile
   name: Normal Blob
   categories: [ HideSpawnMenu ]
