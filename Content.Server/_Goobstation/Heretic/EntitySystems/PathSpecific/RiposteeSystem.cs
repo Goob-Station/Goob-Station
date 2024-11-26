@@ -52,7 +52,6 @@ public sealed partial class RiposteeSystem : EntitySystem
             return;
 
         args.Cancelled = true;
-        args.PartMultiplier = 0f;
         if (HasComp<DamageableComponent>(args.Origin))
             _dmg.TryChangeDamage(args.Origin, args.Damage, true); // back to sender
 

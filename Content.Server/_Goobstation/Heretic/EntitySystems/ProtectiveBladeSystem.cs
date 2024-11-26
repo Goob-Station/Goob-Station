@@ -70,7 +70,6 @@ public sealed partial class ProtectiveBladeSystem : EntitySystem
         RemoveProtectiveBlade(blade);
 
         args.Cancelled = true;
-        args.PartMultiplier = 0f;
     }
 
     private void OnInteract(Entity<ProtectiveBladeComponent> ent, ref InteractHandEvent args)
