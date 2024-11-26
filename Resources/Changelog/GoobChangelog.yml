@@ -2361,3 +2361,45 @@ Entries:
       message: AI is now ion-stormable.
   id: 276
   time: '2024-11-26T14:03:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Flashbangs now stun and knockdown people. Wear over-ear headset or
+        combat hardsuit helmet to reduce flashbang effective range.
+    - type: Add
+      message: All sec and command members received over-ear headsets.
+    - type: Add
+      message: Energy bola was added for security.
+    - type: Add
+      message: Flashbangs and e-bolas now printable on secfab.
+    - type: Add
+      message: Epinephrine autoinjector was added for security.
+    - type: Tweak
+      message: Epinephrine now speeds up by 10%.
+    - type: Add
+      message: >-
+        Jackboots, combat and mercenary boots now reduce all stun and knockdown
+        times by 20%.
+    - type: Add
+      message: Combat hardsuit helmets now protect from flashes.
+    - type: Add
+      message: Security survival box now contains extended emergency tank.
+    - type: Tweak
+      message: Tear gas is now stronger.
+    - type: Add
+      message: >-
+        Wearing security, ert, syndie or deathsquad gas mask blocks smoke
+        inhalation even if internals are off.
+    - type: Tweak
+      message: Disabler bolts now pierce through glass but deal no heat damage.
+    - type: Tweak
+      message: Stamcrit stun time is once again 6 seconds.
+    - type: Tweak
+      message: Security hardsuits now have heat resistance.
+    - type: Tweak
+      message: Sec belt and webbing now have 50% explosion resistance to contents.
+    - type: Fix
+      message: Now you won't get stunned no matter what after baton knockdown.
+  id: 277
+  time: '2024-11-26T14:30:49.0000000+00:00'
