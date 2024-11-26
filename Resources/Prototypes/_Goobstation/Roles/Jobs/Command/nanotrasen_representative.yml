@@ -24,7 +24,7 @@
   - Maintenance
   - Engineering
   - Medical
-  - Research  
+  - Research
   - Command
   - NanotrasenRepresentative
   special:
@@ -38,7 +38,7 @@
   id: NanotrasenRepresentativeGear
   equipment:
     id: CentcomPDA
-    ears: ClothingHeadsetCentCom
+    ears: ClothingHeadsetAltCentCom
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
