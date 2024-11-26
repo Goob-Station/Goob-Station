@@ -2,7 +2,7 @@
   id: MachineOverload
   name: modulemenu-destructive-overload-name
   description: modulemenu-destructive-overload-desc
-  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: armblade }
+  icon: { sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi, state: machine_overload }
   productAction: MachineOverload
   cost:
     ControlPower: 15

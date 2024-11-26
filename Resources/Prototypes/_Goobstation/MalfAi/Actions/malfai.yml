@@ -13,23 +13,6 @@
       state: module_menu
     event: !type:OpenModuleMenuEvent {}
 
-- type: entity
-  id: CyborgHijack
-  name: Cyborg hijack
-  description: Overrides laws of the targetted cyborg, ordering them to follow your orders.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EntityTargetAction
-    whitelist:
-      components:
-      - BorgChassis
-    canTargetSelf: false
-    interactOnMiss: false
-    itemIconStyle: NoItem
-    icon:
-      sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
-      state: cyborg_hijack
-    event: !type:CyborgHijackEvent {}
 
 - type: entity
   id: ProgramOverride
