@@ -2433,3 +2433,9 @@ Entries:
       message: Fixed biosynthetic legs for real this time (lol)
   id: 279
   time: '2024-11-26T14:02:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end summary not showing up.
+  id: 280
+  time: '2024-11-26T18:24:49.0000000+00:00'
