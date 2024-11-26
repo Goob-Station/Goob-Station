@@ -2421,3 +2421,15 @@ Entries:
       message: Fixed keys spawning instead of vehicles, oopsie dasies.
   id: 278
   time: '2024-11-26T17:37:24.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: 'Fixed borg legs not letting you move properly. '
+    - type: Fix
+      message: Fixed medical cyborgs poisoning people.
+    - type: Fix
+      message: Fixed cybernetic legs being weak to stepping on glass
+    - type: Fix
+      message: Fixed biosynthetic legs for real this time (lol)
+  id: 279
+  time: '2024-11-26T14:02:25.0000000+00:00'
