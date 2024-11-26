@@ -2347,3 +2347,17 @@ Entries:
         is removed.
   id: 275
   time: '2024-11-26T13:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Borgs have a new law that makes them obey the AI.
+    - type: Tweak
+      message: The emag law now makes borgs obey any orders from the emagger.
+    - type: Tweak
+      message: >-
+        AI's default lawset is now NTDefault. This should make it more
+        station-oriented.
+    - type: Tweak
+      message: AI is now ion-stormable.
+  id: 276
+  time: '2024-11-26T14:03:38.0000000+00:00'
