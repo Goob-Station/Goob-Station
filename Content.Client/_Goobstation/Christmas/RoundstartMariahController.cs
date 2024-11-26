@@ -13,11 +13,11 @@ using Robust.Client.Audio;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
-using static Content.Client.Tips.TippyUI;
+using static Content.Client.Tips.MariahUI;
 
 namespace Content.Client.Tips;
 
-public sealed class TippyUIController : UIController
+public sealed class MariahController : UIController
 {
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceCache _resCache = default!;
@@ -29,17 +29,17 @@ public sealed class TippyUIController : UIController
     private EntityUid _entity;
     private float _secondsUntilNextState;
     private int _previousStep = 0;
-    private TippyEvent? _currentMessage;
-    private readonly Queue<TippyEvent> _queuedMessages = new();
+    private MariahEvent? _currentMessage;
+    private readonly Queue<MariahEvent> _queuedMessages = new();
 
     public override void Initialize()
     {
         base.Initialize();
         UIManager.OnScreenChanged += OnScreenChanged;
-        SubscribeNetworkEvent<TippyEvent>(OnTippyEvent);
+        SubscribeNetworkEvent<MariahEvent>(OnMariahEvent);
     }
 
-    private void OnTippyEvent(TippyEvent msg, EntitySessionEventArgs args)
+    private void OnMariahEvent(MariahEvent msg, EntitySessionEventArgs args)
     {
         _queuedMessages.Enqueue(msg);
     }
@@ -55,30 +55,30 @@ public sealed class TippyUIController : UIController
             return;
         }
 
-        var tippy = screen.GetOrAddWidget<TippyUI>();
+        var mariah = screen.GetOrAddWidget<MariahUI>();
         _secondsUntilNextState -= args.DeltaSeconds;
 
         if (_secondsUntilNextState <= 0)
-            NextState(tippy);
+            NextState(mariah);
         else
         {
-            var pos = UpdatePosition(tippy, screen.Size, args); ;
-            LayoutContainer.SetPosition(tippy, pos);
+            var pos = UpdatePosition(mariah, screen.Size, args); ;
+            LayoutContainer.SetPosition(mariah, pos);
         }
     }
 
-    private Vector2 UpdatePosition(TippyUI tippy, Vector2 screenSize, FrameEventArgs args)
+    private Vector2 UpdatePosition(MariahUI mariah, Vector2 screenSize, FrameEventArgs args)
     {
         if (_currentMessage == null)
             return default;
 
         var slideTime = _currentMessage.SlideTime;
 
-        var offset = tippy.State switch
+        var offset = mariah.State switch
         {
-            TippyState.Hidden => 0,
-            TippyState.Revealing => Math.Clamp(1 - _secondsUntilNextState / slideTime, 0, 1),
-            TippyState.Hiding => Math.Clamp(_secondsUntilNextState / slideTime, 0, 1),
+            MariahState.Hidden => 0,
+            MariahState.Revealing => Math.Clamp(1 - _secondsUntilNextState / slideTime, 0, 1),
+            MariahState.Hiding => Math.Clamp(_secondsUntilNextState / slideTime, 0, 1),
             _ => 1,
         };
 
@@ -86,16 +86,16 @@ public sealed class TippyUIController : UIController
 
         if (_currentMessage == null
             || waddle <= 0
-            || tippy.State == TippyState.Hidden
-            || tippy.State == TippyState.Speaking
+            || mariah.State == MariahState.Hidden
+            || mariah.State == MariahState.Speaking
             || !EntityManager.TryGetComponent(_entity, out SpriteComponent? sprite))
         {
-            return new Vector2(screenSize.X - offset * (tippy.DesiredSize.X + Padding), (screenSize.Y - tippy.DesiredSize.Y) / 2);
+            return new Vector2(screenSize.X - offset * (mariah.DesiredSize.X + Padding), (screenSize.Y - mariah.DesiredSize.Y) / 2);
         }
 
         var numSteps = (int) Math.Ceiling(slideTime / waddle);
         var curStep = (int) Math.Floor(numSteps * offset);
-        var stepSize = (tippy.DesiredSize.X + Padding) / numSteps;
+        var stepSize = (mariah.DesiredSize.X + Padding) / numSteps;
 
         if (curStep != _previousStep)
         {
@@ -113,27 +113,27 @@ public sealed class TippyUIController : UIController
             }
         }
 
-        return new Vector2(screenSize.X - stepSize * curStep, (screenSize.Y - tippy.DesiredSize.Y) / 2);
+        return new Vector2(screenSize.X - stepSize * curStep, (screenSize.Y - mariah.DesiredSize.Y) / 2);
     }
 
-    private void NextState(TippyUI tippy)
+    private void NextState(MariahUI mariah)
     {
         SpriteComponent? sprite;
-        switch (tippy.State)
+        switch (mariah.State)
         {
-            case TippyState.Hidden:
+            case MariahState.Hidden:
                 if (!_queuedMessages.TryDequeue(out var next))
                     return;
 
                 if (next.Proto != null)
                 {
                     _entity = EntityManager.SpawnEntity(next.Proto, MapCoordinates.Nullspace);
-                    tippy.ModifyLayers = false;
+                    mariah.ModifyLayers = false;
                 }
                 else
                 {
-                    _entity = EntityManager.SpawnEntity("Mariah", MapCoordinates.Nullspace);
-                    tippy.ModifyLayers = true;
+                    _entity = EntityManager.SpawnEntity(_cfg.GetCVar(CCVars.MariahEntity), MapCoordinates.Nullspace);
+                    mariah.ModifyLayers = true;
                 }
                 if (!EntityManager.TryGetComponent(_entity, out sprite))
                     return;
@@ -145,10 +145,10 @@ public sealed class TippyUIController : UIController
                     paper.BackgroundModulate = new(255, 255, 204);
                     paper.FontAccentColor = new(0, 0, 0);
                 }
-                tippy.InitLabel(EntityManager.GetComponentOrNull<PaperVisualsComponent>(_entity), _resCache);
+                mariah.InitLabel(EntityManager.GetComponentOrNull<PaperVisualsComponent>(_entity), _resCache);
 
                 var scale = sprite.Scale;
-                if (tippy.ModifyLayers)
+                if (mariah.ModifyLayers)
                 {
                     sprite.Scale = Vector2.One;
                 }
@@ -156,14 +156,14 @@ public sealed class TippyUIController : UIController
                 {
                     sprite.Scale = new Vector2(3, 3);
                 }
-                tippy.Entity.SetEntity(_entity);
-                tippy.Entity.Scale = scale;
+                mariah.Entity.SetEntity(_entity);
+                mariah.Entity.Scale = scale;
 
                 _currentMessage = next;
                 _secondsUntilNextState = next.SlideTime;
-                tippy.State = TippyState.Revealing;
+                mariah.State = MariahState.Revealing;
                 _previousStep = 0;
-                if (tippy.ModifyLayers)
+                if (mariah.ModifyLayers)
                 {
                     sprite.LayerSetAnimationTime("revealing", 0);
                     sprite.LayerSetVisible("revealing", true);
@@ -171,47 +171,47 @@ public sealed class TippyUIController : UIController
                     sprite.LayerSetVisible("hiding", false);
                 }
                 sprite.Rotation = 0;
-                tippy.Label.SetMarkupPermissive(_currentMessage.Msg);
-                tippy.Label.Visible = false;
-                tippy.LabelPanel.Visible = false;
-                tippy.Visible = true;
+                mariah.Label.SetMarkupPermissive(_currentMessage.Msg);
+                mariah.Label.Visible = false;
+                mariah.LabelPanel.Visible = false;
+                mariah.Visible = true;
                 sprite.Visible = true;
                 break;
 
-            case TippyState.Revealing:
-                tippy.State = TippyState.Speaking;
+            case MariahState.Revealing:
+                mariah.State = MariahState.Speaking;
                 if (!EntityManager.TryGetComponent(_entity, out sprite))
                     return;
                 sprite.Rotation = 0;
                 _previousStep = 0;
-                if (tippy.ModifyLayers)
+                if (mariah.ModifyLayers)
                 {
                     sprite.LayerSetAnimationTime("speaking", 0);
                     sprite.LayerSetVisible("revealing", false);
                     sprite.LayerSetVisible("speaking", true);
                     sprite.LayerSetVisible("hiding", false);
                 }
-                tippy.Label.Visible = true;
-                tippy.LabelPanel.Visible = true;
-                tippy.InvalidateArrange();
-                tippy.InvalidateMeasure();
+                mariah.Label.Visible = true;
+                mariah.LabelPanel.Visible = true;
+                mariah.InvalidateArrange();
+                mariah.InvalidateMeasure();
                 if (_currentMessage != null)
                     _secondsUntilNextState = _currentMessage.SpeakTime;
 
                 break;
 
-            case TippyState.Speaking:
-                tippy.State = TippyState.Hiding;
+            case MariahState.Speaking:
+                mariah.State = MariahState.Hiding;
                 if (!EntityManager.TryGetComponent(_entity, out sprite))
                     return;
-                if (tippy.ModifyLayers)
+                if (mariah.ModifyLayers)
                 {
                     sprite.LayerSetAnimationTime("hiding", 0);
                     sprite.LayerSetVisible("revealing", false);
                     sprite.LayerSetVisible("speaking", false);
                     sprite.LayerSetVisible("hiding", true);
                 }
-                tippy.LabelPanel.Visible = false;
+                mariah.LabelPanel.Visible = false;
                 if (_currentMessage != null)
                     _secondsUntilNextState = _currentMessage.SlideTime;
                 break;
@@ -220,17 +220,17 @@ public sealed class TippyUIController : UIController
 
                 EntityManager.DeleteEntity(_entity);
                 _entity = default;
-                tippy.Visible = false;
+                mariah.Visible = false;
                 _currentMessage = null;
                 _secondsUntilNextState = 0;
-                tippy.State = TippyState.Hidden;
+                mariah.State = MariahState.Hidden;
                 break;
         }
     }
 
     private void OnScreenChanged((UIScreen? Old, UIScreen? New) ev)
     {
-        ev.Old?.RemoveWidget<TippyUI>();
+        ev.Old?.RemoveWidget<MariahUI>();
         _currentMessage = null;
         EntityManager.DeleteEntity(_entity);
     }
