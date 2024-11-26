@@ -7,6 +7,7 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: NanoTrasen
@@ -16,6 +17,8 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Mouse
@@ -42,6 +45,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: SimpleNeutral
@@ -54,6 +58,8 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Xeno
@@ -64,6 +70,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Zombie
@@ -75,6 +82,8 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
 
 - type: npcFaction
   id: Revolutionary

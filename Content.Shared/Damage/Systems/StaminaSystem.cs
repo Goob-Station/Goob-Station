@@ -417,7 +417,11 @@ public sealed partial class StaminaSystem : EntitySystem
         _adminLogger.Add(LogType.Stamina, LogImpact.Medium, $"{ToPrettyString(uid):user} entered stamina crit");
     }
 
-    private void ExitStamCrit(EntityUid uid, StaminaComponent? component = null)
+    // goob edit - made it public.
+    // in any case it requires a stamina component that can be freely modified.
+    // so it doesn't really matter if it's public or private. besides, very convenient.
+    // regards
+    public void ExitStamCrit(EntityUid uid, StaminaComponent? component = null)
     {
         if (!Resolve(uid, ref component) ||
             !component.Critical)
