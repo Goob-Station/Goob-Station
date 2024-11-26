@@ -53,7 +53,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 0.5
+    delay: 300 # Prevent people from abusing it by printing a ton of cartridges and injecting constantly
   - type: SolutionCartridgeReceiver
     tag: CartridgeEpinephrine
 
