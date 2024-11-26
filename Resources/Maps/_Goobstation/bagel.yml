@@ -11015,7 +11015,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -14451.67
+      secondsUntilStateChange: -14567.541
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -134000,6 +134000,11 @@ entities:
     - type: Transform
       pos: -40.5,-15.5
       parent: 60
+  - uid: 24886
+    components:
+    - type: Transform
+      pos: -25.5,-20.5
+      parent: 60
 - proto: TableCarpet
   entities:
   - uid: 29
@@ -136438,6 +136443,25 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-25.5
+      parent: 60
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 24889
+    components:
+    - type: Transform
+      pos: -5.7085247,-28.634499
+      parent: 60
+- proto: VehicleKeySecway
+  entities:
+  - uid: 24887
+    components:
+    - type: Transform
+      pos: -25.374859,-20.358868
+      parent: 60
+  - uid: 24888
+    components:
+    - type: Transform
+      pos: -25.593609,-20.494379
       parent: 60
 - proto: VendingBarDrobe
   entities:
