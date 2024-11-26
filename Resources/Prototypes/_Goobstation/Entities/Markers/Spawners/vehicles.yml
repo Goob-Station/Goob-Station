@@ -11,6 +11,7 @@
   - type: ConditionalSpawner
     prototypes:
       - VehicleSecway
+      - VehicleKeySecway
 
 - type: entity
   name: ATV Spawner
@@ -25,7 +26,8 @@
   - type: ConditionalSpawner
     prototypes:
       - VehicleATV
-      
+      - VehicleKeyATV
+
 - type: entity
   name: Janicart Spawner
   id: SpawnVehicleJanicart
@@ -39,3 +41,4 @@
   - type: ConditionalSpawner
     prototypes:
       - VehicleJanicart
+      - VehicleKeyJanicart
