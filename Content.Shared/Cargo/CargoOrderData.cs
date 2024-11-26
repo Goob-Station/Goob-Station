@@ -68,6 +68,7 @@ namespace Content.Shared.Cargo
             OrderQuantity = amount;
             Requester = requester;
             Reason = reason;
+            // # GoobStation - cooldown on Cargo Orders (specifically gamba)
             Cooldown = cooldown;
         }
 
