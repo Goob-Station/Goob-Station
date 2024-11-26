@@ -1,0 +1,36 @@
+# actions
+- type: entity
+  id: ActionHereticRealignment
+  name: Realignment
+  description: Recover from all stuns and knockdowns, gaining short term pacifism.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    checkConsciousness: false
+    useDelay: 10
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: realignment
+    event: !type:EventHereticRealignment
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-realignment
+
+- type: entity
+  id: ActionHereticFuriousSteel
+  name: Furious steel
+  description: Summon three orbiting protecting blades around you.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 30
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Heretic/abilities_heretic.rsi
+      state: furious_steel
+    event: !type:EventHereticFuriousSteel
+  - type: HereticAction
+    requireMagicItem: true
+    messageLoc: heretic-speech-blade-furioussteel

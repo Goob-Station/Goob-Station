@@ -125,13 +125,16 @@ public abstract partial class SharedSurgerySystem
 
         //if (!HasComp<ForcedSleepingComponent>(args.Body))
         //    //RaiseLocalEvent(args.Body, new MoodEffectEvent("SurgeryPain"));
-            // No mood on Goob :(
+        // No mood on Goob :(
         if (!_inventory.TryGetSlotEntity(args.User, "gloves", out var _)
-        || !_inventory.TryGetSlotEntity(args.User, "mask", out var _))
+            || !_inventory.TryGetSlotEntity(args.User, "mask", out var _))
         {
-            var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
-            var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
-            RaiseLocalEvent(args.Body, ref ev);
+            if (!HasComp<SanitizedComponent>(args.User))
+            {
+                var sepsis = new DamageSpecifier(_prototypes.Index<DamageTypePrototype>("Poison"), 5);
+                var ev = new SurgeryStepDamageEvent(args.User, args.Body, args.Part, args.Surgery, sepsis, 0.5f);
+                RaiseLocalEvent(args.Body, ref ev);
+            }
         }
     }
 
@@ -606,19 +609,28 @@ public abstract partial class SharedSurgerySystem
     private void OnSurgeryTargetStepChosen(Entity<SurgeryTargetComponent> ent, ref SurgeryStepChosenBuiMsg args)
     {
         var user = args.Actor;
-        if (GetEntity(args.Entity) is not { Valid: true } body ||
-            GetEntity(args.Part) is not { Valid: true } targetPart ||
-            !IsSurgeryValid(body, targetPart, args.Surgery, args.Step, user, out var surgery, out var part, out var step))
+        if (GetEntity(args.Entity) is {} body &&
+            GetEntity(args.Part) is {} targetPart)
         {
-            return;
+            TryDoSurgeryStep(body, targetPart, user, args.Surgery, args.Step);
         }
+    }
 
-        if (!PreviousStepsComplete(body, part, surgery, args.Step) ||
-            IsStepComplete(body, part, args.Step, surgery))
-            return;
+    /// <summary>
+    /// Do a surgery step on a part, if it can be done.
+    /// Returns true if it succeeded.
+    /// </summary>
+    public bool TryDoSurgeryStep(EntityUid body, EntityUid targetPart, EntityUid user, EntProtoId surgeryId, EntProtoId stepId)
+    {
+        if (!IsSurgeryValid(body, targetPart, surgeryId, stepId, user, out var surgery, out var part, out var step))
+            return false;
+
+        if (!PreviousStepsComplete(body, part, surgery, stepId) ||
+            IsStepComplete(body, part, stepId, surgery))
+            return false;
 
         if (!CanPerformStep(user, body, part, step, true, out _, out _, out var validTools))
-            return;
+            return false;
 
         var speed = 1f;
         var usedEv = new SurgeryToolUsedEvent(user, body);
@@ -629,7 +641,7 @@ public abstract partial class SharedSurgerySystem
             {
                 RaiseLocalEvent(tool, ref usedEv);
                 if (usedEv.Cancelled)
-                    return;
+                    return false;
 
                 speed *= toolSpeed;
             }
@@ -650,7 +662,7 @@ public abstract partial class SharedSurgerySystem
         if (TryComp(body, out TransformComponent? xform))
             _rotateToFace.TryFaceCoordinates(user, _transform.GetMapCoordinates(body, xform).Position);
 
-        var ev = new SurgeryDoAfterEvent(args.Surgery, args.Step);
+        var ev = new SurgeryDoAfterEvent(surgeryId, stepId);
         // TODO: Move 2 seconds to a field of SurgeryStepComponent
         var duration = GetSurgeryDuration(step, user, body, speed);
 
@@ -668,21 +680,22 @@ public abstract partial class SharedSurgerySystem
             BreakOnHandChange = true,
         };
 
-        if (_doAfter.TryStartDoAfter(doAfter))
-        {
-            var userName = Identity.Entity(user, EntityManager);
-            var targetName = Identity.Entity(ent.Owner, EntityManager);
+        if (!_doAfter.TryStartDoAfter(doAfter))
+            return false;
 
-            var locName = $"surgery-popup-procedure-{args.Surgery}-step-{args.Step}";
-            var locResult = Loc.GetString(locName,
+        var userName = Identity.Entity(user, EntityManager);
+        var targetName = Identity.Entity(body, EntityManager);
+
+        var locName = $"surgery-popup-procedure-{surgeryId}-step-{stepId}";
+        var locResult = Loc.GetString(locName,
+            ("user", userName), ("target", targetName), ("part", part));
+
+        if (locResult == locName)
+            locResult = Loc.GetString($"surgery-popup-step-{stepId}",
                 ("user", userName), ("target", targetName), ("part", part));
 
-            if (locResult == locName)
-                locResult = Loc.GetString($"surgery-popup-step-{args.Step}",
-                    ("user", userName), ("target", targetName), ("part", part));
-
-            _popup.PopupEntity(locResult, user);
-        }
+        _popup.PopupEntity(locResult, user);
+        return true;
     }
 
     private float GetSurgeryDuration(EntityUid surgeryStep, EntityUid user, EntityUid target, float toolSpeed)

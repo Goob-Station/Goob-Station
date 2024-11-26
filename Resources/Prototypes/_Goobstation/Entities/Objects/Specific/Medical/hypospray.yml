@@ -25,3 +25,56 @@
           Quantity: 10
   - type: Tag
     tags: []
+
+- type: entity
+  name: epinephrine autoinjector
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: Used for rapid administration of epinephrine to wounded people. Epinephrine negates damage slowdown, reduces stuns, speeds up lightly and heals slightly while in critical state. Uses cartridges to recharge printable on security techfab.
+  id: SecHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/security_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/security_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: UseDelay
+    delay: 300 # Prevent people from abusing it by printing a ton of cartridges and injecting constantly
+  - type: SolutionCartridgeReceiver
+    tag: CartridgeEpinephrine
+
+- type: entity
+  name: epinephrine autoinjector cartridge
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: Contains 10u of epinephrine, used in an epinephrine autoinjector.
+  id: CartridgeEpinephrine
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: icon
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Epinephrine
+        Quantity: 10
+  - type: Tag
+    tags:
+      - CartridgeEpinephrine
