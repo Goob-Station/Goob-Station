@@ -23,3 +23,15 @@ ent-ReflectiveBlobTile = Blob Reflective Tiles
     .desc = It reflects lasers, but does not protect against mechanical damage as well.
     .desc = { "" }
 objective-issuer-blob = Blob
+
+
+ghost-role-information-blobbernaut-name = Blobbernaut
+ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend blob core.
+
+ghost-role-information-blob-name = Blob
+ghost-role-information-blob-description = You are a Blob. You must consume the station.
+
+roles-antag-blob-name = Blob
+roles-antag-blob-objective = Take over the station.
+
+guide-entry-blob = Blob

@@ -15,7 +15,6 @@ blob-mob-attack-blob = You can not attack a blob.
 blob-get-resource = +{ $point }
 blob-spent-resource = -{ $point }
 blobberaut-not-on-blob-tile = You are dying while not on blob tiles.
-blobberaut-factory-destroy = You are dying because your factory blob was destroyed.
 carrier-blob-alert = You have { $second } seconds left before transformation.
 
 blob-mob-zombify-second-start = { $pod } starts turning you into a zombie.
