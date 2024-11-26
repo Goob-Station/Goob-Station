@@ -17,7 +17,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-using Content.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -39,8 +38,6 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly RottingSystem _rot = default!;
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
 
-    private readonly List<EntProtoId> _surgeries = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -53,14 +50,12 @@ public sealed class SurgerySystem : SharedSurgerySystem
         SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgeryDamageChange);
         SubscribeLocalEvent<SurgeryStepEmoteEffectComponent, SurgeryStepEvent>(OnStepScreamComplete);
         SubscribeLocalEvent<SurgeryStepSpawnEffectComponent, SurgeryStepEvent>(OnStepSpawnComplete);
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-        LoadPrototypes();
     }
 
     protected override void RefreshUI(EntityUid body)
     {
         var surgeries = new Dictionary<NetEntity, List<EntProtoId>>();
-        foreach (var surgery in _surgeries)
+        foreach (var surgery in AllSurgeries)
         {
             if (GetSingleton(surgery) is not { } surgeryEnt)
                 continue;
@@ -159,20 +154,4 @@ public sealed class SurgerySystem : SharedSurgerySystem
     }
     private void OnStepSpawnComplete(Entity<SurgeryStepSpawnEffectComponent> ent, ref SurgeryStepEvent args) =>
         SpawnAtPosition(ent.Comp.Entity, Transform(args.Body).Coordinates);
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<EntityPrototype>())
-            return;
-
-        LoadPrototypes();
-    }
-
-    private void LoadPrototypes()
-    {
-        _surgeries.Clear();
-        foreach (var entity in _prototypes.EnumeratePrototypes<EntityPrototype>())
-            if (entity.HasComponent<SurgeryComponent>())
-                _surgeries.Add(new EntProtoId(entity.ID));
-    }
 }
