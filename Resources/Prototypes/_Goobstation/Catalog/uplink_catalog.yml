@@ -92,6 +92,21 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkBowHardlight
+  name: uplink-hardlight-bow-name
+  description: uplink-hardlight-bow-desc
+  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+  productEntity: BowHardlight
+  cost:
+    Telecrystal: 80
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 # Wearables
 

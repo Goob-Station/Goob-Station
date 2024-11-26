@@ -1,0 +1,190 @@
+- type: entity
+  id: BaseHardlightArrow
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/arrow.rsi
+    state: icon
+    shader: unshaded
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Ammo
+    muzzleFlash: null
+  - type: Projectile
+    deleteOnCollide: false
+    onlyCollideWhenShot: true
+    damage:
+      types:
+        Heat: 30
+  - type: TimedDespawn
+    lifetime: 10
+  - type: PointLight
+    color: white
+    radius: 1.5
+    energy: 1.5
+
+- type: entity
+  id: BaseHardlightEmbeddableArrow
+  parent: BaseItem
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+    deleteOnRemove: true
+  - type: ThrowingAngle
+    angle: 0
+  - type: ProjectileIgnoreTransparent
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowEnergy
+  name: energy arrow
+  description: An arrow made from hardlight.
+  components:
+  - type: Sprite
+    color: "#FFB200"
+  - type: PointLight
+    color: "#FFB200"
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowDisabler
+  name: disabler arrow
+  description: An arrow made from hardlight. This one stuns the victim in a non-lethal way.
+  components:
+  - type: Sprite
+    color: "#00B2FF"
+  - type: PointLight
+    color: "#00B2FF"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: StaminaDamageOnCollide
+    damage: 60
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowFiery
+  name: fiery arrow
+  description: An arrow made from hardlight. This one burns the victim.
+  components:
+  - type: Sprite
+    color: red
+  - type: PointLight
+    color: red
+  - type: Projectile
+    damage:
+      types:
+        Heat: 15
+  - type: IgniteOnCollide
+    fireStacks: 1.5
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowFreeze
+  name: freezing arrow
+  description: An arrow made from hardlight. This one freezes the victim.
+  components:
+  - type: Sprite
+    color: blue
+  - type: PointLight
+    color: blue
+  - type: Projectile
+    damage:
+      types:
+        Cold: 20
+  - type: ChangeTemperatureOnCollide
+    heat: -70000
+
+- type: entity
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
+  id: ArrowExplosive
+  name: explosive arrow
+  description: An arrow made from hardlight. This one explodes on hit.
+  components:
+  - type: Sprite
+    color: "#7300FF"
+  - type: PointLight
+    color: "#7300FF"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: TriggerOnCollide
+    fixtureID: projectile
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    totalIntensity: 12
+    intensitySlope: 0.4
+    maxIntensity: 4
+    canCreateVacuum: false
+
+- type: entity
+  parent: BaseHardlightArrow
+  id: ArrowXray
+  name: x-ray arrow
+  description: An arrow made from hardlight. This one pierces through everything.
+  components:
+  - type: Sprite
+    color: "#1AE51A"
+  - type: PointLight
+    color: "#1AE51A"
+  - type: Projectile
+    penetrate: true
+    damage:
+      types:
+        Heat: 24
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: TimedDespawn
+    lifetime: 2
+
+- type: entity
+  parent: BaseHardlightArrow
+  id: ArrowBee
+  name: bee arrow
+  description: An arrow made from hardlight. This one summons angry bees.
+  components:
+  - type: Sprite
+    color: yellow
+  - type: PointLight
+    color: yellow
+  - type: Projectile
+    deleteOnCollide: true
+    damage:
+      types:
+        Heat: 0
+  - type: SpawnEntitiesOnHit
+    proto: MobAngryBeeWeak
+    amount: 4
