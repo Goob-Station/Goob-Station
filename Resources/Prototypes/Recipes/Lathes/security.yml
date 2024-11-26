@@ -676,3 +676,17 @@
     Plastic: 1000
     Plasma: 500
     Glass: 500
+
+# Shitmed Recipes
+
+- type: latheRecipe
+  id: SecurityCyberneticEyes
+  result: SecurityCyberneticEyes
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Gold: 300
+    Silver: 300

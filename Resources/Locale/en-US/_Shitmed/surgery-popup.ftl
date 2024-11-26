@@ -50,3 +50,4 @@ surgery-popup-step-SurgeryStepInsertHeart = {$user} is inserting a heart into {$
 surgery-popup-step-SurgeryStepInsertStomach = {$user} is inserting a stomach into {$target}'s {$part}!
 
 surgery-popup-step-SurgeryStepSealOrganWound = {$user} is sealing the wounds on {$target}'s {$part}.
+surgery-popup-step-SurgeryStepLobotomize = {$user} is drilling a hole into {$target}'s {$part}.

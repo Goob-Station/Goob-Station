@@ -13124,7 +13124,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -435694.5
+      secondsUntilStateChange: -435852.66
       state: Opening
   - uid: 309
     components:
@@ -13554,7 +13554,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -551862.06
+      secondsUntilStateChange: -552020.25
       state: Opening
   - uid: 376
     components:
@@ -15184,8 +15184,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 57.5,11.5
       parent: 2
-    - type: Apc
-      hasAccess: True
   - uid: 571
     components:
     - type: Transform
@@ -76925,6 +76923,13 @@ entities:
         - 0
         - 0
         - 0
+- proto: CrateFunATV
+  entities:
+  - uid: 28698
+    components:
+    - type: Transform
+      pos: -55.5,-9.5
+      parent: 2
 - proto: CrateGenericSteel
   entities:
   - uid: 8116
@@ -135441,20 +135446,15 @@ entities:
     - type: Transform
       pos: 36.5,-10.5
       parent: 2
-  - uid: 15504
-    components:
-    - type: Transform
-      pos: 44.5,-31.5
-      parent: 2
-  - uid: 15505
-    components:
-    - type: Transform
-      pos: 44.5,-32.5
-      parent: 2
   - uid: 15506
     components:
     - type: Transform
-      pos: 44.5,-33.5
+      pos: 42.5,-28.5
+      parent: 2
+  - uid: 15972
+    components:
+    - type: Transform
+      pos: 42.5,-27.5
       parent: 2
   - uid: 27583
     components:
@@ -135466,6 +135466,16 @@ entities:
     - type: Transform
       pos: 2.5,2.5
       parent: 22429
+  - uid: 28696
+    components:
+    - type: Transform
+      pos: 42.5,-24.5
+      parent: 2
+  - uid: 28697
+    components:
+    - type: Transform
+      pos: 42.5,-25.5
+      parent: 2
 - proto: LockerFreezer
   entities:
   - uid: 15507
@@ -155564,6 +155574,33 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-3.5
+      parent: 2
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 28699
+    components:
+    - type: Transform
+      pos: 21.5,-2.5
+      parent: 2
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 15427
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,-33.5
+      parent: 2
+  - uid: 15504
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,-32.5
+      parent: 2
+  - uid: 15505
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 44.5,-31.5
       parent: 2
 - proto: SprayBottleSpaceCleaner
   entities:
@@ -182581,7 +182618,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -329993.75
+      secondsUntilStateChange: -330151.9
       state: Opening
 - proto: WoodenBench
   entities:

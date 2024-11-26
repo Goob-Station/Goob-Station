@@ -27,7 +27,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Timing;
-
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -412,6 +411,26 @@ public partial class SharedBodySystem
         }
         _audioSystem.PlayPredicted(gibSoundOverride, Transform(partId).Coordinates, null);
         return gibs;
+    }
+
+    public virtual bool BurnPart(EntityUid partId,
+        BodyPartComponent? part = null)
+    {
+        if (!Resolve(partId, ref part, logMissing: false))
+            return false;
+
+        if (part.Body is { } bodyEnt)
+        {
+            if (IsPartRoot(bodyEnt, partId, part: part))
+                return false;
+
+            ChangeSlotState((partId, part), true);
+            RemovePartChildren((partId, part), bodyEnt);
+            QueueDel(partId);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)
