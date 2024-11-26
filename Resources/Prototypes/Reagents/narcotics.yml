@@ -50,10 +50,6 @@
         type: Remove
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
-        component: StamcritResist
-        time: 5
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
     Medicine:
@@ -109,10 +105,6 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
-        component: StamcritResist
-        time: 5
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -180,10 +172,6 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
-        component: StamcritResist
-        time: 5
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -428,7 +416,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 5
       - !type:Emote
         emote: Scream
         probability: 0.08
@@ -437,7 +425,7 @@
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 5
 
 - type: reagent
   id: Happiness
