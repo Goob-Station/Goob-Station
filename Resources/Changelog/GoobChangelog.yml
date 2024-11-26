@@ -2403,3 +2403,21 @@ Entries:
       message: Now you won't get stunned no matter what after baton knockdown.
   id: 277
   time: '2024-11-26T14:30:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Box, Core, Meta, Omega, and Packed now have vehicles.
+    - type: Add
+      message: >-
+        Most stations now have wheelchairs in Security and Medical in compliance
+        with Nanotrasen accessibility regulations. Not Barratry.
+    - type: Tweak
+      message: The Jukebox doesn't make your ears bleed anymore
+    - type: Tweak
+      message: >-
+        The Bar and Medical are now connected on Kettle, making it significantly
+        easier to get to Medical.
+    - type: Fix
+      message: Fixed keys spawning instead of vehicles, oopsie dasies.
+  id: 278
+  time: '2024-11-26T17:37:24.0000000+00:00'
