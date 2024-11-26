@@ -5,6 +5,8 @@
   - type: Sprite
     sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
     state: white
+    color: "#ffffff"
   - type: PointLight
     color: "#f9f375"
     radius: 2
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparkles.png
