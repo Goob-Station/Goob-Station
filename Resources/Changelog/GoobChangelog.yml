@@ -2317,3 +2317,17 @@ Entries:
         contents. Doesn't pierce armor.
   id: 272
   time: '2024-11-26T01:56:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added heretic blade path.
+    - type: Tweak
+      message: >-
+        Heretic abilities power scale with their path stage. Side knowledge
+        paths are weaker and do not scale.
+    - type: Tweak
+      message: Nerfed fire damage to not kill a fellow urist in 5 seconds.
+    - type: Fix
+      message: Heretics and changelings are now properly hunted by turrets.
+  id: 273
+  time: '2024-11-26T13:31:31.0000000+00:00'
