@@ -1,9 +1,11 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using Content.Shared._Shitmed.Body.Events; // Shitmed Change
 using Content.Client.DisplacementMap;
 using Content.Client.Examine;
 using Content.Client.Strip;
 using Content.Client.Verbs.UI;
+using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
@@ -51,6 +53,8 @@ namespace Content.Client.Hands.Systems
             SubscribeLocalEvent<HandsComponent, ComponentShutdown>(OnHandsShutdown);
             SubscribeLocalEvent<HandsComponent, ComponentHandleState>(HandleComponentState);
             SubscribeLocalEvent<HandsComponent, VisualsChangedEvent>(OnVisualsChanged);
+            SubscribeLocalEvent<HandsComponent, BodyPartRemovedEvent>(HandleBodyPartRemoved); // Shitmed Change
+            SubscribeLocalEvent<HandsComponent, BodyPartDisabledEvent>(HandleBodyPartDisabled); // Shitmed Change
 
             OnHandSetActive += OnHandActivated;
         }
@@ -130,9 +134,9 @@ namespace Content.Client.Hands.Systems
             OnPlayerHandsAdded?.Invoke(hands);
         }
 
-        public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null)
+        public override void DoDrop(EntityUid uid, Hand hand, bool doDropInteraction = true, HandsComponent? hands = null, bool log = true)
         {
-            base.DoDrop(uid, hand, doDropInteraction, hands);
+            base.DoDrop(uid, hand, doDropInteraction, hands, log);
 
             if (TryComp(hand.HeldEntity, out SpriteComponent? sprite))
                 sprite.RenderOrder = EntityManager.CurrentTick.Value;
@@ -239,6 +243,35 @@ namespace Content.Client.Hands.Systems
         }
 
         #region visuals
+
+        // Shitmed Change Start
+        private void HideLayers(EntityUid uid, HandsComponent component, Entity<BodyPartComponent> part, SpriteComponent? sprite = null)
+        {
+            if (part.Comp.PartType != BodyPartType.Hand || !Resolve(uid, ref sprite, logMissing: false))
+                return;
+
+            var location = part.Comp.Symmetry switch
+            {
+                BodyPartSymmetry.None => HandLocation.Middle,
+                BodyPartSymmetry.Left => HandLocation.Left,
+                BodyPartSymmetry.Right => HandLocation.Right,
+                _ => throw new ArgumentOutOfRangeException(nameof(part.Comp.Symmetry))
+            };
+
+            if (component.RevealedLayers.TryGetValue(location, out var revealedLayers))
+            {
+                foreach (var key in revealedLayers)
+                    sprite.RemoveLayer(key);
+
+                revealedLayers.Clear();
+            }
+        }
+
+        private void HandleBodyPartRemoved(EntityUid uid, HandsComponent component, ref BodyPartRemovedEvent args) => HideLayers(uid, component, args.Part);
+
+        private void HandleBodyPartDisabled(EntityUid uid, HandsComponent component, ref BodyPartDisabledEvent args) => HideLayers(uid, component, args.Part);
+
+        // Shitmed Change End
 
         protected override void HandleEntityInserted(EntityUid uid, HandsComponent hands, EntInsertedIntoContainerMessage args)
         {

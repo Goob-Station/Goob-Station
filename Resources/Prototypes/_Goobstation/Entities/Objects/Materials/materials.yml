@@ -24,10 +24,10 @@
   - type: PhysicalComposition
     materialComposition:
       BSCrystal: 100
-  - type: RandomTeleport
-    teleportRadius: 150
-    teleportAttempts: 1 # you're going to brazil
   - type: RandomTeleportOnUse
+    radius:
+      min: 2
+      max: 5
 
 - type: entity
   parent: MaterialBSCrystal

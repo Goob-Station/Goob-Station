@@ -656,6 +656,28 @@ namespace Content.Server.Database
                 player.LastSeenHWId?.ToImmutableArray());
         }
 
+        public async Task<int> GetServerCurrency(NetUserId userId) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            return await db.DbContext.Player
+                .Where(dbPlayer => dbPlayer.UserId == userId)
+                .Select(dbPlayer => dbPlayer.ServerCurrency)
+                .SingleOrDefaultAsync();
+        }
+
+        public async Task SetServerCurrency(NetUserId userId, int currency) // Goobstation
+        {
+            await using var db = await GetDb();
+
+            var dbPlayer = await db.DbContext.Player.Where(dbPlayer => dbPlayer.UserId == userId).SingleOrDefaultAsync();
+            if (dbPlayer == null)
+                return;
+
+            dbPlayer.ServerCurrency = currency;
+            await db.DbContext.SaveChangesAsync();
+        }
+
         #endregion
 
         #region Connection Logs
@@ -879,10 +901,41 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
 
         public async Task AddAdminLogs(List<AdminLog> logs)
         {
+            const int maxRetryAttempts = 5;
+            var initialRetryDelay = TimeSpan.FromSeconds(5);
+
             DebugTools.Assert(logs.All(x => x.RoundId > 0), "Adding logs with invalid round ids.");
-            await using var db = await GetDb();
-            db.DbContext.AdminLog.AddRange(logs);
-            await db.DbContext.SaveChangesAsync();
+
+            var attempt = 0;
+            var retryDelay = initialRetryDelay;
+
+            while (attempt < maxRetryAttempts)
+            {
+                try
+                {
+                    await using var db = await GetDb();
+                    db.DbContext.AdminLog.AddRange(logs);
+                    await db.DbContext.SaveChangesAsync();
+                    _opsLog.Debug($"Successfully saved {logs.Count} admin logs.");
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    attempt += 1;
+                    _opsLog.Error($"Attempt {attempt} failed to save logs: {ex}");
+
+                    if (attempt >= maxRetryAttempts)
+                    {
+                        _opsLog.Error($"Max retry attempts reached. Failed to save {logs.Count} admin logs.");
+                        return;
+                    }
+
+                    _opsLog.Warning($"Retrying in {retryDelay.TotalSeconds} seconds...");
+                    await Task.Delay(retryDelay);
+
+                    retryDelay *= 2;
+                }
+            }
         }
 
         protected abstract IQueryable<AdminLog> StartAdminLogsQuery(ServerDbContext db, LogFilter? filter = null);

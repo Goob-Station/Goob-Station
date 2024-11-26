@@ -1,11 +1,18 @@
 using System.Linq;
 using Content.Shared.FixedPoint;
-using Content.Shared.Heretic.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
+using Content.Shared.Heretic.Prototypes; // Goob
 
 namespace Content.Shared.Store;
+
+// IF SOMEONE IS LOOKING AT THIS,
+// AND CONSIDERING MERGING WIZDEN NEWSTORE HERE:
+// DO NOT.
+// I AM NOT RESPONSIBLE IF YOU DO.
+// I WILL NOT FIX YOUR BULLSHIT IF YOU BREAK EVERY SINGLE STORE BASED ANTAG EVER AGAIN.
+// regards. :heart:
 
 /// <summary>
 ///     This is the data object for a store listing which is passed around in code.
@@ -39,7 +46,9 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public List<ProtoId<StoreCategoryPrototype>> Categories = new();
 
     /// <summary>
-    /// The cost of the listing. String represents the currency type while the FixedPoint2 represents the amount of that currency.
+    /// The original cost of the listing. FixedPoint2 represents the amount of that currency.
+    /// This fields should not be used for getting actual cost of item, as there could be
+    /// cost modifiers (due to discounts or surplus). Use Cost property on derived class instead.
     /// </summary>
     [DataField]
     public Dictionary<ProtoId<CurrencyPrototype>, FixedPoint2> Cost = new();
@@ -118,11 +127,9 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public TimeSpan RestockTime = TimeSpan.Zero;
 
     // WD START
-    [DataField]
-    public int SaleLimit = 3;
+    [DataField] public int SaleLimit = 1;
 
-    [DataField]
-    public bool SaleBlacklist;
+    [DataField] public bool SaleBlacklist;
 
     public int DiscountValue;
 

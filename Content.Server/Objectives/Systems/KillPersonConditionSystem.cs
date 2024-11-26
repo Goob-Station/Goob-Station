@@ -1,11 +1,12 @@
 using Content.Server.GameTicking.Rules;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
+using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
+using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Configuration;
 using Robust.Shared.Random;
 
@@ -19,8 +20,8 @@ public sealed class KillPersonConditionSystem : EntitySystem
     [Dependency] private readonly EmergencyShuttleSystem _emergencyShuttle = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
+    [Dependency] private readonly SharedJobSystem _job = default!;
     [Dependency] private readonly TargetObjectiveSystem _target = default!;
     [Dependency] private readonly TraitorRuleSystem _traitor = default!;
 

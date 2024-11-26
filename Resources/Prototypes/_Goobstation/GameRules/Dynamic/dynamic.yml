@@ -4,13 +4,17 @@
 # - all the other major gamerules are cancelled out (roundstart)
 
 # add all roundstart antags here
-- type: dataset
+- type: dataset # Funky station unfucked dynamic
   id: DynamicRoundstartGamerules
   values:
-  - TraitorDynamic # traitors
+  - TraitorDynamicLow # traitors
+  - TraitorDynamicMedium
+  - TraitorDynamicHigh
   - ThiefDynamic # thieves (spy todo)
-  - ChangelingDynamic # changelings
-  - HereticDynamic # heretics
+  - ChangelingDynamicLow # changelings
+  - ChangelingDynamicHigh
+  - HereticDynamicLow # heretics
+  - HereticDynamicHigh
   - RevolutionDynamic # revs (M)
   - NukeopsDynamic # nukies (M)
   # cult todo (M)

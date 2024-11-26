@@ -7,6 +7,7 @@ using Content.Server.PDA.Ringer;
 using Content.Server.Roles;
 using Content.Server.Traitor.Uplink;
 using Content.Shared.Database;
+using Content.Shared.FixedPoint;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.NPC.Systems;
@@ -21,12 +22,8 @@ using System.Text;
 
 namespace Content.Server.GameTicking.Rules;
 
-/// <summary>
-///     Heavily edited.
-///     If you wanna upstream something think twice.
-///     Piras this is directed to you :trollface:
-///     regards.
-/// </summary>
+// goobstation - heavily edited.
+// do not touch unless you want to shoot yourself in the leg
 public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 {
     private static readonly Color TraitorCodewordColor = Color.FromHex("#cc3b3b");
@@ -58,6 +55,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
     private void AfterEntitySelected(Entity<TraitorRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
+        Log.Debug($"AfterAntagEntitySelected {ToPrettyString(ent)}");
         MakeTraitor(args.EntityUid, ent);
     }
 
@@ -81,7 +79,7 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         return codewords;
     }
 
-    public bool MakeTraitor(EntityUid traitor, TraitorRuleComponent component, bool giveUplink = true)
+    public bool MakeTraitor(EntityUid traitor, TraitorRuleComponent component)
     {
         //Grab the mind if it wasn't provided
         if (!_mindSystem.TryGetMind(traitor, out var mindId, out var mind))
@@ -92,13 +90,13 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         component.ObjectiveIssuer = issuer;
 
         Note[]? code = null;
-        if (giveUplink)
+
+        if (component.GiveUplink)
         {
             // Calculate the amount of currency on the uplink.
             var startingBalance = component.StartingBalance;
             if (_jobs.MindTryGetJob(mindId, out var prototype))
                 startingBalance = Math.Max(startingBalance - prototype.AntagAdvantage, 0);
-
             // creadth: we need to create uplink for the antag.
             // PDA should be in place already
             var pda = _uplink.FindUplinkTarget(traitor);
@@ -107,7 +105,6 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
 
             // Give traitors their codewords and uplink code to keep in their character info menu
             code = EnsureComp<RingerUplinkComponent>(pda.Value).Code;
-
             // If giveUplink is false the uplink code part is omitted
             briefing = string.Format("{0}\n{1}", briefing,
                 Loc.GetString("traitor-role-uplink-code-short", ("code", string.Join("-", code).Replace("sharp", "#"))));
@@ -125,7 +122,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
         if (traitorRole is not null)
         {
             AddComp<RoleBriefingComponent>(traitorRole.Value.Owner);
-            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = GenerateBriefingCharacter(component.Codewords, code, issuer);
+            Comp<RoleBriefingComponent>(traitorRole.Value.Owner).Briefing = briefing;
+            GenerateBriefingCharacter(component.Codewords, code, issuer);
         }
 
         // Send codewords to only the traitor client
@@ -144,7 +142,8 @@ public sealed class TraitorRuleSystem : GameRuleSystem<TraitorRuleComponent>
     // TODO: AntagCodewordsComponent
     private void OnObjectivesTextPrepend(EntityUid uid, TraitorRuleComponent comp, ref ObjectivesTextPrependEvent args)
     {
-        args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
+        if(comp.GiveCodewords)
+            args.Text += "\n" + Loc.GetString("traitor-round-end-codewords", ("codewords", string.Join(", ", comp.Codewords)));
     }
 
     // TODO: figure out how to handle this? add priority to briefing event?

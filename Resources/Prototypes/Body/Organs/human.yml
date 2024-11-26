@@ -44,6 +44,7 @@
   - type: Sprite
     state: brain
   - type: Organ
+    slotId: brain # Shitmed Change
   - type: Input
     context: "ghost"
   - type: Brain
@@ -79,12 +80,19 @@
         name: food-sequence-content-brain
       taco:
         name: food-sequence-content-brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
 - type: entity
   id: OrganHumanEyes
   parent: BaseHumanOrgan
   name: eyes
   description: "I see you!"
   components:
+  - type: Organ # Shitmed Change
+    slotId: eyes # Shitmed Change
+  - type: Eyes # Shitmed Change
   - type: Sprite
     layers:
       - state: eyeball-l
@@ -94,6 +102,9 @@
     - Meat
     - Organ
     - Eyes
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
 
 - type: entity
   id: OrganHumanTongue
@@ -146,6 +157,7 @@
         name: food-sequence-content-ears
       taco:
         name: food-sequence-content-ears
+  - type: Ears # Shitmed Change
 
 - type: entity
   id: OrganHumanLungs
@@ -153,10 +165,15 @@
   name: lungs
   description: "Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier."
   components:
+  - type: Organ # Shitmed Change
+    slotId: lungs # Shitmed Change
   - type: Sprite
     layers:
       - state: lung-l
       - state: lung-r
+  - type: Item
+    size: Small
+    heldPrefix: lungs
   - type: Lung
   - type: Metabolizer
     removeEmpty: true
@@ -192,6 +209,9 @@
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
   components:
+  - type: Heart # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: heart # Shitmed Change
   - type: Sprite
     state: heart-on
   # The heart 'metabolizes' medicines and poisons that aren't filtered out by other organs.
@@ -209,6 +229,9 @@
     - Meat
     - Organ
     - Heart
+  - type: Item
+    size: Small
+    heldPrefix: heart
 
 - type: entity
   id: OrganHumanStomach
@@ -216,8 +239,13 @@
   name: stomach
   description: "Gross. This is hard to stomach."
   components:
+  - type: Organ # Shitmed Change
+    slotId: stomach # Shitmed Change
   - type: Sprite
     state: stomach
+  - type: Item
+    size: Small
+    heldPrefix: stomach
   - type: SolutionContainerManager
     solutions:
       stomach:
@@ -259,8 +287,14 @@
   name: liver
   description: "Pairing suggestion: chianti and fava beans."
   components:
+  - type: Liver # Shitmed Change
+  - type: Organ # Shitmed Change
+    slotId: liver # Shitmed Change
   - type: Sprite
     state: liver
+  - type: Item
+    size: Small
+    heldPrefix: liver
   - type: Metabolizer # The liver metabolizes certain chemicals only, like alcohol.
     maxReagents: 1
     metabolizerTypes: [Human]
@@ -292,6 +326,9 @@
     layers:
       - state: kidney-l
       - state: kidney-r
+  - type: Item
+    size: Small
+    heldPrefix: kidneys
   # The kidneys just remove anything that doesn't currently have any metabolisms, as a stopgap.
   - type: Metabolizer
     maxReagents: 5
