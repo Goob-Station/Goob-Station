@@ -2339,3 +2339,11 @@ Entries:
       message: Bows are now automatically unwielded after firing.
   id: 274
   time: '2024-11-26T13:53:10.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        Secure Intercoms no longer destroy encryption keys when the secure panel
+        is removed.
+  id: 275
+  time: '2024-11-26T13:58:30.0000000+00:00'
