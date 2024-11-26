@@ -79,6 +79,9 @@
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false
+    angularDamping: 0
+    linearDamping: 0
+    canCollide: False
 
 - type: entity
   parent: BaseBullet
