@@ -30,17 +30,18 @@
   id: BlobMob
 
 - type: entity
-  name: blob mouse
+  name: cancer mouse
   description: Toxic. Squeak!
   parent: MobMouseCancer
   id: MobMouseCancerBlob
+  suffix: Blob
   components:
-  - type: BlobCarrier # backmen: blob
+  - type: BlobCarrier
 
 - type: entity
   id: SpawnPointGhostBlobRat
-  name: точка спавна мыши блоба
-  suffix: Блоб, роль призрак
+  name: Mouse Blob Spawn Point
+  suffix: Blob Ghost Role
   parent: BaseAntagSpawner
   components:
     - type: GhostRoleMobSpawner

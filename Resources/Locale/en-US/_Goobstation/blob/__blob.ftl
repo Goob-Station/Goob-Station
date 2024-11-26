@@ -26,6 +26,7 @@ blob-mob-zombify-third-end = { $pod } turns { $target } into a zombie.
 blobberaut-factory-destroy = factory destroy
 blob-target-already-connected = already connected
 
+
 # UI
 blob-chem-swap-ui-window-name = Swap chemicals
 blob-chem-reactivespines-info = Reactive Spines
