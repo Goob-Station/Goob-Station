@@ -7,5 +7,5 @@ public sealed partial class SilverMaelstromComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public float RespawnTimer = 0f;
 
     [ViewVariables(VVAccess.ReadOnly)] public int ActiveBlades = 0;
-    [DataField] public int MaxBlades = 6;
+    [DataField] public int MaxBlades = 10;
 }
