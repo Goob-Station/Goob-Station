@@ -109,8 +109,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (args.Handled
             || !args.CanReach
             || args.Target == null
-            || !HasComp<SurgeryTargetComponent>(args.Target)
-            || !TryComp<SurgeryTargetComponent>(args.User, out var surgery)
+            || !TryComp<SurgeryTargetComponent>(args.Target, out var surgery)
             || !surgery.CanOperate
             || !IsLyingDown(args.Target.Value, args.User))
         {
