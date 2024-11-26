@@ -8,6 +8,7 @@ namespace Content.Client.Heretic;
 // - john
 
 public sealed partial class RitualAshAscendBehavior : RitualSacrificeBehavior { }
+public sealed partial class RitualBladeAscendBehavior : RitualSacrificeBehavior { }
 public sealed partial class RitualMuteGhoulifyBehavior : RitualSacrificeBehavior { }
 
 [Virtual] public partial class RitualSacrificeBehavior : RitualCustomBehavior

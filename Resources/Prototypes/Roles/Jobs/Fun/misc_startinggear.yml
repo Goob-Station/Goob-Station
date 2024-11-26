@@ -82,7 +82,7 @@
     head: ClothingHeadHelmetSwat
     mask: ClothingMaskGasSwat
     outerClothing: ClothingOuterArmorBasicSlim
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurityRegular # Goobstation
     gloves: ClothingHandsGlovesCombat
   storage:
     back:

@@ -31,6 +31,9 @@
         Cold: 0.10
         Radiation: 0.10
         Caustic: 0.10
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
+    protectionRange: 0
 
 #bso hardsuit
 
@@ -63,6 +66,8 @@
         Cold: 0.9
         Radiation: 0.95
         Caustic: 0.95
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
 
 # cybersun stealth
 
@@ -92,4 +97,6 @@
   - type: ClothingGrantComponent
     component:
     - type: Stealth
+  - type: FlashImmunity
+  - type: FlashSoundSuppression
 

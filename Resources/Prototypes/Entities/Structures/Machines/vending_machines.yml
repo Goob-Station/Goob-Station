@@ -923,7 +923,7 @@
   parent: VendingMachine
   id: VendingMachineMedical
   name: NanoMed Plus
-  description: It's a medical drug dispenser. Natural chemicals only!
+  description: It's a medical drug dispenser. Natural chemicals only! (And wheelchairs, why not) # Goobstation
   components:
   - type: VendingMachine
     pack: NanoMedPlusInventory

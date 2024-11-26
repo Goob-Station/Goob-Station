@@ -175,6 +175,7 @@
       - TrashBag
       - PowerCellSmall
       - PowerCellMedium
+      - VehicleWheelchairFolded # Goobstation
       - RollerBedSpawnFolded
       - CheapRollerBedSpawnFolded
       - EmergencyRollerBedSpawnFolded
@@ -227,6 +228,9 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -309,6 +313,7 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
+      - VehicleWheelchairFolded # Goobstation
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
@@ -787,6 +792,10 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
+      - SyringeGun #Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -838,6 +847,7 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change
       - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
@@ -958,16 +968,19 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
+      - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
+      - VehicleWheelchairFolded # Goobstation - Vehicles
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      - RapidSyringeGun # Goobstation
       # Shitmed Change
       - EnergyScalpel
       - EnergyCautery
