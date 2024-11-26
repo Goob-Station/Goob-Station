@@ -1,6 +1,7 @@
 using Content.Server.Flash;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Flashbang;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 
 namespace Content.Server._Goobstation.Flashbang;
@@ -17,6 +18,17 @@ public sealed class FlashbangSystem : EntitySystem
         SubscribeLocalEvent<FlashSoundSuppressionComponent, InventoryRelayedEvent<GetFlashbangedEvent>>(
             OnInventoryFlashbanged);
         SubscribeLocalEvent<FlashSoundSuppressionComponent, GetFlashbangedEvent>(OnFlashbanged);
+        SubscribeLocalEvent<FlashSoundSuppressionComponent, ExaminedEvent>(OnExamined);
+    }
+
+    private void OnExamined(Entity<FlashSoundSuppressionComponent> ent, ref ExaminedEvent args)
+    {
+        var range = ent.Comp.ProtectionRange;
+        var message = range > 0
+            ? Loc.GetString("flash-sound-suppression-examine", ("range", range))
+            : Loc.GetString("flash-sound-suppression-fully-examine");
+
+        args.PushMarkup(message);
     }
 
     private void OnFlashbanged(Entity<FlashSoundSuppressionComponent> ent, ref GetFlashbangedEvent args)
