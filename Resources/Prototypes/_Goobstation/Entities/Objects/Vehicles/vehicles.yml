@@ -56,7 +56,7 @@
   - type: MovementSpeedModifier
     acceleration: 8
     friction: 5 # wheels dont stop instantly
-    baseSprintSpeed: 7
+    baseSprintSpeed: 6
     baseWalkSpeed: 4.5 # default walking speed
   - type: ItemSlots
     slots:
@@ -75,6 +75,7 @@
   - type: Tag
     tags:
     - DoorBumpOpener
+  - type: RequireProjectileTarget
 
 - type: entity
   id: VehicleSecway
