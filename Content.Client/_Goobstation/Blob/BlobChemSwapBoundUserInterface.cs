@@ -3,7 +3,7 @@ using Content.Shared.Blob.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 [UsedImplicitly]
 public sealed class BlobChemSwapBoundUserInterface : BoundUserInterface

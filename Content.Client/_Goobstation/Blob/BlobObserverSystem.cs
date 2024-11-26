@@ -10,7 +10,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {

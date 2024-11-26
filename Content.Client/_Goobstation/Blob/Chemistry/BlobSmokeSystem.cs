@@ -3,7 +3,7 @@ using Content.Shared.Blob.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Robust.Client.GameObjects;
 
-namespace Content.Client.mistry;
+namespace Content.Client._Goobstation.Chemistry;
 
 public sealed class BlobSmokeSystem : EntitySystem
 {

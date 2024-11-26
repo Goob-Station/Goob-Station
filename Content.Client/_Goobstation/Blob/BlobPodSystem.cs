@@ -1,7 +1,7 @@
 ﻿using Content.Shared.Blob.Components;
 using Content.Shared.Blob.NPC.BlobPod;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {

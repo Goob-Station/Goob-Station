@@ -9,7 +9,7 @@ using Robust.Client.UserInterface.CustomControls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 [GenerateTypedNameReferences]
 public sealed partial class BlobChemSwapMenu : DefaultWindow

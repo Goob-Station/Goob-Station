@@ -7,7 +7,7 @@ using Content.Shared.Popups;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 public sealed class BlobbernautSystem : SharedBlobbernautSystem
 {

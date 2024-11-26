@@ -24,6 +24,9 @@ blob-mob-zombify-third-start = { $pod } starts turning { $target } into a zombie
 blob-mob-zombify-second-end = { $pod } turns you into a zombie.
 blob-mob-zombify-third-end = { $pod } turns { $target } into a zombie.
 
+blobberaut-factory-destroy = factory destroy
+blob-target-already-connected = already connected
+
 # UI
 blob-chem-swap-ui-window-name = Swap chemicals
 blob-chem-reactivespines-info = Reactive Spines
@@ -44,24 +47,26 @@ blob-chem-electromagneticweb-info = Electromagnetic Web
                                     Blob tiles cause an EMP pulse when destroyed.
                                     You take 25% more brute and heat damage.
 
+blob-alert-out-off-station = The blob was removed because it was found outside the station!
+
 # Announcment
 blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
 blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak. The emergency shuttles can not be sent due to contamination risks.
 blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
 
 # Actions
-blob-create-factory-action-name = Place Factory Blob (60)
+blob-create-factory-action-name = Place Factory Blob (80)
 blob-create-factory-action-desc = Turns selected normal blob into a factory blob, which will produce up to 3 spores and a blobbernaut if placed next to a core or a node.
-blob-create-resource-action-name = Place Resource Blob (40)
+blob-create-resource-action-name = Place Resource Blob (60)
 blob-create-resource-action-desc = Turns selected normal blob into a resource blob which will generates resources if placed next to a core or a node.
 blob-create-node-action-name = Place Node Blob (50)
 blob-create-node-action-desc = Turns selected normal blob into a node blob.
                                 A node blob will activate effects of factory and resource blobs, heal other blobs and slowly expand, destroying walls and creating normal blobs.
 blob-produce-blobbernaut-action-name = Produce a Blobbernaut (60)
 blob-produce-blobbernaut-action-desc = Creates a blobbernaut on the selected factory. Each factory can only do this once. The blobbernaut will take damage outside of blob tiles and heal when close to nodes.
-blob-split-core-action-name = Split Core (100)
+blob-split-core-action-name = Split Core (400)
 blob-split-core-action-desc = You can only do this once. Turns selected node into an independent core that will act on its own.
-blob-swap-core-action-name = Relocate Core (80)
+blob-swap-core-action-name = Relocate Core (200)
 blob-swap-core-action-desc = Swaps the location of your core and the selected node.
 blob-teleport-to-core-action-name = Jump to Core (0)
 blob-teleport-to-core-action-desc = Teleports you to your Blob Core.
@@ -69,16 +74,19 @@ blob-teleport-to-node-action-name = Jump to Node (0)
 blob-teleport-to-node-action-desc = Teleports you to a random blob node.
 blob-help-action-name = Help
 blob-help-action-desc = Get basic information about playing as blob.
-blob-swap-chem-action-name = Swap chemicals (40)
+blob-swap-chem-action-name = Swap chemicals (70)
 blob-swap-chem-action-desc = Lets you swap your current chemical to one of 4 randomized options.
 blob-carrier-transform-to-blob-action-name = Transform into a blob
 blob-carrier-transform-to-blob-action-desc = Instantly destoys your body and creates a blob core. Make sure to stand on a floor tile, otherwise you will simply disappear.
+blob-downgrade-action-name = downgrade blob(0)
+blob-downgrade-action-desc = Turns the selected tile back into a normal blob to install other types of cages.
 
 # Ghost role
 blob-carrier-role-name = Blob carrier
 blob-carrier-role-desc =  A blob-infected creature.
 blob-carrier-role-rules = You are an antagonist. You have 4 minutes before you transform into a blob.
                         Use this time to find a safe spot on the station. Keep in mind that you will be very weak right after the transformation.
+blob-carrier-role-greeting = You are a carrier of Blob. Find a secluded place at the station and transform into a Blob. Turn the station into a mass and its inhabitants into your servants. We are all Blobs.
 
 # Verbs
 blob-pod-verb-zombify = Zombify
@@ -103,10 +111,11 @@ blob-role-greeting =
 blob-zombie-greeting = You were infected and raised by a blob spore. Now you must help the blob take over the station.
 
 # End round
-blob-round-end-result = {$blobCount ->
-[one] There was one blob.
-*[other] There were {$blobCount} blobs.
-}
+blob-round-end-result =
+    { $blobCount ->
+        [one] There was one blob.
+        *[other] There were {$blobCount} blobs.
+    }
 
 blob-user-was-a-blob = [color=gray]{$user}[/color] was a blob.
 blob-user-was-a-blob-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a blob.
@@ -121,3 +130,5 @@ blob-was-a-blob-with-objectives-named = [color=White]{$name}[/color] was a blob 
 # Objectivies
 objective-condition-blob-capture-title = Take over the station
 objective-condition-blob-capture-description = Your only goal is to take over the whole station. You need to have at least {$count} blob tiles.
+objective-condition-success = { $condition } | [color={ $markupColor }]Success![/color]
+objective-condition-fail = { $condition } | [color={ $markupColor }]Failure![/color] ({ $progress }%)

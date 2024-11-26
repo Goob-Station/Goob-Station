@@ -4,7 +4,7 @@ using Content.Shared.Blob;
 using Robust.Client.Audio;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Blob;
+namespace Content.Client._Goobstation.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {
