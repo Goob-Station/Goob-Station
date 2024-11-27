@@ -18,7 +18,7 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-cybersun
-    stampedColor: "#77200"
+    stampedColor: "#f77200"
     stampState: "paper_stamp-cybersun"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
@@ -31,7 +31,7 @@
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-cyberrep
-    stampedColor: "#77200"
+    stampedColor: "#f77200"
     stampState: "paper_stamp-cyberrep"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
