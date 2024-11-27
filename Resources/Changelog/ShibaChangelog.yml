@@ -1,6 +1,18 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Added missing NT towel to the list.
+    type: Fix
+  id: 21
+  time: '2024-11-27T08:15:55.812713'
+- author: AstroDogeDX
+  changes:
+  - message: The new lizard emotes are now exclusive to the lizard (and harpies).
+    type: Fix
+  id: 20
+  time: '2024-11-27T08:17:05.566123'
+- author: AstroDogeDX
+  changes:
   - message: Asteroids and wrecks have been re-added; assuming salvage will do their
       job properly.
     type: Add
