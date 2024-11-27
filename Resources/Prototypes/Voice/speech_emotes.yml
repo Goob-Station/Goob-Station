@@ -451,8 +451,6 @@
   name: chat-emote-name-trill
   category: Vocal
   whitelist:
-    components:
-    - Vocal
     tags:
     - ReptilianEmotes
     - HarpyEmotes
@@ -468,8 +466,6 @@
   name: chat-emote-name-rattle
   category: Vocal
   whitelist:
-    components:
-    - Vocal
     tags:
     - ReptilianEmotes
     - HarpyEmotes
