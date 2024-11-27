@@ -70,7 +70,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.5 # worse than a surgeon but you can use it solo
+    speedModifier: 0.75 # worse than a surgeon but you can use it solo
 
 - type: entity
   parent: Autodoc
