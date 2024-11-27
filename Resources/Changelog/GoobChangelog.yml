@@ -2461,3 +2461,11 @@ Entries:
       message: Heretic ritual items amount shows properly
   id: 283
   time: '2024-11-27T15:09:40.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the timeout from ordering grand lottery crates. LET'S GO
+        GAMBLING!!!
+  id: 284
+  time: '2024-11-27T15:34:10.0000000+00:00'
