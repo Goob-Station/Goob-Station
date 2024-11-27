@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: aghosts now have pretty summer dresses with FOUR pocket slots. Okay I
+      lied about the dress part.
+    type: Add
+  id: 22
+  time: '2024-11-27T08:49:51.474842'
+- author: AstroDogeDX
+  changes:
   - message: Added missing NT towel to the list.
     type: Fix
   id: 21
