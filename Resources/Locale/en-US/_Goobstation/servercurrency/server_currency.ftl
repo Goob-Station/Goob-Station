@@ -1,5 +1,5 @@
-server-currency-name-singular = Goob Coin
-server-currency-name-plural = Goob Coins
+server-currency-name-singular = Shiba Shilling
+server-currency-name-plural = Shiba Shillings
 
 ## Commands
 
