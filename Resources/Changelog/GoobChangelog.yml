@@ -2421,3 +2421,29 @@ Entries:
       message: Fixed keys spawning instead of vehicles, oopsie dasies.
   id: 278
   time: '2024-11-26T17:37:24.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: 'Fixed borg legs not letting you move properly. '
+    - type: Fix
+      message: Fixed medical cyborgs poisoning people.
+    - type: Fix
+      message: Fixed cybernetic legs being weak to stepping on glass
+    - type: Fix
+      message: Fixed biosynthetic legs for real this time (lol)
+  id: 279
+  time: '2024-11-26T14:02:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end summary not showing up.
+  id: 280
+  time: '2024-11-26T18:24:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Now you have to aim directly at the vehicle to hit it with projectiles.
+    - type: Tweak
+      message: Vehicles are now slightly slower.
+  id: 281
+  time: '2024-11-26T18:57:52.0000000+00:00'
