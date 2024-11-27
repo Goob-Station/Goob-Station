@@ -25,6 +25,7 @@
   - type: WiresPanel
   - type: Wires
     layoutId: Autodoc # do it, snip the safety wire :godo:
+    boardName: wires-board-name-autodoc
   - type: Machine
     board: AutodocCircuitboard
   - type: Construction
@@ -33,7 +34,6 @@
     containers:
      - machine_board
      - machine_parts
-     - surgery_specific
      - storagebase
   - type: EmptyOnMachineDeconstruct
     containers:

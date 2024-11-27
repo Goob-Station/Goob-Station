@@ -80,6 +80,7 @@ public sealed partial class AutodocProgramWindow : FancyWindow
                 return;
 
             _selected = null;
+            RemoveStepButton.Disabled = true;
             OnRemoveStep?.Invoke(index);
 
             // Steps.RemoveChild throws for no fucking reason
