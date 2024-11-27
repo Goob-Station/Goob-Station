@@ -74,6 +74,7 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  - TowelColorNT
 
 - type: loadoutGroup
   id: Glasses
