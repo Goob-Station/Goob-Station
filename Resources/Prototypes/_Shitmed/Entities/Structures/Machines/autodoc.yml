@@ -82,7 +82,7 @@
 
 - type: entity
   parent: OmnimedTool
-  id: OnmimedToolAutodoc
+  id: OmnimedToolAutodoc
   suffix: Unremoveable
   components:
   - type: Unremoveable
