@@ -1,5 +1,5 @@
 - type: entity
-  id: BaseDionaOrgan
+  id: BaseDionaOrganUnGibbable
   parent: BaseItem
   abstract: true
   components:
@@ -30,8 +30,18 @@
     - Organ
 
 - type: entity
+  id: BaseDionaOrgan
+  parent: BaseDionaOrganUnGibbable
+  abstract: true
+  components:
+  - type: Gibbable
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 5
+
+- type: entity
   id: OrganDionaBrain
-  parent: BaseDionaOrgan
+  parent: BaseDionaOrganUnGibbable
   name: brain
   description: "The central hub of a diona's pseudo-neurological activity, its root-like tendrils search for its former body."
   components:
