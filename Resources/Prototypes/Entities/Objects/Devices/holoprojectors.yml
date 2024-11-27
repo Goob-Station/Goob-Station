@@ -24,6 +24,10 @@
   - type: Tag
     tags:
       - HolosignProjector
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 62
+      Glass: 37
 
 - type: entity
   parent: Holoprojector

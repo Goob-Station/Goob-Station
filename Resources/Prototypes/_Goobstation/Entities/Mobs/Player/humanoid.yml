@@ -181,18 +181,6 @@
     - names_yowie_last
 
 - type: entity
-  parent: MobYowie
-  id: MobYowieRandom
-  name: Urist McYow
-  suffix: Random Appearance
-  components:
-  - type: RandomHumanoidAppearance
-  - type: RandomMetadata
-    nameSegments: 
-    - names_yowie_male
-    - names_yowie_last
-
-- type: entity
   parent: MobVox
   id: MobVoxRandom
   name: Uristiti McVox
