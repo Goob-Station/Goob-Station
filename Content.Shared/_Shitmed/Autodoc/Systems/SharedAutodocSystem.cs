@@ -398,7 +398,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         active.NextUpdate = Timing.CurTime + ent.Comp.UpdateDelay;
         Dirty(ent.Owner, active);
 
-        _adminLogger.Add(LogType.InteractActivate, LogImpact.High, $"{ToPrettyString(user):user} started autodoc program {ent.Comp.Programs[index].Title} on {ToPrettyString(patient):patient}");
+        _adminLogger.Add(LogType.InteractActivate, LogImpact.High, $"{ToPrettyString(user):user} started autodoc program '{ent.Comp.Programs[index].Title}' on {ToPrettyString(patient):patient}");
         return true;
     }
 
