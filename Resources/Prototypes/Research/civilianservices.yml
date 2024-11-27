@@ -132,18 +132,42 @@
   - CryostasisBeaker
   - SyringeCryostasis
 
+# Shitmed Change Start
 - type: technology
-  id: MechanizedTreatment
-  name: research-technology-mechanized-treatment
+  id: AdvancedTreatment
+  name: research-technology-advanced-treatment
   icon:
-    sprite: Mobs/Silicon/chassis.rsi
-    state: medical
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    state: e-scalpel-on
   discipline: CivilianServices
   tier: 2
   cost: 5000
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
+  - EnergyScalpel
+  - EnergyCautery
+  - AdvancedRetractor
+  - BorgModuleAdvancedSurgery
+
+- type: technology
+  id: CyberneticEnhancements
+  name: research-technology-cybernetic-enhancements
+  icon:
+    sprite: _Shitmed/Mobs/Species/IPC/organs.rsi
+    state: eyes
+  discipline: CivilianServices
+  tier: 2
+  cost: 15000
+  recipeUnlocks:
+  - JawsOfLifeLeftArm
+  - JawsOfLifeRightArm
+  - SpeedLeftLeg
+  - SpeedRightLeg
+  - BasicCyberneticEyes
+  - SecurityCyberneticEyes
+  - MedicalCyberneticEyes
+# Shitmed Change End
 
 - type: technology
   id: AdvancedCleaning
@@ -202,6 +226,19 @@
   cost: 15000
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
+
+# GoobStation - Why civilian? Because fuck you.
+- type: technology
+  id: MedicalDefense
+  name: research-technology-medical-defense
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: rapid-syringe-gun
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - RapidSyringeGun
 
 # Tier 3
 

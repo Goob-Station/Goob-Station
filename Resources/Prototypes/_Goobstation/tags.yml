@@ -1,2 +1,8 @@
 - type: Tag
   id: BlueprintMedicalFabricator
+
+- type: Tag
+  id: BolaEnergy
+
+- type: Tag
+  id: CartridgeEpinephrine

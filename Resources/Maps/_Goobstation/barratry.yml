@@ -13932,8 +13932,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -46.5,27.5
       parent: 1
-    - type: Apc
-      hasAccess: True
   - uid: 5103
     components:
     - type: MetaData
@@ -41814,6 +41812,13 @@ entities:
     - type: Transform
       pos: -40.570293,28.017475
       parent: 1
+- proto: ClothingBackpackDuffelSurgeryFilled
+  entities:
+  - uid: 2993
+    components:
+    - type: Transform
+      pos: 4.532677,38.416397
+      parent: 1
 - proto: ClothingBeltUtility
   entities:
   - uid: 5650
@@ -42919,6 +42924,13 @@ entities:
     components:
     - type: Transform
       pos: -27.5,44.5
+      parent: 1
+- proto: CrateFunATV
+  entities:
+  - uid: 2327
+    components:
+    - type: Transform
+      pos: -35.5,-5.5
       parent: 1
 - proto: CrateMaterialGlass
   entities:
@@ -77168,6 +77180,11 @@ entities:
     - type: Transform
       pos: 0.5,38.5
       parent: 1
+  - uid: 2994
+    components:
+    - type: Transform
+      pos: 2.5,38.5
+      parent: 1
   - uid: 12771
     components:
     - type: Transform
@@ -88096,6 +88113,21 @@ entities:
     - type: Transform
       pos: -47.5,61.5
       parent: 1
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 2328
+    components:
+    - type: Transform
+      pos: -51.5,35.5
+      parent: 1
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 2065
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -61.5,55.5
+      parent: 1
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:
   - uid: 13674
@@ -92223,6 +92255,20 @@ entities:
     components:
     - type: Transform
       pos: 11.5,17.5
+      parent: 1
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 2329
+    components:
+    - type: Transform
+      pos: -53.444153,36.382607
+      parent: 1
+- proto: VehicleKeySecway
+  entities:
+  - uid: 2330
+    components:
+    - type: Transform
+      pos: -63.50111,50.625237
       parent: 1
 - proto: VendingBarDrobe
   entities:

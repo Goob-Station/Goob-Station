@@ -1,7 +1,7 @@
 - type: gameMap
   id: Packed
   mapName: 'Packed'
-  mapPath: /Maps/packed.yml
+  mapPath: /Maps/_Goobstation/packed.yml # Goobstation
   minPlayers: 7
   maxPlayers: 35
   stations:
