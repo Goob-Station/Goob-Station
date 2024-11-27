@@ -229,7 +229,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (hand.HeldEntity is not {} item)
             throw new AutodocError("item-unavailable");
 
-        if (!_storage.Insert(ent, item, out _);
+        if (!_storage.Insert(ent, item, out _))
             throw new AutodocError("storage-full");
     }
 

@@ -86,3 +86,33 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: Autodoc
+  id: AutodocTesting
+  suffix: Preloaded
+  components:
+  - type: Autodoc
+    programs:
+    - title: "head swapper 9000"
+      steps:
+      - !type:SurgeryAutodocStep
+        part: Torso
+        surgery: SurgeryOpenIncision
+      - !type:SurgeryAutodocStep
+        part: Head
+        surgery: SurgeryRemoveBrain
+      - !type:StoreItemAutodocStep
+      - !type:SurgeryAutodocStep
+        part: Head
+        surgery: SurgeryRemovePart
+      - !type:StoreItemAutodocStep
+      - !type:GrabItemAutodocStep
+        name: "moth head"
+      - !type:SurgeryAutodocStep
+        part: Torso
+        surgery: SurgeryAttachHead
+      - !type:GrabAnyOrganAutodocStep
+      - !type:SurgeryAutodocStep
+        part: Head
+        surgery: SurgeryInsertBrain
