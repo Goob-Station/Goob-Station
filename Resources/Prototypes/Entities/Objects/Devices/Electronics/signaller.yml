@@ -24,6 +24,11 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 40 # goobstation
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 25
+      Plastic: 50
+      Glass: 25
 
 - type: entity
   parent: RemoteSignaller
@@ -43,3 +48,8 @@
     range: 500000 # goobstation
   - type: StaticPrice
     price: 30
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 25
+      Plastic: 50
+      Plasma: 25

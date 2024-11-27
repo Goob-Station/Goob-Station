@@ -228,6 +228,10 @@
     baseWalkSpeed: 2.5
   - type: StaticPrice
     price: 125
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Plastic: 125
 
 - type: entity
   parent: VehicleWheelchair

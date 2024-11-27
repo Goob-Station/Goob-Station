@@ -922,7 +922,7 @@ namespace Content.Shared.Containers.ItemSlots
         {
             foreach (var slot in component.Slots.Values)
             {
-                if (slot != null)
+                if (slot.ContainerSlot != null)
                     _containers.EmptyContainer(slot.ContainerSlot, destination: args.ReclaimerCoordinates);
             }
         }

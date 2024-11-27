@@ -42,6 +42,9 @@
   - type: Tag
     tags:
     - DrinkCup
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
 
 - type: entity
   parent: DrinkBaseCup
