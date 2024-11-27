@@ -54,6 +54,8 @@
         type: AutodocBoundUserInterface
       enum.StorageUiKey.Key:
         type: StorageBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
   - type: ActivatableUI
     key: enum.AutodocUiKey.Key
   - type: ActivatableUIRequiresPower
