@@ -344,7 +344,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             return false;
 
         var program = ent.Comp.Programs[programIndex];
-        if (program.Steps.Count >= ent.Comp.MaxProgramSteps || index < 1 || index > ent.Comp.Programs.Count)
+        if (program.Steps.Count >= ent.Comp.MaxProgramSteps || index < 1 || index > ent.Comp.Steps.Count)
             return false;
 
         program.Steps.Insert(index, step);
