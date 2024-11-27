@@ -56,20 +56,13 @@
     key: enum.AutodocUiKey.Key
   - type: ActivatableUIRequiresPower
   - type: Autodoc
-    programs:
-    - title: "testing cyber foot program"
-      steps:
-      - !type:SurgeryAutodocStep
-        part: Foot
-        symmetry: Left
-        surgery: SurgeryRemovePart
-      - !type:StoreItemAutodocStep
-      - !type:GrabItemAutodocStep
-        name: "left cybernetic foot"
-      - !type:SurgeryAutodocStep
-        part: Leg
-        symmetry: Left
-        surgery: SurgeryAttachLeftFoot
+  - type: Sanitized
+  - type: DoAfter # Required for it to do surgery
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
   - type: Storage
     grid:
     - 0,0,3,3

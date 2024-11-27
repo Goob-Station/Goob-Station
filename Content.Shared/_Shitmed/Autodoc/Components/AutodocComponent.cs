@@ -23,7 +23,7 @@ public sealed partial class AutodocComponent : Component
     public EntityUid? OperatingTable;
 
     [DataField, AutoNetworkedField]
-    public List<AutodocProgram> Programs;
+    public List<AutodocProgram> Programs = new();
 
     /// <summary>
     /// Requires that the patient be asleep for forced vulnerability.

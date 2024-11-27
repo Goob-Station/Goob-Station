@@ -22,6 +22,12 @@ public sealed partial class AddStepWindow : FancyWindow
         // close the window once any step is added
         OnAddStep += _ => Close();
 
+        OnClose += () =>
+        {
+            _surgery?.Close();
+            _grab?.Close();
+        };
+
         // dedicated ui to pick the enum values and surgery type
         SurgeryButton.OnPressed += _ =>
         {
@@ -33,6 +39,8 @@ public sealed partial class AddStepWindow : FancyWindow
 
             _surgery = new PickSurgeryWindow();
             _surgery.OnAddStep += step => OnAddStep?.Invoke(step);
+            _surgery.OnClose += () => _surgery = null;
+            _surgery.OpenCentered();
         };
 
         // just picking a string, use a dialog
@@ -61,6 +69,7 @@ public sealed partial class AddStepWindow : FancyWindow
                     Name = name
                 });
             };
+            _grab.OnClose += () => _grab = null;
         };
 
         // no arguments so these are trivial

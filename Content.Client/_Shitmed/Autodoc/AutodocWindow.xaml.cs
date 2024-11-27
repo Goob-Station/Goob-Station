@@ -33,6 +33,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action? OnStop;
 
     private DialogWindow? _dialog;
+    private AutodocProgramWindow? _currentProgram;
 
     public AutodocWindow(EntityUid owner, IEntityManager entMan, IPlayerManager player)
     {
@@ -43,6 +44,12 @@ public sealed partial class AutodocWindow : FancyWindow
         _autodoc = entMan.System<SharedAutodocSystem>();
 
         _owner = owner;
+
+        OnClose += () =>
+        {
+            _dialog?.Close();
+            _currentProgram?.Close();
+        };
 
         CreateProgramButton.OnPressed += _ =>
         {
@@ -71,7 +78,7 @@ public sealed partial class AutodocWindow : FancyWindow
             };
 
             // prevent MoveToFront being called on a closed window and double closing
-            _dialog.OnClose += () => { _dialog = null; };
+            _dialog.OnClose += () => _dialog = null;
         };
 
         AbortButton.AddStyleClass("Caution");
@@ -99,6 +106,13 @@ public sealed partial class AutodocWindow : FancyWindow
         {
             ((Button) button).Disabled = active;
         }
+
+        if (!active)
+            return;
+
+        // close windows that can only be open when inactive
+        _dialog?.Close();
+        _currentProgram?.Close();
     }
 
     private void UpdatePrograms()
@@ -133,7 +147,11 @@ public sealed partial class AutodocWindow : FancyWindow
         if (!_entMan.TryGetComponent<AutodocComponent>(_owner, out var comp))
             return;
 
-        var window = new AutodocProgramWindow(comp.Programs[index]);
+        // no editing multiple programs at once
+        if (_currentProgram is {} existing)
+            existing.Close();
+
+        var window = new AutodocProgramWindow(_owner, comp.Programs[index]);
         window.OnToggleSafety += () => OnToggleProgramSafety?.Invoke(index);
         window.OnRemoveProgram += () =>
         {
@@ -152,6 +170,9 @@ public sealed partial class AutodocWindow : FancyWindow
             // predict it starting the program
             _entMan.EnsureComponent<ActiveAutodocComponent>(_owner);
         };
+        window.OnClose += () => _currentProgram = null;
+        _currentProgram = window;
+
         window.OpenCentered();
     }
 

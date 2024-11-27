@@ -26,6 +26,8 @@ public sealed class AutodocBoundUserInterface : BoundUserInterface
         _window.OnStart += program => SendMessage(new AutodocStartMessage(program));
         _window.OnStop += () => SendMessage(new AutodocStopMessage());
 
+        _window.OnClose += () => Close();
+
         _window.OpenCentered();
     }
 

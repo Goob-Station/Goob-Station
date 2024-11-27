@@ -131,13 +131,13 @@ public abstract partial class GrabAnyItemAutodocStep : IAutodocStep
     /// <summary>
     /// A whitelist that must be matched.
     /// </summary>
-    public EntityWhitelist Whitelist { get; }
+    public virtual EntityWhitelist Whitelist { get; }
     private EntityWhitelist? _whitelist;
 
     /// <summary>
     /// Name that represents the whitelist.
     /// </summary>
-    public LocId Name { get; }
+    public virtual LocId Name { get; }
 
     string IAutodocStep.Title => Loc.GetString("autodoc-program-step-grab-any", ("name", Loc.GetString(Name)));
 
@@ -153,23 +153,23 @@ public abstract partial class GrabAnyItemAutodocStep : IAutodocStep
 [Serializable, NetSerializable]
 public sealed partial class GrabAnyOrganAutodocStep : GrabAnyItemAutodocStep
 {
-    public EntityWhitelist Whitelist => new EntityWhitelist()
+    public override EntityWhitelist Whitelist => new EntityWhitelist()
     {
         Components = ["Organ"]
     };
 
-    public LocId Name => "autodoc-item-organ";
+    public override LocId Name => "autodoc-item-organ";
 }
 
 [Serializable, NetSerializable]
 public sealed partial class GrabAnyBodyPartAutodocStep : GrabAnyItemAutodocStep
 {
-    public EntityWhitelist Whitelist => new EntityWhitelist()
+    public override EntityWhitelist Whitelist => new EntityWhitelist()
     {
         Components = ["BodyPart"]
     };
 
-    public LocId Name => "autodoc-item-part";
+    public override LocId Name => "autodoc-item-part";
 }
 
 /// <summary>

@@ -1,5 +1,6 @@
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
+using Content.Shared.DoAfter;
 using Content.Shared.Power.EntitySystems;
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Autodoc.Systems;
@@ -23,7 +24,7 @@ public sealed class AutodocSystem : SharedAutodocSystem
                 continue;
 
             active.NextUpdate = now + comp.UpdateDelay;
-            if (!_power.IsPowered(uid))
+            if (HasComp<ActiveDoAfterComponent>(uid) || !_power.IsPowered(uid))
                 continue;
 
             if (Proceed((uid, comp, active)))
