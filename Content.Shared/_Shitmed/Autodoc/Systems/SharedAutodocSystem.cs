@@ -233,12 +233,6 @@ public abstract class SharedAutodocSystem : EntitySystem
             throw new AutodocError("storage-full");
     }
 
-    public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
-    {
-        if (!StoreItem(ent))
-            throw new AutodocError("storage-full");
-    }
-
     public EntityUid? GetPatient(Entity<AutodocComponent> ent)
     {
         if (!TryComp<StrapComponent>(ent.Comp.OperatingTable, out var strap))
