@@ -45,6 +45,8 @@
       projectiles: !type:ContainerSlot
   - type: ContainerAmmoProvider
     container: projectiles
+  - type: UnwieldOnShoot # Goobstation
+  - type: UseDelayBlockShoot # Goobstation
 
 - type: entity
   id: BowImprovised

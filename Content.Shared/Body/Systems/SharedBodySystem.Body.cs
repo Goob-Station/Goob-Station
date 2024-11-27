@@ -27,7 +27,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Timing;
-
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -57,7 +56,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, ComponentInit>(OnBodyInit);
         SubscribeLocalEvent<BodyComponent, MapInitEvent>(OnBodyMapInit);
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
-                SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
+        SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
     }
 
@@ -366,7 +365,7 @@ public partial class SharedBodySystem
 
     // Shitmed Change Start
 
-        public virtual HashSet<EntityUid> GibPart(
+    public virtual HashSet<EntityUid> GibPart(
         EntityUid partId,
         BodyPartComponent? part = null,
         bool launchGibs = true,
@@ -382,7 +381,7 @@ public partial class SharedBodySystem
 
         if (part.Body is { } bodyEnt)
         {
-            if (IsPartRoot(bodyEnt, partId, part: part))
+            if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
                 return gibs;
 
             ChangeSlotState((partId, part), true);
@@ -412,6 +411,26 @@ public partial class SharedBodySystem
         }
         _audioSystem.PlayPredicted(gibSoundOverride, Transform(partId).Coordinates, null);
         return gibs;
+    }
+
+    public virtual bool BurnPart(EntityUid partId,
+        BodyPartComponent? part = null)
+    {
+        if (!Resolve(partId, ref part, logMissing: false))
+            return false;
+
+        if (part.Body is { } bodyEnt)
+        {
+            if (IsPartRoot(bodyEnt, partId, part: part))
+                return false;
+
+            ChangeSlotState((partId, part), true);
+            RemovePartChildren((partId, part), bodyEnt);
+            QueueDel(partId);
+            return true;
+        }
+
+        return false;
     }
 
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)

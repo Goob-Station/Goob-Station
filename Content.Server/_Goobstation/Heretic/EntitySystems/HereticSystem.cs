@@ -1,6 +1,5 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -8,7 +7,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
@@ -31,7 +29,6 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private float _timer = 0f;
     private float _passivePointCooldown = 20f * 60f;
@@ -45,8 +42,6 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
-
-        SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
     }
 
     public override void Update(float frameTime)
@@ -162,17 +157,6 @@ public sealed partial class HereticSystem : EntitySystem
         var pathLoc = ent.Comp.CurrentPath!.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
-    }
-
-    #endregion
-
-    #region External events (damage, etc.)
-
-    private void OnBeforeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        // ignore damage from heretic stuff
-        if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
-            args.Cancelled = true;
     }
 
     #endregion

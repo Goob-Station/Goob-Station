@@ -1,3 +1,4 @@
+using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Gravity;
@@ -121,7 +122,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
             TerminatingOrDeleted(uid) ||
             // Shitmed Change
             !TryComp<BodyComponent>(uid, out var body) ||
-            body.LegEntities.Count == 0)
+            body.LegEntities.Count == 0 ||
+            HasComp<DebrainedComponent>(uid))
             return false;
 
         var args = new DoAfterArgs(EntityManager, uid, layingDown.StandingUpTime, new StandingUpDoAfterEvent(), uid)
