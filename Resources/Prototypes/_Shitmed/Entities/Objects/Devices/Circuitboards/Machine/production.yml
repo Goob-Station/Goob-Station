@@ -18,6 +18,7 @@
 - type: entity
   parent: AutodocCircuitboard
   id: AutodocSyndieCircuitboard
+  suffix: Syndie
   components:
   - type: MachineBoard
     prototype: AutodocSyndie
