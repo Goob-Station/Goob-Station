@@ -99,7 +99,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
         if (args.Cancelled)
         {
             var failEv = new SurgeryStepFailedEvent(args.User, ent, args.Surgery, args.Step);
-            RaiseLocalEvent(args.User, ref ev);
+            RaiseLocalEvent(args.User, ref failEv);
             return;
         }
 

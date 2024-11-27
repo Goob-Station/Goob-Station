@@ -52,6 +52,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         });
 
         SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepEvent>(OnSurgeryStep);
+        SubscribeLocalEvent<ActiveAutodocComponent, SurgeryStepFailedEvent>(OnSurgeryStepFailed);
         SubscribeLocalEvent<ActiveAutodocComponent, ComponentShutdown>(OnActiveShutdown);
     }
 
@@ -140,7 +141,8 @@ public abstract class SharedAutodocSystem : EntitySystem
             ent.Comp.Waiting = false;
             // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
             // if this was the last step, StartSurgery will fail and the next autodoc step will run
-            StartSurgery((ent.Owner, comp), args.Body, args.Part, ent.Comp.CurrentSurgery);
+            if (ent.Comp.CurrentSurgery is {} surgery)
+                StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery);
             return;
         }
 
@@ -153,6 +155,9 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     private void OnSurgeryStepFailed(Entity<ActiveAutodocComponent> ent, ref SurgeryStepFailedEvent args)
     {
+        if (!TryComp<AutodocComponent>(ent, out var comp))
+            return;
+
         var program = comp.Programs[ent.Comp.CurrentProgram];
         var error = Loc.GetString("autodoc-error-surgery-failed");
         if (program.SkipFailed)
@@ -291,7 +296,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (!_surgery.TryDoSurgeryStep(patient, part, ent, MetaData(nextSurgery).EntityPrototype!.ID, nextStep))
             return false;
 
-        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = singleton;
+        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = surgery;
         return true;
     }
 
