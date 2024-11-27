@@ -1,7 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Player;
@@ -9,6 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Shared._Goobstation.CVars;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -112,7 +112,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var players = _antag.GetAliveConnectedPlayers(_playerManager.Sessions);
 
         // check for lowpop and set max threat
-        var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
+        var lowpopThreshold = (float) _cfg.GetCVar(GoobCVars.LowpopThreshold.Name);
         var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
         var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
 

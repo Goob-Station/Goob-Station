@@ -1,0 +1,5 @@
+- type: entity
+  id: BaseStationSilo
+  abstract: true
+  components:
+    - type: StationSilo

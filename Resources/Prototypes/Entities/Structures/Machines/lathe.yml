@@ -19,6 +19,7 @@
           - MachineLayer
   - type: Lathe
   - type: MaterialStorage
+    connectToSilo: true # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -705,6 +706,7 @@
   - type: Machine
     board: BiofabricatorMachineCircuitboard
   - type: MaterialStorage
+    connectToSilo: false # Goobstation
     ignoreColor: true
     whitelist:
       tags:
@@ -1218,6 +1220,7 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
+    connectToSilo: false # Goobstation
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:
@@ -1279,6 +1282,7 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
+      connectToSilo: false # Goobstation
       ignoreColor: true
       whitelist:
         tags:
@@ -1462,6 +1466,7 @@
   - type: Machine
     board: MedicalBiofabMachineBoard
   - type: MaterialStorage
+    connectToSilo: false
     whitelist:
       tags:
         - Sheet
