@@ -9,15 +9,33 @@
 
   "states": [
     {
-      "name": "white",
-      "delays":[
+      "name": "base1"
+    },
+    {
+      "name": "base2"
+    },
+    {
+      "name": "base3"
+    },
+    {
+      "name": "base4"
+    },
+    {
+      "name": "base5"
+    },
+    {
+      "name": "base6"
+    },
+    {
+      "name": "sparkles",
+      "delays": [
         [
           5,
+          0.1,
+          0.1,
           0.2,
-          0.2,
-          0.4,
-          0.2,
-          0.2
+          0.1,
+          0.1
         ]
       ]
     }
