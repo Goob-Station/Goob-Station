@@ -18,9 +18,10 @@ public sealed partial class OrganComponent : Component, ISurgeryToolComponent //
 
     /// <summary>
     ///     Shitmed Change:Relevant body this organ originally belonged to.
-    ///     FOR WHATEVER FUCKING REASON AUTONETWORKING THIS CRASHES GIBTEST AAAAAAAAAAAAAAA
+    ///     DO NOT set directly, use the SetOrganOriginalBody method, it does
+    ///     additional book-keeping to prevent stale entity references
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityUid? OriginalBody;
 
     // Shitmed Change Start

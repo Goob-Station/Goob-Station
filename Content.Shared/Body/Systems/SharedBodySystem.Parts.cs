@@ -41,6 +41,29 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyPartComponent, BodyPartEnableChangedEvent>(OnPartEnableChanged);
     }
 
+    private void SetPartOriginalBody(BodyPartComponent partComp, EntityUid? nextBodyUid)
+    {
+        // unset previous
+        BodyComponent? prevBody = null;
+        if (partComp.OriginalBody is { Valid: true } prevBodyUid && Resolve(prevBodyUid, ref prevBody))
+        {
+            prevBody.OriginalBodyParts.Remove(partComp);
+        }
+        partComp.OriginalBody = null;
+
+        if (nextBodyUid is { Valid: true } validBodyUid)
+        {
+            BodyComponent? nextBody = null;
+            if (Resolve(validBodyUid, ref nextBody)) // fuck me if this fails
+            {
+                nextBody.OriginalBodyParts.Add(partComp);
+            }
+        }
+
+        // yes I know its fucking deprecated, do you REALLY want to track Entity<OrganComponent> changes as well !?
+        Dirty(partComp.Owner, partComp);
+    }
+
     private void OnMapInit(Entity<BodyPartComponent> ent, ref MapInitEvent args)
     {
         if (ent.Comp.PartType == BodyPartType.Torso)
@@ -331,7 +354,7 @@ public partial class SharedBodySystem
         Dirty(partEnt, partEnt.Comp);
 
         // Shitmed Change Start
-        partEnt.Comp.OriginalBody = partEnt.Comp.Body;
+        SetPartOriginalBody(partEnt.Comp.OriginalBody, partEnt.Comp.Body);
         if (partEnt.Comp.Body is { Valid: true } body)
             RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(body, false));
         partEnt.Comp.ParentSlot = null;

@@ -26,6 +26,29 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, BodyPartRemovedEvent>(OnPartDroppedFromBody);
     }
 
+    private void SetAppearOriginalBody(BodyPartAppearanceComponent appearComp, EntityUid? nextBodyUid)
+    {
+        // unset previous
+        BodyComponent? prevBody = null;
+        if (appearComp.OriginalBody is { Valid: true } prevBodyUid && Resolve(prevBodyUid, ref prevBody))
+        {
+            prevBody.OriginalAppearances.Remove(appearComp);
+        }
+        appearComp.OriginalBody = null;
+
+        if (nextBodyUid is { Valid: true } validBodyUid)
+        {
+            BodyComponent? nextBody = null;
+            if (Resolve(validBodyUid, ref nextBody)) // fuck me if this fails
+            {
+                nextBody.OriginalAppearances.Add(appearComp);
+            }
+        }
+
+        // yes I know its fucking deprecated, do you REALLY want to track Entity<OrganComponent> changes as well !?
+        Dirty(appearComp.Owner, appearComp);
+    }
+
     private void OnPartAppearanceStartup(EntityUid uid, BodyPartAppearanceComponent component, ComponentStartup args)
     {
         if (!TryComp(uid, out BodyPartComponent? part)
@@ -44,7 +67,7 @@ public partial class SharedBodySystem
         var customLayers = bodyAppearance.CustomBaseLayers;
         var spriteLayers = bodyAppearance.BaseLayers;
         component.Type = relevantLayer;
-        component.OriginalBody = part.OriginalBody.Value;
+        SetAppearOriginalBody(component, part.OriginalBody.Value);
 
         part.Species = bodyAppearance.Species;
 

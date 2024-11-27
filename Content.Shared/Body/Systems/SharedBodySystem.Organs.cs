@@ -11,6 +11,7 @@ using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
+using Content.Shared._Shitmed.Body.Part;
 
 namespace Content.Shared.Body.Systems;
 
@@ -22,6 +23,8 @@ public partial class SharedBodySystem
     {
         SubscribeLocalEvent<OrganComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<OrganComponent, OrganEnableChangedEvent>(OnOrganEnableChanged);
+
+        SubscribeLocalEvent<BodyComponent, ComponentRemove>(OnBodyRemoved);
     }
 
     private void OnMapInit(Entity<OrganComponent> ent, ref MapInitEvent args)
@@ -31,6 +34,55 @@ public partial class SharedBodySystem
     }
 
     // Shitmed Change End
+
+    // handles OrganComponent, BodyPartComponent, and BodyPartAppearanceComponent registers, kinda messy to put them ALL here, but better than having three events
+    private void OnBodyRemoved(Entity<BodyComponent> ent, ref ComponentRemove args)
+    {
+        foreach (var organComp in ent.Comp.OriginalOrgans)
+        {
+            if (organComp is not null && organComp.OriginalBody == ent.Owner) // should the equality check be an assert? maybe...
+            {
+                organComp.OriginalBody = null;
+            }
+        }
+        foreach (var partComp in ent.Comp.OriginalBodyParts)
+        {
+            if (partComp is not null && partComp.OriginalBody == ent.Owner)
+            {
+                partComp.OriginalBody = null;
+            }
+        }
+        foreach (var appearComp in ent.Comp.OriginalAppearances)
+        {
+            if (appearComp is not null && appearComp.OriginalBody == ent.Owner)
+            {
+                appearComp.OriginalBody = null;
+            }
+        }
+    }
+
+    private void SetOrganOriginalBody(OrganComponent organComp, EntityUid? nextBodyUid)
+    {
+        // unset previous
+        BodyComponent? prevBody = null;
+        if (organComp.OriginalBody is { Valid: true } prevBodyUid && Resolve(prevBodyUid, ref prevBody))
+        {
+            prevBody.OriginalOrgans.Remove(organComp);
+        }
+        organComp.OriginalBody = null;
+
+        if (nextBodyUid is { Valid: true } validBodyUid)
+        {
+            BodyComponent? nextBody = null;
+            if (Resolve(validBodyUid, ref nextBody)) // fuck me if this fails
+            {
+                nextBody.OriginalOrgans.Add(organComp);
+            }
+        }
+
+        // yes I know its fucking deprecated, do you REALLY want to track Entity<OrganComponent> changes as well !?
+        Dirty(organComp.Owner, organComp);
+    }
 
     private void AddOrgan(
         Entity<OrganComponent> organEnt,
@@ -44,7 +96,7 @@ public partial class SharedBodySystem
         if (organEnt.Comp.Body is not null)
         {
         // Shitmed Change Start
-            organEnt.Comp.OriginalBody = organEnt.Comp.Body;
+            SetOrganOriginalBody(organEnt.Comp, organEnt.Comp.Body);
             var addedInBodyEv = new OrganAddedToBodyEvent(bodyUid, parentPartUid);
             RaiseLocalEvent(organEnt, ref addedInBodyEv);
             var organEnabledEv = new OrganEnableChangedEvent(true);
@@ -67,7 +119,7 @@ public partial class SharedBodySystem
         if (organEnt.Comp.Body is { Valid: true } bodyUid)
         {
             // Shitmed Change Start
-            organEnt.Comp.OriginalBody = organEnt.Comp.Body;
+            SetOrganOriginalBody(organEnt.Comp, organEnt.Comp.Body);
             var organDisabledEv = new OrganEnableChangedEvent(false);
             RaiseLocalEvent(organEnt, ref organDisabledEv);
             // Shitmed Change End

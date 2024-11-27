@@ -4,6 +4,9 @@ using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Content.Shared.Body.Organ;
+using Content.Shared.Body.Part;
+using Content.Shared._Shitmed.Body.Part;
 
 namespace Content.Shared.Body.Components;
 
@@ -11,6 +14,10 @@ namespace Content.Shared.Body.Components;
 [Access(typeof(SharedBodySystem))]
 public sealed partial class BodyComponent : Component
 {
+    public HashSet<OrganComponent> OriginalOrgans = new();
+    public HashSet<BodyPartComponent> OriginalBodyParts = new();
+    public HashSet<BodyPartAppearanceComponent> OriginalAppearances = new();
+
     /// <summary>
     /// Relevant template to spawn for this body.
     /// </summary>
