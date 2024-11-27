@@ -1,0 +1,21 @@
+<controls:FancyWindow
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc 'autodoc-add-step-surgery'}">
+    <BoxContainer Orientation="Horizontal">
+    	<BoxContainer Orientation="Vertical">
+	    	<BoxContainer Orientation="Horizontal">
+	    		<ScrollContainer>
+    				<ItemList Name="Symmetry"/> <!-- Populated with BodyPartSymmetry values -->
+		    	</ScrollContainer>
+    			<ScrollContainer>
+	    			<ItemList Name="Parts"/> <!-- Populated with BodyPartType values -->
+	    		</ScrollContainer>
+    		</BoxContainer>
+    		<Button Name="SubmitButton" Text="{Loc 'autodoc-submit'}"/>
+    	</BoxContainer>
+    	<ScrollContainer>
+    		<ItemList Name="Surgeries"/> <!-- Populated with SharedSurgerySystem.AllSurgeries -->
+    	</ScrollContainer>
+    </BoxContainer>
+</controls:FancyWindow>

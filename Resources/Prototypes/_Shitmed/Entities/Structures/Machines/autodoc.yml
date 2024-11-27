@@ -57,18 +57,19 @@
   - type: ActivatableUIRequiresPower
   - type: Autodoc
     programs:
-    - steps:
+    - title: "testing cyber foot program"
+      steps:
       - !type:SurgeryAutodocStep
-        part: Leg
+        part: Foot
         symmetry: Left
         surgery: SurgeryRemovePart
       - !type:StoreItemAutodocStep
       - !type:GrabItemAutodocStep
-        name: "left cyborg leg"
+        name: "left cybernetic foot"
       - !type:SurgeryAutodocStep
-        part: Torso
-        symmetry: None
-        surgery: SurgeryAttachLeftLeg
+        part: Leg
+        symmetry: Left
+        surgery: SurgeryAttachLeftFoot
   - type: Storage
     grid:
     - 0,0,3,3

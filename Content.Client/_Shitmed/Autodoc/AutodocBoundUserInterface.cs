@@ -16,7 +16,7 @@ public sealed class AutodocBoundUserInterface : BoundUserInterface
     {
         _window = new AutodocWindow(owner, _entMan, _player);
 
-        _window.OnCreateProgram += () => SendMessage(new AutodocCreateProgramMessage());
+        _window.OnCreateProgram += title => SendMessage(new AutodocCreateProgramMessage(title));
         _window.OnToggleProgramSafety += program => SendMessage(new AutodocToggleProgramSafetyMessage(program));
         _window.OnRemoveProgram += program => SendMessage(new AutodocRemoveProgramMessage(program));
 

@@ -52,6 +52,11 @@ public sealed partial class AutodocComponent : Component
     public int MaxPrograms = 16;
 
     /// <summary>
+    /// How long a program title is allowed to be.
+    /// </summary>
+    public int MaxProgramTitleLength = 20;
+
+    /// <summary>
     /// The maximum number of steps a program can have.
     /// </summary>
     [DataField]

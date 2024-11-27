@@ -9,7 +9,10 @@ public enum AutodocUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class AutodocCreateProgramMessage : BoundUserInterfaceMessage;
+public sealed class AutodocCreateProgramMessage(string title) : BoundUserInterfaceMessage
+{
+    public readonly string Title = title;
+}
 
 [Serializable, NetSerializable]
 public sealed class AutodocToggleProgramSafetyMessage(int program) : BoundUserInterfaceMessage

@@ -14,6 +14,7 @@ public sealed partial class AutodocProgram
 {
     public List<IAutodocStep> Steps = new();
     public bool SkipFailed;
+    public string Title = string.Empty;
 }
 
 /// <summary>
@@ -57,7 +58,7 @@ public sealed partial class SurgeryAutodocStep : IAutodocStep
     /// <summary>
     /// The symmetry required. If this is null then symmetry is not checked (operate on an arbitrary leg for example).
     /// </summary>
-    [DataField(required: true)]
+    [DataField]
     public BodyPartSymmetry? Symmetry;
 
     /// <summary>
@@ -109,7 +110,7 @@ public sealed partial class GrabItemAutodocStep : IAutodocStep
     bool IAutodocStep.Validate(Entity<AutodocComponent> ent, SharedAutodocSystem autodoc)
     {
         // client will never send a blank string for name
-        return !string.IsNullOrEmpty(Name.Trim());
+        return !string.IsNullOrEmpty(Name) && Name.Length <= 100;
     }
 
     bool IAutodocStep.Run(Entity<AutodocComponent, HandsComponent> ent, SharedAutodocSystem autodoc)

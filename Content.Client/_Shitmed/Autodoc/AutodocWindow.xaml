@@ -1,12 +1,14 @@
 <controls:FancyWindow
-    	xmlns="https://spacestation14.io"
-	    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-	    Title="{Loc 'autodoc-title'}">
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc 'autodoc-title'}">
     <BoxContainer Orientation="Vertical">
-    	<ScrollContainer Name="Programs" VScrollEnabled="True" SetSize="800 600"/> <!-- Populated at runtime -->
-    	<BoxContainer Orientation="Horizontal" Margin="5 5 5 5" Align="Center">
-			<Button Name="CreateProgramButton" StyleClasses="OpenRight" Text="{Loc 'autodoc-create-program'}"/>
-			<Button Name="AbortButton" StyleClasses="OpenLeft" Text="{Loc 'autodoc-abort-program'}" Disabled="True"/>
-		</BoxContainer>
-	</BoxContainer>
+        <ScrollContainer MinWidth="800" MinHeight="600" VerticalExpand="True">
+            <BoxContainer Name="Programs" Orientation="Vertical"/> <!-- Populated at runtime -->
+        </ScrollContainer>
+        <BoxContainer Orientation="Horizontal" Margin="5 5 5 5" Align="Center">
+            <Button Name="CreateProgramButton" StyleClasses="OpenRight" Text="{Loc 'autodoc-create-program'}"/>
+            <Button Name="AbortButton" StyleClasses="OpenLeft" Text="{Loc 'autodoc-abort-program'}" Disabled="True"/>
+        </BoxContainer>
+    </BoxContainer>
 </controls:FancyWindow>
