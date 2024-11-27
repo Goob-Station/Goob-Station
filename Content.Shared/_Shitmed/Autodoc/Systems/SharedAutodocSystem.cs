@@ -413,6 +413,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             }
 
             // done with the surgery onto next step!!!
+            ent.Comp2.CurrentSurgery = null;
             ent.Comp2.ProgramStep++;
         }
 
