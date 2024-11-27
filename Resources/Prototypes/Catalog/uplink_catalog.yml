@@ -1942,3 +1942,22 @@
     whitelist:
     - Botanist
     - Zookeeper
+
+- type: listing
+  id: UplinkDartSyringeGun
+  name: uplink-dart-syringe-gun-name
+  description: uplink-dart-syringe-gun-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: dart-syringe-gun }
+  productEntity: DartSyringeGun
+  cost:
+    Telecrystal: 30 # goob
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - MedicalDoctor
+    - MedicalIntern
+    - Psychologist
+    - Chemist
+    - Paramedic

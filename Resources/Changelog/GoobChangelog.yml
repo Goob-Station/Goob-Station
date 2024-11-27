@@ -2173,3 +2173,277 @@ Entries:
       message: Nuclear Operative evacuation lockdown
   id: 263
   time: '2024-11-23T23:41:42.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where applicable medication stacks would revert back to 10
+        after 1 use from fullstack.
+  id: 265
+  time: '2024-11-24T23:28:28.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added different step durations to each surgery step.
+    - type: Add
+      message: Added a T2 research for advanced surgical tools
+    - type: Add
+      message: Added a T3 research for an omnitool for surgery.
+    - type: Add
+      message: Added Surgical and Advanced Surgical modules for Mediborgs
+    - type: Add
+      message: Mediborgs can now perform surgery!
+    - type: Add
+      message: Added lobotomies as an operation. Godspeed you psychopaths.
+    - type: Add
+      message: Added cybernetic arms, legs and eyes.
+    - type: Add
+      message: >-
+        Added EMP weaknesses to all cybernetic parts (the day of reckoning will
+        come for IPCs soon)
+    - type: Add
+      message: Losing your eyes now blinds you.
+    - type: Fix
+      message: >-
+        Fixed a few species that did not inherit from BasePart's, thus taking
+        damage types they shouldn't on their limbs.
+    - type: Fix
+      message: 'Fixed harpy lungs not being usable in surgeries. '
+    - type: Fix
+      message: Fixed fire being able to destroy your chest.
+    - type: Fix
+      message: >-
+        Fixed entities being able to take over your body by just inserting a
+        brain or another head on top of you.
+    - type: Fix
+      message: Fixed some shitcode that didnt let rejuvenate or godmode work properly.
+    - type: Fix
+      message: >-
+        Fixed bionic arm, and cybernetic eyes traits not working properly due to
+        shitty networking.
+    - type: Fix
+      message: Fixed cybernetic limbs being a free hand/feet generator due to shitcode.
+    - type: Tweak
+      message: >-
+        Increased tend wounds's speed by double, and bumped up the values on its
+        calculations. DEATH TO TOPICALS, LEAVE THOSE TO TIDERS.
+    - type: Tweak
+      message: >-
+        Beheading an entity now doesnt let it move, speak, and forces it to the
+        ground immediately (literally 1984!!11!!)
+    - type: Tweak
+      message: Changed sprites on most surgical tools to now use /tg/ sprites.
+  id: 266
+  time: '2024-11-25T01:02:23.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Various station event / lobby songs have been added to the jukebox!
+  id: 267
+  time: '2024-11-25T01:46:27.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Fixed Sawn-off Shotguns not being correctly marked as contraband
+  id: 268
+  time: '2024-11-25T13:26:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now survive objective is marked as failed if a person is in ghost bar.
+    - type: Fix
+      message: >-
+        Now kill objectives are marked as completed if the targeted person is in
+        ghost bar.
+  id: 269
+  time: '2024-11-25T22:22:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Re-added vehicles.
+    - type: Add
+      message: >-
+        Wheelchairs and the wheelchair bound trait have been re-added (and
+        re-worked to work with surgery).
+    - type: Add
+      message: Added Secways & Syndicate Segways, ATVs & Janicarts
+    - type: Add
+      message: >-
+        Mapped ATVs, Janicarts & Secways on Atlas, Bagel, Barratry, Cluster,
+        Fland, Kettle, Oasis, Origin and Saltern
+    - type: Add
+      message: The Syndicate Segway has been added to the Syndicate Uplink for 25tc!
+    - type: Tweak
+      message: The medivend now has 3 folded wheelchairs included in it
+    - type: Tweak
+      message: You can now print wheelchairs in the medlathe
+  id: 270
+  time: '2024-11-25T23:20:59.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Vehicle spawners now spawn with keys
+  id: 271
+  time: '2024-11-26T00:45:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added 3 different flavors of syringe guns, 2 obtainable by crew, 1 by
+        traitors
+    - type: Add
+      message: >-
+        CMOs lockers now contain a Rapid Syringe Gun and a box filled with 6 pax
+        syringes. Don't validhunt too much with them will you?
+    - type: Tweak
+      message: >-
+        The CMO now spawns with a webbing filled with advanced surgical
+        instruments along with their usual gear.
+    - type: Tweak
+      message: >-
+        Syringes shot from a syringe gun do not pierce armor unless they are
+        shot from a gun with the necessary components.
+    - type: Tweak
+      message: >-
+        Throwing syringes now embeds them on entities, and transfers 2u of the
+        contents. Doesn't pierce armor.
+  id: 272
+  time: '2024-11-26T01:56:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added heretic blade path.
+    - type: Tweak
+      message: >-
+        Heretic abilities power scale with their path stage. Side knowledge
+        paths are weaker and do not scale.
+    - type: Tweak
+      message: Nerfed fire damage to not kill a fellow urist in 5 seconds.
+    - type: Fix
+      message: Heretics and changelings are now properly hunted by turrets.
+  id: 273
+  time: '2024-11-26T13:31:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New traitor item hardlight bow.
+    - type: Tweak
+      message: Bows are now automatically unwielded after firing.
+  id: 274
+  time: '2024-11-26T13:53:10.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        Secure Intercoms no longer destroy encryption keys when the secure panel
+        is removed.
+  id: 275
+  time: '2024-11-26T13:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Borgs have a new law that makes them obey the AI.
+    - type: Tweak
+      message: The emag law now makes borgs obey any orders from the emagger.
+    - type: Tweak
+      message: >-
+        AI's default lawset is now NTDefault. This should make it more
+        station-oriented.
+    - type: Tweak
+      message: AI is now ion-stormable.
+  id: 276
+  time: '2024-11-26T14:03:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Flashbangs now stun and knockdown people. Wear over-ear headset or
+        combat hardsuit helmet to reduce flashbang effective range.
+    - type: Add
+      message: All sec and command members received over-ear headsets.
+    - type: Add
+      message: Energy bola was added for security.
+    - type: Add
+      message: Flashbangs and e-bolas now printable on secfab.
+    - type: Add
+      message: Epinephrine autoinjector was added for security.
+    - type: Tweak
+      message: Epinephrine now speeds up by 10%.
+    - type: Add
+      message: >-
+        Jackboots, combat and mercenary boots now reduce all stun and knockdown
+        times by 20%.
+    - type: Add
+      message: Combat hardsuit helmets now protect from flashes.
+    - type: Add
+      message: Security survival box now contains extended emergency tank.
+    - type: Tweak
+      message: Tear gas is now stronger.
+    - type: Add
+      message: >-
+        Wearing security, ert, syndie or deathsquad gas mask blocks smoke
+        inhalation even if internals are off.
+    - type: Tweak
+      message: Disabler bolts now pierce through glass but deal no heat damage.
+    - type: Tweak
+      message: Stamcrit stun time is once again 6 seconds.
+    - type: Tweak
+      message: Security hardsuits now have heat resistance.
+    - type: Tweak
+      message: Sec belt and webbing now have 50% explosion resistance to contents.
+    - type: Fix
+      message: Now you won't get stunned no matter what after baton knockdown.
+  id: 277
+  time: '2024-11-26T14:30:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Box, Core, Meta, Omega, and Packed now have vehicles.
+    - type: Add
+      message: >-
+        Most stations now have wheelchairs in Security and Medical in compliance
+        with Nanotrasen accessibility regulations. Not Barratry.
+    - type: Tweak
+      message: The Jukebox doesn't make your ears bleed anymore
+    - type: Tweak
+      message: >-
+        The Bar and Medical are now connected on Kettle, making it significantly
+        easier to get to Medical.
+    - type: Fix
+      message: Fixed keys spawning instead of vehicles, oopsie dasies.
+  id: 278
+  time: '2024-11-26T17:37:24.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: 'Fixed borg legs not letting you move properly. '
+    - type: Fix
+      message: Fixed medical cyborgs poisoning people.
+    - type: Fix
+      message: Fixed cybernetic legs being weak to stepping on glass
+    - type: Fix
+      message: Fixed biosynthetic legs for real this time (lol)
+  id: 279
+  time: '2024-11-26T14:02:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end summary not showing up.
+  id: 280
+  time: '2024-11-26T18:24:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Now you have to aim directly at the vehicle to hit it with projectiles.
+    - type: Tweak
+      message: Vehicles are now slightly slower.
+  id: 281
+  time: '2024-11-26T18:57:52.0000000+00:00'

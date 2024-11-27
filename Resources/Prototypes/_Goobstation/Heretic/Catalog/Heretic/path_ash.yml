@@ -19,7 +19,6 @@
     - Blade
     - Flesh
     - Lock
-    - Rust
     - Void
 
 - type: listing
@@ -61,7 +60,7 @@
   id: HereticAshPath4
   name: knowledge-path-ash-s4-name
   description: knowledge-path-ash-s4-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_ash.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfAsh
   cost:
     KnowledgePoint: 1

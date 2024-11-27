@@ -87,13 +87,11 @@
       left foot:
         id: "left foot"
         type: Foot
+  - type: MovementBodyPart
   - type: Tag
     tags:
     - Trash
     - BorgLeg
-  - type: MovementBodyPart # Shitmed Change: 25% speed boost
-    walkSpeed: 3.125
-    sprintSpeed: 5.625
 
 - type: entity
   id: BaseBorgLegRight
@@ -109,13 +107,11 @@
       right foot:
         id: "right foot"
         type: Foot
+  - type: MovementBodyPart
   - type: Tag
     tags:
     - Trash
     - BorgLeg
-  - type: MovementBodyPart # Shitmed Change: 25% speed boost
-    walkSpeed: 3.125
-    sprintSpeed: 5.625
 
 - type: entity
   id: BaseBorgHead

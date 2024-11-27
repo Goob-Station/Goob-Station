@@ -32,20 +32,20 @@ public sealed class TargetingSystem : SharedTargetingSystem
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.Torso)))
         .Bind(ContentKeyFunctions.TargetLeftArm,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftArm)))
-/*        .Bind(ContentKeyFunctions.TargetLeftHand,
-            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftHand))) SOON :TM: */
+        .Bind(ContentKeyFunctions.TargetLeftHand,
+            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftHand)))
         .Bind(ContentKeyFunctions.TargetRightArm,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightArm)))
-/*        .Bind(ContentKeyFunctions.TargetRightHand,
-            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightHand)))*/
+        .Bind(ContentKeyFunctions.TargetRightHand,
+            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightHand)))
         .Bind(ContentKeyFunctions.TargetLeftLeg,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftLeg)))
-/*        .Bind(ContentKeyFunctions.TargetLeftFoot,
-            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftFoot)))*/
+        .Bind(ContentKeyFunctions.TargetLeftFoot,
+            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.LeftFoot)))
         .Bind(ContentKeyFunctions.TargetRightLeg,
             InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightLeg)))
-/*        .Bind(ContentKeyFunctions.TargetRightFoot,
-            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightFoot)))*/
+        .Bind(ContentKeyFunctions.TargetRightFoot,
+            InputCmdHandler.FromDelegate((session) => HandleTargetChange(session, TargetBodyPart.RightFoot)))
         .Register<SharedTargetingSystem>();
     }
 

@@ -1,6 +1,9 @@
 {
     "recommendations": [
         "ms-dotnettools.csharp",
-        "editorconfig.editorconfig"
+        "editorconfig.editorconfig",
+        "ertanic.robust-lsp", // Goobstation
+        "GitHub.vscode-pull-request-github", // Goobstation
+        "eamodio.gitlens" // Goobstation
     ]
 }
