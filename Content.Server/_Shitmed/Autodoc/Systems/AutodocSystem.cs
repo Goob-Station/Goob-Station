@@ -5,7 +5,7 @@ using Content.Shared.Power.EntitySystems;
 using Content.Shared._Shitmed.Autodoc.Components;
 using Content.Shared._Shitmed.Autodoc.Systems;
 
-namespace Content.Shared._Shitmed.Autodoc.Systems;
+namespace Content.Server._Shitmed.Autodoc.Systems;
 
 public sealed class AutodocSystem : SharedAutodocSystem
 {
