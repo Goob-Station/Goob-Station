@@ -98,7 +98,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return 0;
-        if (component.ConnectToSilo && _silo.TryGetTotalMaterialAmount(uid, out var amount))
+        if (component.ConnectToSilo && _silo.TryGetTotalMaterialAmount(uid, out var amount)) // Goobstation
             return amount;
         return component.Storage.Values.Sum();
     }
@@ -136,7 +136,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (component.MaterialWhiteList == null ? false : !component.MaterialWhiteList.Contains(materialId))
             return false;
 
-        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount))
+        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount)) // Goobstation
             return siloAmount + volume >= 0;
 
         var amount = component.Storage.GetValueOrDefault(materialId);
