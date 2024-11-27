@@ -8,7 +8,7 @@ namespace Content.Server._Shitmed.Autodoc;
 public sealed partial class AutodocSafetyWireAction : ComponentWireAction<AutodocComponent>
 {
     public override Color Color { get; set; } = Color.Red;
-    public override string Name { get; set; } = "wire-name-comp-safety";
+    public override string Name { get; set; } = "wire-name-autodoc-safety";
 
     public override StatusLightState? GetLightState(Wire wire, AutodocComponent comp)
         => comp.RequireSleeping ? StatusLightState.On : StatusLightState.Off;
