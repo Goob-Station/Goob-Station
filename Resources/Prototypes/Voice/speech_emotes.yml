@@ -453,6 +453,9 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-trill"]
   chatTriggers:
     - trill
@@ -467,6 +470,9 @@
   whitelist:
     components:
     - Vocal
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
   chatMessages: ["chat-emote-msg-rattle"]
   chatTriggers:
     - rattle
