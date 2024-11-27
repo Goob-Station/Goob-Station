@@ -74,7 +74,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     // TODO: add admin logging for all of this
     private void OnCreateProgram(Entity<AutodocComponent> ent, ref AutodocCreateProgramMessage args)
     {
-        CreateProgram(ent);
+        CreateProgram(ent, args.Title);
     }
 
     private void OnToggleProgramSafety(Entity<AutodocComponent> ent, ref AutodocToggleProgramSafetyMessage args)
@@ -179,7 +179,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         foreach (var item in storage.Container.ContainedEntities)
         {
             if (Name(item) == name)
-                return uid;
+                return item;
         }
 
         return null;
@@ -190,8 +190,8 @@ public abstract class SharedAutodocSystem : EntitySystem
         var storage = Comp<StorageComponent>(uid);
         foreach (var item in storage.Container.ContainedEntities)
         {
-            if (_whitelist.IsWhitelistPassOrNull(whitelist, uid))
-                return uid;
+            if (_whitelist.IsWhitelistPassOrNull(whitelist, item))
+                return item;
         }
 
         return null;
@@ -287,13 +287,19 @@ public abstract class SharedAutodocSystem : EntitySystem
     /// Create a blank program and return the index to it.
     /// Programs cannot be created while operating or if there are too many, in which case it will return null.
     /// </summary>
-    public int? CreateProgram(Entity<AutodocComponent> ent)
+    public int? CreateProgram(Entity<AutodocComponent> ent, string title)
     {
         var index = ent.Comp.Programs.Count;
         if (IsActive(ent) || index >= ent.Comp.MaxPrograms)
             return null;
 
-        ent.Comp.Programs.Add(new AutodocProgram());
+        if (string.IsNullOrEmpty(title) || title.Length > ent.Comp.MaxProgramTitleLength)
+            return null;
+
+        ent.Comp.Programs.Add(new AutodocProgram()
+        {
+            Title = title
+        });
         Dirty(ent);
         return index;
     }
