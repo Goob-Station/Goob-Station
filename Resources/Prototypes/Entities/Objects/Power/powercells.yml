@@ -76,6 +76,12 @@
   - type: Tag
     tags:
       - PowerCellSmall
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 12
+      Steel: 25
+    chemicalComposition:
+      Zinc: 2
 
 - type: entity
   id: PowerCellSmallPrinted
@@ -114,6 +120,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 75
+      Steel: 75
+      Glass: 75
+      Gold: 2
+    chemicalComposition:
+      Zinc: 5
 
 - type: entity
   id: PowerCellMediumPrinted
@@ -152,6 +166,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 50
+      Steel: 75
+      Glass: 100
+      Gold: 12
+    chemicalComposition:
+      Zinc: 7
 
 - type: entity
   id: PowerCellHighPrinted

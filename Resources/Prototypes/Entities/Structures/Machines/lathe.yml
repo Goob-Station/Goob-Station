@@ -202,6 +202,7 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - ToolboxMechanical # Goobstation - Recycle update
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
