@@ -13,14 +13,7 @@
   - type: Hands
   - type: HandsFill
     hands:
-      cautery: CauteryAutodoc
-      drill: DrillAutodoc
-      scalpel: ScalpelAutodoc
-      retractor: RetractorAutodoc
-      hemostat: HemostatAutodoc
-      bonesetter: BonesetterAutodoc
-      bonegel: BoneGelAutodoc
-      saw: SawAutodoc
+      multitool: OmnimedToolAutodoc
       surgery_specific: null
   - type: WiresPanel
   - type: Wires
@@ -72,7 +65,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speedModifier: 0.75 # worse than a surgeon but you can use it solo
+    speedModifier: 0.5 # on par with a surgeon using normal tools
 
 - type: entity
   parent: Autodoc
@@ -83,45 +76,13 @@
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier
-    speedModifier: 1.0 # as good as a surgeon, nukies need it or something
+    speedModifier: 1.0 # as good as a surgeon using a multitool, nukies need it or something
 
 # Autodoc tools
 
 - type: entity
-  abstract: true
-  id: BaseAutodocTool
+  parent: OmnimedTool
+  id: OnmimedToolAutodoc
   suffix: Unremoveable
   components:
   - type: Unremoveable
-
-- type: entity
-  parent: [Cautery, BaseAutodocTool]
-  id: CauteryAutodoc
-
-- type: entity
-  parent: [Drill, BaseAutodocTool]
-  id: DrillAutodoc
-
-- type: entity
-  parent: [ScalpelLaser, BaseAutodocTool]
-  id: ScalpelAutodoc
-
-- type: entity
-  parent: [Retractor, BaseAutodocTool]
-  id: RetractorAutodoc
-
-- type: entity
-  parent: [Hemostat, BaseAutodocTool]
-  id: HemostatAutodoc
-
-- type: entity
-  parent: [Bonesetter, BaseAutodocTool]
-  id: BonesetterAutodoc
-
-- type: entity
-  parent: [BoneGel, BaseAutodocTool]
-  id: BoneGelAutodoc
-
-- type: entity
-  parent: [SawAdvanced, BaseAutodocTool]
-  id: SawAutodoc
