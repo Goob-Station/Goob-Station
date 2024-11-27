@@ -17,7 +17,6 @@ using Content.Shared._Shitmed.Medical.Surgery.Effects.Step;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
-using Content.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
@@ -39,8 +38,6 @@ public sealed class SurgerySystem : SharedSurgerySystem
     [Dependency] private readonly RottingSystem _rot = default!;
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
 
-    private readonly List<EntProtoId> _surgeries = new();
-
     public override void Initialize()
     {
         base.Initialize();
@@ -53,14 +50,12 @@ public sealed class SurgerySystem : SharedSurgerySystem
         SubscribeLocalEvent<SurgeryDamageChangeEffectComponent, SurgeryStepDamageChangeEvent>(OnSurgeryDamageChange);
         SubscribeLocalEvent<SurgeryStepEmoteEffectComponent, SurgeryStepEvent>(OnStepScreamComplete);
         SubscribeLocalEvent<SurgeryStepSpawnEffectComponent, SurgeryStepEvent>(OnStepSpawnComplete);
-        SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
-        LoadPrototypes();
     }
 
     protected override void RefreshUI(EntityUid body)
     {
         var surgeries = new Dictionary<NetEntity, List<EntProtoId>>();
-        foreach (var surgery in _surgeries)
+        foreach (var surgery in AllSurgeries)
         {
             if (GetSingleton(surgery) is not { } surgeryEnt)
                 continue;
@@ -109,8 +104,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (args.Handled
             || !args.CanReach
             || args.Target == null
-            || !HasComp<SurgeryTargetComponent>(args.Target)
-            || !TryComp<SurgeryTargetComponent>(args.User, out var surgery)
+            || !TryComp<SurgeryTargetComponent>(args.Target, out var surgery)
             || !surgery.CanOperate
             || !IsLyingDown(args.Target.Value, args.User))
         {
@@ -142,12 +136,13 @@ public sealed class SurgerySystem : SharedSurgerySystem
 
     private void OnSurgerySpecialDamageChange(Entity<SurgerySpecialDamageChangeEffectComponent> ent, ref SurgeryStepDamageChangeEvent args)
     {
+        // Im killing this shit soon too, inshallah.
         if (ent.Comp.DamageType == "Rot")
             _rot.ReduceAccumulator(args.Body, TimeSpan.FromSeconds(2147483648)); // BEHOLD, SHITCODE THAT I JUST COPY PASTED. I'll redo it at some point, pinky swear :)
-        else if (ent.Comp.DamageType == "Eye"
+        /*else if (ent.Comp.DamageType == "Eye"
             && TryComp(ent, out BlindableComponent? blindComp)
             && blindComp.EyeDamage > 0)
-            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);
+            _blindableSystem.AdjustEyeDamage((args.Body, blindComp), -blindComp!.EyeDamage);*/
     }
 
     private void OnStepScreamComplete(Entity<SurgeryStepEmoteEffectComponent> ent, ref SurgeryStepEvent args)
@@ -159,20 +154,4 @@ public sealed class SurgerySystem : SharedSurgerySystem
     }
     private void OnStepSpawnComplete(Entity<SurgeryStepSpawnEffectComponent> ent, ref SurgeryStepEvent args) =>
         SpawnAtPosition(ent.Comp.Entity, Transform(args.Body).Coordinates);
-
-    private void OnPrototypesReloaded(PrototypesReloadedEventArgs args)
-    {
-        if (!args.WasModified<EntityPrototype>())
-            return;
-
-        LoadPrototypes();
-    }
-
-    private void LoadPrototypes()
-    {
-        _surgeries.Clear();
-        foreach (var entity in _prototypes.EnumeratePrototypes<EntityPrototype>())
-            if (entity.HasComponent<SurgeryComponent>())
-                _surgeries.Add(new EntProtoId(entity.ID));
-    }
 }

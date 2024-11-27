@@ -342,7 +342,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 0.5 # GoobStation: was 5, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -363,7 +363,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 2 # GoobStation: was 5, critters because bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -384,7 +384,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 1 # GoobStation: was 1, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -401,7 +401,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 20
-    weight: 1.5
+    weight: 0.5 # GoobStation: was 1.5, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:

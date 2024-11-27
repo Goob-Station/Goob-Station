@@ -117,7 +117,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      1000: Dead
+      1500: Dead
   - type: Damageable
     damageContainer: Biological
   - type: StatusEffects
