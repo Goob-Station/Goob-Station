@@ -31,7 +31,7 @@
         mask:
         - Opaque
   - type: KnockdownOnCollide
-    behavior: AlwaysDrop
+    behavior: DropIfStanding
   - type: BlurOnCollide
 
 - type: entity
