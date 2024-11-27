@@ -27,10 +27,11 @@ public sealed class AutodocRemoveProgramMessage(int program) : BoundUserInterfac
 }
 
 [Serializable, NetSerializable]
-public sealed class AutodocAddStepMessage(int program, IAutodocStep step) : BoundUserInterfaceMessage
+public sealed class AutodocAddStepMessage(int program, IAutodocStep step, int index) : BoundUserInterfaceMessage
 {
     public readonly int Program = program;
     public readonly IAutodocStep Step = step;
+    public readonly int Index = index;
 }
 
 [Serializable, NetSerializable]

@@ -33,10 +33,10 @@ public sealed partial class ActiveAutodocComponent : Component
     public bool Waiting;
 
     /// <summary>
-    /// The current surgery being done, if any.
+    /// The current body, part and surgery being done, if any.
     /// </summary>
     [DataField]
-    public EntProtoId? CurrentSurgery;
+    public (EntityUid, EntityUid, EntProtoId)? CurrentSurgery;
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer))]
     [AutoPausedField]

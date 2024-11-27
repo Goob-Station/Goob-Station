@@ -110,7 +110,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             return;
         }
 
-        AddStep(ent, args.Program, args.Step, args.Actor);
+        AddStep(ent, args.Program, args.Step, args.Index, args.Actor);
     }
 
     private void OnRemoveStep(Entity<AutodocComponent> ent, ref AutodocRemoveStepMessage args)
@@ -292,7 +292,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (!_surgery.TryDoSurgeryStep(patient, part, ent, MetaData(nextSurgery).EntityPrototype!.ID, nextStep))
             return false;
 
-        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = surgery;
+        Comp<ActiveAutodocComponent>(ent).CurrentSurgery = (patient, part, surgery);
         return true;
     }
 
@@ -338,16 +338,16 @@ public abstract class SharedAutodocSystem : EntitySystem
     /// <summary>
     /// Adds a step to a program at an index, returning true if it succeeded.
     /// </summary>
-    public bool AddStep(Entity<AutodocComponent> ent, int programIndex, IAutodocStep step, EntityUid user)
+    public bool AddStep(Entity<AutodocComponent> ent, int programIndex, IAutodocStep step, int index, EntityUid user)
     {
         if (IsActive(ent) || programIndex >= ent.Comp.Programs.Count)
             return false;
 
         var program = ent.Comp.Programs[programIndex];
-        if (program.Steps.Count >= ent.Comp.MaxProgramSteps)
+        if (program.Steps.Count >= ent.Comp.MaxProgramSteps || index < 1 || index > ent.Comp.Programs.Count)
             return false;
 
-        program.Steps.Add(step);
+        program.Steps.Insert(index, step);
         Dirty(ent);
 
         _adminLogger.Add(LogType.InteractActivate, LogImpact.Low, $"{ToPrettyString(user):user} added step '{step.Title}' to autodoc program '{program.Title}'");
@@ -408,9 +408,10 @@ public abstract class SharedAutodocSystem : EntitySystem
 
         // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
         // if this was the last step, StartSurgery will fail and the next autodoc step will run
-        if (ent.Comp2.CurrentSurgery is {} surgery)
+        if (ent.Comp2.CurrentSurgery is {} args)
         {
-            if (StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery))
+            var (body, part, surgery) = args;
+            if (StartSurgery((ent.Owner, ent.Comp1), body, part, surgery))
             {
                 ent.Comp2.Waiting = true;
                 return false;

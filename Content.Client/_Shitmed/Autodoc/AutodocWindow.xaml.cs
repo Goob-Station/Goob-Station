@@ -27,7 +27,7 @@ public sealed partial class AutodocWindow : FancyWindow
     public event Action<string>? OnCreateProgram;
     public event Action<int>? OnToggleProgramSafety;
     public event Action<int>? OnRemoveProgram;
-    public event Action<int, IAutodocStep>? OnAddStep;
+    public event Action<int, IAutodocStep, int>? OnAddStep;
     public event Action<int, int>? OnRemoveStep;
     public event Action<int>? OnStart;
     public event Action? OnStop;
@@ -158,7 +158,7 @@ public sealed partial class AutodocWindow : FancyWindow
             OnRemoveProgram?.Invoke(index);
             Programs.RemoveChild(index);
         };
-        window.OnAddStep += step => OnAddStep?.Invoke(index, step);
+        window.OnAddStep += (step, stepIndex) => OnAddStep?.Invoke(index, step, stepIndex);
         window.OnRemoveStep += step => OnRemoveStep?.Invoke(index, step);
         window.OnStart += () =>
         {

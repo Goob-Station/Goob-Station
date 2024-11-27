@@ -17,7 +17,7 @@ public sealed partial class AutodocProgramWindow : FancyWindow
 
     public event Action? OnToggleSafety;
     public event Action? OnRemoveProgram;
-    public event Action<IAutodocStep>? OnAddStep;
+    public event Action<IAutodocStep, int>? OnAddStep;
     public event Action<int>? OnRemoveStep;
     public event Action? OnStart;
 
@@ -66,8 +66,13 @@ public sealed partial class AutodocProgramWindow : FancyWindow
             _addStep = new AddStepWindow();
             _addStep.OnAddStep += step =>
             {
-                OnAddStep?.Invoke(step);
-                program.Steps.Add(step);
+                // if nothing is selected add it to the end
+                // if something is selected, insert just before it
+                var index = _selected ?? program.Steps.Count;
+                OnAddStep?.Invoke(step, index);
+                _selected = null;
+                RemoveButton.Disabled = true;
+                program.Steps.Insert(index, step);
                 UpdateSteps();
             };
             _addStep.OnClose += () => _addStep = null;
@@ -83,7 +88,7 @@ public sealed partial class AutodocProgramWindow : FancyWindow
             RemoveStepButton.Disabled = true;
             OnRemoveStep?.Invoke(index);
 
-            // Steps.RemoveChild throws for no fucking reason
+            // Steps.RemoveChild throws for no fucking reason so rebuild it
             program.Steps.RemoveAt(index);
             UpdateSteps();
         };
