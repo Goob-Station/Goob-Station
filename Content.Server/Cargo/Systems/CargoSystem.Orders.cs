@@ -446,6 +446,7 @@ namespace Content.Server.Cargo.Systems
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));
             // Make an order
             var id = GenerateOrderId(component);
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
             var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, 0);
 
             // Approve it now
