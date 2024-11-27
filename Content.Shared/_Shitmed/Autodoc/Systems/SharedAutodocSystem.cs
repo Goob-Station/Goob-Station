@@ -139,10 +139,11 @@ public abstract class SharedAutodocSystem : EntitySystem
         if (args.Complete || !repeatable)
         {
             ent.Comp.Waiting = false;
+            ent.Comp.ProgramStep++;
             // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
             // if this was the last step, StartSurgery will fail and the next autodoc step will run
             if (ent.Comp.CurrentSurgery is {} surgery)
-                StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery);
+                ent.Comp.Waiting = StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery);
             return;
         }
 

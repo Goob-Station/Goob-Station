@@ -67,7 +67,7 @@
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier
-    speed: 0.5 # worse than a surgeon but you can use it solo
+    speedModifier: 0.5 # worse than a surgeon but you can use it solo
 
 - type: entity
   parent: Autodoc
@@ -78,7 +78,7 @@
   - type: Machine
     board: AutodocSyndieCircuitboard
   - type: SurgerySpeedModifier
-    speed: 1.0 # as good as a surgeon, nukies need it or something
+    speedModifier: 1.0 # as good as a surgeon, nukies need it or something
 
 # Autodoc tools
 
