@@ -221,15 +221,16 @@ public abstract class SharedAutodocSystem : EntitySystem
             throw new AutodocError("hand-full");
     }
 
-    public bool StoreItem(Entity<AutodocComponent, HandsComponent> ent)
+    public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
     {
         if (!_hands.TryGetHand(ent, ent.Comp1.ItemSlot, out var hand, ent.Comp2))
-            return false;
+            throw new AutodocError("item-unavailable");
 
         if (hand.HeldEntity is not {} item)
-            return false;
+            throw new AutodocError("item-unavailable");
 
-        return _storage.Insert(ent, item, out _);
+        if (!_storage.Insert(ent, item, out _);
+            throw new AutodocError("storage-full");
     }
 
     public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
@@ -344,7 +345,7 @@ public abstract class SharedAutodocSystem : EntitySystem
             return false;
 
         var program = ent.Comp.Programs[programIndex];
-        if (program.Steps.Count >= ent.Comp.MaxProgramSteps || index < 1 || index > program.Steps.Count)
+        if (program.Steps.Count >= ent.Comp.MaxProgramSteps || index < 0 || index > program.Steps.Count)
             return false;
 
         program.Steps.Insert(index, step);
