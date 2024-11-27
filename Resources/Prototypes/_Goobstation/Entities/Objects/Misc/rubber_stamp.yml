@@ -32,7 +32,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-cyberrep
     stampedColor: "#f77200"
-    stampState: "paper_stamp-cyberrep"
+    stampState: "paper_stamp-cybersun"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-cyberrep
@@ -58,7 +58,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-arcsmall
     stampedColor: "#411551"
-    stampState: "paper_stamp-arcsmall"
+    stampState: "paper_stamp-arc"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-arcsmall
@@ -84,7 +84,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-donkrep
     stampedColor: "#a87643"
-    stampState: "paper_stamp-donkrep"
+    stampState: "paper_stamp-donkco"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-donkrep
@@ -110,7 +110,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-interrep
     stampedColor: "#483d78"
-    stampState: "paper_stamp-interrep"
+    stampState: "paper_stamp-interdyne"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-interrep
@@ -136,7 +136,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-sentientfrontsmall
     stampedColor: "#85b1dd"
-    stampState: "paper_stamp-sentientfrontsmall"
+    stampState: "paper_stamp-sentientfront"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-sentientfrontsmall
@@ -162,7 +162,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-sscrep
     stampedColor: "#7bcdff"
-    stampState: "paper_stamp-sscrep"
+    stampState: "paper_stamp-ssc"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-sscrep
@@ -188,7 +188,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-terrarep
     stampedColor: "#152c46"
-    stampState: "paper_stamp-terrarep"
+    stampState: "paper_stamp-terra"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-terrarep
@@ -214,7 +214,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-uwurep
     stampedColor: "#930100"
-    stampState: "paper_stamp-uwurep"
+    stampState: "paper_stamp-uwu"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-uwurep
@@ -240,7 +240,7 @@
   - type: Stamp
     stampedName: stamp-component-stamped-name-wafflerep
     stampedColor: "#ffb840"
-    stampState: "paper_stamp-wafflerep"
+    stampState: "paper_stamp-waffle"
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-wafflerep

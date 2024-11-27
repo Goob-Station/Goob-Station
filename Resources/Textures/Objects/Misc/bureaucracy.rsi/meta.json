@@ -236,6 +236,36 @@
     },
     {
       "name": "paper_stamp-psychologist"
-    }
+    },
+      {
+          "name": "paper_stamp-cybersun"
+      },
+      {
+          "name": "paper_stamp-arc"
+      },
+      {
+          "name": "paper_stamp-donkco"
+      },
+      {
+          "name": "paper_stamp-interdyne"
+      },
+      {
+          "name": "paper_stamp-sentientfront"
+      },
+      {
+          "name": "paper_stamp-ssc"
+      },
+      {
+          "name": "paper_stamp-terra"
+      },
+      {
+          "name": "paper_stamp-uwu"
+      },
+      {
+          "name": "paper_stamp-waffle"
+      }
+
+
+
   ]
 }
