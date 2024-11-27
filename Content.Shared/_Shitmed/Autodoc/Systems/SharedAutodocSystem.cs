@@ -451,6 +451,15 @@ public abstract class SharedAutodocSystem : EntitySystem
     protected virtual void Say(EntityUid uid, string msg)
     {
     }
+
+    public void SetSafety(Entity<AutodocComponent> ent, bool enabled)
+    {
+        if (enabled == ent.Comp.RequireSleeping)
+            return;
+
+        ent.Comp.RequireSleeping = enabled;
+        Dirty(ent);
+    }
 }
 
 /// <summary>

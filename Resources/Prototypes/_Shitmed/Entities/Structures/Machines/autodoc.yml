@@ -23,6 +23,8 @@
       saw: SawAutodoc
       surgery_specific: null
   - type: WiresPanel
+  - type: Wires
+    layoutId: Autodoc # do it, snip the safety wire :godo:
   - type: Machine
     board: AutodocCircuitboard
   - type: Construction
@@ -64,6 +66,7 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: Storage
+    clickInsert: false # incredibly annoying
     grid:
     - 0,0,3,3
   - type: SurgerySpeedModifier

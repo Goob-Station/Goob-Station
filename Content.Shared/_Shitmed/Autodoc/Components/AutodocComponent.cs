@@ -2,6 +2,7 @@ using Content.Shared._Shitmed.Autodoc.Systems;
 using Content.Shared.DeviceLinking;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Shitmed.Autodoc.Components;
 
@@ -29,7 +30,7 @@ public sealed partial class AutodocComponent : Component
     /// Requires that the patient be asleep for forced vulnerability.
     /// Can be disabled to operate on awake patients.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool RequireSleeping = true;
 
     /// <summary>
@@ -61,4 +62,11 @@ public sealed partial class AutodocComponent : Component
     /// </summary>
     [DataField]
     public int MaxProgramSteps = 16;
+}
+
+[Serializable, NetSerializable]
+public enum AutodocWireStatus : byte
+{
+    PowerIndicator,
+    SafetyIndicator
 }
