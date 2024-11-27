@@ -150,7 +150,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
             {
-                _sawmill.Warning($"Attempted to set balance, which was not loaded for player {userId.UserId}");
+                _sawmill.Warning($"Attempted to set balance, which was not loaded for player {userId.ToString()}");
                 return 0;
             }
 
@@ -173,7 +173,7 @@ namespace Content.Server._Goobstation.ServerCurrency
         {
             if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
             {
-                _sawmill.Warning($"Attempted to get balance, which was not loaded for player {userId.UserId}");
+                _sawmill.Warning($"Attempted to get balance, which was not loaded for player {userId.ToString()}");
                 return 0;
             }
 
