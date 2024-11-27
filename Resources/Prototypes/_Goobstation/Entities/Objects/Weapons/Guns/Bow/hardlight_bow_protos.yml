@@ -1,0 +1,62 @@
+- type: selectableAmmo
+  id: ArrowEnergy
+  desc: Regular hardlight arrow. Deals more damage than other types.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/arrow.rsi
+    state: arrow
+  color: "#FFB200"
+  protoId: ArrowEnergy
+
+- type: selectableAmmo
+  id: ArrowDisabler
+  desc: Disabler hardlight arrow. Deals no damage. Stuns in two hits.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: "#00B2FF"
+  protoId: ArrowDisabler
+
+- type: selectableAmmo
+  id: ArrowFiery
+  desc: Fiery hardlight arrow. Deals less damage. Ignites the victim.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: fireball
+  color: red
+  protoId: ArrowFiery
+
+- type: selectableAmmo
+  id: ArrowFreeze
+  desc: Freezing hardlight arrow. Deals less damage. Freezes the victim.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    state: ice
+  color: blue
+  protoId: ArrowFreeze
+
+- type: selectableAmmo
+  id: ArrowExplosive
+  desc: Explosive hardlight arrow. Creates weak explosion on hit.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    state: frag
+  color: "#7300FF"
+  protoId: ArrowExplosive
+
+- type: selectableAmmo
+  id: ArrowXray
+  desc: X-ray hardlight arrow. Deals less damage. Pierces through anything.
+  icon:
+    sprite: Objects/Weapons/Guns/Battery/xray.rsi
+    state: icon
+  color: "#1AE51A"
+  protoId: ArrowXray
+
+- type: selectableAmmo
+  id: ArrowBee
+  desc: Bee hardlight arrow. Summons angry bees on hit.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    state: icon
+  color: yellow
+  protoId: ArrowBee

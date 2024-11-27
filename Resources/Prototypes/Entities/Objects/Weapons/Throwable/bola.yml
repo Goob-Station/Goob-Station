@@ -1,8 +1,11 @@
+# Goob edit - energy bola
+
 - type: entity
   name: bola
   parent: [BaseItem, BaseRestrictedContraband]
-  id: Bola
+  id: BaseBola
   description: Linked together with some spare cuffs and metal.
+  abstract: true
   components:
   - type: Item
     size: Normal
@@ -13,6 +16,21 @@
     sound: /Audio/Weapons/bolathrow.ogg
   - type: EmitSoundOnLand
     sound: /Audio/Effects/snap.ogg
+  - type: LandAtCursor
+  - type: Ensnaring
+    freeTime: 2.0
+    breakoutTime: 3.5 #all bola should generally be fast to remove
+    walkSpeed: 0.7 #makeshift bola shouldn't slow too much
+    sprintSpeed: 0.7
+    staminaDamage: 25 # Sudden weight increase sapping stamina
+    canThrowTrigger: true
+    canMoveBreakout: true
+
+- type: entity
+  name: bola
+  parent: BaseBola
+  id: Bola
+  components:
   - type: Construction
     graph: Bola
     node: bola
@@ -39,12 +57,20 @@
     damage:
       types:
         Blunt: 5
+
+- type: entity
+  name: energy bola
+  description: A specialized hardlight bola designed to ensnare fleeing criminals and aid in arrests.
+  parent: BaseBola
+  id: BolaEnergy
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Throwable/energy_bola.rsi
   - type: Ensnaring
-    freeTime: 2.0
-    breakoutTime: 3.5 #all bola should generally be fast to remove
-    walkSpeed: 0.7 #makeshift bola shouldn't slow too much
-    sprintSpeed: 0.7
-    staminaDamage: 55 # Sudden weight increase sapping stamina
-    canThrowTrigger: true
-    canMoveBreakout: true
-  - type: LandAtCursor
+    staminaDamage: 55
+    destroyOnRemove: true
+  - type: Tag
+    tags:
+    - BolaEnergy

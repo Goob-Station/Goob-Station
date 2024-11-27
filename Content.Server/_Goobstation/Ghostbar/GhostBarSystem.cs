@@ -90,7 +90,6 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
         _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
 
-        _mindSystem.WipeMind(player);
         var newMind = _mindSystem.CreateMind(data.UserId, profile.Name);
         _mindSystem.TransferTo(newMind, mobUid, true);
     }
