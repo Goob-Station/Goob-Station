@@ -2455,3 +2455,9 @@ Entries:
       message: cooldown on grand lottery
   id: 282
   time: '2024-11-27T15:08:00.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Heretic ritual items amount shows properly
+  id: 283
+  time: '2024-11-27T15:09:40.0000000+00:00'
