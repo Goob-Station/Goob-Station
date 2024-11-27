@@ -32,6 +32,20 @@
     containers:
     - surgery_specific
     - storagebase
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
   - type: ApcPowerReceiver
     powerLoad: 10000
   - type: DeviceList
