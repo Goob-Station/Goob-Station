@@ -69,7 +69,7 @@ public sealed partial class MaterialStorageComponent : Component
     public bool CanEjectStoredMaterials = true;
 
     // Goobstation
-    [DataField]
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool ConnectToSilo;
 }
 
