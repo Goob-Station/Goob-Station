@@ -138,13 +138,7 @@ public abstract class SharedAutodocSystem : EntitySystem
         var repeatable = HasComp<SurgeryRepeatableStepComponent>(args.Step);
         if (args.Complete || !repeatable)
         {
-            ent.Comp.Waiting = false;
-            // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
-            // if this was the last step, StartSurgery will fail and the next autodoc step will run
-            if (ent.Comp.CurrentSurgery is {} surgery)
-                ent.Comp.Waiting = StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery);
-            if (!ent.Comp.Waiting) // don't repeat the same surgery
-                ent.Comp.ProgramStep++;
+            ent.Comp.Waiting = false; // try the next autodoc or surgery step
             return;
         }
 
@@ -411,6 +405,20 @@ public abstract class SharedAutodocSystem : EntitySystem
     {
         if (ent.Comp2.Waiting)
             return false;
+
+        // stay on this AutodocSurgeryStep until every step of the surgery (and its dependencies) is complete
+        // if this was the last step, StartSurgery will fail and the next autodoc step will run
+        if (ent.Comp2.CurrentSurgery is {} surgery)
+        {
+            if (StartSurgery((ent.Owner, comp), args.Body, args.Part, surgery))
+            {
+                ent.Comp2.Waiting = true;
+                return false;
+            }
+
+            // done with the surgery onto next step!!!
+            ent.Comp2.ProgramStep++;
+        }
 
         var program = ent.Comp1.Programs[ent.Comp2.CurrentProgram];
         var index = ent.Comp2.ProgramStep;
