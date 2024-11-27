@@ -16,17 +16,19 @@
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
       params:
-        volume: -10
+        volume: -5
   - type: ProjectileBatteryAmmoProvider
     proto: BulletMic
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 400
+    autoRechargeRate: 300
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: true
+  - type: Multishot
+    spreadMultiplier: 1.2
 
 - type: entity
   name: Plasma Rifle
