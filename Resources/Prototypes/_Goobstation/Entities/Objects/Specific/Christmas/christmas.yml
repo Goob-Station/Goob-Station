@@ -23,11 +23,11 @@
   parent: MarkerBase
   components:
   - type: Sprite
-    color: "#ff7878"
     layers:
       - state: green
       - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
         state: base1
+        color: "#ff7878"
   - type: RandomSpawner
     offset: 0.0
     prototypes:
@@ -49,8 +49,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 7
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -64,8 +64,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -79,8 +79,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -94,8 +94,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -109,8 +109,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -124,8 +124,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -140,8 +140,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -156,8 +156,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -172,8 +172,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -188,8 +188,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -204,8 +204,8 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
 
 - type: entity
@@ -220,6 +220,6 @@
       - state: sparkles
   - type: PointLight
     color: "#f9f375"
-    radius: 5
-    energy: 6
+    radius: 3
+    energy: 4
     mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
