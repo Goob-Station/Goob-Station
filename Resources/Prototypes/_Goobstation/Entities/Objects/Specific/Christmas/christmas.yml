@@ -1,4 +1,6 @@
 # I couldn't figure out how randomsprite works so this mess was created!!!
+# Also pointlight masks were probably created by yakub or some shit to fuck with people holy god
+# Pointlight masks were coded in hell and sent up to us ong
 - type: entity
   id: SpawnerChristmasTinselWhite
   parent: MarkerBase
