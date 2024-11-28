@@ -7,13 +7,9 @@
     - PetsNT
     - Zombie
     - Dragon
-    #- RatPassive
-    #- RatHostile
-    #- Pet
-    #- FleshHuman
-    #- Flesh
-    #- MalfunctioningRobot
     - Revolutionary
+    - Changeling
+    - Heretic
 
 - type: explosion
   id: Blob

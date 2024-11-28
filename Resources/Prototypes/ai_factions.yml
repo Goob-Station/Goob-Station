@@ -7,6 +7,7 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: NanoTrasen
@@ -16,6 +17,7 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Mouse
@@ -32,6 +34,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: SimpleHostile
@@ -42,6 +45,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: SimpleNeutral
@@ -54,6 +58,7 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Xeno
@@ -64,6 +69,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Zombie
@@ -75,6 +81,7 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Revolutionary
@@ -83,3 +90,4 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - Blob # Goobstation - Blob
