@@ -106,7 +106,6 @@
   showInVote: false
   rules:
   - BlobGameMode
-  - CalmStationEventScheduler
   - BasicStationEventScheduler
   - AntagStationEventScheduler
   - BasicRoundstartVariation
