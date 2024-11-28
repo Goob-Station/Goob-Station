@@ -156,4 +156,15 @@
       - PosterLegitSafetyMothMeth
       - PosterLegitSafetyMothHardhat
       - PosterLegitSafetyMothSSD
+      - PosterLegitGoobWorkHard # Goobstation
+      - PosterLegitGoobMakeshift # Goobstation
+      - PosterLegitGoobCan # Goobstation
+      - PosterLegitGoobFaded # Goobstation
+      - PosterLegitGoobCandle # Goobstation
+      - PosterLegitGoobSuperMatter # Goobstation
+      - PosterLegitGoobWatching # Goobstation
+      - PosterLegitGoobSpaceAsshole # Goobstation
+      - PosterLegitGoobSmokeBreak # Goobstation
+      - PosterLegitGoobWallMeat # Goobstation
+      - PosterLegitGoobCoolS # Goobstation
     chance: 1
