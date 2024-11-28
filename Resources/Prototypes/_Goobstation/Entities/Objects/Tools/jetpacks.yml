@@ -43,18 +43,18 @@
   suffix: Empty
   components:
     - type: Item
-      sprite: _Goobstation\Objects\Tanks\improvised.rsi
+      sprite: _Goobstation/Objects/Tanks/improvised.rsi
     - type: Sprite
-      sprite: _Goobstation\Objects\Tanks\improvised.rsi
+      sprite: _Goobstation/Objects/Tanks/improvised.rsi
     - type: Clothing
-      sprite: _Goobstation\Objects\Tanks\improvised.rsi
+      sprite: _Goobstation/Objects/Tanks/improvised.rsi
       slots:
         - Back
         - suitStorage
     - type: GasTank
-      outputPressure: 42.6
-      air:
-        volume: 1
+    outputPressure: 42.6
+    air:
+      volume: 1
 
 # Filled improvised - GoobStation
 - type: entity
@@ -63,11 +63,9 @@
   name: improvised jetpack
   suffix: Filled
   components:
-  - type: GasTank
-    outputPressure: 42.6
+    - type: GasTank
     air:
-      volume: 1
       temperature: 293.15
       moles:
-        - 0.205137905 # oxygen
-        - 0.205137905 # nitrogen
+        - 0.205137905  # oxygen
+        - 0.205137905  # nitrogen
