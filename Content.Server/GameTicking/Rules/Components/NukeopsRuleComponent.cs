@@ -65,6 +65,17 @@ public sealed partial class NukeopsRuleComponent : Component
     [DataField]
     public int WarTcAmountPerNukie = 200;
 
+    // Goobstation start
+    [DataField]
+    public int WarNukiePlayerRatio = 10;
+
+    [DataField]
+    public int WarTcPerPlayer = 20;
+
+    [DataField]
+    public int WarTcPerNukieMissing = 200;
+    // Goobstation end
+
     /// <summary>
     ///     Delay between war declaration and nuke ops arrival on station map. Gives crew time to prepare
     /// </summary>
@@ -75,7 +86,7 @@ public sealed partial class NukeopsRuleComponent : Component
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
-    public int WarDeclarationMinOps = 4;
+    public int WarDeclarationMinOps = 2;
 
     [DataField]
     public WinType WinType = WinType.Neutral;
