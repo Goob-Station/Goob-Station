@@ -1,0 +1,44 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Sprites for goob_poster_1 through goob_poster_11 by LevitatingTree.",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "goob_poster1_legit"
+        },
+        {
+            "name": "goob_poster2_legit"
+        },
+        {
+            "name": "goob_poster3_legit"
+        },
+        {
+            "name": "goob_poster4_legit"
+        },
+        {
+            "name": "goob_poster5_legit"
+        },
+        {
+            "name": "goob_poster6_legit"
+        },
+        {
+            "name": "goob_poster7_legit"
+        },
+        {
+            "name": "goob_poster8_legit"
+        },
+        {
+            "name": "goob_poster9_legit"
+        },
+        {
+            "name": "goob_poster10_legit"
+        },
+        {
+            "name": "goob_poster11_legit"
+        }
+    ]
+}
