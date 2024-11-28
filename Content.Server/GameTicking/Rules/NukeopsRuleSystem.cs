@@ -52,6 +52,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
+    [ValidatePrototypeId<TagPrototype>]
+    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
+
     public override void Initialize()
     {
         base.Initialize();
@@ -385,7 +388,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))
         {
-            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype))
+            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype) || _tag.HasTag(uid, NukeOpsReinforcementUplinkTagPrototype)) // Goob edit
                 continue;
 
             if (GetOutpost(nukieRule.Owner) is not { } outpost)

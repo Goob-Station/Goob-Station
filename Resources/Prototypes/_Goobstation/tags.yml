@@ -12,3 +12,6 @@
 
 - type: Tag
   id: NukeOpsCommanderUplink
+
+- type: Tag
+  id: NukeOpsReinforcementUplink

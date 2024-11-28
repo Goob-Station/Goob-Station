@@ -94,6 +94,7 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+    - NukeOpsReinforcementUplink
 
 - type: entity
   parent: BaseUplinkRadio
