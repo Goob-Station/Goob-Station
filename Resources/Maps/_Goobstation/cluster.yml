@@ -67745,9 +67745,9 @@ entities:
     - type: Transform
       pos: -37.5,-9.5
       parent: 2
-- proto: SpawnPointMailCarrier
+- proto: SpawnPointMailCarrier # Shibastation - separate mail carrier spawn
   entities:
-  - uid: 12733
+  - uid: 52718
     components:
     - type: Transform
       pos: 20.5,-26.5
