@@ -20623,8 +20623,6 @@ entities:
     - type: Transform
       pos: 23.735682,-0.5000522
       parent: 2
-    - type: Physics
-      sleepTime: 0.1333332
 - proto: ClosetL3VirologyFilled
   entities:
   - uid: 3231
@@ -52150,6 +52148,30 @@ entities:
     components:
     - type: Transform
       pos: 2.5,-21.5
+      parent: 2
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 9243
+    components:
+    - type: Transform
+      pos: 22.265867,-2.7266345
+      parent: 2
+- proto: VehicleKeySecway
+  entities:
+  - uid: 9240
+    components:
+    - type: Transform
+      pos: 7.586735,14.6928005
+      parent: 2
+  - uid: 9241
+    components:
+    - type: Transform
+      pos: 7.5034018,14.640682
+      parent: 2
+  - uid: 9242
+    components:
+    - type: Transform
+      pos: 7.451318,14.546867
       parent: 2
 - proto: VendingBarDrobe
   entities:

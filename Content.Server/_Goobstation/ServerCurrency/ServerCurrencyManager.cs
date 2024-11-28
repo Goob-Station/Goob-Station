@@ -149,7 +149,10 @@ namespace Content.Server._Goobstation.ServerCurrency
         public int SetBalance(NetUserId userId, int amount)
         {
             if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
-                throw new InvalidOperationException("Balance is not yet loaded for this player!");
+            {
+                _sawmill.Warning($"Attempted to set balance, which was not loaded for player {userId.ToString()}");
+                return 0;
+            }
 
             var balanceData = _balances[userId];
 
@@ -169,7 +172,10 @@ namespace Content.Server._Goobstation.ServerCurrency
         public int GetBalance(NetUserId userId)
         {
             if (!_balances.TryGetValue(userId, out var data) || !data.Initialized)
-                throw new InvalidOperationException("Balance is not yet loaded for this player!");
+            {
+                _sawmill.Warning($"Attempted to get balance, which was not loaded for player {userId.ToString()}");
+                return 0;
+            }
 
             return data.Balance;
         }
