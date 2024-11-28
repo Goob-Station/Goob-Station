@@ -95,6 +95,69 @@
   actionPrototypes:
   - ActionHereticAscension1
   - ActionHereticAscension2
+  event: !type:HereticAscensionAshEvent
+
+### blade path
+- type: hereticKnowledge
+  id: CuttingEdge
+  path: Blade
+  stage: 1
+  ritualPrototypes:
+  - BladeBlade
+
+- type: hereticKnowledge
+  id: GraspOfBlade
+  path: Blade
+  stage: 2
+
+- type: hereticKnowledge
+  id: DanceOfTheBrand
+  path: Blade
+  stage: 3
+  event: !type:HereticDanceOfTheBrandEvent
+
+- type: hereticKnowledge
+  id: MarkOfBlade
+  path: Blade
+  stage: 4
+
+- type: hereticKnowledge
+  id: Realignment
+  path: Blade
+  stage: 5
+  actionPrototypes:
+  - ActionHereticRealignment
+
+- type: hereticKnowledge
+  id: TornChampionStance
+  path: Blade
+  stage: 6
+  event: !type:HereticChampionStanceEvent
+
+- type: hereticKnowledge
+  id: EmpoweredBlades
+  path: Blade
+  stage: 7
+
+- type: hereticKnowledge
+  id: FuriousSteel
+  path: Blade
+  stage: 8
+  actionPrototypes:
+  - ActionHereticFuriousSteel
+
+- type: hereticKnowledge
+  id: AscensionBlade
+  path: Blade
+  stage: 9
+  ritualPrototypes:
+  - AscensionBlade
+
+- type: hereticKnowledge
+  id: MaelstromOfSilver
+  path: Blade
+  stage: 10
+  event: !type:HereticAscensionBladeEvent
 
 ### flesh path
 - type: hereticKnowledge
@@ -161,8 +224,7 @@
   id: PriestFinalHymn
   path: Flesh
   stage: 10
-  actionPrototypes:
-  - ActionPolymorphHereticHorror
+  event: !type:HereticAscensionFleshEvent
 
 ### void path
 - type: hereticKnowledge

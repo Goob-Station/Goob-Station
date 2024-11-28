@@ -216,7 +216,31 @@
     Steel: 100
     Plastic: 100
 
-# Shitmed Change
+# Goobstation
+- type: latheRecipe
+  id: SyringeGun
+  result: SyringeGun
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: RapidSyringeGun
+  result: RapidSyringeGun
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 200
+    Plasma: 200
+
+# Shitmed Recipes
+
 - type: latheRecipe
   id: BoneGel
   result: BoneGel
@@ -224,3 +248,53 @@
   materials:
     Plastic: 200
     Plasma: 200
+
+- type: latheRecipe
+  id: MedicalCyberneticEyes
+  result: MedicalCyberneticEyes
+  category: Robotics
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 500
+    Plastic: 500
+    Gold: 300
+    Silver: 300
+
+- type: latheRecipe
+  id: EnergyScalpel
+  result: EnergyScalpel
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 150
+    Gold: 150
+
+- type: latheRecipe
+  id: AdvancedRetractor
+  result: AdvancedRetractor
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 150
+    Silver: 150
+
+- type: latheRecipe
+  id: EnergyCautery
+  result: EnergyCautery
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 150
+    Plasma: 150
+
+- type: latheRecipe
+  id: OmnimedTool
+  result: OmnimedTool
+  completetime: 2
+  materials:
+    Steel: 600
+    Glass: 150
+    Gold: 150
+    Silver: 150
+    Plasma: 150

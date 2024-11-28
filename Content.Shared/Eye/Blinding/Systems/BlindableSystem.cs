@@ -87,6 +87,19 @@ public sealed class BlindableSystem : EntitySystem
         blindable.Comp.MinDamage = amount;
         UpdateEyeDamage(blindable, false);
     }
+
+    // Shitmed Change Start
+    public void TransferBlindness(BlindableComponent newSight, BlindableComponent oldSight, EntityUid newEntity)
+    {
+        newSight.IsBlind = oldSight.IsBlind;
+        newSight.EyeDamage = oldSight.EyeDamage;
+        newSight.LightSetup = oldSight.LightSetup;
+        newSight.GraceFrame = oldSight.GraceFrame;
+        newSight.MinDamage = oldSight.MinDamage;
+        newSight.MaxDamage = oldSight.MaxDamage;
+        UpdateEyeDamage((newEntity, newSight), true);
+    }
+    // Shitmed Change End
 }
 
 /// <summary>

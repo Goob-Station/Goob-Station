@@ -44,6 +44,11 @@
   - type: BodyPart
     partType: Arm # Shitmed Change
     symmetry: Left
+    toolName: "a left arm" # Shitmed Change
+    children: # Shitmed Change
+      left hand:
+        id: "left hand"
+        type: Hand
   - type: Tag
     tags:
     - Trash
@@ -58,6 +63,11 @@
   - type: BodyPart
     partType: Arm # Shitmed Change
     symmetry: Right
+    toolName: "a right arm" # Shitmed Change
+    children: # Shitmed Change
+      right hand:
+        id: "right hand"
+        type: Hand
   - type: Tag
     tags:
     - Trash
@@ -72,11 +82,16 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
+    toolName: "a left leg" # Shitmed Change
+    children: # Shitmed Change
+      left foot:
+        id: "left foot"
+        type: Foot
+  - type: MovementBodyPart
   - type: Tag
     tags:
     - Trash
     - BorgLeg
-  - type: MovementBodyPart # Shitmed Change
 
 - type: entity
   id: BaseBorgLegRight
@@ -87,11 +102,16 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+    toolName: "a right leg" # Shitmed Change
+    children: # Shitmed Change
+      right foot:
+        id: "right foot"
+        type: Foot
+  - type: MovementBodyPart
   - type: Tag
     tags:
     - Trash
     - BorgLeg
-  - type: MovementBodyPart # Shitmed Change
 
 - type: entity
   id: BaseBorgHead
@@ -101,6 +121,7 @@
   components:
   - type: BodyPart
     partType: Head
+    toolName: "a head" # Shitmed Change
   - type: Tag
     tags:
     - Trash
@@ -114,6 +135,7 @@
   components:
   - type: BodyPart
     partType: Torso
+    toolName: "a torso" # Shitmed Change
   - type: Tag
     tags:
     - Trash

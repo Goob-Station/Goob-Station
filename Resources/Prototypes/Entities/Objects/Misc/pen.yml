@@ -37,13 +37,13 @@
     damage:
       types:
         Piercing: 3
-  - type: Tending # Shitmed
-    speed: 0.55
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+#  - type: Tending # Shitmed TODO: Uncomment this when surgeries arent tied to interaction events, but verbs.
+#    speed: 0.55
+#  - type: SurgeryTool # Shitmed
+#    startSound:
+#      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+#    endSound:
+#      path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 
