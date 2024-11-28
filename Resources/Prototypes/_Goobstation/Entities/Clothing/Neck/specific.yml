@@ -26,7 +26,7 @@
   - type: StationAiVision
     range: 4
   - type: Sprite
-    sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
     quickEquip: true
