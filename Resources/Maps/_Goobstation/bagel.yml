@@ -129537,7 +129537,7 @@ entities:
       parent: 60
 - proto: SpawnPointMailCarrier
   entities:
-  - uid: 24882
+  - uid: 57261
     components:
     - type: Transform
       pos: 49.5,17.5
