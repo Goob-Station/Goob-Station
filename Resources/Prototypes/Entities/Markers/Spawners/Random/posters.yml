@@ -92,6 +92,8 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
+      - PosterContrabandYakub
+      - PosterContrabandChuckler
     chance: 1
 
 - type: entity
@@ -156,4 +158,11 @@
       - PosterLegitSafetyMothMeth
       - PosterLegitSafetyMothHardhat
       - PosterLegitSafetyMothSSD
+      - PosterLegitNTRAdvert
+      - PosterLegitSlowDownClown
+      - PosterLegitLouieVote
+      - PosterLegitLokoAdvert
+      - PosterLegitWelderBomb
+      - PosterLegitDurkPlush
+      - PosterLegitBigBrotherAI
     chance: 1
