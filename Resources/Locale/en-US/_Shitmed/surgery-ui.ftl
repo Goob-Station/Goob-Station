@@ -1,3 +1,5 @@
+surgery-verb-text = Start surgery
+surgery-verb-message = Begin surgery on this entity.
 surgery-ui-window-title = Surgery
 surgery-ui-window-require = Requires
 surgery-ui-window-parts = < Parts

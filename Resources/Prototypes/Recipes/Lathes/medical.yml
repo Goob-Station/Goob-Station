@@ -293,8 +293,8 @@
   result: OmnimedTool
   completetime: 2
   materials:
-    Steel: 600
-    Glass: 150
-    Gold: 150
-    Silver: 150
-    Plasma: 150
+    Steel: 1200
+    Glass: 300
+    Gold: 300
+    Silver: 300
+    Plasma: 300

@@ -117,11 +117,10 @@ public partial class SharedBodySystem
     }
 
     /// <summary>
-    /// This function handles disabling or enabling equipment slots when an entity is
-    /// missing all of a given part type, or they get one added to them.
-    /// It is called right before dropping a part, or right after adding one.
+    ///     Shitmed Change: This function handles dropping the items in an entity's slots if they lose all of a given part.
+    ///     Such as their hands, feet, head, etc.
     /// </summary>
-    public void ChangeSlotState(Entity<BodyPartComponent> partEnt, bool disable)
+    public void DropSlotContents(Entity<BodyPartComponent> partEnt)
     {
         if (partEnt.Comp.Body is not null
             && TryComp<InventoryComponent>(partEnt.Comp.Body, out var inventory) // Prevent error for non-humanoids
@@ -129,11 +128,7 @@ public partial class SharedBodySystem
             && TryGetPartSlotContainerName(partEnt.Comp.PartType, out var containerNames))
         {
             foreach (var containerName in containerNames)
-            {
-                _inventorySystem.SetSlotStatus(partEnt.Comp.Body.Value, containerName, disable, inventory);
-                var ev = new RefreshInventorySlotsEvent(containerName);
-                RaiseLocalEvent(partEnt.Comp.Body.Value, ev);
-            }
+                _inventorySystem.DropSlotContents(partEnt.Comp.Body.Value, containerName, inventory);
         }
 
     }
@@ -199,7 +194,7 @@ public partial class SharedBodySystem
 
     protected virtual void DropPart(Entity<BodyPartComponent> partEnt)
     {
-        ChangeSlotState(partEnt, true);
+        DropSlotContents(partEnt);
         // I don't know if this can cause issues, since any part that's being detached HAS to have a Body.
         // though I really just want the compiler to shut the fuck up.
         var body = partEnt.Comp.Body.GetValueOrDefault();
@@ -228,14 +223,17 @@ public partial class SharedBodySystem
         if (ent.Comp.Body is null)
             return;
 
-        if (TryComp(insertedUid, out BodyPartComponent? part))
+        if (TryComp(insertedUid, out BodyPartComponent? part) && slotId.Contains(PartSlotContainerIdPrefix + GetSlotFromBodyPart(part))) // Shitmed Change
         {
             AddPart(ent.Comp.Body.Value, (insertedUid, part), slotId);
             RecursiveBodyUpdate((insertedUid, part), ent.Comp.Body.Value);
+            CheckBodyPart((insertedUid, part), GetTargetBodyPart(part), false); // Shitmed Change
         }
 
-        if (TryComp(insertedUid, out OrganComponent? organ))
+        if (TryComp(insertedUid, out OrganComponent? organ) && slotId.Contains(OrganSlotContainerIdPrefix+organ.SlotId)) // Shitmed Change
+        {
             AddOrgan((insertedUid, organ), ent.Comp.Body.Value, ent);
+        }
     }
 
     private void OnBodyPartRemoved(Entity<BodyPartComponent> ent, ref EntRemovedFromContainerMessage args)
@@ -1004,6 +1002,18 @@ public partial class SharedBodySystem
         return containerNames.Count > 0;
     }
 
+    private bool TryGetPartFromSlotContainer(string slot, out BodyPartType? partType)
+    {
+        partType = slot switch
+        {
+            "gloves" => BodyPartType.Hand,
+            "shoes" => BodyPartType.Foot,
+            "eyes" or "ears" or "head" or "mask" => BodyPartType.Head,
+            _ => null
+        };
+        return partType is not null;
+    }
+
     public int GetBodyPartCount(EntityUid bodyId, BodyPartType partType, BodyComponent? body = null)
     {
         if (!Resolve(bodyId, ref body, logMissing: false))
@@ -1020,10 +1030,16 @@ public partial class SharedBodySystem
 
     public string GetSlotFromBodyPart(BodyPartComponent part)
     {
-        if (part.Symmetry != BodyPartSymmetry.None)
-            return $"{part.Symmetry.ToString().ToLower()} {part.PartType.ToString().ToLower()}";
+        string slotName;
+        if (part.SlotId != "")
+            slotName = part.SlotId;
         else
-            return part.PartType.ToString().ToLower();
+            slotName = part.PartType.ToString().ToLower();
+
+        if (part.Symmetry != BodyPartSymmetry.None)
+            return $"{part.Symmetry.ToString().ToLower()} {slotName}";
+        else
+            return slotName;
     }
 
     // Shitmed Change End

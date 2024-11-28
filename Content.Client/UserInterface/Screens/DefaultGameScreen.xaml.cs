@@ -28,6 +28,7 @@ public sealed partial class DefaultGameScreen : InGameScreen
         Chat.OnChatResizeFinish += ChatOnResizeFinish;
 
         MainViewport.OnResized += ResizeActionContainer;
+        MainViewport.OnResized += ResizeAlertsContainer;
         Inventory.OnResized += ResizeActionContainer;
     }
 
@@ -35,6 +36,13 @@ public sealed partial class DefaultGameScreen : InGameScreen
     {
         float indent = Inventory.Size.Y + TopBar.Size.Y + 40;
         Actions.ActionsContainer.MaxGridHeight = MainViewport.Size.Y - indent;
+    }
+
+    private void ResizeAlertsContainer()
+    {
+        float indent = Chat.Size.Y + Targeting.Size.Y - 120;
+        Logger.Debug($"Indent: {indent}, Chat: {Chat.Size.Y}, Targeting: {Targeting.Size.Y}, Alerts: {Alerts.AlertContainer.Size.Y}");
+        Alerts.AlertContainer.MaxGridHeight = MainViewport.Size.Y - indent;
     }
 
     private void ChatOnResizeFinish(Vector2 _)
