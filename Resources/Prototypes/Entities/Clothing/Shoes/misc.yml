@@ -121,6 +121,11 @@
         name: power-cell-slot-component-slot-name-default
   - type: Tag
     tags: []
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 375
+      Plastic: 250
+      Silver: 125
 
 - type: entity
   id: ActionToggleSpeedBoots

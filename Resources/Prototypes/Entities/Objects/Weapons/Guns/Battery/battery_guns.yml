@@ -391,6 +391,11 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 87
+        Plasma: 37
+        Uranium: 37
 
 - type: entity
   name: x-ray cannon

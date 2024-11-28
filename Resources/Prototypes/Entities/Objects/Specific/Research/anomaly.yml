@@ -60,6 +60,10 @@
       params:
         maxDistance: 1
         volume: -8
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 100
+      Glass: 25
 
 - type: entity
   id: AnomalyLocator

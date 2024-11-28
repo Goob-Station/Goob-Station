@@ -364,6 +364,11 @@
     speed: 1.5
   - type: Drill
     speed: 1.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Plasma: 37
 
 - type: entity
   name: energy scalpel
