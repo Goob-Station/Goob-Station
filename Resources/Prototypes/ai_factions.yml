@@ -7,6 +7,7 @@
     - PetsNT
     - Zombie
     - Revolutionary
+    - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -17,6 +18,8 @@
   - Xeno
   - Zombie
   - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -45,6 +48,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -58,6 +62,8 @@
   - Xeno
   - PetsNT
   - Zombie
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -69,6 +75,7 @@
   - PetsNT
   - Zombie
   - Revolutionary
+  - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
 
 - type: npcFaction
@@ -81,6 +88,8 @@
   - Passive
   - PetsNT
   - Revolutionary
+  - Changeling # goob edit - changelings
+  - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
 
 - type: npcFaction

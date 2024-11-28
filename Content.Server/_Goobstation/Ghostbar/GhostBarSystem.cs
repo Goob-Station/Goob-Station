@@ -12,6 +12,7 @@ using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Server.Antag.Components;
+using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Players;
 
@@ -53,6 +54,12 @@ public sealed class GhostBarSystem : EntitySystem
     {
         var player = args.SenderSession;
 
+        if (!_mindSystem.TryGetMind(player, out var mindId, out var mind))
+        {
+            Log.Warning($"Failed to find mind for player {player.Name}.");
+            return;
+        }
+
         if (!_entityManager.HasComponent<GhostComponent>(player.AttachedEntity))
         {
             Log.Warning($"User {player.Name} tried to spawn at ghost bar without being a ghost.");
@@ -90,9 +97,10 @@ public sealed class GhostBarSystem : EntitySystem
         _entityManager.EnsureComponent<AntagImmuneComponent>(mobUid);
         _entityManager.EnsureComponent<IsDeadICComponent>(mobUid);
 
-        _mindSystem.WipeMind(player);
-        var newMind = _mindSystem.CreateMind(data.UserId, profile.Name);
-        _mindSystem.TransferTo(newMind, mobUid, true);
+        if (mind.Objectives.Count == 0)
+            _mindSystem.WipeMind(player);
+        mindId = _mindSystem.CreateMind(data.UserId, profile.Name).Owner;
+        _mindSystem.TransferTo(mindId, mobUid, true);
     }
 
     private void OnPlayerGhosted(EntityUid uid, GhostBarPlayerComponent component, MindRemovedMessage args)

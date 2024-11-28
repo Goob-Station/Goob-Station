@@ -2317,3 +2317,161 @@ Entries:
         contents. Doesn't pierce armor.
   id: 272
   time: '2024-11-26T01:56:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added heretic blade path.
+    - type: Tweak
+      message: >-
+        Heretic abilities power scale with their path stage. Side knowledge
+        paths are weaker and do not scale.
+    - type: Tweak
+      message: Nerfed fire damage to not kill a fellow urist in 5 seconds.
+    - type: Fix
+      message: Heretics and changelings are now properly hunted by turrets.
+  id: 273
+  time: '2024-11-26T13:31:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New traitor item hardlight bow.
+    - type: Tweak
+      message: Bows are now automatically unwielded after firing.
+  id: 274
+  time: '2024-11-26T13:53:10.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        Secure Intercoms no longer destroy encryption keys when the secure panel
+        is removed.
+  id: 275
+  time: '2024-11-26T13:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Borgs have a new law that makes them obey the AI.
+    - type: Tweak
+      message: The emag law now makes borgs obey any orders from the emagger.
+    - type: Tweak
+      message: >-
+        AI's default lawset is now NTDefault. This should make it more
+        station-oriented.
+    - type: Tweak
+      message: AI is now ion-stormable.
+  id: 276
+  time: '2024-11-26T14:03:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Flashbangs now stun and knockdown people. Wear over-ear headset or
+        combat hardsuit helmet to reduce flashbang effective range.
+    - type: Add
+      message: All sec and command members received over-ear headsets.
+    - type: Add
+      message: Energy bola was added for security.
+    - type: Add
+      message: Flashbangs and e-bolas now printable on secfab.
+    - type: Add
+      message: Epinephrine autoinjector was added for security.
+    - type: Tweak
+      message: Epinephrine now speeds up by 10%.
+    - type: Add
+      message: >-
+        Jackboots, combat and mercenary boots now reduce all stun and knockdown
+        times by 20%.
+    - type: Add
+      message: Combat hardsuit helmets now protect from flashes.
+    - type: Add
+      message: Security survival box now contains extended emergency tank.
+    - type: Tweak
+      message: Tear gas is now stronger.
+    - type: Add
+      message: >-
+        Wearing security, ert, syndie or deathsquad gas mask blocks smoke
+        inhalation even if internals are off.
+    - type: Tweak
+      message: Disabler bolts now pierce through glass but deal no heat damage.
+    - type: Tweak
+      message: Stamcrit stun time is once again 6 seconds.
+    - type: Tweak
+      message: Security hardsuits now have heat resistance.
+    - type: Tweak
+      message: Sec belt and webbing now have 50% explosion resistance to contents.
+    - type: Fix
+      message: Now you won't get stunned no matter what after baton knockdown.
+  id: 277
+  time: '2024-11-26T14:30:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Box, Core, Meta, Omega, and Packed now have vehicles.
+    - type: Add
+      message: >-
+        Most stations now have wheelchairs in Security and Medical in compliance
+        with Nanotrasen accessibility regulations. Not Barratry.
+    - type: Tweak
+      message: The Jukebox doesn't make your ears bleed anymore
+    - type: Tweak
+      message: >-
+        The Bar and Medical are now connected on Kettle, making it significantly
+        easier to get to Medical.
+    - type: Fix
+      message: Fixed keys spawning instead of vehicles, oopsie dasies.
+  id: 278
+  time: '2024-11-26T17:37:24.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: 'Fixed borg legs not letting you move properly. '
+    - type: Fix
+      message: Fixed medical cyborgs poisoning people.
+    - type: Fix
+      message: Fixed cybernetic legs being weak to stepping on glass
+    - type: Fix
+      message: Fixed biosynthetic legs for real this time (lol)
+  id: 279
+  time: '2024-11-26T14:02:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end summary not showing up.
+  id: 280
+  time: '2024-11-26T18:24:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Now you have to aim directly at the vehicle to hit it with projectiles.
+    - type: Tweak
+      message: Vehicles are now slightly slower.
+  id: 281
+  time: '2024-11-26T18:57:52.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Add
+      message: cooldown implementation for cargo orders
+    - type: Add
+      message: cooldown on grand lottery
+  id: 282
+  time: '2024-11-27T15:08:00.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Heretic ritual items amount shows properly
+  id: 283
+  time: '2024-11-27T15:09:40.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the timeout from ordering grand lottery crates. LET'S GO
+        GAMBLING!!!
+  id: 284
+  time: '2024-11-27T15:34:10.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Any sharp object can now be used as a ghetto scalpel or bone saw.
+  id: 285
+  time: '2024-11-27T20:46:37.0000000+00:00'

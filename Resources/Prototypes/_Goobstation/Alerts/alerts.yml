@@ -5,3 +5,11 @@
     state: stasis
   name: alerts-stasis-name
   description: alerts-stasis-desc
+
+- type: alert
+  id: KnockedDown
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/knockdown.rsi
+    state: icon
+  name: alerts-knocked-down-name
+  description: alerts-knocked-down-desc

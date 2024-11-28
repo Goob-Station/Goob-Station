@@ -1,4 +1,4 @@
-namespace Content.Server.Heretic.Components;
+namespace Content.Server.Heretic.Components.PathSpecific;
 
 [RegisterComponent]
 public sealed partial class AristocratComponent : Component
