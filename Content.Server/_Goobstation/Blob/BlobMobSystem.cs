@@ -43,7 +43,7 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
     {
         base.Initialize();
 
-       // SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
+        SubscribeLocalEvent<BlobMobComponent, BlobMobGetPulseEvent>(OnPulsed);
 
        // SubscribeLocalEvent<BlobSpeakComponent, DetermineEntityLanguagesEvent>(OnLanguageApply);
        // SubscribeLocalEvent<BlobSpeakComponent, ComponentStartup>(OnSpokeAdd);
@@ -124,12 +124,13 @@ public sealed class BlobMobSystem : SharedBlobMobSystem
 
         var radio = EnsureComp<ActiveRadioComponent>(ent);
         radio.Channels.Add(ent.Comp.Channel);
-    }
+    }*/
 
     private void OnPulsed(EntityUid uid, BlobMobComponent component, BlobMobGetPulseEvent args)
     {
-        _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
-    }*/
+        //_damageableSystem.TryChangeDamage(uid, component.HealthOfPulse, targetPart: TargetBodyPart.All);
+        _damageableSystem.TryChangeDamage(uid, component.HealthOfPulse);
+    }
 
 
 }

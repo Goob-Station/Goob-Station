@@ -1,6 +1,5 @@
 ﻿using Content.Server.Atmos;
 using Content.Server.Atmos.Components;
-using Content.Server.Blob.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat.Managers;
@@ -72,8 +71,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         SubscribeLocalEvent<ZombieBlobComponent, InhaleLocationEvent>(OnInhale);
         SubscribeLocalEvent<ZombieBlobComponent, ExhaleLocationEvent>(OnExhale);
 
-    //  SubscribeLocalEvent<RespiratorImmunityComponent, ComponentInit>(OnPressureImmuneInit);
-    //  SubscribeLocalEvent<RespiratorImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
+        SubscribeLocalEvent<RespiratorImmunityComponent, ComponentInit>(OnPressureImmuneInit);
+        SubscribeLocalEvent<RespiratorImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
     }
 
     private void OnInhale(Entity<ZombieBlobComponent> ent, ref InhaleLocationEvent args)
@@ -85,7 +84,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         args.Gas = GasMixture.SpaceGas;
     }
 
-    /* private void OnPressureImmuneInit(EntityUid uid, RespiratorImmunityComponent pressureImmunity, ComponentInit args)
+    private void OnPressureImmuneInit(EntityUid uid, RespiratorImmunityComponent pressureImmunity, ComponentInit args)
     {
         if (TryComp<RespiratorComponent>(uid, out var respirator))
         {
@@ -99,7 +98,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         {
             respirator.HasImmunity = false;
         }
-    }*/
+    }
 
     /// <summary>
     /// Replaces the current fixtures with non-climbing collidable versions so that climb end can be detected
@@ -141,13 +140,13 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         _faction.AddFaction(uid, "Blob");
         component.OldFactions = oldFactions;
 
-        //var accent = EnsureComp<ReplacementAccentComponent>(uid);
-        //accent.Accent = "genericAggressive";
+        var accent = EnsureComp<ReplacementAccentComponent>(uid);
+        accent.Accent = "genericAggressive";
 
         _tagSystem.AddTag(uid, "BlobMob");
 
         EnsureComp<PressureImmunityComponent>(uid);
-        // EnsureComp<RespiratorImmunityComponent>(uid);
+        EnsureComp<RespiratorImmunityComponent>(uid);
 
         if (TryComp<TemperatureComponent>(uid, out var temperatureComponent))
         {
@@ -170,8 +169,8 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
                 {
                     PrototypeId = "Blob"
                 });
-            }
-*/
+            }*/
+
             if (_mind.TryGetSession(mindComp.Mind, out var session))
             {
                 _chatMan.DispatchServerMessage(session, Loc.GetString("blob-zombie-greeting"));
@@ -206,7 +205,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         RemComp<HTNComponent>(uid);
         RemComp<ReplacementAccentComponent>(uid);
         RemComp<PressureImmunityComponent>(uid);
-        //RemComp<RespiratorImmunityComponent>(uid);
+        RemComp<RespiratorImmunityComponent>(uid);
 
         if (TryComp<TemperatureComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
         {
@@ -221,7 +220,7 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         {
             _roleSystem.MindTryRemoveRole<BlobRoleComponent>(mindComp.Mind.Value);
         }
-*/
+        */
         _trigger.Trigger(component.BlobPodUid);
         QueueDel(component.BlobPodUid);
 
