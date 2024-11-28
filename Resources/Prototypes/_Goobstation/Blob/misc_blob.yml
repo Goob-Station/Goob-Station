@@ -41,7 +41,7 @@
   parent: BaseAntagSpawner
   components:
     - type: GhostRoleMobSpawner
-      prototype: MobMouseCancer
+      prototype: MobMouseCancerBlob
     - type: GhostRole
       makeSentient: true
       name: blob-carrier-role-name
