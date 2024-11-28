@@ -893,6 +893,9 @@
 - type: Tag
   id: IntercomElectronics
 
+- type: Tag # Goobstation
+  id: JanicartKeys
+
 - type: Tag
   id: JawsOfLife
 
@@ -1491,6 +1494,9 @@
 
 - type: Tag
   id: VGRoidInterior
+
+- type: Tag # Goobstation
+  id: VehicleKey
 
 - type: Tag
   id: VimPilot

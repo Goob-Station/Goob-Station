@@ -1,0 +1,15 @@
+# I am making a grave mistake aren't I?
+- type: entity
+  suffix: pax
+  parent: PrefilledSyringe
+  id: SyringePax
+  components:
+  - type: Label
+    currentLabel: reagent-name-pax
+  - type: SolutionContainerManager
+    solutions:
+      injector:
+        maxVol: 15
+        reagents:
+        - ReagentId: Pax
+          Quantity: 15

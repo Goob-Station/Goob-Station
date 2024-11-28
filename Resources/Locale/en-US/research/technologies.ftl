@@ -78,6 +78,9 @@ research-technology-bluespace-cargo-transport = Bluespace Cargo Transport
 research-technology-quantum-fiber-weaving = Quantum Fiber Weaving
 research-technology-bluespace-chemistry = Bluespace Chemistry
 
+## GoobStation
+research-technology-medical-defense = Medical Control Gear
+
 ## Shitmed Change
 research-technology-advanced-treatment = Advanced Treatment
 research-technology-high-end-surgery = High End Surgical Tools

@@ -1,0 +1,21 @@
+- type: latheRecipe
+  id: GrenadeFlashBang
+  result: GrenadeFlashBang
+  completetime: 3
+  materials:
+    Steel: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: BolaEnergy
+  result: BolaEnergy
+  completetime: 3
+  materials:
+    Steel: 200
+
+- type: latheRecipe
+  id: CartridgeEpinephrine
+  result: CartridgeEpinephrine
+  completetime: 1
+  materials:
+    Glass: 100
