@@ -128,8 +128,8 @@
     - type: InputMover
     - type: MobMover
     - type: BlobMob
-#    - type: ReplacementAccent
-#      accent: genericAggressive
+    - type: ReplacementAccent
+      accent: genericAggressive
     - type: CombatMode
     - type: HTN
       rootTask:
@@ -208,8 +208,8 @@
           type: BlobChemSwapBoundUserInterface
     - type: Actions
     - type: Alerts
-#    - type: ReplacementAccent
-#      accent: genericAggressive
+    - type: ReplacementAccent
+      accent: genericAggressive
     - type: ActiveRadio
       channels:
       - Hivemind

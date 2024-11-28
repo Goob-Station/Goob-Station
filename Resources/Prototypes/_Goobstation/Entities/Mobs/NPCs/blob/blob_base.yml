@@ -44,9 +44,9 @@
           layer:
             - BlobTileLayer
           density: 1000
-   # - type: GuideHelp
-   #   guides:
-   #   - Blob
+    - type: GuideHelp
+      guides:
+      - Blob
 
 - type: entity
   id: MobObserverBlobController
@@ -54,10 +54,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _Goobstation\Objects\Weapons\flesh_spike_hand.rsi
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
     state: icon
   - type: Item
-    sprite: _Goobstation\Objects\Weapons\flesh_spike_hand.rsi
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
     size: Ginormous
   - type: Unremoveable
     deleteOnDrop: true

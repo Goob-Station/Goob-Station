@@ -207,13 +207,14 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
         if (component.Core == null || !TryComp<BlobCoreComponent>(component.Core.Value, out var blobCoreComponent))
             return;
 
+        if (!_blobCoreSystem.TryUseAbility(component.Core.Value, blobCoreComponent.SwapChemCost))
+            return;
+
         if (component.SelectedChemId == args.SelectedId)
             return;
 
         if (!ChangeChem(uid, args.SelectedId, component))
             return;
-
-        _blobCoreSystem.TryUseAbility(component.Core.Value, blobCoreComponent.SwapChemCost);
     }
 
     private bool ChangeChem(EntityUid uid, BlobChemType newChem, BlobObserverComponent component)
