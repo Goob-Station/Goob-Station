@@ -177,7 +177,7 @@
       briefing:
         text: blob-carrier-role-greeting
         color: Plum
-        sound: /Audio/Backmen/Ambience/Antag/blob_start.ogg
+        sound: /Audio/Announcements/bloblarm.ogg
       mindRoles:
       - MindRoleBlob
 
