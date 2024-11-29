@@ -32,7 +32,7 @@
   - type: Gibbable
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Biomass: 1
+      Biomass: 4
 
 - type: entity
   id: OrganAnimalLungs

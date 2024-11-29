@@ -366,9 +366,9 @@
     speed: 1.5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 150
-      Glass: 37
-      Plasma: 37
+      Steel: 600
+      Glass: 150
+      Plasma: 150
 
 - type: entity
   name: energy scalpel

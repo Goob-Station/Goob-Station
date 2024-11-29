@@ -39,7 +39,7 @@
     size: Normal
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 25
+      Plastic: 100
 
 - type: entity
   name: trash bag

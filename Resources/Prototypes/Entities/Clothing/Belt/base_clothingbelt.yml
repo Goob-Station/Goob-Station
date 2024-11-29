@@ -12,9 +12,10 @@
     equipSound:
       path: /Audio/Items/belt_equip.ogg
     quickEquip: false
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 50
+      Cloth: 100
+      Steel: 50
   - type: StaticPrice
     price: 20
 

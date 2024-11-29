@@ -40,9 +40,9 @@
         maxVol: 100
   - type: UseDelay
     delay: 1
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 100
   - type: Tag
     tags:
       - Mop
@@ -128,9 +128,9 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 100
   - type: Tag
     tags:
       - WetFloorSign
@@ -275,11 +275,11 @@
     radius: 1.5
     energy: 0.75
     color: "#ffc20e"
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
-      Gold: 10
-      Wood: 25
+      Plastic: 100
+      Gold: 100
+      Wood: 100
 
 - type: weightedRandomEntity
   id: PlungerLoot

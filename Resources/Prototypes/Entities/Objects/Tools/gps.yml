@@ -12,10 +12,10 @@
   - type: Item
     sprite: Objects/Devices/gps.rsi
   - type: HandheldGPS
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 400
-      Glass: 150
+      Steel: 800
+      Glass: 300
   - type: Tag
     tags:
     - GPS

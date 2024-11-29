@@ -22,8 +22,8 @@
       light_replacer_storage: !type:Container
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
-      Glass: 125
+      Steel: 100
+      Glass: 500
 
 - type: entity
   parent: LightReplacer

@@ -12,8 +12,8 @@
     state: generic
   - type: StaticPrice
     price: 100
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 200
+      Glass: 50
     chemicalComposition:
       Silicon: 20

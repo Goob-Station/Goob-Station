@@ -26,11 +26,11 @@
   - type: Appearance
   - type: Multishot
     spreadMultiplier: 1.2
-  - type: PhysicalComposition #Goobstation - Recycle update
+  - type: PhysicalComposition
     materialComposition:
-      Steel: 125
-      Glass: 75
-      Plasma: 75 
+      Steel: 500
+      Glass: 300
+      Plasma: 300
 
 - type: entity
   parent: WeaponPlasmaCutter

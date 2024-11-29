@@ -123,9 +123,9 @@
     tags: []
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 375
-      Plastic: 250
-      Silver: 125
+      Steel: 1500
+      Plastic: 1000
+      Silver: 500
 
 - type: entity
   id: ActionToggleSpeedBoots

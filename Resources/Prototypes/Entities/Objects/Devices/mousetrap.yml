@@ -56,8 +56,8 @@
     - type: Rotatable
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 12
-        Wood: 25
+        Steel: 50
+        Wood: 100
 
 - type: entity
   name: mousetrap

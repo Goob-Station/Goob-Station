@@ -37,8 +37,8 @@
   - type: UseDelay
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Wood: 125
+      Steel: 1000
+      Wood: 500
 
 - type: entity
   name: mining drill

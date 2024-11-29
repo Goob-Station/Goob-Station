@@ -26,8 +26,8 @@
       - HolosignProjector
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 62
-      Glass: 37
+      Plastic: 250
+      Glass: 150
 
 - type: entity
   parent: Holoprojector

@@ -14,7 +14,7 @@
     spread: 90
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 125
+      Steel: 500
 
 - type: entity
   parent: CrateBaseWeldable
@@ -34,7 +34,7 @@
     price: 100
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 125
+      Plastic: 500
 
 - type: entity
   parent: CratePlastic

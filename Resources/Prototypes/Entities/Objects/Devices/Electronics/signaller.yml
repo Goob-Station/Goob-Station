@@ -26,9 +26,9 @@
     range: 40 # goobstation
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
-      Plastic: 50
-      Glass: 25
+      Steel: 100
+      Plastic: 200
+      Glass: 100
 
 - type: entity
   parent: RemoteSignaller
@@ -50,6 +50,6 @@
     price: 30
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
-      Plastic: 50
-      Plasma: 25
+      Steel: 100
+      Plastic: 200
+      Glass: 100

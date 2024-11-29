@@ -104,6 +104,9 @@
     node: done
     containers:
     - entity_storage
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
 
 #Wall Closet
 - type: entity

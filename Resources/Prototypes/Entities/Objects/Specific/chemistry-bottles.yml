@@ -9,9 +9,9 @@
     tags:
     - Bottle
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 25
+      Glass: 100
   - type: SpaceGarbage
   - type: Sprite
     sprite: Objects/Specific/Chemistry/bottle.rsi

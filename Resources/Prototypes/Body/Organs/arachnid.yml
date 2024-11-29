@@ -27,7 +27,7 @@
     - Organ
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Biomass: 5
+      Biomass: 10
 
 - type: entity
   id: OrganArachnidStomach

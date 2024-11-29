@@ -9,9 +9,9 @@
     - type: Sprite
       sprite: Objects/Misc/module.rsi
       state: charger_APC
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 50
+        Glass: 250
       chemicalComposition:
         Silicon: 20
     - type: StaticPrice

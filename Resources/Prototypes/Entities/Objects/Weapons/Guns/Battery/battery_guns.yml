@@ -393,9 +393,9 @@
       startingCharge: 10000
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 87
-        Plasma: 37
-        Uranium: 37
+        Steel: 750
+        Plasma: 150
+        Uranium: 150
 
 - type: entity
   name: x-ray cannon

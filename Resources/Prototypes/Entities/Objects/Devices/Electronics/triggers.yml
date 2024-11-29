@@ -32,8 +32,8 @@
           volume: -2
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 75
-      Plastic: 50
+      Steel: 300
+      Plastic: 100
 
 - type: entity
   parent: TimerTrigger
@@ -78,5 +78,5 @@
     - type: TriggerOnVoice
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 75
-      Plastic: 50
+      Steel: 300
+      Plastic: 100

@@ -44,7 +44,7 @@
     - DrinkCup
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 25
+      Glass: 100
 
 - type: entity
   parent: DrinkBaseCup
@@ -75,9 +75,9 @@
   - type: SolutionContainerVisuals
     maxFillLevels: 3
     fillBaseName: icon-
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 25
+      Plastic: 100
 
 - type: entity
   parent: DrinkBaseMug
@@ -142,9 +142,9 @@
   components:
   - type: Sprite
     sprite: Objects/Consumable/Drinks/mug_metal.rsi
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
+      Steel: 100
 
 - type: entity
   parent: DrinkBaseMug

@@ -115,12 +115,13 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
         RaiseLocalEvent(item, ref reclaimedEvent);
 
         var duration = GetReclaimingDuration(uid, item, component);
-        // if it's instant, don't bother with all the active comp stuff.
+
+        /* Goobstation - Recycle Update - Commented to prevent recycling one item several times
         if (duration == TimeSpan.Zero)
         {
             Reclaim(uid, item, 1, component);
             return true;
-        }
+        }*/
 
         var active = EnsureComp<ActiveMaterialReclaimerComponent>(uid);
         active.Duration = duration;
@@ -191,8 +192,9 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     /// </summary>
     public bool CanStart(EntityUid uid, MaterialReclaimerComponent component)
     {
-        if (HasComp<ActiveMaterialReclaimerComponent>(uid))
-            return false;
+        /* Goobstation - Recycle Update - Commented to prevent recycling one item several times
+          if (HasComp<ActiveMaterialReclaimerComponent>(uid))
+            return false;*/
 
         return component.Powered && component.Enabled && !component.Broken;
     }

@@ -19,9 +19,10 @@
   - type: Tag
     tags:
       - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
+      Steel: 250
+      Glass: 100
   - type: GuideHelp
     guides:
     - Cyborgs

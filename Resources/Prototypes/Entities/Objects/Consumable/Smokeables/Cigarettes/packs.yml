@@ -39,9 +39,9 @@
     tags:
     - CigPack
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
+      Steel: 100
   - type: SpaceGarbage
   - type: Item
     size: Tiny
@@ -108,9 +108,9 @@
     tags:
     - CigPack
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
+      Steel: 100
   - type: SpaceGarbage
   - type: Item
     size: Tiny

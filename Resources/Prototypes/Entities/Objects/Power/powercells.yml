@@ -78,10 +78,10 @@
       - PowerCellSmall
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 12
-      Steel: 25
+      Plastic: 50
+      Steel: 50
     chemicalComposition:
-      Zinc: 2
+      Zinc: 10
 
 - type: entity
   id: PowerCellSmallPrinted
@@ -122,12 +122,12 @@
     fireCost: 100
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 75
-      Steel: 75
-      Glass: 75
-      Gold: 2
+      Plastic: 200
+      Steel: 200
+      Glass: 300
+      Gold: 10
     chemicalComposition:
-      Zinc: 5
+      Zinc: 20
 
 - type: entity
   id: PowerCellMediumPrinted
@@ -168,12 +168,12 @@
     fireCost: 100
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
-      Steel: 75
-      Glass: 100
-      Gold: 12
+      Plastic: 150
+      Steel: 200
+      Glass: 400
+      Gold: 20
     chemicalComposition:
-      Zinc: 7
+      Zinc: 50
 
 - type: entity
   id: PowerCellHighPrinted

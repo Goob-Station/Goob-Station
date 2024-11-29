@@ -62,8 +62,8 @@
         volume: -8
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
-      Glass: 25
+      Steel: 400
+      Glass: 100
 
 - type: entity
   id: AnomalyLocator

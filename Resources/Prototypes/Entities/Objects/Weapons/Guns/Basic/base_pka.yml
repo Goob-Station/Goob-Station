@@ -47,8 +47,8 @@
     - Belt
   - type: UseDelay
     delay: 1
-  - type: PhysicalComposition #Goobstation - Recycle update
+    - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Glass: 125
-      Silver: 25
+      Steel: 1000
+      Glass: 500
+      Silver: 100

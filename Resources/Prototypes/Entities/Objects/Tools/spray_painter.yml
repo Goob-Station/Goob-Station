@@ -34,5 +34,5 @@
     price: 40
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 75
-      Plastic: 25
+      Steel: 300
+      Plastic: 100

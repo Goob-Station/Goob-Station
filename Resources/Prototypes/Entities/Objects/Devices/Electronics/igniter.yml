@@ -25,6 +25,6 @@
     - Igniter
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 75
-      Plastic: 25
-      Glass: 25
+      Steel: 300
+      Plastic: 100
+      Glass: 100
