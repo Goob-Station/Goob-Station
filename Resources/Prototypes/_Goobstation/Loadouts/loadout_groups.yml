@@ -51,6 +51,14 @@
   - BlueshieldOfficerHeadBeretBlack
 
 - type: loadoutGroup
+  id: BlueshieldOfficerBackpack
+  name: loadout-group-bso-backpack
+  loadouts:
+  - BlueshieldOfficerBackpack
+  - BlueshieldOfficerSatchel
+  - BlueshieldOfficerDuffel
+
+- type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
   loadouts:
