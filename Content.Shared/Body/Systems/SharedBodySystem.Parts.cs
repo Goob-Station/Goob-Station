@@ -34,7 +34,7 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyPartComponent, EntInsertedIntoContainerMessage>(OnBodyPartInserted);
         SubscribeLocalEvent<BodyPartComponent, EntRemovedFromContainerMessage>(OnBodyPartRemoved);
 
-    // Shitmed Change Start
+        // Shitmed Change Start
         SubscribeLocalEvent<BodyPartComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<BodyPartComponent, ComponentRemove>(OnBodyPartRemove);
         SubscribeLocalEvent<BodyPartComponent, AmputateAttemptEvent>(OnAmputateAttempt);
@@ -230,7 +230,7 @@ public partial class SharedBodySystem
             CheckBodyPart((insertedUid, part), GetTargetBodyPart(part), false); // Shitmed Change
         }
 
-        if (TryComp(insertedUid, out OrganComponent? organ) && slotId.Contains(OrganSlotContainerIdPrefix+organ.SlotId)) // Shitmed Change
+        if (TryComp(insertedUid, out OrganComponent? organ) && slotId.Contains(OrganSlotContainerIdPrefix + organ.SlotId)) // Shitmed Change
         {
             AddOrgan((insertedUid, organ), ent.Comp.Body.Value, ent);
         }
@@ -242,18 +242,32 @@ public partial class SharedBodySystem
         var removedUid = args.Entity;
         var slotId = args.Container.ID;
 
-        DebugTools.Assert(!TryComp(removedUid, out BodyPartComponent? b) || b.Body == ent.Comp.Body);
-        DebugTools.Assert(!TryComp(removedUid, out OrganComponent? o) || o.Body == ent.Comp.Body);
-
-        if (TryComp(removedUid, out BodyPartComponent? part) && part.Body is not null)
+        // Shitmed Change Start
+        if (TryComp(removedUid, out BodyPartComponent? part))
         {
-            CheckBodyPart((removedUid, part), GetTargetBodyPart(part), true); // Shitmed Change
-            RemovePart(part.Body.Value, (removedUid, part), slotId);
-            RecursiveBodyUpdate((removedUid, part), null);
+            if (!slotId.Contains(PartSlotContainerIdPrefix + GetSlotFromBodyPart(part)))
+                return;
+
+            DebugTools.Assert(part.Body == ent.Comp.Body);
+
+            if (part.Body is not null)
+            {
+                CheckBodyPart((removedUid, part), GetTargetBodyPart(part), true);
+                RemovePart(part.Body.Value, (removedUid, part), slotId);
+                RecursiveBodyUpdate((removedUid, part), null);
+            }
         }
 
         if (TryComp(removedUid, out OrganComponent? organ))
+        {
+            if (!slotId.Contains(OrganSlotContainerIdPrefix + organ.SlotId))
+                return;
+
+            DebugTools.Assert(organ.Body == ent.Comp.Body);
+
             RemoveOrgan((removedUid, organ), ent);
+        }
+        // Shitmed Change End
     }
 
     private void RecursiveBodyUpdate(Entity<BodyPartComponent> ent, EntityUid? bodyUid)
@@ -1027,9 +1041,13 @@ public partial class SharedBodySystem
         return count;
     }
 
-    public string GetSlotFromBodyPart(BodyPartComponent part)
+    public string GetSlotFromBodyPart(BodyPartComponent? part)
     {
-        string slotName;
+        var slotName = "";
+
+        if (part is null)
+            return slotName;
+
         if (part.SlotId != "")
             slotName = part.SlotId;
         else

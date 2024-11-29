@@ -128,8 +128,8 @@ public sealed class SurgerySystem : SharedSurgerySystem
         {
             Act = () => AttemptStartSurgery(ent, user, target),
             Icon = new SpriteSpecifier.Rsi(new("/Textures/Objects/Specific/Medical/Surgery/scalpel.rsi/"), "scalpel"),
-            Text = Loc.GetString(Loc.GetString("surgery-verb-text")),
-            Message = Loc.GetString(Loc.GetString("surgery-verb-message")),
+            Text = Loc.GetString("surgery-verb-text"),
+            Message = Loc.GetString("surgery-verb-message"),
             DoContactInteraction = true
         };
 
