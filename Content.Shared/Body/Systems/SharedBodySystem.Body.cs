@@ -16,17 +16,19 @@ using Robust.Shared.Map;
 using Robust.Shared.Utility;
 
 // Shitmed Change
+using Content.Shared._Shitmed.Body.Events;
+using Content.Shared._Shitmed.Body.Part;
+using Content.Shared._Shitmed.Humanoid.Events;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
-using Content.Shared._Shitmed.Humanoid.Events;
-using Content.Shared._Shitmed.Body.Part;
-using Content.Shared._Shitmed.Body.Events;
+using Content.Shared.Inventory.Events;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
-using Content.Shared._Shitmed.Targeting;
 using Robust.Shared.Timing;
+
 namespace Content.Shared.Body.Systems;
 
 public partial class SharedBodySystem
@@ -58,6 +60,8 @@ public partial class SharedBodySystem
         SubscribeLocalEvent<BodyComponent, CanDragEvent>(OnBodyCanDrag);
         SubscribeLocalEvent<BodyComponent, StandAttemptEvent>(OnStandAttempt); // Shitmed Change
         SubscribeLocalEvent<BodyComponent, ProfileLoadFinishedEvent>(OnProfileLoadFinished); // Shitmed change
+        SubscribeLocalEvent<BodyComponent, IsEquippingAttemptEvent>(OnBeingEquippedAttempt); // Shitmed Change
+
     }
 
     private void OnBodyInserted(Entity<BodyComponent> ent, ref EntInsertedIntoContainerMessage args)
@@ -130,7 +134,6 @@ public partial class SharedBodySystem
         // This should already handle adding the entity to the root.
         var rootPartUid = SpawnInContainerOrDrop(protoRoot.Part, bodyEntity, BodyRootContainerId);
         var rootPart = Comp<BodyPartComponent>(rootPartUid);
-        rootPart.OriginalBody = bodyEntity; // Shitmed Change
         rootPart.Body = bodyEntity;
         Dirty(rootPartUid, rootPart);
 
@@ -187,7 +190,6 @@ public partial class SharedBodySystem
                 var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
-                childPartComponent.OriginalBody = rootPart.Body;
                 Dirty(childPart, childPartComponent);
                 // Shitmed Change End
                 var cont = Containers.GetContainer(parentEntity, GetPartSlotContainerId(connection));
@@ -384,7 +386,7 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part) || !part.CanSever)
                 return gibs;
 
-            ChangeSlotState((partId, part), true);
+            DropSlotContents((partId, part));
             RemovePartChildren((partId, part), bodyEnt);
             foreach (var organ in GetPartOrgans(partId, part))
             {
@@ -424,7 +426,7 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part))
                 return false;
 
-            ChangeSlotState((partId, part), true);
+            DropSlotContents((partId, part));
             RemovePartChildren((partId, part), bodyEnt);
             QueueDel(partId);
             return true;
@@ -445,6 +447,21 @@ public partial class SharedBodySystem
     {
         if (ent.Comp.LegEntities.Count == 0)
             args.Cancel();
+    }
+
+    private void OnBeingEquippedAttempt(Entity<BodyComponent> ent, ref IsEquippingAttemptEvent args)
+    {
+        TryGetPartFromSlotContainer(args.Slot, out var bodyPart);
+        if (bodyPart is not null)
+        {
+            if (!GetBodyChildrenOfType(args.EquipTarget, bodyPart.Value).Any())
+            {
+                if (_timing.IsFirstTimePredicted)
+                    _popup.PopupEntity(Loc.GetString("equip-part-missing-error",
+                        ("target", args.EquipTarget), ("part", bodyPart.Value.ToString())), args.Equipee, args.Equipee);
+                args.Cancel();
+            }
+        }
     }
 
     // Shitmed Change End
