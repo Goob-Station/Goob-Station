@@ -519,6 +519,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation
 
 - type: entity
   id: SyringeCryostasis
@@ -551,7 +552,7 @@
     tags:
     - Syringe
     - Trash
-
+    - SyringeGunAmmo # Goobstation
 
 - type: entity
   name: pill
