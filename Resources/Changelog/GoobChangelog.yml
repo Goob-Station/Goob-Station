@@ -2509,3 +2509,9 @@ Entries:
       message: Fix absurd amount of midround antags spawning every shift.
   id: 289
   time: '2024-11-29T19:21:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now you can't get stunlocked while in critical state.
+  id: 290
+  time: '2024-11-29T19:21:52.0000000+00:00'
