@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "license": "CC-BY-SA-3.0",
+    "copyright": "53_legit - 59_legit, 64_contraband lovingly handmade by BeeRobyn on Discord - https://github.com/BeeRobynn, 59_legit created by wyvernrer on Discord, for 65_contraband Yakub came to me in my dreams and gave me the sprite",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "poster53_legit"
+        },
+        {
+            "name": "poster54_legit"
+        },
+        {
+            "name": "poster55_legit"
+        },
+        {
+            "name": "poster56_legit"
+        },
+        {
+            "name": "poster57_legit"
+        },
+        {
+            "name": "poster58_legit"
+        },
+        {
+            "name": "poster59_legit"
+        },
+        {
+            "name": "poster64_contraband"
+        },
+        {
+            "name": "poster65_contraband"
+        }
+    ]
+}
