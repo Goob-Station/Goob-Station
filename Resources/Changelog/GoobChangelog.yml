@@ -2491,3 +2491,9 @@ Entries:
         on server and missing nukies.
   id: 286
   time: '2024-11-29T16:42:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix hardlight bow arrows behaving weirdly.
+  id: 287
+  time: '2024-11-29T16:53:32.0000000+00:00'
