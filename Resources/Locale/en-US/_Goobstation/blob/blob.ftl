@@ -91,6 +91,7 @@ blob-alert-out-off-station = The blob was removed because it was found outside t
 blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
 blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak. The emergency shuttles can not be sent due to contamination risks.
 blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
+blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await resque.
 
 # Actions
 blob-create-factory-action-name = Place Factory Blob (80)

@@ -149,15 +149,27 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 return;
             case BlobStage.Begin when blobTilesCount >= (stationUid.Comp?.StageCritical ?? StationBlobConfigComponent.DefaultStageCritical):
             {
-                blobRuleComp.Stage = BlobStage.Critical;
-                _chatSystem.DispatchGlobalAnnouncement(
+                if (_nukeCode.SendNukeCodes(stationUid))//send the nuke code?
+                {
+                    blobRuleComp.Stage = BlobStage.Critical;
+                    _chatSystem.DispatchGlobalAnnouncement(
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
                     blobRuleComp.AlertAudio,
                     Color.Red);
+                }
+                else
+                {
+                    blobRuleComp.Stage = BlobStage.Critical;
+                    _chatSystem.DispatchGlobalAnnouncement(
+                    Loc.GetString("blob-alert-critical-NoNukeCode"),
+                    stationName,
+                    true,
+                    blobRuleComp.AlertAudio,
+                    Color.Red);
+                }
 
-                _nukeCode.SendNukeCodes(stationUid); //send the nuke code?
                 _alertLevelSystem.SetLevel(stationUid, StationGamma, true, true, true, true);
 
                 RaiseLocalEvent(stationUid,
