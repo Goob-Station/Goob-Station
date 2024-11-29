@@ -1,0 +1,111 @@
+# I couldn't figure out how randomsprite works so this mess was created!!!
+# Also pointlight masks were probably created by yakub or some shit to fuck with people holy god
+# Pointlight masks were coded in hell and sent up to us ong
+- type: entity
+  id: SpawnerChristmasLightsWhite
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Objects/Specific/Christmas/lights.rsi
+        state: base1
+  - type: RandomSpawner
+    offset: 0.0
+    prototypes:
+    - ChristmasLightsWhite1
+    - ChristmasLightsWhite2
+    - ChristmasLightsWhite3
+    - ChristmasLightsWhite4
+    - ChristmasLightsWhite5
+    - ChristmasLightsWhite6
+
+- type: entity
+  id: ChristmasLightsWhite1
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base1
+      - state: lights1
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+
+- type: entity
+  id: ChristmasLightsWhite2
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base2
+      - state: lights2
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+
+- type: entity
+  id: ChristmasLightsWhite3
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base3
+      - state: lights3
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+
+- type: entity
+  id: ChristmasLightsWhite4
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base4
+      - state: lights4
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+
+- type: entity
+  id: ChristmasLightsWhite5
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base5
+      - state: lights5
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+
+- type: entity
+  id: ChristmasLightsWhite6
+  description: Some white Christmas lights.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/lights.rsi"
+    layers:
+      - state: base6
+      - state: lights6
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
