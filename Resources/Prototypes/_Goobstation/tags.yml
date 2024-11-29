@@ -6,3 +6,9 @@
 
 - type: Tag
   id: CartridgeHighCaliber
+
+- type: Tag
+  id: BolaEnergy
+
+- type: Tag
+  id: CartridgeEpinephrine

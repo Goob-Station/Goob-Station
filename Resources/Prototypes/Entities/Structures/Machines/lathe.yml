@@ -175,6 +175,7 @@
       - TrashBag
       - PowerCellSmall
       - PowerCellMedium
+      - VehicleWheelchairFolded # Goobstation
       - RollerBedSpawnFolded
       - CheapRollerBedSpawnFolded
       - EmergencyRollerBedSpawnFolded
@@ -227,6 +228,9 @@
       - RiotShield
       - SpeedLoaderMagnum
       - SpeedLoaderMagnumEmpty
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -309,6 +313,7 @@
       - Implanter
       - PillCanister
       - ChemistryEmptyBottle01
+      - VehicleWheelchairFolded # Goobstation
       - AdvMopItem
       - WeaponSprayNozzle
       - ClothingBackpackWaterTank
@@ -355,6 +360,9 @@
       - DeviceQuantumSpinInverter
       - WeaponPlasmaCutter # Goobstation
       - WeaponPlasmaRifle # Goobstation
+      - EnergyScalpel # Shitmed Change
+      - EnergyCautery # Shitmed Change
+      - AdvancedRetractor # Shitmed Change
   - type: EmagLatheRecipes
     emagDynamicRecipes:
       - BoxBeanbag
@@ -617,6 +625,7 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
+    - BorgModuleSurgery # Shitmed Change
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -654,6 +663,13 @@
     - HamtrLLeg
     - HamtrRLeg
     - VimHarness
+    # Shitmed Change
+    - BorgModuleAdvancedSurgery
+    - JawsOfLifeLeftArm
+    - JawsOfLifeRightArm
+    - SpeedLeftLeg
+    - SpeedRightLeg
+    - BasicCyberneticEyes
   - type: MaterialStorage
     whitelist:
       tags:
@@ -776,6 +792,10 @@
       - WeaponFlareGunSecurity
       - WeaponLaserCarbinePractice
       - Zipties
+      - GrenadeFlashBang # Goobstation
+      - BolaEnergy # Goobstation
+      - CartridgeEpinephrine # Goobstation
+      - SyringeGun #Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -827,6 +847,9 @@
       - WeaponLaserCannon
       - WeaponLaserCarbine
       - WeaponXrayCannon
+      - RapidSyringeGun # Goobstation
+      - SecurityCyberneticEyes # Shitmed Change
+      - MedicalCyberneticEyes # Shitmed Change
   - type: MaterialStorage
     whitelist:
       tags:
@@ -945,16 +968,25 @@
       - Hemostat
       - ClothingEyesGlassesChemical
       - WhiteCane
+      - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
+      - VehicleWheelchairFolded # Goobstation - Vehicles
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
       - BluespaceBeaker
       - SyringeBluespace
       - SyringeCryostasis
+      - RapidSyringeGun # Goobstation
+      # Shitmed Change
+      - EnergyScalpel
+      - EnergyCautery
+      - AdvancedRetractor
+      - OmnimedTool
+      - MedicalCyberneticEyes
   - type: Machine
     board: MedicalTechFabCircuitboard
   - type: StealTarget

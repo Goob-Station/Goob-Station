@@ -143,6 +143,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (TryComp<RequireProjectileTargetComponent>(args.OtherEntity, out var requireTarget) && requireTarget.IgnoreThrow && requireTarget.Active)
             return;
 
+        if (component.IgnoredEntities.Contains(args.OtherEntity)) // Goobstation
+            args.Cancelled = true;
+
         if (component.IgnoreShooter && (args.OtherEntity == component.Shooter || args.OtherEntity == component.Weapon))
         {
             args.Cancelled = true;

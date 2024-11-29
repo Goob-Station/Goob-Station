@@ -1,7 +1,7 @@
 - type: gameMap
   id: Meta
   mapName: 'Meta Station'
-  mapPath: /Maps/meta.yml
+  mapPath: /Maps/_Goobstation/meta.yml # Goobstation
   minPlayers: 30 # Goobstation return minPlayers requirement for maps
   maxPlayers: 85 # Goobstation - Limit mappool to highpop versions of maps only
   stations:

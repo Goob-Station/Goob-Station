@@ -224,8 +224,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -234,7 +233,6 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 5
         Ion: 10 #Goobstation
     soundHit:
       collection: WeakHit
@@ -265,8 +263,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -275,7 +272,6 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 1
         Ion: 5 #Goobstation
     soundHit:
       collection: WeakHit
@@ -936,8 +932,7 @@
           bounds: "-0.15,-0.3,0.15,0.3"
         hard: false
         mask:
-        - Impassable
-        - BulletImpassable
+        - Opaque # Goobstation
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
@@ -946,7 +941,6 @@
     impactEffect: BulletImpactEffectDisabler
     damage:
       types:
-        Heat: 2
         Ion: 4 #Goobstation
     soundHit:
       collection: WeakHit

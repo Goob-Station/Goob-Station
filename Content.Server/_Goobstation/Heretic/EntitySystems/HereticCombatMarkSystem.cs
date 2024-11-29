@@ -30,8 +30,9 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
     [Dependency] private readonly BloodstreamSystem _blood = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly ProtectiveBladeSystem _pbs = default!;
 
-    public bool ApplyMarkEffect(EntityUid target, string? path)
+    public bool ApplyMarkEffect(EntityUid target, string? path, EntityUid user)
     {
         if (string.IsNullOrWhiteSpace(path))
             return false;
@@ -44,7 +45,7 @@ public sealed partial class HereticCombatMarkSystem : EntitySystem
                 break;
 
             case "Blade":
-                // TODO: add rotating protective blade type shit
+                _pbs.AddProtectiveBlade(user);
                 break;
 
             case "Flesh":

@@ -3,15 +3,15 @@
   id: OrganSpaceAnimalLungs
   name: space animal lungs
   components:
-  - type: StatusEffectOrgan
-    refresh:
-      BreathingImmunity: BreathingImmunity
+  - type: Organ
+    onAdd:
+    - type: BreathingImmunity
 
 - type: entity
   parent: OrganAnimalHeart
   id: OrganSpaceAnimalHeart
   name: space animal heart
   components:
-  - type: StatusEffectOrgan
-    refresh:
-      PressureImmunity: PressureImmunity
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity

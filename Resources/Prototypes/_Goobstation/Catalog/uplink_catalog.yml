@@ -98,6 +98,22 @@
   categories:
   - UplinkWeaponry
 
+- type: listing
+  id: UplinkBowHardlight
+  name: uplink-hardlight-bow-name
+  description: uplink-hardlight-bow-desc
+  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+  productEntity: BowHardlight
+  cost:
+    Telecrystal: 80
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
 # Wearables
 
 - type: listing
@@ -279,3 +295,19 @@
     Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
   categories:
   - UplinkAmmo
+
+- type: listing
+  id: UplinkSyndicateSegwayCrate
+  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
+  description: uplink-syndicate-segway-crate-desc
+  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
+  productEntity: CrateFunSyndicateSegway
+  cost:
+    Telecrystal: 25 # Same as what it was before being removed
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

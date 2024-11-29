@@ -1,30 +1,21 @@
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
 using Content.Server.Teleportation;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared.Damage;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Heretic;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Physics;
 using Content.Shared.Popups;
-using Content.Shared.Temperature.Systems;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Collections;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Linq;
-using System.Numerics;
 using System.Text;
 
 namespace Content.Server.Heretic.EntitySystems;
@@ -45,6 +36,15 @@ public sealed partial class HereticBladeSystem : EntitySystem
     [Dependency] private readonly TemperatureSystem _temp = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
+        SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
+    }
+
     public void ApplySpecialEffect(EntityUid performer, EntityUid target)
     {
         if (!TryComp<HereticComponent>(performer, out var hereticComp))
@@ -57,7 +57,7 @@ public sealed partial class HereticBladeSystem : EntitySystem
                 break;
 
             case "Blade":
-                // todo: double it's damage
+                // check event handler
                 break;
 
             case "Flesh":
@@ -71,12 +71,6 @@ public sealed partial class HereticBladeSystem : EntitySystem
                     _blood.TryModifyBleedAmount(target, 10f);
                 break;
 
-            case "Rust":
-                var dmgProt = _proto.Index((ProtoId<DamageGroupPrototype>) "Poison");
-                var dmgSpec = new DamageSpecifier(dmgProt, 7.5f);
-                _damage.TryChangeDamage(target, dmgSpec);
-                break;
-
             case "Void":
                 if (TryComp<TemperatureComponent>(target, out var temp))
                     _temp.ForceChangeTemperature(target, temp.CurrentTemperature - 5f, temp);
@@ -85,15 +79,6 @@ public sealed partial class HereticBladeSystem : EntitySystem
             default:
                 return;
         }
-    }
-
-    public override void Initialize()
-    {
-        base.Initialize();
-
-        SubscribeLocalEvent<HereticBladeComponent, UseInHandEvent>(OnInteract);
-        SubscribeLocalEvent<HereticBladeComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<HereticBladeComponent, MeleeHitEvent>(OnMeleeHit);
     }
 
     private void OnInteract(Entity<HereticBladeComponent> ent, ref UseInHandEvent args)
@@ -155,12 +140,26 @@ public sealed partial class HereticBladeSystem : EntitySystem
 
             if (TryComp<HereticCombatMarkComponent>(hit, out var mark))
             {
-                _combatMark.ApplyMarkEffect(hit, ent.Comp.Path);
+                _combatMark.ApplyMarkEffect(hit, ent.Comp.Path, args.User);
                 RemComp(hit, mark);
             }
 
             if (hereticComp.PathStage >= 7)
                 ApplySpecialEffect(args.User, hit);
+        }
+
+        // blade path exclusive.
+        if (HasComp<SilverMaelstromComponent>(args.User))
+        {
+            args.BonusDamage += args.BaseDamage; // double it.
+            if (TryComp<DamageableComponent>(args.User, out var dmg))
+            {
+                var orig = dmg.Damage.DamageDict;
+                foreach (var k in orig.Keys)
+                    orig[k] -= 5f; // -5 damage to all types. pretty good imo
+
+                _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
+            }
         }
     }
 }

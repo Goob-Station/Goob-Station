@@ -64,6 +64,9 @@ public sealed class HypospraySystem : SharedHypospraySystem
 
     public void OnAttack(Entity<HyposprayComponent> entity, ref MeleeHitEvent args)
     {
+        if (args.Handled) // Goobstation
+            return;
+
         if (!args.HitEntities.Any())
             return;
 

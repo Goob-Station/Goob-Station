@@ -1,3 +1,5 @@
+# Im not even gonna bother marking this file with Shitmed Change(s), I'm fucking with almost everything.
+
 # Base
 
 - type: entity
@@ -11,7 +13,7 @@
   - type: Tag
     tags:
     - SurgeryTool
-  - type: SurgeryTool # Shitmed Change
+  - type: SurgeryTool
 
 # Cautery
 
@@ -22,10 +24,10 @@
   description: A surgical tool used to cauterize open wounds.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: cautery
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/cautery.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     storedRotation: 90
   - type: MeleeWeapon
     damage:
@@ -50,10 +52,10 @@
   description: A surgical drill for making holes into hard material.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/drill.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
     state: drill
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/drill.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
     shape:
     - 0,0,1,0
     - 1,1,1,1
@@ -69,7 +71,7 @@
   - type: SurgeryTool
     startSound:
       path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
-  - type: SurgicalDrill
+  - type: Drill
 
 # Scalpel
 
@@ -89,10 +91,10 @@
     types:
       - Knife
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: scalpel
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     storedRotation: 90
   - type: MeleeWeapon
     wideAnimationRotation: 90
@@ -118,8 +120,11 @@
   description: A pointy piece of glass, abraded to an edge and wrapped in tape for a handle. # Could become a decent tool or weapon with right tool mods.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: shiv
   - type: Item
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    storedRotation: 90
     heldPrefix: shiv
 
 - type: entity
@@ -129,8 +134,11 @@
   description: Made of more expensive materials, sharper and generally more reliable.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: advanced
   - type: Item
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    storedRotation: 90
     heldPrefix: advanced
   - type: MeleeWeapon
     damage:
@@ -146,14 +154,17 @@
   description: A scalpel which uses a directed laser to slice instead of a blade, for more precise surgery while also cauterizing as it cuts.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
     state: laser
   - type: Item
+    sprite: Objects/Specific/Medical/Surgery/scalpel.rsi
+    storedRotation: 90
     heldPrefix: laser
   - type: Scalpel # Shitmed
     speed: 1.5
   # TODO: prevent bleeding from incisions
 
-# Scissors
+# Retractor
 
 - type: entity
   name: retractor
@@ -162,10 +173,10 @@
   description: A surgical tool used to hold open incisions.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     state: retractor
   - type: Item
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/retractor.rsi
     storedRotation: 90
   # Shitmed Change
   - type: SurgeryTool
@@ -175,6 +186,8 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
   - type: Retractor
 
+# Hemostat
+
 - type: entity
   name: hemostat
   id: Hemostat
@@ -182,11 +195,11 @@
   description: A surgical tool used to compress blood vessels to prevent bleeding.
   components:
   - type: Sprite
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Shitmed Change
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     state: hemostat
   - type: Item
     heldPrefix: hemostat
-    sprite: Objects/Specific/Medical/Surgery/scissors.rsi # Shitmed Change
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi # Shitmed Change
     storedRotation: 90
   # Shitmed Change
   - type: SurgeryTool
@@ -220,7 +233,7 @@
   description: A container for bone gel that often needs to be refilled from a specialized machine.
   components:
   - type: Sprite
-    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone_gel.rsi
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/bone-gel.rsi
     state: bone-gel
   - type: BoneGel
 
@@ -282,9 +295,11 @@
   description: For heavy duty cutting.
   components:
   - type: Sprite
-    state: electric
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
+    state: circular-saw
   - type: Item
-    heldPrefix: electric
+    size: Normal
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/circular-saw.rsi
   - type: MeleeWeapon
     damage:
       groups:
@@ -303,8 +318,12 @@
   description: You think you can cut anything with it.
   components:
   - type: Sprite
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
     state: advanced
   - type: Item
+    size: Normal
+    sprite: Objects/Specific/Medical/Surgery/saw.rsi
+    storedRotation: 90
     heldPrefix: advanced
   - type: MeleeWeapon
     attackRate: 1.5
@@ -313,111 +332,135 @@
   - type: BoneSaw # Shitmed
     speed: 2
 
-# ORGANS - SHITMED
+# Shitmed Tools
 
 - type: entity
-  parent: OrganHumanHeart
-  id: BioSynthHeart
-  name: bio-synthetic heart
-  description: This heart can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: OrganHumanLiver
-  id: BioSynthLiver
-  name: bio-synthetic liver
-  description: This liver can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: OrganHumanLungs
-  id: BioSynthLungs
-  name: bio-synthetic lungs
-  description: These lungs can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: OrganHumanEyes
-  id: BioSynthEyes
-  name: bio-synthetic eyes
-  description: These eyes can be transplanted into any living organism and it will adapt to its recipient.
-
-
-# PARTS - SHITMED
-
-- type: entity
-  parent: LeftArmHuman
-  id: BioSynthLeftArm
-  name: bio-synthetic left arm
-  description: This left arm can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: RightArmHuman
-  id: BioSynthRightArm
-  name: bio-synthetic right arm
-  description: This right arm can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: LeftHandHuman
-  id: BioSynthLeftHand
-  name: bio-synthetic left hand
-  description: This left hand can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: RightHandHuman
-  id: BioSynthRightHand
-  name: bio-synthetic right hand
-  description: This right hand can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: LeftLegHuman
-  id: BioSynthLeftLeg
-  name: bio-synthetic left leg
-  description: This left leg can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: RightLegHuman
-  id: BioSynthRightLeg
-  name: bio-synthetic right leg
-  description: This right leg can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: LeftFootHuman
-  id: BioSynthLeftFoot
-  name: bio-synthetic left foot
-  description: This left foot can be transplanted into any living organism and it will adapt to its recipient.
-
-- type: entity
-  parent: RightFootHuman
-  id: BioSynthRightFoot
-  name: bio-synthetic right foot
-  description: This right foot can be transplanted into any living organism and it will adapt to its recipient.
-
-# JOKE ITEMS - SHITMED
-
-- type: entity
-  parent: LeftArmHuman
-  id: PizzaLeftArm
-  name: pizza left arm
-  description: For when you want to turn someone into a Space John's.
+  name: searing tool
+  id: EnergyCautery
+  parent: Cautery
+  description: A cautery with an energy tip, also serves as a drill in its powered state.
   components:
-  - type: BodyPart
-    partType: Arm
-    symmetry: Left
-    toolName: "a left arm"
-    baseLayerId: MobPizzaLArm
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
-    state: "l_arm"
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    state: e-cautery-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left-on
+      right:
+      - state: inhand-right-on
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/cautery2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 10
+        Heat: 1
+  - type: Cautery
+    speed: 1.5
+  - type: Drill
+    speed: 1.5
 
 - type: entity
-  parent: RightArmHuman
-  id: PizzaRightArm
-  name: pizza right arm
-  description: For when you want to turn someone into a Space John's.
+  name: energy scalpel
+  id: EnergyScalpel
+  parent: Scalpel
+  description: A scalpel which uses an energy blade, also serves as a saw in its powered state.
   components:
-  - type: BodyPart
-    partType: Arm
-    symmetry: Right
-    toolName: "a right arm"
-    baseLayerId: MobPizzaRArm
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
-    state: "r_arm"
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    state: e-scalpel-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left-on
+      right:
+      - state: inhand-right-on
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 10
+        Heat: 1
+  - type: Scalpel
+    speed: 1.5
+  - type: BoneSaw
+    speed: 1.5
+
+- type: entity
+  name: mechanical pinches
+  id: AdvancedRetractor
+  parent: Retractor
+  description: A retractor with mechanical pinches, also serves as a hemostat in its powered state.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    state: adv-retractor-on
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left-on
+      right:
+      - state: inhand-right-on
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 6.5
+        Heat: 1
+  - type: Hemostat
+    speed: 1.5
+  - type: Retractor
+    speed: 1.5
+  - type: Tweezers
+    speed: 1.5
+  - type: Tending
+    speed: 1.5
+
+- type: entity
+  name: medical multitool
+  id: OmnimedTool
+  parent: BaseToolSurgery
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+    state: omnimed
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Medical/Surgery/omnimed.rsi
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
+  - type: Hemostat
+    speed: 2
+  - type: Scalpel
+    speed: 2
+  - type: Drill
+    speed: 2
+  - type: BoneSetter
+    speed: 2
+  - type: Retractor
+    speed: 2
+  - type: Cautery
+    speed: 2
+  - type: BoneGel
+    speed: 2
+  - type: BoneSaw
+    speed: 2
+  - type: Tweezers
+    speed: 2
+  - type: Tending
+    speed: 2
