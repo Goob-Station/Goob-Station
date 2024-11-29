@@ -38,18 +38,6 @@ cargo-console-menu-order-row-button-approve = Approve
 cargo-console-menu-order-row-button-cancel = Cancel
 cargo-console-menu-order-row-alerts-reason-absent = The reason is not specified
 cargo-console-menu-order-row-alerts-requester-unknown = Unknown
-cargo-console-menu-populate-categories-all-text = All
-cargo-console-menu-tab-title-orders = Orders
-cargo-console-menu-tab-title-funds = Transfers
-cargo-console-menu-account-action-transfer-limit = Transfer Limit:
-cargo-console-menu-account-action-transfer-limit-amount = ${$amount}
-cargo-console-menu-account-action-transfer-limit-unlimited-notifier = [color=gold](Unlimited)[/color]
-cargo-console-menu-account-action-select = [bold]Account Action:[/bold]
-cargo-console-menu-account-action-amount = [bold]Amount:[/bold] $
-cargo-console-menu-account-action-button = Transfer
-cargo-console-menu-toggle-account-lock-button = Toggle Transfer Limit
-cargo-console-menu-account-action-option-withdraw = Withdraw Cash
-cargo-console-menu-account-action-option-transfer = Transfer Funds to {$code}
 
 # Orders
 cargo-console-order-not-allowed = Access not allowed
