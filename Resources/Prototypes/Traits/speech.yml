@@ -12,6 +12,7 @@
     - type: LizardAccent
     - type: MothAccent
     - type: FelinidAccent # ShibaStation - removes the funny meow meow
+    - type: RodentiaAccent # ShibaStation - removes the funny mouse squeaks
     - type: ReplacementAccent
       accent: dwarf
 
