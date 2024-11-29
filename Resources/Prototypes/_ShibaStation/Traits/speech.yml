@@ -1,0 +1,10 @@
+# 1 cost
+
+- type: trait
+  id: GeezaAccent
+  name: trait-geeza-name
+  description: trait-geeza-desc
+  category: SpeechTraits
+  cost: 1
+  components:
+  - type: GeezaAccent
