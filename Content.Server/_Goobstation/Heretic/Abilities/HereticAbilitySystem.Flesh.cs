@@ -101,6 +101,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnAscensionFlesh(Entity<HereticComponent> ent, ref HereticAscensionFleshEvent args)
     {
+        if (ent.Comp.Ascended)
+            return;
+
         var urist = _poly.PolymorphEntity(ent, "EldritchHorror");
         if (urist == null)
             return;

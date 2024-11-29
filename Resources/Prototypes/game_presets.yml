@@ -1,6 +1,3 @@
-# goob edit - separated antag and basic event schedulers
-# if you see a AntagStationEventScheduler it's from goobstation
-
 - type: gamePreset
   id: Survival
   alias:
@@ -157,7 +154,6 @@
     - Traitor
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -186,7 +182,6 @@
     - Nukeops
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -204,7 +199,6 @@
     - Revolutionary
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
   #  - MeteorSwarmScheduler Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
@@ -223,7 +217,6 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
 #  - MeteorSwarmScheduler Goobstation - nuh uh
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
@@ -240,7 +233,6 @@
   rules:
   - Zombie
   - BasicStationEventScheduler
-  - AntagStationEventScheduler
   - KesslerSyndromeScheduler
   - SpaceTrafficControlEventScheduler
   - BasicRoundstartVariation
