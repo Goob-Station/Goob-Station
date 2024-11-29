@@ -55,6 +55,7 @@
     - SurgeryStepSawFeature
     - SurgeryStepClampInternalBleeders
     - SurgeryStepRemoveFeature
+  - type: SurgeryHasBodyCondition
   - type: SurgeryPartCondition
     part: Torso
     inverse: true

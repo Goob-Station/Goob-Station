@@ -1,0 +1,4 @@
+- type: latheRecipe
+  parent: BaseGoldCircuitboardRecipe
+  id: AutodocCircuitboard
+  result: AutodocCircuitboard
