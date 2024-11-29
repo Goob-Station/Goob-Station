@@ -129,6 +129,9 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
+        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
+            args.BonusDamage += args.BaseDamage; // "ghouls can use bloody blades effectively... so real..."
+
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
             return;
 
