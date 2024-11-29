@@ -194,32 +194,6 @@
     state: stamp-terrarep
 
 - type: entity
-  name: united workers utopia stamp
-  parent: RubberStampBase
-  id: RubberStampUwu
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-uwu
-    stampedColor: "#930100"
-    stampState: "paper_stamp-uwu"
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/stamps.rsi
-    state: stamp-uwu
-
-- type: entity
-  name: u.w.u representative stamp
-  parent: RubberStampBase
-  id: RubberStampUwuRep
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-uwurep
-    stampedColor: "#930100"
-    stampState: "paper_stamp-uwu"
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/stamps.rsi
-    state: stamp-uwurep
-
-- type: entity
   name: waffle corporation stamp
   parent: RubberStampBase
   id: RubberStampWaffle
