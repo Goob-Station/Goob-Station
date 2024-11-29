@@ -91,7 +91,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var query = QueryActiveRules();
         while (query.MoveNext(out var uid, out _, out var comp, out _))
         {
-            if (comp.SelectionTime != AntagSelectionTime.PrePlayerSpawn)
+            if (comp.SelectionTime == AntagSelectionTime.PostPlayerSpawn) // Goob edit
                 continue;
 
             if (comp.SelectionsComplete)
@@ -144,7 +144,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (!antag.Definitions.Any(p => p.LateJoinAdditional))
                 continue;
 
-            DebugTools.AssertEqual(antag.SelectionTime, AntagSelectionTime.PostPlayerSpawn);
+            DebugTools.AssertNotEqual(antag.SelectionTime, AntagSelectionTime.PrePlayerSpawn); // Goob edit
 
             if (!TryGetNextAvailableDefinition((uid, antag), out var def))
                 continue;
@@ -312,7 +312,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
             ent.Comp.SelectedSessions.Remove(session);
 
-            if (def.RollBeforeJob && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
+            if (def.RollBeforeJob && ent.Comp.SelectionTime != AntagSelectionTime.PostPlayerSpawn)
             {
                 _pendingAntag.PendingAntags[session.UserId] = (def, ent);
                 return;
