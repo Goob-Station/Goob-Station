@@ -2475,3 +2475,19 @@ Entries:
       message: Any sharp object can now be used as a ghetto scalpel or bone saw.
   id: 285
   time: '2024-11-27T20:46:37.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Nukie reinforcement has nukeops uplink.
+    - type: Tweak
+      message: >-
+        Only nukie commander has commander hardsuit for sale in has uplink and
+        it has limited stock of 1. Same thing with medic.
+    - type: Tweak
+      message: Minimum number of operatives for war declaration is reduced to 2.
+    - type: Add
+      message: >-
+        Now the amount of tc for war declaration scales with amount of players
+        on server and missing nukies.
+  id: 286
+  time: '2024-11-29T16:42:23.0000000+00:00'
