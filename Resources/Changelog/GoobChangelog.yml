@@ -2559,3 +2559,18 @@ Entries:
       message: Security bodycam is now wearable on the neck slot.
   id: 296
   time: '2024-11-29T21:13:10.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Mini energy crossbow now deals no stamina damage. Instead it knocks down
+        target, forces them to drop items they are holding and blurs vision for
+        5 seconds. It is now much quieter.
+    - type: Add
+      message: >-
+        Mini energy crossbow projectiles now pierce through glass, they also can
+        be reflected by energy reflectors. Damage increased: 10 -> 15.
+    - type: Remove
+      message: Removed mini ebow from nukie uplink.
+  id: 297
+  time: '2024-11-29T21:16:39.0000000+00:00'
