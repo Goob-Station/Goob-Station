@@ -56,6 +56,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Shared.Heretic;
 
 namespace Content.Server.Changeling;
 
@@ -101,6 +102,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -551,21 +553,37 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (!persistentDna && data != null)
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingComponent>(uid);
-
-            if (TryComp<StoreComponent>(uid, out var storeComp))
-            {
-                var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(newUid.Value);
-                EntityManager.AddComponent(newUid.Value, storeCompCopy);
-            }
         }
+
+        //    if (TryComp<StoreComponent>(uid, out var storeComp))
+        //    {
+        //        var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+        //        RemComp<StoreComponent>(newUid.Value);
+        //        EntityManager.AddComponent(newUid.Value, storeCompCopy);
+        //    }
+        //}
 
         // exceptional comps check
         // there's no foreach for types i believe so i gotta thug it out yandev style.
-        if (HasComp<HeadRevolutionaryComponent>(uid))
-            EnsureComp<HeadRevolutionaryComponent>(newEnt);
-        if (HasComp<RevolutionaryComponent>(uid))
-            EnsureComp<RevolutionaryComponent>(newEnt);
+        List<Type> types = new()
+        {
+            typeof(HeadRevolutionaryComponent),
+            typeof(RevolutionaryComponent),
+            typeof(GhoulComponent),
+            typeof(HereticComponent),
+            typeof(StoreComponent),
+            // ADD MORE TYPES HERE
+        };
+        foreach (var type in types)
+        {
+            if (EntityManager.TryGetComponent(uid, type, out var icomp))
+            {
+                var newComp = (Component) _compFactory.GetComponent(nameof(type));
+                var temp = (object) newComp;
+                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
+            }
+        }
 
         QueueDel(uid);
 

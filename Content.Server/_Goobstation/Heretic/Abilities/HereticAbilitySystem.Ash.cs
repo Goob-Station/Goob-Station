@@ -9,6 +9,7 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Armor;
+using Content.Shared.Polymorph;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -18,7 +19,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
         SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
-        SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
@@ -45,10 +45,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (urist == null)
             return false;
         return true;
-    }
-    private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
-    {
-        Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
