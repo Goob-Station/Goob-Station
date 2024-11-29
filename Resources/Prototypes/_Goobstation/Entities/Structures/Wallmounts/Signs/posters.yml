@@ -1,0 +1,89 @@
+- type: entity
+  parent: PosterBase
+  id: PosterLegitBigBrotherAI
+  name: "AI Sees All"
+  description: "A poster that reminds you that your secrets are not hidden from your Station AI"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster53_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitDurkPlush
+  name: "Durk Plushie Advertisement"
+  description: "A poster depicting some sort of plush character being delivered soon to a station near you"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster54_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitWelderBomb
+  name: "Danges of Fuel Tanks"
+  description: "A poster depicting a leaking fuel tank... something inside you wonders what would happen if you put a welding torch near it"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster55_legit
+
+- type: entity
+  parent: PosterBase
+  id: PosterLegitLokoAdvert
+  name: "14 Loko Advertisement"
+  description: "A poster advertising a 14 Loko beverage... you feel suddenly thirsty looking at it"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster56_legit
+    
+- type: entity
+  parent: PosterBase
+  id: PosterLegitLouieVote
+  name: "Political Advertisement"
+  description: "A poster for a political advertisement to promote a rat called Louie's campaign... You feel like you should vote for him"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster57_legit
+    
+- type: entity
+  parent: PosterBase
+  id: PosterLegitSlowDownClown
+  name: "Slow Down, Clown!"
+  description: "A poster telling you to slown down around Clowns"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster58_legit
+    
+- type: entity
+  parent: PosterBase
+  id: PosterLegitNTRAdvert
+  name: "NTRep Recruitment"
+  description: "A poster advertising for open Nanotrasen Representative positions, maybe you should apply"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster59_legit
+    
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandChuckler
+  name: "The Chuckler"
+  description: "A poster depicting a clearly suffering clown. You can feel the sadness and anger behind the facade of a smile"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster64_contraband
+    
+- type: entity
+  parent: PosterBase
+  id: PosterContrabandYakub
+  name: "Yakub Poster"
+  description: "Your yakubian powers of tricknology imbued into you by Yakub strengthen as you stare into the poster"
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/posters.rsi
+    state: poster65_contraband

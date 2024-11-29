@@ -92,6 +92,8 @@
       - PosterContrabandInterdyne
       - PosterContrabandWaffleCorp
       - PosterContrabandMissingSpacepen
+      - PosterContrabandYakub # Goobstation
+      - PosterContrabandChuckler # Goobstation
     chance: 1
 
 - type: entity
@@ -156,4 +158,11 @@
       - PosterLegitSafetyMothMeth
       - PosterLegitSafetyMothHardhat
       - PosterLegitSafetyMothSSD
+      - PosterLegitNTRAdvert # Goobstation
+      - PosterLegitSlowDownClown # Goobstation
+      - PosterLegitLouieVote # Goobstation
+      - PosterLegitLokoAdvert # Goobstation
+      - PosterLegitWelderBomb # Goobstation
+      - PosterLegitDurkPlush # Goobstation
+      - PosterLegitBigBrotherAI # Goobstation
     chance: 1
