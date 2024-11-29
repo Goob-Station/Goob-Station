@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Server._Goobstation.PendingAntag;
 using Content.Server.Antag.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -46,6 +47,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private readonly PendingAntagSystem _pendingAntag = default!; // Goobstation
 
     // arbitrary random number to give late joining some mild interest.
     public const float LateJoinRandomChance = 0.5f;
@@ -304,9 +306,19 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         if (antagEnt is not { } player)
         {
+            // Goob edit start
+            if (session == null)
+                return;
+
+            if (def.RollBeforeJob && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
+            {
+                _pendingAntag.PendingAntags[session.UserId] = (def, ent);
+                return;
+            }
+
+            ent.Comp.SelectedSessions.Remove(session);
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
-            if (session != null)
-                ent.Comp.SelectedSessions.Remove(session);
+            // goob edit end
             return;
         }
 

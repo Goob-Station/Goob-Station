@@ -5,15 +5,13 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 30
-      max: 60
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
+    selectionTime: PrePlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -29,10 +27,8 @@
   components:
   - type: GameRule
     minPlayers: 30
-    delay:
-      min: 240
-      max: 420
   - type: AntagSelection
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ Traitor ]
       max: 5
@@ -51,10 +47,8 @@
   components:
   - type: GameRule
     minPlayers: 30
-    delay:
-      min: 30
-      max: 60
   - type: AntagSelection
+    selectionTime: PrePlayerSpawn
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -131,6 +125,7 @@
     minPlayers: 30
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ HeadRev ]
       max: 1
