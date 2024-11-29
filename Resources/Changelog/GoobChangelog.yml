@@ -2537,3 +2537,13 @@ Entries:
       message: You can now hear people doing surgeries.
   id: 293
   time: '2024-11-29T20:03:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 294
+  time: '2024-11-29T20:06:37.0000000+00:00'
