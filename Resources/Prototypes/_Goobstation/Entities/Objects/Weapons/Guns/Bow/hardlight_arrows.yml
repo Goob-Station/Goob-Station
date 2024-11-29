@@ -123,7 +123,7 @@
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowExplosive
   name: explosive arrow
-  description: An arrow made from hardlight. This one explodes on hit.
+  description: An arrow made from hardlight. This one explodes on hit, but the energy dissapates quickly, it wont fly very far.
   components:
   - type: Sprite
     color: "#7300FF"
@@ -133,6 +133,8 @@
     damage:
       types:
         Heat: 0
+  - type: TimedDespawn
+    lifetime: 0.7
   - type: TriggerOnCollide
     fixtureID: projectile
   - type: ExplodeOnTrigger
