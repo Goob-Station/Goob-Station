@@ -362,7 +362,6 @@ public abstract partial class SharedSurgerySystem
                     : removedComp.Part.ToString().ToLower();
                 _body.TryCreatePartSlot(args.Part, slotName, partComp.PartType, out var _);
                 _body.AttachPart(args.Part, slotName, tool);
-                _body.ChangeSlotState((tool, partComp), false);
                 EnsureComp<BodyPartReattachedComponent>(tool);
                 var ev = new BodyPartAttachedEvent((tool, partComp));
                 RaiseLocalEvent(args.Body, ref ev);

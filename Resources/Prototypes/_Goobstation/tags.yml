@@ -6,3 +6,12 @@
 
 - type: Tag
   id: CartridgeEpinephrine
+
+- type: Tag
+  id: NukeOpsMedicUplink
+
+- type: Tag
+  id: NukeOpsCommanderUplink
+
+- type: Tag
+  id: NukeOpsReinforcementUplink

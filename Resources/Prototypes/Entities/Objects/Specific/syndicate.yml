@@ -85,6 +85,19 @@
 
 - type: entity
   parent: BaseUplinkRadio
+  id: BaseUplinkRadio50TCNukeOps
+  suffix: 50 TC, NukeOps reinforcement
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 50
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsReinforcementUplink
+
+- type: entity
+  parent: BaseUplinkRadio
   # Goobstation - Telecrystal rework
   id: BaseUplinkRadio100TC
   suffix: 100 TC
@@ -125,6 +138,7 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+    - NukeOpsCommanderUplink
 
 - type: entity
   parent: BaseUplinkRadio

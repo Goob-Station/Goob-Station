@@ -276,6 +276,21 @@
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
       - !type:NestedSelector
+        tableId: BasicAntagEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entityTable
+  id: BasicGameRulesTableNoAntag
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector
         tableId: CalmPestEventsTable
@@ -287,7 +302,7 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: BasicGameRulesTableNoAntag
     - !type:NestedSelector
       tableId: BasicAntagEventsTable
 
@@ -324,7 +339,15 @@
   components:
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: AllGameRulesTable
+      tableId: BasicGameRulesTable
+
+- type: entity
+  id: BasicStationEventSchedulerNoAntag
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTableNoAntag
 # goob edit end
 
 - type: entity
