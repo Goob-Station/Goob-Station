@@ -9,9 +9,9 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-traitor-title
-    weight: 5
-    cost: 8
-    scalingCost: 9
+    weight: 7
+    cost: 4
+    scalingCost: 4
   - type: AntagSelection
     definitions:
     - prefRoles: [ Traitor ]
@@ -32,9 +32,9 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-thief-title
-    weight: 5
-    cost: 8
-    scalingCost: 9
+    weight: 4
+    cost: 4
+    scalingCost: 5
   - type: ThiefRule
   - type: AntagSelection
     agentName: thief-round-end-agent-name
@@ -53,7 +53,7 @@
         sound: "/Audio/Misc/thief_greeting.ogg"
       special:
       - !type:AddImplantSpecial
-        implants: [ PacifismImplant ]
+        implants: [ PacifismImplant ] # when it's done...
   - type: AntagObjectives
     objectives:
     - EscapeThiefShuttleObjective
@@ -73,9 +73,9 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-changeling-title
-    weight: 3
-    cost: 16
-    scalingCost: 10
+    weight: 5
+    cost: 6
+    scalingCost: 6
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
@@ -100,9 +100,9 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-heretic-title
-    weight: 3
-    cost: 10
-    scalingCost: 9
+    weight: 5
+    cost: 6
+    scalingCost: 6
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
