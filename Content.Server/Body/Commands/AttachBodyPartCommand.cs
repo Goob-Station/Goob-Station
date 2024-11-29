@@ -99,7 +99,7 @@ namespace Content.Server.Body.Commands
             }
 
             var slotId = $"AttachBodyPartVerb-{partUid}";
-
+            part.SlotId = slotId; // Shitmed Change
             // ReSharper disable once ConditionIsAlwaysTrueOrFalseAccordingToNullableAPIContract
             if (body.RootContainer.ContainedEntity != null)
             {

@@ -329,7 +329,6 @@ public partial class SharedBodySystem
         Dirty(partEnt, partEnt.Comp);
 
         // Shitmed Change Start
-        partEnt.Comp.OriginalBody = partEnt.Comp.Body;
         if (partEnt.Comp.Body is { Valid: true } body)
             RaiseLocalEvent(partEnt, new BodyPartComponentsModifyEvent(body, false));
         partEnt.Comp.ParentSlot = null;

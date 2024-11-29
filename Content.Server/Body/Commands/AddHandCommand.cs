@@ -134,6 +134,7 @@ namespace Content.Server.Body.Commands
                 attachAt = bodySystem.GetBodyChildren(entity, body).First();
 
             var slotId = part.GetHashCode().ToString();
+            part.SlotId = slotId; // Shitmed Change
 
             if (!bodySystem.TryCreatePartSlotAndAttach(attachAt.Id, slotId, hand, BodyPartType.Hand, attachAt.Component, part))
             {

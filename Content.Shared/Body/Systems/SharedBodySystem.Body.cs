@@ -134,7 +134,6 @@ public partial class SharedBodySystem
         // This should already handle adding the entity to the root.
         var rootPartUid = SpawnInContainerOrDrop(protoRoot.Part, bodyEntity, BodyRootContainerId);
         var rootPart = Comp<BodyPartComponent>(rootPartUid);
-        rootPart.OriginalBody = bodyEntity; // Shitmed Change
         rootPart.Body = bodyEntity;
         Dirty(rootPartUid, rootPart);
 
@@ -191,7 +190,6 @@ public partial class SharedBodySystem
                 var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
-                childPartComponent.OriginalBody = rootPart.Body;
                 Dirty(childPart, childPartComponent);
                 // Shitmed Change End
                 var cont = Containers.GetContainer(parentEntity, GetPartSlotContainerId(connection));
