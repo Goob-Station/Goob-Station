@@ -73,6 +73,7 @@
     - DoorBumpOpener
     - FelinidEmotes
   - type: FootPrints # WD EDIT
+  - type: FelinidAccent # ShibaStation - hehe funne cringe cat accent :D
 
 - type: entity
   save: false

@@ -112,6 +112,7 @@
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
   - type: FootPrints # WD EDIT
+  - type: RodentiaAccent # ShibaStation - give da maus a funny accent
 
 - type: entity
   save: false
