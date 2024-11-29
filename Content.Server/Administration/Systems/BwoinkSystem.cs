@@ -704,7 +704,7 @@ namespace Content.Server.Administration.Systems
             }
 
             if (fromWebhook)
-                bwoinkText = $"(DC) {bwoinkText}";
+                bwoinkText = $"(DISCORD) {bwoinkText}";
 
             bwoinkText = $"{(message.PlaySound ? "" : "(S) ")}{bwoinkText}: {escapedText}";
 
