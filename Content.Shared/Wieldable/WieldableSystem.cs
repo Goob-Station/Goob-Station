@@ -3,6 +3,7 @@ using Content.Shared.Examine;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
@@ -125,7 +126,7 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnExamine(EntityUid uid, GunWieldBonusComponent component, ref ExaminedEvent args)
     {
-        if (HasComp<GunRequiresWieldComponent>(uid)) 
+        if (HasComp<GunRequiresWieldComponent>(uid))
             return;
 
         if (component.WieldBonusExamineMessage != null)
@@ -253,8 +254,10 @@ public sealed class WieldableSystem : EntitySystem
             return false;
 
         var selfMessage = Loc.GetString("wieldable-component-successful-wield", ("item", used));
-        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", user), ("item", used));
+        var othersMessage = Loc.GetString("wieldable-component-successful-wield-other", ("user", Identity.Entity(user, EntityManager)), ("item", used));
         _popupSystem.PopupPredicted(selfMessage, othersMessage, user, user);
+
+        _appearance.SetData(used, WieldableVisuals.Wielded, true); // Goobstation
 
         var targEv = new ItemWieldedEvent();
         RaiseLocalEvent(used, ref targEv);
@@ -267,7 +270,7 @@ public sealed class WieldableSystem : EntitySystem
     ///     Attempts to unwield an item, with no DoAfter.
     /// </summary>
     /// <returns>True if the attempt wasn't blocked.</returns>
-    public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user)
+    public bool TryUnwield(EntityUid used, WieldableComponent component, EntityUid user, bool force = false) // Goobstation edit
     {
         var ev = new BeforeUnwieldEvent();
         RaiseLocalEvent(used, ev);
@@ -276,7 +279,7 @@ public sealed class WieldableSystem : EntitySystem
             return false;
 
         component.Wielded = false;
-        var targEv = new ItemUnwieldedEvent(user);
+        var targEv = new ItemUnwieldedEvent(user, force);
 
         RaiseLocalEvent(used, targEv);
         return true;
@@ -298,7 +301,7 @@ public sealed class WieldableSystem : EntitySystem
                 _audioSystem.PlayPredicted(component.UnwieldSound, uid, args.User);
 
             var selfMessage = Loc.GetString("wieldable-component-failed-wield", ("item", uid));
-            var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", args.User.Value), ("item", uid));
+            var othersMessage = Loc.GetString("wieldable-component-failed-wield-other", ("user", Identity.Entity(args.User.Value, EntityManager)), ("item", uid));
             _popupSystem.PopupPredicted(selfMessage, othersMessage, args.User.Value, args.User.Value);
         }
 

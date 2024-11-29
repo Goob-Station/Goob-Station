@@ -18,6 +18,8 @@ namespace Content.Server.Store.Systems;
 /// Manages general interactions with a store and different entities,
 /// getting listings for stores, and interfacing with the store UI.
 /// </summary>
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 public sealed partial class StoreSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _proto = default!;

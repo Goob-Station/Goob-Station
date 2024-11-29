@@ -14,6 +14,7 @@
     sprite: Objects/Weapons/Melee/chainsaw.rsi
     state: icon
   - type: MeleeWeapon
+    heavyStaminaCost: 10 # goob edit
     autoAttack: true
     angle: 0
     wideAnimationRotation: -135
@@ -47,3 +48,10 @@
         maxVol: 300
   - type: UseDelay
     delay: 1
+  - type: BoneSaw # Shitmed
+    speed: 0.5 # TODO: arm-mounted version becomes 0.65
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/chainsawwield.ogg
+    endSound:
+      path: /Audio/Weapons/chainsaw.ogg

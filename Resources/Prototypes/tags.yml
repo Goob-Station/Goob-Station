@@ -821,6 +821,9 @@
 - type: Tag
   id: IntercomElectronics
 
+- type: Tag # Goobstation
+  id: JanicartKeys
+
 - type: Tag
   id: JawsOfLife
 
@@ -997,6 +1000,9 @@
   id: NoBlockAnchoring
 
 - type: Tag
+  id: NoConsoleSound
+
+- type: Tag
   id: NozzleBackTank
 
 - type: Tag
@@ -1079,6 +1085,9 @@
 
 - type: Tag
   id: Plunger
+
+- type: Tag
+  id: PlushieCarp
 
 - type: Tag
   id: PlushieGhost
@@ -1208,6 +1217,9 @@
   id: ShellShotgun
 
 - type: Tag
+  id: ShellShotgunLight # shotgun shells that are compatible with the flare gun.
+
+- type: Tag
   id: Shiv
 
 - type: Tag
@@ -1321,6 +1333,9 @@
   id: Syringe
 
 - type: Tag
+  id: SyringeGunAmmo
+
+- type: Tag
   id: Spellbook
 
 - type: Tag # goob edit
@@ -1389,6 +1404,9 @@
 - type: Tag
   id: VGRoidInterior
 
+- type: Tag # Goobstation
+  id: VehicleKey
+
 - type: Tag
   id: VimPilot
 
@@ -1415,6 +1433,9 @@
 
 - type: Tag
   id: WeaponShotgunKammerer
+
+- type: Tag # goob edit
+  id: WaterTank
 
 - type: Tag
   id: WeldingMask

@@ -11015,7 +11015,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -14301.157
+      secondsUntilStateChange: -14567.541
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -62029,6 +62029,13 @@ entities:
           showEnts: False
           occludes: True
           ent: null
+- proto: CrateFunATV
+  entities:
+  - uid: 24884
+    components:
+    - type: Transform
+      pos: 51.5,14.5
+      parent: 60
 - proto: CrateHydroponicsSeedsMedicinal
   entities:
   - uid: 2759
@@ -109893,8 +109900,13 @@ entities:
   - uid: 19873
     components:
     - type: Transform
-      pos: -3.4904737,-27.546751
+      pos: -2.4649992,-27.718609
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+    - type: Pullable
+      prevFixedRotation: True
 - proto: MopItem
   entities:
   - uid: 7199
@@ -129813,6 +129825,27 @@ entities:
     - type: Transform
       pos: -26.5,-9.5
       parent: 60
+- proto: SpawnVehicleJanicart
+  entities:
+  - uid: 24885
+    components:
+    - type: Transform
+      pos: -3.5,-27.5
+      parent: 60
+- proto: SpawnVehicleSecway
+  entities:
+  - uid: 24882
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -26.5,-20.5
+      parent: 60
+  - uid: 24883
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -24.5,-20.5
+      parent: 60
 - proto: SpawnVendingMachineRestockFoodDrink
   entities:
   - uid: 19888
@@ -133967,6 +134000,11 @@ entities:
     - type: Transform
       pos: -40.5,-15.5
       parent: 60
+  - uid: 24886
+    components:
+    - type: Transform
+      pos: -25.5,-20.5
+      parent: 60
 - proto: TableCarpet
   entities:
   - uid: 29
@@ -136405,6 +136443,25 @@ entities:
     components:
     - type: Transform
       pos: 50.5,-25.5
+      parent: 60
+- proto: VehicleKeyJanicart
+  entities:
+  - uid: 24889
+    components:
+    - type: Transform
+      pos: -5.7085247,-28.634499
+      parent: 60
+- proto: VehicleKeySecway
+  entities:
+  - uid: 24887
+    components:
+    - type: Transform
+      pos: -25.374859,-20.358868
+      parent: 60
+  - uid: 24888
+    components:
+    - type: Transform
+      pos: -25.593609,-20.494379
       parent: 60
 - proto: VendingBarDrobe
   entities:
@@ -152257,8 +152314,11 @@ entities:
   - uid: 1195
     components:
     - type: Transform
-      pos: -2.5,-28.5
+      pos: -2.5,-28.583601
       parent: 60
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 7299
     components:
     - type: Transform

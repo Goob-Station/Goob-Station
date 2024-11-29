@@ -4,7 +4,7 @@
 # - all the other major gamerules are cancelled out (roundstart)
 
 # add all roundstart antags here
-- type: dataset
+- type: dataset # Funky station unfucked dynamic
   id: DynamicRoundstartGamerules
   values:
   - TraitorDynamic # traitors

@@ -33,6 +33,7 @@
   - Research
   - Command
   - CentralCommand
+  - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -56,3 +57,4 @@
     - BoxSurvivalSlots
     - Flash
     - BluespaceLifelineImplanter
+    - SecHypo

@@ -116,10 +116,10 @@
   - type: Perishable
 
 - type: entity
-  name: syndiroach
+  name: syndimaggot
   id: MobMothSyndy
   parent: MobMothroach
-  description: Explosive moth.
+  description: Explosive maggot.
   components:
   - type: Sprite
     sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
@@ -146,3 +146,27 @@
   - type: NpcFactionMember
     factions:
     - Syndicate
+
+- type: entity
+  name: syndie bee
+  suffix: Angry, syndicate
+  parent: [ MobAngryBee ]
+  id: MobSyndieAngryBee
+  description: How nice a bee. Oh no, it looks angry and wants my pizza.
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    - Syndicate
+
+- type: entity
+  suffix: Angry, weak
+  id: MobAngryBeeWeak
+  parent: MobAngryBee
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Piercing: 1.5
+  - type: TimedDespawn
+    lifetime: 5

@@ -187,7 +187,10 @@
     - type: SubdermalImplant
       implantAction: ActionActivateScramImplant
     - type: TriggerImplantAction
-    - type: ScramImplant
+    - type: RandomTeleport
+      radius:
+        min: 10
+        max: 100
 
 - type: entity
   parent: BaseSubdermalImplant

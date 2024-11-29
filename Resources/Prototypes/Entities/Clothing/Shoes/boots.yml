@@ -22,6 +22,8 @@
     sprite: Clothing/Shoes/Boots/jackboots.rsi
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -56,6 +58,10 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -82,6 +88,10 @@
     sprite: Clothing/Shoes/Boots/mercboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/mercboots.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -187,6 +197,10 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 10
+  - type: Butcherable
+    spawned:
+    - id: MaterialWebSilk1
+      amount: 2
   - type: Construction
     graph: WebObjects
     node: boots
@@ -204,6 +218,8 @@
   - type: FootstepModifier
     footstepSoundCollection:
       collection: FootstepSpurs
+      params:
+        variation: 0.09
 
 - type: entity
   parent: ClothingShoesBootsCowboyBrown

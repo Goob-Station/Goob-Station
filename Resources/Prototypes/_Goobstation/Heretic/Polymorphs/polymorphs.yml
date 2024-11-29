@@ -9,7 +9,8 @@
   id: EldritchHorror
   configuration:
     entity: MobHereticFleshAscend
+    forced: true
     transferName: true
-    transferDamage: true
+    transferDamage: false
     revertOnCrit: false
     revertOnDeath: false

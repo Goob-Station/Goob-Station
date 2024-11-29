@@ -43,6 +43,7 @@
         Heat: 15
         Structural: 20
   - type: MeleeWeapon
+    heavyStaminaCost: 2.5 # goob edit
     wideAnimationRotation: -135
     attackRate: 1
     damage:
@@ -71,6 +72,17 @@
   - type: Reflect
   - type: IgnitionSource
     temperature: 700
+  - type: Scalpel # Shitmed
+    speed: 0.75
+  - type: Cautery # Shitmed: you have to be very, very careful to cauterize with it
+    speed: 0.2
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/Weapons/ebladehum.ogg
+    endSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
 
 - type: entity
   name: energy sword
@@ -138,6 +150,7 @@
         shader: unshaded
         map: [ "blade" ]
   - type: MeleeWeapon
+    heavyStaminaCost: 1 # goob edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
@@ -214,6 +227,7 @@
     color: white
     netsync: false
   - type: MeleeWeapon
+    heavyStaminaCost: 1 # goob edit
     wideAnimationRotation: 145
     attackRate: 1
     hidden: true
@@ -290,8 +304,8 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 12
-            Heat: 12
+            Slash: 17   #Goob Station rebalance, was originally 12
+            Heat: 17    #Goob Station rebalance, was originally 12
             Structural: 15
   - type: ItemToggleActiveSound
     activeSound:
@@ -308,8 +322,9 @@
   - type: Wieldable
     wieldSound: null # esword light sound instead
   - type: MeleeWeapon
+    heavyStaminaCost: 0 # goob edit
     wideAnimationRotation: -135
-    attackRate: 1.5
+    attackRate: 1 #Goob Station rebalance, was originally 1.5
     angle: 100
     damage:
       types:

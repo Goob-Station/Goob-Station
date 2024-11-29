@@ -55,4 +55,9 @@ public sealed partial class SlotDefinition
     ///     Entity blacklist for CanEquip checks.
     /// </summary>
     [DataField("blacklist")] public EntityWhitelist? Blacklist = null;
+
+    /// <summary>
+    ///     Shitmed Change: Is this slot disabled? Could be due to severing or other reasons.
+    /// </summary>
+    [DataField] public bool Disabled;
 }

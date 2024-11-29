@@ -109,6 +109,9 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
+  - type: FootPrints # WD EDIT
+    leftBarePrint: "footprint-left-bare-diona"
+    rightBarePrint: "footprint-right-bare-diona"
 
 - type: entity
   parent: BaseSpeciesDummy

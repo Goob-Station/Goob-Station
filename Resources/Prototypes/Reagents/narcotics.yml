@@ -48,6 +48,10 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -101,6 +105,10 @@
         messages: ["ephedrine-effect-tight-pain", "ephedrine-effect-heart-pounds"]
         type: Local
         probability: 0.05
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       effects:
       - !type:ResetNarcolepsy
@@ -164,6 +172,10 @@
         key: Drowsiness
         time: 10
         type: Remove
+      - !type:GenericStatusEffect # goob edit
+        key: Adrenaline
+        component: IgnoreSlowOnDamage
+        time: 5
     Medicine:
       metabolismRate: 1.0
       effects:
@@ -321,6 +333,9 @@
       - !type:GenericStatusEffect
         key: Muted
         component: Muted
+        type: Add
+        time: 10
+        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -401,7 +416,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 5
       - !type:Emote
         emote: Scream
         probability: 0.08
@@ -410,7 +425,7 @@
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 5
 
 - type: reagent
   id: Happiness

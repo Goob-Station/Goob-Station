@@ -69,6 +69,14 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Goobstation - Add the station map interface to the borg
+      enum.StationMapUiKey.Key:
+        type: StationMapBoundUserInterface
+  # Goobstation - Add the station map interface to the borg
+  - type: IntrinsicUI
+    uis:
+      enum.StationMapUiKey.Key:
+        toggleAction: ActionAGhostShowStationMap
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
@@ -279,6 +287,8 @@
   - type: NpcFactionMember
     factions:
     - NanoTrasen
+  - type: SiliconLawProvider
+    laws: CrewsimovBorg # Goobstation - AI/borg law changes - borgs obeying AI
   - type: Access
     enabled: false
     groups:

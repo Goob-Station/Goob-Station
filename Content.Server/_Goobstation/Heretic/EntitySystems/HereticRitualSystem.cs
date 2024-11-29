@@ -12,6 +12,7 @@ using System.Linq;
 using Robust.Shared.Serialization.Manager;
 using Content.Shared.Examine;
 using Content.Shared._Goobstation.Heretic.Components;
+using Robust.Shared.Containers;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -24,6 +25,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
     [Dependency] private readonly HereticKnowledgeSystem _knowledge = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _container = default!;
 
     public SoundSpecifier RitualSuccessSound = new SoundPathSpecifier("/Audio/_Goobstation/Heretic/castsummon.ogg");
 
@@ -50,7 +52,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         var rit = _series.CreateCopy((HereticRitualPrototype) GetRitual(ritualId).Clone(), notNullableOverride: true);
         var lookup = _lookup.GetEntitiesInRange(platform, .75f);
 
-        var missingList = new List<string>();
+        var missingList = new Dictionary<string, float>();
         var toDelete = new List<EntityUid>();
 
         // check for all conditions
@@ -75,8 +77,10 @@ public sealed partial class HereticRitualSystem : EntitySystem
             // check for matching tags
             foreach (var tag in requiredTags)
             {
-                if (!TryComp<TagComponent>(look, out var tags))
+                if (!TryComp<TagComponent>(look, out var tags) // no tags?
+                || _container.IsEntityInContainer(look)) // using your own eyes for amber focus?
                     continue;
+
                 var ltags = tags.Tags;
 
                 if (ltags.Contains(tag.Key))
@@ -93,19 +97,22 @@ public sealed partial class HereticRitualSystem : EntitySystem
         // add missing tags
         foreach (var tag in requiredTags)
             if (tag.Value > 0)
-                missingList.Add(tag.Key);
+                missingList.Add(tag.Key, tag.Value);
 
         // are we missing anything?
         if (missingList.Count > 0)
         {
             // we are! notify the performer about that!
             var sb = new StringBuilder();
-            for (int i = 0; i < missingList.Count; i++)
+            for (int i = 0; i < missingList.Keys.Count; i++)
             {
+                var key = missingList.Keys.ToList()[i];
+                var missing = $"{key} x{missingList[key]}";
+
                 // makes a nice, list, of, missing, items.
                 if (i != missingList.Count - 1)
-                    sb.Append($"{missingList[i]}, ");
-                else sb.Append(missingList[i]);
+                    sb.Append($"{missing}, ");
+                else sb.Append(missing);
             }
 
             _popup.PopupEntity(Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString())), platform, performer);
@@ -176,7 +183,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
 
         heretic.ChosenRitual = args.ProtoId;
 
-        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).Name);
+        var ritualName = Loc.GetString(GetRitual(heretic.ChosenRitual).LocName);
         _popup.PopupEntity(Loc.GetString("heretic-ritual-switch", ("name", ritualName)), user, user);
     }
 
@@ -207,7 +214,7 @@ public sealed partial class HereticRitualSystem : EntitySystem
         if (!TryComp<HereticComponent>(args.Examiner, out var h))
             return;
 
-        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).Name : null;
+        var ritual = h.ChosenRitual != null ? GetRitual(h.ChosenRitual).LocName : null;
         var name = ritual != null ? Loc.GetString(ritual) : "None";
         args.PushMarkup(Loc.GetString("heretic-ritualrune-examine", ("rit", name)));
     }

@@ -24,8 +24,9 @@
   - Maintenance
   - Engineering
   - Medical
-  - Research  
+  - Research
   - Command
+  - NanotrasenRepresentative
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
@@ -37,7 +38,7 @@
   id: NanotrasenRepresentativeGear
   equipment:
     id: CentcomPDA
-    ears: ClothingHeadsetCentCom
+    ears: ClothingHeadsetAltCentCom
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:

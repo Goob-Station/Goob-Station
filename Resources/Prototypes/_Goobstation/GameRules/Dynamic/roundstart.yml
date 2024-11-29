@@ -47,9 +47,8 @@
         - AntagImmune
       lateJoinAdditional: true
       startingGear: ThiefGear
-      mindComponents:
-      - type: ThiefRole
-        prototype: Thief
+      mindRoles:
+      - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
       special:
@@ -151,9 +150,8 @@
       components:
       - type: Revolutionary
       - type: HeadRevolutionary
-      mindComponents:
-      - type: RevolutionaryRole
-        prototype: HeadRev
+      mindRoles:
+      - MindRoleHeadRevolutionary
 
 # NukeOps
 - type: entity
@@ -185,9 +183,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsCommander
+      mindRoles:
+      - MindRoleNukeopsCommander
     - prefRoles: [ NukeopsMedic ]
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
@@ -201,9 +198,8 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: NukeopsMedic
+      mindRoles:
+      - MindRoleNukeopsMedic
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
@@ -219,6 +215,5 @@
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops

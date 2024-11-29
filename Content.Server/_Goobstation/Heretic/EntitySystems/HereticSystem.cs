@@ -1,6 +1,5 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
-using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
@@ -8,10 +7,6 @@ using Content.Shared.Store.Components;
 using Content.Shared.Heretic.Prototypes;
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
-using Content.Server.Temperature.Components;
-using Content.Server.Body.Components;
-using Content.Server.Atmos.Components;
-using Content.Shared.Damage;
 using Content.Server.Heretic.Components;
 using Content.Server.Antag;
 using Robust.Shared.Random;
@@ -20,9 +15,7 @@ using Content.Shared.Humanoid;
 using Robust.Server.Player;
 using Content.Server.Revolutionary.Components;
 using Content.Shared.Random.Helpers;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Prototypes;
-using Content.Shared.Roles;
 
 namespace Content.Server.Heretic.EntitySystems;
 
@@ -36,7 +29,6 @@ public sealed partial class HereticSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IRobustRandom _rand = default!;
     [Dependency] private readonly IPlayerManager _playerMan = default!;
-    [Dependency] private readonly IPrototypeManager _prot = default!;
 
     private float _timer = 0f;
     private float _passivePointCooldown = 20f * 60f;
@@ -50,11 +42,6 @@ public sealed partial class HereticSystem : EntitySystem
         SubscribeLocalEvent<HereticComponent, EventHereticUpdateTargets>(OnUpdateTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticRerollTargets>(OnRerollTargets);
         SubscribeLocalEvent<HereticComponent, EventHereticAscension>(OnAscension);
-
-        SubscribeLocalEvent<HereticComponent, BeforeDamageChangedEvent>(OnBeforeDamage);
-        SubscribeLocalEvent<HereticComponent, DamageModifyEvent>(OnDamage);
-
-        SubscribeLocalEvent<HereticMagicItemComponent, ExaminedEvent>(OnMagicItemExamine);
     }
 
     public override void Update(float frameTime)
@@ -132,23 +119,7 @@ public sealed partial class HereticSystem : EntitySystem
         // pick one command staff
         predicates.Add(t => HasComp<CommandStaffComponent>(t));
 
-        // pick one secoff
-        predicates.Add(t =>
-            _prot.TryIndex<DepartmentPrototype>("Security", out var dept) // can we get sec jobs?
-            && _mind.TryGetMind(t, out var mindid, out _) // does it have a mind?
-            && TryComp<JobComponent>(mindid, out var jobc) && jobc.Prototype.HasValue // does it have a job?
-            && dept.Roles.Contains(jobc.Prototype!.Value)); // is that job being shitsec?
-
-        // pick one person from the same department
-        predicates.Add(t =>
-            _mind.TryGetMind(t, out var tmind, out _) && _mind.TryGetMind(ent, out var ownmind, out _) // get minds
-            && TryComp<JobComponent>(tmind, out var tjob) && tjob.Prototype.HasValue // get jobs
-            && TryComp<JobComponent>(ownmind, out var ownjob) && ownjob.Prototype.HasValue
-            && _prot.EnumeratePrototypes<DepartmentPrototype>() // compare jobs for all
-                .Where(d =>
-                    d.Roles.Contains(tjob.Prototype.Value)
-                    && d.Roles.Contains(ownjob.Prototype.Value)) // true = same department
-                .ToList().Count != 0);
+        // add more predicates here
 
         foreach (var predicate in predicates)
         {
@@ -186,57 +157,6 @@ public sealed partial class HereticSystem : EntitySystem
         var pathLoc = ent.Comp.CurrentPath!.ToLower();
         var ascendSound = new SoundPathSpecifier($"/Audio/_Goobstation/Heretic/Ambience/Antag/Heretic/ascend_{pathLoc}.ogg");
         _chat.DispatchGlobalAnnouncement(Loc.GetString($"heretic-ascension-{pathLoc}"), Name(ent), true, ascendSound, Color.Pink);
-
-        // do other logic, e.g. make heretic immune to whatever
-        switch (ent.Comp.CurrentPath!)
-        {
-            case "Ash":
-                RemComp<TemperatureComponent>(ent);
-                RemComp<RespiratorComponent>(ent);
-                RemComp<BarotraumaComponent>(ent);
-                break;
-
-            default:
-                break;
-        }
-    }
-
-    #endregion
-
-    #region External events (damage, etc.)
-
-    private void OnBeforeDamage(Entity<HereticComponent> ent, ref BeforeDamageChangedEvent args)
-    {
-        // ignore damage from heretic stuff
-        if (args.Origin.HasValue && HasComp<HereticBladeComponent>(args.Origin))
-            args.Cancelled = true;
-    }
-    private void OnDamage(Entity<HereticComponent> ent, ref DamageModifyEvent args)
-    {
-        if (!ent.Comp.Ascended)
-            return;
-
-        switch (ent.Comp.CurrentPath)
-        {
-            case "Ash":
-                // nullify heat damage because zased
-                args.Damage.DamageDict["Heat"] = 0;
-                break;
-        }
-    }
-
-    #endregion
-
-
-
-    #region Miscellaneous
-
-    private void OnMagicItemExamine(Entity<HereticMagicItemComponent> ent, ref ExaminedEvent args)
-    {
-        if (!HasComp<HereticComponent>(args.Examiner))
-            return;
-
-        args.PushMarkup(Loc.GetString("heretic-magicitem-examine"));
     }
 
     #endregion

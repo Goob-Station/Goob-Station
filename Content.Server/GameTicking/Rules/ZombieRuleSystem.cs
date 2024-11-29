@@ -13,8 +13,10 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio;
+using Robust.Shared.Audio.Systems; // goobstation
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
@@ -23,16 +25,18 @@ namespace Content.Server.GameTicking.Rules;
 
 public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
 {
-    [Dependency] private readonly ChatSystem _chat = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly ZombieSystem _zombie = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!; // Einstein Engines - Zombie Improvements Take 2
+    [Dependency] private readonly ZombieSystem _zombie = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -43,23 +47,20 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
         SubscribeLocalEvent<IncurableZombieComponent, ZombifySelfActionEvent>(OnZombifySelf);
     }
 
-    private void OnGetBriefing(EntityUid uid, InitialInfectedRoleComponent component, ref GetBriefingEvent args)
+    private void OnGetBriefing(Entity<InitialInfectedRoleComponent> role, ref GetBriefingEvent args)
     {
-        if (!TryComp<MindComponent>(uid, out var mind) || mind.OwnedEntity == null)
-            return;
-        if (HasComp<ZombieRoleComponent>(uid)) // don't show both briefings
-            return;
-        args.Append(Loc.GetString("zombie-patientzero-role-greeting"));
+        if (!_roles.MindHasRole<ZombieRoleComponent>(args.Mind.Owner))
+            args.Append(Loc.GetString("zombie-patientzero-role-greeting"));
     }
 
-    private void OnGetBriefing(EntityUid uid, ZombieRoleComponent component, ref GetBriefingEvent args)
+    private void OnGetBriefing(Entity<ZombieRoleComponent> role, ref GetBriefingEvent args)
     {
-        if (!TryComp<MindComponent>(uid, out var mind) || mind.OwnedEntity == null)
-            return;
         args.Append(Loc.GetString("zombie-infection-greeting"));
     }
 
-    protected override void AppendRoundEndText(EntityUid uid, ZombieRuleComponent component, GameRuleComponent gameRule,
+    protected override void AppendRoundEndText(EntityUid uid,
+        ZombieRuleComponent component,
+        GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
         base.AppendRoundEndText(uid, component, gameRule, ref args);
@@ -124,10 +125,13 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             zombieRuleComponent.StartAnnounced = true;
 
             foreach (var station in _station.GetStations())
+            {
                 _chat.DispatchStationAnnouncement(station,
                     Loc.GetString("zombie-start-announcement"),
-                    colorOverride: Color.Pink,
-                    announcementSound: new SoundPathSpecifier("/Audio/Announcements/outbreak7.ogg"));
+                    colorOverride: Color.Pink);
+            }
+
+            _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
 
         if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
@@ -136,6 +140,9 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             {
                 _chat.DispatchStationAnnouncement(station, Loc.GetString("zombie-shuttle-call"), colorOverride: Color.Crimson);
             }
+
+            _audio.PlayGlobal("/Audio/_Goobstation/Announcements/violet.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f)); // Goobstation
+
             _roundEnd.RequestRoundEnd(null, false);
         }
 

@@ -21,7 +21,7 @@ public sealed partial class StaminaComponent : Component
     /// How much stamina reduces per second.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
-    public float Decay = 3f;
+    public float Decay = 5f; // goob edit
 
     /// <summary>
     /// How much time after receiving damage until stamina starts decreasing.

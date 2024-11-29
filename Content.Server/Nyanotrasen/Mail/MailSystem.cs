@@ -10,19 +10,15 @@ using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Chemistry.Containers.EntitySystems;
-using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Damage.Components;
 using Content.Server.DeltaV.Cargo.Components;
 using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
-using Content.Server.Fluids.Components;
 using Content.Server.Item;
 using Content.Server.Mail.Components;
 using Content.Server.Mind;
-using Content.Server.Nutrition.Components;
-using Content.Server.Nutrition.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Power.Components;
 using Content.Server.Station.Systems;
@@ -30,7 +26,6 @@ using Content.Server.Spawners.EntitySystems;
 using Content.Shared.Access;
 using Content.Shared.Access.Components;
 using Content.Shared.Access.Systems;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Emag.Components;
 using Content.Shared.Destructible;
@@ -40,7 +35,6 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Item;
 using Content.Shared.Mail;
 using Content.Shared.Maps;
 using Content.Shared.Nutrition.Components;
@@ -48,7 +42,6 @@ using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.PDA;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
-using Content.Shared.StatusIcon;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
@@ -203,7 +196,7 @@ namespace Content.Server.Mail
             {
                 _idCardSystem.TryGetIdCard(args.Used, out var pdaID);
                 idCard = pdaID;
-            }
+            }   
 
             if (HasComp<IdCardComponent>(args.Used)) /// Or are they using an id card directly?
                 idCard = Comp<IdCardComponent>(args.Used);
@@ -213,7 +206,7 @@ namespace Content.Server.Mail
 
             if (!HasComp<EmaggedComponent>(uid))
             {
-                if (idCard.FullName != component.Recipient || idCard.JobTitle != component.RecipientJob)
+                if (idCard.FullName != component.Recipient || idCard.LocalizedJobTitle != component.RecipientJob)
                 {
                     _popupSystem.PopupEntity(Loc.GetString("mail-recipient-mismatch"), uid, args.User);
                     return;
@@ -613,14 +606,14 @@ namespace Content.Server.Mail
             if (_idCardSystem.TryFindIdCard(receiver.Owner, out var idCard)
                 && TryComp<AccessComponent>(idCard.Owner, out var access)
                 && idCard.Comp.FullName != null
-                && idCard.Comp.JobTitle != null)
+                && idCard.Comp.LocalizedJobTitle != null)
             {
                 var accessTags = access.Tags;
 
                 var mayReceivePriorityMail = !(_mindSystem.GetMind(receiver.Owner) == null);
 
                 recipient = new MailRecipient(idCard.Comp.FullName,
-                    idCard.Comp.JobTitle,
+                    idCard.Comp.LocalizedJobTitle,
                     idCard.Comp.JobIcon,
                     accessTags,
                     mayReceivePriorityMail);
@@ -639,12 +632,13 @@ namespace Content.Server.Mail
         {
             List<MailRecipient> candidateList = new();
 
-            foreach (var receiver in EntityQuery<MailReceiverComponent>())
+            var query = EntityQueryEnumerator<MailReceiverComponent>();
+            while (query.MoveNext(out var receiver, out var receiverComp))
             {
-                if (_stationSystem.GetOwningStation(receiver.Owner) != _stationSystem.GetOwningStation(uid))
+                if (_stationSystem.GetOwningStation(receiver) != _stationSystem.GetOwningStation(uid))
                     continue;
 
-                if (TryGetMailRecipientForReceiver(receiver, out MailRecipient? recipient))
+                if (TryGetMailRecipientForReceiver(receiverComp, out MailRecipient? recipient))
                     candidateList.Add(recipient.Value);
             }
 

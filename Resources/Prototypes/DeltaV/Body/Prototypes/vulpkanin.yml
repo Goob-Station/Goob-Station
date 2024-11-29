@@ -12,17 +12,18 @@
         eyes: OrganHumanEyes
     torso:
       part: TorsoVulpkanin
+      connections: # Goobstation - fix some species having their hands the wrong way around
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head # Shitmed Change
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
         stomach: OrganVulpkaninStomach
         liver: OrganAnimalLiver
         kidneys: OrganHumanKidneys
-      connections:
-      - left arm
-      - right arm
-      - left leg
-      - right leg
     right arm:
       part: RightArmVulpkanin
       connections:

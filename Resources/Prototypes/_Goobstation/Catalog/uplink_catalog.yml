@@ -9,7 +9,6 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
 
 - type: listing
   id: UplinkBoxReagentGrenades
@@ -20,7 +19,27 @@
     Telecrystal: 30
   categories:
     -  UplinkDisruption
-  saleLimit: 1
+
+- type: listing
+  id: UplinkRemoteSignallerAdvanced
+  name: uplink-signaller-name
+  description: uplink-signaller-desc
+  productEntity: RemoteSignallerAdvanced
+  cost:
+    Telecrystal: 8
+  categories:
+    -  UplinkDisruption
+
+- type: listing
+  id: UplinkBoxSkibidiRizz
+  name: Box of Skibidi Rizz
+  description: Contains 3 Skibidi Toilet cubes and 3 glasses of SigmaJuice... Chat, is this real?
+  productEntity: BoxSkibidiRizz
+  cost:
+    Telecrystal: 30
+  categories:
+    - UplinkDisruption
+
 
 # Weaponry
 
@@ -31,10 +50,20 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword_double.rsi, state: icon }
   productEntity: EnergySwordDouble
   cost:
-    Telecrystal: 100
+    Telecrystal: 80
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
+- type: listing
+  id: UplinkM90Bundle
+  name: uplink-m90-name
+  description: uplink-m90-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/m90.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateM90Bundle
+  cost:
+    Telecrystal: 85 # - C-20よりも優れていますが、より多くの在庫スペースとより少ないマガジン容量を必要とします
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkFireAxeFlaming
@@ -45,7 +74,7 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkMiniatureEnergyCrossbow
@@ -57,7 +86,60 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
-  saleLimit: 1
+
+- type: listing
+  id: UplinkBowHardlight
+  name: uplink-hardlight-bow-name
+  description: uplink-hardlight-bow-desc
+  icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
+  productEntity: BowHardlight
+  cost:
+    Telecrystal: 80
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+# Wearables
+
+- type: listing
+  id: UplinkHardsuitSyndieMedic
+  name: uplink-hardsuit-syndiemedic-name
+  description: uplink-hardsuit-syndiemedic-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiemedic.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateMedicHardsuitBundle
+  cost:
+    Telecrystal: 55 # novelty item for the larp
+  categories:
+  - UplinkWearables
+
+
+- type: listing
+  id: UplinkHardsuitSyndieCommander
+  name: uplink-hardsuit-syndiecommander-name
+  description: uplink-hardsuit-syndiecommander-desc
+  icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndiecommander.rsi, state: icon }
+  productEntity: ClothingOuterHardsuitSyndieCommander
+  cost:
+    Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
+  categories:
+  - UplinkWearables
+
+
+- type: listing
+  id: UplinkHardsuitCybersunStealth
+  name: uplink-hardsuit-cybersun-stealth-name
+  description: uplink-hardsuit-cybersun-stealth-desc
+  icon: { sprite: /Textures/_Goobstation/Clothing/OuterClothing/Hardsuits/cybersunstealth.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateStealthHardsuitBundle
+  cost:
+    Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
+  categories:
+  - UplinkWearables
+
 
 # Job specific
 - type: listing
@@ -74,7 +156,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkLubeGrenade
@@ -90,7 +172,7 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkGlueGrenade
@@ -106,7 +188,7 @@
     whitelist:
     - Clown
     - Mime
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkMobRoachMicrobomb
@@ -118,7 +200,7 @@
     Telecrystal: 30
   categories:
     - UplinkAllies
-  saleLimit: 1
+
 
 - type: listing
   id: UplinkJermovCircuitBoard
@@ -134,7 +216,7 @@
     whitelist:
     - Clown
     - Passenger
-  saleLimit: 1
+
 
 # chemicals
 
@@ -147,7 +229,7 @@
     Telecrystal: 28
   categories:
   - UplinkChemicals
-  saleLimit: 1
+
 
 # Implants
 
@@ -166,8 +248,8 @@
       blacklist:
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
-  saleLimit: 1
-  
+
+
 - type: listing
   id: UplinkSmugglerSatchel
   name: uplink-smugglers-satchel-name
@@ -178,4 +260,32 @@
     Telecrystal: 15
   categories:
   - UplinkDeception
-  saleLimit: 1
+
+# 弾薬
+
+- type: listing
+  id: UplinkRifleMag
+  name: uplink-rifle-mag-name
+  description: uplink-rifle-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
+  productEntity: MagazineRifle
+  cost:
+    Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkSyndicateSegwayCrate
+  name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
+  description: uplink-syndicate-segway-crate-desc
+  icon: { sprite: /Textures/Objects/Vehicles/syndicatesegway.rsi, state: icon }
+  productEntity: CrateFunSyndicateSegway
+  cost:
+    Telecrystal: 25 # Same as what it was before being removed
+  categories:
+  - UplinkDisruption
+  conditions:
+  - !type:BuyerWhitelistCondition
+    blacklist:
+      components:
+      - SurplusBundle

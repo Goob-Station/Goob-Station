@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: Fart
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4.ogg

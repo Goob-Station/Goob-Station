@@ -275,6 +275,7 @@
         - Injector
         - Pill
         - HandLabeler
+        - SurgeryTool # Shitmed Change
   - type: ItemMapper
     mapLayers:
       bottle:
@@ -456,7 +457,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, BaseRestrictedContraband]
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseRestrictedContraband] # Goobstation
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
@@ -465,6 +466,8 @@
     sprite: Clothing/Belt/security.rsi
   - type: Clothing
     sprite: Clothing/Belt/security.rsi
+  - type: ExplosionResistance # Goobstation
+    damageCoefficient: 0.5
   - type: Storage
     whitelist:
       tags:
@@ -477,6 +480,7 @@
         - MagazineMagnum
         - CombatKnife
         - Truncheon
+        - BolaEnergy # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger
@@ -487,7 +491,6 @@
         - CartridgeAmmo
         - DoorRemote
         - Whistle
-        - HolosignProjector
         - BalloonPopper
   - type: ItemMapper
     mapLayers:

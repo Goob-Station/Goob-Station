@@ -34,6 +34,8 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      enum.SurgeryUIKey.Key: # Shitmed
+        type: SurgeryBui
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -115,9 +117,9 @@
     speechVerb: Harpy
   - type: Vocal
     sounds:
-      Male: SoundsHarpy
-      Female: SoundsHarpy
-      Unsexed: SoundsHarpy
+      Male: SoundsHarpyMale
+      Female: SoundsHarpyFemale
+      Unsexed: SoundsHarpyFemale
   - type: GenericVisualizer
     visuals:
       enum.HarpyVisualLayers.Singing:
@@ -137,6 +139,9 @@
     - FootstepSound
     - DoorBumpOpener
     - HarpyEmotes
+  - type: FootPrints
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
 
 - type: entity
   save: false

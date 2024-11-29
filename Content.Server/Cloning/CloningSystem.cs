@@ -144,7 +144,8 @@ namespace Content.Server.Cloning
                 return false;
 
             var mind = mindEnt.Comp;
-            if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
+            // GoobStation: Remove this logic entirely, infinite clone army
+            /*if (ClonesWaitingForMind.TryGetValue(mind, out var clone))
             {
                 if (EntityManager.EntityExists(clone) &&
                     !_mobStateSystem.IsDead(clone) &&
@@ -153,10 +154,11 @@ namespace Content.Server.Cloning
                     return false; // Mind already has clone
 
                 ClonesWaitingForMind.Remove(mind);
-            }
+            }*/
 
-            if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
-                return false; // Body controlled by mind is not dead
+            // GoobStation: Lets you clone living people
+            //if (mind.OwnedEntity != null && !_mobStateSystem.IsDead(mind.OwnedEntity.Value))
+            //    return false; // Body controlled by mind is not dead
 
             // Yes, we still need to track down the client because we need to open the Eui
             if (mind.UserId == null || !_playerManager.TryGetSessionById(mind.UserId.Value, out var client))
@@ -223,7 +225,7 @@ namespace Content.Server.Cloning
             cloneMindReturn.Mind = mind;
             cloneMindReturn.Parent = uid;
             _containerSystem.Insert(mob, clonePod.BodyContainer);
-            ClonesWaitingForMind.Add(mind, mob);
+            //ClonesWaitingForMind.Add(mind, mob); // GoobStation
             UpdateStatus(uid, CloningPodStatus.NoMind, clonePod);
             _euiManager.OpenEui(new AcceptCloningEui(mindEnt, mind, this), client);
 
@@ -231,7 +233,7 @@ namespace Content.Server.Cloning
 
             // TODO: Ideally, components like this should be components on the mind entity so this isn't necessary.
             // Add on special job components to the mob.
-            if (_jobs.MindTryGetJob(mindEnt, out _, out var prototype))
+            if (_jobs.MindTryGetJob(mindEnt, out var prototype))
             {
                 foreach (var special in prototype.Special)
                 {
