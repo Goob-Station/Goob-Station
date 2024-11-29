@@ -6,12 +6,12 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagObjectives
-    selectionTime: PrePlayerSpawn
     objectives:
     - HereticKnowledgeObjective
     - HereticSacrificeObjective
     - HereticSacrificeHeadObjective
   - type: AntagSelection
+    selectionTime: PrePlayerSpawn
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
