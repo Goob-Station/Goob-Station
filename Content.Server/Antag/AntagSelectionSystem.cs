@@ -310,13 +310,14 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             if (session == null)
                 return;
 
+            ent.Comp.SelectedSessions.Remove(session);
+
             if (def.RollBeforeJob && ent.Comp.SelectionTime == AntagSelectionTime.PrePlayerSpawn)
             {
                 _pendingAntag.PendingAntags[session.UserId] = (def, ent);
                 return;
             }
 
-            ent.Comp.SelectedSessions.Remove(session);
             Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             // goob edit end
             return;
