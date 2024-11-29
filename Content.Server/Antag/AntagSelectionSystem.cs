@@ -350,7 +350,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             var curMind = session.GetMind();
 
-            if (curMind == null ||
+            if (curMind == null || 
                 !TryComp<MindComponent>(curMind.Value, out var mindComp) ||
                 mindComp.OwnedEntity != antagEnt)
             {
