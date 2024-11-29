@@ -1,3 +1,4 @@
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
@@ -40,7 +41,7 @@ public sealed class AutodocSystem : SharedAutodocSystem
         if (TryComp<InternalsComponent>(patient, out var internals) && _internals.AreInternalsWorking(patient, internals))
             _internals.DisconnectTank((patient, internals));
 
-        base.WakePatient();
+        base.WakePatient(patient);
     }
 
     public override void Say(EntityUid uid, string msg)
