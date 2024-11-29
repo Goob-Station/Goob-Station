@@ -41,8 +41,7 @@
     - Zombie
     # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
-    - Changeling # Goobstation
-    - Heretic # Goobstation
+    - Changeling # Goobstation - changeling playtest
     - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation
 
@@ -69,8 +68,7 @@
     - SpaceTrafficControlEventScheduler
     - SpaceTrafficControlFriendlyEventScheduler
     - BasicRoundstartVariation
-    - Changeling # Goobstation
-    - Heretic # Goobstation
+    - Changeling # Goobstation - changeling playtest
 
 - type: gamePreset
   id: Extended
