@@ -2527,3 +2527,13 @@ Entries:
       message: Added the ability to reply to AHelps while exclusively on discord.
   id: 292
   time: '2024-11-29T20:00:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Autodoc Mk. XIV with the Automated Surgery tier 2 civ tech.
+        AUTOMATED ORGAN HARVESTING!!!
+    - type: Tweak
+      message: You can now hear people doing surgeries.
+  id: 293
+  time: '2024-11-29T20:03:20.0000000+00:00'
