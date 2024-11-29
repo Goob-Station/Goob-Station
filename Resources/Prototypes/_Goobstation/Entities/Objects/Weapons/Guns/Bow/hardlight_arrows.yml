@@ -34,7 +34,7 @@
     onlyCollideWhenShot: true
     damage:
       types:
-        Heat: 30
+        Heat: 50
   - type: TimedDespawn
     lifetime: 10
   - type: PointLight
@@ -83,7 +83,7 @@
       types:
         Heat: 0
   - type: StaminaDamageOnCollide
-    damage: 60
+    damage: 45
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -100,7 +100,7 @@
       types:
         Heat: 15
   - type: IgniteOnCollide
-    fireStacks: 1.5
+    fireStacks: 3
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -115,9 +115,9 @@
   - type: Projectile
     damage:
       types:
-        Cold: 20
+        Cold: 5
   - type: ChangeTemperatureOnCollide
-    heat: -70000
+    heat: -150000
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
@@ -157,7 +157,7 @@
     penetrate: true
     damage:
       types:
-        Heat: 24
+        Heat: 35
   - type: Fixtures
     fixtures:
       projectile:
@@ -187,4 +187,4 @@
         Heat: 0
   - type: SpawnEntitiesOnHit
     proto: MobAngryBeeWeak
-    amount: 4
+    amount: 8
