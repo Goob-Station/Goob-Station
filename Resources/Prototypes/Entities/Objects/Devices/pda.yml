@@ -767,6 +767,7 @@
       - NotekeeperCartridge
       - NewsReaderCartridge
       - MedTekCartridge
+      - SciScanCartridge # Shibastation - adding SciScan cartridge to CentCom PDA to compliment the Admin one.
       - WantedListCartridge
       - LogProbeCartridge
       - AstroNavCartridge
@@ -792,7 +793,7 @@
       - NewsReaderCartridge
       - LogProbeCartridge
       - WantedListCartridge
-      - SciScanCartridge
+      - SciScanCartridge # Shibastation - adding SciScan cartridge to admin PDA to compliment the MedTek one.
       - MedTekCartridge
       - AstroNavCartridge
 
