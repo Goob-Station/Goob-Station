@@ -2503,3 +2503,9 @@ Entries:
       message: aghosts now have pockets to hide all their admeme tools in.
   id: 288
   time: '2024-11-29T16:58:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix absurd amount of midround antags spawning every shift.
+  id: 289
+  time: '2024-11-29T19:21:38.0000000+00:00'
