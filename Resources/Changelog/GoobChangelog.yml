@@ -2553,3 +2553,9 @@ Entries:
       message: new paramed voidsuit helmet sprite and it has light now
   id: 295
   time: '2024-11-29T21:12:05.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Tweak
+      message: Security bodycam is now wearable on the neck slot.
+  id: 296
+  time: '2024-11-29T21:13:10.0000000+00:00'
