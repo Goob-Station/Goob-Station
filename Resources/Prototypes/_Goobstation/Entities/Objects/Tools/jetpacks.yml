@@ -55,6 +55,10 @@
       outputPressure: 42.6
       air:
         volume: 1
+    - type: MovementSpeedModifier
+      weightlessAcceleration: 0.8
+      weightlessFriction: 1
+      weightlessModifier: 0.8
 
 # Filled improvised - GoobStation
 - type: entity
@@ -65,6 +69,7 @@
   components:
   - type: GasTank
     air:
+      volume: 1
       temperature: 293.15
       moles:
         - 0.205137905  # oxygen
