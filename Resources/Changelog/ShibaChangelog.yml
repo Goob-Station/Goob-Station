@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: SciScan cartridge added to Research Director's Locker, and preinstalled
+      on Admin and CentComm PDAs.
+    type: Add
+  id: 24
+  time: '2024-11-29T09:05:15.963330'
+- author: AstroDogeDX
+  changes:
   - message: Renamed Goob Coins to Shiba Shillings - since, you know, it's a shiba-themed
       server.
     type: Tweak
