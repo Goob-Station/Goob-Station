@@ -9,7 +9,6 @@ using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
 using Content.Shared.Armor;
-using Content.Shared.Polymorph;
 
 namespace Content.Server.Heretic.Abilities;
 
