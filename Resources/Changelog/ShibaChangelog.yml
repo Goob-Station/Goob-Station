@@ -1,6 +1,36 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Rodentia accent added; squeak!
+    type: Add
+  id: 29
+  time: '2024-11-29T11:02:15.301328'
+- author: AstroDogeDX
+  changes:
+  - message: Replaced the Italian accent with a superior one from Old Shiba.
+    type: Fix
+  id: 28
+  time: '2024-11-29T11:00:38.875821'
+- author: AstroDogeDX
+  changes:
+  - message: Replaced the German accent with a superior one from Old Shiba.
+    type: Fix
+  id: 27
+  time: '2024-11-29T11:00:24.047875'
+- author: AstroDogeDX
+  changes:
+  - message: Added the Geeza accent from Old Shiba, oite, innit?
+    type: Add
+  id: 26
+  time: '2024-11-29T11:01:11.594617'
+- author: AstroDogeDX
+  changes:
+  - message: Added the Felinid accent from Old Shiba, with some minor improvements!
+    type: Add
+  id: 25
+  time: '2024-11-29T11:01:46.800663'
+- author: AstroDogeDX
+  changes:
   - message: SciScan cartridge added to Research Director's Locker, and preinstalled
       on Admin and CentComm PDAs.
     type: Add
