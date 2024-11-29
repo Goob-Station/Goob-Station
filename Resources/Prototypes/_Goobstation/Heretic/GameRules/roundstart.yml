@@ -4,7 +4,7 @@
   components:
   - type: HereticRule
   - type: GameRule
-    minPlayers: 20
+    minPlayers: 15
     delay:
       min: 30
       max: 60
@@ -18,7 +18,7 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 5
-      playerRatio: 20
+      playerRatio: 15
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
