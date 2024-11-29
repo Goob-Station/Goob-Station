@@ -96,7 +96,7 @@
     explosionType: Default
     maxIntensity: 2
     intensitySlope: 2
-    totalIntensity: 18 # about the same as the API
+    totalIntensity: 18 # 30 damage per tile
     maxTileBreak: 0
   - type: PointLight
     radius: 3.5
