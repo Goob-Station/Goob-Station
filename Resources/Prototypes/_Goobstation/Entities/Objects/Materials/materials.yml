@@ -31,6 +31,7 @@
   - type: Tag
     tags:
     - Ore
+    - Ingot
 
 - type: entity
   parent: MaterialBSCrystal
