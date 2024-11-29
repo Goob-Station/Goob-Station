@@ -2521,3 +2521,9 @@ Entries:
       message: Improved action bar.
   id: 291
   time: '2024-11-29T19:37:13.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added the ability to reply to AHelps while exclusively on discord.
+  id: 292
+  time: '2024-11-29T20:00:22.0000000+00:00'
