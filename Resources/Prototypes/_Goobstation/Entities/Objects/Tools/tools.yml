@@ -87,7 +87,7 @@
   name: handheld fax
   parent: BaseItem
   id: HandheldFax
-  description: A tool that can send ton of paper on Centcomm fax.
+  description: A tool that can send ton of paper on CentComm fax.
   components:
   - type: Item
     size: Huge

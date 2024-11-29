@@ -1,7 +1,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: CentcomAgentSkirt
-  name: centcom agent skirt
+  name: CentComm agent skirt
   description: A skirt worn by CentComs legal team. Smells of burnt coffee.
   components:
   - type: Sprite
@@ -12,7 +12,7 @@
 - type: entity
   parent: ClothingUniformSkirtBase
   id: ClothingUniformJumpskirtNanotrasenRepresentative
-  name: nanotrasen representative skirt
+  name: NanoTrasen representative skirt
   description: A black skirt worn by officials.
   components:
   - type: Sprite

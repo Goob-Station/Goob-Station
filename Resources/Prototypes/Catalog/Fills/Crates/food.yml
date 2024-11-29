@@ -139,7 +139,7 @@
   id: CrateFoodSoftdrinksLarge
   parent: CratePlastic
   name: softdrinks bulk crate
-  description: Lots of sodas taken straight out of Centcomm's own vending machines, because you just can't leave your department. Includes 28 sodas.
+  description: Lots of sodas taken straight out of CentComm's own vending machines, because you just can't leave your department. Includes 28 sodas.
   components:
   - type: StorageFill
     contents:
