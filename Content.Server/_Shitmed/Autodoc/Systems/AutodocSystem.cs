@@ -1,3 +1,4 @@
+using Content.Server.Body.Systems;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
 using Content.Shared.DoAfter;
@@ -9,6 +10,7 @@ namespace Content.Server._Shitmed.Autodoc.Systems;
 
 public sealed class AutodocSystem : SharedAutodocSystem
 {
+    [Dependency] private readonly InternalsSystem _internals = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly SharedPowerReceiverSystem _power = default!;
 
@@ -32,7 +34,16 @@ public sealed class AutodocSystem : SharedAutodocSystem
         }
     }
 
-    protected override void Say(EntityUid uid, string msg)
+    protected override void WakePatient(EntityUid patient)
+    {
+        // incase they are using nitrous, disconnect it so they can get woken up later on
+        if (TryComp<InternalsComponent>(patient, out var internals) && _internals.AreInternalsWorking(patient, internals))
+            _internals.DisconnectTank((patient, internals));
+
+        base.WakePatient();
+    }
+
+    public override void Say(EntityUid uid, string msg)
     {
         _chat.TrySendInGameICMessage(uid, msg, InGameICChatType.Speak, hideChat: false, hideLog: true, checkRadioPrefix: false);
     }

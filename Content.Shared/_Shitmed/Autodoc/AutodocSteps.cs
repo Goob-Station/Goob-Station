@@ -71,7 +71,8 @@ public sealed partial class SurgeryAutodocStep : IAutodocStep
         get {
             var protoMan = IoCManager.Resolve<IPrototypeManager>();
             var proto = protoMan.Index(Surgery);
-            return Loc.GetString("autodoc-program-step-surgery", ("name", proto.Name));
+            var part = Loc.GetString("autodoc-body-part-" + Part.ToString());
+            return Loc.GetString("autodoc-program-step-surgery", ("part", part), ("name", proto.Name));
         }
     }
 
@@ -184,5 +185,54 @@ public sealed partial class StoreItemAutodocStep : IAutodocStep
     {
         autodoc.StoreItemOrThrow(ent);
         return true;
+    }
+}
+
+/// <summary>
+/// Gives the held item a label, failing if there is no held item.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class SetLabelAutodocStep : IAutodocStep
+{
+    [DataField(required: true)]
+    public string Label = string.Empty;
+
+    string IAutodocStep.Title => Loc.GetString("autodoc-program-step-set-label", ("label", Label));
+
+    bool IAutodocStep.Validate(Entity<AutodocComponent> ent, SharedAutodocSystem autodoc)
+    {
+        // client will never send a blank string for label
+        return !string.IsNullOrEmpty(Label) && Label.Length <= 20;
+    }
+
+    bool IAutodocStep.Run(Entity<AutodocComponent, HandsComponent> ent, SharedAutodocSystem autodoc)
+    {
+        var item = autodoc.GetHeldOrThrow(ent);
+        autodoc.LabelItem(item, Label);
+        return true;
+    }
+}
+
+/// <summary>
+/// Waits a number of seconds before going onto the next step.
+/// </summary>
+[Serializable, NetSerializable]
+public sealed partial class WaitAutodocStep : IAutodocStep
+{
+    [DataField(required: true)]
+    public int Length;
+
+    string IAutodocStep.Title => Loc.GetString("autodoc-program-step-wait", ("length", Length));
+
+    bool IAutodocStep.Validate(Entity<AutodocComponent> ent, SharedAutodocSystem autodoc)
+    {
+        return Length > 0 && Length < 30;
+    }
+
+    bool IAutodocStep.Run(Entity<AutodocComponent, HandsComponent> ent, SharedAutodocSystem autodoc)
+    {
+        autodoc.Say(ent, Loc.GetString("autodoc-waiting"));
+        autodoc.DelayUpdate(ent, TimeSpan.FromSeconds(Length));
+        return true; // Waiting is for surgery
     }
 }

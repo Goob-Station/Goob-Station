@@ -14,6 +14,8 @@ public sealed partial class AddStepWindow : FancyWindow
 
     private PickSurgeryWindow? _surgery;
     private DialogWindow? _grab;
+    private DialogWindow? _label;
+    private DialogWindow? _wait;
 
     public AddStepWindow()
     {
@@ -26,6 +28,8 @@ public sealed partial class AddStepWindow : FancyWindow
         {
             _surgery?.Close();
             _grab?.Close();
+            _label?.Close();
+            _wait?.Close();
         };
 
         // dedicated ui to pick the enum values and surgery type
@@ -76,5 +80,59 @@ public sealed partial class AddStepWindow : FancyWindow
         GrabOrganButton.OnPressed += _ => OnAddStep?.Invoke(new GrabAnyOrganAutodocStep());
         GrabPartButton.OnPressed += _ => OnAddStep?.Invoke(new GrabAnyBodyPartAutodocStep());
         StoreItemButton.OnPressed += _ => OnAddStep?.Invoke(new StoreItemAutodocStep());
+
+        SetLabelButton.OnPressed += _ =>
+        {
+            if (_label is {} dialog)
+            {
+                dialog.MoveToFront();
+                return;
+            }
+
+            var field = "label";
+            var prompt = Loc.GetString("autodoc-add-step-set-label-prompt");
+            var entry = new QuickDialogEntry(field, QuickDialogEntryType.ShortText, prompt);
+            var entries = new List<QuickDialogEntry> { entry };
+            _label = new DialogWindow(SetLabelButton.Text!, entries);
+            _label.OnConfirmed += responses =>
+            {
+                var label = responses[field].Trim();
+                if (label.Length < 1 || label.Length > 20)
+                    return;
+
+                OnAddStep?.Invoke(new SetLabelAutodocStep()
+                {
+                    Label = label
+                });
+            };
+            _label.OnClose += () => _label = null;
+        };
+
+        WaitButton.OnPressed += _ =>
+        {
+            if (_wait is {} dialog)
+            {
+                dialog.MoveToFront();
+                return;
+            }
+
+            var field = "length";
+            var prompt = Loc.GetString("autodoc-add-step-wait-prompt");
+            var entry = new QuickDialogEntry(field, QuickDialogEntryType.Integer, prompt);
+            var entries = new List<QuickDialogEntry> { entry };
+            _wait = new DialogWindow(WaitButton.Text!, entries);
+            _wait.OnConfirmed += responses =>
+            {
+                var length = int.Parse(responses[field].Trim());
+                if (length < 1 || length > 30)
+                    return;
+
+                OnAddStep?.Invoke(new WaitAutodocStep()
+                {
+                    Length = length
+                });
+            };
+            _wait.OnClose += () => _wait = null;
+        };
     }
 }

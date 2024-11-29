@@ -1,13 +1,16 @@
-autodoc-program-step-surgery = perform surgery: {$name}
+autodoc-program-step-surgery = perform surgery on {$part}: {$name}
 autodoc-program-step-grab-item = grab item: '{$name}'
 autodoc-program-step-grab-any = grab any: {$name}
 autodoc-item-organ = Organ
 autodoc-item-part = Body Part
 autodoc-program-step-store-item = store item
+autodoc-program-step-set-label = set label: '{$label}'
+autodoc-program-step-wait = wait {$length} seconds
 
 autodoc-program-completed = PROGRAM COMPLETED
 autodoc-error = ERROR: {$error}
 autodoc-fatal-error = FATAL ERROR: {$error}
+autodoc-waiting = PROGRAM WAITING
 
 autodoc-error-missing-patient = MISSING PATIENT
 autodoc-error-body-part = BODY PART NOT DETECTED
@@ -42,6 +45,10 @@ autodoc-add-step-grab-item-placeholder = dwarf heart
 autodoc-add-step-grab-organ = GRAB ORGAN ВОЗЬМИ ОРГАН
 autodoc-add-step-grab-part = GRAB BODY PART ВОЗЬМИ ЧАСТЬ ТЕЛА
 autodoc-add-step-store-item = STORE ITEM МАГАЗИН ОБЪЕКТ
+autodoc-add-step-set-label = SET LABEL НАНЕСИТЕ ЯРЛЫК
+autodoc-add-step-set-label-prompt = Label
+autodoc-add-step-wait = WAIT ЖДАТЬ
+autodoc-add-step-wait-prompt = Seconds to wait
 
 autodoc-body-part-Other = Other
 autodoc-body-part-Torso = Torso

@@ -12,6 +12,7 @@ using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Labels.EntitySystems;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
@@ -30,6 +31,7 @@ public abstract class SharedAutodocSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedBodySystem _body = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
+    [Dependency] private readonly SharedLabelSystem _label = default!;
     [Dependency] private readonly SharedStorageSystem _storage = default!;
     [Dependency] private readonly SharedSurgerySystem _surgery = default!;
     [Dependency] private readonly SleepingSystem _sleeping = default!;
@@ -175,7 +177,12 @@ public abstract class SharedAutodocSystem : EntitySystem
 
         // wake the patient when program completes or errors out
         if (GetPatient((ent.Owner, comp)) is {} patient)
-            _sleeping.TryWaking(patient);
+            WakePatient(patient);
+    }
+
+    protected virtual void WakePatient(EntityUid patient)
+    {
+        _sleeping.TryWaking(patient);
     }
 
     #region Step API
@@ -223,14 +230,31 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     public void StoreItemOrThrow(Entity<AutodocComponent, HandsComponent> ent)
     {
+        var item = GetHeldOrThrow(ent);
+        if (!_storage.Insert(ent, item, out _))
+            throw new AutodocError("storage-full");
+    }
+
+    public EntityUid GetHeldOrThrow(Entity<AutodocComponent, HandsComponent> ent)
+    {
         if (!_hands.TryGetHand(ent, ent.Comp1.ItemSlot, out var hand, ent.Comp2))
             throw new AutodocError("item-unavailable");
 
         if (hand.HeldEntity is not {} item)
             throw new AutodocError("item-unavailable");
 
-        if (!_storage.Insert(ent, item, out _))
-            throw new AutodocError("storage-full");
+        return item;
+    }
+
+    public void LabelItem(EntityUid item, string label)
+    {
+        _label.Label(item, label);
+    }
+
+    public void DelayUpdate(EntityUid uid, TimeSpan delay)
+    {
+        if (TryComp<ActiveAutodocComponent>(uid, out var active))
+            active.NextUpdate += delay;
     }
 
     public EntityUid? GetPatient(Entity<AutodocComponent> ent)
@@ -454,7 +478,7 @@ public abstract class SharedAutodocSystem : EntitySystem
 
     #endregion
 
-    protected virtual void Say(EntityUid uid, string msg)
+    public virtual void Say(EntityUid uid, string msg)
     {
     }
 
