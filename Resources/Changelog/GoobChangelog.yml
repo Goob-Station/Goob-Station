@@ -2475,3 +2475,75 @@ Entries:
       message: Any sharp object can now be used as a ghetto scalpel or bone saw.
   id: 285
   time: '2024-11-27T20:46:37.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Nukie reinforcement has nukeops uplink.
+    - type: Tweak
+      message: >-
+        Only nukie commander has commander hardsuit for sale in has uplink and
+        it has limited stock of 1. Same thing with medic.
+    - type: Tweak
+      message: Minimum number of operatives for war declaration is reduced to 2.
+    - type: Add
+      message: >-
+        Now the amount of tc for war declaration scales with amount of players
+        on server and missing nukies.
+  id: 286
+  time: '2024-11-29T16:42:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix hardlight bow arrows behaving weirdly.
+  id: 287
+  time: '2024-11-29T16:53:32.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: aghosts now have pockets to hide all their admeme tools in.
+  id: 288
+  time: '2024-11-29T16:58:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix absurd amount of midround antags spawning every shift.
+  id: 289
+  time: '2024-11-29T19:21:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now you can't get stunlocked while in critical state.
+  id: 290
+  time: '2024-11-29T19:21:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Improved action bar.
+  id: 291
+  time: '2024-11-29T19:37:13.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added the ability to reply to AHelps while exclusively on discord.
+  id: 292
+  time: '2024-11-29T20:00:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Autodoc Mk. XIV with the Automated Surgery tier 2 civ tech.
+        AUTOMATED ORGAN HARVESTING!!!
+    - type: Tweak
+      message: You can now hear people doing surgeries.
+  id: 293
+  time: '2024-11-29T20:03:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 294
+  time: '2024-11-29T20:06:37.0000000+00:00'

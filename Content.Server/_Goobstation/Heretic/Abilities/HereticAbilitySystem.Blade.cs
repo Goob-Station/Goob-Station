@@ -70,6 +70,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAscensionBlade(Entity<HereticComponent> ent, ref HereticAscensionBladeEvent args)
     {
+        if (ent.Comp.Ascended)
+            return;
+
         EnsureComp<NoSlipComponent>(ent); // epic gamer move
         RemComp<StaminaComponent>(ent); // no stun
 

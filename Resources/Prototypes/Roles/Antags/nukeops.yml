@@ -79,13 +79,14 @@
 #Nuclear Operative Medic Gear
 - type: startingGear
   id: SyndicateOperativeMedicFull
-  parent: SyndicateOperativeGearFull
+  parent: SyndicateOperativeGearFullNoUplink
   equipment:
     eyes: ClothingEyesHudSyndicateAgent
     #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
     shoes: ClothingShoesBootsMagSyndie
     id: SyndiAgentPDA
     belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket2: BaseUplinkRadio225TCMedic
   storage:
     back:
     - SyndiHypo

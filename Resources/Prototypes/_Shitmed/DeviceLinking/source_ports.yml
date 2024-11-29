@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: OperatingTable
+  name: signal-port-name-operating-table
+  description: signal-port-description-operating-table-sender
+  defaultLinks: [ OperatingTableReceiver ]
