@@ -100,6 +100,26 @@ public sealed partial class FelinidAccentSystem : EntitySystem
         // Replace 'pos' with 'paws' when it's part of a word
         message = PosRegex().Replace(message, match => PreserveCase(match.Value, "paws"));
 
+        // Step 3: Random phrase insertion - check for punctuation and insert a random phrase before it
+        if (_random.Prob(component.meowChance))
+        {
+            // List of possible phrases to insert
+            var phrases = new List<string> { "meow", "mew", "nya", "prr", "miau", "burunyuu" };
+
+            // Pick a random phrase from the list
+            var randomPhrase = _random.Pick(phrases);
+
+            var punctuationRegex = new Regex(@"[.!?]$", RegexOptions.IgnoreCase);
+            if (punctuationRegex.IsMatch(message))
+            {
+                message = punctuationRegex.Replace(message, $", {randomPhrase}$0");
+            }
+            else
+            {
+                message += $", {randomPhrase}";
+            }
+        }
+
         return message;
     }
 
