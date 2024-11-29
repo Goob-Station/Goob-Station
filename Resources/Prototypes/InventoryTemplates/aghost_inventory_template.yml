@@ -18,7 +18,7 @@
       uiWindowPos: 2,2
       strippingWindowPos: 2,3
       displayName: ID
-    - name: pocket1
+    - name: pocket1 # Goobstation - Pocket 1
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -28,7 +28,7 @@
       strippingWindowPos: 0,4
       displayName: Pocket 1
       stripHidden: true
-    - name: pocket2
+    - name: pocket2 # Goobstation - Pocket 2
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -38,7 +38,7 @@
       strippingWindowPos: 1,4
       displayName: Pocket 2
       stripHidden: true
-    - name: pocket3
+    - name: pocket3 # Goobstation - Pocket 3
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET
@@ -48,7 +48,7 @@
       strippingWindowPos: 2,4
       displayName: Pocket 3
       stripHidden: true
-    - name: pocket4
+    - name: pocket4 # Goobstation - Pocket 4
       slotTexture: pocket
       fullTextureName: template_small
       slotFlags: POCKET

@@ -41,7 +41,6 @@ public abstract partial class InventorySystem
         //these events ensure that the client also gets its proper events raised when getting its containerstate updated
         SubscribeLocalEvent<InventoryComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
         SubscribeLocalEvent<InventoryComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-
         SubscribeAllEvent<UseSlotNetworkMessage>(OnUseSlot);
     }
 

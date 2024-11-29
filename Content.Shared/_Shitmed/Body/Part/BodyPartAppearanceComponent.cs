@@ -39,7 +39,4 @@ public sealed partial class BodyPartAppearanceComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public Color? EyeColor { get; set; }
-
-    [DataField, AutoNetworkedField]
-    public EntityUid? OriginalBody { get; set; }
 }

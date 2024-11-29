@@ -18,7 +18,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
         SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
-        SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
@@ -45,10 +44,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (urist == null)
             return false;
         return true;
-    }
-    private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
-    {
-        Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
@@ -150,6 +145,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
     {
+        if (ent.Comp.Ascended)
+            return;
+
         RemComp<TemperatureComponent>(ent);
         RemComp<TemperatureSpeedComponent>(ent);
         RemComp<RespiratorComponent>(ent);

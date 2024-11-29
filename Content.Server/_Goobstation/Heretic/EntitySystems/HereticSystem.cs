@@ -148,6 +148,10 @@ public sealed partial class HereticSystem : EntitySystem
     // notify the crew of how good the person is and play the cool sound :godo:
     private void OnAscension(Entity<HereticComponent> ent, ref EventHereticAscension args)
     {
+        // you've already ascended, man.
+        if (ent.Comp.Ascended)
+            return;
+
         ent.Comp.Ascended = true;
 
         // how???
