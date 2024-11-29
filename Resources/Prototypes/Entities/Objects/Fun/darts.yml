@@ -85,6 +85,9 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: BalloonPopper
+  - type: Tag  # Goobstation
+    tags:
+    - SyringeGunAmmo
 
 - type: entity
   parent: Dart
