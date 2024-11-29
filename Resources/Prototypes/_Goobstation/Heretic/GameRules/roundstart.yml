@@ -5,15 +5,13 @@
   - type: HereticRule
   - type: GameRule
     minPlayers: 15
-    delay:
-      min: 30
-      max: 60
   - type: AntagObjectives
     objectives:
     - HereticKnowledgeObjective
     - HereticSacrificeObjective
     - HereticSacrificeHeadObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]

@@ -170,10 +170,8 @@
   components:
   - type: GameRule
     minPlayers: 5
-    delay:
-      min: 240
-      max: 420
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -195,6 +193,7 @@
     giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
   - type: AntagSelection
+    selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
@@ -208,6 +207,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3

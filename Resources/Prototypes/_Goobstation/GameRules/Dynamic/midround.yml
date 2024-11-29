@@ -9,7 +9,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-traitor-title
-    weight: 30 
+    weight: 30
     cost: 9 # Lmao at 3 cost, the average game has 10-30 midgame pretty often
   - type: StationEvent
     earliestStart: 30
@@ -21,6 +21,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Changelings
 - type: entity
@@ -30,7 +32,7 @@
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-changeling-title
     weight: 15
-    cost: 12 
+    cost: 12
   - type: StationEvent
     earliestStart: 20
     weight: 3
@@ -41,6 +43,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Heretics
 - type: entity
@@ -52,8 +56,8 @@
     weight: 15
     cost: 15
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -61,6 +65,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Revolutionaries
 - type: entity
@@ -73,12 +79,14 @@
     cost: 30
     highImpact: true
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
     occursDuringRoundEnd: false
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Skeleton Spawn
 - type: entity
@@ -262,6 +270,7 @@
   - type: NukeopsRule
     warDeclarationMinOps: 1 # challenge mode
   - type: AntagSelection
+    selectionTime: PostPlayerSpawn
     definitions:
     - spawnerPrototype: SpawnPointNukeopsCommander
       min: 1
