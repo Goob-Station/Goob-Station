@@ -131,6 +131,13 @@
     Telecrystal: 55 # novelty item for the larp
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsMedicUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 
 - type: listing
@@ -143,6 +150,13 @@
     Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsCommanderUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 
 - type: listing
