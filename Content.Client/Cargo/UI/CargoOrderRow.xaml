@@ -28,13 +28,22 @@ SPDX-License-Identifier: MIT
                    StyleClasses="LabelSubText"
                    ClipText="True" />
         </BoxContainer>
-        <Button Name="Approve"
+
+        <PanelContainer StyleClasses="LowDivider" Margin="-6 0"/>
+
+        <!-- Buttons -->
+        <BoxContainer>
+            <Button Name="Approve"
                 Access="Public"
-                Text="{Loc 'cargo-console-menu-cargo-order-row-approve-button'}"
-                StyleClasses="OpenRight" />
-        <Button Name="Cancel"
+                Text="{Loc 'cargo-console-menu-order-row-button-approve'}"
+                StyleClasses="OpenRight"
+                HorizontalExpand="True"/>
+
+            <Button Name="Cancel"
                 Access="Public"
-                Text="{Loc 'cargo-console-menu-cargo-order-row-cancel-button'}"
-                StyleClasses="OpenLeft" />
+                Text="{Loc 'cargo-console-menu-order-row-button-cancel'}"
+                StyleClasses="OpenLeft"
+                HorizontalExpand="True" />
+        </BoxContainer>
     </BoxContainer>
 </PanelContainer>
