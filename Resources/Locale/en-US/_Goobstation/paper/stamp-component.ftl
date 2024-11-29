@@ -11,13 +11,6 @@ stamp-component-stamped-name-arcsmall = A.R.C
 stamp-component-stamped-name-arc = Animal Rights Consortium
 stamp-component-stamped-name-interrep = Interdyne Representative
 stamp-component-stamped-name-interdyne = Interdyne Pharmaceutics
-## The fall of China in the hand of the corpos and the demise of the Third Soviet Union to the SSC, led fleeing neo-maoists,
-## with the help of socialist leaning non-humans and S.E.L.F aligned Silicones, to carry on a fight against the SSC, TerraGov's
-## and the corpos, managing in the meantime to absorb the remnants of the TSU in the periphery systems of the SSC.
-## At the current time, U.W.U has evolved into a direct threat in the eyes of Nanotrasen Risk Assessment policy, due to their
-## funding of flash altering propaganda programs to revolutionary leaders on NT-issued stations.
-stamp-component-stamped-uwu = United Workers Utopia
-stamp-component-stamped-uwurep = U.W.U Representative
 stamp-component-stamped-terrarep = TerraGov Representative
 stamp-component-stamped-terra = Terragov
 stamp-component-stamped-ssc = Spinward Stellar Coalition
