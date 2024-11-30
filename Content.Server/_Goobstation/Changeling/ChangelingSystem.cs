@@ -1,3 +1,4 @@
+using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
@@ -103,6 +104,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
