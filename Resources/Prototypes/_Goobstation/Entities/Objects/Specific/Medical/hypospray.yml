@@ -53,7 +53,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 300 # Prevent people from abusing it by printing a ton of cartridges and injecting constantly
+    delay: 15 # 15 seconds is far more reasonable than 5 minutes for something you can find a better version of in every o2 medkit.
   - type: SolutionCartridgeReceiver
     tag: AutoinjectorCartridge
 
@@ -67,15 +67,7 @@
     size: Tiny
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    layers:
-      - state: cartridge-1
-      - state: cartridge-1-1
-        map: ["enum.SolutionContainerLayers.Fill"]
-        visible: false
-  - type: Appearance
-  - type: SolutionContainerVisuals
-    maxFillLevels: 1
-    fillBaseName: cartridge-1-
+    state: cartridge
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -90,6 +82,9 @@
   description: Contains 10u of epinephrine, used in a cartridge autoinjector.
   id: CartridgeEpinephrine
   components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-epinephrine
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -104,6 +99,9 @@
   description: Contains 7u of bicaridine and 3u of tranexamic acid, used in a cartridge autoinjector.
   id: CartridgeBicaridine
   components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-bicaridine
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -120,6 +118,9 @@
   description: Contains 10u of dermaline, used in a cartridge autoinjector.
   id: CartridgeDermaline
   components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-dermaline
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
@@ -127,3 +128,39 @@
       reagents:
       - ReagentId: Dermaline
         Quantity: 10
+
+- type: entity
+  name: ephedrine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
+  id: CartridgeEphedrine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ephedrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 10
+
+- type: entity
+  name: ichor autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 7u of ichor and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgeIchor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ichor
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ichor
+        Quantity: 7
+      - ReagentId: TranexamicAcid
+        Quantity: 3

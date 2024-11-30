@@ -233,6 +233,8 @@
       - CartridgeEpinephrine # Goobstation
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
+      - CartridgeEphedrine # Goobstation
+      - CartridgeIchor # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:

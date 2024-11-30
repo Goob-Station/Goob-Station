@@ -8,10 +8,22 @@
   },
   "states": [
     {
-      "name": "cartridge-1"
+      "name": "cartridge"
     },
     {
-      "name": "cartridge-1-1"
+      "name": "cartridge-bicaridine"
+    },
+    {
+      "name": "cartridge-dermaline"
+    },
+    {
+      "name": "cartridge-epinephrine"
+    },
+    {
+      "name": "cartridge-ephedrine"
+    },
+    {
+      "name": "cartridge-ichor"
     }
   ]
 }
