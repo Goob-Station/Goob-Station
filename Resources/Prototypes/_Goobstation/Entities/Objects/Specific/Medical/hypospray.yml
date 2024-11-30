@@ -53,7 +53,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 15 # 15 seconds is far more reasonable than 5 minutes for something you can find a better version of in every o2 medkit.
+    delay: 20 # up this later if its too low
   - type: SolutionCartridgeReceiver
     tag: AutoinjectorCartridge
 

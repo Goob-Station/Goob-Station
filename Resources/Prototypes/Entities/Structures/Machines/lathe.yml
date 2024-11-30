@@ -235,6 +235,7 @@
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
       - CartridgeIchor # Goobstation
+      - SecHypo # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -802,7 +803,8 @@
       - CartridgeEpinephrine # Goobstation
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
-      - SyringeGun #Goobstation
+      - SecHypo # Goobstation
+      - SyringeGun # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
