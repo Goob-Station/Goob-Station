@@ -227,3 +227,16 @@
   icon:
     sprite: Objects/Tools/rolling_pin.rsi
     state: icon
+
+- type: construction
+  name: improvised jetpack
+  id: improvisedjetpack
+  graph: ImprovisedJetpackGraph
+  startNode: start
+  targetNode: jetpack
+  category: construction-category-tools
+  objectType: Item
+  description: An improvised jetpack, worse than it's industrial counterparts.
+  icon:
+    sprite: Objects/Tools/improvised.rsi
+    state: icon
