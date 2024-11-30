@@ -56,7 +56,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
 
-    private List<EntityUid?> _savedActions = new();
+    private List<EntityUid?> _savedActions = new(); // Goobstation
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
