@@ -78,7 +78,7 @@
   showInVote: true
   rules:
     - Dynamic
-    - BasicStationEventScheduler
+    - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
     #- MeteorSwarmScheduler # Goobstation - nuh uh
     - SpaceTrafficControlEventScheduler
@@ -96,7 +96,7 @@
   showInVote: false # admeme only
   rules:
     - DynamicUnforgiving
-    - BasicStationEventScheduler
+    - BasicStationEventSchedulerNoAntag
     - DynamicStationEventScheduler
     - MeteorSwarmScheduler
     - SpaceTrafficControlEventScheduler

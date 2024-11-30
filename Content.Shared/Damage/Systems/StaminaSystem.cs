@@ -285,11 +285,8 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         // Have we already reached the point of max stamina damage?
-        if (component.Critical && immediate)
-        {
-            EnterStamCrit(uid, component, true); // enter stamcrit
+        if (component.Critical)
             return;
-        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
@@ -389,7 +386,7 @@ public sealed partial class StaminaSystem : EntitySystem
     // goob edit - stunmeta
     private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null, bool hardStun = false)
     {
-        if (!Resolve(uid, ref component) || !hardStun && component.Critical)
+        if (!Resolve(uid, ref component) || component.Critical)
         {
             return;
         }

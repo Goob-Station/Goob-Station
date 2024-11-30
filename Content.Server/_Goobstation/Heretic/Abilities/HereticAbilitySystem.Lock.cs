@@ -24,6 +24,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAscensionLock(Entity<HereticComponent> ent, ref HereticAscensionLockEvent args)
     {
+        if (ent.Comp.Ascended)
+            return;
+
 
     }
 }

@@ -28,6 +28,10 @@
     radius:
       min: 2
       max: 5
+  - type: Tag
+    tags:
+    - Ore
+    - Ingot
 
 - type: entity
   parent: MaterialBSCrystal
