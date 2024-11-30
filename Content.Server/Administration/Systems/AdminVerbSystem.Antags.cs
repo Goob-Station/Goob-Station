@@ -182,7 +182,7 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(heretic);
 
-        // goobstation - malfuntioning ai
+        // goob - temporary for my use, why didnt i just not stage this i dont know
         Verb malfai = new()
         {
             Text = Loc.GetString("admin-verb-make-malf"),

@@ -3,6 +3,7 @@ using Content.Server.Chat.Managers;
 using Content.Server.Power.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Store.Systems;
+using Content.Shared.Emag.Components;
 using Content.Shared.MalfAi;
 using Content.Shared.FixedPoint;
 using Content.Shared.Actions;
@@ -38,7 +39,7 @@ public sealed partial class MalfAiSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (HasComp<OverrideComponent>(target))
+        if (HasComp<EmaggedComponent>(target))
             return;
 
         var addedControlPower = 0f;
@@ -46,7 +47,7 @@ public sealed partial class MalfAiSystem : EntitySystem
         if (TryComp<ApcPowerProviderComponent>(target, out var targetComp))
         {
         addedControlPower += 2;
-        EnsureComp<OverrideComponent>(target);
+        EnsureComp<EmaggedComponent>(target);
         }
 
         if (TryComp<StoreComponent>(uid, out var store))

@@ -38,6 +38,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
+    charges: 2
     useDelay: 5
     whitelist:
       components:
