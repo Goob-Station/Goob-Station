@@ -383,7 +383,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionsLoaded()
     {
-        if (_savedActions.Count == 0 || _actions == _savedActions)
+        if (_savedActions.Count == 0 || _actions.SequenceEqual(_savedActions))
             return;
         var addedActions = _actions.Where(x => !_savedActions.Contains(x));
         _savedActions.RemoveAll(x => !_actions.Contains(x));
