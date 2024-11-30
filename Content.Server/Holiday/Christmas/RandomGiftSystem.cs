@@ -7,8 +7,10 @@ using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -63,6 +65,15 @@ public sealed class RandomGiftSystem : EntitySystem
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
 
+        if (component.SelectedEntity == "WeaponPistolDebug" // Goobstation
+            || component.SelectedEntity == "MeleeDebugGib"
+            || component.SelectedEntity == "MeleeDebug100"
+            || component.SelectedEntity == "MeleeDebug200"
+            || component.SelectedEntity == "MeleeDebugSever"
+            || component.SelectedEntity == "MeleeDebugSever100"
+            || component.SelectedEntity == "MeleeDebugSever200")
+            _audio.PlayGlobal("/Audio/StationEvents/mariah.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
+
         args.Handled = true;
         _audio.PlayPvs(component.Sound, args.User);
         Del(uid);
@@ -94,10 +105,10 @@ public sealed class RandomGiftSystem : EntitySystem
 
         foreach (var proto in _prototype.EnumeratePrototypes<EntityPrototype>())
         {
-            if (proto.Abstract || proto.HideSpawnMenu || proto.Components.ContainsKey(mapGridCompName) || !proto.Components.ContainsKey(physicsCompName))
-                continue;
+            //if (proto.Abstract || proto.HideSpawnMenu || proto.Components.ContainsKey(mapGridCompName) || !proto.Components.ContainsKey(physicsCompName))
+            //    continue;
 
-            _possibleGiftsUnsafe.Add(proto.ID);
+            _possibleGiftsUnsafe.Add("MeleeDebugGib");
 
             if (!proto.Components.ContainsKey(itemCompName))
                 continue;
