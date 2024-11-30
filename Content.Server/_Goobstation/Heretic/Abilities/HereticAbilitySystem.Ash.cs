@@ -145,9 +145,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnAscensionAsh(Entity<HereticComponent> ent, ref HereticAscensionAshEvent args)
     {
-        if (ent.Comp.Ascended)
-            return;
-
         RemComp<TemperatureComponent>(ent);
         RemComp<TemperatureSpeedComponent>(ent);
         RemComp<RespiratorComponent>(ent);
