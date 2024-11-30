@@ -567,18 +567,13 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     {
         if (args.UiKey.Equals(NetworkConfiguratorUiKey.Configure))
         {
-            EntityUid? current_device_list = component.ActiveDeviceList;
-            SetActiveDeviceList(uid, component);
+            ClearActiveDeviceList(uid, component);
         }
         else if (args.UiKey is NetworkConfiguratorUiKey.Link)
         {
             component.ActiveDeviceLink = null;
             component.DeviceLinkTarget = null;
         }
-        /*else if (args.UiKey is NetworkConfiguratorUiKey.List)
-        {
-            // nothing to do?
-        }*/
     }
 
     // Goobstation - Fix desync of configurator lists
