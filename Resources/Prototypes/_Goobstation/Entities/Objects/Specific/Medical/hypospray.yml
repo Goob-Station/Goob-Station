@@ -53,7 +53,7 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 20 # up this later if its too low
+    delay: 40 # up this later if its too low
   - type: SolutionCartridgeReceiver
     tag: AutoinjectorCartridge
 
