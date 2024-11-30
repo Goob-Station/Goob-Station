@@ -33,6 +33,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     }
     private void OnAscensionVoid(Entity<HereticComponent> ent, ref HereticAscensionVoidEvent args)
     {
+        if (ent.Comp.Ascended)
+            return;
+
         RemComp<BarotraumaComponent>(ent);
         EnsureComp<AristocratComponent>(ent);
     }

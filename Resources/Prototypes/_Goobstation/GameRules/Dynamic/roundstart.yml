@@ -13,6 +13,7 @@
     cost: 4
     scalingCost: 4
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
@@ -35,24 +36,6 @@
     cost: 4
     scalingCost: 5
   - type: ThiefRule
-  - type: AntagSelection
-    agentName: thief-round-end-agent-name
-    definitions:
-    - prefRoles: [ Thief ]
-      max: 2
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      startingGear: ThiefGear
-      mindRoles:
-      - MindRoleThief
-      briefing:
-        sound: "/Audio/Misc/thief_greeting.ogg"
-      special:
-      - !type:AddImplantSpecial
-        implants: [ PacifismImplant ] # when it's done...
   - type: AntagObjectives
     objectives:
     - EscapeThiefShuttleObjective
@@ -64,6 +47,21 @@
     - groups: ThiefObjectiveGroups
       maxPicks: 10
     maxDifficulty: 2.5
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: thief-round-end-agent-name
+    definitions:
+    - prefRoles: [ Thief ]
+      max: 2
+      playerRatio: 25
+      lateJoinAdditional: true
+      allowNonHumans: true
+      multiAntagSetting: NotExclusive
+      startingGear: ThiefGear
+      mindRoles:
+      - MindRoleThief
+      briefing:
+        sound: "/Audio/Misc/thief_greeting.ogg"
 
 # Changeling
 - type: entity
@@ -79,6 +77,7 @@
   - type: GameRule
     minPlayers: 15
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
@@ -105,6 +104,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
@@ -131,6 +131,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -165,7 +166,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    #selectionTime: PrePlayerSpawn
+    selectionTime: PrePlayerSpawn
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]

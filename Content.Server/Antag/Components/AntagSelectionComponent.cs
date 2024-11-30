@@ -189,6 +189,13 @@ public partial struct AntagSelectionDefinition()
     // goob edit - actual pacifism implant
     [DataField]
     public List<JobSpecial> Special = new();
+  
+    /// <summary>
+    /// Goobstation
+    /// Does this antag role roll before job
+    /// </summary>
+    [DataField]
+    public bool RollBeforeJob = true;
 }
 
 /// <summary>
