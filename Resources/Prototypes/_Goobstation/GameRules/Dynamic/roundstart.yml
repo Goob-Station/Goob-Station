@@ -21,9 +21,8 @@
         components:
         - AntagImmune
       lateJoinAdditional: true
-      mindComponents:
-      - type: TraitorRole
-        prototype: Traitor
+      mindRoles:
+      - MindRoleTraitor
 
 # Thief (spy wyci)
 - type: entity
@@ -89,9 +88,8 @@
         components:
         - AntagImmune
       lateJoinAdditional: true
-      mindComponents:
-      - type: ChangelingRole
-        prototype: Changeling
+      mindRoles:
+      - MindRoleChangeling
 
 # Heretic
 - type: entity
@@ -116,9 +114,8 @@
         components:
         - AntagImmune
       lateJoinAdditional: true
-      mindComponents:
-      - type: HereticRole
-        prototype: Heretic
+      mindRoles:
+      - MindRoleHeretic
 
 # Revolution
 - type: entity

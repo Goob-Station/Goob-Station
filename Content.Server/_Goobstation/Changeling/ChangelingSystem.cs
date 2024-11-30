@@ -578,7 +578,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var newComp = (Component) _compFactory.GetComponent(nameof(type));
+                var newComp = (Component) _compFactory.GetComponent(type.Name);
                 var temp = (object) newComp;
                 _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
                 EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
