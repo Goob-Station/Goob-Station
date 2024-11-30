@@ -52,15 +52,15 @@
 
 #Paramedic Void Helmet
 - type: entity
-  parent: ClothingHeadEVAHelmetBase
+  parent: ClothingHeadHardsuitWithLightBase # goobstation - why didnt this have a light
   id: ClothingHeadHelmetVoidParamed
   name: paramedic void helmet
   description: A void helmet made for paramedics.
   components:
   - type: Sprite
-    sprite: Clothing/Head/Helmets/paramedhelm.rsi
+    sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
   - type: Clothing
-    sprite: Clothing/Head/Helmets/paramedhelm.rsi
+    sprite: _Goobstation/Clothing/Head/Hardsuits/goobparamed.rsi # goobstation - wizden sprites SUCK ASS!!!
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

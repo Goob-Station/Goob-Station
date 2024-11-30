@@ -11,3 +11,6 @@ loadout-group-bso-neck = Blueshield Officer neck
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
+loadout-group-security-neck = Security neck
+
+
