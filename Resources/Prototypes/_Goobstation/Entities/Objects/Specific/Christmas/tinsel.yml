@@ -73,7 +73,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselWhite2
@@ -88,7 +88,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselWhite3
@@ -103,7 +103,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselWhite4
@@ -118,7 +118,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselWhite5
@@ -133,7 +133,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselWhite6
@@ -148,7 +148,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed1
@@ -164,7 +164,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed2
@@ -180,7 +180,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed3
@@ -196,7 +196,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed4
@@ -212,7 +212,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed5
@@ -228,7 +228,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselRed6
@@ -244,7 +244,7 @@
     color: "#f9f375"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue1
@@ -260,7 +260,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue2
@@ -276,7 +276,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue3
@@ -292,7 +292,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue4
@@ -308,7 +308,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue5
@@ -324,7 +324,7 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
 
 - type: entity
   id: ChristmasTinselBlue6
@@ -340,4 +340,4 @@
     color: "#61accf"
     radius: 3
     energy: 4
-    mask: /Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi/sparklemask.png
+    mask: /Textures/Effects/LightMasks/sparklemask.png
