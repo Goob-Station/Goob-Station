@@ -1000,6 +1000,16 @@ public abstract class SharedActionsSystem : EntitySystem
         // See client-side system for UI code.
     }
 
+    // Goobstation start
+    protected virtual void SaveActions(EntityUid performer)
+    {
+    }
+
+    protected virtual void LoadActions(EntityUid performer)
+    {
+    }
+    // Goobstation end
+
     public bool ValidAction(BaseActionComponent action, bool canReach = true)
     {
         if (!action.Enabled)
@@ -1071,6 +1081,8 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.Equipee, ev.Actions, args.Equipment, component);
+
+        LoadActions(args.Equipee); // Goobstation
     }
 
     private void OnHandEquipped(EntityUid uid, ActionsComponent component, DidEquipHandEvent args)
@@ -1085,12 +1097,16 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.User, ev.Actions, args.Equipped, component);
+
+        LoadActions(args.User); // Goobstation
     }
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
         if (GameTiming.ApplyingState)
             return;
+
+        SaveActions(uid); // Goobstation
 
         RemoveProvidedActions(uid, args.Equipment, component);
     }
@@ -1099,6 +1115,8 @@ public abstract class SharedActionsSystem : EntitySystem
     {
         if (GameTiming.ApplyingState)
             return;
+
+        SaveActions(uid); // Goobstation
 
         RemoveProvidedActions(uid, args.Unequipped, component);
     }

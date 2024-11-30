@@ -51,10 +51,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 
     private ActionButtonContainer? _container;
-    private readonly List<EntityUid?> _actions = new();
+    private List<EntityUid?> _actions = new(); // Goob edit
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
+
+    private List<EntityUid?> _savedActions = new();
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
@@ -105,6 +107,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionAdded += OnActionAdded;
             _actionsSystem.OnActionRemoved += OnActionRemoved;
             _actionsSystem.ActionsUpdated += OnActionsUpdated;
+            // Gooobstation start
+            _actionsSystem.ActionsSaved += OnActionsSaved;
+            _actionsSystem.ActionsLoaded += OnActionsLoaded;
+            // Goobstation end
         }
 
         UpdateFilterLabel();
@@ -345,6 +351,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionAdded -= OnActionAdded;
             _actionsSystem.OnActionRemoved -= OnActionRemoved;
             _actionsSystem.ActionsUpdated -= OnActionsUpdated;
+            // Gooobstation start
+            _actionsSystem.ActionsSaved -= OnActionsSaved;
+            _actionsSystem.ActionsLoaded -= OnActionsLoaded;
+            // Goobstation end
         }
 
         CommandBinds.Unregister<ActionUIController>();
@@ -364,6 +374,23 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         else
             _actionsSystem?.TriggerAction(actionId.Value, baseAction);
     }
+
+    // Goobstation start
+    private void OnActionsSaved()
+    {
+        _savedActions = new(_actions);
+    }
+
+    private void OnActionsLoaded()
+    {
+        if (_savedActions.Count == 0 || _actions == _savedActions)
+            return;
+        var addedActions = _actions.Where(x => !_savedActions.Contains(x));
+        _savedActions.RemoveAll(x => !_actions.Contains(x));
+        _actions = _savedActions.Concat(addedActions).ToList();
+        _savedActions.Clear();
+    }
+    // Goobstation end
 
     private void OnActionAdded(EntityUid actionId)
     {

@@ -35,6 +35,11 @@ namespace Content.Client.Actions
         public event Action? ClearAssignments;
         public event Action<List<SlotAssignment>>? AssignSlot;
 
+        // Goobstation start
+        public event Action? ActionsSaved;
+        public event Action? ActionsLoaded;
+        // Goobstation end
+
         private readonly List<EntityUid> _removed = new();
         private readonly List<(EntityUid, BaseActionComponent?)> _added = new();
 
@@ -236,6 +241,24 @@ namespace Content.Client.Actions
 
             OnActionRemoved?.Invoke(actionId);
         }
+
+        // Goobstation start
+        protected override void SaveActions(EntityUid performer)
+        {
+            if (_playerManager.LocalEntity != performer)
+                return;
+
+            ActionsSaved?.Invoke();
+        }
+
+        protected override void LoadActions(EntityUid performer)
+        {
+            if (_playerManager.LocalEntity != performer)
+                return;
+
+            ActionsLoaded?.Invoke();
+        }
+        // Goobstation end
 
         public IEnumerable<(EntityUid Id, BaseActionComponent Comp)> GetClientActions()
         {
