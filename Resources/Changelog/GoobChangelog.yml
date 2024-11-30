@@ -2580,3 +2580,9 @@ Entries:
       message: Added several new posters!
   id: 298
   time: '2024-11-29T21:18:51.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed ascensions not giving out items properly.
+  id: 299
+  time: '2024-11-30T08:20:47.0000000+00:00'
