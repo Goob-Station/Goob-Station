@@ -19,3 +19,17 @@
   completetime: 1
   materials:
     Glass: 100
+
+- type: latheRecipe
+  id: CartridgeBicaridine
+  result: CartridgeBicaridine
+  completetime: 1
+  materials:
+    Glass: 200
+
+- type: latheRecipe
+  id: CartridgeDermaline
+  result: CartridgeDermaline
+  completetime: 1
+  materials:
+    Glass: 200

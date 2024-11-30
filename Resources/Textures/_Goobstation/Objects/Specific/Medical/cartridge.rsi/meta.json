@@ -8,7 +8,10 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "cartridge-1"
+    },
+    {
+      "name": "cartridge-1-1"
     }
   ]
 }

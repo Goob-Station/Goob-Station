@@ -231,6 +231,8 @@
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
       - CartridgeEpinephrine # Goobstation
+      - CartridgeBicaridine # Goobstation
+      - CartridgeDermaline # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -796,6 +798,8 @@
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
       - CartridgeEpinephrine # Goobstation
+      - CartridgeBicaridine # Goobstation
+      - CartridgeDermaline # Goobstation
       - SyringeGun #Goobstation
     dynamicRecipes:
       - BoxBeanbag
