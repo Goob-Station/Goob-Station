@@ -1,0 +1,17 @@
+# Tier 1
+
+# Tier 2
+
+- type: technology
+  id: MedicalDefense
+  name: research-technology-medical-defense
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    state: rapid-syringe-gun
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - RapidSyringeGun
+
+# Tier 3

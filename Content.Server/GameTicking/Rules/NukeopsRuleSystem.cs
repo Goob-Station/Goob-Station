@@ -27,6 +27,7 @@ using System.Linq;
 using Content.Shared.Store.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Chat.Systems;
+using Robust.Server.Player;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -42,6 +43,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     // goob edit
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
     // goob edit end
 
     [ValidatePrototypeId<CurrencyPrototype>]
@@ -49,6 +51,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
 
     public override void Initialize()
     {
@@ -383,7 +388,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))
         {
-            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype))
+            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype) || _tag.HasTag(uid, NukeOpsReinforcementUplinkTagPrototype)) // Goob edit - no tc for reinforcements
                 continue;
 
             if (GetOutpost(nukieRule.Owner) is not { } outpost)
@@ -392,11 +397,24 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (Transform(uid).MapID != Transform(outpost).MapID) // Will receive bonus TC only on their start outpost
                 continue;
 
-            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, nukieRule.Comp.WarTcAmountPerNukie } }, uid, component);
+            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, CalculateBonusTcPerNukie(nukieRule.Comp) } }, uid, component); // Goob edit
 
             var msg = Loc.GetString("store-currency-war-boost-given", ("target", uid));
             _popupSystem.PopupEntity(msg, uid);
         }
+    }
+
+    private int CalculateBonusTcPerNukie(NukeopsRuleComponent rule) // Goobstation
+    {
+        var nukiesCount = EntityQuery<NukeopsRoleComponent>().Count();
+        if (nukiesCount == 0)
+            return rule.WarTcAmountPerNukie;
+        var playersCount = Math.Max(0, _playerManager.Sessions.Length - nukiesCount);
+        var maxNukies = playersCount / rule.WarNukiePlayerRatio;
+        var nukiesMissing = Math.Max(0, maxNukies - nukiesCount);
+        var totalBonus = playersCount * rule.WarTcPerPlayer;
+        totalBonus += nukiesMissing * rule.WarTcPerNukieMissing;
+        return Math.Max(rule.WarTcAmountPerNukie, totalBonus / nukiesCount);
     }
 
     private void SetWinType(Entity<NukeopsRuleComponent> ent, WinType type, bool endRound = true)
