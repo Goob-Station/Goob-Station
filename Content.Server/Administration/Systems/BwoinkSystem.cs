@@ -44,7 +44,7 @@ namespace Content.Server.Administration.Systems
         [Dependency] private readonly IServerDbManager _dbManager = default!;
         [Dependency] private readonly PlayerRateLimitManager _rateLimit = default!;
 
-        [GeneratedRegex(@"^https://discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
+        [GeneratedRegex(@"^https://(?:(?:canary|ptb)\.)?discord\.com/api/webhooks/(\d+)/((?!.*/).*)$")]
         private static partial Regex DiscordRegex();
 
         private string _webhookUrl = string.Empty;
@@ -142,7 +142,7 @@ namespace Content.Server.Administration.Systems
             var webhookId = match.Groups[1].Value;
             var webhookToken = match.Groups[2].Value;
 
-            _onCallData = await GetWebhookData(webhookId, webhookToken);
+            _onCallData = await GetWebhookData(url);
         }
 
         private void PlayerRateLimitedAction(ICommonSession obj)
@@ -351,6 +351,7 @@ namespace Content.Server.Administration.Systems
             {
                 // TODO: Ideally, CVar validation during setting should be better integrated
                 Log.Warning("Webhook URL does not appear to be valid. Using anyways...");
+                await GetWebhookData(url); // Frontier - Support for Custom URLS, we still want to see if theres Webhook data available
                 return;
             }
 
@@ -360,22 +361,19 @@ namespace Content.Server.Administration.Systems
                 return;
             }
 
-            var webhookId = match.Groups[1].Value;
-            var webhookToken = match.Groups[2].Value;
-
             // Fire and forget
-            _webhookData = await GetWebhookData(webhookId, webhookToken);
+            await GetWebhookData(url); // Frontier - Support for Custom URLS
         }
 
-        private async Task<WebhookData?> GetWebhookData(string id, string token)
+        private async Task<WebhookData?> GetWebhookData(string url)
         {
-            var response = await _httpClient.GetAsync($"https://discord.com/api/v10/webhooks/{id}/{token}");
+            var response = await _httpClient.GetAsync(url);
 
             var content = await response.Content.ReadAsStringAsync();
             if (!response.IsSuccessStatusCode)
             {
                 _sawmill.Log(LogLevel.Error,
-                    $"Discord returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
+                    $"Webhook returned bad status code when trying to get webhook data (perhaps the webhook URL is invalid?): {response.StatusCode}\nResponse: {content}");
                 return null;
             }
 
@@ -480,6 +478,7 @@ namespace Content.Server.Administration.Systems
 
             var payload = GeneratePayload(existingEmbed.Description,
                 existingEmbed.Username,
+                userId.UserId, // Frontier, this is used to identify the players in the webhook
                 existingEmbed.CharacterName);
 
             // If there is no existing embed, create a new one
@@ -546,7 +545,7 @@ namespace Content.Server.Administration.Systems
                             $"**[Go to ahelp](https://discord.com/channels/{guildId}/{channelId}/{existingEmbed.Id})**");
                     }
 
-                    payload = GeneratePayload(message.ToString(), existingEmbed.Username, existingEmbed.CharacterName);
+                    payload = GeneratePayload(message.ToString(), existingEmbed.Username, userId, existingEmbed.CharacterName);
 
                     var request = await _httpClient.PostAsync($"{_onCallUrl}?wait=true",
                         new StringContent(JsonSerializer.Serialize(payload), Encoding.UTF8, "application/json"));
@@ -566,7 +565,7 @@ namespace Content.Server.Administration.Systems
             _processingChannels.Remove(userId);
         }
 
-        private WebhookPayload GeneratePayload(string messages, string username, string? characterName = null)
+        private WebhookPayload GeneratePayload(string messages, string username, Guid userId, string? characterName = null) // Frontier: added Guid
         {
             // Add character name
             if (characterName != null)
@@ -592,6 +591,7 @@ namespace Content.Server.Administration.Systems
             return new WebhookPayload
             {
                 Username = username,
+                UserID = userId, // Frontier, this is used to identify the players in the webhook
                 AvatarUrl = string.IsNullOrWhiteSpace(_avatarUrl) ? null : _avatarUrl,
                 Embeds = new List<WebhookEmbed>
                 {
@@ -629,10 +629,20 @@ namespace Content.Server.Administration.Systems
             }
         }
 
+        // Frontier: webhook text messages
+        public void OnWebhookBwoinkTextMessage(BwoinkTextMessage message, ServerApi.BwoinkActionBody body)
+        {
+            // Note for forks:
+            AdminData webhookAdminData = new();
+
+            // TODO: fix args
+            OnBwoinkInternal(message, SystemUserId, webhookAdminData, body.Username, null, body.UserOnly, body.WebhookUpdate, true);
+        }
+
         protected override void OnBwoinkTextMessage(BwoinkTextMessage message, EntitySessionEventArgs eventArgs)
         {
             base.OnBwoinkTextMessage(message, eventArgs);
-            _activeConversations[message.UserId] = DateTime.Now;
+
             var senderSession = eventArgs.SenderSession;
 
             // TODO: Sanitize text?
@@ -650,6 +660,23 @@ namespace Content.Server.Administration.Systems
             if (_rateLimit.CountAction(eventArgs.SenderSession, RateLimitKey) != RateLimitStatus.Allowed)
                 return;
 
+            OnBwoinkInternal(message, eventArgs.SenderSession.UserId, senderAdmin, eventArgs.SenderSession.Name, eventArgs.SenderSession.Channel, false, true, false);
+        }
+
+        /// <summary>
+        /// Sends a bwoink. Common to both internal messages (sent via the ahelp or admin interface) and webhook messages (sent through the webhook, e.g. via Discord)
+        /// </summary>
+        /// <param name="message">The message being sent.</param>
+        /// <param name="senderId">The network GUID of the person sending the message.</param>
+        /// <param name="senderAdmin">The admin privileges of the person sending the message.</param>
+        /// <param name="senderName">The name of the person sending the message.</param>
+        /// <param name="senderChannel">The channel to send a message to, e.g. in case of failure to send</param>
+        /// <param name="sendWebhook">If true, message should be sent off through the webhook if possible</param>
+        /// <param name="fromWebhook">Message originated from a webhook (e.g. Discord)</param>
+        private void OnBwoinkInternal(BwoinkTextMessage message, NetUserId senderId, AdminData? senderAdmin, string senderName, INetChannel? senderChannel, bool userOnly, bool sendWebhook, bool fromWebhook)
+        {
+            _activeConversations[message.UserId] = DateTime.Now;
+
             var escapedText = FormattedMessage.EscapeText(message.Text);
 
             string bwoinkText;
@@ -665,31 +692,37 @@ namespace Content.Server.Administration.Systems
                 senderAdmin.Flags ==
                 AdminFlags.Adminhelp) // Mentor. Not full admin. That's why it's colored differently.
             {
-                bwoinkText = $"[color=purple]{adminPrefix}{senderSession.Name}[/color]";
+                bwoinkText = $"[color=purple]{adminPrefix}{senderName}[/color]";
             }
-            else if (senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp))
+            else if (fromWebhook || senderAdmin is not null && senderAdmin.HasFlag(AdminFlags.Adminhelp)) // Frontier: anything sent via webhooks are from an admin.
             {
-                bwoinkText = $"[color=red]{adminPrefix}{senderSession.Name}[/color]";
+                bwoinkText = $"[color=red]{adminPrefix}{senderName}[/color]";
             }
             else
             {
-                bwoinkText = $"{senderSession.Name}";
+                bwoinkText = $"{senderName}";
             }
+
+            if (fromWebhook)
+                bwoinkText = $"(DISCORD) {bwoinkText}";
 
             bwoinkText = $"{(message.PlaySound ? "" : "(S) ")}{bwoinkText}: {escapedText}";
 
             // If it's not an admin / admin chooses to keep the sound then play it.
-            var playSound = !senderAHelpAdmin || message.PlaySound;
-            var msg = new BwoinkTextMessage(message.UserId, senderSession.UserId, bwoinkText, playSound: playSound);
+            var playSound = senderAdmin == null || message.PlaySound;
+            var msg = new BwoinkTextMessage(message.UserId, senderId, bwoinkText, playSound: playSound);
 
             LogBwoink(msg);
 
             var admins = GetTargetAdmins();
 
             // Notify all admins
-            foreach (var channel in admins)
+            if (!userOnly)
             {
-                RaiseNetworkEvent(msg, channel);
+                foreach (var channel in admins)
+                {
+                    RaiseNetworkEvent(msg, channel);
+                }
             }
 
             string adminPrefixWebhook = "";
@@ -721,13 +754,16 @@ namespace Content.Server.Administration.Systems
                         }
                         else
                         {
-                            overrideMsgText = $"{senderSession.Name}"; // Not an admin, name is not overridden.
+                            overrideMsgText = $"{senderName}"; // Not an admin, name is not overridden.
                         }
+
+                        if (fromWebhook)
+                            overrideMsgText = $"(DC) {overrideMsgText}";
 
                         overrideMsgText = $"{(message.PlaySound ? "" : "(S) ")}{overrideMsgText}: {escapedText}";
 
                         RaiseNetworkEvent(new BwoinkTextMessage(message.UserId,
-                                senderSession.UserId,
+                                senderId,
                                 overrideMsgText,
                                 playSound: playSound),
                             session.Channel);
@@ -738,13 +774,13 @@ namespace Content.Server.Administration.Systems
             }
 
             var sendsWebhook = _webhookUrl != string.Empty;
-            if (sendsWebhook)
+            if (sendsWebhook && sendWebhook)
             {
                 if (!_messageQueues.ContainsKey(msg.UserId))
                     _messageQueues[msg.UserId] = new Queue<DiscordRelayedData>();
 
                 var str = message.Text;
-                var unameLength = senderSession.Name.Length;
+                var unameLength = senderName.Length;
 
                 if (unameLength + str.Length + _maxAdditionalChars > DescriptionMax)
                 {
@@ -753,12 +789,13 @@ namespace Content.Server.Administration.Systems
 
                 var nonAfkAdmins = GetNonAfkAdmins();
                 var messageParams = new AHelpMessageParams(
-                    senderSession.Name,
+                    senderName,
                     str,
-                    !personalChannel,
+                    senderId != message.UserId,
                     _gameTicker.RoundDuration().ToString("hh\\:mm\\:ss"),
                     _gameTicker.RunLevel,
                     playedSound: playSound,
+                    isDiscord: fromWebhook,
                     noReceivers: nonAfkAdmins.Count == 0
                 );
                 _messageQueues[msg.UserId].Enqueue(GenerateAHelpMessage(messageParams));
@@ -768,10 +805,14 @@ namespace Content.Server.Administration.Systems
                 return;
 
             // No admin online, let the player know
-            var systemText = Loc.GetString("bwoink-system-starmute-message-no-other-users");
-            var starMuteMsg = new BwoinkTextMessage(message.UserId, SystemUserId, systemText);
-            RaiseNetworkEvent(starMuteMsg, senderSession.Channel);
+            if (senderChannel != null)
+            {
+                var systemText = Loc.GetString("bwoink-system-starmute-message-no-other-users");
+                var starMuteMsg = new BwoinkTextMessage(message.UserId, SystemUserId, systemText);
+                RaiseNetworkEvent(starMuteMsg, senderChannel);
+            }
         }
+        // End Frontier:
 
         private IList<INetChannel> GetNonAfkAdmins()
         {
@@ -807,6 +848,10 @@ namespace Content.Server.Administration.Systems
                 stringbuilder.Append($" **{parameters.RoundTime}**");
             if (!parameters.PlayedSound)
                 stringbuilder.Append(" **(S)**");
+
+            if (parameters.IsDiscord) // Frontier - Discord Indicator
+                stringbuilder.Append(" **(DC)**");
+
             if (parameters.Icon == null)
                 stringbuilder.Append($" **{parameters.Username}:** ");
             else
@@ -870,6 +915,7 @@ namespace Content.Server.Administration.Systems
         public GameRunLevel RoundState { get; set; }
         public bool PlayedSound { get; set; }
         public bool NoReceivers { get; set; }
+        public bool IsDiscord { get; set; } // Frontier
         public string? Icon { get; set; }
 
         public AHelpMessageParams(
@@ -879,6 +925,7 @@ namespace Content.Server.Administration.Systems
             string roundTime,
             GameRunLevel roundState,
             bool playedSound,
+            bool isDiscord = false, // Frontier
             bool noReceivers = false,
             string? icon = null)
         {
@@ -887,6 +934,7 @@ namespace Content.Server.Administration.Systems
             IsAdmin = isAdmin;
             RoundTime = roundTime;
             RoundState = roundState;
+            IsDiscord = isDiscord; // Frontier
             PlayedSound = playedSound;
             NoReceivers = noReceivers;
             Icon = icon;
