@@ -1,4 +1,5 @@
-﻿- type: soundCollection
+﻿## this file is under Starligth licence
+- type: soundCollection
   id: VentClaw
   files:
   - /Audio/VentCrawling/crawling1.ogg

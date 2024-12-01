@@ -1,4 +1,4 @@
-using Content.Shared.Atmos.Components;
+using Content.Shared.Atmos.Components;  //Goobstation - Ventcrawler
 using Content.Shared.DrawDepth;
 using Content.Shared.SubFloor;
 using Robust.Client.GameObjects;
@@ -10,7 +10,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private bool _showAll;
-    private bool _showVentPipe;
+    private bool _showVentPipe; //Goobstation - Ventcrawler
 
     [ViewVariables(VVAccess.ReadWrite)]
     public bool ShowAll
@@ -26,7 +26,7 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
     }
 
     [ViewVariables(VVAccess.ReadWrite)]
-    public bool ShowVentPipe
+    public bool ShowVentPipe     //Goobstation - Ventcrawler
     {
         get => _showVentPipe;
         set
@@ -55,13 +55,13 @@ public sealed class SubFloorHideSystem : SharedSubFloorHideSystem
 
         scannerRevealed &= !ShowAll; // no transparency for show-subfloor mode.
 
-        var showVentPipe = false;
-        if (HasComp<PipeAppearanceComponent>(uid))
+        var showVentPipe = false;    //Goobstation - Ventcrawler
+        if (HasComp<PipeAppearanceComponent>(uid))   //Goobstation - Ventcrawler
         {
             showVentPipe = ShowVentPipe;
         }
 
-        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;
+        var revealed = !covered || ShowAll || scannerRevealed || showVentPipe;   //Goobstation - Ventcrawler
 
         // set visibility & color of each layer
         foreach (var layer in args.Sprite.AllLayers)

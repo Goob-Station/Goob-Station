@@ -28,7 +28,7 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Weldable
+    - type: Weldable # Goobstation - ventcrawl
       time: 3
     - type: VentCrawTube  # Goobstation - ventcrawl
       containerId: VentCrawTube
@@ -101,12 +101,14 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
-    - type: VentCrawEntry
+    - type: VentCrawEntry # Goobstation - ventcrawl
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
+    - type: Weldable  # Goobstation - ventcrawl
+      time: 3
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -116,11 +118,11 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Weldable
+    - type: Weldable  # Goobstation - ventcrawl
       time: 3
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawEntry
+    - type: VentCrawEntry  # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container

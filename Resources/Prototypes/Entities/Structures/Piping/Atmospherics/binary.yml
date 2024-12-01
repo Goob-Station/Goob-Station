@@ -72,7 +72,7 @@
       path: /Audio/Ambience/Objects/gas_pump.ogg
   - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawTransit
+  - type: VentCrawTransit # Goobstation - ventcrawl
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
@@ -135,7 +135,7 @@
     - type: WiredNetworkConnection
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawTransit
+    - type: VentCrawTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
@@ -170,7 +170,7 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawTransit
+    - type: VentCrawTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
@@ -224,7 +224,7 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawTransit
+    - type: VentCrawTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
@@ -289,7 +289,7 @@
       path: /Audio/Ambience/Objects/gas_hiss.ogg
   - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawTransit
+  - type: VentCrawTransit # Goobstation - ventcrawl
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
