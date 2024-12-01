@@ -86,6 +86,27 @@
     Telecrystal: 50
   categories:
   - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
+  id: UplinkWeaponRifleBurner
+  name: uplink-weapon-burner-name
+  description: uplink-weapon-burner-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateBurner
+  cost:
+    Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
+  categories:
+  - UplinkWeaponry
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkBowHardlight
@@ -115,6 +136,13 @@
     Telecrystal: 55 # novelty item for the larp
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsMedicUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 
 - type: listing
@@ -127,6 +155,13 @@
     Telecrystal: 100 # novelty item for the larp, doesnt come with bundle though because bulky fuck
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsCommanderUplink
+  - !type:ListingLimitedStockCondition
+    stock: 1
 
 
 - type: listing
@@ -139,7 +174,6 @@
     Telecrystal: 75 # might be op? needs testing to see. increase price to 90 TC when we merge the upstream fix that hides HUD stuff for stealthed entities.
   categories:
   - UplinkWearables
-
 
 # Job specific
 - type: listing
@@ -261,8 +295,20 @@
   categories:
   - UplinkDeception
 
-# 弾薬
+# Ammo
 
+- type: listing
+  id: UplinkHighCaliberBox
+  name: uplink-high-caliber-box-name
+  description: uplink-high-caliber-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxHighCaliber
+  cost:
+    Telecrystal: 40 # ammo should be a big cost for this
+  categories:
+  - UplinkAmmo
+
+# 弾薬
 - type: listing
   id: UplinkRifleMag
   name: uplink-rifle-mag-name

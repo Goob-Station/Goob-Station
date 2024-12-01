@@ -37,6 +37,18 @@
   - SecurityCyberneticEyes
   - MedicalCyberneticEyes
 
+- type: technology
+  id: Autodoc
+  name: research-technology-autodoc
+  icon:
+    sprite: _Shitmed/Structures/Machines/autodoc.rsi
+    state: idle
+  discipline: CivilianServices
+  tier: 2
+  cost: 10000
+  recipeUnlocks:
+  - AutodocCircuitboard
+
 # Tier 3
 
 - type: technology

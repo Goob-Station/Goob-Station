@@ -231,6 +231,11 @@
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
       - CartridgeEpinephrine # Goobstation
+      - CartridgeBicaridine # Goobstation
+      - CartridgeDermaline # Goobstation
+      - CartridgeEphedrine # Goobstation
+      - CartridgeIchor # Goobstation
+      - SecHypo # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -500,6 +505,7 @@
       - DawInstrumentMachineCircuitboard
       - CloningConsoleComputerCircuitboard
       - StasisBedMachineCircuitboard
+      - AutodocCircuitboard # Shitmed
       - OreProcessorIndustrialMachineCircuitboard
       - CargoTelepadMachineCircuitboard
       - RipleyCentralElectronics
@@ -796,7 +802,10 @@
       - GrenadeFlashBang # Goobstation
       - BolaEnergy # Goobstation
       - CartridgeEpinephrine # Goobstation
-      - SyringeGun #Goobstation
+      - CartridgeBicaridine # Goobstation
+      - CartridgeDermaline # Goobstation
+      - SecHypo # Goobstation
+      - SyringeGun # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

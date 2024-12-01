@@ -1,3 +1,5 @@
+# NTR
+
 - type: loadoutGroup
   id: NanotrasenRepresentativeHead
   name: loadout-group-ntr-head
@@ -51,6 +53,14 @@
   - BlueshieldOfficerHeadBeretBlack
 
 - type: loadoutGroup
+  id: BlueshieldOfficerBackpack
+  name: loadout-group-bso-backpack
+  loadouts:
+  - BlueshieldOfficerBackpack
+  - BlueshieldOfficerSatchel
+  - BlueshieldOfficerDuffel
+
+- type: loadoutGroup
   id: BlueshieldOfficerJumpsuit
   name: loadout-group-bso-jumpsuit
   loadouts:
@@ -72,9 +82,20 @@
   loadouts:
   - BlueshieldOfficerOuterBlueshieldMantle
 
+# Reporter
+
 - type: loadoutGroup
   id: ReporterOuterClothing
   name: loadout-group-reporter-outerclothing
   loadouts:
   - NoPro
+
+#sec
+
+- type: loadoutGroup
+  id: SecurityNeck
+  name: loadout-group-security-neck
+  minLimit: 0
+  loadouts:
+  - Bodycam # Goobstation - Body cameras
 

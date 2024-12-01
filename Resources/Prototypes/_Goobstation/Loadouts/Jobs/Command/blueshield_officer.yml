@@ -59,3 +59,20 @@
     proto: SeniorBlueshieldOfficer
   equipment:
     neck: ClothingNeckMantleBlueshield
+
+# Back
+- type: loadout
+  id: BlueshieldOfficerBackpack
+  equipment:
+    back: ClothingBackpackBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerSatchel
+  equipment:
+    back: ClothingBackpackSatchelBlueshield
+
+- type: loadout
+  id: BlueshieldOfficerDuffel
+  equipment:
+    back: ClothingBackpackDuffelBlueshield
+
