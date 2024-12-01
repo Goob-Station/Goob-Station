@@ -2616,3 +2616,23 @@ Entries:
         satchel.
   id: 303
   time: '2024-12-01T19:07:50.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added new cartridges for the Autoinjector: Bicaridine, Dermaline,
+        Ephedrine, and Ichor (Ephedrine and Ichor are Syndicate only).
+    - type: Tweak
+      message: >-
+        You can now print Bicaridine and Dermaline cartridges in the Security
+        Autolathe.
+    - type: Tweak
+      message: >-
+        Using an Emag on a Security Autolathe now unlocks hidden Autoinjector
+        cartridge recipes: Ephedrine and Ichor.
+    - type: Tweak
+      message: >-
+        The cooldown for using the Autoinjector is now 40 seconds instead of 5
+        minutes.
+  id: 304
+  time: '2024-12-01T19:55:28.0000000+00:00'
