@@ -7,7 +7,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
 
 namespace Content.Client.UserInterface.Systems.Actions.Controls;
-
+// goobstation heavily modified
 [Virtual]
 public class ActionButtonContainer : GridContainer
 {
@@ -21,12 +21,14 @@ public class ActionButtonContainer : GridContainer
     public ActionButtonContainer()
     {
         IoCManager.InjectDependencies(this);
+        UserInterfaceManager.GetUIController<ActionUIController>().RegisterActionContainer(this);
     }
 
     public ActionButton this[int index]
     {
         get => (ActionButton) GetChild(index);
     }
+
 
     private void BuildActionButtons(int count)
     {
@@ -57,15 +59,15 @@ public class ActionButtonContainer : GridContainer
 
     public void SetActionData(ActionsSystem system, params EntityUid?[] actionTypes)
     {
-        var uniqueCount = Math.Min(system.GetClientActions().Count(), actionTypes.Length + 1);
-        if (ChildCount != uniqueCount)
-            BuildActionButtons(uniqueCount);
+        BuildActionButtons(10);
+        ClearActionData();
 
-        for (var i = 0; i < uniqueCount; i++)
+        for (var i = 0; i < actionTypes.Length; i++)
         {
-            if (!actionTypes.TryGetValue(i, out var action))
-                action = null;
-            ((ActionButton) GetChild(i)).UpdateData(action, system);
+            var action = actionTypes[i];
+            if (action == null)
+                continue;
+            ((ActionButton) GetChild(i)).UpdateData(action.Value, system);
         }
     }
 
