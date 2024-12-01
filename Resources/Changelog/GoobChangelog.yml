@@ -2636,3 +2636,11 @@ Entries:
         minutes.
   id: 304
   time: '2024-12-01T19:55:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Bolas now knock people down, items are not dropped from their hands.
+    - type: Remove
+      message: Bolas no longer deal stamina damage.
+  id: 305
+  time: '2024-12-01T20:04:32.0000000+00:00'
