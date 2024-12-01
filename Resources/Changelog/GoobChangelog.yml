@@ -2592,3 +2592,9 @@ Entries:
       message: Now there will be much more nukies.
   id: 300
   time: '2024-11-30T21:41:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Pirasmas is here!!!
+  id: 301
+  time: '2024-12-01T02:45:10.0000000+00:00'
