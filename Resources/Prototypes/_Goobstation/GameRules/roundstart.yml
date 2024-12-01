@@ -159,6 +159,7 @@
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
   components:
+  - type: BlobRule
   - type: GameRule
     minPlayers: 15
     delay: # 7-10 minutes

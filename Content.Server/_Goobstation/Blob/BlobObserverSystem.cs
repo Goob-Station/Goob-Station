@@ -169,7 +169,7 @@ public sealed class BlobObserverSystem : SharedBlobObserverSystem
 
         if (component.Core == null || TerminatingOrDeleted(component.Core.Value))
         {
-            _logger.Error("Не возможно найти ядро для обсервера!");
+            _logger.Error("It is not possible to find a core for the observer!");
             return;
         }
 
