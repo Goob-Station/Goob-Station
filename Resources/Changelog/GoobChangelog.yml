@@ -2650,3 +2650,11 @@ Entries:
       message: Fixed an error caused by walking through puddles as they were deleted.
   id: 306
   time: '2024-12-01T20:14:08.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        server side serialization bug caused by opening multiple network
+        configuration menus
+  id: 307
+  time: '2024-12-01T23:42:40.0000000+00:00'
