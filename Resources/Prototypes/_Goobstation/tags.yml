@@ -2,6 +2,12 @@
   id: BlueprintMedicalFabricator
 
 - type: Tag
+  id: MagazineHighCaliber
+
+- type: Tag
+  id: CartridgeHighCaliber
+
+- type: Tag
   id: BolaEnergy
 
 - type: Tag
