@@ -2644,3 +2644,9 @@ Entries:
       message: Bolas no longer deal stamina damage.
   id: 305
   time: '2024-12-01T20:04:32.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: Fixed an error caused by walking through puddles as they were deleted.
+  id: 306
+  time: '2024-12-01T20:14:08.0000000+00:00'
