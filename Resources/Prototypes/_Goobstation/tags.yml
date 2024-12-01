@@ -11,7 +11,7 @@
   id: BolaEnergy
 
 - type: Tag
-  id: CartridgeEpinephrine
+  id: AutoinjectorCartridge
 
 - type: Tag
   id: NukeOpsMedicUplink
