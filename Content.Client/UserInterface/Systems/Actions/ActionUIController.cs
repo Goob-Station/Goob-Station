@@ -381,7 +381,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     // Goobstation start
     private void OnActionsSaved(EntityUid entity)
     {
-        if (entity == default)
+        if (!_entMan.TryGetComponent(entity, out MetaDataComponent? meta) ||
+            meta.EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
         if (_actions.Count == 0)
@@ -393,7 +394,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionsLoaded(EntityUid entity)
     {
-        if (entity == default)
+        if (!_entMan.TryGetComponent(entity, out MetaDataComponent? meta) ||
+            meta.EntityLifeStage >= EntityLifeStage.Terminating)
             return;
 
         _sawmill.Debug($"Trying to load actions for entity {entity}");
