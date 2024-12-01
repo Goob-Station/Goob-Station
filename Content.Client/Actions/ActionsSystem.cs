@@ -1,5 +1,6 @@
 using System.IO;
 using System.Linq;
+using Content.Shared._Goobstation.Actions;
 using Content.Shared.Actions;
 using JetBrains.Annotations;
 using Robust.Client.Player;
@@ -36,8 +37,8 @@ namespace Content.Client.Actions
         public event Action<List<SlotAssignment>>? AssignSlot;
 
         // Goobstation start
-        public event Action? ActionsSaved;
-        public event Action? ActionsLoaded;
+        public event Action<EntityUid>? ActionsSaved;
+        public event Action<EntityUid>? ActionsLoaded;
         // Goobstation end
 
         private readonly List<EntityUid> _removed = new();
@@ -54,6 +55,16 @@ namespace Content.Client.Actions
             SubscribeLocalEvent<EntityTargetActionComponent, ComponentHandleState>(OnEntityTargetHandleState);
             SubscribeLocalEvent<WorldTargetActionComponent, ComponentHandleState>(OnWorldTargetHandleState);
             SubscribeLocalEvent<EntityWorldTargetActionComponent, ComponentHandleState>(OnEntityWorldTargetHandleState);
+
+            SubscribeNetworkEvent<LoadActionsEvent>(OnLoadActions); // Goobstation
+        }
+
+        private void OnLoadActions(LoadActionsEvent msg, EntitySessionEventArgs args) // Goobstation
+        {
+            if (args.SenderSession != _playerManager.LocalSession)
+                return;
+
+            ActionsLoaded?.Invoke(GetEntity(msg.Entity));
         }
 
         // goob edit - man fuck them actions bruh
@@ -248,7 +259,7 @@ namespace Content.Client.Actions
             if (_playerManager.LocalEntity != performer)
                 return;
 
-            ActionsSaved?.Invoke();
+            ActionsSaved?.Invoke(performer);
         }
 
         protected override void LoadActions(EntityUid performer)
@@ -256,7 +267,7 @@ namespace Content.Client.Actions
             if (_playerManager.LocalEntity != performer)
                 return;
 
-            ActionsLoaded?.Invoke();
+            ActionsLoaded?.Invoke(performer);
         }
         // Goobstation end
 
@@ -271,10 +282,12 @@ namespace Content.Client.Actions
         private void OnPlayerAttached(EntityUid uid, ActionsComponent component, LocalPlayerAttachedEvent args)
         {
             LinkAllActions(component);
+            ActionsLoaded?.Invoke(uid); // Goobstation
         }
 
         private void OnPlayerDetached(EntityUid uid, ActionsComponent component, LocalPlayerDetachedEvent? args = null)
         {
+            ActionsSaved?.Invoke(uid); // Goobstation
             UnlinkAllActions();
         }
 

@@ -56,7 +56,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
 
-    private List<EntityUid?> _savedActions = new(); // Goobstation
+    private readonly Dictionary<EntityUid, List<EntityUid?>> _savedActions = new(); // Goobstation
+    private ISawmill _sawmill = default!; // Goobstation
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
@@ -88,6 +89,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var gameplayStateLoad = UIManager.GetUIController<GameplayStateLoadController>();
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
+
+        _sawmill = Logger.GetSawmill("action_ui_controller"); // Goobstation
     }
 
     private void OnScreenLoad()
@@ -376,19 +379,28 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     }
 
     // Goobstation start
-    private void OnActionsSaved()
+    private void OnActionsSaved(EntityUid entity)
     {
-        _savedActions = new(_actions);
+        if (_actions.Count == 0)
+            return;
+
+        _savedActions[entity] = new(_actions);
+        _sawmill.Debug($"Saved actions for entity {entity}");
     }
 
-    private void OnActionsLoaded()
+    private void OnActionsLoaded(EntityUid entity)
     {
-        if (_savedActions.Count == 0 || _actions.SequenceEqual(_savedActions))
+        _sawmill.Debug($"Trying to load actions for entity {entity}");
+        if (!_savedActions.TryGetValue(entity, out var savedActions))
             return;
-        var addedActions = _actions.Where(x => !_savedActions.Contains(x));
-        _savedActions.RemoveAll(x => !_actions.Contains(x));
-        _actions = _savedActions.Concat(addedActions).ToList();
-        _savedActions.Clear();
+        if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
+            return;
+        var addedActions = _actions.Where(x => !savedActions.Contains(x));
+        savedActions.RemoveAll(x => !_actions.Contains(x));
+        _actions = savedActions.Concat(addedActions).ToList();
+        OnActionsUpdated();
+        _savedActions.Remove(entity);
+        _sawmill.Debug($"Loaded actions for entity {entity}");
     }
     // Goobstation end
 

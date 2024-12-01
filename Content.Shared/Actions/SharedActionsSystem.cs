@@ -1071,7 +1071,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region EquipHandlers
     private void OnDidEquip(EntityUid uid, ActionsComponent component, DidEquipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
@@ -1087,7 +1087,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnHandEquipped(EntityUid uid, ActionsComponent component, DidEquipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Equipped);
@@ -1103,20 +1103,32 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
-        SaveActions(uid); // Goobstation
+        // Goobstation start
+        var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
+        RaiseLocalEvent(args.Equipment, ev);
+
+        if (ev.Actions.Count > 0)
+            SaveActions(uid);
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Equipment, component);
     }
 
     private void OnHandUnequipped(EntityUid uid, ActionsComponent component, DidUnequipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
-        SaveActions(uid); // Goobstation
+        // Goobstation start
+        var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
+        RaiseLocalEvent(args.Unequipped, ev);
+
+        if (ev.Actions.Count > 0)
+            SaveActions(uid);
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Unequipped, component);
     }
