@@ -1,0 +1,228 @@
+- type: marking
+  id: WristBraceletRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#cdcdcd"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: bracelet_r
+
+# Dionae don't have left wrist markings because the markings are currently blocked by their body.
+- type: marking
+  id: WristBraceletLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#cdcdcd"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: bracelet_l
+
+- type: marking
+  id: WristBraceletArmRight
+  bodyPart: RArm
+  markingCategory: RightArm
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#cdcdcd"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: bracelet_arm_r
+
+- type: marking
+  id: WristBraceletArmLeft
+  bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#cdcdcd"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: bracelet_arm_l
+
+- type: marking
+  id: WristWatchRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_r
+
+- type: marking
+  id: WristWatchLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_l
+
+- type: marking
+  id: WristWatchSilverRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_silver_r
+
+- type: marking
+  id: WristWatchSilverLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_silver_l
+
+- type: marking
+  id: WristWatchGoldRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_gold_r
+
+- type: marking
+  id: WristWatchGoldLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_gold_l
+
+- type: marking
+  id: WristWatchHoloRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_holo_r
+
+- type: marking
+  id: WristWatchHoloLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_holo_l
+
+- type: marking
+  id: WristWatchLeatherRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_leather_r
+
+- type: marking
+  id: WristWatchLeatherLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#ffffff"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_leather_l
+
+- type: marking
+  id: WristWatchColorableRight
+  bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Diona, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#424242"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_colorable_r_tone_1
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_colorable_r_tone_2
+
+- type: marking
+  id: WristWatchColorableLeft
+  bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [Human, Dwarf, SlimePerson, Arachnid, Reptilian, Felinid, Oni, Vulpkanin, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#424242"
+  sprites:
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_colorable_l_tone_1
+  - sprite: Mobs/Customization/wrist.rsi
+    state: watch_colorable_l_tone_2

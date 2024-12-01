@@ -1,0 +1,143 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Aurorastation at commit https://github.com/Aurorastation/Aurora.3/commit/d6acf1ddd9c8b7c038bfbacea03545889c9181c8, bracelet_arm/watch_colorable originally from Aurorastation edited by Skubman (github: angelofallars)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bracelet_r",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_l",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_arm_r",
+      "directions": 4
+    },
+    {
+      "name": "bracelet_arm_l",
+      "directions": 4
+    },
+    {
+      "name": "watch_r",
+      "directions": 4
+    },
+    {
+      "name": "watch_l",
+      "directions": 4
+    },
+    {
+      "name": "watch_silver_r",
+      "directions": 4
+    },
+    {
+      "name": "watch_silver_l",
+      "directions": 4
+    },
+    {
+      "name": "watch_gold_r",
+      "directions": 4
+    },
+    {
+      "name": "watch_gold_l",
+      "directions": 4
+    },
+    {
+      "name": "watch_holo_r",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "watch_holo_l",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "watch_leather_r",
+      "directions": 4
+    },
+    {
+      "name": "watch_leather_l",
+      "directions": 4
+    },
+    {
+      "name": "watch_colorable_r_tone_1",
+      "directions": 4
+    },
+    {
+      "name": "watch_colorable_r_tone_2",
+      "directions": 4
+    },
+    {
+      "name": "watch_colorable_l_tone_1",
+      "directions": 4
+    },
+    {
+      "name": "watch_colorable_l_tone_2",
+      "directions": 4
+    }
+  ]
+}

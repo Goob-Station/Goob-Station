@@ -57,9 +57,6 @@
       points: 1
       required: true
       defaultMarkings: [ VulpTail ]
-    Head:
-      points: 1
-      required: false
     RightLeg:
       points: 2
       required: false
@@ -76,13 +73,13 @@
       points: 2
       required: false
     RightHand:
-      points: 2
+      points: 3
       required: false
     LeftArm:
       points: 2
       required: false
     LeftHand:
-      points: 2
+      points: 3
       required: false
     Snout:
       points: 1
@@ -91,6 +88,9 @@
       points: 1
       required: true
       defaultMarkings: [ VulpEar ]
+    HeadSide:
+      points: 2
+      required: false
     Overlay:
       points: 2
       required: false

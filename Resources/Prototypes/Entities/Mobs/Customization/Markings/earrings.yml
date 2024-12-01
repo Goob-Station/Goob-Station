@@ -1,0 +1,571 @@
+- type: marking
+  id: EarringsStudLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#303030"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: stud_l
+
+- type: marking
+  id: EarringsStudRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#303030"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: stud_r
+
+- type: marking
+  id: EarringsHeavyLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: heavy_l
+
+- type: marking
+  id: EarringsHeavyRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: heavy_r
+
+- type: marking
+  id: EarringsDropBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_l
+
+- type: marking
+  id: EarringsDropBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_r
+
+- type: marking
+  id: EarringsDropColoredLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_colored_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_colored_tone_2_l
+
+- type: marking
+  id: EarringsDropColoredRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_colored_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_colored_tone_2_r
+
+- type: marking
+  id: EarringsDropLongLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_long_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_long_tone_2_l
+
+- type: marking
+  id: EarringsDropLongRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_long_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: drop_long_tone_2_r
+
+- type: marking
+  id: EarringsCrescentLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f4f4f4"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crescent_l
+
+- type: marking
+  id: EarringsCrescentRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f4f4f4"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crescent_r
+
+- type: marking
+  id: EarringsBangleLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: bangle_l
+
+- type: marking
+  id: EarringsBangleRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: bangle_r
+
+- type: marking
+  id: EarringsHoopBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: hoop_l
+
+- type: marking
+  id: EarringsHoopBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: hoop_r
+
+- type: marking
+  id: EarringsHoopMiniLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: hoop_mini_l
+
+- type: marking
+  id: EarringsHoopMiniRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: hoop_mini_r
+
+- type: marking
+  id: EarringsCrossBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: cross_l
+
+- type: marking
+  id: EarringsCrossBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: cross_r
+
+- type: marking
+  id: EarringsCrossSaintPeterLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: cross_saint_peter_l
+
+- type: marking
+  id: EarringsCrossSaintPeterRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: cross_saint_peter_r
+
+- type: marking
+  id: EarringsGemstoneBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_tone_2_l
+
+- type: marking
+  id: EarringsGemstoneBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_tone_2_r
+
+- type: marking
+  id: EarringsGemstoneLongLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_long_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_long_tone_2_l
+
+- type: marking
+  id: EarringsGemstoneLongRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_long_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_long_tone_2_r
+
+- type: marking
+  id: EarringsGemstoneDoubleLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_2_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_3_l
+
+- type: marking
+  id: EarringsGemstoneDoubleRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_2_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: gemstone_double_tone_3_r
+
+- type: marking
+  id: EarringsDangleBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_tone_2_l
+
+- type: marking
+  id: EarringsDangleBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_tone_2_r
+
+- type: marking
+  id: EarringsDangleLongLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_long_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_long_tone_2_l
+
+- type: marking
+  id: EarringsDangleLongRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f3d052"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_long_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: dangle_long_tone_2_r
+
+- type: marking
+  id: EarringsEightLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f4f4f4"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: eight_l
+
+- type: marking
+  id: EarringsEightRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#f4f4f4"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: eight_r
+
+- type: marking
+  id: EarringsCrystalBasicLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_tone_2_l
+
+- type: marking
+  id: EarringsCrystalBasicRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_tone_2_r
+
+- type: marking
+  id: EarringsCrystalLongLeft
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_long_tone_1_l
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_long_tone_2_l
+
+- type: marking
+  id: EarringsCrystalLongRight
+  bodyPart: HeadSide
+  markingCategory: HeadSide
+  speciesRestriction: [Dwarf, Human, SlimePerson, Arachnid, Reptilian, Diona, Oni, Felinid, Vulpkanin, Harpy, Gingerbread, Arachne]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#9df4fa"
+  sprites:
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_long_tone_1_r
+  - sprite: Mobs/Customization/earrings.rsi
+    state: crystal_long_tone_2_r
