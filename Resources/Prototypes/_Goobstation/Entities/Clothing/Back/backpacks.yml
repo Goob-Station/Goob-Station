@@ -10,7 +10,7 @@
 - type: entity
   parent: [ClothingBackpack, BaseCentcommContraband]
   id: ClothingBackpackBlueshield
-  name: bluesheild backpack
+  name: blueshield backpack
   description: A very protective backpack, smells like energy gun.
   components:
   - type: Sprite

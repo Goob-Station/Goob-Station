@@ -2592,3 +2592,27 @@ Entries:
       message: Now there will be much more nukies.
   id: 300
   time: '2024-11-30T21:41:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Pirasmas is here!!!
+  id: 301
+  time: '2024-12-01T02:45:10.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added the Burner heavy assault rifle to the synicate and nuclear
+        operative uplinks for 150 TC
+    - type: Tweak
+      message: Ammo bundles now contain ammunition for the Burner heavy assault rifle
+  id: 302
+  time: '2024-12-01T19:05:52.0000000+00:00'
+- author: DarkenedSynergy
+  changes:
+    - type: Add
+      message: >-
+        Blueshield Officers can now choose between a backpack, duffelbag or
+        satchel.
+  id: 303
+  time: '2024-12-01T19:07:50.0000000+00:00'
