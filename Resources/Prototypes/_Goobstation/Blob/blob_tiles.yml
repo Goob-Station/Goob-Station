@@ -70,7 +70,7 @@
       - ActionCreateBlobResource
       - ActionCreateBlobNode
       - ActionCreateBlobbernaut
-      - ActionSplitBlobCore
+      # - ActionSplitBlobCore # Migth be broken.
       - ActionSwapBlobCore
       - ActionDowngradeBlob
   - type: BlobNode
@@ -88,14 +88,15 @@
       - state: blob_core_overlay
   - type: WarpPoint
     location: blob core
-  - type: GhostRole
-    name: ghost-role-information-blob-name
-    description: ghost-role-information-blob-description
-    rules: You are an antagonist, destroy the station!
-    reregister: false
-    raffle:
-      settings: default
-  - type: GhostTakeoverAvailable
+  #- type: GhostRole
+  #  prob: 1
+  #  name: ghost-role-information-blob-name
+  #  description: ghost-role-information-blob-description
+  #  rules: You are an antagonist, destroy the station!
+  #  reregister: false
+  #  raffle:
+  #    settings: default
+  #- type: GhostTakeoverAvailable
 
 - type: entity
   parent: BaseBlob
