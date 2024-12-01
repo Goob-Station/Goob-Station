@@ -10,6 +10,9 @@
     bodyType: Dynamic
     linearDamping: 0
     angularDamping: 0
+  - type: Reflective
+    reflective:
+    - Energy
   - type: Fixtures
     fixtures:
       projectile:
