@@ -311,3 +311,25 @@
     specialEntries:
     - id: SpawnPointGhostRatKing
       prob: 0.001
+
+# Blob Midround
+- type: entity
+  parent: BaseGameRule
+  id: BlobDynamicMidround
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-blob-title
+    weight: 10
+    cost: 15
+    highImpact: true
+  - type: StationEvent
+    weight: 6.5
+    earliestStart: 50
+    minimumPlayers: 20
+    duration: null
+    maxOccurrences: 2
+  - type: BlobSpawnRule
+    carrierBlobProtos:
+    - SpawnPointGhostBlobRat
+    playersPerCarrierBlob: 30
+    maxCarrierBlob: 2

@@ -15,7 +15,7 @@
   - type: AntagRandomObjectives
     sets:
     - groups: TraitorObjectiveGroups
-    maxDifficulty: 6 # Funky Station - Fixes upstream objective hell 
+    maxDifficulty: 6 # Funky Station - Fixes upstream objective hell
   - type: AntagSelection
     agentName: traitor-round-end-agent-name
 
@@ -35,3 +35,10 @@
     speciesOverride: Human
     speciesOverrideBlacklist:
     - Vox
+
+- type: entity
+  abstract: true
+  parent: BaseGameRuleDynamic
+  id: BaseBlobRuleDynamic
+  components:
+  - type: BlobRule
