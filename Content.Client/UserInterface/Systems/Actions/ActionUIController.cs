@@ -381,6 +381,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     // Goobstation start
     private void OnActionsSaved(EntityUid entity)
     {
+        if (entity == default)
+            return;
+
         if (_actions.Count == 0)
             return;
 
@@ -390,6 +393,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
     private void OnActionsLoaded(EntityUid entity)
     {
+        if (entity == default)
+            return;
+
         _sawmill.Debug($"Trying to load actions for entity {entity}");
         if (!_savedActions.TryGetValue(entity, out var savedActions))
             return;
