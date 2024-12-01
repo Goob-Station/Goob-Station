@@ -253,6 +253,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 400
+      Glass: 300
+      Uranium: 100
+      Gold: 50
+    chemicalComposition:
+      Zinc: 80
 
 - type: entity
   parent: PowerCellMicroreactor

@@ -262,6 +262,12 @@
     solutions:
       beaker:
         maxVol: 1000
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
+      Plastic: 500
+      Plastma: 150
+      Silver: 50
 
 - type: entity
   name: dropper
@@ -519,6 +525,13 @@
     tags:
     - Syringe
     - Trash
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 100
+      Plastic: 150
+      Glass: 250
+      Plasma: 100
+      Silver: 50
 
 - type: entity
   id: SyringeCryostasis

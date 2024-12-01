@@ -67,6 +67,10 @@
         Brute: 3
       types:
         Structural: 15
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
+      Plastic: 100
 
 - type: entity
   name: diamond tipped mining drill
@@ -89,7 +93,12 @@
         Brute: 6
       types:
         Structural: 30
-
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 600
+      Plastic: 200
+      Silver: 200
+      Diamond: 100
 
 - type: entity
   abstract: true

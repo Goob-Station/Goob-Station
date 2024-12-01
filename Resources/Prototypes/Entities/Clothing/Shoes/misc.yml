@@ -153,3 +153,6 @@
     price: 75
   - type: Tag
     tags: [ ]
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 600

@@ -111,6 +111,11 @@
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Plastic: 400
+        Glass: 100
+        Steel: 100
 
 - type: entity
   name: wet floor sign

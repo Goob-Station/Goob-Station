@@ -84,6 +84,10 @@
       BeakerSlotB: !type:ContainerSlot
   - type: StaticPrice
     price: 60
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 200
+      Plastic: 300
 
 - type: entity
   name: flash payload

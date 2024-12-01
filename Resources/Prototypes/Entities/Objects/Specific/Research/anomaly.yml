@@ -21,6 +21,10 @@
     - ScannersAndVessels
   - type: Item
     storedRotation: -90
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 400
+      Glass: 100
 
 - type: entity
   id: AnomalyLocatorUnpowered
@@ -161,3 +165,10 @@
         Cold: 100
         Radiation: 100
     slots: NONE
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 1500
+      Plastic: 300
+      Glass: 500
+      Plasma: 500
+      Silver: 250

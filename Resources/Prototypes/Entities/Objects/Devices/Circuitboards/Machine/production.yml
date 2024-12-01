@@ -760,7 +760,7 @@
       componentRequirements:
         PowerCell:
           amount: 1
-            defaultPrototype: PowerCellSmall
+          defaultPrototype: PowerCellSmall
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
         Glass: 500

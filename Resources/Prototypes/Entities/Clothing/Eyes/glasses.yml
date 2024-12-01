@@ -253,6 +253,11 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 200
+        Plastic: 300
+        Glass: 500
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]
