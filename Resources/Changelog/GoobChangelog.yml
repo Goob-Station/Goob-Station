@@ -2598,3 +2598,13 @@ Entries:
       message: Pirasmas is here!!!
   id: 301
   time: '2024-12-01T02:45:10.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added the Burner heavy assault rifle to the synicate and nuclear
+        operative uplinks for 150 TC
+    - type: Tweak
+      message: Ammo bundles now contain ammunition for the Burner heavy assault rifle
+  id: 302
+  time: '2024-12-01T19:05:52.0000000+00:00'
