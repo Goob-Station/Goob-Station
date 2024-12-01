@@ -1,3 +1,6 @@
+// this file is under Starlight License
+// https://github.com/ss14Starlight/space-station-14
+
 using System.Linq;
 using Content.Shared.VentCraw.Tube.Components;
 using Robust.Shared.Map;
@@ -8,7 +11,7 @@ namespace Content.Shared.VentCraw;
 public sealed class SharedVentTubeSystem : EntitySystem
 {
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-    
+
     public EntityUid? NextTubeFor(EntityUid target, Direction nextDirection, VentCrawTubeComponent? targetTube = null)
     {
         if (!Resolve(target, ref targetTube))
@@ -18,7 +21,7 @@ public sealed class SharedVentTubeSystem : EntitySystem
         var xform = Transform(target);
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return null;
-            
+
         if (xform.GridUid == null)
             return null;
 
@@ -26,8 +29,8 @@ public sealed class SharedVentTubeSystem : EntitySystem
         foreach (EntityUid entity in _mapSystem.GetInDir(xform.GridUid.Value, grid ,position, nextDirection))
         {
 
-            if (!TryComp(entity, out VentCrawTubeComponent? tube) 
-                || !CanConnect(target, targetTube, nextDirection) 
+            if (!TryComp(entity, out VentCrawTubeComponent? tube)
+                || !CanConnect(target, targetTube, nextDirection)
                 || !CanConnect(entity, tube, oppositeDirection))
                 continue;
 
@@ -36,7 +39,7 @@ public sealed class SharedVentTubeSystem : EntitySystem
 
         return null;
     }
-    
+
     private bool CanConnect(EntityUid tubeId, VentCrawTubeComponent tube, Direction direction)
     {
         if (!tube.Connected)

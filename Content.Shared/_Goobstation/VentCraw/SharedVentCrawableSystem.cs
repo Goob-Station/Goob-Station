@@ -1,3 +1,6 @@
+// this file is under Starlight License
+// https://github.com/ss14Starlight/space-station-14
+
 using System.Linq;
 using Content.Shared.Body.Components;
 using Content.Shared.Tools.Components;
@@ -24,7 +27,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _xformSystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
-    
+
     public override void Initialize()
     {
         base.Initialize();
@@ -39,10 +42,8 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     /// <param name="uid">The EntityUid of the VentCrawHolderComponent.</param>
     /// <param name="component">The VentCrawHolderComponent instance.</param>
     /// <param name="args">The MoveInputEvent arguments.</param>
-    private void OnMoveInput(EntityUid uid, VentCrawHolderComponent component, ref MoveInputEvent args)
+    private void OnMoveInput(EntityUid uid, VentCrawHolderComponent holder, ref MoveInputEvent args)
     {
-        if (!TryComp<VentCrawHolderComponent>(uid, out var holder))
-            return;
 
         if (!EntityManager.EntityExists(holder.CurrentTube))
         {
@@ -50,8 +51,8 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             RaiseLocalEvent(uid, ref ev);
         }
 
-        component.IsMoving = args.State;
-        component.CurrentDirection = args.Dir;
+        holder.IsMoving = args.State;
+        holder.CurrentDirection = args.Dir;
     }
 
     /// <summary>
@@ -64,7 +65,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
     {
         holder.Container = _containerSystem.EnsureContainer<Container>(uid, nameof(VentCrawHolderComponent));
     }
-    
+
     /// <summary>
     /// Tries to insert an entity into the VentCrawHolderComponent container.
     /// </summary>
@@ -146,6 +147,8 @@ public sealed class SharedVentCrawableSystem : EntitySystem
             RaiseLocalEvent(holderUid, ref ev);
             return false;
         }
+        if (TryComp<PhysicsComponent>(holderUid, out var physBody))
+            _physicsSystem.SetCanCollide(holderUid, false, body: physBody);
 
         if (holder.CurrentTube != null)
         {
@@ -156,7 +159,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
 
         return true;
     }
-    
+
     /// <summary>
     ///  Magic...
     /// </summary>
@@ -165,13 +168,8 @@ public sealed class SharedVentCrawableSystem : EntitySystem
         var query = EntityQueryEnumerator<VentCrawHolderComponent>();
         while (query.MoveNext(out var uid, out var holder))
         {
-            if (holder.CurrentDirection == Direction.Invalid)
-                return;
-            
-            if (holder.CurrentTube == null)
-            {
+            if (holder.CurrentDirection == Direction.Invalid || holder.CurrentTube == null)
                 continue;
-            }
 
             var currentTube = holder.CurrentTube.Value;
 
@@ -204,7 +202,7 @@ public sealed class SharedVentCrawableSystem : EntitySystem
                     }
                 }
             }
-            
+
             if (holder.NextTube != null && holder.TimeLeft > 0)
             {
                 var time = frameTime;
@@ -224,19 +222,14 @@ public sealed class SharedVentCrawableSystem : EntitySystem
                 frameTime -= time;
             }
             else if (holder.NextTube != null && holder.TimeLeft == 0)
-            {                
-                if (HasComp<VentCrawEntryComponent>(holder.NextTube.Value) && !holder.FirstEntry)
+            {
+                var welded = false;
+                if (TryComp<WeldableComponent>(holder.NextTube.Value, out var weldableComponent))
+                    welded = weldableComponent.IsWelded;
+                if (HasComp<VentCrawEntryComponent>(holder.NextTube.Value) && !holder.FirstEntry && !welded)
                 {
-                    var welded = false;
-                    if (TryComp<WeldableComponent>(holder.NextTube.Value, out var weldableComponent))
-                    {
-                        welded = weldableComponent.IsWelded;
-                    }
-                    if (!welded)
-                    {
-                        var ev = new VentCrawExitEvent();
-                        RaiseLocalEvent(uid, ref ev);
-                    }
+                    var ev = new VentCrawExitEvent();
+                    RaiseLocalEvent(uid, ref ev);
                 }
                 else
                 {

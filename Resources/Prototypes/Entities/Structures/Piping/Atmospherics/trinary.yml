@@ -70,14 +70,14 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_hiss.ogg
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawJunction
+    - type: VentCrawJunction # Goobstation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 
@@ -124,14 +124,14 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: North
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawJunction
+  - type: VentCrawJunction # Goobstation - ventcrawl
     degrees:
       - 0
       - -90
       - 180
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
@@ -178,14 +178,14 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_hiss.ogg
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawJunction
+    - type: VentCrawJunction # Goobstation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 
@@ -231,14 +231,14 @@
         pipeDirection: North
   - type: Construction
     node: mixerflipped
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawJunction
+  - type: VentCrawJunction # Goobstation - ventcrawl
     degrees:
       - 0
       - -90
       - 180
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
@@ -297,13 +297,13 @@
     - type: Construction
       graph: GasTrinary
       node: pneumaticvalve
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawJunction
+    - type: VentCrawJunction # Goobstation - ventcrawl
       degrees:
         - 0
         - -90
         - 180
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container

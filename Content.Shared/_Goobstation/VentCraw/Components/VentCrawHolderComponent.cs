@@ -1,3 +1,6 @@
+// this file is under Starlight License
+// https://github.com/ss14Starlight/space-station-14
+
 using Content.Shared.VentCraw.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
@@ -7,7 +10,12 @@ namespace Content.Shared.VentCraw.Components;
 [RegisterComponent]
 public sealed partial class VentCrawHolderComponent : Component
 {
-    public Container Container = null!;
+    private Container? _container;
+    public Container Container
+    {
+        get => _container ?? throw new InvalidOperationException("Container not initialized");
+        set => _container = value;
+    }
 
     [ViewVariables]
     public float StartingTime { get; set; }
@@ -19,7 +27,7 @@ public sealed partial class VentCrawHolderComponent : Component
 
     [ViewVariables]
     public EntityUid? PreviousTube { get; set; }
-    
+
     [ViewVariables]
     public EntityUid? NextTube { get; set; }
 

@@ -1,3 +1,6 @@
+// this file is under Starlight License
+// https://github.com/ss14Starlight/space-station-14
+
 using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;

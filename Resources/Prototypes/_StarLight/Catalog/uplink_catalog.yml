@@ -1,3 +1,4 @@
+# Under Starligth licence start
 - type: listing
   id: uplinkContortionistJumpsuit
   name: uplink-contortionist-jumpsuit-name
@@ -5,12 +6,13 @@
   productEntity: ClothingUniformJumpsuitAtmosSyndie
   discountCategory: usualDiscounts
   discountDownTo:
-    Telecrystal: 3
+    Telecrystal: 15 # Goobstation edit
   cost:
-    Telecrystal: 6
+    Telecrystal: 30 # Goobstation edit
   categories:
   - UplinkJob
   conditions:
   - !type:BuyerJobCondition
     whitelist:
     - Atmosian
+# Starligth licence end

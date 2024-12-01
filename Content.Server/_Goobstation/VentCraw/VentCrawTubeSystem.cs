@@ -1,3 +1,6 @@
+// this file is under Starlight License
+// https://github.com/ss14Starlight/space-station-14
+
 using System.Linq;
 using Content.Server.Construction.Completions;
 using Content.Server.Popups;
@@ -20,7 +23,7 @@ namespace Content.Server.VentCraw
     {
         [Dependency] private readonly IMapManager _mapManager = default!;
         [Dependency] private readonly SharedMapSystem _mapSystem = default!;
-        [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystemSystem = default!;
+        [Dependency] private readonly SharedVentCrawableSystem _ventCrawableSystem = default!;
         [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
         [Dependency] private readonly VentCrawTubeSystem _ventCrawTubeSystem = default!;
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -58,7 +61,7 @@ namespace Content.Server.VentCraw
             AlternativeVerb verb = new()
             {
                 Act = () => TryEnter(uid, args.User, ventCrawlerComponent),
-                Text = Loc.GetString("comp-climbable-verb-climb")
+                Text = "Enter Pipe Network"//Loc.GetString("comp-climbable-verb-climb")
             };
             args.Verbs.Add(verb);
         }
@@ -68,7 +71,7 @@ namespace Content.Server.VentCraw
             if (args.Handled || args.Cancelled || args.Args.Target == null || args.Args.Used == null)
                 return;
 
-            _ventCrawTubeSystem.TryInsert(args.Args.Target.Value, args.Args.Used.Value);
+            TryInsert(args.Args.Target.Value, args.Args.Used.Value);
 
             args.Handled = true;
         }
@@ -213,13 +216,13 @@ namespace Content.Server.VentCraw
             var holder = Spawn(VentCrawEntryComponent.HolderPrototypeId, xform.MapPosition);
             var holderComponent = Comp<VentCrawHolderComponent>(holder);
 
-            _ventCrawableSystemSystem.TryInsert(holder, entity, holderComponent);
+            _ventCrawableSystem.TryInsert(holder, entity, holderComponent);
 
             _mover.SetRelay(entity, holder);
             ventCrawlerComponent.InTube = true;
             Dirty(entity, ventCrawlerComponent);
 
-            return _ventCrawableSystemSystem.EnterTube(holder, uid, holderComponent);
+            return _ventCrawableSystem.EnterTube(holder, uid, holderComponent);
         }
     }
 }

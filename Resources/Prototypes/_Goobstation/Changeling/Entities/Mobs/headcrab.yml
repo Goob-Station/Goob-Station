@@ -29,3 +29,4 @@
     baseSprintSpeed: 7
   - type: ExplosionResistance
     damageCoefficient: 0
+  - type: VentCrawler

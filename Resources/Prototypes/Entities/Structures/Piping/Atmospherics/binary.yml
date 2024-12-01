@@ -70,10 +70,10 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/gas_pump.ogg
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
   - type: VentCrawTransit
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
@@ -133,10 +133,10 @@
       examinableAddress: true
       prefix: device-address-prefix-volume-pump
     - type: WiredNetworkConnection
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 
@@ -168,10 +168,10 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_hiss.ogg
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 
@@ -222,10 +222,10 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_hiss.ogg
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 
@@ -287,10 +287,10 @@
     range: 5
     sound:
       path: /Audio/Ambience/Objects/gas_hiss.ogg
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
   - type: VentCrawTransit
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
@@ -322,12 +322,12 @@
     - type: Construction
       graph: GasBinary
       node: port
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawJunction
+    - type: VentCrawJunction # Goobstation - ventcrawl
       degrees:
         - 0
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 

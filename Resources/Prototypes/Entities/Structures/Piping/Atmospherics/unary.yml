@@ -30,10 +30,10 @@
   components:
     - type: Weldable
       time: 3
-    - type: VentCrawTube
+    - type: VentCrawTube  # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawEntry
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
     - type: ApcPowerReceiver
@@ -101,6 +101,12 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
+    - type: VentCrawEntry
+    - type: VentCrawTube # Goobstation - ventcrawl
+      containerId: VentCrawTube
+    - type: ContainerContainer # Goobstation - ventcrawl
+      containers:
+        VentCrawTube: !type:Container
 
 - type: entity
   parent: [GasUnaryBase, AirSensorBase]
@@ -112,10 +118,10 @@
   components:
     - type: Weldable
       time: 3
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawEntry
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
     - type: ApcPowerReceiver
@@ -197,12 +203,12 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
       - enum.LightLayers.Unshaded
-    - type: VentCrawTube
+    - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
-    - type: VentCrawJunction
+    - type: VentCrawJunction # Goobstation - ventcrawl
       degrees:
         - 0
-    - type: ContainerContainer
+    - type: ContainerContainer # Goobstation - ventcrawl
       containers:
         VentCrawTube: !type:Container
 

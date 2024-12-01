@@ -91,11 +91,11 @@ namespace Content.Shared.Movement.Systems
 
             // Relay the fact we had any movement event.
             // TODO: Ideally we'd do these in a tick instead of out of sim.
-            Vector2 vector2 = DirVecForButtons(entity.Comp.HeldMoveButtons);
+            Vector2 vector2 = DirVecForButtons(buttons);    // Goobstation - Ventcralwing
             Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y);
             Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection();
-            
-            var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, entity.Comp.HeldMoveButtons != 0);
+
+            var moveEvent = new MoveInputEvent(entity, buttons, dir, buttons != 0);// Goobstation - ventcrawling
             entity.Comp.HeldMoveButtons = buttons;
             RaiseLocalEvent(entity, ref moveEvent);
             Dirty(entity, entity.Comp);
@@ -116,7 +116,7 @@ namespace Content.Shared.Movement.Systems
             // Reset
             entity.Comp.LastInputTick = GameTick.Zero;
             entity.Comp.LastInputSubTick = 0;
-            
+
             Vector2 vector2 = DirVecForButtons(entity.Comp.HeldMoveButtons);
             Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y);
             Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection();
@@ -318,11 +318,11 @@ namespace Content.Shared.Movement.Systems
 
             if (!MoverQuery.TryGetComponent(entity, out var moverComp))
                 return;
-            
+
             var moverEntity = new Entity<InputMoverComponent>(entity, moverComp);
 
             // Relay the fact we had any movement event.
-            // TODO: Ideally we'd do these in a tick instead of out of sim.            
+            // TODO: Ideally we'd do these in a tick instead of out of sim.
             var moveEvent = new MoveInputEvent(moverEntity, moverComp.HeldMoveButtons, dir, state);
             RaiseLocalEvent(entity, ref moveEvent);
 

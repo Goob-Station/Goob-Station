@@ -63,11 +63,11 @@
     bodyType: static
   - type: StaticPrice
     price: 22
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
-- type: entity
+- type: entity  # Goobstation - ventcrawl
   id: VentCrawHolder
   categories: [ HideSpawnMenu ]
   name: vent craw holder
@@ -121,10 +121,10 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: Longitudinal
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawTransit
-  - type: ContainerContainer
+  - type: VentCrawTransit # Goobstation - ventcrawl
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
   - type: Sprite
@@ -161,10 +161,10 @@
         !type:PipeNode
         nodeGroupID: Pipe
         pipeDirection: SWBend
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawBend
-  - type: ContainerContainer
+  - type: VentCrawBend # Goobstation - ventcrawl
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
   - type: Sprite
@@ -232,14 +232,14 @@
         Blunt: 10
     soundHit:
       collection: MetalThud
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawJunction
+  - type: VentCrawJunction # Goobstation - ventcrawl
     degrees:
       - 0
       - 90
       - -90
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
 
@@ -264,15 +264,15 @@
   - type: Construction
     graph: GasPipe
     node: fourway
-  - type: VentCrawTube
+  - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
-  - type: VentCrawJunction
+  - type: VentCrawJunction # Goobstation - ventcrawl
     degrees:
       - 0
       - 90
       - -90
       - 180
-  - type: ContainerContainer
+  - type: ContainerContainer # Goobstation - ventcrawl
     containers:
       VentCrawTube: !type:Container
   - type: Item
