@@ -1107,11 +1107,14 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         // Goobstation start
-        var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
-        RaiseLocalEvent(args.Equipment, ev);
+        if (!TerminatingOrDeleted(args.Equipment))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
+            RaiseLocalEvent(args.Equipment, ev);
 
-        if (ev.Actions.Count > 0)
-            SaveActions(uid);
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
         // Goobstation end
 
         RemoveProvidedActions(uid, args.Equipment, component);
@@ -1123,11 +1126,14 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         // Goobstation start
-        var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
-        RaiseLocalEvent(args.Unequipped, ev);
+        if (!TerminatingOrDeleted(args.Unequipped))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
+            RaiseLocalEvent(args.Unequipped, ev);
 
-        if (ev.Actions.Count > 0)
-            SaveActions(uid);
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
         // Goobstation end
 
         RemoveProvidedActions(uid, args.Unequipped, component);
