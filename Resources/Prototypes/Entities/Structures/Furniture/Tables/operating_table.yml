@@ -12,3 +12,14 @@
     sprite: Structures/Furniture/Tables/optable.rsi
     state: operating_table
   - type: OperatingTable
+  # Begin Shitmed Changes
+  - type: Machine
+    board: OperatingTableCircuitboard
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+  - type: DeviceLinkSource
+    range: 2
+    ports:
+    - OperatingTable
+  # End Shitmed Changes
