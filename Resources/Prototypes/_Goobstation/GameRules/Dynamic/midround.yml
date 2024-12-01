@@ -9,7 +9,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-traitor-title
-    weight: 30 
+    weight: 30
     cost: 9 # Lmao at 3 cost, the average game has 10-30 midgame pretty often
   - type: StationEvent
     earliestStart: 30
@@ -30,7 +30,7 @@
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-changeling-title
     weight: 15
-    cost: 12 
+    cost: 12
   - type: StationEvent
     earliestStart: 20
     weight: 3
@@ -52,8 +52,8 @@
     weight: 15
     cost: 15
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -73,8 +73,8 @@
     cost: 30
     highImpact: true
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
@@ -318,7 +318,7 @@
   id: BlobDynamicMidround
   components:
   - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-blob-title
+    nameLoc: dynamic-gamerule-midround-blob-title
     weight: 10
     cost: 15
     highImpact: true
