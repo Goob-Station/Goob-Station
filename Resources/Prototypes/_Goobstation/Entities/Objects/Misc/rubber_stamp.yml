@@ -1,5 +1,5 @@
 - type: entity
-  name: nanotrasen representative rubber stamp
+  name: nanotrasen representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampNanorep
   components:
@@ -25,7 +25,7 @@
     state: stamp-cybersun
 
 - type: entity
-  name: cybersun representative rubber stamp
+  name: cybersun representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampCyberRep
   components:
@@ -51,20 +51,7 @@
     state: stamp-arc
 
 - type: entity
-  name: a.r.c stamp
-  parent: RubberStampBase
-  id: RubberStampArcSmall
-  components:
-  - type: Stamp
-    stampedName: stamp-component-stamped-name-arcsmall
-    stampedColor: "#411551"
-    stampState: "paper_stamp-arc"
-  - type: Sprite
-    sprite: _Goobstation/Objects/Misc/stamps.rsi
-    state: stamp-arcsmall
-
-- type: entity
-  name: donk co. stamp
+  name: donk co. rubber stamp
   parent: RubberStampBase
   id: RubberStampDonkCo
   components:
@@ -77,7 +64,7 @@
     state: stamp-donkco
 
 - type: entity
-  name: donk co. representative stamp
+  name: donk co. representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampDonkRep
   components:
@@ -90,7 +77,7 @@
     state: stamp-donkrep
 
 - type: entity
-  name: interdyne pharmaceutics stamp
+  name: interdyne pharmaceutics rubber stamp
   parent: RubberStampBase
   id: RubberStampInterdyne
   components:
@@ -103,9 +90,9 @@
     state: stamp-interdyne
 
 - type: entity
-  name: interdyne representative stamp
+  name: interdyne representative's rubber stamp
   parent: RubberStampBase
-  id: RubberStampInterrep
+  id: RubberStampInterRep
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-interrep
@@ -116,7 +103,7 @@
     state: stamp-interrep
 
 - type: entity
-  name: sentient front stamp
+  name: sentient front rubber stamp
   parent: RubberStampBase
   id: RubberStampSentientFront
   components:
@@ -129,12 +116,12 @@
     state: stamp-sentientfront
 
 - type: entity
-  name: s.e.l.f stamp
+  name: s.e.l.f representative's rubber stamp
   parent: RubberStampBase
-  id: RubberStampSentientFrontSmall
+  id: RubberStampSentientFrontRep
   components:
   - type: Stamp
-    stampedName: stamp-component-stamped-name-sentientfrontsmall
+    stampedName: stamp-component-stamped-name-sentientfrontrep
     stampedColor: "#85b1dd"
     stampState: "paper_stamp-sentientfront"
   - type: Sprite
@@ -142,7 +129,7 @@
     state: stamp-sentientfrontsmall
 
 - type: entity
-  name: s.s.c stamp
+  name: s.s.c rubber stamp
   parent: RubberStampBase
   id: RubberStampSsc
   components:
@@ -155,7 +142,7 @@
     state: stamp-ssc
 
 - type: entity
-  name: s.s.c representative stamp
+  name: s.s.c representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampSscRep
   components:
@@ -168,7 +155,7 @@
     state: stamp-sscrep
 
 - type: entity
-  name: terragov stamp
+  name: terragov rubber stamp
   parent: RubberStampBase
   id: RubberStampTerra
   components:
@@ -181,7 +168,7 @@
     state: stamp-terra
 
 - type: entity
-  name: terragov representative stamp
+  name: terragov representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampTerraRep
   components:
@@ -194,7 +181,7 @@
     state: stamp-terrarep
 
 - type: entity
-  name: waffle corporation stamp
+  name: waffle corporation rubber stamp
   parent: RubberStampBase
   id: RubberStampWaffle
   components:
@@ -207,7 +194,7 @@
     state: stamp-waffle
 
 - type: entity
-  name: waffle corp representative stamp
+  name: waffle corp representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampWaffleRep
   components:
