@@ -51,7 +51,7 @@
   - type: Sprite
     state: brain
   - type: Organ # Shitmed
-    slotId: Brain
+    slotId: brain
   - type: Brain # Shitmed
   - type: SolutionContainerManager
     solutions:

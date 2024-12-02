@@ -153,7 +153,7 @@ namespace Content.Shared.Damage
                 return null;
 
             // Shitmed Change Start
-            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
+            var partDamage = new TryChangePartDamageEvent(damage, origin, targetPart, ignoreResistances, canSever ?? true, canEvade ?? false, partMultiplier ?? 1.00f);
             RaiseLocalEvent(uid.Value, ref partDamage);
 
             if (partDamage.Evaded || partDamage.Cancelled)
@@ -331,8 +331,8 @@ namespace Content.Shared.Damage
     public record struct TryChangePartDamageEvent(
         DamageSpecifier Damage,
         EntityUid? Origin = null,
-        // Shitmed Change
         TargetBodyPart? TargetPart = null,
+        bool IgnoreResistances = false,
         bool CanSever = true,
         bool CanEvade = false,
         float PartMultiplier = 1.00f,

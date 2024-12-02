@@ -56,6 +56,7 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Shared._Goobstation.Actions;
 
 namespace Content.Server.Changeling;
 
@@ -566,6 +567,10 @@ public sealed partial class ChangelingSystem : EntitySystem
             EnsureComp<HeadRevolutionaryComponent>(newEnt);
         if (HasComp<RevolutionaryComponent>(uid))
             EnsureComp<RevolutionaryComponent>(newEnt);
+
+        // This just doesn't work for some reason. I tried commenting out QueueDel(uid), checked ActionUIController
+        // sawmill logs, everything is fine there, it should work but it just doesn't
+        // RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
         QueueDel(uid);
 

@@ -1,0 +1,104 @@
+# Autodocs
+
+- type: entity
+  parent: [ConstructibleMachine, BaseMachinePowered]
+  id: Autodoc
+  name: Autodoc Mk.XIV
+  description: A programmable robotic surgeon capable of automatically operating on patients.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Structures/Machines/autodoc.rsi
+    layers:
+    - state: idle
+  - type: Hands
+  - type: HandsFill
+    hands:
+      multitool: OmnimedToolAutodoc
+      surgery_specific: null
+  - type: WiresPanel
+  - type: Wires
+    layoutId: Autodoc # do it, snip the safety wire :godo:
+    boardName: wires-board-name-autodoc
+  - type: Machine
+    board: AutodocCircuitboard
+  - type: Construction
+    graph: Machine
+    node: machine
+    containers:
+     - machine_board
+     - machine_parts
+     - storagebase
+  - type: EmptyOnMachineDeconstruct
+    containers:
+    - surgery_specific
+    - storagebase
+  - type: ContainerContainer
+    containers:
+      machine_board: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      machine_parts: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+      storagebase: !type:Container
+        showEnts: False
+        occludes: True
+        ents: []
+  - type: ApcPowerReceiver
+    powerLoad: 10000
+  - type: DeviceList
+  - type: DeviceNetwork
+    deviceNetId: Wired
+    receiveFrequencyId: BasicDevice
+  - type: DeviceLinkSink
+    ports:
+    - OperatingTableReceiver
+  - type: UserInterface
+    interfaces:
+      enum.AutodocUiKey.Key:
+        type: AutodocBoundUserInterface
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.WiresUiKey.Key:
+        type: WiresBoundUserInterface
+  - type: ActivatableUI
+    key: enum.AutodocUiKey.Key
+  - type: ActivatableUIRequiresPower
+  - type: Autodoc
+  - type: Sanitized
+  - type: DoAfter # Required for it to do surgery
+  - type: TypingIndicator
+    proto: robot
+  - type: Speech
+    speechVerb: Robotic
+    speechSounds: Pai
+  - type: Storage
+    clickInsert: false # incredibly annoying
+    grid:
+    - 0,0,3,3
+  - type: SurgerySpeedModifier
+    speedModifier: 0.5 # on par with a surgeon using normal tools
+  - type: GuideHelp
+    guides: [ Autodoc ]
+
+- type: entity
+  parent: Autodoc
+  id: AutodocSyndie
+  # TODO: make it valid
+  suffix: Syndie
+  components:
+  - type: Machine
+    board: AutodocSyndieCircuitboard
+  - type: SurgerySpeedModifier
+    speedModifier: 1.0 # as good as a surgeon using a multitool, nukies need it or something
+
+# Autodoc tools
+
+- type: entity
+  parent: OmnimedTool
+  id: OmnimedToolAutodoc
+  suffix: Unremoveable
+  components:
+  - type: Unremoveable

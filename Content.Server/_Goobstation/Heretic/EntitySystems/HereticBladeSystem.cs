@@ -129,6 +129,9 @@ public sealed partial class HereticBladeSystem : EntitySystem
         if (string.IsNullOrWhiteSpace(ent.Comp.Path))
             return;
 
+        if (ent.Comp.Path == "Flesh" && HasComp<GhoulComponent>(args.User))
+            args.BonusDamage += args.BaseDamage; // "ghouls can use bloody blades effectively... so real..."
+
         if (!TryComp<HereticComponent>(args.User, out var hereticComp))
             return;
 
@@ -154,9 +157,13 @@ public sealed partial class HereticBladeSystem : EntitySystem
             args.BonusDamage += args.BaseDamage; // double it.
             if (TryComp<DamageableComponent>(args.User, out var dmg))
             {
+                // -5 to all damage types
+                // if infused do -10. why? gaming.
+                var bonusHeal = HasComp<MansusInfusedComponent>(ent) ? 10f : 5f;
+
                 var orig = dmg.Damage.DamageDict;
                 foreach (var k in orig.Keys)
-                    orig[k] -= 5f; // -5 damage to all types. pretty good imo
+                    orig[k] = MathF.Max((float) orig[k] - bonusHeal, 0f);
 
                 _damage.SetDamage(args.User, dmg, new() { DamageDict = orig });
             }

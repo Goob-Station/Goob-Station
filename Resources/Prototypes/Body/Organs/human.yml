@@ -325,6 +325,8 @@
   name: kidneys
   description: "Filters toxins from the bloodstream."
   components:
+  - type: Organ # Shitmed
+    slotId: kidneys
   - type: Sprite
     layers:
       - state: kidney-l
