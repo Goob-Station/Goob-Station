@@ -1,33 +1,23 @@
 # major antags that get picked once during roundstart.
 # the max number of antags is so small because it's used for midround events too.
 # regards.
-# Funky Station unfucked dynamic, not gonna mark EVERY change here.
-# Guide to adding shit:
-# Low/Mid Threat Antag - 5 weight low [2 max, 30 Player Ratio] and a 10 weight high [4 max, 20 player ratio]
-# Side Antag like obsessed - Copy thief and replace the antag and cost accordingly
-# Major Team Antag - Always 5 weight unless major team are ALL too rare, then up all by 1. High impact.
-# High Threat Solo AKA wizard - 10 weight, 1-2 antags at a high level cost. Probably needs their own "only one" category like high impact
-# As extra antags get added, increase basic tot weight
-# Love, the girl that unfucked dynamic <3 - Funky Station
 
-# Traitor - Low Threat Solo
+# Traitor
 - type: entity
   parent: BaseTraitorRuleDynamic
-  id: TraitorDynamicLow
+  id: TraitorDynamic
   components:
   - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-traitor-low-title
-    weight: 5
-    cost: 7
-    scalingCost: 8
-  - type: GameRule
-    minPlayers: 45 # when the difference between low/med/high actually changes antag count
+    nameLoc: dynamic-gamerule-traitor-title
+    weight: 7
+    cost: 4
+    scalingCost: 4
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
       max: 2
-      playerRatio: 30
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
@@ -35,62 +25,16 @@
       mindRoles:
       - MindRoleTraitor
 
-- type: entity
-  parent: BaseTraitorRuleDynamic
-  id: TraitorDynamicMedium
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-traitor-medium-title
-    weight: 15
-    cost: 16
-    scalingCost: 18
-  - type: AntagSelection
-    selectionTime: BeforeJobs
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-
-- type: entity
-  parent: BaseTraitorRuleDynamic
-  id: TraitorDynamicHigh
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-traitor-high-title
-    weight: 10
-    cost: 25
-    scalingCost: 28
-  - type: GameRule
-    minPlayers: 30
-  - type: AntagSelection
-    selectionTime: BeforeJobs
-    definitions:
-    - prefRoles: [ Traitor ]
-      max: 6
-      playerRatio: 15
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleTraitor
-
-# Thief (Spy wyci) - Low Threat Solo, Side Antag
+# Thief (spy wyci)
 - type: entity
   parent: BaseGameRuleDynamic
   id: ThiefDynamic
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-thief-title
-    weight: 20 # Technically the highest, but other antags have to spread their weight. Better than same as tot at least. - Funky
-    cost: 6
-    scalingCost: 7
+    weight: 4
+    cost: 4
+    scalingCost: 5
   - type: ThiefRule
   - type: AntagObjectives
     objectives:
@@ -119,114 +63,43 @@
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"
 
-# Changeling - Medium Threat Solo
+# Changeling
 - type: entity
   parent: BaseGameRuleDynamic
-  id: ChangelingDynamicLow
+  id: ChangelingDynamic
   components:
   - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-changeling-low-title
+    nameLoc: dynamic-gamerule-changeling-title
     weight: 5
-    cost: 10
-    scalingCost: 11
+    cost: 6
+    scalingCost: 6
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 40 # 40 required to make the low preset different from high
-  - type: AntagObjectives
-    objectives:
-    - ChangelingStealDNAObjective
-    - EscapeIdentityObjective
-    - ChangelingSurviveObjective
+    minPlayers: 15
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
       max: 2
-      playerRatio: 30
+      playerRatio: 10
       blacklist:
         components:
         - AntagImmune
-        - Traitor
-        - Heretic
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
 
+# Heretic
 - type: entity
   parent: BaseGameRuleDynamic
-  id: ChangelingDynamicHigh
+  id: HereticDynamic
   components:
   - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-changeling-high-title
-    weight: 10
-    cost: 21
-    scalingCost: 23
-  - type: ChangelingRule
-  - type: GameRule
-    minPlayers: 20 # Changelings are great low pop antags but it doesn't work for dynamic that well :[
-  - type: AntagObjectives
-    objectives:
-    - ChangelingStealDNAObjective
-    - EscapeIdentityObjective
-    - ChangelingSurviveObjective
-  - type: AntagSelection
-    selectionTime: BeforeJobs
-    agentName: changeling-roundend-name
-    definitions:
-    - prefRoles: [ Changeling ]
-      max: 4
-      playerRatio: 20
-      blacklist:
-        components:
-        - AntagImmune
-        - Traitor
-        - Heretic
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleChangeling
-
-# Heretic - Medium Threat Solo
-- type: entity
-  parent: BaseGameRuleDynamic
-  id: HereticDynamicLow
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-heretic-low-title
+    nameLoc: dynamic-gamerule-heretic-title
     weight: 5
-    cost: 12
-    scalingCost: 13
-  - type: HereticRule
-  - type: GameRule
-    minPlayers: 40
-  - type: AntagSelection
-    selectionTime: BeforeJobs
-    agentName: heretic-roundend-name
-    definitions:
-    - prefRoles: [ Heretic ]
-      max: 2
-      playerRatio: 30
-      blacklist:
-        components:
-        - AntagImmune
-      lateJoinAdditional: true
-      mindRoles:
-      - MindRoleHeretic
-  - type: AntagObjectives
-    objectives:
-    - HereticKnowledgeObjective
-    - HereticSacrificeObjective
-    - HereticSacrificeHeadObjective
-
-- type: entity
-  parent: BaseGameRuleDynamic
-  id: HereticDynamicHigh
-  components:
-  - type: DynamicRuleset
-    nameLoc: dynamic-gamerule-heretic-high-title
-    weight: 10
-    cost: 24
-    scalingCost: 26
+    cost: 6
+    scalingCost: 6
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
@@ -235,19 +108,14 @@
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 4
-      playerRatio: 20
+      max: 2
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-  - type: AntagObjectives
-    objectives:
-    - HereticKnowledgeObjective
-    - HereticSacrificeObjective
-    - HereticSacrificeHeadObjective
 
 # Revolution
 - type: entity
@@ -256,8 +124,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-revolutionary-title
-    weight: 10 # Take 5 from this to add to cult when that comes- majors are intended to be 5 weight :3
-    cost: 25
+    weight: 3
+    cost: 20
     highImpact: true
   - type: RevolutionaryRule
   - type: GameRule
@@ -267,7 +135,7 @@
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
-      playerRatio: 20
+      playerRatio: 15
       blacklist:
         components:
         - AntagImmune
@@ -290,8 +158,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-nukeops-title
-    weight: 10 # Take 5 from here when wiz gets added and add that to wizard
-    cost: 25
+    weight: 3
+    cost: 20
     highImpact: true
   - type: GameRule
     minPlayers: 25

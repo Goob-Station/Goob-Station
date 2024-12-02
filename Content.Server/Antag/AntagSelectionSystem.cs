@@ -363,7 +363,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             var curMind = session.GetMind();
 
-            if (curMind == null ||
+            if (curMind == null || 
                 !TryComp<MindComponent>(curMind.Value, out var mindComp) ||
                 mindComp.OwnedEntity != antagEnt)
             {
@@ -378,6 +378,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
             Log.Debug($"Selected {ToPrettyString(curMind)} as antagonist: {ToPrettyString(ent)}");
         }
+
+        // goob edit - actual pacifism implant
+        foreach (var special in def.Special)
+            special.AfterEquip(ent);
 
         var afterEv = new AfterAntagEntitySelectedEvent(session, player, ent, def);
         RaiseLocalEvent(ent, ref afterEv, true);
