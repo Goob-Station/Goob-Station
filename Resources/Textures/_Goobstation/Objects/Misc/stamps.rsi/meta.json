@@ -9,60 +9,6 @@
     "states": [
         {
             "name": "stamp-nanorep"
-        },
-        {
-            "name": "stamp-arc"
-        },
-        {
-            "name": "stamp-arcsmall"
-        },
-        {
-            "name": "stamp-cyberrep"
-        },
-        {
-            "name": "stamp-cybersun"
-        },
-        {
-            "name": "stamp-donkco"
-        },
-        {
-            "name": "stamp-donkrep"
-        },
-        {
-            "name": "stamp-interdyne"
-        },
-        {
-            "name": "stamp-interrep"
-        },
-        {
-            "name": "stamp-sentientfront"
-        },
-        {
-            "name": "stamp-sentientfrontsmall"
-        },
-        {
-            "name": "stamp-ssc"
-        },
-        {
-            "name": "stamp-sscrep"
-        },
-        {
-            "name": "stamp-terra"
-        },
-        {
-            "name": "stamp-terrarep"
-        },
-        {
-            "name": "stamp-uwu"
-        },
-        {
-            "name": "stamp-uwurep"
-        },
-        {
-            "name": "stamp-waffle"
-        },
-        {
-            "name": "stamp-wafflerep"
         }
     ]
 }
