@@ -28,6 +28,7 @@
   name: cybersun representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampCyberRep
+  description: A rubber stamp belonging to a Cybersun corporate lawyer, a respectable corporation on Sol.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-cyberrep
@@ -67,6 +68,7 @@
   name: donk co. representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampDonkRep
+  description: A rubber stamp belonging to a Donk Co corporate lawyer, a respectable corporation on Sol.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-donkrep
@@ -93,6 +95,7 @@
   name: interdyne representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampInterRep
+  description: A rubber stamp belonging to a Interdyne Pharmaceutics corporate lawyer, a respectable corporation on Sol.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-interrep
@@ -119,6 +122,7 @@
   name: s.e.l.f representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampSentientFrontRep
+  description: A rubber stamp belonging to a Sentient Engine Liberation Front lawyer, a respectable NGO on Sol advocating freedom for artificial intelligence and silicones.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-sentientfrontrep
@@ -145,6 +149,7 @@
   name: s.s.c representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampSscRep
+  description: A rubber stamp belonging to a Spinward Stellar Coalition representative, likely there to make new trade deals.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-sscrep
@@ -171,6 +176,7 @@
   name: terragov representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampTerraRep
+  description: A rubber stamp belonging to a TerraGov representative, likely there to make new trade deals.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-terrarep
@@ -197,6 +203,7 @@
   name: waffle corp representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampWaffleRep
+  description: A rubber stamp belonging to a Waffle Corp corporate lawyer, a respectable corporation on Sol.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-wafflerep
