@@ -93,7 +93,32 @@
   outputKnowledge: AshlordRite
   outputEvent: !type:EventHereticAscension
 
+### blade path
+- type: hereticRitual
+  id: BladeBlade
+  locName: knowledge-path-blade-s1-name
+  locDesc: knowledge-path-blade-s1-desc
+  icon:
+    sprite: _Goobstation/Heretic/Blades/blade_blade.rsi
+    state: icon
+  requiredTags:
+    Knife: 4
+  output:
+    HereticBladeBlade: 1
 
+- type: hereticRitual
+  id: AscensionBlade
+  locName: knowledge-path-blade-s9-name
+  locDesc: knowledge-path-blade-s9-desc
+  icon:
+    sprite: _Goobstation/Heretic/items.rsi
+    state: protective_blade
+  customBehaviors:
+  - !type:RitualBladeAscendBehavior
+    min: 3
+    max: 3
+  outputKnowledge: MaelstromOfSilver
+  outputEvent: !type:EventHereticAscension
 
 ### flesh path
 - type: hereticRitual

@@ -1,0 +1,127 @@
+- type: entity
+  name: hardlight bow
+  parent: [BaseItem, BaseSyndicateContraband]
+  id: BowHardlight
+  description: A modern bow that can fabricate hardlight arrows using an internal energy. This one is designed by the Syndicate for silent takedowns of targets.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    layers:
+    - state: bow-folded
+      map: [ "base" ]
+    - state: unwielded-arrow
+      color: "#FFFFFF"
+      visible: false
+      shader: unshaded
+      map: [ "bowstring" ]
+  - type: Item
+    heldPrefix: folded
+    size: Normal
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 1
+  - type: GunRequiresWield
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: UnwieldOnShoot
+  - type: UseDelayBlockShoot
+  - type: BasicEntityAmmoProvider
+    proto: ArrowEnergy
+  - type: AmmoSelector
+    prototypes:
+      - ArrowEnergy
+      - ArrowDisabler
+      - ArrowFiery
+      - ArrowFreeze
+      - ArrowExplosive
+      - ArrowXray
+      - ArrowBee
+  - type: FoldingWeapon
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbOnly: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    wieldToggle: false
+    soundActivate:
+      path: /Audio/Weapons/telescopicon.ogg
+      params:
+        volume: -5
+    soundDeactivate:
+      path: /Audio/Weapons/telescopicoff.ogg
+      params:
+        volume: -5
+  - type: ItemToggleSize
+    activatedSize: Huge
+  - type: ItemTogglePointLight
+  - type: ComponentToggler
+    components:
+    - type: DisarmMalus
+      malus: 0.6
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    energy: 1.5
+    color: white
+    netsync: false
+  - type: Appearance
+  - type: ToggleableLightVisuals
+    spriteLayer: bowstring
+    inhandVisuals:
+      left:
+      - state: inhand-left-bowstring
+        shader: unshaded
+        map: [ "left" ]
+      - state: wielded-inhand-left-bowstring
+        shader: unshaded
+        visible: false
+        map: [ "wielded-left" ]
+      right:
+      - state: inhand-right-bowstring
+        shader: unshaded
+        map: [ "right" ]
+      - state: wielded-inhand-right-bowstring
+        shader: unshaded
+        visible: false
+        map: [ "wielded-right" ]
+    clothingVisuals:
+      back:
+      - state: bowstring-equipped-BACKPACK
+        shader: unshaded
+      suitstorage:
+      - state: bowstring-equipped-BACKPACK
+        shader: unshaded
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bowstring:
+          True: { state: wielded-arrow }
+          False: { state: unwielded-arrow }
+      enum.ToggleVisuals.Toggled:
+        bowstring:
+          True: { visible: true }
+          False: { visible: false }
+        base:
+          True: { state: bow }
+          False: { state: bow-folded }
+  - type: ToggleableLightWieldable
+  # TODO: Zoom

@@ -173,6 +173,25 @@ namespace Content.Server.Cargo.Systems
                 return;
             }
 
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            if (order.Cooldown > 0)
+            {
+                if (orderDatabase.ProductCooldownTime.TryGetValue(order.ProductId, out var cooldownTime) && cooldownTime > _timing.CurTime)
+                {
+                    var timeLeft = (cooldownTime - _timing.CurTime);
+                    (int count, string units) timeInfo = (timeLeft.Minutes > 0) ? (timeLeft.Minutes, "minutes") : (timeLeft.Seconds, "seconds");
+                    ConsolePopup(args.Actor, Loc.GetString("cargo-console-cooldown-active", ("product", order.ProductName), ("timeCount", timeInfo.count), ("timeUnits", timeInfo.units)));
+                    PlayDenySound(uid, component);
+                    return;
+                }
+                if (order.OrderQuantity > 1)
+                {
+                    ConsolePopup(args.Actor, Loc.GetString("cargo-console-cooldown-count", ("product", order.ProductName)));
+                    PlayDenySound(uid, component);
+                    return;
+                }
+            }
+
             var ev = new FulfillCargoOrderEvent((station.Value, stationData), order, (uid, component));
             RaiseLocalEvent(ref ev);
             ev.FulfillmentEntity ??= station.Value;
@@ -187,6 +206,12 @@ namespace Content.Server.Cargo.Systems
                     PlayDenySound(uid, component);
                     return;
                 }
+            }
+
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            if (order.Cooldown > 0)
+            {
+                orderDatabase.ProductCooldownTime[order.ProductId] = _timing.CurTime + TimeSpan.FromSeconds(order.Cooldown);
             }
 
             order.Approved = true;
@@ -358,7 +383,8 @@ namespace Content.Server.Cargo.Systems
 
         private static CargoOrderData GetOrderData(CargoConsoleAddOrderMessage args, CargoProductPrototype cargoProduct, int id)
         {
-            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason);
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            return new CargoOrderData(id, cargoProduct.Product, cargoProduct.Name, cargoProduct.Cost, args.Amount, args.Requester, args.Reason, cargoProduct.Cooldown);
         }
 
         public static int GetOutstandingOrderCount(StationCargoOrderDatabaseComponent component)
@@ -420,7 +446,8 @@ namespace Content.Server.Cargo.Systems
             DebugTools.Assert(_protoMan.HasIndex<EntityPrototype>(spawnId));
             // Make an order
             var id = GenerateOrderId(component);
-            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description);
+            // GoobStation - cooldown on Cargo Orders (specifically gamba)
+            var order = new CargoOrderData(id, spawnId, name, cost, qty, sender, description, 0);
 
             // Approve it now
             order.SetApproverData(dest, sender);

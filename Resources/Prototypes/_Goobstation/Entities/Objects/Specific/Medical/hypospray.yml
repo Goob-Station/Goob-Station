@@ -25,3 +25,142 @@
           Quantity: 10
   - type: Tag
     tags: []
+
+- type: entity
+  name: cartridge autoinjector
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: Used for rapid administration of medicine to wounded people. Uses cartridges printable on security techfab.
+  id: SecHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/security_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/security_hypo.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 10
+        reagents:
+        - ReagentId: Epinephrine
+          Quantity: 10
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    solutionName: hypospray
+    transferAmount: 10
+    onlyAffectsMobs: false
+    injectOnly: true
+  - type: HyposprayBlockNonMobInjection
+  - type: UseDelay
+    delay: 40 # up this later if its too low
+  - type: SolutionCartridgeReceiver
+    tag: AutoinjectorCartridge
+
+- type: entity
+  name: autoinjector cartridge
+  parent: [BaseItem, BaseRestrictedContraband]
+  description: Used in a cartridge autoinjector.
+  id: BaseCartridgeAutoinjector
+  components:
+  - type: Item
+    size: Tiny
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+  - type: Tag
+    tags:
+      - AutoinjectorCartridge
+
+- type: entity
+  name: epinephrine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of epinephrine, used in a cartridge autoinjector.
+  id: CartridgeEpinephrine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-epinephrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Epinephrine
+        Quantity: 10
+
+- type: entity
+  name: brute autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 7u of bicaridine and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgeBicaridine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-bicaridine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Bicaridine
+        Quantity: 7
+      - ReagentId: TranexamicAcid
+        Quantity: 3
+
+- type: entity
+  name: burn autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of dermaline, used in a cartridge autoinjector.
+  id: CartridgeDermaline
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-dermaline
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Dermaline
+        Quantity: 10
+
+- type: entity
+  name: ephedrine autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 10u of ephedrine, used in a cartridge autoinjector.
+  id: CartridgeEphedrine
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ephedrine
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ephedrine
+        Quantity: 10
+
+- type: entity
+  name: ichor autoinjector cartridge
+  parent: BaseCartridgeAutoinjector
+  description: Contains 7u of ichor and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgeIchor
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
+    state: cartridge-ichor
+  - type: SolutionCartridge
+    targetSolution: hypospray
+    solution:
+      maxVol: 10
+      reagents:
+      - ReagentId: Ichor
+        Quantity: 7
+      - ReagentId: TranexamicAcid
+        Quantity: 3

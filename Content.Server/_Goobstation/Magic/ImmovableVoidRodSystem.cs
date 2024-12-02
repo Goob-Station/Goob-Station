@@ -56,7 +56,12 @@ public sealed partial class ImmovableVoidRodSystem : EntitySystem
         || HasComp<GhoulComponent>(args.OtherEntity))
             return;
 
-        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(2.5f), false);
+        var power = 1f;
+        if (ent.Comp.User != null && ent.Comp.User.Value.Comp.CurrentPath == "Void")
+            // ascended void heretic will give 6 SECONDS OF STUN :bluesurprised:
+            power += ent.Comp.User.Value.Comp.PathStage / 2f;
+
+        _stun.TryParalyze(args.OtherEntity, TimeSpan.FromSeconds(power), false);
 
         TryComp<TagComponent>(args.OtherEntity, out var tag);
         var tags = tag?.Tags ?? new();

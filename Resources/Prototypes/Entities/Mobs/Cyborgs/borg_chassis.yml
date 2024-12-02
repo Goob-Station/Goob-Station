@@ -275,7 +275,8 @@
     interactSuccessSound:
       path: /Audio/Ambience/Objects/periodic_beep.ogg
   - type: SurgeryTarget
-  
+  - type: Sanitized
+
 - type: entity
   id: BorgChassisService
   parent: BaseBorgChassisNT

@@ -22,6 +22,8 @@
     sprite: Clothing/Shoes/Boots/jackboots.rsi
   - type: ClothingSlowOnDamageModifier
     modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesBaseButcherable
@@ -56,6 +58,10 @@
     sprite: Clothing/Shoes/Boots/combatboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/combatboots.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesMilitaryBase
@@ -82,6 +88,10 @@
     sprite: Clothing/Shoes/Boots/mercboots.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/mercboots.rsi
+  - type: ClothingSlowOnDamageModifier # Goobstation
+    modifier: 0.5
+  - type: ClothingModifyStunTime # Goobstation
+    modifier: 0.8
 
 - type: entity
   parent: ClothingShoesBaseButcherable

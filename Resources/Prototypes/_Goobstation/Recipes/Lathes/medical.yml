@@ -1,0 +1,31 @@
+- type: latheRecipe
+  id: VehicleWheelchairFolded
+  result: VehicleWheelchairFolded
+  completetime: 1
+  materials:
+    Plastic: 500
+    Cloth: 500
+    Steel: 1000
+
+# Goobstation
+- type: latheRecipe
+  id: SyringeGun
+  result: SyringeGun
+  completetime: 5
+  materials:
+    Steel: 500
+    Glass: 500
+    Plastic: 500
+    Gold: 100
+    Plasma: 100
+
+- type: latheRecipe
+  id: RapidSyringeGun
+  result: RapidSyringeGun
+  completetime: 5
+  materials:
+    Steel: 1000
+    Glass: 1000
+    Plastic: 1000
+    Gold: 200
+    Plasma: 200

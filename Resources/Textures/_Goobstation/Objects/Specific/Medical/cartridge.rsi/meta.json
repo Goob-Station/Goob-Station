@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by ReggieTheRat/a_person5660",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "cartridge"
+    },
+    {
+      "name": "cartridge-bicaridine"
+    },
+    {
+      "name": "cartridge-dermaline"
+    },
+    {
+      "name": "cartridge-epinephrine"
+    },
+    {
+      "name": "cartridge-ephedrine"
+    },
+    {
+      "name": "cartridge-ichor"
+    }
+  ]
+}
