@@ -1,0 +1,49 @@
+- type: entity
+  name: fuel tank (basic)
+  description: Fueltank, it fuels things.
+  id: FuelTankBasic
+  parent: BasePowerCell
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: Tag
+    tags:
+      - PowerCellSmall
+  - type: HitscanBatteryAmmoProvider
+    proto: BulletFlameThrowerBroad
+    fireCost: 5
+  - type: Item
+    size: Large
+
+- type: entity
+  name: fuel tank (napalm)
+  description: Fueltank, it fuels things.
+  id: FuelTankNaplam
+  parent: BasePowerCell
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: small
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: o2
+      shader: unshaded
+  - type: Battery
+    maxCharge: 100
+    startingCharge: 100
+  - type: Tag
+    tags:
+      - PowerCellSmall
+  - type: HitscanBatteryAmmoProvider
+    proto: BulletFlameThrowernarrow
+    fireCost: 2
+  - type: Item
+    size: Large
