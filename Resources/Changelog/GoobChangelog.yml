@@ -2692,3 +2692,9 @@ Entries:
       message: Added a circuit board and crafting recipe for Operating Tables.
   id: 308
   time: '2024-12-02T00:17:10.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Christmas baddies for nukie suits
+  id: 309
+  time: '2024-12-02T00:58:20.0000000+00:00'
