@@ -4,13 +4,13 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 using Content.Server.Destructible;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
@@ -30,7 +30,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
 {

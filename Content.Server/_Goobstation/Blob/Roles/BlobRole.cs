@@ -1,6 +1,6 @@
 using Content.Shared.Roles;
 
-namespace Content.Server.Blob.Roles;
+namespace Content.Server._Goobstation.Blob.Roles;
 
 
 [RegisterComponent]

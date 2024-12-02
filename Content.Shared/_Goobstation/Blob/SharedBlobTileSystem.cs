@@ -1,7 +1,7 @@
-﻿using Content.Shared.Blob.Components;
+﻿using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Verbs;
 
-namespace Content.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 public abstract class SharedBlobTileSystem : EntitySystem
 {

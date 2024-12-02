@@ -1,5 +1,5 @@
-﻿using Content.Shared.Blob.Components;
-using Content.Shared.Blob.NPC.BlobPod;
+﻿using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 
 namespace Content.Client._Goobstation.Blob;
 

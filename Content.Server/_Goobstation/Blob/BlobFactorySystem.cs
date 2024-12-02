@@ -1,8 +1,8 @@
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 using Content.Server.Popups;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
-using Content.Shared.Blob.NPC.BlobPod;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
@@ -13,7 +13,7 @@ using Content.Shared.Weapons.Melee;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobFactorySystem : EntitySystem
 {

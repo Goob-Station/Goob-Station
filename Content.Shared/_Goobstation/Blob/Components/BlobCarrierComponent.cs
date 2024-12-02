@@ -5,7 +5,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Blob.Components;
+namespace Content.Shared._Goobstation.Blob.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BlobCarrierComponent : Component

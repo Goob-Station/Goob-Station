@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 using Content.Client.Weapons.Melee;
-using Content.Shared.Blob;
+using Content.Shared._Goobstation.Blob;
 using Robust.Client.Audio;
 using Robust.Shared.Prototypes;
 

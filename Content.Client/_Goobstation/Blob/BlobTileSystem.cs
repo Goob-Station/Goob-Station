@@ -1,6 +1,6 @@
 ﻿using Content.Client.DamageState;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Robust.Client.GameObjects;
 using Robust.Shared.GameStates;
 

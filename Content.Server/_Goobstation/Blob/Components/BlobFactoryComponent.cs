@@ -1,7 +1,7 @@
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Blob.Components;
+namespace Content.Server._Goobstation.Blob.Components;
 
 [RegisterComponent]
 public sealed partial class BlobFactoryComponent : Component

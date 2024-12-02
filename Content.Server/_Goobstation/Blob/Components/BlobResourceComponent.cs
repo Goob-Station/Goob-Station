@@ -1,6 +1,6 @@
 using Content.Shared.FixedPoint;
 
-namespace Content.Server.Blob.Components;
+namespace Content.Server._Goobstation.Blob.Components;
 
 [RegisterComponent]
 public sealed partial class BlobResourceComponent : Component

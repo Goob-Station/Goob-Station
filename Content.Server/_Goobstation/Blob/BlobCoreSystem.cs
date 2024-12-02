@@ -4,7 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Content.Server.Actions;
 using Content.Server.AlertLevel;
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Objectives;
 using Content.Server.Explosion.EntitySystems;
@@ -14,8 +14,8 @@ using Content.Server.Station.Systems;
 using Content.Server.Store.Systems;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Explosion.Components;
@@ -34,7 +34,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobCoreSystem : EntitySystem
 {

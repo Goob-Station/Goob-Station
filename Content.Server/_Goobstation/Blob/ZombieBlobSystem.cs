@@ -13,8 +13,8 @@ using Content.Server.Roles;
 using Content.Server.Speech.Components;
 using Content.Server.Temperature.Components;
 using Content.Shared.Atmos;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Inventory;
 using Content.Shared.Mind.Components;
@@ -32,7 +32,7 @@ using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class ZombieBlobSystem : SharedZombieBlobSystem
 {

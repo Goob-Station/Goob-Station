@@ -1,12 +1,12 @@
 ﻿using Content.Server.Actions;
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 //using Content.Server.Language;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;
 using Content.Server.Ghost.Roles.Components;
 using Content.Server.Mind;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 // using Content.Shared.Language;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -14,7 +14,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobCarrierSystem : SharedBlobCarrierSystem
 {

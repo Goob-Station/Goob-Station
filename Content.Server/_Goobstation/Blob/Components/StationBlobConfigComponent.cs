@@ -2,7 +2,7 @@
 //using Content.Server.SpecForces;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Blob.Components;
+namespace Content.Server._Goobstation.Blob.Components;
 
 [RegisterComponent]
 public sealed partial class StationBlobConfigComponent : Component

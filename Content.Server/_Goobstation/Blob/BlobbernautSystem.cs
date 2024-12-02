@@ -2,8 +2,8 @@ using System.Linq;
 using System.Numerics;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
@@ -15,7 +15,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobbernautSystem : SharedBlobbernautSystem
 {

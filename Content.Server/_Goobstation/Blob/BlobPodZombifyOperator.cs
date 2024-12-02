@@ -1,9 +1,9 @@
-using Content.Server.Blob.NPC.BlobPod;
+using Content.Server._Goobstation.Blob.NPC.BlobPod;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.HTN.PrimitiveTasks;
-using Content.Shared.Blob.Components;
-using Content.Shared.Blob.NPC.BlobPod;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 
 namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
 

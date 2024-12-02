@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 //using Content.Server.Language;
 //using Content.Server.Language.Events;
 using Content.Server.Chat.Systems;
@@ -9,9 +9,9 @@ using Content.Server.Popups;
 using Content.Server.Radio;
 using Content.Server.Radio.Components;
 using Content.Server.Radio.EntitySystems;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Chemistry;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Chemistry;
+using Content.Shared._Goobstation.Blob.Components;
 //using Content.Shared.Language;
 //using Content.Shared.Targeting;
 using Content.Shared.Chat;
@@ -29,7 +29,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobMobSystem : SharedBlobMobSystem
 {

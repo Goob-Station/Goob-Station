@@ -1,4 +1,4 @@
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 
 namespace Content.Server.Objectives;
 

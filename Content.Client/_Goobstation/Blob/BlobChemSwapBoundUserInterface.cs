@@ -1,5 +1,5 @@
-﻿using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+﻿using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 

@@ -2,7 +2,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Blob.Components;
+namespace Content.Shared._Goobstation.Blob.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlobPodComponent : Component

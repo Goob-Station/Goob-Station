@@ -1,5 +1,5 @@
-﻿using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+﻿using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 
 namespace Content.Client._Goobstation.Blob;
 public sealed class BlobCarrierSystem : SharedBlobCarrierSystem

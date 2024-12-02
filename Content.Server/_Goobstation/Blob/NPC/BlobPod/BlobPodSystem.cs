@@ -1,12 +1,12 @@
-using Content.Server.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
 using Content.Server.NPC.Systems;
 using Content.Server.Popups;
 using Content.Shared.ActionBlocker;
-using Content.Shared.Blob.Components;
-using Content.Shared.Blob.NPC.BlobPod;
+using Content.Shared._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
@@ -22,7 +22,7 @@ using Robust.Server.Audio;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 
-namespace Content.Server.Blob.NPC.BlobPod;
+namespace Content.Server._Goobstation.Blob.NPC.BlobPod;
 
 public sealed class BlobPodSystem : SharedBlobPodSystem
 {

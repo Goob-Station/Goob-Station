@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Numerics;
 using Content.Server.Actions;
-using Content.Server.Blob.Components;
-using Content.Server.Blob.Roles;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Server._Goobstation.Blob.Roles;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Hands.Systems;
@@ -11,8 +11,8 @@ using Content.Server.Roles;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Actions;
 using Content.Shared.Alert;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mind;
@@ -25,7 +25,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobObserverSystem : SharedBlobObserverSystem
 {

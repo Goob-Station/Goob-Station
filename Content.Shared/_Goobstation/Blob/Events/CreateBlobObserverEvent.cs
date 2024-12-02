@@ -1,7 +1,7 @@
 ﻿using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 [Serializable, NetSerializable]
 public sealed partial class CreateBlobObserverEvent : CancellableEntityEventArgs

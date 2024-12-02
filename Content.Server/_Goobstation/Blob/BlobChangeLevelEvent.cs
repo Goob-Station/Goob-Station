@@ -1,7 +1,7 @@
 ﻿using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobChangeLevelEvent : EntityEventArgs
 {

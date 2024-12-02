@@ -2,7 +2,7 @@ using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Blob.Components;
+namespace Content.Shared._Goobstation.Blob.Components;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class BlobMobComponent : Component

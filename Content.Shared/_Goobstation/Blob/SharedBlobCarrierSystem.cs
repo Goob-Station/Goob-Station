@@ -1,8 +1,8 @@
-﻿using Content.Shared.Blob.Components;
+﻿using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Popups;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.Blob;
+namespace Content.Shared._Goobstation.Blob;
 
 public abstract class SharedBlobCarrierSystem : EntitySystem
 {

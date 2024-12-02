@@ -1,10 +1,10 @@
-using Content.Server.Blob.Components;
-using Content.Shared.Blob;
-using Content.Shared.Blob.Components;
+using Content.Server._Goobstation.Blob.Components;
+using Content.Shared._Goobstation.Blob;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 
-namespace Content.Server.Blob;
+namespace Content.Server._Goobstation.Blob;
 
 public sealed class BlobResourceSystem : EntitySystem
 {

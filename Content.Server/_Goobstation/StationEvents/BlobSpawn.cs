@@ -6,7 +6,7 @@ using Content.Server.Nutrition.Components;
 using Content.Server.Station.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Random;
-using Content.Shared.Blob.Components;
+using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Players;
 using Content.Shared.Station.Components;

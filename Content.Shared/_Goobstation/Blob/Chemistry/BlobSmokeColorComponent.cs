@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.GameStates;
 
-namespace Content.Shared.Blob.Chemistry;
+namespace Content.Shared._Goobstation.Blob.Chemistry;
 
 /// <summary>
 /// This is used for...
