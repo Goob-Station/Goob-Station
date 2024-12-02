@@ -95,7 +95,7 @@
   name: interdyne representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampInterRep
-  description: A rubber stamp belonging to a Interdyne Pharmaceutics corporate lawyer, a respectable corporation on Sol.
+  description: A rubber stamp belonging to an Interdyne Pharmaceutics corporate lawyer, a respectable corporation on Sol.
   components:
   - type: Stamp
     stampedName: stamp-component-stamped-name-interrep
