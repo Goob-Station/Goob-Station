@@ -2658,3 +2658,37 @@ Entries:
         configuration menus
   id: 307
   time: '2024-12-01T23:42:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed touching light bulbs damaging your torso instead of your hands
+    - type: Fix
+      message: >-
+        Fixed clumsy clowns damaging their torsos instead of their head when
+        hitting a table.
+    - type: Fix
+      message: Fixed borgs being unable to wear hats
+    - type: Fix
+      message: Fixed diona nymphs imploding as soon as they appear (lol)
+    - type: Fix
+      message: Fixed slime stomachs being unable to metabolize chemicals.
+    - type: Fix
+      message: >-
+        Fixed part damage code not caring about whether or not damage should
+        ignore resistances.
+    - type: Fix
+      message: Fixed monkeys not having hands.
+    - type: Fix
+      message: Fixed some simple mobs being unable to equip apparel or gear.
+    - type: Fix
+      message: Fixed mannequins not working.
+    - type: Fix
+      message: Fixed hands being added out of order on surgical reattachment.
+    - type: Fix
+      message: >-
+        Fixed fire gibbing not removing your organs properly, in turn allowing
+        you to continue living as a nugget.
+    - type: Tweak
+      message: Added a circuit board and crafting recipe for Operating Tables.
+  id: 308
+  time: '2024-12-02T00:17:10.0000000+00:00'
