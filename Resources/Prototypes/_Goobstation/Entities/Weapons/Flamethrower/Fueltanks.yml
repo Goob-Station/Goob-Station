@@ -18,7 +18,7 @@
     tags:
       - PowerCellSmall
   - type: HitscanBatteryAmmoProvider
-    proto: BulletFlameThrowerBroad
+    proto: BulletFlameThrowerSpreadBroad
     fireCost: 5
   - type: Item
     size: Large
@@ -43,7 +43,7 @@
     tags:
       - PowerCellSmall
   - type: HitscanBatteryAmmoProvider
-    proto: BulletFlameThrowernarrow
+    proto: BulletFlameThrowerSpreadnarrow
     fireCost: 2
   - type: Item
     size: Large
