@@ -1,16 +1,15 @@
 # same with roundstart, highImpact means it can only be spawned once
 # the only weights that work are in DynamicRuleset
-# Many changes to unfuck it - Funky Station
 
 # Midround Traitors
 - type: entity
-  parent: TraitorDynamicLow # shityml but does the job to be fair, better than pre-unfuck
+  parent: TraitorDynamic
   id: TraitorDynamicMidround
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-traitor-title
-    weight: 30 
-    cost: 9 # Lmao at 3 cost, the average game has 10-30 midgame pretty often
+    weight: 8
+    cost: 3
   - type: StationEvent
     earliestStart: 30
     weight: 10
@@ -21,16 +20,18 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Changelings
 - type: entity
-  parent: ChangelingDynamicLow
+  parent: ChangelingDynamic
   id: ChangelingDynamicMidround
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-changeling-title
-    weight: 15
-    cost: 12 
+    weight: 6
+    cost: 5
   - type: StationEvent
     earliestStart: 20
     weight: 3
@@ -41,19 +42,21 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Heretics
 - type: entity
-  parent: HereticDynamicLow
+  parent: HereticDynamic
   id: HereticDynamicMidround
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-heretic-title
-    weight: 15
-    cost: 15
+    weight: 6
+    cost: 5
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -61,6 +64,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Revolutionaries
 - type: entity
@@ -69,16 +74,18 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-revolutionary-title
-    weight: 5
-    cost: 30
+    weight: 3
+    cost: 7
     highImpact: true
   - type: StationEvent
-    earliestStart: 20 
-    weight: 3 
+    earliestStart: 20
+    weight: 3
     minimumPlayers: 30
     maxOccurrences: 1
     duration: null
     occursDuringRoundEnd: false
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Skeleton Spawn
 - type: entity
@@ -87,8 +94,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-skeleton-title
-    weight: 20
-    cost: 5
+    weight: 5
+    cost: 3
   - type: StationEvent
     weight: 5
     duration: 1
@@ -103,8 +110,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-dragon-title
-    weight: 10
-    cost: 15
+    weight: 3
+    cost: 7
     highImpact: true
   - type: StationEvent
     weight: 6.5
@@ -137,8 +144,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ninja-title
-    weight: 10
-    cost: 10
+    weight: 3
+    cost: 7
     highImpact: true
   - type: StationEvent
     weight: 6
@@ -191,8 +198,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-revenant-title
-    weight: 5
-    cost: 7
+    weight: 3
+    cost: 5
     highImpact: true
   - type: StationEvent
     weight: 7.5
@@ -209,8 +216,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-midround-zombies-title
-    weight: 5
-    cost: 30
+    weight: 2
+    cost: 10
     highImpact: true
   - type: StationEvent
     earliestStart: 90
@@ -221,8 +228,8 @@
   - type: AntagSelection
     definitions:
     - prefRoles: [ InitialInfected ]
-      max: 4
-      playerRatio: 15
+      max: 3
+      playerRatio: 10
       blacklist:
         components:
         - ZombieImmune
@@ -248,8 +255,8 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-loneop-title
-    weight: 5
-    cost: 15
+    weight: 3
+    cost: 7
     highImpact: true
   - type: StationEvent
     earliestStart: 35
@@ -262,6 +269,7 @@
   - type: NukeopsRule
     warDeclarationMinOps: 1 # challenge mode
   - type: AntagSelection
+    selectionTime: PostPlayerSpawn
     definitions:
     - spawnerPrototype: SpawnPointNukeopsCommander
       min: 1
@@ -287,7 +295,7 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-ratking-title
-    weight: 10
+    weight: 5
     cost: 7
     highImpact: true
   - type: StationEvent

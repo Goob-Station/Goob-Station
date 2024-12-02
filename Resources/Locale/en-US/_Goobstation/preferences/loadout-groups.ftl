@@ -5,9 +5,13 @@ loadout-group-ntr-belt = Nanotrasen Representative belt
 loadout-group-ntr-shoes = Nanotrasen Representative shoes
 
 loadout-group-bso-head = Blueshield Officer head
+loadout-group-bso-backpack = Blueshield Officer backpack
 loadout-group-bso-jumpsuit = Blueshield Officer jumpsuit
 loadout-group-bso-outer = Blueshield Officer armor
 loadout-group-bso-neck = Blueshield Officer neck
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
+
+loadout-group-security-neck = Security neck
+
 

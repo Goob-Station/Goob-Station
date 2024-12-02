@@ -352,6 +352,7 @@
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
+  - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
@@ -368,6 +369,7 @@
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityNeck
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
@@ -396,6 +398,7 @@
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
+  - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity

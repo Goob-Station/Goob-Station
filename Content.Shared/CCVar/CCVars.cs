@@ -934,7 +934,7 @@ namespace Content.Shared.CCVar
         /// <seealso cref="AhelpAdminPrefix"/>
         /// <seealso cref="AhelpAdminPrefixWebhook"/>
         public static readonly CVarDef<bool> AdminUseCustomNamesAdminRank =
-            CVarDef.Create("admin.use_custom_names_admin_rank", true, CVar.SERVERONLY);
+            CVarDef.Create("admin.use_custom_names_admin_rank", false, CVar.SERVERONLY);
 
         /*
          * AHELP
@@ -962,7 +962,7 @@ namespace Content.Shared.CCVar
         /// <seealso cref="AdminUseCustomNamesAdminRank"/>
         /// <seealso cref="AhelpAdminPrefixWebhook"/>
         public static readonly CVarDef<bool> AhelpAdminPrefix =
-            CVarDef.Create("ahelp.admin_prefix", false, CVar.SERVERONLY);
+            CVarDef.Create("ahelp.admin_prefix", true, CVar.SERVERONLY);
 
         /// <summary>
         /// Should the administrator's position be displayed in the webhook.
@@ -971,7 +971,7 @@ namespace Content.Shared.CCVar
         /// <seealso cref="AdminUseCustomNamesAdminRank"/>
         /// <seealso cref="AhelpAdminPrefix"/>
         public static readonly CVarDef<bool> AhelpAdminPrefixWebhook =
-            CVarDef.Create("ahelp.admin_prefix_webhook", false, CVar.SERVERONLY);
+            CVarDef.Create("ahelp.admin_prefix_webhook", true, CVar.SERVERONLY);
 
         /*
          * Explosions
@@ -2447,7 +2447,50 @@ namespace Content.Shared.CCVar
         #region Surgery
 
         public static readonly CVarDef<bool> CanOperateOnSelf =
-            CVarDef.Create("surgery.can_operate_on_self", false, CVar.SERVERONLY);
+            CVarDef.Create("surgery.can_operate_on_self", true, CVar.SERVERONLY);
+
+        #endregion
+
+        #region Discord AHelp Reply System
+
+        /// <summary>
+        ///     If an admin replies to users from discord, should it use their discord role color? (if applicable)
+        ///     Overrides DiscordReplyColor and AdminBwoinkColor.
+        /// </summary>
+        public static readonly CVarDef<bool> UseDiscordRoleColor =
+            CVarDef.Create("admin.use_discord_role_color", true, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     If an admin replies to users from discord, should it use their discord role name? (if applicable)
+        /// </summary>
+        public static readonly CVarDef<bool> UseDiscordRoleName =
+            CVarDef.Create("admin.use_discord_role_name", true, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     The text before an admin's name when replying from discord to indicate they're speaking from discord.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordReplyPrefix =
+            CVarDef.Create("admin.discord_reply_prefix", "(DISCORD) ", CVar.SERVERONLY);
+
+        /// <summary>
+        ///     The color of the names of admins. This is the fallback color for admins.
+        /// </summary>
+        public static readonly CVarDef<string> AdminBwoinkColor =
+            CVarDef.Create("admin.admin_bwoink_color", "red", CVar.SERVERONLY);
+
+        /// <summary>
+        ///     The color of the names of admins who reply from discord. Leave empty to disable.
+        ///     Overrides AdminBwoinkColor.
+        /// </summary>
+        public static readonly CVarDef<string> DiscordReplyColor =
+            CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Use the admin's Admin OOC color in bwoinks.
+        ///     If either the ooc color or this is not set, uses the admin.admin_bwoink_color value.
+        /// </summary>
+        public static readonly CVarDef<bool> UseAdminOOCColorInBwoinks =
+            CVarDef.Create("admin.bwoink_use_admin_ooc_color", true, CVar.SERVERONLY);
 
         #endregion
     }
