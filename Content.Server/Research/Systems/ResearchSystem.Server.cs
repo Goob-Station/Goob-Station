@@ -145,7 +145,7 @@ public sealed partial class ResearchSystem
         {
             RaiseLocalEvent(client, ref ev);
         }
-        RaiseLocalEvent(uid, ref ev); // Goobstation: We raise on the server as well in case its working as a point source as well.
+        RaiseLocalEvent(uid, ref ev); // Goobstation: We raise on the server as well in case its working as a point source.
         return ev.Points;
     }
 
