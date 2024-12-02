@@ -490,6 +490,32 @@
     receivedPopup: christmas-tree-got-gift
     deniedPopup: christmas-tree-no-gift
     requiredHoliday: FestiveSeason
+  - type: Destructible # Goobstation
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 400
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/tree_fell.ogg
+          params:
+            volume: 5
+            variation: 0.05
+      - !type:KillSignCauseBehavior
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          Log:
+            min: 2
+            max: 8
 
 - type: entity
   parent: FloraTreeChristmas02
