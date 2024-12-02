@@ -2712,3 +2712,9 @@ Entries:
         bicaridine!
   id: 311
   time: '2024-12-02T01:09:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic ashen jaunt messing up the action bar.
+  id: 312
+  time: '2024-12-02T01:12:11.0000000+00:00'
