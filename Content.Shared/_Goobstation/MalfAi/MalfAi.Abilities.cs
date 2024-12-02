@@ -12,3 +12,4 @@ public sealed partial class MalfAiActionComponent : Component
 public sealed partial class OpenModuleMenuEvent : InstantActionEvent { }
 public sealed partial class ProgramOverrideEvent : EntityTargetActionEvent { }
 public sealed partial class MachineOverloadEvent : EntityTargetActionEvent { }
+public sealed partial class RCDDestructionEvent : InstantActionEvent { }

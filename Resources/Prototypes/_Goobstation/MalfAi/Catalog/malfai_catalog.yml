@@ -5,7 +5,20 @@
   icon: { sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi, state: machine_overload }
   productAction: MachineOverload
   useDelay: 5
+  charges: 2
   cost:
     ControlPower: 15
+  categories:
+  - MalfAiDestructiveModules
+
+- type: listing
+  id: RCDDestruction
+  name: modulemenu-rcddestruction-name
+  description: modulemenu-rcddestruction-desc
+  icon: { sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi, state: rcd_destruction }
+  productAction: RCDDestruction
+  charges: 1
+  cost:
+    ControlPower: 25
   categories:
   - MalfAiDestructiveModules

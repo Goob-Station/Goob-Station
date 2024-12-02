@@ -14,3 +14,7 @@ modulemenu-destructive-overload-name = Machine overload
 modulemenu-destructive-overload-desc =
     Overload a machine, causing it to explode after a 3 second delay.
     Grants 2 uses per purchase
+
+modulemenu-rcddestruction-name = RCD overload
+modulemenu-rcddestruction-desc =
+    Overloads RCDs on the station, destroying them and causing a small and powerfull explosion.

@@ -30,7 +30,6 @@
       state: program_override
     event: !type:ProgramOverrideEvent {}
 
-
 - type: entity
   id: MachineOverload
   name: Machine overload
@@ -38,7 +37,6 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
-    charges: 2
     useDelay: 5
     whitelist:
       components:
@@ -50,3 +48,17 @@
       sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
       state: machine_overload
     event: !type:MachineOverloadEvent {}
+
+- type: entity
+  id: RCDDestruction
+  name: Destroy RCDs
+  description: Overloads stations RCDs, causing them to powerfully explode after heating up.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    charges: 1
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/MalfAi/MalfAi_Abilities.rsi
+      state: rcd_destruction
+    event: !type:RCDDestructionEvent

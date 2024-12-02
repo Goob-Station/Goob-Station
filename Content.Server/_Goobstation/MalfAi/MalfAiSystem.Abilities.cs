@@ -12,6 +12,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mobs;
 using Content.Shared.Store.Components;
 using Content.Shared.Popups;
+using Content.Shared.RCD.Components;
 using Robust.Shared.Prototypes;
 using Robust.Server.GameObjects;
 using Timer = Robust.Shared.Timing.Timer;
@@ -27,6 +28,7 @@ public sealed partial class MalfAiSystem : EntitySystem
         SubscribeLocalEvent<MalfAiComponent, OpenModuleMenuEvent>(OnOpenModuleMenu);
         SubscribeLocalEvent<MalfAiComponent, ProgramOverrideEvent>(OnProgramOverride);
         SubscribeLocalEvent<MalfAiComponent, MachineOverloadEvent>(OnMachineOverload);
+        SubscribeLocalEvent<MalfAiComponent, RCDDestructionEvent>(OnRCDDestruction);
     }
     private void OnOpenModuleMenu(EntityUid uid, MalfAiComponent comp, ref OpenModuleMenuEvent args)
     {
@@ -56,6 +58,8 @@ public sealed partial class MalfAiSystem : EntitySystem
             _store.UpdateUserInterface(uid, uid, store);
         }
     }
+
+#region destructive
     private void OnMachineOverload(EntityUid uid, MalfAiComponent comp, ref MachineOverloadEvent args)
     {
         var target = args.Target;
@@ -71,5 +75,31 @@ public sealed partial class MalfAiSystem : EntitySystem
                 maxTileIntensity: 7);
         });
     }
+    private void OnRCDDestruction(EntityUid uid, MalfAiComponent comp, ref RCDDestructionEvent args)
+    {
+        var RCDs = new List<Entity<RCDComponent>>();
+        var query = EntityQueryEnumerator<RCDComponent, TransformComponent>();
+        while (query.MoveNext(out var rcdUid, out var rcd, out var xform))
+        {
+            RCDs.Add((rcdUid, rcd));
+        }
 
+        var toExplode = RCDs.Count;
+        if (toExplode == 0)
+            return;
+
+        for (var i = 0; i < toExplode; i++)
+        {
+            _explosionSystem.QueueExplosion(
+                (RCDs[i]),
+                typeId: "Default",
+                totalIntensity: 50,
+                slope: 9,
+                maxTileIntensity: 10);
+            QueueDel(RCDs[i]);
+        }
+
+
+    }
+#endregion
 }

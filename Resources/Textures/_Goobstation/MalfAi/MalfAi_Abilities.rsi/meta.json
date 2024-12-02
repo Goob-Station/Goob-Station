@@ -18,6 +18,9 @@
 		},
 		{
 			"name": "machine_overload"
-		}
+		},
+        {
+            "name": "rcd_destruction"
+        }
     ]
 }
