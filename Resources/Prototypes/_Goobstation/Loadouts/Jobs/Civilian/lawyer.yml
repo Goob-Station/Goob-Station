@@ -28,8 +28,8 @@
       !type:RoleTimeRequirement
       role: JobLawyer
       time: 72000 # 20hr
-    storage:
-      back:
+  storage:
+    back:
       - RubberStampDonkRep
 
 - type: loadout
@@ -52,8 +52,8 @@
       !type:RoleTimeRequirement
       role: JobLawyer
       time: 72000 # 20hr
-    storage:
-      back:
+  storage:
+    back:
       - RubberStampSentientFrontRep
 
 - type: loadout
@@ -64,8 +64,8 @@
       !type:RoleTimeRequirement
       role: JobLawyer
       time: 72000 # 20hr
-    storage:
-      back:
+  storage:
+    back:
       - RubberStampWaffleRep
 
 # Governments stamps
