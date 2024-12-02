@@ -186,7 +186,6 @@
   - type: SurgeryPartRemovedCondition
     connection: hands
     part: Hand
-    symmetry: Left # shitcode i guess because of ui icons
 
 - type: entity
   parent: SurgeryBase

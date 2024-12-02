@@ -49,3 +49,13 @@ uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing 
 
 uplink-smugglers-satchel-name = Smuggler's Satchel
 uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
+
+# Weapons
+
+uplink-weapon-burner-name = Burner Heavy Rifle Bundle
+uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a couple of magazines, including some high-explosive rounds.
+
+# Ammo
+
+uplink-high-caliber-box-name = 30 round .50 Box
+uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.

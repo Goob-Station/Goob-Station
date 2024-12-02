@@ -5,19 +5,19 @@
   - Bagel
   - Box
   - Cluster
-  #- Cog # Goobstation - cog is broken
+  #- Cog Goobstation - cog is broken
   - Core
   - Fland
   - Marathon
-  - Meta
-  - Oasis
-  - Omega
-  - Origin
-  - Saltern
-  - Packed
-  - Reach
-#  - Train # Goobstation - all my friends hate train
+  #- Meta TODO: pirasmas meta
+  #- Oasis TODO: pirasmas oasis
+  #- Omega TODO: pirasmas omega
+  #- Origin TODO: pirasmas origin
+  #- Saltern TODO: pirasmas saltern
+  #- Packed TODO: pirasmas packed
+  #- Reach TODO: pirasmas reach
+  #- Train Goobstation - all my friends hate train
   - FlandHighPop
-  - OasisHighPop
+  #- OasisHighPop TODO: pirasmas oasis
   - Barratry # Goobstation - Re-add barratry
   - Kettle # Goobstation - Re-add kettle (before it was gemini!)
