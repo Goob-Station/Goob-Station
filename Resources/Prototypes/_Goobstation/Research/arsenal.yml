@@ -17,7 +17,7 @@
   id: Gygax
   name: research-technology-gygax
   icon:
-    sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+    sprite: Objects/Specific/Mech/mecha.rsi
     state: gygax
   discipline: Arsenal
   tier: 2

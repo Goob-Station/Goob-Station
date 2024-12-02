@@ -83,6 +83,7 @@
       mech-pilot-slot: !type:ContainerSlot
       mech-equipment-container: !type:Container
       mech-battery-slot: !type:ContainerSlot
+      paper_label: !type:ContainerSlot # Goobstation
   - type: Damageable
     damageContainer: Inorganic
     damageModifierSet: LightArmor # Goobstation
@@ -105,6 +106,32 @@
         node: start
       - !type:DoActsBehavior
         acts: ["Destruction"]
+  # Goobstation Change Start
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Paper: { state: paper }
+          Bounty: { state: bounty }
+          CaptainsPaper: { state: captains_paper }
+          Invoice: { state: invoice }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Label
+      ejectVerbText: Remove Label
+      whitelist:
+        components:
+        - Paper
+      blacklist:
+        tags:
+        - Book
+  - type: StaticPrice
+    price: 450
+  # Goobstation Change End
 
 - type: entity
   id: MechRipley

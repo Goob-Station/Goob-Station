@@ -19,6 +19,8 @@
   - type: Tag
     tags:
     - CombatMech
+  - type: StaticPrice
+    price: 500
 
 - type: entity
   id: IndustrialMechEquipment
@@ -28,6 +30,8 @@
   - type: Tag
     tags:
     - IndustrialMech
+  - type: StaticPrice
+    price: 250
 
 - type: entity
   id: SpecialMechEquipment

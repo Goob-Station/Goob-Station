@@ -6,7 +6,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: ripleymkii
   - type: ConditionalSpawner
     prototypes:
@@ -21,7 +21,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: honker
   - type: ConditionalSpawner
     prototypes:
@@ -35,7 +35,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: clarke
   - type: ConditionalSpawner
     prototypes:
@@ -49,7 +49,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: gygax
   - type: ConditionalSpawner
     prototypes:
@@ -63,7 +63,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: durand
   - type: ConditionalSpawner
     prototypes:
@@ -77,7 +77,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: marauder
   - type: ConditionalSpawner
     prototypes:
@@ -92,7 +92,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: marauder
   - type: ConditionalSpawner
     prototypes:
@@ -106,7 +106,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: seraph
   - type: ConditionalSpawner
     prototypes:
@@ -121,7 +121,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: seraph
   - type: ConditionalSpawner
     prototypes:
@@ -135,7 +135,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: darkgygax
   - type: ConditionalSpawner
     prototypes:
@@ -150,7 +150,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: darkgygax
   - type: ConditionalSpawner
     prototypes:
@@ -164,7 +164,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: mauler
   - type: ConditionalSpawner
     prototypes:
@@ -179,7 +179,7 @@
   - type: Sprite
     layers:
       - state: green
-      - sprite: _Goobstation/Objects/Specific/Mech/mecha.rsi
+      - sprite: Objects/Specific/Mech/mecha.rsi
         state: mauler
   - type: ConditionalSpawner
     prototypes:

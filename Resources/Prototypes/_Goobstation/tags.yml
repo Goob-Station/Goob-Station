@@ -114,3 +114,15 @@
 
 - type: Tag
   id: SpecialMech
+
+- type: Tag
+  id: RipleyMkII
+  
+- type: Tag
+  id: Clarke
+
+- type: Tag
+  id: Durand
+
+- type: Tag
+  id: Gygax
