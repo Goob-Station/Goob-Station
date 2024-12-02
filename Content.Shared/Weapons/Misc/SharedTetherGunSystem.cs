@@ -176,7 +176,8 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
             return false;
 
         if (physics.BodyType == BodyType.Static && !component.CanUnanchor ||
-            _container.IsEntityInContainer(target))
+            _container.IsEntityInContainer(target) ||
+            HasComp<PhysicsGunBlacklistComponent>(target)) // Goobstation
             return false;
 
         if (physics.Mass > component.MassLimit)
