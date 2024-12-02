@@ -13,6 +13,8 @@
     state: operating_table
   - type: OperatingTable
   # Begin Shitmed Changes
+  - type: Machine
+    board: OperatingTableCircuitboard
   - type: DeviceList
   - type: DeviceNetwork
     deviceNetId: Wired
