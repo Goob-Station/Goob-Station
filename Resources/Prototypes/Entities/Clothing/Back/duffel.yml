@@ -243,6 +243,13 @@
   - type: ClothingSpeedModifier
     sprintModifier: 1 # makes its stats identical to other variants of bag of holding
   - type: HeldSpeedModifier
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 2000
+      Silver: 750
+      Plasma: 1500
+      Uranium: 150
+      BSCrystal: 200
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]

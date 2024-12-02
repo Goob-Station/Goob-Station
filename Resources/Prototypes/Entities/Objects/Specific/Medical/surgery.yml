@@ -400,6 +400,11 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 600
+      Glass: 150 
+      Gold: 150
 
 - type: entity
   name: mechanical pinches

@@ -243,6 +243,10 @@
       beaker:
         maxVol: 60
         canReact: false
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Plastic: 50
 
 - type: entity
   name: bluespace beaker
@@ -316,6 +320,10 @@
   - type: Tag
     tags:
     - Dropper
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 200
+      Plastic: 100
 
 - type: entity
   name: borgdropper
@@ -564,6 +572,10 @@
     tags:
     - Syringe
     - Trash
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Plastic: 50
 
 
 - type: entity

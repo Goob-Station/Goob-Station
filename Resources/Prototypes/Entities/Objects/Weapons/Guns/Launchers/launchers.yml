@@ -195,6 +195,11 @@
           unshaded:
             True: { visible: true }
             False: { visible: false }
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 500
+        Glass: 400
+        Silver: 100
 
 - type: entity
   name: force gun
@@ -243,6 +248,11 @@
               unshaded:
                 True: { visible: true }
                 False: { visible: false }
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 500
+        Glass: 400
+        Silver: 200
 
 - type: entity
   name: grappling gun
