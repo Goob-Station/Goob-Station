@@ -11,13 +11,13 @@ public sealed partial class StationBlobConfigComponent : Component
     public const int DefaultStageCritical = 400;
     public const int DefaultStageEnd = 800;
 
-    [DataField("stageBegin")]
+    [DataField]
     public int StageBegin { get; set; } = DefaultStageBegin;
 
-    [DataField("stageCritical")]
+    [DataField]
     public int StageCritical { get; set; } = DefaultStageCritical;
 
-    [DataField("stageTheEnd")]
+    [DataField]
     public int StageTheEnd { get; set; } = DefaultStageEnd;
 
     /*[DataField("specForceTeam")]  //Goobstation - Disabled automatic ERT

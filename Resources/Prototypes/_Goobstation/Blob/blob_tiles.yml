@@ -23,7 +23,7 @@
   parent: BaseBlob
   id: CoreBlobTile
   name: Core Blob
-  description: The most important part of you. This is the brain and heart of the Blob. You cannot have more than one core (if you have a second one, it is not controlled by you), so you must protect it at all costs, otherwise you will die. The core itself restores health over time; with the regenerative chemical, health is restored 10 times faster. The core produces FIVE resource points per two seconds.
+  description: The most important part of the Blob. This is the brain and heart of the Blob.
   save: false
   components:
   - type: Temperature

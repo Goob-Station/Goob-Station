@@ -21,7 +21,7 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
     [DataField]
     public virtual T ElectromagneticWeb { get; set; }= default!;
 
-    // Индексатор для доступа к полям через перечисление BlobChemType
+    // Indexer to access fields via BlobChemType enumeration
     [Pure]
     public T this[BlobChemType type]
     {
@@ -59,13 +59,13 @@ public abstract partial class BlobChemTypedStorage<T> : IEnumerable
         }
     }
 
-    // Метод для добавления значения
+    // Method for adding a value
     public void Add(BlobChemType key, T value)
     {
         this[key] = value;
     }
 
-    // Реализация IEnumerable
+    // Realization IEnumerable
     public IEnumerator<KeyValuePair<BlobChemType, T>> GetEnumerator()
     {
         yield return new KeyValuePair<BlobChemType, T>(BlobChemType.BlazingOil, BlazingOil);

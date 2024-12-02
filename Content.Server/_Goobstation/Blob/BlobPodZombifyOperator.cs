@@ -5,7 +5,7 @@ using Content.Server.NPC.HTN.PrimitiveTasks;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared._Goobstation.Blob.NPC.BlobPod;
 
-namespace Content.Server.NPC.HTN.PrimitiveTasks.Operators.Specific;
+namespace Content.Server_Goobstation.NPC.HTN.PrimitiveTasks.Operators.Specific;
 
 public sealed partial class BlobPodZombifyOperator : HTNOperator
 {

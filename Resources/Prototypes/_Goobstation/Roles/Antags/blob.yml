@@ -7,4 +7,4 @@
   guides: [ Blob ]
   requirements:
   - !type:OverallPlaytimeRequirement
-    time: 54000 # 15h # Corvax-RoleTime
+    time: 18000 # 5h # Goobstation-RoleTime

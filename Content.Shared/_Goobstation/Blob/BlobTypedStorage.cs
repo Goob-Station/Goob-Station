@@ -32,7 +32,7 @@ public abstract partial class BlobTypedStorage<T> : IEnumerable<KeyValuePair<Blo
     [DataField]
     public virtual T Turret { get; set; }
 */
-    // Метод для доступа к полям через индексатор
+    // Method for accessing fields through the indexer
     [Pure]
     public T this[BlobTileType type]
     {
