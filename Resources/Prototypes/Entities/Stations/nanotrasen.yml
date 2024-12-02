@@ -26,7 +26,6 @@
     - BaseStationAllEventsEligible
     - BaseStationNanotrasen
     - BaseStationMail # Nyano component, required for station mail to function
-    - BaseStationSilo # Goobstation
   categories: [ HideSpawnMenu ]
   components:
     - type: Transform

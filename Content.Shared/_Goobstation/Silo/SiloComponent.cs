@@ -4,9 +4,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Silo;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class SiloComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public Dictionary<ProtoId<MaterialPrototype>, int> Storage { get; set; } = new();
 }

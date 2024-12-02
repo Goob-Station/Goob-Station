@@ -181,6 +181,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
             return false;
 
         // Goob start
+        EntityUid storageUid;
         Dictionary<ProtoId<MaterialPrototype>, int> storage;
         if (component.ConnectToSilo)
         {
@@ -188,9 +189,13 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
             if (dirty && silo != null)
                 Dirty(silo.Value);
             storage = silo != null ? silo.Value.Comp.Storage : component.Storage;
+            storageUid = silo != null ? silo.Value : uid;
         }
         else
+        {
             storage = component.Storage;
+            storageUid = uid;
+        }
 
         var existing = storage.GetOrNew(materialId);
         // Goob end
@@ -203,7 +208,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
             storage[materialId] = existing; // Goob edit
 
         var ev = new MaterialAmountChangedEvent();
-        RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(storageUid, ref ev); // Goob edit
 
         if (dirty)
             Dirty(uid, component);

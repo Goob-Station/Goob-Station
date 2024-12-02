@@ -56,9 +56,13 @@ public sealed partial class MaterialStorageControl : ScrollContainer
             mats = silo != null
                 ? silo.Value.Comp.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary()
                 : materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
+            SiloLabel.Visible = silo != null;
         }
         else
+        {
             mats = materialStorage.Storage.Select(pair => (pair.Key.Id, pair.Value)).ToDictionary();
+            SiloLabel.Visible = false;
+        }
         // Goobstation end
         if (_currentMaterials.Equals(mats))
             return;
