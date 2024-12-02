@@ -26,7 +26,7 @@ public sealed class SiloSystem : SharedSiloSystem
         // Spawning a timer because SetUiState in UpdateUserInterfaceState is being networked before
         // silo's MaterialStorageComponent state gets handled.
         // That causes lathe ui recipe list to not update properly.
-        Timer.Spawn(5,
+        Timer.Spawn(20,
             () =>
             {
                 if (!TryComp(ent, out DeviceLinkSourceComponent? source))
