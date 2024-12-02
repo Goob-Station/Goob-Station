@@ -1,6 +1,8 @@
+using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared.Changeling;
+namespace Content.Shared._Goobstation.Changeling.Components;
 
 /// <summary>
 ///     Used for identifying other changelings.
@@ -9,4 +11,6 @@ namespace Content.Shared.Changeling;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class HivemindComponent : Component
 {
+    [DataField]
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "HivemindFaction";
 }

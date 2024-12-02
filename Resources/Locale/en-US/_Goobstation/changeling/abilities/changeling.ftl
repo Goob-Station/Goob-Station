@@ -29,10 +29,8 @@ changeling-sting-extract-fail = Unable to extract DNA
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-stasis-enter = You enter regenerative stasis
-changeling-stasis-enter-fail = Can't enter stasis!
+changeling-stasis-toggle-fail = Can't use stasis!
 changeling-stasis-exit = You exit regenerative stasis
-changeling-stasis-exit-fail = We're not in a stasis!
-changeling-stasis-exit-fail-dead = Can't exit stasis!
 
 changeling-fail-hands = Need to drop something beforehand
 
@@ -44,9 +42,7 @@ changeling-equip-armor-fail = Need to get rid of existing outer clothing beforeh
 changeling-inject = You inject yourself
 changeling-inject-fail = Failed to inject yourself!
 
-changeling-passive-activate = Activated ability
-changeling-passive-activate-fail = Failed to activate the ability
-changeling-passive-active = Already active!
+changeling-augmented-eyesight-buy = Your eyes got protective layer. 
 
 changeling-fleshmend = Your body twists, sealing wounds and regenerating dead cells
 changeling-panacea = You mutate and alter your DNA for better cell regeneration

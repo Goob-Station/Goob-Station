@@ -1,13 +1,12 @@
 using Robust.Shared.Timing;
 using Robust.Server.GameObjects;
-using Content.Shared.Changeling;
 using Content.Shared.Mind;
 using Content.Server.Body.Systems;
 using Content.Shared.Store.Components;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingEggSystem : EntitySystem
+/*public sealed partial class ChangelingEggSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
@@ -53,4 +52,4 @@ public sealed partial class ChangelingEggSystem : EntitySystem
 
         _bodySystem.GibBody((EntityUid) uid);
     }
-}
+}*/

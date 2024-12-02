@@ -1,26 +1,23 @@
 using Content.Client.Alerts;
 using Content.Client.UserInterface.Systems.Alerts.Controls;
-using Content.Shared.Changeling;
-using Content.Shared.StatusIcon.Components;
-using Robust.Shared.Prototypes;
+using Content.Shared._Goobstation.Changeling.Components;
+using Content.Shared._Goobstation.Changeling.EntitySystems;
 
-namespace Content.Client.Changeling;
+namespace Content.Client._Goobstation.Changeling.EntitySystems;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
-
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ChangelingComponent, UpdateAlertSpriteEvent>(OnUpdateAlert);
-        SubscribeLocalEvent<ChangelingComponent, GetStatusIconsEvent>(GetChanglingIcon);
     }
 
-    private void OnUpdateAlert(EntityUid uid, ChangelingComponent comp, ref UpdateAlertSpriteEvent args)
+    private void OnUpdateAlert(Entity<ChangelingComponent> changeling, ref UpdateAlertSpriteEvent args)
     {
-        var stateNormalized = 0f;
+        var stateNormalized = 0;
+        var comp = changeling.Comp;
 
         // hardcoded because uhh umm i don't know. send help.
         switch (args.Alert.AlertKey.AlertType)
@@ -37,11 +34,5 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
         var sprite = args.SpriteViewEnt.Comp;
         sprite.LayerSetState(AlertVisualLayers.Base, $"{stateNormalized}");
-    }
-
-    private void GetChanglingIcon(Entity<ChangelingComponent> ent, ref GetStatusIconsEvent args)
-    {
-        if (HasComp<HivemindComponent>(ent) && _prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
-            args.StatusIcons.Add(iconPrototype);
     }
 }

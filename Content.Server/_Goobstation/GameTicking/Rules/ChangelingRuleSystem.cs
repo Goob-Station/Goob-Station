@@ -3,7 +3,7 @@ using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Mind;
 using Content.Server.Objectives;
 using Content.Server.Roles;
-using Content.Shared.Changeling;
+using Content.Shared._Goobstation.Changeling.Components;
 using Content.Shared.NPC.Prototypes;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;

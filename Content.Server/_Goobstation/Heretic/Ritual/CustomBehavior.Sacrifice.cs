@@ -1,5 +1,4 @@
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;
@@ -10,6 +9,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Heretic;
 using Content.Server.Heretic.EntitySystems;
+using Content.Shared._Goobstation.Changeling.Components;
 
 namespace Content.Server.Heretic.Ritual;
 
