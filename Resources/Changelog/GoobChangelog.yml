@@ -2704,3 +2704,11 @@ Entries:
       message: Research servers now generate 15 research points per second passively.
   id: 310
   time: '2024-12-02T00:59:02.0000000+00:00'
+- author: CBozo
+  changes:
+    - type: Add
+      message: >-
+        Barozine can now be made with potassium, chlorine, plasma and
+        bicaridine!
+  id: 311
+  time: '2024-12-02T01:09:46.0000000+00:00'
