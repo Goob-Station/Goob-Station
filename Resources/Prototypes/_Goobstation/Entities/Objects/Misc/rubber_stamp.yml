@@ -1,5 +1,5 @@
 - type: entity
-  name: nanotrasen representative rubber stamp
+  name: nanotrasen representative's rubber stamp
   parent: RubberStampBase
   id: RubberStampNanorep
   components:
@@ -10,3 +10,198 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Misc/stamps.rsi
     state: stamp-nanorep
+
+- type: entity
+  name: cybersun industries rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCybersun
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cybersun
+    stampedColor: "#f77200"
+    stampState: "paper_stamp-cybersun"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-cybersun
+
+- type: entity
+  name: cybersun representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampCyberRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-cyberrep
+    stampedColor: "#f77200"
+    stampState: "paper_stamp-cybersun"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-cyberrep
+
+- type: entity
+  name: animal right cons. rubber stamp
+  parent: RubberStampBase
+  id: RubberStampArc
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-arc
+    stampedColor: "#411551"
+    stampState: "paper_stamp-arc"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-arc
+
+- type: entity
+  name: donk co. rubber stamp
+  parent: RubberStampBase
+  id: RubberStampDonkCo
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-donkco
+    stampedColor: "#a87643"
+    stampState: "paper_stamp-donkco"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-donkco
+
+- type: entity
+  name: donk co. representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampDonkRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-donkrep
+    stampedColor: "#a87643"
+    stampState: "paper_stamp-donkco"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-donkrep
+
+- type: entity
+  name: interdyne pharmaceutics rubber stamp
+  parent: RubberStampBase
+  id: RubberStampInterdyne
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-interdyne
+    stampedColor: "#483d78"
+    stampState: "paper_stamp-interdyne"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-interdyne
+
+- type: entity
+  name: interdyne representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampInterRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-interrep
+    stampedColor: "#483d78"
+    stampState: "paper_stamp-interdyne"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-interrep
+
+- type: entity
+  name: sentient front rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSentientFront
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-sentientfront
+    stampedColor: "#85b1dd"
+    stampState: "paper_stamp-sentientfront"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-sentientfront
+
+- type: entity
+  name: s.e.l.f representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSentientFrontRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-sentientfrontrep
+    stampedColor: "#85b1dd"
+    stampState: "paper_stamp-sentientfront"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-sentientfrontsmall
+
+- type: entity
+  name: s.s.c rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSsc
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-ssc
+    stampedColor: "#7bcdff"
+    stampState: "paper_stamp-ssc"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-ssc
+
+- type: entity
+  name: s.s.c representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampSscRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-sscrep
+    stampedColor: "#7bcdff"
+    stampState: "paper_stamp-ssc"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-sscrep
+
+- type: entity
+  name: terragov rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTerra
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-terra
+    stampedColor: "#152c46"
+    stampState: "paper_stamp-terra"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-terra
+
+- type: entity
+  name: terragov representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampTerraRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-terrarep
+    stampedColor: "#152c46"
+    stampState: "paper_stamp-terra"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-terrarep
+
+- type: entity
+  name: waffle corporation rubber stamp
+  parent: RubberStampBase
+  id: RubberStampWaffle
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-waffle
+    stampedColor: "#ffb840"
+    stampState: "paper_stamp-waffle"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-waffle
+
+- type: entity
+  name: waffle corp representative's rubber stamp
+  parent: RubberStampBase
+  id: RubberStampWaffleRep
+  components:
+  - type: Stamp
+    stampedName: stamp-component-stamped-name-wafflerep
+    stampedColor: "#ffb840"
+    stampState: "paper_stamp-waffle"
+  - type: Sprite
+    sprite: _Goobstation/Objects/Misc/stamps.rsi
+    state: stamp-wafflerep

@@ -1,0 +1,95 @@
+#Regular lawyer stamps, it's now put in the loadout
+- type: loadout
+  id: RSLawyer
+  storage:
+    back:
+      - RubberStampLawyer
+
+#Corporate lawyer stamps
+#20hr time is there to make sure lawyers know their jobs and have likely heard about the lore before.
+
+- type: loadout
+  id: RSCyberRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+  storage:
+    back:
+      - RubberStampCyberRep
+
+- type: loadout
+  id: RSDonkRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+    storage:
+    back:
+      - RubberStampDonkRep
+
+- type: loadout
+  id: RSInterRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+  storage:
+    back:
+      - RubberStampInterRep
+
+- type: loadout
+  id: RSSelfRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+    storage:
+    back:
+      - RubberStampSentientFrontRep
+
+- type: loadout
+  id: RSWaffleRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+    storage:
+    back:
+      - RubberStampWaffleRep
+
+# Governments stamps
+
+- type: loadout
+  id: RSsscRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+  storage:
+    back:
+      - RubberStampSscRep
+
+- type: loadout
+  id: RSTerraRep
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobLawyer
+      time: 72000 # 20hr
+  storage:
+    back:
+      - RubberStampTerraRep

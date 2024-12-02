@@ -25,5 +25,5 @@
     - BriefcaseBrownFilled
   storage:
     back:
-    - RubberStampLawyer
+    #- RubberStampLawyer  Goob - Removed to be placed in loadout
     - BookSpaceLaw

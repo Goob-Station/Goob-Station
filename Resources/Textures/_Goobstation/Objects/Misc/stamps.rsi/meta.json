@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/fb1012102257b7b0a08d861fd2b8ba963c416e93. Resprited centcom sprite by BombasterDS",
+    "copyright": "Taken from tgstation at https://github.com/tgstation/tgstation/commit/fb1012102257b7b0a08d861fd2b8ba963c416e93. Resprited centcom sprite by BombasterDS. Resprited arc/small, cybersun/rep, donkco/rep, interdyne/rep, sentientfront/small, ssc/rep, terra/rep, waffle/rep by Weide ",
     "size": {
         "x": 32,
         "y": 32
@@ -9,6 +9,51 @@
     "states": [
         {
             "name": "stamp-nanorep"
+        },
+        {
+            "name": "stamp-arc"
+        },
+        {
+            "name": "stamp-cyberrep"
+        },
+        {
+            "name": "stamp-cybersun"
+        },
+        {
+            "name": "stamp-donkco"
+        },
+        {
+            "name": "stamp-donkrep"
+        },
+        {
+            "name": "stamp-interdyne"
+        },
+        {
+            "name": "stamp-interrep"
+        },
+        {
+            "name": "stamp-sentientfront"
+        },
+        {
+            "name": "stamp-sentientfrontsmall"
+        },
+        {
+            "name": "stamp-ssc"
+        },
+        {
+            "name": "stamp-sscrep"
+        },
+        {
+            "name": "stamp-terra"
+        },
+        {
+            "name": "stamp-terrarep"
+        },
+        {
+            "name": "stamp-waffle"
+        },
+        {
+            "name": "stamp-wafflerep"
         }
     ]
 }
