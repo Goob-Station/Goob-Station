@@ -65,7 +65,7 @@
       - id: Retractor
       - id: Cautery
       - id: Drill
-      - id: Saw
+      - id: SawElectric # Shitmed Change
       - id: Hemostat
       - id: ClothingMaskSterile
       # Shitmed Change

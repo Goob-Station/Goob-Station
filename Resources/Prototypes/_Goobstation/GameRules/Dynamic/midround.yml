@@ -21,6 +21,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Changelings
 - type: entity
@@ -41,6 +43,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Heretics
 - type: entity
@@ -61,6 +65,8 @@
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Midround Revolutionaries
 - type: entity
@@ -79,6 +85,8 @@
     maxOccurrences: 1
     duration: null
     occursDuringRoundEnd: false
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
 
 # Skeleton Spawn
 - type: entity
@@ -262,6 +270,7 @@
   - type: NukeopsRule
     warDeclarationMinOps: 1 # challenge mode
   - type: AntagSelection
+    selectionTime: PostPlayerSpawn
     definitions:
     - spawnerPrototype: SpawnPointNukeopsCommander
       min: 1

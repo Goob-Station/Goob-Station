@@ -40,7 +40,6 @@ namespace Content.Client.Inventory
 
             SubscribeLocalEvent<InventorySlotsComponent, LocalPlayerAttachedEvent>(OnPlayerAttached);
             SubscribeLocalEvent<InventorySlotsComponent, LocalPlayerDetachedEvent>(OnPlayerDetached);
-            SubscribeLocalEvent<InventorySlotsComponent, RefreshInventorySlotsEvent>(OnRefreshInventorySlots); // Shitmed Change
 
             SubscribeLocalEvent<InventoryComponent, ComponentShutdown>(OnShutdown);
 
@@ -182,17 +181,6 @@ namespace Content.Client.Inventory
             if (owner == _playerManager.LocalEntity)
                 EntitySlotUpdate?.Invoke(newData);
         }
-
-        // Shitmed Change Start
-        public void OnRefreshInventorySlots(EntityUid owner, InventorySlotsComponent component, RefreshInventorySlotsEvent args)
-        {
-            if (!component.SlotData.TryGetValue(args.SlotName, out var slotData)
-                || _playerManager.LocalEntity != owner)
-                return;
-
-            OnSlotRemoved?.Invoke(slotData);
-        }
-        // Shitmed Change End
 
         public bool TryAddSlotDef(EntityUid owner, InventorySlotsComponent component, SlotDefinition newSlotDef)
         {

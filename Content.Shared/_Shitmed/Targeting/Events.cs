@@ -26,13 +26,3 @@ public sealed class TargetIntegrityChangeEvent : EntityEventArgs
         RefreshUi = refreshUi;
     }
 }
-
-public sealed class RefreshInventorySlotsEvent : EntityEventArgs
-{
-    public string SlotName { get; }
-
-    public RefreshInventorySlotsEvent(string slotName)
-    {
-        SlotName = slotName;
-    }
-}
