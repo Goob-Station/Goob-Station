@@ -23,9 +23,10 @@ public sealed class PuddleFootPrintsSystem : EntitySystem
     {
         if (!TryComp<AppearanceComponent>(uid, out var appearance)
             || !TryComp<PuddleComponent>(uid, out var puddle)
+            || puddle.LifeStage >= ComponentLifeStage.Stopping // Goobstation - container lookup causes ResolveSolution to assert when deleted first (EndCollide was triggered by component shutdown)
             || !TryComp<FootPrintsComponent>(args.OtherEntity, out var tripper)
             || !TryComp<SolutionContainerManagerComponent>(uid, out var solutionManager)
-            ||!_solutionContainer.ResolveSolution((uid, solutionManager), puddle.SolutionName, ref puddle.Solution, out var solutions))
+            || !_solutionContainer.ResolveSolution((uid, solutionManager), puddle.SolutionName, ref puddle.Solution, out var solutions))
             return;
 
         // alles gut!

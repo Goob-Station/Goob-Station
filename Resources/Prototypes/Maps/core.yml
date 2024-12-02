@@ -1,7 +1,7 @@
 - type: gameMap
   id: Core
   mapName: 'Core'
-  mapPath: /Maps/core.yml
+  mapPath: /Maps/_Goobstation/core.yml # Goobstation
   minPlayers: 35
   maxPlayers: 70
   stations:
@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Core {1}'
+          mapNameTemplate: '{0} Coal Core {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

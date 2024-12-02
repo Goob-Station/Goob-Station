@@ -1000,6 +1000,16 @@ public abstract class SharedActionsSystem : EntitySystem
         // See client-side system for UI code.
     }
 
+    // Goobstation start
+    protected virtual void SaveActions(EntityUid performer)
+    {
+    }
+
+    protected virtual void LoadActions(EntityUid performer)
+    {
+    }
+    // Goobstation end
+
     public bool ValidAction(BaseActionComponent action, bool canReach = true)
     {
         if (!action.Enabled)
@@ -1061,7 +1071,7 @@ public abstract class SharedActionsSystem : EntitySystem
     #region EquipHandlers
     private void OnDidEquip(EntityUid uid, ActionsComponent component, DidEquipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment, args.SlotFlags);
@@ -1071,11 +1081,13 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.Equipee, ev.Actions, args.Equipment, component);
+
+        LoadActions(args.Equipee); // Goobstation
     }
 
     private void OnHandEquipped(EntityUid uid, ActionsComponent component, DidEquipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
 
         var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Equipped);
@@ -1085,20 +1097,44 @@ public abstract class SharedActionsSystem : EntitySystem
             return;
 
         GrantActions(args.User, ev.Actions, args.Equipped, component);
+
+        LoadActions(args.User); // Goobstation
     }
 
     private void OnDidUnequip(EntityUid uid, ActionsComponent component, DidUnequipEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
+
+        // Goobstation start
+        if (!TerminatingOrDeleted(args.Equipment))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.Equipee, args.Equipment);
+            RaiseLocalEvent(args.Equipment, ev);
+
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Equipment, component);
     }
 
     private void OnHandUnequipped(EntityUid uid, ActionsComponent component, DidUnequipHandEvent args)
     {
-        if (GameTiming.ApplyingState)
+        if (GameTiming.ApplyingState || !GameTiming.IsFirstTimePredicted) // Goob edit
             return;
+
+        // Goobstation start
+        if (!TerminatingOrDeleted(args.Unequipped))
+        {
+            var ev = new GetItemActionsEvent(_actionContainer, args.User, args.Unequipped);
+            RaiseLocalEvent(args.Unequipped, ev);
+
+            if (ev.Actions.Count > 0)
+                SaveActions(uid);
+        }
+        // Goobstation end
 
         RemoveProvidedActions(uid, args.Unequipped, component);
     }

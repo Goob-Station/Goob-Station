@@ -32,6 +32,10 @@ cargo-console-unfulfilled = No room to fulfill order
 cargo-console-trade-station = Sent to {$destination}
 cargo-console-unlock-approved-order-broadcast = [bold]{$productName} x{$orderAmount}[/bold], which cost [bold]{$cost}[/bold], was approved by [bold]{$approver}[/bold]
 
+# GoobStation - cooldown on Cargo Orders (specifically gamba)
+cargo-console-cooldown-count = Cannot order more than one {$product} at a time.
+cargo-console-cooldown-active = Orders for {$product} cannot be placed for another {$timeCount} {$timeUnits}.
+
 cargo-console-paper-print-name = Order #{$orderNumber}
 cargo-console-paper-print-text =
     Order #{$orderNumber}

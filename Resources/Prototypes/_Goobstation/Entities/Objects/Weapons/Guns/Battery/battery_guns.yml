@@ -12,14 +12,17 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
+    resetOnHandSelected: false
     soundGunshot:
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      params:
+        volume: -5
   - type: ProjectileBatteryAmmoProvider
     proto: BulletMic
     fireCost: 900
   - type: BatterySelfRecharger
     autoRecharge: true
-    autoRechargeRate: 400
+    autoRechargeRate: 300
   - type: MagazineVisuals
     magState: mag
     steps: 2

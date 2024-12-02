@@ -37,4 +37,16 @@ To engage in surgery, you'll need a set of surgical tools.
 
 Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
 
+## Ghetto Surgery
+
+Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
+<Box>
+<GuideEntityEmbed Entity="Welder" Caption="welder"/>
+<GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
+<GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
+<GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
+</Box>
+
+They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
+
 </Document>

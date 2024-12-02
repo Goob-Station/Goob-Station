@@ -14,6 +14,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 
 namespace Content.Shared.Climbing.Systems;
 
@@ -83,7 +84,7 @@ public sealed partial class BonkSystem : EntitySystem
         _stunSystem.TryParalyze(user, TimeSpan.FromSeconds(bonkableComponent.BonkTime), true);
 
         if (bonkableComponent.BonkDamage is { } bonkDmg)
-            _damageableSystem.TryChangeDamage(user, bonkDmg, true, origin: user);
+            _damageableSystem.TryChangeDamage(user, bonkDmg, true, origin: user, targetPart: TargetBodyPart.Head); // Shitmed Change
 
         return true;
 

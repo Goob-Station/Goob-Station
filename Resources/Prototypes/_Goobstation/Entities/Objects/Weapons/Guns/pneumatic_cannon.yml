@@ -1,0 +1,84 @@
+- type: entity
+  name: syringe gun
+  parent: [ BaseStorageItem, BaseMedicalContraband ]
+  id: SyringeGun
+  description: A gun that allows you to fire syringes and instantly inject their contents on a target.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: syringe-gun
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/syringe_gun.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+    clumsyProof: true
+  - type: ContainerAmmoProvider
+    container: storagebase
+  - type: Item
+    size: Large
+    shape:
+    - 0,0,4,0
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: SyringeGun
+
+
+- type: entity
+  name: rapid syringe gun
+  parent: SyringeGun
+  id: RapidSyringeGun
+  description: An upgraded version of the syringe gun featuring a faster fire rate and a bigger magazine.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: rapid-syringe-gun
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,2,1
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 1.5
+
+- type: entity
+  name: dart syringe gun
+  parent: [ SyringeGun, BaseSyndicateContraband ]
+  id: DartSyringeGun
+  description: An illegally modified version of the syringe gun that allows projectiles to pierce through armor.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi
+    layers:
+    - state: dart-syringe-gun
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,0,0
+    whitelist:
+      tags:
+      - SyringeGunAmmo
+  - type: Gun
+    fireRate: 1
+  - type: Item
+    size: Small
+    shape:
+    - 0,0,1,0
+  - type: SyringeGun
+    pierceArmor: true
+
+# TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir

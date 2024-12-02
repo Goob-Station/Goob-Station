@@ -7,8 +7,10 @@ using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
+using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -60,9 +62,17 @@ public sealed class RandomGiftSystem : EntitySystem
         var coords = Transform(args.User).Coordinates;
         var handsEnt = Spawn(component.SelectedEntity, coords);
         _adminLogger.Add(LogType.EntitySpawn, LogImpact.Low, $"{ToPrettyString(args.User)} used {ToPrettyString(uid)} which spawned {ToPrettyString(handsEnt)}");
-        EnsureComp<ItemComponent>(handsEnt); // For insane mode.
         if (component.Wrapper is not null)
             Spawn(component.Wrapper, coords);
+
+        if (component.SelectedEntity == "WeaponPistolDebug" // Goobstation
+            || component.SelectedEntity == "MeleeDebugGib"
+            || component.SelectedEntity == "MeleeDebug100"
+            || component.SelectedEntity == "MeleeDebug200"
+            || component.SelectedEntity == "MeleeDebugSever"
+            || component.SelectedEntity == "MeleeDebugSever100"
+            || component.SelectedEntity == "MeleeDebugSever200")
+            _audio.PlayGlobal("/Audio/StationEvents/mariah.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
 
         args.Handled = true;
         _audio.PlayPvs(component.Sound, args.User);

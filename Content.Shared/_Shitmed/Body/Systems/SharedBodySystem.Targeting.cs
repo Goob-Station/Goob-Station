@@ -21,6 +21,7 @@ using Robust.Shared.Timing;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Content.Shared.Inventory;
 
 // Namespace has set accessors, leaving it on the default.
 namespace Content.Shared.Body.Systems;
@@ -149,7 +150,7 @@ public partial class SharedBodySystem
             if (targetPart == null)
                 return;
 
-            if (!TryChangePartDamage(ent, args.Damage, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value)
+            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value)
                 && args.CanEvade)
             {
                 if (_net.IsServer)
@@ -165,27 +166,25 @@ public partial class SharedBodySystem
         if (args.TargetPart != null)
         {
             var (targetType, _) = ConvertTargetBodyPart(args.TargetPart.Value);
-            args.Damage = args.Damage * GetPartDamageModifier(targetType);
+            args.Damage *= GetPartDamageModifier(targetType);
         }
     }
 
     private void OnPartDamageModify(Entity<BodyPartComponent> partEnt, ref DamageModifyEvent args)
     {
         if (partEnt.Comp.Body != null
-            && TryComp(partEnt.Comp.Body.Value, out DamageableComponent? damageable)
-            && damageable.DamageModifierSetId != null
-            && Prototypes.TryIndex<DamageModifierSetPrototype>(damageable.DamageModifierSetId, out var modifierSet))
-            // TODO: We need to add a check to see if the given armor covers this part to cancel or not.
-            args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, modifierSet);
+            && TryComp(partEnt.Comp.Body.Value, out InventoryComponent? inventory))
+            _inventory.RelayEvent((partEnt.Comp.Body.Value, inventory), ref args);
 
         if (Prototypes.TryIndex<DamageModifierSetPrototype>("PartDamage", out var partModifierSet))
             args.Damage = DamageSpecifier.ApplyModifierSet(args.Damage, partModifierSet);
 
-        args.Damage = args.Damage * GetPartDamageModifier(partEnt.Comp.PartType);
+        args.Damage *= GetPartDamageModifier(partEnt.Comp.PartType);
     }
 
     private bool TryChangePartDamage(EntityUid entity,
         DamageSpecifier damage,
+        bool ignoreResistances,
         bool canSever,
         bool canEvade,
         float partMultiplier,
@@ -204,7 +203,7 @@ public partial class SharedBodySystem
                 if (canEvade && TryEvadeDamage(entity, GetEvadeChance(targetType)))
                     continue;
 
-                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, canSever: canSever);
+                var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever);
                 if (damageResult != null && damageResult.GetTotal() != 0)
                     landed = true;
             }
@@ -285,7 +284,7 @@ public partial class SharedBodySystem
     /// <summary>
     /// This should be called after body part damage was changed.
     /// </summary>
-    protected void CheckBodyPart(
+    public void CheckBodyPart(
         Entity<BodyPartComponent> partEnt,
         TargetBodyPart? targetPart,
         bool severed,

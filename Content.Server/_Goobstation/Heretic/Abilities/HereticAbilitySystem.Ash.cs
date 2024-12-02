@@ -18,7 +18,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         SubscribeLocalEvent<HereticComponent, EventHereticAshenShift>(OnJaunt);
         SubscribeLocalEvent<GhoulComponent, EventHereticAshenShift>(OnJauntGhoul);
-        SubscribeLocalEvent<HereticComponent, PolymorphRevertEvent>(OnJauntEnd);
 
         SubscribeLocalEvent<HereticComponent, EventHereticVolcanoBlast>(OnVolcano);
         SubscribeLocalEvent<HereticComponent, EventHereticNightwatcherRebirth>(OnNWRebirth);
@@ -45,10 +44,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (urist == null)
             return false;
         return true;
-    }
-    private void OnJauntEnd(Entity<HereticComponent> ent, ref PolymorphRevertEvent args)
-    {
-        Spawn("PolymorphAshJauntEndAnimation", Transform(ent).Coordinates);
     }
 
     private void OnVolcano(Entity<HereticComponent> ent, ref EventHereticVolcanoBlast args)
@@ -80,7 +75,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var lookup = _lookup.GetEntitiesInRange(ent, 5f);
+        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 2.5f;
+        var lookup = _lookup.GetEntitiesInRange(ent, power);
 
         foreach (var look in lookup)
         {
@@ -92,18 +88,18 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             {
                 if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
                 {
-                    // heals everything by 10 for each burning target
-                    _stam.TryTakeStamina(ent, -10);
+                    // heals everything by base + power for each burning target
+                    _stam.TryTakeStamina(ent, -(10 + power));
                     var dmgdict = dmgc.Damage.DamageDict;
                     foreach (var key in dmgdict.Keys)
-                        dmgdict[key] = -10f;
+                        dmgdict[key] -= 10f + power;
 
                     var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
                     _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
                 }
 
                 if (!flam.OnFire)
-                    _flammable.AdjustFireStacks(look, 5, flam, true);
+                    _flammable.AdjustFireStacks(look, power, flam, true);
 
                 if (TryComp<MobStateComponent>(look, out var mobstat))
                     if (mobstat.CurrentState == MobState.Critical)
@@ -132,7 +128,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
         // yeah. it just generates a ton of plasma which just burns.
         // lame, but we don't have anything fire related atm, so, it works.
-        var tilepos = _xform.GetGridOrMapTilePosition(ent, Transform(ent));
+        var tilepos = _transform.GetGridOrMapTilePosition(ent, Transform(ent));
         var enumerator = _atmos.GetAdjacentTileMixtures(Transform(ent).GridUid!.Value, tilepos, false, false);
         while (enumerator.MoveNext(out var mix))
         {
@@ -157,5 +153,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         // fire immunity
         var flam = EnsureComp<FlammableComponent>(ent);
         flam.Damage = new(); // reset damage dict
+        // this does NOT protect you against lasers and whatnot. for now. when i figure out THIS STUPID FUCKING LIMB SYSTEM!!!
+        // regards.
     }
 }

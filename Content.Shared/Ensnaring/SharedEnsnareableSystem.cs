@@ -16,6 +16,7 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.Ensnaring;
@@ -27,6 +28,7 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
+    [Dependency] private   readonly INetManager _net = default!; // Goobstation
     [Dependency] private   readonly AlertsSystem _alerts = default!;
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -91,7 +93,15 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         Dirty(uid, component);
         ensnaring.Ensnared = null;
 
-        _hands.PickupOrDrop(args.Args.User, args.Args.Used.Value);
+        // Goobstation start
+        if (ensnaring.DestroyOnRemove)
+        {
+            if (_net.IsServer)
+                QueueDel(args.Args.Used.Value);
+        }
+        else
+            _hands.PickupOrDrop(args.Args.User, args.Args.Used.Value);
+        // Goobstation end
 
         if (args.User == args.Target)
             Popup.PopupPredicted(Loc.GetString("ensnare-component-try-free-complete", ("ensnare", args.Args.Used)), uid, args.User, PopupType.Medium);
