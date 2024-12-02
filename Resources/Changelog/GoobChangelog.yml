@@ -2718,3 +2718,11 @@ Entries:
       message: Fix heretic ashen jaunt messing up the action bar.
   id: 312
   time: '2024-12-02T01:12:11.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        You can't pull the Supermatter around with a (non-admeme) tether/force
+        gun anymore.
+  id: 313
+  time: '2024-12-02T16:09:53.0000000+00:00'
