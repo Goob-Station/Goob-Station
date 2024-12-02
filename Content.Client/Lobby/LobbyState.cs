@@ -63,6 +63,7 @@ namespace Content.Client.Lobby
 
             _serverCur.BalanceChange += UpdatePlayerBalance; // Goobstation - Goob Coin
 
+            Lobby!.FUCKINGMARIAH.Texture = _resourceCache.GetResource<TextureResource>("/Textures/_Goobstation/Interface/Misc/FUCKINGMARIAH.png");
         }
 
         protected override void Shutdown()

@@ -65,7 +65,7 @@ namespace Content.IntegrationTests.Tests
             "Origin", // Goobstation - Readds Origin
             "Train",
             "Oasis",
-            "Cog",
+            //"Cog", FUCK COG
             "FlandHighPop", // Goobstation - add highpop maps
             "OriginHighPop",
             "OasisHighPop",

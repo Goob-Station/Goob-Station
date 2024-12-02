@@ -20,6 +20,7 @@
   groups:
   - BlueshieldOfficerHead
   - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerBackpack
   - BlueshieldOfficerOuter
   - BlueshieldOfficerNeck
   - Trinkets
