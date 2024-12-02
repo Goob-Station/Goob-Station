@@ -6,10 +6,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 // Shitmed Change
-using Robust.Shared.Serialization.Manager;
 using Content.Shared.Random;
-using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 
 namespace Content.Shared.Inventory;
 
@@ -18,7 +15,6 @@ public partial class InventorySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IViewVariablesManager _vvm = default!;
     [Dependency] private readonly RandomHelperSystem _randomHelper = default!; // Shitmed Change
-    [Dependency] private readonly ISerializationManager _serializationManager = default!; // Shitmed Change
 
     private void InitializeSlots()
     {
@@ -65,7 +61,7 @@ public partial class InventorySystem : EntitySystem
         if (!_prototypeManager.TryIndex(component.TemplateId, out InventoryTemplatePrototype? invTemplate))
             return;
 
-        _serializationManager.CopyTo(invTemplate.Slots, ref component.Slots, notNullableOverride: true); // Shitmed Change
+        component.Slots = invTemplate.Slots;
         component.Containers = new ContainerSlot[component.Slots.Length];
         for (var i = 0; i < component.Containers.Length; i++)
         {
@@ -123,7 +119,7 @@ public partial class InventorySystem : EntitySystem
 
         foreach (var slotDef in inventory.Slots)
         {
-            if (!slotDef.Name.Equals(slot) || slotDef.Disabled) // Shitmed Change
+            if (!slotDef.Name.Equals(slot))
                 continue;
             slotDefinition = slotDef;
             return true;
@@ -211,7 +207,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 var slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
+                if ((slot.SlotFlags & _flags) == 0)
                     continue;
 
                 container = _containers[i];
@@ -251,7 +247,7 @@ public partial class InventorySystem : EntitySystem
                 var i = _nextIdx++;
                 slot = _slots[i];
 
-                if ((slot.SlotFlags & _flags) == 0 || slot.Disabled) // Shitmed Change
+                if ((slot.SlotFlags & _flags) == 0)
                     continue;
 
                 var container = _containers[i];

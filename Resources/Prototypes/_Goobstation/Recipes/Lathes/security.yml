@@ -18,4 +18,155 @@
   result: CartridgeEpinephrine
   completetime: 1
   materials:
-    Glass: 100
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeBicaridine
+  result: CartridgeBicaridine
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeDermaline
+  result: CartridgeDermaline
+  completetime: 1
+  materials:
+    Steel: 100
+    Glass: 300
+
+- type: latheRecipe
+  id: CartridgeEphedrine
+  result: CartridgeEphedrine
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 500
+    Plasma: 200
+    Gold: 200
+
+- type: latheRecipe
+  id: CartridgeIchor
+  result: CartridgeIchor
+  completetime: 1
+  materials:
+    Steel: 200
+    Glass: 500
+    Plasma: 500
+    Gold: 200
+
+- type: latheRecipe
+  id: SecHypo
+  result: SecHypo
+  completetime: 3
+  materials:
+    Steel: 1500
+    Plastic: 800
+    Glass: 1200
+    Plasma: 500
+    Gold: 500
+    Silver: 500
+
+# Mech Weapons
+- type: latheRecipe
+  id: WeaponMechCombatImmolationGun
+  result: WeaponMechCombatImmolationGun
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 2800
+    Plastic: 1000
+    Plasma: 750
+    Glass: 500
+
+- type: latheRecipe
+  id: WeaponMechCombatSolarisLaser
+  result: WeaponMechCombatSolarisLaser
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1650
+    Plastic: 300
+    Plasma: 250
+    Glass: 200
+
+- type: latheRecipe
+  id: WeaponMechCombatFiredartLaser
+  result: WeaponMechCombatFiredartLaser
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1200
+    Plastic: 200
+    Plasma: 150
+    Glass: 50
+
+- type: latheRecipe
+  id: WeaponMechCombatUltraRifle
+  result: WeaponMechCombatUltraRifle
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1000
+    Plastic: 200
+
+- type: latheRecipe
+  id: WeaponMechCombatShotgun
+  result: WeaponMechCombatShotgun
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1600
+    Plastic: 550
+
+- type: latheRecipe
+  id: WeaponMechCombatShotgunIncendiary
+  result: WeaponMechCombatShotgunIncendiary
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1500
+    Plastic: 800
+    Plasma: 300
+
+- type: latheRecipe
+  id: WeaponMechCombatDisabler
+  result: WeaponMechCombatDisabler
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 750
+    Glass: 250
+    Plastic: 300
+
+- type: latheRecipe
+  id: WeaponMechCombatFlashbangLauncher
+  result: WeaponMechCombatFlashbangLauncher
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 1200
+    Glass: 300
+    Plastic: 450
+
+- type: latheRecipe
+  id: WeaponMechCombatMissileRack8
+  result: WeaponMechCombatMissileRack8
+  category: MechWeapons
+  completetime: 10
+  materials:
+    Steel: 2500
+    Glass: 1500
+    Plastic: 750
+
+- type: latheRecipe
+  id: MechEquipmentKineticAccelerator
+  result: WeaponMechIndustrialKineticAccelerator
+  category: MechEquipment
+  completetime: 10
+  materials:
+    Steel: 1500
+    Glass: 750
+    Silver: 150

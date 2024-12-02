@@ -75,3 +75,4 @@
       nameSegments:
       - goob_generators_names_first
       - goob_generators_names_supermatter_last
+    - type: PhysicsGunBlacklist
