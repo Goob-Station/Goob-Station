@@ -2764,3 +2764,21 @@ Entries:
         cost/reward is welcome!
   id: 314
   time: '2024-12-02T16:15:10.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic gamemode threat and balance now scales with the amount of
+        players.
+    - type: Add
+      message: Brought back traitor flavor character text.
+    - type: Add
+      message: On polymorph ghosts will start properly following the person.
+    - type: Tweak
+      message: Ling got better... in a way
+    - type: Remove
+      message: Removed transform sting until polymorph gets good.
+    - type: Tweak
+      message: Made midround antags rarer on secret.
+  id: 315
+  time: '2024-12-02T21:30:03.0000000+00:00'
