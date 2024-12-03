@@ -10441,6 +10441,16 @@ entities:
     - type: Transform
       pos: -8.5,-1.5
       parent: 5350
+  - uid: 3110
+    components:
+    - type: Transform
+      pos: 104.5,-6.5
+      parent: 5350
+  - uid: 3163
+    components:
+    - type: Transform
+      pos: 104.5,-8.5
+      parent: 5350
 - proto: AirlockCommandLocked
   entities:
   - uid: 245
@@ -10573,16 +10583,6 @@ entities:
     components:
     - type: Transform
       pos: 38.5,-0.5
-      parent: 5350
-  - uid: 3110
-    components:
-    - type: Transform
-      pos: 104.5,-6.5
-      parent: 5350
-  - uid: 3163
-    components:
-    - type: Transform
-      pos: 104.5,-8.5
       parent: 5350
   - uid: 3164
     components:
@@ -10880,7 +10880,7 @@ entities:
       pos: -42.5,29.5
       parent: 5350
     - type: Door
-      secondsUntilStateChange: -6559.2354
+      secondsUntilStateChange: -7125.0015
       state: Opening
     - type: DeviceLinkSink
       invokeCounter: 2
@@ -118573,6 +118573,13 @@ entities:
     components:
     - type: Transform
       pos: -17.38306,-3.5393329
+      parent: 5350
+- proto: MaterialSilo
+  entities:
+  - uid: 26992
+    components:
+    - type: Transform
+      pos: 104.5,-13.5
       parent: 5350
 - proto: MaterialWoodPlank1
   entities:

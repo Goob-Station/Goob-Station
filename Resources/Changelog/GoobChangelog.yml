@@ -2790,3 +2790,26 @@ Entries:
         gibbing, lobotomising, and whatnot.
   id: 316
   time: '2024-12-02T21:31:27.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Lowered snowfall ambience
+  id: 317
+  time: '2024-12-03T14:17:06.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: >-
+        The burner rifle is now nukeops whitelisted instead of nukeops
+        blacklisted
+  id: 318
+  time: '2024-12-03T15:40:48.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 319
+  time: '2024-12-03T16:04:28.0000000+00:00'
