@@ -120,7 +120,7 @@
     whitelist:
       components:
       - Item
-      - Mailable
+      - Mailable #Goobstation - Syndicate main uniform
   - type: MailingUnit
   - type: DeviceNetwork
     deviceNetId: Wired
