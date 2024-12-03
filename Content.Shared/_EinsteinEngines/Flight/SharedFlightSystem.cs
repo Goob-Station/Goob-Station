@@ -34,6 +34,8 @@ public abstract class SharedFlightSystem : EntitySystem
     private void OnShutdown(EntityUid uid, FlightComponent component, ComponentShutdown args)
     {
         _actionsSystem.RemoveAction(uid, component.ToggleActionEntity);
+        if (!TerminatingOrDeleted(uid))
+            ToggleActive(uid, false, component);
     }
 
     public void ToggleActive(EntityUid uid, bool active, FlightComponent component)

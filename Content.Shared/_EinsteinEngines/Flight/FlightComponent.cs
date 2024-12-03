@@ -45,56 +45,55 @@ public sealed partial class FlightComponent : Component
     /// <summary>
     ///     Path to a sound specifier or collection for the noises made during flight
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SoundSpecifier FlapSound = new SoundCollectionSpecifier("WingFlaps");
 
     /// <summary>
     ///     Is the flight animated?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsAnimated = true;
 
     /// <summary>
     ///     Does the animation animate a layer?.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IsLayerAnimated;
 
     /// <summary>
     ///     Which RSI layer path does this animate?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string? Layer;
 
     /// <summary>
     ///     Whats the speed of the shader?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ShaderSpeed = 6.0f;
 
     /// <summary>
     ///     How much are the values in the shader's calculations multiplied by?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ShaderMultiplier = 0.01f;
 
     /// <summary>
     ///     What is the offset on the shader?
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float ShaderOffset = 0.25f;
 
     /// <summary>
     ///     What animation does the flight use?
     /// </summary>
-
-    [DataField]
+    [DataField, AutoNetworkedField]
     public string AnimationKey = "default";
 
     /// <summary>
     ///     Time between sounds being played
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float FlapInterval = 1.0f;
 
     public float TimeUntilFlap;

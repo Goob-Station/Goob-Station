@@ -5,10 +5,6 @@
   id: MobHarpyBase
   abstract: true
   components:
-  - type: Flight
-    isLayerAnimated: true
-    layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
-    animationKey: "Flap"
   - type: HarpySinger
   - type: Instrument
     allowPercussion: false
