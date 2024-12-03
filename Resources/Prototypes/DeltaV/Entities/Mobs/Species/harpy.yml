@@ -19,6 +19,7 @@
       "Acoustic": {24: 0}
       "Flute": {73: 0}
       "Sax": {66: 0}
+      "Violin": {41: 0}
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
@@ -132,12 +133,6 @@
   - type: Inventory
     speciesId: harpy
     templateId: digitigrade # Einstein Engines
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
   - type: HarpyVisuals
   - type: Tag
     tags:
@@ -167,12 +162,6 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
-    displacements:
-      jumpsuit:
-        sizeMaps:
-          32:
-            sprite: DeltaV/Mobs/Species/Harpy/displacement.rsi
-            state: jumpsuit
     templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
