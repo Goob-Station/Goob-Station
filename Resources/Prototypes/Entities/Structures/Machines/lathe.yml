@@ -349,7 +349,6 @@
       - BluespaceBeaker
       - SyringeBluespace
       - WeaponForceGun
-      - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
       - WeaponTetherGun
       - ClothingBackpackHolding
@@ -820,7 +819,7 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - SecHypo # Goobstation
-      - SyringeGun # Goobstation
+      - SyringeGun # Goobstation  
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -875,6 +874,7 @@
       - RapidSyringeGun # Goobstation
       - SecurityCyberneticEyes # Shitmed Change
       - MedicalCyberneticEyes # Shitmed Change
+      - WeaponLaserSvalinn # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
