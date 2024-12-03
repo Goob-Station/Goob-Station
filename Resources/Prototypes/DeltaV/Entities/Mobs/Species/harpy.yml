@@ -243,7 +243,6 @@
   id: ActionToggleFlight
   name: Fly
   description: Make use of your wings to fly. Beat the flightless bird allegations.
-  noSpawn: true
   components:
   - type: InstantAction
     checkCanInteract: false
