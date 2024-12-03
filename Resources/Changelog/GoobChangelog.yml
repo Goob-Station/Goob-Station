@@ -2790,3 +2790,9 @@ Entries:
         gibbing, lobotomising, and whatnot.
   id: 316
   time: '2024-12-02T21:31:27.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Lowered snowfall ambience
+  id: 317
+  time: '2024-12-03T14:17:06.0000000+00:00'
