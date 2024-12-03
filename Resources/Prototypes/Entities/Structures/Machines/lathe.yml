@@ -19,7 +19,6 @@
           - MachineLayer
   - type: Lathe
   - type: MaterialStorage
-    connectToSilo: true # Goobstation
   - type: Destructible
     thresholds:
     - trigger:
@@ -50,14 +49,6 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
-  - type: DeviceNetwork # GoobStation - MaterialSilo
-    deviceNetId: Wireless
-  - type: WirelessNetworkConnection
-    range: 1000
-  - type: DeviceLinkSink
-    ports:
-      - MaterialSiloUtilizer
-  - type: SiloUtilizer #GoobStation End
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -96,7 +87,7 @@
 
 - type: entity
   id: Autolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -271,7 +262,7 @@
 
 - type: entity
   id: Protolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -432,7 +423,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -583,7 +574,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -769,7 +760,6 @@
   - type: Machine
     board: BiofabricatorMachineCircuitboard
   - type: MaterialStorage
-    connectToSilo: false # Goobstation
     ignoreColor: true
     whitelist:
       tags:
@@ -794,7 +784,7 @@
 
 - type: entity
   id: SecurityTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -937,7 +927,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -987,7 +977,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -1296,7 +1286,6 @@
   - type: Machine
     board: BiogeneratorMachineCircuitboard
   - type: MaterialStorage
-    connectToSilo: false # Goobstation
   - type: ProduceMaterialExtractor
   - type: ItemSlots
     slots:
@@ -1358,7 +1347,6 @@
     - type: Machine
       board: OreProcessorMachineCircuitboard
     - type: MaterialStorage
-      connectToSilo: false # Goobstation
       ignoreColor: true
       whitelist:
         tags:
@@ -1542,7 +1530,6 @@
   - type: Machine
     board: MedicalBiofabMachineBoard
   - type: MaterialStorage
-    connectToSilo: false
     whitelist:
       tags:
         - Sheet

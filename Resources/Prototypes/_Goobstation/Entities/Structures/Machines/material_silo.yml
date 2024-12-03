@@ -29,3 +29,18 @@
   - type: MaterialStorage
     ignoreColor: true
   - type: Silo
+
+- type: entity
+  id: BaseSiloUtilizer
+  abstract: true
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wireless
+  - type: WirelessNetworkConnection
+    range: 1000
+  - type: DeviceLinkSink
+    ports:
+      - MaterialSiloUtilizer
+  - type: SiloUtilizer
+  - type: MaterialStorage
+    connectToSilo: true
