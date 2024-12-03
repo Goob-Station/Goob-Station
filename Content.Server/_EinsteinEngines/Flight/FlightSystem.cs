@@ -7,6 +7,7 @@ using Content.Shared._EinsteinEngines.Flight;
 using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
+using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
@@ -17,6 +18,7 @@ public sealed class FlightSystem : SharedFlightSystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     public override void Initialize()
     {
@@ -28,8 +30,10 @@ public sealed class FlightSystem : SharedFlightSystem
         SubscribeLocalEvent<FlightComponent, EntityZombifiedEvent>(OnZombified);
         SubscribeLocalEvent<FlightComponent, KnockedDownEvent>(OnKnockedDown);
         SubscribeLocalEvent<FlightComponent, StunnedEvent>(OnStunned);
+        SubscribeLocalEvent<FlightComponent, DownedEvent>(OnDowned);
         SubscribeLocalEvent<FlightComponent, SleepStateChangedEvent>(OnSleep);
     }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -103,6 +107,12 @@ public sealed class FlightSystem : SharedFlightSystem
             _popupSystem.PopupEntity(Loc.GetString("no-flight-while-zombified"), uid, uid, PopupType.Medium);
             return false;
         }
+
+        if (HasComp<StandingStateComponent>(uid) && _standing.IsDown(uid))
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);
+            return false;
+        }
         return true;
     }
 
@@ -135,6 +145,14 @@ public sealed class FlightSystem : SharedFlightSystem
     }
 
     private void OnStunned(EntityUid uid, FlightComponent component, ref StunnedEvent args)
+    {
+        if (!component.On)
+            return;
+
+        ToggleActive(uid, false, component);
+    }
+
+    private void OnDowned(EntityUid uid, FlightComponent component, ref DownedEvent args)
     {
         if (!component.On)
             return;
