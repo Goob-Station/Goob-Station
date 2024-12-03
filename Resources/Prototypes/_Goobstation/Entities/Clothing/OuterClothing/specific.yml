@@ -26,7 +26,7 @@
   - type: ClothingGrantComponent # Goobstation - Make sure the Freeman doesn't get cooked by supermatter
     component:
       - type: SupermatterImmune
-  - type: Tag 
+  - type: Tag
     tags:
       - HEVSuit
 
