@@ -20,8 +20,8 @@
         layer:
         - MobLayer
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.5
-    baseSprintSpeed: 2.5
+    baseWalkSpeed: 1.5
+    baseSprintSpeed: 1.5
   - type: MobThresholds
     thresholds:
       0: Alive

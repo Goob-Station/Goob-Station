@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseWeaponCrusher
+  id: LavalandEquipmentCrusher
+  suffix: Lava
+  name: proto-kinetic crusher
+  description: An early design of the proto-kinetic accelerator, it is little more than a combination of various mining tools cobbled together, forming a high-tech club. While it is an effective mining tool, it did little to aid any but the most skilled and/or suicidal miners against local fauna.
+  components:
+  - type: Tag
+    tags:
+      - Pickaxe
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/crusher.rsi
+    state: icon
+  - type: AmmoCounter
+  - type: UseDelayOnShoot
+  - type: UseDelay
+    delay: 0.9
+  - type: LeechOnMarker
+    leech:
+      groups:
+        Brute: -10
+  - type: Gun
+    soundGunshot: /Audio/Weapons/plasma_cutter.ogg
+    fireRate: 1
+    useKey: false
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 0.5
+    rechargeSound:
+      path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
+  - type: BasicEntityAmmoProvider
+    proto: BulletCharge
+    capacity: 1
+    count: 1
+  - type: MeleeWeapon
+    attackRate: 1.5
+    wideAnimationRotation: -135
+    damage:
+      types:
+        Blunt: 10
+        Slash: 5
+    soundHit:
+      collection: MetalThud
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Blunt: 15
+        Slash: 20
+        Structural: 30
+  - type: GunRequiresWield
+  - type: Item
+    size: Ginormous
+    sprite: Objects/Weapons/Melee/crusher-inhands.rsi
+  - type: DisarmMalus
+  - type: Prying
