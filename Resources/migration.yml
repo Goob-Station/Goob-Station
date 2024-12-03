@@ -9,27 +9,27 @@
 # Table: null
 
 # Goobstation - Submarine from DeltaV
-AirlockBoxerGlassLocked: null
-AirlockClownGlassLocked: null
-AirlockClownLocked: null
-AirlockCorpsmanGlassLocked: null
-AirlockExternalGlassShuttleShipyard: null
-AirlockMailGlassLocked: null
-AirlockMaintMailLocked: null
-AirlockMaintMimeLocked: null
-AirlockMaintPsychologistLocked: null
-AirlockMaintReporterLocked: null
-AirlockMaintZookeeperLocked: null
+AirlockBoxerGlassLocked: AirlockServiceGlassLocked
+AirlockClownGlassLocked: AirlockServiceGlassLocked
+AirlockClownLocked: AirlockServiceGlassLocked
+AirlockCorpsmanGlassLocked: AirlockServiceGlassLocked
+AirlockExternalGlassShuttleShipyard: AirlockExternalGlassLocked
+AirlockMailGlassLocked: AirlockCargoGlassLocked
+AirlockMaintMailLocked: AirlockMaintCargoLocked
+AirlockMaintMimeLocked: AirlockMaintTheatreLocked
+AirlockMaintPsychologistLocked: AirlockMaintMedLocked
+AirlockMaintReporterLocked: AirlockServiceLocked
+AirlockMaintZookeeperLocked: AirlockServiceLocked
 AirlockMantisGlassLocked: null
 AirlockMantisLocked: null
-AirlockMimeGlassLocked: null
-AirlockMusicianGlassLocked: null
-AirlockPsychologistLocked: null
-AirlockReporterGlassLocked: null
-AirlockZookeeperGlassLocked: null
-AirlockZookeeperLocked: null
+AirlockMimeGlassLocked: AirlockTheatreGlassLocked
+AirlockMusicianGlassLocked: AirlockTheatreGlassLocked
+AirlockPsychologistLocked: AirlockMedicalLocked
+AirlockReporterGlassLocked: AirlockServiceGlassLocked
+AirlockZookeeperGlassLocked: AirlockServiceGlassLocked
+AirlockZookeeperLocked: AirlockServiceLocked
 AlwaysPoweredLightPostSmallRed: null
-AsteroidAltRock: null
+AsteroidAltRock: AsteroidRock
 BenchParkBambooMiddle: null
 BenchParkLeft: null
 BenchParkMiddle: null
@@ -49,10 +49,10 @@ BenchSteelWhiteLeft: null
 BenchSteelWhiteMiddle: null
 BenchSteelWhiteRight: null
 BoardGameSpawner: null
-BoxColoredLighttube: null
-BoxEncryptionKeyPrisoner: null
-BoxMaintenanceLightbulb: null
-BoxPDAPrisoner: null
+BoxColoredLighttube: BoxLighttube
+BoxEncryptionKeyPrisoner: BoxEncryptionKeyPassenger
+BoxMaintenanceLightbulb: BoxLightMixed
+BoxPDAPrisoner: BoxPDA
 ClothingBeltMartialBlack: null
 ClothingCostumeArcDress: null
 ClothingHeadCourier: null
@@ -161,7 +161,7 @@ SpawnPointPrisonGuard: null
 SpeedLoaderSpecialPractice: null
 SuitStorageCorpsman: null
 SuitStorageParamedic: null
-TableWoodReinforced: null
+TableWoodReinforced: TableWood
 tatamimat: null
 ToyRenault: null
 ToySiobhan: null
@@ -202,9 +202,9 @@ ClothingHandsGlovesColorYellowUnsulated: null
 AirlockMusicianLocked: null
 AirlockMimeLocked: null
 DoorElectronicsParamedic: null
-AirlockExternalGlassSalvageLocked: null
-AirlockExternalGlassShuttleEscapeSub: null
-AirlockParamedicLocked: null
+AirlockExternalGlassSalvageLocked: AirlockExternalGlassCargoLocked
+AirlockExternalGlassShuttleEscapeSub: AirlockExternalGlassCargoLocked
+AirlockParamedicLocked: AirlockMedicalLocked
 
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
