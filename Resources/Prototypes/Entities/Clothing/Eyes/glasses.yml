@@ -255,9 +255,9 @@
       coverage: EYES
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 200
-        Plastic: 300
-        Glass: 500
+        Steel: 50
+        Plastic: 75
+        Glass: 125
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]

@@ -11,7 +11,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 25
   - type: SpaceGarbage
   - type: Sprite
     sprite: Objects/Specific/Chemistry/bottle.rsi

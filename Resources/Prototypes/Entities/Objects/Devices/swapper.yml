@@ -27,6 +27,6 @@
     - QuantumSpinInverter
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 700
-      Glass: 100
-      Uranium: 100
+      Steel: 175
+      Glass: 25
+      Uranium: 25

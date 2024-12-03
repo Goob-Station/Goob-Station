@@ -245,11 +245,11 @@
   - type: HeldSpeedModifier
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 2000
-      Silver: 750
-      Plasma: 1500
-      Uranium: 150
-      BSCrystal: 200
+      Steel: 500
+      Silver: 187
+      Plasma: 375
+      Uranium: 37
+      BSCrystal: 50
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]

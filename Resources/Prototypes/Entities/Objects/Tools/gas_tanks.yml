@@ -42,7 +42,7 @@
         Blunt: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 300
+      Steel: 75
   - type: StaticPrice
     price: 30
 

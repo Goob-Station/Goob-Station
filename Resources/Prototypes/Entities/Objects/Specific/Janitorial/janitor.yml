@@ -42,7 +42,7 @@
     delay: 1
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
   - type: Tag
     tags:
       - Mop
@@ -113,9 +113,9 @@
     - type: DnaSubstanceTrace
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Plastic: 400
-        Glass: 100
-        Steel: 100
+        Plastic: 100
+        Glass: 25
+        Steel: 25
 
 - type: entity
   name: wet floor sign
@@ -135,7 +135,7 @@
         Slash: 0.95
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
   - type: Tag
     tags:
       - WetFloorSign
@@ -282,9 +282,9 @@
     color: "#ffc20e"
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
-      Gold: 100
-      Wood: 100
+      Plastic: 25
+      Gold: 25
+      Wood: 25
 
 - type: weightedRandomEntity
   id: PlungerLoot

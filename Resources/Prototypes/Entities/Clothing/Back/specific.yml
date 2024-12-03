@@ -63,5 +63,5 @@
     solution: tank
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Glass: 1000
+      Steel: 62
+      Glass: 250

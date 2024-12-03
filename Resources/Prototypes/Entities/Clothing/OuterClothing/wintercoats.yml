@@ -36,8 +36,8 @@
     price: 50
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 500
-      Durathread: 200
+      Cloth: 125
+      Durathread: 50
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -376,9 +376,9 @@
     clothingPrototype: ClothingHeadHatHoodWinterHOS
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 1000
-      Durathread: 1250
-      Plasteel: 750
+      Cloth: 250
+      Durathread: 312
+      Plasteel: 187
 ##########################################################
 
 - type: entity
@@ -740,9 +740,9 @@
     clothingPrototype: ClothingHeadHatHoodWinterWarden
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 1000
-      Durathread: 1000
-      Plasteel: 500
+      Cloth: 250
+      Durathread: 250
+      Plasteel: 125
 ################################################################
 
 - type: entity

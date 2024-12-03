@@ -12,7 +12,7 @@
     - CentrifugeCompatible
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 25
   - type: FitsInDispenser
     solution: beaker
   - type: SpaceGarbage

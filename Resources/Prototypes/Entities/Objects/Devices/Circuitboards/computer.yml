@@ -14,10 +14,10 @@
       price: 100
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 100
-        Glass: 500
+        Steel: 25
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
 
 - type: entity
   parent: BaseComputerCircuitboard

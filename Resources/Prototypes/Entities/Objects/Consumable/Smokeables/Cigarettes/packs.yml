@@ -41,7 +41,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
+      Steel: 50
   - type: SpaceGarbage
   - type: Item
     size: Tiny
@@ -110,7 +110,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
+      Steel: 50
   - type: SpaceGarbage
   - type: Item
     size: Tiny

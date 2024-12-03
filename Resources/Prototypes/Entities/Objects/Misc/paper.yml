@@ -73,7 +73,7 @@
           Quantity: 1
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Paper: 100
+      Paper: 25
 
 - type: entity
   name: paper scrap

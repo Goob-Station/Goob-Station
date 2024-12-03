@@ -58,8 +58,8 @@
   - type: EyeProtection
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Glass: 200
+      Steel: 150
+      Glass: 50
   - type: StaticPrice
     price: 100
   - type: Tag

@@ -54,7 +54,7 @@
   - type: StationLimitedNetwork
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 300
+      Cloth: 75
 
 - type: entity
   abstract: true

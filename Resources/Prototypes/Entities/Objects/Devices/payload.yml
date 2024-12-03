@@ -86,8 +86,8 @@
     price: 60
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
-      Plastic: 300
+      Steel: 50
+      Plastic: 75
 
 - type: entity
   name: flash payload
@@ -106,6 +106,6 @@
         path: "/Audio/Effects/flash_bang.ogg"
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 50
-        Plastic: 100
-        Glass: 50
+        Steel: 12
+        Plastic: 25
+        Glass: 12

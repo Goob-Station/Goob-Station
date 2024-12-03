@@ -34,10 +34,10 @@
   - type: MiningScanner
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 1000
-      Glass: 300
-      Plastic: 300
-      Uranium: 500
+      Steel: 250
+      Glass: 75
+      Plastic: 75
+      Uranium: 125
 
 - type: entity
   id: MineralScanner

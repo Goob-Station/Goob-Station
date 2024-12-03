@@ -23,8 +23,8 @@
     storedRotation: -90
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 400
-      Glass: 100
+      Steel: 100
+      Glass: 25
 
 - type: entity
   id: AnomalyLocatorUnpowered
@@ -66,8 +66,8 @@
         volume: -8
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 400
-      Glass: 100
+      Steel: 100
+      Glass: 25
 
 - type: entity
   id: AnomalyLocator
@@ -167,8 +167,8 @@
     slots: NONE
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 1500
-      Plastic: 300
-      Glass: 500
-      Plasma: 500
-      Silver: 250
+      Steel: 375
+      Plastic: 75
+      Glass: 125
+      Plasma: 125
+      Silver: 62

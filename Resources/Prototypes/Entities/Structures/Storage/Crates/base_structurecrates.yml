@@ -155,5 +155,5 @@
     spread: 90
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 500
+      Steel: 125
   - type: RecyclableOnUnlock #Goobstation - Recycle update

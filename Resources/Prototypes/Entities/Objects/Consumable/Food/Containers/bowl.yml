@@ -78,7 +78,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 50
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0

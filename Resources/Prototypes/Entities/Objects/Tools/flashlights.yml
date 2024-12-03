@@ -75,9 +75,9 @@
       - Belt
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
-      Steel: 100
-      Glass: 100
+      Plastic: 25
+      Steel: 25
+      Glass: 25
 
 - type: entity
   name: seclite

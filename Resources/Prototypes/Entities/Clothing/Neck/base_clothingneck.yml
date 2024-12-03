@@ -42,4 +42,4 @@
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 200
+      Cloth: 50

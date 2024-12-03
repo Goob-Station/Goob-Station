@@ -197,9 +197,9 @@
             False: { visible: false }
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 500
-        Glass: 400
-        Silver: 100
+        Steel: 125
+        Glass: 100
+        Silver: 25
 
 - type: entity
   name: force gun
@@ -250,9 +250,9 @@
                 False: { visible: false }
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 500
-        Glass: 400
-        Silver: 200
+        Steel: 125
+        Glass: 100
+        Silver: 50
 
 - type: entity
   name: grappling gun

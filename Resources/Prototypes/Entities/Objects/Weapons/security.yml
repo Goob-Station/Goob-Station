@@ -88,8 +88,8 @@
     maxIntensity: 200
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 300
-      Plastic: 300
+      Steel: 75
+      Plastic: 75
   - type: GuideHelp
     guides:
     - Security

@@ -21,8 +21,8 @@
       - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Glass: 100
+      Steel: 62
+      Glass: 25
   - type: GuideHelp
     guides:
     - Cyborgs

@@ -198,8 +198,8 @@
     - BreathMask # Goobstation - For survial boxes
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 100
-      Plastic: 100
+      Cloth: 25
+      Plastic: 25
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
 
@@ -322,7 +322,7 @@
     coverage: MOUTH
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 100
+      Cloth: 25
 
 - type: entity
   parent: ClothingMaskBase

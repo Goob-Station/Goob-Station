@@ -17,8 +17,8 @@
       - Metal
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 750
-        Plastic: 100
+        Steel: 187
+        Plastic: 25
 
 - type: entity
   parent: BaseItem

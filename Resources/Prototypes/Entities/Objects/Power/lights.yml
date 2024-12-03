@@ -64,7 +64,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 25
   - type: SpaceGarbage
   - type: ToolRefinable
     refineResult:

@@ -83,8 +83,8 @@
     enabled: False
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Plastic: 300
+      Steel: 150
+      Plastic: 75
 
 - type: entity
   id: CheapRollerBed

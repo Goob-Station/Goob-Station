@@ -23,7 +23,7 @@
     removeOnInteract: true
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 100
+      Cloth: 25
 
 - type: entity
   parent: FloorCarpetItemRed

@@ -1636,4 +1636,4 @@
         variation: 0.125
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25

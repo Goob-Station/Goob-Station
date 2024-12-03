@@ -366,9 +366,9 @@
     speed: 1.5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Glass: 150
-      Plasma: 150
+      Steel: 150
+      Glass: 37
+      Plasma: 37
 
 - type: entity
   name: energy scalpel
@@ -402,9 +402,9 @@
     speed: 1.5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Glass: 150 
-      Gold: 150
+      Steel: 150
+      Glass: 37 
+      Gold: 37
 
 - type: entity
   name: mechanical pinches
@@ -442,9 +442,9 @@
     speed: 1.5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Glass: 150
-      Silver: 150
+      Steel: 150
+      Glass: 37
+      Silver: 37
 
 - type: entity
   name: medical multitool

@@ -1489,7 +1489,7 @@
     stackType: FloorTileAstroGrass
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemMowedAstroGrass
@@ -1509,7 +1509,7 @@
     stackType: FloorTileAstroGrass
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -1529,7 +1529,7 @@
     stackType: FloorTileAstroGrass
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemAstroSnow
@@ -1549,7 +1549,7 @@
     stackType: FloorTileAstroSnow
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemAstroIce
@@ -1569,7 +1569,7 @@
     stackType: FloorTileAstroIce
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
 
 - type: entity
   name: large wood floor

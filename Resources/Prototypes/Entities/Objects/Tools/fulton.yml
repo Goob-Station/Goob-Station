@@ -49,8 +49,8 @@
           map: [ "foldedLayer" ]
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 1000
-        Glass: 500
+        Steel: 250
+        Glass: 125
 
 - type: entity
   id: Fulton
@@ -81,8 +81,8 @@
             acts: [ "Destruction" ]
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
-      Cloth: 500
+      Steel: 50
+      Cloth: 125
 
 - type: entity
   id: Fulton1

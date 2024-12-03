@@ -126,7 +126,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
   - type: SpaceGarbage
   - type: StaticPrice
     price: 75 # These are limited supply items.

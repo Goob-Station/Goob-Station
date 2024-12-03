@@ -30,5 +30,5 @@
     price: 80
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 800
-      Glass: 300
+      Steel: 200
+      Glass: 75

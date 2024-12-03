@@ -61,7 +61,6 @@
 
   - type: CollideMaterialReclaimer
   - type: MaterialReclaimer
-    efficiency: 0.25
     enabled: false
     scaleProcessSpeed: false #instant!
     minimumProcessDuration: 0

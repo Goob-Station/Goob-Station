@@ -66,5 +66,5 @@
       - Bucket
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 25
   - type: DnaSubstanceTrace

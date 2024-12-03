@@ -249,8 +249,8 @@
       - NetworkConfigurator
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 200
-        Plastic: 200
+        Steel: 25
+        Plastic: 25
 
 #Power tools
 #Later on these should switch probably switch damage when changing the tool behavior.

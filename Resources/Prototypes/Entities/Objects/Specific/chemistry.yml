@@ -168,7 +168,7 @@
     price: 10
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 25
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: beaker
@@ -220,7 +220,7 @@
     inHandsFillBaseName: -fill-
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 200
+      Glass: 50
   - type: StaticPrice
     price: 20
 
@@ -245,8 +245,8 @@
         canReact: false
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Plastic: 50
+      Steel: 62
+      Plastic: 12
 
 - type: entity
   name: bluespace beaker
@@ -268,10 +268,10 @@
         maxVol: 1000
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 500
-      Plastic: 500
-      Plasma: 150
-      Silver: 50
+      Steel: 125
+      Plastic: 125
+      Plasma: 37
+      Silver: 12
 
 - type: entity
   name: dropper
@@ -322,8 +322,8 @@
     - Dropper
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 200
-      Plastic: 100
+      Glass: 50
+      Plastic: 25
 
 - type: entity
   name: borgdropper
@@ -535,11 +535,11 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
-      Plastic: 150
-      Glass: 250
-      Plasma: 100
-      Silver: 50
+      Steel: 25
+      Plastic: 37
+      Glass: 62
+      Plasma: 25
+      Silver: 12
 
 - type: entity
   id: SyringeCryostasis
@@ -574,8 +574,8 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
-      Plastic: 50
+      Steel: 62
+      Plastic: 12
 
 
 - type: entity

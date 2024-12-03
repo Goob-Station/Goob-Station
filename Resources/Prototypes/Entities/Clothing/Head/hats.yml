@@ -26,7 +26,7 @@
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 100
+      Cloth: 25
 
 - type: entity
   parent: ClothingHeadHatBeret
@@ -104,8 +104,8 @@
     - WhitelistChameleon
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cloth: 100
-      Durathread: 50
+      Cloth: 25
+      Durathread: 12
 
 - type: entity
   parent: ClothingHeadHatBeretRND

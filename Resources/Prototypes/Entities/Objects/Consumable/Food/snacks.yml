@@ -518,7 +518,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update - Changed trash to plastic
     materialComposition:
-      Plastic: 100
+      Plastic: 50
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0

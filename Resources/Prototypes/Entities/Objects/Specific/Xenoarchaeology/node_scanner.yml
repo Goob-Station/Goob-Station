@@ -17,5 +17,5 @@
       - ArtifactReports
     - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 100
-        Plastic: 50
+        Steel: 25
+        Plastic: 12

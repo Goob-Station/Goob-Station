@@ -67,10 +67,10 @@
     zeroVisible: false
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 400
-      Glass: 100
-      Plastic: 50
-      Plasma: 50 
+      Steel: 100
+      Glass: 25
+      Plastic: 12
+      Plasma: 12 
 
 - type: entity
   parent: WeaponPlasmaRifle

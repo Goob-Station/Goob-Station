@@ -25,7 +25,7 @@
   - type: ToolTileCompatible
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
+      Steel: 50
   - type: StaticPrice
     price: 22
   - type: Prying

@@ -73,7 +73,7 @@
           False: { state: fire_extinguisher_closed }
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
+      Steel: 50
 
 - type: entity
   name: extinguisher spray
@@ -123,5 +123,5 @@
       path: /Audio/Effects/weak_hit1.ogg
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
-      Glass: 50
+      Steel: 25
+      Glass: 12

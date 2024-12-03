@@ -349,6 +349,7 @@
       - BluespaceBeaker
       - SyringeBluespace
       - WeaponForceGun
+      - WeaponLaserSvalinn
       - WeaponProtoKineticAccelerator
       - WeaponTetherGun
       - ClothingBackpackHolding
@@ -932,7 +933,6 @@
       - WeaponMechCombatDisabler
       - WeaponMechCombatFlashbangLauncher
       - WeaponMechCombatMissileRack8
-      - WeaponLaserSvalinn # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:

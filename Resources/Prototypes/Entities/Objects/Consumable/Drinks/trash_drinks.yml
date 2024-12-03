@@ -141,7 +141,7 @@
     - Trash
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cardboard: 100
+      Cardboard: 50
   - type: SpaceGarbage
 
 - type: entity

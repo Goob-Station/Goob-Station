@@ -37,8 +37,8 @@
   - type: UseDelay
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 1000
-      Wood: 500
+      Steel: 250
+      Wood: 125
 
 - type: entity
   name: mining drill
@@ -69,8 +69,8 @@
         Structural: 15
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 500
-      Plastic: 100
+      Steel: 125
+      Plastic: 25
 
 - type: entity
   name: diamond tipped mining drill
@@ -95,10 +95,10 @@
         Structural: 30
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 600
-      Plastic: 200
-      Silver: 200
-      Diamond: 100
+      Steel: 150
+      Plastic: 50
+      Silver: 50
+      Diamond: 25
 
 - type: entity
   abstract: true

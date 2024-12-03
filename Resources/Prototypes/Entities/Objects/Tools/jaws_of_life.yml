@@ -57,10 +57,10 @@
   components:
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 1000
-      Glass: 500
-      Plasma: 300
-      Gold: 50
+      Steel: 250
+      Glass: 125
+      Plasma: 75
+      Gold: 12
 
 - type: entity
   name: syndicate jaws of life

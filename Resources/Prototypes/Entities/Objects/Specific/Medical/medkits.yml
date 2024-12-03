@@ -17,7 +17,7 @@
     heldPrefix: firstaid
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 300
+      Plastic: 75
   - type: Tag
     tags:
     - Medkit
