@@ -9,15 +9,15 @@
   - Core
   - Fland
   - Marathon
-  #- Meta TODO: pirasmas meta
-  #- Oasis TODO: pirasmas oasis
-  #- Omega TODO: pirasmas omega
-  #- Origin TODO: pirasmas origin
-  #- Saltern TODO: pirasmas saltern
-  #- Packed TODO: pirasmas packed
-  #- Reach TODO: pirasmas reach
+  - Meta # TODO: pirasmas meta
+  - Oasis # TODO: pirasmas oasis
+  - Omega # TODO: pirasmas omega
+  - Origin # TODO: pirasmas origin
+  - Saltern # TODO: pirasmas saltern
+  - Packed # TODO: pirasmas packed
+  - Reach # TODO: pirasmas reach
   #- Train Goobstation - all my friends hate train
   - FlandHighPop
-  #- OasisHighPop TODO: pirasmas oasis
+  - OasisHighPop # TODO: pirasmas oasis
   - Barratry # Goobstation - Re-add barratry
   - Kettle # Goobstation - Re-add kettle (before it was gemini!)
