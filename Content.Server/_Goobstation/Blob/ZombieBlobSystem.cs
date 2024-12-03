@@ -71,8 +71,6 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         SubscribeLocalEvent<ZombieBlobComponent, InhaleLocationEvent>(OnInhale);
         SubscribeLocalEvent<ZombieBlobComponent, ExhaleLocationEvent>(OnExhale);
 
-        SubscribeLocalEvent<RespiratorImmunityComponent, ComponentInit>(OnPressureImmuneInit);
-        SubscribeLocalEvent<RespiratorImmunityComponent, ComponentRemove>(OnPressureImmuneRemove);
     }
 
     private void OnInhale(Entity<ZombieBlobComponent> ent, ref InhaleLocationEvent args)
@@ -82,22 +80,6 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
     private void OnExhale(Entity<ZombieBlobComponent> ent, ref ExhaleLocationEvent args)
     {
         args.Gas = GasMixture.SpaceGas;
-    }
-
-    private void OnPressureImmuneInit(EntityUid uid, RespiratorImmunityComponent pressureImmunity, ComponentInit args)
-    {
-        if (TryComp<RespiratorComponent>(uid, out var respirator))
-        {
-            respirator.HasImmunity = true;
-        }
-    }
-
-    private void OnPressureImmuneRemove(EntityUid uid, RespiratorImmunityComponent pressureImmunity, ComponentRemove args)
-    {
-        if (TryComp<RespiratorComponent>(uid, out var respirator))
-        {
-            respirator.HasImmunity = false;
-        }
     }
 
     /// <summary>
@@ -146,7 +128,6 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         _tagSystem.AddTag(uid, "BlobMob");
 
         EnsureComp<PressureImmunityComponent>(uid);
-        EnsureComp<RespiratorImmunityComponent>(uid);
 
         if (TryComp<TemperatureComponent>(uid, out var temperatureComponent))
         {
@@ -205,7 +186,6 @@ public sealed class ZombieBlobSystem : SharedZombieBlobSystem
         RemComp<HTNComponent>(uid);
         RemComp<ReplacementAccentComponent>(uid);
         RemComp<PressureImmunityComponent>(uid);
-        RemComp<RespiratorImmunityComponent>(uid);
 
         if (TryComp<TemperatureComponent>(uid, out var temperatureComponent) && component.OldColdDamageThreshold != null)
         {
