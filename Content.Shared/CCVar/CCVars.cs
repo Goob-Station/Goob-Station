@@ -456,13 +456,20 @@ namespace Content.Shared.CCVar
         ///     Used for dynamic gamemode.
         /// </summary>
         public static readonly CVarDef<float> LowpopThreshold =
-            CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
+            CVarDef.Create("game.players.lowpop_threshold", 15f, CVar.SERVERONLY);
 
         /// <summary>
         /// Should the clients window show the server hostname in the title?
         /// </summary>
         public static readonly CVarDef<bool> GameHostnameInTitlebar =
             CVarDef.Create("game.hostname_in_titlebar", true, CVar.SERVER | CVar.REPLICATED);
+
+        /// <summary>
+        ///     Goobstation - indicates how much players are required for the round to be considered highpop.
+        ///     Used for dynamic gamemode.
+        /// </summary>
+        public static readonly CVarDef<float> HighpopThreshold =
+            CVarDef.Create("game.players.highpop_threshold", 50f, CVar.SERVERONLY);
 
         /*
          * Discord

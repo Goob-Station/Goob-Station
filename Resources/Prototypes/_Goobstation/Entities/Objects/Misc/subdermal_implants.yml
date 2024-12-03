@@ -19,3 +19,16 @@
     tags:
     - SubdermalImplant
     - HideContextMenu
+
+- type: entity
+  parent: BaseSubdermalImplant
+  id: PacifismImplant
+  name: pacifism implant
+  description: Pacifism implant, given to life sentenced prisoners or such to prevent them from committing violence.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SubdermalImplant
+    whitelist:
+      components:
+      - MobState
+  - type: Pacified

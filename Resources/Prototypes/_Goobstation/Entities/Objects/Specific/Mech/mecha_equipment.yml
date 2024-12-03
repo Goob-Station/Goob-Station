@@ -1,0 +1,53 @@
+- type: entity
+  id: DebugMechEquipment
+  abstract: true
+  suffix: DEBUG
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - CombatMech
+    - IndustrialMech
+    - SpecialMech
+    - SmallMech
+
+- type: entity
+  id: CombatMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - CombatMech
+  - type: StaticPrice
+    price: 500
+
+- type: entity
+  id: IndustrialMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - IndustrialMech
+  - type: StaticPrice
+    price: 250
+
+- type: entity
+  id: SpecialMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - SpecialMech
+
+- type: entity
+  id: SmallMechEquipment
+  abstract: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - SmallMech
+# TODO: Make medical mech with equipment.
