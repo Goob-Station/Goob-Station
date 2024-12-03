@@ -415,22 +415,16 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                    metaQuery.GetComponent(b.Value).EntityPrototype?.ID;
         }
 
-        List<EntityUid?> addedActions = new();
-        foreach (var action in _actions)
-        {
-            if (savedActions.All(savedAction => !IdsEqual(action, savedAction)))
-                addedActions.Add(action);
-        }
-        List<EntityUid?> newdActions = new();
+        List<EntityUid?> newActions = new();
         foreach (var savedAction in savedActions)
         {
-            foreach (var action in _actions.Where(action => IdsEqual(action, savedAction)))
+            if (_actions.FirstOrDefault(x => IdsEqual(x, savedAction)) is { } action)
             {
-                newdActions.Add(action);
-                break;
+                newActions.Add(action);
             }
         }
-        _actions = newdActions.Concat(addedActions).ToList();
+        var addedActions = _actions.Except(newActions);
+        _actions = newActions.Concat(addedActions).ToList();
         OnActionsUpdated();
         _savedActions.Remove(entity);
         _sawmill.Debug($"Loaded actions for entity {entity}");
