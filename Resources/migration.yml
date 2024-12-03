@@ -201,6 +201,10 @@ ClothingOuterWinterCoatLong: null
 ClothingHandsGlovesColorYellowUnsulated: null
 AirlockMusicianLocked: null
 AirlockMimeLocked: null
+DoorElectronicsParamedic: null
+AirlockExternalGlassSalvageLocked: null
+AirlockExternalGlassShuttleEscapeSub: null
+AirlockParamedicLocked: null
 
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
