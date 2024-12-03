@@ -1,0 +1,47 @@
+# Idle. Just do nothing.
+- type: htnCompound
+  id: LavalandIdleCompound
+  branches:
+    - tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:WaitOperator
+          key: IdleTime
+        preconditions:
+        - !type:KeyExistsPrecondition
+          key: IdleTime
+
+# move around chaotically and don't stop
+- type: htnCompound
+  id: LavalandChaoticMovementCompound
+  branches:
+    - tasks:
+      - !type:HTNCompoundTask
+        task: LavalandIdleCompound
+    # TODO finish
+
+# indicates that you can't pull, buckle or trap the mob
+- type: htnCompound
+  id: LavalandUntouchableCompound
+  branches:
+  - preconditions:
+      - !type:BuckledPrecondition
+        isBuckled: true
+    tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UnbuckleOperator
+          shutdownState: TaskFinished
+
+  - preconditions:
+      - !type:InContainerPrecondition
+        isInContainer: true
+    tasks:
+      - !type:HTNCompoundTask
+        task: EscapeCompound
+
+  - preconditions:
+      - !type:PulledPrecondition
+        isPulled: true
+    tasks:
+      - !type:HTNPrimitiveTask
+        operator: !type:UnPullOperator
+          shutdownState: TaskFinished

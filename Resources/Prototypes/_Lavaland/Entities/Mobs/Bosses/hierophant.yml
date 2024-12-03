@@ -23,8 +23,9 @@
     baseWalkSpeed: 2.5
     baseSprintSpeed: 2.5
   - type: MobThresholds
-    0: Alive
-    2500: Dead
+    thresholds:
+      0: Alive
+      2500: Dead
   - type: Destructible
     thresholds:
     - trigger:
@@ -59,4 +60,4 @@
     attackMemoryLength: 30
   - type: HTN
     rootTask:
-      task: RuminantHostileCompound
+      task: LavalandHierophantCompound
