@@ -19,6 +19,8 @@
       "Acoustic": {24: 0}
       "Flute": {73: 0}
       "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
       "Violin": {41: 0}
   - type: UserInterface
     interfaces:
