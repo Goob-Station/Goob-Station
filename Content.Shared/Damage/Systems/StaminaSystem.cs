@@ -386,8 +386,7 @@ public sealed partial class StaminaSystem : EntitySystem
                     drainRate * frameTime,
                     comp,
                     source: source,
-                    visual: false,
-                    allowsSlowdown: modifiesSpeed);
+                    visual: false);
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
 

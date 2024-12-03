@@ -1,9 +1,9 @@
-using Content.Client.Flight.Components;
+using Content.Client._EinsteinEngines.Flight.Components;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 
-namespace Content.Client.Flight;
+namespace Content.Client._EinsteinEngines.Flight;
 
 /// <summary>
 /// Handles offsetting an entity while flying

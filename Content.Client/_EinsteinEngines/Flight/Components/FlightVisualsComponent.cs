@@ -1,7 +1,7 @@
 using Robust.Client.Graphics;
 using Robust.Shared.GameStates;
 
-namespace Content.Client.Flight.Components;
+namespace Content.Client._EinsteinEngines.Flight.Components;
 
 [RegisterComponent]
 public sealed partial class FlightVisualsComponent : Component

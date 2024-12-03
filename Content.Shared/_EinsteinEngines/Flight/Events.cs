@@ -1,7 +1,7 @@
 using Robust.Shared.Serialization;
 using Content.Shared.DoAfter;
 
-namespace Content.Shared.Flight.Events;
+namespace Content.Shared._EinsteinEngines.Flight.Events;
 
 [Serializable, NetSerializable]
 public sealed partial class DashDoAfterEvent : SimpleDoAfterEvent { }

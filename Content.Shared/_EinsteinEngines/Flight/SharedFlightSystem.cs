@@ -5,9 +5,9 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.VirtualItem;
-using Content.Shared.Flight.Events;
+using Content.Shared._EinsteinEngines.Flight.Events;
 
-namespace Content.Shared.Flight;
+namespace Content.Shared._EinsteinEngines.Flight;
 public abstract class SharedFlightSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;

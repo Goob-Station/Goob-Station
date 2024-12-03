@@ -1,9 +1,9 @@
 using Robust.Client.GameObjects;
-using Content.Shared.Flight;
-using Content.Shared.Flight.Events;
-using Content.Client.Flight.Components;
+using Content.Shared._EinsteinEngines.Flight;
+using Content.Shared._EinsteinEngines.Flight.Events;
+using Content.Client._EinsteinEngines.Flight.Components;
 
-namespace Content.Client.Flight;
+namespace Content.Client._EinsteinEngines.Flight;
 public sealed class FlightSystem : SharedFlightSystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;

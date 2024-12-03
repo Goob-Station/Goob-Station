@@ -7,7 +7,7 @@
   components:
   - type: Flight
     isLayerAnimated: true
-    layer: "/Textures/Mobs/Customization/Harpy/harpy_wings.rsi"
+    layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
     animationKey: "Flap"
   - type: HarpySinger
   - type: Instrument
@@ -152,6 +152,12 @@
   - type: FootPrints
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Shard
+      - Landmine
+      - Mousetrap
 
 - type: entity
   save: false
@@ -245,6 +251,6 @@
   components:
   - type: InstantAction
     checkCanInteract: false
-    icon: { sprite: Interface/Actions/flight.rsi, state: flight_off }
-    iconOn: { sprite : Interface/Actions/flight.rsi, state: flight_on }
+    icon: { sprite: _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_on }
     event: !type:ToggleFlightEvent

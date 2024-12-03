@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
-namespace Content.Shared.Flight;
+namespace Content.Shared._EinsteinEngines.Flight;
 
 /// <summary>
 ///     Adds an action that allows the user to become temporarily

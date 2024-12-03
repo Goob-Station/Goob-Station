@@ -1,16 +1,17 @@
 
+using Content.Shared.Bed.Sleep;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Flight;
-using Content.Shared.Flight.Events;
+using Content.Shared._EinsteinEngines.Flight;
+using Content.Shared._EinsteinEngines.Flight.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 
-namespace Content.Server.Flight;
+namespace Content.Server._EinsteinEngines.Flight;
 public sealed class FlightSystem : SharedFlightSystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -64,8 +65,7 @@ public sealed class FlightSystem : SharedFlightSystem
             new FlightDoAfterEvent(), uid, target: uid)
             {
                 BlockDuplicate = true,
-                BreakOnTargetMove = true,
-                BreakOnUserMove = true,
+                BreakOnMove = true,
                 BreakOnDamage = true,
                 NeedHand = true
             };
