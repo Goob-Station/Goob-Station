@@ -2718,3 +2718,75 @@ Entries:
       message: Fix heretic ashen jaunt messing up the action bar.
   id: 312
   time: '2024-12-02T01:12:11.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        You can't pull the Supermatter around with a (non-admeme) tether/force
+        gun anymore.
+  id: 313
+  time: '2024-12-02T16:09:53.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: >-
+        The H.O.N.K. has received an airtight cabin for honk operations in outer
+        space.
+    - type: Add
+      message: >-
+        Added the Ripley MK-II, a heavy, slow all-purpose mech, featuring a
+        pressurized cabin for space operations.
+    - type: Add
+      message: >-
+        Added the Clarke, A fast moving mech for space travel, with built in
+        thrusters (not certain if they work properly though :trollface:)
+    - type: Add
+      message: >-
+        Added the Gygax, a lightly armored and highly mobile mech with enough
+        force to rip walls, or someone's head off.
+    - type: Add
+      message: >-
+        Added the Durand, a slow but beefy combat suit that you dont want to
+        fight in close quarters.
+    - type: Add
+      message: Added the Marauder, a specialized mech issued to ERT operatives.
+    - type: Add
+      message: Added the Seraph, a specialized combat suit issued to ??? operatives.
+    - type: Add
+      message: >-
+        The syndicate has started issuing units under the codenames "Dark Gygax"
+        and "Mauler" to syndicate agents at an introductory price.
+    - type: Add
+      message: The exosuit fabricator can now be emagged to reveal new recipes.
+    - type: Add
+      message: >-
+        There are 4 new bounties cargo can fulfill for mechs. Feedback on the
+        cost/reward is welcome!
+  id: 314
+  time: '2024-12-02T16:15:10.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic gamemode threat and balance now scales with the amount of
+        players.
+    - type: Add
+      message: Brought back traitor flavor character text.
+    - type: Add
+      message: On polymorph ghosts will start properly following the person.
+    - type: Tweak
+      message: Ling got better... in a way
+    - type: Remove
+      message: Removed transform sting until polymorph gets good.
+    - type: Tweak
+      message: Made midround antags rarer on secret.
+  id: 315
+  time: '2024-12-02T21:30:03.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        If you break a christmas tree, you will now be killsigned and valid for
+        gibbing, lobotomising, and whatnot.
+  id: 316
+  time: '2024-12-02T21:31:27.0000000+00:00'

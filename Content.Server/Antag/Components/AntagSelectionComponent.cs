@@ -186,6 +186,10 @@ public partial struct AntagSelectionDefinition()
     [DataField]
     public EntProtoId? SpawnerPrototype;
 
+    // goob edit - actual pacifism implant
+    [DataField]
+    public List<JobSpecial> Special = new();
+  
     /// <summary>
     /// Goobstation
     /// Does this antag role roll before job

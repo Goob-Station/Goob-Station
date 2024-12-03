@@ -332,6 +332,9 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicAntagEventsTable
+    minMaxEventTiming:
+      min: 600
+      max: 900
 
 - type: entity
   id: RampingStationEventScheduler
