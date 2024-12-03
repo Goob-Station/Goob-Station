@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Goobstation.Materials;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Body.Components;
@@ -6,6 +7,7 @@ using Content.Shared.Database;
 using Content.Shared.Emag.Components;
 using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
+using Content.Shared.Lock;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Stacks;
 using Content.Shared.Whitelist;
@@ -29,6 +31,7 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly LockSystem _lockSystem = default!; // Goobstation - Recycle Update
 
     public const string ActiveReclaimerContainerId = "active-material-reclaimer-container";
 
@@ -86,6 +89,10 @@ public abstract class SharedMaterialReclaimerSystem : EntitySystem
             return false;
 
         if (!CanStart(uid, component))
+            return false;
+
+        // Goobstation - Recycle update - Check to prevent recycling closed lockers
+        if (HasComp<RecyclableOnUnlockComponent>(item) && _lockSystem.IsLocked(item))
             return false;
 
         if (HasComp<MobStateComponent>(item) && !CanGib(uid, item, component)) // whitelist? We be gibbing, boy!

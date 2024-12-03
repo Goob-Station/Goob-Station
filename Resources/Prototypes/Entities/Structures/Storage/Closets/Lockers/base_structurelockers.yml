@@ -49,6 +49,10 @@
     node: done
     containers:
     - entity_storage
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
+  - type: RecyclableOnUnlock
 
 - type: entity
   id: LockerBaseSecure
