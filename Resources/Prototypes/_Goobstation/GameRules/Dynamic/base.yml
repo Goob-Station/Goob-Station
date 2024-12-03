@@ -3,6 +3,7 @@
   abstract: true
   components:
   - type: GameRule
+    minPlayers: 15
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-unknown-title
 
