@@ -80,3 +80,11 @@
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/hecu.rsi
+
+- type: entity
+  parent: ClothingUniformMailCarrier
+  id: ClothingUniformSyndicateMailCarrier
+  name: syndicate mail carrier's uniform
+  description: You are the mail
+  components:
+  - type: Mailable

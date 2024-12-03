@@ -120,6 +120,7 @@
     whitelist:
       components:
       - Item
+      - Mailable
   - type: MailingUnit
   - type: DeviceNetwork
     deviceNetId: Wired

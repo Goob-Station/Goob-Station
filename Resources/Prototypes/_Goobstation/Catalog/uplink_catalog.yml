@@ -236,6 +236,20 @@
     - Clown
     - Passenger
 
+- type: listing
+  id: UplinkSyndicateMailcarrier
+  name: uplink-Syndicate-mail-Carrier-name
+  description: uplink-Syndicate-mail-Carrier-desc
+  icon: { sprite: _Goobstation/Clothing/Uniforms/Jumpsuit/mailman.rsi, state: icon }
+  productEntity: ClothingUniformSyndicateMailCarrier
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - CargoTechnician
 
 # chemicals
 
