@@ -1,0 +1,34 @@
+- type: entity
+  parent: [ LavalandMobBase, FlyingMobBase ]
+  id: LavalandBossHierophant
+  name: hierophant
+  description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
+    state: hierophant
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 2.5
+  - type: MobThresholds
+    0: Alive
+    2500: Dead
+  - type: MeleeWeapon
+    soundHit:
+      path: "/Audio/Weapons/smash.ogg"
+    angle: 0
+    attackRate: 0.5
+    animation: WeaponArcPunch
+    damage:
+      types:
+        Blunt: 20
+  - type: NpcFactionMember
+    factions:
+      - Passive
+  - type: Tag
+    tags:
+    - CannotSuicide
+  - type: NoSlip
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
