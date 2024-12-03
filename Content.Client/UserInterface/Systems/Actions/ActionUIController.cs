@@ -411,8 +411,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 return true;
             if (a == null || b == null)
                 return false;
-            return metaQuery.GetComponent(a.Value).EntityPrototype?.ID ==
-                   metaQuery.GetComponent(b.Value).EntityPrototype?.ID;
+            if (!metaQuery.TryGetComponent(a.Value, out var metaA) ||
+                !metaQuery.TryGetComponent(b.Value, out var metaB))
+                return false;
+            return metaA.EntityPrototype?.ID == metaB.EntityPrototype?.ID;
         }
 
         List<EntityUid?> newActions = new();
