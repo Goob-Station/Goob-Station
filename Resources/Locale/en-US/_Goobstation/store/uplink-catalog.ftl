@@ -51,5 +51,4 @@ uplink-smugglers-satchel-name = Smuggler's Satchel
 uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
 
 uplink-Syndicate-mail-Carrier-name = Syndicate Mail Courier Suit
-uplink-Syndicate-mail-Carrier-desc = Its-a me, Mario! Use the mail system as a means of transportation for easy access to various key areas (security, bridge, etc).
-It's worth noting that, despite being an uplink item, you do start the round wearing one of these as a Mail Courier, traitor or not! This makes purchasing one rather pointless unless you're looking for a replacement or wanting to give one to someone else for whatever reason.
+uplink-Syndicate-mail-Carrier-desc = Use the mail system as a means of transportation for easy access to various key areas (security, bridge, etc).
