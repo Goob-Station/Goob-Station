@@ -2796,3 +2796,11 @@ Entries:
       message: Lowered snowfall ambience
   id: 317
   time: '2024-12-03T14:17:06.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: >-
+        The burner rifle is now nukeops whitelisted instead of nukeops
+        blacklisted
+  id: 318
+  time: '2024-12-03T15:40:48.0000000+00:00'
