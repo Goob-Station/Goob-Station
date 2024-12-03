@@ -18,7 +18,7 @@ public sealed partial class SpawnEntitiesOnHitComponent : Component
     public int Amount = 1;
 
     /// <summary>
-    /// Whether should spawn entities only if projectile hits a mob
+    /// Whether to spawn entities only if the projectile hits a mob
     /// </summary>
     [DataField]
     public bool SpawnOnlyIfHitMob;
@@ -31,7 +31,7 @@ public sealed partial class SpawnEntitiesOnHitComponent : Component
 
 
     /// <summary>
-    /// Entitiy list with ignored collision
+    /// Entity list with ignored collision
     /// </summary>
     [DataField]
     public List<EntProtoId> CollideIgnoreEntities = new();
