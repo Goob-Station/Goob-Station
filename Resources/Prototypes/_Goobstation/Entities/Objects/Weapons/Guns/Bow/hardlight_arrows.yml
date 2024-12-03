@@ -164,7 +164,7 @@
         mask:
         - Opaque
   - type: TimedDespawn
-    lifetime: 2
+    lifetime: 0.7
 
 - type: entity
   parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
