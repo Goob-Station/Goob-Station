@@ -51,10 +51,13 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     [UISystemDependency] private readonly SpriteSystem _spriteSystem = default!;
 
     private ActionButtonContainer? _container;
-    private readonly List<EntityUid?> _actions = new();
+    private List<EntityUid?> _actions = new(); // Goob edit
     private readonly DragDropHelper<ActionButton> _menuDragHelper;
     private readonly TextureRect _dragShadow;
     private ActionsWindow? _window;
+
+    private readonly Dictionary<EntityUid, List<EntityUid?>> _savedActions = new(); // Goobstation
+    private ISawmill _sawmill = default!; // Goobstation
 
     private ActionsBar? ActionsBar => UIManager.GetActiveUIWidgetOrNull<ActionsBar>();
     private MenuButton? ActionButton => UIManager.GetActiveUIWidgetOrNull<MenuBar.Widgets.GameTopMenuBar>()?.ActionButton;
@@ -86,6 +89,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var gameplayStateLoad = UIManager.GetUIController<GameplayStateLoadController>();
         gameplayStateLoad.OnScreenLoad += OnScreenLoad;
         gameplayStateLoad.OnScreenUnload += OnScreenUnload;
+
+        _sawmill = Logger.GetSawmill("action_ui_controller"); // Goobstation
     }
 
     private void OnScreenLoad()
@@ -105,6 +110,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionAdded += OnActionAdded;
             _actionsSystem.OnActionRemoved += OnActionRemoved;
             _actionsSystem.ActionsUpdated += OnActionsUpdated;
+            // Gooobstation start
+            _actionsSystem.ActionsSaved += OnActionsSaved;
+            _actionsSystem.ActionsLoaded += OnActionsLoaded;
+            // Goobstation end
         }
 
         UpdateFilterLabel();
@@ -345,6 +354,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _actionsSystem.OnActionAdded -= OnActionAdded;
             _actionsSystem.OnActionRemoved -= OnActionRemoved;
             _actionsSystem.ActionsUpdated -= OnActionsUpdated;
+            // Gooobstation start
+            _actionsSystem.ActionsSaved -= OnActionsSaved;
+            _actionsSystem.ActionsLoaded -= OnActionsLoaded;
+            // Goobstation end
         }
 
         CommandBinds.Unregister<ActionUIController>();
@@ -364,6 +377,40 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         else
             _actionsSystem?.TriggerAction(actionId.Value, baseAction);
     }
+
+    // Goobstation start
+    private void OnActionsSaved(EntityUid entity)
+    {
+        if (entity == default)
+            return;
+
+        if (_actions.Count == 0)
+            return;
+
+        _savedActions[entity] = new(_actions);
+        _sawmill.Debug($"Saved actions for entity {entity}");
+    }
+
+    private void OnActionsLoaded(EntityUid entity)
+    {
+        _sawmill.Debug($"Trying to load actions for entity {entity}");
+        if (entity == default)
+        {
+            _savedActions.Remove(entity);
+            return;
+        }
+        if (!_savedActions.TryGetValue(entity, out var savedActions))
+            return;
+        if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
+            return;
+        var addedActions = _actions.Where(x => !savedActions.Contains(x));
+        savedActions.RemoveAll(x => !_actions.Contains(x));
+        _actions = savedActions.Concat(addedActions).ToList();
+        OnActionsUpdated();
+        _savedActions.Remove(entity);
+        _sawmill.Debug($"Loaded actions for entity {entity}");
+    }
+    // Goobstation end
 
     private void OnActionAdded(EntityUid actionId)
     {

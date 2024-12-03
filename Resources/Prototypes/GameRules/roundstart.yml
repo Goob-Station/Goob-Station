@@ -134,7 +134,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      #max: 3 - Goobstation / 古布空间站 - 没有限制的核特工
+      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 10
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
@@ -332,6 +332,9 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicAntagEventsTable
+    minMaxEventTiming:
+      min: 600
+      max: 900
 
 - type: entity
   id: RampingStationEventScheduler

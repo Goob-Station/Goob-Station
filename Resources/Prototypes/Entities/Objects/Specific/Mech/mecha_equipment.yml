@@ -15,7 +15,7 @@
 
 - type: entity
   id: MechEquipmentGrabber
-  parent: BaseMechEquipment
+  parent: [ BaseMechEquipment, IndustrialMechEquipment ] # Goobstation
   name: hydraulic clamp
   description: Gives the mech the ability to grab things and drag them around.
   components:
@@ -40,18 +40,19 @@
     maxContents: 4
     grabDelay: 3
     grabEnergyDelta: -20
-  - type: Tag
-    tags:
-    - SmallMech
   - type: UIFragment
     ui: !type:MechGrabberUi
   - type: ContainerContainer
     containers:
       item-container: !type:Container
+  - type: Tag # Goobstation
+    tags:
+    - IndustrialMech
+    - SmallMech
 
 - type: entity
   id: MechEquipmentHorn
-  parent: BaseMechEquipment
+  parent: [ BaseMechEquipment, SpecialMechEquipment ] # Goobstation
   name: mech horn
   description: An enhanced bike horn that plays a hilarious array of sounds for the enjoyment of the crew. HONK!
   components:
@@ -69,4 +70,3 @@
     ui: !type:MechSoundboardUi
   - type: UseDelay
     delay: 0.5
-  # TODO: tag as being for H.O.N.K. only!!!

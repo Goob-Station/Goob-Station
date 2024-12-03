@@ -2580,3 +2580,213 @@ Entries:
       message: Added several new posters!
   id: 298
   time: '2024-11-29T21:18:51.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed ascensions not giving out items properly.
+  id: 299
+  time: '2024-11-30T08:20:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Now there will be much more nukies.
+  id: 300
+  time: '2024-11-30T21:41:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Pirasmas is here!!!
+  id: 301
+  time: '2024-12-01T02:45:10.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added the Burner heavy assault rifle to the synicate and nuclear
+        operative uplinks for 150 TC
+    - type: Tweak
+      message: Ammo bundles now contain ammunition for the Burner heavy assault rifle
+  id: 302
+  time: '2024-12-01T19:05:52.0000000+00:00'
+- author: DarkenedSynergy
+  changes:
+    - type: Add
+      message: >-
+        Blueshield Officers can now choose between a backpack, duffelbag or
+        satchel.
+  id: 303
+  time: '2024-12-01T19:07:50.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added new cartridges for the Autoinjector: Bicaridine, Dermaline,
+        Ephedrine, and Ichor (Ephedrine and Ichor are Syndicate only).
+    - type: Tweak
+      message: >-
+        You can now print Bicaridine and Dermaline cartridges in the Security
+        Autolathe.
+    - type: Tweak
+      message: >-
+        Using an Emag on a Security Autolathe now unlocks hidden Autoinjector
+        cartridge recipes: Ephedrine and Ichor.
+    - type: Tweak
+      message: >-
+        The cooldown for using the Autoinjector is now 40 seconds instead of 5
+        minutes.
+  id: 304
+  time: '2024-12-01T19:55:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Bolas now knock people down, items are not dropped from their hands.
+    - type: Remove
+      message: Bolas no longer deal stamina damage.
+  id: 305
+  time: '2024-12-01T20:04:32.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: Fixed an error caused by walking through puddles as they were deleted.
+  id: 306
+  time: '2024-12-01T20:14:08.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        server side serialization bug caused by opening multiple network
+        configuration menus
+  id: 307
+  time: '2024-12-01T23:42:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed touching light bulbs damaging your torso instead of your hands
+    - type: Fix
+      message: >-
+        Fixed clumsy clowns damaging their torsos instead of their head when
+        hitting a table.
+    - type: Fix
+      message: Fixed borgs being unable to wear hats
+    - type: Fix
+      message: Fixed diona nymphs imploding as soon as they appear (lol)
+    - type: Fix
+      message: Fixed slime stomachs being unable to metabolize chemicals.
+    - type: Fix
+      message: >-
+        Fixed part damage code not caring about whether or not damage should
+        ignore resistances.
+    - type: Fix
+      message: Fixed monkeys not having hands.
+    - type: Fix
+      message: Fixed some simple mobs being unable to equip apparel or gear.
+    - type: Fix
+      message: Fixed mannequins not working.
+    - type: Fix
+      message: Fixed hands being added out of order on surgical reattachment.
+    - type: Fix
+      message: >-
+        Fixed fire gibbing not removing your organs properly, in turn allowing
+        you to continue living as a nugget.
+    - type: Tweak
+      message: Added a circuit board and crafting recipe for Operating Tables.
+  id: 308
+  time: '2024-12-02T00:17:10.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Christmas baddies for nukie suits
+  id: 309
+  time: '2024-12-02T00:58:20.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Research servers now generate 15 research points per second passively.
+  id: 310
+  time: '2024-12-02T00:59:02.0000000+00:00'
+- author: CBozo
+  changes:
+    - type: Add
+      message: >-
+        Barozine can now be made with potassium, chlorine, plasma and
+        bicaridine!
+  id: 311
+  time: '2024-12-02T01:09:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic ashen jaunt messing up the action bar.
+  id: 312
+  time: '2024-12-02T01:12:11.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        You can't pull the Supermatter around with a (non-admeme) tether/force
+        gun anymore.
+  id: 313
+  time: '2024-12-02T16:09:53.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: >-
+        The H.O.N.K. has received an airtight cabin for honk operations in outer
+        space.
+    - type: Add
+      message: >-
+        Added the Ripley MK-II, a heavy, slow all-purpose mech, featuring a
+        pressurized cabin for space operations.
+    - type: Add
+      message: >-
+        Added the Clarke, A fast moving mech for space travel, with built in
+        thrusters (not certain if they work properly though :trollface:)
+    - type: Add
+      message: >-
+        Added the Gygax, a lightly armored and highly mobile mech with enough
+        force to rip walls, or someone's head off.
+    - type: Add
+      message: >-
+        Added the Durand, a slow but beefy combat suit that you dont want to
+        fight in close quarters.
+    - type: Add
+      message: Added the Marauder, a specialized mech issued to ERT operatives.
+    - type: Add
+      message: Added the Seraph, a specialized combat suit issued to ??? operatives.
+    - type: Add
+      message: >-
+        The syndicate has started issuing units under the codenames "Dark Gygax"
+        and "Mauler" to syndicate agents at an introductory price.
+    - type: Add
+      message: The exosuit fabricator can now be emagged to reveal new recipes.
+    - type: Add
+      message: >-
+        There are 4 new bounties cargo can fulfill for mechs. Feedback on the
+        cost/reward is welcome!
+  id: 314
+  time: '2024-12-02T16:15:10.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic gamemode threat and balance now scales with the amount of
+        players.
+    - type: Add
+      message: Brought back traitor flavor character text.
+    - type: Add
+      message: On polymorph ghosts will start properly following the person.
+    - type: Tweak
+      message: Ling got better... in a way
+    - type: Remove
+      message: Removed transform sting until polymorph gets good.
+    - type: Tweak
+      message: Made midround antags rarer on secret.
+  id: 315
+  time: '2024-12-02T21:30:03.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        If you break a christmas tree, you will now be killsigned and valid for
+        gibbing, lobotomising, and whatnot.
+  id: 316
+  time: '2024-12-02T21:31:27.0000000+00:00'

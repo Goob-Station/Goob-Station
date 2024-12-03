@@ -9,7 +9,7 @@
 
 - type: selectableAmmo
   id: ArrowDisabler
-  desc: Disabler hardlight arrow. Deals no damage. Stuns in two hits.
+  desc: Disabler hardlight arrow. Deals no damage. Stuns in three hits.
   icon:
     sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
     state: omnilaser

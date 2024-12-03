@@ -406,6 +406,3 @@ public sealed partial class PolymorphSystem : EntitySystem
             _actions.RemoveAction(target, val);
     }
 }
-
-// goob edit
-public sealed partial class PolymorphRevertEvent : EntityEventArgs { }
