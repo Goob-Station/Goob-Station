@@ -30,16 +30,6 @@
 
 - type: entity
   parent: ClothingHeadHatBeret
-  id: ClothingHeadHatBeretDurathread
-  abstract: true
-  components:
-  - type: PhysicalComposition #Goobstation - Recycle update
-    materialComposition:
-      Cloth: 100
-      Durathread: 50
-
-- type: entity
-  parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretFrench
   name: french beret
   description: A French beret, "vive la France".
@@ -98,7 +88,7 @@
       sprite: Clothing/Head/Hats/casa.rsi
 
 - type: entity
-  parent: ClothingHeadHatBeretDurathread
+  parent: ClothingHeadHatBeret
   id: ClothingHeadHatBeretRND
   name: scientific beret
   description: A beret for real scientists.
@@ -112,9 +102,13 @@
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 100
+      Durathread: 50
 
 - type: entity
-  parent: ClothingHeadHatBeretDurathread
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretEngineering
   name: engineering beret
   description: A beret with the engineering insignia emblazoned on it. For engineers that are more inclined towards style than safety.
@@ -130,7 +124,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeretDurathread
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretQM
   name: quartermaster's beret
   description: A beret with the cargo's insignia emblazoned on it. For quartermasters that are more inclined towards style.
@@ -146,7 +140,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeretDurathread
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretHoS
   name: head of security's beret
   description: A black beret with a commander's rank emblem. For officers that are more inclined towards style than safety.
@@ -162,7 +156,7 @@
     - WhitelistChameleon
 
 - type: entity
-  parent: ClothingHeadHatBeretDurathread
+  parent: ClothingHeadHatBeretRND
   id: ClothingHeadHatBeretWarden
   name: warden's beret
   description: A corporate blue beret with a warden's rank emblem. For officers that are more inclined towards style than safety.
@@ -195,7 +189,7 @@
     sprite: Clothing/Head/Hats/beret_brigmedic.rsi
 
 - type: entity
-  parent: [ ClothingHeadHatBeretDurathread, BaseRestrictedContraband ]
+  parent: [ ClothingHeadHatBeretRND, BaseRestrictedContraband ]
   id: ClothingHeadHatBeretMerc
   name: mercenary beret
   description: Olive beret, the badge depicts a jackal on a rock.
@@ -217,7 +211,7 @@
     sprite: Clothing/Head/Hats/bowler_hat.rsi
 
 - type: entity
-  parent: [ ClothingHeadHatBeretDurathread, BaseCommandContraband ]
+  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
   id: ClothingHeadHatCaptain
   name: captain's hardhat
   description: It's good being the king.
@@ -763,7 +757,7 @@
       sprite: Clothing/Head/Hats/jester2.rsi
 
 - type: entity
-  parent: [ ClothingHeadHatBeretDurathread, BaseCommandContraband ]
+  parent: [ ClothingHeadHatBeretRND, BaseCommandContraband ]
   id: ClothingHeadHatBeretCmo
   name: chief medical officer's beret
   description: Turquoise beret with a cross on the front. The sight of it calms you down and makes it clear that you will be cured.
