@@ -272,6 +272,8 @@
       Plastic: 125
       Plasma: 37
       Silver: 12
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 65
 
 - type: entity
   name: dropper
