@@ -74,7 +74,7 @@
         Blunt: 5
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Glass: 100
+      Glass: 25
   - type: ExaminableSolution
     solution: drink
   - type: FitsInDispenser

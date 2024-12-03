@@ -9,7 +9,7 @@
   components:
   - type: Sprite
   - type: StaticPrice
-    price: 20
+    price: 60
   - type: Tag
     tags:
     - SurgeryTool

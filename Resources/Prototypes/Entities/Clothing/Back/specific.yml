@@ -65,3 +65,5 @@
     materialComposition:
       Steel: 62
       Glass: 250
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 50

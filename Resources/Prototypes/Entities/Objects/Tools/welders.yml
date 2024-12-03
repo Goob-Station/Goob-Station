@@ -182,6 +182,8 @@
     materialComposition:
       Steel: 200
       Plasma: 50
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 50
 
 - type: entity
   name: emergency welding tool

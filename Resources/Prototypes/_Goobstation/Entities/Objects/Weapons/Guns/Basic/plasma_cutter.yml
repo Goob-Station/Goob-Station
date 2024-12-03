@@ -28,9 +28,9 @@
     spreadMultiplier: 1.2
   - type: PhysicalComposition
     materialComposition:
-      Steel: 500
-      Glass: 300
-      Plasma: 300
+      Steel: 125
+      Glass: 75
+      Plasma: 75
 
 - type: entity
   parent: WeaponPlasmaCutter

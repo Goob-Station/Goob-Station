@@ -250,6 +250,8 @@
       Plasma: 375
       Uranium: 37
       BSCrystal: 50
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 1850
 
 - type: entity
   parent: [ ClothingBackpackDuffel, BaseCentcommContraband ]
