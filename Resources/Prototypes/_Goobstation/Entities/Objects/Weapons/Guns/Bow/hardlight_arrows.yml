@@ -184,3 +184,8 @@
     spawnOnlyIfHitMob: true
     proto: MobAngryBeeWeak
     amount: 8
+    collideIgnoreEntities:
+    - MobBee
+    - MobAngryBee
+    - MobSyndieAngryBee
+    - MobAngryBeeWeak

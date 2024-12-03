@@ -28,4 +28,11 @@ public sealed partial class SpawnEntitiesOnHitComponent : Component
     /// </summary>
     [DataField]
     public bool DeleteOnSpawn = true;
+
+
+    /// <summary>
+    /// Entitiy list with ignored collision
+    /// </summary>
+    [DataField]
+    public List<EntProtoId> CollideIgnoreEntities = new();
 }
