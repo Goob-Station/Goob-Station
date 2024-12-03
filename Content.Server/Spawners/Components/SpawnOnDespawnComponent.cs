@@ -13,6 +13,11 @@ public sealed partial class SpawnOnDespawnComponent : Component
     /// <summary>
     /// Entity prototype to spawn.
     /// </summary>
-    [DataField(required: true)]
+    [DataField] // lava edit - make it not required
     public EntProtoId Prototype = string.Empty;
+
+    // lava edit - make it spawn more. without specific intrusion.
+    [DataField]
+    public List<EntProtoId> Prototypes = new();
+    // lava edit end
 }

@@ -7,18 +7,18 @@
   - type: Sprite
     sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
     state: hierophant
-  - type: Physics
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.5
-        density: 1984 # don't even try to move it
-        mask:
-        - MobMask
-        layer:
-        - MobLayer
+  # - type: Physics
+  # - type: Fixtures
+  #   fixtures:
+  #     fix1:
+  #       shape:
+  #         !type:PhysShapeCircle
+  #         radius: 0.5
+  #       density: 1984 # don't even try to move it
+  #       mask:
+  #       - MobMask
+  #       layer:
+  #       - MobLayer
   - type: MovementSpeedModifier
     baseWalkSpeed: 1.5
     baseSprintSpeed: 1.5
@@ -34,7 +34,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          BikeHorn:
+          BikeHorn: # TODO replace with hiero club... or don't...
             min: 1
             max: 1
       - !type:DoActsBehavior
@@ -53,11 +53,81 @@
     damage:
       types:
         Blunt: 20
-  - type: NpcFactionMember
-    factions:
-    - Passive
-  - type: NPCRetaliation
-    attackMemoryLength: 30
-  - type: HTN
-    rootTask:
-      task: LavalandHierophantCompound
+  - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
+  - type: Aggressors # also required component for aggro checking
+  - type: AmbientSound
+    enabled: false
+    range: 10
+    volume: 1
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
+
+# hierophant damaging thing
+- type: entity
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  id: LavalandHierophantSquare
+  suffix: DO NOT MAP
+  name: hierophant square
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/mob_effects.rsi
+    state: hierophant_blast-begin
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 0.6  
+  - type: SpawnOnDespawn
+    prototypes:
+    - LavalandHierophantSquareDamaging
+    - LavalandHierophantBlastSound
+
+- type: entity
+  id: LavalandHierophantSquareDamaging
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Lavaland/Effects/mob_effects.rsi
+    state: hierophant_blast-end
+  - type: Transform
+    anchored: true
+  - type: TimedDespawn
+    lifetime: 0.325
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.1
+  - type: TileEntityEffect
+    effects:
+    - !type:HealthChange
+      damage:
+        types:
+          Blunt: 2.5 # only 5 damage because it ignores armor
+          Heat: 2.5
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+
+- type: entity
+  id: LavalandHierophantBlastSound
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.5
+  - type: AmbientSound
+    range: 5
+    volume: 1
+    sound:
+      path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg

@@ -26,6 +26,10 @@
   <ItemGroup>
     <None Include="Goobstation\Changeling\Changeling.Actions.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="_Lavaland\GPS\" />
+    <Folder Include="_Lavaland\Upgrades\" />
+  </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />
 </Project>

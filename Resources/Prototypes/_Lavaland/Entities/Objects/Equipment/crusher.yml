@@ -14,7 +14,7 @@
   - type: AmmoCounter
   - type: UseDelayOnShoot
   - type: UseDelay
-    delay: 0.9
+    delay: 1
   - type: LeechOnMarker
     leech:
       groups:
@@ -40,12 +40,13 @@
         Slash: 5
     soundHit:
       collection: MetalThud
+  - type: PressureBuffed
   - type: Wieldable
   - type: IncreaseDamageOnWield
     damage:
       types:
-        Blunt: 15
-        Slash: 20
+        Blunt: 10
+        Slash: 10
         Structural: 30
   - type: GunRequiresWield
   - type: Item

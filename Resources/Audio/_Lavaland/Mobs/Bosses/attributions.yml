@@ -1,0 +1,4 @@
+- files: ["hiero_blast.ogg", "hiero_bgm.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from /tg/station"
+  source: "https://github.com/tgstation/tgstation/blob/master"
