@@ -270,7 +270,7 @@
     materialComposition:
       Steel: 500
       Plastic: 500
-      Plastma: 150
+      Plasma: 150
       Silver: 50
 
 - type: entity
