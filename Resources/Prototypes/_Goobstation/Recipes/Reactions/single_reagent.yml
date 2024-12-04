@@ -10,6 +10,6 @@
     - !type:ExplosionReactionEffect
       explosionType: Default
       maxIntensity: 100
-      intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
+      intensityPerUnit: 1 # this is twice the potassium-water IPU, so uhhh, more bang for your buck? meth is hard okay
       intensitySlope: 4
       maxTotalIntensity: 100
