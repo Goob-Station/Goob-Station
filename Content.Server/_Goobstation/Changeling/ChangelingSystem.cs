@@ -582,18 +582,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var newComp = (Component) _compFactory.GetComponent(type.Name);
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
                 var temp = (object) newComp;
                 _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
             }
         }
 
-        // This just doesn't work for some reason. I tried commenting out QueueDel(uid), checked ActionUIController
-        // sawmill logs, everything is fine there, it should work but it just doesn't
-        // RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        QueueDel(uid);
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }
