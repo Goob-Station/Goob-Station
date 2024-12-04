@@ -76,7 +76,7 @@
     - secret2
   name: gamemode-dynamic-title
   description: gamemode-dynamic-description
-  showInVote: true
+  showInVote: false # Shibastation - admeme only because it's broken at zero pop and I can't stop it from being voteable despite setting minPlayers to 15 ?????
   rules:
     - Dynamic
     - BasicStationEventSchedulerNoAntag
