@@ -2886,3 +2886,11 @@ Entries:
       message: Now items in pda and pocket slots won't drop on ling transform.
   id: 326
   time: '2024-12-04T05:21:18.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: >-
+        The HEV Suit now has immunity to the supermatter, this allows the HEV
+        suit to touch the SM without being ashed. Be warned: This starts the SM.
+  id: 327
+  time: '2024-12-04T05:22:12.0000000+00:00'
