@@ -1,0 +1,15 @@
+- type: reaction
+  id: MethExplosion
+  minTemp: 420
+  impact: High
+  priority: 20
+  reactants:
+    Desoxyephedrine:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Default
+      maxIntensity: 100
+      intensityPerUnit: 0.5 # 50+50 reagent for maximum explosion
+      intensitySlope: 4
+      maxTotalIntensity: 100
