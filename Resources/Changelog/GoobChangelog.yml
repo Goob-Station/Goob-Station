@@ -2825,3 +2825,9 @@ Entries:
       message: sodium now explodes in water, just like potassium
   id: 321
   time: '2024-12-04T04:49:18.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Lathes now tells you when they unlock new recipes
+  id: 322
+  time: '2024-12-04T04:52:47.0000000+00:00'
