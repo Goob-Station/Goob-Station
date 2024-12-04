@@ -24,6 +24,11 @@
     receiveFrequencyId: BasicDevice
   - type: WirelessNetworkConnection
     range: 40 # goobstation
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 25
+      Plastic: 50
+      Glass: 25
 
 - type: entity
   parent: RemoteSignaller

@@ -30,6 +30,10 @@
       interfaces:
         enum.StationMapUiKey.Key:
           type: StationMapBoundUserInterface
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 75
+        Plastic: 25
 
 - type: entity
   id: HandheldStationMap

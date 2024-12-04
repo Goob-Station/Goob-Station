@@ -25,3 +25,8 @@
   - type: Tag
     tags:
     - QuantumSpinInverter
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 175
+      Glass: 25
+      Uranium: 25
