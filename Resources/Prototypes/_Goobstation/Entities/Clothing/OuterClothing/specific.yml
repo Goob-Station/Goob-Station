@@ -23,7 +23,7 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHEV
-  - type: ClothingGrantComponent # Goobstation - Make sure the Freeman doesn't get cooked by supermatter
+  - type: ClothingGrantComponent
     component:
       - type: SupermatterImmune
   - type: Tag
