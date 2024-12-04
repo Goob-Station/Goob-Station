@@ -20,7 +20,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
 
     [ValidatePrototypeId<EntityPrototype>] private const string CrusherPrototype = "BaseWeaponCrusher";
 
-    public void OnAttacked(EntityUid uid, MegafaunaComponent comp, ref AttackedEvent args)
+    public void OnAttacked<T>(EntityUid uid, T comp, ref AttackedEvent args) where T : MegafaunaComponent
     {
         var prot = Prototype(args.Used);
         if (prot == null)
@@ -36,7 +36,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
             comp.CrusherOnly = false; // it's over...
     }
 
-    public void OnDeath(EntityUid uid, MegafaunaComponent comp, ref DamageThresholdReached args)
+    public void OnDeath<T>(EntityUid uid, T comp, ref DamageThresholdReached args) where T : MegafaunaComponent
     {
         var coords = Transform(uid).Coordinates;
 

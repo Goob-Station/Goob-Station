@@ -17,6 +17,9 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(_megafauna.OnAttacked);
+        SubscribeLocalEvent<HierophantBossComponent, DamageThresholdReached>(_megafauna.OnDeath);
     }
 
     public override void Update(float frameTime)
