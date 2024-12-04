@@ -79,6 +79,9 @@
     horizontalRotation: 90
   - type: HumanoidAppearance
     species: Human
+  - type: MovementSpeedModifier # Goobstation - make shit faster
+    baseWalkSpeed: 4
+    baseRunSpeed: 6
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
@@ -138,7 +141,6 @@
     - Vulgarity # Goobstation - add Profanol
     - Brainrotted # Goobstation - skibidi rizz ohio update
     - Adrenaline
-    - Brainrotted # Goobstation - skibidi rizz ohio update
   - type: Body
     prototype: Human
     requiredLegs: 2
