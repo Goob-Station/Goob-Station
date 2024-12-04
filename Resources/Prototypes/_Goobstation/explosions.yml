@@ -19,7 +19,7 @@
   damagePerIntensity: # yeah I want it less damaging than the default explosion, considering it's high intensity slope
     types:
       Heat: 3
-      Blunt: 8
+      Blunt: 5
   tileBreakChance: [0, 0.5, 1]
   tileBreakIntensity: [0, 10, 30]
   tileBreakRerollReduction: 20
