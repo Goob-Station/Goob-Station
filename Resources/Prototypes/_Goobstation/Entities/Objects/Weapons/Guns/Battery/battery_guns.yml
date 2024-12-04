@@ -1,5 +1,5 @@
 - type: entity
-  name: Miniature Energy Crossbow
+  name: miniature energy crossbow
   parent: BaseWeaponBatterySmall
   id: MiniatureEnergyCrossbow
   description: The syndicate's energy crossbow, small, silent and deadly.
@@ -31,7 +31,7 @@
     spreadMultiplier: 1.2
 
 - type: entity
-  name: Plasma Rifle
+  name: plasma rifle
   parent: BaseWeaponBattery
   id: WeaponPlasmaRifle
   description: It may or may not explode in your face.
@@ -65,6 +65,12 @@
     magState: mag
     steps: 5
     zeroVisible: false
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 100
+      Glass: 25
+      Plastic: 12
+      Plasma: 12 
 
 - type: entity
   parent: WeaponPlasmaRifle

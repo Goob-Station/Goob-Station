@@ -76631,6 +76631,13 @@ entities:
     - type: Transform
       pos: 4.5405226,-14.581865
       parent: 1
+- proto: MaterialSilo
+  entities:
+  - uid: 15714
+    components:
+    - type: Transform
+      pos: 25.5,24.5
+      parent: 1
 - proto: MaterialWoodPlank
   entities:
   - uid: 15937

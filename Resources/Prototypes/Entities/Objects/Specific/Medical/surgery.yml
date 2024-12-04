@@ -9,7 +9,7 @@
   components:
   - type: Sprite
   - type: StaticPrice
-    price: 20
+    price: 60
   - type: Tag
     tags:
     - SurgeryTool
@@ -364,6 +364,11 @@
     speed: 1.5
   - type: Drill
     speed: 1.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Plasma: 37
 
 - type: entity
   name: energy scalpel
@@ -395,6 +400,11 @@
     speed: 1.5
   - type: BoneSaw
     speed: 1.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37 
+      Gold: 37
 
 - type: entity
   name: mechanical pinches
@@ -430,6 +440,11 @@
     speed: 1.5
   - type: Tending
     speed: 1.5
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Glass: 37
+      Silver: 37
 
 - type: entity
   name: medical multitool
