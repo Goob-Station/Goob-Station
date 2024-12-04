@@ -81,7 +81,7 @@
     species: Human
   - type: MovementSpeedModifier # Goobstation - make shit faster
     baseWalkSpeed: 4
-    baseRunSpeed: 6
+    baseSprintSpeed: 6
   - type: SlowOnDamage
     speedModifierThresholds:
       60: 0.7
