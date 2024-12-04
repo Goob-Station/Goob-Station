@@ -22,11 +22,17 @@ public sealed class SiloSystem : SharedSiloSystem
         SubscribeLocalEvent<BecomesStationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SiloComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
         SubscribeLocalEvent<SiloComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SiloComponent, ComponentShutdown>(OnShutdown);
     }
 
     private void OnStartup(Entity<SiloComponent> ent, ref ComponentStartup args)
     {
         _pvs.AddGlobalOverride(ent);
+    }
+
+    private void OnShutdown(Entity<SiloComponent> ent, ref ComponentShutdown args)
+    {
+        _pvs.RemoveGlobalOverride(ent);
     }
 
     private void OnMaterialAmountChanged(Entity<SiloComponent> ent, ref MaterialAmountChangedEvent args)
