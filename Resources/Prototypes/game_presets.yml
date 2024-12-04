@@ -40,7 +40,6 @@
     - Nukeops
     - Traitor
     - Revolutionary
-    - Zombie
     # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
@@ -62,7 +61,6 @@
     - Nukeops
     - Traitor
     - Revolutionary
-    - Zombie
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
