@@ -67,6 +67,9 @@
         acts: [ "Destruction" ]
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - Shard
   - type: PreventableStepTrigger
   - type: Slippery
     slipSound:
