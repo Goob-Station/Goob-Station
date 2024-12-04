@@ -1,5 +1,4 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared._Lavaland.Pressure;
 using Content.Shared.Examine;
 using Content.Shared.Weapons.Melee.Events;
 

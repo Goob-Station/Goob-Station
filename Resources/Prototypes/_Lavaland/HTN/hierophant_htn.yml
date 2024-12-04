@@ -1,9 +1,0 @@
-- type: htnCompound
-  id: LavalandHierophantCompound
-  branches:
-  - tasks:
-    - !type:HTNCompoundTask
-      task: LavalandIdleCompound
-  - tasks:
-    - !type:HTNCompoundTask
-      task: LavalandUntouchableCompound

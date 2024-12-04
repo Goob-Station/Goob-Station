@@ -37,7 +37,7 @@
       types:
         Blunt: 20
   - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
-  - type: Aggressors # also required component for aggro checking
+  - type: Aggressive # also required component for aggro checking
   - type: AmbientSound
     enabled: false
     range: 10
@@ -114,3 +114,17 @@
     volume: 1
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
+
+- type: entity
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  id: LavalandHierophantChaser
+  suffix: DO NOT MAP
+  name: hierophant chaser
+  components:
+  - type: Transform
+    anchored: true
+  - type: HierophantChaser
+    spawnPrototype: LavalandHierophantSquare

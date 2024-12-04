@@ -2,7 +2,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._Lavaland.Pressure;
+namespace Content.Server._Lavaland.Pressure;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class PressureBuffedComponent : Component

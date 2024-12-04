@@ -1,9 +1,10 @@
+using Content.Server._Lavaland.Mobs.Bosses.Components;
 using Content.Server.Destructible;
-using Content.Shared._Lavaland.Mobs.Bosses;
 using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using System.Threading;
 
 namespace Content.Server._Lavaland.Mobs.Bosses;
 
@@ -39,6 +40,9 @@ public sealed partial class MegafaunaSystem : EntitySystem
     public void OnDeath<T>(EntityUid uid, T comp, ref DamageThresholdReached args) where T : MegafaunaComponent
     {
         var coords = Transform(uid).Coordinates;
+
+        if (comp.CancelToken != null)
+            comp.CancelToken.Cancel();
 
         if (comp.Loot != null)
             Spawn(comp.Loot, coords);

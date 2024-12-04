@@ -27,6 +27,7 @@
     <ProjectReference Include="..\Content.Shared\Content.Shared.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="_Lavaland\GPS\" />
     <Folder Include="_Lavaland\Upgrades\Crusher\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
