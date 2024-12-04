@@ -59,6 +59,7 @@ using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.Changeling;
 
@@ -581,18 +582,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var newComp = (Component) _compFactory.GetComponent(type.Name);
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
                 var temp = (object) newComp;
                 _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
             }
         }
 
-        // This just doesn't work for some reason. I tried commenting out QueueDel(uid), checked ActionUIController
-        // sawmill logs, everything is fine there, it should work but it just doesn't
-        // RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        QueueDel(uid);
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }
@@ -673,6 +672,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+
+        // Shitmed: Prevent changelings from getting their body parts severed
+        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
+        {
+            part.CanSever = false;
+            Dirty(id, part);
+        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

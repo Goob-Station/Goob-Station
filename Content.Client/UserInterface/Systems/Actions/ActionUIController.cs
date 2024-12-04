@@ -403,9 +403,30 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             return;
         if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
             return;
-        var addedActions = _actions.Where(x => !savedActions.Contains(x));
-        savedActions.RemoveAll(x => !_actions.Contains(x));
-        _actions = savedActions.Concat(addedActions).ToList();
+        var metaQuery = _entMan.GetEntityQuery<MetaDataComponent>();
+
+        bool IdsEqual(EntityUid? a, EntityUid? b)
+        {
+            if (a == null && b == null)
+                return true;
+            if (a == null || b == null)
+                return false;
+            if (!metaQuery.TryGetComponent(a.Value, out var metaA) ||
+                !metaQuery.TryGetComponent(b.Value, out var metaB))
+                return false;
+            return metaA.EntityPrototype?.ID == metaB.EntityPrototype?.ID;
+        }
+
+        List<EntityUid?> newActions = new();
+        foreach (var savedAction in savedActions)
+        {
+            if (_actions.FirstOrDefault(x => IdsEqual(x, savedAction)) is { } action)
+            {
+                newActions.Add(action);
+            }
+        }
+        var addedActions = _actions.Except(newActions);
+        _actions = newActions.Concat(addedActions).ToList();
         OnActionsUpdated();
         _savedActions.Remove(entity);
         _sawmill.Debug($"Loaded actions for entity {entity}");

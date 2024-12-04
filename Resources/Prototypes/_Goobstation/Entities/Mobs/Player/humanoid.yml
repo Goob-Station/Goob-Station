@@ -36,3 +36,157 @@
     - type: Loadout
       prototypes: [ LostFrontierProspectorSuit ]
       roleLoadout: [ RoleSurvivalStandard ]
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanRandom
+  name: Urist McHuman
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobDiona
+  id: MobDionaRandom
+  name: Urist McPlants
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - DionaFirst
+    - DionaLast
+
+- type: entity
+  parent: MobFelinid
+  id: MobFelinidRandom
+  name: Urist McFelinid
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobGingerbread
+  id: MobGingerbreadRandom
+  name: Urist McCookie
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobMoth
+  id: MobMothRandom
+  name: Urist McFluff
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_moth_first_female
+    - names_moth_last
+
+- type: entity
+  parent: MobDwarf
+  id: MobDwarfRandom
+  name: Urist McDwarf
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobHarpy
+  id: MobHarpyRandom
+  name: Urist McHarpy
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobRodentia
+  id: MobRodentiaRandom
+  name: Urist McRat
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_rodentia_male
+    - names_rodentia_last
+
+- type: entity
+  parent: MobReptilian
+  id: MobReptilianRandom
+  name: Urist McScales
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_reptilian_male
+
+- type: entity
+  parent: MobVulpkanin
+  id: MobVulpkaninRandom
+  name: Urist McVulp
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_vulpkanin_male
+    - names_vulpkanin_last
+
+- type: entity
+  parent: MobSlimePerson
+  id: MobSlimePersonRandom
+  name: Urist McSlime
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_first
+    - names_last
+
+- type: entity
+  parent: MobYowie
+  id: MobYowieRandom
+  name: Urist McYow
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_yowie_male
+    - names_yowie_last
+
+- type: entity
+  parent: MobVox
+  id: MobVoxRandom
+  name: Uristiti McVox
+  suffix: Random Appearance
+  components:
+  - type: RandomHumanoidAppearance
+  - type: RandomMetadata
+    nameSegments: 
+    - names_vox
