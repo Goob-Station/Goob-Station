@@ -2894,3 +2894,9 @@ Entries:
         suit to touch the SM without being ashed. Be warned: This starts the SM.
   id: 327
   time: '2024-12-04T05:22:12.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix silo being out of range.
+  id: 328
+  time: '2024-12-04T14:32:24.0000000+00:00'
