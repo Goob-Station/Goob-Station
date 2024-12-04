@@ -13,3 +13,7 @@
 
 - type: statusEffect
   id: Brainrotted
+
+- type: statusEffect
+  id: BlurryVision
+  alwaysAllowed: true

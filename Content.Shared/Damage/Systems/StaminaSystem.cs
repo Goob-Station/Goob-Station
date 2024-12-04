@@ -285,11 +285,8 @@ public sealed partial class StaminaSystem : EntitySystem
             return;
 
         // Have we already reached the point of max stamina damage?
-        if (component.Critical && immediate)
-        {
-            EnterStamCrit(uid, component, true); // enter stamcrit
+        if (component.Critical)
             return;
-        }
 
         var oldDamage = component.StaminaDamage;
         component.StaminaDamage = MathF.Max(0f, component.StaminaDamage + value);
@@ -346,27 +343,50 @@ public sealed partial class StaminaSystem : EntitySystem
         }
     }
 
+    public void ToggleStaminaDrain(EntityUid target, float drainRate, bool enabled, bool modifiesSpeed, EntityUid? source = null)
+    {
+        if (!TryComp<StaminaComponent>(target, out var stamina))
+            return;
+
+        // If theres no source, we assume its the target that caused the drain.
+        var actualSource = source ?? target;
+
+        if (enabled)
+        {
+            stamina.ActiveDrains[actualSource] = (drainRate, modifiesSpeed);
+            EnsureComp<ActiveStaminaComponent>(target);
+        }
+        else
+            stamina.ActiveDrains.Remove(actualSource);
+
+        Dirty(target, stamina);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
-
         if (!_timing.IsFirstTimePredicted)
             return;
 
         var stamQuery = GetEntityQuery<StaminaComponent>();
         var query = EntityQueryEnumerator<ActiveStaminaComponent>();
         var curTime = _timing.CurTime;
-
         while (query.MoveNext(out var uid, out _))
         {
             // Just in case we have active but not stamina we'll check and account for it.
             if (!stamQuery.TryGetComponent(uid, out var comp) ||
-                comp.StaminaDamage <= 0f && !comp.Critical)
+                comp.StaminaDamage <= 0f && !comp.Critical && comp.ActiveDrains.Count == 0)
             {
                 RemComp<ActiveStaminaComponent>(uid);
                 continue;
             }
-
+            if (comp.ActiveDrains.Count > 0)
+                foreach (var (source, (drainRate, modifiesSpeed)) in comp.ActiveDrains)
+                    TakeStaminaDamage(uid,
+                    drainRate * frameTime,
+                    comp,
+                    source: source,
+                    visual: false);
             // Shouldn't need to consider paused time as we're only iterating non-paused stamina components.
             var nextUpdate = comp.NextUpdate;
 
@@ -381,7 +401,10 @@ public sealed partial class StaminaSystem : EntitySystem
             }
 
             comp.NextUpdate += TimeSpan.FromSeconds(1f);
-            TakeStaminaDamage(uid, -comp.Decay, comp);
+            // If theres no active drains, recover stamina.
+            if (comp.ActiveDrains.Count == 0)
+                TakeStaminaDamage(uid, -comp.Decay, comp);
+
             Dirty(uid, comp);
         }
     }
@@ -389,7 +412,7 @@ public sealed partial class StaminaSystem : EntitySystem
     // goob edit - stunmeta
     private void EnterStamCrit(EntityUid uid, StaminaComponent? component = null, bool hardStun = false)
     {
-        if (!Resolve(uid, ref component) || !hardStun && component.Critical)
+        if (!Resolve(uid, ref component) || component.Critical)
         {
             return;
         }

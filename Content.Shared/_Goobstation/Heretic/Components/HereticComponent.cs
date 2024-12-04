@@ -31,7 +31,7 @@ public sealed partial class HereticComponent : Component
     /// <summary>
     ///     How much targets can a heretic have?
     /// </summary>
-    [DataField, AutoNetworkedField] public int MaxTargets = 5;
+    [DataField, AutoNetworkedField] public int MaxTargets = 6;
 
     // hardcoded paths because i hate it
     // "Ash", "Lock", "Flesh", "Void", "Blade", "Rust"

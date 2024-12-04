@@ -1,5 +1,6 @@
 - type: entity
-  parent: ClothingBeltMilitaryWebbingCMO
+  parent: [ ClothingBeltMilitaryWebbingCMO, BaseMedicalContraband ]
+  suffix: Filled
   id: ClothingBeltMilitaryWebbingCMOFilled
   name: chief medical officer's chest rig
   description: "A medical chest rig with deep pockets, for use by paramedics and health professionals."
@@ -10,9 +11,10 @@
       - id: EnergyScalpel
       - id: AdvancedRetractor
       - id: BoneGel
-      - id: Brutepack
-      - id: Ointment
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
       - id: Bloodpack
-      - id: Gauze
+      - id: BruteAutoInjector
+      - id: BurnAutoInjector
       - id: EmergencyMedipen
         amount: 3

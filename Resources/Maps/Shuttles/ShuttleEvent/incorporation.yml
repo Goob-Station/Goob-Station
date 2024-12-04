@@ -27,7 +27,7 @@ entities:
       name: NT-Incorporation
     - type: Transform
       pos: -0.5208333,-0.5104167
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:

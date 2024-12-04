@@ -26,7 +26,7 @@ entities:
       name: NT Evac Box
     - type: Transform
       pos: 0.06253052,0.58707
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:

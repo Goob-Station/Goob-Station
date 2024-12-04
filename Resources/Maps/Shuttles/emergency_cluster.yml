@@ -25,7 +25,7 @@ entities:
       name: NT Evac Cluster
     - type: Transform
       pos: -4.3957214,6.3308363
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,-2:

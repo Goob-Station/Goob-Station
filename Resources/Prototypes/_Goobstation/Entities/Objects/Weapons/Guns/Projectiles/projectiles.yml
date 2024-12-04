@@ -10,15 +10,29 @@
     sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/cbbolt.rsi
     layers:
     - state: cbbolt
-  - type: GatheringProjectile
   - type: Projectile
     damage:
       types:
-        Heat: 10
+        Heat: 15
   - type: TimedDespawn
     lifetime: 0.4
-  - type: StaminaDamageOnCollide
-    damage: 65
+  - type: Ammo
+    muzzleFlash: null
+  - type: Reflective
+    reflective:
+    - Energy
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.05,-0.05,0.05,0.05"
+        hard: false
+        mask:
+        - Opaque
+  - type: KnockdownOnCollide
+    behavior: DropIfStanding
+  - type: BlurOnCollide
 
 - type: entity
   id: BulletPlasmaCutter
@@ -66,3 +80,47 @@
     radius: 4
     color: purple
     energy: 2
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletHighCaliber
+  name: bullet (.50 anti-materiel)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 35
+        Structural: 130 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
+
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBulletTrigger
+  id: BulletHighCaliberExplosive
+  name: bullet (.50 high-explosive)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+        Heat: 5
+        Structural: 20
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: Default
+    maxIntensity: 2
+    intensitySlope: 2
+    totalIntensity: 18 # 30 damage per tile
+    maxTileBreak: 0
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: Sprite
+    noRot: false
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+
+

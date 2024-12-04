@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Linq;
 using Content.Server.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork;
@@ -6,6 +7,7 @@ using Content.Shared.DeviceNetwork.Systems;
 using Content.Shared.Interaction;
 using JetBrains.Annotations;
 using Robust.Shared.Map.Events;
+using Robust.Shared.Utility;
 
 namespace Content.Server.DeviceNetwork.Systems;
 
@@ -23,6 +25,52 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         SubscribeLocalEvent<BeforeSaveEvent>(OnMapSave);
     }
 
+    // Goobstation - Fix desync of configurator lists
+    [Conditional("DEBUG")]
+    public void VerifyDeviceList(EntityUid? uid, DeviceListComponent? listComp = null)
+    {
+        if (uid is not {} listUid)
+        {
+            Log.Error("VerifyDeviceList was passed a null uid");
+            return;
+        }
+
+
+        if (listComp == null)
+        {
+            if (Deleted(uid)) return;
+            if (!Resolve(listUid, ref listComp))
+            {
+                Log.Error("Failed to resolve DeviceListComponent for verification");
+                return;
+            }
+        }
+
+        var config_query = GetEntityQuery<NetworkConfiguratorComponent>();
+        foreach (var conf_enty in listComp.Configurators)
+        {
+            if (Deleted(conf_enty)) continue;
+            if (!config_query.TryGetComponent(conf_enty, out var conf_comp))
+            {
+                Log.Error("Failed to find NetworkConfiguratorComponent in DeviceListComponent Configurators");
+                continue;
+            }
+            DebugTools.Assert(conf_comp.ActiveDeviceList == listUid);
+        }
+
+        var device_query = GetEntityQuery<DeviceNetworkComponent>();
+        foreach (var dev_enty in listComp.Devices)
+        {
+            if (Deleted(dev_enty)) continue;
+            if (!device_query.TryGetComponent(dev_enty, out var dev_comp))
+            {
+                Log.Error("Failed to find DeviceNetworkComponent in DeviceListComponent Devices");
+                continue;
+            }
+            DebugTools.Assert(dev_comp.DeviceLists.Contains(listUid));
+        }
+    }
+
     private void OnShutdown(EntityUid uid, DeviceListComponent component, ComponentShutdown args)
     {
         foreach (var conf in component.Configurators)
@@ -37,6 +85,8 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
                 comp.DeviceLists.Remove(uid);
         }
         component.Devices.Clear();
+
+        VerifyDeviceList(uid, component); // Goobstation - Fix desync of configurator lists
     }
 
     /// <summary>
@@ -122,6 +172,8 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
 
         list.Comp.Devices.Remove(device);
         Dirty(list);
+
+        VerifyDeviceList(list.Owner, list.Comp); // Goobstation - Fix desync of configurator lists
     }
 
     private void OnMapSave(BeforeSaveEvent ev)
@@ -215,6 +267,8 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
         RaiseLocalEvent(uid, new DeviceListUpdateEvent(oldDevices, list));
 
         Dirty(uid, deviceList);
+
+        VerifyDeviceList(uid, deviceList); // Goobstation - Fix desync of configurator lists
 
         return DeviceListUpdateResult.UpdateOk;
     }

@@ -80,7 +80,7 @@ public abstract partial class SharedSurgerySystem
                     TryComp(tool, out SurgeryToolComponent? toolComp) &&
                     toolComp.EndSound != null)
                 {
-                    _audio.PlayEntity(toolComp.EndSound, args.User, tool);
+                    _audio.PlayPvs(toolComp.EndSound, tool);
                 }
             }
         }
@@ -362,7 +362,6 @@ public abstract partial class SharedSurgerySystem
                     : removedComp.Part.ToString().ToLower();
                 _body.TryCreatePartSlot(args.Part, slotName, partComp.PartType, out var _);
                 _body.AttachPart(args.Part, slotName, tool);
-                _body.ChangeSlotState((tool, partComp), false);
                 EnsureComp<BodyPartReattachedComponent>(tool);
                 var ev = new BodyPartAttachedEvent((tool, partComp));
                 RaiseLocalEvent(args.Body, ref ev);
@@ -653,7 +652,7 @@ public abstract partial class SharedSurgerySystem
                     if (TryComp(tool, out SurgeryToolComponent? toolComp) &&
                         toolComp.StartSound != null)
                     {
-                        _audio.PlayEntity(toolComp.StartSound, user, tool);
+                        _audio.PlayPvs(toolComp.StartSound, tool);
                     }
                 }
             }

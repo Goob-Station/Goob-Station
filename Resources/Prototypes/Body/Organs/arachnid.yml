@@ -25,6 +25,9 @@
     tags:
     - Meat
     - Organ
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 5
 
 - type: entity
   id: OrganArachnidStomach
@@ -164,6 +167,8 @@
   description: "Filters toxins from the bloodstream."
   categories: [ HideSpawnMenu ]
   components:
+  - type: Organ # Shitmed
+    slotId: kidneys
   - type: Sprite
     layers:
       - state: kidney-l

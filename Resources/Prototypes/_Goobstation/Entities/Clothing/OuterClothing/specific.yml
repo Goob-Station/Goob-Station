@@ -23,6 +23,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHEV
+  - type: ClothingGrantComponent
+    component:
+      - type: SupermatterImmune
   - type: Tag
     tags:
       - HEVSuit
@@ -60,17 +63,3 @@
       sprite: _Goobstation/Clothing/OuterClothing/Misc/nopro.rsi
       quickEquip: true
 
-- type: entity
-  parent: SurveillanceWirelessCameraBodyEntertainment
-  id: SurveillanceWirelessCameraBodySecurity
-  name: security bodycam
-  description: A body mounted camera. It's watching you.
-  components:
-    - type: DeviceNetwork
-      deviceNetId: Wired # :clueless:
-      receiveFrequencyId: SurveillanceCameraSecurity
-      transmitFrequencyId: SurveillanceCamera
-    - type: SurveillanceCamera
-      networkSet: true
-      nameSet: True
-      id: Bodycam

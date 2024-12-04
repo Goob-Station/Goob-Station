@@ -134,7 +134,7 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      #max: 3 - Goobstation / 古布空间站 - 没有限制的核特工
+      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 10
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
@@ -170,10 +170,8 @@
   components:
   - type: GameRule
     minPlayers: 5
-    delay:
-      min: 240
-      max: 420
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       max: 8
@@ -195,6 +193,7 @@
     giveCodewords: false # It would actually give them a different set of codewords than the regular traitors, anyway
     giveBriefing: false
   - type: AntagSelection
+    selectionTime: PostPlayerSpawn # Goobstation
     definitions:
     - prefRoles: [ Traitor ]
       mindRoles:
@@ -208,6 +207,7 @@
     minPlayers: 15
   - type: RevolutionaryRule
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -276,6 +276,21 @@
       - !type:NestedSelector
         tableId: BasicCalmEventsTable
       - !type:NestedSelector
+        tableId: BasicAntagEventsTable
+      - !type:NestedSelector
+        tableId: CargoGiftsTable
+      - !type:NestedSelector
+        tableId: CalmPestEventsTable
+      - !type:NestedSelector
+        tableId: SpicyPestEventsTable
+
+- type: entityTable
+  id: BasicGameRulesTableNoAntag
+  table: !type:AllSelector
+    children:
+      - !type:NestedSelector
+        tableId: BasicCalmEventsTable
+      - !type:NestedSelector
         tableId: CargoGiftsTable
       - !type:NestedSelector
         tableId: CalmPestEventsTable
@@ -287,7 +302,7 @@
   table: !type:AllSelector
     children:
     - !type:NestedSelector
-      tableId: BasicGameRulesTable
+      tableId: BasicGameRulesTableNoAntag
     - !type:NestedSelector
       tableId: BasicAntagEventsTable
 
@@ -317,6 +332,9 @@
   - type: BasicStationEventScheduler
     scheduledGameRules: !type:NestedSelector
       tableId: BasicAntagEventsTable
+    minMaxEventTiming:
+      min: 600
+      max: 900
 
 - type: entity
   id: RampingStationEventScheduler
@@ -324,7 +342,15 @@
   components:
   - type: RampingStationEventScheduler
     scheduledGameRules: !type:NestedSelector
-      tableId: AllGameRulesTable
+      tableId: BasicGameRulesTable
+
+- type: entity
+  id: BasicStationEventSchedulerNoAntag
+  parent: BaseGameRule
+  components:
+  - type: BasicStationEventScheduler
+    scheduledGameRules: !type:NestedSelector
+      tableId: BasicGameRulesTableNoAntag
 # goob edit end
 
 - type: entity
