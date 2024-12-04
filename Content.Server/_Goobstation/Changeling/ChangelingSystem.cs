@@ -59,6 +59,7 @@ using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
+using Content.Shared.Body.Components;
 
 namespace Content.Server.Changeling;
 
@@ -673,6 +674,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+
+        // Shitmed: Prevent changelings from getting their body parts severed
+        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
+        {
+            part.CanSever = false;
+            Dirty(id, part);
+        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)
