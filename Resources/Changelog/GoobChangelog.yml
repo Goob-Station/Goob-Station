@@ -2878,3 +2878,11 @@ Entries:
       message: cmo chest rig is medical restricted contra now
   id: 325
   time: '2024-12-04T05:20:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed changeling transform shuffling the action bar.
+    - type: Fix
+      message: Now items in pda and pocket slots won't drop on ling transform.
+  id: 326
+  time: '2024-12-04T05:21:18.0000000+00:00'
