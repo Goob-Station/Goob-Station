@@ -2870,3 +2870,11 @@ Entries:
       message: Harpies now have acceleration when theres no gravity, akin to moths.
   id: 324
   time: '2024-12-04T04:55:25.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: cmo chest rig gets better topical stuff now
+    - type: Fix
+      message: cmo chest rig is medical restricted contra now
+  id: 325
+  time: '2024-12-04T05:20:19.0000000+00:00'
