@@ -361,15 +361,8 @@ namespace Content.Server.Lathe
             if (args.UnlockedRecipes == null || args.UnlockedRecipes.Count == 0)
                 return;
 
-            var recipesCount = 0;
-
-            foreach(var recipe in args.UnlockedRecipes)
-            {
-                if (component.DynamicRecipes.Contains(recipe))
-                    recipesCount++;
-            }
-
-            if (recipesCount != 0)
+            var recipesCount = args.UnlockedRecipes.Count(recipe => component.DynamicRecipes.Contains(recipe));
+            if (recipesCount > 0)
                 _chatSystem.TrySendInGameICMessage(uid, Loc.GetString("lathe-technology-recipes-update-message", ("count", recipesCount)), InGameICChatType.Speak, hideChat: true);
             // Goobstation - Lathe message on recipes update - End
         }
