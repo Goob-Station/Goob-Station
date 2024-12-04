@@ -42,6 +42,7 @@
   id: Dynamic
   components:
   - type: GameRule
+    minPlayers: 15
     # what if i removed delays to counter nukies being shit?
     #delay:
     #  min: 5
