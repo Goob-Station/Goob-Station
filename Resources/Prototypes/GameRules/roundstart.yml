@@ -23,7 +23,7 @@
     - id: Thief
       prob: 0.5
     - id: Heretic # goob edit
-      prob: 0.2
+      prob: 0.3
 
 - type: entity
   id: DeathMatch31
@@ -235,36 +235,6 @@
   components:
   - type: SecretRule
 
-- type: entity
-  id: Zombie
-  parent: BaseGameRule
-  components:
-  - type: GameRule
-    minPlayers: 20
-    delay:
-      min: 600
-      max: 900
-  - type: ZombieRule
-  - type: AntagSelection
-    definitions:
-    - prefRoles: [ InitialInfected ]
-      max: 6
-      playerRatio: 10
-      blacklist:
-        components:
-        - ZombieImmune
-        - AntagImmune
-      briefing:
-        text: zombie-patientzero-role-greeting
-        color: Plum
-        sound: "/Audio/Ambience/Antag/zombie_start.ogg"
-      components:
-      - type: PendingZombie
-      - type: ZombifyOnDeath
-      - type: IncurableZombie
-      - type: InitialInfected
-      mindRoles:
-      - MindRoleInitialInfected
 
 # event schedulers
 
