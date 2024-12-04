@@ -2831,3 +2831,19 @@ Entries:
       message: Lathes now tells you when they unlock new recipes
   id: 322
   time: '2024-12-04T04:52:47.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: 'All species humanoid cubes can be crafted on biocube fabricator '
+    - type: Tweak
+      message: All protolathe and autolathe items now can be recycled
+    - type: Tweak
+      message: All organs except brains can be recycled to biomass
+    - type: Tweak
+      message: Crates and lockers now can be recycled with all containment in it.
+    - type: Fix
+      message: Recycler now respects stacks
+    - type: Fix
+      message: Fixed recycler was able to process one item several times
+  id: 323
+  time: '2024-12-04T04:53:45.0000000+00:00'
