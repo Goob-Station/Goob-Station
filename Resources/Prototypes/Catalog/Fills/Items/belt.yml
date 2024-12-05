@@ -116,7 +116,9 @@
       - id: Bloodpack
       - id: Gauze
       - id: EmergencyMedipen #You never know what people are going to latejoin into
-        amount: 3
+        amount: 2 #Goobstation - ParamedHypo
+      - id: ParamedHypo #Goobstation - ParamedHypo
+      - id: Tourniquet #Goobstation - ParamedHypo
 
 - type: entity
   id: ClothingBeltPlantFilled

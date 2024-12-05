@@ -27,9 +27,9 @@
     tags: []
 
 - type: entity
-  name: cartridge autoinjector
+  name: security cartridge autoinjector
   parent: [BaseItem, BaseRestrictedContraband]
-  description: Used for rapid administration of medicine to wounded people. Uses cartridges printable on security techfab.
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
   id: SecHypo
   components:
   - type: Sprite
@@ -53,9 +53,21 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 40 # up this later if its too low
+    delay: 30 # up this later if its too low
   - type: SolutionCartridgeReceiver
     tag: AutoinjectorCartridge
+
+- type: entity
+  name: medical cartridge autoinjector # statistically identical to the security autoinjector but made a seperate entity so they can be balanced seperately in the future.
+  parent: [SecHypo, BaseMedicalContraband]
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
+  id: ParamedHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
 
 - type: entity
   name: autoinjector cartridge

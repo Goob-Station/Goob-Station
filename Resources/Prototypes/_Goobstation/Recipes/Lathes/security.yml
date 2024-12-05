@@ -65,9 +65,7 @@
     Steel: 1500
     Plastic: 800
     Glass: 1200
-    Plasma: 500
     Gold: 500
-    Silver: 500
 
 # Mech Weapons
 - type: latheRecipe
