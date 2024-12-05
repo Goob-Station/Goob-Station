@@ -25,8 +25,10 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
         amount: 2
-      - id: RemoteSignaller
+      - id: ClothingNeckShockCollar # ShibaStation - Hehe funny necklace
         amount: 2
+      - id: RemoteSignaller # ShibaStation - More clickers.
+        amount: 4
 
 - type: entity
   id: LockerWardenFilled
@@ -52,8 +54,10 @@
       - id: BookSpaceLaw
       - id: ClothingBackpackElectropack
         amount: 2
-      - id: RemoteSignaller
+      - id: ClothingNeckShockCollar # ShibaStation - Hehe funny necklace
         amount: 2
+      - id: RemoteSignaller # ShibaStation - More clickers.
+        amount: 4
 
 - type: entity
   id: LockerSecurityFilled
