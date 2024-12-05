@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-4.0",
-    "copyright": "BeeRobynn",
+    "copyright": "BeeRobynn, plyush, and bellcatsu",
     "size": {
         "x": 32,
         "y": 32
@@ -21,6 +21,18 @@
         },
         {
             "name": "plushie_plyushkina"
+        },
+        {
+            "name": "plushie_blackburnxmas"
+        },
+        {
+            "name": "plushie_matryoskyaxmas"
+        },
+        {
+            "name": "plushie_plyushkinaxmas"
+        },
+        {
+            "name": "plushie_desislavaxmas"
         },
         {
             "name": "plushie_desislava",

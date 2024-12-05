@@ -1634,6 +1634,6 @@
       collection: RubberChicken
       params:
         variation: 0.125
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 25

@@ -13124,7 +13124,7 @@ entities:
       pos: 46.5,-40.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -436058.34
+      secondsUntilStateChange: -436265.3
       state: Opening
   - uid: 309
     components:
@@ -13554,7 +13554,7 @@ entities:
       pos: -3.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -552225.94
+      secondsUntilStateChange: -552432.9
       state: Opening
   - uid: 376
     components:
@@ -53656,6 +53656,16 @@ entities:
     components:
     - type: Transform
       pos: -50.5,-3.5
+      parent: 2
+  - uid: 28703
+    components:
+    - type: Transform
+      pos: -31.5,-7.5
+      parent: 2
+  - uid: 28704
+    components:
+    - type: Transform
+      pos: -31.5,-8.5
       parent: 2
 - proto: CableApcStack1
   entities:
@@ -136334,6 +136344,13 @@ entities:
     - type: Transform
       pos: 41.613995,-4.120341
       parent: 2
+- proto: MaterialSilo
+  entities:
+  - uid: 28702
+    components:
+    - type: Transform
+      pos: -31.5,-8.5
+      parent: 2
 - proto: MatterBinStockPart
   entities:
   - uid: 15604
@@ -182632,7 +182649,7 @@ entities:
       pos: 24.5,2.5
       parent: 22429
     - type: Door
-      secondsUntilStateChange: -330357.6
+      secondsUntilStateChange: -330564.56
       state: Opening
 - proto: WoodenBench
   entities:

@@ -12,11 +12,12 @@
       storedRotation: -90
     - type: StaticPrice
       price: 100
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 230
+        Steel: 25
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
 
 - type: entity
   parent: BaseComputerCircuitboard
