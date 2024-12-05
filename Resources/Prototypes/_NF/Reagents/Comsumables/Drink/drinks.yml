@@ -18,7 +18,7 @@
         reagent: Sugar
         amount: 0.2
   metamorphicSprite:
-    sprite: _NF/Objects/Consumable/Drinks/pumpkinspicelatte.rsi
+    sprite: Objects/Consumable/Drinks/cafe_latte.rsi
     state: icon_empty
   metamorphicMaxFillLevels: 2
   metamorphicFillBaseName: fill-
