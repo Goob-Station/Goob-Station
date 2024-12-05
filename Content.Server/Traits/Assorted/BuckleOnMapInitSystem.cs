@@ -5,6 +5,7 @@ namespace Content.Server.Traits.Assorted;
 public sealed class BuckleOnMapInitSystem : EntitySystem
 {
     [Dependency] private readonly SharedBuckleSystem _buckleSystem = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -13,7 +14,7 @@ public sealed class BuckleOnMapInitSystem : EntitySystem
 
     private void OnMapInit(EntityUid uid, BuckleOnMapInitComponent component, MapInitEvent args)
     {
-        var buckle = Spawn(component.Prototype, Transform(uid).Coordinates);
+        var buckle = Spawn(component.Prototype, _transform.GetMapCoordinates(uid));
         _buckleSystem.TryBuckle(uid, uid, buckle);
     }
 }
