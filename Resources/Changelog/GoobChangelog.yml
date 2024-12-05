@@ -2910,3 +2910,13 @@ Entries:
         composition
   id: 329
   time: '2024-12-04T19:53:08.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed Felinids from command.
+    - type: Tweak
+      message: Felinids resprited to look more realistic.
+    - type: Tweak
+      message: Felinids renamed to their true name, Gremlins.
+  id: 330
+  time: '2024-12-05T18:03:21.0000000+00:00'
