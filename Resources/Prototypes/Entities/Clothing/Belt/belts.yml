@@ -271,7 +271,6 @@
         - SurgeryTool
         - Dropper
         - Tourniquet #Goobstation - ParamedHypo
-        - AutoinjectorCartridge #Goobstation - ParamedHypo
       components:
         - Hypospray
         - Injector

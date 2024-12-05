@@ -119,9 +119,6 @@
         amount: 3
       - id: ParamedHypo #Goobstation - ParamedHypo
       - id: Tourniquet #Goobstation - ParamedHypo
-      - id: CartridgeEpinephrine #Goobstation - ParamedHypo
-      - id: CartridgeBicaridine #Goobstation - ParamedHypo
-      - id: CartridgeDermaline #Goobstation - ParamedHypo
 
 - type: entity
   id: ClothingBeltPlantFilled
