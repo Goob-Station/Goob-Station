@@ -1,0 +1,97 @@
+# Drinks
+- type: entity
+  parent: DrinkGlass
+  id: DrinkPumpkinSpiceLatte
+  suffix: pumpkin spice latte
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PumpkinSpiceLatte
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/pumpkinspicelatte.rsi
+    state: icon
+
+# Alcohol drinks
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGinAndSonic
+  suffix: gin and sonic
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GinAndSonic
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/ginandsonic.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkGoldenCat
+  suffix: golden cat
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: GoldenCat
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/goldencat.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkPineappleBlast
+  suffix: pineapple blast
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: PineappleBlast
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/pineappleblast.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkTorpedoJuice
+  suffix: torpedo juice
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: TorpedoJuice
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/torpedojuice.rsi
+    state: icon
+
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBeesKnees
+  suffix: bee's knees
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BeesKnees
+          Quantity: 30
+  - type: Icon
+    sprite: _NF/Objects/Consumable/Drinks/beesknees.rsi
+    state: icon
