@@ -7,7 +7,7 @@
     Ash:
       amount: 1
   products:
-    Potash: 1
+    Potash: 2
 
 - type: reaction
   id: Potash
