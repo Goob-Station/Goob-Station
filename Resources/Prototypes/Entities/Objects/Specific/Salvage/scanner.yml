@@ -32,6 +32,12 @@
       params:
         maxDistance: 1
   - type: MiningScanner
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Glass: 75
+      Plastic: 75
+      Uranium: 125
 
 - type: entity
   id: MineralScanner

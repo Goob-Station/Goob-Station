@@ -253,6 +253,13 @@
     - type: SolutionScanner
     - type: IdentityBlocker
       coverage: EYES
+    - type: StaticPrice #Goobstation - Recycle update
+      price: 50
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 50
+        Plastic: 75
+        Glass: 125
 
 - type: entity
   parent: [ClothingEyesBase, BaseMajorContraband]

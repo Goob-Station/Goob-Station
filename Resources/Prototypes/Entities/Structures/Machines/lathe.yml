@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: Speech # Goobstation - Lathe message on recipes update
+    speechSounds: Lathe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -203,6 +205,7 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - ToolboxMechanical # Goobstation - Recycle update
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -776,11 +779,25 @@
     - MothroachCube
     - MouseCube
     - CockroachCube
+    - HumanCube # Goobstation - Start
+    - DionaCube
+    - FelinidCube
+    - GingerbreadCube
+    - MothCube
+    - DwarfCube
+    - HarpyCube
+    - RodentiaCube
+    - ReptilianCube
+    - VulpkaninCube
+    - SlimePersonCube
+    - VoxCube
+    - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - SkibidiCube # Goobstation
 
 - type: entity
   id: SecurityTechFab
@@ -853,7 +870,7 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - SecHypo # Goobstation
-      - SyringeGun # Goobstation
+      - SyringeGun # Goobstation  
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

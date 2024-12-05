@@ -1,11 +1,9 @@
 - type: latheRecipe
   id: VehicleWheelchairFolded
   result: VehicleWheelchairFolded
-  completetime: 1
   materials:
     Plastic: 500
-    Cloth: 500
-    Steel: 1000
+    Steel: 500
 
 # Goobstation
 - type: latheRecipe
