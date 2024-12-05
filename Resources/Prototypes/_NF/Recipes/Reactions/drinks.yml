@@ -6,7 +6,7 @@
   reactants:
     Water:
       amount: 3
-    CoffeeGrounds:
+    Cocoa:
       amount: 1
   products:
     Coffee: 4
