@@ -1,30 +1,4 @@
 - type: reagent
-  id: PumpkinSpiceLatte
-  name: reagent-name-pumpkin-spice-latte
-  parent: BaseDrink
-  desc: reagent-desc-pumpkin-spice-latte
-  physicalDesc: reagent-physical-desc-aromatic
-  flavor: basic
-  color: "#a45c08"
-  metabolisms:
-    Drink:
-      effects:
-      - !type:SatiateThirst
-        factor: 2
-      - !type:AdjustReagent
-        reagent: Theobromine
-        amount: 0.05
-      - !type:AdjustReagent
-        reagent: Sugar
-        amount: 0.2
-  metamorphicSprite:
-    sprite: Objects/Consumable/Drinks/cafe_latte.rsi
-    state: icon_empty
-  metamorphicMaxFillLevels: 2
-  metamorphicFillBaseName: fill-
-  metamorphicChangeColor: false
-
-- type: reagent
   id: GinAndSonic
   name: reagent-name-gin-and-sonic
   parent: BaseAlcohol
