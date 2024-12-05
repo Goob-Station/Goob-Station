@@ -1003,6 +1003,7 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
+  - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
   - TrooperHat
