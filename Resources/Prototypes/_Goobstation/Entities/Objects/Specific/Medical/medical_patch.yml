@@ -107,8 +107,8 @@
 
 - type: entity
   parent: MedicalPatchBasic
-  id: MedicalPatchTheraputic
-  name: theraputic patch
+  id: MedicalPatchTherapeutic
+  name: therapeutic patch
   description:  used to apply small doses over a long time
   components:
   - type: Sprite
@@ -185,8 +185,8 @@
     Plastic: 100
 
 - type: latheRecipe
-  id: MedicalPatchTheraputic
-  result: MedicalPatchTheraputic
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
   completetime: 2
   materials:
     Cloth: 100
