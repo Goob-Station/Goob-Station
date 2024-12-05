@@ -574,6 +574,7 @@
     tags:
     - Syringe
     - Trash
+    - SyringeGunAmmo # Goobstation
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 62
