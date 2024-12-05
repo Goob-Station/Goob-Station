@@ -399,11 +399,33 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             _savedActions.Remove(entity);
             return;
         }
+
+        if (_playerManager.LocalEntity == null)
+            return;
+        var localEntity = _playerManager.LocalEntity.Value;
+
         if (!_savedActions.TryGetValue(entity, out var savedActions))
             return;
         if (savedActions.Count == 0 || _actions.Count == 0 || _actions.SequenceEqual(savedActions))
             return;
         var metaQuery = _entMan.GetEntityQuery<MetaDataComponent>();
+        var instantActionQuery = _entMan.GetEntityQuery<InstantActionComponent>();
+        var entityTargetActionQuery = _entMan.GetEntityQuery<EntityTargetActionComponent>();
+        var worldTargetActionQuery = _entMan.GetEntityQuery<WorldTargetActionComponent>();
+        var entityWorldTargetActionQuery = _entMan.GetEntityQuery<EntityWorldTargetActionComponent>();
+
+        (EntityUid?, Type)? GetActionContainerAndType(EntityUid action)
+        {
+            if (instantActionQuery.TryComp(action, out var instantAction))
+                return (instantAction.Container, typeof(InstantActionComponent));
+            if (entityTargetActionQuery.TryComp(action, out var entityTargetAction))
+                return (entityTargetAction.Container, typeof(EntityTargetActionComponent));
+            if (worldTargetActionQuery.TryComp(action, out var worldTargetAction))
+                return (worldTargetAction.Container, typeof(WorldTargetActionComponent));
+            if (entityWorldTargetActionQuery.TryComp(action, out var entityWorldTargetAction))
+                return (entityWorldTargetAction.Container, typeof(EntityWorldTargetActionComponent));
+            return null;
+        }
 
         bool IdsEqual(EntityUid? a, EntityUid? b)
         {
@@ -414,7 +436,22 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             if (!metaQuery.TryGetComponent(a.Value, out var metaA) ||
                 !metaQuery.TryGetComponent(b.Value, out var metaB))
                 return false;
-            return metaA.EntityPrototype?.ID == metaB.EntityPrototype?.ID;
+            if (metaA.EntityPrototype?.ID != metaB.EntityPrototype?.ID)
+                return false;
+
+            var containerAndTypeA = GetActionContainerAndType(a.Value);
+            var containerAndTypeB = GetActionContainerAndType(b.Value);
+
+            if (containerAndTypeA == null || containerAndTypeB == null)
+                return false;
+            var (containerA, typeA) = containerAndTypeA.Value;
+            var (containerB, typeB) = containerAndTypeB.Value;
+            if (typeA != typeB)
+                return false;
+            if (containerA == containerB)
+                return true;
+            // Container for entity before ling polymorph is null for some reason
+            return containerA == localEntity && containerB == null || containerA == null && containerB == localEntity;
         }
 
         List<EntityUid?> newActions = new();

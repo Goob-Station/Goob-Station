@@ -2900,3 +2900,13 @@ Entries:
       message: Fix silo being out of range.
   id: 328
   time: '2024-12-04T14:32:24.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Remove
+      message: Removed Wizden ore nerf
+    - type: Tweak
+      message: >-
+        Ore procedural generation on asteroïds and vg roid. Increased ore
+        composition
+  id: 329
+  time: '2024-12-04T19:53:08.0000000+00:00'
