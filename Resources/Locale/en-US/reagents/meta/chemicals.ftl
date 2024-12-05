@@ -38,4 +38,4 @@ reagent-name-saltpeter = saltpeter
 reagent-desc-saltpeter = A potent source of nutrition for plants, but also used as an oxidizer in the creation of black powder.
 
 reagent-name-blackpowder = black powder
-reagent-desc-blackpowder = A primitve yet powerful explosive. Explodes when heated to 520K!
+reagent-desc-blackpowder = A primitve yet powerful explosive. Explodes when heated to 474K!
