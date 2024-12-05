@@ -201,5 +201,32 @@
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
 
+- type: constructionGraph
+  id: SilkPatchMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: silkPatchMakeshift
+      steps:
+      - material: WebSilk
+        amount: 8
+        doAfter: 10
+  - node: silkPatchMakeshift
+    entity: MedicalPatchMakeshift
 
-
+- type: construction
+  name: Silk Makeshift Patch
+  id: SilkPatchMakeshift
+  graph: SilkPatchMakeshift
+  startNode: start
+  targetNode: silkPatchMakeshift
+  category: construction-category-tools
+  objectType: Item
+  description: a little better then nothing
+  icon:
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
+  entityWhitelist:
+    tags:
+    - SpiderCraft
