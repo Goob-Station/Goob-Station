@@ -182,8 +182,8 @@
     edges:
     - to: medicalPatchMakeshift
       steps:
-      - material: Gauze
-        amount: 3
+      - material: Cloth
+        amount: 2
         doAfter: 10
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
@@ -196,7 +196,7 @@
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothig
+  description: a little better then nothing
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
