@@ -47,6 +47,10 @@
       layers:
         - state: extraction_point
           map: [ "foldedLayer" ]
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 250
+        Glass: 125
 
 - type: entity
   id: Fulton
@@ -75,6 +79,10 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 50
+      Cloth: 125
 
 - type: entity
   id: Fulton1

@@ -72,7 +72,7 @@
     damage:
       types:
         Blunt: 5
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 25
   - type: ExaminableSolution
