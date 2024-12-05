@@ -116,7 +116,7 @@
     layers:
       - state: GenericPatch
       - state: GenericPatchBorder
-        color: "66bbff"
+        color: LightBlue
       - state: GenericPatch-1
         map: ["enum.SolutionContainerLayers.Fill"]
         visible: false
