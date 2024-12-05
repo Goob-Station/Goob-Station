@@ -1,20 +1,3 @@
-# Drinks
-- type: entity
-  parent: DrinkGlass
-  id: DrinkPumpkinSpiceLatte
-  suffix: pumpkin spice latte
-  components:
-  - type: SolutionContainerManager
-    solutions:
-      drink:
-        maxVol: 30
-        reagents:
-        - ReagentId: PumpkinSpiceLatte
-          Quantity: 30
-  - type: Icon
-    sprite: _NF/Objects/Consumable/Drinks/pumpkinspicelatte.rsi
-    state: icon
-
 # Alcohol drinks
 - type: entity
   parent: DrinkGlass
