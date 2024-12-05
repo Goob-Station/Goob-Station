@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: (re)Added shock collars to the security lockers. ( ͡° ͜ʖ ͡°)
+    type: Add
+  id: 30
+  time: '2024-12-05T22:52:29.557326'
+- author: AstroDogeDX
+  changes:
   - message: Rodentia accent added; squeak!
     type: Add
   id: 29
