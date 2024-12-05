@@ -143,7 +143,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 15  #Low volume but a full will last for 30sec
+        maxVol: 20  # lasts for 40 seconds, effectively half as good as a normal patch
   - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
     solution: drink
   - type: Construction
