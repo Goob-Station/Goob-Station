@@ -1,1 +1,1 @@
-species-name-felinid = Gremlin
+species-name-felinid = Felinid
