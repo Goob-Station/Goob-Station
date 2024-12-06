@@ -3,7 +3,7 @@
   name: reagent-name-spacefentanyl
   group: Narcotics
   desc: reagent-desc-spacefentanyl
-  flavor: tar
+  flavor: fentanyl
   physicalDesc: reagent-physical-desc-murky
   color: "#6e697d"
   metabolisms:
