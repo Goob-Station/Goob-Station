@@ -301,7 +301,7 @@
   id: UplinkMagazineHighCaliber
   name: uplink-high-caliber-magazine-name
   description: uplink-high-caliber-magazine-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
     Telecrystal: 25 # 1.66 TC per bullet, high price on mags.
