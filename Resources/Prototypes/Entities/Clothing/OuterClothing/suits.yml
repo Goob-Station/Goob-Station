@@ -119,7 +119,7 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
@@ -251,7 +251,7 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodIan
   - type: Construction
@@ -273,7 +273,7 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodCarp
 
@@ -288,6 +288,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCarp

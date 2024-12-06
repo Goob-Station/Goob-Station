@@ -25,7 +25,7 @@
     walkModifier: 0.80
     sprintModifier: 0.80
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitBasic
 
@@ -62,7 +62,7 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitAtmos
 
@@ -95,7 +95,7 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitEngineering
 
@@ -125,7 +125,7 @@
     walkModifier: 0.9
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSpatio
 
@@ -157,7 +157,7 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSalvage
 
@@ -190,7 +190,7 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.001
     coolingCoefficient: 0.001
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMaxim
 
@@ -222,7 +222,7 @@
     walkModifier: 0.75
     sprintModifier: 0.75
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSecurity
 
@@ -251,7 +251,7 @@
     walkModifier: 0.65
     sprintModifier: 0.65
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitBrigmedic
 
@@ -283,7 +283,7 @@
     walkModifier: 0.7
     sprintModifier: 0.7
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitWarden
 
@@ -316,7 +316,7 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCap
 
@@ -351,7 +351,7 @@
     walkModifier: 0.75
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitEngineeringWhite
   - type: ClothingGrantComponent # Goobstation - Make sure the CE doesn't get cooked by supermatter
@@ -380,7 +380,7 @@
     walkModifier: 0.9
     sprintModifier: 0.95
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMedical
 
@@ -421,7 +421,7 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitRd
   - type: StaticPrice
@@ -490,7 +490,7 @@
     walkModifier: 0.85
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitLuxury
 
@@ -526,7 +526,7 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndie
   - type: Tag
@@ -546,7 +546,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/syndiemedic.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieMedic
   - type: Tag
@@ -590,7 +590,7 @@
     walkModifier: 1.0
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieElite
 
@@ -623,7 +623,7 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieCommander
 
@@ -656,7 +656,7 @@
     walkModifier: 0.9
     sprintModifier: 0.65
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCybersun
 
@@ -689,7 +689,7 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitWizard
 
@@ -720,7 +720,7 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitLing
 
@@ -751,7 +751,7 @@
     walkModifier: 0.6
     sprintModifier: 0.6
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
@@ -785,7 +785,7 @@
     walkModifier: 0.8
     sprintModifier: 0.8
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
@@ -803,7 +803,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertleader.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTLeader
 
@@ -818,7 +818,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi #if you change this, please update the humanoid.yml with a better markers sprite.
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertchaplain.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTChaplain
 
@@ -833,7 +833,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertengineer.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTEngineer
 
@@ -848,7 +848,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertmedical.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTMedical
 
@@ -863,7 +863,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertsecurity.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTSecurity
   - type: Tag
@@ -882,7 +882,7 @@
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Hardsuits/ERTSuits/ertjanitor.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTJanitor
 
@@ -920,7 +920,7 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitDeathsquad
 
@@ -958,7 +958,7 @@
     walkModifier: 1.0
     sprintModifier: 1.0
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetCBURN
 
@@ -993,7 +993,7 @@
   - type: Construction
     graph: ClownHardsuit
     node: clownHardsuit
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitClown
 
@@ -1011,7 +1011,7 @@
   - type: Construction
     graph: MimeHardsuit
     node: mimeHardsuit
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMime
 
@@ -1042,6 +1042,6 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSanta

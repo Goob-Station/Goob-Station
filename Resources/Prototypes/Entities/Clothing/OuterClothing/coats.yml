@@ -110,7 +110,7 @@
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Coats/jensencoat.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodChaplainHood
 

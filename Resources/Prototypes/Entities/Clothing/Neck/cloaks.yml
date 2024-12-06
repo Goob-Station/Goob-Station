@@ -152,7 +152,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/goliathcloak.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodGoliathCloak
     requiredSlot:
@@ -182,7 +182,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/moth.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodMoth
     requiredSlot:
@@ -205,7 +205,7 @@
   components:
   - type: Sprite
     sprite: Clothing/Neck/Cloaks/void.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodVoidCloak
     requiredSlot:

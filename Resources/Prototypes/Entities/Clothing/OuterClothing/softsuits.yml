@@ -50,7 +50,7 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.75
     coolingCoefficient: 0.5
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetEVALarge
 
@@ -118,6 +118,6 @@
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetVoidParamed

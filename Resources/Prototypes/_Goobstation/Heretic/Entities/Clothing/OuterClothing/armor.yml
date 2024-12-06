@@ -19,6 +19,6 @@
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.25
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodHeretic
-    slot: head
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodHeretic

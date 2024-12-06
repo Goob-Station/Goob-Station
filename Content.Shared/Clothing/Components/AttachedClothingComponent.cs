@@ -14,6 +14,7 @@ namespace Content.Shared.Clothing.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AttachedClothingComponent : Component
 {
+    // Goobstation - Modsuits changes this system entirely
     public const string DefaultClothingContainerId = "replaced-clothing";
 
     /// <summary>

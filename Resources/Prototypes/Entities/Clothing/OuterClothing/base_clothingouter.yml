@@ -93,10 +93,9 @@
   parent: ClothingOuterStorageBase
   id: ClothingOuterStorageToggleableBase
   components:
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterDefault
-    slot: head
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:
@@ -186,7 +185,7 @@
   name: hoodie with hood
   abstract: True
   components:
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterDefault
   - type: ContainerContainer

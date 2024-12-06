@@ -45,7 +45,7 @@
   name: winter coat with hood
   categories: [ HideSpawnMenu ]
   components:
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterDefault
 
@@ -69,7 +69,7 @@
     clothingVisuals:
       outerClothing:
       - state: ATMOS-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterEngineer
 
@@ -93,7 +93,7 @@
     clothingVisuals:
       outerClothing:
       - state: BAR-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterBartender
 
@@ -117,7 +117,7 @@
     clothingVisuals:
       outerClothing:
       - state: CAP-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterCaptain
 
@@ -141,7 +141,7 @@
     clothingVisuals:
       outerClothing:
       - state: CARGO-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterCargo
 
@@ -165,7 +165,7 @@
     clothingVisuals:
       outerClothing:
       - state: CE-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterCE
 
@@ -189,7 +189,7 @@
     clothingVisuals:
       outerClothing:
       - state: CENTCOM-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterCentcom
 
@@ -242,7 +242,7 @@
         Heat: 0.90
         Caustic: 0.75
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterChem
 
@@ -273,7 +273,7 @@
         Heat: 0.90
         Caustic: 0.75
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterCMO
 
@@ -307,7 +307,7 @@
     clothingVisuals:
       outerClothing:
       - state: ENGI-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterEngineer
 
@@ -338,7 +338,7 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSci
 
@@ -362,7 +362,7 @@
     clothingVisuals:
       outerClothing:
       - state: HOP-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterHOP
 
@@ -378,7 +378,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterHOS
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -411,7 +411,7 @@
     clothingVisuals:
       outerClothing:
       - state: HOS-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterHOS
 
@@ -435,7 +435,7 @@
     clothingVisuals:
       outerClothing:
       - state: HYDRO-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterHydro
 
@@ -466,7 +466,7 @@
         Heat: 0.9
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterJani
 
@@ -497,7 +497,7 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterMed
 
@@ -521,7 +521,7 @@
     clothingVisuals:
       outerClothing:
       - state: MIME-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterMime
 
@@ -545,7 +545,7 @@
     clothingVisuals:
       outerClothing:
       - state: MINER-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterMiner
 
@@ -576,7 +576,7 @@
         Heat: 0.75
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterPara
 
@@ -600,7 +600,7 @@
     clothingVisuals:
       outerClothing:
       - state: QM-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterQM
 
@@ -632,7 +632,7 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterRD
 
@@ -656,7 +656,7 @@
     clothingVisuals:
       outerClothing:
       - state: ROBO-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterRobo
 
@@ -688,7 +688,7 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSci
 
@@ -712,7 +712,7 @@
     clothingVisuals:
       outerClothing:
       - state: SEC-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSec
 
@@ -743,7 +743,7 @@
         Heat: 0.90
         Caustic: 0.9
     priceMultiplier: 0.15
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSci
 
@@ -758,7 +758,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterWarden
   - type: PhysicalComposition #Goobstation - Recycle update
@@ -791,7 +791,7 @@
     clothingVisuals:
       outerClothing:
       - state: WARD-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterWarden
 
@@ -816,7 +816,7 @@
     clothingVisuals:
       outerClothing:
       - state: SYNDIECAP-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSyndie
 
@@ -831,7 +831,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecaparmored.rsi
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterSyndie
 ##############################################################
@@ -857,7 +857,7 @@
     clothingVisuals:
       outerClothing:
       - state: SYNDIE-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
 
@@ -912,7 +912,7 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 20
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterWeb
 
@@ -944,7 +944,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#1d1d1d"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorBlack
 
@@ -976,7 +976,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#9C0DE1"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorPurple
 
@@ -1008,7 +1008,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#940000"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorRed
 
@@ -1040,7 +1040,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#0089EF"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorBlue
 
@@ -1072,7 +1072,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#723A02"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorBrown
 
@@ -1104,7 +1104,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#999999"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorGray
 
@@ -1136,7 +1136,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#5ABF2F"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorGreen
 
@@ -1168,7 +1168,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#C09F72"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorLightBrown
 
@@ -1200,7 +1200,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#EF8100"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorOrange
 
@@ -1232,7 +1232,7 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#EAE8E8"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorWhite
 
@@ -1264,6 +1264,6 @@
       - state: coatybits-equipped-OUTERCLOTHING
         color: "#EBE216"
       - state: winterbits-equipped-OUTERCLOTHING
-  - type: ToggleableClothing
+  - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHatHoodWinterColorYellow
