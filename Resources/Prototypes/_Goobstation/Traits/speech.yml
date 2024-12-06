@@ -19,11 +19,11 @@
     accent: scottish
 
 - type: trait
-  id: Bogan
+  id: bogan
   name: trait-bogan-name
-  description: trait-bogan-desc
+  description: trait-bogam-desc
   category: SpeechTraits
   cost: 1
-  components: ReplacementAccent
+  components:
   - type: ReplacementAccent
     accent: bogan
