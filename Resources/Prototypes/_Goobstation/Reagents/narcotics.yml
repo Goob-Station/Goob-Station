@@ -65,11 +65,8 @@
         time: 20
         refresh: false
       - !type:Emote # Now a bunch of emotes
-        emote: scratches at their neck
+        emote: Scream
         probability: 0.05
       - !type:Emote
-        emote: drools
-        probability: 0.05
-      - !type:Emote
-        emote: flaps their hands around
+        emote: Laugh
         probability: 0.05
