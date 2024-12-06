@@ -1,0 +1,277 @@
+- type: reaction
+  id: AlchemicalPrecursor
+  reactants:
+    Plasma:
+      amount: 2
+    bluespaceessence:
+      amount: 1
+    Zinc:
+      amount: 2
+  products:
+    AlchemicalPrecursor: 5
+
+- type: reaction
+  id: tenebrisCreation
+  reactants:
+    AlchemicalPrecursor:
+      amount: 1
+      catalyst: true
+    Ash:
+      amount: 5
+    Phlogiston:
+      amount: 1
+  products:
+    tenebris: 5
+
+- type: reaction
+  id: tenebrisGrowth
+  reactants:
+    tenebris:
+      amount: 1
+      catalyst: true
+    aquafortis:
+      amount: 1
+  products:
+    tenebris: 1
+
+- type: reaction
+  id: albedoGrowth
+  reactants:
+    albedo:
+      amount: 1
+      catalyst: true
+    aquaregia:
+      amount: 1
+  products:
+    albedo: 1
+
+- type: reaction
+  id: citrinitasGrowth
+  reactants:
+    citrinitas:
+      amount: 1
+      catalyst: true
+    aquatofani:
+      amount: 1
+  products:
+    citrinitas: 1
+
+- type: reaction
+  id: BrassSheet
+  impact: Low
+  quantized: true
+  minTemp: 374
+  reactants:
+    Iron:
+      amount: 9
+    Carbon:
+      amount: 1
+    tenebris:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SheetBrass1
+
+- type: reaction
+  id: UraniumSheet
+  impact: Low
+  quantized: true
+  minTemp: 374
+  reactants:
+    Plasma:
+      amount: 10
+    Radium:
+      amount: 1
+    tenebris:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: SheetUranium1
+
+- type: reaction
+  id: Zinc
+  minTemp: 374
+  reactants:
+    tenebris:
+      amount: 1
+    Lead:
+      amount: 25
+  products:
+    Zinc: 25
+
+- type: reaction
+  id: Lead
+  minTemp: 374
+  reactants:
+    tenebris:
+      amount: 1
+    Zinc:
+      amount: 25
+  products:
+    Lead: 25
+
+- type: reaction
+  id: Copper
+  reactants:
+    tenebris:
+      amount: 1
+    Aluminium:
+      amount: 25
+  products:
+    Copper: 25
+
+- type: reaction
+  id: Aluminium
+  reactants:
+    tenebris:
+      amount: 1
+    Copper:
+      amount: 25
+  products:
+    Aluminium: 25
+
+- type: reaction
+  id: brass
+  minTemp: 940
+  reactants:
+    Zinc:
+      amount: 1
+    Copper:
+      amount: 2
+  products:
+    brass: 3
+
+- type: reaction
+  id: IngotSilver1
+  impact: Low
+  quantized: true
+  minTemp: 374
+  reactants:
+    Iron:
+      amount: 9
+    Carbon:
+      amount: 1
+    albedo:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: IngotSilver1
+
+- type: reaction
+  id: IngotGold1
+  impact: Low
+  quantized: true
+  minTemp: 374
+  reactants:
+    brass:
+      amount: 10
+    albedo:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: IngotGold1
+
+- type: reaction
+  id: MaterialDiamond1
+  impact: Low
+  quantized: true
+  minTemp: 374
+  reactants:
+    Carbon:
+      amount: 98
+    albedo:
+      amount: 1
+    tenebris:
+      amount: 1
+  effects:
+    - !type:CreateEntityReactionEffect
+      entity: MaterialDiamond1
+
+- type: reaction
+  id: empoweredlead
+  reactants:
+    Lead:
+      amount: 1
+    Uranium:
+      amount: 1
+  products:
+    empoweredlead: 2
+
+- type: reaction
+  id: kingsyellow
+  reactants:
+    Silver:
+      amount: 40
+    Gold:
+      amount: 40
+    bluespaceessence:
+      amount: 1
+  products:
+    kingsyellow: 1
+
+- type: reaction
+  id: aquafortis
+  reactants:
+    Hydroxide:
+      amount: 1
+    Nitrogen:
+      amount: 1
+    Oxygen:
+      amount: 2
+  products:
+    aquafortis: 1
+
+- type: reaction
+  id: aquaregia
+  reactants:
+    aquafortis:
+      amount: 1
+    Hydrogen:
+      amount: 3
+    Chlorine:
+      amount: 3
+  products:
+    aquaregia: 1
+
+- type: reaction
+  id: aquatofani
+  reactants:
+    aquaregia:
+      amount: 2
+    Oxygen:
+      amount: 3
+  products:
+    aquatofani: 1
+
+- type: reaction
+  id: aquavitae
+  reactants:
+    aquatofani:
+      amount: 1
+    Ethanol:
+      amount: 3
+  products:
+    aquavitae: 1
+
+- type: reaction
+  id: omnizine
+  minTemp: 374
+  reactants:
+    citrinitas:
+      amount: 2
+    Tricordrazine:
+      amount: 1
+  products:
+    Omnizine: 2
+
+- type: reaction
+  id: vestine
+  minTemp: 374
+  reactants:
+    citrinitas:
+      amount: 2
+    HeartbreakerToxin:
+      amount: 2
+  products:
+    Vestine: 2
+

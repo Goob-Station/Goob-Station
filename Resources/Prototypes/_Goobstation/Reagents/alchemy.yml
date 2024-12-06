@@ -1,0 +1,215 @@
+- type: reagent
+  id: AlchemicalPrecursor
+  name: reagent-name-alcp
+  group: alchemical
+  desc: reagent-desc-alcp
+  flavor: cold
+  color: "#d1d0cf"
+  physicalDesc: reagent-physical-desc-gloopy
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 1
+
+- type: reagent
+  id: tenebris
+  name: reagent-name-tenebris
+  group: alchemical
+  desc: reagent-desc-tenebris
+  flavor: terrible
+  color: "#292827"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Heat: 2
+
+- type: reagent
+  id: albedo
+  name: reagent-name-albedo
+  group: alchemical
+  desc: reagent-desc-albedo
+  flavor: chalky
+  color: "#ffffff"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Caustic: 3
+
+- type: reagent
+  id: brass
+  name: reagent-name-brass
+  group: alchemical
+  desc: reagent-desc-brass
+  flavor: metallic
+  color: "#b9711c"
+  physicalDesc: reagent-physical-desc-shiny
+  metabolisms:
+
+- type: reagent
+  id: disgustingmess
+  name: reagent-name-disgustingmess
+  group: alchemical
+  desc: reagent-desc-disgustingmess
+  flavor: slimy
+  color: "#295538"
+  physicalDesc: reagent-physical-desc-slimy
+  metabolisms:
+  footstepSound:
+    collection: FootstepSticky
+    params:
+      volume: 6
+  viscosity: 0.90
+
+- type: reagent
+  id: bluespaceessence
+  name: reagent-name-bse
+  group: alchemical
+  desc: reagent-desc-bse
+  flavor: shocking
+  color: "#00e3ff"
+  physicalDesc: reagent-physical-desc-electric
+  metabolisms:
+
+- type: reagent
+  id: citrinitas
+  name: reagent-name-citrinitas
+  group: alchemical
+  desc: reagent-desc-citrinitas
+  flavor: rum
+  color: "#fefa82"
+  physicalDesc: reagent-physical-desc-blazing
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -1
+            Airloss: -1
+            Brute: -1
+
+- type: reagent
+  id: kingsyellow
+  name: reagent-name-kingsyellow
+  group: alchemical
+  desc: reagent-desc-kingsyellow
+  flavor: metallic
+  color: "#ffffff"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+
+
+- type: reagent
+  id: empoweredlead
+  name: reagent-name-empoweredlead
+  group: alchemical
+  desc: reagent-desc-empoweredlead
+  flavor: horrible
+  color: "#97e2a3"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Poison:
+      metabolismRate: 0.015 # Effectively once every 60 seconds.
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.3 # Makes it 10 damage per unit.
+            Radiation: 0.3 # Makes it 10 damage per unit.
+
+- type: reagent
+  id: aquafortis
+  name: reagent-name-fortis
+  group: alchemical
+  desc: reagent-desc-fortis
+  flavor: acid
+  color: "#e4e4e4"
+  physicalDesc: reagent-physical-desc-acidic
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Caustic: 2
+
+- type: reagent
+  id: aquaregia
+  name: reagent-name-regia
+  group: alchemical
+  desc: reagent-desc-regia
+  flavor: acid
+  color: "#d07854"
+  physicalDesc: reagent-physical-desc-acidic
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Caustic: 3
+
+- type: reagent
+  id: aquatofani
+  name: reagent-name-tofani
+  group: alchemical
+  desc: reagent-desc-tofani
+  flavor: bitter
+  color: "#f6f6f6"
+  physicalDesc: reagent-physical-desc-powdery
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Caustic: 2
+             Poison: 2
+
+
+- type: reagent
+  id: aquavitae
+  name: reagent-name-vitae
+  group: alchemical
+  desc: reagent-desc-vitae
+  flavor: alcohol
+  color: "#13a1c4"
+  physicalDesc: reagent-physical-desc-soothing
+  metabolisms:
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+             Caustic: 2
+             Poison: 3
+
+- type: reagent
+  id: rubedo
+  name: reagent-name-rubedo
+  group: alchemical
+  desc: reagent-desc-rubedo
+  flavor: metallic
+  color: "#f64135"
+  physicalDesc: reagent-physical-desc-shiny
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: -3
+            Airloss: -3
+            Brute: -3
+

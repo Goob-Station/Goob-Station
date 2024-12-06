@@ -1,0 +1,24 @@
+
+- type: microwaveMealRecipe
+  id: RecipeAlbedo
+  name: albedo recipe
+  result: Stonealbedo
+  time: 5
+  reagents:
+    Silver: 10
+    Lead: 10
+    Fat: 10
+    tenebris: 70
+
+- type: microwaveMealRecipe
+  id: RecipeCitrinitas
+  name: citrinitas recipe
+  result: Stonecitrinitas
+  time: 5
+  solids:
+    Stonealbedo: 1
+  reagents:
+    empoweredlead: 30
+    kingsyellow: 12
+    Omnizine: 10
+    albedo: 48
