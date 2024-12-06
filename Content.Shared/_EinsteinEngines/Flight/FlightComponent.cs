@@ -28,19 +28,19 @@ public sealed partial class FlightComponent : Component
     ///     Stamina drain per second when flying
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float StaminaDrainRate = 0.0f; // ShibaStation - No stamina drain, to be replaced with hunger/thirst drain instead.
+    public float StaminaDrainRate = 0.0f; // ShibaStation - No stamina drain, to be replaced with hunger drain instead.
 
     /// <summary>
-    ///     Hunger and thirst drain per second when flying
+    ///     Hunger drain per second when flying
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float HungerThirstDrainRate = 1.0f; // ShibaStation - No hunger/thirst drain, to be replaced with stamina drain instead.
+    public float HungerDrainRate = 1.5f; // ShibaStation - Drain hunger by this amount every time hunger updates.
 
     /// <summary>
     ///     DoAfter delay until the user becomes weightless.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public float ActivationDelay = 0.5f; // ShibaStation - Greatly reduced activation delay, birds take off quickly, but harpies need to stand still first.
+    public float ActivationDelay = 0.0f; // ShibaStation - Instant takeoff, fuck it we ball.
 
     /// <summary>
     ///     Speed modifier while in flight
