@@ -21,7 +21,7 @@
         damage:
           types:
             Poison: 0.25 # effectively 10 poison/u
-            Asphyxiation: 0.75 # more damage, but easier to treat
+            Asphyxiation: 0.75 # more damage, but easier to treat, will rapidly kill in crit probably?
       - !type:HealthChange # More overdose damage
         conditions:
         - !type:ReagentThreshold
