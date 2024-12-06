@@ -69,6 +69,8 @@ guide-entry-toxins = Toxins
 guide-entry-foods = Foods
 guide-entry-biological = Biological
 guide-entry-botanical = Botanicals
+# goob content
+guide-entry-alchemy = Alchemy
 guide-entry-others = Others
 
 guide-entry-antagonists = Antagonists

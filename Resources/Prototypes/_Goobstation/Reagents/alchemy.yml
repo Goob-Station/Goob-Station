@@ -1,7 +1,7 @@
 - type: reagent
   id: AlchemicalPrecursor
+  group: Alchemy
   name: reagent-name-alcp
-  group: alchemical
   desc: reagent-desc-alcp
   flavor: cold
   color: "#d1d0cf"
@@ -16,8 +16,8 @@
 
 - type: reagent
   id: tenebris
+  group: Alchemy
   name: reagent-name-tenebris
-  group: alchemical
   desc: reagent-desc-tenebris
   flavor: terrible
   color: "#292827"
@@ -32,8 +32,8 @@
 
 - type: reagent
   id: albedo
+  group: Alchemy
   name: reagent-name-albedo
-  group: alchemical
   desc: reagent-desc-albedo
   flavor: chalky
   color: "#ffffff"
@@ -48,8 +48,8 @@
 
 - type: reagent
   id: brass
+  group: Alchemy
   name: reagent-name-brass
-  group: alchemical
   desc: reagent-desc-brass
   flavor: metallic
   color: "#b9711c"
@@ -58,8 +58,8 @@
 
 - type: reagent
   id: disgustingmess
+  group: Alchemy
   name: reagent-name-disgustingmess
-  group: alchemical
   desc: reagent-desc-disgustingmess
   flavor: slimy
   color: "#295538"
@@ -73,8 +73,8 @@
 
 - type: reagent
   id: bluespaceessence
+  group: Alchemy
   name: reagent-name-bse
-  group: alchemical
   desc: reagent-desc-bse
   flavor: shocking
   color: "#00e3ff"
@@ -83,8 +83,8 @@
 
 - type: reagent
   id: citrinitas
+  group: Alchemy
   name: reagent-name-citrinitas
-  group: alchemical
   desc: reagent-desc-citrinitas
   flavor: rum
   color: "#fefa82"
@@ -101,8 +101,8 @@
 
 - type: reagent
   id: kingsyellow
+  group: Alchemy
   name: reagent-name-kingsyellow
-  group: alchemical
   desc: reagent-desc-kingsyellow
   flavor: metallic
   color: "#ffffff"
@@ -112,8 +112,8 @@
 
 - type: reagent
   id: empoweredlead
+  group: Alchemy
   name: reagent-name-empoweredlead
-  group: alchemical
   desc: reagent-desc-empoweredlead
   flavor: horrible
   color: "#97e2a3"
@@ -130,8 +130,8 @@
 
 - type: reagent
   id: aquafortis
+  group: Alchemy
   name: reagent-name-fortis
-  group: alchemical
   desc: reagent-desc-fortis
   flavor: acid
   color: "#e4e4e4"
@@ -146,8 +146,8 @@
 
 - type: reagent
   id: aquaregia
+  group: Alchemy
   name: reagent-name-regia
-  group: alchemical
   desc: reagent-desc-regia
   flavor: acid
   color: "#d07854"
@@ -162,8 +162,8 @@
 
 - type: reagent
   id: aquatofani
+  group: Alchemy
   name: reagent-name-tofani
-  group: alchemical
   desc: reagent-desc-tofani
   flavor: bitter
   color: "#f6f6f6"
@@ -180,8 +180,8 @@
 
 - type: reagent
   id: aquavitae
+  group: Alchemy
   name: reagent-name-vitae
-  group: alchemical
   desc: reagent-desc-vitae
   flavor: alcohol
   color: "#13a1c4"
@@ -197,8 +197,8 @@
 
 - type: reagent
   id: rubedo
+  group: Alchemy
   name: reagent-name-rubedo
-  group: alchemical
   desc: reagent-desc-rubedo
   flavor: metallic
   color: "#f64135"
