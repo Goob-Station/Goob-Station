@@ -1,0 +1,137 @@
+- type: reagent
+  id: GinAndSonic
+  name: reagent-name-gin-and-sonic
+  parent: BaseAlcohol
+  desc: reagent-desc-gin-and-sonic
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: fast
+  color: "#3061e3"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.03
+      - !type:AdjustReagent
+        reagent: Desoxyephedrine
+        amount: 0.25
+  metamorphicSprite:
+    sprite: _NF/Objects/Consumable/Drinks/ginandsonic.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: GoldenCat
+  name: reagent-name-golden-cat
+  parent: BaseAlcohol
+  desc: reagent-desc-golden-cat
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: greed
+  color: "#eed037"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.2
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.3
+  metamorphicSprite:
+    sprite: _NF/Objects/Consumable/Drinks/goldencat.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 5
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: PineappleBlast
+  name: reagent-name-pineapple-blast
+  parent: BaseAlcohol
+  desc: reagent-desc-pineapple-blast
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: blast
+  color: "#8c934c"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 1
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+      - !type:ExplosionReactionEffect
+        explosionType: Default
+        maxIntensity: 0.1
+        intensityPerUnit: 0.05
+        intensitySlope: 1
+        maxTotalIntensity: 0.1
+        probability: 0.1
+  metamorphicSprite:
+    sprite: _NF/Objects/Consumable/Drinks/pineappleblast.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 3
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: TorpedoJuice
+  name: reagent-name-torpedo-juice
+  parent: BaseAlcohol
+  desc: reagent-desc-torpedo-juice
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: torpedo
+  color: "#d4db9a"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.8
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.4
+  metamorphicSprite:
+    sprite: _NF/Objects/Consumable/Drinks/torpedojuice.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 6
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false
+
+- type: reagent
+  id: BeesKnees
+  name: reagent-name-bees-knees
+  parent: BaseAlcohol
+  desc: reagent-desc-bees-knees
+  physicalDesc: reagent-physical-desc-aromatic
+  flavor: bees
+  color: "#f1d25f"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 0.5
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.2
+      - !type:SatiateHunger
+        factor: 0.1
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: -0.05
+            Radiation: -0.05
+            Asphyxiation: 1
+        conditions:
+        - !type:ReagentThreshold
+          min: 35
+      - !type:ModifyBloodLevel
+        amount: 0.2
+  metamorphicSprite:
+    sprite: _NF/Objects/Consumable/Drinks/beesknees.rsi
+    state: icon_empty
+  metamorphicMaxFillLevels: 4
+  metamorphicFillBaseName: fill-
+  metamorphicChangeColor: false

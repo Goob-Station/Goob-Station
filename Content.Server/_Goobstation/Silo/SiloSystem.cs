@@ -5,6 +5,7 @@ using Content.Shared._Goobstation.Silo;
 using Content.Shared.DeviceLinking;
 using Content.Shared.Lathe;
 using Content.Shared.Materials;
+using Robust.Server.GameStates;
 using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Goobstation.Silo;
@@ -12,6 +13,7 @@ namespace Content.Server._Goobstation.Silo;
 public sealed class SiloSystem : SharedSiloSystem
 {
     [Dependency] private readonly LatheSystem _lathe = default!;
+    [Dependency] private readonly PvsOverrideSystem _pvs = default!;
 
     public override void Initialize()
     {
@@ -19,6 +21,18 @@ public sealed class SiloSystem : SharedSiloSystem
 
         SubscribeLocalEvent<BecomesStationComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SiloComponent, MaterialAmountChangedEvent>(OnMaterialAmountChanged);
+        SubscribeLocalEvent<SiloComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<SiloComponent, ComponentShutdown>(OnShutdown);
+    }
+
+    private void OnStartup(Entity<SiloComponent> ent, ref ComponentStartup args)
+    {
+        _pvs.AddGlobalOverride(ent);
+    }
+
+    private void OnShutdown(Entity<SiloComponent> ent, ref ComponentShutdown args)
+    {
+        _pvs.RemoveGlobalOverride(ent);
     }
 
     private void OnMaterialAmountChanged(Entity<SiloComponent> ent, ref MaterialAmountChangedEvent args)
