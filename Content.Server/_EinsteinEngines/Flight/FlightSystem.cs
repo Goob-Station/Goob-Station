@@ -2,6 +2,8 @@
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage.Components;
+using Content.Shared.Nutrition.Components;
+using Content.Shared.Nutrition.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared._EinsteinEngines.Flight;
 using Content.Shared._EinsteinEngines.Flight.Events;
@@ -19,6 +21,7 @@ public sealed class FlightSystem : SharedFlightSystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
+    [Dependency] private readonly HungerSystem _hungerSystem = default!; // ShibaStation - Used to check current hunger threshold for flight.
 
     public override void Initialize()
     {
@@ -113,6 +116,12 @@ public sealed class FlightSystem : SharedFlightSystem
             _popupSystem.PopupEntity(Loc.GetString("no-flight-while-lying"), uid, uid, PopupType.Medium);
             return false;
         }
+        if (TryComp<HungerComponent>(uid, out var hunger) && _hungerSystem.GetHungerThreshold(hunger) == HungerThreshold.Starving) // ShibaStation - No flight while starving.
+        {
+            _popupSystem.PopupEntity(Loc.GetString("no-flight-while-starving"), uid, uid, PopupType.Medium);
+            return false;
+        }
+
         return true;
     }
 
