@@ -1,0 +1,5 @@
+- type: weightedRandom
+  id: RandomAnnouncers
+  weights:
+    NEIL: 1
+

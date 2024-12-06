@@ -54,6 +54,7 @@ namespace Content.Server.StationEvents.Events
                 }
             }
 
+            /* Goobstation - Custom Announcers
             // Can't use the default EndAudio
             component.AnnounceCancelToken?.Cancel();
             component.AnnounceCancelToken = new CancellationTokenSource();
@@ -62,6 +63,7 @@ namespace Content.Server.StationEvents.Events
                 Audio.PlayGlobal("/Audio/Announcements/power_on.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-4f));
             }, component.AnnounceCancelToken.Token);
             component.Unpowered.Clear();
+            */
         }
 
         protected override void ActiveTick(EntityUid uid, PowerGridCheckRuleComponent component, GameRuleComponent gameRule, float frameTime)

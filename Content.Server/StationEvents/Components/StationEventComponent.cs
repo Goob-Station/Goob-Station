@@ -19,22 +19,10 @@ public sealed partial class StationEventComponent : Component
     public float Weight = WeightNormal;
 
     [DataField]
-    public string? StartAnnouncement;
+    public bool StartAnnouncement; // Goobstation - Custom Announcers
 
     [DataField]
-    public string? EndAnnouncement;
-
-    [DataField]
-    public Color StartAnnouncementColor = Color.Gold;
-
-    [DataField]
-    public Color EndAnnouncementColor = Color.Gold;
-
-    [DataField]
-    public SoundSpecifier? StartAudio;
-
-    [DataField]
-    public SoundSpecifier? EndAudio;
+    public bool EndAnnouncement; // Goobstation - Custom Announcers
 
     /// <summary>
     ///     In minutes, when is the first round time this event can start

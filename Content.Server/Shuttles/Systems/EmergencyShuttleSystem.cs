@@ -38,6 +38,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Server._Goobstation.Announcements.Systems; // Goobstation - Custom Announcers
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -69,6 +70,7 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly TransformSystem _transformSystem = default!;
     [Dependency] private readonly UserInterfaceSystem _uiSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Goobstation - Custom Announcers
 
     private const float ShuttleSpawnBuffer = 1f;
 
@@ -330,13 +332,8 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
 
         if (result.ResultType == ShuttleDockResultType.GoodLuck)
         {
-            _chatSystem.DispatchStationAnnouncement(
-                result.Station,
-                Loc.GetString("emergency-shuttle-good-luck"),
-                playDefaultSound: false);
-
-            // TODO: Need filter extensions or something don't blame me.
-            _audio.PlayGlobal("/Audio/Misc/notice1.ogg", Filter.Broadcast(), true);
+            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("ShuttleGoodLuck"), Filter.Broadcast(),
+                "emergency-shuttle-good-luck", colorOverride: DangerColor); // Goobstation - Custom Announcers
             return;
         }
 
@@ -389,13 +386,12 @@ public sealed partial class EmergencyShuttleSystem : EntitySystem
         }
 
         // Play announcement audio.
+        // Goobstation - Custom Announcers
+        var announceType = result.ResultType == ShuttleDockResultType.NoDock
+            ? "ShuttleNoDock"
+            : "ShuttleDock";
 
-        var audioFile = result.ResultType == ShuttleDockResultType.NoDock
-            ? "/Audio/Misc/notice1.ogg"
-            : "/Audio/Announcements/shuttle_dock.ogg";
-
-        // TODO: Need filter extensions or something don't blame me.
-        _audio.PlayGlobal(audioFile, Filter.Broadcast(), true);
+         _announcer.SendAnnouncementAudio(_announcer.GetAnnouncementId(announceType), Filter.Broadcast());
     }
 
     private void OnStationInit(EntityUid uid, StationCentcommComponent component, MapInitEvent args)

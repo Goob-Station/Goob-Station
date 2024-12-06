@@ -6,6 +6,7 @@ using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
+using Content.Server._Goobstation.Announcements.Systems; // Goobstation - Custom Announcers
 
 namespace Content.Server.AlertLevel;
 
@@ -16,6 +17,7 @@ public sealed class AlertLevelSystem : EntitySystem
     [Dependency] private readonly ChatSystem _chatSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StationSystem _stationSystem = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Goobstation - Custom Announcers
 
     // Until stations are a prototype, this is how it's going to have to be.
     public const string DefaultAlertLevelSet = "stationAlerts";
@@ -170,27 +172,14 @@ public sealed class AlertLevelSystem : EntitySystem
         }
 
         // The full announcement to be spat out into chat.
-        var announcementFull = Loc.GetString("alert-level-announcement", ("name", name), ("announcement", announcement));
+        var announcementFull = _announcer.GetAnnouncementId($"Alert{level}"); // Goobstation - Custom Announcers
 
-        var playDefault = false;
         if (playSound)
-        {
-            if (detail.Sound != null)
-            {
-                var filter = _stationSystem.GetInOwningStation(station);
-                _audio.PlayGlobal(detail.Sound, filter, true, detail.Sound.Params);
-            }
-            else
-            {
-                playDefault = true;
-            }
-        }
+            _announcer.SendAnnouncementAudio(level, _stationSystem.GetInOwningStation(station)); // Goobstation - Custom Announcers
 
         if (announce)
-        {
-            _chatSystem.DispatchStationAnnouncement(station, announcementFull, playDefaultSound: playDefault,
-                colorOverride: detail.Color, sender: stationName);
-        }
+            _announcer.SendAnnouncementMessage(level, "alert-level-announcement", null, detail.Color, null, null,
+                ("name", name), ("announcement", announcement)); // Goobstation - Custom Announcers
 
         RaiseLocalEvent(new AlertLevelChangedEvent(station, level));
     }
