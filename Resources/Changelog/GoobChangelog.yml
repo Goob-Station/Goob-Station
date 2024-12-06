@@ -2920,3 +2920,11 @@ Entries:
       message: Felinids renamed to their true name, Gremlins.
   id: 330
   time: '2024-12-05T18:03:21.0000000+00:00'
+- author: ray-boop and Tonk
+  changes:
+    - type: Add
+      message: >-
+        Added a set of new drinks for bartenders to mix: Gin and Sonic, Golden
+        Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
+  id: 331
+  time: '2024-12-06T15:34:46.0000000+00:00'
