@@ -19,9 +19,9 @@
     accent: scottish
 
 - type: trait
-  id: bogan
+  id: Bogan
   name: trait-bogan-name
-  description: trait-bogam-desc
+  description: trait-bogan-desc
   category: SpeechTraits
   cost: 1
   components:
