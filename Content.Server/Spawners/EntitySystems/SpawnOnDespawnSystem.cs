@@ -19,13 +19,14 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
             return;
 
         // lava edit - make it not required
-        if (!string.IsNullOrWhiteSpace(comp.Prototype))
+        if (comp.Prototype != null)
             Spawn(comp.Prototype, xform.Coordinates);
 
-        // lava edit - make it spawn more (without intrusion)
+        // Lavaland Change start
+        // make it spawn more (without intrusion)
         foreach (var prot in comp.Prototypes)
             Spawn(prot, xform.Coordinates);
-        // lava edit end
+        // Lavaland Change end
     }
 
     public void SetPrototype(Entity<SpawnOnDespawnComponent> entity, EntProtoId prototype)

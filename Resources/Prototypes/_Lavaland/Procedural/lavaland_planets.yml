@@ -1,0 +1,12 @@
+# Basic lavaland.
+- type: lavalandMap
+  id: Lavaland
+  outpostPath: Maps/_Lavaland/outpost_lavaland.yml
+  ruinPool: Lavaland
+  temperature: 338.4523 # 65.3023 C
+  planetColor: "#A34931"
+  biome: Lava
+  atmosphere:
+  - 6.524779 # oxygen, not enough for breathing
+  - 20.10312 # nitrogen
+  - 8.21301 # carbon dioxide
