@@ -599,6 +599,7 @@
           reagent: Nitrium
           min: 15
         key: Adrenaline
+        component: IgnoreSlowOnDamage
         type: Add
         time: 3
       - !type:HealthChange
