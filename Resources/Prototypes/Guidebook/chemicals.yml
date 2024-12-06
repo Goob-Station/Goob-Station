@@ -62,7 +62,7 @@
 - type: guideEntry
   id: Alchemy
   name: guide-entry-alchemy
-  text: "//ServerInfo/_Goobstation/Guidebook/ChemicalTabs/Alchemy.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/ChemicalTabs/Alchemy.xml"
   filterEnabled: True
 
 - type: guideEntry
