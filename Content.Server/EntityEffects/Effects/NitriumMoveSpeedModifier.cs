@@ -36,6 +36,7 @@ public sealed partial class NitriumMovespeedModifier : EntityEffect
         return Loc.GetString("reagent-effect-guidebook-movespeed-modifier",
             ("chance", Probability),
             ("walkspeed", WalkSpeedModifier),
+            ("sprintspeed", SprintSpeedModifier),
             ("time", StatusLifetime));
     }
 
