@@ -1,5 +1,5 @@
 reagent-name-desoxyephedrine = desoxyephedrine
-reagent-desc-desoxyephedrine = A more effective ephedrine, with more active downsides. Requires less doses to cure narcolepsy.
+reagent-desc-desoxyephedrine = A more effective ephedrine, with more active downsides. Requires less doses to cure narcolepsy. Explodes if you heat it to 420K!
 
 reagent-name-ephedrine = ephedrine
 reagent-desc-ephedrine = A caffeinated adrenaline stimulator chemical that makes you faster and harder to knock down. Also helps combat narcolepsy at dosages over thirty, at the cost of severe nerval stress.

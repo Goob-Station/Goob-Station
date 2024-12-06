@@ -1,0 +1,15 @@
+- type: reaction
+  id: MethExplosion
+  minTemp: 420 # in the latest ss13 code I could find, this was at 380, only 10k above the meth reaction, so this is lenient
+  impact: High
+  priority: 20
+  reactants:
+    Desoxyephedrine:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Methsplosion
+      maxIntensity: 50
+      intensityPerUnit: 0.7 # I don't want it too spicy as just a lab accident thing
+      intensitySlope: 6 # if you accidentally blew up your meth, it's your problem, not everybody else's
+      maxTotalIntensity: 50
