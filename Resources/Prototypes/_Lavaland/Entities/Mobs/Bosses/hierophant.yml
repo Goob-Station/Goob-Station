@@ -47,13 +47,13 @@
 
 # hierophant damaging thing
 - type: entity
+  id: LavalandHierophantSquare
+  suffix: DO NOT MAP
+  name: hierophant square
   placement:
     mode: SnapgridCenter
     snap:
     - Wall
-  id: LavalandHierophantSquare
-  suffix: DO NOT MAP
-  name: hierophant square
   components:
   - type: Sprite
     sprite: _Lavaland/Effects/mob_effects.rsi
@@ -116,13 +116,13 @@
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 
 - type: entity
+  id: LavalandHierophantChaser
+  suffix: DO NOT MAP
+  name: hierophant chaser
   placement:
     mode: SnapgridCenter
     snap:
     - Wall
-  id: LavalandHierophantChaser
-  suffix: DO NOT MAP
-  name: hierophant chaser
   components:
   - type: Transform
     anchored: true

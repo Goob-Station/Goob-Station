@@ -1,1 +1,1 @@
-lavaland-examine-pressure-buff = This piece of equipment reaches maximum capability in between [color=yellow] {$min} - {$max} kPa [/color], allowing it to deal [color=yellow] {$buff} times [/color] more damage!
+lavaland-examine-pressure-buff = This piece of equipment reaches maximum capability in between [color=yellow]{$min} - {$max} kPa[/color], allowing it to deal [color=yellow]{$buff} times[/color] more damage!

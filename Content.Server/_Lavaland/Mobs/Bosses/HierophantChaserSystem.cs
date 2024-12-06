@@ -23,19 +23,29 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         base.Update(frameTime);
 
         var eqe = EntityQueryEnumerator<HierophantChaserComponent>();
+        var chasers = new List<(EntityUid, HierophantChaserComponent)>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
-            if (comp.Steps >= comp.MaxSteps)
-                QueueDel(uid);
-
             var delta = frameTime * comp.Speed;
             comp.CooldownTimer -= delta;
 
             if (comp.CooldownTimer <= 0)
             {
-                comp.CooldownTimer = comp.BaseCooldown;
-                Cycle((uid, comp));
+                // if i do it here i will get an exception so i'll just add them to a list.
+                chasers.Add((uid, comp));
             }
+        }
+
+        if (chasers.Count == 0)
+            return;
+
+        foreach (var chaser in chasers)
+        {
+            if (chaser.Item2.Steps >= chaser.Item2.MaxSteps)
+                QueueDel(chaser.Item1);
+
+            chaser.Item2.CooldownTimer = chaser.Item2.BaseCooldown;
+            Cycle((chaser.Item1, chaser.Item2));
         }
     }
 
@@ -77,7 +87,10 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         var @this = Spawn(Prototype(ent)!.ID, newPos);
 
         if (TryComp<HierophantChaserComponent>(@this, out var newChaser))
+        {
+            newChaser.Speed = ent.Comp.Speed;
             newChaser.Steps = ent.Comp.Steps + 1;
+        }
 
         QueueDel(ent);
     }
