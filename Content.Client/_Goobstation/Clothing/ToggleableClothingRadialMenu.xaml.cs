@@ -5,7 +5,7 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using System.Numerics;
 
-namespace Content.Client.Clothing.UI;
+namespace Content.Client._Goobstation.Clothing;
 
 public sealed partial class ToggleableClothingRadialMenu : RadialMenu
 {
@@ -39,7 +39,7 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
         if (clothingContainer == null)
             return;
 
-        foreach(var attached in clothing.ClothingUids)
+        foreach (var attached in clothing.ClothingUids)
         {
             // Change tooltip text if attached clothing is toggle/untoggled
             var tooltipText = Loc.GetString("toggleable-clothing-unattach-tooltip");
