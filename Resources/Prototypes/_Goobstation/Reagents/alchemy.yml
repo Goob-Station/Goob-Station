@@ -6,7 +6,7 @@
   name: reagent-name-alcp
   desc: reagent-desc-alcp
   flavor: cold
-  color: "#d1d0cf"
+  color: "#613b2e"
   physicalDesc: reagent-physical-desc-gloopy
   metabolisms:
     Poison:
@@ -107,7 +107,7 @@
   name: reagent-name-kingsyellow
   desc: reagent-desc-kingsyellow
   flavor: metallic
-  color: "#ffffff"
+  color: "#fff700"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
 
@@ -136,7 +136,7 @@
   name: reagent-name-fortis
   desc: reagent-desc-fortis
   flavor: acid
-  color: "#e4e4e4"
+  color: "#a08b2c"
   physicalDesc: reagent-physical-desc-acidic
   metabolisms:
     Poison:
@@ -168,7 +168,7 @@
   name: reagent-name-tofani
   desc: reagent-desc-tofani
   flavor: bitter
-  color: "#f6f6f6"
+  color: "#36e92a"
   physicalDesc: reagent-physical-desc-powdery
   metabolisms:
     Poison:

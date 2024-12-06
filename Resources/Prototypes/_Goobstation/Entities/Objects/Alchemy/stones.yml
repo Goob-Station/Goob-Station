@@ -29,8 +29,8 @@
       reagents:
       - ReagentId: tenebris
         Quantity: 5
-      - ReagentId: Blood
-        Quantity: 95
+      - ReagentId: Ash
+        Quantity: 20
 
 - type: entity
   parent: BaseItem
@@ -61,8 +61,8 @@
     grindableSolutionName: food
     juiceSolution:
       reagents:
-      - ReagentId: Blood
-        Quantity: 95
+      - ReagentId: Ash
+        Quantity: 20
       - ReagentId: albedo
         Quantity: 5
 
@@ -97,8 +97,8 @@
       reagents:
       - ReagentId: citrinitas
         Quantity: 5
-      - ReagentId: Blood
-        Quantity: 95
+      - ReagentId: Ash
+        Quantity: 20
 
 - type: entity
   parent: BaseItem
@@ -131,5 +131,5 @@
       reagents:
       - ReagentId: rubedo
         Quantity: 5
-      - ReagentId: Blood
-        Quantity: 95
+      - ReagentId: Ash
+        Quantity: 20

@@ -11,19 +11,6 @@
     AlchemicalPrecursor: 5
 
 - type: reaction
-  id: tenebrisCreation
-  reactants:
-    AlchemicalPrecursor:
-      amount: 1
-      catalyst: true
-    Ash:
-      amount: 5
-    Phlogiston:
-      amount: 1
-  products:
-    tenebris: 5
-
-- type: reaction
   id: BrassSheet
   impact: Low
   quantized: true
@@ -242,3 +229,42 @@
   products:
     Vestine: 2
 
+- type: reaction
+  id: tenebriscreation
+  reactants:
+    tenebris:
+      amount: 1
+    aquafortis:
+      amount: 1
+  products:
+    tenebris: 2
+
+- type: reaction
+  id: albedocreation
+  reactants:
+    albedo:
+      amount: 1
+    aquaregia:
+      amount: 1
+  products:
+    albedo: 2
+
+- type: reaction
+  id: citrinitascreation
+  reactants:
+    citrinitas:
+      amount: 1
+    aquatofani:
+      amount: 1
+  products:
+    citrinitas: 2
+
+- type: reaction
+  id: rubedocreation
+  reactants:
+    rubedo:
+      amount: 1
+    aquavitae:
+      amount: 1
+  products:
+    rubedo: 2

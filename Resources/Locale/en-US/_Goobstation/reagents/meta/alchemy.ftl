@@ -37,5 +37,5 @@ reagent-desc-tofani = Where is the arsenic?
 reagent-name-vitae = aqua vitae
 reagent-desc-vitae = No its not the kind you can drink.
 
-reagent-name-rubedo = aqua vitae
-reagent-desc-rubedo = No its not the kind you can drink.
+reagent-name-rubedo = rubedo
+reagent-desc-rubedo = The fourth step; redness.
