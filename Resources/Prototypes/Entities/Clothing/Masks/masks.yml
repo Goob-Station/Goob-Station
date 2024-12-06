@@ -196,10 +196,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask # Goobstation - For survial boxes
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
-      Plastic: 100
+      Cloth: 25
+      Plastic: 25
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
 
@@ -320,9 +320,9 @@
     size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 25
+      Cloth: 25
 
 - type: entity
   parent: ClothingMaskBase

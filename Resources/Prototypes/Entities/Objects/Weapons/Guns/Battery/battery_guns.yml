@@ -133,6 +133,10 @@
     steps: 5
     zeroVisible: true
   - type: Multishot # Goobstation
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
+      Gold: 125
 
 - type: entity
   name: retro laser blaster
@@ -391,6 +395,11 @@
     - type: Battery
       maxCharge: 10000
       startingCharge: 10000
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 187
+        Plasma: 37
+        Uranium: 37
 
 - type: entity
   name: x-ray cannon
@@ -686,6 +695,10 @@
   - type: StaticPrice
     price: 100
   - type: Multishot # Goobstation
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Glass: 100
 
 - type: entity
   name: experimental C.H.I.M.P. handcannon

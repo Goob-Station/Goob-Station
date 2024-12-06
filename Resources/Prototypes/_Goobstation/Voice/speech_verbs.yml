@@ -13,3 +13,12 @@
     path: /Audio/_Goobstation/Voice/Chrono/dagger.ogg
   exclaimSound:
     path: /Audio/_Goobstation/Voice/Chrono/contact.ogg
+
+- type: speechSounds
+  id: Lathe
+  saySound:
+    path: /Audio/Machines/beep.ogg
+  askSound:
+    path: /Audio/Machines/beep.ogg
+  exclaimSound:
+    path: /Audio/Machines/beep.ogg

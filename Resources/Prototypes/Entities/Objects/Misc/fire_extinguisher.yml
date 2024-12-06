@@ -71,9 +71,9 @@
         enum.ToggleVisuals.Layer:
           True: { state: fire_extinguisher_open }
           False: { state: fire_extinguisher_closed }
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
+      Steel: 50
 
 - type: entity
   name: extinguisher spray
@@ -121,7 +121,7 @@
         Blunt: 3 #completely ineffective; your fists are better
     soundHit:
       path: /Audio/Effects/weak_hit1.ogg
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
-      Glass: 40
+      Steel: 25
+      Glass: 12

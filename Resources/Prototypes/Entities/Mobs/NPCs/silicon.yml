@@ -184,6 +184,10 @@
     speechVerb: Cluwne
   - type: StepTrigger
     intersectRatio: 0.2
+  - type: StepTriggerImmune # Goobstation
+    whitelist:
+      types:
+      - Shard
   - type: Fixtures
     fixtures:
       slips:

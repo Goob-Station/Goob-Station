@@ -33177,8 +33177,11 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 55.474125,-11.511058
+      pos: 56.42892,-11.569014
       parent: 31
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: EncryptionKeyScience
   entities:
   - uid: 4604
@@ -33190,8 +33193,11 @@ entities:
   - uid: 10895
     components:
     - type: Transform
-      pos: 56.448124,-11.363565
+      pos: 56.652367,-11.357214
       parent: 31
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: EncryptionKeySecurity
   entities:
   - uid: 8164
@@ -51240,6 +51246,13 @@ entities:
     - type: Transform
       pos: 7.2571726,18.545927
       parent: 31
+- proto: MaterialSilo
+  entities:
+  - uid: 10902
+    components:
+    - type: Transform
+      pos: 55.5,-11.5
+      parent: 31
 - proto: MaterialWoodPlank1
   entities:
   - uid: 9680
@@ -62785,11 +62798,6 @@ entities:
     components:
     - type: Transform
       pos: -11.5,19.5
-      parent: 31
-  - uid: 10902
-    components:
-    - type: Transform
-      pos: 55.5,-11.5
       parent: 31
   - uid: 10903
     components:

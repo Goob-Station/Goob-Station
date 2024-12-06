@@ -64,7 +64,7 @@
   - type: Tag
     tags:
       - Bucket
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 25
   - type: DnaSubstanceTrace

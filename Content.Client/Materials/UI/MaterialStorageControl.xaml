@@ -3,6 +3,7 @@
               HorizontalExpand="True"
               VerticalExpand="True">
     <BoxContainer Name="MaterialList" Orientation="Vertical">
+        <Label Name="SiloLabel" Text="{Loc 'lathe-menu-connected-to-silo-message'}" Align="Center"/>
         <Label Name="NoMatsLabel" Text="{Loc 'lathe-menu-no-materials-message'}" Align="Center"/>
     </BoxContainer>
 </ScrollContainer>

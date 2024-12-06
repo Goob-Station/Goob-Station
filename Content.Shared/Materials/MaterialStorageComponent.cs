@@ -67,6 +67,10 @@ public sealed partial class MaterialStorageComponent : Component
     /// </summary>
     [DataField]
     public bool CanEjectStoredMaterials = true;
+
+    // Goobstation
+    [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public bool ConnectToSilo;
 }
 
 [Serializable, NetSerializable]
