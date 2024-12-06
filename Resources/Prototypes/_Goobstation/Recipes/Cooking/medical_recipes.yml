@@ -1,6 +1,6 @@
 - type: microwaveMealRecipe
   id: RecipeTenebris
-  name: albedo recipe
+  name: tenebris recipe
   result: Stonetenebris
   time: 5
   reagents:
@@ -37,7 +37,7 @@
 
 - type: microwaveMealRecipe
   id: RecipeRubedo
-  name: albedo recipe
+  name: rubedo recipe
   result: Stonerubedo
   time: 5
   reagents:
