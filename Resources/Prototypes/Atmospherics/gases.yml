@@ -106,7 +106,7 @@
   name: gases-bz
   specificHeat: 20
   heatCapacityRatio: 1.4
-  molarMass: 10
+  molarMass: 12
   color: 9370db
   reagent: BZ
   pricePerMole: 2
@@ -116,7 +116,7 @@
   name: gases-healium
   specificHeat: 20
   heatCapacityRatio: 1.4
-  molarMass: 10
+  molarMass: 15
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: healium
   gasMolesVisible: 2
@@ -132,7 +132,7 @@
   gasOverlaySprite: /Textures/Effects/atmospherics.rsi
   gasOverlayState: nitrium
   gasMolesVisible: 0.6
-  molarMass: 10
+  molarMass: 8
   color: b76f0e
   reagent: Nitrium
   pricePerMole: 3

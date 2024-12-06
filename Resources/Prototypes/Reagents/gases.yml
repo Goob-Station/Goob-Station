@@ -386,8 +386,8 @@
         ignoreResistances: true
         damage:
           types:
-            Asphyxiation: 10
-            Poison: 2.5
+            Asphyxiation: 5
+            Poison: 1.5
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold
@@ -399,7 +399,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 10
+        time: 30
         refresh: false
       - !type:Emote
         conditions:
