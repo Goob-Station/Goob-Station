@@ -1,0 +1,63 @@
+- type: entity
+  id: BaseBlob
+  abstract: true
+  name: base blob
+  placement:
+    mode: SnapgridCenter
+    snap:
+      - Wall
+  components:
+    - type: ZombieImmune
+    - type: StatusEffects
+      allowed:
+      - Stun
+      - KnockedDown
+      - SlowedDown
+      - Electrocution
+      - PressureImmunity
+      - StaminaModifier
+      - SeeAll
+      - Flashed
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+    - type: ExplosionResistance
+      damageCoefficient: 0.3
+    - type: FireVisuals
+      sprite: Effects/fire.rsi
+      normalState: 1
+    - type: Damageable
+      damageContainer: Blob
+      damageModifierSet: BaseBlob
+    - type: Appearance
+    - type: Physics
+    - type: Clickable
+    - type: Transform
+      anchored: true
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.5,-0.5,0.5,0.5"
+          layer:
+            - BlobTileLayer
+          density: 1000
+    - type: GuideHelp
+      guides:
+      - Blob
+
+- type: entity
+  id: MobObserverBlobController
+  name: Blob observer controller
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Weapons/flesh_spike_hand.rsi
+    size: Ginormous
+  - type: Unremoveable
+    deleteOnDrop: true
