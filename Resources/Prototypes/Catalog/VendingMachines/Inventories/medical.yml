@@ -5,6 +5,7 @@
     Brutepack: 5
     Ointment: 5
     Bloodpack: 5
+    Tourniquet: 6 #Goobstation - ParamedHypo
     EpinephrineChemistryBottle: 3
     Syringe: 5
     BoxBottle: 3
@@ -12,4 +13,5 @@
     ClothingEyesEyepatchHudMedical: 2
     MedicalPatchPrefilledBicaridine: 3  #Goobstation - MedicalPatches
     MedicalPatchPrefilledDermaline: 3   #Goobstation - MedicalPatches
+    ParamedHypo: 2 #Goobstation - ParamedHypo
     VehicleWheelchairFolded: 3 # Goobstation - Vehicles

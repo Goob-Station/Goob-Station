@@ -270,6 +270,7 @@
         - DiscreteHealthAnalyzer
         - SurgeryTool
         - Dropper
+        - Tourniquet #Goobstation - ParamedHypo
       components:
         - Hypospray
         - Injector
