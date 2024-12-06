@@ -37,7 +37,7 @@
         type: Local
         visualType: Medium
         messages: ["spacefentanyl-effect-lostsomething","spacefentanyl-effect-skincrawl","spacefentanyl-effect-fakepresence","spacefentanyl-effect-rushing","spacefentanyl-effect-giddy"]
-        probability: 0.1
+        probability: 0.05
       - !type:PopupMessage # when you're really tripping balls
         conditions:
         - !type:ReagentThreshold
@@ -45,7 +45,7 @@
         type: Local
         visualType: Medium
         messages: ["spacefentanyl-effect-skinworms","spacefentanyl-effect-breathingrazors","spacefentanyl-effect-lungstight","spacefentanyl-effect-observed","spacefentanyl-effect-checkagain"]
-        probability: 0.1
+        probability: 0.05
       - !type:MovespeedModifier # you didn't think this would improve your abilities right?
         walkSpeedModifier: 0.8
         sprintSpeedModifier: 0.8
@@ -53,11 +53,11 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:GenericStatusEffect
+      - !type:GenericStatusEffect # TODO: doesn't work! fix this!
         key: KnockedDown
         time: 3
         type: Add
-        probability: 0.1
+        probability: 0.05
       - !type:GenericStatusEffect # tripping balls, duh
         key: SeeingRainbows
         component: SeeingRainbows
@@ -68,14 +68,8 @@
         emote: scratches at their neck
         probability: 0.05
       - !type:Emote
-        emote: \'s arms flail all over the place!
+        emote: drools
         probability: 0.05
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
       - !type:Emote
         emote: flaps their hands around
         probability: 0.05
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
