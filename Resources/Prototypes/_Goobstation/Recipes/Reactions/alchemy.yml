@@ -24,39 +24,6 @@
     tenebris: 5
 
 - type: reaction
-  id: tenebrisGrowth
-  reactants:
-    tenebris:
-      amount: 1
-      catalyst: true
-    aquafortis:
-      amount: 1
-  products:
-    tenebris: 1
-
-- type: reaction
-  id: albedoGrowth
-  reactants:
-    albedo:
-      amount: 1
-      catalyst: true
-    aquaregia:
-      amount: 1
-  products:
-    albedo: 1
-
-- type: reaction
-  id: citrinitasGrowth
-  reactants:
-    citrinitas:
-      amount: 1
-      catalyst: true
-    aquatofani:
-      amount: 1
-  products:
-    citrinitas: 1
-
-- type: reaction
   id: BrassSheet
   impact: Low
   quantized: true

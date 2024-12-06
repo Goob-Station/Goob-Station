@@ -13,8 +13,8 @@ reagent-desc-brass = Its brass dumbass.
 reagent-name-disgustingmess = disgusting mess
 reagent-desc-disgustingmess = You did something wrong, start again.
 
-reagent-name-bluespaceessence = bluespace essence
-reagent-desc-bluespaceessence = It shimmers in and out of vision.
+reagent-name-bse = bluespace essence
+reagent-desc-bse = It shimmers in and out of vision.
 
 reagent-name-citrinitas = citrinitas
 reagent-desc-citrinitas = The third step; yellowness.
@@ -36,3 +36,6 @@ reagent-desc-tofani = Where is the arsenic?
 
 reagent-name-vitae = aqua vitae
 reagent-desc-vitae = No its not the kind you can drink.
+
+reagent-name-rubedo = aqua vitae
+reagent-desc-rubedo = No its not the kind you can drink.

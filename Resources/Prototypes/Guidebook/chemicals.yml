@@ -11,6 +11,7 @@
   - Foods
   - Botanical
   - Biological
+  - Alchemy #goobstation content
   - Others
   filterEnabled: True
 
@@ -54,6 +55,14 @@
   id: Biological
   name: guide-entry-biological
   text: "/ServerInfo/Guidebook/ChemicalTabs/Biological.xml"
+  filterEnabled: True
+
+#goobstation content
+
+- type: guideEntry
+  id: Alchemy
+  name: guide-entry-alchemy
+  text: "//ServerInfo/_Goobstation/Guidebook/ChemicalTabs/Alchemy.xml"
   filterEnabled: True
 
 - type: guideEntry
