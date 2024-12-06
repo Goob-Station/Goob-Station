@@ -15,6 +15,9 @@
       Ammonia: stationAmmonia
       NitrousOxide: stationNO
       Frezon: danger
+      BZ: danger 
+      Healium: stationNO 
+      Nitrium: danger 
 
 - type: entity
   parent: [AirSensorVoxBase, AirSensor]
@@ -39,6 +42,9 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    - BZ
+    - Healium
+    - Nitrium
 
 # use this to prevent overriding filters with hardcoded defaults
 - type: entity

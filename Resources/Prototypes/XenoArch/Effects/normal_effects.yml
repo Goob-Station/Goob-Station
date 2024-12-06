@@ -456,6 +456,9 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    - BZ
+    - Healium
+    - Nitrium
 
 - type: artifactEffect
   id: EffectBlink
