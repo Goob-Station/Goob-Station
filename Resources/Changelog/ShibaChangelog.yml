@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Stack sizes for ores have been increased from 30 to 50.
+    type: Tweak
+  id: 34
+  time: '2024-12-06T11:16:35.049522'
+- author: AstroDogeDX
+  changes:
   - message: Flying harpies can pull entities despite having occupied hands, by using
       their talons, of course! They use their hands (wings?) when not flying, still.
     type: Add
