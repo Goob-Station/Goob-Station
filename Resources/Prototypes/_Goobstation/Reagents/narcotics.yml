@@ -26,7 +26,7 @@
         conditions:
         - !type:ReagentThreshold
           min: 5
-        probability: 0.5
+        probability: 0.05
         damage:
           types:
             Slash: 1 # its fine you're just getting the worms out of your skin
@@ -64,6 +64,8 @@
         type: Add
         time: 20
         refresh: false
+      - !type:Drunk
+        boozePower: 10
       - !type:Emote # Now a bunch of emotes
         emote: Scream
         probability: 0.05
