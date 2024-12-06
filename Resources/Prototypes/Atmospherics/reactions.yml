@@ -112,7 +112,7 @@
   id: HealiumProduction
   priority: 2
   maximumTemperature: 300.0
-  maximumTemperature: 22.0
+  minimumTemperature: 22.0
   minimumRequirements:
   - 0     # oxygen
   - 0     # nitrogen
