@@ -832,15 +832,15 @@
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 140
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 200
+      fireCost: 160
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 200
+      fireCost: 120
       name: ion
       state: special
   - type: MagazineVisuals
@@ -861,3 +861,6 @@
     - Sidearm
   - type: StaticPrice
     price: 750
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 20
