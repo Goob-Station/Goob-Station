@@ -1,6 +1,18 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Degremlinfied felinids back to their cat selves.
+    type: Fix
+  id: 36
+  time: '2024-12-06T17:44:06.267572'
+- author: AstroDogeDX
+  changes:
+  - message: Added jolly Christmas cheer!
+    type: Add
+  id: 35
+  time: '2024-12-06T17:44:40.645953'
+- author: AstroDogeDX
+  changes:
   - message: Stack sizes for ores have been increased from 30 to 50.
     type: Tweak
   id: 34
