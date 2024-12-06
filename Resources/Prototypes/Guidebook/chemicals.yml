@@ -11,7 +11,6 @@
   - Foods
   - Botanical
   - Biological
-  - Alchemy # Goob content
   - Others
   filterEnabled: True
 
@@ -61,10 +60,4 @@
   id: Others
   name: guide-entry-others
   text: "/ServerInfo/Guidebook/ChemicalTabs/Other.xml"
-  filterEnabled: True
-
-- type: guideEntry #Goob content
-  id: Alchemy
-  name: guide-entry-alchemy
-  text: "/ServerInfo/_Goobstation/Guidebook/ChemicalTabs/Alchemy.xml"
   filterEnabled: True

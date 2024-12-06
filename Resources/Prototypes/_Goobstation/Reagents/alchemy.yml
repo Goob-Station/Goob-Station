@@ -1,6 +1,5 @@
 - type: reagent
   id: AlchemicalPrecursor
-  group: Alchemy
   name: reagent-name-alcp
   desc: reagent-desc-alcp
   flavor: cold
@@ -16,7 +15,6 @@
 
 - type: reagent
   id: tenebris
-  group: Alchemy
   name: reagent-name-tenebris
   desc: reagent-desc-tenebris
   flavor: terrible
@@ -32,7 +30,6 @@
 
 - type: reagent
   id: albedo
-  group: Alchemy
   name: reagent-name-albedo
   desc: reagent-desc-albedo
   flavor: chalky
@@ -48,7 +45,6 @@
 
 - type: reagent
   id: brass
-  group: Alchemy
   name: reagent-name-brass
   desc: reagent-desc-brass
   flavor: metallic
@@ -58,7 +54,6 @@
 
 - type: reagent
   id: disgustingmess
-  group: Alchemy
   name: reagent-name-disgustingmess
   desc: reagent-desc-disgustingmess
   flavor: slimy
@@ -73,7 +68,6 @@
 
 - type: reagent
   id: bluespaceessence
-  group: Alchemy
   name: reagent-name-bse
   desc: reagent-desc-bse
   flavor: shocking
@@ -83,7 +77,6 @@
 
 - type: reagent
   id: citrinitas
-  group: Alchemy
   name: reagent-name-citrinitas
   desc: reagent-desc-citrinitas
   flavor: rum
@@ -101,7 +94,6 @@
 
 - type: reagent
   id: kingsyellow
-  group: Alchemy
   name: reagent-name-kingsyellow
   desc: reagent-desc-kingsyellow
   flavor: metallic
@@ -112,7 +104,6 @@
 
 - type: reagent
   id: empoweredlead
-  group: Alchemy
   name: reagent-name-empoweredlead
   desc: reagent-desc-empoweredlead
   flavor: horrible
@@ -130,7 +121,6 @@
 
 - type: reagent
   id: aquafortis
-  group: Alchemy
   name: reagent-name-fortis
   desc: reagent-desc-fortis
   flavor: acid
@@ -146,7 +136,6 @@
 
 - type: reagent
   id: aquaregia
-  group: Alchemy
   name: reagent-name-regia
   desc: reagent-desc-regia
   flavor: acid
@@ -162,7 +151,6 @@
 
 - type: reagent
   id: aquatofani
-  group: Alchemy
   name: reagent-name-tofani
   desc: reagent-desc-tofani
   flavor: bitter
@@ -180,7 +168,6 @@
 
 - type: reagent
   id: aquavitae
-  group: Alchemy
   name: reagent-name-vitae
   desc: reagent-desc-vitae
   flavor: alcohol
@@ -197,7 +184,6 @@
 
 - type: reagent
   id: rubedo
-  group: Alchemy
   name: reagent-name-rubedo
   desc: reagent-desc-rubedo
   flavor: metallic
@@ -212,4 +198,3 @@
             Burn: -3
             Airloss: -3
             Brute: -3
-
