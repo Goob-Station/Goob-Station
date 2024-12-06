@@ -159,20 +159,20 @@
         Quantity: 10
 
 - type: entity
-  name: ichor autoinjector cartridge
+  name: puncturase autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 7u of ichor and 3u of tranexamic acid, used in a cartridge autoinjector.
-  id: CartridgeIchor
+  description: Contains 7u of puncturase and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgePuncturase
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ichor
+    state: cartridge-ichor # not bothering to make a sprite for it
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Ichor
+      - ReagentId: Puncturase
         Quantity: 7
       - ReagentId: TranexamicAcid
         Quantity: 3

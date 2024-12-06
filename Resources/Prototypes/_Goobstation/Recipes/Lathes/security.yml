@@ -48,8 +48,8 @@
     Gold: 200
 
 - type: latheRecipe
-  id: CartridgeIchor
-  result: CartridgeIchor
+  id: CartridgePuncturase
+  result: CartridgePuncturase
   completetime: 1
   materials:
     Steel: 200

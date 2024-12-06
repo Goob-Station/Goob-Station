@@ -237,7 +237,7 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
-      - CartridgeIchor # Goobstation
+      - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
