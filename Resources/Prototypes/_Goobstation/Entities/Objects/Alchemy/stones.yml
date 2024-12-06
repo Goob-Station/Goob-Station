@@ -7,7 +7,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Goobstation\Objects\Alchemy\stones.rsi
+    sprite: _Goobstation/Objects/Alchemy/stones.rsi
     state: tenebris
   - type: EmitSoundOnCollide
     sound:
@@ -41,7 +41,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Goobstation\Objects\Alchemy\stones.rsi
+    sprite: _Goobstation/Objects/Alchemy/stones.rsi
     state: albedo
   - type: EmitSoundOnCollide
     sound:
@@ -75,7 +75,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Goobstation\Objects\Alchemy\stones.rsi
+    sprite: _Goobstation/Objects/Alchemy/stones.rsi
     state: citrinitas
   - type: EmitSoundOnCollide
     sound:
@@ -109,7 +109,7 @@
   - type: Item
     size: Small
   - type: Sprite
-    sprite: _Goobstation\Objects\Alchemy\stones.rsi
+    sprite: _Goobstation/Objects/Alchemy/stones.rsi
     state: rubedo
   - type: EmitSoundOnCollide
     sound:
