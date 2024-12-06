@@ -31,6 +31,7 @@
           types:
             Slash: 1 # its fine you're just getting the worms out of your skin
     Narcotic:
+      metabolismRate: 0.05
       effects:
       - !type:PopupMessage # the usual hallucinations
         type: Local
@@ -63,12 +64,6 @@
         type: Add
         time: 20
         refresh: false
-      - !type:GenericStatusEffect # ripped from norephrenic acid, but I feel blindness is appropriate
-        key: TemporaryBlindness
-        component: TemporaryBlindness
-        conditions:
-        - !type:ReagentThreshold
-          min: 5
       - !type:Emote # Now a bunch of emotes
         emote: scratches at their neck
         probability: 0.05
