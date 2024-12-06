@@ -1,0 +1,32 @@
+- type: entity
+  parent: Clothing
+  id: ClothingModsuitStandard
+  name: standard modsuit control
+  description: A special modular suit contol containing all modular suit parts.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
+    state: control
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+  - type: AllowSuitStorage
+  - type: ToggleableClothing
+    requiredSlot: back
+    blockUnequipWhenAttached: true
+    replaceCurrentClothing: true
+    clothingPrototypes: 
+      head: ClothingModsuitHelmetStandard
+      gloves: ClothingModsuitGauntletsStandard
+      outerClothing: ClothingModsuitChestplateStandard
+      shoes: ClothingModsuitBootsStandard
+  - type: UserInterface
+    interfaces:
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      toggleable-clothing: !type:Container {}

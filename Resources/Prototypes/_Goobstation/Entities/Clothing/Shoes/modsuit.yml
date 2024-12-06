@@ -1,0 +1,17 @@
+- type: entity
+  parent: ClothingShoesBase
+  id: ClothingModsuitBootsStandard
+  name: standard modsuit boots
+  description: A special modular suit boots designed for compact folding inside modular suit control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
+    state: boots
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ feet ]
+  - type: Tag
+    tags:
+    - WhitelistChameleon

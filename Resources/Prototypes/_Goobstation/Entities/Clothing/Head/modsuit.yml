@@ -1,0 +1,14 @@
+- type: entity
+  parent: ClothingHeadHardsuitBase
+  id: ClothingModsuitHelmetStandard
+  name: standard modsuit hemlet
+  description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
+    state: helmet
+  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+    slots:
+    - Snout
+
