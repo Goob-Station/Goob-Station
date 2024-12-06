@@ -1,6 +1,6 @@
 using Content.Shared.Actions;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Damage.Systems;
+// using Content.Shared.Damage.Systems; # ShibaStation - No stamina drain instead we use hunger drain.
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
@@ -12,7 +12,7 @@ public abstract class SharedFlightSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!;
-    [Dependency] private readonly StaminaSystem _staminaSystem = default!;
+    // [Dependency] private readonly StaminaSystem _staminaSystem = default!; // ShibaStation - No stamina drain, to be replaced with hunger drain instead.
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
 
@@ -44,7 +44,7 @@ public abstract class SharedFlightSystem : EntitySystem
         component.TimeUntilFlap = 0f;
         _actionsSystem.SetToggled(component.ToggleActionEntity, component.On);
         RaiseNetworkEvent(new FlightEvent(GetNetEntity(uid), component.On, component.IsAnimated));
-        _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false);
+        // _staminaSystem.ToggleStaminaDrain(uid, component.StaminaDrainRate, active, false); # ShibaStation - No stamina drain, to be replaced with hunger/thirst drain instead.
         _movementSpeed.RefreshMovementSpeedModifiers(uid);
         UpdateHands(uid, active);
         Dirty(uid, component);
