@@ -226,6 +226,13 @@
       amount: 2
     HeartbreakerToxin:
       amount: 2
+  effects:
+  - !type:CreateGas
+    gas: Ammonia
+  - !type:PopupMessage
+    visualType: LargeCaution
+    messages: [ "A wretched smell fills the air!" ]
+    type: Pvs
   products:
     Vestine: 2
 
