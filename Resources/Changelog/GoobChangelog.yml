@@ -2928,3 +2928,9 @@ Entries:
         Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
   id: 331
   time: '2024-12-06T15:34:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix weird wheelchair bound behavior on cryo spawn.
+  id: 332
+  time: '2024-12-06T15:39:52.0000000+00:00'
