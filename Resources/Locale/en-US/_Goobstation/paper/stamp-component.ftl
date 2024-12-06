@@ -1,1 +1,16 @@
 stamp-component-stamped-name-nanorep = Nanotrasen Representative
+stamp-component-stamped-name-cyberrep = Cybersun Ind. Representative
+stamp-component-stamped-name-cybersun = Cybersun Industries
+stamp-component-stamped-name-wafflerep = Waffle Corp. Representative
+stamp-component-stamped-name-waffle = Waffle Corporation
+stamp-component-stamped-name-donkrep = Donk Co. Representative
+stamp-component-stamped-name-donkco = Donk Co.
+stamp-component-stamped-name-sentientfrontrep = S.E.L.F Representative
+stamp-component-stamped-name-sentientfront = Sentient Engine Liberation Front
+stamp-component-stamped-name-arc = Animal Rights Consortium
+stamp-component-stamped-name-interrep = Interdyne Representative
+stamp-component-stamped-name-interdyne = Interdyne Pharmaceutics
+stamp-component-stamped-name-terrarep = TerraGov Representative
+stamp-component-stamped-name-terra = TerraGov
+stamp-component-stamped-name-ssc = Spinward Stellar Coalition
+stamp-component-stamped-name-sscrep = S.S.C Representative

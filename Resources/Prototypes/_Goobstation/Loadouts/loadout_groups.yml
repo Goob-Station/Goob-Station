@@ -90,6 +90,19 @@
   loadouts:
   - NoPro
 
+- type: loadoutGroup
+  id: LawyerStamps
+  name: loadout-group-lawyer-stamps
+  loadouts:
+  - RSLawyer
+  - RSCyberRep
+  - RSDonkRep
+  - RSInterRep
+  - RSSelfRep
+  - RSWaffleRep
+  - RSsscRep
+  - RSTerraRep
+
 #sec
 
 - type: loadoutGroup
