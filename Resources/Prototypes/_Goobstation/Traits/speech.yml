@@ -18,7 +18,7 @@
   - type: ReplacementAccent
     accent: scottish
 
- - type: trait
+- type: trait
    id: Bogan
    name: trait-bogan-name
    description: trait-bogan-desc
