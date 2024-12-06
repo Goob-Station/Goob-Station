@@ -22,6 +22,7 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server._Goobstation.Announcements.Systems; // Goobstation - Custom Announcers
 
 namespace Content.Server.Nuke;
 
@@ -43,6 +44,7 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly AnnouncerSystem _announcer = default!; // Goobstation - Custom Announcers
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -469,11 +471,15 @@ public sealed class NukeSystem : EntitySystem
         _selectedNukeSong = _audio.GetSound(component.ArmMusic);
 
         // warn a crew
-        var announcement = Loc.GetString("nuke-component-announcement-armed",
-            ("time", (int) component.RemainingTime),
-            ("location", FormattedMessage.RemoveMarkupOrThrow(_navMap.GetNearestBeaconString((uid, nukeXform)))));
-        var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(stationUid ?? uid, announcement, sender, false, null, Color.Red);
+        _announcer.SendAnnouncementMessage(
+            _announcer.GetAnnouncementId("NukeArm"),
+            "nuke-component-announcement-armed",
+            Loc.GetString("nuke-component-announcement-sender"),
+            Color.Red,
+            stationUid ?? uid,
+            null,
+            ("time", (int) component.RemainingTime), ("position", posText)
+        );  // Goobstation - Custom Announcers
 
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(component.ArmSound));
         _nukeSongLength = (float) _audio.GetAudioLength(_selectedNukeSong).TotalSeconds;
@@ -511,9 +517,12 @@ public sealed class NukeSystem : EntitySystem
             _alertLevel.SetLevel(stationUid.Value, component.AlertLevelOnDeactivate, true, true, true);
 
         // warn a crew
-        var announcement = Loc.GetString("nuke-component-announcement-unarmed");
-        var sender = Loc.GetString("nuke-component-announcement-sender");
-        _chatSystem.DispatchStationAnnouncement(uid, announcement, sender, false);
+        _announcer.SendAnnouncementMessage(
+            _announcer.GetAnnouncementId("NukeDisarm"),
+            "nuke-component-announcement-unarmed",
+            Loc.GetString("nuke-component-announcement-sender"),
+            station: stationUid ?? uid
+        ); // Goobstation - Custom Announcers
 
         component.PlayedNukeSong = false;
         _sound.PlayGlobalOnStation(uid, _audio.GetSound(component.DisarmSound));

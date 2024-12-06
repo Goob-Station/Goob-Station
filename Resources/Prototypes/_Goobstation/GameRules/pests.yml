@@ -3,9 +3,7 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: goob-station-event-vent-creatures-skibidi-start-announcement
-    startAudio:
-      path: /Audio/_Goobstation/Animals/skibidi.wav
+    startAnnouncement: true
     earliestStart: 15
     minimumPlayers: 15
     weight: 6
