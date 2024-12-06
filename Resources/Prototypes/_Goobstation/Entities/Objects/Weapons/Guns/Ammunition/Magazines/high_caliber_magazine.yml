@@ -15,7 +15,7 @@
       tags:
         - CartridgeHighCaliber
     proto: CartridgeHighCaliber
-    capacity: 15
+    capacity: 10
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
