@@ -9238,6 +9238,11 @@ entities:
     - type: Transform
       pos: -7.5,-37.5
       parent: 30
+  - uid: 4827
+    components:
+    - type: Transform
+      pos: -13.5,-32.5
+      parent: 30
   - uid: 9519
     components:
     - type: Transform
@@ -9355,11 +9360,6 @@ entities:
       parent: 30
 - proto: AirlockEngineeringGlassLocked
   entities:
-  - uid: 4827
-    components:
-    - type: Transform
-      pos: -13.5,-32.5
-      parent: 30
   - uid: 7125
     components:
     - type: Transform
@@ -100601,6 +100601,13 @@ entities:
     - type: Transform
       pos: -24.501097,-36.300484
       parent: 30
+- proto: MaterialSilo
+  entities:
+  - uid: 10123
+    components:
+    - type: Transform
+      pos: -17.5,-29.5
+      parent: 30
 - proto: MaterialWoodPlank
   entities:
   - uid: 15132
@@ -123149,12 +123156,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -17.5,-32.5
-      parent: 30
-  - uid: 10123
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -17.5,-29.5
       parent: 30
   - uid: 10407
     components:

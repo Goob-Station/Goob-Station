@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Goobstation.Silo;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Mobs;
@@ -22,6 +23,7 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+    [Dependency] private readonly SharedSiloSystem _silo = default!; // Goobstation
 
     /// <summary>
     /// Default volume for a sheet if the material's entity prototype has no material composition.
@@ -81,6 +83,8 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return 0; //you have nothing
+        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, material, out var amount)) // Goobstation
+            return amount;
         return component.Storage.GetValueOrDefault(material, 0);
     }
 
@@ -94,6 +98,8 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
     {
         if (!Resolve(uid, ref component))
             return 0;
+        if (component.ConnectToSilo && _silo.TryGetTotalMaterialAmount(uid, out var amount)) // Goobstation
+            return amount;
         return component.Storage.Values.Sum();
     }
 
@@ -129,6 +135,9 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
 
         if (component.MaterialWhiteList == null ? false : !component.MaterialWhiteList.Contains(materialId))
             return false;
+
+        if (component.ConnectToSilo && _silo.TryGetMaterialAmount(uid, materialId, out var siloAmount)) // Goobstation
+            return siloAmount + volume >= 0;
 
         var amount = component.Storage.GetValueOrDefault(materialId);
         return amount + volume >= 0;
@@ -171,16 +180,35 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
         if (!CanChangeMaterialAmount(uid, materialId, volume, component))
             return false;
 
-        var existing = component.Storage.GetOrNew(materialId);
+        // Goob start
+        EntityUid storageUid;
+        Dictionary<ProtoId<MaterialPrototype>, int> storage;
+        if (component.ConnectToSilo)
+        {
+            var silo = _silo.GetSilo(uid);
+            if (dirty && silo != null)
+                Dirty(silo.Value);
+            storage = silo != null ? silo.Value.Comp.Storage : component.Storage;
+            storageUid = silo != null ? silo.Value : uid;
+        }
+        else
+        {
+            storage = component.Storage;
+            storageUid = uid;
+        }
+
+        var existing = storage.GetOrNew(materialId);
+        // Goob end
+
         existing += volume;
 
         if (existing == 0)
-            component.Storage.Remove(materialId);
+            storage.Remove(materialId); // Goob edit
         else
-            component.Storage[materialId] = existing;
+            storage[materialId] = existing; // Goob edit
 
         var ev = new MaterialAmountChangedEvent();
-        RaiseLocalEvent(uid, ref ev);
+        RaiseLocalEvent(storageUid, ref ev); // Goob edit
 
         if (dirty)
             Dirty(uid, component);
@@ -208,6 +236,8 @@ public abstract class SharedMaterialStorageSystem : EntitySystem
                 return false;
         }
 
+        if (entity.Comp.ConnectToSilo) // Goobstation
+            _silo.DirtySilo(entity);
         Dirty(entity, entity.Comp);
         return true;
     }

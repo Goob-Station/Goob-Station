@@ -452,13 +452,6 @@ namespace Content.Shared.CCVar
             CVarDef.Create("game.entity_menu_lookup", 0.25f, CVar.CLIENTONLY | CVar.ARCHIVE);
 
         /// <summary>
-        ///     Goobstation - indicates how much players are required for the round to be considered lowpop.
-        ///     Used for dynamic gamemode.
-        /// </summary>
-        public static readonly CVarDef<float> LowpopThreshold =
-            CVarDef.Create("game.players.lowpop_threshold", 20f, CVar.SERVERONLY);
-
-        /// <summary>
         /// Should the clients window show the server hostname in the title?
         /// </summary>
         public static readonly CVarDef<bool> GameHostnameInTitlebar =
@@ -2491,7 +2484,7 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<string> DiscordReplyColor =
             CVarDef.Create("admin.discord_reply_color", string.Empty, CVar.SERVERONLY);
-        
+
         /// <summary>
         ///     Use the admin's Admin OOC color in bwoinks.
         ///     If either the ooc color or this is not set, uses the admin.admin_bwoink_color value.

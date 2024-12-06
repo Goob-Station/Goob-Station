@@ -10659,6 +10659,16 @@ entities:
     - type: Transform
       pos: -6.5,-52.5
       parent: 8364
+  - uid: 16458
+    components:
+    - type: Transform
+      pos: -10.5,-53.5
+      parent: 8364
+  - uid: 16459
+    components:
+    - type: Transform
+      pos: -8.5,-53.5
+      parent: 8364
 - proto: AirlockCommandLocked
   entities:
   - uid: 5619
@@ -10721,20 +10731,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,2.5
-      parent: 8364
-  - uid: 16458
-    components:
-    - type: MetaData
-      name: Server Room
-    - type: Transform
-      pos: -8.5,-53.5
-      parent: 8364
-  - uid: 16459
-    components:
-    - type: MetaData
-      name: Server Room
-    - type: Transform
-      pos: -10.5,-53.5
       parent: 8364
   - uid: 17387
     components:
@@ -11584,7 +11580,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -30341.363
+      secondsUntilStateChange: -30447.418
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -84539,7 +84535,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -24529.898
+      secondsUntilStateChange: -24635.953
       state: Closing
   - uid: 15010
     components:
@@ -85032,7 +85028,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -16277.631
+      secondsUntilStateChange: -16383.686
       state: Closing
 - proto: Fireplace
   entities:
@@ -123938,6 +123934,13 @@ entities:
     components:
     - type: Transform
       pos: -9.303419,-25.688816
+      parent: 8364
+- proto: MaterialSilo
+  entities:
+  - uid: 28376
+    components:
+    - type: Transform
+      pos: -16.5,-53.5
       parent: 8364
 - proto: MaterialWoodPlank
   entities:

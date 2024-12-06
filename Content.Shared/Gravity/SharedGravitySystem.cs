@@ -6,6 +6,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
+using Content.Shared._EinsteinEngines.Flight; // Goobstation
 
 namespace Content.Shared.Gravity
 {
@@ -25,6 +26,9 @@ namespace Content.Shared.Gravity
 
             if ((body?.BodyType & (BodyType.Static | BodyType.Kinematic)) != 0)
                 return false;
+
+            if (TryComp<FlightComponent>(uid, out var flying) && flying.On) // Goobstation
+                return true;
 
             if (TryComp<MovementIgnoreGravityComponent>(uid, out var ignoreGravityComponent))
                 return ignoreGravityComponent.Weightless;

@@ -23,6 +23,9 @@
     walkModifier: 0.9
     sprintModifier: 0.9
   - type: HeldSpeedModifier
+  - type: Tag
+    tags:
+      - WhitelistChameleon
 
 - type: entity
   abstract: true
@@ -135,7 +138,6 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-    - HidesHarpyWings # Goobstation
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -164,9 +166,6 @@
     size: Huge
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
-  - type: Tag #Goobstation
-    tags:
-    - HidesHarpyWings
   - type: DamageOnInteractProtection
     damageProtection:
       flatReductions:

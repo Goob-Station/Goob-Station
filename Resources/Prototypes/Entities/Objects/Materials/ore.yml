@@ -37,7 +37,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawGold: 300 # Goobstation - was 100
+      RawGold: 500 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: goldore
   - type: SolutionContainerManager
@@ -99,7 +99,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawIron: 200 # Goobstation - was 100
+      RawIron: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: ironore
   - type: SolutionContainerManager
@@ -166,7 +166,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSilver: 300 # Goobstation - was 100
+      RawSilver: 500 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: silverore
   - type: SolutionContainerManager
@@ -197,7 +197,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawQuartz: 200 # Goobstation - was 100
+      RawQuartz: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: quartzore
   - type: SolutionContainerManager
@@ -228,7 +228,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawUranium: 300 # Goobstation - was 100
+      RawUranium: 500 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 0.8
@@ -267,7 +267,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawBananium: 100
+      RawBananium: 300 # Goobstation - was 100
   - type: PointLight
     radius: 1.2
     energy: 1
@@ -323,7 +323,7 @@
           Quantity: 0.1
   - type: PhysicalComposition
     materialComposition:
-      Coal: 200 # Goobstation - was 100
+      Coal: 300 # Goobstation - was 100
 
 - type: entity
   parent: Coal
@@ -370,7 +370,7 @@
   - type: Material
   - type: PhysicalComposition
     materialComposition:
-      RawSalt: 100
+      RawSalt: 300 # Goobstation - was 100
   - type: Extractable
     grindableSolutionName: saltore
   - type: SolutionContainerManager
