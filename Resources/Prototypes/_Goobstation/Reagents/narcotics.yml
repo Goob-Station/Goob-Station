@@ -21,7 +21,7 @@
         damage:
           types:
             Poison: 0.25 # effectively 10 poison/u
-            Asphyxiation: 0.5 # a bonus 10 damage/u, except easier to heal than poison
+            Asphyxiation: 0.75 # a bonus 10 damage/u, except easier to heal than poison
       - !type:HealthChange # More overdose damage
         conditions:
         - !type:ReagentThreshold
