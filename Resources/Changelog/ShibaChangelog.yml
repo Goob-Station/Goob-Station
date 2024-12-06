@@ -1,6 +1,26 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Flying harpies can pull entities despite having occupied hands, by using
+      their talons, of course! They use their hands (wings?) when not flying, still.
+    type: Add
+  id: 33
+  time: '2024-12-06T11:01:35.877245'
+- author: AstroDogeDX
+  changes:
+  - message: Harpies now drain hunger instead of stamina to fly, and can't fly/stop
+      flying if they're starving.
+    type: Tweak
+  id: 32
+  time: '2024-12-06T11:01:06.821933'
+- author: AstroDogeDX
+  changes:
+  - message: Harpies take off to fly instantly now.
+    type: Tweak
+  id: 31
+  time: '2024-12-06T11:00:19.762857'
+- author: AstroDogeDX
+  changes:
   - message: (re)Added shock collars to the security lockers. ( ͡° ͜ʖ ͡°)
     type: Add
   id: 30

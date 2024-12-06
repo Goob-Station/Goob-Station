@@ -538,4 +538,13 @@ public sealed class PullingSystem : EntitySystem
         StopPulling(pullableUid, pullable);
         return true;
     }
+
+    /// <summary>
+    /// Shibastation -Toggles whether the entity needs hands to pull or not.
+    /// </summary>
+    public void ToggleHandsFree(EntityUid uid, bool free)
+    {
+        if (TryComp<PullerComponent>(uid, out var puller))
+            puller.NeedsHands = !free;
+    }
 }
