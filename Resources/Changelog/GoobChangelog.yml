@@ -2894,3 +2894,43 @@ Entries:
         suit to touch the SM without being ashed. Be warned: This starts the SM.
   id: 327
   time: '2024-12-04T05:22:12.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix silo being out of range.
+  id: 328
+  time: '2024-12-04T14:32:24.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Remove
+      message: Removed Wizden ore nerf
+    - type: Tweak
+      message: >-
+        Ore procedural generation on asteroïds and vg roid. Increased ore
+        composition
+  id: 329
+  time: '2024-12-04T19:53:08.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed Felinids from command.
+    - type: Tweak
+      message: Felinids resprited to look more realistic.
+    - type: Tweak
+      message: Felinids renamed to their true name, Gremlins.
+  id: 330
+  time: '2024-12-05T18:03:21.0000000+00:00'
+- author: ray-boop and Tonk
+  changes:
+    - type: Add
+      message: >-
+        Added a set of new drinks for bartenders to mix: Gin and Sonic, Golden
+        Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
+  id: 331
+  time: '2024-12-06T15:34:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix weird wheelchair bound behavior on cryo spawn.
+  id: 332
+  time: '2024-12-06T15:39:52.0000000+00:00'

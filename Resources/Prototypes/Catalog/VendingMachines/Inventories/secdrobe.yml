@@ -25,5 +25,7 @@
     ClothingShoesBootsCombat: 1
     ClothingShoesBootsWinterSec: 2
     ClothingHeadHelmetJustice: 1
+    ClothingHeadHelmetBasic: 2
+    ClothingHeadHelmetBasicAlt: 2
   contrabandInventory:
     ClothingMaskClownSecurity: 1
