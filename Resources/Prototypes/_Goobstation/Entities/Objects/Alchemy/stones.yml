@@ -2,7 +2,7 @@
   parent: BaseItem
   name: tenebris
   description: A dark stone, it sounds hollow.
-  id: Stonealbedo
+  id: Stonetenebris
   components:
   - type: Item
     size: Small
@@ -12,9 +12,15 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal1.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal2.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: StaticPrice
     price: 2500
   - type: Extractable
@@ -40,8 +46,14 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal1.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: EmitSoundOnLand
     sound:
+      params:
+          variation: .1
+          volume: 2
       path: /Audio/_Goobstation/Items/Alchemy/crystal2.ogg
   - type: StaticPrice
     price: 5000
@@ -68,9 +80,15 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal1.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal2.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: StaticPrice
     price: 10000
   - type: Extractable
@@ -86,7 +104,7 @@
   parent: BaseItem
   name: rubedo
   description: Rojo.
-  id: Stonecitrinitas
+  id: Stonerubedo
   components:
   - type: Item
     size: Small
@@ -96,9 +114,15 @@
   - type: EmitSoundOnCollide
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal1.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: EmitSoundOnLand
     sound:
       path: /Audio/_Goobstation/Items/Alchemy/crystal2.ogg
+      params:
+          variation: .1
+          volume: 2
   - type: StaticPrice
     price: 20000
   - type: Extractable

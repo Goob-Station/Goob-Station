@@ -1,9 +1,21 @@
+- type: microwaveMealRecipe
+  id: RecipeTenebris
+  name: albedo recipe
+  result: Stonetenebris
+  time: 5
+  reagents:
+    ash: 50
+    Phlogiston: 30
+    AlchemicalPrecursor: 20
+
 
 - type: microwaveMealRecipe
   id: RecipeAlbedo
   name: albedo recipe
   result: Stonealbedo
   time: 5
+  solids:
+    Stonetenebris: 1
   reagents:
     Silver: 10
     Lead: 10
@@ -22,3 +34,16 @@
     kingsyellow: 12
     Omnizine: 10
     albedo: 48
+
+- type: microwaveMealRecipe
+  id: RecipeRubedo
+  name: albedo recipe
+  result: Stonerubedo
+  time: 5
+  reagents:
+    Fresium: 10
+    Omnizine: 30
+    Vestine: 30
+    citrinitas: 30
+  solids:
+    Stonecitrinitas: 1
