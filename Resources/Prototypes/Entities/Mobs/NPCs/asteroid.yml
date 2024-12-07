@@ -50,22 +50,22 @@
       Dead:
         Base: goliath_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 2.50
-    baseSprintSpeed : 2.50
+    baseWalkSpeed : 1.25
+    baseSprintSpeed : 1.25
   - type: MobThresholds
     thresholds:
       0: Alive
-      300: Dead
+      250: Dead
   - type: MeleeWeapon
     soundHit:
       path: "/Audio/Weapons/smash.ogg"
     angle: 0
-    attackRate: 0.75
+    attackRate: 0.40
     animation: WeaponArcPunch
     damage:
       types:
+        Blunt: 35
         Slash: 15
-        Piercing: 10
   - type: NpcFactionMember
     factions:
     - SimpleHostile
@@ -76,7 +76,7 @@
       VisionRadius: !type:Single
         6
       AggroVisionRadius: !type:Single
-        10
+        7
   - type: NPCUseActionOnTarget
     actionId: ActionGoliathTentacle
   - type: Tag
@@ -90,6 +90,7 @@
     - id: FoodMeatGoliath
       amount: 3
     - id: MaterialGoliathHide1
+      amount: 2
 
 - type: entity
   id: ActionGoliathTentacle
@@ -200,8 +201,8 @@
       Dead:
         Base: hivelord_dead
   - type: MovementSpeedModifier
-    baseWalkSpeed : 3.5
-    baseSprintSpeed : 4.0
+    baseWalkSpeed : 2.75
+    baseSprintSpeed : 3.0
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -235,7 +236,7 @@
       VisionRadius: !type:Single
         4
       AggroVisionRadius: !type:Single
-        9
+        7
   - type: Butcherable
     spawned:
     - id: FoodHivelordRemains
@@ -262,11 +263,11 @@
       path: /Audio/Weapons/bladeslice.ogg
     angle: 0
     attackRate: 1.0
-    range: 0.75
+    range: 0.50
     animation: WeaponArcPunch
     damage:
       types:
-        Slash: 7
+        Slash: 6
   - type: Ammo
     muzzleFlash: null
   - type: Destructible
@@ -289,7 +290,7 @@
       AggroVisionRadius: !type:Single
         15
   - type: TimedDespawn
-    lifetime: 100
+    lifetime: 45
 
 - type: entity
   id: FoodHivelordRemains
@@ -310,7 +311,7 @@
   - type: Item
     size: Normal
   - type: Perishable
-    rotAfter: 120 # rot after 2 minutes
+    rotAfter: 360 # rot after 6 minutes
     molsPerSecondPerUnitMass: 0
     forceRotProgression: true
   - type: RotInto
@@ -333,4 +334,4 @@
   - type: Item
     size: Normal
   - type: StaticPrice
-    price: 500
+    price: 1000
