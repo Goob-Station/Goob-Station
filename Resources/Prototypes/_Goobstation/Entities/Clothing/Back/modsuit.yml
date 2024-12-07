@@ -14,6 +14,7 @@
     slots:
     - back
   - type: AllowSuitStorage
+  - type: SealableClothingControl
   - type: ToggleableClothing
     requiredSlot: back
     blockUnequipWhenAttached: true
@@ -27,6 +28,7 @@
     interfaces:
       enum.ToggleClothingUiKey.Key:
         type: ToggleableClothingBoundUserInterface
+  - type: DoAfter
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}

@@ -28,3 +28,4 @@
         Piercing: 0.9
         Heat: 0.9
         Radiation: 0.4
+  - type: SealableClothing

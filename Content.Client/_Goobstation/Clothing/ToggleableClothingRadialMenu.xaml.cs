@@ -3,6 +3,7 @@ using Content.Shared.Clothing.Components;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
+using Robust.Shared.Prototypes;
 using System.Numerics;
 
 namespace Content.Client._Goobstation.Clothing;
@@ -55,7 +56,7 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
                 AttachedClothingId = attached.Key
             };
 
-            var entProtoView = new EntityPrototypeView()
+            var spriteView = new SpriteView()
             {
                 SetSize = new Vector2(48, 48),
                 VerticalAlignment = VAlignment.Center,
@@ -63,9 +64,9 @@ public sealed partial class ToggleableClothingRadialMenu : RadialMenu
                 Stretch = SpriteView.StretchMode.Fill
             };
 
-            entProtoView.SetEntity(attached.Key);
+            spriteView.SetEntity(attached.Key);
 
-            button.AddChild(entProtoView);
+            button.AddChild(spriteView);
             main.AddChild(button);
         }
 

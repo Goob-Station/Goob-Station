@@ -21,3 +21,4 @@
     fiberMaterial: fibers-modular
     fiberColor: fibers-black
   - type: FingerprintMask
+  - type: SealableClothing

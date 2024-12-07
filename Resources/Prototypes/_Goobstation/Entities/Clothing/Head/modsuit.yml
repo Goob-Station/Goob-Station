@@ -11,4 +11,5 @@
   - type: HideLayerClothing # This helmet don't have sprite on unsealed state
     slots:
     - Snout
+  - type: SealableClothing
 

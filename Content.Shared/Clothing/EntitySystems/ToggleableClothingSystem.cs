@@ -177,7 +177,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (!comp.BlockUnequipWhenAttached)
             return;
 
-        if (CheckAttachedToggleStatus(toggleable) == ToggleableClothingAttachedStatus.NoneToggled)
+        if (GetAttachedToggleStatus(toggleable) == ToggleableClothingAttachedStatus.NoneToggled)
             return;
 
         args.Cancel();
@@ -461,11 +461,13 @@ public sealed class ToggleableClothingSystem : EntitySystem
     }
 
     // Checks status of all attached clothings toggle status
-    public ToggleableClothingAttachedStatus CheckAttachedToggleStatus(Entity<ToggleableClothingComponent> toggleable)
+    public ToggleableClothingAttachedStatus GetAttachedToggleStatus(EntityUid toggleable, ToggleableClothingComponent? component = null)
     {
-        var comp = toggleable.Comp;
-        var container = comp.Container;
-        var attachedClothings = comp.ClothingUids;
+        if (!Resolve(toggleable, ref component))
+            return ToggleableClothingAttachedStatus.NoneToggled;
+
+        var container = component.Container;
+        var attachedClothings = component.ClothingUids;
 
         // If entity don't have any attached clothings it means none toggled
         if (container == null || attachedClothings.Count == 0)
@@ -488,6 +490,19 @@ public sealed class ToggleableClothingSystem : EntitySystem
             return ToggleableClothingAttachedStatus.PartlyToggled;
 
         return ToggleableClothingAttachedStatus.AllToggled;
+    }
+
+    public List<EntityUid>? GetAttachedClothingsList(EntityUid toggleable, ToggleableClothingComponent? component = null)
+    {
+        if (!Resolve(toggleable, ref component) || component.ClothingUids.Count == 0)
+            return null;
+
+        var newList = new List<EntityUid>();
+
+        foreach (var attachee in component.ClothingUids)
+            newList.Add(attachee.Key);
+
+        return newList;
     }
 }
 
