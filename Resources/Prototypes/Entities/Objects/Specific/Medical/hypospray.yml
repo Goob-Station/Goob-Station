@@ -124,9 +124,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 25
   - type: SpaceGarbage
   - type: StaticPrice
     price: 75 # These are limited supply items.

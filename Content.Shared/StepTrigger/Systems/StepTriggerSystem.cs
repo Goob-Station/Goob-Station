@@ -135,6 +135,13 @@ public sealed class StepTriggerSystem : EntitySystem
         if (!component.Active || component.CurrentlySteppedOn.Contains(otherUid))
             return false;
 
+        // Goobstation Change Start: Immunity checks
+        if (TryComp<StepTriggerImmuneComponent>(otherUid, out var stepTriggerImmuneComponent)
+            && component.TriggerGroups != null
+            && component.TriggerGroups.IsValid(stepTriggerImmuneComponent))
+            return false;
+        // Goobstation Change End
+
         // Can't trigger if we don't ignore weightless entities
         // and the entity is flying or currently weightless
         // Makes sense simulation wise to have this be part of steptrigger directly IMO

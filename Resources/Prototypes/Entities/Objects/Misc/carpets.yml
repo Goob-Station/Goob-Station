@@ -21,6 +21,9 @@
     prototype: Carpet
     doAfter: 0.5
     removeOnInteract: true
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 25
 
 - type: entity
   parent: FloorCarpetItemRed

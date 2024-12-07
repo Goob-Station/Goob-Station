@@ -139,9 +139,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Cardboard: 20
+      Cardboard: 50
   - type: SpaceGarbage
 
 - type: entity

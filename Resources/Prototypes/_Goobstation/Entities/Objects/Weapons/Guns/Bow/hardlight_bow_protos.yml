@@ -54,7 +54,7 @@
 
 - type: selectableAmmo
   id: ArrowBee
-  desc: Bee hardlight arrow. Summons angry bees on hit.
+  desc: Bee hardlight arrow. Summons angry bees when it hits any living entity, except bees themselves.
   icon:
     sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
     state: icon

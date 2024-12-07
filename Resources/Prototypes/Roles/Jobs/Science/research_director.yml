@@ -9,6 +9,13 @@
       time: 36000 #10 hrs
     - !type:OverallPlaytimeRequirement
       time: 144000 #40 hrs
+    - !type:AgeRequirement
+      requiredAge: 21
+    # Goobstation - Siouxcide, prevent felinids from playing command
+    - !type:SpeciesRequirement
+      inverted: true
+      species:
+      - Felinid
   weight: 10
   startingGear: ResearchDirectorGear
   icon: "JobIconResearchDirector"

@@ -71,6 +71,9 @@
         reagents:
         - ReagentId: Fiber
           Quantity: 1
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Paper: 25
 
 - type: entity
   name: paper scrap
