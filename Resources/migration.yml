@@ -205,6 +205,8 @@ DoorElectronicsParamedic: null
 AirlockExternalGlassSalvageLocked: AirlockExternalGlassCargoLocked
 AirlockExternalGlassShuttleEscapeSub: AirlockExternalGlassCargoLocked
 AirlockParamedicLocked: AirlockMedicalLocked
+FoodMothBakedCheesePlatter: null
+PlushieMothBartender: PlushieMoth
 
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic

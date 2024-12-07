@@ -12,8 +12,8 @@
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: 'DV'
-        #- type: StationEmergencyShuttle
-          #emergencyShuttlePath: /Maps/Shuttles/DeltaV/NTES_Propeller.yml
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Goobstation/Shuttles/NTES_Propeller.yml
         - type: StationJobs
           availableJobs:
           #civilian
