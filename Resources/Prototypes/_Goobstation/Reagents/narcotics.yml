@@ -53,10 +53,7 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:GenericStatusEffect # TODO: doesn't work! fix this!
-        key: KnockedDown
-        time: 3
-        type: Add
+      - !type:KnockedDown # TODO: doesn't work! fix this! - tried to fix this will see later
         probability: 0.05
       - !type:GenericStatusEffect # tripping balls, duh
         key: SeeingRainbows
