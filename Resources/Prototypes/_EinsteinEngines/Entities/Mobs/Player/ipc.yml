@@ -70,7 +70,7 @@
     templateId: ipc
   - type: GuideHelp
     guides:
-      - IPCs
+      - IPC
   - type: Silicon
     entityType: enum.SiliconType.Player
     batteryPowered: true
