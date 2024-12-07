@@ -162,6 +162,11 @@
     partType: Arm
     symmetry: Right
     toolName: "a right arm" # Shitmed Change
+    onAdd:
+    - type: Flight
+      isLayerAnimated: true
+      layer: "/Textures/_EinsteinEngines/Mobs/Customization/Harpy/harpy_wings.rsi"
+      animationKey: "Flap"
 
 - type: entity
   id: LeftHandHarpy
@@ -196,6 +201,7 @@
     partType: Hand
     symmetry: Right
     toolName: "a right hand" # Shitmed Change
+
 - type: entity
   id: LeftLegHarpy
   name: "left harpy leg"

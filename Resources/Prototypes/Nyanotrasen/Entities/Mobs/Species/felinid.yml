@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  name: Urist McFelinid
+  name: Urist McGremlin
   parent: BaseMobHuman
   id: MobFelinidBase
   abstract: true

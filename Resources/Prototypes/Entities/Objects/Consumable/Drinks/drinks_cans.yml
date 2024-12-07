@@ -60,9 +60,9 @@
   - type: SpaceGarbage
   - type: TrashOnSolutionEmpty
     solution: drink
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50 #reduce, reuse, recycle
+      Steel: 100 #reduce, reuse, recycle
   - type: Tag
     tags:
     - DrinkCan

@@ -2813,3 +2813,124 @@ Entries:
         comms room on every map.
   id: 319
   time: '2024-12-03T16:04:28.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: Changeling limbs cannot be severed now. Definitely not-permanent.
+  id: 320
+  time: '2024-12-04T02:53:27.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: sodium now explodes in water, just like potassium
+  id: 321
+  time: '2024-12-04T04:49:18.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Lathes now tells you when they unlock new recipes
+  id: 322
+  time: '2024-12-04T04:52:47.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: 'All species humanoid cubes can be crafted on biocube fabricator '
+    - type: Tweak
+      message: All protolathe and autolathe items now can be recycled
+    - type: Tweak
+      message: All organs except brains can be recycled to biomass
+    - type: Tweak
+      message: Crates and lockers now can be recycled with all containment in it.
+    - type: Fix
+      message: Recycler now respects stacks
+    - type: Fix
+      message: Fixed recycler was able to process one item several times
+  id: 323
+  time: '2024-12-04T04:53:45.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Harpy wings (currently on their right arm lol) now give you the ability
+        to fly. 
+    - type: Add
+      message: >-
+        Severing wings from a harpy will render it unable to fly, and
+        conversely, reattaching them to yourself will grant you that ability
+        instead.
+    - type: Tweak
+      message: Harpies can no longer wear shoes. Have fun with space wind.
+    - type: Tweak
+      message: Harpies can now imitate pianos, church organs and violins.
+    - type: Tweak
+      message: >-
+        Harpies are now immune to mice traps, landmines and glass
+        shards/caltrops.
+    - type: Tweak
+      message: Harpies now have acceleration when theres no gravity, akin to moths.
+  id: 324
+  time: '2024-12-04T04:55:25.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: cmo chest rig gets better topical stuff now
+    - type: Fix
+      message: cmo chest rig is medical restricted contra now
+  id: 325
+  time: '2024-12-04T05:20:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed changeling transform shuffling the action bar.
+    - type: Fix
+      message: Now items in pda and pocket slots won't drop on ling transform.
+  id: 326
+  time: '2024-12-04T05:21:18.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: >-
+        The HEV Suit now has immunity to the supermatter, this allows the HEV
+        suit to touch the SM without being ashed. Be warned: This starts the SM.
+  id: 327
+  time: '2024-12-04T05:22:12.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix silo being out of range.
+  id: 328
+  time: '2024-12-04T14:32:24.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Remove
+      message: Removed Wizden ore nerf
+    - type: Tweak
+      message: >-
+        Ore procedural generation on asteroïds and vg roid. Increased ore
+        composition
+  id: 329
+  time: '2024-12-04T19:53:08.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed Felinids from command.
+    - type: Tweak
+      message: Felinids resprited to look more realistic.
+    - type: Tweak
+      message: Felinids renamed to their true name, Gremlins.
+  id: 330
+  time: '2024-12-05T18:03:21.0000000+00:00'
+- author: ray-boop and Tonk
+  changes:
+    - type: Add
+      message: >-
+        Added a set of new drinks for bartenders to mix: Gin and Sonic, Golden
+        Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
+  id: 331
+  time: '2024-12-06T15:34:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix weird wheelchair bound behavior on cryo spawn.
+  id: 332
+  time: '2024-12-06T15:39:52.0000000+00:00'

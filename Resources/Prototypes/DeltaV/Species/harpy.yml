@@ -57,7 +57,7 @@
     Arms:
       points: 1
       required: false
-      defaultMarkings: [ HarpyWingDefault ]
+      defaultMarkings: [ HarpyWingDefaultHuescale ]
 
 - type: humanoidBaseSprite
   id: MobHarpyHead
