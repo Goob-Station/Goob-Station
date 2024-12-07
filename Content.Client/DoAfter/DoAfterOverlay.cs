@@ -109,7 +109,8 @@ public sealed class DoAfterOverlay : Overlay
                 var alpha = 1f;
                 if (doAfter.Args.Hidden || isInContainer)
                 {
-                    if (uid != localEnt)
+                    // Goobstation - Modsuits
+                    if (uid != localEnt && !_container.IsInSameOrTransparentContainer(uid, localEnt.Value))
                         continue;
 
                     // Hints to the local player that this do-after is not visible to other players.
