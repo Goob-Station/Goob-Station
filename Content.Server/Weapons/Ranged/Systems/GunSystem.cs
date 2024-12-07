@@ -306,6 +306,13 @@ public sealed partial class GunSystem : SharedGunSystem
         }
     }
 
+    public void SetTarget(EntityUid projectile, EntityUid? target) // Goobstation
+    {
+        var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
+        targeted.Target = target;
+        Dirty(projectile, targeted);
+    }
+
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
     {
         if (gun.Target is { } target && !TerminatingOrDeleted(target))

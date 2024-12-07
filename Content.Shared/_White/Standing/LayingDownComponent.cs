@@ -13,13 +13,11 @@ public sealed partial class LayingDownComponent : Component
     public float SpeedModify { get; set; } = .3f;
 
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
-    public bool AutoGetUp;
+    public bool AutoGetUp = true;
 }
 [Serializable, NetSerializable]
 public sealed class ChangeLayingDownEvent : CancellableEntityEventArgs;
 
-[Serializable, NetSerializable]
-public sealed class CheckAutoGetUpEvent(NetEntity user) : CancellableEntityEventArgs
+public sealed class CheckAutoGetUpEvent : EntityEventArgs
 {
-    public NetEntity User = user;
 }

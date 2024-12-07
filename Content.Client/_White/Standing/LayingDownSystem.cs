@@ -21,8 +21,6 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         base.Initialize();
 
         SubscribeLocalEvent<LayingDownComponent, MoveEvent>(OnMovementInput);
-
-        SubscribeNetworkEvent<CheckAutoGetUpEvent>(OnCheckAutoGetUp);
     }
 
     private void OnMovementInput(EntityUid uid, LayingDownComponent component, MoveEvent args)
@@ -59,12 +57,10 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
         sprite.Rotation = Angle.FromDegrees(90);
     }
 
-    private void OnCheckAutoGetUp(CheckAutoGetUpEvent ev, EntitySessionEventArgs args)
+    public override void UpdateSpriteRotation(EntityUid uid)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
-
-        var uid = GetEntity(ev.User);
 
         if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;

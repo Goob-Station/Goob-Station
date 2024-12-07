@@ -7,6 +7,7 @@ using Robust.Shared.Random;
 using Content.Server.Weapons.Ranged.Systems;
 using System.Numerics;
 using Content.Shared.Explosion.Components;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 
@@ -128,7 +129,7 @@ public sealed class ClusterGrenadeSystem : EntitySystem
             direction = _random.NextVector2().Normalized();
 
         _gun.ShootProjectile(grenade, direction, Vector2.One.Normalized(), clugUid);
-
+        EnsureComp<TargetedProjectileComponent>(grenade); // Goobstation
     }
 
     private void ThrowGrenade(EntityUid grenade, Angle angle, ClusterGrenadeComponent clug)

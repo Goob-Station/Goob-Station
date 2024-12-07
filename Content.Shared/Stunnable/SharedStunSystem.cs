@@ -145,7 +145,8 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnKnockInit(EntityUid uid, KnockedDownComponent component, ComponentInit args)
     {
-        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid))); // WD EDIT
+        _layingDown.UpdateSpriteRotation(uid); // Goobstation
+        RaiseLocalEvent(uid, new CheckAutoGetUpEvent()); // WD EDIT
         _layingDown.TryLieDown(uid, null, null, DropHeldItemsBehavior.DropIfStanding); // WD EDIT
     }
 
@@ -252,7 +253,14 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        return TryKnockdown(uid, time, refresh, status) && TryStun(uid, time, refresh, status);
+        // Goob edit start
+        var knocked = TryKnockdown(uid, time, refresh, status);
+        var stunned = TryStun(uid, time, refresh, status);
+        if (knocked || stunned)
+            RaiseLocalEvent(uid, new DropHandItemsEvent());
+
+        return knocked && stunned;
+        // Goob edit end
     }
 
     /// <summary>

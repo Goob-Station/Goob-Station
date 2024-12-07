@@ -39,6 +39,9 @@ public sealed partial class SharedMultishotSystem : EntitySystem
         if (gun.ShootCoordinates == null)
             return;
 
+        if (TryComp(comp.RelatedWeapon.Value, out GunComponent? otherGun))
+            otherGun.Target = gun.Target;
+
         _gunSystem.AttemptShoot(args.User, comp.RelatedWeapon.Value, relatedGun, gun.ShootCoordinates.Value);
 
         // Synchronizing reload timer

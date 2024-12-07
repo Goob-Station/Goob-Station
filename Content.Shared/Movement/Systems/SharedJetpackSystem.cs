@@ -4,6 +4,7 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
+using Content.Shared.Standing;
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -20,6 +21,7 @@ public abstract class SharedJetpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainer = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -34,6 +36,18 @@ public abstract class SharedJetpackSystem : EntitySystem
 
         SubscribeLocalEvent<GravityChangedEvent>(OnJetpackUserGravityChanged);
         SubscribeLocalEvent<JetpackComponent, MapInitEvent>(OnMapInit);
+
+        SubscribeLocalEvent<JetpackUserComponent, DownedEvent>(OnDowned); // Goobstation
+    }
+
+    private void OnDowned(Entity<JetpackUserComponent> ent, ref DownedEvent args) // Goobstation
+    {
+        if (!TryComp<JetpackComponent>(ent.Comp.Jetpack, out var jetpack))
+            return;
+
+        SetEnabled(ent.Comp.Jetpack, jetpack, false, ent);
+
+        _popup.PopupClient(Loc.GetString("jetpack-downed"), ent, ent);
     }
 
     private void OnMapInit(EntityUid uid, JetpackComponent component, MapInitEvent args)
@@ -116,6 +130,13 @@ public abstract class SharedJetpackSystem : EntitySystem
         if (TryComp(uid, out TransformComponent? xform) && !CanEnableOnGrid(xform.GridUid))
         {
             _popup.PopupClient(Loc.GetString("jetpack-no-station"), uid, args.Performer);
+
+            return;
+        }
+
+        if (_standing.IsDown(args.Performer)) // Goobstation
+        {
+            _popup.PopupClient(Loc.GetString("jetpack-is-down"), uid, args.Performer);
 
             return;
         }

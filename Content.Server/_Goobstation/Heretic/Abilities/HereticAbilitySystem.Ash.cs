@@ -65,7 +65,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!_splitball.Spawn(ent, ignoredTargets))
             return;
 
-        if (ent.Comp.Ascended) // will only work on ash path
+        if (ent.Comp is { Ascended: true, CurrentPath: "Ash" }) // will only work on ash path
             _flammable.AdjustFireStacks(ent, 20f, ignite: true);
 
         args.Handled = true;
