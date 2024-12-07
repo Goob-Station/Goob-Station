@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Clothing.Systems;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Clothing.Components;
@@ -15,5 +16,17 @@ public sealed partial class SealableClothingComponent : Component
     public bool IsSealed = false;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan SealingTime = TimeSpan.FromSeconds(2);
+    public TimeSpan SealingTime = TimeSpan.FromSeconds(2.5);
+
+    [DataField]
+    public LocId SealUpPopup = "sealable-clothing-seal-up";
+
+    [DataField]
+    public LocId SealDownPopup = "sealable-clothing-seal-down";
+
+    [DataField]
+    public SoundSpecifier SealUpSound = new SoundPathSpecifier("/Audio/Mecha/mechmove03.ogg");
+
+    [DataField]
+    public SoundSpecifier SealDownSound = new SoundPathSpecifier("/Audio/Mecha/mechmove03.ogg");
 }

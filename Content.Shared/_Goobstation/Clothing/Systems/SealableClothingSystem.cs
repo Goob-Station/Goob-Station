@@ -5,6 +5,7 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Clothing.Systems;
@@ -14,6 +15,7 @@ namespace Content.Shared._Goobstation.Clothing.Systems;
 /// </summary>
 public sealed partial class SealableClothingSystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
@@ -32,6 +34,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotUnequippedEvent>(OnControlUnequip);
 
         SubscribeLocalEvent<SealableClothingControlComponent, GetItemActionsEvent>(OnControlGetItemActions);
+        SubscribeLocalEvent<SealableClothingControlComponent, SealClothingDoAfterEvent>(OnSealClothingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
     }
 
@@ -84,8 +87,6 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
     private void OnControlSealEvent(Entity<SealableClothingControlComponent> control, ref SealClothingEvent args)
     {
-        var (uid, comp) = control;
-
         TryStartSealToggleProcess(control);
     }
 
@@ -139,6 +140,33 @@ public sealed partial class SealableClothingSystem : EntitySystem
         return true;
     }
 
+    private void OnSealClothingDoAfter(Entity<SealableClothingControlComponent> control, ref SealClothingDoAfterEvent args)
+    {
+        var (uid, comp) = control;
+
+        if (args.Cancelled || args.Handled || args.Target == null)
+            return;
+
+        var partTarget = args.Target;
+
+        if (!TryComp<SealableClothingComponent>(partTarget, out var sealableComponet))
+            return;
+
+        sealableComponet.IsSealed = !comp.IsCurrentlySealed;
+
+        if (sealableComponet.IsSealed)
+            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+        else
+            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+
+        Dirty(partTarget.Value, sealableComponet);
+        NextSealProcess(control);
+    }
+
+    /// <summary>
+    ///     Recursively seals/unseals all parts of sealable clothing
+    /// </summary>
+    /// <param name="control"></param>
     private void NextSealProcess(Entity<SealableClothingControlComponent> control)
     {
         var (uid, comp) = control;
@@ -147,6 +175,9 @@ public sealed partial class SealableClothingSystem : EntitySystem
         {
             comp.IsInProcess = false;
             comp.IsCurrentlySealed = !comp.IsCurrentlySealed;
+
+            if (comp.IsCurrentlySealed)
+                _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity!.Value, uid);
 
             Dirty(control);
             return;
@@ -177,7 +208,14 @@ public sealed partial class SealableClothingSystem : EntitySystem
             RequireCanInteract = false,
         };
 
-        _doAfterSystem.TryStartDoAfter(doAfterArgs);
+        // Checking for client here to skip first process popup spam that happens. Predicted popups don't work here because doafter starts on sealable control, not on player.
+        if (!_doAfterSystem.TryStartDoAfter(doAfterArgs) || _netManager.IsClient)
+            return;
+
+        if (comp.IsCurrentlySealed)
+            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealDownPopup), uid, comp.WearerEntity!.Value);
+        else
+            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealUpPopup), uid, comp.WearerEntity!.Value);
     }
 }
 

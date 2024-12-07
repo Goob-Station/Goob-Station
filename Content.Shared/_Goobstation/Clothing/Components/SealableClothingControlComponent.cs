@@ -55,14 +55,16 @@ public sealed partial class SealableClothingControlComponent : Component
 
     #region Popups & Sounds
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public LocId ToggleFailedPopup = "sealable-clothing-equipment-not-toggled";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public LocId SealFailedPopup = "sealable-clothing-equipment-seal-failed";
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/scanbuzz.ogg");
 
+    [DataField]
+    public SoundSpecifier SealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Mecha/nominal.ogg");
     #endregion
 }
