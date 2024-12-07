@@ -278,6 +278,7 @@ entities:
       spriteMap: {}
     - type: GravityShake
       shakeTimes: 10
+    - type: LavalandOutpost
 - proto: AirAlarm
   entities:
   - uid: 3

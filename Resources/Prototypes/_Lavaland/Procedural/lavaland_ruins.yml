@@ -1,4 +1,9 @@
 - type: lavalandRuin
-  id: RuinedStationSegment
-  name: Segment
-  path: no/
+  id: RuinedShuttle
+  name: Unknown Shuttle
+  path: Maps/_Lavaland/ruin_shuttle_lavaland.yml
+
+- type: lavalandRuin
+  id: Labyrinth
+  name: Labyrinth
+  path: Maps/_Lavaland/ruin_labyrinth.yml

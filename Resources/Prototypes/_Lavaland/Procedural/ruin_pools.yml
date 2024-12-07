@@ -1,3 +1,9 @@
+# Lavaland ruins are loaded as separate grids.
+# Adding small and opened ruins is not recomended,
+# cuz it can cause the server to fucking explode.
+
 - type: lavalandRuinPool
   id: Lavaland
-  ruins: []
+  ruins:
+    RuinedShuttle: 4
+    Labyrinth: 4
