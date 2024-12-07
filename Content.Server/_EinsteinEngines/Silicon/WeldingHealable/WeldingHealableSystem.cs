@@ -35,7 +35,6 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
             || !TryComp<WelderComponent>(args.Used, out var welder)
             || !TryComp<SolutionContainerManagerComponent>(args.Used, out var solutionContainer)
             || !_solutionContainer.TryGetSolution(((EntityUid) args.Used, solutionContainer), welder.FuelSolutionName, out var solution))
-
             return;
 
         _damageableSystem.TryChangeDamage(uid, component.Damage, true, false, origin: args.User);
@@ -97,7 +96,7 @@ public sealed class WeldingHealableSystem : SharedWeldingHealableSystem
         foreach (var type in healable.Damage.DamageDict)
             if (component.Damage.DamageDict[type.Key].Value > 0)
                 return true;
-                
+
         return false;
     }
 }

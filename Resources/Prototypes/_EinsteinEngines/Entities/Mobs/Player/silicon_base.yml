@@ -80,7 +80,7 @@
           behaviors:
             - !type:GibBehavior {}
     - type: Icon
-      sprite: Mobs/Species/IPC/parts.rsi
+      sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
       state: full
     - type: Sprite
       noRot: true
@@ -163,7 +163,6 @@
     #   damage:
     #     types:
     #       Blunt: 0.28 #per second, scales with pressure and other constants.
-      atmosTemperatureTransferEfficiency: 0.4
     - type: Identity
     #  soundHit:
     #    path: /Audio/Effects/metalbreak.ogg

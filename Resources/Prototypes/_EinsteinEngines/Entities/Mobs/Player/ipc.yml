@@ -108,7 +108,6 @@
   name: Urist McPositronic
   parent: MobHumanDummy
   id: MobIPCDummy
-  noSpawn: true
   description: A dummy IPC meant to be used in character setup.
   components:
   - type: HumanoidAppearance

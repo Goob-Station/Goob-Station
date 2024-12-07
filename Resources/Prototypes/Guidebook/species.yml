@@ -92,6 +92,6 @@
   text: "/ServerInfo/Guidebook/Mobs/Yowie.xml"
 
 - type: guideEntry
-  id: IPCs
+  id: IPC
   name: species-name-ipc
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
