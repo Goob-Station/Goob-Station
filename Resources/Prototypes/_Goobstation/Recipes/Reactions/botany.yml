@@ -1,5 +1,5 @@
 - type: reaction
-  id: Potash
+  id: OrganicPotash
   minTemp: 354
   reactants:
     Water:
