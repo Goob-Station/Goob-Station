@@ -108,19 +108,19 @@
       prob: 0.0001
       orGroup: Weapons
     - id: WeaponRifleAk
-      prob: 0.0001
+      prob: 0.001
       orGroup: Weapons
     - id: WeaponLauncherPirateCannon
       prob: 0.001
       orGroup: Weapons
-    - id: FoamThrongler
+    - id: Throngler
       prob: 0.0001
       orGroup: Weapons
     - id: WeaponPistolCHIMP
-      prob: 0.001
+      prob: 0.1
       orGroup: Weapons
     - id: WeaponSniperMosin
-      prob: 0.01
+      prob: 0.1
       orGroup: Weapons
     - id: WeaponMakeshiftLaser
       prob: 0.001
