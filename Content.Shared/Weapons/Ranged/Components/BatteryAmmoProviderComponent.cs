@@ -1,18 +1,20 @@
+using Robust.Shared.GameStates; // Shitmed Change
 namespace Content.Shared.Weapons.Ranged.Components;
 
+[RegisterComponent, NetworkedComponent] // Shitmed Change
 public abstract partial class BatteryAmmoProviderComponent : AmmoProviderComponent
 {
     /// <summary>
     /// How much battery it costs to fire once.
     /// </summary>
-    [DataField("fireCost"), ViewVariables(VVAccess.ReadWrite)]
+    [DataField("fireCost")] // Shitmed Change
     public float FireCost = 100;
 
     // Batteries aren't predicted which means we need to track the battery and manually count it ourselves woo!
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("shots")] // Shitmed Change
     public int Shots;
 
-    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("capacity")] // Shitmed Change
     public int Capacity;
 }
