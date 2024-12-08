@@ -10,7 +10,7 @@
     tags:
     - Trash
     - CentrifugeCompatible
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 25
   - type: FitsInDispenser

@@ -14,6 +14,9 @@
     blacklist:
       tags:
       - Catwalk
+    triggerGroups: # Goobstation
+      types:
+      - Chasm
   - type: Transform
     anchored: true
   - type: Clickable
@@ -55,7 +58,7 @@
     sprite: Tiles/Planet/Chasms/chromite_chasm.rsi
   - type: Icon
     sprite: Tiles/Planet/Chasms/chromite_chasm.rsi
-    
+
 - type: entity
   parent: FloorChasmEntity
   id: FloorDesertChasm
@@ -65,7 +68,7 @@
     sprite: Tiles/Planet/Chasms/desert_chasm.rsi
   - type: Icon
     sprite: Tiles/Planet/Chasms/desert_chasm.rsi
-    
+
 - type: entity
   parent: FloorChasmEntity
   id: FloorSnowChasm

@@ -21,7 +21,7 @@ entities:
       name: NT-Lambordeere
     - type: Transform
       pos: -0.453125,-0.4375
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:
