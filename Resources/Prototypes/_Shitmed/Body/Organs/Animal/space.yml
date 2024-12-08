@@ -49,14 +49,12 @@
     - type: HitscanBatteryAmmoProvider
       proto: RedLightLaser
       fireCost: 50
-      shots: 1
-      capacity: 100
     - type: BatterySelfRecharger
       autoRecharge: true
       autoRechargeRate: 25
     - type: Battery
       maxCharge: 100
-      startingCharge: 100
+      startingCharge: 0
     - type: Gun
       fireRate: 1
       useKey: false
