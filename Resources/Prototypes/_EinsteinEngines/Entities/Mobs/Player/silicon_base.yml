@@ -1,0 +1,312 @@
+- type: entity
+  save: false
+  id: PlayerSiliconHumanoidBase
+  parent: [BaseMob, MobDamageable, MobCombat, MobAtmosExposed, MobFlammable]
+  abstract: true
+  components:
+    - type: ContentEye
+    - type: CameraRecoil
+    - type: Reactive
+      groups:
+        Flammable: [Touch]
+        Extinguish: [Touch]
+        Acidic: [Touch]
+      reactions:
+        - reagents: [Water, SpaceCleaner]
+          methods: [Touch]
+          effects:
+            - !type:WashCreamPieReaction
+    - type: DamageOnHighSpeedImpact
+      damage:
+        types:
+          Blunt: 10
+      soundHit:
+        path: /Audio/Effects/hit_kick.ogg
+    - type: Damageable
+      damageContainer: Silicon
+      damageModifierSet: IPC
+    - type: InteractionOutline
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 4
+      baseSprintSpeed: 3
+    - type: ZombieImmune
+    - type: DoAfter
+    - type: RotationVisuals
+      horizontalRotation: 90
+    - type: Examiner
+    # - type: Recyclable
+    #   safe: false
+    # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
+    #   protectionTime: 12
+    - type: Silicon
+      entityType: enum.SiliconType.Player
+      batteryPowered: false # Needs to also have a battery!
+      chargeThresholdMid: 0.60
+      chargeThresholdLow: 0.30
+      chargeThresholdCritical: 0
+      speedModifierThresholds:
+        4: 1
+        3: 1
+        2: 0.80
+        1: 0.45
+        0: 0.00
+    - type: Temperature
+      heatDamageThreshold: 325
+      coldDamageThreshold: 260
+      currentTemperature: 310.15
+      specificHeat: 42
+      coldDamage:
+        types:
+          Cold: 0.1 #per second, scales with temperature & other constants
+      heatDamage:
+        types:
+          Heat: 3 #per second, scales with temperature & other constants
+      atmosTemperatureTransferEfficiency: 0.05
+    - type: Deathgasp
+      prototype: SiliconDeathgasp
+      needsCritical: false
+    - type: MobState
+      allowedStates:
+        - Alive
+        - Dead
+    - type: MobThresholds
+      thresholds:
+        0: Alive
+        165: Dead
+    - type: Destructible
+      thresholds:
+        - trigger: !type:DamageTrigger
+            damage: 500
+          behaviors:
+            - !type:GibBehavior {}
+    - type: Icon
+      sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+      state: full
+    - type: Sprite
+      noRot: true
+      drawdepth: Mobs
+      layers:
+        - map: ["enum.HumanoidVisualLayers.Chest"]
+        - map: ["enum.HumanoidVisualLayers.Head"]
+        - map: ["enum.HumanoidVisualLayers.Snout"]
+        - map: ["enum.HumanoidVisualLayers.Eyes"]
+        - map: ["enum.HumanoidVisualLayers.RArm"]
+        - map: ["enum.HumanoidVisualLayers.LArm"]
+        - map: ["enum.HumanoidVisualLayers.RLeg"]
+        - map: ["enum.HumanoidVisualLayers.LLeg"]
+        - shader: StencilClear
+          sprite: Mobs/Species/Human/parts.rsi
+          state: l_leg
+        - shader: StencilMask
+          map: ["enum.HumanoidVisualLayers.StencilMask"]
+          sprite: Mobs/Customization/masking_helpers.rsi
+          state: female_full
+          visible: false
+        - map: ["enum.HumanoidVisualLayers.LFoot"]
+        - map: ["enum.HumanoidVisualLayers.RFoot"]
+        - map: ["socks"]
+        - map: ["underpants"]
+        - map: ["undershirt"]
+        - map: ["jumpsuit"]
+        - map: ["enum.HumanoidVisualLayers.LHand"]
+        - map: ["enum.HumanoidVisualLayers.RHand"]
+        - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+          color: "#ffffff"
+          sprite: Objects/Misc/handcuffs.rsi
+          state: body-overlay-2
+          visible: false
+        - map: ["id"]
+        - map: ["gloves"]
+        - map: ["shoes"]
+        - map: ["ears"]
+        - map: ["outerClothing"]
+        - map: ["eyes"]
+        - map: ["belt"]
+        - map: ["neck"]
+        - map: ["back"]
+        - map: ["enum.HumanoidVisualLayers.FacialHair"]
+        - map: ["enum.HumanoidVisualLayers.Hair"]
+        - map: ["enum.HumanoidVisualLayers.HeadSide"]
+        - map: ["enum.HumanoidVisualLayers.HeadTop"]
+        - map: ["mask"]
+        - map: ["head"]
+        - map: ["pocket1"]
+        - map: ["pocket2"]
+        - map: ["enum.HumanoidVisualLayers.Tail"]
+        - map: ["clownedon"] # Dynamically generated
+          sprite: "Effects/creampie.rsi"
+          state: "creampie_human"
+          visible: false
+    #- type: Bloodstream This is left commented out because it's not necessary for a robot, but you may want it.
+    #  damageBleedModifiers: BloodlossIPC
+    #  bloodReagent: Oil
+    #  bleedReductionAmount: 0
+    #  bloodMaxVolume: 500
+    #  chemicalMaxVolume: 0
+    #  bleedPuddleThreshold: 3
+    #  bleedRefreshAmount: 0
+    #  bloodLossThreshold: 0
+    #  maxBleedAmount: 14
+    #  bloodlossDamage:
+    #    types:
+    #      Burn: 1.5
+    #  bloodlossHealDamage:
+    #    types:
+    #      Burn: 0
+    - type: Flammable
+      fireSpread: true
+      canResistFire: true
+      damage:
+        types:
+          Heat: 0.75 #per second, scales with number of fire 'stacks'
+    # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
+    #   damage:
+    #     types:
+    #       Blunt: 0.28 #per second, scales with pressure and other constants.
+    - type: Identity
+    #  soundHit:
+    #    path: /Audio/Effects/metalbreak.ogg
+    - type: RangedDamageSound
+      soundGroups:
+        Brute:
+          collection: MetalBulletImpact
+      soundTypes:
+        Heat:
+          collection: MetalLaserImpact
+    - type: Tag
+      tags:
+        - CanPilot
+        - FootstepSound
+        - DoorBumpOpener
+    - type: Hands
+    - type: Inventory
+      templateId: human
+    - type: InventorySlots
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.CreamPiedVisuals.Creamed:
+          clownedon: # Not 'creampied' bc I can already see Skyrat complaining about conflicts.
+            True: { visible: true }
+            False: { visible: false }
+    - type: Cuffable
+    - type: AnimationPlayer
+    - type: Buckle
+    - type: CreamPied
+    - type: Stripping
+    - type: Strippable
+    - type: UserInterface
+      interfaces:
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceMaskBoundUserInterface
+        enum.HumanoidMarkingModifierKey.Key:
+          type: HumanoidMarkingModifierBoundUserInterface
+        enum.StrippingUiKey.Key:
+          type: StrippableBoundUserInterface
+        enum.StoreUiKey.Key: # Goobstation - changelings
+          type: StoreBoundUserInterface
+        enum.HereticLivingHeartKey.Key: # goob edit - heretics
+          type: LivingHeartMenuBoundUserInterface
+        enum.SurgeryUIKey.Key: # Shitmed
+          type: SurgeryBui
+    - type: Emoting
+    - type: Grammar
+      attributes:
+        proper: true
+    - type: Climbing
+    - type: StandingState
+    - type: MindContainer
+      showExamineInfo: true
+    - type: SSDIndicator
+    - type: CanEscapeInventory
+    - type: HumanoidAppearance
+      species: IPC
+    - type: Body
+      prototype: IPC
+      requiredLegs: 2
+    - type: Ensnareable
+      sprite: Objects/Misc/ensnare.rsi
+    - type: Speech
+      speechSounds: Pai
+    - type: Vocal
+      wilhelm: "/Audio/_EinsteinEngines/Voice/IPC/wilhelm.ogg"
+      sounds:
+        Male: UnisexIPC
+        Female: UnisexIPC
+        Unsexed: UnisexIPC
+    - type: MeleeWeapon
+      hidden: true
+      soundHit:
+        collection: Punch
+      angle: 30
+      animation: WeaponArcFist
+      attackRate: 1
+      damage:
+        types:
+          Blunt: 6 # It's tough.
+    - type: MobPrice
+      price: 1500 # Kidnapping a living person and selling them for cred is a good move.
+      deathPenalty: 0.01 # However they really ought to be living and intact, otherwise they're worth 100x less.
+    - type: Pullable
+    - type: Puller
+    - type: BodyEmotes
+      soundsId: GeneralBodyEmotes
+    - type: DamageVisuals
+      thresholds: [ 10, 20, 30, 50, 70, 100 ]
+      targetLayers:
+        - "enum.HumanoidVisualLayers.Chest"
+        - "enum.HumanoidVisualLayers.Head"
+        - "enum.HumanoidVisualLayers.LArm"
+        - "enum.HumanoidVisualLayers.LLeg"
+        - "enum.HumanoidVisualLayers.RArm"
+        - "enum.HumanoidVisualLayers.RLeg"
+      damageOverlayGroups:
+        Brute:
+          sprite: Mobs/Effects/brute_damage.rsi
+          color: "#DD8822"
+    # Organs
+    - type: IdExaminable
+    - type: HealthExaminable
+      examinableTypes:
+        - Blunt
+        - Slash
+        - Piercing
+        - Heat
+        - Shock
+    - type: StatusEffects
+      allowed:
+        - Stun
+        - KnockedDown
+        - SlowedDown
+        - Stutter
+        - SeeingRainbows
+        - Electrocution
+        # - Drunk
+        - SlurredSpeech
+        - PressureImmunity
+        - Muted
+        # - ForcedSleep
+        - TemporaryBlindness
+        - Pacified
+        # - PsionicsDisabled
+        # - PsionicallyInsulated
+    - type: Blindable
+    - type: FireVisuals
+      alternateState: Standing
+    - type: LightningTarget
+      priority: 1
+      lightningExplode: false
+    - type: ComplexInteraction
+    - type: FootPrints
+    - type: Carriable
+    - type: Targeting
+    - type: SurgeryTarget
+    - type: LayingDown
+
+- type: damageModifierSet
+  id: IPC
+  coefficients:
+    Poison: 0
+    Cold: 0.2
+    Heat: 2
+    Shock: 2.5

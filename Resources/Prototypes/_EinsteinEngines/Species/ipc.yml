@@ -1,0 +1,238 @@
+- type: species
+  id: IPC
+  name: species-name-ipc
+  roundStart: true
+  prototype: MobIPC
+  sprites: MobIPCSprites
+  markingLimits: MobIPCMarkingLimits
+  dollPrototype: MobIPCDummy
+  skinColoration: Hues
+  minAge: 1
+  maxAge: 240
+  oldAge: 50
+  youngAge: 50
+  maleFirstNames: IpcFirst
+  femaleFirstNames: IpcFirst
+  lastNames: IpcLast
+  naming: FirstDashLast
+  sexes:
+  - Unsexed
+
+# The lack of a layer means that
+# this person cannot have round-start anything
+# applied to that layer. It has to instead
+# be defined as a 'custom base layer'
+# in either the mob's starting marking prototype,
+# or it has to be added in C#.
+- type: speciesBaseSprites
+  id: MobIPCSprites
+  sprites:
+    Head: MobIPCHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Tail: MobHumanoidAnyMarking
+    Hair: MobHumanoidMarkingMatchSkin
+    Chest: MobIPCTorso
+    LArm: MobIPCLArm
+    RArm: MobIPCRArm
+    LHand: MobIPCLHand
+    RHand: MobIPCRHand
+    LLeg: MobIPCLLeg
+    RLeg: MobIPCRLeg
+    LFoot: MobIPCLFoot
+    RFoot: MobIPCRFoot
+
+- type: markingPoints
+  id: MobIPCMarkingLimits
+  points:
+    Head:
+      points: 1
+      required: true
+      defaultMarkings: [ MobIPCHeadDefault ]
+    Chest:
+      points: 1
+      required: true
+      defaultMarkings: [ MobIPCTorsoDefault ]
+    Legs:
+      points: 4
+      required: true
+      defaultMarkings: [ MobIPCLLegDefault, MobIPCLFootDefault, MobIPCRLegDefault, MobIPCRFootDefault ]
+    Arms:
+      points: 4
+      required: true
+      defaultMarkings: [ MobIPCLArmDefault, MobIPCLHandDefault, MobIPCRArmDefault, MobIPCRHandDefault ]
+    HeadSide: 
+      points: 1
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobIPCMarkingFollowSkin
+  markingsMatchSkin: true
+  layerAlpha: 0.5
+
+- type: humanoidBaseSprite
+  id: MobIPCScreen
+
+# Head
+
+- type: humanoidBaseSprite
+  id: MobIPCHead
+
+- type: humanoidBaseSprite
+  id: MobIPCHeadMale
+
+- type: humanoidBaseSprite
+  id: MobIPCHeadFemale
+
+- type: marking
+  id: MobIPCHeadDefault
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: head_m
+
+# Torso
+
+- type: humanoidBaseSprite
+  id: MobIPCTorso
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoMale
+
+- type: humanoidBaseSprite
+  id: MobIPCTorsoFemale
+
+- type: marking
+  id: MobIPCTorsoDefault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: torso_m
+
+- type: marking
+  id: MobIPCTorsoFemaleDefault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: torso_f
+
+# Left Leg
+
+- type: humanoidBaseSprite
+  id: MobIPCLLeg
+
+- type: marking
+  id: MobIPCLLegDefault
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: l_leg
+
+# Left Arm
+
+- type: humanoidBaseSprite
+  id: MobIPCLArm
+
+- type: marking
+  id: MobIPCLArmDefault
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: l_arm
+
+#LHand
+
+- type: humanoidBaseSprite
+  id: MobIPCLHand
+
+- type: marking
+  id: MobIPCLHandDefault
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: l_hand
+
+#LFoot
+
+- type: humanoidBaseSprite
+  id: MobIPCLFoot
+
+- type: marking
+  id: MobIPCLFootDefault
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: l_foot
+
+#RLeg
+
+- type: humanoidBaseSprite
+  id: MobIPCRLeg
+
+- type: marking
+  id: MobIPCRLegDefault
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: r_leg
+
+#RArm
+
+- type: humanoidBaseSprite
+  id: MobIPCRArm
+
+- type: marking
+  id: MobIPCRArmDefault
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: r_arm
+
+#RHand
+
+- type: humanoidBaseSprite
+  id: MobIPCRHand
+
+- type: marking
+  id: MobIPCRHandDefault
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: r_hand
+
+#RFoot
+
+- type: humanoidBaseSprite
+  id: MobIPCRFoot
+
+- type: marking
+  id: MobIPCRFootDefault
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC] 
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: r_foot
+
+- type: Tag
+  id: IPCMaskWearable

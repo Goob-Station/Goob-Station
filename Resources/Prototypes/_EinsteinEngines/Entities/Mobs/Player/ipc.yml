@@ -1,0 +1,116 @@
+- type: entity
+  id: MobIPC
+  parent: PlayerSiliconHumanoidBase
+  name: Urist McPositronic
+  description: A positronic brain in a metal body.
+  components:
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: true
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        locked: true
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellMedium
+  - type: BatterySlotRequiresLock
+    itemSlot: cell_slot
+  - type: EncryptionHolderRequiresLock
+  - type: SiliconEmitSoundOnDrained
+    sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg" # SOMEONE PLEASE FIND A BETTER SOUND FOR THIS.
+    minInterval: 15
+    maxInterval: 30
+    popUp: "silicon-power-low"
+  - type: Lock
+    locked: true
+    lockOnClick: false
+    unlockOnClick: false
+    lockTime: 5
+    unlockTime: 5
+  - type: InteractionPopup
+    successChance: 1
+    interactSuccessString: hugging-success-generic
+    interactSuccessSound: /Audio/Effects/thudswoosh.ogg
+    messagePerceivedByOthers: hugging-success-generic-others
+  - type: NpcFactionMember
+    factions:
+      - NanoTrasen
+  - type: StandingState
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Critical
+      - Dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      119.999: Critical # TO make it almost impossible
+      120: Dead
+    stateAlertDict:
+      Alive: BorgHealth
+      Critical: BorgCrit
+      Dead: BorgDead
+  - type: TypingIndicator
+    proto: robot
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTypeTrigger
+          damageType: Blunt
+          damage: 400
+        behaviors:
+          - !type:GibBehavior { }
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      90: 0.5
+      120: 0.3
+  - type: SiliconDownOnDead
+  - type: Inventory
+    templateId: ipc
+  - type: GuideHelp
+    guides:
+      - IPC
+  - type: Silicon
+    entityType: enum.SiliconType.Player
+    batteryPowered: true
+    drainPerSecond: 1.5
+    chargeThresholdMid: 0.80
+    chargeThresholdLow: 0.35
+    chargeThresholdCritical: 0.10
+    speedModifierThresholds:
+      4: 1
+      3: 1
+      2: 0.80
+      1: 0.45
+      0: 0.00
+  - type: BatteryDrinker
+  - type: EncryptionKeyHolder
+    keySlots: 4
+    examineWhileLocked: false
+    keysExtractionMethod: Cutting
+    keysUnlocked: false
+  - type: ActiveRadio
+  - type: IntrinsicRadioReceiver
+  - type: IntrinsicRadioTransmitter
+  - type: DeadStartupButton
+    sound:
+      path: /Audio/_EinsteinEngines/Effects/Silicon/startup.ogg
+# Erro de linter
+#   - type: Wires
+#     layoutId: IPC
+  - type: EmitBuzzWhileDamaged
+  - type: CanHostGuardian
+  - type: WeldingHealable
+
+- type: entity
+  save: false
+  name: Urist McPositronic
+  parent: MobHumanDummy
+  id: MobIPCDummy
+  description: A dummy IPC meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: IPC
+  - type: Inventory
+    templateId: ipc

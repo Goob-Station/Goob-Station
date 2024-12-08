@@ -18,6 +18,7 @@
     - Vulpkanin
     - Rodentia
     - Yowie
+    - IPC
 
 - type: guideEntry
   id: Arachnid
@@ -89,3 +90,8 @@
   id: Yowie
   name: species-name-yowie
   text: "/ServerInfo/Guidebook/Mobs/Yowie.xml"
+
+- type: guideEntry
+  id: IPC
+  name: species-name-ipc
+  text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"

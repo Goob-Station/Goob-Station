@@ -39,6 +39,9 @@
           type: ChameleonBoundUserInterface
         enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
+    - type: Tag
+      tags:
+      - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase

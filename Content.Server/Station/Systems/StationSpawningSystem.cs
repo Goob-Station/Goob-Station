@@ -28,6 +28,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Server._EinsteinEngines.Silicon.IPC; // Goobstation
 
 namespace Content.Server.Station.Systems;
 
@@ -50,7 +51,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
     [Dependency] private readonly PdaSystem _pdaSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-
+    [Dependency] private readonly InternalEncryptionKeySpawner _internalEncryption = default!; // Goobstation
     private bool _randomizeCharacters;
 
     /// <inheritdoc/>
@@ -185,6 +186,7 @@ public sealed class StationSpawningSystem : SharedStationSpawningSystem
         {
             var startingGear = _prototypeManager.Index<StartingGearPrototype>(prototype.StartingGear);
             EquipStartingGear(entity.Value, startingGear, raiseEvent: false);
+            _internalEncryption.TryInsertEncryptionKey(entity.Value, startingGear, EntityManager); // Goobstation
         }
 
         var gearEquippedEv = new StartingGearEquippedEvent(entity.Value);

@@ -1,0 +1,128 @@
+- type: marking
+  id: CyberLimbsMarkingBishopHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_monitor.rsi
+    state: head
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_monitor.rsi
+    state: head-2
+
+- type: marking
+  id: CyberLimbsMarkingBishopHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: head
+
+- type: marking
+  id: CyberLimbsMarkingBishopHeadAlt1
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_alt1.rsi
+    state: head
+
+- type: marking
+  id: CyberLimbsMarkingBishopChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: torso-primary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: torso-secondary
+
+- type: marking
+  id: CyberLimbsMarkingBishopLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_arm-primary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_arm-secondary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_arm-tertiary
+
+- type: marking
+  id: CyberLimbsMarkingBishopLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_hand
+
+- type: marking
+  id: CyberLimbsMarkingBishopLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_leg-primary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_leg-secondary
+
+
+- type: marking
+  id: CyberLimbsMarkingBishopLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: l_foot
+
+
+
+- type: marking
+  id: CyberLimbsMarkingBishopRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_arm-primary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_arm-secondary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_arm-tertiary
+
+
+- type: marking
+  id: CyberLimbsMarkingBishopRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_hand
+
+- type: marking
+  id: CyberLimbsMarkingBishopRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_leg-primary
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_leg-secondary
+
+
+- type: marking
+  id: CyberLimbsMarkingBishopRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    state: r_foot

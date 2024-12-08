@@ -11,7 +11,7 @@
     id: LeftHandCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_arm-combined"
 
 - type: entity
@@ -27,7 +27,7 @@
     id: RightHandCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_arm-combined"
 
 - type: entity
@@ -43,7 +43,7 @@
     id: LeftFootCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_leg-combined"
 
 - type: entity
@@ -59,7 +59,7 @@
     id: RightFootCybernetic
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_leg-combined"
 
 - type: entity
@@ -73,7 +73,7 @@
     baseLayerId: MobCyberneticBishopLHand
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_hand"
 
 - type: entity
@@ -87,7 +87,7 @@
     baseLayerId: MobCyberneticBishopRHand
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_hand"
 
 - type: entity
@@ -101,7 +101,7 @@
     baseLayerId: MobCyberneticBishopLFoot
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "l_foot"
 
 - type: entity
@@ -115,7 +115,7 @@
     baseLayerId: MobCyberneticBishopRFoot
   - type: Cybernetics
   - type: Sprite
-    sprite: _Shitmed/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
+    sprite: _EinsteinEngines/Mobs/Species/Cybernetics/bishop/bishop_main.rsi
     state: "r_foot"
 
 - type: entity

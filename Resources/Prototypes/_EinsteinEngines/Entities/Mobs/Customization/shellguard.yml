@@ -1,0 +1,125 @@
+- type: marking
+  id: CyberLimbsMarkingShellguardHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_monitor.rsi
+    state: head-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_monitor.rsi
+    state: head-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_alt1.rsi
+    state: head-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_alt1.rsi
+    state: head-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: torso-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: torso-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_arm-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_arm-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_hand-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_hand-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_leg-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_leg-2
+
+
+- type: marking
+  id: CyberLimbsMarkingShellguardLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_foot-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: l_foot-2
+
+
+
+- type: marking
+  id: CyberLimbsMarkingShellguardRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_arm-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_arm-2
+
+
+- type: marking
+  id: CyberLimbsMarkingShellguardRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_hand-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_hand-2
+
+- type: marking
+  id: CyberLimbsMarkingShellguardRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_leg-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_leg-2
+
+
+- type: marking
+  id: CyberLimbsMarkingShellguardRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_foot-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/shellguard/shellguard_main.rsi
+    state: r_foot-2

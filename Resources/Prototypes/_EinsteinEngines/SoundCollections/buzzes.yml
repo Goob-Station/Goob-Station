@@ -1,0 +1,12 @@
+- type: soundCollection
+  id: buzzes
+  files:
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz1.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz2.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz3.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz4.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz5.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz6.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz7.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz8.ogg
+  - /Audio/_EinsteinEngines/Effects/Buzzes/buzz9.ogg

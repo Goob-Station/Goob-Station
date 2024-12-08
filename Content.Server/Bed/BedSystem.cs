@@ -13,6 +13,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.Bed
 {
@@ -70,7 +71,8 @@ namespace Content.Server.Bed
 
                 foreach (var healedEntity in strapComponent.BuckledEntities)
                 {
-                    if (_mobStateSystem.IsDead(healedEntity))
+                    if (_mobStateSystem.IsDead(healedEntity)
+                        || HasComp<SiliconComponent>(healedEntity)) // Goobstation
                         continue;
 
                     var damage = bedComponent.Damage;

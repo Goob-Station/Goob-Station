@@ -94,6 +94,9 @@
       stopSearchVerbText: positronic-brain-stop-searching-verb-text
       stopSearchVerbPopup: positronic-brain-stopped-searching
       job: Borg
+    - type: Organ
+      slotId: posbrain
+    - type: Brain
     - type: BlockMovement
     - type: Examiner
     - type: BorgBrain

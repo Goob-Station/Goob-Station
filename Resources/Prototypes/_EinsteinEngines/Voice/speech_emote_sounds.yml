@@ -1,0 +1,67 @@
+- type: emoteSounds
+  id: UnisexIPC
+  params:
+    variation: 0
+  sounds:
+    Scream:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-scream.ogg
+      params:
+        variation: 0.125
+    Laugh:
+      path: /Audio/_EinsteinEngines/Voice/IPC/robot-laugh_3.ogg
+      params:
+        variation: 0.125
+    Chitter:
+      path: /Audio/Voice/Talk/pai.ogg
+    Squeak:
+      path: /Audio/Voice/Talk/pai.ogg
+    CatMeow:
+      collection: CatMeows
+      params:
+        variation: 0.125
+    CatHisses:
+      collection: CatHisses
+      params:
+        variation: 0.125
+    MonkeyScreeches:
+      collection: MonkeyScreeches
+      params:
+        variation: 0.125
+    Sigh:
+      path: /Audio/Voice/Talk/pai.ogg
+      params:
+        variation: 0.125
+    Crying:
+      path: /Audio/_EinsteinEngines/Voice/IPC/cry_robot_1.ogg
+      params:
+        variation: 0.125
+    Whistle:
+      path: /Audio/_EinsteinEngines/Voice/IPC/pai_whistle.ogg
+      params:
+        variation: 0.125
+    RobotBeep: # disease
+      path: /Audio/Effects/tesla_consume.ogg
+      params:
+        variation: 0.125
+    Beep: # normal
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_2000.ogg
+    Boop:
+      path: /Audio/_EinsteinEngines/Voice/IPC/beep_500.ogg
+    Buzz:
+      path: /Audio/Machines/buzz-sigh.ogg
+    Honk:
+      path: /Audio/Items/bikehorn.ogg
+      params:
+        variation: 0.125
+    Chime:
+      path: /Audio/Effects/Cargo/ping.ogg
+    Buzz-Two:
+      path: /Audio/Machines/buzz-two.ogg
+    Ping:
+      path: /Audio/Effects/beep1.ogg
+      params: # to prevent it from being definitively read by players as "OH SHIT A GRENADE"
+        variation: 0.125
+    Whirr:
+      collection: IPCWhirrs
+      params:
+        variation: 0
