@@ -1,7 +1,5 @@
-using Robust.Shared.GameStates; // Shitmed Change
 namespace Content.Shared.Weapons.Ranged.Components;
 
-[RegisterComponent, NetworkedComponent] // Shitmed Change
 public abstract partial class BatteryAmmoProviderComponent : AmmoProviderComponent
 {
     /// <summary>
