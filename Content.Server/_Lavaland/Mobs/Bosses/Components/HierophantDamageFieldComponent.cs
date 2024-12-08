@@ -7,5 +7,5 @@ namespace Content.Server._Lavaland.Mobs.Bosses.Components;
 public sealed partial class HierophantDamageFieldComponent : Component
 {
     [DataField] public DamageSpecifier Damage = default!;
-    [DataField] public SoundPathSpecifier Sound = null;
+    [DataField] public SoundPathSpecifier Sound = new("", new AudioParams());
 }
