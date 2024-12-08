@@ -204,8 +204,8 @@
     partType: Leg
     symmetry: Left
     children:
-      right foot:
-        id: "right foot"
+      left foot:
+        id: "left foot"
         type: Foot
   - type: MovementBodyPart
 
@@ -225,8 +225,8 @@
     partType: Leg
     symmetry: Right
     children:
-      left foot:
-        id: "left foot"
+      right foot:
+        id: "right foot"
         type: Foot
   - type: MovementBodyPart
 
