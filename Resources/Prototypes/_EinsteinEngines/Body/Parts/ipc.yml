@@ -48,6 +48,29 @@
     state: "torso_m"
   - type: BodyPart
     partType: Torso
+    children: # I hate this so much I want to kill it AAAAAAAAAAAAAAAAAAAAAAAA
+      head:
+        id: "head"
+        type: Head
+      left arm:
+        id: "left arm"
+        type: Arm
+      right arm:
+        id: "right arm"
+        type: Arm
+      left leg:
+        id: "left leg"
+        type: Leg
+      right leg:
+        id: "right leg"
+        type: Leg
+    organs:
+      posbrain:
+        id: "posbrain"
+        type: Brain
+      pump:
+        id: "pump"
+        type: Heart
   - type: ContainerContainer
     containers:
       torso_slot: !type:ContainerSlot {}
@@ -80,6 +103,10 @@
     state: "head_m"
   - type: BodyPart
     partType: Head
+    organs:
+      eyes:
+        id: "eyes"
+        type: Eyes    
     vital: true
   - type: Input
     context: "ghost"
@@ -107,6 +134,10 @@
   - type: BodyPart
     partType: Arm
     symmetry: Left
+    children:
+      left hand:
+        id: "left hand"
+        type: Hand
 
 - type: entity
   id: RightArmIPC
@@ -123,6 +154,10 @@
   - type: BodyPart
     partType: Arm
     symmetry: Right
+    children:
+      right hand:
+        id: "right hand"
+        type: Hand
 
 - type: entity
   id: LeftHandIPC
@@ -171,6 +206,10 @@
   - type: BodyPart
     partType: Leg
     symmetry: Left
+    children:
+      right foot:
+        id: "right foot"
+        type: Foot
   - type: MovementBodyPart
 
 - type: entity
@@ -188,6 +227,10 @@
   - type: BodyPart
     partType: Leg
     symmetry: Right
+    children:
+      left foot:
+        id: "left foot"
+        type: Foot
   - type: MovementBodyPart
 
 - type: entity
