@@ -32,7 +32,7 @@ public sealed partial class PressureBuffedSystem : EntitySystem
         var minmax = ent.Comp.RequiredPressure;
 
         var pressure = mix?.Pressure ?? 0f; // can't get any lower than 0, right?...
-        var isInThresholds = pressure >= minmax.Min || pressure <= minmax.Max;
+        var isInThresholds = pressure >= minmax.Min && pressure <= minmax.Max;
 
         if (!isInThresholds)
             return;

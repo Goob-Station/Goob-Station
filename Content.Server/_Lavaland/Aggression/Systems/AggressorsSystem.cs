@@ -43,7 +43,7 @@ public partial class AggressorsSystem : EntitySystem
     public void RemoveAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
     {
         if (ent.Comp.Aggressors.Contains(aggressor))
-            ent.Comp.Aggressors.Remove(aggressor);
+            ent.Comp.Aggressors.RemoveAll(p => p.Id == aggressor.Id);
     }
 
     public void AddAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)

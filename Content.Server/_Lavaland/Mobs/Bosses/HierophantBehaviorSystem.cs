@@ -12,9 +12,9 @@ using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Timing;
 using System.Linq;
 using System.Numerics;
+using System.Threading.Tasks;
 
 namespace Content.Server._Lavaland.Mobs.Bosses;
 
@@ -37,8 +37,22 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(_megafauna.OnAttacked);
+        SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(OnAttacked);
         SubscribeLocalEvent<HierophantBossComponent, DamageThresholdReached>(_megafauna.OnDeath);
+    }
+
+    private void OnAttacked(Entity<HierophantBossComponent> ent, ref AttackedEvent args)
+    {
+        _megafauna.OnAttacked(ent, ent.Comp, ref args); // invoke base
+
+        if (!ent.Comp.Meleed)
+        {
+            ent.Comp.Meleed = true;
+            DamageArea(ent, ent, 5);
+            SpawnChasers(ent, 2);
+        }
+
+        AdjustAnger(ent, .1f);
     }
 
     public override void Update(float frameTime)
@@ -48,20 +62,57 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         var eqe = EntityQueryEnumerator<HierophantBossComponent>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
+            var ent = (uid, comp);
+
             if (TryComp<AggressiveComponent>(uid, out var aggressors))
             {
                 if (aggressors.Aggressors.Count > 0 && !comp.Aggressive)
-                    InitBoss((uid, comp));
-                else continue;
+                    InitBoss(ent);
+                else if (aggressors.Aggressors.Count == 0 && comp.Aggressive)
+                    DeinitBoss(ent);
             }
 
             if (comp.Aggressive)
             {
-                // todo tick all timers
-                var cancelToken = comp.CancelToken.Token;
+                // tick all timers
 
+                TickTimer(ent, ref comp.AttackTimer, frameTime, () =>
+                {
+                    DoMinorAttack(ent);
+                    comp.AttackTimer = Math.Max(comp.AttackCooldown - comp.Anger, 1f);
+                    AdjustAnger(ent, -.15f);
+                });
 
+                TickTimer(ent, ref comp.MajorAttackTimer, frameTime, () =>
+                {
+                    DoMajorAttack(ent);
+                    comp.MajorAttackTimer = Math.Max(comp.MajorAttackCooldown - comp.Anger, 2f);
+                    AdjustAnger(ent, -.25f);
+                });
+
+                if (comp.Meleed)
+                {
+                    TickTimer(ent, ref comp.MeleeReactionTimer, frameTime, () =>
+                    {
+                        comp.Meleed = false; // reset it. check OnAttack event
+                        comp.MeleeReactionTimer = comp.MeleeReactionCooldown;
+                    });
+                }
             }
+        }
+    }
+
+    private void TickTimer(Entity<HierophantBossComponent> ent, ref float timer, float frameTime, Action onFired)
+    {
+        timer -= frameTime;
+
+        if (timer <= 0 && !ent.Comp.IsAttacking) // check if he is currently attacking just in case
+        {
+            ent.Comp.IsAttacking = true;
+
+            onFired.Invoke();
+
+            ent.Comp.IsAttacking = false;
         }
     }
 
@@ -73,101 +124,191 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         if (TryComp<AmbientSoundComponent>(ent, out var ambient))
             _ambient.SetAmbience(ent, true, ambient);
     }
-
-    public void DoMajorAttack(Entity<HierophantBossComponent> ent)
+    private void DeinitBoss(Entity<HierophantBossComponent> ent)
     {
+        ent.Comp.Aggressive = false;
 
-    }
-    public void DoMinorAttack(Entity<HierophantBossComponent> ent)
-    {
+        if (TryComp<AmbientSoundComponent>(ent, out var ambient))
+            _ambient.SetAmbience(ent, false, ambient);
 
-    }
-
-    #region Attacks
-    public Action? PickAttack(Entity<HierophantBossComponent> ent)
-    {
-        return null;
+        ent.Comp.CancelToken.Cancel(); // cancel all stuff
     }
 
-    public void DamageArea(Entity<HierophantBossComponent> ent, int range = 1)
+    public async void DoMajorAttack(Entity<HierophantBossComponent> ent)
     {
+        var target = PickTarget(ent);
+        if (target == null)
+            target = ent;
+
+        var attackPower = _random.Next(3, 5);
+        var attackPowerAngered = (int) (attackPower + ent.Comp.Anger);
+
+        var actions = new List<Action>()
+        {
+            //() => { BlinkRandom(ent, _xform.GetWorldPosition((EntityUid) target), (int) (attackPower / 2)); },
+            () => { DamageArea(ent, target, attackPowerAngered); },
+            () => { SpawnCrosses(ent, target, attackPowerAngered); }
+            // todo spawn crosses
+        };
+
+        _random.Pick(actions).Invoke();
+    }
+    public async void DoMinorAttack(Entity<HierophantBossComponent> ent)
+    {
+        var target = PickTarget(ent);
+        if (target == null)
+            target = ent;
+
+        var attackPower = _random.Next(1, 3);
+
+        var actions = new List<Action>()
+        {
+            () => { BlinkRandom(ent, _xform.GetWorldPosition((EntityUid) target)); },
+            () => { SpawnChasers(ent, attackPower); },
+            () => { SpawnCrosses(ent, target, attackPower); }
+            // todo spawn crosses
+        };
+
+        _random.Pick(actions).Invoke();
+    }
+
+    #region Patterns
+    public async Task DamageArea(Entity<HierophantBossComponent> ent, EntityUid? target = null, int range = 1)
+    {
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Machines/airlock_ext_open.ogg"), ent, AudioParams.Default.WithMaxDistance(10f));
+
+        target = target ?? PickTarget(ent);
+        if (target == null)
+            target = ent;
+
+        // we need this beacon in order for damage box to not break apart
+        var beacon = Spawn(null, _xform.GetMapCoordinates((EntityUid) target));
+
         for (int i = 0; i <= range; i++)
         {
-            var target = PickTarget(ent);
-            if (target == null)
-                return;
+            SpawnDamageBox(beacon, range: i);
+            await Task.Delay((int) GetDelay(ent, BaseActionDelay / 2.5f));
+        }
 
-            SpawnDamageBox((EntityUid) target, i);
-            Timer.Delay((int) GetDelay(ent, BaseActionDelay));
+        EntityManager.DeleteEntity(beacon); // cleanup
+    }
+
+    public async Task SpawnChasers(Entity<HierophantBossComponent> ent, int amount = 1)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            var chaser = Spawn(ChaserPrototype, Transform(ent).Coordinates);
+            if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
+            {
+                chasercomp.Target = PickTarget(ent);
+                chasercomp.Speed *= ent.Comp.Anger;
+                chasercomp.MaxSteps *= ent.Comp.Anger;
+            }
+
+            await Task.Delay(1000);
         }
     }
-    private void SpawnDamageBox(EntityUid relative, int range = 0)
+
+    public async Task BlinkRandom(Entity<HierophantBossComponent> ent, Vector2? relativePos, int amount = 1)
     {
-        // spawn on a single tile only
+        for (int i = 0; i < amount; i++)
+        {
+            var entPos = relativePos ?? _xform.GetWorldPosition((EntityUid) ent);
+            await Blink(ent, entPos);
+            await Task.Delay((int) GetDelay(ent, BaseActionDelay));
+        }
+    }
+
+    public async Task SpawnCrosses(Entity<HierophantBossComponent> ent, EntityUid? target, int amount = 1)
+    {
+        for (int i = 0; i < amount; i++)
+        {
+            target = target ?? ent;
+            SpawnCross(ent, (EntityUid) target);
+            await Task.Delay((int) GetDelay(ent, BaseActionDelay));
+        }
+    }
+    #endregion
+
+    #region Attacks
+    public void SpawnDamageBox(EntityUid relative, int range = 0, bool hollow = true)
+    {
         if (range == 0)
         {
             Spawn(DamageBoxPrototype, Transform(relative).Coordinates);
             return;
         }
 
-        // spawn around an area
         var xform = Transform(relative);
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var pos = xform.Coordinates.Position;
+        var gridEnt = ((EntityUid) xform.GridUid, grid);
 
-        var confines = new Box2(pos + new Vector2(-range, -range), pos + new Vector2(range, range));
-        var confinesS = new Box2(pos + new Vector2(-range + 1, -range + 1), pos + new Vector2(range - 1, range - 1));
+        // get tile position of our entity
+        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
+            return;
 
+        // make a box
+        var pos = _map.TileCenterToVector(gridEnt, tilePos);
+        var confines = new Box2(pos, pos).Enlarged(range);
         var box = _map.GetLocalTilesIntersecting(relative, grid, confines).ToList();
-        var boxS = _map.GetLocalTilesIntersecting(relative, grid, confinesS).ToList();
 
-        var boxFinal = box.Where(b => !boxS.Contains(b)).ToList();
-
-        foreach (var tile in boxFinal)
-            Spawn(DamageBoxPrototype, _map.ToCoordinates(tile));
-    }
-
-    public void SpawnChaser(Entity<HierophantBossComponent> ent, int amount = 1)
-    {
-        for (int i = 0; i < amount; i++)
+        // hollow it out if necessary
+        if (hollow)
         {
-            var chaser = Spawn(ChaserPrototype, Transform(ent).Coordinates);
-            if (TryComp<HierophantChaserComponent>(chaser, out var chasercomp))
-                chasercomp.Target = PickTarget(ent);
+            var confinesS = new Box2(pos, pos).Enlarged(Math.Max(range - 1, 0));
+            var boxS = _map.GetLocalTilesIntersecting(relative, grid, confinesS).ToList();
+            box = box.Where(b => !boxS.Contains(b)).ToList();
+        }
 
-            Timer.Delay((int) GetDelay(ent, BaseActionDelay));
+        // fill the box
+        foreach (var tile in box)
+        {
+            Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile.GridIndices));
         }
     }
-
-    public void BlinkRandom(Entity<HierophantBossComponent> ent, EntityCoordinates? relativePos, int spread = 2, int damageArea = 0, int amount = 1)
+    public async Task Blink(Entity<HierophantBossComponent> ent, Vector2 worldPos)
     {
-        for (int i = 0; i < amount; i++)
-        {
-            var entPos = relativePos ?? Transform(ent).Coordinates;
-            var vspread = new Vector2(_random.Next(-spread, spread), _random.Next(-spread, spread));
-            var desiredPos = entPos.Position + vspread;
+        var dummy = Spawn(null, new MapCoordinates(worldPos, Transform(ent).MapID));
 
-            Blink(ent, new(ent, desiredPos), damageArea);
+        SpawnDamageBox(ent, 1, false);
+        SpawnDamageBox(dummy, 1, false);
 
-            Timer.Delay((int) GetDelay(ent, BaseActionDelay));
-        }
+        await Task.Delay(600); // 600ms according to the chargeup of hiero damage square
+
+        _audio.PlayPvs(new SoundPathSpecifier("/Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default.WithMaxDistance(10f));
+
+        _xform.SetWorldPosition(ent, worldPos);
+        EntityManager.DeleteEntity(dummy);
     }
-
-    public void Blink(Entity<HierophantBossComponent> ent, EntityCoordinates whereTo, int damageArea = 0)
+    public void SpawnCross(Entity<HierophantBossComponent> ent, EntityUid target, float range = 10)
     {
-        _audio.PlayPvs(new SoundPathSpecifier("Audio/Magic/blink.ogg"), Transform(ent).Coordinates, AudioParams.Default);
+        var xform = Transform(target);
 
-        if (damageArea > 0)
-            DamageArea(ent, damageArea);
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return;
 
-        _xform.SetCoordinates(ent, whereTo);
+        var cross = MakeCross(target, range);
+        var diagcross = MakeCrossDiagonal(target, range);
 
-        // spawn in both places
-        if (damageArea > 0)
-            DamageArea(ent, damageArea);
+        if (cross == null || diagcross == null)
+            return;
+
+        var types = new List<List<Vector2i>?>() { cross, diagcross };
+        var both = new List<Vector2i>();
+        both.AddRange(cross);
+        both.AddRange(diagcross);
+
+
+        var tiles = new List<Vector2i>();
+        if (_random.Prob(.1f)) // 10%
+            tiles = both;
+        else tiles = _random.Pick(types);
+
+        foreach (var tile in tiles!)
+            Spawn(DamageBoxPrototype, _map.GridTileToWorld((EntityUid) xform.GridUid, grid, tile));
     }
     #endregion
 
@@ -184,46 +325,77 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
 
     public float GetDelay(Entity<HierophantBossComponent> ent, float baseDelay)
     {
-        var minDelay = Math.Max(baseDelay / 5f, .1f);
+        var minDelay = Math.Max(baseDelay / 2.5f, .1f);
 
-        return Math.Max(baseDelay - (baseDelay * CalculateAnger(ent)), minDelay);
+        return Math.Max(baseDelay - (baseDelay * ent.Comp.Anger), minDelay);
     }
-    public float CalculateAnger(Entity<HierophantBossComponent> ent)
+    public void AdjustAnger(Entity<HierophantBossComponent> ent, float anger)
     {
-        // calculate anger threshold based on:
-        // the amount of aggressors. max amount of aggressors being 3.
-        // health lost.
-        // resulting in a total of 2 maximum.
-
-        float aggroFactor = 0f, healthFactor = 0f;
-        if (TryComp<AggressiveComponent>(ent, out var aggressive) && aggressive.Aggressors.Count > 0)
-            aggroFactor = Normalize(aggressive.Aggressors.Count, 0f, 3f);
-
-        if (TryComp<DestructibleComponent>(ent, out var destructible)
-        && TryComp<DamageableComponent>(ent, out var damageable))
-        {
-            // jesus christ someone kill me.
-            var maxThreshold = 100f;
-            foreach (var threshold in destructible.Thresholds)
-            {
-                if (threshold.Trigger != null && threshold.Trigger.GetType() != typeof(DamageTrigger))
-                    continue;
-
-                var trigger = (DamageTrigger) threshold.Trigger!;
-
-                if (trigger.Damage > maxThreshold)
-                    maxThreshold = trigger.Damage;
-            }
-
-            healthFactor = Normalize((float) damageable.TotalDamage, 0f, (float) maxThreshold);
-        }
-
-        ent.Comp.Anger = Normalize(aggroFactor + healthFactor, 0, 2);
-
-        return ent.Comp.Anger;
+        ent.Comp.Anger = Math.Clamp(ent.Comp.Anger + anger, 0, 3);
     }
 
     private float Normalize(float cur, float min, float max)
-        => (cur - min) / (max - min);
+        => Math.Clamp((cur - min) / (max - min), min, max);
+
+    private List<Vector2i>? MakeCross(EntityUid relative, float range)
+    {
+        var xform = Transform(relative);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return null;
+
+        var gridEnt = ((EntityUid) xform.GridUid, grid);
+
+        // get tile position of our entity
+        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
+            return null;
+
+        var refs = new List<Vector2i>();
+        var center = tilePos;
+
+        refs.Add(center);
+
+        // we go thru all directions and fill the array up
+        for (int i = 1; i < range; i++)
+        {
+            // this should make a neat cross
+            refs.Add(new Vector2i(center.X + i, center.Y));
+            refs.Add(new Vector2i(center.X, center.Y + i));
+            refs.Add(new Vector2i(center.X - i, center.Y));
+            refs.Add(new Vector2i(center.X, center.Y - i));
+        }
+
+        return refs;
+    }
+    private List<Vector2i>? MakeCrossDiagonal(EntityUid relative, float range)
+    {
+        var xform = Transform(relative);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
+            return null;
+
+        var gridEnt = ((EntityUid) xform.GridUid, grid);
+
+        // get tile position of our entity
+        if (!_xform.TryGetGridTilePosition(relative, out var tilePos))
+            return null;
+
+        var refs = new List<Vector2i>();
+        var center = tilePos;
+
+        refs.Add(center);
+
+        // we go thru all directions and fill the array up
+        for (int i = 1; i < range; i++)
+        {
+            // this should make a neat diagonal cross
+            refs.Add(new Vector2i(center.X + i, center.Y + i));
+            refs.Add(new Vector2i(center.X + i, center.Y - i));
+            refs.Add(new Vector2i(center.X - i, center.Y + i));
+            refs.Add(new Vector2i(center.X - i, center.Y - i));
+        }
+
+        return refs;
+    }
     #endregion
 }

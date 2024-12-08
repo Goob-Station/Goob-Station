@@ -10,9 +10,9 @@ public sealed partial class HierophantChaserComponent : Component
     /// <summary>
     ///     Acts as a divisor for <see cref="BaseCooldown"/>
     /// </summary>
-    [DataField] public float Speed = 2f;
+    [DataField] public float Speed = 5f;
 
-    [DataField] public float MaxSteps = 15f;
+    [DataField] public float MaxSteps = 50f;
     [ViewVariables(VVAccess.ReadWrite)] public float Steps = 0f;
 
     [DataField] public float BaseCooldown = 1f;

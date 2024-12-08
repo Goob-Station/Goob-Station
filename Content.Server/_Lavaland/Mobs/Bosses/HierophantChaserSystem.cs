@@ -41,9 +41,6 @@ public sealed partial class HierophantChaserSystem : EntitySystem
 
         foreach (var chaser in chasers)
         {
-            if (chaser.Item2.Steps >= chaser.Item2.MaxSteps)
-                QueueDel(chaser.Item1);
-
             chaser.Item2.CooldownTimer = chaser.Item2.BaseCooldown;
             Cycle((chaser.Item1, chaser.Item2));
         }
@@ -56,12 +53,15 @@ public sealed partial class HierophantChaserSystem : EntitySystem
     /// </summary>
     private void Cycle(Entity<HierophantChaserComponent> ent)
     {
-        if (!TryComp<MapGridComponent>(Transform(ent).GridUid, out var grid))
+        var xform = Transform(ent);
+
+        if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
             return;
 
-        var gridEnt = ((EntityUid) Transform(ent).GridUid!, (MapGridComponent) grid);
+        var gridEnt = ((EntityUid) xform.GridUid!, grid);
 
-        var pos = Transform(ent).Coordinates.Position;
+        // get it's own map position
+        var pos = _xform.GetWorldPosition(ent);
         var confines = new Box2(pos - Vector2.One, pos + Vector2.One);
 
         // get random position tiles pool
@@ -70,40 +70,37 @@ public sealed partial class HierophantChaserSystem : EntitySystem
 
         // if there is a target get it's position delta instead
         if (ent.Comp.Target != null)
-            deltaPos = Transform((EntityUid) ent.Comp.Target).Coordinates.Position - pos;
+        {
+            deltaPos = _xform.GetWorldPosition((EntityUid) ent.Comp.Target) - pos;
+        }
 
         // if the target is still missing we'll just pick a random tile
-        if (deltaPos == Vector2.Zero)
+        if (deltaPos == Vector2.Zero && randomPos.Count > 0)
             deltaPos = _random.Pick(randomPos).GridIndices;
 
         // translate it
         deltaPos = TranslateDelta(deltaPos);
 
-        // generate new position
-        var curTile = _map.GetTileRef(gridEnt, _xform.GetMapCoordinates(Transform(ent))).GridIndices;
-        var newPos = new MapCoordinates(curTile + deltaPos, Transform(ent).MapID);
+        // spawn damaging square and set new position
+        Spawn(ent.Comp.SpawnPrototype, xform.Coordinates);
+        _xform.SetWorldPosition(ent, pos + deltaPos);
 
-        Spawn(ent.Comp.SpawnPrototype, newPos);
-        var @this = Spawn(Prototype(ent)!.ID, newPos);
-
-        if (TryComp<HierophantChaserComponent>(@this, out var newChaser))
-        {
-            newChaser.Speed = ent.Comp.Speed;
-            newChaser.Steps = ent.Comp.Steps + 1;
-        }
-
-        QueueDel(ent);
+        // handle steps
+        ent.Comp.Steps += 1;
+        if (ent.Comp.Steps >= ent.Comp.MaxSteps)
+            QueueDel(ent);
     }
 
     private Vector2i TranslateDelta(Vector2 delta)
     {
         int x = 0, y = 0;
 
-        // this is shitty but it works and i'm not complaining
-        if (delta.X >= .5f) x = 1;
-        if (delta.Y >= .5f) y = 1;
-        if (delta.X <= -.5f) x = -1;
-        if (delta.Y <= -.5f) y = -1;
+        x = (int) Math.Clamp(MathF.Round(delta.X, 0), -1, 1);
+        y = (int) Math.Clamp(MathF.Round(delta.Y, 0), -1, 1);
+
+        // made for square-like movement
+        if (Math.Abs(x) >= Math.Abs(y)) y = 0;
+        else x = 0;
 
         var translated = new Vector2i(x, y);
 

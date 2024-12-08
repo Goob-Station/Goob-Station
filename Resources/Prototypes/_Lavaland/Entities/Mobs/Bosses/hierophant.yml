@@ -5,6 +5,8 @@
   description: A massive metal club that hangs in the air as though waiting. It'll make you dance to its beat.
   components:
   - type: Sprite
+    noRot: true
+    drawdepth: Mobs
     sprite: _Lavaland/Mobs/Bosses/hierophant.rsi
     state: hierophant
   - type: MovementSpeedModifier
@@ -37,10 +39,12 @@
       types:
         Blunt: 20
   - type: HierophantBoss # boss specific component. defines pattern/scripted attacks and other stuff
+    loot: BikeHorn
+    crusherLoot: GoldenBikeHorn
   - type: Aggressive # also required component for aggro checking
   - type: AmbientSound
     enabled: false
-    range: 10
+    range: 20
     volume: 1
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
@@ -64,11 +68,10 @@
     lifetime: 0.6  
   - type: SpawnOnDespawn
     prototypes:
-    - LavalandHierophantSquareDamaging
-    - LavalandHierophantBlastSound
+    - LavalandHierophantDamageField
 
 - type: entity
-  id: LavalandHierophantSquareDamaging
+  id: LavalandHierophantDamageField
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
@@ -78,16 +81,6 @@
     anchored: true
   - type: TimedDespawn
     lifetime: 0.325
-  - type: StepTrigger
-    requiredTriggeredSpeed: 0
-    intersectRatio: 0.1
-  - type: TileEntityEffect
-    effects:
-    - !type:HealthChange
-      damage:
-        types:
-          Blunt: 2.5 # only 5 damage because it ignores armor
-          Heat: 2.5
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -102,16 +95,11 @@
           - ItemMask
         density: 1000
         hard: false
-
-- type: entity
-  id: LavalandHierophantBlastSound
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: TimedDespawn
-    lifetime: 1.5
-  - type: AmbientSound
-    range: 5
-    volume: 1
+  - type: HierophantDamageField
+    damage:
+      types:
+        Blunt: 2.5
+        Heat: 2.5
     sound:
       path: /Audio/_Lavaland/Mobs/Bosses/hiero_blast.ogg
 
