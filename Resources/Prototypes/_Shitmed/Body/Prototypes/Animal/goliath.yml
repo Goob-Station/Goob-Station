@@ -1,0 +1,21 @@
+- type: body
+  id: Goliath
+  name: "goliath"
+  root: torso
+  slots:
+    torso:
+      part: TorsoAnimal
+      connections:
+      - legs
+      organs:
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        heart: OrganGoliathHeart # Allows you to use a slower version of their tentacles.
+        kidneys: OrganAnimalKidneys
+    legs:
+      part: LegsAnimal
+      connections:
+      - feet
+    feet:
+      part: FeetAnimal

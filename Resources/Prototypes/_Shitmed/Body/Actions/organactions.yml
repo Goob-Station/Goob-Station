@@ -1,0 +1,20 @@
+# Technically goliath will also have these, but its HTN should not abuse it.
+# Only player controlled ones would, and you could claim its a feature to throw salvies off at that point :trollface:
+- type: entity
+  id: ActionGoliathTentacleCrew
+  name: "[color=red]Tentacle Slam[/color]"
+  description: Use your tentacles to grab and stun a target player!
+  components:
+  - type: EntityWorldTargetAction
+    raiseOnUser: true
+    icon:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_spawn
+    iconOn:
+      sprite: Mobs/Aliens/Asteroid/goliath.rsi
+      state: goliath_tentacle_wiggle
+    sound:
+      path: "/Audio/Weapons/slash.ogg"
+    event: !type:GoliathSummonTentacleAction
+    useDelay: 80
+    range: 10
