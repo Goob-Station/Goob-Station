@@ -599,9 +599,19 @@
     steps:
     - SurgeryStepLobotomize
     - SurgeryStepCloseIncision
-  - type: SurgeryComponentCondition
-    component:
-    - type: OhioAccent
+    inverse: true
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Brain
+  - type: SurgeryOrganOnAddCondition
+    components:
+      brain:
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
+          clumsyDamage: # Placeholder values to be able to initialize the component
+            types:
+              Blunt: 0
     inverse: true
   - type: SurgeryPartCondition
     part: Head
@@ -617,9 +627,18 @@
     steps:
     - SurgeryStepMendBrainTissue
     - SurgeryStepCloseIncision
-  - type: SurgeryComponentCondition
-    component:
-    - type: OhioAccent
+  - type: SurgeryOrganCondition
+    organ:
+    - type: Brain
+  - type: SurgeryOrganOnAddCondition
+    components:
+      brain:
+        - type: OhioAccent
+        - type: RatvarianLanguage
+        - type: Clumsy
+          clumsyDamage:
+            types:
+              Blunt: 0
   - type: SurgeryPartCondition
     part: Head
 

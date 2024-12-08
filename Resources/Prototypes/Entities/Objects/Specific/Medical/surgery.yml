@@ -464,3 +464,13 @@
     speed: 2
   - type: Tending
     speed: 2
+
+- type: entity
+  parent: [ OmnimedTool, BaseSyndicateContraband ]
+  id: OmnimedToolSyndie
+  components:
+  - type: Sprite
+    state: evil
+  - type: Item
+    size: Small
+    heldPrefix: evil

@@ -11,7 +11,7 @@
         lungs: OrganAnimalLungs
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganCobraHeart # ALlows you to become invisible.
+        heart: OrganCobraHeart # Allows you to become invisible.
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
