@@ -599,7 +599,6 @@
     steps:
     - SurgeryStepLobotomize
     - SurgeryStepCloseIncision
-    inverse: true
   - type: SurgeryOrganCondition
     organ:
     - type: Brain

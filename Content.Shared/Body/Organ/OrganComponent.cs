@@ -8,7 +8,7 @@ using Content.Shared._Shitmed.Medical.Surgery.Tools; // Shitmed Change
 namespace Content.Shared.Body.Organ;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedBodySystem), (typeof(SharedSurgerySystem)))] // Shitmed Change
+[Access(typeof(SharedBodySystem), typeof(SharedSurgerySystem))] // Shitmed Change
 public sealed partial class OrganComponent : Component, ISurgeryToolComponent // Shitmed Change
 {
     /// <summary>
