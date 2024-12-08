@@ -34,10 +34,11 @@ public sealed partial class HierophantDamageFieldSystem : EntitySystem
             foreach (var entity in lookup)
             {
                 if (TryComp<DamageableComponent>(entity, out var dmg))
+                {
                     _dmg.TryChangeDamage(entity, shitter.Item2.Damage, damageable: dmg, targetPart: TargetBodyPart.Torso);
-
-                if (shitter.Item2.Sound != null)
-                    _aud.PlayPvs(shitter.Item2.Sound, shitter.Item1, AudioParams.Default.WithMaxDistance(5f).WithVolume(-10f));
+                    if (shitter.Item2.Sound != null)
+                        _aud.PlayEntity(shitter.Item2.Sound, entity, entity, AudioParams.Default.WithVolume(-3f));
+                }
             }
             RemComp(shitter.Item1, shitter.Item2);
         }
