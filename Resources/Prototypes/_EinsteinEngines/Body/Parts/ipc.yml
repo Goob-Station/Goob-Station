@@ -67,10 +67,8 @@
     organs:
       posbrain:
         id: "posbrain"
-        type: Brain
       pump:
         id: "pump"
-        type: Heart
   - type: ContainerContainer
     containers:
       torso_slot: !type:ContainerSlot {}
@@ -105,8 +103,7 @@
     partType: Head
     organs:
       eyes:
-        id: "eyes"
-        type: Eyes    
+        id: "eyes"   
     vital: true
   - type: Input
     context: "ghost"
