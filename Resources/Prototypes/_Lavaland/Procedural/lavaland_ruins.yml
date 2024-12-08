@@ -5,5 +5,10 @@
 
 - type: lavalandRuin
   id: Labyrinth
-  name: Labyrinth
+  name: Lavarinth # badam pssst
   path: Maps/_Lavaland/ruin_labyrinth.yml
+
+- type: lavalandRuin
+  id: Hermit
+  name: Makeshift Shelter
+  path: Maps/_Lavaland/ruin_hermit.yml

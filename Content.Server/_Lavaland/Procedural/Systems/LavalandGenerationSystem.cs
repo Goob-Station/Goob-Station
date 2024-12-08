@@ -173,7 +173,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
             alreadyTaken.Add(coord);
             // GAMBLING the coordinate a bit
-            const int shift = 4;
+            const int shift = 8;
             var shiftVector = new Vector2(random.Next(-shift, shift), random.Next(-shift, shift));
             coord += shiftVector;
 
