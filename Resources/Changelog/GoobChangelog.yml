@@ -2948,3 +2948,11 @@ Entries:
       message: The ore bag magnetism is now toggleable.
   id: 334
   time: '2024-12-09T14:15:50.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        The SecDrobe now has 5 bodycams, so you can film your clown abuse in
+        crystal clear 360p!
+  id: 335
+  time: '2024-12-09T14:17:26.0000000+00:00'
