@@ -108,6 +108,24 @@
 
 - type: entity
   parent: MedicalPatchBasic
+  id: MedicalPatchTherapeutic
+  name: therapeutic patch
+  description:  used to apply small doses over a long time
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    layers:
+      - state: GenericPatch
+      - state: GenericPatchBorder
+        color: LightBlue
+      - state: GenericPatch-1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: MedicalPatch
+    transferAmount: 0.5 # literally the rapid patch but in reverse
+
+- type: entity
+  parent: MedicalPatchBasic
   id: MedicalPatchLarge
   name: large patch
   description: put this on your Big boo boo
@@ -162,6 +180,14 @@
 - type: latheRecipe
   id: MedicalPatchRapid
   result: MedicalPatchRapid
+  completetime: 2
+  materials:
+    Cloth: 100
+    Plastic: 100
+
+- type: latheRecipe
+  id: MedicalPatchTherapeutic
+  result: MedicalPatchTherapeutic
   completetime: 2
   materials:
     Cloth: 100

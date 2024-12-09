@@ -2934,3 +2934,104 @@ Entries:
       message: Fix weird wheelchair bound behavior on cryo spawn.
   id: 332
   time: '2024-12-06T15:39:52.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Desoxyephedrine, aka METH, now explodes at 420K, 50K above the
+        temperature it is made at.
+  id: 333
+  time: '2024-12-09T14:13:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: The ore bag magnetism is now toggleable.
+  id: 334
+  time: '2024-12-09T14:15:50.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        The SecDrobe now has 5 bodycams, so you can film your clown abuse in
+        crystal clear 360p!
+  id: 335
+  time: '2024-12-09T14:17:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix dual wielded gun projectiles not hitting laying targets.
+    - type: Fix
+      message: Fix borgs being able to lie down in some conditions.
+    - type: Fix
+      message: Fix auto get up setting not working properly.
+    - type: Add
+      message: >-
+        Cluster grenade projectiles, reflected projectiles and heretic volcano
+        fireballs will always hit laying targets.
+    - type: Fix
+      message: >-
+        Heretic volcano projectiles won't hit ignored targets, it can now be
+        used safely.
+    - type: Add
+      message: >-
+        It is now possible to crawl while weightless, but not while flying on
+        jetpack.
+    - type: Add
+      message: Bullets will hit laying targets if they are moving fast enough.
+    - type: Fix
+      message: People will now always drop items when paralyzed or critted.
+  id: 336
+  time: '2024-12-09T14:30:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Added a medical cartridge autoinjector.
+    - type: Tweak
+      message: Cartridge autoinjectors now have a 30 second cooldown.
+    - type: Tweak
+      message: EMT belts now contain a tourniquet and medical cartridge autoinjector.
+    - type: Tweak
+      message: >-
+        Medical vendors now contain six tourniquets and two medical cartridge
+        autoinjectors.
+    - type: Tweak
+      message: >-
+        Ichor is no longer printable at an emagged autolathe, in its place is
+        puncturase cartridges.
+    - type: Fix
+      message: Tourniquets can now go inside medical belts.
+  id: 337
+  time: '2024-12-09T14:33:17.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Changeling headslugs can now crawl under tables and doors
+  id: 338
+  time: '2024-12-09T14:36:57.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Tweak
+      message: You can now get the Gentle and Jensen coats from your local Winterdrobe.
+    - type: Tweak
+      message: >-
+        Winterdrobes can now dispense the ultimate Space Asshole coat whenever
+        it's emagged.
+  id: 339
+  time: '2024-12-09T14:40:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: Removed bluespace crystal craft from protolathe.
+  id: 340
+  time: '2024-12-09T16:45:46.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+    - type: Fix
+      message: >-
+        Not a bugfix, but a warning, Surgery hasn't had anything coded in for
+        silicons, so you'll still have to "clamp bleeders" and use normal
+        surgical tools on them, will fix in around 2 weeks, have fun :trollface:
+  id: 341
+  time: '2024-12-09T19:10:32.0000000+00:00'
