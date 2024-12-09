@@ -5,7 +5,6 @@
   setPreference: true
   objective: roles-antag-changeling-description
   requirements:
-    - !type:DepartmentTimeRequirement
-      department: Security
-      time: 18000 #5 hrs
+    - !type:OverallTimeRequirement
+      time: 36000 #10 hrs
   guides: [ Changelings ]
