@@ -2956,3 +2956,29 @@ Entries:
         crystal clear 360p!
   id: 335
   time: '2024-12-09T14:17:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix dual wielded gun projectiles not hitting laying targets.
+    - type: Fix
+      message: Fix borgs being able to lie down in some conditions.
+    - type: Fix
+      message: Fix auto get up setting not working properly.
+    - type: Add
+      message: >-
+        Cluster grenade projectiles, reflected projectiles and heretic volcano
+        fireballs will always hit laying targets.
+    - type: Fix
+      message: >-
+        Heretic volcano projectiles won't hit ignored targets, it can now be
+        used safely.
+    - type: Add
+      message: >-
+        It is now possible to crawl while weightless, but not while flying on
+        jetpack.
+    - type: Add
+      message: Bullets will hit laying targets if they are moving fast enough.
+    - type: Fix
+      message: People will now always drop items when paralyzed or critted.
+  id: 336
+  time: '2024-12-09T14:30:39.0000000+00:00'
