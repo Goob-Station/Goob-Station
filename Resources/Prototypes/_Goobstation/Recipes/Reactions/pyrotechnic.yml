@@ -21,7 +21,6 @@
     intensityPerUnit: 5
     intensitySlope: 5
     maxTotalIntensity: 2.5
-    tileBreakChance: [0]
   products:
     disgustingmess: 15
 
