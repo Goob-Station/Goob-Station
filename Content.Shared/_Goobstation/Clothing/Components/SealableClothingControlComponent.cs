@@ -66,5 +66,8 @@ public sealed partial class SealableClothingControlComponent : Component
 
     [DataField]
     public SoundSpecifier SealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Mecha/nominal.ogg");
+
+    [DataField]
+    public SoundSpecifier UnsealCompleteSound = new SoundPathSpecifier("/Audio/_Goobstation/Machines/computer_end.ogg");
     #endregion
 }

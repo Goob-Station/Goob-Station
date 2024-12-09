@@ -16,3 +16,5 @@
     tags:
     - WhitelistChameleon
   - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-boots
+    sealDownPopup: sealable-clothing-seal-down-boots

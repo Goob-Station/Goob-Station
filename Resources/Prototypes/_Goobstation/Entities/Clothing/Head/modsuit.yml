@@ -12,4 +12,6 @@
     slots:
     - Snout
   - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-helmet
+    sealDownPopup: sealable-clothing-seal-down-helmet
 

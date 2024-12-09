@@ -22,3 +22,5 @@
     fiberColor: fibers-black
   - type: FingerprintMask
   - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-gauntlets
+    sealDownPopup: sealable-clothing-seal-down-gauntlets

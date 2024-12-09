@@ -5,8 +5,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ConfirmableAction
-    popup: clothing-seal-activate-warning
-    popupType: 2
+    confirmDelay: 0.2
     primeTime: 2
   - type: InstantAction
     checkCanInteract: false

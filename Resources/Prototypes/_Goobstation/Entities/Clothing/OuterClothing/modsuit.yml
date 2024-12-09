@@ -29,3 +29,5 @@
         Heat: 0.9
         Radiation: 0.4
   - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate

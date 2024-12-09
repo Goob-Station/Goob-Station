@@ -14,9 +14,10 @@ namespace Content.Shared.Actions;
 public sealed partial class ConfirmableActionComponent : Component
 {
     /// <summary>
-    /// Warning popup shown when priming the action.
+    /// Warning popup shown when priming the action. 
     /// </summary>
-    [DataField(required: true)]
+    // Goobstation - Modsuits - Removed required string
+    [DataField]
     public LocId Popup = string.Empty;
 
     /// <summary>

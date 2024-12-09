@@ -3,6 +3,7 @@ using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -17,6 +18,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
+    [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -178,6 +180,8 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
             if (comp.IsCurrentlySealed)
                 _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity!.Value, uid);
+            else
+                _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity!.Value, uid);
 
             Dirty(control);
             return;
@@ -213,9 +217,13 @@ public sealed partial class SealableClothingSystem : EntitySystem
             return;
 
         if (comp.IsCurrentlySealed)
-            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealDownPopup), uid, comp.WearerEntity!.Value);
+            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealDownPopup,
+                ("partName", Identity.Name(processingPart, EntityManager))),
+                uid, comp.WearerEntity!.Value);
         else
-            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealUpPopup), uid, comp.WearerEntity!.Value);
+            _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealUpPopup,
+                ("partName", Identity.Name(processingPart, EntityManager))),
+                uid, comp.WearerEntity!.Value);
     }
 }
 

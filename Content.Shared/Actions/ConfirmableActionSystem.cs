@@ -67,7 +67,8 @@ public sealed class ConfirmableActionSystem : EntitySystem
         comp.NextUnprime = comp.NextConfirm + comp.PrimeTime;
         Dirty(uid, comp);
 
-        _popup.PopupClient(Loc.GetString(comp.Popup), user, user, comp.PopupFontType);
+        if (!string.IsNullOrEmpty(comp.Popup))
+            _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupType.LargeCaution);
     }
 
     private void Unprime(Entity<ConfirmableActionComponent> ent)
