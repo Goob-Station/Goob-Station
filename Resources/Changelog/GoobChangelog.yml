@@ -2942,3 +2942,9 @@ Entries:
         temperature it is made at.
   id: 333
   time: '2024-12-09T14:13:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: The ore bag magnetism is now toggleable.
+  id: 334
+  time: '2024-12-09T14:15:50.0000000+00:00'
