@@ -1,0 +1,9 @@
+- type: latheRecipe
+  id: MaterialBSCrystal
+  result: MaterialBSCrystal1
+  completetime: 2
+  materials:
+    Gold: 150
+    Silver: 150
+    Glass: 150
+    Plasma: 200
