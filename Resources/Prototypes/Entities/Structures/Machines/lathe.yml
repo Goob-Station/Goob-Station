@@ -300,6 +300,7 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
+    - MaterialBSCrystal # Goobstation
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
