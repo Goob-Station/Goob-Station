@@ -62,6 +62,15 @@ public sealed partial class SealableClothingControlComponent : Component
     public LocId SealFailedPopup = "sealable-clothing-equipment-seal-failed";
 
     [DataField]
+    public LocId SealedInProcessToggleFailPopup = "sealable-clothing-sealed-process-toggle-fail";
+
+    [DataField]
+    public LocId UnsealedInProcessToggleFailPopup = "sealable-clothing-unsealed-process-toggle-fail";
+
+    [DataField]
+    public LocId CurrentlySealedToggleFailPopup = "sealable-clothing-sealed-toggle-fail";
+
+    [DataField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/scanbuzz.ogg");
 
     [DataField]

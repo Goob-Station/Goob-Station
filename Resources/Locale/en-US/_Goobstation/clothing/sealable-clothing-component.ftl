@@ -12,3 +12,7 @@ sealable-clothing-seal-down-helmet = The {$partName} hisses open.
 sealable-clothing-seal-down-gauntlets = The {$partName} releases your chest.
 sealable-clothing-seal-down-chestplate = The {$partName} become loose around your fingers.
 sealable-clothing-seal-down-boots= The {$partName} relax their grip on your legs.
+
+sealable-clothing-sealed-process-toggle-fail = Suit already shutting down!
+sealable-clothing-unsealed-process-toggle-fail = Suit already starting up!
+sealable-clothing-sealed-toggle-fail = Deactivate the suit first!

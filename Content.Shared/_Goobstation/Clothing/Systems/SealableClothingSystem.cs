@@ -38,6 +38,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, GetItemActionsEvent>(OnControlGetItemActions);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingDoAfterEvent>(OnSealClothingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
+        SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
     }
 
     /// <summary>
@@ -92,6 +93,66 @@ public sealed partial class SealableClothingSystem : EntitySystem
         TryStartSealToggleProcess(control);
     }
 
+    private void OnSealClothingDoAfter(Entity<SealableClothingControlComponent> control, ref SealClothingDoAfterEvent args)
+    {
+        var (uid, comp) = control;
+
+        if (args.Cancelled || args.Handled || args.Target == null)
+            return;
+
+        var partTarget = args.Target;
+
+        if (!TryComp<SealableClothingComponent>(partTarget, out var sealableComponet))
+            return;
+
+        sealableComponet.IsSealed = !comp.IsCurrentlySealed;
+
+        if (sealableComponet.IsSealed)
+            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+        else
+            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+
+        Dirty(partTarget.Value, sealableComponet);
+        NextSealProcess(control);
+    }
+
+    private void OnToggleClothingAttempt(Entity<SealableClothingControlComponent> control, ref ToggleClothingAttemptEvent args)
+    {
+        var (uid, comp) = control;
+
+        // Popup if currently unsealing
+        if (comp.IsInProcess && comp.IsCurrentlySealed)
+        {
+            _popupSystem.PopupClient(Loc.GetString(comp.SealedInProcessToggleFailPopup), uid, comp.WearerEntity);
+            _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            args.Cancel();
+
+            return;
+        }
+
+        // Popup if currently sealing
+        if (comp.IsInProcess)
+        {
+            _popupSystem.PopupClient(Loc.GetString(comp.UnsealedInProcessToggleFailPopup), uid, comp.WearerEntity);
+            _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            args.Cancel();
+
+            return;
+        }
+
+        // Popup if sealed, but not in process
+        if (comp.IsCurrentlySealed)
+        {
+            _popupSystem.PopupClient(Loc.GetString(comp.CurrentlySealedToggleFailPopup), uid, comp.WearerEntity);
+            _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            args.Cancel();
+
+            return;
+        }
+
+        return;
+    }
+
     /// <summary>
     ///     Tries to start sealing process
     /// </summary>
@@ -140,29 +201,6 @@ public sealed partial class SealableClothingSystem : EntitySystem
         NextSealProcess(control);
 
         return true;
-    }
-
-    private void OnSealClothingDoAfter(Entity<SealableClothingControlComponent> control, ref SealClothingDoAfterEvent args)
-    {
-        var (uid, comp) = control;
-
-        if (args.Cancelled || args.Handled || args.Target == null)
-            return;
-
-        var partTarget = args.Target;
-
-        if (!TryComp<SealableClothingComponent>(partTarget, out var sealableComponet))
-            return;
-
-        sealableComponet.IsSealed = !comp.IsCurrentlySealed;
-
-        if (sealableComponet.IsSealed)
-            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
-        else
-            _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
-
-        Dirty(partTarget.Value, sealableComponet);
-        NextSealProcess(control);
     }
 
     /// <summary>
