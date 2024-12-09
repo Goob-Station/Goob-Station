@@ -3024,3 +3024,14 @@ Entries:
       message: Removed bluespace crystal craft from protolathe.
   id: 340
   time: '2024-12-09T16:45:46.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+    - type: Fix
+      message: >-
+        Not a bugfix, but a warning, Surgery hasn't had anything coded in for
+        silicons, so you'll still have to "clamp bleeders" and use normal
+        surgical tools on them, will fix in around 2 weeks, have fun :trollface:
+  id: 341
+  time: '2024-12-09T19:10:32.0000000+00:00'
