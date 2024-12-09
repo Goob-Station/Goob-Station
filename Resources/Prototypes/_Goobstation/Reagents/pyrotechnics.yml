@@ -3,7 +3,7 @@
   name: reagent-name-blackpowder
   group: Pyrotechnic
   desc: reagent-desc-blackpowder
-  flavor: incredibly bitter
+  flavor: gunpowder
   physicalDesc: reagent-physical-desc-grainy
   color: black
   metabolisms:
@@ -13,4 +13,4 @@
       - !type:HealthChange
         damage:
           types: # black powder is bad for your health.
-            Poison: 0.2 # 4 damage/u
+            Poison: 0.1 # 2 damage/u

@@ -3,7 +3,7 @@
   name: reagent-name-potash
   group: Botanical
   desc: reagent-desc-potash
-  flavor: metallic and salty
+  flavor: bitter
   physicalDesc: reagent-physical-desc-chalky
   color: "#c9c3c3"
   plantMetabolism:
@@ -22,7 +22,7 @@
   name: reagent-name-saltpeter
   group: Botanical
   desc: reagent-desc-saltpeter
-  flavor: salty and bitter
+  flavor: salty
   physicalDesc: reagent-physical-desc-grainy
   color: white
   plantMetabolism:
