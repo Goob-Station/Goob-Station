@@ -16,7 +16,7 @@
     - id: GiftsVendingRestock
 
 # Game Rules
-    
+
 - type: entity
   id: CargoGiftsBase
   parent: BaseGameRule
@@ -28,8 +28,9 @@
       max: 10
   - type: StationEvent
     startColor: "#18abf5"
-    startAudio:
-      path: /Audio/Announcements/announce.ogg
+    # Goobstation - Custom Announcer
+    #startAudio:
+    #  path: /Audio/Announcements/announce.ogg
   - type: CargoGiftsRule
     sender: cargo-gift-default-sender
 
