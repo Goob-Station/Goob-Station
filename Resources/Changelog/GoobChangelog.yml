@@ -3018,3 +3018,9 @@ Entries:
         it's emagged.
   id: 339
   time: '2024-12-09T14:40:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: Removed bluespace crystal craft from protolathe.
+  id: 340
+  time: '2024-12-09T16:45:46.0000000+00:00'
