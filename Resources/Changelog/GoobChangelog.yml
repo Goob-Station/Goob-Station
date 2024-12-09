@@ -3008,3 +3008,13 @@ Entries:
       message: Changeling headslugs can now crawl under tables and doors
   id: 338
   time: '2024-12-09T14:36:57.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Tweak
+      message: You can now get the Gentle and Jensen coats from your local Winterdrobe.
+    - type: Tweak
+      message: >-
+        Winterdrobes can now dispense the ultimate Space Asshole coat whenever
+        it's emagged.
+  id: 339
+  time: '2024-12-09T14:40:37.0000000+00:00'
