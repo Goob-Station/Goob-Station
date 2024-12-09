@@ -2982,3 +2982,23 @@ Entries:
       message: People will now always drop items when paralyzed or critted.
   id: 336
   time: '2024-12-09T14:30:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Added a medical cartridge autoinjector.
+    - type: Tweak
+      message: Cartridge autoinjectors now have a 30 second cooldown.
+    - type: Tweak
+      message: EMT belts now contain a tourniquet and medical cartridge autoinjector.
+    - type: Tweak
+      message: >-
+        Medical vendors now contain six tourniquets and two medical cartridge
+        autoinjectors.
+    - type: Tweak
+      message: >-
+        Ichor is no longer printable at an emagged autolathe, in its place is
+        puncturase cartridges.
+    - type: Fix
+      message: Tourniquets can now go inside medical belts.
+  id: 337
+  time: '2024-12-09T14:33:17.0000000+00:00'
