@@ -29,6 +29,12 @@
             Captain: [ -1, -1 ]
             NanotrasenRepresentative: [ -1, -1 ] # Goob - remove it after test
             BlueshieldOfficer: [ -1, -1 ] # Remove this too
+        # Goobstation blob-config-start DEBUG
+        - type: StationBlobConfig
+          stageBegin: 20
+          stageCritical: 50
+          stageTheEnd: 100
+        # Goobstation blob-config-end
 
 - type: gameMap
   id: TestTeg

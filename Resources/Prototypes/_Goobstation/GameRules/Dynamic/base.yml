@@ -35,3 +35,10 @@
     speciesOverride: Human
     speciesOverrideBlacklist:
     - Vox # lol loser
+
+- type: entity
+  abstract: true
+  parent: BaseGameRuleDynamic
+  id: BaseBlobRuleDynamic
+  components:
+  - type: BlobRule

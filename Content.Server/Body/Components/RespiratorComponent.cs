@@ -77,6 +77,12 @@ namespace Content.Server.Body.Components
 
         [ViewVariables]
         public RespiratorStatus Status = RespiratorStatus.Inhaling;
+
+        /// <summary>
+        /// Whether the entity is immuned to pressure (i.e possess the PressureImmunity component)
+        /// </summary>
+        [ViewVariables, Access(typeof(_Goobstation.Blob.ZombieBlobSystem))]
+        public bool HasImmunity = false;    //Goobstation - Blob
     }
 }
 
