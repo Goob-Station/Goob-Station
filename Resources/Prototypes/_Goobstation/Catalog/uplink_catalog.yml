@@ -99,7 +99,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateBurner
   cost:
-    Telecrystal: 150
+    Telecrystal: 125 # don't kill me piras
   categories:
   - UplinkWeaponry
   conditions:
