@@ -99,7 +99,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateBurner
   cost:
-    Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
+    Telecrystal: 125 # don't kill me piras
   categories:
   - UplinkWeaponry
   conditions:
@@ -298,15 +298,36 @@
 # Ammo
 
 - type: listing
+  id: UplinkMagazineHighCaliber
+  name: uplink-high-caliber-magazine-name
+  description: uplink-high-caliber-magazine-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  productEntity: MagazineHighCaliber
+  cost:
+    Telecrystal: 25 # 1.66 TC per bullet, high price on mags.
+  categories:
+  - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
+
+- type: listing
   id: UplinkHighCaliberBox
   name: uplink-high-caliber-box-name
   description: uplink-high-caliber-box-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
   productEntity: MagazineBoxHighCaliber
   cost:
-    Telecrystal: 40 # ammo should be a big cost for this
+    Telecrystal: 35 # 1 TC per bullet
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 # 弾薬
 - type: listing

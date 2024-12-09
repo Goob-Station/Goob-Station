@@ -57,8 +57,11 @@ uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a coupl
 
 # Ammo
 
-uplink-high-caliber-box-name = 30 round .50 Box
+uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
+
+uplink-high-caliber-magazine-name = .50 Magazine
+uplink-high-caliber-magazine-desc = A magazine of 15 .50 caliber anti-materiel rounds.
 
 # Mechs
 
