@@ -3002,3 +3002,9 @@ Entries:
       message: Tourniquets can now go inside medical belts.
   id: 337
   time: '2024-12-09T14:33:17.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Changeling headslugs can now crawl under tables and doors
+  id: 338
+  time: '2024-12-09T14:36:57.0000000+00:00'
