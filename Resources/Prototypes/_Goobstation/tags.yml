@@ -117,7 +117,7 @@
 
 - type: Tag
   id: RipleyMkII
-  
+
 - type: Tag
   id: Clarke
 
@@ -126,3 +126,6 @@
 
 - type: Tag
   id: Gygax
+
+- type: Tag
+  id: Tourniquet
