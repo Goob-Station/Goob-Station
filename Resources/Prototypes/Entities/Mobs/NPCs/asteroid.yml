@@ -38,6 +38,8 @@
   name: goliath
   description: A massive beast that uses long tentacles to ensnare its prey, threatening them is not advised under any conditions.
   components:
+  - type: Body # Shitmed Change
+    prototype: Goliath
   - type: Sprite
     sprite: Mobs/Aliens/Asteroid/goliath.rsi
     layers:
