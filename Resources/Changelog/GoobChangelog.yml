@@ -2934,3 +2934,11 @@ Entries:
       message: Fix weird wheelchair bound behavior on cryo spawn.
   id: 332
   time: '2024-12-06T15:39:52.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Desoxyephedrine, aka METH, now explodes at 420K, 50K above the
+        temperature it is made at.
+  id: 333
+  time: '2024-12-09T14:13:17.0000000+00:00'
