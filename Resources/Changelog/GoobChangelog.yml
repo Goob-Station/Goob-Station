@@ -3041,3 +3041,17 @@ Entries:
       message: Unfucked ALL IPC and some Harpy/Moth emotes
   id: 342
   time: '2024-12-10T17:57:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: IPCs can no longer be changelings and initial infected.
+    - type: Add
+      message: IPCs can be flashed now.
+    - type: Fix
+      message: IPCs can now enter cryostorage.
+    - type: Fix
+      message: IPCs can now heal ion damage using cables.
+    - type: Fix
+      message: You can now see IPC status icons.
+  id: 343
+  time: '2024-12-10T23:30:01.0000000+00:00'
