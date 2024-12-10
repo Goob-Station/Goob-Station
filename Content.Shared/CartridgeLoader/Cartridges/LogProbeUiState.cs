@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Serialization;
+﻿using Content.Shared.DeltaV.CartridgeLoader.Cartridges; // DeltaV
+using Robust.Shared.Serialization;
 
 namespace Content.Shared.CartridgeLoader.Cartridges;
 
@@ -10,9 +11,15 @@ public sealed class LogProbeUiState : BoundUserInterfaceState
     /// </summary>
     public List<PulledAccessLog> PulledLogs;
 
-    public LogProbeUiState(List<PulledAccessLog> pulledLogs)
+    /// <summary>
+    /// DeltaV: The NanoChat data if a card was scanned, null otherwise
+    /// </summary>
+    public NanoChatData? NanoChatData { get; }
+
+    public LogProbeUiState(List<PulledAccessLog> pulledLogs, NanoChatData? nanoChatData = null) // DeltaV - NanoChat support
     {
         PulledLogs = pulledLogs;
+        NanoChatData = nanoChatData; // DeltaV
     }
 }
 
