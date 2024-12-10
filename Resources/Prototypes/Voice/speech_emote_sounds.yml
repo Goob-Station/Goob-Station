@@ -354,7 +354,7 @@
     Squeak:
       path: /Audio/Voice/Moth/moth_squeak.ogg
     Flap:
-      path: /Audio/Voice/Moth/moth_squeak.ogg
+      path: /Audio/Voice/Moth/moth_flap.ogg
     Weh:
       collection: Weh
     Gasp:
