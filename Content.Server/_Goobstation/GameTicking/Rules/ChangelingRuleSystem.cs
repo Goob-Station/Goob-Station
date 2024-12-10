@@ -12,6 +12,7 @@ using Content.Shared.Store.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using System.Text;
+using Content.Shared._EinsteinEngines.Silicon.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -49,6 +50,9 @@ public sealed partial class ChangelingRuleSystem : GameRuleSystem<ChangelingRule
     }
     public bool MakeChangeling(EntityUid target, ChangelingRuleComponent rule)
     {
+        if (HasComp<SiliconComponent>(target))
+            return false;
+
         if (!_mind.TryGetMind(target, out var mindId, out var mind))
             return false;
 
