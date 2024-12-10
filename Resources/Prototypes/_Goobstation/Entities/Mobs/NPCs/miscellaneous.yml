@@ -362,8 +362,12 @@
     layers:
       - map: ["enum.DamageStateVisualLayers.Base"]
         state: alive
-  - type: ConstantSound
-    sound: /Audio/StationEvents/mariah.ogg
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    enabled: true
+    sound:
+      path: /Audio/StationEvents/mariah.ogg
   - type: Bloodstream
     bloodMaxVolume: 1500000
     bloodReagent: Sugar # jolly essence
