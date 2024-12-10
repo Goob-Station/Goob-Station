@@ -34,6 +34,10 @@
     - WhitelistChameleon
   - type: StaticPrice
     price: 50
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 125
+      Durathread: 50
 
 - type: entity
   parent: ClothingOuterWinterCoat
@@ -370,6 +374,13 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathosarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterHOS
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 250
+      Durathread: 312
+      Plasteel: 187
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 220
 ##########################################################
 
 - type: entity
@@ -729,6 +740,13 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwardenarmored.rsi
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHatHoodWinterWarden
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 250
+      Durathread: 250
+      Plasteel: 125
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 180
 ################################################################
 
 - type: entity

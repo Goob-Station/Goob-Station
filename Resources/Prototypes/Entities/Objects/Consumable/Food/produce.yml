@@ -379,6 +379,9 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics

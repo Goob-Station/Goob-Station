@@ -164,10 +164,10 @@
         mask:
         - Opaque
   - type: TimedDespawn
-    lifetime: 2
+    lifetime: 0.7
 
 - type: entity
-  parent: BaseHardlightArrow
+  parent: [BaseHardlightArrow, BaseHardlightEmbeddableArrow]
   id: ArrowBee
   name: bee arrow
   description: An arrow made from hardlight. This one summons angry bees.
@@ -177,10 +177,15 @@
   - type: PointLight
     color: yellow
   - type: Projectile
-    deleteOnCollide: true
     damage:
       types:
         Heat: 0
   - type: SpawnEntitiesOnHit
+    spawnOnlyIfHitMob: true
     proto: MobAngryBeeWeak
     amount: 8
+    collideIgnoreEntities:
+    - MobBee
+    - MobAngryBee
+    - MobSyndieAngryBee
+    - MobAngryBeeWeak

@@ -3,7 +3,7 @@
   name: species-name-felinid
   roundStart: true
   prototype: MobFelinid
-  sprites: MobHumanSprites
+  sprites: MobFelinidSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
   skinColoration: HumanToned
@@ -11,26 +11,133 @@
 - type: markingPoints
   id: MobFelinidMarkingLimits
   points:
-    Hair:
-      points: 1
-      required: false
-    FacialHair:
-      points: 1
-      required: false
-    Tail:
-      points: 1
-      required: true
-      defaultMarkings: [ FelinidTailBasic ]
-    HeadTop:
-      points: 1
-      required: true
-      defaultMarkings: [ FelinidEarsBasic ]
-    Chest:
+    Head:
       points: 1
       required: false
     Legs:
-      points: 2
+      points: 1
       required: false
     Arms:
-      points: 2
+      points: 1
       required: false
+    Overlay:
+      points: 1
+      required: false
+    HeadTop:
+      points: 0
+      required: false
+    Tail:
+      points: 0
+      required: false
+
+- type: speciesBaseSprites
+  id: MobFelinidSprites
+  sprites:
+    Head: MobFelinidHead
+    Chest: MobFelinidTorso
+    Tail: MobFelinidTail
+    Eyes: MobFelinidEyes
+    LArm: MobFelinidLArm
+    RArm: MobFelinidRArm
+    LHand: MobFelinidLHand
+    RHand: MobFelinidRHand
+    LLeg: MobFelinidLLeg
+    RLeg: MobFelinidRLeg
+    LFoot: MobFelinidLFoot
+    RFoot: MobFelinidRFoot
+
+- type: humanoidBaseSprite
+  id: MobFelinidHead
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFelinidHeadMale
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobFelinidHeadFemale
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobFelinidTorso
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobFelinidTorsoMale
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobFelinidTorsoFemale
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobFelinidLLeg
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobFelinidLHand
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobFelinidLArm
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobFelinidLFoot
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobFelinidRLeg
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobFelinidRHand
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobFelinidRArm
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobFelinidRFoot
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobFelinidTail
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: tail
+
+- type: humanoidBaseSprite
+  id: MobFelinidEyes
+  baseSprite:
+    sprite: Nyanotrasen/Mobs/Species/Felinid/parts.rsi
+    state: eyes

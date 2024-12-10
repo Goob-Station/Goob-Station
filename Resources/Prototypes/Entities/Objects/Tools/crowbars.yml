@@ -23,9 +23,9 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
+      Steel: 50
   - type: StaticPrice
     price: 22
   - type: Prying
