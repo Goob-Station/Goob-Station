@@ -1175,14 +1175,14 @@ namespace Content.Shared.CCVar
         ///     Useful to prevent clipping through objects.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxVelocity =
-            CVarDef.Create("atmos.space_wind_max_velocity", 15f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_velocity", 35f, CVar.SERVERONLY);
 
         /// <summary>
         ///     The maximum force that may be applied to an object by pushing (i.e. not throwing) atmospheric pressure differences.
         ///     A "throwing" atmospheric pressure difference ignores this limit, but not the max. velocity limit.
         /// </summary>
         public static readonly CVarDef<float> SpaceWindMaxPushForce =
-            CVarDef.Create("atmos.space_wind_max_push_force", 20f, CVar.SERVERONLY);
+            CVarDef.Create("atmos.space_wind_max_push_force", 30f, CVar.SERVERONLY);
 
         /// <summary>
         ///     If an object's mass is below this number, then this number is used in place of mass to determine whether air pressure can throw an object.
