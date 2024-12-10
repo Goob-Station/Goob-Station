@@ -3035,3 +3035,9 @@ Entries:
         surgical tools on them, will fix in around 2 weeks, have fun :trollface:
   id: 341
   time: '2024-12-09T19:10:32.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: Unfucked ALL IPC and some Harpy/Moth emotes
+  id: 342
+  time: '2024-12-10T17:57:26.0000000+00:00'
