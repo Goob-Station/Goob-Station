@@ -36,7 +36,7 @@
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect
-    reflectProb: .5
+    reflectProb: .3
     spread: 90
   - type: Item
     sprite: Objects/Weapons/Melee/captain_sabre.rsi
