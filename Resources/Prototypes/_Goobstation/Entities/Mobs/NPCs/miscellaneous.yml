@@ -348,3 +348,22 @@
     damage:
       types:
         Heat: -500
+
+- type: entity
+  name: Mariah Carey
+  description: I don't want a lot for Christmas
+  id: MobMariah
+  parent: MobSportacus
+  components:
+  - type: Sprite
+    scale: 0.125, 0.125
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/mariah.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: alive
+  - type: ConstantSound
+    sound: /Audio/StationEvents/mariah.ogg
+  - type: Bloodstream
+    bloodMaxVolume: 1500000
+    bloodReagent: Sugar # jolly essence
