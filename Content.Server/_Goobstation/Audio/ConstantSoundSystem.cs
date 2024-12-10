@@ -19,6 +19,9 @@ public sealed class ConstantSoundSystem : EntitySystem
 
     private void OnInit(EntityUid uid, ConstantSoundComponent comp, ComponentStartup args)
     {
+        if (string.IsNullOrEmpty(comp.Sound))
+            return;
+
         _audio.PlayEntity(comp.Sound, Filter.Pvs(uid), uid, true, AudioParams.Default.WithLoop(true));
     }
 }
