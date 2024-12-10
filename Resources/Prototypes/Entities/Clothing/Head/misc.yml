@@ -150,9 +150,9 @@
     sprite: Clothing/Head/Misc/cone.rsi
   - type: Item
     storedRotation: 0
-  - type: PhysicalComposition #you can't just pass up some free plastic!
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 100
+      Plastic: 50
   - type: StaticPrice
     price: 25
 

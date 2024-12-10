@@ -40,9 +40,9 @@
         maxVol: 100
   - type: UseDelay
     delay: 1
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 25
   - type: Tag
     tags:
       - Mop
@@ -111,6 +111,11 @@
         - Mop
         - MopAdv
     - type: DnaSubstanceTrace
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Plastic: 100
+        Glass: 25
+        Steel: 25
 
 - type: entity
   name: wet floor sign
@@ -128,9 +133,9 @@
       coefficients:
         Blunt: 0.95
         Slash: 0.95
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
+      Plastic: 25
   - type: Tag
     tags:
       - WetFloorSign
@@ -275,10 +280,10 @@
     radius: 1.5
     energy: 0.75
     color: "#ffc20e"
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 50
-      Gold: 10
+      Plastic: 25
+      Gold: 25
       Wood: 25
 
 - type: weightedRandomEntity

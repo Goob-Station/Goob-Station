@@ -21,6 +21,7 @@
   - type: WirelessNetworkConnection
     range: 1000
   - type: DeviceLinkSource
+    range: 1000
     ports:
       - MaterialSilo
   - type: Machine

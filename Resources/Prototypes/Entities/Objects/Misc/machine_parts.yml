@@ -11,6 +11,10 @@
       size: Tiny
     - type: Stack
       count: 1
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 12
+        Plastic: 12
 
 - type: entity
   id: CapacitorStockPart
@@ -26,6 +30,7 @@
         - CapacitorStockPart
     - type: Stack
       stackType: Capacitor
+
 
 - type: entity
   id: MicroManipulatorStockPart

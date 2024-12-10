@@ -10,10 +10,10 @@
   - type: FlashImmunity
   - type: IdentityBlocker
   - type: EyeProtection
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
-      Glass: 100
+      Steel: 100
+      Glass: 50
   - type: StaticPrice
     price: 50
   - type: Tag

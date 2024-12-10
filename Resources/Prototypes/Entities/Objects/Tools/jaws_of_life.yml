@@ -1,7 +1,8 @@
 - type: entity
   name: jaws of life
   parent: BaseItem
-  id: JawsOfLife
+  id: JawsOfLifeBase # Goobstation - Recycler Update
+  abstract: true
   description: A set of jaws of life, compressed through the magic of science.
   components:
   - type: Tag
@@ -50,9 +51,20 @@
     soundHit:
       collection: MetalThud
 
+- type: entity # Goobstation - Recycler Update
+  parent: JawsOfLifeBase
+  id: JawsOfLife
+  components:
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Glass: 125
+      Plasma: 75
+      Gold: 12
+
 - type: entity
   name: syndicate jaws of life
-  parent: [JawsOfLife, BaseSyndicateContraband]
+  parent: [JawsOfLifeBase, BaseSyndicateContraband]
   id: SyndicateJawsOfLife
   description: Useful for entering the station or its departments.
   components:

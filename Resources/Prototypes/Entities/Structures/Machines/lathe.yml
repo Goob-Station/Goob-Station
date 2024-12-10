@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: Speech # Goobstation - Lathe message on recipes update
+    speechSounds: Lathe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -203,6 +205,7 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - ToolboxMechanical # Goobstation - Recycle update
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -234,8 +237,9 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
-      - CartridgeIchor # Goobstation
+      - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
+      - ParamedHypo # Goobstation - ParamedHypo
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -296,7 +300,6 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
-    - MaterialBSCrystal # Goobstation
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
@@ -640,9 +643,22 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
-    - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -776,11 +792,25 @@
     - MothroachCube
     - MouseCube
     - CockroachCube
+    - HumanCube # Goobstation - Start
+    - DionaCube
+    - FelinidCube
+    - GingerbreadCube
+    - MothCube
+    - DwarfCube
+    - HarpyCube
+    - RodentiaCube
+    - ReptilianCube
+    - VulpkaninCube
+    - SlimePersonCube
+    - VoxCube
+    - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - SkibidiCube # Goobstation
 
 - type: entity
   id: SecurityTechFab
@@ -1039,9 +1069,14 @@
       - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
       - VehicleWheelchairFolded # Goobstation - Vehicles
+      - CartridgeEpinephrine # Goobstation - ParamedHypo
+      - CartridgeBicaridine # Goobstation - ParamedHypo
+      - CartridgeDermaline # Goobstation - ParamedHypo
+      - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
@@ -1367,6 +1402,7 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+
 
 - type: entity
   parent: OreProcessor
