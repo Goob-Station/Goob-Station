@@ -1,0 +1,59 @@
+- type: reagent
+  id: Potash
+  name: reagent-name-potash
+  group: Botanical
+  desc: reagent-desc-potash
+  flavor: bitter
+  physicalDesc: reagent-physical-desc-chalky
+  color: "#c9c3c3"
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 4 # stronger than EZ-nutrient, but not very practical to use anyways
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Plant
+
+- type: reagent
+  id: Saltpeter
+  name: reagent-name-saltpeter
+  group: Botanical
+  desc: reagent-desc-saltpeter
+  flavor: salty
+  physicalDesc: reagent-physical-desc-grainy
+  color: white
+  plantMetabolism:
+    - !type:PlantAdjustNutrition
+      amount: 8 # contains nitrogen in addition to potassium, so more nutritious for plants, plus, it's hard to make anyways
+    - !type:PlantAdjustToxins
+      amount: -5
+    - !type:PlantAdjustHealth
+      amount: 0.8
+    - !type:PlantAffectGrowth
+      probability: 0.3
+      amount: 1
+  metabolisms:
+    Food:
+      effects:
+      - !type:SatiateHunger
+        conditions:
+        - !type:OrganType
+          type: Plant
+    Medicine:
+      metabolismRate: 0.2 # powerful at healing diona, but slow
+      effects:
+      - !type:HealthChange
+        damage:
+          types: # less plant-steroids like robust harvest is
+            Poison: -1.2
+            Blunt: -0.4
+            Slash: -0.4
+            Piercing: -0.4
+            Heat: -0.8
+            Cold: -0.8
+        conditions:
+        - !type:OrganType
+          type: Plant
