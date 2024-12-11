@@ -17,7 +17,7 @@
     sprite: Structures/Machines/mixer.rsi
     state: mixer_loaded
   - type: ChemMaster
-    pillDosageLimit: 5
+    pillDosageLimit: 20
   - type: Destructible
     thresholds:
     - trigger:
