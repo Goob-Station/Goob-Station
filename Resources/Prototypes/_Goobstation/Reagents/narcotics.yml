@@ -53,9 +53,15 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:Paralyze # TODO: doesn't work! fix this! - tried to fix this will see later
+      - !type:Paralyze # loss of muscle control
         probability: 0.05
         paralyzeTime: 2
+      - !type:Paralyze # more severe effects when you are overdosing
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        probability: 0.05
+        paralyzeTime: 4
       - !type:GenericStatusEffect # tripping balls, duh
         key: SeeingRainbows
         component: SeeingRainbows
@@ -66,7 +72,4 @@
         boozePower: 10
       - !type:Emote # Now a bunch of emotes
         emote: Scream
-        probability: 0.05
-      - !type:Emote
-        emote: Laugh
         probability: 0.05
