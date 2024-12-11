@@ -3131,3 +3131,12 @@ Entries:
         make em a playable species)
   id: 348
   time: '2024-12-11T22:46:28.0000000+00:00'
+- author: TheNeonViking
+  changes:
+    - type: Add
+      message: >-
+        Added Max Sentencing time column to the Crime list in guidebook. Added
+        preface sections about Accessory, Attempting, and Intention as well as
+        Stackable Crimes to Crime list page.
+  id: 349
+  time: '2024-12-11T22:47:01.0000000+00:00'
