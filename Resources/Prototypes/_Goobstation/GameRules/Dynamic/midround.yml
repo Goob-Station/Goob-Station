@@ -14,9 +14,7 @@
     earliestStart: 30
     weight: 10
     minimumPlayers: 15
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+    startAnnouncement: true
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -36,9 +34,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 15
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+    startAnnouncement: true
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -58,9 +54,7 @@
     earliestStart: 20
     weight: 3
     minimumPlayers: 30
-    startAnnouncement: station-event-communication-interception
-    startAudio:
-      path: /Audio/Announcements/intercept.ogg
+    startAnnouncement: true
     duration: null
     occursDuringRoundEnd: false
   - type: AlertLevelInterceptionRule
@@ -299,10 +293,7 @@
     cost: 7
     highImpact: true
   - type: StationEvent
-    startAnnouncement: station-event-vent-creatures-start-announcement
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    earliestStart: 15
+    startAnnouncement: true
     weight: 6
     duration: 50
     minimumPlayers: 30 # Hopefully this is enough for the Rat King's potential Army (it was not, raised from 15 -> 30)
