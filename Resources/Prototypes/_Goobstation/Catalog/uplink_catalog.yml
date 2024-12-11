@@ -99,7 +99,7 @@
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateBurner
   cost:
-    Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
+    Telecrystal: 125 # don't kill me piras
   categories:
   - UplinkWeaponry
 
@@ -323,6 +323,11 @@
     Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
   categories:
   - UplinkAmmo
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkGrenadeFrag
