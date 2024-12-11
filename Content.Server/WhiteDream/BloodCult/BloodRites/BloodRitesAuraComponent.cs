@@ -52,6 +52,9 @@ public sealed partial class BloodRitesAuraComponent : Component
     public FixedPoint2 TotalHealing = 20;
 
     [DataField]
+    public float PuddleConsumeRadius = 0.5f;
+
+    [DataField]
     public SoundSpecifier BloodRitesAudio = new SoundPathSpecifier(
         new ResPath("/Audio/WhiteDream/BloodCult/rites.ogg"),
         AudioParams.Default.WithVolume(-3));

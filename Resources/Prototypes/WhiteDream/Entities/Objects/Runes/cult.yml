@@ -28,6 +28,7 @@
   parent: CultRuneBase
   id: CultRuneOffering
   name: rune of offering
+  description: Offers a noncultist above it to Nar'Sie, either converting them or sacrificing them. One cultists required for dead sacrifice, two for conversion and three for living sacrifices and sacrifice targets.
   components:
   - type: Sprite
     state: "offering"
@@ -39,6 +40,7 @@
   parent: CultRuneBase
   id: CultRuneEmpower
   name: rune of empower
+  description: Allows cultists to prepare greater amounts of blood magic at far less of a cost.
   components:
   - type: Sprite
     state: strength
@@ -50,6 +52,7 @@
   parent: CultRuneBase
   id: CultRuneTeleport
   name: rune of teleportation
+  description: Warps everything above it to another chosen teleport rune
   components:
   - type: Sprite
     state: teleport
@@ -67,6 +70,7 @@
   parent: CultRuneBase
   id: CultRuneRevive
   name: rune of rejuvenation
+  description: Requires a dead, mindless, or inactive cultist placed upon the rune. Provided there have been sufficient sacrifices, they will be given a new life.
   components:
   - type: Sprite
     state: revive
@@ -78,6 +82,7 @@
   parent: CultRuneBase
   id: CultRuneBarrier
   name: rune of barrier
+  description: When invoked, makes a temporary invisible wall to block passage.
   components:
   - type: Sprite
     state: barrier
@@ -93,6 +98,7 @@
   parent: CultRuneBase
   id: CultRuneSummoning
   name: rune of summoning
+  description: Summons a single cultist to the rune. Requires 2 invokers.
   components:
   - type: Sprite
     state: summon
@@ -109,6 +115,7 @@
   parent: CultRuneBase
   id: CultRuneBloodBoil
   name: rune of boiling blood
+  description: Boils the blood of non-believers who can see the rune, rapidly dealing extreme amounts of damage. Requires 3 invokers.
   components:
   - type: Sprite
     state: blood_boil
@@ -124,6 +131,7 @@
   parent: CultRuneBase
   id: CultRuneApocalypse
   name: rune of apocalypse
+  description: Harbinger of the end times. Grows in strength with the cult's desperation - but at the risk of... side effects. Requires 3 invokers.
   components:
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Runes/apocalypse.rsi
@@ -133,6 +141,8 @@
   - type: CultRuneBase
     requiredInvokers: 3
     invokePhrase: "Ta'gh fara'qha fel d'amar det!"
+    triggerRendingMarkers: true
+    canBeErased: false
     activationDamage:
       types:
         Slash: 35
@@ -147,6 +157,7 @@
   parent: CultRuneBase
   id: CultRuneDimensionalRending
   name: rune of dimensional rending
+  description: Tears apart dimensional barriers, calling forth the Geometer. Requires 10 invokers
   components:
   - type: Sprite
     sprite: WhiteDream/BloodCult/Entities/Runes/dimensional_rending.rsi
@@ -157,6 +168,8 @@
     requiredInvokers: 10
     invokeChatType: Speak
     invokePhrase: "TOK-LYR RQA-NAP G'OLT-ULOFT!!!"
+    triggerRendingMarkers: true
+    canBeErased: false
   - type: CultRuneRending
   - type: GenericVisualizer
     visuals:

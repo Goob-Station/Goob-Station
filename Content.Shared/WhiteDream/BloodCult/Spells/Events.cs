@@ -2,6 +2,7 @@
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Magic;
+using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -26,6 +27,9 @@ public sealed partial class BloodCultTeleportEvent : EntityTargetActionEvent, IS
 {
     [DataField]
     public float Range = 5;
+
+    [DataField]
+    public TimeSpan DoAfterDuration = TimeSpan.FromSeconds(2);
 
     [DataField]
     public string? Speech { get; set; }
@@ -90,6 +94,28 @@ public sealed partial class SummonEquipmentEvent : InstantActionEvent, ISpeakSpe
 }
 
 public sealed partial class BloodSpearRecalledEvent : InstantActionEvent;
+
+public sealed partial class PlaceTileEntityEvent : WorldTargetActionEvent
+{
+    [DataField]
+    public EntProtoId? Entity;
+
+    [DataField]
+    public string? TileId;
+
+    [DataField]
+    public SoundSpecifier? Audio;
+
+}
+
+public sealed partial class PhaseShiftEvent : InstantActionEvent
+{
+    [DataField]
+    public TimeSpan Duration = TimeSpan.FromSeconds(5);
+
+    [DataField]
+    public ProtoId<StatusEffectPrototype> StatusEffectId = "PhaseShifted";
+}
 
 [Serializable, NetSerializable]
 public sealed partial class TwistedConstructionDoAfterEvent : SimpleDoAfterEvent;

@@ -22,7 +22,7 @@ public sealed class BloodCultTeleportSpellSystem : EntitySystem
     {
         SubscribeLocalEvent<BloodCultTeleportEvent>(OnTeleport);
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, ListViewItemSelectedMessage>(OnTeleportRuneSelected);
-        SubscribeLocalEvent<TeleportActionDoAfterEvent>(OnTeleportDoAfter);
+        SubscribeLocalEvent<BloodCultSpellsHolderComponent, TeleportActionDoAfterEvent>(OnTeleportDoAfter);
     }
 
     private void OnTeleport(BloodCultTeleportEvent ev)
@@ -30,28 +30,37 @@ public sealed class BloodCultTeleportSpellSystem : EntitySystem
         if (ev.Handled || !_runeTeleport.TryGetTeleportRunes(ev.Performer, out var runes))
             return;
 
-        _ui.SetUiState(ev.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(runes));
+        var metaData = new Dictionary<string, object>
+        {
+            ["target"] = GetNetEntity(ev.Target),
+            ["duration"] = ev.DoAfterDuration
+        };
+
+        _ui.SetUiState(ev.Performer, ListViewSelectorUiKey.Key, new ListViewSelectorState(runes, metaData));
         _ui.TryToggleUi(ev.Performer, ListViewSelectorUiKey.Key, ev.Performer);
         ev.Handled = true;
     }
 
-    private void OnTeleportRuneSelected(Entity<BloodCultSpellsHolderComponent> ent,
-        ref ListViewItemSelectedMessage args)
+    private void OnTeleportRuneSelected(
+        Entity<BloodCultSpellsHolderComponent> ent,
+        ref ListViewItemSelectedMessage args
+    )
     {
-        if (!args.MetaData.TryGetValue("target", out var rawTarget) || rawTarget is not EntityUid target ||
+        if (!args.MetaData.TryGetValue("target", out var rawTarget) || rawTarget is not NetEntity netTarget ||
             !args.MetaData.TryGetValue("duration", out var rawDuration) || rawDuration is not TimeSpan duration)
             return;
 
+        var target = GetEntity(netTarget);
         var teleportDoAfter = new TeleportActionDoAfterEvent
         {
-            Rune = GetNetEntity(EntityUid.Parse(args.SelectedItem.Id)),
+            Rune = GetNetEntity(EntityUid.Parse(args.SelectedItem.Id))
         };
-        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, duration, teleportDoAfter, target);
+        var doAfterArgs = new DoAfterArgs(EntityManager, ent.Owner, duration, teleportDoAfter, target, target);
 
         _doAfter.TryStartDoAfter(doAfterArgs);
     }
 
-    private void OnTeleportDoAfter(TeleportActionDoAfterEvent ev)
+    private void OnTeleportDoAfter(Entity<BloodCultSpellsHolderComponent> user, ref TeleportActionDoAfterEvent ev)
     {
         if (ev.Target is not { } target)
             return;

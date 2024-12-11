@@ -1,5 +1,4 @@
-﻿using System.Linq;
-using System.Numerics;
+﻿using System.Numerics;
 using Content.Client.UserInterface.Controls;
 using Content.Shared.WhiteDream.BloodCult.Runes;
 using JetBrains.Annotations;
@@ -23,17 +22,22 @@ public sealed class RuneDrawerBUI : BoundUserInterface
     [Dependency] private readonly IInputManager _inputManager = default!;
 
     private readonly SpriteSystem _spriteSystem;
-
-    private RadialMenu? _menu;
+    private readonly RadialMenu _menu;
 
     public RuneDrawerBUI(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         _spriteSystem = _entManager.System<SpriteSystem>();
+        _menu = new()
+        {
+            HorizontalExpand = true,
+            VerticalExpand = true,
+            BackButtonStyleClass = "RadialMenuBackButton",
+            CloseButtonStyleClass = "RadialMenuCloseButton"
+        };
     }
 
     protected override void Open()
     {
-        _menu = FormMenu();
         _menu.OnClose += Close;
         _menu.OpenCenteredAt(_inputManager.MouseScreenPosition.Position / _displayManager.ScreenSize);
     }
@@ -41,53 +45,49 @@ public sealed class RuneDrawerBUI : BoundUserInterface
     protected override void Dispose(bool disposing)
     {
         base.Dispose(disposing);
-        if (disposing)
-            _menu?.Dispose();
+        _menu.Close();
     }
 
-    private RadialMenu FormMenu()
+    protected override void UpdateState(BoundUserInterfaceState state)
     {
-        var menu = new RadialMenu
+        if (state is RuneDrawerMenuState runeDrawerState)
+            FillMenu(runeDrawerState.AvailalbeRunes);
+    }
+
+    private void FillMenu(List<ProtoId<RuneSelectorPrototype>>? runes = null)
+    {
+        if (runes is null)
+            return;
+
+        var container = new RadialContainer
         {
-            HorizontalExpand = true,
-            VerticalExpand = true,
-            BackButtonStyleClass = "RadialMenuBackButton",
-            CloseButtonStyleClass = "RadialMenuCloseButton"
+            Radius = 48f + 24f * MathF.Log(runes.Count)
         };
 
-        if (!_entManager.HasComponent<RuneDrawerComponent>(Owner))
-            return menu;
+        _menu.AddChild(container);
 
-        var runeSelectorArray = _protoManager.EnumeratePrototypes<RuneSelectorPrototype>().OrderBy(r => r.ID).ToArray();
-
-        var mainContainer = new RadialContainer
+        foreach (var runeSelector in runes)
         {
-            Radius = 36f / (runeSelectorArray.Length == 1
-                ? 1
-                : MathF.Sin(MathF.PI / runeSelectorArray.Length))
-        };
-
-        foreach (var runeSelector in runeSelectorArray)
-        {
-            if (!_protoManager.TryIndex(runeSelector.Prototype, out var proto))
+            if (!_protoManager.TryIndex(runeSelector, out var runeSelectorProto) ||
+                !_protoManager.TryIndex(runeSelectorProto.Prototype, out var runeProto))
                 continue;
 
             var itemSize = new Vector2(64f, 64f);
             var button = new RadialMenuTextureButton
             {
-                ToolTip = Loc.GetString(proto.Name),
+                ToolTip = Loc.GetString(runeProto.Name),
                 StyleClasses = { "RadialMenuButton" },
                 SetSize = itemSize
             };
 
-            var runeIcon = _spriteSystem.Frame0(proto);
+            var runeIcon = _spriteSystem.Frame0(runeProto);
             var runeScale = itemSize / runeIcon.Size;
 
             var texture = new TextureRect
             {
                 VerticalAlignment = Control.VAlignment.Center,
                 HorizontalAlignment = Control.HAlignment.Center,
-                Texture = _spriteSystem.Frame0(proto),
+                Texture = _spriteSystem.Frame0(runeProto),
                 TextureScale = runeScale
             };
 
@@ -99,10 +99,7 @@ public sealed class RuneDrawerBUI : BoundUserInterface
                 Close();
             };
 
-            mainContainer.AddChild(button);
+            container.AddChild(button);
         }
-
-        menu.AddChild(mainContainer);
-        return menu;
     }
 }

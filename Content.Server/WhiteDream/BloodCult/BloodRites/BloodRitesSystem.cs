@@ -10,7 +10,9 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
+using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.UserInterface;
@@ -34,6 +36,7 @@ public sealed class BloodRitesSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly DoAfterSystem _doAfter = default!;
     [Dependency] private readonly HandsSystem _handsSystem = default!;
+    [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
@@ -52,6 +55,8 @@ public sealed class BloodRitesSystem : EntitySystem
 
         SubscribeLocalEvent<BloodRitesAuraComponent, BeforeActivatableUIOpenEvent>(BeforeUiOpen);
         SubscribeLocalEvent<BloodRitesAuraComponent, BloodRitesMessage>(OnRitesMessage);
+
+        SubscribeLocalEvent<BloodRitesAuraComponent, DroppedEvent>(OnDropped);
     }
 
     private void OnExamining(Entity<BloodRitesAuraComponent> rites, ref ExaminedEvent args) =>
@@ -83,19 +88,16 @@ public sealed class BloodRitesSystem : EntitySystem
             return;
         }
 
-        if (!TryComp(args.Target, out SolutionContainerManagerComponent? solutionContainer)) // please send help
-            return;
-
-        foreach (var (_, solution) in _solutionContainer.EnumerateSolutions((args.Target.Value, solutionContainer)))
+        if (HasComp<PuddleComponent>(args.Target))
         {
-            // I don't think something will ever have more than 1000 blood units in it's solution...
-            rites.Comp.StoredBlood += solution.Comp.Solution.RemoveReagent(_bloodProto, 1000);
-            _solutionContainer.UpdateChemicals(solution);
-            break;
+            ConsumePuddles(args.Target.Value, rites);
+            args.Handled = true;
         }
-
-        _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
-        args.Handled = true;
+        else if (TryComp(args.Target, out SolutionContainerManagerComponent? solutionContainer))
+        {
+            ConsumeBloodFromSolution((args.Target.Value, solutionContainer), rites);
+            args.Handled = true;
+        }
     }
 
     private void OnDoAfter(Entity<BloodRitesAuraComponent> rites, ref BloodRitesExtractDoAfterEvent args)
@@ -153,6 +155,8 @@ public sealed class BloodRitesSystem : EntitySystem
         var ent = Spawn(args.SelectedProto, _transform.GetMapCoordinates(args.Actor));
         _handsSystem.TryPickup(args.Actor, ent);
     }
+
+    private void OnDropped(Entity<BloodRitesAuraComponent> rites, ref DroppedEvent args) => QueueDel(rites);
 
     private bool Heal(Entity<BloodRitesAuraComponent> rites, EntityUid user, Entity<DamageableComponent> target)
     {
@@ -233,5 +237,37 @@ public sealed class BloodRitesSystem : EntitySystem
 
         rites.Comp.StoredBlood -= bloodCost;
         return true;
+    }
+
+    private void ConsumePuddles(EntityUid origin, Entity<BloodRitesAuraComponent> rites)
+    {
+        var coords = Transform(origin).Coordinates;
+
+        var lookup = _lookup.GetEntitiesInRange<PuddleComponent>(
+            coords,
+            rites.Comp.PuddleConsumeRadius,
+            LookupFlags.Uncontained);
+
+        foreach (var puddle in lookup)
+        {
+            if (!TryComp(puddle, out SolutionContainerManagerComponent? solutionContainer))
+                continue;
+            ConsumeBloodFromSolution((puddle, solutionContainer), rites);
+        }
+
+        _audio.PlayPvs(rites.Comp.BloodRitesAudio, rites);
+    }
+
+    private void ConsumeBloodFromSolution(
+        Entity<SolutionContainerManagerComponent?> ent,
+        Entity<BloodRitesAuraComponent> rites
+    )
+    {
+        foreach (var (_, solution) in _solutionContainer.EnumerateSolutions(ent))
+        {
+            rites.Comp.StoredBlood += solution.Comp.Solution.RemoveReagent(_bloodProto, 1000);
+            _solutionContainer.UpdateChemicals(solution);
+            break;
+        }
     }
 }

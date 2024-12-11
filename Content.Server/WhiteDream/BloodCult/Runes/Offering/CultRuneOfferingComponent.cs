@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes.Offering;
 
@@ -31,9 +32,15 @@ public sealed partial class CultRuneOfferingComponent : Component
     public int ReviveChargesPerOffering = 1;
 
     [DataField]
+    public EntProtoId SoulShardProto = "SoulShard";
+
+    [DataField]
+    public EntProtoId SoulShardGhostProto = "SoulShardGhost";
+
+    [DataField]
     public DamageSpecifier ConvertHealing = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict = new()
         {
             ["Brute"] = -40,
             ["Burn"] = -40

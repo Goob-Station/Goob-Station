@@ -54,15 +54,14 @@ public sealed class CultRuneApocalypseSystem : EntitySystem
         ent.Comp.Used = true;
         _appearance.SetData(ent, ApocalypseRuneVisuals.Used, true);
 
-        _emp.EmpPulse(_transform.GetMapCoordinates(ent),
+        _emp.EmpPulse(
+            _transform.GetMapCoordinates(ent),
             ent.Comp.EmpRange,
             ent.Comp.EmpEnergyConsumption,
             ent.Comp.EmpDuration);
 
         foreach (var guaranteedEvent in ent.Comp.GuaranteedEvents)
-        {
             _gameTicker.StartGameRule(guaranteedEvent);
-        }
 
         var requiredCultistsThreshold = MathF.Floor(_playerManager.PlayerCount * ent.Comp.CultistsThreshold);
         var totalCultists = cultRule.Cultists.Count + cultRule.Constructs.Count;
@@ -71,8 +70,6 @@ public sealed class CultRuneApocalypseSystem : EntitySystem
 
         var (randomEvent, repeatTimes) = _random.Pick(ent.Comp.PossibleEvents);
         for (var i = 0; i < repeatTimes; i++)
-        {
             _gameTicker.StartGameRule(randomEvent);
-        }
     }
 }

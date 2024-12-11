@@ -1,4 +1,5 @@
 ﻿using Content.Shared.Chat;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Robust.Shared.Prototypes;
@@ -26,7 +27,16 @@ public sealed partial class CultRuneBaseComponent : Component
     [DataField]
     public DamageSpecifier? ActivationDamage;
 
-    public EntProtoId HolyWaterPrototype = "HolyWater";
+    /// <summary>
+    ///     Will the rune upon activation set nearest Rending Rune Placement Marker to disabled.
+    /// </summary>
+    [DataField]
+    public bool TriggerRendingMarkers;
+
+    [DataField]
+    public bool CanBeErased = true;
+
+    public ProtoId<ReagentPrototype> HolyWaterPrototype = "HolyWater";
 }
 
 public sealed class TryInvokeCultRuneEvent(EntityUid user, HashSet<EntityUid> invokers) : CancellableEntityEventArgs

@@ -8,7 +8,6 @@ using Content.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Server.WhiteDream.BloodCult.Runes.Revive;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
-using Content.Shared.Humanoid;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.StatusEffect;
@@ -35,10 +34,11 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         SubscribeLocalEvent<CultRuneOfferingComponent, TryInvokeCultRuneEvent>(OnOfferingRuneInvoked);
     }
 
-    private void OnOfferingRuneInvoked(Entity<CultRuneOfferingComponent> ent, ref TryInvokeCultRuneEvent args)
+    private void OnOfferingRuneInvoked(Entity<CultRuneOfferingComponent> rune, ref TryInvokeCultRuneEvent args)
     {
-        var possibleTargets = _cultRune.GetTargetsNearRune(ent,
-            ent.Comp.OfferingRange,
+        var possibleTargets = _cultRune.GetTargetsNearRune(
+            rune,
+            rune.Comp.OfferingRange,
             entity => HasComp<BloodCultistComponent>(entity));
 
         if (possibleTargets.Count == 0)
@@ -48,65 +48,60 @@ public sealed class CultRuneOfferingSystem : EntitySystem
         }
 
         var target = possibleTargets.First();
-
-        // if the target is dead we should always sacrifice it.
-        if (_mobState.IsDead(target))
-        {
-            Sacrifice(target);
-            return;
-        }
-
-        if (!_mind.TryGetMind(target, out _, out _) ||
-            _bloodCultRule.IsTarget(target) ||
-            HasComp<BibleUserComponent>(target) ||
-            HasComp<MindShieldComponent>(target))
-        {
-            if (!TrySacrifice(target, ent, args.Invokers.Count))
-                args.Cancel();
-
-            return;
-        }
-
-        if (!TryConvert(target, ent, args.User, args.Invokers.Count))
+        if (!TryOffer(rune, target, args.User, args.Invokers.Count))
             args.Cancel();
     }
 
-    private bool TrySacrifice(Entity<HumanoidAppearanceComponent> target,
-        Entity<CultRuneOfferingComponent> rune,
-        int invokersAmount)
+    private bool TryOffer(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user, int invokersTotal)
+    {
+        // if the target is dead we should always sacrifice it.
+        if (_mobState.IsDead(target))
+        {
+            Sacrifice(rune, target);
+            return true;
+        }
+
+        if (!_mind.TryGetMind(target, out _, out _) || _bloodCultRule.IsTarget(target) ||
+            HasComp<BibleUserComponent>(target) || HasComp<MindShieldComponent>(target))
+            return TrySacrifice(rune, target, invokersTotal);
+
+        return TryConvert(rune, target, user, invokersTotal);
+    }
+
+    private bool TrySacrifice(Entity<CultRuneOfferingComponent> rune, EntityUid target, int invokersAmount)
     {
         if (invokersAmount < rune.Comp.AliveSacrificeInvokersAmount)
             return false;
 
-        _cultRuneRevive.AddCharges(rune, rune.Comp.ReviveChargesPerOffering);
-        Sacrifice(target);
+        Sacrifice(rune, target);
         return true;
     }
 
-    private void Sacrifice(EntityUid target)
+    private bool TryConvert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user, int invokersTotal)
     {
-        var transform = Transform(target);
-        var shard = Spawn("SoulShard", transform.Coordinates);
-        _body.GibBody(target);
-
-        if (!_mind.TryGetMind(target, out var mindId, out _))
-            return;
-
-        _mind.TransferTo(mindId, shard);
-        _mind.UnVisit(mindId);
-    }
-
-    private bool TryConvert(EntityUid target,
-        Entity<CultRuneOfferingComponent> rune,
-        EntityUid user,
-        int invokersAmount)
-    {
-        if (invokersAmount < rune.Comp.ConvertInvokersAmount)
+        if (invokersTotal < rune.Comp.ConvertInvokersAmount)
             return false;
 
         _cultRuneRevive.AddCharges(rune, rune.Comp.ReviveChargesPerOffering);
         Convert(rune, target, user);
         return true;
+    }
+
+    private void Sacrifice(Entity<CultRuneOfferingComponent> rune, EntityUid target)
+    {
+        _cultRuneRevive.AddCharges(rune, rune.Comp.ReviveChargesPerOffering);
+        var transform = Transform(target);
+
+        if (!_mind.TryGetMind(target, out var mindId, out _))
+            Spawn(rune.Comp.SoulShardGhostProto, transform.Coordinates);
+        else
+        {
+            var shard = Spawn(rune.Comp.SoulShardProto, transform.Coordinates);
+            _mind.TransferTo(mindId, shard);
+            _mind.UnVisit(mindId);
+        }
+
+        _body.GibBody(target);
     }
 
     private void Convert(Entity<CultRuneOfferingComponent> rune, EntityUid target, EntityUid user)

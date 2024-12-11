@@ -28,12 +28,10 @@ public sealed class TimedFactorySystem : EntitySystem
 
         var factoryQuery = EntityQueryEnumerator<TimedFactoryComponent>();
         while (factoryQuery.MoveNext(out var uid, out var factory))
-        {
             if (factory.CooldownRemaining > 0)
                 factory.CooldownRemaining -= frameTime;
             else
                 _appearance.SetData(uid, GenericCultVisuals.State, true);
-        }
     }
 
     private void OnTryOpenMenu(Entity<TimedFactoryComponent> factory, ref ActivatableUIOpenAttemptEvent args)
@@ -53,9 +51,13 @@ public sealed class TimedFactorySystem : EntitySystem
 
     private void OnPrototypeSelected(Entity<TimedFactoryComponent> factory, ref RadialSelectorSelectedMessage args)
     {
+        if (factory.Comp.CooldownRemaining > 0)
+            return;
+
         var product = Spawn(args.SelectedItem, Transform(args.Actor).Coordinates);
         _hands.TryPickupAnyHand(args.Actor, product);
         factory.Comp.CooldownRemaining = factory.Comp.Cooldown;
         _appearance.SetData(factory, GenericCultVisuals.State, false);
+        _ui.CloseUi(args.Actor, RadialSelectorUiKey.Key);
     }
 }

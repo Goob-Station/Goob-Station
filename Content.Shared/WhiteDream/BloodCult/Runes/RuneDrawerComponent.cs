@@ -25,9 +25,15 @@ public enum RuneDrawerBuiKey
 }
 
 [Serializable, NetSerializable]
-public sealed class RuneDrawerSelectedMessage(RuneSelectorPrototype selectedRune) : BoundUserInterfaceMessage
+public sealed class RuneDrawerMenuState(List<ProtoId<RuneSelectorPrototype>> availalbeRunes) : BoundUserInterfaceState
 {
-    public ProtoId<RuneSelectorPrototype> SelectedRune { get; private set; } = selectedRune.ID;
+    public List<ProtoId<RuneSelectorPrototype>> AvailalbeRunes { get; private set; } = availalbeRunes;
+}
+
+[Serializable, NetSerializable]
+public sealed class RuneDrawerSelectedMessage(ProtoId<RuneSelectorPrototype> selectedRune) : BoundUserInterfaceMessage
+{
+    public ProtoId<RuneSelectorPrototype> SelectedRune { get; private set; } = selectedRune;
 }
 
 [Serializable, NetSerializable]

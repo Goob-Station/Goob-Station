@@ -27,10 +27,20 @@ public sealed class SoulShardSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<SoulShardComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SoulShardComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<SoulShardComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<SoulShardComponent, MindAddedMessage>(OnShardMindAdded);
         SubscribeLocalEvent<SoulShardComponent, MindRemovedMessage>(OnShardMindRemoved);
+    }
+
+    private void OnMapInit(Entity<SoulShardComponent> shard, ref MapInitEvent args)
+    {
+        if (!shard.Comp.IsBlessed)
+            return;
+
+        _appearanceSystem.SetData(shard, SoulShardVisualState.Blessed, true);
+        _lightSystem.SetColor(shard, shard.Comp.BlessedLightColor);
     }
 
     private void OnActivate(Entity<SoulShardComponent> shard, ref ActivateInWorldEvent args)
@@ -76,10 +86,8 @@ public sealed class SoulShardSystem : EntitySystem
         UpdateGlowVisuals(shard, true);
     }
 
-    private void OnShardMindRemoved(Entity<SoulShardComponent> shard, ref MindRemovedMessage args)
-    {
+    private void OnShardMindRemoved(Entity<SoulShardComponent> shard, ref MindRemovedMessage args) =>
         UpdateGlowVisuals(shard, false);
-    }
 
     private void SpawnShade(Entity<SoulShardComponent> shard, EntProtoId proto, EntityUid mindId)
     {
