@@ -57,6 +57,27 @@ uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a coupl
 
 # Ammo
 
+uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
+
+uplink-frag-grenade-name = Frag Grenade
+uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-l6-box-name = Magazine Box (.30 rifle)
+uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
+
+uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
+
+uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
+
+uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
+uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+
+uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
+uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+
 uplink-high-caliber-box-name = 30 round .50 Box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
