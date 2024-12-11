@@ -22,17 +22,6 @@
     hideLayersOnEquip:
     - Hair
     - Snout
-  - type: Temperature # Fur = bad with heat, stole numbers from moth
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
-    currentTemperature: 310.15
-    specificHeat: 46
-    coldDamage:
-      types:
-        Cold : 0.05 #per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat : 3 #per second, scales with temperature & other constants
   - type: MeleeWeapon
     damage:
       types:
