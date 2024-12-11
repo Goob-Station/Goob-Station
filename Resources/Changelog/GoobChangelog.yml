@@ -3140,3 +3140,15 @@ Entries:
         Stackable Crimes to Crime list page.
   id: 349
   time: '2024-12-11T22:47:01.0000000+00:00'
+- author: Tonk-GCR
+  changes:
+    - type: Add
+      message: >-
+        Added the Maxim Hardsuit, Mining Hardsuit, Clarke Mech, Retro Laser,
+        Medtek Cartridges, drills, plasteel and plasma glass to the vgroid.
+    - type: Tweak
+      message: >-
+        Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
+        increased piercing resistance to 70%, and added a 25% movement debuff. 
+  id: 350
+  time: '2024-12-11T22:48:03.0000000+00:00'
