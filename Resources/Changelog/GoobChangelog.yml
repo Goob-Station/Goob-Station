@@ -3160,3 +3160,13 @@ Entries:
         place before foams and smokes :feelsgood:
   id: 351
   time: '2024-12-11T22:51:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: The Burner assault rifle now has AP as god intended.
+    - type: Tweak
+      message: >-
+        The Burner assualt rifle now has 15 round mags and you can buy more in
+        the uplink.
+  id: 352
+  time: '2024-12-11T22:55:29.0000000+00:00'
