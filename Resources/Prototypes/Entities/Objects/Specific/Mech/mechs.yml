@@ -114,6 +114,7 @@
     autoRot: true
     mask: /Textures/Effects/LightMasks/cone.png
     radius: 7
+    energy: 3
     netsync: false
   - type: GenericVisualizer
     visuals:
