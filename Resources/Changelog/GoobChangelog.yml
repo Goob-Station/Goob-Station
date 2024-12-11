@@ -3055,3 +3055,9 @@ Entries:
       message: You can now see IPC status icons.
   id: 343
   time: '2024-12-10T23:30:01.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cave expeditions having no ore or enemies.
+  id: 344
+  time: '2024-12-11T02:25:04.0000000+00:00'
