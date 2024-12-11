@@ -3152,3 +3152,11 @@ Entries:
         increased piercing resistance to 70%, and added a 25% movement debuff. 
   id: 350
   time: '2024-12-11T22:48:03.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Phlogiston now has a priority of 20, which makes it's reaction take
+        place before foams and smokes :feelsgood:
+  id: 351
+  time: '2024-12-11T22:51:12.0000000+00:00'
