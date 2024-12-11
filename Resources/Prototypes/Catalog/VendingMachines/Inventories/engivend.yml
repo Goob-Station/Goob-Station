@@ -7,6 +7,6 @@
     Multitool: 4
     NetworkConfigurator: 5
     PowerCellMedium: 5
-    ClothingHandsGlovesColorYellow: 6
+    ClothingHandsGlovesColorYellow: 12 # GoobStation: was 6, IPCs need insuls more than usual
     BoxInflatable: 2
     ClothingHeadHatCone: 4
