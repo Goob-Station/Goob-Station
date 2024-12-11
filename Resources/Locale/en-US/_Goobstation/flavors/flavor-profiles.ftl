@@ -1,4 +1,4 @@
 flavor-base-futuristic = futuristic
 flavor-base-offensive = offensive
 flavor-base-sigma = sigma
-flavor-base-fentanyl = burning tar
+flavor-complex-fentanyl = burning tar

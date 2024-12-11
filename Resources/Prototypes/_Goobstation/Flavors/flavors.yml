@@ -20,5 +20,5 @@
 
 - type: flavor
   id: fentanyl
-  flavorType: Base
-  description: flavor-base-fentanyl
+  flavorType: Complex
+  description: flavor-complex-fentanyl

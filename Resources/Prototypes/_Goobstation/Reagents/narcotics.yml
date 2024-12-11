@@ -44,7 +44,7 @@
           min: 5
         type: Local
         visualType: Medium
-        messages: ["fentanyl-effect-skinworms","fentanyl-effect-breathingrazors","fentanyl-effect-lungstight","fentanyl-effect-observed","fentanyl-effect-checkagain"]
+        messages: ["fentanyl-effect-skinworms","fentanyl-effect-breathingrazors","fentanyl-effect-lungstight","fentanyl-effect-observed"]
         probability: 0.05
       - !type:MovespeedModifier # you didn't think this would improve your abilities right?
         walkSpeedModifier: 0.8

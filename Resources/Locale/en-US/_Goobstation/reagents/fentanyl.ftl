@@ -6,5 +6,4 @@ fentanyl-effect-giddy = You almost start laughing
 fentanyl-effect-skinworms = They're under my skin, they're crawling through my bones!
 fentanyl-effect-breathingrazors = You feel a sharp pain in your lungs
 fentanyl-effect-lungstight = Your lungs refuse to inhale
-fentanyl-effect-observed = They're staring right through you
-fentanyl-effect-checkagain = Did I forget something?
+fentanyl-effect-observed = They're all staring right at you
