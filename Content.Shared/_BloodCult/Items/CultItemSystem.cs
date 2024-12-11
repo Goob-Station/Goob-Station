@@ -23,7 +23,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         SubscribeLocalEvent<CultItemComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<CultItemComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<CultItemComponent, BeforeThrowEvent>(OnBeforeThrow);
+        SubscribeLocalEvent<CultItemComponent, BeforeGettingThrownEvent>(OnBeforeGettingThrown);
         SubscribeLocalEvent<CultItemComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<CultItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
     }

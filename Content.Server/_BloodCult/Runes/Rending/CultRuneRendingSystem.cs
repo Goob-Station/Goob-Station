@@ -81,6 +81,12 @@ public sealed class CultRuneRendingSystem : EntitySystem
         _appearance.SetData(rune, RendingRuneVisuals.Active, false);
 
         if (args.Cancelled)
+        {
+            _chat.DispatchGlobalAnnouncement(
+                Loc.GetString("cult-rending-prevented"),
+                Loc.GetString("blood-cult-title"),
+                false,
+                colorOverride: Color.DarkRed);
             return;
 
         var ev = new BloodCultNarsieSummoned();

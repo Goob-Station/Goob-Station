@@ -7,7 +7,8 @@ using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Hands.Systems;
-using Content.Server.Mind;
+using Content.Server.Language;
+using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
@@ -32,11 +33,6 @@ using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
-using Content.Shared.NPC.Systems;
-using Robust.Shared.Audio;
-using Content.Server.Chat.Systems;
-using Robust.Shared.Timing;
 
 namespace Content.Server.WhiteDream.BloodCult.Gamerule;
 
@@ -50,15 +46,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly NavMapSystem _navMap = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly RoleSystem _role = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly LanguageSystem _languageSystem = default!;
+    [Dependency] private readonly NpcFactionSystem _factionSystem = default!;
+    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
+    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
+    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
+    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
 
     public override void Initialize()
     {
@@ -139,6 +134,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
+        RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
+        _languageSystem.AddLanguage(cultist, cultist.Comp.CultLanguageId);
+
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out var cult, out _))
         {
@@ -161,6 +159,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RemoveAllCultItems(cultist);
         RemoveCultistAppearance(cultist);
         RemoveObjectiveAndRole(cultist.Owner);
+        RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
+        _languageSystem.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
 
         if (!TryComp(cultist, out BloodCultSpellsHolderComponent? powersHolder))
             return;
