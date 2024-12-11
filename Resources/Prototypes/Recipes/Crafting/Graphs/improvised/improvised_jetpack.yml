@@ -1,0 +1,35 @@
+- type: constructionGraph 
+  id: ImprovisedJetpackGraph
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: jetpack
+      steps:
+      - tag: Pipe
+        icon:
+          sprite: Structures/Piping/Atmospherics/pipe.rsi
+          state: pipeStraight
+        name: pipe
+      - tag: GasTank
+        icon:
+          sprite: Textures/Objects/Tanks/oxygen.rsi
+          state: icon
+        name: oxygen tank
+      - tag: GasTank
+        icon:
+          sprite: Textures/Objects/Tanks/oxygen.rsi
+          state: icon
+        name: oxygen tank
+      - tag: FireExtinguisher
+        icon:
+          sprite: Textures/Objects/Misc/fire_extinguisher.rsi
+          state: closed
+        name: fire extinguisher
+      - material: Cable
+        amount: 30
+        doAfter: 20
+  - node: jetpack
+    entity: JetpackImprovised
+
+# Goob station
