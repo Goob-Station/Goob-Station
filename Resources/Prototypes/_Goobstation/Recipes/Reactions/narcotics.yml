@@ -1,5 +1,5 @@
 - type: reaction
-  id: SpaceFentanyl
+  id: Fentanyl
   minTemp: 410
   maxTemp: 420 # no lavabeaker for the lazy fucks
   reactants:

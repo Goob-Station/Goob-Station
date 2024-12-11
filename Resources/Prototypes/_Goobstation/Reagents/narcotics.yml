@@ -1,8 +1,8 @@
 - type: reagent
-  id: SpaceFentanyl
-  name: reagent-name-spacefentanyl
+  id: fentanyl
+  name: reagent-name-fentanyl
   group: Narcotics
-  desc: reagent-desc-spacefentanyl
+  desc: reagent-desc-fentanyl
   flavor: fentanyl
   physicalDesc: reagent-physical-desc-murky
   color: "#6e697d"
@@ -36,7 +36,7 @@
       - !type:PopupMessage # the usual hallucinations
         type: Local
         visualType: Medium
-        messages: ["spacefentanyl-effect-lostsomething","spacefentanyl-effect-skincrawl","spacefentanyl-effect-fakepresence","spacefentanyl-effect-rushing","spacefentanyl-effect-giddy"]
+        messages: ["fentanyl-effect-lostsomething","fentanyl-effect-skincrawl","fentanyl-effect-fakepresence","fentanyl-effect-rushing","fentanyl-effect-giddy"]
         probability: 0.05
       - !type:PopupMessage # when you're really tripping balls
         conditions:
@@ -44,7 +44,7 @@
           min: 5
         type: Local
         visualType: Medium
-        messages: ["spacefentanyl-effect-skinworms","spacefentanyl-effect-breathingrazors","spacefentanyl-effect-lungstight","spacefentanyl-effect-observed","spacefentanyl-effect-checkagain"]
+        messages: ["fentanyl-effect-skinworms","fentanyl-effect-breathingrazors","fentanyl-effect-lungstight","fentanyl-effect-observed","fentanyl-effect-checkagain"]
         probability: 0.05
       - !type:MovespeedModifier # you didn't think this would improve your abilities right?
         walkSpeedModifier: 0.8
