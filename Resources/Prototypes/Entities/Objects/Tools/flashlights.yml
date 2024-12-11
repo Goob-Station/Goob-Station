@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   name: flashlight
   parent: BaseItem
   id: FlashlightLantern
@@ -73,6 +73,11 @@
     quickEquip: false
     slots:
       - Belt
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
+      Steel: 25
+      Glass: 25
 
 - type: entity
   name: seclite

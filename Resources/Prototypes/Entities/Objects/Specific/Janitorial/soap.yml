@@ -23,6 +23,9 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: CollisionWake
     enabled: false
   - type: Physics
@@ -156,6 +159,9 @@
     launchForwardsMultiplier: 1.5
   - type: StepTrigger
     intersectRatio: 0.04
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: Item
     heldPrefix: syndie
   - type: Fixtures
@@ -195,6 +201,9 @@
     fillBaseName: gibs-
   - type: Slippery
   - type: StepTrigger
+    triggerGroups: # Goobstation
+      types:
+      - SlipEntity
   - type: Item
     heldPrefix: gibs
   - type: FlavorProfile

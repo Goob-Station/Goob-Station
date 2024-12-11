@@ -39,6 +39,11 @@
 - type: entity
   parent: [ClothingShoesBootsMagBase]
   id: ClothingShoesBootsMag
+  components:
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Plastic: 125
 
 - type: entity
   parent: [ClothingShoesBootsMagBase, BaseGrandTheftContraband]
@@ -71,6 +76,10 @@
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
   - type: Clothing
     sprite: Clothing/Shoes/Boots/magboots-science.rsi
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Plastic: 125
 
 - type: entity
   parent: ClothingShoesBootsMagBase

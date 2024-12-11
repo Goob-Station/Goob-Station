@@ -17,6 +17,10 @@
       path: /Audio/Effects/woodenclosetclose.ogg
     openSound:
       path: /Audio/Effects/woodenclosetopen.ogg
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Wood: 100
+      Steel: 25
 
 # Basic
 - type: entity
