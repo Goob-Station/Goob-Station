@@ -47,3 +47,21 @@
     description: ghost-role-information-soul-shard-description
     rules: ghost-role-information-soul-shard-rules
   - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: SoulShard
+  id: SoulShardHoly
+  components:
+  - type: SoulShard
+    isBlessed: true
+
+- type: entity
+  parent: SoulShardHoly
+  id: SoulShardHolyGhost
+  components:
+  - type: GhostRole
+    allowMovement: true
+    name: ghost-role-information-soul-shard-holy-name
+    description: ghost-role-information-soul-shard-holy-description
+    rules: ghost-role-information-soul-shard-holy-rules
+  - type: GhostTakeoverAvailable

@@ -31,22 +31,8 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 600
+        damage: 200
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
-        damage: 300
-      behaviors:
-      - !type:SpawnEntitiesBehavior
-        spawn:
-          RunedMetal:
-            min: 5
-            max: 5
-      - !type:PlaySoundBehavior
-        sound:
-          collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: PointLight
@@ -69,3 +55,4 @@
   - type: Icon
     sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
     state: icon
+  - type: Dispellable

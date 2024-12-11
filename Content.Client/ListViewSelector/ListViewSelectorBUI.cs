@@ -84,7 +84,7 @@ public sealed class ListViewSelectorBUI(EntityUid owner, Enum uiKey) : BoundUser
         {
             var itemName = item.Name;
             var itemDesc = item.Description;
-            if (_prototypeManager.TryIndex(item.Id, out var itemPrototype))
+            if (_prototypeManager.TryIndex(item.Id, out var itemPrototype, false))
             {
                 itemName = itemPrototype.Name;
                 itemDesc = itemPrototype.Description;

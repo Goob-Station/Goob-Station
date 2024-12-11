@@ -14,10 +14,10 @@ public enum ListViewSelectorUiKey
 [Serializable, NetSerializable]
 public sealed class ListViewSelectorState(
     List<ListViewSelectorEntry> items,
-    Dictionary<string, object> metaData = default!) : BoundUserInterfaceState
+    Dictionary<string, object>? metaData = null) : BoundUserInterfaceState
 {
     public List<ListViewSelectorEntry> Items { get; } = items;
-    public Dictionary<string, object> MetaData = metaData;
+    public Dictionary<string, object> MetaData = metaData ?? new();
 }
 
 [Serializable, NetSerializable]

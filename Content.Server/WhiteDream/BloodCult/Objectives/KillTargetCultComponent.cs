@@ -7,5 +7,5 @@ public sealed partial class KillTargetCultComponent : Component
     public string Title = string.Empty;
 
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public EntityUid Target;
+    public EntityUid? Target;
 }

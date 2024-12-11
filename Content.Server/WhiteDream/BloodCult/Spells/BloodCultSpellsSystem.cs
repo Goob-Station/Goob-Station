@@ -44,6 +44,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<BaseCultSpellComponent, ComponentStartup>(OnSpellStartup);
         SubscribeLocalEvent<BaseCultSpellComponent, EntityTargetActionEvent>(OnCultTargetEvent);
         SubscribeLocalEvent<BaseCultSpellComponent, ActionGettingDisabledEvent>(OnActionGettingDisabled);
 
@@ -59,6 +60,12 @@ public sealed class BloodCultSpellsSystem : EntitySystem
     }
 
     #region BaseHandlers
+
+    private void OnSpellStartup(Entity<BaseCultSpellComponent> action, ref ComponentStartup args)
+    {
+        if (_actions.TryGetActionData(action, out var actionData, false) && actionData is { UseDelay: not null })
+            _actions.StartUseDelay(action);
+    }
 
     private void OnCultTargetEvent(Entity<BaseCultSpellComponent> spell, ref EntityTargetActionEvent args)
     {
@@ -83,10 +90,8 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         _actions.RemoveAction(args.Performer, spell);
     }
 
-    private void OnComponentStartup(Entity<BloodCultSpellsHolderComponent> cultist, ref ComponentStartup args)
-    {
+    private void OnComponentStartup(Entity<BloodCultSpellsHolderComponent> cultist, ref ComponentStartup args) =>
         cultist.Comp.MaxSpells = cultist.Comp.DefaultMaxSpells;
-    }
 
     private void OnGetVerbs(Entity<BloodCultSpellsHolderComponent> cultist, ref GetVerbsEvent<ExamineVerb> args)
     {
@@ -136,7 +141,8 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             ActionProtoId = args.SelectedItem
         };
 
-        var doAfter = new DoAfterArgs(EntityManager,
+        var doAfter = new DoAfterArgs(
+            EntityManager,
             cultist.Owner,
             cultist.Comp.SpellCreationTime,
             createSpellEvent,
@@ -189,7 +195,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             return;
 
         var shuckles = Spawn(ev.ShacklesProto);
-        if (!_cuffable.TryAddNewCuffs(ev.Performer, ev.Target, shuckles))
+        if (!_cuffable.TryAddNewCuffs(ev.Target, ev.Performer, shuckles))
             return;
 
         _stun.TryKnockdown(ev.Target, ev.KnockdownDuration, true);

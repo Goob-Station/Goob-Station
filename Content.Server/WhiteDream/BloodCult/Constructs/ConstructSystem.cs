@@ -1,4 +1,5 @@
-﻿using Content.Server.WhiteDream.BloodCult.Gamerule;
+﻿using Content.Server.Actions;
+using Content.Server.WhiteDream.BloodCult.Gamerule;
 using Content.Shared.WhiteDream.BloodCult;
 using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Server.GameObjects;
@@ -7,13 +8,14 @@ namespace Content.Server.WhiteDream.BloodCult.Constructs;
 
 public sealed class ConstructSystem : EntitySystem
 {
+    [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AppearanceSystem _appearanceSystem = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ConstructComponent, ComponentStartup>(OnComponentStartup);
+        SubscribeLocalEvent<ConstructComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ConstructComponent, ComponentShutdown>(OnComponentShutdown);
     }
 
@@ -37,23 +39,28 @@ public sealed class ConstructSystem : EntitySystem
         }
     }
 
-    private void OnComponentStartup(Entity<ConstructComponent> ent, ref ComponentStartup args)
+    private void OnMapInit(Entity<ConstructComponent> construct, ref MapInitEvent args)
     {
-        _appearanceSystem.SetData(ent, ConstructVisualsState.Transforming, true);
-        ent.Comp.Transforming = true;
+        foreach (var actionId in construct.Comp.Actions)
+        {
+            var action = _actions.AddAction(construct, actionId);
+            construct.Comp.ActionEntities.Add(action);
+        }
+
+        _appearanceSystem.SetData(construct, ConstructVisualsState.Transforming, true);
+        construct.Comp.Transforming = true;
         var cultistRule = EntityManager.EntityQueryEnumerator<BloodCultRuleComponent>();
         while (cultistRule.MoveNext(out _, out var rule))
-        {
-            rule.Constructs.Add(ent);
-        }
+            rule.Constructs.Add(construct);
     }
 
-    private void OnComponentShutdown(Entity<ConstructComponent> ent, ref ComponentShutdown args)
+    private void OnComponentShutdown(Entity<ConstructComponent> construct, ref ComponentShutdown args)
     {
+        foreach (var actionEntity in construct.Comp.ActionEntities)
+            _actions.RemoveAction(actionEntity);
+
         var cultistRule = EntityManager.EntityQueryEnumerator<BloodCultRuleComponent>();
         while (cultistRule.MoveNext(out _, out var rule))
-        {
-            rule.Constructs.Remove(ent);
-        }
+            rule.Constructs.Remove(construct);
     }
 }

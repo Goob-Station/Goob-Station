@@ -27,9 +27,11 @@ public sealed partial class CultRuneBaseSystem
     /// <param name="rune">The rune itself.</param>
     /// <param name="range">Radius for a lookup.</param>
     /// <param name="exlude">Filter to exlude from return.</param>
-    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearRune(EntityUid rune,
+    public HashSet<Entity<HumanoidAppearanceComponent>> GetTargetsNearRune(
+        EntityUid rune,
         float range,
-        Predicate<Entity<HumanoidAppearanceComponent>>? exlude = null)
+        Predicate<Entity<HumanoidAppearanceComponent>>? exlude = null
+    )
     {
         var runeTransform = Transform(rune);
         var possibleTargets = _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(runeTransform.Coordinates, range);

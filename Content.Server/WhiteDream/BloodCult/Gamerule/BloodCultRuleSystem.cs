@@ -3,36 +3,39 @@ using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
+using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Hands.Systems;
 using Content.Server.Language;
+using Content.Server.Mind;
 using Content.Server.NPC.Systems;
+using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
-using Content.Server.StationEvents.Components;
 using Content.Server.WhiteDream.BloodCult.Items.BloodSpear;
 using Content.Server.WhiteDream.BloodCult.Objectives;
+using Content.Server.WhiteDream.BloodCult.RendingRunePlacement;
 using Content.Server.WhiteDream.BloodCult.Spells;
-using Content.Shared.Body.Systems;
 using Content.Shared.Cloning;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
-using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Mood;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Shared.Roles;
 using Content.Shared.WhiteDream.BloodCult.Components;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Items;
 using Robust.Server.Containers;
+using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.WhiteDream.BloodCult.Gamerule;
 
@@ -43,16 +46,18 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly ActionsSystem _actions = default!;
     [Dependency] private readonly AntagSelectionSystem _antagSelection = default!;
     [Dependency] private readonly BloodSpearSystem _bloodSpear = default!;
+    [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
-    [Dependency] private readonly InventorySystem _inventorySystem = default!;
-    [Dependency] private readonly LanguageSystem _languageSystem = default!;
-    [Dependency] private readonly NpcFactionSystem _factionSystem = default!;
-    [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
-    [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
-    [Dependency] private readonly SharedBodySystem _bodySystem = default!;
-    [Dependency] private readonly SharedRoleSystem _roleSystem = default!;
-    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private readonly LanguageSystem _language = default!;
+    [Dependency] private readonly NavMapSystem _navMap = default!;
+    [Dependency] private readonly NpcFactionSystem _faction = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly RoleSystem _role = default!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
@@ -79,7 +84,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     {
         base.Started(uid, component, gameRule, args);
 
-        component.OfferingTarget = FindTarget();
+        GetRandomRunePlacements(component);
     }
 
     protected override void AppendRoundEndText(
@@ -103,6 +108,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         }
     }
 
+    #region EventHandlers
+
     private void AfterEntitySelected(Entity<BloodCultRuleComponent> ent, ref AfterAntagEntitySelectedEvent args) =>
         MakeCultist(args.EntityUid, ent);
 
@@ -112,7 +119,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         while (rulesQuery.MoveNext(out _, out var cult, out _))
         {
             cult.WinCondition = CultWinCondition.Win;
-            _roundEndSystem.EndRound();
+            _roundEnd.EndRound();
 
             foreach (var ent in cult.Cultists)
             {
@@ -121,8 +128,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
                     continue;
 
                 var harvester = Spawn(cult.HarvesterPrototype, Transform(ent.Owner).Coordinates);
-                _mindSystem.TransferTo(mindContainer.Mind.Value, harvester);
-                _bodySystem.GibBody(ent);
+                _mind.TransferTo(mindContainer.Mind.Value, harvester);
+                _body.GibBody(ent);
             }
 
             return;
@@ -132,7 +139,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
         RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
-        _languageSystem.AddLanguage(cultist, cultist.Comp.CultLanguageId);
+        _language.AddLanguage(cultist, cultist.Comp.CultLanguageId);
 
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out var cult, out _))
@@ -148,7 +155,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         while (query.MoveNext(out _, out var cult, out _))
             cult.Cultists.Remove(cultist);
 
-        CheckRoundShouldEnd();
+        CheckWinCondition();
 
         if (TerminatingOrDeleted(cultist.Owner))
             return;
@@ -157,7 +164,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RemoveCultistAppearance(cultist);
         RemoveObjectiveAndRole(cultist.Owner);
         RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
-        _languageSystem.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
+        _language.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
 
         if (!TryComp(cultist, out BloodCultSpellsHolderComponent? powersHolder))
             return;
@@ -166,16 +173,46 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
             _actions.RemoveAction(cultist.Owner, power);
     }
 
-    private void OnCultistsStateChanged(Entity<BloodCultistComponent> ent, ref MobStateChangedEvent args)
+    private void OnCultistsStateChanged(Entity<BloodCultistComponent> cultist, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
-            CheckRoundShouldEnd();
+            CheckWinCondition();
     }
 
-    private void OnClone(Entity<BloodCultistComponent> ent, ref CloningEvent args) => RemoveObjectiveAndRole(ent);
+    private void OnClone(Entity<BloodCultistComponent> cultist, ref CloningEvent args) =>
+        RemoveObjectiveAndRole(cultist);
 
-    private void OnGetBriefing(Entity<BloodCultistRoleComponent> ent, ref GetBriefingEvent args) =>
+    private void OnGetBriefing(Entity<BloodCultistRoleComponent> cultist, ref GetBriefingEvent args)
+    {
         args.Append(Loc.GetString("blood-cult-role-briefing-short"));
+        var rulesQuery = QueryActiveRules();
+        while (rulesQuery.MoveNext(out _, out var rule, out _))
+        {
+            if (!rule.EmergencyMarkersMode)
+                continue;
+
+            args.Append(
+                Loc.GetString("blood-cult-role-briefing-emergency-rending", ("amount", rule.EmergencyMarkersCount)));
+            return;
+        }
+
+        var query = EntityQueryEnumerator<RendingRunePlacementMarkerComponent>();
+        while (query.MoveNext(out var uid, out var marker))
+        {
+            if (!marker.IsActive)
+                continue;
+
+            var navMapLocation = FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(uid));
+            var coordinates = Transform(uid).Coordinates;
+            var msg = Loc.GetString(
+                "blood-cult-role-briefing-rending-locations",
+                ("location", navMapLocation),
+                ("coordinates", coordinates.Position));
+            args.Append(Loc.GetString(msg));
+        }
+    }
+
+    #endregion
 
     public void Convert(EntityUid target)
     {
@@ -190,11 +227,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
             var antagSelectionEnt = (ruleUid, antagSelection);
             if (!_antagSelection.TryGetNextAvailableDefinition(antagSelectionEnt, out var def))
-                continue;
+                def = antagSelection.Definitions.Last();
 
             _antagSelection.MakeAntag(antagSelectionEnt, actor.PlayerSession, def.Value);
         }
     }
+
+    public bool IsObjectiveFinished() =>
+        !TryGetTarget(out var target) || !HasComp<MobStateComponent>(target) || _mobState.IsDead(target.Value);
 
     public bool TryGetTarget([NotNullWhen(true)] out EntityUid? target)
     {
@@ -215,77 +255,151 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     public bool IsTarget(EntityUid entityUid)
     {
         var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var bloodCultRule, out _))
-            return entityUid == bloodCultRule.OfferingTarget;
+        while (query.MoveNext(out _, out var rule, out _))
+            return entityUid == rule.OfferingTarget;
 
         return false;
     }
 
+    public int GetTotalCultists()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+            return rule.Cultists.Count + rule.Constructs.Count;
+
+        return 0;
+    }
+
     public void RemoveObjectiveAndRole(EntityUid uid)
     {
-        if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))
+        if (!_mind.TryGetMind(uid, out var mindId, out var mind))
             return;
 
         var objectives = mind.Objectives.FindAll(HasComp<KillTargetCultComponent>);
         foreach (var obj in objectives)
-            _mindSystem.TryRemoveObjective(mindId, mind, mind.Objectives.IndexOf(obj));
+            _mind.TryRemoveObjective(mindId, mind, mind.Objectives.IndexOf(obj));
 
-        if (_roleSystem.MindHasRole<BloodCultistRoleComponent>(mindId))
-            _roleSystem.MindRemoveRole<BloodCultistRoleComponent>(mindId);
+        if (_role.MindHasRole<BloodCultistRoleComponent>(mindId))
+            _role.MindRemoveRole<BloodCultistRoleComponent>(mindId);
     }
 
-    private void CheckRoundShouldEnd()
+    public bool CanDrawRendingRune(EntityUid user)
     {
-        var query = QueryActiveRules();
-        while (query.MoveNext(out _, out var cult, out _))
+        var ruleQuery = QueryActiveRules();
+        while (ruleQuery.MoveNext(out _, out var rule, out _))
+            if (rule is { EmergencyMarkersMode: true, EmergencyMarkersCount: > 0 })
+            {
+                rule.EmergencyMarkersCount--;
+                return true;
+            }
+
+        var query = EntityQueryEnumerator<RendingRunePlacementMarkerComponent>();
+        while (query.MoveNext(out var uid, out var marker))
         {
-            var aliveCultists = cult.Cultists.Count(cultist => !_mobStateSystem.IsDead(cultist));
-            if (aliveCultists != 0)
-                return;
+            if (!marker.IsActive)
+                continue;
 
-            cult.WinCondition = CultWinCondition.Failure;
-
-            // Check for all at once gamemode
-            if (!GameTicker.GetActiveGameRules().Where(HasComp<RampingStationEventSchedulerComponent>).Any())
-                _roundEndSystem.EndRound();
+            var userLocation = Transform(user).Coordinates;
+            var placementCoordinates = Transform(uid).Coordinates;
+            if (_transform.InRange(placementCoordinates, userLocation, marker.DrawingRange))
+                return true;
         }
+
+        return false;
     }
 
-    private void MakeCultist(EntityUid cultist, Entity<BloodCultRuleComponent> rule)
-    {
-        if (!_mindSystem.TryGetMind(cultist, out var mindId, out var mind))
-            return;
-
-        EnsureComp<BloodCultSpellsHolderComponent>(cultist);
-
-        _factionSystem.RemoveFaction(cultist, rule.Comp.NanoTrasenFaction);
-        _factionSystem.AddFaction(cultist, rule.Comp.BloodCultFaction);
-
-        _mindSystem.TryAddObjective(mindId, mind, "KillTargetCultObjective");
-    }
-
-    private EntityUid? FindTarget(ICollection<EntityUid> exclude = null!)
+    public void SetRandomCultTarget(BloodCultRuleComponent rule)
     {
         var querry = EntityManager
             .EntityQueryEnumerator<MindContainerComponent, HumanoidAppearanceComponent, ActorComponent>();
 
         var potentialTargets = new List<EntityUid>();
 
-        while (querry.MoveNext(out var uid, out var mind, out _, out _))
+        // Cultists not being excluded from target selection is fully intended.
+        while (querry.MoveNext(out var uid, out _, out _, out _))
+            potentialTargets.Add(uid);
+
+        rule.OfferingTarget = potentialTargets.Count > 0 ? _random.Pick(potentialTargets) : null;
+    }
+
+    public bool TryConsumeNearestMarker(EntityUid user)
+    {
+        var ruleQuery = QueryActiveRules();
+        while (ruleQuery.MoveNext(out _, out var rule, out _))
+            if (rule is { EmergencyMarkersMode: true, EmergencyMarkersCount: > 0 })
+            {
+                rule.EmergencyMarkersCount--;
+                return true;
+            }
+
+        var userLocation = Transform(user).Coordinates;
+        var query = EntityQueryEnumerator<RendingRunePlacementMarkerComponent>();
+        while (query.MoveNext(out var markerUid, out var marker))
         {
-            var entity = mind.Mind;
-            if (entity == default || exclude?.Contains(uid) is true || HasComp<BloodCultistComponent>(uid))
+            if (!marker.IsActive)
                 continue;
 
-            potentialTargets.Add(uid);
+            var placementCoordinates = Transform(markerUid).Coordinates;
+            if (!_transform.InRange(placementCoordinates, userLocation, marker.DrawingRange))
+                continue;
+
+            marker.IsActive = false;
+            break;
         }
 
-        return potentialTargets.Count > 0 ? _random.Pick(potentialTargets) : null;
+        return false;
+    }
+
+    private void CheckWinCondition()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var cult, out _))
+        {
+            var aliveCultists = cult.Cultists.Count(cultist => !_mobState.IsDead(cultist));
+            if (aliveCultists != 0)
+                return;
+
+            cult.WinCondition = CultWinCondition.Failure;
+        }
+    }
+
+    private void MakeCultist(EntityUid cultist, Entity<BloodCultRuleComponent> rule)
+    {
+        if (!_mind.TryGetMind(cultist, out var mindId, out var mind))
+            return;
+
+        EnsureComp<BloodCultSpellsHolderComponent>(cultist);
+
+        _faction.RemoveFaction(cultist, rule.Comp.NanoTrasenFaction);
+        _faction.AddFaction(cultist, rule.Comp.BloodCultFaction);
+
+        _mind.TryAddObjective(mindId, mind, "KillTargetCultObjective");
+    }
+
+    private void GetRandomRunePlacements(BloodCultRuleComponent component)
+    {
+        var allMarkers = EntityQuery<RendingRunePlacementMarkerComponent>().ToList();
+        if (allMarkers.Count == 0)
+        {
+            component.EmergencyMarkersMode = true;
+            component.EmergencyMarkersCount = component.RendingRunePlacementsAmount;
+            return;
+        }
+
+        var maxRunes = component.RendingRunePlacementsAmount;
+        if (allMarkers.Count < component.RendingRunePlacementsAmount)
+            maxRunes = allMarkers.Count;
+
+        for (var i = maxRunes; i > 0; i--)
+        {
+            var marker = _random.PickAndTake(allMarkers);
+            marker.IsActive = true;
+        }
     }
 
     private void RemoveAllCultItems(Entity<BloodCultistComponent> cultist)
     {
-        if (!_inventorySystem.TryGetContainerSlotEnumerator(cultist.Owner, out var enumerator))
+        if (!_inventory.TryGetContainerSlotEnumerator(cultist.Owner, out var enumerator))
             return;
 
         _bloodSpear.DetachSpearFromMaster(cultist);

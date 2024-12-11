@@ -29,6 +29,8 @@
 - type: runeSelector
   id: CultRuneApocalypse
   prototype: CultRuneApocalypse
+  requireTargetDead: true
+  requiredTotalCultists: 10
   drawTime: 40
   drawDamage:
     types:
@@ -37,6 +39,8 @@
 - type: runeSelector
   id: CultRuneDimensionalRending
   prototype: CultRuneDimensionalRending
+  requireTargetDead: true
+  requiredTotalCultists: 10
   drawTime: 40
   drawDamage:
     types:

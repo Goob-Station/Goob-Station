@@ -1,5 +1,4 @@
 ﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.WhiteDream.BloodCult.Runes;
@@ -11,20 +10,20 @@ public sealed class RuneSelectorPrototype : IPrototype
     public string ID { get; } = default!;
 
     [DataField(required: true)]
-    public EntProtoId Prototype { get; }
+    public EntProtoId Prototype;
 
     [DataField]
-    public float DrawTime { get; } = 4f;
+    public float DrawTime = 4f;
+
+    [DataField]
+    public bool RequireTargetDead;
+
+    [DataField]
+    public int RequiredTotalCultists = 1;
 
     /// <summary>
     ///     Damage dealt on the rune drawing.
     /// </summary>
     [DataField]
-    public DamageSpecifier DrawDamage = new()
-    {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            ["Slash"] = 15,
-        }
-    };
+    public DamageSpecifier DrawDamage = new() { DamageDict = new() { ["Slash"] = 15 } };
 }

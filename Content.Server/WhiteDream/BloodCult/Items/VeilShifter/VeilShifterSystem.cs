@@ -1,5 +1,6 @@
 ﻿using Content.Server.Popups;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Maps;
 using Content.Shared.Movement.Pulling.Systems;
@@ -27,20 +28,23 @@ public sealed class VeilShifterSystem : EntitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<VeilShifterComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<VeilShifterComponent, UseInHandEvent>(OnUseInHand);
     }
 
+    private void OnExamined(Entity<VeilShifterComponent> veil, ref ExaminedEvent args) =>
+        args.PushMarkup(Loc.GetString("veil-shifter-description", ("charges", veil.Comp.Charges)));
+
     private void OnUseInHand(Entity<VeilShifterComponent> veil, ref UseInHandEvent args)
     {
-        if (veil.Comp.Charges == 0)
-            return;
-
-        if (!Teleport(veil, args.User))
+        if (args.Handled || veil.Comp.Charges == 0 || !Teleport(veil, args.User))
             return;
 
         veil.Comp.Charges--;
         if (veil.Comp.Charges == 0)
             _appearance.SetData(veil, GenericCultVisuals.State, false);
+
+        args.Handled = true;
     }
 
     private bool Teleport(Entity<VeilShifterComponent> veil, EntityUid user)
