@@ -26,6 +26,7 @@ changeling-sting-fail-ling = Someone just tried to silently sting you!
 changeling-sting = You silently sting {CAPITALIZE(THE($target))}
 changeling-sting-fail-simplemob = You can't sting a lesser creature!
 changeling-sting-extract-fail = Unable to extract DNA
+changeling-sting-fail = You cannot sting that!
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
 changeling-stasis-enter = You enter regenerative stasis
