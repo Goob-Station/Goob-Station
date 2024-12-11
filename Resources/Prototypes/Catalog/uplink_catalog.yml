@@ -1378,7 +1378,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 20 # goob - Locks out some stronger items. Also 20 TC Tier makes more sense.
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
 

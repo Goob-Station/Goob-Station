@@ -102,11 +102,6 @@
     Telecrystal: 150 # meant to be a side-grade to L6 Saw, if it ends up being better we can nerf it or up TC cost to 175-200.
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkBowHardlight
@@ -115,7 +110,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 80
+    Telecrystal: 75
   categories:
   - UplinkWeaponry
   conditions:
