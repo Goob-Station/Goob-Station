@@ -1,0 +1,72 @@
+- type: entity
+  id: portableChemMaster
+  parent: BaseItem
+  name: portable chem master
+  description: An "Tider"" grade chemical manipulator
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Chemistry/beaker_large.rsi
+    layers:
+      - state: beakerlarge
+      - state: beakerlarge1
+        map: ["enum.SolutionContainerLayers.Fill"]
+        visible: false
+  - type: Item
+    size: Large
+  - type: Icon
+    sprite: Structures/Machines/mixer.rsi
+    state: mixer_loaded
+  - type: ChemMaster
+    pillDosageLimit: 5
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ActivatableUI
+    key: enum.ChemMasterUiKey.Key
+  #- type: ActivatableUIRequiresPower # maybe add battery
+  - type: UserInterface
+    interfaces:
+      enum.ChemMasterUiKey.Key:
+        type: ChemMasterBoundUserInterface
+  # Machine / Construction stuff
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+      outputSlot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+      outputSlot:
+        whitelistFailPopup: chem-master-component-cannot-put-entity-message
+        whitelist:
+          tags:
+          - Bottle
+          - PillCanister
+  - type: SolutionContainerManager
+    solutions:
+      buffer:
+        maxVol: 400
+        canReact: false
+  - type: DumpableSolution
+    solution: buffer
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: StaticPrice
+    price: 20
