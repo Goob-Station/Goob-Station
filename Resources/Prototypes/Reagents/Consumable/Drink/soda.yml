@@ -251,6 +251,9 @@
       - !type:HealthChange
         conditions:
         - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
           type: Slime
           shouldHave: false
         damage:

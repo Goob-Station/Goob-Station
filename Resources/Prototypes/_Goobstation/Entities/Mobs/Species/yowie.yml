@@ -16,7 +16,9 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  
+  - type: Body
+    prototype: Yowie
+    requiredLegs: 2
   - type: HumanoidAppearance
     species: Yowie
     hideLayersOnEquip:

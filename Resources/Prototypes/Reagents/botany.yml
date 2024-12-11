@@ -222,6 +222,9 @@
       - !type:HealthChange
         conditions:
         - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:OrganType
           type: Rat
           shouldHave: false
         - !type:ReagentThreshold
@@ -234,6 +237,9 @@
       - !type:ChemVomit
         probability: 0.12
         conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         - !type:OrganType
           type: Rat
           shouldHave: false

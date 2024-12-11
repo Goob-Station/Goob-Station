@@ -29,7 +29,7 @@
     Shock: 1
     Cold: 0.9
     Bloodloss: 0.9
-    Poison: 0.5 # Should be more resistant to toxin
+    Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
 
 
