@@ -1,0 +1,24 @@
+- type: job
+  id: Roboticist
+  name: job-name-roboticist
+  description: job-description-roboticist
+  playTimeTracker: JobRoboticist
+  antagAdvantage: 6 # The shadow factory + scientist advantage
+  requirements:
+  - !type:DepartmentTimeRequirement
+    department: Science
+    time: 14400 # 4 hours
+  - !type:OverallPlaytimeRequirement
+    time: 43200 # 12 hours
+  startingGear: RoboticistGear
+  icon: JobIconRoboticist
+  supervisors: job-supervisors-rd
+  access:
+  - Research
+  - Robotics
+  - Maintenance
+
+- type: startingGear
+  id: RoboticistGear
+  equipment:
+    ears: ClothingHeadsetRobotics

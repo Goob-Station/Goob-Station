@@ -21,16 +21,6 @@
   - !type:GroupLoadoutEffect
     proto: SeniorResearcher
 
-- type: loadout
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
-
-- type: loadout
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
-
 # Neck
 
 - type: loadout
@@ -48,16 +38,6 @@
   id: ScientistJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
-
-- type: loadout
-  id: RoboticistJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRoboticist
-
-- type: loadout
-  id: RoboticistJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRoboticist
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -108,16 +88,6 @@
     outerClothing: ClothingOuterWinterSci
 
 - type: loadout
-  id: RoboticistLabCoat
-  equipment:
-    outerClothing: ClothingOuterCoatRobo
-
-- type: loadout
-  id: RoboticistWintercoat
-  equipment:
-    outerClothing: ClothingOuterWinterRobo
-
-- type: loadout
   id: SeniorResearcherLabCoat
   effects:
   - !type:GroupLoadoutEffect
@@ -130,11 +100,6 @@
   id: LatexGloves
   equipment:
     gloves: ClothingHandsGlovesLatex
-
-- type: loadout
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
 
 # Shoes
 - type: loadout

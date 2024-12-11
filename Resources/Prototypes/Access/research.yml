@@ -11,3 +11,7 @@
   tags:
   - ResearchDirector
   - Research
+
+- type: accessLevel
+  id: Robotics
+  name: id-card-access-level-robotics

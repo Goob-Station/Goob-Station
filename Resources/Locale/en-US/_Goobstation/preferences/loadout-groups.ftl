@@ -10,6 +10,13 @@ loadout-group-bso-jumpsuit = Blueshield Officer jumpsuit
 loadout-group-bso-outer = Blueshield Officer armor
 loadout-group-bso-neck = Blueshield Officer neck
 
+loadout-group-roboticist-head = Roboticist head
+loadout-group-roboticist-jumpsuit = Roboticist jumpsuit
+loadout-group-roboticist-backpack = Roboticist Backpack
+loadout-group-roboticist-gloves = Roboticist gloves
+loadout-group-roboticist-shoes = Roboticist shoes
+loadout-group-roboticist-outerclothing = Roboticist outer clothing
+
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
 loadout-group-security-neck = Security neck

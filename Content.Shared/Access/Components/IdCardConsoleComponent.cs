@@ -70,6 +70,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Quartermaster",
         "Research",
         "ResearchDirector",
+        "Robotics",
         "Salvage",
         "Security",
         "Service",

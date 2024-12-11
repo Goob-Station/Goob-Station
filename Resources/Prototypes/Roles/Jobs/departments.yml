@@ -125,6 +125,7 @@
   roles:
   - ResearchDirector
   - Scientist
+  - Roboticist
   - ResearchAssistant
 
 - type: department
