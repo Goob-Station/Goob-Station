@@ -1,0 +1,62 @@
+- type: entity
+  id: OrganAnimalBrain
+  parent: BaseAnimalOrganUnGibbable
+  name: animal brain
+  description: "Not so intelligence, not so honk."
+  components:
+  - type: Sprite
+    state: brain
+  - type: Organ
+    slotId: brain
+  - type: Input
+    context: "ghost"
+  - type: Brain
+  - type: InputMover
+  - type: Examiner
+  - type: BlockMovement
+  - type: BadFood
+  - type: Tag
+    tags:
+      - Meat
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 10
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - people
+  - type: FoodSequenceElement
+    entries:
+      burger:
+        name: food-sequence-content-brain
+      taco:
+        name: food-sequence-content-brain
+  - type: Item
+    size: Small
+    heldPrefix: brain
+
+- type: entity
+  id: OrganAnimalEyes
+  parent: BaseAnimalOrgan
+  name: animal eyes
+  description: "I see you!"
+  components:
+  # start-backmen: surgery
+  - type: Organ
+    slotId: eyes
+  - type: Eyes
+  # end-backmen: surgery
+  - type: Sprite
+    layers:
+      - state: eyeball-l
+      - state: eyeball-r
+  - type: Item
+    size: Small
+    heldPrefix: eyeballs
