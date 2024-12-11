@@ -70,5 +70,10 @@ uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech w
 
 # Implants
 
-uplink-smoke-implant-name = Smoke implant
+uplink-smoke-implant-name = Smoke Implant
 uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
+
+# Wearables
+
+uplink-helmet-swat-name = Syndicate SWAT Helmet
+uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.

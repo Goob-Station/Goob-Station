@@ -127,6 +127,17 @@
 # Wearables
 
 - type: listing
+  id: UplinkClothingHeadHelmetSwatSyndicate
+  name: uplink-helmet-swat-name
+  description: uplink-helmet-swat-desc
+  icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
+
+- type: listing
   id: UplinkHardsuitSyndieMedic
   name: uplink-hardsuit-syndiemedic-name
   description: uplink-hardsuit-syndiemedic-desc
