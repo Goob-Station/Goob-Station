@@ -29,7 +29,7 @@
         probability: 0.05
         damage:
           types:
-            Slash: 1 # its fine you're just getting the worms out of your skin
+            Slash: 1 # clawing at your own skin
     Narcotic:
       metabolismRate: 0.05
       effects:
@@ -53,8 +53,9 @@
         key: Stutter
         component: StutteringAccent
       - !type:Jitter
-      - !type:KnockedDown # TODO: doesn't work! fix this! - tried to fix this will see later
+      - !type:Paralyze # TODO: doesn't work! fix this! - tried to fix this will see later
         probability: 0.05
+        paralyzeTime: 2
       - !type:GenericStatusEffect # tripping balls, duh
         key: SeeingRainbows
         component: SeeingRainbows
