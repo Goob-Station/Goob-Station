@@ -334,15 +334,12 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public bool TrySting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
     {
-        if (!TryUseAbility(uid, comp, action))
-            return false;
-
         var target = action.Target;
 
         // can't get his dna if he doesn't have it!
         if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail"), uid, uid);
             return false;
         }
 
@@ -352,6 +349,10 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
             return false;
         }
+
+        if (!TryUseAbility(uid, comp, action))
+            return false;
+
         if (!overrideMessage)
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         return true;
@@ -582,18 +583,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             if (EntityManager.TryGetComponent(uid, type, out var icomp))
             {
-                var newComp = (Component) _compFactory.GetComponent(type.Name);
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
                 var temp = (object) newComp;
                 _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
-                EntityManager.AddComponent((EntityUid) newUid, (Component) temp!);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
             }
         }
 
-        // This just doesn't work for some reason. I tried commenting out QueueDel(uid), checked ActionUIController
-        // sawmill logs, everything is fine there, it should work but it just doesn't
-        // RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
 
-        QueueDel(uid);
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }

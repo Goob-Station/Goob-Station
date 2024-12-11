@@ -19,6 +19,9 @@
       "Acoustic": {24: 0}
       "Flute": {73: 0}
       "Sax": {66: 0}
+      "Piano": {1: 0}
+      "Church Organ": {19: 0}
+      "Violin": {41: 0}
   - type: UserInterface
     interfaces:
       enum.InstrumentUiKey.Key:
@@ -61,7 +64,6 @@
         visible: false
       - map: [ "id" ]
       - map: [ "gloves" ]
-      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
@@ -129,9 +131,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 5.0
+    weightlessAcceleration: 2.5
   - type: Inventory
     speciesId: harpy
-    templateId: digitigrade
+    templateId: digitigrade # Einstein Engines
   - type: HarpyVisuals
   - type: Tag
     tags:
@@ -142,6 +145,12 @@
   - type: FootPrints
     leftBarePrint: "footprint-left-bare-lizard"
     rightBarePrint: "footprint-right-bare-lizard"
+  - type: StepTriggerImmune
+    whitelist:
+      types:
+      - Shard
+      - Landmine
+      - Mousetrap
 
 - type: entity
   save: false
@@ -155,6 +164,7 @@
     species: Harpy
   - type: Inventory
     speciesId: harpy
+    templateId: digitigrade
   - type: Sprite
     scale: 0.9, 0.9
     layers:
@@ -175,7 +185,6 @@
       - map: ["enum.HumanoidVisualLayers.RHand"]
       - map: [ "id" ]
       - map: [ "gloves" ]
-      - map: [ "shoes" ]
       - map: [ "ears" ]
       - map: [ "outerClothing" ]
       - map: [ "eyes" ]
@@ -220,3 +229,14 @@
     icon: DeltaV/Interface/Actions/harpy_syrinx.png
     itemIconStyle: BigAction
     event: !type:VoiceMaskSetNameEvent
+
+- type: entity
+  id: ActionToggleFlight
+  name: Fly
+  description: Make use of your wings to fly. Beat the flightless bird allegations.
+  components:
+  - type: InstantAction
+    checkCanInteract: false
+    icon: { sprite: _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_off }
+    iconOn: { sprite : _EinsteinEngines/Interface/Actions/flight.rsi, state: flight_on }
+    event: !type:ToggleFlightEvent

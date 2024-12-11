@@ -15,13 +15,14 @@
       bodypart: !type:Container
         ents: []
   - type: StaticPrice
-    price: 5
+    price: 15 #Goobstation - Increased price
   - type: Tag
     tags:
       - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
+      Steel: 62
+      Glass: 25
   - type: GuideHelp
     guides:
     - Cyborgs
