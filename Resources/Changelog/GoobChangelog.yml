@@ -3061,3 +3061,11 @@ Entries:
       message: Fixed cave expeditions having no ore or enemies.
   id: 344
   time: '2024-12-11T02:25:04.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: >-
+        Pacifists can now throw things with liquids in them, shoot syringe guns
+        and disablers
+  id: 345
+  time: '2024-12-11T22:04:11.0000000+00:00'
