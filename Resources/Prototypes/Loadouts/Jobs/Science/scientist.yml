@@ -22,23 +22,24 @@
   equipment:
     head: ClothingHeadHatBeretRND
 
-- type: loadout
-  id: RoboticistCap
-  equipment: RoboticistCap
+# Goobstation - Removes Robotics clothing from scientist
+# - type: loadout
+#   id: RoboticistCap
+#   equipment: RoboticistCap
 
-- type: startingGear
-  id: RoboticistCap
-  equipment:
-    head: ClothingHeadHatCorpsoft
+# - type: startingGear
+#   id: RoboticistCap
+#   equipment:
+#     head: ClothingHeadHatCorpsoft
 
-- type: loadout
-  id: SkullBandana
-  equipment: SkullBandana
+# - type: loadout
+#   id: SkullBandana
+#   equipment: SkullBandana
 
-- type: startingGear
-  id: SkullBandana
-  equipment:
-    head: ClothingHeadBandSkull
+# - type: startingGear
+#   id: SkullBandana
+#   equipment:
+#     head: ClothingHeadBandSkull
 
 # Neck
 
@@ -70,23 +71,24 @@
   equipment:
     jumpsuit: ClothingUniformJumpskirtScientist
 
-- type: loadout
-  id: RoboticistJumpsuit
-  equipment: RoboticistJumpsuit
+# Goobstation - Removes Robotics clothing from scientist
+# - type: loadout
+#   id: RoboticistJumpsuit
+#   equipment: RoboticistJumpsuit
 
-- type: startingGear
-  id: RoboticistJumpsuit
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitRoboticist
+# - type: startingGear
+#   id: RoboticistJumpsuit
+#   equipment:
+#     jumpsuit: ClothingUniformJumpsuitRoboticist
 
-- type: loadout
-  id: RoboticistJumpskirt
-  equipment: RoboticistJumpskirt
+# - type: loadout
+#   id: RoboticistJumpskirt
+#   equipment: RoboticistJumpskirt
 
-- type: startingGear
-  id: RoboticistJumpskirt
-  equipment:
-    jumpsuit: ClothingUniformJumpskirtRoboticist
+# - type: startingGear
+#   id: RoboticistJumpskirt
+#   equipment:
+#     jumpsuit: ClothingUniformJumpskirtRoboticist
 
 - type: loadout
   id: SeniorResearcherJumpsuit
@@ -168,23 +170,24 @@
   equipment:
     outerClothing: ClothingOuterWinterSci
 
-- type: loadout
-  id: RoboticistLabCoat
-  equipment: RoboticistLabCoat
+# Goobstation - Removes roboticist clothing from scientist
+# - type: loadout
+#   id: RoboticistLabCoat
+#   equipment: RoboticistLabCoat
 
-- type: startingGear
-  id: RoboticistLabCoat
-  equipment:
-    outerClothing: ClothingOuterCoatRobo
+# - type: startingGear
+#   id: RoboticistLabCoat
+#   equipment:
+#     outerClothing: ClothingOuterCoatRobo
 
-- type: loadout
-  id: RoboticistWintercoat
-  equipment: RoboticistWintercoat
+# - type: loadout
+#   id: RoboticistWintercoat
+#   equipment: RoboticistWintercoat
 
-- type: startingGear
-  id: RoboticistWintercoat
-  equipment:
-    outerClothing: ClothingOuterWinterRobo
+# - type: startingGear
+#   id: RoboticistWintercoat
+#   equipment:
+#     outerClothing: ClothingOuterWinterRobo
 
 - type: loadout
   id: SeniorResearcherLabCoat
@@ -208,14 +211,15 @@
   equipment:
     gloves: ClothingHandsGlovesLatex
 
-- type: loadout
-  id: RobohandsGloves
-  equipment: RobohandsGloves
+# Goobstation - Removes roboticist clothing from scientist
+# - type: loadout
+#   id: RobohandsGloves
+#   equipment: RobohandsGloves
 
-- type: startingGear
-  id: RobohandsGloves
-  equipment:
-    gloves: ClothingHandsGlovesRobohands
+# - type: startingGear
+#   id: RobohandsGloves
+#   equipment:
+#     gloves: ClothingHandsGlovesRobohands
 
 # Shoes
 - type: loadout

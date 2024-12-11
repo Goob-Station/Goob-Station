@@ -70,7 +70,7 @@ public sealed partial class IdCardConsoleComponent : Component
         "Quartermaster",
         "Research",
         "ResearchDirector",
-        "Robotics",
+        "Robotics", // Goobstation - Add Robotics access
         "Salvage",
         "Security",
         "Service",

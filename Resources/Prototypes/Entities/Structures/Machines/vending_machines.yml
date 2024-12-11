@@ -1415,7 +1415,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Robotics"]]
+    access: [["Robotics"]] # Goobstation - Robotics access instead of research
   - type: PointLight
     radius: 2
     energy: 1.6
@@ -2192,7 +2192,7 @@
     - state: panel
       map: ["enum.WiresVisualLayers.MaintenancePanel"]
   - type: AccessReader
-    access: [["Research"]]
+    access: [["Robotics"]] # Goobstation - Robotics access instead of research
 
 - type: entity
   parent: VendingMachine

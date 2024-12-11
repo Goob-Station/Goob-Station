@@ -7,7 +7,9 @@
   requirements:
   - !type:DepartmentTimeRequirement
     department: Science
-    time: 14400 # 4 hours
+    time: 21600 # 6 hours
+    department: Medical
+    time: 28800 # 8 hours
   - !type:OverallPlaytimeRequirement
     time: 43200 # 12 hours
   startingGear: RoboticistGear
