@@ -799,10 +799,10 @@
       - !type:HealthChange
         damage:
           groups:
-            Burn: -3
-            Toxin: -3
-            Airloss: -3
-            Brute: -3 # Was 2, Buffed due to limb damage changes(GoobStation)
+            Burn: -1.5
+            Toxin: -1.5
+            Airloss: -1.5
+            Brute: -1.5 # Was 2, then 3, reduced to 1.5 to push players to make advanced meds rather than rely on omni with alchemy changes
 
 - type: reagent
   id: Ultravasculine

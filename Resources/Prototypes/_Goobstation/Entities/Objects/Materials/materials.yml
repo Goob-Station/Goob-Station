@@ -32,6 +32,12 @@
     tags:
     - Ore
     - Ingot
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: bluespaceessence
+        Quantity: 10
 
 - type: entity
   parent: MaterialBSCrystal
