@@ -3069,3 +3069,11 @@ Entries:
         and disablers
   id: 345
   time: '2024-12-11T22:04:11.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: Chemvend now contains two bottles of lead when emagged.
+    - type: Tweak
+      message: Steel now gives "7u Iron, 2u carbon, 1u Lead" when grinded.
+  id: 346
+  time: '2024-12-11T22:12:20.0000000+00:00'
