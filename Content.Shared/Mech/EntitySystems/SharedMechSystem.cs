@@ -138,6 +138,7 @@ public abstract class SharedMechSystem : EntitySystem
         _actions.AddAction(pilot, ref component.MechCycleActionEntity, component.MechCycleAction, mech);
         _actions.AddAction(pilot, ref component.MechUiActionEntity, component.MechUiAction, mech);
         _actions.AddAction(pilot, ref component.MechEjectActionEntity, component.MechEjectAction, mech);
+        _actions.AddAction(pilot, ref component.ToggleActionEntity, component.ToggleAction, mech);
     }
 
     private void RemoveUser(EntityUid mech, EntityUid pilot)
