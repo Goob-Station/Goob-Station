@@ -125,6 +125,7 @@
   roles:
   - ResearchDirector
   - Scientist
+  - Roboticist # Goobstation - adds roboticist job
   - ResearchAssistant
 
 - type: department
