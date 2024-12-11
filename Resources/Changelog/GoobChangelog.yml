@@ -3087,3 +3087,47 @@ Entries:
       message: Add Nitrium
   id: 347
   time: '2024-12-11T22:41:29.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a few more features to organs from Goliaths, Space Cobras, Laser
+        Raptors and Space Dragons.
+    - type: Add
+      message: Nukie doctors now start with an EVIL medical omnitool.
+    - type: Add
+      message: >-
+        The lobotomy procedure makes the target clumsy like the clown. This
+        makes them bonk when climbing tables and makes guns they're shooting
+        blow up on their face.
+    - type: Fix
+      message: >-
+        Enabled the "Mend brain tissue" surgical procedure on a lobotomized
+        target.
+    - type: Fix
+      message: >-
+        The lobotomized effect is now stored in the brain instead of the body.
+        The same brain stays lobotomized throughout brain transplants, and
+        transferring a normal brain to a body where a lobotomy occurred no
+        longer applies the lobotomized effect.
+    - type: Fix
+      message: >-
+        The lobotomy procedure now shows the proper popup during the
+        lobotomization step.
+    - type: Fix
+      message: Removed the ability to perform lobotomies on bodies without a brain.
+    - type: Fix
+      message: >-
+        The "Remove organ" surgery step on the UI now properly shows the
+        retractor sprite instead of the hemostat.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds now have full body parts and can take damage from
+        them. Naturally they are also valid for surgery.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds can now wear backpacks, glasses, gloves, and have
+        pockets! (if someone fixes their displacement maps/sprites im happy to
+        make em a playable species)
+  id: 348
+  time: '2024-12-11T22:46:28.0000000+00:00'
