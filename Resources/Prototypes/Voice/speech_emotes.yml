@@ -183,7 +183,7 @@
    - squeaks
    - squeaked
 
-- type: emote
+- type: emote #goob thingy
   id: Flap
   name: chat-emote-name-flap
   category: Vocal
