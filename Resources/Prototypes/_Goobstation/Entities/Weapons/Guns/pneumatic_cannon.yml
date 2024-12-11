@@ -4,10 +4,9 @@
   id: LauncherCreamPieRegenerating
   description: A self-regenerating pie cannon.
   suffix: Regenerating
-  - type: PacifismAllowedGun
-
 
   components:
+  - type: PacifismAllowedGun
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
 
