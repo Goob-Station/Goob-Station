@@ -67,3 +67,8 @@ uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech wit
 
 uplink-mech-teleporter-assault-name = Assault Mech teleporter
 uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
+
+# Implants
+
+uplink-smoke-implant-name = Smoke implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.

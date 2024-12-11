@@ -283,6 +283,16 @@
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
 
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkImplants
 
 - type: listing
   id: UplinkSmugglerSatchel
