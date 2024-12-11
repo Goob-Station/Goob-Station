@@ -180,8 +180,9 @@ public sealed class ToggleableClothingSystem : EntitySystem
         if (GetAttachedToggleStatus(toggleable) == ToggleableClothingAttachedStatus.NoneToggled)
             return;
 
-        args.Cancel();
         _popupSystem.PopupClient(Loc.GetString("toggleable-clothing-remove-all-attached-first"), args.Unequipee, args.Unequipee);
+
+        args.Cancel();
     }
 
     /// <summary>

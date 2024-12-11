@@ -4,6 +4,7 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -18,7 +19,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
-    [Dependency] private readonly MetaDataSystem _metaData = default!;
+    [Dependency] private readonly ComponentTogglerSystem _componentTogglerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
@@ -31,14 +32,15 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
         SubscribeLocalEvent<SealableClothingControlComponent, ComponentRemove>(OnControlRemove);
         SubscribeLocalEvent<SealableClothingControlComponent, MapInitEvent>(OnControlMapInit);
-
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotEquippedEvent>(OnControlEquip);
         SubscribeLocalEvent<SealableClothingControlComponent, ClothingGotUnequippedEvent>(OnControlUnequip);
-
         SubscribeLocalEvent<SealableClothingControlComponent, GetItemActionsEvent>(OnControlGetItemActions);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingDoAfterEvent>(OnSealClothingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
+        SubscribeLocalEvent<SealableClothingControlComponent, ClothingControlSealCompleteEvent>(OnControlSealingComplete);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
+
+        SubscribeLocalEvent<SealableClothingComponent, ClothingPartSealCompleteEvent>(OnPartSealingComplete);
     }
 
     /// <summary>
@@ -90,6 +92,24 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
     private void OnControlSealEvent(Entity<SealableClothingControlComponent> control, ref SealClothingEvent args)
     {
+        var (uid, comp) = control;
+
+        if (comp.IsInProcess)
+        {
+            if (comp.IsCurrentlySealed)
+            {
+                _popupSystem.PopupClient(Loc.GetString(comp.SealedInProcessToggleFailPopup), uid, comp.WearerEntity);
+                _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            }
+            else
+            {
+                _popupSystem.PopupClient(Loc.GetString(comp.UnsealedInProcessToggleFailPopup), uid, comp.WearerEntity);
+                _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            }
+
+            return;
+        }
+
         TryStartSealToggleProcess(control);
     }
 
@@ -100,35 +120,38 @@ public sealed partial class SealableClothingSystem : EntitySystem
         if (args.Cancelled || args.Handled || args.Target == null)
             return;
 
-        var partTarget = args.Target;
+        var part = args.Target;
 
-        if (!TryComp<SealableClothingComponent>(partTarget, out var sealableComponet))
+        if (!TryComp<SealableClothingComponent>(part, out var sealableComponet))
             return;
 
         sealableComponet.IsSealed = !comp.IsCurrentlySealed;
+
+        Dirty(part.Value, sealableComponet);
 
         if (sealableComponet.IsSealed)
             _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
         else
             _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
 
-        Dirty(partTarget.Value, sealableComponet);
+        var ev = new ClothingPartSealCompleteEvent(sealableComponet.IsSealed);
+        RaiseLocalEvent(part.Value, ref ev);
+
         NextSealProcess(control);
     }
 
+    private void OnControlSealingComplete(Entity<SealableClothingControlComponent> control, ref ClothingControlSealCompleteEvent args)
+    {
+        _componentTogglerSystem.ToggleComponent(control, args.IsSealed);
+    }
+
+    private void OnPartSealingComplete(Entity<SealableClothingComponent> part, ref ClothingPartSealCompleteEvent args)
+    {
+        _componentTogglerSystem.ToggleComponent(part, args.IsSealed);
+    }
     private void OnToggleClothingAttempt(Entity<SealableClothingControlComponent> control, ref ToggleClothingAttemptEvent args)
     {
         var (uid, comp) = control;
-
-        // Popup if currently unsealing
-        if (comp.IsInProcess && comp.IsCurrentlySealed)
-        {
-            _popupSystem.PopupClient(Loc.GetString(comp.SealedInProcessToggleFailPopup), uid, comp.WearerEntity);
-            _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
-            args.Cancel();
-
-            return;
-        }
 
         // Popup if currently sealing
         if (comp.IsInProcess)
@@ -211,6 +234,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
     {
         var (uid, comp) = control;
 
+        // Finish sealing process
         if (comp.ProcessQueue.Count == 0)
         {
             comp.IsInProcess = false;
@@ -220,6 +244,9 @@ public sealed partial class SealableClothingSystem : EntitySystem
                 _audioSystem.PlayEntity(comp.SealCompleteSound, comp.WearerEntity!.Value, uid);
             else
                 _audioSystem.PlayEntity(comp.UnsealCompleteSound, comp.WearerEntity!.Value, uid);
+
+            var ev = new ClothingControlSealCompleteEvent(comp.IsCurrentlySealed);
+            RaiseLocalEvent(control, ref ev);
 
             Dirty(control);
             return;
@@ -273,4 +300,22 @@ public sealed partial class SealClothingDoAfterEvent : SimpleDoAfterEvent
 
 public sealed partial class SealClothingEvent : InstantActionEvent
 {
+}
+
+/// <summary>
+///     Raises on control when clothing finishes it's sealing or unsealing process
+/// </summary>
+[ByRefEvent]
+public readonly record struct ClothingControlSealCompleteEvent(bool IsSealed)
+{
+    public readonly bool IsSealed = IsSealed;
+}
+
+/// <summary>
+///     Raises on part when clothing finishes it's sealing or unsealing process
+/// </summary>
+[ByRefEvent]
+public readonly record struct ClothingPartSealCompleteEvent(bool IsSealed)
+{
+    public readonly bool IsSealed = IsSealed;
 }

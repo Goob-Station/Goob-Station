@@ -14,4 +14,7 @@
     icon:
       sprite: _Goobstation/Actions/modsuit.rsi
       state: activate
+    iconOn:
+      sprite: _Goobstation/Actions/modsuit.rsi
+      state: activate-ready
     event: !type:SealClothingEvent {}
