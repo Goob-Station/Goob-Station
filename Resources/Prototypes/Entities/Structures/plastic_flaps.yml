@@ -1,6 +1,6 @@
 - type: entity
   id: PlasticFlapsBase
-  parent: BaseStructureDynamic
+  parent: BaseStructure
   abstract: true
   placement:
     mode: SnapgridCenter
