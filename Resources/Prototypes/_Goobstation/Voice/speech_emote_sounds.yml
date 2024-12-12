@@ -1,0 +1,7 @@
+- type: emoteSounds
+  id: UnisexMoth
+  params:
+    variation: 0.125
+  sounds:
+    Flap: 
+      path: /_Goobstation/Audio/Voice/Moth/moth_flap.ogg
