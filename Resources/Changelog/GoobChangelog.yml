@@ -3176,3 +3176,15 @@ Entries:
       message: The little salv roundstart asteroids in space are back.
   id: 353
   time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'
