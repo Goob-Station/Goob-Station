@@ -70,10 +70,11 @@
         Caustic: 0.95
   - type: ExplosionResistance
     damageCoefficient: 0.75
+  - type: FlashSoundSuppression # Goobstation
 
 #Syndicate SWAT Helmet
 - type: entity
-  parent: ClothingHeadHelmetSwat
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetSwat] # Goob edit
   id: ClothingHeadHelmetSwatSyndicate
   name: SWAT helmet
   suffix: Syndicate
