@@ -1,0 +1,10 @@
+- type: construction
+  name: portable chemical mixer
+  id: portableChemicalMixer
+  graph: portableChemicalMixer
+  startNode: start
+  targetNode: chemicalMixer
+  category: construction-category-misc
+  description: a portable tool for mixing chemical
+  icon: { sprite: Objects/Tools/bucket.rsi, state: icon } # add sprite
+  objectType: Item
