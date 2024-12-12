@@ -353,8 +353,6 @@
       path: /Audio/Voice/Moth/moth_chitter.ogg
     Squeak:
       path: /Audio/Voice/Moth/moth_squeak.ogg
-    Flap: #goob thingy
-      path: /_Goobstation/Audio/Voice/Moth/moth_flap.ogg
     Weh:
       collection: Weh
     Gasp:
