@@ -5,7 +5,7 @@
 
   - node: start
     edges:
-    - to: chemicalMixer
+    - to: end
       steps:
       - tag: Bucket # general mixing and container
         icon:
@@ -18,10 +18,8 @@
         name: a multitool
       - tag: GlassBeaker
         icon:
-            sprite: Objects/Specific/Chemistry/beaker.rsi
-            state: beaker
-        name: 2x beaker
-        amount: 2
+          sprite: Objects/Specific/Chemistry/beaker.rsi
+          state: beaker
       - material: Cable
         amount: 15
       - anyTags:        # Powers the contraption
@@ -33,5 +31,5 @@
           state: "medium"
         doAfter: 1
 
-  - node: chemicalMixer
+  - node: end
     entity: portableChemicalMixer

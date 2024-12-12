@@ -68,6 +68,9 @@
     solution: buffer
   - type: Clothing  # Goes in the belt slot
     slots: [belt]
+  - type: Construction
+    graph: portableChemicalMixerGraph
+    node: end
 
 - type: entity
   id: portableChemicalMixerIncomplete
