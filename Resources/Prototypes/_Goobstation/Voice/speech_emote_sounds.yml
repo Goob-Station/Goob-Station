@@ -4,4 +4,4 @@
     variation: 0.125
   sounds:
     Flap: 
-      path: /_Goobstation/Audio/Voice/Moth/moth_flap.ogg
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
