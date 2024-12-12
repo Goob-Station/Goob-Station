@@ -74,7 +74,7 @@
 
 #Syndicate SWAT Helmet
 - type: entity
-  parent: [ClothingHeadHelmetSwat, BaseSyndicateContraband] # Goob edit
+  parent: [BaseSyndicateContraband, ClothingHeadHelmetSwat] # Goob edit
   id: ClothingHeadHelmetSwatSyndicate
   name: SWAT helmet
   suffix: Syndicate
