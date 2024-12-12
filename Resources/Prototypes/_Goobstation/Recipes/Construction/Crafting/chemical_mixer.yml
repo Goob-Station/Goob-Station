@@ -1,10 +1,10 @@
 - type: construction
   name: portable chemical mixer
-  id: portableChemicalMixer
-  graph: portableChemicalMixer
+  id: portableChemicalMixerConstruction
+  graph: portableChemicalMixerGraph
   startNode: start
   targetNode: chemicalMixer
   category: construction-category-misc
   description: a portable tool for mixing chemical
-  icon: { sprite: Objects/Tools/bucket.rsi, state: icon } # add sprite
+  icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer } # add sprite
   objectType: Item

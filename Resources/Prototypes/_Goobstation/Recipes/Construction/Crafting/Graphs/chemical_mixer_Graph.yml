@@ -1,47 +1,37 @@
-- type: construction
-  name: portable chemical mixer
-  id: portableChemicalMixerConstruction
-  graph: portableChemicalMixerGraph
-  startNode: start
-  targetNode: chemicalMixer
-  category: construction-category-misc
-  description: a portable tool for mixing chemical
-  icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer } # add sprite
-  objectType: Item
-
 - type: constructionGraph
   id: portableChemicalMixerGraph
   start: start
   graph:
-    - node: start
-      edges:
-        - to: chemicalMixer
-          steps:
-            - tag: Bucket # general mixing and container
-              icon:
-                sprite: Objects/Tools/bucket.rsi
-                state: icon
-              doAfter: 1
-            - tag: Multitool  # for the screen
-              icon:
-                sprite: Objects/Tools/multitool.rsi
-                state: icon
-              name: a multitool
-              doAfter: 1
-            - material: MatterBin # is the buffer
-              amount: 2
-              doAfter: 1
-            - material: Cable
-              amount: 15
-              doAfter: 1
-            - anyTags:        # Powers the contraption
-                - PowerCell
-                - PowerCellSmall
-              name: a powercell
-              icon:
-                sprite: "Objects/Power/power_cells.rsi"
-                state: "medium"
-              doAfter: 1
 
-    - node: chemicalMixer
-      entity: portableChemicalMixer
+  - node: start
+    edges:
+    - to: chemicalMixer
+      steps:
+      - tag: Bucket # general mixing and container
+        icon:
+          sprite: Objects/Tools/bucket.rsi
+          state: icon
+      - tag: Multitool  # for the screen
+        icon:
+          sprite: Objects/Tools/multitool.rsi
+          state: icon
+        name: a multitool
+      - tag: GlassBeaker
+        icon:
+            sprite: Objects/Specific/Chemistry/beaker.rsi
+            state: beaker
+        name: 2x beaker
+        amount: 2
+      - material: Cable
+        amount: 15
+      - anyTags:        # Powers the contraption
+        - PowerCell
+        - PowerCellSmall
+        name: a powercell
+        icon:
+          sprite: "Objects/Power/power_cells.rsi"
+          state: "medium"
+        doAfter: 1
+
+  - node: chemicalMixer
+    entity: portableChemicalMixer
