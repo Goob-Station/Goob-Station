@@ -338,11 +338,6 @@
   name: chat-emote-name-buzz
   category: Vocal
   icon: Interface/Emotes/buzz.png
-  whitelist:
-    requireAll: true
-    components:
-    - BorgChassis
-    - Vocal
   chatMessages: ["chat-emote-msg-buzz"]
   chatTriggers:
     - buzzing
@@ -355,7 +350,7 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
-  chatMessages: [Wehs!]
+  chatMessages: [wehs]
 
 - type: emote
   id: Chirp
@@ -379,11 +374,6 @@
   name: chat-emote-name-beep
   category: Vocal
   icon: Interface/Emotes/beep.png
-  whitelist:
-    requireAll: true
-    components:
-    - BorgChassis
-    - Vocal
   chatMessages: ["chat-emote-msg-beep"]
   chatTriggers:
     - beep
@@ -396,11 +386,6 @@
   name: chat-emote-name-chime
   category: Vocal
   icon: Interface/Emotes/chime.png
-  whitelist:
-    requireAll: true
-    components:
-    - BorgChassis
-    - Vocal
   chatMessages: ["chat-emote-msg-chime"]
   chatTriggers:
     - chime
@@ -413,11 +398,6 @@
   name: chat-emote-name-buzztwo
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
-  whitelist:
-    requireAll: true
-    components:
-    - BorgChassis
-    - Vocal
   chatMessages: ["chat-emote-msg-buzzestwo"]
   chatTriggers:
     - buzztwice
@@ -436,11 +416,6 @@
   name: chat-emote-name-ping
   category: Vocal
   icon: Interface/Emotes/ping.png
-  whitelist:
-    requireAll: true
-    components:
-    - BorgChassis
-    - Vocal
   chatMessages: ["chat-emote-msg-ping"]
   chatTriggers:
     - ping

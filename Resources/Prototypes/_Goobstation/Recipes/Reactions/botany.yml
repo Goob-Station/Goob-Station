@@ -1,0 +1,35 @@
+- type: reaction
+  id: OrganicPotash
+  minTemp: 354
+  reactants:
+    Water:
+      amount: 1
+    Ash:
+      amount: 1
+  products:
+    Potash: 2
+
+- type: reaction
+  id: Potash
+  reactants:
+    Potassium:
+      amount: 1
+    Chlorine:
+      amount: 1
+    SulfuricAcid:
+      amount: 1
+  products:
+    Potash: 2
+
+- type: reaction
+  id: Saltpeter
+  reactants:
+    EZNutrient:
+      amount: 1
+    Potash:
+      amount: 1
+    Nitrogen:
+      amount: 1
+  products:
+    Saltpeter: 1
+    Water: 1
