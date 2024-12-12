@@ -71,7 +71,7 @@
         shader: unshaded
   - type: Reflect # Goob edit
     reflectProb: .5
-    otherTypeReflectProb: .1
+    otherTypeReflectProb: .125
     reflects:
       - Energy
   - type: IgnitionSource
@@ -360,7 +360,7 @@
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect # Goob edit
     reflectProb: 1
-    otherTypeReflectProb: .2
+    otherTypeReflectProb: .25
     spread: 75
   - type: FlipOnHit # WD EDIT
 
