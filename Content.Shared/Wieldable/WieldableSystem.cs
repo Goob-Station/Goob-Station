@@ -120,10 +120,6 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
-        if (args.User is not null)
-            Logger.Debug(args.User.Value.ToString());
-        else
-            Logger.Debug("null...");
         if (TryComp(bonus, out WieldableComponent? wield) &&
             (wield.Wielded) || 
             (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&
