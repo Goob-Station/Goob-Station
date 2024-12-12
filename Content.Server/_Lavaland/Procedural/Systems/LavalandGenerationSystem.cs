@@ -57,8 +57,11 @@ public sealed class LavalandGenerationSystem : EntitySystem
         SetupLavaland();
     }
 
-    private void SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
+    public bool SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
     {
+        if (LavalandMap.IsValid())
+            return false;
+
         // Basic setup.
         LavalandMap = _map.CreateMap(out LavalandMapId, runMapInit: false);
 
@@ -116,7 +119,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
             Log.Error(outposts?.Count > 1
                 ? $"Loading Outpost on lavaland map failed, {prototype.OutpostPath} is not saved as a grid."
                 : $"Failed to spawn Outpost {prototype.OutpostPath} onto Lavaland map.");
-            return;
+            return false;
         }
 
         // Get the outpost
@@ -135,6 +138,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
         _mapManager.DoMapInitialize(LavalandMapId);
         _mapManager.SetMapPaused(LavalandMapId, false);
+        return true;
     }
 
     private void SetupRuins(LavalandRuinPoolPrototype pool)
@@ -142,8 +146,12 @@ public sealed class LavalandGenerationSystem : EntitySystem
         // TODO: THIS IS A FUCKING LAG MACHINE AAAAAAAAAAAAAAAAAAA
         var random = new Random(Seed);
 
-        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance);
         var boundary = GetOutpostBoundary();
+        // The LINQ shit is to filter out all points that are inside the boundary.
+        var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance)
+            .Where(coordinate => boundary == null ||
+            !boundary.Any(box => box.Contains(coordinate)))
+            .ToList();
 
         List<LavalandRuinPrototype> ruins = [];
 
@@ -157,38 +165,42 @@ public sealed class LavalandGenerationSystem : EntitySystem
         }
 
         // No ruins no fun
-        if (!ruins.Any())
+        if (ruins.Count == 0)
             return;
 
-        // Filter out points that are near the Lavaland outpost and add them to a proper list
-        var newCoordinates = coords.Where(coordinate => boundary == null || !boundary.Any(box => box.Contains(coordinate))).ToList();
-        var alreadyTaken = new List<Vector2>();
+        random.Shuffle(coords);
+        random.Shuffle(ruins);
 
-        // Finally spawn the ruins.
-        foreach (var ruin in ruins)
+        var iterator = 0;
+        while (iterator < ruins.Count - 1 && iterator < coords.Count - 1)
         {
-            var coord = random.Pick(newCoordinates);
-            if (alreadyTaken.Contains(coord))
-                continue; // guess we're out today
+            iterator++;
 
-            alreadyTaken.Add(coord);
+            var ruin = ruins[iterator];
+            var coord = coords[iterator];
             // GAMBLING the coordinate a bit
             const int shift = 8;
             var shiftVector = new Vector2(random.Next(-shift, shift), random.Next(-shift, shift));
             coord += shiftVector;
 
-            var fixin = new Vector2(0.515625f, 0.5f);
-            var options = new MapLoadOptions
-            {
-                Offset = coord + fixin,
-            };
-            if (!_mapLoader.TryLoad(LavalandMapId, ruin.Path, out var loaded, options) || loaded.Count != 1)
-            {
-                Log.Error(loaded?.Count > 1
-                    ? $"Loading Ruin on lavaland map failed, {ruin.Path} is not saved as a grid."
-                    : $"Failed to spawn Ruin {ruin.Path} onto Lavaland map.");
-            }
+            SpawnRuin(coord, ruin);
         }
+    }
+
+    private void SpawnRuin(Vector2 coordinate, LavalandRuinPrototype ruin)
+    {
+        var fixin = new Vector2(0.515625f, 0.5f);
+        var options = new MapLoadOptions
+        {
+            Offset = coordinate + fixin,
+        };
+        if (!_mapLoader.TryLoad(LavalandMapId, ruin.Path, out var loaded, options) || loaded.Count != 1)
+        {
+            Log.Error(loaded?.Count > 1
+                ? $"Loading Ruin on lavaland map failed, {ruin.Path} is not saved as a grid."
+                : $"Failed to spawn Ruin {ruin.Path} onto Lavaland map.");
+        }
+        Log.Debug($"Loaded lavaland ruin {ruin.ID} on coordinates {coordinate.Rounded()}");
     }
 
     private List<Vector2> GetCoordinates(float distance, float maxDistance)
@@ -199,25 +211,25 @@ public sealed class LavalandGenerationSystem : EntitySystem
         while (moveVector.Y >= -maxDistance)
         {
             // i love writing shitcode
-            // Movin' like a snake through the entire map placing all dots onto its places.
+            // Moving like a snake through the entire map placing all dots onto its places.
 
             while (moveVector.X > -maxDistance)
             {
-                moveVector += new Vector2(-distance, 0);
                 coords.Add(moveVector);
+                moveVector += new Vector2(-distance, 0);
             }
 
-            moveVector += new Vector2(0, -distance);
             coords.Add(moveVector);
+            moveVector += new Vector2(0, -distance);
 
             while (moveVector.X < maxDistance)
             {
-                moveVector += new Vector2(distance, 0);
                 coords.Add(moveVector);
+                moveVector += new Vector2(distance, 0);
             }
 
-            moveVector += new Vector2(0, -distance);
             coords.Add(moveVector);
+            moveVector += new Vector2(0, -distance);
         }
 
         return coords;

@@ -5,6 +5,6 @@
 - type: lavalandRuinPool
   id: Lavaland
   ruins:
-    RuinedShuttle: 4
-    Labyrinth: 4
-    Hermit: 4
+    RuinedShuttle: 48
+    Labyrinth: 24
+    Hermit: 24
