@@ -105,6 +105,15 @@
     price: 40
   - type: IgnitionSource
     temperature: 700
+  - type: WeldingHealing # Same as Brutepack - EE IPCs
+    damageContainers:
+      - Silicon
+    fuelCost: 5
+    damage:
+      types:
+        Blunt: -15
+        Piercing: -15
+        Slash: -15
   - type: Cautery # Shitmed
     speed: 0.7
   - type: SurgeryTool # Shitmed

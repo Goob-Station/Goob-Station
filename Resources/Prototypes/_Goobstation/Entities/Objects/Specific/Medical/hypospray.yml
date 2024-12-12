@@ -27,9 +27,9 @@
     tags: []
 
 - type: entity
-  name: cartridge autoinjector
+  name: security cartridge autoinjector
   parent: [BaseItem, BaseRestrictedContraband]
-  description: Used for rapid administration of medicine to wounded people. Uses cartridges printable on security techfab.
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
   id: SecHypo
   components:
   - type: Sprite
@@ -53,9 +53,21 @@
     injectOnly: true
   - type: HyposprayBlockNonMobInjection
   - type: UseDelay
-    delay: 40 # up this later if its too low
+    delay: 30 # up this later if its too low
   - type: SolutionCartridgeReceiver
     tag: AutoinjectorCartridge
+
+- type: entity
+  name: medical cartridge autoinjector # statistically identical to the security autoinjector but made a seperate entity so they can be balanced seperately in the future.
+  parent: [SecHypo, BaseMedicalContraband]
+  description: Used for rapid administration of medicine. Uses cartridges printable at the medical and security techfab.
+  id: ParamedHypo
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
+    state: icon
+  - type: Item
+    sprite: _Goobstation/Objects/Specific/Medical/medical_hypo.rsi
 
 - type: entity
   name: autoinjector cartridge
@@ -147,20 +159,20 @@
         Quantity: 10
 
 - type: entity
-  name: ichor autoinjector cartridge
+  name: puncturase autoinjector cartridge
   parent: BaseCartridgeAutoinjector
-  description: Contains 7u of ichor and 3u of tranexamic acid, used in a cartridge autoinjector.
-  id: CartridgeIchor
+  description: Contains 7u of puncturase and 3u of tranexamic acid, used in a cartridge autoinjector.
+  id: CartridgePuncturase
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/cartridge.rsi
-    state: cartridge-ichor
+    state: cartridge-ichor # not bothering to make a sprite for it
   - type: SolutionCartridge
     targetSolution: hypospray
     solution:
       maxVol: 10
       reagents:
-      - ReagentId: Ichor
+      - ReagentId: Puncturase
         Quantity: 7
       - ReagentId: TranexamicAcid
         Quantity: 3
