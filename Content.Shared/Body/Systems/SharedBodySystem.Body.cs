@@ -456,7 +456,6 @@ public partial class SharedBodySystem
             || !Initialized(uid)) // We do this last one for urists on test envs.
             return;
 
-        Logger.Debug($"{ToPrettyString(uid)}: ProfileLoadFinished with {HasComp<HumanoidAppearanceComponent>(uid)} and {component}");
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
     }

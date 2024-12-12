@@ -1,0 +1,51 @@
+# Shitmed - this is just a copy of human body but with animal organs.
+- type: body
+  id: Kobold
+  name: "Kobold"
+  root: torso
+  slots:
+    head:
+      part: HeadKobold
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
+    torso:
+      part: TorsoKobold
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmKobold
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmKobold
+      connections:
+      - left hand
+    right hand:
+      part: RightHandKobold
+    left hand:
+      part: LeftHandKobold
+    right leg:
+      part: RightLegKobold
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegKobold
+      connections:
+      - left foot
+    right foot:
+      part: RightFootKobold
+    left foot:
+      part: LeftFootKobold
