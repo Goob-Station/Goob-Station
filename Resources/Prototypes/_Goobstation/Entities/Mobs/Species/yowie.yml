@@ -39,6 +39,7 @@
   - type: BoganAccent
   - type: Carriable 
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
+  - type: NoWieldNeeded
 
 - type: entity
   parent: BaseSpeciesDummy

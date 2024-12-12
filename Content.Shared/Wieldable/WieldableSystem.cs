@@ -42,7 +42,7 @@ public sealed class WieldableSystem : EntitySystem
 
         SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, before: [typeof(SharedGunSystem)]);
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
-        SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
+        SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);     
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
         SubscribeLocalEvent<WieldableComponent, HandDeselectedEvent>(OnDeselectWieldable);
@@ -54,6 +54,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<GunWieldBonusComponent, GotEquippedHandEvent>(OnItemInHand);
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -70,8 +71,14 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, GunRequiresWieldComponent component, ref ShotAttemptedEvent args)
     {
+        if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) {
+            _gun.RefreshModifiers(uid, args.User);
+        }
+
         if (TryComp<WieldableComponent>(uid, out var wieldable) &&
-            !wieldable.Wielded)
+            !wieldable.Wielded &&
+            noWieldNeeded is null
+            )
         {
             args.Cancel();
 
@@ -84,12 +91,17 @@ public sealed class WieldableSystem : EntitySystem
                 var message = Loc.GetString("wieldable-component-requires", ("item", uid));
                 _popupSystem.PopupClient(message, args.Used, args.User);
             }
-        }
+        } 
+    }
+
+    private void OnItemInHand(EntityUid uid, GunWieldBonusComponent component, GotEquippedHandEvent args)
+    {
+        _gun.RefreshModifiers(uid, args.User);
     }
 
     private void OnGunUnwielded(EntityUid uid, GunWieldBonusComponent component, ItemUnwieldedEvent args)
     {
-        _gun.RefreshModifiers(uid);
+        _gun.RefreshModifiers(uid, args.User);
     }
 
     private void OnGunWielded(EntityUid uid, GunWieldBonusComponent component, ref ItemWieldedEvent args)
@@ -108,8 +120,15 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnGunRefreshModifiers(Entity<GunWieldBonusComponent> bonus, ref GunRefreshModifiersEvent args)
     {
+        if (args.User is not null)
+            Logger.Debug(args.User.Value.ToString());
+        else
+            Logger.Debug("null...");
         if (TryComp(bonus, out WieldableComponent? wield) &&
-            wield.Wielded)
+            (wield.Wielded) || 
+            (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&
+            noWieldNeeded.GetBonus)
+            )
         {
             args.MinAngle += bonus.Comp.MinAngle;
             args.MaxAngle += bonus.Comp.MaxAngle;

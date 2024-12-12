@@ -549,7 +549,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Physics.ApplyLinearImpulse(user, -impulseVector, body: userPhysics);
     }
 
-    public void RefreshModifiers(Entity<GunComponent?> gun)
+    public void RefreshModifiers(Entity<GunComponent?> gun, EntityUid? User = null)
     {
         if (!Resolve(gun, ref gun.Comp))
             return;
@@ -565,7 +565,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             comp.MinAngle,
             comp.ShotsPerBurst,
             comp.FireRate,
-            comp.ProjectileSpeed
+            comp.ProjectileSpeed,
+            User
         );
 
         RaiseLocalEvent(gun, ref ev);
