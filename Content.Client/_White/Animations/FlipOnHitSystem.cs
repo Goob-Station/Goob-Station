@@ -51,7 +51,7 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
 
         var animation = new Animation
         {
-            Length = TimeSpan.FromMilliseconds(400),
+            Length = TimeSpan.FromMilliseconds(1600),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -64,6 +64,12 @@ public sealed class FlipOnHitSystem : SharedFlipOnHitSystem
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees - 10), 0f),
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 180), 0.2f),
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 360), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 540), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 720), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 900), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 1080), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 1260), 0.2f),
+                        new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees + 1440), 0.2f),
                         new AnimationTrackProperty.KeyFrame(Angle.FromDegrees(degrees), 0f)
                     }
                 }
