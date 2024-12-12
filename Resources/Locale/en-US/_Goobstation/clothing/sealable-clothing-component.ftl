@@ -1,5 +1,6 @@
 sealable-clothing-equipment-not-toggled = Deploy all parts first!
 sealable-clothing-equipment-seal-failed = Sealing failed!
+sealable-clothing-seal-verb = Toggle seals
 
 sealable-clothing-seal-up = The {$partName} sealing
 sealable-clothing-seal-up-helmet =  The {$partName} hisses closed.

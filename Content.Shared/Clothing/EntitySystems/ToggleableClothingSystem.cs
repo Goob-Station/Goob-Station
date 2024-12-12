@@ -89,8 +89,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         if (user == wearer)
         {
-            verb.EventTarget = toggleable;
-            verb.ExecutionEventArgs = new ToggleClothingEvent() { Performer = args.User };
+            verb.Act = () => ToggleClothing(user, toggleable);
         }
         else
         {

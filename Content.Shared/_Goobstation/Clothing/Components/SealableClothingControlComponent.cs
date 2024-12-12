@@ -53,6 +53,12 @@ public sealed partial class SealableClothingControlComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? WearerEntity;
 
+    /// <summary>
+    ///     Doafter time for other players to start sealing via stripping menu
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public TimeSpan NonWearerSealingTime = TimeSpan.FromSeconds(4);
+
     #region Popups & Sounds
 
     [DataField]
@@ -69,6 +75,9 @@ public sealed partial class SealableClothingControlComponent : Component
 
     [DataField]
     public LocId CurrentlySealedToggleFailPopup = "sealable-clothing-sealed-toggle-fail";
+
+    [DataField]
+    public LocId VerbText = "sealable-clothing-seal-verb";
 
     [DataField]
     public SoundSpecifier FailSound = new SoundPathSpecifier("/Audio/Machines/scanbuzz.ogg");
