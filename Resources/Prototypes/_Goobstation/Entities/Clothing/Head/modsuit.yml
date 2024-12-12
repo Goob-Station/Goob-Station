@@ -15,6 +15,9 @@
     unequipSound: /Audio/Mecha/mechmove03.ogg
     quickEquip: false
     slots: [ HEAD ]
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
   - type: Tag
     tags:
     - WhitelistChameleon
@@ -43,15 +46,24 @@
   description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
-    state: helmet
+    layers:
+    - state: helmet
+    - state: helmet-sealed
+      visible: false
+      map: [ "sealed" ]
   - type: HideLayerClothing # This helmet don't have sprite on unsealed state
     slots:
     - Snout
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-helmet
     sealDownPopup: sealable-clothing-seal-down-helmet
+  - type: SealableClothingVisuals
+    visualLayers:
+      head:
+      - state: equipped-HEAD-sealed
   - type: Armor
     modifiers:
       coefficients:

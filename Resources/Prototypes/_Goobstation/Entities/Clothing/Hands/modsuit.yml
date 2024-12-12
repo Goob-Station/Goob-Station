@@ -5,9 +5,14 @@
   description: A special modular suit gloves that protect wearer from electric shock.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Hands/Modsuits/standard.rsi
-    state: gauntlets
+    layers:
+    - state: gauntlets
+    - state: gauntlets-sealed
+      visible: false
+      map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
@@ -24,3 +29,8 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-gauntlets
     sealDownPopup: sealable-clothing-seal-down-gauntlets
+  - type: SealableClothingVisuals
+    visualLayers:
+      gloves:
+      - state: equipped-HAND-sealed
+        shader: unshaded

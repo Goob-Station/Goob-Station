@@ -4,16 +4,21 @@
   name: standard modsuit control
   description: A special modular suit contol containing all modular suit parts.
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Back/Modsuits/standard.rsi
-    state: control
+    layers:
+    - state: control
+    - state: control-sealed
+      visible: false
+      shader: unshaded
+      map: [ "sealed" ]
   - type: Item
     size: Huge
   - type: Clothing
     quickEquip: false
     slots:
     - back
-  - type: AllowSuitStorage
   - type: SealableClothingControl
   - type: ToggleableClothing
     requiredSlot: back
@@ -32,3 +37,8 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+  - type: SealableClothingVisuals
+    visualLayers:
+      back:
+      - state: equipped-BACKPACK-sealed
+        shader: unshaded

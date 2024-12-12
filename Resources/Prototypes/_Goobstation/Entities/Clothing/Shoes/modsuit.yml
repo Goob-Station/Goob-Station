@@ -5,9 +5,13 @@
   description: A special modular suit boots designed for compact folding inside modular suit control.
   categories: [ HideSpawnMenu ]
   components:
+  - type: Appearance
   - type: Sprite
     sprite: _Goobstation/Clothing/Shoes/Modsuits/standard.rsi
-    state: boots
+    layers:
+    - state: boots
+    - state: boots-sealed
+      map: [ "sealed" ]
   - type: Clothing
     equipSound: /Audio/Mecha/mechmove03.ogg
     unequipSound: /Audio/Mecha/mechmove03.ogg
@@ -18,3 +22,11 @@
   - type: SealableClothing
     sealUpPopup: sealable-clothing-seal-up-boots
     sealDownPopup: sealable-clothing-seal-down-boots
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: SealableClothingVisuals
+    visualLayers:
+      shoes:
+      - state: equipped-FEET-sealed
+        shader: unshaded

@@ -21,6 +21,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
     [Dependency] private readonly ComponentTogglerSystem _componentTogglerSystem = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
@@ -133,6 +134,8 @@ public sealed partial class SealableClothingSystem : EntitySystem
             _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
         else
             _audioSystem.PlayPvs(sealableComponet.SealUpSound, uid);
+
+        _appearanceSystem.SetData(part.Value, SealableClothingVisuals.Sealed, sealableComponet.IsSealed);
 
         var ev = new ClothingPartSealCompleteEvent(sealableComponet.IsSealed);
         RaiseLocalEvent(part.Value, ref ev);
@@ -248,6 +251,8 @@ public sealed partial class SealableClothingSystem : EntitySystem
             var ev = new ClothingControlSealCompleteEvent(comp.IsCurrentlySealed);
             RaiseLocalEvent(control, ref ev);
 
+            _appearanceSystem.SetData(uid, SealableClothingVisuals.Sealed, comp.IsCurrentlySealed);
+
             Dirty(control);
             return;
         }
@@ -282,6 +287,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
             return;
 
         if (comp.IsCurrentlySealed)
+
             _popupSystem.PopupEntity(Loc.GetString(sealableComponent.SealDownPopup,
                 ("partName", Identity.Name(processingPart, EntityManager))),
                 uid, comp.WearerEntity!.Value);
