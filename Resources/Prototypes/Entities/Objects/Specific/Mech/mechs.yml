@@ -107,7 +107,7 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # Goobstation Change Start
-  - type: UnpoweredFlashlight
+  - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
   - type: PointLight
     enabled: false
     softness: 5
