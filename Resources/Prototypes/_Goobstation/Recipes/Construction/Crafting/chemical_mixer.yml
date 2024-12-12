@@ -6,5 +6,5 @@
   targetNode: end
   category: construction-category-misc
   description: a portable tool for mixing chemical
-  icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer } # add sprite
+  icon: { sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi, state: chemical_mixer }
   objectType: Item

@@ -27,12 +27,10 @@
         acts: [ "Destruction" ]
   - type: ActivatableUI
     key: enum.ChemMasterUiKey.Key
-  #- type: ActivatableUIRequiresPower # maybe add battery
   - type: UserInterface
     interfaces:
       enum.ChemMasterUiKey.Key:
         type: ChemMasterBoundUserInterface
-  # Machine / Construction stuff
   - type: ContainerContainer
     containers:
       beakerSlot: !type:ContainerSlot

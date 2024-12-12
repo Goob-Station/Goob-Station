@@ -29,7 +29,7 @@
         icon:
           sprite: "Objects/Power/power_cells.rsi"
           state: "medium"
-        doAfter: 1
+        doAfter: 5
 
   - node: end
     entity: portableChemicalMixer
