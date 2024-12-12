@@ -241,7 +241,7 @@
       - SecHypo # Goobstation
       - ParamedHypo # Goobstation - ParamedHypo
       - MagazinePistolCaselessRifle # Goobstation
-      - BaseMagazineBoxCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
       - MagazineLightRifleBoxEmpty # Goobstation
       - MagazineLightRifleBox # Goobstation
       - MagazineHighCaliberEmpty # Goobstation
@@ -958,7 +958,7 @@
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - MagazinePistolCaselessRifle # Goobstation
-    - BaseMagazineBoxCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
     - MagazineLightRifleBoxEmpty # Goobstation
     - MagazineLightRifleBox # Goobstation
     - MagazineHighCaliberEmpty # Goobstation
@@ -1017,7 +1017,7 @@
     - type: EmagLatheRecipes # Goobstation
       emagStaticRecipes:
       - MagazinePistolCaselessRifle # Goobstation
-      - BaseMagazineBoxCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
       - MagazineLightRifleBoxEmpty # Goobstation
       - MagazineLightRifleBox # Goobstation
       - MagazineHighCaliberEmpty # Goobstation

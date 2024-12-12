@@ -180,8 +180,8 @@
 
 - type: latheRecipe
   parent: BaseAmmoRecipe
-  id: BaseMagazineBoxCaselessRifle
-  result: BaseMagazineBoxCaselessRifle
+  id: MagazineBoxCaselessRifle
+  result: MagazineBoxCaselessRifle
   materials:
     Steel: 720
 
