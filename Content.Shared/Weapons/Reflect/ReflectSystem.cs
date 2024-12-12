@@ -236,7 +236,7 @@ public sealed class ReflectSystem : EntitySystem
     {
         foreach (var ent in _inventorySystem.GetHandOrInventoryEntities(user, SlotFlags.All & ~SlotFlags.POCKET))
         {
-            if (!HasComp<ReflectComponent>(ent) || !_toggle.IsActivated(ent))
+            if (!HasComp<ReflectComponent>(ent)) // Goob edit - fix desword not reflecting
                 continue;
 
             EnsureComp<ReflectUserComponent>(user);
