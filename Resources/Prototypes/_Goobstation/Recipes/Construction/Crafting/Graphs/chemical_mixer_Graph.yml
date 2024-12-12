@@ -11,6 +11,7 @@
         icon:
           sprite: Objects/Tools/bucket.rsi
           state: icon
+        name: a bucket
       - tag: Multitool  # for the screen
         icon:
           sprite: Objects/Tools/multitool.rsi
@@ -20,6 +21,7 @@
         icon:
           sprite: Objects/Specific/Chemistry/beaker.rsi
           state: beaker
+        name: a beaker
       - material: Cable
         amount: 15
       - anyTags:        # Powers the contraption
