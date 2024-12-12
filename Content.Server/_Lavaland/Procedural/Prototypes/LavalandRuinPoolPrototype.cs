@@ -14,11 +14,10 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     public float RuinDistance = 24;
 
     /// <summary>
-    /// Max distance that Ruins can generate. This is recommended
-    /// to be a bit lower than RestrictedRange of the LavalandMapPrototype.
+    /// Max distance that Ruins can generate.
     /// </summary>
     [DataField]
-    public float MaxDistance = 96;
+    public float MaxDistance = 256;
 
     /// <summary>
     /// List of all ruins and their count.

@@ -6,14 +6,18 @@ using Content.Server.Atmos.Components;
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking.Events;
 using Content.Server.Parallax;
+using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Systems;
 using Content.Shared.Atmos;
 using Content.Shared.Gravity;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
+using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -43,6 +47,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
 
     public override void Initialize()
     {
@@ -59,7 +64,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
     public bool SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
     {
-        if (LavalandMap.IsValid())
+        if (!TerminatingOrDeleted(LavalandMap))
             return false;
 
         // Basic setup.
@@ -122,7 +127,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
             return false;
         }
 
-        // Get the outpost
+        // Get the outpost.
         foreach (var grid in _mapManager.GetAllGrids(LavalandMapId))
         {
             if (!HasComp<LavalandOutpostComponent>(grid))
@@ -132,10 +137,17 @@ public sealed class LavalandGenerationSystem : EntitySystem
             break;
         }
 
-        // Setup Ruins
+        // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
         SetupRuins(pool);
 
+        // Hide all grids from the mass scanner.
+        foreach (var grid in _mapManager.GetAllGrids(LavalandMapId))
+        {
+            _shuttle.AddIFFFlag(grid, IFFFlags.Hide);
+        }
+
+        // Start!!1!!!
         _mapManager.DoMapInitialize(LavalandMapId);
         _mapManager.SetMapPaused(LavalandMapId, false);
         return true;
@@ -143,14 +155,15 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
     private void SetupRuins(LavalandRuinPoolPrototype pool)
     {
-        // TODO: THIS IS A FUCKING LAG MACHINE AAAAAAAAAAAAAAAAAAA
         var random = new Random(Seed);
 
         var boundary = GetOutpostBoundary();
-        // The LINQ shit is to filter out all points that are inside the boundary.
+        // The LINQ shit is for filtering out all points that are inside the boundary.
         var coords = GetCoordinates(pool.RuinDistance, pool.MaxDistance)
             .Where(coordinate => boundary == null ||
             !boundary.Any(box => box.Contains(coordinate)))
+            .Where(cordinate => cordinate
+            .IsShorterThan(CompOrNull<RestrictedRangeComponent>(LavalandMap)?.Range ?? float.MaxValue))
             .ToList();
 
         List<LavalandRuinPrototype> ruins = [];
@@ -168,14 +181,13 @@ public sealed class LavalandGenerationSystem : EntitySystem
         if (ruins.Count == 0)
             return;
 
+        // idk if it can be made better but if it can please FIXME.
         random.Shuffle(coords);
         random.Shuffle(ruins);
 
         var iterator = 0;
-        while (iterator < ruins.Count - 1 && iterator < coords.Count - 1)
+        while (iterator < ruins.Count && iterator < coords.Count)
         {
-            iterator++;
-
             var ruin = ruins[iterator];
             var coord = coords[iterator];
             // GAMBLING the coordinate a bit
@@ -184,12 +196,14 @@ public sealed class LavalandGenerationSystem : EntitySystem
             coord += shiftVector;
 
             SpawnRuin(coord, ruin);
+            iterator++;
         }
     }
 
     private void SpawnRuin(Vector2 coordinate, LavalandRuinPrototype ruin)
     {
-        var fixin = new Vector2(0.515625f, 0.5f);
+        // TODO: Add a function for patching grids to planets for sweet optimization
+        var fixin = new Vector2(0.515625f, 0.5f); // TODO: fix this awful shit
         var options = new MapLoadOptions
         {
             Offset = coordinate + fixin,
