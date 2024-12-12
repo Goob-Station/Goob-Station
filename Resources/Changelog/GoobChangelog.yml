@@ -3170,3 +3170,9 @@ Entries:
         the uplink.
   id: 352
   time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
