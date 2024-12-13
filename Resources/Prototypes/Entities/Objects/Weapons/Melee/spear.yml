@@ -48,7 +48,7 @@
       types:
         Piercing: 15
   - type: Item
-    size: Normal # goobstation
+    size: Large # goobstation
   - type: Clothing
     quickEquip: false
     slots:
