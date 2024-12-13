@@ -6,6 +6,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared;
 using Robust.Shared.Configuration;
+using Content.Shared._Goobstation.CCVars; // Goobstation - Custom Announcers
 
 namespace Content.Client.Options.UI.Tabs;
 
@@ -51,6 +52,11 @@ public sealed partial class AudioTab : Control
             SliderVolumeInterface,
             scale: ContentAudioSystem.InterfaceMultiplier);
 
+        Control.AddOptionPercentSlider(
+            GoobCCVars.AnnouncerVolume,
+            SliderVolumeAnnouncer,
+            scale: ContentAudioSystem.AnnouncerMultiplier); // Goobstation - Custom Announcers
+
         Control.AddOptionSlider(
             CCVars.MaxAmbientSources,
             SliderMaxAmbienceSounds,
@@ -60,6 +66,7 @@ public sealed partial class AudioTab : Control
         Control.AddOptionCheckBox(CCVars.LobbyMusicEnabled, LobbyMusicCheckBox);
         Control.AddOptionCheckBox(CCVars.RestartSoundsEnabled, RestartSoundsCheckBox);
         Control.AddOptionCheckBox(CCVars.EventMusicEnabled, EventMusicCheckBox);
+        Control.AddOptionCheckBox(GoobCCVars.AnnouncerDisableMultipleSounds, AnnouncerDisableMultipleSoundsCheckBox); // Goobstation - Custom Announcers
         Control.AddOptionCheckBox(CCVars.AdminSoundsEnabled, AdminSoundsCheckBox);
 
         Control.Initialize();

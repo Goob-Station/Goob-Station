@@ -5,6 +5,8 @@ using Content.Server.Chat.Systems;
 using Content.Server.EUI;
 using Content.Shared.Administration;
 using Content.Shared.Eui;
+using Content.Server._Goobstation.Announcements.Systems; // Goobstation - Custom Announcers
+using Robust.Shared.Player; // Goobstation - Custom Announcers
 
 namespace Content.Server.Administration.UI
 {
@@ -12,11 +14,14 @@ namespace Content.Server.Administration.UI
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IChatManager _chatManager = default!;
+        private readonly AnnouncerSystem _announcer; // Goobstation - Custom Announcers
         private readonly ChatSystem _chatSystem;
 
         public AdminAnnounceEui()
         {
             IoCManager.InjectDependencies(this);
+
+            _announcer = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<AnnouncerSystem>(); // Goobstation - Custom Announcers
             _chatSystem = IoCManager.Resolve<IEntitySystemManager>().GetEntitySystem<ChatSystem>();
         }
 
@@ -50,7 +55,8 @@ namespace Content.Server.Administration.UI
                             break;
                         // TODO: Per-station announcement support
                         case AdminAnnounceType.Station:
-                            _chatSystem.DispatchGlobalAnnouncement(doAnnounce.Announcement, doAnnounce.Announcer, colorOverride: Color.Gold);
+                            _announcer.SendAnnouncement(_announcer.GetAnnouncementId("Announce"), Filter.Broadcast(),
+                                doAnnounce.Announcement, doAnnounce.Announcer, Color.Gold); // Goobstation - Custom Announcers
                             break;
                     }
 
