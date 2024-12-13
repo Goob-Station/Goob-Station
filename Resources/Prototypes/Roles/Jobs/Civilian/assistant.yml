@@ -8,6 +8,17 @@
   supervisors: job-supervisors-everyone
   access:
   - Maintenance
+  # goob tider hivemind
+  special:
+  - !type:AddComponentSpecial
+    components:
+      - type: IntrinsicRadioReceiver
+      - type: IntrinsicRadioTransmitter
+        channels:
+        - TiderHivemind
+      - type: ActiveRadio
+        channels:
+        - TiderHivemind
 
 - type: startingGear
   id: PassengerGear
