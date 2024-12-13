@@ -141,7 +141,6 @@
       types:
         Blunt: 0
     heavyStaminaCost: 0
-    maxTargets: 1
   - type: BloodRitesAura
   - type: UserInterface
     interfaces:
