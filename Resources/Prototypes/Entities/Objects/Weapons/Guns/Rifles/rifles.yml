@@ -145,6 +145,8 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
+  - type: Gun
+    fireRate: 6
 
 - type: entity
   name: Lecter

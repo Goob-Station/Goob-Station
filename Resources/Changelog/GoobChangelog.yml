@@ -3163,10 +3163,82 @@ Entries:
 - author: a-person5660
   changes:
     - type: Tweak
-      message: The Burner assault rifle now has AP as god intended.
+      message: The Burner assault rifle now has 45 damage as god intended.
     - type: Tweak
       message: >-
         The Burner assualt rifle now has 15 round mags and you can buy more in
         the uplink.
   id: 352
   time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'
+- author: Yakub
+  changes:
+    - type: Tweak
+      message: Engineering goggles are renamed to meson goggles.
+    - type: Tweak
+      message: >-
+        Combat gloves, combat boots, jackboots, and mesons are no longer
+        contraband.
+    - type: Tweak
+      message: Spears fit in backpacks now.
+    - type: Tweak
+      message: Mini jetpacks are actually smaller than jetpacks in inventory now.
+  id: 355
+  time: '2024-12-13T19:59:33.0000000+00:00'
+- author: President
+  changes:
+    - type: Add
+      message: >-
+        Felinids Being Jolly and Eating a Nice Christmas Dinner with the
+        Gingerbread People
+  id: 356
+  time: '2024-12-13T20:11:07.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Tiders now have a intrinsic hivemind radio channel. Access it with ":i"
+  id: 357
+  time: '2024-12-13T21:51:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Eshield now doesn't break. Instead, it discharges. Hp reduced: 100 ->
+        20. Recharges 2 hp per second. When it is fully discharged, it is
+        unusable until it recharges. It takes 15 seconds to recharge after it is
+        fully discharged. Shield gets damaged when it reflects lasers though,
+        but has 50% heat resistance. Can be EMPd now. Can now be purchased from
+        traitor uplink, cost reduced: 40 -> 15.
+    - type: Fix
+      message: Toggleable shields can't block damage while toggled off.
+  id: 358
+  time: '2024-12-13T21:53:49.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: BS crystals are now way easier to obtain.
+  id: 359
+  time: '2024-12-13T21:57:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: You can no longer unanchor flaps.
+  id: 360
+  time: '2024-12-13T22:44:00.0000000+00:00'

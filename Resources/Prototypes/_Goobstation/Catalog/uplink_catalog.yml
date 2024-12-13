@@ -102,11 +102,6 @@
     Telecrystal: 125 # don't kill me piras
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
   id: UplinkBowHardlight
@@ -115,7 +110,7 @@
   icon: { sprite:  /Textures/_Goobstation/Objects/Weapons/Guns/Bow/hardlight_bow.rsi, state: icon }
   productEntity: BowHardlight
   cost:
-    Telecrystal: 80
+    Telecrystal: 75
   categories:
   - UplinkWeaponry
   conditions:
@@ -125,6 +120,17 @@
       - NukeOpsUplink
 
 # Wearables
+
+- type: listing
+  id: UplinkClothingHeadHelmetSwatSyndicate
+  name: uplink-helmet-swat-name
+  description: uplink-helmet-swat-desc
+  icon: { sprite: /Textures/Clothing/Head/Helmets/swat_syndicate.rsi, state: icon }
+  productEntity: ClothingHeadHelmetSwatSyndicate
+  cost:
+    Telecrystal: 10
+  categories:
+  - UplinkWearables
 
 - type: listing
   id: UplinkHardsuitSyndieMedic
@@ -283,6 +289,16 @@
         tags:
           - NukeOpsUplink # i guess we dont let nukies have this, they have to mutch TC
 
+- type: listing
+  id: UplinkSmokeImplanter
+  name: uplink-smoke-implant-name
+  description: uplink-smoke-implant-desc
+  icon: { sprite: /Textures/Objects/Weapons/Grenades/smoke.rsi, state: icon }
+  productEntity: SmokeImplanter
+  cost:
+    Telecrystal: 10
+  categories:
+    - UplinkImplants
 
 - type: listing
   id: UplinkSmugglerSatchel
@@ -298,36 +314,92 @@
 # Ammo
 
 - type: listing
+  id: UplinkGrenadeBlast
+  name: uplink-blast-grenade-name
+  description: uplink-blast-grenade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: blast }
+  productEntity: GrenadeBlast
+  cost:
+    Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkGrenadeFrag
+  name: uplink-frag-grenade-name
+  description: uplink-frag-grenade-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Explosives/explosives.rsi, state: frag }
+  productEntity: GrenadeFrag
+  cost:
+    Telecrystal: 12 # Buying granades this way is ~14% cheaper than getting them from china-lake bundles
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgun
+  name: uplink-shotgun-magazine-name
+  description: uplink-shotgun-magazine-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: pellets }
+  productEntity: MagazineShotgun
+  cost:
+    Telecrystal: 5
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineShotgunSlug
+  name: uplink-shotgun-magazine-slug-name
+  description: uplink-shotgun-magazine-slug-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Shotgun/m12.rsi, state: slug }
+  productEntity: MagazineShotgunSlug
+  cost:
+    Telecrystal: 4 # So little total damage
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkMagazineLightRifleBox
+  name: uplink-l6-box-name
+  description: uplink-l6-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_box.rsi, state: base }
+  productEntity: MagazineLightRifleBox
+  cost:
+    Telecrystal: 25 # 5 times as much total damage as C20 mag - 5 time as much cost
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkMagazineHighCaliber
   name: uplink-high-caliber-magazine-name
   description: uplink-high-caliber-magazine-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
   productEntity: MagazineHighCaliber
   cost:
-    Telecrystal: 25 # 1.66 TC per bullet, high price on mags.
+    Telecrystal: 6 # Slightly more total damage compared to C20 mags
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 - type: listing
-  id: UplinkHighCaliberBox
-  name: uplink-high-caliber-box-name
-  description: uplink-high-caliber-box-desc
-  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-  productEntity: MagazineBoxHighCaliber
+  id: UplinkMagazineHighCaliberExplosive
+  name: uplink-high-caliber-explosive-magazine-name
+  description: uplink-high-caliber-explosive-magazine-desc
+  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
+  productEntity: MagazineHighCaliberExplosive
   cost:
-    Telecrystal: 35 # 1 TC per bullet
+    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
   categories:
   - UplinkAmmo
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
+
+#- type: listing # A box, really? Why not like... mags?
+#  id: UplinkHighCaliberBox
+#  name: uplink-high-caliber-box-name
+#  description: uplink-high-caliber-box-desc
+#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+#  productEntity: MagazineBoxHighCaliber
+#  cost:
+#    Telecrystal: 40 # ammo should be a big cost for this
+#  categories:
+#  - UplinkAmmo
 
 # 弾薬
 - type: listing
@@ -337,7 +409,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi, state: red }
   productEntity: MagazineRifle
   cost:
-    Telecrystal: 15 # C-20Rマグと比べてバランスをとるのが面倒すぎる
+    Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
   categories:
   - UplinkAmmo
 

@@ -5,9 +5,8 @@
   setPreference: true
   objective: roles-antag-changeling-description
   requirements:
-  - !type:DepartmentTimeRequirement
-    department: Security
-    time: 18000 #5 hrs
+  - !type:OverallPlaytimeRequirement
+      time: 36000 #10 hrs
   - !type:SpeciesRequirement
     inverted: true
     species:
