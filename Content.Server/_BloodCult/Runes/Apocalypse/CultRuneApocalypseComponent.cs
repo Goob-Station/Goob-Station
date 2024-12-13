@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Prototypes;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.WhiteDream.BloodCult.Runes.Apocalypse;
 
@@ -50,10 +50,10 @@ public sealed partial class CultRuneApocalypseComponent : Component
     [DataField]
     public Dictionary<EntProtoId, int> PossibleEvents = new()
     {
-        ["ImmovableRodSpawn"] = 3,
-        ["MimicVendorRule"] = 2,
-        ["RatKingSpawn"] = 2,
-        ["MeteorSwarm"] = 2,
+        //["ImmovableRodSpawn"] = 3,
+        //["MimicVendorRule"] = 2,
+        ["KingRatMigration"] = 2,
+        //["MeteorSwarm"] = 2,
         ["SpiderSpawn"] = 3, // more spiders
         ["AnomalySpawn"] = 4,
         ["KudzuGrowth"] = 2,
