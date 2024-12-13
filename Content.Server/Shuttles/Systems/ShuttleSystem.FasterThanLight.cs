@@ -240,7 +240,7 @@ public sealed partial class ShuttleSystem
                 reason = Loc.GetString("shuttle-console-static");
                 return false;
             }
-            
+
             // Too large to FTL
             if (FTLMassLimit > 0 &&  shuttlePhysics.Mass > FTLMassLimit)
             {
