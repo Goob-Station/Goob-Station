@@ -78209,6 +78209,13 @@ entities:
     - type: Transform
       pos: 39.5,-9.5
       parent: 2
+- proto: SpawnPointBlueshieldOfficer
+  entities:
+  - uid: 121464342
+    components:
+    - type: Transform
+      pos: 33.5,40.5
+      parent: 2
 - proto: SpawnPointBorg
   entities:
   - uid: 13142
@@ -78241,20 +78248,6 @@ entities:
 - proto: SpawnPointCaptain
   entities:
   - uid: 8682
-    components:
-    - type: Transform
-      pos: 33.5,40.5
-      parent: 2
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 121464342
-    components:
-    - type: Transform
-      pos: 33.5,40.5
-      parent: 2
-- proto: SpawnPointNanotrasenRepresentative
-  entities:
-  - uid: 42146433
     components:
     - type: Transform
       pos: 33.5,40.5
@@ -78438,6 +78431,13 @@ entities:
     components:
     - type: Transform
       pos: 20.5,-11.5
+      parent: 2
+- proto: SpawnPointNanotrasenRepresentative
+  entities:
+  - uid: 42146433
+    components:
+    - type: Transform
+      pos: 33.5,40.5
       parent: 2
 - proto: SpawnPointObserver
   entities:

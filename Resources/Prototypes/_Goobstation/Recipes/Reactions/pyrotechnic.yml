@@ -33,7 +33,7 @@
   effects:
   - !type:CreateGas
     gas: Tritium
-  - !type:CreateEntityReactionEffect
-    entity: ignitetool
+  #- !type:CreateEntityReactionEffect - TODO: make this ignite the trit.
+  #  entity: ignitetool
   products:
     disgustingmess: 15
