@@ -437,14 +437,12 @@
           Slash: 0.9
           Piercing: 0.85
           Heat: 0.5 # WD EDIT
-          Radiation: 0 # Goob edit
       activeBlockModifier:
         coefficients:
           Blunt: 1.2
           Slash: 0.85
           Piercing: 0.5
           Heat: 0.4
-          Radiation: 0 # Goob edit
         flatReductions:
           Heat: 1
           Piercing: 1
