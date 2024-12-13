@@ -169,6 +169,9 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -188,6 +191,8 @@
           min: 15
         - !type:OrganType
           type: Dwarf
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
         damage:
           groups:
             Brute: -1
@@ -200,6 +205,9 @@
         # dwarves immune to vomiting from alcohol
         - !type:OrganType
           type: Dwarf
+          shouldHave: false
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
           shouldHave: false
       - !type:Drunk
         boozePower: 2
@@ -298,6 +306,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1
@@ -1327,6 +1339,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 1

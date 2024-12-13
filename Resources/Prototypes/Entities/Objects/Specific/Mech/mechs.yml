@@ -16,6 +16,9 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    - BZ
+    - Healium
+    - Nitrium
     #- Helium3 TODO: fusion
     # remove everything except oxygen to maintain oxygen ratio
     overflowGases:
@@ -27,6 +30,9 @@
     - Ammonia
     - NitrousOxide
     - Frezon
+    - BZ
+    - Healium
+    - Nitrium
     #- Helium3 TODO: fusion
   - type: AirIntake
   # for intake and filter to work
@@ -107,6 +113,15 @@
       - !type:DoActsBehavior
         acts: ["Destruction"]
   # Goobstation Change Start
+  - type: UnpoweredFlashlight # Goobstation mech lights for all mechs its unpowered to match hardsuits
+  - type: PointLight
+    enabled: false
+    softness: 5
+    autoRot: true
+    mask: /Textures/Effects/LightMasks/cone.png
+    radius: 7
+    energy: 3
+    netsync: false
   - type: GenericVisualizer
     visuals:
       enum.PaperLabelVisuals.HasLabel:

@@ -188,7 +188,7 @@ public partial class SharedBodySystem
                 cameFromEntities[connection] = childPart;
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
-                var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
+                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, out var partSlot, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
@@ -215,7 +215,7 @@ public partial class SharedBodySystem
     {
         foreach (var (organSlotId, organProto) in organs)
         {
-            var slot = CreateOrganSlot((ent, ent), organSlotId);
+            TryCreateOrganSlot(ent, organSlotId, out var slot); // Shitmed Change
             SpawnInContainerOrDrop(organProto, ent, GetOrganContainerId(organSlotId));
 
             if (slot is null)
@@ -456,7 +456,6 @@ public partial class SharedBodySystem
             || !Initialized(uid)) // We do this last one for urists on test envs.
             return;
 
-        Logger.Debug($"{ToPrettyString(uid)}: ProfileLoadFinished with {HasComp<HumanoidAppearanceComponent>(uid)} and {component}");
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
     }

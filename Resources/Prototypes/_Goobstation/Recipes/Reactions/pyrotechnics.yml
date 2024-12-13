@@ -1,0 +1,11 @@
+- type: reaction
+  id: BlackPowder
+  reactants:
+    Charcoal:
+      amount: 1
+    Saltpeter:
+      amount: 1
+    Sulfur:
+      amount: 1
+  products:
+    BlackPowder: 3

@@ -9,7 +9,7 @@
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 20 TC
+    Telecrystal: 14 # goob - this +1 mag = 16 TC
   categories:
   - UplinkWeaponry
 
@@ -20,7 +20,7 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
+    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:
   - UplinkWeaponry
 
@@ -32,7 +32,7 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 17 # goob - this +1 mag = 25 TC
+    Telecrystal: 15 # goob - this +1 mag = 17 TC
   categories:
   - UplinkWeaponry
 
@@ -118,14 +118,9 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 
 - type: listing
@@ -417,7 +412,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
-    Telecrystal: 6 # goob - Harder to spam mags, not that people really viper spam and they have more space.
+    Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
   - UplinkAmmo
 
@@ -429,7 +424,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 15 # goob - Bundle + Mag = 100 TC
+    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
 
@@ -441,7 +436,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 8 # goob - People actually spam these more than other ammo types
+    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
 
@@ -453,7 +448,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 8 # goob - AP, improved level
+    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
 
@@ -464,7 +459,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 4 # goob
+    Telecrystal: 15 # goob - l6 exists
   categories:
   - UplinkAmmo
 
@@ -475,28 +470,28 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 40 # goob - 2 ammo capacity worth
+    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkAmmoBundle
-  name: uplink-ammo-bundle-name
-  description: uplink-ammo-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
-  cost:
-    Telecrystal: 75 # goob
-  categories:
-  - UplinkAmmo
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+#- type: listing # Goob - why does it even exists?
+#  id: UplinkAmmoBundle
+#  name: uplink-ammo-bundle-name
+#  description: uplink-ammo-bundle-desc
+#  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+#  cost:
+#    Telecrystal: 75 # goob
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#          - SurplusBundle
 
 #Chemicals
 
@@ -1378,7 +1373,7 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 20 # goob - Locks out some stronger items. Also 20 TC Tier makes more sense.
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
 

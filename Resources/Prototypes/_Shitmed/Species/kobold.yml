@@ -1,0 +1,148 @@
+- type: species
+  id: Kobold
+  name: species-name-kobold
+  roundStart: false # sad...
+  prototype: MobKobold
+  sprites: MobKoboldSprites
+  dollPrototype: MobKoboldDummy
+  skinColoration: Hues
+  defaultSkinTone: "#9a7c5a"
+  markingLimits: MobKoboldMarkingLimits
+
+- type: speciesBaseSprites
+  id: MobKoboldSprites
+  sprites:
+    Special: MobKoboldAnyMarking
+    Head: MobKoboldHead
+    Chest: MobKoboldTorso
+    Tail: MobKoboldTail
+    Eyes: MobKoboldEyes
+    HeadTop: MobKoboldHorns
+    LArm: MobKoboldLArm
+    RArm: MobKoboldRArm
+    LHand: MobKoboldLHand
+    RHand: MobKoboldRHand
+    LLeg: MobKoboldLLeg
+    RLeg: MobKoboldRLeg
+    LFoot: MobKoboldLFoot
+    RFoot: MobKoboldRFoot
+
+- type: humanoidBaseSprite
+  id: MobKoboldAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobKoboldMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobKoboldHorns
+  matchSkin: false
+  baseSprite:
+    sprite: Mobs/Customization/reptilian_parts.rsi
+    state: horns_short
+
+- type: humanoidBaseSprite
+  id: MobKoboldHead
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobKoboldHeadMale
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobKoboldHeadFemale
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobKoboldTorso
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobKoboldTorsoMale
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobKoboldTorsoFemale
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobKoboldLLeg
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobKoboldLArm
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobKoboldLHand
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobKoboldLFoot
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobKoboldRLeg
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobKoboldRArm
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobKoboldRHand
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobKoboldRFoot
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobKoboldTail
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: tail
+
+- type: humanoidBaseSprite
+  id: MobKoboldEyes
+  baseSprite:
+    sprite: Mobs/Animals/kobold.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobKoboldMarkingLimits
+  points:
+    Special: # the cat ear joke
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
