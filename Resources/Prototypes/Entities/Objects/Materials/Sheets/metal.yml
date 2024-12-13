@@ -138,10 +138,12 @@
     grindableSolutionName: brass
   - type: SolutionContainerManager
     solutions:
-      brass: ##Had to change this for alchemy to work, brass needs to grind into brass.
+      brass:
         reagents:
-        - ReagentId: brass
-          Quantity: 10
+        - ReagentId: Zinc
+          Quantity: 3.3
+        - ReagentId: Copper
+          Quantity: 6.7
 
 - type: entity
   parent: SheetBrass
