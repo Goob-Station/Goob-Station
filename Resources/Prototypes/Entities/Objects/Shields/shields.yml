@@ -422,8 +422,8 @@
       netsync: false
       enabled: false
       radius: 1.5
-      energy: 2
-      color: blue
+      energy: 0.7 # WD EDIT
+      color: "#678AD9" # WD EDIT
     - type: ItemTogglePointLight
     - type: Reflect
       reflectProb: 1 # WD EDIT

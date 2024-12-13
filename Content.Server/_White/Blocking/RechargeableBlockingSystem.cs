@@ -35,18 +35,18 @@ public sealed class RechargeableBlockingSystem : EntitySystem
         }
 
         args.PushMarkup(Loc.GetString("rechargeable-blocking-discharged"));
-
         args.PushMarkup(Loc.GetString("rechargeable-blocking-remaining-time", ("remainingTime", GetRemainingTime(uid))));
     }
 
-    private float GetRemainingTime(EntityUid uid)
+    private int GetRemainingTime(EntityUid uid)
     {
         if (!_battery.TryGetBatteryComponent(uid, out var batteryComponent, out var batteryUid)
             || !TryComp<BatterySelfRechargerComponent>(batteryUid, out var recharger)
             || recharger is not { AutoRechargeRate: > 0, AutoRecharge: true })
-            return 0f;
+            return 0;
 
-        return (int) (batteryComponent.MaxCharge - batteryComponent.CurrentCharge) / recharger.AutoRechargeRate;
+        return (int) MathF.Round((batteryComponent.MaxCharge - batteryComponent.CurrentCharge) /
+                                 recharger.AutoRechargeRate);
     }
 
     private void OnDamageChanged(EntityUid uid, RechargeableBlockingComponent component, DamageChangedEvent args)
