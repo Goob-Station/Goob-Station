@@ -1,6 +1,8 @@
 ﻿blood-cult-title = The Blood Cult
 blood-cult-description = The oldest and strongest emotion of mankind is fear, and the oldest and strongest kind of fear is fear of the unknown.
 
+objective-issuer-cult = [color=crimson]Blood Cult[/color]
+
 roles-antag-blood-cultist-name = Blood cultist
 roles-antag-blood-cultist-objective = Summon the Old God Nar'Sie.
 

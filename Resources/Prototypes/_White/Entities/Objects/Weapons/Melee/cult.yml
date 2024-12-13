@@ -9,8 +9,6 @@
     state: icon
   - type: MeleeWeapon # TODO: It should have armor piercing effect (around 50%?) but we have no such system yet. Sucks.
     wideAnimationRotation: -135
-    maxTargets: 1
-    heavyRateModifier: 0.95
     heavyStaminaCost: 5
     damage:
       types:
@@ -50,8 +48,7 @@
     damage:
       types:
         Slash: 24
-    heavyDamageBaseModifier: 1.2
-    heavyStaminaCost: 10
+    heavyStaminaCost: 15
     maxTargets: 3
     angle: 90
     soundHit:

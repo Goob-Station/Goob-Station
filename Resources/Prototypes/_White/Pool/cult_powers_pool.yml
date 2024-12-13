@@ -4,8 +4,8 @@
   - ActionBloodCultStun
   - ActionBloodCultTeleport
   - ActionBloodCultEmp
-  - ActionBloodCultShadowShackles
+  #- ActionBloodCultShadowShackles # removing them until they work
   - ActionBloodCultTwistedConstruction
-  - ActionBloodCultSummonCombatEquipment
+  #- ActionBloodCultSummonCombatEquipment # OP
   - ActionBloodCultSummonRitualDagger
   - ActionBloodCultBloodRites

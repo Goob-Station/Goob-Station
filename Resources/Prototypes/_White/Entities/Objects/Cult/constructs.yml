@@ -64,8 +64,7 @@
         layer:
         - FlyingMobLayer
   - type: Damageable
-    damageContainer: CorporealSpirit
-    damageModifierSet: CorporealSpirit
+    damageContainer: Biological
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -131,7 +130,7 @@
         Structural: 90
         Blunt: 25
     soundHit:
-      path: /Audio/Nyanotrasen/Weapons/club.ogg
+      path: /Audio/Weapons/smash.ogg
   - type: GenericVisualizer
     visuals:
       enum.ConstructVisualsState.Transforming:

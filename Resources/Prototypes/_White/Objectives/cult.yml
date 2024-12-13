@@ -1,11 +1,11 @@
 ﻿- type: entity
   parent: BaseObjective
   id: KillTargetCultObjective
-  description: This fool person should be sacrificed in the glory of our Goddess.
+  description: We have to kill this person to progress in resurrection.
   categories: [ HideSpawnMenu ]
   components:
   - type: Objective
-    issuer: The Geometer of Blood
+    issuer: objective-issuer-cult
     unique: true
     difficulty: 3
     icon:
