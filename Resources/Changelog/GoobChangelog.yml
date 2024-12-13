@@ -3035,3 +3035,156 @@ Entries:
         surgical tools on them, will fix in around 2 weeks, have fun :trollface:
   id: 341
   time: '2024-12-09T19:10:32.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: Unfucked ALL IPC and some Harpy/Moth emotes
+  id: 342
+  time: '2024-12-10T17:57:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: IPCs can no longer be changelings and initial infected.
+    - type: Add
+      message: IPCs can be flashed now.
+    - type: Fix
+      message: IPCs can now enter cryostorage.
+    - type: Fix
+      message: IPCs can now heal ion damage using cables.
+    - type: Fix
+      message: You can now see IPC status icons.
+  id: 343
+  time: '2024-12-10T23:30:01.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cave expeditions having no ore or enemies.
+  id: 344
+  time: '2024-12-11T02:25:04.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: >-
+        Pacifists can now throw things with liquids in them, shoot syringe guns
+        and disablers
+  id: 345
+  time: '2024-12-11T22:04:11.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: Chemvend now contains two bottles of lead when emagged.
+    - type: Tweak
+      message: Steel now gives "7u Iron, 2u carbon, 1u Lead" when grinded.
+  id: 346
+  time: '2024-12-11T22:12:20.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Add BZ
+    - type: Add
+      message: Add Healium
+    - type: Add
+      message: Add Nitrium
+  id: 347
+  time: '2024-12-11T22:41:29.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a few more features to organs from Goliaths, Space Cobras, Laser
+        Raptors and Space Dragons.
+    - type: Add
+      message: Nukie doctors now start with an EVIL medical omnitool.
+    - type: Add
+      message: >-
+        The lobotomy procedure makes the target clumsy like the clown. This
+        makes them bonk when climbing tables and makes guns they're shooting
+        blow up on their face.
+    - type: Fix
+      message: >-
+        Enabled the "Mend brain tissue" surgical procedure on a lobotomized
+        target.
+    - type: Fix
+      message: >-
+        The lobotomized effect is now stored in the brain instead of the body.
+        The same brain stays lobotomized throughout brain transplants, and
+        transferring a normal brain to a body where a lobotomy occurred no
+        longer applies the lobotomized effect.
+    - type: Fix
+      message: >-
+        The lobotomy procedure now shows the proper popup during the
+        lobotomization step.
+    - type: Fix
+      message: Removed the ability to perform lobotomies on bodies without a brain.
+    - type: Fix
+      message: >-
+        The "Remove organ" surgery step on the UI now properly shows the
+        retractor sprite instead of the hemostat.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds now have full body parts and can take damage from
+        them. Naturally they are also valid for surgery.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds can now wear backpacks, glasses, gloves, and have
+        pockets! (if someone fixes their displacement maps/sprites im happy to
+        make em a playable species)
+  id: 348
+  time: '2024-12-11T22:46:28.0000000+00:00'
+- author: TheNeonViking
+  changes:
+    - type: Add
+      message: >-
+        Added Max Sentencing time column to the Crime list in guidebook. Added
+        preface sections about Accessory, Attempting, and Intention as well as
+        Stackable Crimes to Crime list page.
+  id: 349
+  time: '2024-12-11T22:47:01.0000000+00:00'
+- author: Tonk-GCR
+  changes:
+    - type: Add
+      message: >-
+        Added the Maxim Hardsuit, Mining Hardsuit, Clarke Mech, Retro Laser,
+        Medtek Cartridges, drills, plasteel and plasma glass to the vgroid.
+    - type: Tweak
+      message: >-
+        Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
+        increased piercing resistance to 70%, and added a 25% movement debuff. 
+  id: 350
+  time: '2024-12-11T22:48:03.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Phlogiston now has a priority of 20, which makes it's reaction take
+        place before foams and smokes :feelsgood:
+  id: 351
+  time: '2024-12-11T22:51:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: The Burner assault rifle now has 45 damage as god intended.
+    - type: Tweak
+      message: >-
+        The Burner assualt rifle now has 15 round mags and you can buy more in
+        the uplink.
+  id: 352
+  time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'

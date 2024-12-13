@@ -4,6 +4,6 @@
     - type: WorldController
     - type: BiomeSelection
       biomes:
-        #- AsteroidsFallback Goobstation - Less lag please
+        - AsteroidsFallback
         - Failsafe
-        #- AsteroidsStandard Goobstation - Less lag please
+        - AsteroidsStandard
