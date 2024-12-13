@@ -47,14 +47,15 @@ public sealed partial class BlockingSystem
             if (args.Damage.GetTotal() <= 0)
                 return;
 
+            if (!_toggle.IsActivated(uid)) // Goobstation
+                return;
+
             // A shield should only block damage it can itself absorb. To determine that we need the Damageable component on it.
             if (!TryComp<DamageableComponent>(component.BlockingItem, out var dmgComp))
                 return;
 
             var blockFraction = blocking.IsBlocking ? blocking.ActiveBlockFraction : blocking.PassiveBlockFraction;
             blockFraction = Math.Clamp(blockFraction, 0, 1);
-            if (!_toggle.IsActivated(uid)) // Goobstation
-                blockFraction = 0f;
             _damageable.TryChangeDamage(component.BlockingItem, blockFraction * args.OriginalDamage);
 
             var modify = new DamageModifierSet();
