@@ -20,5 +20,5 @@ public record struct GunRefreshModifiersEvent(
     int ShotsPerBurst,
     float FireRate,
     float ProjectileSpeed,
-    EntityUid? User
+    EntityUid? User // GoobStation change - User for NoWieldNeeded
 );

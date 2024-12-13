@@ -169,7 +169,7 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -191,7 +191,7 @@
           min: 15
         - !type:OrganType
           type: Dwarf
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
         damage:
           groups:
@@ -206,7 +206,7 @@
         - !type:OrganType
           type: Dwarf
           shouldHave: false
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
       - !type:Drunk
@@ -307,7 +307,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -1340,7 +1340,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:

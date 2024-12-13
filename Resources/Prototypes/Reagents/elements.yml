@@ -44,7 +44,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -67,7 +67,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -109,7 +109,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -166,7 +166,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -200,7 +200,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -208,7 +208,7 @@
             Poison: 0.05
       - !type:Emote
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         emote: Scream
@@ -234,7 +234,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -300,7 +300,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:

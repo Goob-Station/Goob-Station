@@ -33,7 +33,7 @@
             Poison: -1.5 # Was 1, Slight Buff as it should heal for half the amount as Dip or Stelli(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -55,7 +55,7 @@
         probability: 0.2
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -107,7 +107,7 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         key: Drunk
@@ -115,7 +115,7 @@
         type: Remove
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -157,7 +157,7 @@
             Brute: -2.5 # Was 2, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -168,7 +168,7 @@
             Poison: 1.5
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -248,7 +248,7 @@
             Cold: -2 # Was 1.5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -282,7 +282,7 @@
             Bloodloss: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -317,7 +317,7 @@
         amount: -3
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -356,7 +356,7 @@
             Burn: -1 # Was .5, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -416,13 +416,13 @@
             Radiation: -1
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.02
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -448,7 +448,7 @@
       effects:
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -557,7 +557,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.3
@@ -567,7 +567,7 @@
       - !type:ChemVomit
         probability: 0.15
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -581,14 +581,14 @@
       - !type:Jitter
       - !type:Emote
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         emote: Scream
         probability: 0.2
       - !type:PopupMessage
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         type: Local
@@ -621,7 +621,7 @@
             Radiation: 1
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         probability: 0.05
@@ -645,7 +645,7 @@
             Asphyxiation: -2.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -752,7 +752,7 @@
             Poison: -4
       - !type:AdjustReagent
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -774,7 +774,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -1018,7 +1018,7 @@
             Caustic: -3
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1040,7 +1040,7 @@
         probability: 0.2
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1064,7 +1064,7 @@
             Slash: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1091,7 +1091,7 @@
             Blunt: 0.1
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1117,7 +1117,7 @@
             Blunt: -4 # Was 3, Buffed due to limb damage changes(GoobStation)
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1182,7 +1182,7 @@
       # od causes massive bleeding
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1193,7 +1193,7 @@
             Piercing: 0.5
       - !type:ChemVomit
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1201,7 +1201,7 @@
         probability: 0.1
       - !type:Emote
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1237,7 +1237,7 @@
       # od makes you freeze to death
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1360,7 +1360,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -1413,7 +1413,7 @@
         refresh: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold

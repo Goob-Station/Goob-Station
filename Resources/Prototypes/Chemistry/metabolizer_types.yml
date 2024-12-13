@@ -44,7 +44,3 @@
 - type: metabolizerType
   id: Arachnid
   name: metabolizer-type-arachnid
-
-- type: metabolizerType
-  id: Yowie
-  name: metabolizer-type-yowie

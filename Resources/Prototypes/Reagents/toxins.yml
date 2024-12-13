@@ -16,7 +16,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -41,7 +41,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -49,7 +49,7 @@
             Poison: 4
       - !type:PopupMessage
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         type: Local
@@ -74,14 +74,14 @@
         probability: 0.1
       - !type:MovespeedModifier
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         key: Drowsiness
@@ -91,7 +91,7 @@
         refresh: false
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -114,7 +114,7 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:OrganType
+          - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
           damage:
@@ -122,7 +122,7 @@
               Poison: 2
         - !type:ChemVomit
           conditions:
-          - !type:OrganType
+          - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
           - !type:ReagentThreshold
@@ -143,7 +143,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -340,7 +340,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -405,7 +405,7 @@
       # todo: cough, sneeze
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -467,7 +467,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -487,7 +487,7 @@
       effects:
         - !type:HealthChange
           conditions:
-          - !type:OrganType
+          - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
           damage:
@@ -527,7 +527,7 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
-          - !type:OrganType
+          - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
         type: Local
@@ -540,7 +540,7 @@
           - !type:OrganType
             type: Animal
             shouldHave: false
-          - !type:OrganType
+          - !type:OrganType # Goobstation - Yowie
             type: Yowie
             shouldHave: false
       - !type:HealthChange
@@ -548,7 +548,7 @@
         - !type:OrganType
           type: Animal
           shouldHave: false
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -641,7 +641,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -661,7 +661,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -688,7 +688,7 @@
         sprintSpeedModifier: 0.8
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         damage:
@@ -722,7 +722,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:Hunger
@@ -749,7 +749,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:OrganType
@@ -760,7 +760,7 @@
             Poison: 1.6
       - !type:MovespeedModifier
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -773,7 +773,7 @@
         sprintSpeedModifier: 0.8
       - !type:MovespeedModifier
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold

@@ -20,6 +20,7 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
+using Content.Shared._Goobstation.Weapons.Ranged; // GoobStation - NoWieldNeeded
 
 namespace Content.Shared.Wieldable;
 
@@ -42,7 +43,7 @@ public sealed class WieldableSystem : EntitySystem
 
         SubscribeLocalEvent<WieldableComponent, UseInHandEvent>(OnUseInHand, before: [typeof(SharedGunSystem)]);
         SubscribeLocalEvent<WieldableComponent, ItemUnwieldedEvent>(OnItemUnwielded);
-        SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);     
+        SubscribeLocalEvent<WieldableComponent, GotUnequippedHandEvent>(OnItemLeaveHand);
         SubscribeLocalEvent<WieldableComponent, VirtualItemDeletedEvent>(OnVirtualItemDeleted);
         SubscribeLocalEvent<WieldableComponent, GetVerbsEvent<InteractionVerb>>(AddToggleWieldVerb);
         SubscribeLocalEvent<WieldableComponent, HandDeselectedEvent>(OnDeselectWieldable);
@@ -54,7 +55,7 @@ public sealed class WieldableSystem : EntitySystem
         SubscribeLocalEvent<GunWieldBonusComponent, ItemUnwieldedEvent>(OnGunUnwielded);
         SubscribeLocalEvent<GunWieldBonusComponent, GunRefreshModifiersEvent>(OnGunRefreshModifiers);
         SubscribeLocalEvent<GunWieldBonusComponent, ExaminedEvent>(OnExamine);
-        SubscribeLocalEvent<GunWieldBonusComponent, GotEquippedHandEvent>(OnItemInHand);
+        SubscribeLocalEvent<GunWieldBonusComponent, GotEquippedHandEvent>(OnItemInHand); // GoobStation change - OnItemInHand for NoWieldNeeded
 
         SubscribeLocalEvent<IncreaseDamageOnWieldComponent, GetMeleeDamageEvent>(OnGetMeleeDamage);
     }
@@ -71,7 +72,7 @@ public sealed class WieldableSystem : EntitySystem
 
     private void OnShootAttempt(EntityUid uid, GunRequiresWieldComponent component, ref ShotAttemptedEvent args)
     {
-        if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) {
+        if (TryComp<NoWieldNeededComponent>(args.User, out var noWieldNeeded) && noWieldNeeded.GetBonus) { // GoobStation change - check for NoWieldNeeded
             _gun.RefreshModifiers(uid, args.User);
         }
 
@@ -94,7 +95,7 @@ public sealed class WieldableSystem : EntitySystem
         } 
     }
 
-    private void OnItemInHand(EntityUid uid, GunWieldBonusComponent component, GotEquippedHandEvent args)
+    private void OnItemInHand(EntityUid uid, GunWieldBonusComponent component, GotEquippedHandEvent args)  // GoobStation change - OnItemInHand for NoWieldNeeded
     {
         _gun.RefreshModifiers(uid, args.User);
     }
@@ -122,7 +123,7 @@ public sealed class WieldableSystem : EntitySystem
     {
         if (TryComp(bonus, out WieldableComponent? wield) &&
             (wield.Wielded) || 
-            (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&
+            (args.User != null && TryComp<NoWieldNeededComponent>(args.User.Value, out var noWieldNeeded) &&  // GoobStation change - Check for NoWieldNeeded and GetBonus
             noWieldNeeded.GetBonus)
             )
         {

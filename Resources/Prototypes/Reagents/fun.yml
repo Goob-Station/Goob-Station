@@ -132,7 +132,7 @@
             Poison: 2
             Piercing: 2
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
         - !type:HasTag
@@ -143,7 +143,7 @@
           types:
             Piercing: 2
         conditions:
-        - !type:OrganType
+        - !type:OrganType # Goobstation - Yowie
           type: Yowie
         - !type:HasTag
           invert: true

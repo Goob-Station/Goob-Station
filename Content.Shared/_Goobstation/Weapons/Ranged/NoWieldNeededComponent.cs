@@ -1,7 +1,7 @@
 using Content.Shared.Wieldable;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.Weapons.Ranged.Components;
+namespace Content.Shared._Goobstation.Weapons.Ranged;
 
 /// <summary>
 /// Indicates that this gun user does not need to wield.
