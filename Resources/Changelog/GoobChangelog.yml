@@ -3236,3 +3236,9 @@ Entries:
       message: BS crystals are now way easier to obtain.
   id: 359
   time: '2024-12-13T21:57:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: You can no longer unanchor flaps.
+  id: 360
+  time: '2024-12-13T22:44:00.0000000+00:00'
