@@ -24,6 +24,7 @@
     JugSulfur: 1
   emaggedInventory:
     ToxinChemistryBottle: 1
+    LeadChemistryBottle: 2
 
 - type: vendingMachineInventory
   id: ChemVendInventorySyndicate
