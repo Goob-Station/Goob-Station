@@ -47,12 +47,6 @@
       maxGroupSize: 30
     - !type:OreDunGen
       replacement: IronRock
-      entity: IronRockSalt
-      count: 50
-      minGroupSize: 20
-      maxGroupSize: 30
-    - !type:OreDunGen
-      replacement: IronRock
       entity: IronRockGold
       count: 50
       minGroupSize: 10
