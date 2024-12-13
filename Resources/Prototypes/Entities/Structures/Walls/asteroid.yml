@@ -320,7 +320,7 @@
   suffix: Salt
   components:
     - type: OreVein
-      oreChance: 1.0
+      oreChance: 0
       currentOre: OreSalt
     - type: Sprite
       layers:
