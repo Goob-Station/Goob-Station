@@ -570,28 +570,6 @@
         - state: rock_bananium
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: IronRockSalt
-  parent: IronRock
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: ironrock
-        - map: [ "enum.EdgeLayer.South" ]
-          state: ironrock_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: ironrock_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: ironrock_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: ironrock_west
-        - state: rock_salt
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: IronRockArtifactFragment
@@ -1540,28 +1518,6 @@
         - state: rock_artifact_fragment
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: WallRockSnowSalt
-  parent: WallRockSnow
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: rock_snow
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_snow_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_snow_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_snow_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_snow_west
-        - state: rock_salt
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 # Sand variants
 - type: entity
@@ -1815,28 +1771,6 @@
         - state: rock_artifact_fragment
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: WallRockSandSalt
-  parent: WallRockSand
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: rock_sand
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_sand_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_sand_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_sand_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_sand_west
-        - state: rock_salt
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 # Chromite variants
 - type: entity
@@ -2091,28 +2025,6 @@
         - state: rock_artifact_fragment
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: WallRockChromiteSalt
-  parent: WallRockChromite
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: rock_chromite
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_chromite_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_chromite_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_chromite_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_chromite_west
-        - state: rock_salt
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 # Andesite variants
 - type: entity
@@ -2367,25 +2279,4 @@
         - state: rock_artifact_fragment
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: WallRockAndesiteSalt
-  parent: WallRockAndesite
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: rock_andesite
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_andesite_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_andesite_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_andesite_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_andesite_west
-        - state: rock_salt
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
+
