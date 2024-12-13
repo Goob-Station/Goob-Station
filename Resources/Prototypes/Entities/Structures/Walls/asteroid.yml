@@ -959,35 +959,6 @@
       - state: rock_artifact_fragment
         map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
-- type: entity
-  id: WallRockSalt
-  parent: WallRock
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-  - type: EntityRemap
-    mask:
-      AsteroidRock: AsteroidRockSalt
-      WallRockBasalt: WallRockBasaltSalt
-      WallRockChromite: WallRockChromiteSalt
-      WallRockSand: WallRockSandSalt
-      WallRockSnow: WallRockSnowSalt
-  - type: OreVein
-    oreChance: 1.0
-    currentOre: OreSalt
-  - type: Sprite
-    layers:
-      - state: rock
-      - map: [ "enum.EdgeLayer.South" ]
-        state: rock_south
-      - map: [ "enum.EdgeLayer.East" ]
-        state: rock_east
-      - map: [ "enum.EdgeLayer.North" ]
-        state: rock_north
-      - map: [ "enum.EdgeLayer.West" ]
-        state: rock_west
-      - state: rock_salt
-        map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 # Basalt variants
 - type: entity
@@ -1240,29 +1211,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_wall_west
         - state: rock_artifact_fragment
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
-
-- type: entity
-  id: WallRockBasaltSalt
-  parent: WallRockBasalt
-  description: An ore vein rich with salt.
-  suffix: Salt
-  components:
-    - type: OreVein
-      oreChance: 1.0
-      currentOre: OreSalt
-    - type: Sprite
-      layers:
-        - state: rock_wall
-        - map: [ "enum.EdgeLayer.South" ]
-          state: rock_wall_south
-        - map: [ "enum.EdgeLayer.East" ]
-          state: rock_wall_east
-        - map: [ "enum.EdgeLayer.North" ]
-          state: rock_wall_north
-        - map: [ "enum.EdgeLayer.West" ]
-          state: rock_wall_west
-        - state: rock_salt
           map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 # Snow variants
