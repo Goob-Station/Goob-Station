@@ -110,9 +110,8 @@ public sealed class ReflectSystem : EntitySystem
         if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
             return false;
 
-        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
+        if (!_random.Prob(reflect.ReflectProb))
             return false;
-        }
 
         var rotation = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
@@ -184,7 +183,7 @@ public sealed class ReflectSystem : EntitySystem
         if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
             return false;
 
-        if (!_random.Prob(CalcReflectChance(reflector, reflect)))
+        if (!_random.Prob(reflect.ReflectProb))
             return false;
 
         if (_netManager.IsServer)

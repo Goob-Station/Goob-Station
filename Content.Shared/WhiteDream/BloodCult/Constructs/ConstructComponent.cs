@@ -1,11 +1,11 @@
-﻿using Content.Shared.Antag;
+using Content.Shared.Antag;
 using Content.Shared.StatusIcon;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared.WhiteDream.BloodCult.Constructs;
 
 [RegisterComponent]
-public sealed partial class ConstructComponent : Component, IAntagStatusIconComponent
+public sealed partial class ConstructComponent : Component
 {
     [DataField]
     public List<EntProtoId> Actions = new();

@@ -1,4 +1,4 @@
-﻿using System.Numerics;
+using System.Numerics;
 using Content.Shared.Antag;
 using Content.Shared.Ghost;
 using Content.Shared.StatusIcon.Components;
@@ -7,6 +7,7 @@ using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Components;
 using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Client.GameObjects;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -15,15 +16,16 @@ namespace Content.Client.WhiteDream.BloodCult;
 public sealed class BloodCultistSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<PentagramComponent, ComponentStartup>(OnPentagramAdded);
         SubscribeLocalEvent<PentagramComponent, ComponentShutdown>(OnPentagramRemoved);
 
-        SubscribeLocalEvent<ConstructComponent, CanDisplayStatusIconsEvent>(OnCanShowCultIcon);
-        SubscribeLocalEvent<BloodCultistComponent, CanDisplayStatusIconsEvent>(OnCanShowCultIcon);
-        SubscribeLocalEvent<BloodCultLeaderComponent, CanDisplayStatusIconsEvent>(OnCanShowCultIcon);
+        SubscribeLocalEvent<ConstructComponent, GetStatusIconsEvent>(GetConstructIcon);
+        SubscribeLocalEvent<BloodCultistComponent, GetStatusIconsEvent>(GetCultistIcon);
+        SubscribeLocalEvent<BloodCultLeaderComponent, GetStatusIconsEvent>(GetCultLeaderIcon);
     }
 
     private void OnPentagramAdded(EntityUid uid, PentagramComponent component, ComponentStartup args)
@@ -49,25 +51,22 @@ public sealed class BloodCultistSystem : EntitySystem
         sprite.RemoveLayer(layer);
     }
 
-    /// <summary>
-    /// Determine whether a client should display the cult icon.
-    /// </summary>
-    private void OnCanShowCultIcon<T>(EntityUid uid, T comp, ref CanDisplayStatusIconsEvent args)
-        where T : IAntagStatusIconComponent
+    private void GetConstructIcon(Entity<ConstructComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (!CanDisplayIcon(args.User, comp.IconVisibleToGhost))
-            args.Cancelled = true;
+        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
     }
-
-    /// <summary>
-    /// The criteria that determine whether a client should see Cult/Cult leader icons.
-    /// </summary>
-    private bool CanDisplayIcon(EntityUid? uid, bool visibleToGhost)
+    private void GetCultistIcon(Entity<BloodCultistComponent> ent, ref GetStatusIconsEvent args)
     {
-        if (HasComp<BloodCultistComponent>(uid) || HasComp<BloodCultLeaderComponent>(uid) ||
-            HasComp<ConstructComponent>(uid))
-            return true;
+        if (HasComp<BloodCultLeaderComponent>(ent))
+            return;
 
-        return visibleToGhost && HasComp<GhostComponent>(uid);
+        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
+    }
+    private void GetCultLeaderIcon(Entity<BloodCultLeaderComponent> ent, ref GetStatusIconsEvent args)
+    {
+        if (_prototype.TryIndex(ent.Comp.StatusIcon, out var iconPrototype))
+            args.StatusIcons.Add(iconPrototype);
     }
 }
