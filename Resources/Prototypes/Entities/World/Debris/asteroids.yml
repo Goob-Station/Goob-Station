@@ -8,7 +8,7 @@
     - type: BlobFloorPlanBuilder
       floorTileset:
       - FloorAsteroidSand
-      blobDrawProb: 0.5
+      blobDrawProb: 0.6
       radius: 6
       floorPlacements: 16
     - type: SimpleFloorPlanPopulator
@@ -30,7 +30,7 @@
             prob: 0.05
             orGroup: rock
           - id: WallRockDiamond
-            prob: 0.005
+            prob: 0.01
             orGroup: rock
           - id: WallRockSilver
             prob: 0.05
@@ -39,16 +39,16 @@
             prob: 0.05
             orGroup: rock
           - id: WallRockUranium
-            prob: 0.02
+            prob: 0.03
             orGroup: rock
           - id: WallRockBananium
             prob: 0.02
             orGroup: rock
           - id: WallRockArtifactFragment
-            prob: 0.01
+            prob: 0.02
             orGroup: rock
           - id: WallRockBSCrystal # Goobstation
-            prob: 0.01
+            prob: 0.05
             orGroup: rock
     - type: IFF
       flags: HideLabel
