@@ -234,12 +234,10 @@ public sealed partial class ShuttleSystem
 
         if (TryComp<PhysicsComponent>(shuttleUid, out var shuttlePhysics))
         {
-  
-
-            // Too large to FTL
-            if (FTLMassLimit > 0 &&  shuttlePhysics.Mass > FTLMassLimit)
+            // Static physics type is set when station anchor is enabled
+            if (shuttlePhysics.BodyType == BodyType.Static)
             {
-                reason = Loc.GetString("shuttle-console-mass");
+                reason = Loc.GetString("shuttle-console-static");
                 return false;
             }
         }
