@@ -17,17 +17,11 @@ public sealed partial class BlockingSystem
         SubscribeLocalEvent<BlockingComponent, DamageModifyEvent>(OnDamageModified);
 
         SubscribeLocalEvent<BlockingUserComponent, EntParentChangedMessage>(OnParentChanged);
-        SubscribeLocalEvent<BlockingUserComponent, ContainerGettingInsertedAttemptEvent>(OnInsertAttempt);
         SubscribeLocalEvent<BlockingUserComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<BlockingUserComponent, EntityTerminatingEvent>(OnEntityTerminating);
     }
 
     private void OnParentChanged(EntityUid uid, BlockingUserComponent component, ref EntParentChangedMessage args)
-    {
-        UserStopBlocking(uid, component);
-    }
-
-    private void OnInsertAttempt(EntityUid uid, BlockingUserComponent component, ContainerGettingInsertedAttemptEvent args)
     {
         UserStopBlocking(uid, component);
     }
@@ -87,7 +81,6 @@ public sealed partial class BlockingSystem
             return;
 
         StopBlockingHelper(component.BlockingItem.Value, blockingComponent, uid);
-
     }
 
     /// <summary>

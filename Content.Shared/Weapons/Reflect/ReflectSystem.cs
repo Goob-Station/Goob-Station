@@ -13,6 +13,8 @@ using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.WhiteDream.BloodCult.BloodCultist;
+using Content.Shared.WhiteDream.BloodCult.Items;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -100,9 +102,14 @@ public sealed class ReflectSystem : EntitySystem
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
             !_random.Prob(reflect.ReflectProb) ||
             !TryComp<PhysicsComponent>(projectile, out var physics))
-        {
             return false;
-        }
+
+        // Non cultists can't use cult items to reflect anything.
+        if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
+            return false;
+
+        if (!_random.Prob(reflect.ReflectProb))
+            return false;
 
         var rotation = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2).Opposite();
         var existingVelocity = _physics.GetMapLinearVelocity(projectile, component: physics);
@@ -176,15 +183,12 @@ public sealed class ReflectSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
         }
-
         var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
         newDirection = -spread.RotateVec(direction);
-
         if (shooter != null)
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");
         else
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)}");
-
         return true;
     }
 

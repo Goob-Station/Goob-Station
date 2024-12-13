@@ -46,6 +46,7 @@
   - Zombie
   - Revolutionary
   - Heretic # goob edit - heretics
+  - GeometerOfBlood
 
 - type: npcFaction
   id: SimpleNeutral

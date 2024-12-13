@@ -211,4 +211,14 @@
     antagPrototype: Mindcontrolled
     exclusiveAntag: true
   - type: MindcontrolledRole
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBloodCultist
+  name: Cultist Role
+  components:
+  - type: MindRole
+    antagPrototype: BloodCultist
+    exclusiveAntag: true
+  - type: BloodCultistRole
 # goob edit end

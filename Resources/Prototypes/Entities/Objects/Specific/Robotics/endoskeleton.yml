@@ -224,3 +224,6 @@
     guides:
     - Cyborgs
     - Robotics
+  - type: TwistedConstructionTarget # WD Cult
+    replacementProto: ConstructShell
+    doAfterDelay: 5
