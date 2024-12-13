@@ -7,7 +7,7 @@
   longRange: true
 
 - type: radioChannel
-  id: Tiding
+  id: TideHivemind
   name: chat-radio-tider
   keycode: 'i' # i for insuls :godo:
   frequency: 7143
