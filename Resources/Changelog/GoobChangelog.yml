@@ -3163,10 +3163,28 @@ Entries:
 - author: a-person5660
   changes:
     - type: Tweak
-      message: The Burner assault rifle now has AP as god intended.
+      message: The Burner assault rifle now has 45 damage as god intended.
     - type: Tweak
       message: >-
         The Burner assualt rifle now has 15 round mags and you can buy more in
         the uplink.
   id: 352
   time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'
