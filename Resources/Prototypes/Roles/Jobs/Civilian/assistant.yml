@@ -15,10 +15,10 @@
       - type: IntrinsicRadioReceiver
       - type: IntrinsicRadioTransmitter
         channels:
-        - TiderHivemind
+        - TideHivemind
       - type: ActiveRadio
         channels:
-        - TiderHivemind
+        - TideHivemind
 
 - type: startingGear
   id: PassengerGear
