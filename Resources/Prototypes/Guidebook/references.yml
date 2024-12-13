@@ -1,6 +1,7 @@
 - type: guideEntry
   id: References
   name: guide-entry-references
+  priority: 4 # ShibaStation - reorder the guidebook entries
   text: "/ServerInfo/Guidebook/References.xml"
   children:
   - Chemicals

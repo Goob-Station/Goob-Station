@@ -1,0 +1,257 @@
+- type: guideEntry # Main page for the rules
+  id: ShibaRuleset
+  name: "ShibaStation Rules"
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/ShibaRules.xml"
+  children:
+  - ShibaCoreRules
+  - ShibaRoleplayRules
+  - ShibaJobExpectations
+  - SiliconRules
+  - RoleTypes
+  - BanTypes
+  - BanDurations
+
+- type: guideEntry #
+  id: ShibaCoreRules
+  name: "Core Rules"
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleCAll.xml"
+  children:
+  - ShibaRuleUA0
+  - ShibaRuleC1
+  - ShibaRuleC2
+  - ShibaRuleC3
+  - ShibaRuleC4
+  - ShibaRuleC5
+  - ShibaRuleC6
+  - ShibaRuleC7
+  - ShibaRuleC8
+  - ShibaRuleC9
+  - ShibaRuleC10
+  - ShibaRuleC11
+  - ShibaRuleC12
+  - ShibaRuleC13
+
+- type: guideEntry
+  id: ShibaRuleUA0
+  name: "Ultimate Authority 0"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleUA0Admins.xml"
+
+- type: guideEntry
+  id: ShibaRuleC1
+  name: "Core Rule 1"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC1Over18.xml"
+
+- type: guideEntry
+  id: ShibaRuleC2
+  name: "Core Rule 2"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC2OnlyEnglish.xml"
+
+- type: guideEntry
+  id: ShibaRuleC3
+  name: "Core Rule 3"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC3DBAD.xml"
+
+- type: guideEntry
+  id: ShibaRuleC4
+  name: "Core Rule 4"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC4BeCivil.xml"
+
+- type: guideEntry
+  id: ShibaRuleC5
+  name: "Core Rule 5"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC5FunForAll.xml"
+
+- type: guideEntry
+  id: ShibaRuleC6
+  name: "Core Rule 6"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC6LightERP.xml"
+
+- type: guideEntry
+  id: ShibaRuleC7
+  name: "Core Rule 7"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC7Metacomms.xml"
+
+- type: guideEntry
+  id: ShibaRuleC8
+  name: "Core Rule 8"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC8BanEvasion.xml"
+
+- type: guideEntry
+  id: ShibaRuleC9
+  name: "Core Rule 9"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC9Multikey.xml"
+
+- type: guideEntry
+  id: ShibaRuleC10
+  name: "Core Rule 10"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC10Ahelp.xml"
+
+- type: guideEntry
+  id: ShibaRuleC11
+  name: "Core Rule 11"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC11AhelpThreats.xml"
+
+- type: guideEntry
+  id: ShibaRuleC12
+  name: "Core Rule 12"
+  ruleEntry: true
+  priority: 13
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC12CharacterNames.xml"
+
+- type: guideEntry
+  id: ShibaRuleC13
+  name: "Core Rule 13"
+  ruleEntry: true
+  priority: 14
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC13ICinOOC.xml"
+
+- type: guideEntry # Roleplay rules
+  id: ShibaRoleplayRules
+  name: "Roleplay Rules"
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleRAll.xml"
+  children:
+  - ShibaRuleR1
+  - ShibaRuleR2
+  - ShibaRuleR3
+  - ShibaRuleR4
+  - ShibaRuleR5
+  - ShibaRuleR6
+  - ShibaRuleR7
+  - ShibaRuleR8
+  - ShibaRuleR9
+  - ShibaRuleR10
+  - ShibaRuleR11
+  - ShibaRuleR12
+
+- type: guideEntry
+  id: ShibaRuleR1
+  name: "Roleplay Rule 1"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR1JobExpectations.xml"
+  children:
+  - ShibaJobExpectations
+
+- type: guideEntry
+  id: ShibaRuleR2
+  name: "Roleplay Rule 2"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR2SiliconRules.xml"
+
+- type: guideEntry
+  id: ShibaRuleR3
+  name: "Roleplay Rule 3"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR3Familiars.xml"
+
+- type: guideEntry
+  id: ShibaRuleR4
+  name: "Roleplay Rule 4"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR4ReasonablePerson.xml"
+
+- type: guideEntry
+  id: ShibaRuleR5
+  name: "Roleplay Rule 5"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5SelfAntag.xml"
+
+- type: guideEntry
+  id: ShibaRuleR6
+  name: "Roleplay Rule 6"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR6NoEORG.xml"
+
+- type: guideEntry
+  id: ShibaRuleR7
+  name: "Roleplay Rule 7"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR7Metashield.xml"
+
+- type: guideEntry
+  id: ShibaRuleR8
+  name: "Roleplay Rule 8"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-0Escalation.xml"
+  children:
+  - ShibaRuleR8-1
+  - ShibaRuleR8-2
+
+- type: guideEntry
+  id: ShibaRuleR8-1
+  name: "Roleplay Rule 8-1"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-1AnimalEscalation.xml"
+
+- type: guideEntry
+  id: ShibaRuleR8-2
+  name: "Roleplay Rule 8-2"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR8-2ConflictTypes.xml"
+
+- type: guideEntry
+  id: ShibaRuleR9
+  name: "Roleplay Rule 9"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR9Arrivals.xml"
+
+- type: guideEntry
+  id: ShibaRuleR10
+  name: "Roleplay Rule 10"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR10Stalling.xml"
+
+- type: guideEntry
+  id: ShibaRuleR11
+  name: "Roleplay Rule 11"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR11Powergaming.xml"
+
+- type: guideEntry
+  id: ShibaRuleR12
+  name: "Roleplay Rule 12"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR12Validhunting.xml"
+
+- type: guideEntry
+  id: ShibaJobExpectations
+  name: "Job Expectations"
+  priority: 3
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/JobExpectations/_JobExMain.xml"
+
