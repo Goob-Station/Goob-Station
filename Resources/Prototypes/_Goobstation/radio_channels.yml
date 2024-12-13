@@ -5,3 +5,11 @@
   frequency: 9999
   color: "#91E8E5"
   longRange: true
+
+- type: radioChannel
+  id: Tiding
+  name: chat-radio-tider
+  keycode: 'i' # i for insuls :godo:
+  frequency: 7143
+  color: "#8C8C8C"
+  longRange: true
