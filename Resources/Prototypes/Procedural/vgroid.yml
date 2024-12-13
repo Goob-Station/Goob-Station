@@ -96,9 +96,9 @@
     - !type:OreDunGen # Goobstation
       replacement: IronRock
       entity: IronRockBSCrystal
-      count: 10
-      minGroupSize: 1
-      maxGroupSize: 2
+      count: 40
+      minGroupSize: 2
+      maxGroupSize: 5
 
 # Configs
 - type: dungeonConfig
