@@ -6,8 +6,6 @@ shuttle-console-mass = Too large to FTL
 shuttle-console-prevent = You are unable to pilot this ship
 shuttle-console-static = Grid is static
 
-
-
 # NAV
 
 shuttle-console-display-label = Display
