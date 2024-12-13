@@ -3216,3 +3216,17 @@ Entries:
       message: Tiders now have a intrinsic hivemind radio channel. Access it with ":i"
   id: 357
   time: '2024-12-13T21:51:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Eshield now doesn't break. Instead, it discharges. Hp reduced: 100 ->
+        20. Recharges 2 hp per second. When it is fully discharged, it is
+        unusable until it recharges. It takes 15 seconds to recharge after it is
+        fully discharged. Shield gets damaged when it reflects lasers though,
+        but has 50% heat resistance. Can be EMPd now. Can now be purchased from
+        traitor uplink, cost reduced: 40 -> 15.
+    - type: Fix
+      message: Toggleable shields can't block damage while toggled off.
+  id: 358
+  time: '2024-12-13T21:53:49.0000000+00:00'
