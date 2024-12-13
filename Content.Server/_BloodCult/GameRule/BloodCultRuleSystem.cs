@@ -370,6 +370,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         _faction.AddFaction(cultist, rule.Comp.BloodCultFaction);
 
         _mind.TryAddObjective(mindId, mind, "KillTargetCultObjective");
+
+        _actions.AddAction(cultist, "ActionCultBloodSpells");
+        UpdateCultistsAppearance(rule, rule.Comp.Stage);
     }
 
     private void GetRandomRunePlacements(BloodCultRuleComponent component)
@@ -458,13 +461,13 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
                     _antag.SendBriefing(cultist, loc, Color.Crimson, sound);
             }
 
-            Timer.Spawn(TimeSpan.FromSeconds(10f), () => { UpdateCultistsAppearance(cultRule, prevStage); });
+            Timer.Spawn(TimeSpan.FromSeconds(10f), () => { UpdateCultistsAppearance(cultRule, cultRule.Stage, prevStage); });
         }
     }
 
-    private void UpdateCultistsAppearance(BloodCultRuleComponent cultRule, CultStage prevStage)
+    private void UpdateCultistsAppearance(BloodCultRuleComponent cultRule, CultStage stage, CultStage prevStage = CultStage.Start)
     {
-        switch (cultRule.Stage)
+        switch (stage)
         {
             case CultStage.Start when prevStage == CultStage.RedEyes:
                 foreach (var cultist in cultRule.Cultists)
@@ -492,6 +495,8 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     /// <summary>
     ///     A crutch while we have no NORMAL voting system. The DarkRP one fucking sucks.
+    ///     
+    ///     - bro...
     /// </summary>
     private void SelectRandomLeader(BloodCultRuleComponent cultRule)
     {
@@ -501,8 +506,9 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         var candidats = cultRule.Cultists;
         candidats.RemoveAll(
             entity =>
-                TryComp(entity, out PullableComponent? pullable) && pullable.BeingPulled ||
-                TryComp(entity, out CuffableComponent? cuffable) && cuffable.CuffedHandCount > 0);
+            TryComp(entity, out PullableComponent? pullable) && pullable.BeingPulled
+            || TryComp(entity, out CuffableComponent? cuffable) && cuffable.CuffedHandCount > 0
+            || TryComp<MobStateComponent>(entity, out var mobState) && (mobState.CurrentState == MobState.Dead || mobState.CurrentState == MobState.Critical));
 
         if (candidats.Count == 0)
             return;

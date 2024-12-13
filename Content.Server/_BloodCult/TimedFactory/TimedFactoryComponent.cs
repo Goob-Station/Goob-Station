@@ -1,4 +1,4 @@
-﻿using Content.Shared.RadialSelector;
+using Content.Shared.RadialSelector;
 
 namespace Content.Server.WhiteDream.BloodCult.TimedFactory;
 
@@ -9,7 +9,7 @@ public sealed partial class TimedFactoryComponent : Component
     public List<RadialSelectorEntry> Entries = new();
 
     [DataField]
-    public float Cooldown = 240;
+    public float Cooldown = 300;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float CooldownRemaining = 0;

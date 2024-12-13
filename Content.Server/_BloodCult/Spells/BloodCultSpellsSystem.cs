@@ -48,11 +48,10 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         SubscribeLocalEvent<BaseCultSpellComponent, ActionGettingDisabledEvent>(OnActionGettingDisabled);
 
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, ComponentStartup>(OnComponentStartup);
-        SubscribeLocalEvent<BloodCultSpellsHolderComponent, GetVerbsEvent<ExamineVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<BloodCultSpellsHolderComponent, CultSpellsEvent>(OnGetSpells);
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, RadialSelectorSelectedMessage>(OnSpellSelected);
         SubscribeLocalEvent<BloodCultSpellsHolderComponent, CreateSpeellDoAfterEvent>(OnSpellCreated);
 
-        SubscribeLocalEvent<BloodCultStunEvent>(OnStun);
         SubscribeLocalEvent<BloodCultEmpEvent>(OnEmp);
         SubscribeLocalEvent<BloodCultShacklesEvent>(OnShackles);
         SubscribeLocalEvent<SummonEquipmentEvent>(OnSummonEquipment);
@@ -92,28 +91,9 @@ public sealed class BloodCultSpellsSystem : EntitySystem
     private void OnComponentStartup(Entity<BloodCultSpellsHolderComponent> cultist, ref ComponentStartup args) =>
         cultist.Comp.MaxSpells = cultist.Comp.DefaultMaxSpells;
 
-    private void OnGetVerbs(Entity<BloodCultSpellsHolderComponent> cultist, ref GetVerbsEvent<ExamineVerb> args)
+    private void OnGetSpells(Entity<BloodCultSpellsHolderComponent> cultist, ref CultSpellsEvent args)
     {
-        if (args.User != args.Target)
-            return;
-
-        var addVerb = new ExamineVerb
-        {
-            Category = VerbCategory.BloodSpells,
-            Text = Loc.GetString("blood-cult-select-spells-verb"),
-            Priority = 1,
-            Act = () => SelectBloodSpells(cultist)
-        };
-        var removeVerb = new ExamineVerb
-        {
-            Category = VerbCategory.BloodSpells,
-            Text = Loc.GetString("blood-cult-remove-spells-verb"),
-            Priority = 0,
-            Act = () => RemoveBloodSpells(cultist)
-        };
-
-        args.Verbs.Add(removeVerb);
-        args.Verbs.Add(addVerb);
+        SelectBloodSpells(cultist);
     }
 
     private void OnSpellSelected(Entity<BloodCultSpellsHolderComponent> cultist, ref RadialSelectorSelectedMessage args)
@@ -168,16 +148,6 @@ public sealed class BloodCultSpellsSystem : EntitySystem
     #endregion
 
     #region SpellsHandlers
-
-    private void OnStun(BloodCultStunEvent ev)
-    {
-        if (ev.Handled)
-            return;
-
-        _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.MuteDuration, true);
-        _stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true);
-        ev.Handled = true;
-    }
 
     private void OnEmp(BloodCultEmpEvent ev)
     {

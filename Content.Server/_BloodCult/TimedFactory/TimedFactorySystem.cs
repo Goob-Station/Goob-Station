@@ -1,4 +1,4 @@
-﻿using Content.Server.Hands.Systems;
+using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Shared.RadialSelector;
 using Content.Shared.UserInterface;

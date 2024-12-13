@@ -1,4 +1,4 @@
-﻿using Content.Shared.Damage;
+using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -30,5 +30,5 @@ public sealed partial class WhetstoneComponent : Component
     public EntityWhitelist Blacklist = new();
 
     [DataField]
-    public SoundSpecifier SharpenAudio = new SoundPathSpecifier("/Audio/SimpleStation14/Items/Handling/sword_sheath.ogg");
+    public SoundSpecifier SharpenAudio = new SoundPathSpecifier("/Audio/Items/unsheath.ogg");
 }

@@ -1,4 +1,4 @@
-﻿using Content.Shared.Alert;
+using Content.Shared.Alert;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.WhiteDream.BloodCult.Empower;
@@ -28,7 +28,7 @@ public sealed partial class BloodCultEmpoweredComponent : Component
     ///     The default duration of the empowering.
     /// </summary>
     [DataField]
-    public TimeSpan DefaultTime = TimeSpan.FromSeconds(20);
+    public TimeSpan DefaultTime = TimeSpan.FromSeconds(60);
 
     [DataField]
     public float NearbyCultTileRadius = 1f;

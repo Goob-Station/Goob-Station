@@ -1,0 +1,26 @@
+- type: entity
+  abstract: true
+  id: TouchspellCultBase
+  name: channeled energy
+  description: Does exactly what it looks like.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Unremoveable
+  - type: Item
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Items/arcane_barrage.rsi
+    state: icon
+  - type: Appearance
+  - type: UseDelay
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#ce4200"
+
+- type: entity
+  parent: TouchspellCultBase
+  id: TouchspellCultStun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FuuMajin

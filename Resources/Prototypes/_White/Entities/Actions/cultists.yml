@@ -1,4 +1,16 @@
 ﻿- type: entity
+  id: ActionCultBloodSpells
+  name: Blood Spells
+  description: Carve a spell on yourself.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: WhiteDream/BloodCult/actions.rsi
+      state: blood_spells
+    event: !type:CultSpellsEvent
+
+- type: entity
   id: ActionBloodCultStun
   name: Stun
   description: Empowers your hand to stun and mute a victim on contact.
@@ -7,22 +19,13 @@
   - type: Sprite
     sprite: WhiteDream/BloodCult/actions.rsi
     state: stun
-  - type: EntityTargetAction
-    checkCanAccess: false
-    range: 3
+  - type: InstantAction
     itemIconStyle: BigAction
     charges: 1
-    temporary: true
-    canTargetSelf: false
-    interactOnMiss: false
-    whitelist:
-      components:
-      - Body
     icon:
       sprite: WhiteDream/BloodCult/actions.rsi
       state: stun
     event: !type:BloodCultStunEvent
-      speech: "Fuu ma'jin!"
   - type: BaseCultSpell
 
 - type: entity

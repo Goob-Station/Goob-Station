@@ -1,4 +1,4 @@
-﻿using Content.Shared.Actions;
+using Content.Shared.Actions;
 using Content.Shared.Chat;
 using Content.Shared.DoAfter;
 using Content.Shared.Magic;
@@ -9,19 +9,9 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared.WhiteDream.BloodCult.Spells;
 
-public sealed partial class BloodCultStunEvent : EntityTargetActionEvent, ISpeakSpell
-{
-    [DataField]
-    public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(16);
+public sealed partial class CultSpellsEvent : InstantActionEvent { }
 
-    [DataField]
-    public TimeSpan MuteDuration = TimeSpan.FromSeconds(12);
-
-    [DataField]
-    public string? Speech { get; set; }
-
-    public InGameICChatType ChatType => InGameICChatType.Whisper;
-}
+public sealed partial class BloodCultStunEvent : InstantActionEvent { }
 
 public sealed partial class BloodCultTeleportEvent : EntityTargetActionEvent, ISpeakSpell
 {
