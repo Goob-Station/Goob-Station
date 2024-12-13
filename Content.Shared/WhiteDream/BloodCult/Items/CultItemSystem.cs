@@ -1,10 +1,11 @@
-﻿using Content.Shared.Blocking;
+using Content.Shared.Blocking;
 using Content.Shared.Ghost;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
@@ -22,10 +23,9 @@ public sealed class CultItemSystem : EntitySystem
     {
         SubscribeLocalEvent<CultItemComponent, ActivateInWorldEvent>(OnActivate);
         SubscribeLocalEvent<CultItemComponent, UseInHandEvent>(OnUseInHand);
-        SubscribeLocalEvent<CultItemComponent, BeforeGettingThrownEvent>(OnBeforeGettingThrown);
+        SubscribeLocalEvent<CultItemComponent, BeforeThrowEvent>(OnBeforeThrow);
         SubscribeLocalEvent<CultItemComponent, BeingEquippedAttemptEvent>(OnEquipAttempt);
         SubscribeLocalEvent<CultItemComponent, AttemptMeleeEvent>(OnMeleeAttempt);
-        SubscribeLocalEvent<CultItemComponent, BeforeBlockingEvent>(OnBeforeBlocking);
     }
 
     private void OnActivate(Entity<CultItemComponent> item, ref ActivateInWorldEvent args)
@@ -41,7 +41,7 @@ public sealed class CultItemSystem : EntitySystem
     {
         if (CanUse(args.User) ||
             // Allow non-cultists to remove embedded cultist weapons and getting knocked down afterwards on pickup
-            (TryComp<EmbeddableProjectileComponent>(item.Owner, out var embeddable) && embeddable.Target != null))
+            (TryComp<EmbeddableProjectileComponent>(item.Owner, out var embeddable) && embeddable.EmbeddedIntoUid != null))
             return;
 
         args.Handled = true;
@@ -73,15 +73,6 @@ public sealed class CultItemSystem : EntitySystem
 
         args.Cancelled = true;
         KnockdownAndDropItem(item, args.PlayerUid, Loc.GetString("cult-item-component-attack-fail"));
-    }
-
-    private void OnBeforeBlocking(Entity<CultItemComponent> item, ref BeforeBlockingEvent args)
-    {
-        if (CanUse(args.User))
-            return;
-
-        args.Cancel();
-        KnockdownAndDropItem(item, args.User, Loc.GetString("cult-item-component-block-fail"));
     }
 
     private void KnockdownAndDropItem(Entity<CultItemComponent> item, EntityUid user, string message)

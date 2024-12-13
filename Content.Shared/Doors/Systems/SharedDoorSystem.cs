@@ -427,7 +427,7 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (door.State is DoorState.Welded or DoorState.Closed)
             return false;
 
-        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck)
+        var ev = new BeforeDoorClosedEvent(door.PerformCollisionCheck) // WD Cult
         {
             User = user
         };

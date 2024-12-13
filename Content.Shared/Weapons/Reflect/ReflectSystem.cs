@@ -100,10 +100,8 @@ public sealed class ReflectSystem : EntitySystem
             !_toggle.IsActivated(reflector) ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             (reflect.Reflects & reflective.Reflective) == 0x0 ||
-            !TryComp<PhysicsComponent>(projectile, out var physics) ||
-            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
-            _standing.IsDown(reflector)
-        )
+            !_random.Prob(reflect.ReflectProb) ||
+            !TryComp<PhysicsComponent>(projectile, out var physics))
             return false;
 
         // Non cultists can't use cult items to reflect anything.
@@ -172,34 +170,25 @@ public sealed class ReflectSystem : EntitySystem
         Vector2 direction,
         [NotNullWhen(true)] out Vector2? newDirection)
     {
-        newDirection = null;
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
-            !reflect.Enabled ||
-            TryComp<StaminaComponent>(reflector, out var staminaComponent) && staminaComponent.Critical ||
-            _standing.IsDown(reflector))
+            !_toggle.IsActivated(reflector) ||
+            !_random.Prob(reflect.ReflectProb))
+        {
+            newDirection = null;
             return false;
-
-        // Non cultists can't use cult items to reflect anything.
-        if (HasComp<CultItemComponent>(reflector) && !HasComp<BloodCultistComponent>(user))
-            return false;
-
-        if (!_random.Prob(reflect.ReflectProb))
-            return false;
+        }
 
         if (_netManager.IsServer)
         {
             _popup.PopupEntity(Loc.GetString("reflect-shot"), user);
             _audio.PlayPvs(reflect.SoundOnReflect, user, AudioHelpers.WithVariation(0.05f, _random));
         }
-
         var spread = _random.NextAngle(-reflect.Spread / 2, reflect.Spread / 2);
         newDirection = -spread.RotateVec(direction);
-
         if (shooter != null)
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)} shot by {ToPrettyString(shooter.Value)}");
         else
             _adminLogger.Add(LogType.HitScanHit, LogImpact.Medium, $"{ToPrettyString(user)} reflected hitscan from {ToPrettyString(shotSource)}");
-
         return true;
     }
 

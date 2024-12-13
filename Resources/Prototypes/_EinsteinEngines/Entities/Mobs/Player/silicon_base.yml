@@ -215,8 +215,6 @@
           type: RadialSelectorMenuBUI
         enum.ListViewSelectorUiKey.Key:
           type: ListViewSelectorBUI
-        enum.SurgeryUIKey.Key:
-          type: SurgeryBui
     - type: Emoting
     - type: Grammar
       attributes:

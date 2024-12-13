@@ -4,9 +4,6 @@
   antagonist: true
   setPreference: true
   objective: roles-antag-blood-cultist-objective
-  requirements:
-  - !type:CharacterOverallTimeRequirement
-    min: 43200
 
 - type: startingGear
   id: BloodCultistGear

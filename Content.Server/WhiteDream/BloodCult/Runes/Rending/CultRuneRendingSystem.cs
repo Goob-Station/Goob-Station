@@ -1,4 +1,4 @@
-﻿using Content.Server.Chat.Systems;
+using Content.Server.Chat.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
@@ -41,7 +41,7 @@ public sealed class CultRuneRendingSystem : EntitySystem
 
         _chat.DispatchGlobalAnnouncement(
             message,
-            Loc.GetString("blood-cult-title"),
+            "Central Command",
             true,
             rune.Comp.FinishedDrawingAudio,
             Color.DarkRed);
@@ -66,7 +66,7 @@ public sealed class CultRuneRendingSystem : EntitySystem
         var ev = new RendingRuneDoAfter();
         var argsDoAfterEvent = new DoAfterArgs(EntityManager, args.User, rune.Comp.SummonTime, ev, rune)
         {
-            BreakOnUserMove = true
+            BreakOnMove = true
         };
 
         if (!_doAfter.TryStartDoAfter(argsDoAfterEvent, out rune.Comp.CurrentDoAfter))
@@ -80,9 +80,10 @@ public sealed class CultRuneRendingSystem : EntitySystem
             ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(rune.Owner))));
         _chat.DispatchGlobalAnnouncement(
             message,
-            Loc.GetString("blood-cult-title"),
-            false,
-            colorOverride: Color.DarkRed);
+            "Central Command",
+            true,
+            colorOverride: Color.DarkRed,
+            announcementSound: new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_scribe.ogg"));
 
         _appearance.SetData(rune, RendingRuneVisuals.Active, true);
         rune.Comp.AudioEntity =

@@ -1,4 +1,4 @@
-﻿using Robust.Shared.Physics.Events;
+using Robust.Shared.Physics.Events;
 
 namespace Content.Server.WhiteDream.BloodCult.BloodBoilProjectile;
 

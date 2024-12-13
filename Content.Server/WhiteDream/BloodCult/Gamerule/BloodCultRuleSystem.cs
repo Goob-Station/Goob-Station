@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Antag;
@@ -7,9 +7,7 @@ using Content.Server.Body.Systems;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Hands.Systems;
-using Content.Server.Language;
 using Content.Server.Mind;
-using Content.Server.NPC.Systems;
 using Content.Server.Pinpointer;
 using Content.Server.Roles;
 using Content.Server.RoundEnd;
@@ -26,7 +24,6 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Mood;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.WhiteDream.BloodCult.Components;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
@@ -36,6 +33,10 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
+using Content.Shared.NPC.Systems;
+using Robust.Shared.Audio;
+using Content.Server.Chat.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Server.WhiteDream.BloodCult.Gamerule;
 
@@ -50,7 +51,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly ContainerSystem _container = default!;
     [Dependency] private readonly HandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly LanguageSystem _language = default!;
     [Dependency] private readonly NavMapSystem _navMap = default!;
     [Dependency] private readonly NpcFactionSystem _faction = default!;
     [Dependency] private readonly MindSystem _mind = default!;
@@ -58,6 +58,7 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     public override void Initialize()
     {
@@ -138,9 +139,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
 
     private void OnCultistComponentInit(Entity<BloodCultistComponent> cultist, ref ComponentInit args)
     {
-        RaiseLocalEvent(cultist, new MoodEffectEvent("CultFocused"));
-        _language.AddLanguage(cultist, cultist.Comp.CultLanguageId);
-
         var query = QueryActiveRules();
         while (query.MoveNext(out _, out var cult, out _))
         {
@@ -163,8 +161,6 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         RemoveAllCultItems(cultist);
         RemoveCultistAppearance(cultist);
         RemoveObjectiveAndRole(cultist.Owner);
-        RaiseLocalEvent(cultist.Owner, new MoodRemoveEffectEvent("CultFocused"));
-        _language.RemoveLanguage(cultist.Owner, cultist.Comp.CultLanguageId);
 
         if (!TryComp(cultist, out BloodCultSpellsHolderComponent? powersHolder))
             return;
@@ -440,7 +436,30 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
             cultRule.Stage = CultStage.Start;
 
         if (cultRule.Stage != prevStage)
-            UpdateCultistsAppearance(cultRule, prevStage);
+        {
+            string? loc = null;
+            SoundSpecifier? sound = null;
+
+            switch (cultRule.Stage)
+            {
+                case CultStage.RedEyes:
+                    loc = Loc.GetString("blood-cult-eyes");
+                    sound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_eyes.ogg");
+                    break;
+                case CultStage.Pentagram:
+                    loc = Loc.GetString("blood-cult-halos");
+                    sound = new SoundPathSpecifier("/Audio/_Goobstation/Ambience/Antag/bloodcult_halos.ogg");
+                    break;
+            }
+
+            foreach (var cultist in cultRule.Cultists)
+            {
+                if (loc != null && sound != null)
+                    _antag.SendBriefing(cultist, loc, Color.Crimson, sound);
+            }
+
+            Timer.Spawn(TimeSpan.FromSeconds(10f), () => { UpdateCultistsAppearance(cultRule, prevStage); });
+        }
     }
 
     private void UpdateCultistsAppearance(BloodCultRuleComponent cultRule, CultStage prevStage)

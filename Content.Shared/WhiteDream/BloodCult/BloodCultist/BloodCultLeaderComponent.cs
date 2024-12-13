@@ -9,7 +9,7 @@ namespace Content.Shared.WhiteDream.BloodCult.BloodCultist;
 public sealed partial class BloodCultLeaderComponent : Component
 {
     [DataField]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BloodCultLeader";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultLeader";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

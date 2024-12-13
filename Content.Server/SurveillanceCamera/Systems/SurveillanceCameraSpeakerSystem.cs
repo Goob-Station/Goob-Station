@@ -1,7 +1,6 @@
 using Content.Server.Chat.Systems;
 using Content.Server.Speech;
 using Content.Shared.Speech;
-using Content.Shared.Chat;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Timing;
 
@@ -45,7 +44,7 @@ public sealed class SurveillanceCameraSpeakerSystem : EntitySystem
             component.LastSoundPlayed = time;
         }
 
-        var nameEv = new TransformSpeakerNameEvent(args.Speaker, Name(args.Speaker));
+        var nameEv = new Content.Shared.Chat.TransformSpeakerNameEvent(args.Speaker, Name(args.Speaker));
         RaiseLocalEvent(args.Speaker, nameEv);
 
         var name = Loc.GetString("speech-name-relay", ("speaker", Name(uid)),

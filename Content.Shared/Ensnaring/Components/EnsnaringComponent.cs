@@ -1,4 +1,4 @@
-﻿using System.Threading;
+using System.Threading;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -70,7 +70,7 @@ public sealed partial class EnsnaringComponent : Component
     public bool DestroyOnRemove = false;
 
     /// <summary>
-    /// Entites which bola will pass through.
+    /// WhiteDream - Entites which bola will pass through.
     /// </summary>
     [DataField]
     public EntityWhitelist? IgnoredTargets;

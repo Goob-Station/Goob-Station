@@ -1,4 +1,4 @@
-﻿using Content.Server.Body.Components;
+using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Hands.Systems;
@@ -77,8 +77,7 @@ public sealed class BloodRitesSystem : EntitySystem
             var time = rites.Comp.BloodExtractionTime;
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, time, ev, rites, args.Target)
             {
-                BreakOnUserMove = true,
-                BreakOnTargetMove = true,
+                BreakOnMove = true,
                 BreakOnDamage = true
             };
             if (_doAfter.TryStartDoAfter(doAfterArgs, out var doAfterId))

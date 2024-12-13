@@ -694,7 +694,7 @@ namespace Content.Shared.Cuffs
                 if (cuff.BreakOnRemove)
                 {
                     QueueDel(cuffsToRemove);
-                    if (cuff.BrokenPrototype.HasValue)
+                    if (cuff.BrokenPrototype.HasValue) // WD Cult
                     {
                         var trash = Spawn(cuff.BrokenPrototype, Transform(cuffsToRemove).Coordinates);
                         _hands.PickupOrDrop(user, trash);

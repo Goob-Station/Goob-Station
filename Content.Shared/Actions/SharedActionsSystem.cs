@@ -702,6 +702,7 @@ public abstract class SharedActionsSystem : EntitySystem
             action.Charges--;
             if (action is { Charges: 0, RenewCharges: false })
             {
+                // WD edit - disabled actions event
                 var disabledEv = new ActionGettingDisabledEvent(performer);
                 RaiseLocalEvent(actionId, ref disabledEv);
                 action.Enabled = false;

@@ -349,6 +349,7 @@ namespace Content.Server.RoundEnd
             }, _cooldownTokenSource.Token);
         }
 
+        // WD edit - shuttle delay
         public void DelayShuttle(TimeSpan delay)
         {
             if (_countdownTokenSource == null || !ExpectedCountdownEnd.HasValue)
@@ -362,7 +363,7 @@ namespace Content.Server.RoundEnd
             _countdownTokenSource.Cancel();
             _countdownTokenSource = new CancellationTokenSource();
 
-            Timer.Spawn(countdown, _shuttle.CallEmergencyShuttle, _countdownTokenSource.Token);
+            Timer.Spawn(countdown, () => { DoRoundEndBehavior(RoundEndBehavior.ShuttleCall, delay); }, _countdownTokenSource.Token);
         }
 
         public override void Update(float frameTime)

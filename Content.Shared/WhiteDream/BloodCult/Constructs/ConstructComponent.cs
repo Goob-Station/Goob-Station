@@ -17,7 +17,7 @@ public sealed partial class ConstructComponent : Component
     public float TransformDelay = 1;
 
     [DataField]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;

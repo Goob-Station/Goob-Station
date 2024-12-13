@@ -1,7 +1,5 @@
 using System.Threading;
-using Content.Shared.Antag;
 using Content.Shared.FixedPoint;
-using Content.Shared.Language;
 using Content.Shared.Mind;
 using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
@@ -19,13 +17,10 @@ public sealed partial class BloodCultistComponent : Component
     public int MaximumAllowedEmpowers = 4;
 
     [DataField]
-    public ProtoId<StatusIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
+    public ProtoId<FactionIconPrototype> StatusIcon { get; set; } = "BloodCultMember";
 
     [DataField]
     public bool IconVisibleToGhost { get; set; } = true;
-
-    [DataField]
-    public ProtoId<LanguagePrototype> CultLanguageId { get; set; } = "Eldritch";
 
     [ViewVariables, NonSerialized]
     public EntityUid? BloodSpear;

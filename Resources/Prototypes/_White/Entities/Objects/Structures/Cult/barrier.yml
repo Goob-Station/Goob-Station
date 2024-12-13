@@ -55,4 +55,3 @@
   - type: Icon
     sprite: WhiteDream/BloodCult/Entities/Structures/cult_shield.rsi
     state: icon
-  - type: Dispellable

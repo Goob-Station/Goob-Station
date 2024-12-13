@@ -1382,16 +1382,6 @@
   color: "#75b1f0"
   boilingPoint: 100.0
   meltingPoint: 0.0
-  reactiveEffects:
-    Acidic:
-      methods: [ Touch ]
-      effects:
-      - !type:HealthChange
-        scaleByQuantity: true
-        ignoreResistances: false
-        damage:
-          types:
-            Holy: 0.5
   metabolisms: #Could nullify debuffs of feeding.
     Drink:
       effects:
@@ -1406,8 +1396,6 @@
           groups:
             Brute: -0.5
             Burn: -0.5
-          types:
-            Holy: 1
       - !type:PurifyEvil
         conditions:
         - !type:ReagentThreshold

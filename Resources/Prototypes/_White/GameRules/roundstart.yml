@@ -20,6 +20,5 @@
       components:
       - type: BloodCultist
       - type: BloodCultSpellsHolder
-      mindComponents:
-      - type: BloodCultistRole
-        prototype: BloodCultist
+      mindRoles:
+      - MindRoleBloodCultist

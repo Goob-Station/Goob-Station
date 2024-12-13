@@ -17,6 +17,7 @@ public sealed class MagicSystem : SharedMagicSystem
 
     private void OnSpellSpoken(ref SpeakSpellEvent args)
     {
-        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), args.ChatType, false);
+        var chatType = (Content.Server.Chat.Systems.InGameICChatType) ((int) args.ChatType);
+        _chat.TrySendInGameICMessage(args.Performer, Loc.GetString(args.Speech), chatType, false);
     }
 }

@@ -1,11 +1,10 @@
-﻿using Content.Server.Actions;
+using Content.Server.Actions;
 using Content.Server.Cuffs;
 using Content.Server.DoAfter;
 using Content.Server.Emp;
 using Content.Server.Hands.Systems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
-using Content.Shared.Abilities.Psionics;
 using Content.Shared.Actions;
 using Content.Shared.Actions.Events;
 using Content.Shared.Clothing.Components;
@@ -78,7 +77,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
         if (spell.Comp.BypassProtection)
             return;
 
-        if (HasComp<MindShieldComponent>(args.Target) || HasComp<PsionicInsulationComponent>(args.Target))
+        if (HasComp<MindShieldComponent>(args.Target))
             args.Handled = true;
     }
 
@@ -148,7 +147,7 @@ public sealed class BloodCultSpellsSystem : EntitySystem
             createSpellEvent,
             cultist.Owner)
         {
-            BreakOnUserMove = true
+            BreakOnMove = true
         };
 
         if (_doAfter.TryStartDoAfter(doAfter, out var doAfterId))

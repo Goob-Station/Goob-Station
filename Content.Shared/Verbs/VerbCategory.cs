@@ -52,8 +52,7 @@ namespace Content.Shared.Verbs
             new("verb-categories-admin", "/Textures/Interface/character.svg.192dpi.png");
 
         public static readonly VerbCategory Antag =
-            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true)
-                { Columns = 5 };
+            new("verb-categories-antag", "/Textures/Interface/VerbIcons/antag-e_sword-temp.192dpi.png", iconsOnly: true) { Columns = 5 };
 
         public static readonly VerbCategory Examine =
             new("verb-categories-examine", "/Textures/Interface/VerbIcons/examine.svg.192dpi.png");
@@ -85,20 +84,20 @@ namespace Content.Shared.Verbs
             new("verb-categories-transfer", "/Textures/Interface/VerbIcons/spill.svg.192dpi.png");
 
         public static readonly VerbCategory Split =
-            new("verb-categories-split", null);
+            new("verb-categories-split", (SpriteSpecifier?) null);
 
         public static readonly VerbCategory InstrumentStyle =
-            new("verb-categories-instrument-style", null);
+            new("verb-categories-instrument-style", (SpriteSpecifier?) null);
 
-        public static readonly VerbCategory ChannelSelect = new("verb-categories-channel-select", null);
+        public static readonly VerbCategory ChannelSelect = new("verb-categories-channel-select", (SpriteSpecifier?) null);
 
-        public static readonly VerbCategory SetSensor = new("verb-categories-set-sensor", null);
+        public static readonly VerbCategory SetSensor = new("verb-categories-set-sensor", (SpriteSpecifier?) null);
 
-        public static readonly VerbCategory Lever = new("verb-categories-lever", null);
+        public static readonly VerbCategory Lever = new("verb-categories-lever", (SpriteSpecifier?) null);
 
-        public static readonly VerbCategory SelectType = new("verb-categories-select-type", null);
+        public static readonly VerbCategory SelectType = new("verb-categories-select-type", (SpriteSpecifier?) null);
 
-        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", null);
+        public static readonly VerbCategory PowerLevel = new("verb-categories-power-level", (SpriteSpecifier?) null);
 
         // WD Cult start
         public static readonly VerbCategory Interaction = new("verb-categories-interaction");

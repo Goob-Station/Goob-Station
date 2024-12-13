@@ -23,6 +23,7 @@ using Content.Shared.Standing;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
@@ -337,39 +338,7 @@ public sealed class PullingSystem : EntitySystem
         return Resolve(uid, ref component, false) && component.BeingPulled;
     }
 
-    private bool OnRequestMovePulledObject(ICommonSession? session, EntityCoordinates coords, EntityUid uid)
-    {
-        if (session?.AttachedEntity is not { } player
-            || !player.IsValid()
-            || !TryComp<PullerComponent>(player, out var pullerComp))
-            return false;
-
-        var pulled = pullerComp.Pulling;
-        if (!HasComp<PullableComponent>(pulled)
-            || _containerSystem.IsEntityInContainer(player)
-            || _timing.CurTime < pullerComp.NextPushTargetChange)
-            return false;
-
-        pullerComp.NextPushTargetChange = _timing.CurTime + pullerComp.PushChangeCooldown;
-        pullerComp.NextPushStop = _timing.CurTime + pullerComp.PushDuration;
-
-        // Cap the distance
-        var range = pullerComp.MaxPushRange;
-        var fromUserCoords = coords.WithEntityId(player, EntityManager);
-        var userCoords = new EntityCoordinates(player, Vector2.Zero);
-
-        if (!userCoords.InRange(EntityManager, _xformSys, fromUserCoords, range))
-        {
-            var userDirection = fromUserCoords.Position - userCoords.Position;
-            fromUserCoords = userCoords.Offset(userDirection.Normalized() * range);
-        }
-
-        pullerComp.PushingTowards = fromUserCoords;
-        Dirty(player, pullerComp);
-
-        return false;
-    }
-
+    // WD Cult
     public bool TryGetPulledEntity(EntityUid puller, [NotNullWhen(true)] out EntityUid? pulling, PullerComponent? component = null)
     {
         pulling = null;
@@ -564,6 +533,7 @@ public sealed class PullingSystem : EntitySystem
         return true;
     }
 
+    // WD edited - cult
     public bool TryStopPull(EntityUid pullableUid, PullableComponent? pullable = null, EntityUid? user = null)
     {
         if (!Resolve(pullableUid, ref pullable, false))

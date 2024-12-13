@@ -1,6 +1,4 @@
 using System.Numerics;
-using Content.Shared.Antag;
-using Content.Shared.Ghost;
 using Content.Shared.StatusIcon.Components;
 using Content.Shared.WhiteDream.BloodCult;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
