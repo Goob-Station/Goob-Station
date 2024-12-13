@@ -18,8 +18,8 @@
   - type: EncryptionHolderRequiresLock
   - type: SiliconEmitSoundOnDrained
     sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg" # SOMEONE PLEASE FIND A BETTER SOUND FOR THIS.
-    minInterval: 15
-    maxInterval: 30
+    minInterval: 10
+    maxInterval: 15
     popUp: "silicon-power-low"
   - type: Lock
     locked: true
