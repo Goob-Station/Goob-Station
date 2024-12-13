@@ -1,2 +1,2 @@
 chat-radio-future = Future
-chat-radio-tider = Greytide Hivemind
+chat-radio-tider = Tidemind
