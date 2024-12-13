@@ -459,7 +459,7 @@
   - type: Speech
     speechVerb: Moth
     speechSounds: Squeak
-    allowedEmotes: ['Chitter', 'Squeak']
+    allowedEmotes: ['Chitter', 'Squeak', 'Flap'] #flap is from goob
   - type: FaxableObject
     insertingState: inserting_mothroach
   - type: MothAccent
