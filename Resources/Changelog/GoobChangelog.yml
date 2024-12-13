@@ -3188,3 +3188,17 @@ Entries:
         lathes.
   id: 354
   time: '2024-12-12T21:08:04.0000000+00:00'
+- author: Yakub
+  changes:
+    - type: Tweak
+      message: Engineering goggles are renamed to meson goggles.
+    - type: Tweak
+      message: >-
+        Combat gloves, combat boots, jackboots, and mesons are no longer
+        contraband.
+    - type: Tweak
+      message: Spears fit in backpacks now.
+    - type: Tweak
+      message: Mini jetpacks are actually smaller than jetpacks in inventory now.
+  id: 355
+  time: '2024-12-13T19:59:33.0000000+00:00'
