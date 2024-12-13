@@ -1,4 +1,4 @@
-﻿using Content.Shared.DoAfter;
+using Content.Shared.DoAfter;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Prototypes;
@@ -9,7 +9,7 @@ namespace Content.Server.WhiteDream.BloodCult.Runes.Rending;
 public sealed partial class CultRuneRendingComponent : Component
 {
     [DataField]
-    public float SummonTime = 40;
+    public float SummonTime = 60;
 
     [DataField]
     public SoundSpecifier FinishedDrawingAudio =

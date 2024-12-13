@@ -1,6 +1,4 @@
 <Document>
-  Be ware - this document is just almost a full copy of /tg/ station blood cult guide.
-
   # Blood Cult
 
   Even in the far future, some things are never quite understood. There are things that lurk in the darkness of space,
@@ -18,14 +16,12 @@
 
   The general path of action of the cult and those in it:
 
-  - 1. From a discrete location, contact your allies. You can do it by speaking Eldritch language - everyone in the cult
-  can hear you when you speak it.
-  - 2. Find an area to convert into a base, usually accessible by one or more members of the cult, but well-hidden
-  enough that security or crew won't find it easily.
+  - 1. Locate your allies.
+  - 2. Find an area to convert into a base, some maintenance shithole will be good enough. Will be even better if you walled it off.
   - 3. Setup a teleport rune, so all cultists can access it.
   - 4. Setup an empowering rune and then prepare up to 4 blood spells. Stun spells are your bread and butter - but
   diversifying with spells like EMP, Teleport, Blood Rites, etc. will ensure you're ready for anything.
-  - 5. Convert new members, or sacrifice implanted crew, on the offering rune. Combine the filled soul shard from
+  - 5. Convert new members or sacrifice implanted crew on the offering rune. Combine the filled soul shard from
   sacrificed humans to create powerful cult constructs!
   - 6. Use teamwork to find your sacrifice target.
   - 7. Kill the sacrifice target and place them on an offer rune with 3 cultists nearby.
@@ -42,7 +38,6 @@
   Your dagger is your most important tool and has several functions:
 
   - You can draw runes with it.
-  - Hitting a non-cultist with it will result in you stabbing them (huh), dealing 15 piercing damage.
   - Using it on the rune with erase it.
   - Using it on the cult barrier will remove it.
 
@@ -112,13 +107,10 @@
   massive EMP, total blackout, solar flare and if the cult is doing poorly, certain events. If the cult makes up to
   less than 15% of current players, and an apocalypse rune is activated, a random event will
   occur:
-  - Immovable Rod x3
   - Mouse Migration x2
-  - Meteor Swarm x2
   - Vent Crickets x3
   - Four Random Anomalies
   - Kudzu Growth x2
-  - Vendor Mimics x2
 
   <Box>
     <GuideEntityEmbed Entity="CultRuneDimensionalRending" Caption="Rune of Dimensional Rending"/>

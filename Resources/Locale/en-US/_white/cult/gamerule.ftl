@@ -16,7 +16,8 @@ blood-cult-halos = Your cult is ascendant and the red harvest approaches - you c
 
 blood-cult-role-briefing-short =
     You are the Blood Cultist!
-    Use '^' to contact other members of your brethren.
+    Carve out runes from your own blood with the ritual dagger, convert crewmembers to your side, build structures with runic metal that will assist you in achieving common goal.
+    Work with your brethren to summon an avatar of your eldritch goddess.
 blood-cult-role-briefing-rending-locations = The veil can be thorn {$location}, {$coordinates}
 blood-cult-role-briefing-emergency-rending = We can draw {$amount} more rending or apocalypse runes!
 

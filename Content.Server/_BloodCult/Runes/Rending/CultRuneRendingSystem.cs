@@ -27,24 +27,8 @@ public sealed class CultRuneRendingSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<CultRuneRendingComponent, AfterRunePlaced>(OnRendingRunePlaced);
         SubscribeLocalEvent<CultRuneRendingComponent, TryInvokeCultRuneEvent>(OnRendingRuneInvoked);
         SubscribeLocalEvent<CultRuneRendingComponent, RendingRuneDoAfter>(SpawnNarSie);
-    }
-
-    private void OnRendingRunePlaced(Entity<CultRuneRendingComponent> rune, ref AfterRunePlaced args)
-    {
-        var position = _transform.GetMapCoordinates(rune);
-        var message = Loc.GetString(
-            "cult-rending-drawing-finished",
-            ("location", FormattedMessage.RemoveMarkupPermissive(_navMap.GetNearestBeaconString(position))));
-
-        _chat.DispatchGlobalAnnouncement(
-            message,
-            "Central Command",
-            true,
-            rune.Comp.FinishedDrawingAudio,
-            Color.DarkRed);
     }
 
     private void OnRendingRuneInvoked(Entity<CultRuneRendingComponent> rune, ref TryInvokeCultRuneEvent args)
@@ -95,15 +79,9 @@ public sealed class CultRuneRendingSystem : EntitySystem
         rune.Comp.CurrentDoAfter = null;
         _audio.Stop(rune.Comp.AudioEntity);
         _appearance.SetData(rune, RendingRuneVisuals.Active, false);
+
         if (args.Cancelled)
-        {
-            _chat.DispatchGlobalAnnouncement(
-                Loc.GetString("cult-rending-prevented"),
-                Loc.GetString("blood-cult-title"),
-                false,
-                colorOverride: Color.DarkRed);
             return;
-        }
 
         var ev = new BloodCultNarsieSummoned();
         RaiseLocalEvent(ev);
