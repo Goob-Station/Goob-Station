@@ -23,10 +23,10 @@ public sealed partial class BloodCultRuleComponent : Component
     public Color EyeColor = Color.FromHex("#f80000");
 
     [DataField]
-    public int ReadEyeThreshold = 5;
+    public int ReadEyeThreshold = 6;
 
     [DataField]
-    public int PentagramThreshold = 8;
+    public int PentagramThreshold = 12;
 
     [DataField]
     public int RendingRunePlacementsAmount = 3;

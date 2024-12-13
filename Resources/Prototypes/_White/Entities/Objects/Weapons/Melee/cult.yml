@@ -47,9 +47,8 @@
     range: 1.65
     damage:
       types:
-        Slash: 24
+        Slash: 20
     heavyStaminaCost: 15
-    maxTargets: 3
     angle: 90
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg

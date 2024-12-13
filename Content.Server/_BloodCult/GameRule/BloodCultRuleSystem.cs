@@ -266,6 +266,14 @@ public sealed class BloodCultRuleSystem : GameRuleSystem<BloodCultRuleComponent>
         return 0;
     }
 
+    public BloodCultRuleComponent? GetRule()
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out var rule, out _))
+            return rule;
+        return null;
+    }
+
     public void RemoveObjectiveAndRole(EntityUid uid)
     {
         if (!_mind.TryGetMind(uid, out var mindId, out var mind))

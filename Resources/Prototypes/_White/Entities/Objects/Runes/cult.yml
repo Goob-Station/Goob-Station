@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿# what the fuck is a (-1, -1) object??????
+- type: entity
   id: CultRuneBase
   name: based rune
   abstract: true

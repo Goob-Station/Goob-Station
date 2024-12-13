@@ -265,6 +265,6 @@ public sealed partial class CultRuneBaseSystem : EntitySystem
                 damage.DamageDict[key] = value * empowered.RuneDamageMultiplier;
         }
 
-        _damageable.TryChangeDamage(user, newDamage, true);
+        _damageable.TryChangeDamage(user, newDamage, true, targetPart: Shared._Shitmed.Targeting.TargetBodyPart.RightArm);
     }
 }
