@@ -3242,3 +3242,25 @@ Entries:
       message: You can no longer unanchor flaps.
   id: 360
   time: '2024-12-13T22:44:00.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Ipcs heal faster now.
+  id: 361
+  time: '2024-12-14T18:42:35.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Tweak
+      message: IPC no longer sounds like a empty c20
+  id: 362
+  time: '2024-12-14T18:46:16.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Tiders are now clumsy.
+    - type: Add
+      message: Tiders now randomly gib during the round.
+    - type: Remove
+      message: Remove maints access from tiders.
+  id: 363
+  time: '2024-12-14T18:50:11.0000000+00:00'
