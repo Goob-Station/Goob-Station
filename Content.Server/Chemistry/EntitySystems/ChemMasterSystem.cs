@@ -144,10 +144,10 @@ namespace Content.Server.Chemistry.EntitySystems
             }
             else // Container to buffer
             {
-                if (bufferSolution.MaxVolume.Value == 0)          //Goobstation - chemicalbuffer if no limit
-                    amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
-                else                                                //Goobstation - chemicalbuffer if max limit
+                amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id));
+                if (bufferSolution.MaxVolume.Value > 0)    //Goobstation - chemicalbuffer if no limit
                     amount = FixedPoint2.Min(amount, containerSolution.GetReagentQuantity(id), bufferSolution.AvailableVolume);
+
                 _solutionContainerSystem.RemoveReagent(containerSoln.Value, id, amount);
                 bufferSolution.AddReagent(id, amount);
             }
