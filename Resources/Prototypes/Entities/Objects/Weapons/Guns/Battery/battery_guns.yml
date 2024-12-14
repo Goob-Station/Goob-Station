@@ -809,7 +809,7 @@
 
 - type: entity
   name: X-01 Multiphase # Goobstation - Changed the capitalization because it was annoying me.
-  parent: [BaseWeaponBatterySmall, BaseCommandContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseCommandContraband
+  parent: [BaseWeaponBatterySmall, BaseGrandTheftContraband] # Frontier: added BaseC2ContrabandUnredeemable. Goobstation: removed BaseC2ContrabandUnredeemable, added BaseGrandTheftContraband
   id: WeaponEnergyGunMultiphase
   description: This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.
   components:
@@ -836,23 +836,23 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 2000
-    startingCharge: 2000
+    maxCharge: 1000
+    startingCharge: 1000
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 100
+    fireCost: 50
   - type: EnergyGun
     fireModes:
     - proto: BulletDisabler
-      fireCost: 100
+      fireCost: 50
       name: disabling
       state: disabler
     - proto: BulletEnergyGunLaser
-      fireCost: 200
+      fireCost: 100
       name: lethal
       state: lethal
     - proto: BulletEnergyGunIon
-      fireCost: 200
+      fireCost: 100
       name: ion
       state: special
   - type: MagazineVisuals
@@ -871,5 +871,7 @@
     tags:
     - HighRiskItem
     - Sidearm
+  - type: StealTarget
+    stealGroup: WeaponEnergyGunMultiphase
   - type: StaticPrice
     price: 750
