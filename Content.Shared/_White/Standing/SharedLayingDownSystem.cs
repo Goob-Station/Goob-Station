@@ -1,12 +1,14 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
-using Content.Shared.Body.Components; // Shitmed Change
+using Content.Shared.Body.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.CCVar; // Shitmed Change
 using Content.Shared.DoAfter;
-using Content.Shared.Gravity;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.Stunnable;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -18,7 +20,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGravitySystem _gravity = default!;
+    [Dependency] private readonly INetConfigurationManager _cfg = default!;
 
     public override void Initialize()
     {
@@ -30,7 +32,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         SubscribeLocalEvent<StandingStateComponent, StandingUpDoAfterEvent>(OnStandingUpDoAfter);
         SubscribeLocalEvent<LayingDownComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
-        SubscribeLocalEvent<LayingDownComponent, EntParentChangedMessage>(OnParentChanged);
+        SubscribeLocalEvent<LayingDownComponent, CheckAutoGetUpEvent>(OnCheckAutoGetUp);
     }
 
     public override void Shutdown()
@@ -43,8 +45,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
     private void ToggleStanding(ICommonSession? session)
     {
         if (session?.AttachedEntity == null ||
-            !HasComp<LayingDownComponent>(session.AttachedEntity) ||
-            _gravity.IsWeightless(session.AttachedEntity.Value))
+            !HasComp<LayingDownComponent>(session.AttachedEntity))
         {
             return;
         }
@@ -69,7 +70,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
             return;
         }
 
-        RaiseNetworkEvent(new CheckAutoGetUpEvent(GetNetEntity(uid)));
+        UpdateSpriteRotation(uid);
+        RaiseLocalEvent(uid, new CheckAutoGetUpEvent());
 
         if (HasComp<KnockedDownComponent>(uid) || !_mobState.IsAlive(uid))
             return;
@@ -98,19 +100,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
             args.ModifySpeed(component.SpeedModify, component.SpeedModify);
         else
             args.ModifySpeed(1f, 1f);
-    }
-
-    private void OnParentChanged(EntityUid uid, LayingDownComponent component, EntParentChangedMessage args)
-    {
-        // If the entity is not on a grid, try to make it stand up to avoid issues
-        if (!TryComp<StandingStateComponent>(uid, out var standingState)
-            || standingState.CurrentState is StandingState.Standing
-            || Transform(uid).GridUid != null)
-        {
-            return;
-        }
-
-        _standing.Stand(uid, standingState);
     }
 
     public bool TryStandUp(EntityUid uid, LayingDownComponent? layingDown = null, StandingStateComponent? standingState = null)
@@ -154,6 +143,46 @@ public abstract class SharedLayingDownSystem : EntitySystem
         _standing.Down(uid, true, behavior != DropHeldItemsBehavior.NoDrop, false, standingState);
         return true;
     }
+
+    private void OnCheckAutoGetUp(Entity<LayingDownComponent> ent, ref CheckAutoGetUpEvent args)
+    {
+        if (!TryComp(ent, out ActorComponent? actor))
+            return;
+
+        // Goobstation start
+        bool fullyParalyzed = false;
+
+        if (TryComp<BodyComponent>(ent, out var body))
+        {
+            foreach (var legEntity in body.LegEntities)
+            {
+                if (!TryComp<BodyPartComponent>(legEntity, out var partCmp))
+                    continue;
+
+                if (!partCmp.Enabled)
+                {
+                    fullyParalyzed = true;
+                    continue;
+                }
+
+                fullyParalyzed = false;
+                break;
+            }
+        }
+
+        if (fullyParalyzed)
+        {
+            ent.Comp.AutoGetUp = false;
+            Dirty(ent);
+            return;
+        }
+        // Goobstation end
+
+        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, CCVars.AutoGetUp);
+        Dirty(ent);
+    }
+
+    public virtual void UpdateSpriteRotation(EntityUid uid) { }
 }
 
 [Serializable, NetSerializable]

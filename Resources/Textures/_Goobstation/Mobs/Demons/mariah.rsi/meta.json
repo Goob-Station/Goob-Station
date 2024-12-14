@@ -1,0 +1,17 @@
+{
+    "version": 1,
+    "size": {
+        "x": 256,
+        "y": 256
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "poopoopants",
+    "states": [
+        {
+            "name": "alive"
+        },
+        {
+            "name": "dead"
+        }
+    ]
+}

@@ -1,0 +1,89 @@
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaTv
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_tv
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaTesla
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_tesla
+
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaLightb
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   sprites:
+#     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_lightb
+
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaLight
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   sprites:
+#     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_light
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaCyberhead
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_cyberhead
+
+# - type: marking
+#   speciesRestriction: [IPC]
+#   id: RobotAntennaSidelights
+#   bodyPart: HeadTop
+#   markingCategory: HeadTop
+#   sprites:
+#     - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+#       state: ipc_antenna_sidelights
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaAntlers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_antlers
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaDroneeyes
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_droneeyes
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaCrowned
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_crowned
+
+- type: marking
+  speciesRestriction: [IPC]
+  id: RobotAntennaTowers
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  sprites:
+    - sprite: _EinsteinEngines/Mobs/Customization/ipc_antenna.rsi
+      state: ipc_antenna_towers

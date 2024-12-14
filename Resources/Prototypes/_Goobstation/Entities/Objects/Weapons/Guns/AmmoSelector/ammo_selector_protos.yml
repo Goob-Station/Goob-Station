@@ -1,0 +1,56 @@
+- type: selectableAmmo
+  id: BulletLaserSpread
+  desc: Wide laser spread.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: heavylaser-wide
+  protoId: BulletLaserSpread
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletLaserSpreadNarrow
+  desc: Narrow laser spread.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: heavylaser-narrow
+  protoId: BulletLaserSpreadNarrow
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletDisablerSmgSpread
+  desc: Disabler bolt spread.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  protoId: BulletDisablerSmgSpread
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletDisabler
+  desc: Disabler bolt.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: omnilaser
+  color: "#00B2FF"
+  protoId: BulletDisabler
+  fireCost: 50
+
+- type: selectableAmmo
+  id: BulletEnergyGunLaser
+  desc: Laser bolt.
+  icon:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles_tg.rsi
+    state: heavylaser
+  color: red
+  protoId: BulletEnergyGunLaser
+  fireCost: 100
+
+- type: selectableAmmo
+  id: BulletEnergyGunIon
+  desc: Ion bolt.
+  icon:
+    sprite: _Goobstation/Objects/Weapons/Guns/Projectiles/selectable_ammo.rsi
+    state: omnilaser-blue
+  color: blue
+  protoId: BulletEnergyGunIon
+  fireCost: 100
