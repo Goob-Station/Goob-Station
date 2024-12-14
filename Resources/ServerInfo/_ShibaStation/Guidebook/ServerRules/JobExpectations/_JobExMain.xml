@@ -5,109 +5,111 @@
 
   Some jobs are more important than others, and jobs of less importance will be noted as such. You will still be expected to perform your duties, but you will not be expected to perform them to the same standard as more important jobs.
 
+  Antagonists are exempt from following job expectations, but you'll probably blow your cover if you do!
+
   ## Command
 
   Command staff are expected to be the most active and responsive staff on the station. They are expected to be available for communication with the crew at all times, and to be able to respond to any emergencies that may arise. Command staff have the highest authority on the station, before CentComm.
 
-  - Captain
-  - Head of Personnel
-  - Head of Security
-  - Chief Medical Officer
-  - Chief Engineer
-  - Research Director
-  - Quartermaster
+  - [textlink="Captain" link="ShibaJobExCommandCaptain"]
+  - [textlink="Head of Personnel" link="ShibaJobExCommandHoP"]
+  - [textlink="Head of Security" link="ShibaJobExCommandHoS"]
+  - [textlink="Chief Medical Officer" link="ShibaJobExCommandCMO"]
+  - [textlink="Chief Engineer" link="ShibaJobExCommandCE"]
+  - [textlink="Research Director" link="ShibaJobExCommandRD"]
+  - [textlink="Quartermaster" link="ShibaJobExCommandQM"]
 
   The following jobs are technically Command roles, but have slightly different expectations to standard operations.
 
-  - NanoTrasen (NT) Representative
-  - Blueshield Officer
+  - [textlink="NanoTrasen (NT) Representative" link="ShibaJobExCommandNTRep"]
+  - [textlink="Blueshield Officer" link="ShibaJobExCommandBSO"]
 
   ## Silicon
 
   Silicon entities; AI and Cyborgs, have their own special laws and [textlink="Silicon Rules" link="SiliconRules"] to follow. These entries will generally encapsulate what the silicon entities are expected to do.
 
-  - AI
-  - Cyborg
+  - [textlink="AI" link="ShibaJobExSiliconAI"]
+  - [textlink="Cyborg" link="ShibaJobExSiliconBorg"]
 
   ## Security
 
   Security staff are dedicated to ensuring the safety of the crew at large. They are the on-board police force and military response if and when larger threats arise.
 
-  - Head of Security
-  - Warden
-  - Security Officer
-  - Detective
-  - Security Cadet
+  - [textlink="Head of Security" link="ShibaJobExCommandHoS"]
+  - [textlink="Warden" link="ShibaJobExSecurityWarden"]
+  - [textlink="Security Officer" link="ShibaJobExSecurityOfficer"]
+  - [textlink="Detective" link="ShibaJobExSecurityDetective"]
+  - [textlink="Security Cadet" link="ShibaJobExSecurityCadet"]
 
   ## Medical
 
   Medical staff are tasked with ensuring the crew remain fit and healthy. Doctors should be prepared to administer treatment and perform surgeries.
 
-  - Chief Medical Officer
-  - Medical Doctors
-  - Paramedic
-  - Chemist
-  - Medical Intern
+  - [textlink="Chief Medical Officer" link="ShibaJobExCommandCMO"]
+  - [textlink="Medical Doctor" link="ShibaJobExMedicalDoctor"]
+  - [textlink="Paramedic" link="ShibaJobExMedicalParamedic"]
+  - [textlink="Chemist" link="ShibaJobExMedicalChemist"]
+  - [textlink="Medical Intern" link="ShibaJobExMedicalIntern"]
 
   The following is a station specific role and one that is not expected to be performed to the same standard as other medical roles.
 
-  - Psychologist
+  - [textlink="Psychologist" link="ShibaJobExMedicalPsychologist"]
 
   ## Engineering
 
   Engineering staff work to keep the station running. They are responsible for power generation, repairs, maintaining a habital atmosphere and on occasion construction and refitting.
 
-  - Chief Engineer
-  - Station Engineer
-  - Atmospheric Technician
-  - Technical Assistant
+  - [textlink="Chief Engineer" link="ShibaJobExCommandCE"]
+  - [textlink="Station Engineer" link="ShibaJobExEngiEngineer"]
+  - [textlink="Atmospheric Technician" link="ShibaJobExEngiAtmos"]
+  - [textlink="Technical Assistant" link="ShibaJobExEngiAssistant"]
 
   ## Science
 
   The Science team focus on researching xenobiological artifacts and containing anomalies. Their efforts generate Research Points that can be used to unlock new technologies that benefit the entire station.
 
-  - Research Director
-  - Scientist
-  - Research Assistant
+  - [textlink="Research Director" link="ShibaJobExCommandRD"]
+  - [textlink="Scientist" link="ShibaJobExSciScientist"]
+  - [textlink="Research Assistant" link="ShibaJobExSciAssistant"]
 
   ## Cargo
 
   Cargo staff handle the logistics of the station. They handle the movement of goods and resources to and from the Automated Trade Station and the procurement of exotic goods via mining and salvaging. Some stations are equipped with mail facilities, too.
 
-  - Quartermaster
-  - Cargo Technician
-  - Salvage Specialist
-  - Mail Carrier
+  - [textlink="Quartermaster" link="ShibaJobExCommandQM"]
+  - [textlink="Cargo Technician" link="ShibaJobExCargoTechnician"]
+  - [textlink="Salvage Specialist" link="ShibaJobExCargoSalvager"]
+  - [textlink="Mail Carrier" link="ShibaJobExCargoMailCarrier"]
 
   ## Service
 
   Service staff are civilian roles of higher importance than the other civilian roles. Generally they provide productive service to the crew, such as food preparation, janitorial duties, and other similar tasks.
 
-  - Head of Personnel
-  - Bartender
-  - Chef
-  - Botanist
-  - Janitor
-  - Service Worker
+  - [textlink="Head of Personnel" link="ShibaJobExCommandHoP"]
+  - [textlink="Bartender" link="ShibaJobExCivilianBartender"]
+  - [textlink="Chef" link="ShibaJobExCivilianChef"]
+  - [textlink="Botanist" link="ShibaJobExCivilianBotanist"]
+  - [textlink="Janitor" link="ShibaJobExCivilianJanitor"]
+  - [textlink="Service Worker" link="ShibaJobExCivilianServiceWorker"]
 
   The following is a station specific role and one that is not expected to be performed to the same standard as other service roles.
 
-  - Zookeeper
+  - [textlink="Zookeeper" link="ShibaJobExCivilianZookeeper"]
 
   ## Civilian
 
   Civilian roles are typically of the least importance on the station. Still, they have jobs to do and should be expected to perform them to the best of their ability.
 
-  - Assistant
-  - Lawyer
-  - Chaplain
-  - Musician
-  - Librarian
-  - Mime
-  - Clown
+  - [textlink="Assistant" link="ShibaJobExCivilianAssistant"]
+  - [textlink="Lawyer" link="ShibaJobExCivilianLawyer"]
+  - [textlink="Chaplain" link="ShibaJobExCivilianChaplain"]
+  - [textlink="Musician" link="ShibaJobExCivilianMusician"]
+  - [textlink="Librarian" link="ShibaJobExCivilianLibrarian"]
+  - [textlink="Mime" link="ShibaJobExCivilianMime"]
+  - [textlink="Clown" link="ShibaJobExCivilianClown"]
 
   The following are station specific roles and may not be available on all stations.
 
-  - Reporter
-  - Boxer
+  - [textlink="Reporter" link="ShibaJobExCivilianReporter"]
+  - [textlink="Boxer" link="ShibaJobExCivilianBoxer"]
 </Document>
