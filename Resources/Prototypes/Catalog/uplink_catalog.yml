@@ -1190,7 +1190,6 @@
   categories:
     - UplinkImplants
 
-
 - type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
@@ -1202,14 +1201,15 @@
   categories:
   - UplinkImplants
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # goob - traitor suicide implants
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 
 - type: listing
@@ -1223,7 +1223,7 @@
   categories:
     - UplinkImplants
   conditions:
-    # goob - traitor macrobomb
+    # goob - traitor suicide implants
     #- !type:StoreWhitelistCondition
     #  whitelist:
     #    tags:
@@ -1241,14 +1241,15 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 5 # goob # goob - traitor suicide implants
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
+  # goob - traitor suicide implants
+  #conditions:
+  #  - !type:StoreWhitelistCondition
+  #    whitelist:
+  #      tags:
+  #        - NukeOpsUplink
 
 
 - type: listing

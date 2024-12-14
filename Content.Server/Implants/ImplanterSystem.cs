@@ -68,16 +68,6 @@ public sealed partial class ImplanterSystem : SharedImplanterSystem
                 return;
             }
 
-            if (args.User == target && HasComp<PreventSelfImplantComponent>(uid))   //Goobstation - Mindcontrol implant preventing self implant
-            {
-                var name = Identity.Name(target, EntityManager, args.User);
-                var msg = Loc.GetString("implanter-component-implant-failed", ("implant", implant), ("target", name));
-                _popup.PopupEntity(msg, target, args.User);
-                // prevent further interaction since popup was shown
-                args.Handled = true;
-                return;
-            }
-
             //Implant self instantly, otherwise try to inject the target.
             if (args.User == target)
                 Implant(target, target, uid, component);

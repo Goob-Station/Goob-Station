@@ -37,6 +37,18 @@ public sealed partial class SubdermalImplantComponent : Component
     public bool Permanent = false;
 
     /// <summary>
+    /// Should you be able to implant this into yourself?
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanImplantSelf = true;
+
+    /// <summary>
+    /// Should you be able to implant this into others?
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public bool CanImplantOther = true;
+
+    /// <summary>
     /// Target whitelist for this implant specifically.
     /// Only checked if the implanter allows implanting on the target to begin with.
     /// </summary>

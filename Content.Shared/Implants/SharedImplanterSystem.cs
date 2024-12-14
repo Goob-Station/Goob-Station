@@ -99,6 +99,10 @@ public abstract class SharedImplanterSystem : EntitySystem
             return false;
         }
 
+        var implantingSelf = user == target;
+        if ((implantingSelf && !implantComp.CanImplantSelf) || (!implantingSelf && !implantComp.CanImplantOther))
+            return false;
+
         var ev = new AddImplantAttemptEvent(user, target, implant.Value, implanter);
         RaiseLocalEvent(target, ev);
         return !ev.Cancelled;
