@@ -30,9 +30,7 @@
     materialComposition:
       Steel: 15
   # EE Change Start
-  #Same as Ointment but divided by 5 and 3 because StackPrice needs to be 1 - Estacao Pirata IPCs
-  #1 Ointment = -50 damage of those types
-  #1 Cable ~= -50 (-49.8) damage of those types
+  #MORE than ointment Estacao Pirata IPCs
   - type: Healing
     delay: 0.6
     damageContainers:
