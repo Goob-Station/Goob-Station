@@ -37,8 +37,8 @@
     - Silicon
     damage:
       types: # these are all split across multiple types
-        Heat: -2.8
-        Shock: -2.8
+        Heat: -3.0
+        Shock: -3.0
         Ion: -3.0 # Goobstation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
