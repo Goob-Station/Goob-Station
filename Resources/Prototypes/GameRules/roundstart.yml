@@ -110,7 +110,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        nameSegments: [ names_syndicate ] 
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -125,7 +125,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        nameSegments: [ names_syndicate ] 
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -142,7 +142,7 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_death_commando ] # goob edit
+        nameSegments: [ names_syndicate ] 
       - type: NpcFactionMember
         factions:
         - Syndicate
