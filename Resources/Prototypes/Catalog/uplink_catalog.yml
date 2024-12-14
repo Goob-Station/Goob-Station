@@ -140,7 +140,7 @@
   name: uplink-c20r-name #goob
   description: uplink-c20r-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: WeaponSubMachinegunC20r #Goob unbundle update
+  productEntity: WeaponSubMachineGunC20r #Goob unbundle update
   cost:
     Telecrystal: 50 # goob unbunde update
   categories:

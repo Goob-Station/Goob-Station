@@ -25,7 +25,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
-    useDeadlay: 30
+    useDelay: 30
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi

@@ -1,5 +1,5 @@
 - type: latheRecipe
-  id: MaterialBSCrystal
+  id: MaterialBSCrystal1
   result: MaterialBSCrystal1
   completetime: 2
   materials:
