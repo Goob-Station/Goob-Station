@@ -6,6 +6,7 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
+  canBeAntag: false # GOOBSTATION: THE RECKONING COMES
   access:
   - Maintenance
 
