@@ -52,7 +52,7 @@
   name: "Core Rule 2"
   ruleEntry: true
   priority: 3
-  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC2OnlyEnglish.xml"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/CoreRules/ShibaRuleC2EnglishOnly.xml"
 
 - type: guideEntry
   id: ShibaRuleC3
