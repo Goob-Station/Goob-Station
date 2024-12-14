@@ -11,17 +11,25 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     /// Distance in-between ruins.
     /// </summary>
     [DataField]
-    public float RuinDistance = 24;
+    public float RuinDistance = 12;
 
     /// <summary>
     /// Max distance that Ruins can generate.
     /// </summary>
     [DataField]
-    public float MaxDistance = 256;
+    public float MaxDistance = 128;
 
     /// <summary>
-    /// List of all ruins and their count.
+    /// List of all huge ruins and their count. Should contain only really
+    /// important and big ruins, that have the highest priority.
     /// </summary>
     [DataField]
-    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> Ruins = [];
+    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> HugeRuins = [];
+
+    /// <summary>
+    /// List of all huge ruins and their count. Contains ruins
+    /// that aren't that important and can be easily skipped.
+    /// </summary>
+    [DataField]
+    public Dictionary<ProtoId<LavalandRuinPrototype>, ushort> SmallRuins = [];
 }

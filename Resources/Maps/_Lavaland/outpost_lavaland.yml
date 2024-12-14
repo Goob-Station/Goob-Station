@@ -5408,13 +5408,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 25.5,-4.5
       parent: 2
-- proto: Gateway
-  entities:
-  - uid: 115
-    components:
-    - type: Transform
-      pos: 3.5,1.5
-      parent: 2
 - proto: GeneratorRTG
   entities:
   - uid: 2609
@@ -5807,6 +5800,13 @@ entities:
     components:
     - type: Transform
       pos: 8.463471,7.845272
+      parent: 2
+- proto: LavalandGatewayDestination
+  entities:
+  - uid: 115
+    components:
+    - type: Transform
+      pos: 3.5,1.5
       parent: 2
 - proto: LockableButtonSalvage
   entities:

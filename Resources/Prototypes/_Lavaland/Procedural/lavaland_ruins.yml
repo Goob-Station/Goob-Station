@@ -12,3 +12,8 @@
   id: Hermit
   name: Makeshift Shelter
   path: Maps/_Lavaland/ruin_hermit.yml
+
+- type: lavalandRuin
+  id: Debug
+  name: Debug Test
+  path: Maps/_Lavaland/test.yml
