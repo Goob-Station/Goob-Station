@@ -1197,7 +1197,7 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MicroBombImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkImplants
   conditions:
@@ -1241,7 +1241,7 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 5 # goob # goob - traitor suicide implants
+    Telecrystal: 20 # goob # goob - traitor suicide implants
   categories:
     - UplinkImplants
   # goob - traitor suicide implants
