@@ -128,7 +128,6 @@
     layers:
     - state: goliath_tentacle_wiggle
   - type: StunOnContact
-    Duration: 2
     blacklist:
       tags:
       - Goliath
