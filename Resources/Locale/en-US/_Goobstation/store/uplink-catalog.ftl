@@ -24,9 +24,6 @@ uplink-signaller-desc = A device that can trigger signals at any distance. You c
 
 # bang bang pew pew eat it up i gota go
 
-uplink-m90-name = M-90 Bundle
-uplink-m90-desc = A bundle with a M-90 and 2 .20 rifle mags.
-
 uplink-rifle-mag-name = .20 Rifle Magazine
 uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
 
@@ -52,8 +49,21 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
-uplink-weapon-burner-name = Burner Heavy Rifle Bundle
-uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a couple of magazines, including some high-explosive rounds.
+uplink-weapon-burner-name = Burner Heavy Rifle
+uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle.
+
+uplink-c20r-name = C-20r
+uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
+
+uplink-buldog-name = Bulldog
+uplink-buldog-desc = Lean and mean: Contains the popular Bulldog Shotgun.
+
+uplink-l6-saw-name = L6 Saw Bundle
+uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
+
+uplink-m90-name = M-90
+uplink-m90-desc = An M-90 combat rifle.
+
 
 # Ammo
 

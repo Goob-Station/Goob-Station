@@ -16,7 +16,7 @@ public sealed partial class StunOnContactComponent : Component
     /// The duration of the stun.
     /// </summary>
     [DataField]
-    public TimeSpan Duration = TimeSpan.FromSeconds(5);
+    public TimeSpan Duration = TimeSpan.FromSeconds(2);
 
     [DataField]
     public EntityWhitelist Blacklist = new();

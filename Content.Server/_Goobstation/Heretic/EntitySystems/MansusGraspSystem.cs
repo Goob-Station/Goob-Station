@@ -233,7 +233,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
             _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 80f);
+            _stamina.TakeStaminaDamage(target, 110f);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 

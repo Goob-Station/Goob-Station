@@ -57,10 +57,8 @@
         maxVol: 100
         canReact: false
         reagents:
-        - ReagentId: Omnizine
-          Quantity: 80
-        - ReagentId: TranexamicAcid
-          Quantity: 20
+        - ReagentId: Ichor
+          Quantity: 100
 
 - type: entity
   id: HereticProtectiveBlade

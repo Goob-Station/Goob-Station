@@ -397,6 +397,7 @@
       collection: Punch
     animation: WeaponArcFist
     mustBeEquippedToUse: true
+    heavyStaminaCost: 3 # goob edit
   - type: Fiber
     fiberMaterial: fibers-leather
     fiberColor: fibers-blue
