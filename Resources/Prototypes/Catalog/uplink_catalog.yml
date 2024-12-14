@@ -1223,14 +1223,15 @@
   categories:
     - UplinkImplants
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+    # goob - traitor macrobomb
+    #- !type:StoreWhitelistCondition
+    #  whitelist:
+    #    tags:
+    #      - NukeOpsUplink
+    #- !type:BuyerWhitelistCondition
+    #  blacklist:
+    #    components:
+    #      - SurplusBundle
 
 
 - type: listing
