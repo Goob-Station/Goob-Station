@@ -11,6 +11,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_blast
     event: !type:HereticVoidBlastEvent
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-blast
@@ -30,6 +31,7 @@
     event: !type:HereticVoidBlinkEvent
     checkCanAccess: false
     range: 0
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-phase
@@ -47,6 +49,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: void_pull
     event: !type:HereticVoidPullEvent
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-void-pull

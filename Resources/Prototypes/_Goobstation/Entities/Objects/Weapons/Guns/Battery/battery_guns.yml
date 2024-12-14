@@ -47,7 +47,7 @@
   - type: Clothing
     sprite: _Goobstation/Objects/Weapons/Guns/Battery/plasma_rifle.rsi
   - type: Gun
-    fireRate: 2
+    fireRate: 1.5
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: Battery
@@ -59,7 +59,7 @@
     proto: BulletPlasmaCutterStrong
     fireCost: 100
   - type: WeaponRandomExplode
-    explosionChance: 0.16
+    explosionChance: 0.03
     multiplyByCharge: 1.0
   - type: MagazineVisuals
     magState: mag
@@ -70,7 +70,7 @@
       Steel: 100
       Glass: 25
       Plastic: 12
-      Plasma: 12 
+      Plasma: 12
 
 - type: entity
   parent: WeaponPlasmaRifle

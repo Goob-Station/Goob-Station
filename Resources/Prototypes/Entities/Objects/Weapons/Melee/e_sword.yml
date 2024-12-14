@@ -49,6 +49,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4 #goob content
   - type: Item
     size: Small
   - type: UseDelay
@@ -101,6 +102,12 @@
       map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: Reflect
+    reflectProb: 0.5 #Goob rebalace
+    reflects: #Goob rebalance
+      - Energy
+    spread: 30
+
 
 - type: entity
   name: energy dagger
@@ -178,21 +185,21 @@
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
-        volume: -6
+        volume: -12
     soundDeactivate:
       path: /Audio/Weapons/ebladeoff.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleMeleeWeapon
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
       params:
-        volume: -3
+        volume: -12
         variation: 0.250
     activatedDamage:
       types:
@@ -237,6 +244,11 @@
   - type: Tag
     tags:
     - Write
+  - type: Reflect
+    reflectProb: 0.3 #Goob rebalace
+    reflects: #Goob rebalance
+      - Energy
+    spread: 30
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -304,9 +316,9 @@
         variation: 0.250
     activatedDamage:
         types:
-            Slash: 17   #Goob Station rebalance, was originally 12
-            Heat: 17    #Goob Station rebalance, was originally 12
-            Structural: 15
+            Slash: 15   #Goob Station rebalance, was originally 12
+            Heat: 15    #Goob Station rebalance, was originally 12
+            Structural: 50 #Goob Station rebalance.
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
@@ -329,6 +341,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:
@@ -342,8 +355,10 @@
     size: Small
     sprite: Objects/Weapons/Melee/e_sword_double-inhands.rsi
   - type: Reflect
-    reflectProb: .75
-    spread: 75
+    reflectProb: 1 #Goob rebalace
+    reflects: #Goob rebalance
+      - Energy
+    spread: 0
 
 - type: entity
   suffix: One-Handed, For Borgs
