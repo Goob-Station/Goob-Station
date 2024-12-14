@@ -110,7 +110,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_syndicate ] 
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -125,7 +127,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_syndicate ] 
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
@@ -142,7 +146,9 @@
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [ names_syndicate ] 
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesElite
       - type: NpcFactionMember
         factions:
         - Syndicate
