@@ -20,7 +20,7 @@
     heavyPartDamageMultiplier: 7
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
-  - type:
+  - type: Item
     size: Ginormous
     sprite: _Goobstation/Changeling/arm_blade.rsi
   - type: Prying
