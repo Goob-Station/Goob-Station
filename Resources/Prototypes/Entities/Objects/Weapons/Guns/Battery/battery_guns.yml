@@ -783,14 +783,29 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 100
-  - type: BatteryWeaponFireModes
-    fireModes:
-    - proto: BulletLaserSpread
-      fireCost: 100
-    - proto: BulletLaserSpreadNarrow
-      fireCost: 100
-    - proto: BulletDisablerSmgSpread
-      fireCost: 100
+  # Goob edit start
+  #- type: BatteryWeaponFireModes
+  #  fireModes:
+  #  - proto: BulletLaserSpread
+  #    fireCost: 100
+  #  - proto: BulletLaserSpreadNarrow
+  #    fireCost: 100
+  #  - proto: BulletDisablerSmgSpread
+  #    fireCost: 100
+  - type: AmmoSelector
+    prototypes:
+      - BulletLaserSpread
+      - BulletLaserSpreadNarrow
+      - BulletDisablerSmgSpread
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    altVerb: true
+    verbText: mode-select-verb-text
+    key: enum.AmmoSelectorUiKey.Key
+  # Goob edit end
   - type: Item
     size: Large
     shape:
@@ -818,8 +833,9 @@
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
-    - state: mode-disabler
+    - state: mode # Goob edit
       shader: unshaded
+      color: "#00B2FF" # Goobstation
       map: [ "Firemode" ]
     - state: mag-unshaded-4
       map: ["enum.GunVisualLayers.MagUnshaded"]
@@ -829,6 +845,7 @@
     slots: # Frontier
     # - Back # Frontier
     - suitStorage #Frontier
+    - belt # Goobstation
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
   - type: Gun
     soundGunshot:
@@ -836,42 +853,71 @@
     soundEmpty:
       path: /Audio/DeltaV/Weapons/Guns/Empty/dry_fire.ogg
   - type: Battery
-    maxCharge: 1000
-    startingCharge: 1000
+    maxCharge: 1000 # Goob edit
+    startingCharge: 1000 # Goob edit
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
-    fireCost: 50
-  - type: EnergyGun
-    fireModes:
-    - proto: BulletDisabler
-      fireCost: 50
-      name: disabling
-      state: disabler
-    - proto: BulletEnergyGunLaser
-      fireCost: 100
-      name: lethal
-      state: lethal
-    - proto: BulletEnergyGunIon
-      fireCost: 100
-      name: ion
-      state: special
+    fireCost: 50 # Goob edit
+  # Goob edit start
+  #- type: EnergyGun
+  #  fireModes:
+  #  - proto: BulletDisabler
+  #    fireCost: 50
+  #    name: disabling
+  #    state: disabler
+  #  - proto: BulletEnergyGunLaser
+  #    fireCost: 100
+  #    name: lethal
+  #    state: lethal
+  #  - proto: BulletEnergyGunIon
+  #    fireCost: 100
+  #    name: ion
+  #    state: special
+  - type: AmmoSelector
+    prototypes:
+      - BulletDisabler
+      - BulletEnergyGunLaser
+      - BulletEnergyGunIon
+  - type: UserInterface
+    interfaces:
+      enum.AmmoSelectorUiKey.Key:
+        type: AmmoSelectorMenuBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    key: enum.AmmoSelectorUiKey.Key
+  - type: ItemToggle
+    activated: true
+    onActivate: false
+    onUse: false
+    wieldToggle: false
   - type: MagazineVisuals
     magState: mag
     steps: 5
     zeroVisible: true
+  - type: ItemToggleColor
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.EnergyGunFireModeVisuals.State:
-        Firemode:
-          Disabler: { state: mode-disabler }
-          Lethal: { state: mode-lethal }
-          Special: { state: mode-ion }
+  - type: ToggleableLightVisuals
+    spriteLayer: Firemode
+    inhandVisuals:
+      left:
+      - state: mode-inhand-left
+        shader: unshaded
+      right:
+      - state: mode-inhand-right
+        shader: unshaded
+  #- type: GenericVisualizer
+  #  visuals:
+  #    enum.EnergyGunFireModeVisuals.State:
+  #      Firemode:
+  #        Disabler: { state: mode-disabler }
+  #        Lethal: { state: mode-lethal }
+  #        Special: { state: mode-ion }
+  # Goob edit end
   - type: Tag
     tags:
     - HighRiskItem
     - Sidearm
-  - type: StealTarget
+  - type: StealTarget # Goobstation
     stealGroup: WeaponEnergyGunMultiphase
   - type: StaticPrice
     price: 750
