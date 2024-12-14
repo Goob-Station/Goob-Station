@@ -120,7 +120,7 @@
 - type: entity
   id: ActionExitStasis
   name: Exit stasis
-  description: Rise from the dead with full health. Costs 30 chemicals.
+  description: Rise from the dead with full health. Costs 60 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction

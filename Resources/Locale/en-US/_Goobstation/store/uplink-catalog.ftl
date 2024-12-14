@@ -56,7 +56,7 @@ uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
 
 uplink-buldog-name = Bulldog
-uplink-buldog-desc = A magazine fed semiauto shotgun.
+uplink-buldog-desc = A magazine fed fullauto shotgun.
 
 uplink-l6-saw-name = L6 Saw Bundle
 uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
