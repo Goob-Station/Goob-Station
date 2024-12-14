@@ -3248,3 +3248,9 @@ Entries:
       message: Ipcs heal faster now.
   id: 361
   time: '2024-12-14T18:42:35.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Tweak
+      message: IPC no longer sounds like a empty c20
+  id: 362
+  time: '2024-12-14T18:46:16.0000000+00:00'
