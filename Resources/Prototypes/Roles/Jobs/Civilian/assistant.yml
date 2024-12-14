@@ -6,20 +6,12 @@
   startingGear: PassengerGear
   icon: "JobIconPassenger"
   supervisors: job-supervisors-everyone
-  #access: Goobstation - No Access For Tiders
-  #- Maintenance
-  # Goobstation - Funny Tider Death
+  access:
+  - Maintenance
+  # goob tider hivemind
   special:
   - !type:AddComponentSpecial
     components:
-      - type: Doomed
-      - type: Clumsy
-        clumsyDamage:
-          types:
-            Blunt: 5
-            Piercing: 4
-          groups:
-            Burn: 3
       - type: IntrinsicRadioReceiver
       - type: IntrinsicRadioTransmitter
         channels:
