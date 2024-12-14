@@ -3242,3 +3242,9 @@ Entries:
       message: You can no longer unanchor flaps.
   id: 360
   time: '2024-12-13T22:44:00.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Ipcs heal faster now.
+  id: 361
+  time: '2024-12-14T18:42:35.0000000+00:00'
