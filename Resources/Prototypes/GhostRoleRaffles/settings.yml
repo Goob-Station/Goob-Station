@@ -10,6 +10,6 @@
 - type: ghostRoleRaffleSettings
   id: short
   settings:
-    initialDuration: 5
+    initialDuration: 10
     joinExtendsDurationBy: 0
-    maxDuration: 5
+    maxDuration: 10
