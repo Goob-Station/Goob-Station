@@ -39,9 +39,9 @@
     - Silicon
     damage:
       types: # these are all split across multiple types
-        Heat: -1.66
-        Shock: -1.66
-        Ion: -1.66 # Goobstation
+        Heat: -3.50
+        Shock: -3.50
+        Ion: -3.50 # Goobstation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right
