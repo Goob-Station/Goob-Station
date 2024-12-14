@@ -17,7 +17,7 @@
     itemSlot: cell_slot
   - type: EncryptionHolderRequiresLock
   - type: SiliconEmitSoundOnDrained
-    sound: "/Audio/Weapons/Guns/EmptyAlarm/smg_empty_alarm.ogg" # SOMEONE PLEASE FIND A BETTER SOUND FOR THIS.
+    sound: "/Audio/_Goobstation/Voice/IPC/energy_low.ogg" # Goobstation - ipc audio
     minInterval: 15
     maxInterval: 30
     popUp: "silicon-power-low"
