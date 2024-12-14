@@ -245,9 +245,10 @@
     tags:
     - Write
   - type: Reflect
-    reflectProb: 0.3 #Goob rebalace
+    reflectProb: 0.25 #Goob rebalace
     reflects: #Goob rebalance
       - Energy
+    otherTypeReflectProb: 0
     spread: 30
 
 - type: entity
