@@ -215,7 +215,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-      canImplantOther: false
+      implantationTimeMultiplier: 4
       permanent: true
       implantAction: ActionActivateMicroBomb
     - type: TriggerOnMobstateChange
@@ -246,7 +246,7 @@
   categories: [ HideSpawnMenu ]
   components:
     - type: SubdermalImplant
-      canImplantOther: false
+      implantationTimeMultiplier: 4
       permanent: true
     - type: TriggerOnMobstateChange #Chains with OnUseTimerTrigger
       mobState:
@@ -282,7 +282,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: SubdermalImplant
-    canImplantOther: false
+    implantationTimeMultiplier: 4
     permanent: true
     implantAction: ActionActivateDeathAcidifier
   - type: TriggerOnMobstateChange

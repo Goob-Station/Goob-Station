@@ -40,13 +40,19 @@ public sealed partial class SubdermalImplantComponent : Component
     /// Should you be able to implant this into yourself?
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool CanImplantSelf = true;
+    public bool CanImplantSelf = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
 
     /// <summary>
     /// Should you be able to implant this into others?
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public bool CanImplantOther = true;
+    public bool CanImplantOther = true; // Goobstation - allow traitors to buy suicide implants (fields for self-/other-implantability)
+
+    /// <summary>
+    /// Multiplier to time taken to implant this implant
+    /// </summary>
+    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    public float ImplantationTimeMultiplier = 1; // Goobstation - allow traitors to buy suicide implants (add time multiplier)
 
     /// <summary>
     /// Target whitelist for this implant specifically.
