@@ -26,6 +26,10 @@
                        StyleClasses="LabelKeyText"/>
                 <CheckBox Name="OpaqueStorageWindowCheckBox" Text="{Loc 'ui-options-opaque-storage-window'}" />
                 <CheckBox Name="StaticStorageUI" Text="{Loc 'ui-options-static-storage-ui'}" />
+                <!-- ShibaStation: End of Round options for EORG popup -->
+                <Label Text="{Loc 'ui-options-general-eor'}"
+                       StyleClasses="LabelKeyText"/>
+                <CheckBox Name="SkipNoEorgPopupCheckbox" Text="{Loc 'ui-options-no-eor-popup'}" />
                 <!-- <CheckBox Name="ToggleWalk" Text="{Loc 'ui-options-hotkey-toggle-walk'}" /> -->
             </BoxContainer>
         </ScrollContainer>
