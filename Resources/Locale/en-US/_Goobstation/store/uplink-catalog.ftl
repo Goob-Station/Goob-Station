@@ -50,13 +50,13 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 # Weapons
 
 uplink-weapon-burner-name = Burner Heavy Rifle
-uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle.
+uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
 
 uplink-buldog-name = Bulldog
-uplink-buldog-desc = Lean and mean: Contains the popular Bulldog Shotgun.
+uplink-buldog-desc = Contains the popular Bulldog Shotgun.
 
 uplink-l6-saw-name = L6 Saw Bundle
 uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.

@@ -256,7 +256,6 @@ public sealed partial class MechSystem : SharedMechSystem
     //goobstation
     private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
     {
-        component.Energy = 0;
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
     }

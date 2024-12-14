@@ -232,8 +232,7 @@ public sealed partial class MansusGraspSystem : EntitySystem
         if (HasComp<StatusEffectsComponent>(target))
         {
             _audio.PlayPvs(new SoundPathSpecifier("/Audio/Items/welder.ogg"), target);
-            _stun.TryKnockdown(target, TimeSpan.FromSeconds(3f), true);
-            _stamina.TakeStaminaDamage(target, 110f);
+            _stun.TryParalyze(target, TimeSpan.FromSeconds(5f), true);
             _language.DoRatvarian(target, TimeSpan.FromSeconds(10f), true);
         }
 

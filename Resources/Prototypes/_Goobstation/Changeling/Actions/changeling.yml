@@ -132,7 +132,7 @@
       state: stasis_exit
     event: !type:ExitStasisEvent {}
   - type: ChangelingAction
-    chemicalCost: 30
+    chemicalCost: 60
     useInLesserForm: true
     useInLastResort: true
 
