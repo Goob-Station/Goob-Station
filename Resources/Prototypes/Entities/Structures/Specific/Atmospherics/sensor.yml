@@ -25,6 +25,9 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
+        BZ: danger 
+        Healium: stationNO 
+        Nitrium: danger 
     - type: Tag
       tags:
         - AirSensor

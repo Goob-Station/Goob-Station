@@ -207,7 +207,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
                             FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan, hit);
 
-                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
+                            var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false, hitscan.Damage); // WD EDIT
                             RaiseLocalEvent(hit, ref ev);
 
                             if (!ev.Reflected)
@@ -304,6 +304,13 @@ public sealed partial class GunSystem : SharedGunSystem
             MuzzleFlash(gunUid, ammoComp, mapDirection.ToAngle(), user);
             Audio.PlayPredicted(gun.SoundGunshotModified, gunUid, user);
         }
+    }
+
+    public void SetTarget(EntityUid projectile, EntityUid? target) // Goobstation
+    {
+        var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
+        targeted.Target = target;
+        Dirty(projectile, targeted);
     }
 
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)

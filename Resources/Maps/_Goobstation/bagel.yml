@@ -11015,7 +11015,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -15821.881
+      secondsUntilStateChange: -16633.982
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -11494,13 +11494,6 @@ entities:
     - type: Transform
       pos: 8.5,14.5
       parent: 60
-  - uid: 7358
-    components:
-    - type: MetaData
-      name: Telecomms
-    - type: Transform
-      pos: 23.5,6.5
-      parent: 60
   - uid: 7866
     components:
     - type: Transform
@@ -11593,12 +11586,6 @@ entities:
       name: AME Room
     - type: Transform
       pos: 3.5,24.5
-      parent: 60
-  - uid: 18549
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,3.5
       parent: 60
 - proto: AirlockExternal
   entities:
@@ -57046,12 +57033,6 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-44.5
-      parent: 60
-  - uid: 13263
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 23.5,-0.5
       parent: 60
   - uid: 14118
     components:
@@ -107529,13 +107510,6 @@ entities:
     - type: Transform
       pos: -7.494558,-11.436351
       parent: 60
-- proto: HarpInstrument
-  entities:
-  - uid: 13264
-    components:
-    - type: Transform
-      pos: 22.5,-0.5
-      parent: 60
 - proto: HeatExchanger
   entities:
   - uid: 15111
@@ -107703,12 +107677,22 @@ entities:
     - type: Transform
       pos: -13.5,3.5
       parent: 60
+  - uid: 7358
+    components:
+    - type: Transform
+      pos: 23.5,6.5
+      parent: 60
   - uid: 12879
     components:
     - type: MetaData
       name: Vault
     - type: Transform
       pos: 2.5,-6.5
+      parent: 60
+  - uid: 13263
+    components:
+    - type: Transform
+      pos: 23.5,3.5
       parent: 60
   - uid: 19122
     components:
@@ -110260,6 +110244,13 @@ entities:
     components:
     - type: Transform
       pos: 56.487034,-17.432411
+      parent: 60
+- proto: MaterialSilo
+  entities:
+  - uid: 13264
+    components:
+    - type: Transform
+      pos: 22.5,-0.5
       parent: 60
 - proto: MaterialWoodPlank
   entities:

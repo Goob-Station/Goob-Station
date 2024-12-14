@@ -49,6 +49,8 @@
     price: 800
   - type: ResearchClient
   - type: TechnologyDatabase
+  - type: Speech # Goobstation - Lathe message on recipes update
+    speechSounds: Lathe
 
 # a lathe that can be sped up with space lube / slowed down with glue
 - type: entity
@@ -87,7 +89,7 @@
 
 - type: entity
   id: Autolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: autolathe
   description: It produces basic items using metal and glass. Has the ability to process blueprints to print new recipes.
   components:
@@ -203,6 +205,7 @@
       - WetFloorSign
       - ClothingHeadHatCone
       - FreezerElectronics
+      - ToolboxMechanical # Goobstation - Recycle update
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
@@ -234,8 +237,16 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
-      - CartridgeIchor # Goobstation
+      - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
+      - ParamedHypo # Goobstation - ParamedHypo
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -262,7 +273,7 @@
 
 - type: entity
   id: Protolathe
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: protolathe
   description: Converts raw materials into advanced items.
   components:
@@ -296,7 +307,6 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
-    - MaterialBSCrystal # Goobstation
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
@@ -423,7 +433,7 @@
 
 - type: entity
   id: CircuitImprinter
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: circuit imprinter
   description: Prints circuit boards for machines.
   components:
@@ -574,7 +584,7 @@
 
 - type: entity
   id: ExosuitFabricator
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: exosuit fabricator
   description: Creates parts for robotics and other mechanical needs.
   components:
@@ -640,9 +650,22 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
-    - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -776,15 +799,29 @@
     - MothroachCube
     - MouseCube
     - CockroachCube
+    - HumanCube # Goobstation - Start
+    - DionaCube
+    - FelinidCube
+    - GingerbreadCube
+    - MothCube
+    - DwarfCube
+    - HarpyCube
+    - RodentiaCube
+    - ReptilianCube
+    - VulpkaninCube
+    - SlimePersonCube
+    - VoxCube
+    - YowieCube # Goobstation - End
   - type: EmagLatheRecipes
     emagStaticRecipes:
     - AbominationCube
     - SpaceCarpCube
     - SpaceTickCube
+    - SkibidiCube # Goobstation
 
 - type: entity
   id: SecurityTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: security techfab
   description: Prints equipment for use by security crew.
   components:
@@ -918,6 +955,15 @@
       - WeaponMechCombatDisabler
       - WeaponMechCombatFlashbangLauncher
       - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    - MagazineHighCaliberEmpty # Goobstation
+    - MagazineHighCaliber # Goobstation
+    - MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -927,7 +973,7 @@
 
 - type: entity
   id: AmmoTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: ammo techfab
   description: Prints the bare minimum of bullets that any budget military or armory could need. Nothing fancy.
   components:
@@ -968,6 +1014,15 @@
         - MagazineShotgunSlug
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
+    - type: EmagLatheRecipes # Goobstation
+      emagStaticRecipes:
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
     - type: MaterialStorage
       whitelist:
         tags:
@@ -977,7 +1032,7 @@
 
 - type: entity
   id: MedicalTechFab
-  parent: BaseLatheLube
+  parent: [BaseLatheLube, BaseSiloUtilizer] # Goob edit
   name: medical techfab
   description: Prints equipment for use by the medbay.
   components:
@@ -1039,9 +1094,14 @@
       - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
       - VehicleWheelchairFolded # Goobstation - Vehicles
+      - CartridgeEpinephrine # Goobstation - ParamedHypo
+      - CartridgeBicaridine # Goobstation - ParamedHypo
+      - CartridgeDermaline # Goobstation - ParamedHypo
+      - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
@@ -1367,6 +1427,7 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+
 
 - type: entity
   parent: OreProcessor

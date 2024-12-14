@@ -1,7 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Player;
@@ -9,6 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Shared._Goobstation.CVars;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -98,12 +98,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
 
         // lowpop processing
         // test scenario: 100 players and 20 lowpop = 80 minimum threat
-        var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
+        var lowpopThreshold = (float) _cfg.GetCVar(GoobCVars.LowpopThreshold.Name);
         var minThreat = 0f + Math.Max(playersCount - lowpopThreshold, 0);
 
         // highpop processing
         // test scenario: 100 players and 70 highpop threshold = + 60 more max threat
-        var highpopThreshold = (float) _cfg.GetCVar(CCVars.HighpopThreshold.Name);
+        var highpopThreshold = (float) _cfg.GetCVar(GoobCVars.HighpopThreshold.Name);
         var maxThreat = playersCount < lowpopThreshold ? component.MaxThreat / 2 : component.MaxThreat;
         if (playersCount >= highpopThreshold)
             maxThreat += (playersCount - highpopThreshold) * 2;

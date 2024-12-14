@@ -105,11 +105,13 @@ public partial class MobStateSystem
                 break;
             case MobState.Critical:
                 _standing.Down(target);
+                RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
                 EnsureComp<CollisionWakeComponent>(target);
                 _standing.Down(target);
+                RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Dead);
                 break;
             case MobState.Invalid:

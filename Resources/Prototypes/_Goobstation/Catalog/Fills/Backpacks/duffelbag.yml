@@ -37,7 +37,7 @@
       - id: WeaponRifleBurner
       - id: MagazineHighCaliberExplosive
       - id: MagazineHighCaliber
-      - id: MagazineBoxHighCaliber
+      - id: MagazineHighCaliber
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

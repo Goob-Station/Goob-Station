@@ -84,6 +84,10 @@
       BeakerSlotB: !type:ContainerSlot
   - type: StaticPrice
     price: 60
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 50
+      Plastic: 75
 
 - type: entity
   name: flash payload
@@ -100,3 +104,8 @@
     - type: EmitSoundOnTrigger
       sound:
         path: "/Audio/Effects/flash_bang.ogg"
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 12
+        Plastic: 25
+        Glass: 12

@@ -26,7 +26,7 @@ entities:
       name: GX-13 Infiltrator
     - type: Transform
       pos: 0.64252126,4.1776605
-      parent: invalid
+
     - type: Tag
       tags:
       - Syndicate
