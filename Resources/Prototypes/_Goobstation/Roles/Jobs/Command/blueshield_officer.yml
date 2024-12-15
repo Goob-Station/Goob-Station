@@ -54,5 +54,6 @@
   storage:
     back:
     - Flash
+    - WeaponEnergyRevolver
     - BluespaceLifelineImplanter
     - SecHypo
