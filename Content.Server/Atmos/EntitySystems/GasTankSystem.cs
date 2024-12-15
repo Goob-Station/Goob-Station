@@ -346,8 +346,8 @@ namespace Content.Server.Atmos.EntitySystems
 
                 if (TryComp<ExplosiveComponent>(owner, out var explosive)
                 {
-                    explosive.MaxIntensity *= Math.Sqrt(range + 1);
-                    explosive.IntensitySlope *= Math.Sqrt(range + 1);
+                    explosive.MaxIntensity *= Math.Cbrt(range + 1);
+                    explosive.IntensitySlope *= Math.Cbrt(range + 1);
                 }
                 _explosions.TriggerExplosive(owner, radius: range);
 
