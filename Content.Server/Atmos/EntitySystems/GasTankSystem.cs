@@ -344,7 +344,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 range = Math.Min(Math.Min(range, GasTankComponent.MaxExplosionRange), _maxExplosionRange);
 
-                if (TryComp<ExplosiveComponent>(owner, out var explosive)
+                if (TryComp<ExplosiveComponent>(owner, out var explosive))
                 {
                     explosive.MaxIntensity *= Math.Cbrt(range + 1);
                     explosive.IntensitySlope *= Math.Cbrt(range + 1);
