@@ -2,6 +2,7 @@ using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
 using Content.Server.Cargo.Systems;
+using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Actions;
@@ -339,12 +340,15 @@ namespace Content.Server.Atmos.EntitySystems
                 }
 
                 pressure = component.Air.Pressure;
-                var range = MathF.Sqrt((pressure - component.TankFragmentPressure) / component.TankFragmentScale);
+                var range = MathF.Cbrt((pressure - component.TankFragmentPressure) / component.TankFragmentScale);
 
-                // Let's cap the explosion, yeah?
-                // !1984
                 range = Math.Min(Math.Min(range, GasTankComponent.MaxExplosionRange), _maxExplosionRange);
 
+                if (TryComp<ExplosiveComponent>(owner, out var explosive)
+                {
+                    explosive.MaxIntensity *= Math.Sqrt(range + 1);
+                    explosive.IntensitySlope *= Math.Sqrt(range + 1);
+                }
                 _explosions.TriggerExplosive(owner, radius: range);
 
                 return;
