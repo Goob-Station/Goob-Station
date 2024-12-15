@@ -556,6 +556,7 @@ binds:
 - function: Hotbar9
   type: State
   key: Num9
+# Goobstation - Extra hotbar hotkeys
 - function: HotbarShift0
   type: State
   key: Num0

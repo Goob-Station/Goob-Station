@@ -221,6 +221,7 @@ ui-options-function-hotbar7 = Hotbar slot 7
 ui-options-function-hotbar8 = Hotbar slot 8
 ui-options-function-hotbar9 = Hotbar slot 9
 ui-options-function-hotbar0 = Hotbar slot 0
+# Goobstation - Extra hotbar hotkeys
 ui-options-function-hotbarshift1 = Hotbar slot Shift+1
 ui-options-function-hotbarshift2 = Hotbar slot Shift+2
 ui-options-function-hotbarshift3 = Hotbar slot Shift+3
@@ -241,6 +242,7 @@ ui-options-function-loadout7 = Hotbar Loadout 7
 ui-options-function-loadout8 = Hotbar Loadout 8
 ui-options-function-loadout9 = Hotbar Loadout 9
 ui-options-function-loadout0 = Hotbar Loadout 0
+# Goobstation - Extra hotbar hotkeys
 ui-options-function-loadoutshift1 = Hotbar Loadout Shift+1
 ui-options-function-loadoutshift2 = Hotbar Loadout Shift+2
 ui-options-function-loadoutshift3 = Hotbar Loadout Shift+3

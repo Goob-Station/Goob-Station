@@ -101,6 +101,7 @@ namespace Content.Shared.Input
         public static readonly BoundKeyFunction Hotbar7 = "Hotbar7";
         public static readonly BoundKeyFunction Hotbar8 = "Hotbar8";
         public static readonly BoundKeyFunction Hotbar9 = "Hotbar9";
+        // Goobstation - Extra hotbar hotkeys
         public static readonly BoundKeyFunction HotbarShift0 = "HotbarShift0";
         public static readonly BoundKeyFunction HotbarShift1 = "HotbarShift1";
         public static readonly BoundKeyFunction HotbarShift2 = "HotbarShift2";
