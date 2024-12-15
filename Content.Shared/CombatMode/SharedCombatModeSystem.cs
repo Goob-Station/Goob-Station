@@ -64,6 +64,14 @@ public abstract class SharedCombatModeSystem : EntitySystem
         component.CanDisarm = canDisarm;
     }
 
+    public void SetLastHit(EntityUid entity, EntityUid? target, CombatModeComponent? component = null)
+    {
+        if (!Resolve(entity, ref component))
+            return;
+
+        component.LastHit = target;
+    }
+
     public bool IsInCombatMode(EntityUid? entity, CombatModeComponent? component = null)
     {
         return entity != null && Resolve(entity.Value, ref component, false) && component.IsInCombatMode;

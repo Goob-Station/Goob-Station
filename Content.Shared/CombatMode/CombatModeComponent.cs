@@ -42,6 +42,20 @@ namespace Content.Shared.CombatMode
         [ViewVariables(VVAccess.ReadWrite), DataField("isInCombatMode"), AutoNetworkedField]
         public bool IsInCombatMode;
 
+        // Goobstation - Aim assist
+        /// <summary>
+        /// The last entity we hit since last enabling combat mode.
+        /// Used for aim assist.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadOnly)]
+        public EntityUid? LastHit;
+
+        /// <summary>
+        /// Maximum distance to target at which aim assist will make you hit it.
+        /// </summary>
+        [ViewVariables(VVAccess.ReadOnly)]
+        public float AimAssistDistance = 1;
+
         /// <summary>
         ///     Will add <see cref="MouseRotatorComponent"/> and <see cref="NoRotateOnMoveComponent"/>
         ///     to entities with this flag enabled that enter combat mode, and vice versa for removal.

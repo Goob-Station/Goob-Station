@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client.Gameplay;
+using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
@@ -65,7 +66,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
         if (!TryGetWeapon(entity, out var weaponUid, out var weapon))
             return;
 
-        if (!CombatMode.IsInCombatMode(entity) || !Blocker.CanAttack(entity, weapon: (weaponUid, weapon)))
+        // Goobstation - Aim assist
+        if (!TryComp<CombatModeComponent>(entity, out var combatComp))
+            return;
+
+        if (!CombatMode.IsInCombatMode(entity, combatComp) || !Blocker.CanAttack(entity, weapon: (weaponUid, weapon)))
         {
             weapon.Attacking = false;
             return;
@@ -156,9 +161,26 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 target = screen.GetClickedEntity(mousePos);
             }
 
+            // Goobstation - Aim assist
+            // try to use aim assist if we didn't click anything and aim assist target is close enough to mouse
+            var lastHit = combatComp.LastHit;
+            if (target == null &&
+                lastHit != null &&
+                TryComp<TransformComponent>(lastHit.Value, out var trns) &&
+                (trns.MapPosition.Position - mousePos.Position).Length() <= combatComp.AimAssistDistance)
+            {
+                target = lastHit;
+            }
+
             // Don't light-attack if interaction will be handling this instead
             if (Interaction.CombatModeCanHandInteract(entity, target))
                 return;
+
+            // it is probable that in most cases the player would likely not want aim assist against liquid puddles or air
+            if (target != null && Blocker.CanAttack(entity, target, (weaponUid, weapon)))
+            {
+                CombatMode.SetLastHit(entity, target, combatComp);
+            }
 
             RaisePredictiveEvent(new LightAttackEvent(GetNetEntity(target), GetNetEntity(weaponUid), GetNetCoordinates(coordinates)));
         }
