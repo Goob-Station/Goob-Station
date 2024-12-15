@@ -2,7 +2,7 @@
   id: Behemoth
   mapName: 'Behemoth Station'
   mapPath: /Maps/_Goobstation/behemoth.yml
-  minPlayers: 60
+  minPlayers: 35
   stations:
     Behemoth:
       stationProto: StandardNanotrasenStation
@@ -23,39 +23,39 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             HeadOfPersonnel: [ 1, 1 ]
-            Bartender: [ 3, 3 ]
-            Botanist: [ 5, 5 ]
-            Chef: [ 4, 4 ]
-            Janitor: [ 6, 6 ]
+            Bartender: [ 2, 2 ]
+            Botanist: [ 3, 3 ]
+            Chef: [ 3, 3 ]
+            Janitor: [ 3, 3 ]
             Chaplain: [ 2, 2 ]
-            Librarian: [ 2, 2 ]
-            ServiceWorker: [ 4, 4 ]
+            Librarian: [ 1, 1 ]
+            ServiceWorker: [ 2, 2 ]
             #engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 5, 5 ]
-            StationEngineer: [ 8, 8 ]
-            TechnicalAssistant: [ -1, -1 ]
+            AtmosphericTechnician: [ 4, 4 ]
+            StationEngineer: [ 6, 6 ]
+            TechnicalAssistant: [ 6, 6 ]
             #medical
             ChiefMedicalOfficer: [ 1, 1 ]
             Chemist: [ 3, 3 ]
-            MedicalDoctor: [ 10, 10 ]
-            Paramedic: [ 3, 3 ]
-            MedicalIntern: [ -1, -1 ]
+            MedicalDoctor: [ 6, 6 ]
+            Paramedic: [ 2, 2 ]
+            MedicalIntern: [ 6, 6 ]
             #science
             ResearchDirector: [ 1, 1 ]
-            Scientist: [ 10, 10 ]
-            ResearchAssistant: [ -1, -1 ]
+            Scientist: [ 6, 6 ]
+            ResearchAssistant: [ 6, 6 ]
             #security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 8, 8 ]
+            SecurityOfficer: [ 6, 6 ]
             Detective: [ 1, 1 ]
-            SecurityCadet: [ -1, -1 ]
+            SecurityCadet: [ 6, 6 ]
             Lawyer: [ 3, 3 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 3 ]
-            CargoTechnician: [ -1, -1 ]
+            CargoTechnician: [ 8, 8 ]
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 2, 2 ]
