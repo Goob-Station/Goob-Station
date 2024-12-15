@@ -54,7 +54,7 @@ namespace Content.Shared.CombatMode
         /// Maximum distance to target at which aim assist will make you hit it.
         /// </summary>
         [ViewVariables(VVAccess.ReadOnly)]
-        public float AimAssistDistance = 1;
+        public float AimAssistDistance = 1.25f;
 
         /// <summary>
         ///     Will add <see cref="MouseRotatorComponent"/> and <see cref="NoRotateOnMoveComponent"/>

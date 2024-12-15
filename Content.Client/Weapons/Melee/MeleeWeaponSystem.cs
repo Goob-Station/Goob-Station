@@ -2,6 +2,7 @@ using System.Linq;
 using Content.Client.Gameplay;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CombatMode;
+using Content.Shared.Damage;
 using Content.Shared.Effects;
 using Content.Shared.Hands.Components;
 using Content.Shared.Mobs.Components;
@@ -16,6 +17,8 @@ using Robust.Client.Player;
 using Robust.Client.State;
 using Robust.Shared.Input;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Player;
 
 namespace Content.Client.Weapons.Melee;
@@ -162,22 +165,24 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
 
             // Goobstation - Aim assist
-            // try to use aim assist if we didn't click anything and aim assist target is close enough to mouse
+            // try to use aim assist
             var lastHit = combatComp.LastHit;
-            if (target == null &&
-                lastHit != null &&
+            var canDamage = Blocker.CanAttack(entity, target, (weaponUid, weapon)) && HasComp<DamageableComponent>(target);
+            if ((target == null || !canDamage) && // only aim assist if we're attacking air or a target we can't damage (say, a puddle)
+                lastHit != null && // only aim assist if there's an aim assist target
                 TryComp<TransformComponent>(lastHit.Value, out var trns) &&
-                (trns.MapPosition.Position - mousePos.Position).Length() <= combatComp.AimAssistDistance)
+                (trns.MapPosition.Position - mousePos.Position).Length() <= combatComp.AimAssistDistance) // only aim assist if mouse is close enough to target
             {
                 target = lastHit;
+                canDamage = Blocker.CanAttack(entity, target, (weaponUid, weapon)) && HasComp<DamageableComponent>(target);
             }
 
             // Don't light-attack if interaction will be handling this instead
             if (Interaction.CombatModeCanHandInteract(entity, target))
                 return;
 
-            // it is probable that in most cases the player would likely not want aim assist against liquid puddles or air
-            if (target != null && Blocker.CanAttack(entity, target, (weaponUid, weapon)))
+            // do not lock aim assist onto static objects, objects we can't damage, or air
+            if (target != null && TryComp<PhysicsComponent>(target, out var phys) && phys.BodyType != BodyType.Static && canDamage)
             {
                 CombatMode.SetLastHit(entity, target, combatComp);
             }

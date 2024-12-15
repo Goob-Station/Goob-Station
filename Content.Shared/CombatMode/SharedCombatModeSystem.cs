@@ -88,6 +88,10 @@ public abstract class SharedCombatModeSystem : EntitySystem
         component.IsInCombatMode = value;
         Dirty(entity, component);
 
+        // clear aim assist if we're disabling combat mode
+        if (!value)
+            SetLastHit(entity, null, component);
+
         if (component.CombatToggleActionEntity != null)
             _actionsSystem.SetToggled(component.CombatToggleActionEntity, component.IsInCombatMode);
 
