@@ -38,6 +38,7 @@
     - rods_3
     - rods_4
     - rods_5
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

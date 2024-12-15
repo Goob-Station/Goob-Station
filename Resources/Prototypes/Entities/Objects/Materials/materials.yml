@@ -40,6 +40,7 @@
     - cardboard
     - cardboard_2
     - cardboard_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -104,6 +105,7 @@
     - cloth
     - cloth_2
     - cloth_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -177,6 +179,7 @@
     - durathread
     - durathread_2
     - durathread_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -242,6 +245,7 @@
     - wood
     - wood_2
     - wood_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -296,6 +300,7 @@
   - type: Stack
     stackType: Biomass
     count: 100
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -378,6 +383,7 @@
     - diamond
     - diamond_2
     - diamond_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -424,6 +430,7 @@
     - cotton
     - cotton_2
     - cotton_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -479,6 +486,7 @@
     - pyrotton
     - pyrotton_2
     - pyrotton_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -544,6 +552,7 @@
     layerStates:
       - bananium
       - bananium_1
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -601,6 +610,7 @@
   - type: Stack
     count: 50
     stackType: WebSilk
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -669,6 +679,7 @@
     - tooth
     - tooth_2
     - tooth_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -711,6 +722,7 @@
     - tooth
     - tooth_2
     - tooth_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -743,6 +755,7 @@
     - bones
     - bones_2
     - bones_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -780,6 +793,7 @@
   - type: Stack
     stackType: Gunpowder
     count: 1
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -818,6 +832,7 @@
     - goliath_hide
     - goliath_hide_2
     - goliath_hide_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

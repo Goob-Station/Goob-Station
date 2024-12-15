@@ -8,6 +8,7 @@
     - type: Stack
       stackType: InflatableWall
       count: 10
+  # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:
@@ -35,6 +36,7 @@
     - type: Stack
       stackType: InflatableDoor
       count: 4
+  # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:

@@ -40,6 +40,7 @@
     - paper
     - paper_2
     - paper_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -94,6 +95,7 @@
     - plasma
     - plasma_2
     - plasma_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -161,6 +163,7 @@
     - plastic
     - plastic_2
     - plastic_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -227,6 +230,7 @@
     - uranium
     - uranium_2
     - uranium_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -285,6 +289,7 @@
         - meat
         - meat_2
         - meat_3
+  # Goobstation - Custom stack splitting dialog
     - type: UserInterface
       interfaces:
         enum.StackCustomSplitUiKey.Key:

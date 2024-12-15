@@ -32,6 +32,7 @@
   components:
   - type: Stack
     stackType: GoldOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -67,6 +68,7 @@
   components:
   - type: Stack
     stackType: DiamondOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -102,6 +104,7 @@
   components:
   - type: Stack
     stackType: SteelOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -137,6 +140,7 @@
   components:
   - type: Stack
     stackType: PlasmaOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -177,6 +181,7 @@
   components:
   - type: Stack
     stackType: SilverOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -212,6 +217,7 @@
   components:
   - type: Stack
     stackType: SpaceQuartz
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -247,6 +253,7 @@
   components:
   - type: Stack
     stackType: UraniumOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -290,6 +297,7 @@
   components:
   - type: Stack
     stackType: BananiumOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -334,6 +342,7 @@
   components:
   - type: Stack
     stackType: Coal
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -401,6 +410,7 @@
   components:
   - type: Stack
     stackType: SaltOre
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

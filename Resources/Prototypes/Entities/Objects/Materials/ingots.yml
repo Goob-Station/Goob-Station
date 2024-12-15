@@ -43,6 +43,7 @@
     - gold
     - gold_2
     - gold_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -92,6 +93,7 @@
     - silver
     - silver_2
     - silver_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

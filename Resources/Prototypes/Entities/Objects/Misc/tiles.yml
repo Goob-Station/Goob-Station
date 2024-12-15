@@ -17,6 +17,7 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Stack
     count: 1
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

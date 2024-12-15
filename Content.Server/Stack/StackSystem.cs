@@ -15,7 +15,7 @@ namespace Content.Server.Stack
     public sealed class StackSystem : SharedStackSystem
     {
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
-        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
+        [Dependency] private readonly SharedUserInterfaceSystem _ui = default!; // Goobstation - Custom stack splitting dialog
 
         public static readonly int[] DefaultSplitAmounts = { 1, 5, 10, 20, 30, 50 };
 
@@ -200,6 +200,7 @@ namespace Content.Server.Stack
                 args.Verbs.Add(verb);
             }
 
+            // Goobstation - Custom stack splitting dialog
             AlternativeVerb custom = new()
             {
                 Text = Loc.GetString("comp-stack-split-custom"),
@@ -213,6 +214,7 @@ namespace Content.Server.Stack
             args.Verbs.Add(custom);
         }
 
+        // Goobstation - Custom stack splitting dialog
         protected override void OnCustomSplitMessage(Entity<StackComponent> ent, ref StackCustomSplitAmountMessage message)
         {
             var (uid, comp) = ent;

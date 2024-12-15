@@ -43,6 +43,7 @@
   - type: Stack
     stackType: Ointment
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -101,6 +102,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
 =======
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -146,6 +148,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
 =======
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -204,6 +207,7 @@
     count: 15 #Was 10, Buffed due to surgery changes (Goobstation)
 =======
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -250,6 +254,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
 =======
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -327,6 +332,7 @@
     count: 15 #Was 10, Buffed due to limb damage changes (Goobstation)
 =======
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

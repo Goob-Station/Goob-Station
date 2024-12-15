@@ -49,6 +49,7 @@
   - type: Stack
     stackType: PaperRolling
     count: 5
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -83,6 +84,7 @@
   - type: Stack
     stackType: CigaretteFilter
     count: 5
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

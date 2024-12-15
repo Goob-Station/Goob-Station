@@ -26,6 +26,7 @@
     - cash_500
     - cash_1000
     - cash_1000000
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

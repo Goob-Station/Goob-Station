@@ -65,6 +65,7 @@
   - type: Stack
     stackType: Fulton
     count: 10
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:

@@ -70,6 +70,7 @@
     - glass
     - glass_2
     - glass_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -144,6 +145,7 @@
     - rglass
     - rglass_2
     - rglass_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -228,6 +230,7 @@
     - pglass
     - pglass_2
     - pglass_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -362,6 +365,7 @@
     - uglass
     - uglass_2
     - uglass_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
@@ -495,6 +499,7 @@
     - cglass
     - cglass_2
     - cglass_3
+  # Goobstation - Custom stack splitting dialog
   - type: UserInterface
     interfaces:
       enum.StackCustomSplitUiKey.Key:
