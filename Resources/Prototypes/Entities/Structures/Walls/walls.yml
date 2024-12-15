@@ -1379,7 +1379,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 20
+        damage: 20 # Goobstation
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
