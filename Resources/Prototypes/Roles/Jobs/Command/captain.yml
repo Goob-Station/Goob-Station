@@ -42,4 +42,5 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation
     # - StationCharter

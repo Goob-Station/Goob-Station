@@ -1,4 +1,4 @@
-﻿using Content.Shared.Standing;
+﻿using Content.Shared._White.Standing;
 
 namespace Content.Server.Stunnable.Components;
 

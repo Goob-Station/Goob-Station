@@ -1,6 +1,12 @@
-﻿using Content.Shared.Item.ItemToggle.Components;
+using Content.Server.Item;
+using Content.Server.Stunnable.Systems;
+using Content.Shared._White.Standing;
+using Content.Shared.Item.ItemToggle;
+using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.Stunnable.Events;
 using Content.Shared.TelescopicBaton;
+using Content.Shared.Timing;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 
 namespace Content.Server.TelescopicBaton;
@@ -8,6 +14,9 @@ namespace Content.Server.TelescopicBaton;
 public sealed class TelescopicBatonSystem : EntitySystem
 {
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
+    [Dependency] private readonly ItemSystem _item = default!; // Goobstation
+    [Dependency] private readonly UseDelaySystem _delay = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -16,6 +25,16 @@ public sealed class TelescopicBatonSystem : EntitySystem
         SubscribeLocalEvent<TelescopicBatonComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TelescopicBatonComponent, ItemToggledEvent>(OnToggled);
         SubscribeLocalEvent<TelescopicBatonComponent, KnockdownOnHitAttemptEvent>(OnKnockdownAttempt);
+        SubscribeLocalEvent<TelescopicBatonComponent, MeleeHitEvent>(OnMeleeHit, after: new[] { typeof(KnockdownOnHitSystem) }); // Goobstation
+    }
+
+    private void OnMeleeHit(Entity<TelescopicBatonComponent> ent, ref MeleeHitEvent args) // Goobstation
+    {
+        if (!ent.Comp.AlwaysKnockdown)
+            ent.Comp.CanKnockDown = false;
+
+        if (args.HitEntities.Count > 0 && TryComp(ent, out UseDelayComponent? delay))
+            _delay.ResetAllDelays((ent, delay));
     }
 
     public override void Update(float frameTime)
@@ -25,6 +44,9 @@ public sealed class TelescopicBatonSystem : EntitySystem
         var query = EntityQueryEnumerator<TelescopicBatonComponent>();
         while (query.MoveNext(out var baton))
         {
+            if (baton.AlwaysKnockdown) // Goobstation
+                continue;
+
             if (!baton.CanKnockDown)
                 continue;
 
@@ -44,18 +66,22 @@ public sealed class TelescopicBatonSystem : EntitySystem
 
     private void OnToggled(Entity<TelescopicBatonComponent> baton, ref ItemToggledEvent args)
     {
+        _item.SetHeldPrefix(baton, args.Activated ? "on" : "off"); // Goobstation
         ToggleBaton(baton, args.Activated);
     }
 
     private void OnKnockdownAttempt(Entity<TelescopicBatonComponent> baton, ref KnockdownOnHitAttemptEvent args)
     {
-        if (!baton.Comp.CanKnockDown)
+        // Goob edit start
+        if (!_toggle.IsActivated(baton.Owner))
         {
             args.Cancelled = true;
             return;
         }
 
-        baton.Comp.CanKnockDown = false;
+        if (!baton.Comp.CanKnockDown)
+            args.Behavior = DropHeldItemsBehavior.NoDrop;
+        // Goob edit end
     }
 
     public void ToggleBaton(Entity<TelescopicBatonComponent> baton, bool state)

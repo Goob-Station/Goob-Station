@@ -17,10 +17,10 @@ public sealed class KnockdownOnHitSystem : EntitySystem
 
     private void OnMeleeHit(Entity<KnockdownOnHitComponent> entity, ref MeleeHitEvent args)
     {
-        if (args.Direction.HasValue || !args.IsHit || !args.HitEntities.Any() || entity.Comp.Duration <= TimeSpan.Zero)
+        if (!args.IsHit || !args.HitEntities.Any() || entity.Comp.Duration <= TimeSpan.Zero) // Goob edit
             return;
 
-        var ev = new KnockdownOnHitAttemptEvent();
+        var ev = new KnockdownOnHitAttemptEvent(false, entity.Comp.DropHeldItemsBehavior); // Goob edit
         RaiseLocalEvent(entity, ref ev);
         if (ev.Cancelled)
             return;
@@ -33,7 +33,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
             _stun.TryKnockdown(target,
                 entity.Comp.Duration,
                 entity.Comp.RefreshDuration,
-                entity.Comp.DropHeldItemsBehavior,
+                ev.Behavior, // Goob edit
                 statusEffects);
         }
     }

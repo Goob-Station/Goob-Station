@@ -227,9 +227,10 @@ public abstract class SharedStunSystem : EntitySystem
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
     public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        DropHeldItemsBehavior behavior = DropHeldItemsBehavior.DropIfStanding,
-        StatusEffectsComponent? status = null)
+        DropHeldItemsBehavior behavior, StatusEffectsComponent? status = null)
     {
+        time *= _modify.GetModifier(uid); // Goobstation
+
         if (time <= TimeSpan.Zero || !Resolve(uid, ref status, false))
             return false;
 
@@ -275,14 +276,8 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        // Goob edit start
-        var knocked = TryKnockdown(uid, time, refresh, status);
-        var stunned = TryStun(uid, time, refresh, status);
-        if (knocked || stunned)
-            RaiseLocalEvent(uid, new DropHandItemsEvent());
-
-        return knocked && stunned;
-        // Goob edit end
+        return TryKnockdown(uid, time, refresh, DropHeldItemsBehavior.AlwaysDrop, status) &&
+               TryStun(uid, time, refresh, status); // Goob edit
     }
 
     /// <summary>
