@@ -237,8 +237,16 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - CartridgeEphedrine # Goobstation
-      - CartridgeIchor # Goobstation
+      - CartridgePuncturase # Goobstation
       - SecHypo # Goobstation
+      - ParamedHypo # Goobstation - ParamedHypo
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -299,7 +307,6 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
-    - MaterialBSCrystal # Goobstation
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
@@ -643,9 +650,22 @@
     - RightLegBorgService
     - HeadBorgService
     - TorsoBorgService
-    - BorgModuleSurgery # Shitmed Change
     - MechAirTank # Goobstation
     - MechThruster # Goobstation
+    # Shitmed Change
+    - BorgModuleSurgery
+    - TorsoIPC
+    - LeftArmIPC
+    - RightArmIPC
+    - LeftLegIPC
+    - RightLegIPC
+    - HeadIPC
+    - LeftHandIPC
+    - RightHandIPC
+    - LeftFootIPC
+    - RightFootIPC
+    - OrganIPCEyes
+    - OrganIPCPump
     dynamicRecipes:
     - ProximitySensor
     - BorgModuleLightReplacer
@@ -870,7 +890,7 @@
       - CartridgeBicaridine # Goobstation
       - CartridgeDermaline # Goobstation
       - SecHypo # Goobstation
-      - SyringeGun # Goobstation  
+      - SyringeGun # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
@@ -935,6 +955,15 @@
       - WeaponMechCombatDisabler
       - WeaponMechCombatFlashbangLauncher
       - WeaponMechCombatMissileRack8
+  - type: EmagLatheRecipes # Goobstation
+    emagStaticRecipes:
+    - MagazinePistolCaselessRifle # Goobstation
+    - MagazineBoxCaselessRifle # Goobstation
+    - MagazineLightRifleBoxEmpty # Goobstation
+    - MagazineLightRifleBox # Goobstation
+    - MagazineHighCaliberEmpty # Goobstation
+    - MagazineHighCaliber # Goobstation
+    - MagazineBoxHighCaliber # Goobstation
   - type: MaterialStorage
     whitelist:
       tags:
@@ -985,6 +1014,15 @@
         - MagazineShotgunSlug
         - SpeedLoaderMagnum
         - SpeedLoaderMagnumEmpty
+    - type: EmagLatheRecipes # Goobstation
+      emagStaticRecipes:
+      - MagazinePistolCaselessRifle # Goobstation
+      - MagazineBoxCaselessRifle # Goobstation
+      - MagazineLightRifleBoxEmpty # Goobstation
+      - MagazineLightRifleBox # Goobstation
+      - MagazineHighCaliberEmpty # Goobstation
+      - MagazineHighCaliber # Goobstation
+      - MagazineBoxHighCaliber # Goobstation
     - type: MaterialStorage
       whitelist:
         tags:
@@ -1056,9 +1094,14 @@
       - SyringeGun #Goobstation
       - MedicalPatchBasic  #Goobstation - MedicalPatch
       - MedicalPatchRapid #Goobstation - MedicalPatch
+      - MedicalPatchTherapeutic #Goobstation - MedicalPatch
       - MedicalPatchLarge #Goobstation - MedicalPatch
       - BoneGel # Shitmed Change
       - VehicleWheelchairFolded # Goobstation - Vehicles
+      - CartridgeEpinephrine # Goobstation - ParamedHypo
+      - CartridgeBicaridine # Goobstation - ParamedHypo
+      - CartridgeDermaline # Goobstation - ParamedHypo
+      - ParamedHypo # Goobstation - ParamedHypo
     dynamicRecipes:
       - ChemicalPayload
       - CryostasisBeaker
@@ -1384,6 +1427,7 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
+
 
 - type: entity
   parent: OreProcessor

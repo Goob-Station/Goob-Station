@@ -66,8 +66,10 @@
       steel:
         reagents:
         - ReagentId: Iron
-          Quantity: 9
+          Quantity: 7
         - ReagentId: Carbon
+          Quantity: 2
+        - ReagentId: Lead 
           Quantity: 1
 
 - type: entity

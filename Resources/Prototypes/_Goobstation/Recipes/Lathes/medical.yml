@@ -27,3 +27,13 @@
     Plastic: 1000
     Gold: 200
     Plasma: 200
+
+- type: latheRecipe
+  id: ParamedHypo
+  result: ParamedHypo
+  completetime: 3
+  materials:
+    Steel: 1500
+    Plastic: 800
+    Glass: 1200
+    Gold: 500

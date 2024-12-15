@@ -56,9 +56,6 @@
   components:
   - type: HereticBlade
     path: Blade
-  - type: Reflect
-    reflectProb: 0.5
-    spread: 0
 
 - type: entity
   parent: HereticBladeBase
