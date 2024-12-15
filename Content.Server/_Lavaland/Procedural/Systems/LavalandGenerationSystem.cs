@@ -12,6 +12,7 @@ using Content.Shared.Atmos;
 using Content.Shared.Gravity;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
+using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
@@ -42,6 +43,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!;
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -153,11 +155,12 @@ public sealed class LavalandGenerationSystem : EntitySystem
         SetupRuins(pool, map);
 
         // Hide all grids from the mass scanner.
-        /*foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
+#if !DEBUG && !TOOLS
+        foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
             _shuttle.AddIFFFlag(grid, IFFFlags.Hide);
-        }*/
-
+        }
+#endif
         // Start!!1!!!
         _mapManager.DoMapInitialize(lavalandMapId);
         _mapManager.SetMapPaused(lavalandMapId, false);
@@ -219,7 +222,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
         {
             var ruin = hugeRuins[i];
             var coord = coords[k];
-            const int attemps = 3;
+            const int attemps = 5;
 
             for (var j = 0; j < attemps && !LoadRuin(coord, ruin, lavaland, ref usedSpace); j++)
             {

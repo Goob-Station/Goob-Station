@@ -1,12 +1,13 @@
 # Lavaland ruins are loaded as separate grids.
-# Adding small and opened ruins is not recomended,
-# cuz it can cause the server to fucking explode.
+# HugeRuins should contain the biggest and most valuable ruins,
+# while SmallRuins should spawn only small and not important ruins.
 
 - type: lavalandRuinPool
   id: Lavaland
   hugeRuins:
     Debug: 8
+    LavaLake: 8
   smallRuins:
-    RuinedShuttle: 480
+    RuinedShuttle: 48
     Hermit: 24
     Labyrinth: 24

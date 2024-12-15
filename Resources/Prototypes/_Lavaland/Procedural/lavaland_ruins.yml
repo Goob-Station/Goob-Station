@@ -17,3 +17,8 @@
   id: Debug
   name: Debug Test
   path: Maps/_Lavaland/test.yml
+
+- type: lavalandRuin
+  id: LavaLake
+  name: Lava Lake
+  path: Maps/_Lavaland/ruin_lavalake.yml

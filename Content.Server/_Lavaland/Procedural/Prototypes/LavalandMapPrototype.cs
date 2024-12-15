@@ -46,6 +46,7 @@ public sealed partial class LavalandMapPrototype : IPrototype
     public List<ProtoId<BiomeMarkerLayerPrototype>> OreLayers = new()
     {
         "OreIron",
+        "OreCoal",
         "OreQuartz",
         "OreGold",
         "OreSilver",

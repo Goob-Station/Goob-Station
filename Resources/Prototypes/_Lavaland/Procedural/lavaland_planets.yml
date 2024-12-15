@@ -5,7 +5,7 @@
   ruinPool: Lavaland
   temperature: 338.4523 # 65.3023 C
   planetColor: "#A34931"
-  biome: Lava
+  biome: LavaLand
   atmosphere:
   - 6.524779 # oxygen, not enough for breathing
   - 20.10312 # nitrogen
