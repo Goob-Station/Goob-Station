@@ -143,5 +143,8 @@ public sealed partial class ProjectileComponent : Component
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();
+
+    [DataField, AutoNetworkedField]
+    public bool DamagedEntity;
     // Goobstation end
 }

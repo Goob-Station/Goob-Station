@@ -242,7 +242,8 @@ namespace Content.Shared.Damage
             bool? canSever = true, bool? canEvade = false, float? partMultiplier = 1.00f, TargetBodyPart? targetPart = null,
             float armorPenetration = 0f,
             // Goobstation
-            bool heavyAttack = false)
+            bool heavyAttack = false,
+            EntityUid? tool = null)
         {
             if (!uid.HasValue || !_damageableQuery.Resolve(uid.Value, ref damageable, false))
             {
@@ -283,7 +284,7 @@ namespace Content.Shared.Damage
                         DamageSpecifier.PenetrateArmor(modifierSet, armorPenetration)); // Goob edit
                 }
 
-                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration); // Shitmed + Goobstation Change
+                var ev = new DamageModifyEvent(uid.Value, damage, origin, targetPart, armorPenetration, tool); // Shitmed + Goobstation Change
                 RaiseLocalEvent(uid.Value, ev);
                 damage = ev.Damage;
 
@@ -547,8 +548,9 @@ namespace Content.Shared.Damage
         public EntityUid? Origin;
         public readonly TargetBodyPart? TargetPart; // Shitmed Change
         public float ArmorPenetration; // Goobstation
+        public EntityUid? Tool;
 
-        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0) // Shitmed + Goobstation Change
+        public DamageModifyEvent(EntityUid target, DamageSpecifier damage, EntityUid? origin = null, TargetBodyPart? targetPart = null, float armorPenetration = 0, EntityUid? tool = null) // Shitmed + Goobstation Change
         {
             Target = target; // Goobstation
             OriginalDamage = damage;
@@ -556,6 +558,7 @@ namespace Content.Shared.Damage
             Origin = origin;
             TargetPart = targetPart; // Shitmed Change
             ArmorPenetration = armorPenetration; // Goobstation
+            Tool = tool;
         }
     }
 
