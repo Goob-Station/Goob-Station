@@ -52,6 +52,9 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
+uplink-contractor-baton-name = Contractor Baton
+uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
+
 uplink-weapon-burner-name = Burner Heavy Rifle Bundle
 uplink-weapon-burner-desc = A bundle containing a Burner Heavy Rifle and a couple of magazines, including some high-explosive rounds.
 

@@ -31,7 +31,7 @@ public sealed class TelescopicBatonSystem : EntitySystem
         if (!ent.Comp.AlwaysDropItems)
             ent.Comp.CanDropItems = false; // Goob edit
 
-        if (args.HitEntities.Count > 0 && TryComp(ent, out UseDelayComponent? delay))
+        if (args is { IsHit: true, HitEntities.Count: > 0 } && TryComp(ent, out UseDelayComponent? delay))
             _delay.ResetAllDelays((ent, delay));
     }
 

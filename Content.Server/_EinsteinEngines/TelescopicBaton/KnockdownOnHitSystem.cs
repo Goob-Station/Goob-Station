@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.Stunnable;
 using Content.Shared._EinsteinEngines.TelescopicBaton;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.StatusEffect;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -25,7 +26,7 @@ public sealed class KnockdownOnHitSystem : EntitySystem
         if (ev.Cancelled)
             return;
 
-        foreach (var target in args.HitEntities)
+        foreach (var target in args.HitEntities.Where(e => !HasComp<BorgChassisComponent>(e))) // Goob edit
         {
             if (!TryComp(target, out StatusEffectsComponent? statusEffects))
                 continue;
