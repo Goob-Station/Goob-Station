@@ -80,7 +80,7 @@
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 9999999
+          Quantity: 500
 
 - type: entity
   name: wide sink
@@ -127,4 +127,4 @@
       tank:
         reagents:
         - ReagentId: Water
-          Quantity: 9999999
+          Quantity: 500
