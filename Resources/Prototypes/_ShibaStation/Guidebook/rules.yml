@@ -8,9 +8,6 @@
   - ShibaRoleplayRules
   - ShibaJobExpectations
   - SiliconRules
-  - RoleTypes
-  - BanTypes
-  - BanDurations
 
 - type: guideEntry #
   id: ShibaCoreRules
