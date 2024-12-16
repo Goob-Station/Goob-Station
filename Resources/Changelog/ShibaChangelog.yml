@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Ported the mouse/cockroach/snail pickup fix from WizDen.
+    type: Fix
+  id: 41
+  time: '2024-12-16T14:11:11.277728'
+- author: AstroDogeDX
+  changes:
   - message: Yowies have been sent back to Space Australia. (No longer a round-start
       species, they need a lot more work.)
     type: Remove
