@@ -1,15 +1,13 @@
 using Content.Server.Item;
-using Content.Server.Stunnable.Systems;
+using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared._White.Standing;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
-using Content.Shared.Stunnable.Events;
-using Content.Shared.TelescopicBaton;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Server.GameObjects;
 
-namespace Content.Server.TelescopicBaton;
+namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
 public sealed class TelescopicBatonSystem : EntitySystem
 {
@@ -30,8 +28,8 @@ public sealed class TelescopicBatonSystem : EntitySystem
 
     private void OnMeleeHit(Entity<TelescopicBatonComponent> ent, ref MeleeHitEvent args) // Goobstation
     {
-        if (!ent.Comp.AlwaysKnockdown)
-            ent.Comp.CanKnockDown = false;
+        if (!ent.Comp.AlwaysDropItems)
+            ent.Comp.CanDropItems = false; // Goob edit
 
         if (args.HitEntities.Count > 0 && TryComp(ent, out UseDelayComponent? delay))
             _delay.ResetAllDelays((ent, delay));
@@ -44,17 +42,17 @@ public sealed class TelescopicBatonSystem : EntitySystem
         var query = EntityQueryEnumerator<TelescopicBatonComponent>();
         while (query.MoveNext(out var baton))
         {
-            if (baton.AlwaysKnockdown) // Goobstation
+            if (baton.AlwaysDropItems) // Goobstation
                 continue;
 
-            if (!baton.CanKnockDown)
+            if (!baton.CanDropItems) // Goob edit
                 continue;
 
             baton.TimeframeAccumulator += TimeSpan.FromSeconds(frameTime);
             if (baton.TimeframeAccumulator <= baton.AttackTimeframe)
                 continue;
 
-            baton.CanKnockDown = false; // Only disable knockdown
+            baton.CanDropItems = false; // Goob edit
             baton.TimeframeAccumulator = TimeSpan.Zero;
         }
     }
@@ -79,7 +77,7 @@ public sealed class TelescopicBatonSystem : EntitySystem
             return;
         }
 
-        if (!baton.Comp.CanKnockDown)
+        if (!baton.Comp.CanDropItems)
             args.Behavior = DropHeldItemsBehavior.NoDrop;
         // Goob edit end
     }
@@ -87,7 +85,7 @@ public sealed class TelescopicBatonSystem : EntitySystem
     public void ToggleBaton(Entity<TelescopicBatonComponent> baton, bool state)
     {
         baton.Comp.TimeframeAccumulator = TimeSpan.Zero;
-        baton.Comp.CanKnockDown = state;
+        baton.Comp.CanDropItems = state; // Goob edit
         _appearance.SetData(baton, TelescopicBatonVisuals.State, state);
     }
 }

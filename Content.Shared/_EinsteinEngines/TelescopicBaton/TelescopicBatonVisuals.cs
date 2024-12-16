@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Serialization;
 
-namespace Content.Shared.TelescopicBaton;
+namespace Content.Shared._EinsteinEngines.TelescopicBaton;
 
 [Serializable, NetSerializable]
 public enum TelescopicBatonVisuals

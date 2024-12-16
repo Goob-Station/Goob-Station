@@ -1,10 +1,10 @@
 ﻿using System.Linq;
-using Content.Server.Stunnable.Components;
+using Content.Server.Stunnable;
+using Content.Shared._EinsteinEngines.TelescopicBaton;
 using Content.Shared.StatusEffect;
-using Content.Shared.Stunnable.Events;
 using Content.Shared.Weapons.Melee.Events;
 
-namespace Content.Server.Stunnable.Systems;
+namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
 public sealed class KnockdownOnHitSystem : EntitySystem
 {

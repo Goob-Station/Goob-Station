@@ -1,13 +1,13 @@
-﻿namespace Content.Server.TelescopicBaton;
+﻿namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
 [RegisterComponent]
 public sealed partial class TelescopicBatonComponent : Component
 {
     [DataField]
-    public bool CanKnockDown;
+    public bool CanDropItems; // Goob edit
 
     [DataField]
-    public bool AlwaysKnockdown; // Goobstation
+    public bool AlwaysDropItems; // Goobstation
 
     /// <summary>
     ///     The amount of time during which the baton will be able to knockdown someone after activating it.

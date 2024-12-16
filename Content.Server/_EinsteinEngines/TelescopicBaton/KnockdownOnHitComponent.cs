@@ -1,6 +1,6 @@
 ﻿using Content.Shared._White.Standing;
 
-namespace Content.Server.Stunnable.Components;
+namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
 [RegisterComponent]
 public sealed partial class KnockdownOnHitComponent : Component
