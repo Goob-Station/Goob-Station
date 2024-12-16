@@ -219,3 +219,17 @@
   result: MagazineBoxHighCaliber
   materials:
     Steel: 600
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineMagnumEmpty
+  result: MagazineMagnumEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMagnum
+  result: MagazineMagnum
+  materials:
+    Steel: 165

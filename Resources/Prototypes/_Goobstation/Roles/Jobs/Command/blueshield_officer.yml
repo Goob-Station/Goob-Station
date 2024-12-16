@@ -51,8 +51,11 @@
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
+    suitstorage: WeaponSubMachineGunAtreides
   storage:
     back:
     - Flash
-    - BluespaceLifelineImplanter
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    # - BluespaceLifelineImplanter
     - SecHypo

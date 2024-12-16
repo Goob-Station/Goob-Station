@@ -39,8 +39,10 @@
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+    pocked1: WeaponPistolN1984
   storage:
     back:
+    - MagazineMagnum
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter
