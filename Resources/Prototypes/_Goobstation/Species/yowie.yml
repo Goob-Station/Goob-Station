@@ -1,7 +1,7 @@
 - type: species
   id: Yowie
   name: species-name-yowie
-  roundStart: true
+  roundStart: false # ShibaStation - these are awful, need a lot of changes. Still can be cringe ghostroles though.
   prototype: MobYowie
   sprites: MobYowieSprites
   markingLimits: MobHumanMarkingLimits
@@ -36,7 +36,7 @@
     RFoot: MobYowieRFoot
     Tail: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
-    
+
 - type: markingPoints
   id: MobYowieMarkingLimits
   points:
