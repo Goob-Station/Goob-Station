@@ -11,11 +11,11 @@
 #   - BanTypes
 #   - BanDurations
 
-- type: guideEntry
-  id: RoleTypes
-  name: guide-entry-rules-role-types
-  priority: 5 # ShibaStation - reorder the guidebook entries
-  text: "/ServerInfo/Guidebook/ServerRules/RoleTypes.xml"
+# - type: guideEntry
+#   id: RoleTypes
+#   name: guide-entry-rules-role-types
+#   priority: 5 # ShibaStation - reorder the guidebook entries
+#   text: "/ServerInfo/Guidebook/ServerRules/RoleTypes.xml"
 
 - type: guideEntry
   id: CoreRules
@@ -411,14 +411,14 @@
   priority: 5
   text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SLCrimeList.xml"
 
-- type: guideEntry
-  id: BanTypes
-  name: guide-entry-rules-ban-types
-  priority: 6 # ShibaStation - reorder the guidebook entries
-  text: "/ServerInfo/Guidebook/ServerRules/BanTypes.xml"
+# - type: guideEntry
+#   id: BanTypes
+#   name: guide-entry-rules-ban-types
+#   priority: 6 # ShibaStation - reorder the guidebook entries
+#   text: "/ServerInfo/Guidebook/ServerRules/BanTypes.xml"
 
-- type: guideEntry
-  id: BanDurations
-  name: guide-entry-rules-ban-durations
-  priority: 7 # ShibaStation - reorder the guidebook entries
-  text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
+# - type: guideEntry
+#   id: BanDurations
+#   name: guide-entry-rules-ban-durations
+#   priority: 7 # ShibaStation - reorder the guidebook entries
+#   text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
