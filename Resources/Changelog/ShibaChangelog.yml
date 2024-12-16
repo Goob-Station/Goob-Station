@@ -1,6 +1,27 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Added minimum player requirement for some Syndicate shuttles/ghost roles
+      to spawn.
+    type: Fix
+  id: 39
+  time: '2024-12-16T13:13:04.474340'
+- author: AstroDogeDX
+  changes:
+  - message: The rules have been updated for an MRP environment. Please give them
+      a quick look over. Most importantly; make yourself aware of the new Job Expectations.
+    type: Add
+  id: 38
+  time: '2024-12-16T13:12:32.930517'
+- author: AstroDogeDX
+  changes:
+  - message: Added the No EORG popup from DeltaV to ShibaStation - with some additions.
+      Coming soon - THE MURDERBOX!
+    type: Add
+  id: 37
+  time: '2024-12-16T13:13:36.666262'
+- author: AstroDogeDX
+  changes:
   - message: Degremlinfied felinids back to their cat selves.
     type: Fix
   id: 36
