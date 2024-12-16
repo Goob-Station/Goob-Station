@@ -1222,6 +1222,7 @@
     Telecrystal: 65 # goob
   categories:
     - UplinkImplants
+  restockTime: 1800
   conditions:
     # goob - traitor suicide implants
     #- !type:StoreWhitelistCondition
