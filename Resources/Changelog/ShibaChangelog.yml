@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Yowies have been sent back to Space Australia. (No longer a round-start
+      species, they need a lot more work.)
+    type: Remove
+  id: 40
+  time: '2024-12-16T13:37:56.146007'
+- author: AstroDogeDX
+  changes:
   - message: Added minimum player requirement for some Syndicate shuttles/ghost roles
       to spawn.
     type: Fix
