@@ -70,15 +70,33 @@
   - type: Wagging
   - type: Inventory
     speciesId: reptilian
+  - type: FootPrints # WD EDIT
+    leftBarePrint: "footprint-left-bare-lizard"
+    rightBarePrint: "footprint-right-bare-lizard"
+    # WWDP-Edit-Start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
-  - type: FootPrints # WD EDIT
-    leftBarePrint: "footprint-left-bare-lizard"
-    rightBarePrint: "footprint-right-bare-lizard"
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # WWDP-Edit-End
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -88,17 +106,31 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
-    hideLayersOnEquip:
-    - Snout
-    - HeadTop
-    - HeadSide
   - type: Inventory
     speciesId: reptilian
+    # WWDP-Edit-Start
     femaleDisplacements:
       jumpsuit:
         sizeMaps:
           32:
-            sprite: Mobs/Species/Human/displacement.rsi
+            sprite: _White/Mobs/Species/displacement.rsi
             state: jumpsuit-female
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    displacements:
+      jumpsuit:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: jumpsuit
+      shoes:
+        sizeMaps:
+          32:
+            sprite: _White/Mobs/Species/displacement.rsi
+            state: shoes
+    # WWDP-Edit-End
 
 #Weh
