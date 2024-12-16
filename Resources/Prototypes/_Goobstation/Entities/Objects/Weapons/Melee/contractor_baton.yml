@@ -40,3 +40,4 @@
   - type: StaminaDamageOnHit
     damage: 85
   - type: StunBorgsOnHit
+  - type: TogglePreventStaminaDamage
