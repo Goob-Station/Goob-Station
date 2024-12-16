@@ -1,4 +1,90 @@
 - type: latheRecipe
+  abstract: true
+  parent: BaseRoboticsRecipe
+  id: BaseIPCLimbRecipe
+  materials:
+    Steel: 250
+    Plastic: 100
+    Glass: 250
+
+- type: latheRecipe
+  abstract: true
+  parent: BaseRoboticsRecipe
+  id: BaseIPCOrganRecipe
+  materials:
+    Steel: 250
+    Plasma: 100
+    Plastic: 100
+
+- type: latheRecipe
+  parent: BaseRoboticsRecipe
+  id: TorsoIPC
+  result: TorsoIPC
+  completetime: 3
+  materials:
+    Steel: 3000
+    Gold: 500
+    Plastic: 500
+    Plasma: 500
+
+# Generic
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: LeftArmIPC
+  result: LeftArmIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: RightArmIPC
+  result: RightArmIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: LeftHandIPC
+  result: LeftHandIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: RightHandIPC
+  result: RightHandIPC
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: LeftLegIPC
+  result: LeftLegIPC
+
+- type: latheRecipe
+  parent: BaseBorgLimbRecipe
+  id: RightLegIPC
+  result: RightLegIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: LeftFootIPC
+  result: LeftFootIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: RightFootIPC
+  result: RightFootIPC
+
+- type: latheRecipe
+  parent: BaseIPCLimbRecipe
+  id: HeadIPC
+  result: HeadIPC
+
+- type: latheRecipe
+  parent: BaseIPCOrganRecipe
+  id: OrganIPCEyes
+  result: OrganIPCEyes
+
+- type: latheRecipe
+  parent: BaseIPCOrganRecipe
+  id: OrganIPCPump
+  result: OrganIPCPump
+
+- type: latheRecipe
   id: BorgModuleSurgery
   result: BorgModuleSurgery
   category: Robotics

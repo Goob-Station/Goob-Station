@@ -123,8 +123,7 @@
   components:
   - type: InstantAction
     checkCanInteract: false
-    charges: 3
-    useDelay: 5
+    useDelay: 30
     itemIconStyle: BigAction
     priority: -20
     icon:

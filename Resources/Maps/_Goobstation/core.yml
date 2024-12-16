@@ -121866,7 +121866,7 @@ entities:
   - uid: 121464342
     components:
     - type: Transform
-      pos: 44.5,-30.5
+      pos: 39.5,-34.5
       parent: 2
 - proto: SpawnPointBorg
   entities:
@@ -122127,7 +122127,7 @@ entities:
   - uid: 42146433
     components:
     - type: Transform
-      pos: 44.5,-30.5
+      pos: 41.5,-34.5
       parent: 2
 - proto: SpawnPointObserver
   entities:

@@ -1,16 +1,16 @@
-- type: entity
-  id: SkibidiMigration
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAnnouncement: goob-station-event-vent-creatures-skibidi-start-announcement
-    startAudio:
-      path: /Audio/_Goobstation/Animals/skibidi.wav
-    earliestStart: 15
-    minimumPlayers: 15
-    weight: 6
-    duration: 50
-  - type: VentCrittersRule
-    entries:
-    - id: MobSkibidiToilet
-      prob: 0.05
+# - type: entity
+#   id: SkibidiMigration
+#   parent: BaseStationEventShortDelay
+#   components:
+#   - type: StationEvent
+#     startAnnouncement: goob-station-event-vent-creatures-skibidi-start-announcement
+#     startAudio:
+#       path: /Audio/_Goobstation/Animals/skibidi.wav
+#     earliestStart: 15
+#     minimumPlayers: 15
+#     weight: 6
+#     duration: 50
+#   - type: VentCrittersRule
+#     entries:
+#     - id: MobSkibidiToilet
+#       prob: 0.05

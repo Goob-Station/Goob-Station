@@ -29,6 +29,18 @@
   - type: PhysicalComposition
     materialComposition:
       Steel: 15
+  # EE Change Start
+  #MORE than ointment Estacao Pirata IPCs
+  - type: Healing
+    delay: 0.6
+    damageContainers:
+    - Silicon
+    damage:
+      types: # these are all split across multiple types
+        Heat: -3.0
+        Shock: -3.0
+        Ion: -3.0 # Goobstation
+  # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right
   #- type: Hemostat # Shitmed
