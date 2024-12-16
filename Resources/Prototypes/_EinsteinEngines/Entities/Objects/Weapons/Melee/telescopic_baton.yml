@@ -54,7 +54,6 @@
   - type: MeleeWeapon
     wideAnimationRotation: -135
     bluntStaminaDamageFactor: 1.5
-    maxTargets: 1
     angle: 0 # Goob edit
     damage:
       types:
