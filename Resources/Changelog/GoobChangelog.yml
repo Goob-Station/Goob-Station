@@ -3298,3 +3298,55 @@ Entries:
       message: You may now choose how many items to split from a stack.
   id: 368
   time: '2024-12-17T22:07:29.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Added evasion to part targeting
+    - type: Add
+      message: New fleshmend and panacea chems for lings
+    - type: Add
+      message: BSC can be made again
+    - type: Fix
+      message: fix implant misinformation
+    - type: Fix
+      message: >-
+        Fixed mech battery drain from being EMP'd not being visible in the
+        status menu
+    - type: Tweak
+      message: Adjusted most mech weapons' fire rates and energy consumption.
+    - type: Tweak
+      message: Infused blades hardstun on grab
+    - type: Tweak
+      message: Goliaths stun for 3 seconds less
+    - type: Tweak
+      message: Removed most bundles from uplink and replaced them with individual guns
+    - type: Tweak
+      message: Energy swords now easily delimb, and only reflect energy projectiles
+    - type: Tweak
+      message: DEsword does less damage but has better energy reflect and is cheaper
+    - type: Tweak
+      message: change a few minor uplink prices
+    - type: Tweak
+      message: reduce northstar stam cost
+    - type: Tweak
+      message: funny toy sword sprite
+    - type: Tweak
+      message: edagger more quiet
+    - type: Tweak
+      message: Fireaxe hits harder, slower, costs more stam, and does more firestacks.
+    - type: Tweak
+      message: disposable turret fires faster, has less ammo, and more HP
+    - type: Tweak
+      message: Many heretic and ling abilities can be done while cuffed
+    - type: Tweak
+      message: less ling armor slowdown
+    - type: Tweak
+      message: armblade does VERY little damage and is now a delimbing based weapon
+    - type: Tweak
+      message: plasma rifle blows up less
+    - type: Tweak
+      message: plasma cutter deals stam damage
+    - type: Tweak
+      message: buff priest ritual
+  id: 369
+  time: '2024-12-17T22:09:24.0000000+00:00'
