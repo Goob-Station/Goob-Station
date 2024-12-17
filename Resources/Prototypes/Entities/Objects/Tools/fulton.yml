@@ -65,6 +65,11 @@
   - type: Stack
     stackType: Fulton
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Objects/Tools/fulton.rsi
