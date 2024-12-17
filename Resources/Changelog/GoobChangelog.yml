@@ -3270,3 +3270,17 @@ Entries:
       message: Removed fun.
   id: 364
   time: '2024-12-14T20:29:49.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        NEW NUKIE SHUTTLE!!! NEW NUKIE SHUTTLE!!!! ITS OVER FOR YOU SALVBROS!!!
+        NO LONGER WILL YOU STEAL THE SHUTTLE WITH A SINGLE SEISMIC CHARGE!!
+  id: 365
+  time: '2024-12-16T18:20:34.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed rules.
+  id: 366
+  time: '2024-12-17T15:39:20.0000000+00:00'
