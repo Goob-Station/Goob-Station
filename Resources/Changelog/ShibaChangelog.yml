@@ -1,6 +1,25 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: IPC voices are more like borgs than pAIs.
+    type: Tweak
+  id: 44
+  time: '2024-12-17T14:41:20.178587'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed IPC glasses slot being in the wrong place. They go on your face,
+      silly.
+    type: Fix
+  id: 43
+  time: '2024-12-17T14:41:22.498334'
+- author: AstroDogeDX
+  changes:
+  - message: IPCs now have a built in flashlight. Just makes sense.
+    type: Add
+  id: 42
+  time: '2024-12-17T14:41:23.202776'
+- author: AstroDogeDX
+  changes:
   - message: Ported the mouse/cockroach/snail pickup fix from WizDen.
     type: Fix
   id: 41
