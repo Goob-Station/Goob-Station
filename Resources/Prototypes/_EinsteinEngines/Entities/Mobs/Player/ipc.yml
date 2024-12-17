@@ -102,6 +102,38 @@
   - type: EmitBuzzWhileDamaged
   - type: CanHostGuardian
   - type: WeldingHealable
+  - type: HandheldLight # ShibaStation - IPC light
+    toggleOnInteract: false
+    wattage: 0.2
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour # ShibaStation - IPC light
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+  - type: ToggleableLightVisuals # ShibaStation - IPC light
+  - type: ItemTogglePointLight # ShibaStation - IPC light
+  - type: PointLight # ShibaStation - IPC light
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    radius: 3 # ShibaStation - Smaller radius, light attempt at balancing.
+    netsync: false
+  - type: Speech # ShibaStation - Better IPC noises; pAI too small, borg makes more sense.
+    speechVerb: Robotic
+    speechSounds: Borg
 
 - type: entity
   save: false
