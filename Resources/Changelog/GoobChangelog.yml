@@ -3366,3 +3366,11 @@ Entries:
       message: Nuclear Oprative icon is visable when in stealth
   id: 371
   time: '2024-12-17T22:41:17.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed IPC glasses slot being in the wrong place. Glasses go on your
+        face, silly.
+  id: 372
+  time: '2024-12-17T22:42:47.0000000+00:00'
