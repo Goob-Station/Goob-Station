@@ -3390,3 +3390,9 @@ Entries:
       message: Modified Nitrium, Healium, N2O and BZ effects
   id: 374
   time: '2024-12-17T22:49:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Rapid Piping Device
+  id: 375
+  time: '2024-12-17T22:56:29.0000000+00:00'
