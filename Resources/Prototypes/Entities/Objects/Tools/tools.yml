@@ -431,6 +431,8 @@
     - Multitool
   - type: Prying
     enabled: false
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Tool
     qualities:
       - Screwing

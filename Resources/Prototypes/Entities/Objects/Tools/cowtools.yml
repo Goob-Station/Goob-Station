@@ -95,6 +95,8 @@
     delay: 10
   - type: Prying
     speedModifier: 0.05
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 3
 
 - type: entity
   name: mooltitool

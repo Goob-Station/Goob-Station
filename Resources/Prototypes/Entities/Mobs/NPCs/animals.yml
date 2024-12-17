@@ -2436,6 +2436,8 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive

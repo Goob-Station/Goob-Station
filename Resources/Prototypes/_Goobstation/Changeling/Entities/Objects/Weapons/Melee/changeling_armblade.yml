@@ -24,6 +24,8 @@
     sprite: _Goobstation/Changeling/arm_blade.rsi
   - type: Prying
     pryPowered: true
+  - type: UseDelay # For insta prying
+    delay: 1
   - type: Unremoveable
   - type: Tool
     qualities:
