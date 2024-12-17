@@ -146,7 +146,7 @@
       coefficients:
         Blunt: 0.7
         Slash: 0.7
-        Piercing: 0.7
+        Piercing: 0.7 #Goobstation
         Radiation: 0.4
         Caustic: 0.7
   - type: ClothingSpeedModifier
@@ -175,7 +175,7 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.3
+        Blunt: 0.3 #Goobstation
         Slash: 0.5
         Piercing: 0.5
         Heat: 0.3

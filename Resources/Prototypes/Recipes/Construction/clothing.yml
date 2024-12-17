@@ -130,7 +130,7 @@
   icon: { sprite: Clothing/Head/Helmets/justice.rsi, state: icon }
   objectType: Item
 
-- type: construction
+- type: construction  #Goobstation
   name: goliath cloak
   id: GoliathCloak
   graph: GoliathCloak

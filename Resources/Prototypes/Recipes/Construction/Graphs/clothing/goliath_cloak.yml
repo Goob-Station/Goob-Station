@@ -1,4 +1,4 @@
-- type: constructionGraph
+- type: constructionGraph #Goobstation
   id: GoliathCloak
   start: start
   graph:
