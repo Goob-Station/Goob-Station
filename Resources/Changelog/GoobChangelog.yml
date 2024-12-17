@@ -3284,3 +3284,17 @@ Entries:
       message: Fixed rules.
   id: 366
   time: '2024-12-17T15:39:20.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: >-
+        Fentanyl, a new drug for chemists to create! If you do drugs, you go to
+        hell before you die!
+  id: 367
+  time: '2024-12-17T22:01:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You may now choose how many items to split from a stack.
+  id: 368
+  time: '2024-12-17T22:07:29.0000000+00:00'
