@@ -8,6 +8,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
+using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -19,7 +20,7 @@ namespace Content.Shared._Goobstation.Clothing.Systems;
 /// <summary>
 ///     System used for sealable clothing (like modsuits)
 /// </summary>
-public sealed partial class SealableClothingSystem : EntitySystem
+public abstract class SharedSealableClothingSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _netManager = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
@@ -31,6 +32,7 @@ public sealed partial class SealableClothingSystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedInteractionSystem _interactionSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedPowerCellSystem _powerCellSystem = default!;
     [Dependency] private readonly ToggleableClothingSystem _toggleableSystem = default!;
 
     public override void Initialize()
@@ -50,6 +52,8 @@ public sealed partial class SealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
         //SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
+
+        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, ClothingSealAttemptEvent>(OnRequiresPowerSealAttempt);
     }
 
     #region Events
@@ -269,6 +273,24 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
         return;
     }
+
+    /// <summary>
+    /// Checks if control have enough power to seal
+    /// </summary>
+    protected virtual void OnRequiresPowerSealAttempt(Entity<SealableClothingRequiresPowerComponent> entity, ref ClothingSealAttemptEvent args)
+    {
+        if (!TryComp(entity, out SealableClothingControlComponent? controlComp) || !TryComp(entity, out PowerCellDrawComponent? cellDrawComp))
+            return;
+
+        // Control shouldn't use charge on unsealing
+        if (controlComp.IsCurrentlySealed)
+            return;
+
+        if (args.Cancelled || !_powerCellSystem.HasActivatableCharge(entity, cellDrawComp) || !_powerCellSystem.HasDrawCharge(entity, cellDrawComp))
+        {
+            args.Cancel();
+        }
+    }
     #endregion
 
     /// <summary>
@@ -282,6 +304,12 @@ public sealed partial class SealableClothingSystem : EntitySystem
 
         // Prevent sealing/unsealing if modsuit don't have wearer or already started process
         if (comp.WearerEntity == null || comp.IsInProcess)
+            return false;
+
+        var ev = new ClothingSealAttemptEvent();
+        RaiseLocalEvent(control, ev);
+
+        if (ev.Cancelled)
             return false;
 
         // All parts required to be toggled to perform sealing
@@ -420,4 +448,8 @@ public readonly record struct ClothingControlSealCompleteEvent(bool IsSealed)
 public readonly record struct ClothingPartSealCompleteEvent(bool IsSealed)
 {
     public readonly bool IsSealed = IsSealed;
+}
+
+public sealed partial class ClothingSealAttemptEvent : CancellableEntityEventArgs
+{
 }

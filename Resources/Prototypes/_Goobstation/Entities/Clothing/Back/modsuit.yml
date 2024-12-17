@@ -20,6 +20,25 @@
     slots:
     - back
   - type: SealableClothingControl
+  - type: WiresPanel
+  - type: PowerCellDraw
+    drawRate: 1 # Sealed draw rate
+    useRate: 5 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellSmall
+        whitelist:
+          components:
+            - PowerCell
+  - type: SealableClothingRequiresPower
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
   - type: ToggleableClothing
     requiredSlot: back
     blockUnequipWhenAttached: true

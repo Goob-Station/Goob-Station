@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Clothing.Components;
 /// </summary>
 [RegisterComponent]
 [NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SealableClothingSystem))]
+[Access(typeof(SharedSealableClothingSystem))]
 public sealed partial class SealableClothingComponent : Component
 {
     [DataField, AutoNetworkedField]
