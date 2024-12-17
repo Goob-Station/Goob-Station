@@ -3350,3 +3350,11 @@ Entries:
       message: buff priest ritual
   id: 369
   time: '2024-12-17T22:09:24.0000000+00:00'
+- author: BIGZi0348
+  changes:
+    - type: Tweak
+      message: Reflective vest now reflects lasers only while equipped.
+    - type: Tweak
+      message: Energy katana now reflects lasers and projectiles only while in hands.
+  id: 370
+  time: '2024-12-17T22:14:24.0000000+00:00'
