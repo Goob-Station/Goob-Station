@@ -3374,3 +3374,11 @@ Entries:
         face, silly.
   id: 372
   time: '2024-12-17T22:42:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now tiles, firelocks and unpowered doors are pried instantly using a
+        tool.
+  id: 373
+  time: '2024-12-17T22:46:12.0000000+00:00'
