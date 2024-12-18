@@ -258,6 +258,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:BloodReagentThreshold # /tg/ gases
+          reagent: NitrosylPlasmide
+          max: 0.1
         type: Local
         visualType: Medium
         messages: [ "effect-sleepy" ]
@@ -270,6 +273,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:BloodReagentThreshold # /tg/ gases
+          reagent: NitrosylPlasmide
+          max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
@@ -280,6 +286,9 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
+        - !type:BloodReagentThreshold # /tg/ gases
+          reagent: NitrosylPlasmide
+          max: 0.1
         key: ForcedSleep
         component: ForcedSleeping
         time: 200 # This reeks, but I guess it works LMAO
@@ -352,3 +361,224 @@
         - !type:ReagentThreshold
           reagent: Frezon
           min: 1
+
+ #/tg/ gases
+- type: reagent
+  id: BZ
+  name: reagent-name-bz
+  desc: reagent-desc-bz
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#9370db"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        emote: Cough
+        showInChat: true
+        probability: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: 10
+            Poison: 2.5
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: false
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 10
+        refresh: false
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        emote: Laugh
+        showInChat: true
+        probability: 0.1
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.2
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        emote: Scream
+        showInChat: true
+        probability: 0.01
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 0.5
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:BloodReagentThreshold
+          reagent: NitrosylPlasmide
+          max: 0.1
+        type: Local
+        visualType: Medium
+        messages: [ "effect-sleepy" ]
+        probability: 0.1
+      - !type:MovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:BloodReagentThreshold
+          reagent: NitrosylPlasmide
+          max: 0.1
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: BZ
+          min: 1
+        - !type:OrganType
+          type: Slime
+          shouldHave: true
+        - !type:BloodReagentThreshold
+          reagent: NitrosylPlasmide
+          max: 0.1
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 10
+        type: Add
+
+- type: reagent
+  id: Healium
+  name: reagent-name-healium
+  desc: reagent-desc-healium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: sweet
+  color: "#8b0000"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          max: 15
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          groups:
+            Burn: -2
+            Toxin: -5
+            Brute: -2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 15
+        ignoreResistances: true
+        damage:
+          groups:
+            Burn: -12
+            Toxin: -25
+            Brute: -12
+      - !type:PopupMessage
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 4
+        - !type:BloodReagentThreshold
+          reagent: NitrosylPlasmide
+          max: 0.1
+        type: Local
+        visualType: Medium
+        messages: [ "effect-sleepy" ]
+        probability: 0.01
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 8
+        - !type:BloodReagentThreshold
+          reagent: NitrosylPlasmide
+          max: 0.01
+        key: ForcedSleep
+        component: ForcedSleeping
+        time: 3
+        type: Add
+      - !type:Drunk
+        boozePower: 50
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Healium
+          min: 4
+
+- type: reagent
+  id: Nitrium
+  name: reagent-name-nitrium
+  desc: reagent-desc-nitrium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: sour
+  color: "#b76f0e"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:NitriumMovespeedModifier
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 3
+        walkSpeedModifier: 1.25
+        sprintSpeedModifier: 1.25
+      - !type:AddReagentToBlood
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 6
+        reagent: NitrosylPlasmide
+        amount: 2.5
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 8
+        key: Stutter
+        component: StutteringAccent
+        time: 8
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          reagent: Nitrium
+          min: 10
+        ignoreResistances: true
+        damage:
+          types:
+            Asphyxiation: 15

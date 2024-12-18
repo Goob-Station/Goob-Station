@@ -1,9 +1,9 @@
 - type: latheRecipe
-  id: MaterialBSCrystal
+  id: MaterialBSCrystal1
   result: MaterialBSCrystal1
   completetime: 2
   materials:
-    Gold: 25
-    Silver: 25
+    Gold: 50
+    Silver: 50
     Glass: 50
-    Plasma: 50
+    Plasma: 100

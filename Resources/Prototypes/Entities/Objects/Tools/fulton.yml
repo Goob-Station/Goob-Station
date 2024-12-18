@@ -47,6 +47,10 @@
       layers:
         - state: extraction_point
           map: [ "foldedLayer" ]
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 250
+        Glass: 125
 
 - type: entity
   id: Fulton
@@ -61,6 +65,11 @@
   - type: Stack
     stackType: Fulton
     count: 10
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     drawdepth: SmallObjects
     sprite: Objects/Tools/fulton.rsi
@@ -75,6 +84,10 @@
         behaviors:
           - !type:DoActsBehavior
             acts: [ "Destruction" ]
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 50
+      Cloth: 125
 
 - type: entity
   id: Fulton1

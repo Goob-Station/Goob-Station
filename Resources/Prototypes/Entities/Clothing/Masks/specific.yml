@@ -39,6 +39,9 @@
           type: ChameleonBoundUserInterface
         enum.VoiceMaskUIKey.Key:
           type: VoiceMaskBoundUserInterface
+    - type: Tag
+      tags:
+      - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -56,10 +59,10 @@
   - type: IdentityBlocker
   - type: FlashImmunity
   - type: EyeProtection
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 200
-      Glass: 100
+      Steel: 150
+      Glass: 50
   - type: StaticPrice
     price: 100
   - type: Tag

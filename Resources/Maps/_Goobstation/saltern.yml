@@ -33177,8 +33177,11 @@ entities:
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
-      pos: 55.474125,-11.511058
+      pos: 56.42892,-11.569014
       parent: 31
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: EncryptionKeyScience
   entities:
   - uid: 4604
@@ -33190,8 +33193,11 @@ entities:
   - uid: 10895
     components:
     - type: Transform
-      pos: 56.448124,-11.363565
+      pos: 56.652367,-11.357214
       parent: 31
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: EncryptionKeySecurity
   entities:
   - uid: 8164
@@ -50995,6 +51001,20 @@ entities:
     - type: Transform
       pos: -8.471462,20.4352
       parent: 31
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 11961
+    components:
+    - type: Transform
+      pos: 22.333054,13.1992035
+      parent: 31
+- proto: MailTeleporter
+  entities:
+  - uid: 11960
+    components:
+    - type: Transform
+      pos: 21.5,10.5
+      parent: 31
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 113
@@ -51239,6 +51259,13 @@ entities:
     components:
     - type: Transform
       pos: 7.2571726,18.545927
+      parent: 31
+- proto: MaterialSilo
+  entities:
+  - uid: 10902
+    components:
+    - type: Transform
+      pos: 55.5,-11.5
       parent: 31
 - proto: MaterialWoodPlank1
   entities:
@@ -58898,6 +58925,13 @@ entities:
     - type: Transform
       pos: 32.5,23.5
       parent: 31
+- proto: SignMail
+  entities:
+  - uid: 11959
+    components:
+    - type: Transform
+      pos: 17.5,7.5
+      parent: 31
 - proto: SignMaterials
   entities:
   - uid: 7224
@@ -62786,11 +62820,6 @@ entities:
     - type: Transform
       pos: -11.5,19.5
       parent: 31
-  - uid: 10902
-    components:
-    - type: Transform
-      pos: 55.5,-11.5
-      parent: 31
   - uid: 10903
     components:
     - type: Transform
@@ -63858,6 +63887,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-10.5
+      parent: 31
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 11958
+    components:
+    - type: Transform
+      pos: 12.5,10.5
       parent: 31
 - proto: VendingMachineMedical
   entities:

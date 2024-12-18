@@ -10659,6 +10659,16 @@ entities:
     - type: Transform
       pos: -6.5,-52.5
       parent: 8364
+  - uid: 16458
+    components:
+    - type: Transform
+      pos: -10.5,-53.5
+      parent: 8364
+  - uid: 16459
+    components:
+    - type: Transform
+      pos: -8.5,-53.5
+      parent: 8364
 - proto: AirlockCommandLocked
   entities:
   - uid: 5619
@@ -10721,20 +10731,6 @@ entities:
     components:
     - type: Transform
       pos: -3.5,2.5
-      parent: 8364
-  - uid: 16458
-    components:
-    - type: MetaData
-      name: Server Room
-    - type: Transform
-      pos: -8.5,-53.5
-      parent: 8364
-  - uid: 16459
-    components:
-    - type: MetaData
-      name: Server Room
-    - type: Transform
-      pos: -10.5,-53.5
       parent: 8364
   - uid: 17387
     components:
@@ -11584,7 +11580,7 @@ entities:
       pos: 24.5,16.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -30341.363
+      secondsUntilStateChange: -30551.814
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -17024,6 +17020,13 @@ entities:
     components:
     - type: Transform
       pos: -20.536755,-5.462179
+      parent: 8364
+- proto: BoxMailCapsulePrimed
+  entities:
+  - uid: 28377
+    components:
+    - type: Transform
+      pos: -20.151733,-15.427294
       parent: 8364
 - proto: BoxMouthSwab
   entities:
@@ -84539,7 +84542,7 @@ entities:
       pos: -34.5,-14.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -24529.898
+      secondsUntilStateChange: -24740.35
       state: Closing
   - uid: 15010
     components:
@@ -85032,7 +85035,7 @@ entities:
       pos: -4.5,-71.5
       parent: 8364
     - type: Door
-      secondsUntilStateChange: -16277.631
+      secondsUntilStateChange: -16488.082
       state: Closing
 - proto: Fireplace
   entities:
@@ -123825,6 +123828,20 @@ entities:
     - type: Configuration
       config:
         tag: bridge
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 28378
+    components:
+    - type: Transform
+      pos: -20.745483,-15.427294
+      parent: 8364
+- proto: MailTeleporter
+  entities:
+  - uid: 28379
+    components:
+    - type: Transform
+      pos: -21.5,-17.5
+      parent: 8364
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 1280
@@ -123938,6 +123955,13 @@ entities:
     components:
     - type: Transform
       pos: -9.303419,-25.688816
+      parent: 8364
+- proto: MaterialSilo
+  entities:
+  - uid: 28376
+    components:
+    - type: Transform
+      pos: -16.5,-53.5
       parent: 8364
 - proto: MaterialWoodPlank
   entities:
@@ -154441,6 +154465,13 @@ entities:
     components:
     - type: Transform
       pos: -10.5,13.5
+      parent: 8364
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 28380
+    components:
+    - type: Transform
+      pos: -33.5,-18.5
       parent: 8364
 - proto: VendingMachineMedical
   entities:

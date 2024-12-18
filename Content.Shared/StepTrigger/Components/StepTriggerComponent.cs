@@ -1,3 +1,4 @@
+using Content.Shared.StepTrigger.Prototypes; // Goobstation
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
@@ -53,10 +54,17 @@ public sealed partial class StepTriggerComponent : Component
     public bool IgnoreWeightless;
 
     /// <summary>
-    /// Does this have separate "StepOn" and "StepOff" triggers.
+    ///     Does this have separate "StepOn" and "StepOff" triggers.
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool StepOn = false;
+
+
+    /// <summary>
+    ///     Goobstation: If TriggerGroups is specified, it will check StepTriggerImmunityComponent to have the same TriggerType to activate immunity
+    /// </summary>
+    [DataField]
+    public StepTriggerGroup? TriggerGroups;
 }
 
 [RegisterComponent]

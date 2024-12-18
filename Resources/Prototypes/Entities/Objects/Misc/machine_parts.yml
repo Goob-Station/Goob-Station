@@ -11,6 +11,15 @@
       size: Tiny
     - type: Stack
       count: 1
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 12
+        Plastic: 12
+  # Goobstation - Custom stack splitting dialog
+    - type: UserInterface
+      interfaces:
+        enum.StackCustomSplitUiKey.Key:
+          type: StackCustomSplitBoundUserInterface
 
 - type: entity
   id: CapacitorStockPart
@@ -26,6 +35,7 @@
         - CapacitorStockPart
     - type: Stack
       stackType: Capacitor
+
 
 - type: entity
   id: MicroManipulatorStockPart

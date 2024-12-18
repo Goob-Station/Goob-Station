@@ -17,6 +17,11 @@
     sound: /Audio/Weapons/star_hit.ogg
   - type: Stack
     count: 1
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -1487,6 +1492,9 @@
     - FloorAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemMowedAstroGrass
@@ -1504,6 +1512,9 @@
     - FloorMowedAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemJungleAstroGrass
@@ -1521,6 +1532,9 @@
     - FloorJungleAstroGrass
   - type: Stack
     stackType: FloorTileAstroGrass
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemAstroSnow
@@ -1538,7 +1552,9 @@
     - FloorAstroSnow
   - type: Stack
     stackType: FloorTileAstroSnow
-
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   id: FloorTileItemAstroIce
@@ -1556,6 +1572,9 @@
     - FloorAstroIce
   - type: Stack
     stackType: FloorTileAstroIce
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   name: large wood floor

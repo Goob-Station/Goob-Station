@@ -1,0 +1,29 @@
+- type: flavor
+  id: basic
+  flavorType: Base
+  description: flavor-base-basic
+
+- type: flavor
+  id: fast
+  flavorType: Complex
+  description: flavor-complex-fast
+
+- type: flavor
+  id: greed
+  flavorType: Complex
+  description: flavor-complex-greed
+
+- type: flavor
+  id: blast
+  flavorType: Complex
+  description: flavor-complex-blast
+
+- type: flavor
+  id: torpedo
+  flavorType: Complex
+  description: flavor-complex-torpedo
+
+- type: flavor
+  id: bees
+  flavorType: Complex
+  description: flavor-complex-bees

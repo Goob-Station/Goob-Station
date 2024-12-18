@@ -19,7 +19,7 @@ entities:
       name: NT Evac Courser
     - type: Transform
       pos: 0.52083397,0.5416665
-      parent: invalid
+
     - type: MapGrid
       chunks:
         -1,-1:

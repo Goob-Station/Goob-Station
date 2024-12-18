@@ -67,6 +67,9 @@
         acts: [ "Destruction" ]
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - Shard
   - type: PreventableStepTrigger
   - type: Slippery
     slipSound:
@@ -118,6 +121,9 @@
   - type: Construction
     graph: ShivConstruct
     node: start
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
 
 - type: entity
   parent: ShardBase
@@ -154,6 +160,10 @@
   - type: Construction
     graph: ReinforcedShivConstruct
     node: start
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
+      Steel: 12
 
 - type: entity
   parent: ShardBase
@@ -192,6 +202,10 @@
   - type: Construction
     graph: PlasmaShivConstruct
     node: start
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
+      Plasma: 25
 
 - type: entity
   parent: ShardBase
@@ -232,6 +246,10 @@
   - type: Construction
     graph: UraniumShivConstruct
     node: start
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
+      Uranium: 25
 
 - type: entity
   parent: ShardBase
@@ -265,3 +283,7 @@
           Quantity: 1.65
         - ReagentId: Copper
           Quantity: 3.35
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Glass: 25
+      Brass: 25

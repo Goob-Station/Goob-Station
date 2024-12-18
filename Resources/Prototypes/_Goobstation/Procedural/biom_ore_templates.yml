@@ -7,7 +7,20 @@
     WallRockChromite: WallRockChromiteBSCrystal
     WallRockSand: WallRockSandBSCrystal
     WallRockSnow: WallRockSnowBSCrystal
-  maxCount: 6
-  minGroupSize: 1
-  maxGroupSize: 2
-  radius: 3
+  maxCount: 8
+  minGroupSize: 2
+  maxGroupSize: 5
+  radius: 5
+
+- type: biomeMarkerLayer #revert from wiznerf
+  id: OreBananium
+  entityMask:
+    AsteroidRock: AsteroidRockBananium
+    WallRock: WallRockBananium
+    WallRockBasalt: WallRockBasaltBananium
+    WallRockChromite: WallRockChromiteBananium
+    WallRockSand: WallRockSandBananium
+    WallRockSnow: WallRockSnowBananium
+  maxCount: 12
+  minGroupSize: 5
+  maxGroupSize: 10

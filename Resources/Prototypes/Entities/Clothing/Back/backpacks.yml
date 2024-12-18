@@ -301,6 +301,15 @@
     maxItemSize: Huge
     grid:
     - 0,0,19,9
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 500
+      Silver: 187
+      Plasma: 375
+      Uranium: 37
+      BSCrystal: 50
+  - type: StaticPrice #Goobstation - Recycle update
+    price: 1850
 
 - type: entity
   parent: ClothingBackpackClown

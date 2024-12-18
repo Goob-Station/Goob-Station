@@ -76108,6 +76108,20 @@ entities:
     - type: Transform
       pos: -41.582264,62.13996
       parent: 1
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 15717
+    components:
+    - type: Transform
+      pos: -46.267952,1.1843195
+      parent: 1
+- proto: MailTeleporter
+  entities:
+  - uid: 15716
+    components:
+    - type: Transform
+      pos: -45.5,2.5
+      parent: 1
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 257
@@ -76630,6 +76644,13 @@ entities:
     components:
     - type: Transform
       pos: 4.5405226,-14.581865
+      parent: 1
+- proto: MaterialSilo
+  entities:
+  - uid: 15714
+    components:
+    - type: Transform
+      pos: 25.5,24.5
       parent: 1
 - proto: MaterialWoodPlank
   entities:
@@ -93293,6 +93314,13 @@ entities:
     components:
     - type: Transform
       pos: -64.5,38.5
+      parent: 1
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 15715
+    components:
+    - type: Transform
+      pos: -45.5,-1.5
       parent: 1
 - proto: VendingMachineMedical
   entities:

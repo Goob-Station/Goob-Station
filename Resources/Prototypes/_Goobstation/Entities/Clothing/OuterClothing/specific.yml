@@ -23,6 +23,9 @@
   - type: HeldSpeedModifier
   - type: ToggleableClothing
     clothingPrototype: ClothingHeadHelmetHEV
+  - type: ClothingGrantComponent
+    component:
+      - type: SupermatterImmune
   - type: Tag
     tags:
       - HEVSuit
