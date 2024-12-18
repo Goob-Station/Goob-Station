@@ -2,37 +2,37 @@ ent-SpawnPointGhostBlob = Blob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
 ent-MobBlobPod = Blob Drop
-    .desc = An ordinary blob fighter. He can zombify corpses.
+    .desc = An ordinary blob fighter.
 ent-MobBlobBlobbernaut = Blobbernaut
-    .desc = Elite blob fighter. He has great power.
+    .desc = An elite blob fighter.
 ent-BaseBlob = basic blob.
     .desc = { "" }
 ent-NormalBlobTile = Regular Tile Blob
     .desc = An ordinary part of the blob required for the construction of more advanced tiles.
 ent-CoreBlobTile = Blob Core
-    .desc = The most important part of the blob. By destroying the core, all other parts will die.
+    .desc = The most important organ of the blob. By destroying the core, the infection will cease.
 ent-FactoryBlobTile = Blob Factory
-    .desc = Spawns Blob Drops and Blobburnouts over time.
+    .desc = Spawns Blob Drops and Blobbernauts over time.
 ent-ResourceBlobTile = Resource Blob
-    .desc = Produces resources for the blob, thus being an important part of its growth.
+    .desc = Produces resources for the blob.
 ent-NodeBlobTile = Blob Node
-    .desc = A mini version of the core that allows you to place special blob tiles around itself
+    .desc = A mini version of the core that allows you to place special blob tiles around itself.
 ent-StrongBlobTile = Strong Blob Tile
-    .desc = A reinforced version of the regular tile. It does not allow air to pass through and protects against mechanical damage.
+    .desc = A reinforced version of the regular tile. It does not allow air to pass through and protects against brute damage.
 ent-ReflectiveBlobTile = Blob Reflective Tiles
-    .desc = It reflects lasers, but does not protect against mechanical damage as well.
+    .desc = It reflects lasers, but does not protect against brute damage as well.
     .desc = { "" }
 objective-issuer-blob = Blob
 
 
 ghost-role-information-blobbernaut-name = Blobbernaut
-ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend blob core.
+ghost-role-information-blobbernaut-description = You are a Blobbernaut. You must defend the blob core.
 
 ghost-role-information-blob-name = Blob
-ghost-role-information-blob-description = You are a Blob. You must consume the station.
+ghost-role-information-blob-description = You are the Blob Infection. Consume the station.
 
 roles-antag-blob-name = Blob
-roles-antag-blob-objective = Take over the station.
+roles-antag-blob-objective = Reach critical mass.
 
 guide-entry-blob = Blob
 
@@ -89,7 +89,7 @@ blob-alert-out-off-station = The blob was removed because it was found outside t
 
 # Announcment
 blob-alert-recall-shuttle = The emergency shuttle can not be sent while there is a level 5 biohazard present on the station.
-blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak. The emergency shuttles can not be sent due to contamination risks.
+blob-alert-detect = Confirmed outbreak of level 5 biohazard aboard the station. All personnel must contain the outbreak.
 blob-alert-critical = Biohazard level critical, nuclear authentication codes have been sent to the station. Central Command orders any remaining personnel to activate the self-destruction mechanism.
 blob-alert-critical-NoNukeCode = Biohazard level critical. Central Command orders any remaining personnel to seek shelter, and await resque.
 
@@ -152,7 +152,7 @@ blob-zombie-greeting = You were infected and raised by a blob spore. Now you mus
 # End round
 blob-round-end-result =
     { $blobCount ->
-        [one] There was one blob.
+        [one] There was one blob infection.
         *[other] There were {$blobCount} blobs.
     }
 
