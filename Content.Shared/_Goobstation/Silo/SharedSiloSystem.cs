@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._Goobstation.CVars;
+using Content.Shared.CCVar;
 using Content.Shared.DeviceLinking;
 using Content.Shared.DeviceLinking.Events;
 using Content.Shared.Materials;
@@ -23,7 +23,7 @@ public abstract class SharedSiloSystem : EntitySystem
     {
         base.Initialize();
 
-        _cfg.OnValueChanged(GoobCVars.SiloEnabled, enabled => _siloEnabled = enabled, true);
+        _cfg.OnValueChanged(CCVars.SiloEnabled, enabled => _siloEnabled = enabled, true);
 
         SubscribeLocalEvent<SiloComponent, NewLinkEvent>(OnNewLink);
         SubscribeLocalEvent<SiloUtilizerComponent, PortDisconnectedEvent>(OnPortDisconnected);
