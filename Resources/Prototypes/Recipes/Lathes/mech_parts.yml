@@ -1,14 +1,24 @@
-# Ripley
+# Base prototypes
+
 - type: latheRecipe
   id: RipleyHarness
   result: RipleyHarness
   category: Ripley # Goobstation
   completetime: 10
+
+# Recipes
+
+# Ripley
+- type: latheRecipe
+  parent: BaseMechPartRecipe
+  id: RipleyHarness
+  result: RipleyHarness
   materials:
     Steel: 1500
     Glass: 1200
 
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: RipleyLArm
   result: RipleyLArm
   category: Ripley # Goobstation
@@ -18,6 +28,7 @@
     Glass: 750
 
 - type: latheRecipe
+  parent: RipleyLArm
   id: RipleyLLeg
   result: RipleyLLeg
   category: Ripley # Goobstation
@@ -27,6 +38,7 @@
     Glass: 750
 
 - type: latheRecipe
+  parent: RipleyLLeg
   id: RipleyRLeg
   result: RipleyRLeg
   category: Ripley # Goobstation
@@ -36,6 +48,7 @@
     Glass: 750
 
 - type: latheRecipe
+  parent: RipleyLArm
   id: RipleyRArm
   result: RipleyRArm
   category: Ripley # Goobstation
@@ -46,6 +59,7 @@
 
 # H.O.N.K.
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: HonkerHarness
   result: HonkerHarness
   category: Honker # Goobstation
@@ -56,16 +70,18 @@
     Bananium: 500
 
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: HonkerLArm
   result: HonkerLArm
   category: Honker # Goobstation
   completetime: 10
   materials:
-    Steel: 3000
-    Glass: 1200
-    Bananium: 500
+    Steel: 2000
+    Glass: 750
+    Bananium: 250
 
 - type: latheRecipe
+  parent: HonkerLArm
   id: HonkerLLeg
   result: HonkerLLeg
   category: Honker # Goobstation
@@ -76,6 +92,7 @@
     Bananium: 500
 
 - type: latheRecipe
+  parent: HonkerLLeg
   id: HonkerRLeg
   result: HonkerRLeg
   category: Honker # Goobstation
@@ -86,6 +103,7 @@
     Bananium: 500
 
 - type: latheRecipe
+  parent: HonkerLArm
   id: HonkerRArm
   result: HonkerRArm
   category: Honker # Goobstation
@@ -97,6 +115,7 @@
 
 # HAMTR
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: HamtrHarness
   result: HamtrHarness
   category: Hamptr # Goobstation
@@ -106,6 +125,7 @@
     Glass: 1000
 
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: HamtrLArm
   result: HamtrLArm
   category: Hamptr # Goobstation
@@ -115,6 +135,7 @@
     Glass: 600
 
 - type: latheRecipe
+  parent: HamtrLArm
   id: HamtrLLeg
   result: HamtrLLeg
   category: Hamptr # Goobstation
@@ -124,6 +145,7 @@
     Glass: 600
 
 - type: latheRecipe
+  parent: HamtrLLeg
   id: HamtrRLeg
   result: HamtrRLeg
   category: Hamptr # Goobstation
@@ -133,6 +155,7 @@
     Glass: 600
 
 - type: latheRecipe
+  parent: HamtrLArm
   id: HamtrRArm
   result: HamtrRArm
   category: Hamptr # Goobstation
@@ -142,6 +165,7 @@
     Glass: 600
 
 - type: latheRecipe
+  parent: BaseMechPartRecipe
   id: MechEquipmentGrabberSmall
   result: MechEquipmentGrabberSmall
   category: MechEquipment # Goobstation
