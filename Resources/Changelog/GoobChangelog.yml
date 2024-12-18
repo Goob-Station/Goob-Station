@@ -3402,3 +3402,9 @@ Entries:
       message: fixed some stuff i forgor on new nukeops shuttle
   id: 376
   time: '2024-12-18T01:48:56.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Hacked youtool now contains toolbelts.
+  id: 377
+  time: '2024-12-18T01:54:11.0000000+00:00'
