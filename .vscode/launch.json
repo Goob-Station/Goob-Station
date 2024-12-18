@@ -4,7 +4,17 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        // Debug configurations
+        {
+            "name": "YAML Linter",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-yaml-linter",
+            "program": "${workspaceFolder}/bin/Content.YAMLLinter/Content.YAMLLinter.dll",
+            "cwd": "${workspaceFolder}/Content.YAMLLinter",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        // Client configurations
         {
             "name": "Client",
             "type": "coreclr",
@@ -15,21 +25,23 @@
             "stopAtEntry": false
         },
         {
-            "name": "Client (Compatibility renderer)",
+            "name": "Client - Tools",
             "type": "coreclr",
             "request": "launch",
+            "preLaunchTask": "build - Tools",
             "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
-            "args": "--cvar display.compat=true",
+            "args": [],
             "console": "internalConsole",
             "stopAtEntry": false
         },
         {
-            "name": "Server",
+            "name": "Client - Release",
             "type": "coreclr",
             "request": "launch",
-            "program": "${workspaceFolder}/bin/Content.Server/Content.Server.dll",
+            "preLaunchTask": "build - Release",
+            "program": "${workspaceFolder}/bin/Content.Client/Content.Client.dll",
             "args": [],
-            "console": "integratedTerminal",
+            "console": "internalConsole",
             "stopAtEntry": false
         },
         {
@@ -49,16 +61,6 @@
             "console": "integratedTerminal",
             "stopAtEntry": false
         },
-        {
-            "name": "YAML Linter",
-            "type": "coreclr",
-            "request": "launch",
-            "preLaunchTask": "build-yaml-linter",
-            "program": "${workspaceFolder}/bin/Content.YAMLLinter/Content.YAMLLinter.dll",
-            "cwd": "${workspaceFolder}/Content.YAMLLinter",
-            "console": "internalConsole",
-            "stopAtEntry": false
-        }
     ],
     "compounds": [
         {

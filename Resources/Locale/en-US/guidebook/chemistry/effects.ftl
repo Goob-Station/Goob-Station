@@ -404,3 +404,19 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Removes the
         *[other] remove the
     } seeds of the plant
+
+reagent-effect-guidebook-add-to-chemicals =
+    { $chance ->
+        [1] { $deltasign ->
+                [1] Adds
+                *[-1] Removes
+            }
+        *[other]
+            { $deltasign ->
+                [1] add
+                *[-1] remove
+            }
+    } {NATURALFIXED($amount, 2)}u of {$reagent} { $deltasign ->
+        [1] to
+        *[-1] from
+    } the solution

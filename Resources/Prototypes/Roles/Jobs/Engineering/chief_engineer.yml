@@ -46,3 +46,4 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

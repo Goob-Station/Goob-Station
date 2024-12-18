@@ -11015,7 +11015,7 @@ entities:
       pos: -29.5,37.5
       parent: 60
     - type: Door
-      secondsUntilStateChange: -16633.982
+      secondsUntilStateChange: -16670.977
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -110039,6 +110039,11 @@ entities:
       parent: 60
     - type: ApcPowerReceiver
       powerDisabled: False
+  - uid: 18549
+    components:
+    - type: Transform
+      pos: 49.5,18.5
+      parent: 60
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 1463

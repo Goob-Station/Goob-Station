@@ -64,6 +64,10 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # Goobstation - Nigthvision
+    isToggle: true
+    color: "#808080"
+    playSoundOn: false
 
 - type: entity
   name: bee
@@ -1788,7 +1792,10 @@
         sprite: 
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
-
+  - type: NightVision # Goobstation - Nigthvision
+    isToggle: true
+    color: "#808080"
+    playSoundOn: false
 
 - type: entity
   parent: MobMouse
@@ -2436,6 +2443,8 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: PassiveDamage # Slight passive regen. Assuming one damage type, comes out to about 4 damage a minute from base.yml.
     allowedStates:
     - Alive
@@ -2446,6 +2455,10 @@
       groups:
         Brute: -0.07
         Burn: -0.07
+  - type: NightVision # Goobstation - Nigthvision
+    isToggle: true
+    color: "#808080"
+    playSoundOn: false
 
 - type: entity
   name: tarantula
