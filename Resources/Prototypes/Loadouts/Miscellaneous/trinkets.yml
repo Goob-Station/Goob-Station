@@ -157,6 +157,14 @@
     back:
     - ClothingNeckAutismPin
 
+# Gamba
+- type: loadout
+  id: CardBoxBlack
+  storage:
+    back:
+    - CardBoxBlack
+
+
 # Towels
 - type: loadout
   id: TowelColorWhite
