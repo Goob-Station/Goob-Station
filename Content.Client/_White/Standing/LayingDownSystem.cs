@@ -1,3 +1,4 @@
+using Content.Client._White.Animations;
 using Content.Shared._White.Standing;
 using Content.Shared.Buckle;
 using Content.Shared.Rotation;
@@ -64,6 +65,12 @@ public sealed class LayingDownSystem : SharedLayingDownSystem
 
         if (!TryComp<TransformComponent>(uid, out var transform) || !TryComp<RotationVisualsComponent>(uid, out var rotationVisuals))
             return;
+
+        if (_animation.HasRunningAnimation(uid, FlippingComponent.AnimationKey))
+        {
+            RemComp<FlippingComponent>(uid);
+            _animation.Stop(uid, FlippingComponent.AnimationKey);
+        }
 
         var rotation = transform.LocalRotation + (_eyeManager.CurrentEye.Rotation - (transform.LocalRotation - transform.WorldRotation));
 

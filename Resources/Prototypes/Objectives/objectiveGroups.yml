@@ -21,9 +21,10 @@
     CaptainGunStealObjective: 0.5
     CaptainJetpackStealObjective: 0.5
     HandTeleporterStealObjective: 0.5
-    SecretDocumentsStealObjective: 0.5
+    # SecretDocumentsStealObjective: 0.5 # Goob edit
     StealSupermatterSliverObjective: 0.5 # Goobstation - supermatter
     EnergyShotgunStealObjective: 0.5
+    MultiphaseStealObjective: 0.5 # Goobstation
 
 - type: weightedRandom
   id: TraitorObjectiveGroupKill

@@ -54,13 +54,11 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 100
+        maxVol: 30
         canReact: false
         reagents:
-        - ReagentId: Omnizine
-          Quantity: 80
-        - ReagentId: TranexamicAcid
-          Quantity: 20
+        - ReagentId: Ichor
+          Quantity: 30
 
 - type: entity
   id: HereticProtectiveBlade

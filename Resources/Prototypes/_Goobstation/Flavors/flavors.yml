@@ -17,3 +17,8 @@
   id: sigma
   flavorType: Base
   description: flavor-base-sigma
+
+- type: flavor
+  id: fentanyl
+  flavorType: Complex
+  description: flavor-complex-fentanyl

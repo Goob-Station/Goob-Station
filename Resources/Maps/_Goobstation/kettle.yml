@@ -13081,7 +13081,7 @@ entities:
       pos: -5.5,-58.5
       parent: 82
     - type: Door
-      secondsUntilStateChange: -4773.0215
+      secondsUntilStateChange: -4852.676
       state: Opening
     - type: DeviceLinkSource
       lastSignals:
@@ -66554,6 +66554,14 @@ entities:
       rot: 3.141592653589793 rad
       pos: -40.5,39.5
       parent: 82
+- proto: ComputerCargoBounty
+  entities:
+  - uid: 27010
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 42.5,25.5
+      parent: 82
 - proto: ComputerCargoOrders
   entities:
   - uid: 2529
@@ -77839,16 +77847,6 @@ entities:
       parent: 82
 - proto: filingCabinetTallRandom
   entities:
-  - uid: 4179
-    components:
-    - type: Transform
-      pos: 36.5,18.5
-      parent: 82
-  - uid: 4180
-    components:
-    - type: Transform
-      pos: 35.5,18.5
-      parent: 82
   - uid: 6520
     components:
     - type: Transform
@@ -119678,6 +119676,20 @@ entities:
     - type: Configuration
       config:
         tag: Mail Room
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 27011
+    components:
+    - type: Transform
+      pos: 37.278328,18.79245
+      parent: 82
+- proto: MailTeleporter
+  entities:
+  - uid: 4180
+    components:
+    - type: Transform
+      pos: 36.5,18.5
+      parent: 82
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 360
@@ -150209,6 +150221,13 @@ entities:
     components:
     - type: Transform
       pos: -37.5,12.5
+      parent: 82
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 4179
+    components:
+    - type: Transform
+      pos: 35.5,18.5
       parent: 82
 - proto: VendingMachineMedical
   entities:

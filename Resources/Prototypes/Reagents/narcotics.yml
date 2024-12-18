@@ -611,3 +611,42 @@
         type: Add
         time: 5
         refresh: false
+
+- type: reagent # /tg/ gases
+  id: NitrosylPlasmide
+  name: reagent-name-nitrosyl-plasmide
+  group: Narcotics
+  desc: reagent-desc-nitrosyl-plasmide
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: sour
+  color: "#b76f0e"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Jitter
+    Narcotic:
+      effects:
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        key: ForcedSleep
+        type: Remove
+        time: 10
+    Medicine:
+      effects:
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          min: 1
