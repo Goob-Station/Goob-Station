@@ -118,7 +118,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
