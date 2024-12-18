@@ -10,6 +10,7 @@ using Content.Shared.Item.ItemToggle;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Verbs;
+using Content.Shared.Wires;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Serialization;
@@ -52,8 +53,6 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         SubscribeLocalEvent<SealableClothingControlComponent, SealClothingEvent>(OnControlSealEvent);
         //SubscribeLocalEvent<SealableClothingControlComponent, StartSealingProcessDoAfterEvent>(OnStartSealingDoAfter);
         SubscribeLocalEvent<SealableClothingControlComponent, ToggleClothingAttemptEvent>(OnToggleClothingAttempt);
-
-        SubscribeLocalEvent<SealableClothingRequiresPowerComponent, ClothingSealAttemptEvent>(OnRequiresPowerSealAttempt);
     }
 
     #region Events
@@ -120,16 +119,17 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     private void OnEquipmentVerb(Entity<SealableClothingControlComponent> control, ref GetVerbsEvent<Verb> args)
     {
         var (uid, comp) = control;
+        var user = args.User;
 
         if (!args.CanComplexInteract)
             return;
 
         // Since sealing control in wearer's container system just won't show verb on args.CanAccess
-        if (!_interactionSystem.InRangeUnobstructed(args.User, uid))
+        if (!_interactionSystem.InRangeUnobstructed(user, uid))
             return;
 
         if (comp.WearerEntity == null ||
-            comp.WearerEntity != args.User && _actionBlockerSystem.CanInteract(comp.WearerEntity.Value, null))
+            comp.WearerEntity != user && _actionBlockerSystem.CanInteract(comp.WearerEntity.Value, null))
             return;
 
         var verbIcon = comp.IsCurrentlySealed ?
@@ -141,7 +141,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             Icon = verbIcon,
             Priority = 5,
             Text = Loc.GetString(comp.VerbText),
-            Act = () => TryStartSealToggleProcess(control)
+            Act = () => TryStartSealToggleProcess(control, user)
         };
 
         /* This should make as do after to start unsealing of suit with verb, but, for some reason i couldn't figure out, it ends with doAfter enumerator change exception
@@ -209,7 +209,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return;
         }
 
-        TryStartSealToggleProcess(control);
+        TryStartSealToggleProcess(control, args.Performer);
     }
 
     /// <summary>
@@ -273,24 +273,6 @@ public abstract class SharedSealableClothingSystem : EntitySystem
 
         return;
     }
-
-    /// <summary>
-    /// Checks if control have enough power to seal
-    /// </summary>
-    protected virtual void OnRequiresPowerSealAttempt(Entity<SealableClothingRequiresPowerComponent> entity, ref ClothingSealAttemptEvent args)
-    {
-        if (!TryComp(entity, out SealableClothingControlComponent? controlComp) || !TryComp(entity, out PowerCellDrawComponent? cellDrawComp))
-            return;
-
-        // Control shouldn't use charge on unsealing
-        if (controlComp.IsCurrentlySealed)
-            return;
-
-        if (args.Cancelled || !_powerCellSystem.HasActivatableCharge(entity, cellDrawComp) || !_powerCellSystem.HasDrawCharge(entity, cellDrawComp))
-        {
-            args.Cancel();
-        }
-    }
     #endregion
 
     /// <summary>
@@ -298,7 +280,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
     /// </summary>
     /// <param name="control"></param>
     /// <returns></returns>
-    public bool TryStartSealToggleProcess(Entity<SealableClothingControlComponent> control)
+    public bool TryStartSealToggleProcess(Entity<SealableClothingControlComponent> control, EntityUid? user = null)
     {
         var (uid, comp) = control;
 
@@ -306,7 +288,10 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         if (comp.WearerEntity == null || comp.IsInProcess)
             return false;
 
-        var ev = new ClothingSealAttemptEvent();
+        if (user == null)
+            user = comp.WearerEntity;
+
+        var ev = new ClothingSealAttemptEvent(user.Value);
         RaiseLocalEvent(control, ev);
 
         if (ev.Cancelled)
@@ -315,8 +300,8 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         // All parts required to be toggled to perform sealing
         if (_toggleableSystem.GetAttachedToggleStatus(uid) != ToggleableClothingAttachedStatus.AllToggled)
         {
-            _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, comp.WearerEntity);
-            _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+            _popupSystem.PopupClient(Loc.GetString(comp.ToggleFailedPopup), uid, user);
+            _audioSystem.PlayPredicted(comp.FailSound, uid, user);
             return false;
         }
 
@@ -329,8 +314,8 @@ public abstract class SharedSealableClothingSystem : EntitySystem
         {
             if (!HasComp<SealableClothingComponent>(sealeable))
             {
-                _popupSystem.PopupEntity(Loc.GetString(comp.ToggleFailedPopup), uid, comp.WearerEntity.Value);
-                _audioSystem.PlayPredicted(comp.FailSound, uid, comp.WearerEntity);
+                _popupSystem.PopupEntity(Loc.GetString(comp.ToggleFailedPopup), uid);
+                _audioSystem.PlayPredicted(comp.FailSound, uid, user);
 
                 comp.ProcessQueue.Clear();
                 Dirty(control);
@@ -452,4 +437,10 @@ public readonly record struct ClothingPartSealCompleteEvent(bool IsSealed)
 
 public sealed partial class ClothingSealAttemptEvent : CancellableEntityEventArgs
 {
+    public EntityUid User;
+
+    public ClothingSealAttemptEvent(EntityUid user)
+    {
+        User = user;
+    }
 }
