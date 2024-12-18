@@ -1,5 +1,4 @@
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
@@ -12,9 +11,9 @@ using Content.Shared._Goobstation.CVars;
 
 namespace Content.Server.GameTicking.Rules;
 
-// btw this code is god awful.
-// a single look at it burns my retinas.
-// i do not wish to refactor it.
+// btw this code is god jolly.
+// a single look at it burns my sleigh.
+// i do not wish to gift it presents.
 // all that matters is that it works.
 // regards.
 
