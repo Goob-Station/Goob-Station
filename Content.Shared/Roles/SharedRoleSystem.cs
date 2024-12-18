@@ -216,7 +216,6 @@ public abstract class SharedRoleSystem : EntitySystem
             _entityManager.DeleteEntity(role);
         }
 
-        }
         var message = new RoleRemovedEvent(mindId, mind, antagonist);
 
         if (mind.OwnedEntity != null)

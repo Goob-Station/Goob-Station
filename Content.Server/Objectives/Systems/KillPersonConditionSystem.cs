@@ -92,7 +92,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         }
 
         var allHeads = new HashSet<Entity<MindComponent>>();
-        foreach (var person in allHumans)
+        foreach (var mind in allHumans)
         {
             // RequireAdminNotify used as a cheap way to check for command department
             if (_job.MindTryGetJob(mind, out var prototype) && prototype.RequireAdminNotify)
