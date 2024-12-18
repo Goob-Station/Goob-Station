@@ -42,10 +42,6 @@
   id: Dynamic
   components:
   - type: GameRule
-    # what if i removed delays to counter nukies being shit?
-    #delay:
-    #  min: 5
-    #  max: 10
   - type: DynamicRule
     roundstartRulesPool: DynamicRoundstartGamerules
 
