@@ -3414,3 +3414,23 @@ Entries:
       message: Blob added
   id: 378
   time: '2024-12-18T02:00:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Telebaton for command.
+    - type: Add
+      message: Contractor baton for traitors.
+    - type: Add
+      message: Captain now has n1984 pistol.
+    - type: Tweak
+      message: N1984 accuracy buffed.
+    - type: Add
+      message: Bso now has atreides.
+    - type: Tweak
+      message: Atreides accuracy nerfed.
+    - type: Tweak
+      message: 'Mateba firerate increased: 3 -> 5.'
+    - type: Remove
+      message: Removed bluespace lifeline implanter from bso.
+  id: 379
+  time: '2024-12-18T02:01:46.0000000+00:00'
