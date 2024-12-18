@@ -34,7 +34,7 @@ public abstract partial class InventorySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     [ValidatePrototypeId<ItemSizePrototype>]
-    private const string PocketableItemSize = "Small";
+    public const string PocketableItemSize = "Small"; // Goob edit
 
     private void InitializeEquip()
     {
