@@ -253,7 +253,7 @@ namespace Content.Client.Inventory
         public sealed class SlotData
         {
             [ViewVariables] // Shitmed Change - Mostly for debugging.
-            public readonly SlotDefinition SlotDef;
+            public SlotDefinition SlotDef;
             public EntityUid? HeldEntity => Container?.ContainedEntity;
             public bool Blocked;
             public bool Highlighted;
