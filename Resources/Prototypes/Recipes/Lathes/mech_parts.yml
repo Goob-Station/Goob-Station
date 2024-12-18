@@ -2,7 +2,7 @@
 - type: latheRecipe
   id: RipleyHarness
   result: RipleyHarness
-  category: Mech
+  category: Ripley # Goobstation
   completetime: 10
   materials:
     Steel: 1500
