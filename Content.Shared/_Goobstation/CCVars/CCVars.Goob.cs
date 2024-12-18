@@ -1,8 +1,9 @@
 using Robust.Shared.Configuration;
 
-namespace Content.Shared.CCVar;
+namespace Content.Shared._Goobstation.CCVar;
 
-public sealed partial class CCVars
+[CVarDefs]
+public sealed partial class GoobCVars
 {
     /// <summary>
     ///     Indicates how much players are required for the round to be considered lowpop.
