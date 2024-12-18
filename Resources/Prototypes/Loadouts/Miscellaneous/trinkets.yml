@@ -157,7 +157,7 @@
     back:
     - ClothingNeckAutismPin
 
-# Gamba
+# GoobStation
 - type: loadout
   id: CardBoxBlack
   storage:
