@@ -958,23 +958,6 @@
   heatCapacity: 10000
   tileRipResistance: 175
 
-- type: tile
-  id: FloorSteelBurnt
-  name: tiles-steel-floor
-  sprite: /Textures/Tiles/steel_burnt.png
-  variants: 2
-  placementVariants:
-  - 1.0
-  - 1.0
-  baseTurf: Plating
-  isSubfloor: false
-  deconstructTools: [ Prying ]
-  footstepSounds:
-    collection: FootstepFloor
-  itemDrop: FloorTileItemSteel #Same case as FloorSteelDamaged, make it null when possible
-  heatCapacity: 10000
-
-
 # Concrete
 - type: tile
   id: FloorConcrete

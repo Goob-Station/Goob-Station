@@ -1,13 +1,3 @@
-# Base prototypes
-
-- type: latheRecipe
-  id: RipleyHarness
-  result: RipleyHarness
-  category: Ripley # Goobstation
-  completetime: 10
-
-# Recipes
-
 # Ripley
 - type: latheRecipe
   id: RipleyHarness

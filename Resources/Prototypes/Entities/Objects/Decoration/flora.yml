@@ -535,23 +535,6 @@
         orGroup: present
 
 - type: entity
-  parent: FloraTreeChristmas02
-  id: FloraTreeChristmas03
-  suffix: Insane Presents
-  name: christmas tree
-  components:
-  - type: LimitedItemGiver
-    spawnEntries:
-      - id: PresentRandom
-        orGroup: present
-      - id: PresentRandomUnsafe
-        prob: 0.5
-        orGroup: present
-      - id: PresentRandomInsane
-        prob: 0.2
-        orGroup: present
-
-- type: entity
   parent: BaseTreeConifer
   id: FloraTreeStumpConifer
   name: tree stump

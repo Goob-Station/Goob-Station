@@ -69,6 +69,9 @@
         type: BorgBoundUserInterface
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
+      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
+      enum.BorgSwitchableTypeUiKey.SelectBorgType:
+        type: BorgSelectTypeUserInterface
       # Goobstation - Add the station map interface to the borg
       enum.StationMapUiKey.Key:
         type: StationMapBoundUserInterface
@@ -77,9 +80,6 @@
     uis:
       enum.StationMapUiKey.Key:
         toggleAction: ActionAGhostShowStationMap
-      # Only used for NT borgs that can switch type, defined here to avoid copy-pasting the rest of this component.
-      enum.BorgSwitchableTypeUiKey.SelectBorgType:
-        type: BorgSelectTypeUserInterface
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
