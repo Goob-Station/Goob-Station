@@ -250,6 +250,7 @@
     whitelist:
       components:
       - BorgChassis
+      - Inventory #Goobstation - Modsuits
   - type: Construction
     containers:
     - machine_parts

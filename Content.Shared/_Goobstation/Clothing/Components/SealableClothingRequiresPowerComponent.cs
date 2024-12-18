@@ -1,4 +1,6 @@
+using Content.Shared.Alert;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Clothing.Components;
 
@@ -23,4 +25,10 @@ public sealed partial class SealableClothingRequiresPowerComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool IsPowered = false;
+
+    /// <summary>
+    /// Alert to show for suit power.
+    /// </summary>
+    [DataField]
+    public ProtoId<AlertPrototype> SuitPowerAlert = "SuitPower";
 }

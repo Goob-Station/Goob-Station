@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Clothing.Components;
+using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using Content.Shared.PowerCell;
 using Content.Shared.Wires;
@@ -72,3 +73,5 @@ public abstract class SharedPoweredSealableClothingSystem : EntitySystem
         }
     }
 }
+
+
