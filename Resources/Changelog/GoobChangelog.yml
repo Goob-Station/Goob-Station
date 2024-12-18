@@ -3396,3 +3396,9 @@ Entries:
       message: Added Rapid Piping Device
   id: 375
   time: '2024-12-17T22:56:29.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: fixed some stuff i forgor on new nukeops shuttle
+  id: 376
+  time: '2024-12-18T01:48:56.0000000+00:00'
