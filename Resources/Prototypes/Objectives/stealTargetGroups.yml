@@ -335,6 +335,13 @@
     sprite: Structures/Furniture/golden_toilet.rsi
     state: condisposal
 
+- type: stealTargetGroup  # goobstation
+  id: MaterialSilo
+  name: steal-target-groups-material-silo
+  sprite:
+    sprite: _Goobstation/Structures/Machines/silo.rsi
+    state: ore_silo
+
 # Thief Animal
 
 - type: stealTargetGroup
