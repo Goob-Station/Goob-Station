@@ -18,3 +18,9 @@
 
 - type: Tag
   id: ReptilianEmotes
+
+- type: Tag
+  id: BorgEmotes
+
+- type: Tag
+  id: IPCEmotes

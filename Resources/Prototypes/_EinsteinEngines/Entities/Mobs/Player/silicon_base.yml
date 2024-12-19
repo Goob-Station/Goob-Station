@@ -181,6 +181,7 @@
         - CanPilot
         - FootstepSound
         - DoorBumpOpener
+        - IPCEmotes # ShibaStation - Emote Whitelist
     - type: Hands
     - type: Inventory
       templateId: human

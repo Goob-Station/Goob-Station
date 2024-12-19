@@ -239,6 +239,7 @@
     - DoorBumpOpener
     - FootstepSound
     - CanPilot
+    - BorgEmotes # ShibaStation - Emote Whitelist
   - type: Emoting
   - type: GuideHelp
     guides:
