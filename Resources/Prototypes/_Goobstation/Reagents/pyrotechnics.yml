@@ -12,7 +12,7 @@
       effects:
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         damage:
