@@ -6,3 +6,6 @@
 
 - type: playTimeTracker
   id: JobHecuOperative
+
+-type: playTimeTracker
+  id: JobRoboticist

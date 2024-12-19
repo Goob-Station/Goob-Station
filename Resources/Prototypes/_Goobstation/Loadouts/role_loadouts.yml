@@ -23,3 +23,20 @@
   - Trinkets
   - GroupSpeciesBreathTool
   - Survival
+
+- type: roleLoadout
+  id: JobRoboticist
+  groups:
+  - GroupTankHarness
+  - RoboticistHead
+  - RoboticistNeck
+  - RoboticistJumpsuit
+  - ScientistBackpack
+  - RoboticistOuterClothing
+  - RoboticistGloves
+  - RoboticistShoes
+  - RoboticistPDA
+  - Glasses
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
