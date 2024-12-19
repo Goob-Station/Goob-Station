@@ -263,6 +263,7 @@ public sealed partial class MechSystem : SharedMechSystem
             component.Energy = 0;
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
+        _actionBlocker.UpdateCanMove(uid);
     }
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
