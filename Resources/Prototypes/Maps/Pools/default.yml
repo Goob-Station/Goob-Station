@@ -1,7 +1,8 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Atlas
+  - Atlas # Goobstation - new map, amber
+  - Amber
   - Bagel
   - Box
   - Cluster
