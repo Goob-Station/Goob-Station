@@ -66,7 +66,7 @@ public sealed class DoAfterCancellationTests : InteractionTest
     {
         await SetTile(Floor);
         await InteractUsing(Pry, awaitDoAfters: false);
-        await CancelDoAfters();
+        //await CancelDoAfters(); // GoobStation: prying is instant now
         await AssertTile(Floor);
 
         await InteractUsing(Pry);
