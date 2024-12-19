@@ -7,6 +7,7 @@
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
   Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
+
   ## Recharging an IPC
    <Box>
     <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
