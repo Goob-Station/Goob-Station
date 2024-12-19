@@ -1,7 +1,7 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.CCVar; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -178,7 +178,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         }
         // Goobstation end
 
-        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, CCVars.AutoGetUp);
+        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, GoobCVars.AutoGetUp);
         Dirty(ent);
     }
 

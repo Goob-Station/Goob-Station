@@ -1,5 +1,5 @@
-- type: dataset
+- type: localizedDataset
   id: TradeStationNames
   values:
-  - Automated Trade Station
-  # You could add more here, if you want the ATS to have a random name every round?
+    prefix: trade-station-names-dataset-
+    count: 1

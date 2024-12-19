@@ -24,6 +24,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
 using Content.Shared.Verbs;
+using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._Shitmed.Medical.Surgery;
 
@@ -104,7 +105,7 @@ public sealed class SurgerySystem : SharedSurgerySystem
         if (!IsLyingDown(target, user))
             return;
 
-        if (user == target && !_config.GetCVar(CCVars.CanOperateOnSelf))
+        if (user == target && !_config.GetCVar(GoobCVars.CanOperateOnSelf))
         {
             _popup.PopupEntity(Loc.GetString("surgery-error-self-surgery"), user, user);
             return;

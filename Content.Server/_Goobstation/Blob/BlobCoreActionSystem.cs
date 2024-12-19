@@ -29,6 +29,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._Goobstation.Blob;
 
@@ -65,7 +66,7 @@ public sealed class BlobCoreActionSystem : SharedBlobCoreActionSystem
         SubscribeLocalEvent<BlobObserverControllerComponent, AfterInteractEvent>(OnInteractController);
         SubscribeLocalEvent<BlobObserverComponent, UserActivateInWorldEvent>(OnInteractTarget);
 
-        Subs.CVar(_cfg, CCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
+        Subs.CVar(_cfg, GoobCVars.BlobCanGrowInSpace, value => _canGrowInSpace = value, true);
         _tileQuery = GetEntityQuery<BlobTileComponent>();
         _blobCoreQuery = GetEntityQuery<BlobCoreComponent>();
     }

@@ -1,4 +1,3 @@
-using System.Collections.Immutable;
 using System.Net;
 using System.Runtime.CompilerServices;
 using Content.Shared.CCVar;
@@ -15,7 +14,7 @@ namespace Content.Server.Database
         public int? Id { get; }
         public NetUserId? UserId { get; }
         public (IPAddress address, int cidrMask)? Address { get; }
-        public ImmutableArray<byte>? HWId { get; }
+        public ImmutableTypedHwid? HWId { get; }
 
         public DateTimeOffset BanTime { get; }
         public DateTimeOffset? ExpirationTime { get; }
@@ -30,7 +29,7 @@ namespace Content.Server.Database
         public ServerBanDef(int? id,
             NetUserId? userId,
             (IPAddress, int)? address,
-            ImmutableArray<byte>? hwId,
+            TypedHwid? hwId,
             DateTimeOffset banTime,
             DateTimeOffset? expirationTime,
             int? roundId,
