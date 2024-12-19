@@ -23,6 +23,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
+using Content.Server.Emp;
 using Content.Shared.Emp; // Goobstation
 
 namespace Content.Server.Mech.Systems;
