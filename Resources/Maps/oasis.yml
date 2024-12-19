@@ -14678,7 +14678,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111136.43
+      secondsUntilStateChange: -111141.66
       state: Opening
   - uid: 6934
     components:
@@ -14690,7 +14690,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111139.06
+      secondsUntilStateChange: -111144.29
       state: Opening
   - uid: 6935
     components:
@@ -14702,7 +14702,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111137.914
+      secondsUntilStateChange: -111143.14
       state: Opening
   - uid: 6936
     components:
@@ -14713,7 +14713,7 @@ entities:
       lastSignals:
         DoorStatus: True
     - type: Door
-      secondsUntilStateChange: -111137.13
+      secondsUntilStateChange: -111142.36
       state: Opening
 - proto: AirlockTheatreLocked
   entities:
@@ -94905,7 +94905,7 @@ entities:
       pos: -13.5,-1.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -102460.414
+      secondsUntilStateChange: -102465.64
     - type: DeviceNetwork
       deviceLists:
       - 18275
@@ -97685,7 +97685,7 @@ entities:
           mask: []
           layer:
           - Impassable
-          - TableLayer
+          - MidImpassable
           - HighImpassable
           - LowImpassable
           - BulletImpassable
@@ -139623,7 +139623,7 @@ entities:
       pos: 36.5,-35.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -139292.27
+      secondsUntilStateChange: -139297.5
       state: Opening
   - uid: 5211
     components:
@@ -149861,13 +149861,6 @@ entities:
     - type: Transform
       pos: -3.4752243,-18.994682
       parent: 2
-- proto: PresentRandomAsh
-  entities:
-  - uid: 26468
-    components:
-    - type: Transform
-      pos: 53.454712,25.263622
-      parent: 21002
 - proto: PresentRandomCash
   entities:
   - uid: 9641
@@ -149875,6 +149868,13 @@ entities:
     - type: Transform
       pos: -26.517355,4.481133
       parent: 2
+- proto: PresentRandomCoal
+  entities:
+  - uid: 26468
+    components:
+    - type: Transform
+      pos: 53.454712,25.263622
+      parent: 21002
 - proto: PressureControlledValve
   entities:
   - uid: 8695
@@ -163201,6 +163201,13 @@ entities:
     - type: Transform
       pos: -18.5,4.5
       parent: 2
+- proto: SpawnPointBlueshieldOfficer
+  entities:
+  - uid: 121464342
+    components:
+    - type: Transform
+      pos: 24.5,13.5
+      parent: 2
 - proto: SpawnPointBorg
   entities:
   - uid: 1127
@@ -163265,20 +163272,6 @@ entities:
 - proto: SpawnPointCaptain
   entities:
   - uid: 20780
-    components:
-    - type: Transform
-      pos: 24.5,13.5
-      parent: 2
-- proto: SpawnPointBlueshieldOfficer
-  entities:
-  - uid: 121464342
-    components:
-    - type: Transform
-      pos: 24.5,13.5
-      parent: 2
-- proto: SpawnPointNanotrasenRepresentative
-  entities:
-  - uid: 42146433
     components:
     - type: Transform
       pos: 24.5,13.5
@@ -163575,6 +163568,13 @@ entities:
     components:
     - type: Transform
       pos: 26.5,17.5
+      parent: 2
+- proto: SpawnPointNanotrasenRepresentative
+  entities:
+  - uid: 42146433
+    components:
+    - type: Transform
+      pos: 24.5,13.5
       parent: 2
 - proto: SpawnPointObserver
   entities:
@@ -191964,7 +191964,7 @@ entities:
       pos: 24.5,2.5
       parent: 21002
     - type: Door
-      secondsUntilStateChange: -484496.97
+      secondsUntilStateChange: -484502.2
       state: Opening
   - uid: 28863
     components:
