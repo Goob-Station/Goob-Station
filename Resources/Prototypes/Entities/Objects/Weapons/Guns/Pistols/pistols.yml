@@ -230,12 +230,12 @@
     maxAngle: 8
     angleIncrease: 3
     angleDecay: 4
+    fireRate: 3
     # Goob edit end
-    fireRate: 4
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg # Goob edit
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg # Goob edit
   - type: ItemSlots
     slots:
       gun_magazine:

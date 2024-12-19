@@ -52,12 +52,11 @@
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
-    suitstorage: WeaponSubMachineGunAtreides
+    suitstorage: WeaponShotgunEnforcer
   storage:
     back:
     - Flash
-    - MagazinePistolSubMachineGun
-    - MagazinePistolSubMachineGun
+    - BoxLethalshot
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo
