@@ -23,7 +23,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
-using Content.Server.Emp; // Goobstation
+using Content.Shared.Emp; // Goobstation
 
 namespace Content.Server.Mech.Systems;
 
@@ -256,6 +256,11 @@ public sealed partial class MechSystem : SharedMechSystem
     //goobstation
     private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
     {
+        args.Affected = true;
+        args.Disabled = true;
+        component.Energy -= args.EnergyConsumption;
+        if (component.Energy < 0)
+            component.Energy = 0;
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
     }
