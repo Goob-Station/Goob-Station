@@ -170,3 +170,39 @@
         Piercing: 1.5
   - type: TimedDespawn
     lifetime: 5
+
+- type: entity
+  name: lootbug
+  id: MobLootbug
+  parent: MobMothroach
+  description: It eats metal. Maybe it have eaten something valuable?
+  components:
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-lootbug-name
+    description: ghost-role-information-lootbug-description
+    rules: ghost-role-information-freeagent-rules
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Animals/syndiroach.rsi
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Squeak
+    allowedEmotes: ['Squeak']
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: mothroach
+      Dead:
+        Base: mothroach_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Clothing
+    quickEquip: false
+  - type: GhostTakeoverAvailable
+  - type: Butcherable
+    spawned:
+    - id: SpawnLootLootbug
