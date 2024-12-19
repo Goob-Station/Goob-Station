@@ -10,13 +10,18 @@
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
-  chatMessages: [ boops ]
+  icon: Interface/Emotes/beep.png # ShibaStation - Icon
+  whitelist: # ShibaStation - Whitelist
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+  chatMessages: [ boops! ]
   chatTriggers:
     - boops
 
 - type: emote
   id: Whirr # uncategorized as it is generic
   name: chat-emote-name-whirr
-  chatMessages: [ whirrs ]
+  chatMessages: [ whirrs! ]
   chatTriggers:
     - whirrs
