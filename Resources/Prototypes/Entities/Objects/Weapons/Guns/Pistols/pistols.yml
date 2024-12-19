@@ -235,7 +235,7 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg # Goob edit
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg # Goob edit
   - type: ItemSlots
     slots:
       gun_magazine:
