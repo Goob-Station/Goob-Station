@@ -11,13 +11,13 @@ public sealed partial class LavalandRuinPoolPrototype : IPrototype
     /// Distance in-between ruins.
     /// </summary>
     [DataField]
-    public float RuinDistance = 12;
+    public float RuinDistance = 16;
 
     /// <summary>
     /// Max distance that Ruins can generate.
     /// </summary>
     [DataField]
-    public float MaxDistance = 128;
+    public float MaxDistance = 256;
 
     /// <summary>
     /// List of all huge ruins and their count. Should contain only really

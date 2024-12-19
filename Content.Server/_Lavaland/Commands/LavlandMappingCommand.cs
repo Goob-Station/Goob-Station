@@ -15,7 +15,7 @@ public sealed class LavalandMappingCommand : IConsoleCommand
 
     public string Command => "lavaland_setup";
 
-    public string Description => "Generates a lavaland world if it doesn't exist. Be careful, this can cause freezes on runtime!";
+    public string Description => "Generates new lavaland world. Be careful, this can cause freezes on runtime!";
 
     public string Help => "lavaland_setup <prototype id> <seed>";
 

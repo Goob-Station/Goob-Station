@@ -8,6 +8,6 @@
     Debug: 8
     LavaLake: 8
   smallRuins:
-    RuinedShuttle: 48
-    Hermit: 24
-    Labyrinth: 24
+    RuinedShuttle: 128
+    Hermit: 128
+    Labyrinth: 64

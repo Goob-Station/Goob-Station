@@ -14,6 +14,4 @@ public sealed partial class LavalandRuinPrototype : IPrototype
 
     [DataField(required: true)]
     public string Path { get; } = default!;
-
-    [DataField] public bool DoPatch;
 }
