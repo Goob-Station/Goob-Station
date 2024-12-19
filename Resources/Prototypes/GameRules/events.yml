@@ -36,7 +36,7 @@
     - id: SleeperAgents
     - id: ZombieOutbreak
     - id: LoneOpsSpawn
-   # - id: BlobSpawn #Goobstation - Blob  (not added wile undergoing playtesting)
+    - id: BlobSpawn # Goobstation - Blob
 
 - type: entity
   id: BaseStationEvent
