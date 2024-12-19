@@ -5,6 +5,12 @@
   components:
   - type: EnergySword
   - type: ItemToggle
+    # Goobstation start
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    # Goobstation end
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
     soundDeactivate:

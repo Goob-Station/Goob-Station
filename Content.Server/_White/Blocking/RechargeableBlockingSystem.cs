@@ -65,9 +65,8 @@ public sealed class RechargeableBlockingSystem : EntitySystem
         if (!component.Discharged)
             return;
 
-        _popup.PopupEntity(Loc.GetString("rechargeable-blocking-remaining-time-popup",
-                ("remainingTime", GetRemainingTime(uid))),
-            args.User ?? uid);
+        args.Popup = Loc.GetString("rechargeable-blocking-remaining-time-popup",
+            ("remainingTime", GetRemainingTime(uid)));
         args.Cancelled = true;
     }
     private void OnChargeChanged(EntityUid uid, RechargeableBlockingComponent component, ChargeChangedEvent args)

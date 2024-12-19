@@ -75,12 +75,6 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Gun
     fireRate: 10
-    # Goob edit start
-    angleIncrease: 4.5
-    angleDecay: 10
-    minAngle: 3
-    maxAngle: 24
-    # Goob edit end
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/atreides.ogg
   - type: MagazineVisuals
