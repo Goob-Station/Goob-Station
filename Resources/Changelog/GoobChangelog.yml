@@ -3440,3 +3440,9 @@ Entries:
       message: Fixed blob never spawning.
   id: 380
   time: '2024-12-19T15:27:44.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: All playable species can now wriggle free from being carried.
+  id: 381
+  time: '2024-12-19T15:29:45.0000000+00:00'
