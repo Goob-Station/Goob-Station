@@ -12,7 +12,7 @@
       effects:
       - !type:HealthChange 
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
         damage:
           groups:
@@ -24,7 +24,7 @@
             Radiation: -0.5
       - !type:HealthChange
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         damage:
@@ -32,7 +32,7 @@
             Poison: 0.25
       - !type:HealthChange # When overdosing
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -43,7 +43,7 @@
             Asphyxiation: 0.75 # more damage, but easier to treat, will rapidly kill in crit probably?
       - !type:HealthChange # More overdose damage
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
@@ -70,7 +70,7 @@
         probability: 0.05
       - !type:MovespeedModifier # you didn't think this would improve your abilities right?
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         walkSpeedModifier: 0.8
@@ -81,14 +81,14 @@
       - !type:Jitter
       - !type:Paralyze # loss of muscle control
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         probability: 0.05
         paralyzeTime: 2
       - !type:Paralyze # more severe effects when you are overdosing
         conditions:
-        - !type:OrganType # Goobstation - Yowie
+        - !type:OrganType
           type: Yowie
           shouldHave: false
         - !type:ReagentThreshold
