@@ -226,6 +226,7 @@
   - type: LayingDown # WD EDIT
   - type: Targeting # Shitmed Change
   - type: SurgeryTarget # Shitmed Change
+  - type: CanEscapeInventory # GoobStation - Escape being picked up by players
 
 - type: entity
   save: false
