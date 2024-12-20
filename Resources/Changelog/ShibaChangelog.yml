@@ -1,6 +1,70 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: The vent clog event will now happen regardless of population.
+    type: Tweak
+  id: 53
+  time: '2024-12-20T04:42:29.484184'
+- author: AstroDogeDX
+  changes:
+  - message: Hostile vent critters will now spawn at a lower population (8-12). Better
+      consider a job in Security!
+    type: Tweak
+  id: 52
+  time: '2024-12-20T04:43:03.637369'
+- author: AstroDogeDX
+  changes:
+  - message: Improvements to the solar flare shielding have been made, and comms interruptions
+      should be less frequent.
+    type: Tweak
+  id: 51
+  time: '2024-12-20T04:48:21.926394'
+- author: AstroDogeDX
+  changes:
+  - message: Felinid and Rodentian PsuedoItem sizes have been adjusted so now two
+      smols can fit in a single duffel bag, or one smol in a regular backpack! Smol
+      Ops real.
+    type: Tweak
+  id: 50
+  time: '2024-12-20T03:15:33.491106'
+- author: AstroDogeDX
+  changes:
+  - message: CentComm's Electrical Engineering Division has made some improvements
+      to the power grid. There should be less blackouts and when they do happen, they'll
+      be shorter.
+    type: Tweak
+  id: 49
+  time: '2024-12-20T04:45:28.229226'
+- author: AstroDogeDX
+  changes:
+  - message: CentComm's Dork (IT) Division has updated the antivirus software to prevent
+      the Greytide Virus from occuring. (No Greytide Virus Event)
+    type: Remove
+  id: 48
+  time: '2024-12-20T04:45:32.863729'
+- author: AstroDogeDX
+  changes:
+  - message: Lockers becoming Bluespaced is now capped at 10 per shift; achieved by
+      some quantum wibbly wobbly timey wimey stuff.
+    type: Tweak
+  id: 47
+  time: '2024-12-20T04:46:30.521739'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed borg emotes appearing in the wheel, and lizzers not being able
+      to weh!
+    type: Fix
+  id: 46
+  time: '2024-12-20T03:14:11.669916'
+- author: AstroDogeDX
+  changes:
+  - message: Amber Station has been made available at zero pop; time to explore uncharted
+      territory!
+    type: Add
+  id: 45
+  time: '2024-12-20T04:47:08.937667'
+- author: AstroDogeDX
+  changes:
   - message: IPC voices are more like borgs than pAIs.
     type: Tweak
   id: 44
