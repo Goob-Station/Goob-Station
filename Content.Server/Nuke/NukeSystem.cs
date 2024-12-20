@@ -490,6 +490,7 @@ public sealed class NukeSystem : EntitySystem
                 if (nukeopsComp.ERTCalled)
                 {
                     _selectedNukeSong = _audio.GetSound(component.ERTArmMusic);
+                    break;
                 }
             }
         }
