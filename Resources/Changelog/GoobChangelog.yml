@@ -3460,3 +3460,9 @@ Entries:
       message: Yowies can now breathe easy. Literally.
   id: 384
   time: '2024-12-20T14:38:03.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: IPC thiefs have a new objective to collect power cells
+  id: 385
+  time: '2024-12-20T14:42:44.0000000+00:00'
