@@ -513,10 +513,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
                 // Roll if we should spawn an ERT
                 var randomNum = _random.Next(0, 3);
-                if (randomNum != 0)
-                    return;
-
-                _gameTicker.StartGameRule("ERTSpawn");
+                if (randomNum == 0)
+                {
+                    _gameTicker.StartGameRule("ERTSpawn");
+                    ent.Comp.ERTCalled = true;
+                }
             }
         }
         // Goobstation end
