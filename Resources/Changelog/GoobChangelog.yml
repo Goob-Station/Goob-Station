@@ -3321,9 +3321,7 @@ Entries:
     - type: Tweak
       message: Removed most bundles from uplink and replaced them with individual guns
     - type: Tweak
-      message: Energy swords now easily delimb, and only reflect energy projectiles
-    - type: Tweak
-      message: DEsword does less damage but has better energy reflect and is cheaper
+      message: Energy swords now easily delimb
     - type: Tweak
       message: change a few minor uplink prices
     - type: Tweak
@@ -3430,7 +3428,29 @@ Entries:
       message: Atreides accuracy nerfed.
     - type: Tweak
       message: 'Mateba firerate increased: 3 -> 5.'
-    - type: Remove
-      message: Removed bluespace lifeline implanter from bso.
   id: 379
   time: '2024-12-18T02:01:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed blob never spawning.
+  id: 380
+  time: '2024-12-19T15:27:44.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: All playable species can now wriggle free from being carried.
+  id: 381
+  time: '2024-12-19T15:29:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed ERP, once and for all.
+  id: 382
+  time: '2024-12-20T01:15:21.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: Enabled blob gamemode.
+  id: 383
+  time: '2024-12-20T01:49:31.0000000+00:00'
