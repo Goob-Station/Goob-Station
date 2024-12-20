@@ -28,6 +28,9 @@ using Content.Shared.Store.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Chat.Systems;
 using Robust.Server.Player;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
+using Content.Shared.Mobs.Systems;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -40,11 +43,15 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    // goob edit
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+
+    // Goobstation start
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    // goob edit end
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    // Goobstation end
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -474,6 +481,46 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 || op.Item3.MapID == targetStationMap)
             .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
 
+        // Goobstation start
+        var aliveCrew = new List<EntityUid>();
+        var stationGrids = new HashSet<EntityUid>();
+
+        foreach (var station in _gameTicker.GetSpawnableStations())
+        {
+            if (TryComp<StationDataComponent>(station, out var stationData) && _station.GetLargestGrid(stationData) is { } grid)
+                stationGrids.Add(grid);
+        }
+
+        if (!ent.Comp.ERTRolled)
+        {
+            var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+            var allPlayers = new List<EntityUid>();
+            while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
+            {
+                allPlayers.Add(uid);
+
+                if (!_mobState.IsAlive(uid, mob) // If they're dead they aren't aliveCrew
+                    || HasComp<NukeOperativeComponent>(uid) // If they're a nukie they aren't aliveCrew
+                    || !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid)) // If they're not on the station they aren't aliveCrew
+                    continue;
+
+                aliveCrew.Add(uid);
+            }
+
+            if (aliveCrew.Count / allPlayers.Count <= 0.5) // If 50% or less of the crew are alive
+            {
+                ent.Comp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
+
+                // Roll if we should spawn an ERT
+                var randomNum = _random.Next(0, 3);
+                if (randomNum != 0)
+                    return;
+
+                SpawnERT();
+            }
+        }
+        // Goobstation end
+
         if (operativesAlive)
             return; // There are living operatives than can access the shuttle, or are still on the station's map.
 
@@ -497,6 +544,12 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // prevent it called multiple times
         nukeops.RoundEndBehavior = RoundEndBehavior.Nothing;
+    }
+
+    // Goobstation
+    private void SpawnERT()
+    {
+        _gameTicker.StartGameRule("ERTSpawn");
     }
 
     private void OnAfterAntagEntSelected(Entity<NukeopsRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
