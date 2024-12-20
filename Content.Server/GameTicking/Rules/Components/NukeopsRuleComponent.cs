@@ -120,9 +120,15 @@ public sealed partial class NukeopsRuleComponent : Component
 
     // Goobstation
     [DataField]
-    public bool ERTRolled = false;
+    public bool CallERT = true;
 
     [DataField]
+    public float ERTChance = 0.25f;
+
+    [DataField]
+    public float ERTDeadPercentage = 0.5f;
+
+    public bool ERTRolled = false;
     public bool ERTCalled = false;
 }
 

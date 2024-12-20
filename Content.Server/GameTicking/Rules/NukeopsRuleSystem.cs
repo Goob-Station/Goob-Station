@@ -31,6 +31,7 @@ using Robust.Server.Player;
 using Content.Shared.Humanoid;
 using Robust.Shared.Player;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -51,6 +52,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
     // Goobstation end
 
     [ValidatePrototypeId<CurrencyPrototype>]
@@ -483,37 +485,29 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // Goobstation start
         var aliveCrew = new List<EntityUid>();
-        var stationGrids = new HashSet<EntityUid>();
-
-        foreach (var station in _gameTicker.GetSpawnableStations())
-        {
-            if (TryComp<StationDataComponent>(station, out var stationData) && _station.GetLargestGrid(stationData) is { } grid)
-                stationGrids.Add(grid);
-        }
 
         if (!ent.Comp.ERTRolled)
         {
             var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
-            var allPlayers = new List<EntityUid>();
+            var allCrew = new List<EntityUid>();
             while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
             {
-                allPlayers.Add(uid);
+                if (!HasComp<NukeOperativeComponent>(uid)) // Nukies aren't crew
+                    allCrew.Add(uid);
 
-                if (!_mobState.IsAlive(uid, mob) // If they're dead they aren't aliveCrew
-                    || HasComp<NukeOperativeComponent>(uid) // If they're a nukie they aren't aliveCrew
-                    || !stationGrids.Contains(xform.GridUid ?? EntityUid.Invalid)) // If they're not on the station they aren't aliveCrew
+                if (_entityManager.TryGetComponent<IsDeadICComponent>(uid, out var isDeadICComp)) // If they're dead they aren't aliveCrew
                     continue;
 
                 aliveCrew.Add(uid);
             }
 
             // If 50% or less of the crew are alive
-            if (aliveCrew.Count > 0 && allPlayers.Count > 0 && aliveCrew.Count / allPlayers.Count <= 0.5f)
+            if (aliveCrew.Count > 0 && allCrew.Count > 0 && aliveCrew.Count / allCrew.Count <= ent.Comp.ERTDeadPercentage)
             {
                 ent.Comp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
 
                 // Roll if we should spawn an ERT, 25% chance
-                if (!_random.Prob(0.25f))
+                if (_random.Prob(ent.Comp.ERTChance))
                 {
                     _gameTicker.StartGameRule("ERTSpawn");
                     ent.Comp.ERTCalled = true;
