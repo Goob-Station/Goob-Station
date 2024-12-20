@@ -18,7 +18,6 @@
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
-          shouldHave: false
       - !type:Oxygenate
         conditions:
         - !type:OrganType
