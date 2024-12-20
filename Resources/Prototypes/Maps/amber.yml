@@ -2,7 +2,7 @@
   id: Amber
   mapName: 'Amber'
   mapPath: /Maps/amber.yml
-  minPlayers: 7
+  minPlayers: 0 # ShibaStation - More LOW POP LET'S GO
   maxPlayers: 50
   stations:
     Amber:

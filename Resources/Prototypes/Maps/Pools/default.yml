@@ -2,7 +2,7 @@
   id: DefaultMapPool
   maps:
   - Atlas
-  #- Amber TODO: pirasmas amber
+  - Amber # TODO: pirasmas amber
   - Bagel
   - Box
   - Cluster
