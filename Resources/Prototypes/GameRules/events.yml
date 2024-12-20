@@ -10,7 +10,7 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
-    - id: GreytideVirus
+    # - id: GreytideVirus # ShibaStation - Disabled; tiders already have plenty of other ways to get into places.
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
@@ -282,15 +282,15 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    weight: 5
+    weight: 3 # ShibaStation - Reduced from 5 to 3
     startAnnouncement: station-event-power-grid-check-start-announcement
     endAnnouncement: station-event-power-grid-check-end-announcement
     startAudio:
       path: /Audio/Announcements/power_off.ogg
       params:
         volume: -4
-    duration: 60
-    maxDuration: 120
+    duration: 30 # ShibaStation - Reduced from 60 to 30
+    maxDuration: 90 # ShibaStation - Reduced from 120 to 90
   - type: PowerGridCheckRule
 
 - type: entity
