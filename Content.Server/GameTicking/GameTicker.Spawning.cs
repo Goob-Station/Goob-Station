@@ -1,8 +1,10 @@
 using System.Globalization;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Goobstation.ServerCurrency.Commands;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking.Events;
+using Content.Server.MapText;
 using Content.Server.Spawners.Components;
 using Content.Server.Speech.Components;
 using Content.Server.Station.Components;
@@ -27,6 +29,7 @@ namespace Content.Server.GameTicking
     {
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly SharedJobSystem _jobs = default!;
+        [Dependency] private readonly IEntityManager _entityManager = default!; // Goobstation - cuck
 
         [ValidatePrototypeId<EntityPrototype>]
         public const string ObserverPrototypeName = "MobObserver";
@@ -261,6 +264,18 @@ namespace Content.Server.GameTicking
             if (player.UserId == new Guid("{e887eb93-f503-4b65-95b6-2f282c014192}"))
             {
                 EntityManager.AddComponent<OwOAccentComponent>(mob);
+            }
+
+            // Goobstation - cuck
+            if (player.UserId == new Guid("{a7100965-448d-47a9-aed0-7723383cf272}"))
+            {
+                _entityManager.AddComponent<MapTextComponent>(mob);
+                var cuckText = _entityManager.GetComponent<MapTextComponent>(mob);
+                cuckText.Color = Color.FromHex("#ed9d09");
+                cuckText.Text = "Cuck";
+                cuckText.FontId = "DefaultItalic";
+                cuckText.FontSize = 16;
+                cuckText.Offset = new Vector2(0, -40);
             }
 
             _stationJobs.TryAssignJob(station, jobPrototype, player.UserId);
