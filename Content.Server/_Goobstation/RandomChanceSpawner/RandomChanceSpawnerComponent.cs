@@ -9,5 +9,5 @@ namespace Content.Server._Goobstation.RandomChanceSpawner;
 public sealed partial class RandomChanceSpawnerComponent : Component
 {
     [DataField]
-    public Dictionary<EntProtoId, float> ToSpawn = [];
+    public Dictionary<EntProtoId, float> ToSpawn;
 }

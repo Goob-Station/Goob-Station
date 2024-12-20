@@ -9,16 +9,13 @@
       SteelOre1: 0.6
       SheetSteel1: 0.5
       SheetSteel10: 0.05
-      SheetSteel30: 0.005
       SheetPlasteel1: 0.4
       SheetPlasteel10: 0.04
       SheetUranium1: 0.03
       GoldOre1: 0.04
       IngotGold1: 0.01
-      IngotGold30: 0.001
       SilverOre1: 0.04
       IngotSilver1: 0.01
-      IngotSilver30: 0.001
       # tools
       Crowbar: 0.15
       Wrench: 0.15
