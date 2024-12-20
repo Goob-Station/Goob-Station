@@ -9,6 +9,7 @@ species-name-arachnid = Arachnid
 species-name-moth = Lepidopteran
 species-name-skeleton = Skeleton
 species-name-vox = Vox
+# species-name-gingerbread = delicious baked good goobstation - no
 
 ## Misc species things
 
