@@ -24,6 +24,8 @@
       Wrench: 0.15
       Wirecutter: 0.09
       Screwdriver: 0.09
+      ClothingHeadHatWelding: 0.06
+      Handcuffs: 0.05
       # parts
       CapacitorStockPart: 0.1
       MicroManipulatorStockPart: 0.1
