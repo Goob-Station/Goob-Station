@@ -51,12 +51,12 @@
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
-    pocket2: PinpointerNuclear
-    suitstorage: WeaponShotgunEnforcer
+    pocket2: WeaponPistolMk58
   storage:
     back:
     - Flash
-    - BoxLethalshot
+    - MagazinePistol
+    - PinpointerNuclear
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo
