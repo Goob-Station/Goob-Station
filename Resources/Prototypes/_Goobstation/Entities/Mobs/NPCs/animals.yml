@@ -175,7 +175,7 @@
   name: lootbug
   id: MobLootbug
   parent: SimpleMobBase
-  description: It eats metal. Maybe it have eaten something valuable?
+  description: It eats metal, maybe it's eaten something of value?
   components:
   - type: Sprite
     drawdepth: SmallMobs
