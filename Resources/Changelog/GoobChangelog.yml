@@ -3448,3 +3448,9 @@ Entries:
       message: Removed ERP, once and for all.
   id: 382
   time: '2024-12-20T01:15:21.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: Enabled blob gamemode.
+  id: 383
+  time: '2024-12-20T01:49:31.0000000+00:00'
