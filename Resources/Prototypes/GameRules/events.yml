@@ -107,6 +107,7 @@
     reoccurrenceDelay: 5
     earliestStart: 1
     duration: 1
+    maxOccurrences: 10 # ShibaStation - Long shifts result in like two thirds of all lockers being bluespaced. It's cringe.
   - type: BluespaceLockerRule
 
 - type: entity
@@ -263,7 +264,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
-    weight: 8
+    weight: 6 # ShibaStation - Reduced from 8 to 6
   - type: GasLeakRule
 
 - type: entity
@@ -273,7 +274,7 @@
   - type: StationEvent
     earliestStart: 15
     minimumPlayers: 15
-    weight: 7
+    weight: 5 # ShibaStation - Reduced from 7 to 5
     duration: 240
   - type: KudzuGrowthRule
 
@@ -298,7 +299,7 @@
   id: SolarFlare
   components:
   - type: StationEvent
-    weight: 8
+    weight: 4 # ShibaStation - Reduced from 8 to 4
     startAnnouncement: station-event-solar-flare-start-announcement
     endAnnouncement: station-event-solar-flare-end-announcement
     startAudio:
@@ -330,7 +331,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
-    minimumPlayers: 15
+    minimumPlayers: 0 # ShibaStation - Reduced from 15 to 0
     weight: 5
     duration: 60
   - type: VentClogRule
@@ -344,8 +345,8 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
-    minimumPlayers: 15
-    weight: 0.5 # GoobStation: was 5, vent critters bad
+    minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
+    weight: 1 # GoobStation: was 5, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -365,7 +366,7 @@
     startAudio:
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
     weight: 2 # GoobStation: was 5, critters because bad
     duration: 60
   - type: VentCrittersRule
@@ -386,8 +387,8 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
-    minimumPlayers: 15
-    weight: 1 # GoobStation: was 1, vent critters bad
+    minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
+    weight: 3 # GoobStation: was 1, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -403,8 +404,8 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
-    minimumPlayers: 20
-    weight: 0.5 # GoobStation: was 1.5, vent critters bad
+    minimumPlayers: 12 # ShibaStation - Reduced from 20 to 12
+    weight: 0.5 # ShibaStation - Back to 0.5
     duration: 60
   - type: VentCrittersRule
     entries:
