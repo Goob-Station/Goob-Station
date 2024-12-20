@@ -61,6 +61,13 @@ public sealed class CardStackSystem : EntitySystem
         _container.Remove(card, comp.ItemContainer);
         comp.Cards.Remove(card);
 
+        // If there is a final card left over, remove that card from the container and delete the stack alltogether
+        if (comp.Cards.Count == 1)
+        {
+            _container.Remove(comp.Cards.First(), comp.ItemContainer);
+            comp.Cards.Clear();
+        }
+
         Dirty(uid, comp);
 
         RaiseLocalEvent(uid, new CardStackQuantityChangeEvent(GetNetEntity(uid), GetNetEntity(card), StackQuantityChangeType.Removed));
@@ -427,26 +434,35 @@ public sealed class CardStackSystem : EntitySystem
             return;
 
         if (!TryComp<HandsComponent>(args.User, out var hands))
+        {
+            args.Handled = true;
             return;
+        }
 
         var activeItem = _hands.GetActiveItem((args.User, hands));
 
         if (activeItem == null)
         {
+            // Runs if active item is nothing
+            // behavior is to draw one card from this target onto active hand as a standalone card
             OnInteractHand(args.Target, component, args.User);
         }
         else if (activeItem == args.Target)
         {
+            // Added from a Frontier PR. Don't want to draw a card from a stack onto itself.
+            args.Handled = true;
             return;
         }
         else if (TryComp<CardStackComponent>(activeItem, out var cardStack))
         {
+            // If the active item contains a card stack, behavior is to draw from Target and place onto activeHand.
             TransferNLastCardFromStacks(args.User, 1, args.Target, component, activeItem.Value, cardStack);
         }
         else if (TryComp<CardComponent>(activeItem, out var card))
         {
             _cardHandSystem.TrySetupHandFromStack(args.User, activeItem.Value, card, args.Target, component, true);
         }
+        args.Handled = true;
     }
 
     #endregion
