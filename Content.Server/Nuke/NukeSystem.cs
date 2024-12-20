@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
@@ -479,6 +480,9 @@ public sealed class NukeSystem : EntitySystem
         // Goobstation start
         // If there's an ERT spawned and the nuke is armed, we play the fancy song instead
         var activeRules = _gameTicker.GetActiveGameRules();
+        if (activeRules == null || !activeRules.Any())
+            return;
+
         foreach (var rule in activeRules)
         {
             if (_entityManager.TryGetComponent<NukeopsRuleComponent>(rule, out var nukeopsComp))
