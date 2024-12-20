@@ -512,9 +512,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             {
                 ent.Comp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
 
-                // Roll if we should spawn an ERT
-                var randomNum = _random.Next(0, 3);
-                if (randomNum == 0)
+                // Roll if we should spawn an ERT, 25% chance
+                if (!_random.Prob(0.25f))
                 {
                     _gameTicker.StartGameRule("ERTSpawn");
                     ent.Comp.ERTCalled = true;
