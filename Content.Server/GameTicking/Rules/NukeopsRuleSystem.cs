@@ -516,7 +516,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (randomNum != 0)
                     return;
 
-                SpawnERT();
+                _gameTicker.StartGameRule("ERTSpawn");
             }
         }
         // Goobstation end
@@ -544,12 +544,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // prevent it called multiple times
         nukeops.RoundEndBehavior = RoundEndBehavior.Nothing;
-    }
-
-    // Goobstation
-    private void SpawnERT()
-    {
-        _gameTicker.StartGameRule("ERTSpawn");
     }
 
     private void OnAfterAntagEntSelected(Entity<NukeopsRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
