@@ -62,6 +62,17 @@ public sealed class MiningPointsSystem : EntitySystem
     }
 
     /// <summary>
+    /// Returns true if the user has at least some number of points on their ID card.
+    /// </summary>
+    public bool UserHasPoints(EntityUid user, uint points)
+    {
+        if (TryFindIdCard(user)?.Comp is not {} comp)
+            return false;
+
+        return comp.Points >= points;
+    }
+
+    /// <summary>
     /// Removes points from a holder, returning true if it succeeded.
     /// </summary>
     public bool RemovePoints(Entity<MiningPointsComponent?> ent, uint amount)

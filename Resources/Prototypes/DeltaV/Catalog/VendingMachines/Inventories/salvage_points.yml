@@ -27,6 +27,8 @@
     cost: 600
   - id: MedkitBurnFilled
     cost: 600
+  - id: LavalandEquipmentExplorerSuit
+    cost: 650
   # TODO: salvage 5g, 3 implants and a locator for 600
   # TODO: wormhole jaunter for 750
   - id: WeaponCrusher

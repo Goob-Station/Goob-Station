@@ -1395,9 +1395,9 @@
         - IngotSilver1
         - MaterialBananium1
         - MaterialDiamond
-    - type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
-      magnetEnabled: True
-      range: 0.30 # Delta V - End Magnet Pull
+    #- type: MaterialStorageMagnetPickup # Delta V - Summary: Adds magnet pull from Frontier
+    #  magnetEnabled: True
+    #  range: 0.30 # Delta V - End Magnet Pull
     - type: MiningPoints # DeltaV - Source of mining points for miners
       transferSound:
         path: /Audio/Effects/Cargo/ping.ogg
@@ -1417,7 +1417,6 @@
     materialUseMultiplier: 0.75
     timeMultiplier: 0.5
     staticRecipes:
-      - BluespaceCrystal # DeltaV - Bluespace Crystals can be created here.
       - SheetSteel
       - SheetGlass1
       - SheetRGlass
