@@ -265,6 +265,7 @@
       path: /Audio/Announcements/attention.ogg
     endAnnouncement: station-event-gas-leak-end-announcement
     weight: 6 # ShibaStation - Reduced from 8 to 6
+    reoccurrenceDelay: 10 # ShibaStation - Gas leaks now can only happen after 10 minutes since the last one.
   - type: GasLeakRule
 
 - type: entity
@@ -292,6 +293,7 @@
         volume: -4
     duration: 30 # ShibaStation - Reduced from 60 to 30
     maxDuration: 90 # ShibaStation - Reduced from 120 to 90
+    reoccurrenceDelay: 10 # ShibaStation - Power grid checks now can only happen after 10 minutes since the last one.
   - type: PowerGridCheckRule
 
 - type: entity
@@ -306,6 +308,7 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
+    reoccurrenceDelay: 10 # ShibaStation - Solar flares now can only happen after 10 minutes since the last one.
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -332,8 +335,9 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 15
     minimumPlayers: 0 # ShibaStation - Reduced from 15 to 0
-    weight: 5
+    weight: 3 # ShibaStation - Reduced from 5 to 3
     duration: 60
+    reoccurrenceDelay: 15 # ShibaStation - Vent clogs now can only happen after 15 minutes since the last one.
   - type: VentClogRule
 
 - type: entity
@@ -348,6 +352,7 @@
     minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
     weight: 1 # GoobStation: was 5, vent critters bad
     duration: 60
+    reoccurrenceDelay: 20 # ShibaStation - Vent critters now can only happen after 20 minutes since the last one.
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -367,8 +372,9 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
-    weight: 2 # GoobStation: was 5, critters because bad
+    weight: 1 # GoobStation: was 5, critters because bad
     duration: 60
+    reoccurrenceDelay: 20 # ShibaStation - Vent critters now can only happen after 20 minutes since the last one.
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -388,8 +394,9 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
-    weight: 3 # GoobStation: was 1, vent critters bad
+    weight: 1 # GoobStation: was 1, vent critters bad
     duration: 60
+    reoccurrenceDelay: 20 # ShibaStation - Vent critters now can only happen after 20 minutes since the last one.
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -407,6 +414,7 @@
     minimumPlayers: 12 # ShibaStation - Reduced from 20 to 12
     weight: 0.5 # ShibaStation - Back to 0.5
     duration: 60
+    reoccurrenceDelay: 20 # ShibaStation - Vent critters now can only happen after 20 minutes since the last one.
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider
