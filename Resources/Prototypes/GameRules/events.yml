@@ -78,9 +78,9 @@
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/Announcements/announce.ogg
-    weight: 8
+    weight: 5 # ShibaStation - Reduced from 8 to 5
     duration: 35
-    reoccurrenceDelay: 10 # ShibaStation - Anomalies now can only happen after 10 minutes since the last one.
+    reoccurrenceDelay: 30 # ShibaStation - Anomalies now can only happen after 30 minutes since the last one.
   - type: AnomalySpawnRule
 
 - type: entity
@@ -95,9 +95,9 @@
     startAnnouncementColor: "#18abf5"
     startAudio:
       path: /Audio/Announcements/announce.ogg
-    weight: 8
+    weight: 6 # ShibaStation - Reduced from 8 to 6
     duration: 35
-    reoccurrenceDelay: 5 # ShibaStation - Artifacts now can only happen after 5 minutes since the last one.
+    reoccurrenceDelay: 15 # ShibaStation - Artifacts now can only happen after 15 minutes since the last one.
   - type: BluespaceArtifactRule
 
 - type: entity
@@ -295,7 +295,7 @@
         volume: -4
     duration: 30 # ShibaStation - Reduced from 60 to 30
     maxDuration: 90 # ShibaStation - Reduced from 120 to 90
-    reoccurrenceDelay: 10 # ShibaStation - Power grid checks now can only happen after 10 minutes since the last one.
+    reoccurrenceDelay: 15 # ShibaStation - Power grid checks now can only happen after 15 minutes since the last one.
   - type: PowerGridCheckRule
 
 - type: entity
@@ -310,7 +310,7 @@
       path: /Audio/Announcements/attention.ogg
     duration: 120
     maxDuration: 240
-    reoccurrenceDelay: 10 # ShibaStation - Solar flares now can only happen after 10 minutes since the last one.
+    reoccurrenceDelay: 20 # ShibaStation - Solar flares now can only happen after 20 minutes since the last one.
   - type: SolarFlareRule
     onlyJamHeadsets: true
     affectedChannels:
@@ -339,7 +339,7 @@
     minimumPlayers: 0 # ShibaStation - Reduced from 15 to 0
     weight: 3 # ShibaStation - Reduced from 5 to 3
     duration: 60
-    reoccurrenceDelay: 15 # ShibaStation - Vent clogs now can only happen after 15 minutes since the last one.
+    reoccurrenceDelay: 30 # ShibaStation - Vent clogs now can only happen after 20 minutes since the last one.
   - type: VentClogRule
 
 - type: entity
