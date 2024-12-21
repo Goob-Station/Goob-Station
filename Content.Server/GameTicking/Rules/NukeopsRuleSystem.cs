@@ -28,6 +28,10 @@ using Content.Shared.Store.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Chat.Systems;
 using Robust.Server.Player;
+using Content.Shared.Humanoid;
+using Robust.Shared.Player;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Mind.Components;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -40,11 +44,16 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    // goob edit
-    [Dependency] private readonly StationSystem _stationSystem = default!;
+
+    // Goobstation start
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    // goob edit end
+    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IEntityManager _entityManager = default!;
+    // Goobstation end
 
     [ValidatePrototypeId<CurrencyPrototype>]
     private const string TelecrystalCurrencyPrototype = "Telecrystal";
@@ -52,8 +61,13 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
+    // Goobstation start
     [ValidatePrototypeId<TagPrototype>]
-    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
+    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink";
+
+    private NukeopsRuleComponent? _thisComp = null;
+    private bool _operativesAlive;
+    // Goobstation end
 
     public override void Initialize()
     {
@@ -75,6 +89,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         SubscribeLocalEvent<NukeopsRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagEntSelected);
         SubscribeLocalEvent<NukeopsRuleComponent, RuleLoadedGridsEvent>(OnRuleLoadedGrids);
+
+        // Goobstation - I have no idea if using humanoidappearancecomponent is acceptable here
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(OnHumanoidMobStateChanged);
     }
 
     protected override void Started(EntityUid uid,
@@ -82,6 +99,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
+        _thisComp = component; // Goobstation
+
         var eligible = new List<Entity<StationEventEligibleComponent, NpcFactionMemberComponent>>();
         var eligibleQuery = EntityQueryEnumerator<StationEventEligibleComponent, NpcFactionMemberComponent>();
         while (eligibleQuery.MoveNext(out var eligibleUid, out var eligibleComp, out var member))
@@ -464,17 +483,18 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 : null;
         }
 
+        // This is code duplication but it's literally faster this way since all the vars for checking ops are needed outside of that function.
         // Check if there are nuke operatives still alive on the same map as the shuttle,
         // or on the same map as the station.
         // If there are, the round can continue.
         var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
-        var operativesAlive = operatives
+        _operativesAlive = operatives
             .Where(op =>
                 op.Item3.MapID == shuttleMapId
                 || op.Item3.MapID == targetStationMap)
             .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
 
-        if (operativesAlive)
+        if (_operativesAlive)
             return; // There are living operatives than can access the shuttle, or are still on the station's map.
 
         // Check that there are spawns available and that they can access the shuttle.
@@ -509,6 +529,10 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 ("name", Name(ent))),
             Color.Red,
             ent.Comp.GreetSoundNotification);
+
+        // Goobstation - I guess this can go here? Maybe checkroundend is ran when the ops first spawn in? IDK
+        var nukeops = ent.Comp;
+        _operativesAlive = GetAliveOperatives(ent, nukeops); // Goobstation
     }
 
     private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
@@ -547,4 +571,68 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         return null;
     }
+
+    // Goobstation start
+    private void OnHumanoidMobStateChanged(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent ev)
+    {
+        // If the round is over or all the nukies are dead (or deserted), we shouldn't do anything, if the comp isn't initialized, we can't do anything.
+        if (_thisComp == null || _gameTicker.RunLevel == GameRunLevel.PostRound || !_operativesAlive)
+            return;
+
+        if (!_thisComp.ERTRolled)
+        {
+            var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+            var aliveCrew = new List<EntityUid>();
+            var allCrew = new List<EntityUid>();
+            while (players.MoveNext(out var playerUid, out _, out _, out var mob, out var xform))
+            {
+                if (!HasComp<NukeOperativeComponent>(playerUid)) // Nukies aren't crew
+                    allCrew.Add(playerUid);
+
+                if (_entityManager.TryGetComponent<IsDeadICComponent>(playerUid, out var isDeadICComp)) // If they're dead they aren't aliveCrew
+                    continue;
+
+                aliveCrew.Add(playerUid);
+            }
+
+            // If 50% or less of the crew are alive
+            if (aliveCrew.Count > 0 && allCrew.Count > 0 && (float) aliveCrew.Count / allCrew.Count <= _thisComp.ERTDeadPercentage)
+            {
+                _thisComp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
+
+                // Roll if we should spawn an ERT, 25% chance
+                if (_random.Prob(_thisComp.ERTChance))
+                {
+                    _gameTicker.StartGameRule("ERTSpawn");
+                    _thisComp.ERTCalled = true;
+                }
+            }
+        }
+    }
+
+    private bool GetAliveOperatives(EntityUid nukeopsEnt, NukeopsRuleComponent nukeops)
+    {
+        var shuttle = GetShuttle((nukeopsEnt, nukeops));
+
+        MapId? shuttleMapId = Exists(shuttle)
+            ? Transform(shuttle.Value).MapID
+            : null;
+
+        MapId? targetStationMap = null;
+        if (nukeops.TargetStation != null && TryComp(nukeops.TargetStation, out StationDataComponent? data))
+        {
+            var grid = data.Grids.FirstOrNull();
+            targetStationMap = grid != null
+                ? Transform(grid.Value).MapID
+                : null;
+        }
+
+        var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
+        return operatives
+            .Where(op =>
+                op.Item3.MapID == shuttleMapId
+                || op.Item3.MapID == targetStationMap)
+            .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
+    }
+    // Goobstation end
 }

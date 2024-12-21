@@ -1,0 +1,4 @@
+- type: preloadedGrid
+  id: ERTDart
+  path: /Maps/_Goobstation/Shuttles/dart_with_spawns.yml
+  copies: 1
