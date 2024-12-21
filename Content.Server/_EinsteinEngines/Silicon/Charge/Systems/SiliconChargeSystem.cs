@@ -186,8 +186,9 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!_random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
                 return hotTempMulti;
 
-            _flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
-            _flammable.Ignite(silicon, silicon, flamComp);
+            // Goobstation: Replaced by KillOnOverheatSystem
+            //_flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
+            //_flammable.Ignite(silicon, silicon, flamComp);
             return hotTempMulti;
         }
 

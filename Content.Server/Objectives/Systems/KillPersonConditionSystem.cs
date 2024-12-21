@@ -3,6 +3,7 @@ using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.CCVar;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
@@ -50,6 +51,13 @@ public sealed class KillPersonConditionSystem : EntitySystem
     {
         // invalid objective prototype
         if (!TryComp<TargetObjectiveComponent>(uid, out var target))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        // Goobstation: Only pick non-silicon players.
+        if (comp.NeedsOrganic && HasComp<SiliconComponent>(uid))
         {
             args.Cancelled = true;
             return;

@@ -2499,5 +2499,11 @@ namespace Content.Shared.CCVar
         /// </summary>
         public static readonly CVarDef<float> SiliconNpcUpdateTime =
             CVarDef.Create("silicon.npcupdatetime", 1.5f, CVar.SERVERONLY);
+
+        /// <summary>
+        ///     Goobstation: Whether or not to allow mech weaponry to be used out of mechs.
+        /// </summary>
+        public static readonly CVarDef<bool> MechGunOutsideMech =
+            CVarDef.Create("mech.gun_outside_mech", false, CVar.REPLICATED);
     }
 }
