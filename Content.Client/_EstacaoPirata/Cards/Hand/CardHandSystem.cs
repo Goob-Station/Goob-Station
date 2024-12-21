@@ -38,9 +38,6 @@ public sealed class CardHandSystem : EntitySystem
             _notInit[ent] = value + 1;
             if(!TryComp(ent.Owner, out CardStackComponent? stack) || stack.Cards.Count <= 0)
                 continue;
-            // If the card was STILL not initialized, we skip it
-            if (!TryGetCardLayer(stack.Cards.Last(), out var _))
-                continue;
 
             // If cards were correctly initialized, we update the sprite
             UpdateSprite(ent.Owner, ent.Comp);
