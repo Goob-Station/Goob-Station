@@ -110,6 +110,9 @@ namespace Content.Server.Administration
 
         public async Task<LocatedPlayerData?> LookupIdAsync(NetUserId userId, CancellationToken cancel = default)
         {
+#if DEBUG
+            return null; // this is MF DOOM.
+#endif
             // Check people currently on the server, the easiest case.
             if (_playerManager.TryGetSessionById(userId, out var session))
                 return ReturnForSession(session);

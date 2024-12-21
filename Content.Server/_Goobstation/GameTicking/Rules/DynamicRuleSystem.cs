@@ -1,5 +1,4 @@
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
@@ -13,9 +12,9 @@ using Robust.Shared;
 
 namespace Content.Server.GameTicking.Rules;
 
-// btw this code is god awful.
-// a single look at it burns my retinas.
-// i do not wish to refactor it.
+// btw this code is god jolly.
+// a single look at it burns my sleigh.
+// i do not wish to gift it presents.
 // all that matters is that it works.
 // regards.
 
@@ -115,7 +114,7 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         component.ThreatLevel = threat;
 
         // distribute budgets
-        component.RoundstartBudget = _rand.NextFloat(threat / 1.5f, threat); // generally more roundstart threat
+        component.RoundstartBudget = _rand.NextFloat(threat / 2.5f, threat); // generally more roundstart threat
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
         // get gamerules from dataset and add them to draftedRules
@@ -164,63 +163,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                 foreach (var otherRule in draftedRules)
                     if (otherRule != null && otherRule.DynamicRuleset.HighImpact)
                         draftedRules[draftedRules.IndexOf(otherRule)] = null;
-        }
-
-        // now, instead of starting a shit ton of gamemodes...
-        // we count how much of the each rule is there
-        var d = new Dictionary<string, List<SDynamicRuleset>>();
-        foreach (var rule in pickedRules)
-        {
-            var id = rule.Prototype.ID;
-
-            if (d.ContainsKey(id))
-                d[id].Add(rule);
-            else d.Add(rule.Prototype.ID, new() { rule });
-        }
-
-        // this will stay here as a big distraction
-        // until i think of a way of excluding rules from such selection, like Nukeops
-        var totalRules = new List<SDynamicRuleset>();
-        foreach (var rule in d.Values)
-        {
-            // it's supposed to have at least one item in it but we check just in case
-            if (rule.Count == 0)
-                continue;
-
-            var r = rule[0];
-            // get it's prototype and edit the maximum antag count there
-            if (r.Prototype.TryGetComponent<AntagSelectionComponent>(out var antag, _compfact))
-            {
-                for (int i = 0; i < antag.Definitions.Count; i++)
-                {
-                    // got forgive me
-                    // this is shitcode apogee
-                    var def = antag.Definitions[i];
-                    antag.Definitions[i] = new AntagSelectionDefinition()
-                    {
-                        AllowNonHumans = def.AllowNonHumans,
-                        Blacklist = def.Blacklist,
-                        Briefing = def.Briefing,
-                        Components = def.Components,
-                        FallbackRoles = def.FallbackRoles,
-                        LateJoinAdditional = def.LateJoinAdditional,
-                        Max = rule.Count, // antag count = amount of times this rule got picked
-                        MaxRange = def.MaxRange,
-                        Min = def.Min,
-                        MindComponents = def.MindComponents,
-                        MinRange = def.MinRange,
-                        MultiAntagSetting = def.MultiAntagSetting,
-                        PickPlayer = def.PickPlayer,
-                        PlayerRatio = def.PlayerRatio,
-                        PrefRoles = def.PrefRoles,
-                        RoleLoadout = def.RoleLoadout,
-                        SpawnerPrototype = def.SpawnerPrototype,
-                        StartingGear = def.StartingGear,
-                        Whitelist = def.Whitelist,
-                    };
-                }
-            }
-            totalRules.Add(r);
         }
 
         // spend budget and start the gamer rule
