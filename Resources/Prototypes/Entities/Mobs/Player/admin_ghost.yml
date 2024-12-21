@@ -95,6 +95,11 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  - type: ShowHealthBars # ShibaStation
+  - type: ShowHealthIcons # ShibaStation
+  - type: ShowHungerIcons # ShibaStation
+  - type: ShowThirstIcons # ShibaStation
+  - type: ShowJobIcons # ShibaStation
 
 - type: entity
   id: ActionAGhostShowSolar
