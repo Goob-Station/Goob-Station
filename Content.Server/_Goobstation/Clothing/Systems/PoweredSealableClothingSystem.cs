@@ -1,4 +1,3 @@
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.PowerCell;
 using Content.Shared._Goobstation.Clothing.Components;
@@ -9,7 +8,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.PowerCell;
 using Content.Shared.PowerCell.Components;
 using Content.Shared.Rounding;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server._Goobstation.Clothing.Systems;
 
