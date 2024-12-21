@@ -64,6 +64,7 @@ public sealed class CardStackSystem : EntitySystem
         // If there is a final card left over, remove that card from the container and delete the stack alltogether
         if (comp.Cards.Count == 1)
         {
+
             _container.Remove(comp.Cards.First(), comp.ItemContainer);
             comp.Cards.Clear();
         }
@@ -353,7 +354,7 @@ public sealed class CardStackSystem : EntitySystem
                 _container.Remove(card, firstComp.ItemContainer);
                 if (_hands.IsHolding(user, first))
                 {
-                    _entityManager.DeleteEntity(first);
+                    _hands.TryDrop(user, first);
                     _hands.TryPickupAnyHand(user, card);
                 }
                 firstComp.Cards.Clear();
@@ -414,16 +415,21 @@ public sealed class CardStackSystem : EntitySystem
 
     private void OnInteractHand(EntityUid uid, CardStackComponent component, EntityUid user)
     {
+        var pickup = _hands.IsHolding(user, uid);
         if (component.Cards.Count <= 0)
             return;
 
         if (!component.Cards.TryGetValue(component.Cards.Count - 1, out var card))
+            return;
+        if (!component.Cards.TryGetValue(component.Cards.Count - 2, out var under))
             return;
 
         if (!TryRemoveCard(uid, card, component))
             return;
 
         _hands.TryPickupAnyHand(user, card);
+        if (!Exists(uid) && pickup)
+            _hands.TryPickupAnyHand(user, under);
 
         if (TryComp<CardDeckComponent>(uid, out var deck))
             _audio.PlayPredicted(deck.PickUpSound, Transform(card).Coordinates, user);
