@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._EstacaoPirata.Cards.Card;
+using Content.Shared._EstacaoPirata.Cards.Deck;
 using Content.Shared._EstacaoPirata.Cards.Stack;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -74,7 +75,14 @@ public sealed class CardHandSystem : EntitySystem
     {
         if (!TryComp(uid, out CardStackComponent? stack))
             return;
+        var pickup = _hands.IsHolding(args.Actor, uid);
+        EntityUid? leftover = null;
         var cardEnt = GetEntity(args.Card);
+
+        if (stack.Cards.Count == 2 && pickup)
+        {
+            leftover = stack.Cards[0] != cardEnt ? stack.Cards[0] : stack.Cards[1];
+        }
         if (!_cardStack.TryRemoveCard(uid, cardEnt, stack))
             return;
 
@@ -82,6 +90,10 @@ public sealed class CardHandSystem : EntitySystem
             _storage.PlayPickupAnimation(cardEnt, Transform(cardEnt).Coordinates, Transform(args.Actor).Coordinates, 0);
 
         _hands.TryPickupAnyHand(args.Actor, cardEnt);
+        if (pickup && leftover != null)
+        {
+            _hands.TryPickupAnyHand(args.Actor, leftover.Value);
+        }
     }
 
     private void OpenHandMenu(EntityUid user, EntityUid hand)
