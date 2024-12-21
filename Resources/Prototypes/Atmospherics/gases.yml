@@ -101,6 +101,7 @@
   reagent: Frezon
   pricePerMole: 0.3 # Goobstation - Gas Prices
 
+#/tg/ gases
 - type: gas
   id: 9
   name: gases-bz

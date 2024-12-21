@@ -23,6 +23,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Containers;
 using Robust.Shared.Player;
 using Content.Shared.Whitelist;
+using Content.Server.Emp; // Goobstation
 
 namespace Content.Server.Mech.Systems;
 
@@ -53,6 +54,8 @@ public sealed partial class MechSystem : SharedMechSystem
         SubscribeLocalEvent<MechComponent, RemoveBatteryEvent>(OnRemoveBattery);
         SubscribeLocalEvent<MechComponent, MechEntryEvent>(OnMechEntry);
         SubscribeLocalEvent<MechComponent, MechExitEvent>(OnMechExit);
+        SubscribeLocalEvent<MechComponent, EmpPulseEvent>(OnEmpPulse); // Goobstation
+
 
         SubscribeLocalEvent<MechComponent, DamageChangedEvent>(OnDamageChanged);
         SubscribeLocalEvent<MechComponent, MechEquipmentRemoveMessage>(OnRemoveEquipmentMessage);
@@ -247,6 +250,12 @@ public sealed partial class MechSystem : SharedMechSystem
 
         TryEject(uid, component);
         args.Handled = true;
+    }
+    //goobstation
+    private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
+    {
+        Dirty(uid, component);
+        UpdateUserInterface(uid, component);
     }
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)

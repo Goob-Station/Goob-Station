@@ -32,20 +32,16 @@
   - DragonDynamicMidround # space dragon spawn (M)
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
-  # blob wyci (M)
-  # spider infestation wyci (M)
-  # xenos wyci (M)
-  # improved kudzu wyci (M)
+  - BlobDynamicMidround # blob mouse spawn(M)
+  # spider infestation todo (M)
+  # xenos todo (M)
+  # improved kudzu todo (M)
 
 - type: entity
   parent: BaseGameRule
   id: Dynamic
   components:
   - type: GameRule
-    # what if i removed delays to counter nukies being shit?
-    #delay:
-    #  min: 5
-    #  max: 10
   - type: DynamicRule
     roundstartRulesPool: DynamicRoundstartGamerules
 

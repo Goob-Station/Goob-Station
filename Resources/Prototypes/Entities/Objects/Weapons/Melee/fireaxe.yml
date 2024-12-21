@@ -68,8 +68,10 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 90
+    heavyStaminaCost: 35 # goob edit
+    attackRate: 0.5  # goob edit
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 5 #Goobchange
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon
