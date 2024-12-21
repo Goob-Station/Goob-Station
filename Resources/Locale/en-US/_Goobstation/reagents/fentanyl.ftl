@@ -1,0 +1,9 @@
+fentanyl-effect-lostsomething = Where is it?
+fentanyl-effect-fakepresence = You feel someone looking over your shoulder
+fentanyl-effect-skincrawl = Your skin feels like it's crawling
+fentanyl-effect-rushing = Everything is moving so fast...
+fentanyl-effect-giddy = You almost start laughing
+fentanyl-effect-skinworms = They're under my skin, they're crawling through my bones!
+fentanyl-effect-breathingrazors = You feel a sharp pain in your lungs
+fentanyl-effect-lungstight = Your lungs refuse to inhale
+fentanyl-effect-observed = They're all staring right at you

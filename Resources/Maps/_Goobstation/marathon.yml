@@ -54519,8 +54519,11 @@ entities:
   - uid: 11738
     components:
     - type: Transform
-      pos: 21.559998,0.47888815
+      pos: 18.256752,0.7758815
       parent: 30
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 18178
     components:
     - type: Transform
@@ -100359,6 +100362,20 @@ entities:
     - type: Transform
       pos: -22.54349,53.796127
       parent: 30
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 22996
+    components:
+    - type: Transform
+      pos: 18.860258,2.8436055
+      parent: 30
+- proto: MailTeleporter
+  entities:
+  - uid: 11737
+    components:
+    - type: Transform
+      pos: 21.5,0.5
+      parent: 30
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 9199
@@ -107480,11 +107497,6 @@ entities:
     components:
     - type: Transform
       pos: 1.5,-15.5
-      parent: 30
-  - uid: 11737
-    components:
-    - type: Transform
-      pos: 21.5,0.5
       parent: 30
   - uid: 11748
     components:
@@ -126327,6 +126339,13 @@ entities:
     components:
     - type: Transform
       pos: -48.5,33.5
+      parent: 30
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 22995
+    components:
+    - type: Transform
+      pos: 19.5,-7.5
       parent: 30
 - proto: VendingMachineMedical
   entities:

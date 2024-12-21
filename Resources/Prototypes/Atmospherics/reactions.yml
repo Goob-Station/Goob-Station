@@ -91,6 +91,7 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
+ #/tg/ gases
 - type: gasReaction
   id: bzFormation
   priority: 2

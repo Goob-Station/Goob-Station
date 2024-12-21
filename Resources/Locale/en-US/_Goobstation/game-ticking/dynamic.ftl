@@ -29,7 +29,7 @@ dynamic-gamerule-midround-changeling-title = Genome Awakening (Changelings)
 dynamic-gamerule-midround-heretic-title = Sudden Englightment (Heretics)
 dynamic-gamerule-midround-revolutionary-title = Provocateurs (Revolutionaries)
 dynamic-gamerule-midround-zombies-title = Romerol Outbreak (Zombies)
-
+dynamic-gamerule-midround-blob-title = Blob Spawn (Blob)
 
 dynamic-fax-threat-none =
     Your station orbits within reliably mundane, secure space.

@@ -132,6 +132,19 @@
             Poison: 2
             Piercing: 2
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:HasTag
+          invert: true
+          tag: Bee
+      - !type:HealthChange
+        damage:
+          types:
+            Piercing: 2
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
         - !type:HasTag
           invert: true
           tag: Bee

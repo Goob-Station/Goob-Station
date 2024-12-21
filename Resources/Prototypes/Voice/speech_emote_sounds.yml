@@ -359,6 +359,8 @@
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MothDeathGasp
+    Flap: # Goobstation - Add flap to moths.
+      path: /Audio/_Goobstation/Voice/Moth/moth_flap.ogg
 
 - type: emoteSounds
   id: UnisexSilicon

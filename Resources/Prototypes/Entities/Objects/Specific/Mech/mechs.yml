@@ -91,7 +91,7 @@
       mech-battery-slot: !type:ContainerSlot
       paper_label: !type:ContainerSlot # Goobstation
   - type: Damageable
-    damageContainer: Inorganic
+    damageContainer: Silicon # Goobstation
     damageModifierSet: LightArmor # Goobstation
   - type: FootstepModifier
     footstepSoundCollection:

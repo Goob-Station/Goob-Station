@@ -55,7 +55,8 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 37 # goob - desword is 74
+  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
 
@@ -118,14 +119,9 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
 
 
 - type: listing
@@ -141,25 +137,25 @@
 
 
 - type: listing
-  id: UplinkC20RBundle
-  name: uplink-c20r-bundle-name
-  description: uplink-c20r-bundle-desc
+  id: UplinkC20R #goob
+  name: uplink-c20r-name #goob
+  description: uplink-c20r-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  productEntity: WeaponSubMachineGunC20r #Goob unbundle update
   cost:
-    Telecrystal: 85 # goob
+    Telecrystal: 50 # goob unbunde update
   categories:
   - UplinkWeaponry
 
 
 - type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
+  id: UplinkBulldog #goob
+  name: uplink-buldog-name #goob
+  description: uplink-buldog-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  productEntity: WeaponShotgunBulldog
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
 
@@ -177,13 +173,13 @@
 
 
 - type: listing
-  id: UplinkL6SawBundle
-  name: uplink-l6-saw-bundle-name
-  description: uplink-l6-saw-bundle-desc
+  id: UplinkL6Saw #goob
+  name: uplink-l6-saw-name #goob
+  description: uplink-l6-saw-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  productEntity: WeaponLightMachineGunL6
   cost:
-    Telecrystal: 150 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
 
@@ -316,7 +312,7 @@
   description: uplink-emp-grenade-desc
   productEntity: EmpGrenade
   cost:
-    Telecrystal: 8 # goob - Pretty decent, but underused for a reason at 10 TC.
+    Telecrystal: 4 # goob - implanter is 10 and infintely better lmao
   categories:
   - UplinkExplosives
 
@@ -519,7 +515,7 @@
   icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
   productEntity: HypoDartBox
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
 
@@ -1195,7 +1191,6 @@
   categories:
     - UplinkImplants
 
-
 - type: listing
   id: UplinkMicroBombImplanter
   name: uplink-micro-bomb-implanter-name
@@ -1203,18 +1198,19 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MicroBombImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkImplants
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
+  # goob - traitor suicide implants
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
 
 
 - type: listing
@@ -1227,15 +1223,17 @@
     Telecrystal: 65 # goob
   categories:
     - UplinkImplants
+  restockTime: 1800
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+    # goob - traitor suicide implants
+    #- !type:StoreWhitelistCondition
+    #  whitelist:
+    #    tags:
+    #      - NukeOpsUplink
+    #- !type:BuyerWhitelistCondition
+    #  blacklist:
+    #    components:
+    #      - SurplusBundle
 
 
 - type: listing
@@ -1245,14 +1243,15 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 20 # goob # goob - traitor suicide implants
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
+  # goob - traitor suicide implants
+  #conditions:
+  #  - !type:StoreWhitelistCondition
+  #    whitelist:
+  #      tags:
+  #        - NukeOpsUplink
 
 
 - type: listing
@@ -1345,7 +1344,7 @@
   productEntity: ClothingBackpackChameleonFill
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 15 # goob
   categories:
     - UplinkWearables
 
@@ -1367,7 +1366,7 @@
   description: uplink-clothing-thieving-gloves-desc
   productEntity: ThievingGloves
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
 

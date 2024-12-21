@@ -48,6 +48,11 @@
     - steel
     - steel_2
     - steel_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: steel_3
     layers:
@@ -123,6 +128,11 @@
     - brass
     - brass_2
     - brass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: brass_3
     layers:
@@ -138,10 +148,12 @@
     grindableSolutionName: brass
   - type: SolutionContainerManager
     solutions:
-      brass: ##Had to change this for alchemy to work, brass needs to grind into brass.
+      brass:
         reagents:
-        - ReagentId: brass
-          Quantity: 10
+        - ReagentId: Zinc
+          Quantity: 3.3
+        - ReagentId: Copper
+          Quantity: 6.7
 
 - type: entity
   parent: SheetBrass
@@ -184,6 +196,11 @@
     - plasteel
     - plasteel_2
     - plasteel_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasteel_3
     layers:
