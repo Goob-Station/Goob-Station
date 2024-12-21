@@ -4,7 +4,6 @@ using Content.Server.Cargo.Systems;
 using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Shared.Examine;
-using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
@@ -107,9 +106,6 @@ namespace Content.Server.Power.EntitySystems
             args.Affected = true;
             if (!HasComp<RechargeableBlockingComponent>(uid)) // Goobstation - rechargeable blocking system handles it
                 args.Disabled = true;
-            if (TryComp<MechEquipmentComponent>(uid, out var equipment) &&
-                equipment.EquipmentOwner != null) // Goobstation - it would break mech weapons otherwise
-                return;
             UseCharge(uid, args.EnergyConsumption, component);
         }
 
