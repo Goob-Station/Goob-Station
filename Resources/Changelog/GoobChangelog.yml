@@ -3466,3 +3466,9 @@ Entries:
       message: IPC thiefs have a new objective to collect power cells
   id: 385
   time: '2024-12-20T14:42:44.0000000+00:00'
+- author: Gubu zhan quwei yufang xiaozu
+  changes:
+    - type: Remove
+      message: Lequ, 1984 weiquan zhuyi hao wu quwei Admin is Pig taoyan lequ
+  id: 386
+  time: '2024-12-21T21:01:42.0000000+00:00'
