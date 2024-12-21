@@ -483,6 +483,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 : null;
         }
 
+        // This is code duplication but it's literally faster this way since all the vars for checking ops are needed outside of that function.
         // Check if there are nuke operatives still alive on the same map as the shuttle,
         // or on the same map as the station.
         // If there are, the round can continue.
@@ -531,27 +532,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // Goobstation - I guess this can go here? Maybe checkroundend is ran when the ops first spawn in? IDK
         var nukeops = ent.Comp;
-        var shuttle = GetShuttle((ent, ent));
-
-        MapId? shuttleMapId = Exists(shuttle)
-            ? Transform(shuttle.Value).MapID
-            : null;
-
-        MapId? targetStationMap = null;
-        if (nukeops.TargetStation != null && TryComp(nukeops.TargetStation, out StationDataComponent? data))
-        {
-            var grid = data.Grids.FirstOrNull();
-            targetStationMap = grid != null
-                ? Transform(grid.Value).MapID
-                : null;
-        }
-
-        var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
-        _operativesAlive = operatives
-            .Where(op =>
-                op.Item3.MapID == shuttleMapId
-                || op.Item3.MapID == targetStationMap)
-            .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
+        _operativesAlive = GetAliveOperatives(ent, nukeops); // Goobstation
     }
 
     private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
@@ -591,7 +572,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         return null;
     }
 
-    // Goobstation
+    // Goobstation start
     private void OnHumanoidMobStateChanged(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent ev)
     {
         // If the round is over or all the nukies are dead (or deserted), we shouldn't do anything, if the comp isn't initialized, we can't do anything.
@@ -628,4 +609,30 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             }
         }
     }
+
+    private bool GetAliveOperatives(EntityUid nukeopsEnt, NukeopsRuleComponent nukeops)
+    {
+        var shuttle = GetShuttle((nukeopsEnt, nukeops));
+
+        MapId? shuttleMapId = Exists(shuttle)
+            ? Transform(shuttle.Value).MapID
+            : null;
+
+        MapId? targetStationMap = null;
+        if (nukeops.TargetStation != null && TryComp(nukeops.TargetStation, out StationDataComponent? data))
+        {
+            var grid = data.Grids.FirstOrNull();
+            targetStationMap = grid != null
+                ? Transform(grid.Value).MapID
+                : null;
+        }
+
+        var operatives = EntityQuery<NukeOperativeComponent, MobStateComponent, TransformComponent>(true);
+        return operatives
+            .Where(op =>
+                op.Item3.MapID == shuttleMapId
+                || op.Item3.MapID == targetStationMap)
+            .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
+    }
+    // Goobstation end
 }
