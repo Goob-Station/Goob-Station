@@ -174,8 +174,8 @@ namespace Content.Client.Inventory
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
             //Goobstation: Cards are always hidden. NO CHEATING FOR U.
-            var isCard = EntMan.TryGetComponent<CardComponent>(hand.HeldEntity, out var _) ||
-                         EntMan.TryGetComponent<CardHandComponent>(hand.HeldEntity, out var _);
+            var isCard = EntMan.HasComponent<CardComponent>(hand.HeldEntity) ||
+                         EntMan.HasComponent<CardHandComponent>(hand.HeldEntity);
             UpdateEntityIcon(button, isCard ? _virtualHiddenEntity : hand.HeldEntity);
             _strippingMenu!.HandsContainer.AddChild(button);
         }
@@ -220,8 +220,8 @@ namespace Content.Client.Inventory
 
             // Goobstation: Playing Cards are always obscured in strip menu.
             // I wanted to make the cards themselves appear hidden but this is simpler
-            var isCard = EntMan.TryGetComponent<CardComponent>(entity, out var _) ||
-                         EntMan.TryGetComponent<CardHandComponent>(entity, out var _);
+            var isCard = EntMan.HasComponent<CardComponent>(entity) ||
+                         EntMan.HasComponent<CardHandComponent>(entity);
             if (entity != null && isCard)
             {
                 entity = _virtualHiddenEntity;
