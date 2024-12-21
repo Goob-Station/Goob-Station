@@ -1,3 +1,4 @@
+using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Power.Events;
@@ -31,6 +32,15 @@ namespace Content.Server.Stunnable.Systems
             SubscribeLocalEvent<StunbatonComponent, ItemToggleActivateAttemptEvent>(TryTurnOn);
             SubscribeLocalEvent<StunbatonComponent, ItemToggledEvent>(ToggleDone);
             SubscribeLocalEvent<StunbatonComponent, ChargeChangedEvent>(OnChargeChanged);
+
+            SubscribeLocalEvent<StunbatonComponent, EmpPulseEvent>(OnEmp); // Goobstation
+        }
+
+        private void OnEmp(Entity<StunbatonComponent> ent, ref EmpPulseEvent args) // Goobstation
+        {
+            args.Affected = true;
+            args.Disabled = true;
+            _itemToggle.TryDeactivate(ent.Owner);
         }
 
         private void OnStaminaHitAttempt(Entity<StunbatonComponent> entity, ref StaminaDamageOnHitAttemptEvent args)
