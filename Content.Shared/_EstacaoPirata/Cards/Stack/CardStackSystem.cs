@@ -206,12 +206,16 @@ public sealed class CardStackSystem : EntitySystem
             return;
 
         var coordinates = Transform(uid).Coordinates;
+        var spawnedEntities = new List<EntityUid>();
         foreach (var id in comp.InitialContent)
         {
             var ent = Spawn(id, coordinates);
+            spawnedEntities.Add(ent);
             if (TryInsertCard(uid, ent, comp))
                 continue;
             Log.Error($"Entity {ToPrettyString(ent)} was unable to be initialized into stack {ToPrettyString(uid)}");
+            foreach (var spawned in spawnedEntities)
+                _entityManager.DeleteEntity(spawned);
             return;
         }
         RaiseNetworkEvent(new CardStackInitiatedEvent(GetNetEntity(uid)));
