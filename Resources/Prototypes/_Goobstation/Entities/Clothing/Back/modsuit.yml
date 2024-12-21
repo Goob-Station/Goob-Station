@@ -31,7 +31,6 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellSmall
         whitelist:
           components:
             - PowerCell
@@ -61,3 +60,17 @@
       back:
       - state: equipped-BACKPACK-sealed
         shader: unshaded
+
+- type: entity
+  parent: ClothingModsuitStandard
+  id: ClothingModsuitStandardPowerCell
+  suffix: High-Capacity Battery
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        startingItem: PowerCellHigh
+        whitelist:
+          components:
+            - PowerCell

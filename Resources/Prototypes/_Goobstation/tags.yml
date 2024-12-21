@@ -126,3 +126,21 @@
 
 - type: Tag
   id: Gygax
+
+- type: Tag
+  id: ModsuitPart
+
+- type: Tag
+  id: ModsuitShell
+
+- type: Tag
+  id: ModsuitGauntlets
+
+- type: Tag
+  id: ModsuitHelmet
+
+- type: Tag
+  id: ModsuitBoots
+
+- type: Tag
+  id: ModsuitChestplate
