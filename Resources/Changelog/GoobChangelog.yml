@@ -3454,3 +3454,15 @@ Entries:
       message: Enabled blob gamemode.
   id: 383
   time: '2024-12-20T01:49:31.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Fix
+      message: Yowies can now breathe easy. Literally.
+  id: 384
+  time: '2024-12-20T14:38:03.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: IPC thiefs have a new objective to collect power cells
+  id: 385
+  time: '2024-12-20T14:42:44.0000000+00:00'
