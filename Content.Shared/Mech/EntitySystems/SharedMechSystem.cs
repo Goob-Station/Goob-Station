@@ -494,7 +494,7 @@ public abstract class SharedMechSystem : EntitySystem
         if (!component.EquipmentOwner.HasValue
             || !TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech))
         {
-            if (!_config.GetCVar(CCVars.MechGunOutsideMech))
+            if (!_config.GetCVar(CCVars.Goob.MechGunOutsideMech))
                 args.Cancel();
             return;
         }
