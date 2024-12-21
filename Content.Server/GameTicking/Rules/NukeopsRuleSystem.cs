@@ -61,8 +61,12 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
 
+    // Goobstation start
     [ValidatePrototypeId<TagPrototype>]
-    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
+    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink";
+
+    private NukeopsRuleComponent? _thisComp = null;
+    // Goobstation end
 
     public override void Initialize()
     {
@@ -84,6 +88,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         SubscribeLocalEvent<NukeopsRuleComponent, AfterAntagEntitySelectedEvent>(OnAfterAntagEntSelected);
         SubscribeLocalEvent<NukeopsRuleComponent, RuleLoadedGridsEvent>(OnRuleLoadedGrids);
+
+        // Goobstation - I have no idea if using humanoidappearancecomponent is acceptable here
+        SubscribeLocalEvent<HumanoidAppearanceComponent, MobStateChangedEvent>(OnHumanoidMobStateChanged);
     }
 
     protected override void Started(EntityUid uid,
@@ -91,6 +98,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
+        _thisComp = component; // Goobstation
+
         var eligible = new List<Entity<StationEventEligibleComponent, NpcFactionMemberComponent>>();
         var eligibleQuery = EntityQueryEnumerator<StationEventEligibleComponent, NpcFactionMemberComponent>();
         while (eligibleQuery.MoveNext(out var eligibleUid, out var eligibleComp, out var member))
@@ -483,39 +492,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 || op.Item3.MapID == targetStationMap)
             .Any(op => op.Item2.CurrentState == MobState.Alive && op.Item1.Running);
 
-        // Goobstation start
-        var aliveCrew = new List<EntityUid>();
-
-        if (!ent.Comp.ERTRolled)
-        {
-            var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
-            var allCrew = new List<EntityUid>();
-            while (players.MoveNext(out var uid, out _, out _, out var mob, out var xform))
-            {
-                if (!HasComp<NukeOperativeComponent>(uid)) // Nukies aren't crew
-                    allCrew.Add(uid);
-
-                if (_entityManager.TryGetComponent<IsDeadICComponent>(uid, out var isDeadICComp)) // If they're dead they aren't aliveCrew
-                    continue;
-
-                aliveCrew.Add(uid);
-            }
-
-            // If 50% or less of the crew are alive
-            if (aliveCrew.Count > 0 && allCrew.Count > 0 && aliveCrew.Count / allCrew.Count <= ent.Comp.ERTDeadPercentage)
-            {
-                ent.Comp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
-
-                // Roll if we should spawn an ERT, 25% chance
-                if (_random.Prob(ent.Comp.ERTChance))
-                {
-                    _gameTicker.StartGameRule("ERTSpawn");
-                    ent.Comp.ERTCalled = true;
-                }
-            }
-        }
-        // Goobstation end
-
         if (operativesAlive)
             return; // There are living operatives than can access the shuttle, or are still on the station's map.
 
@@ -588,5 +564,42 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         }
 
         return null;
+    }
+
+    // Goobstation
+    private void OnHumanoidMobStateChanged(EntityUid uid, HumanoidAppearanceComponent component, MobStateChangedEvent ev)
+    {
+        if (_thisComp == null)
+            return;
+
+        if (!_thisComp.ERTRolled)
+        {
+            var players = AllEntityQuery<HumanoidAppearanceComponent, ActorComponent, MobStateComponent, TransformComponent>();
+            var aliveCrew = new List<EntityUid>();
+            var allCrew = new List<EntityUid>();
+            while (players.MoveNext(out var playerUid, out _, out _, out var mob, out var xform))
+            {
+                if (!HasComp<NukeOperativeComponent>(playerUid)) // Nukies aren't crew
+                    allCrew.Add(playerUid);
+
+                if (_entityManager.TryGetComponent<IsDeadICComponent>(playerUid, out var isDeadICComp)) // If they're dead they aren't aliveCrew
+                    continue;
+
+                aliveCrew.Add(playerUid);
+            }
+
+            // If 50% or less of the crew are alive
+            if (aliveCrew.Count > 0 && allCrew.Count > 0 && aliveCrew.Count / allCrew.Count <= _thisComp.ERTDeadPercentage)
+            {
+                _thisComp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
+
+                // Roll if we should spawn an ERT, 25% chance
+                if (_random.Prob(_thisComp.ERTChance))
+                {
+                    _gameTicker.StartGameRule("ERTSpawn");
+                    _thisComp.ERTCalled = true;
+                }
+            }
+        }
     }
 }
