@@ -80,6 +80,7 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    reoccurrenceDelay: 10 # ShibaStation - Anomalies now can only happen after 10 minutes since the last one.
   - type: AnomalySpawnRule
 
 - type: entity
@@ -96,6 +97,7 @@
       path: /Audio/Announcements/announce.ogg
     weight: 8
     duration: 35
+    reoccurrenceDelay: 5 # ShibaStation - Artifacts now can only happen after 5 minutes since the last one.
   - type: BluespaceArtifactRule
 
 - type: entity
