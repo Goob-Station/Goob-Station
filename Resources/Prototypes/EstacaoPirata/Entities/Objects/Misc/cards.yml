@@ -156,9 +156,9 @@
     - CardSc8OfSpadesBlack
     - CardSc9OfSpadesBlack
     - CardSc10OfSpadesBlack
-    - CardScKingOfSpadesBlack
-    - CardScQueenOfSpadesBlack
     - CardScJackOfSpadesBlack
+    - CardScQueenOfSpadesBlack
+    - CardScKingOfSpadesBlack
     # Joker
     - CardScJokerBlack
 
