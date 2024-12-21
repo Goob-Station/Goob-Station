@@ -11,6 +11,10 @@
       metabolismRate: 0.05 # slow, so that I can later implement it exploding when people are on fire/hot
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
         damage:
           types: # black powder is bad for your health.
             Poison: 0.1 # 2 damage/u

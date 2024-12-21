@@ -42,9 +42,9 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
         [Gas.Plasma] = "P",
         [Gas.Tritium] = "T",
         [Gas.WaterVapor] = "H₂O",
-        [Gas.BZ] = "BZ",
-        [Gas.Healium] = "F₃BZ",
-        [Gas.Nitrium] = "Nitrium",
+        [Gas.BZ] = "BZ", ///tg/ gases
+        [Gas.Healium] = "F₃BZ", ///tg/ gases
+        [Gas.Nitrium] = "Nitrium", ///tg/ gases
     };
 
     public AtmosAlarmEntryContainer(NetEntity uid, EntityCoordinates? coordinates)
@@ -139,8 +139,9 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
                 GasGridContainer.RemoveAllChildren();
 
                 var gasData = focusData.Value.GasData.Where(g => g.Key != Gas.Oxygen);
+                var keyValuePairs = gasData.ToList();
 
-                if (gasData.Count() == 0)
+                if (keyValuePairs.Count == 0)
                 {
                     // No other gases
                     var gasLabel = new Label()
@@ -161,13 +162,11 @@ public sealed partial class AtmosAlarmEntryContainer : BoxContainer
                 else
                 {
                     // Add an entry for each gas
-                    foreach ((var gas, (var mol, var percent, var alert)) in gasData)
+                    foreach ((var gas, (var mol, var percent, var alert)) in keyValuePairs)
                     {
-                        var gasPercent = (FixedPoint2)0f;
-                        gasPercent = percent * 100f;
+                        FixedPoint2 gasPercent = percent * 100f;
 
-                        if (!_gasShorthands.TryGetValue(gas, out var gasShorthand))
-                            gasShorthand = "X";
+                        var gasShorthand = _gasShorthands.GetValueOrDefault(gas, "X");
 
                         var gasLabel = new Label()
                         {

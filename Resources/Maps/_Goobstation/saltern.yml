@@ -51001,6 +51001,20 @@ entities:
     - type: Transform
       pos: -8.471462,20.4352
       parent: 31
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 11961
+    components:
+    - type: Transform
+      pos: 22.333054,13.1992035
+      parent: 31
+- proto: MailTeleporter
+  entities:
+  - uid: 11960
+    components:
+    - type: Transform
+      pos: 21.5,10.5
+      parent: 31
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 113
@@ -58911,6 +58925,13 @@ entities:
     - type: Transform
       pos: 32.5,23.5
       parent: 31
+- proto: SignMail
+  entities:
+  - uid: 11959
+    components:
+    - type: Transform
+      pos: 17.5,7.5
+      parent: 31
 - proto: SignMaterials
   entities:
   - uid: 7224
@@ -63866,6 +63887,13 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-10.5
+      parent: 31
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 11958
+    components:
+    - type: Transform
+      pos: 12.5,10.5
       parent: 31
 - proto: VendingMachineMedical
   entities:

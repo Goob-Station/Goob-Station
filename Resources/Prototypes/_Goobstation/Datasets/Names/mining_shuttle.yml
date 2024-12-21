@@ -1,5 +1,5 @@
-- type: dataset
+- type: localizedDataset
   id: MiningShuttleNames
   values:
-  - Salvage Shuttle # People seem to prefer to refer to it as the salv shuttle, so this makes more sense.
-  # You could add more here, naturally.
+    prefix: mining-shuttle-names-dataset-
+    count: 1

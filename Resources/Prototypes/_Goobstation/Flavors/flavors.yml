@@ -19,6 +19,11 @@
   description: flavor-base-sigma
 
 - type: flavor
+  id: fentanyl
+  flavorType: Complex
+  description: flavor-complex-fentanyl
+
+- type: flavor
   id: gnesis
   flavorType: Complex
   description: flavor-base-gnesis
