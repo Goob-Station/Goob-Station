@@ -596,7 +596,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             }
 
             // If 50% or less of the crew are alive
-            if (aliveCrew.Count > 0 && allCrew.Count > 0 && aliveCrew.Count / allCrew.Count <= _thisComp.ERTDeadPercentage)
+            if (aliveCrew.Count > 0 && allCrew.Count > 0 && (float) aliveCrew.Count / allCrew.Count <= _thisComp.ERTDeadPercentage)
             {
                 _thisComp.ERTRolled = true; // We're rolling ERT, we shouldn't re-roll.
 
