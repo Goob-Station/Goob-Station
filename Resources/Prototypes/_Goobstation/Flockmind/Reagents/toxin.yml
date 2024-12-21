@@ -1,0 +1,47 @@
+- type: reagent
+  id: Gnesis
+  name: reagent-name-gnesis
+  desc: reagent-desc-gnesis
+  physicalDesc: reagent-physical-desc-glassy
+  flavor: gnesis
+  color: "#27a8cf"
+  group: Toxin
+  worksOnTheDead: true
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+        - !type:ModifyBloodLevel
+          amount: -0.75
+        - !type:HealthChange
+          damage:
+            types:
+              Poison: 0.05
+        - !type:PopupMessage
+          condition:
+            type: !type:ReagentThreshold
+            min: 20
+            max: 40
+          type: Local
+          visualType: SmallCaution
+          messages: [ "gnesis-poisoning-initial" ]
+          probability: 0.025
+        - !type:PopupMessage
+          condition:
+            type: !type:ReagentThreshold
+            min: 40
+            max: 90
+          type: Local
+          visualType: MediumCaution
+          messages: [ "gnesis-poisoning-advanced" ]
+          probability: 0.05
+        - !type:PopupMessage
+          condition:
+            type: !type:ReagentThreshold
+            min: 100
+          type: Local
+          visualType: LargeCaution
+          messages: [ "gnesis-poisoning-severe" ]
+          probability: 0.1
+
+

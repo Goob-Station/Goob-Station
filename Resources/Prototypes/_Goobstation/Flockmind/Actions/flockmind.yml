@@ -1,0 +1,6 @@
+- type: entity
+  id: ActionControlDrone
+  components:
+    - type: Action
+      actionType: Instant
+      event: !ControlDroneEvent

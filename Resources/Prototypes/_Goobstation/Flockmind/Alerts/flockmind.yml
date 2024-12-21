@@ -1,0 +1,15 @@
+- type: entity
+  id: AlertResources
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/Interface/Alerts/essence_counter.rsi #too lazy to make seperate number sprites
+    layers:
+    - map: [ "enum.AlertVisualLayers.Base" ]
+    - map: [ "enum.ResourceVisualLayers.Digit1" ]
+    - map: [ "enum.ResourceVisualLayers.Digit2" ]
+      offset: 0.125, 0
+    - map: [ "enum.ResourceVisualLayers.Digit3" ]
+      offset: 0.25, 0
+    - map: [ "enum.ResourceVisualLayers.Digit4" ]
+      offset: 0.375, 0
