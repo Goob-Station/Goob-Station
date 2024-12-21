@@ -164,15 +164,15 @@ public sealed class CardStackSystem : EntitySystem
         }
         if (changed)
         {
-            if (_net.IsClient)
-                return changed;
-
             if (soundUser != null)
             {
                 _audio.PlayPredicted(firstComp.PlaceDownSound, Transform(firstStack).Coordinates, soundUser.Value);
-
-                _storage.PlayPickupAnimation(firstCard!.Value, Transform(secondStack).Coordinates, Transform(firstStack).Coordinates, 0);
+                if(_net.IsServer)
+                    _storage.PlayPickupAnimation(firstCard!.Value, Transform(secondStack).Coordinates, Transform(firstStack).Coordinates, 0);
             }
+
+            if (_net.IsClient)
+                return changed;
 
             Dirty(firstStack, firstComp);
             if (secondComp.Cards.Count <= 0)
@@ -300,15 +300,7 @@ public sealed class CardStackSystem : EntitySystem
 
     private void JoinStacks(EntityUid user, EntityUid first, CardStackComponent firstComp, EntityUid second, CardStackComponent secondComp)
     {
-        if (_net.IsServer)
-        {
             TryJoinStacks(first, second, firstComp, secondComp, user);
-        }
-        else
-        {
-            if (firstComp.Cards.Count < MaxCardsInStack)
-                _audio.PlayPredicted(firstComp.PlaceDownSound, Transform(first).Coordinates, user);
-        }
     }
 
     public void InsertCardOnStack(EntityUid user, EntityUid stack, CardStackComponent stackComponent, EntityUid card)

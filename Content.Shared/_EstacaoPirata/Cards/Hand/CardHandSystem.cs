@@ -154,8 +154,6 @@ public sealed class CardHandSystem : EntitySystem
     }
     public void TrySetupHandOfCards(EntityUid user, EntityUid card, CardComponent comp, EntityUid target, CardComponent targetComp, bool pickup)
     {
-        if (_net.IsClient)
-            return;
         var cardHand = SpawnInSameParent(CardHandBaseName, card);
         if (TryComp<CardHandComponent>(cardHand, out var handComp))
             handComp.Flipped = targetComp.Flipped;
