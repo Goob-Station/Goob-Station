@@ -50,6 +50,12 @@ public sealed class CardHandSystem : EntitySystem
         if (!TryComp(uid, out CardStackComponent? stack))
             return;
 
+        if (stack.Cards.Count < 0)
+        {
+            Log.Warning($"Invalid negative card count {stack.Cards.Count} detected in stack {ToPrettyString(uid)}");
+            return;
+        }
+
         var text = args.Type switch
         {
             StackQuantityChangeType.Added => "cards-stackquantitychange-added",
