@@ -197,11 +197,20 @@ public sealed class CardHandSystem : EntitySystem
     //           Useful when spawning decks/hands in a backpack, for example.
     private EntityUid SpawnInSameParent(EntProtoId prototype, EntityUid uid)
     {
+        if (prototype == default)
+            throw new ArgumentException("Cannot spawn with null prototype", nameof(prototype));
+
         if (_container.IsEntityOrParentInContainer(uid) &&
             _container.TryGetOuterContainer(uid, Transform(uid), out var container))
         {
-            return SpawnInContainerOrDrop(prototype, container.Owner, container.ID);
+            var entity = SpawnInContainerOrDrop(prototype, container.Owner, container.ID);
+            if (!Exists(entity))
+                Log.Error($"Failed to spawn {prototype} in container {container.ID}");
+            return entity;
         }
-        return Spawn(prototype, Transform(uid).Coordinates);
+        var worldEntity = Spawn(prototype, Transform(uid).Coordinates);
+        if (!Exists(worldEntity))
+            Log.Error($"Failed to spawn {prototype} at coordinates {Transform(uid).Coordinates}");
+        return worldEntity;
     }
 }
