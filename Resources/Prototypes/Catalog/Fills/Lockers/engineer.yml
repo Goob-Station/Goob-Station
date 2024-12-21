@@ -96,6 +96,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
@@ -113,6 +114,7 @@
       - id: GasAnalyzer
       - id: MedkitOxygenFilled
       - id: HolofanProjector
+      - id: RPD #funkystation
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo

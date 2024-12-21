@@ -49,6 +49,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4 #goob content
   - type: Item
     size: Small
   - type: UseDelay
@@ -192,21 +193,21 @@
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
       params:
-        volume: -6
+        volume: -12
     soundDeactivate:
       path: /Audio/Weapons/ebladeoff.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleActiveSound
     activeSound:
       path: /Audio/Weapons/ebladehum.ogg
       params:
-        volume: -6
+        volume: -12
   - type: ItemToggleMeleeWeapon
     activatedSoundOnSwing:
       path: /Audio/Weapons/eblademiss.ogg
       params:
-        volume: -3
+        volume: -12
         variation: 0.250
     activatedDamage:
       types:
@@ -251,6 +252,12 @@
   - type: Tag
     tags:
     - Write
+  - type: Reflect
+    reflectProb: 0.25 #Goob rebalace
+    reflects: #Goob rebalance
+      - Energy
+    otherTypeReflectProb: 0
+    spread: 30
 
 - type: entity
   parent: [BaseItem, BaseSyndicateContraband]
@@ -346,6 +353,7 @@
     damage:
       types:
         Blunt: 4.5
+    clickPartDamageMultiplier: 4
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_sword_double.rsi
     layers:

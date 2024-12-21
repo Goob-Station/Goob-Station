@@ -3284,3 +3284,185 @@ Entries:
       message: Fixed rules.
   id: 366
   time: '2024-12-17T15:39:20.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: >-
+        Fentanyl, a new drug for chemists to create! If you do drugs, you go to
+        hell before you die!
+  id: 367
+  time: '2024-12-17T22:01:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You may now choose how many items to split from a stack.
+  id: 368
+  time: '2024-12-17T22:07:29.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Added evasion to part targeting
+    - type: Add
+      message: New fleshmend and panacea chems for lings
+    - type: Add
+      message: BSC can be made again
+    - type: Fix
+      message: fix implant misinformation
+    - type: Fix
+      message: >-
+        Fixed mech battery drain from being EMP'd not being visible in the
+        status menu
+    - type: Tweak
+      message: Adjusted most mech weapons' fire rates and energy consumption.
+    - type: Tweak
+      message: Infused blades hardstun on grab
+    - type: Tweak
+      message: Goliaths stun for 3 seconds less
+    - type: Tweak
+      message: Removed most bundles from uplink and replaced them with individual guns
+    - type: Tweak
+      message: Energy swords now easily delimb
+    - type: Tweak
+      message: change a few minor uplink prices
+    - type: Tweak
+      message: reduce northstar stam cost
+    - type: Tweak
+      message: funny toy sword sprite
+    - type: Tweak
+      message: edagger more quiet
+    - type: Tweak
+      message: Fireaxe hits harder, slower, costs more stam, and does more firestacks.
+    - type: Tweak
+      message: disposable turret fires faster, has less ammo, and more HP
+    - type: Tweak
+      message: Many heretic and ling abilities can be done while cuffed
+    - type: Tweak
+      message: less ling armor slowdown
+    - type: Tweak
+      message: armblade does VERY little damage and is now a delimbing based weapon
+    - type: Tweak
+      message: plasma rifle blows up less
+    - type: Tweak
+      message: plasma cutter deals stam damage
+    - type: Tweak
+      message: buff priest ritual
+  id: 369
+  time: '2024-12-17T22:09:24.0000000+00:00'
+- author: BIGZi0348
+  changes:
+    - type: Tweak
+      message: Reflective vest now reflects lasers only while equipped.
+    - type: Tweak
+      message: Energy katana now reflects lasers and projectiles only while in hands.
+  id: 370
+  time: '2024-12-17T22:14:24.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Steathsuit stops working when in crit
+    - type: Tweak
+      message: Nuclear Oprative icon is visable when in stealth
+  id: 371
+  time: '2024-12-17T22:41:17.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed IPC glasses slot being in the wrong place. Glasses go on your
+        face, silly.
+  id: 372
+  time: '2024-12-17T22:42:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now tiles, firelocks and unpowered doors are pried instantly using a
+        tool.
+  id: 373
+  time: '2024-12-17T22:46:12.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Nitrosyl Plasmide
+    - type: Tweak
+      message: Modified Nitrium, Healium, N2O and BZ effects
+  id: 374
+  time: '2024-12-17T22:49:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Rapid Piping Device
+  id: 375
+  time: '2024-12-17T22:56:29.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: fixed some stuff i forgor on new nukeops shuttle
+  id: 376
+  time: '2024-12-18T01:48:56.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Hacked youtool now contains toolbelts.
+  id: 377
+  time: '2024-12-18T01:54:11.0000000+00:00'
+- author: VigersRay Roudenn Rxup
+  changes:
+    - type: Add
+      message: Blob added
+  id: 378
+  time: '2024-12-18T02:00:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Telebaton for command.
+    - type: Add
+      message: Contractor baton for traitors.
+    - type: Add
+      message: Captain now has n1984 pistol.
+    - type: Tweak
+      message: N1984 accuracy buffed.
+    - type: Add
+      message: Bso now has atreides.
+    - type: Tweak
+      message: Atreides accuracy nerfed.
+    - type: Tweak
+      message: 'Mateba firerate increased: 3 -> 5.'
+  id: 379
+  time: '2024-12-18T02:01:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed blob never spawning.
+  id: 380
+  time: '2024-12-19T15:27:44.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: All playable species can now wriggle free from being carried.
+  id: 381
+  time: '2024-12-19T15:29:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed ERP, once and for all.
+  id: 382
+  time: '2024-12-20T01:15:21.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: Enabled blob gamemode.
+  id: 383
+  time: '2024-12-20T01:49:31.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Fix
+      message: Yowies can now breathe easy. Literally.
+  id: 384
+  time: '2024-12-20T14:38:03.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: IPC thiefs have a new objective to collect power cells
+  id: 385
+  time: '2024-12-20T14:42:44.0000000+00:00'

@@ -490,9 +490,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Diphenhydramine", 5f),
-            ("Arithrazine", 5f),
-            ("Ethylredoxrazine", 5f)
+            ("LingPanacea", 10f),
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-panacea"), uid, uid);
@@ -585,8 +583,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         var reagents = new List<(string, FixedPoint2)>()
         {
-            ("Ichor", 10f),
-            ("TranexamicAcid", 5f)
+            ("LingFleshmend", 10f),
         };
         if (TryInjectReagents(uid, reagents))
             _popup.PopupEntity(Loc.GetString("changeling-fleshmend"), uid, uid);

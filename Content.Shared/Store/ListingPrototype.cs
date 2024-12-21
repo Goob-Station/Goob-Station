@@ -139,6 +139,12 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     public List<string> Components = new();
     // WD END
 
+    /// <summary>
+    /// Whether or not to disable refunding for the store when the listing is purchased from it.
+    /// </summary>
+    [DataField]
+    public bool DisableRefund = false;
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)

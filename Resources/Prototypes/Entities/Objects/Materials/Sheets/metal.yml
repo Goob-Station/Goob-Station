@@ -48,6 +48,11 @@
     - steel
     - steel_2
     - steel_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: steel_3
     layers:
@@ -123,6 +128,11 @@
     - brass
     - brass_2
     - brass_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: brass_3
     layers:
@@ -186,6 +196,11 @@
     - plasteel
     - plasteel_2
     - plasteel_3
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: plasteel_3
     layers:

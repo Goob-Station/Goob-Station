@@ -26,6 +26,12 @@ public sealed partial class StealthComponent : Component
     public bool EnabledOnDeath = true;
 
     /// <summary>
+    /// The creature will continue invisible at Crit.
+    /// </summary>
+    [DataField("enabledOnCrit")]
+    public bool EnabledOnCrit = true; // Goobstation - Stealth change
+
+    /// <summary>
     /// Whether or not the entity previously had an interaction outline prior to cloaking.
     /// </summary>
     [DataField("hadOutline")]
