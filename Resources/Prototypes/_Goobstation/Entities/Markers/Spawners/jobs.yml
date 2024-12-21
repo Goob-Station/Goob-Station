@@ -23,3 +23,15 @@
     layers:
       - state: green
       - state: centcom
+
+- type: entity
+  id: SpawnpointRoboticist
+  parent: SpawnPointJobBase
+  name: roboticist
+  components:
+  - type: SpawnPoint
+    job_id: Roboticist
+  - type: Sprite
+    layers:
+    - state: green
+    - state: roboticist
