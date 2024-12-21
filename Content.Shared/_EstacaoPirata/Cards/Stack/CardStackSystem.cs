@@ -355,6 +355,17 @@ public sealed class CardStackSystem : EntitySystem
             _storage.PlayPickupAnimation(firstCard, Transform(first).Coordinates, Transform(second).Coordinates, 0);
 
             Dirty(second, secondComp);
+            if (firstComp.Cards.Count == 1)
+            {
+                var card = firstComp.Cards.First();
+                _container.Remove(card, firstComp.ItemContainer);
+                if (_hands.IsHolding(user, first))
+                {
+                    _entityManager.DeleteEntity(first);
+                    _hands.TryPickupAnyHand(user, card);
+                }
+                firstComp.Cards.Clear();
+            }
             if (firstComp.Cards.Count <= 0)
             {
                 _entityManager.DeleteEntity(first);
