@@ -71,6 +71,7 @@
     TechnologyDiskStealCollectionObjective: 1        #rnd
     IDCardsStealCollectionObjective: 1
     LAMPStealCollectionObjective: 2 #only for moth
+    BatteryStealCollectionObjective: 2 #Goobedit - only for ipc
 
 - type: weightedRandom
   id: ThiefObjectiveGroupItem
