@@ -1,6 +1,18 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Events now have various cooldowns to be less chaotic.
+    type: Tweak
+  id: 55
+  time: '2024-12-21T06:11:00.270326'
+- author: AstroDogeDX
+  changes:
+  - message: Medborgs can now do surgery again!
+    type: Fix
+  id: 54
+  time: '2024-12-21T06:11:20.734939'
+- author: AstroDogeDX
+  changes:
   - message: The vent clog event will now happen regardless of population.
     type: Tweak
   id: 53
