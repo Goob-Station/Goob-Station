@@ -5,9 +5,13 @@
 - type: lavalandRuinPool
   id: Lavaland
   hugeRuins:
-    Debug: 8
-    LavaLake: 8
+    #SyndicateBase: 1
+    RougeAI: 1
+    BiodomeBeach: 2
+    BiodomeSnow: 2
+    GolemShuttle: 2
+    LavaLake: 3
   smallRuins:
-    RuinedShuttle: 128
-    Hermit: 128
-    Labyrinth: 64
+    SeedVault: 6
+    Hermit: 6
+    RuinedShuttle: 24

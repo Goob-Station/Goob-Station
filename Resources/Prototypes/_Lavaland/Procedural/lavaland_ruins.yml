@@ -4,21 +4,41 @@
   path: Maps/_Lavaland/ruin_shuttle_lavaland.yml
 
 - type: lavalandRuin
-  id: Labyrinth
-  name: Lavarinth # badam pssst
-  path: Maps/_Lavaland/ruin_labyrinth.yml
-
-- type: lavalandRuin
-  id: Hermit
-  name: Makeshift Shelter
+  id: Hermit # Shelter
+  name: Unknown Building
   path: Maps/_Lavaland/ruin_hermit.yml
-
-- type: lavalandRuin
-  id: Debug
-  name: Debug Test
-  path: Maps/_Lavaland/test.yml
 
 - type: lavalandRuin
   id: LavaLake
   name: Lava Lake
   path: Maps/_Lavaland/ruin_lavalake.yml
+
+- type: lavalandRuin
+  id: GolemShuttle
+  name: Unknown Shuttle
+  path: Maps/_Lavaland/ruin_golem_shuttle.yml
+
+- type: lavalandRuin
+  id: BiodomeSnow
+  name: Biodome
+  path: Maps/_Lavaland/ruin_snow_biodome.yml
+
+- type: lavalandRuin
+  id: BiodomeBeach
+  name: Biodome
+  path: Maps/_Lavaland/ruin_beach_biodome.yml
+
+- type: lavalandRuin
+  id: RougeAI
+  name: Old Research Station
+  path: Maps/_Lavaland/ruin_rouge_ai.yml
+
+- type: lavalandRuin
+  id: SeedVault
+  name: Seed Vault
+  path: Maps/_Lavaland/ruin_seed_vault.yml
+
+- type: lavalandRuin
+  id: SyndicateBase
+  name: Syndicate Base
+  path: Maps/_Lavaland/ruin_syndicate_base.yml

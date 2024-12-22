@@ -50,10 +50,15 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OreQuartz",
         "OreGold",
         "OreSilver",
+        "OreBananium",
         "OrePlasma",
         "OreUranium",
         "OreArtifactFragment",
+        "BSCrystal",
     };
+
+    [DataField("mobs")]
+    public List<ProtoId<BiomeMarkerLayerPrototype>> MobLayers = [];
 
     #endregion
 }

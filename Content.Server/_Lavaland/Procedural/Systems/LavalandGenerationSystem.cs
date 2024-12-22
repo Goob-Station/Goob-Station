@@ -8,10 +8,12 @@ using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Atmos;
+using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
+using Content.Shared.Shuttles.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
@@ -29,8 +31,10 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 /// </summary>
 public sealed class LavalandGenerationSystem : EntitySystem
 {
+    [ViewVariables]
     public List<LavalandMap> LavalandMaps = [];
 
+    [ViewVariables]
     private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
 
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -39,14 +43,14 @@ public sealed class LavalandGenerationSystem : EntitySystem
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!;
+    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!; // used on debug
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly TileSystem _tileSystem = default!;
+    [Dependency] private readonly TileSystem _tileSystem = default!; // used on debug
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
+    [Dependency] private readonly ShuttleSystem _shuttle = default!; // used on NOT debug
 
     private EntityQuery<MapGridComponent> _gridQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -56,10 +60,8 @@ public sealed class LavalandGenerationSystem : EntitySystem
     {
         base.Initialize();
 
-        if (_lavalandPreloader != null)
-            return;
-
         SubscribeLocalEvent<PreGameMapLoad>(OnRoundStart);
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnCleanup);
 
         _gridQuery = GetEntityQuery<MapGridComponent>();
         _xformQuery = GetEntityQuery<TransformComponent>();
@@ -71,6 +73,12 @@ public sealed class LavalandGenerationSystem : EntitySystem
         SetupPreloader();
         //if (_config.GetCVar())
         SetupLavaland();
+    }
+
+    private void OnCleanup(RoundRestartCleanupEvent ev)
+    {
+        ShutdownPreloader();
+        LavalandMaps.Clear();
     }
 
     private void SetupPreloader()
@@ -113,11 +121,16 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
         // Marker Layers
         var biome = EnsureComp<BiomeComponent>(lavalandMap);
-        var oreLayers = prototype.OreLayers;
-        foreach (var marker in oreLayers)
+
+        foreach (var marker in prototype.OreLayers)
         {
             _biome.AddMarkerLayer(lavalandMap, biome, marker);
         }
+        foreach (var marker in prototype.MobLayers)
+        {
+            _biome.AddMarkerLayer(lavalandMap, biome, marker);
+        }
+
         Dirty(lavalandMap, biome);
 
         // Gravity
@@ -184,10 +197,9 @@ public sealed class LavalandGenerationSystem : EntitySystem
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
         SetupRuins(pool, map);
-        ShutdownPreloader();
 
         // Hide all grids from the mass scanner.
-#if !DEBUG && !TOOLS
+#if !DEBUG
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
             _shuttle.AddIFFFlag(grid, IFFFlags.Hide);
@@ -394,7 +406,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
             Offset = coord
         };
 
-        if (!_mapLoader.TryLoad(mapXform.MapID, ruin.Path, out _, opts) || mapXform.ChildCount == 0)
+        if (!_mapLoader.TryLoad(mapXform.MapID, ruin.Path, out _, opts) || mapXform.ChildCount != 1)
         {
             Log.Error($"Failed to load ruin {ruin.ID} onto dummy map!");
             return false;
@@ -408,16 +420,18 @@ public sealed class LavalandGenerationSystem : EntitySystem
             var salvXForm = _xformQuery.GetComponent(mapChild);
             _transform.SetParent(mapChild, salvXForm, lavaland.Uid);
             _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland.Uid, salvXForm.Coordinates.Position.Rounded()));
+            _metaData.SetEntityName(mapChild, ruin.Name);
+            EnsureComp<LavalandRuinComponent>(mapChild);
         }
 
         // There should be more grids on Lavaland than before after re-parenting.
         if (_mapManager.GetAllGrids(lavaland.MapId).Count() <= gridsCount)
         {
-            Log.Error("Failed to re-parent the grid from dummy map to Lavaland.");
+            Log.Error("Failed to re-parent the grid from dummy map to Lavaland!");
             return false;
         }
 
-#if DEBUG || TOOLS
+#if DEBUG
         // Markup da area for debug purposes.
         var grid = Comp<MapGridComponent>(lavaland.Uid);
         var tiles = (from bound in bounds select _map.GetTilesIntersecting(lavaland.Uid, grid, bound, false));

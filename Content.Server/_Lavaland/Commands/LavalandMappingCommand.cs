@@ -13,9 +13,9 @@ public sealed class LavalandMappingCommand : IConsoleCommand
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
-    public string Command => "lavaland_setup";
+    public string Command => "mappinglavaland";
 
-    public string Description => "Generates new lavaland world. Be careful, this can cause freezes on runtime!";
+    public string Description => "Loads lavaland world on a new map. Be careful, this can cause freezes on runtime!";
 
     public string Help => "lavaland_setup <prototype id> <seed>";
 

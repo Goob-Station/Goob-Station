@@ -13,9 +13,9 @@ public sealed class LavalandListingCommand : IConsoleCommand
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
-    public string Command => "lavaland_list";
+    public string Command => "listlavaland";
 
-    public string Description => "Generates a lavaland world if it doesn't exist. Be careful, this can cause freezes on runtime!";
+    public string Description => "Logs a list of all active lavaland maps into the console.";
 
     public string Help => "";
 
