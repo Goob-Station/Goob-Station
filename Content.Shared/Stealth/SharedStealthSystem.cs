@@ -61,17 +61,21 @@ public abstract class SharedStealthSystem : EntitySystem
         Dirty(uid, component);
     }
 
-    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)
+
+    private void OnMobStateChanged(EntityUid uid, StealthComponent component, MobStateChangedEvent args)// Goobstation - Stealth change
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState == MobState.Dead || args.NewMobState == MobState.Critical)
         {
-            component.Enabled = component.EnabledOnDeath;
+            if (args.NewMobState == MobState.Dead)
+                component.Enabled = component.EnabledOnDeath;
+            else
+                component.Enabled = component.EnabledOnCrit;
         }
         else
         {
             component.Enabled = true;
         }
-
+        SetEnabled(uid, component.Enabled, component);// to update the sprite;
         Dirty(uid, component);
     }
 
@@ -98,7 +102,7 @@ public abstract class SharedStealthSystem : EntitySystem
 
     private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
     {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.Enabled);
+        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.MaxVisibility, component.Enabled); // Shitmed Change
     }
 
     private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
@@ -109,6 +113,7 @@ public abstract class SharedStealthSystem : EntitySystem
         SetEnabled(uid, cast.Enabled, component);
         component.LastVisibility = cast.Visibility;
         component.LastUpdated = cast.LastUpdated;
+        component.MaxVisibility = cast.MaxVisibility; // Shitmed Change
     }
 
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)

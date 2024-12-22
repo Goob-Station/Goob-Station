@@ -2,6 +2,11 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
+    # start-backmen: species
+  speciesBlacklist:
+  - Monkey
+  - Kobold
+  # end-backmen: species
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false

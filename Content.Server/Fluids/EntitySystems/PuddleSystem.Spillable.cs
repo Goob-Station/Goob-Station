@@ -29,7 +29,6 @@ public sealed partial class PuddleSystem
         SubscribeLocalEvent<SpillableComponent, MeleeHitEvent>(SplashOnMeleeHit, after: [typeof(OpenableSystem)]);
         SubscribeLocalEvent<SpillableComponent, SolutionContainerOverflowEvent>(OnOverflow);
         SubscribeLocalEvent<SpillableComponent, SpillDoAfterEvent>(OnDoAfter);
-        SubscribeLocalEvent<SpillableComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
     private void OnOverflow(Entity<SpillableComponent> entity, ref SolutionContainerOverflowEvent args)
@@ -119,22 +118,6 @@ public sealed partial class PuddleSystem
 
         var drainedSolution = _solutionContainerSystem.Drain(entity.Owner, soln.Value, solution.Volume);
         TrySplashSpillAt(entity.Owner, Transform(entity).Coordinates, drainedSolution, out _);
-    }
-
-    /// <summary>
-    /// Prevent Pacified entities from throwing items that can spill liquids.
-    /// </summary>
-    private void OnAttemptPacifiedThrow(Entity<SpillableComponent> ent, ref AttemptPacifiedThrowEvent args)
-    {
-        // Don’t care about closed containers.
-        if (Openable.IsClosed(ent))
-            return;
-
-        // Don’t care about empty containers.
-        if (!_solutionContainerSystem.TryGetSolution(ent.Owner, ent.Comp.SolutionName, out _, out var solution) || solution.Volume <= 0)
-            return;
-
-        args.Cancel("pacified-cannot-throw-spill");
     }
 
     private void OnDoAfter(Entity<SpillableComponent> entity, ref SpillDoAfterEvent args)

@@ -61,6 +61,8 @@
       storagebase: !type:Container
         ents: []
       gas_tank: !type:ContainerSlot
+  - type: PacifismAllowedGun
+
 
 - type: entity
   name: pie cannon
@@ -103,6 +105,8 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: PacifismAllowedGun
+
 
 - type: entity
   name: syringe gun
@@ -140,6 +144,8 @@
     containers:
       storagebase: !type:Container
         ents: []
+  - type: PacifismAllowedGun
+
 
 # shoots bullets instead of throwing them, no other changes
 - type: entity

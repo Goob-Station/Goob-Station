@@ -21,7 +21,6 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         if (component.ImplanterUid != null)
         {
             component.HolderUid = Transform(component.ImplanterUid.Value).ParentUid;
-            RemComp<PreventSelfImplantComponent>(component.ImplanterUid.Value);
         }
         if (args.Implanted != null)
             EnsureComp<MindcontrolledComponent>(args.Implanted.Value);
@@ -40,7 +39,6 @@ public sealed class MindcontrolImplantSystem : EntitySystem
         {
             component.ImplanterUid = args.Container.Owner;    //save Implanter uid
             component.HolderUid = null;
-            EnsureComp<PreventSelfImplantComponent>(component.ImplanterUid.Value);
         }
     }
     private void OnRemove(EntityUid uid, MindcontrolImplantComponent component, EntGotRemovedFromContainerMessage args)

@@ -1,4 +1,5 @@
 using Content.Shared.Tools.Systems;
+using Content.Shared.Nyanotrasen.Abilities.Oni; //Oni port from deltaV to make onis use tools faster
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Utility;
@@ -6,7 +7,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared.Tools.Components;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedToolSystem))]
+[Access(typeof(SharedToolSystem),typeof(SharedOniSystem))]
 public sealed partial class ToolComponent : Component
 {
     [DataField]

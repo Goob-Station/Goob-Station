@@ -1,4 +1,10 @@
 - type: damageModifierSet
+  id: Oni
+  coefficients:
+    Blunt: 0.85
+    Slash: 0.85
+    Piercing: 0.85
+- type: damageModifierSet
   id: Felinid
   coefficients:
     Blunt: 1.15

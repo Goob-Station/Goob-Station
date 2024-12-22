@@ -11,6 +11,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 2
@@ -21,6 +25,10 @@
         messages: [ "generic-reagent-effect-burning-insides" ]
         probability: 0.33
       - !type:Emote
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         emote: Scream
         probability: 0.15
 
@@ -53,6 +61,9 @@
       effects:
       - !type:ChemVomit
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         probability: 0.20
@@ -60,6 +71,9 @@
       effects:
       - !type:ChemVomit
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 6
         probability: 0.20

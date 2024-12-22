@@ -29,6 +29,8 @@
   - type: StaticPrice
     price: 22
   - type: Prying
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
   - type: Clothing

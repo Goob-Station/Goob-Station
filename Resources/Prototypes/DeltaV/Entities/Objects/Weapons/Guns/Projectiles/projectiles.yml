@@ -71,7 +71,7 @@
     impactEffect: BulletImpactEffectBlueDisabler
     damage:
       types:
-        Ion: 20
+        Ion: 25
     soundHit:
       collection: MeatLaserImpact
 
