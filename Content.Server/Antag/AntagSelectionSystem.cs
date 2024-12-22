@@ -226,6 +226,9 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
 
+        // Oh well two different target antag counts. fml
+        var targetCount = ent.Comp.SelectedSessions.Count + count;
+
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
         var picking = def.PickPlayer;
@@ -259,12 +262,12 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var retry = 0;
             List<ICommonSession> failed = [];
 
-            while (ent.Comp.SelectedSessions.Count < count && retry < maxRetries)
+            while (ent.Comp.SelectedSessions.Count < targetCount && retry < maxRetries)
             {
                 var sessions = (ICommonSession[]?) null;
                 if (!playerPool.TryGetItems(RobustRandom,
                                             out sessions,
-                                            count - ent.Comp.SelectedSessions.Count,
+                                            targetCount - ent.Comp.SelectedSessions.Count,
                                             false))
                     break; // Ends early if there are no eligible sessions
 
@@ -277,7 +280,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     }
                 }
                 // In case we're done
-                if (ent.Comp.SelectedSessions.Count >= count)
+                if (ent.Comp.SelectedSessions.Count >= targetCount)
                     break;
 
                 playerPool = playerPool.Where((session_) =>
@@ -295,7 +298,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // It may otherwise process leftover slots if maxRetries have
         // been reached.
 
-        for (var i = ent.Comp.SelectedSessions.Count; i < count; i++)
+        for (var i = ent.Comp.SelectedSessions.Count; i < targetCount; i++)
         {
             MakeAntag(ent, null, def);
         }
