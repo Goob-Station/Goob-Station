@@ -1,7 +1,7 @@
 # Basic lavaland.
 - type: lavalandMap
   id: Lavaland
-  outpostPath: Maps/_Lavaland/outpost_lavaland.yml
+  outpostPath: Maps/_Lavaland/Lavaland/outpost_lavaland.yml
   ruinPool: Lavaland
   temperature: 338.4523 # 65.3023 C
   planetColor: "#A34931"

@@ -12,6 +12,7 @@
     GolemShuttle: 2
     LavaLake: 3
   smallRuins:
-    SeedVault: 6
+    SeedVault: 3
     Hermit: 6
-    RuinedShuttle: 24
+    RuinedShuttle: 6
+    CommonRuin5x5: 100

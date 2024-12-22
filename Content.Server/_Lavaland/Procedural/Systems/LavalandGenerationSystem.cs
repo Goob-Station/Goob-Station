@@ -213,8 +213,6 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
     private void SetupRuins(LavalandRuinPoolPrototype pool, LavalandMap lavaland)
     {
-        // TODO: THIS IS A FUCKING LAG MACHINE HELP ME AAAAAAAAAAAAAAAAAAAAAAA
-
         var random = new Random(lavaland.Seed);
 
         var boundary = GetOutpostBoundary(lavaland);

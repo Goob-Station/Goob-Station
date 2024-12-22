@@ -1,44 +1,54 @@
 - type: lavalandRuin
+  id: CommonRuin5x5 #Procgen via Room Marker
+  name: Unknown Building
+  path: Maps/_Lavaland/Lavaland/common_ruin_5x5.yml
+
+- type: lavalandRuin
   id: RuinedShuttle
   name: Unknown Shuttle
-  path: Maps/_Lavaland/ruin_shuttle_lavaland.yml
+  path: Maps/_Lavaland/Lavaland/ruin_shuttle_lavaland.yml
 
 - type: lavalandRuin
   id: Hermit # Shelter
-  name: Unknown Building
-  path: Maps/_Lavaland/ruin_hermit.yml
+  name: Makeshift Shelter
+  path: Maps/_Lavaland/Lavaland/ruin_hermit.yml
 
 - type: lavalandRuin
   id: LavaLake
   name: Lava Lake
-  path: Maps/_Lavaland/ruin_lavalake.yml
+  path: Maps/_Lavaland/Lavaland/ruin_lavalake.yml
 
 - type: lavalandRuin
   id: GolemShuttle
   name: Unknown Shuttle
-  path: Maps/_Lavaland/ruin_golem_shuttle.yml
+  path: Maps/_Lavaland/Lavaland/ruin_golem_shuttle.yml
 
 - type: lavalandRuin
   id: BiodomeSnow
   name: Biodome
-  path: Maps/_Lavaland/ruin_snow_biodome.yml
+  path: Maps/_Lavaland/Lavaland/ruin_snow_biodome.yml
 
 - type: lavalandRuin
   id: BiodomeBeach
   name: Biodome
-  path: Maps/_Lavaland/ruin_beach_biodome.yml
+  path: Maps/_Lavaland/Lavaland/ruin_beach_biodome.yml
 
 - type: lavalandRuin
   id: RougeAI
   name: Old Research Station
-  path: Maps/_Lavaland/ruin_rouge_ai.yml
+  path: Maps/_Lavaland/Lavaland/ruin_rouge_ai.yml
 
 - type: lavalandRuin
   id: SeedVault
   name: Seed Vault
-  path: Maps/_Lavaland/ruin_seed_vault.yml
+  path: Maps/_Lavaland/Lavaland/ruin_seed_vault.yml
 
-- type: lavalandRuin
-  id: SyndicateBase
-  name: Syndicate Base
-  path: Maps/_Lavaland/ruin_syndicate_base.yml
+#- type: lavalandRuin
+#  id: SyndicateBase
+#  name: Syndicate Base
+#  path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
+
+#- type: lavalandRuin
+#  id: HierophantArena
+#  name: Hierophant
+#  path: Maps/_Lavaland/Lavaland/ruin_hierophant.yml
