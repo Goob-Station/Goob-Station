@@ -66,6 +66,10 @@
   - type: FootPrints # WD EDIT
     leftBarePrint: "footprint-left-bare-dwarf"
     rightBarePrint: "footprint-right-bare-dwarf"
+  - type: PseudoItem # ShibaStation - dorf smol ops is confirmed
+    storedOffset: 0,17
+    shape:
+      - 0, 0, 5, 4 # ShibaStation - wider than felinids and rodentians because dorf thicc
 
 - type: entity
   parent: BaseSpeciesDummy
