@@ -53,6 +53,7 @@
       - Body
     canTargetSelf: false
     interactOnMiss: false
+    checkCanInteract: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -70,6 +71,7 @@
   components:
   - type: InstantAction
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform_cycle
@@ -87,6 +89,7 @@
   - type: InstantAction
     useDelay: 5
     itemIconStyle: NoItem
+    checkCanInteract: true
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: transform
@@ -209,6 +212,7 @@
   - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_dissonant
@@ -227,6 +231,7 @@
   - type: InstantAction
     useDelay: 10
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: shriek_resonant
@@ -245,6 +250,7 @@
   - type: InstantAction
     useDelay: 1
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: strained_muscles
@@ -267,6 +273,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
@@ -288,6 +295,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_cryo
@@ -309,6 +317,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_lethargic
@@ -330,6 +339,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_mute
@@ -351,6 +361,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_armblade
@@ -372,6 +383,7 @@
     canTargetSelf: false
     interactOnMiss: false
     itemIconStyle: NoItem
+    checkCanInteract: false
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_transform
@@ -446,6 +458,7 @@
   - type: InstantAction
     useDelay: 5
     checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -500,6 +513,7 @@
   - type: InstantAction
     useDelay: 30
     checkCanInteract: false
+    checkConsciousness: false
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
@@ -528,6 +542,7 @@
   - type: ChangelingAction
     chemicalCost: 20
     useInLesserForm: true
+    requireAbsorbed: 1
 
 - type: entity
   id: ActionToggleLesserForm

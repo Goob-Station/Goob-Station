@@ -98,6 +98,7 @@ public sealed class ReflectSystem : EntitySystem
     {
         if (!Resolve(reflector, ref reflect, false) ||
             !_toggle.IsActivated(reflector) ||
+            !reflect.InRightPlace ||
             !TryComp<ReflectiveComponent>(projectile, out var reflective) ||
             // Goob edit start
             !((reflect.Reflects & reflective.Reflective) != 0x0 &&
@@ -180,6 +181,7 @@ public sealed class ReflectSystem : EntitySystem
     {
         if (!TryComp<ReflectComponent>(reflector, out var reflect) ||
             !_toggle.IsActivated(reflector) ||
+            !reflect.InRightPlace ||
             // Goob edit start
             !((reflect.Reflects & reflective) != 0x0 &&
                 _random.Prob(reflect.ReflectProb) ||
@@ -218,6 +220,8 @@ public sealed class ReflectSystem : EntitySystem
         if (_gameTiming.ApplyingState)
             return;
 
+        component.InRightPlace = IsInRightPlace(component, args.SlotFlags);
+
         EnsureComp<ReflectUserComponent>(args.Equipee);
     }
 
@@ -230,6 +234,8 @@ public sealed class ReflectSystem : EntitySystem
     {
         if (_gameTiming.ApplyingState)
             return;
+
+        component.InRightPlace = IsInRightPlace(component, SlotFlags.NONE);
 
         EnsureComp<ReflectUserComponent>(args.User);
     }
@@ -260,5 +266,16 @@ public sealed class ReflectSystem : EntitySystem
         }
 
         RemCompDeferred<ReflectUserComponent>(user);
+    }
+
+    /// <summary>
+    /// Checks if the reflective component should work in designated place.
+    /// </summary>
+    private static bool IsInRightPlace(ReflectComponent component, SlotFlags slotFlag)
+    {
+        if (slotFlag == SlotFlags.NONE)
+            return component.ReflectingInHands;
+        else
+            return (component.SlotFlags & slotFlag) == slotFlag;
     }
 }
