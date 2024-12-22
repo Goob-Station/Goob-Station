@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Interstate-80 (commit unavailable, repo gone, old sprites from F13)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bedroll_unrolled"
+    },
+    {
+      "name": "mattress0",
+	  "directions": 4
+    },
+    {
+      "name": "mattress1"
+    },
+    {
+      "name": "mattress2"
+    },
+    {
+      "name": "mattress3"
+    },
+    {
+      "name": "mattress4"
+    },
+    {
+      "name": "mattress5"
+    },
+    {
+      "name": "wooden_chair",
+	  "directions": 4
+    },
+    {
+      "name": "wooden_chair_settler",
+	  "directions": 4
+    },
+    {
+      "name": "bar_black"
+    },
+    {
+      "name": "bar_tan"
+    },
+    {
+      "name": "bed",
+	  "directions": 4
+    },
+    {
+      "name": "bed_dirty"
+    },
+    {
+      "name": "bed_wood",
+	  "directions": 4
+    },
+    {
+      "name": "bedroll_rolled"
+    },
+    {
+      "name": "bed_wood_bunk",
+	  "directions": 4
+    },
+    {
+      "name": "bed_bunk",
+	  "directions": 4
+    }
+  ]
+}

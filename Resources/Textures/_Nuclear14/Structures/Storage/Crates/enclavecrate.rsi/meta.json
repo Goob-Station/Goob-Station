@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/b35ff6e7f1b94108e0b934a1caf84d60066840be/mojave/icons/structure/crates.dmi,  converted & additional states modified by Peptide90",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base",
+      "directions": 4
+    },
+    {
+      "name": "closed",
+      "directions": 4
+    },
+    {
+      "name": "icon",
+      "directions": 4
+    },
+    {
+      "name": "welded",
+      "directions": 4
+    },
+    {
+      "name": "open",
+      "directions": 4
+    }
+  ]
+}

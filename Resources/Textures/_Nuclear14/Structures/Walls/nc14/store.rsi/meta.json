@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "https://github.com/Official-Outcast13/Fallout-13/commit/48cb787f1a4c4946a703ffa769429655a6109e3b, modified by Peptide90",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "store0",
+            "directions": 4
+        },
+        {
+            "name": "store1",
+            "directions": 4
+        },
+        {
+            "name": "store2",
+            "directions": 4
+        },
+        {
+            "name": "store3",
+            "directions": 4
+        },
+        {
+            "name": "store4",
+            "directions": 4
+        },
+        {
+            "name": "store5",
+            "directions": 4
+        },
+        {
+            "name": "store6",
+            "directions": 4
+        },
+        {
+            "name": "store7",
+            "directions": 4
+        }
+    ]
+}

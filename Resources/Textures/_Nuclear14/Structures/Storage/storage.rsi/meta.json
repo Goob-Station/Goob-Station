@@ -1,0 +1,65 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/734c2aba4549814549d0fa7a9aa2e2d03ec1a2da/mojave/icons/structure/storage.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fridge"
+    },
+    {
+      "name": "fridge_door"
+    },
+    {
+      "name": "fridge_open"
+    },
+    {
+      "name": "safe_wall"
+    },
+    {
+      "name": "safe_wall-open"
+    },
+    {
+      "name": "firstaid"
+    },
+    {
+      "name": "firstaid_door"
+    },
+    {
+      "name": "firstaid_open"
+    },
+    {
+      "name": "vent"
+    },
+    {
+      "name": "vent-damaged"
+    },
+    {
+      "name": "vent-open"
+    },
+    {
+      "name": "locker"
+    },
+    {
+      "name": "locker_door"
+    },
+    {
+      "name": "locker_open"
+    },
+    {
+      "name": "toolbox"
+    },
+    {
+      "name": "toolbox_open"
+    },
+    {
+      "name": "locker_loot"
+    },
+    {
+      "name": "toolbox_loot"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/743829080f18ad6a598ba411d5972a5edabfef62/mojave/icons/structure/television.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "empty_space"
+    },
+    {
+      "name": "wood_tv1",
+      "directions": 4
+    },
+    {
+      "name": "wood_tv",
+      "directions": 4
+    },
+    {
+      "name": "small_tv",
+      "directions": 4
+    },
+    {
+      "name": "small_tv1",
+      "directions": 4
+    },
+    {
+      "name": "redwood_tv1",
+      "directions": 4
+    },
+    {
+      "name": "redwood_tv",
+      "directions": 4
+    },
+    {
+      "name": "tiny_tv1",
+      "directions": 4
+    },
+    {
+      "name": "tiny_tv",
+      "directions": 4
+    },
+    {
+      "name": "radking_tv",
+      "directions": 4
+    },
+    {
+      "name": "cabinet_tv",
+      "directions": 4
+    },
+    {
+      "name": "cabinet_tv1",
+      "directions": 4
+    },
+    {
+      "name": "tube_tv1",
+      "directions": 4
+    },
+    {
+      "name": "tube_tv",
+      "directions": 4
+    }
+  ]
+}

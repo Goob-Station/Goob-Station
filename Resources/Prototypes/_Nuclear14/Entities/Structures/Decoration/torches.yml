@@ -1,0 +1,76 @@
+- type: entity
+  id: N14Torch
+  name: torch
+  suffix: floor
+  description: A flaming torch for lighting an area.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Physics
+    bodyType: Static
+    canCollide: False
+  - type: Sprite
+    netsync: false
+    noRot: true
+    sprite: _Nuclear14/Structures/Decoration/torches.rsi
+    state: torch_unlit
+  - type: Appearance
+  - type: Reactive
+    groups:
+      Flammable: [ Touch ]
+      Extinguish: [ Touch ]
+  - type: ExtinguishOnInteract
+    extinguishAttemptSound:
+      path: /Audio/Items/candle_blowing.ogg
+      params:
+        variation: 0.05
+        volume: 10
+  - type: UseDelay
+  - type: Flammable
+    fireSpread: false
+    canResistFire: false
+    alwaysCombustible: true
+    canExtinguish: true
+    firestacksOnIgnite: 3.0
+    firestackFade: -0.01
+    damage:
+      types:
+        Heat: 0.1
+  - type: FireVisuals
+    sprite: _Nuclear14/Structures/Decoration/torches.rsi
+    normalState: torch_lit
+  - type: Damageable
+    damageModifierSet: Wood
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ToggleableLightVisuals
+    spriteLayer: null
+  - type: PointLight
+    color: "#e39c40"
+    radius: 5
+    power: 16
+
+- type: entity
+  parent: N14Torch
+  id: N14TorchWall
+  suffix: wall
+  components:
+  - type: Sprite
+    noRot: false
+    state: wall_torch_unlit
+  - type: FireVisuals
+    sprite: _Nuclear14/Structures/Decoration/torches.rsi
+    normalState: wall_torch_lit
+  - type: Construction
+    graph: WallTorch
+    node: WallTorch

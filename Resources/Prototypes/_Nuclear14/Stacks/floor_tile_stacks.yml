@@ -1,0 +1,140 @@
+# Metal
+
+- type: stack
+  id: FloorTileMetalBlue
+  name: metal floor blue
+  spawn: FloorTileItemMetalBlue
+  
+- type: stack
+  id: FloorTileMetalBlueSolid
+  name: metal floor blue solid
+  spawn: FloorTileItemMetalBlueSolid
+  
+- type: stack
+  id: FloorTileMetalGreen
+  name: metal floor green
+  spawn: FloorTileItemMetalGreen
+  
+- type: stack
+  id: FloorTileMetalGreenSolid
+  name: metal floor green solid
+  spawn: FloorTileItemMetalGreenSolid
+  
+- type: stack
+  id: FloorTileMetalGrey
+  name: metal floor grey
+  spawn: FloorTileItemMetalGrey
+  
+- type: stack
+  id: FloorTileMetalGreySolid
+  name: metal floor grey solid
+  spawn: FloorTileItemMetalGreySolid
+  
+- type: stack
+  id: FloorTileMetalGreyDark
+  name: metal floor grey dark
+  spawn: FloorTileItemMetalGreyDark
+  
+- type: stack
+  id: FloorTileMetalGreyDarkSolid
+  name: metal floor grey dark solid
+  spawn: FloorTileItemMetalGreyDarkSolid
+  
+- type: stack
+  id: FloorTileMetalPurple
+  name: metal floor purple
+  spawn: FloorTileItemMetalPurple
+  
+- type: stack
+  id: FloorTileMetalPurpleSolid
+  name: metal floor purple solid
+  spawn: FloorTileItemMetalPurpleSolid
+  
+- type: stack
+  id: FloorTileMetalRed
+  name: metal floor red
+  spawn: FloorTileItemMetalRed
+  
+- type: stack
+  id: FloorTileMetalRedSolid
+  name: metal floor red solid
+  spawn: FloorTileItemMetalRedSolid
+  
+- type: stack
+  id: FloorTileMetalTeal
+  name: metal floor teal
+  spawn: FloorTileItemMetalTeal
+  
+- type: stack
+  id: FloorTileMetalTealSolid
+  name: metal floor teal solid
+  spawn: FloorTileItemMetalTealSolid
+  
+- type: stack
+  id: FloorTileMetalWhite
+  name: metal floor white
+  spawn: FloorTileItemMetalWhite
+  
+- type: stack
+  id: FloorTileMetalWhiteSolid
+  name: metal floor white solid
+  spawn: FloorTileItemMetalWhiteSolid
+  
+- type: stack
+  id: FloorTileMetalYellow
+  name: metal floor yellow
+  spawn: FloorTileItemMetalYellow
+  
+- type: stack
+  id: FloorTileMetalYellowSolid
+  name: metal floor yellow solid
+  spawn: FloorTileItemMetalYellowSolid
+  
+- type: stack
+  id: FloorTileMetalFreezer
+  name: metal floor freezer
+  spawn: FloorTileItemMetalFreezer
+  
+# Other
+
+- type: stack
+  id: FloorTileWoodOak
+  name: wood floor
+  spawn: FloorTileItemWoodOak
+  
+- type: stack
+  id: FloorTileWoodHouse
+  name: wood floor
+  spawn: FloorTileItemWoodHouse
+  
+- type: stack
+  id: FloorTileWoodMaple
+  name: wood floor
+  spawn: FloorTileItemWoodMaple
+  
+- type: stack
+  id: FloorTileCarpetRed
+  name: carpet floor
+  spawn: FloorTileItemCarpetRed
+  
+  
+# MS13
+- type: stack
+  id: FloorTileMetalIndustrial
+  name: industrial floor
+  spawn: FloorTileItemMetalIndustrial
+  
+- type: stack
+  id: FloorTileMetalMS13
+  name: metal tile floor
+  spawn: FloorTileItemMetalMS13
+  
+- type: stack
+  id: FloorTileMetalGrate
+  name: metal grate floor
+  spawn: FloorTileItemMetalGrate
+  
+- type: stack
+  id: FloorTileMetalSolid
+  name: metal solid floor
+  spawn: FloorTileItemMetalSolid

@@ -1,0 +1,46 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 64
+    },
+    "license": "CC-BY-NC-SA-3.0",
+    "copyright": "Taken from MS13 and modified for SS14 by Kill_Me_I_Noobs",
+    "states": [
+        {
+            "name": "full"
+        },
+        {
+            "name": "tallbrickalt0",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt1",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt2",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt3",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt4",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt5",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt6",
+            "directions": 4
+        },
+        {
+            "name": "tallbrickalt7",
+            "directions": 4
+        }
+    ]
+}

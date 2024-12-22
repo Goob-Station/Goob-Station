@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Interstate-80, https://github.com/JustLoveBeingAnOwl/Interstate-80-owl, modified by Peptide90",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "junk_dresser"
+    },
+    {
+      "name": "junk_cabinet"
+    },
+    {
+      "name": "junk_machine"
+    },
+    {
+      "name": "junk_locker"
+    },
+    {
+      "name": "junk_micro"
+    },
+    {
+      "name": "junk_jukebox"
+    },
+    {
+      "name": "junk_bed1"
+    },
+    {
+      "name": "junk_bed2"
+    },
+    {
+      "name": "junk_tv"
+    },
+    {
+      "name": "junk_table"
+    },
+    {
+      "name": "junk_bench",
+      "directions": 4
+    },
+    {
+      "name": "junk_arcade"
+    },
+    {
+      "name": "junk_urinal"
+    },
+    {
+      "name": "junk_toilet",
+      "directions": 4
+    },
+    {
+      "name": "junk_shower",
+      "directions": 4
+    },
+    {
+      "name": "junk_mirror"
+    },
+    {
+      "name": "junk_sink",
+      "directions": 4
+    },
+    {
+      "name": "junk_clock"
+    }
+  ]
+}

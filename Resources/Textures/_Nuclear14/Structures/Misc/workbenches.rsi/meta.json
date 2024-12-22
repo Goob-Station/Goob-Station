@@ -1,0 +1,110 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/b35ff6e7f1b94108e0b934a1caf84d60066840be/mojave/icons/structure/workbenches.dmi , benches made by BluHNT for N14",
+  "size": {
+    "x": 64,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "workbench"
+    },
+    {
+      "name": "ammobench"
+    },
+    {
+      "name": "armorbench"
+    },
+    {
+      "name": "weaponbench"
+    },
+    {
+      "name": "tinkerbench"
+    },
+    {
+      "name": "chemicalset"
+    },
+    {
+      "name": "weaponbenchframe0"
+    },
+    {
+      "name": "weaponbenchframe1"
+    },
+    {
+      "name": "weaponbenchframe2"
+    },
+    {
+      "name": "weaponbenchframe3"
+    },
+    {
+      "name": "weaponbenchframe4"
+    },
+    {
+      "name": "workbenchframe0"
+    },
+    {
+      "name": "workbenchframe1"
+    },
+    {
+      "name": "workbenchframe2"
+    },
+    {
+      "name": "workbenchframe3"
+    },
+    {
+      "name": "workbenchframe4"
+    },
+    {
+      "name": "ammobenchframe0"
+    },
+    {
+      "name": "ammobenchframe1"
+    },
+    {
+      "name": "ammobenchframe2"
+    },
+    {
+      "name": "ammobenchframe3"
+    },
+    {
+      "name": "ammobenchframe4"
+    },
+    {
+      "name": "ammobenchframe5"
+    },
+    {
+      "name": "armorbenchframe0"
+    },
+    {
+      "name": "armorbenchframe1"
+    },
+    {
+      "name": "armorbenchframe2"
+    },
+    {
+      "name": "armorbenchframe3"
+    },
+    {
+      "name": "armorbenchframe4"
+    },
+    {
+      "name": "chemicalsetframe0"
+    },
+    {
+      "name": "chemicalsetframe1"
+    },
+    {
+      "name": "chemicalsetframe2"
+    },
+    {
+      "name": "chemicalsetframe3"
+    },
+    {
+      "name": "chemicalsetframe4"
+    },
+    {
+      "name": "chemicalsetframe5"
+    }
+  ]
+}

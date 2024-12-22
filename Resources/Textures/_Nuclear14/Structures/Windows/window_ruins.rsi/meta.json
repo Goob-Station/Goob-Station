@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from big-iron at commit https://github.com/Foundation-19/Big-Iron/commit/cf17a5654d3cbb85cb9cd9c96f1c40b14076c208",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "housewindow"
+    },
+    {
+      "name": "housewindowbroken"
+    },
+    {
+      "name": "housewindowvertical"
+    },
+    {
+      "name": "housewindowbrokenvertical"
+    },
+    {
+      "name": "ruinswindow"
+    },
+    {
+      "name": "ruinswindowbroken"
+    },
+    {
+      "name": "ruinswindowdestroyed"
+    },
+    {
+      "name": "ruinswindowvertical"
+    },
+    {
+      "name": "ruinswindowbrokenvertical"
+    },
+    {
+      "name": "woodwindow"
+    },
+    {
+      "name": "woodwindowbroken"
+    },
+    {
+      "name": "storewindowleft"
+    },
+    {
+      "name": "storewindowhorizontal"
+    },
+    {
+      "name": "storewindowright"
+    },
+    {
+      "name": "storewindowtop"
+    },
+    {
+      "name": "storewindowvertical"
+    },
+    {
+      "name": "storewindowbottom"
+    }
+  ]
+}

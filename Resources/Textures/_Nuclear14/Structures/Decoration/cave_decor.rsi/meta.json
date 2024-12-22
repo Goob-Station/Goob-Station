@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from mojave-sun-13 at https://github.com/Mojave-Sun/mojave-sun-13/blob/0cbeda29e69293cd3a637fe67576b30b7693d5f6/mojave/icons/structure/cave_decor.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stalagmite"
+    },
+    {
+      "name": "stalagmite1"
+    },
+    {
+      "name": "stalagmite2"
+    },
+    {
+      "name": "stalagmite3"
+    },
+    {
+      "name": "stalagmite4"
+    },
+    {
+      "name": "stalagmite5"
+    },
+    {
+      "name": "minecart_fallen"
+    },
+    {
+      "name": "sign_left"
+    },
+    {
+      "name": "sign_right"
+    },
+    {
+      "name": "boards_drought_ns-1"
+    },
+    {
+      "name": "boards_drought_ns-2"
+    },
+    {
+      "name": "boards_drought_ns-3"
+    },
+    {
+      "name": "boards_drought_ns-4"
+    },
+    {
+      "name": "boards_drought_ns-5"
+    },
+    {
+      "name": "boards_drought_ns-6"
+    },
+    {
+      "name": "boards_drought_we-1"
+    },
+    {
+      "name": "boards_drought_we-2"
+    },
+    {
+      "name": "boards_drought_we-3"
+    },
+    {
+      "name": "boards_drought_we-4"
+    },
+    {
+      "name": "boards_drought_we-5"
+    },
+    {
+      "name": "boards_drought_we-6"
+    },
+    {
+      "name": "boards_mammoth_ns-1"
+    },
+    {
+      "name": "boards_mammoth_ns-2"
+    },
+    {
+      "name": "boards_mammoth_ns-3"
+    },
+    {
+      "name": "boards_mammoth_ns-4"
+    },
+    {
+      "name": "boards_mammoth_ns-5"
+    },
+    {
+      "name": "boards_mammoth_ns-6"
+    },
+    {
+      "name": "boards_mammoth_we-1"
+    },
+    {
+      "name": "boards_mammoth_we-2"
+    },
+    {
+      "name": "boards_mammoth_we-3"
+    },
+    {
+      "name": "boards_mammoth_we-4"
+    },
+    {
+      "name": "boards_mammoth_we-5"
+    },
+    {
+      "name": "boards_mammoth_we-6"
+    },
+    {
+      "name": "support"
+    },
+    {
+      "name": "support_beams"
+    },
+    {
+      "name": "support_wall"
+    },
+    {
+      "name": "support_wall_broken"
+    }
+  ]
+}

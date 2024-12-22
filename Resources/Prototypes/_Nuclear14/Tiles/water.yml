@@ -1,0 +1,176 @@
+- type: entity
+  id: N14FloorWaterDirtyEntity
+  name: water
+  description: A real thirst quencher.
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: FloorOccluder
+  - type: Transform
+    anchored: true
+  - type: SyncSprite
+  - type: Clickable
+  - type: Sprite
+    sprite: Tiles/Planet/water.rsi
+    drawdepth: BelowFloor
+    layers:
+      - state: shoreline_water
+  - type: SolutionContainerManager
+    solutions:
+      pool:
+        maxVol: 9999999 #.inf seems to break the whole yaml file, but would definitely be preferable.
+        reagents:
+        - ReagentId: Water
+          Quantity: 9999999
+  - type: DrainableSolution
+    solution: pool
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.5
+    sprintSpeedModifier: 0.5
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+          - SlipLayer
+        mask:
+          - ItemMask
+        density: 1000
+        hard: false
+  - type: FootstepModifier
+    footstepSoundCollection:
+      collection: N14FootstepWater
+      params:
+        volume: 8
+
+
+- type: entity
+  parent: N14FloorWaterDirtyEntity
+  id: N14FloorWaterSewerDeep
+  name: deep sewer water
+  description: Years of built up feces and urine and other fluids.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Tiles/ms13/Water.rsi
+    layers:
+      - state: sewer_deep
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterSewerMedium
+  name: sewer water
+  description: Years of built up feces and urine and other fluids.
+  components:
+  - type: Sprite
+    layers:
+      - state: sewer_medium
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.4
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterSewerShallow
+  name: shallow sewer water
+  description: Years of built up feces and urine and other fluids.
+  components:
+  - type: Sprite
+    layers:
+      - state: sewer_shallow
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.6
+    sprintSpeedModifier: 0.6
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterDeep
+  name: deep water
+  description: Endless Abyss.
+  components:
+  - type: Sprite
+    layers:
+      - state: water_deep
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterMedium
+  name: water
+  description: Unclean water, likely highly unclean.
+  components:
+  - type: Sprite
+    layers:
+      - state: water_medium
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.4
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterShallow
+  name: shallow water
+  description: Unclean water, likely highly unclean
+  components:
+  - type: Sprite
+    layers:
+      - state: water_shallow
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.6
+    sprintSpeedModifier: 0.6
+
+- type: entity
+  parent: N14FloorWaterSewerDeep
+  id: N14FloorWaterSaltDeep
+  name: deep salt water
+  description: Endless Abyss.
+  components:
+  - type: Sprite
+    layers:
+      - state: water_deep
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.2
+    sprintSpeedModifier: 0.2
+  - type: SolutionContainerManager
+    solutions:
+      pool:
+        maxVol: 9999999 #.inf seems to break the whole yaml file, but would definitely be preferable.
+        reagents:
+        - ReagentId: Water #TODO: Add WaterSalt Reagent.
+          Quantity: 9999999
+
+- type: entity
+  parent: N14FloorWaterSaltDeep
+  id: N14FloorWaterSaltMedium
+  name: salt water
+  description: Unclean water, tainted with salt.
+  components:
+  - type: Sprite
+    layers:
+      - state: water_medium
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.4
+    sprintSpeedModifier: 0.4
+
+- type: entity
+  parent: N14FloorWaterSaltDeep
+  id: N14FloorWaterSaltShallow
+  name: shallow salt water
+  description: Unclean water, tainted with salt
+  components:
+  - type: Sprite
+    layers:
+      - state: water_shallow
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.6
+    sprintSpeedModifier: 0.6

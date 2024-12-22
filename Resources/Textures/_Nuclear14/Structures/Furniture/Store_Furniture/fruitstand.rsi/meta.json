@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Mojave Sun 13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/5e2e8ebe440947bcf947189d5a46bfbb5ae2e8e8",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fruitstand_empty"
+    },
+    {
+      "name": "fruitstand-1"
+    },
+    {
+      "name": "fruitstand-2"
+    },
+    {
+      "name": "fruitstand-3"
+    }
+  ]
+}

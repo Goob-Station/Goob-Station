@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Interstate-80 (commit unavailable, repo gone, old sprites from F13)",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "joshua_3"
+    },
+    {
+      "name": "joshua_4"
+    },
+    {
+      "name": "joshua_1"
+    },
+    {
+      "name": "joshua_2"
+    },
+    {
+      "name": "cactus",
+	  "directions": 4
+    }
+  ]
+}

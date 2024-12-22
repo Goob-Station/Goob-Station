@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from Interstate-80, https://github.com/JustLoveBeingAnOwl/Interstate-80-owl, Closed by Peptide90 by modification",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pipeBend"
+    },
+    {
+      "name": "pipeEnd"
+    },
+    {
+      "name": "pipeFourway"
+    },
+    {
+      "name": "pipeStraight"
+    },
+    {
+      "name": "pipeTJunction"
+    },
+    {
+      "name": "pipeValve"
+    },
+    {
+      "name": "pipeVent"
+    },
+    {
+      "name": "pipeVentCharge1"
+    },
+    {
+      "name": "pipeVentCharge2"
+    }
+  ]
+}
