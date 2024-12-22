@@ -295,6 +295,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             MakeAntag(ent, null, def);
         }
+        ///// End of Goob/EE changes /////
     }
 
     /// <summary>
