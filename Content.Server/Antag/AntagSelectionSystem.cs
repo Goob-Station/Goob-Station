@@ -238,25 +238,62 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             picking = false;
         }
 
+        ///// Goob/EE changes /////
+        //
+        // Fixes issues caused by failures in making someone antag while
+        // not breaking any API on this system.
+        //
+        // This will either allocate `count` slots from the player pool,
+        // or will call MakeAntag with null sessions to fill up the slots.
+        //
+        if (picking)
+        {
+            // Tries up to maxRetries times to assign antags.
+            // When any number of assignment fails, next iteration
+            // gets new items to replace those.
+            // Already selected or failed sessions are avoided.
+            // It retries until it ends with no failures or up
+            // to maxRetries attempts.
+
+            const int maxRetries = 4;
+            var retry = 0;
+            List<ICommonSession> failed = [];
+
+            while (count != 0 && retry < maxRetries)
+            {
+                var countFailed = 0; // Not at the same scope as `failed`
+                var sessions = (ICommonSession[]?) null;
+                if (!playerPool.TryGetItems(RobustRandom, out sessions, count, false))
+                    break; // Ends early if there are no eligible sessions
+
+                foreach (var session in sessions)
+                {
+                    MakeAntag(ent, session, def);
+                    if (!ent.Comp.SelectedSessions.Contains(session))
+                    {
+                        failed.Add(session);
+                        countFailed++;
+                    }
+                }
+                playerPool = playerPool.Where((session_) =>
+                {
+                    return !ent.Comp.SelectedSessions.Contains(session_) &&
+                        !failed.Contains(session_);
+                });
+                count = countFailed;
+                retry++;
+            }
+        }
+
+        // This preserves previous behavior for when def.PickPlayer
+        // was not satisfied. This behavior is not that obvious to
+        // read from the previous code.
+        // It may otherwise process leftover slots if maxRetries have
+        // been reached.
+
         for (var i = 0; i < count; i++)
         {
-            var session = (ICommonSession?)null;
-            if (picking)
-            {
-                if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
-                {
-                    Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
-                    break;
-                }
-
-                if (session != null && ent.Comp.SelectedSessions.Contains(session))
-                {
-                    Log.Warning($"Somehow picked {session} for an antag when this rule already selected them previously");
-                    continue;
-                }
-            }
-
-            MakeAntag(ent, session, def);
+            MakeAntag(ent, null, def);
         }
     }
 
