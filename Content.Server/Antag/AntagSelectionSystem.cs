@@ -360,8 +360,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                 return;
             }
 
-            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
             // goob edit end
+            Log.Error($"Attempted to make {session} antagonist in gamerule {ToPrettyString(ent)} but there was no valid entity for player.");
+            if (session != null)
+                ent.Comp.SelectedSessions.Remove(session);
             return;
         }
 
