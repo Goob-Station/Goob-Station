@@ -22,6 +22,9 @@
   - Brig
   - Cryogenics
   - External # goobstation
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to RD access
+  - Chemistry # ShibaStation - Added Chemistry to RD access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]
