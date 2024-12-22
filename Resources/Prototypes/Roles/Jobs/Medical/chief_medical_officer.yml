@@ -29,6 +29,8 @@
   - Brig
   - Cryogenics
   - External # goobstation
+  extendedAccess:
+  - Research # ShibaStation - Added Research to CMO access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

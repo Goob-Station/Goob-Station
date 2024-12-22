@@ -31,6 +31,9 @@
   - External
   - Detective
   - Cryogenics
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to HoS access
+  - Chemistry # ShibaStation - Added Chemistry to HoS access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

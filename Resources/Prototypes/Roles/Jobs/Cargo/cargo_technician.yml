@@ -9,9 +9,7 @@
   access:
   - Cargo
   - Maintenance
-  extendedAccess:
-  - Salvage
-  - External # goobstation
+  # ShibaStation - Removed extendedAccess from CargoTech; Cargo and Salvage should be separate roles, even at low pop.
 
 - type: startingGear
   id: CargoTechGear

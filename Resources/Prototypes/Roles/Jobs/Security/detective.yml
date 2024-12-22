@@ -19,6 +19,9 @@
   - Detective
   - Cryogenics
   - External
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Detective access
+  - Chemistry # ShibaStation - Added Chemistry to Detective access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

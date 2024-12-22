@@ -18,6 +18,9 @@
   - Service
   - External
   - Cryogenics
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Security access
+  - Chemistry # ShibaStation - Added Chemistry to Security access
   special:
   - !type:AddImplantSpecial
     implants: [ MindShieldImplant ]

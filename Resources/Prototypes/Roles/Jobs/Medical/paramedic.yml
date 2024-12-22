@@ -18,6 +18,7 @@
   - External # goobstation
   extendedAccess:
   - Chemistry
+  - Research # ShibaStation - Added Research to Paramedic access
   special:
   - !type:AddComponentSpecial
     components:

@@ -13,6 +13,9 @@
   access:
   - Research
   - Maintenance
+  extendedAccess:
+  - Medical # ShibaStation - Added Medical to Scientist access
+  - Chemistry # ShibaStation - Added Chemistry to Scientist access
 
 - type: startingGear
   id: ScientistGear
