@@ -2,6 +2,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Shared.Player;
 using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server.Antag;
 
@@ -29,6 +30,8 @@ public sealed class AntagSelectionPlayerPool (List<List<ICommonSession>> ordered
                             int count,
                             bool allowDuplicates = true)
     {
+        DebugTools.Assert(count > 0, $"The count {nameof(count)} of requested sessions must be greater than zero!");
+
         sessions = null;
         List<ICommonSession> session_list = [];
 
