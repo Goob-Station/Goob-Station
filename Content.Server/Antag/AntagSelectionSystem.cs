@@ -259,11 +259,13 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var retry = 0;
             List<ICommonSession> failed = [];
 
-            while (count != 0 && retry < maxRetries)
+            while (ent.Comp.SelectedSessions.Count < count && retry < maxRetries)
             {
-                var countFailed = 0; // Not at the same scope as `failed`
                 var sessions = (ICommonSession[]?) null;
-                if (!playerPool.TryGetItems(RobustRandom, out sessions, count, false))
+                if (!playerPool.TryGetItems(RobustRandom,
+                                            out sessions,
+                                            count - ent.Comp.SelectedSessions.Count,
+                                            false))
                     break; // Ends early if there are no eligible sessions
 
                 foreach (var session in sessions)
@@ -272,15 +274,17 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
                     if (!ent.Comp.SelectedSessions.Contains(session))
                     {
                         failed.Add(session);
-                        countFailed++;
                     }
                 }
+                // In case we're done
+                if (ent.Comp.SelectedSessions.Count >= count)
+                    break;
+
                 playerPool = playerPool.Where((session_) =>
                 {
                     return !ent.Comp.SelectedSessions.Contains(session_) &&
                         !failed.Contains(session_);
                 });
-                count = countFailed;
                 retry++;
             }
         }
