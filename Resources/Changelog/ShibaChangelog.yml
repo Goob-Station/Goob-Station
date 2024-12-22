@@ -1,6 +1,46 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Hostile mob spawns from vents have been tweaked again to stagger depending
+      on player count, with the least to most robust mobs spawning as player count
+      increases.
+    type: Tweak
+  id: 61
+  time: '2024-12-22T16:36:42.153573'
+- author: AstroDogeDX
+  changes:
+  - message: Security now gets access to Medical under the Extended Access protocol.
+    type: Add
+  id: 60
+  time: '2024-12-22T16:35:47.448547'
+- author: AstroDogeDX
+  changes:
+  - message: Medical now gets access to Science under the Extended Access protocol.
+    type: Add
+  id: 59
+  time: '2024-12-22T16:35:18.161421'
+- author: AstroDogeDX
+  changes:
+  - message: Science now gets access to Medical under the Extended Access protocol.
+    type: Add
+  id: 58
+  time: '2024-12-22T16:33:27.988153'
+- author: AstroDogeDX
+  changes:
+  - message: Dwarves can now also fit in duffels, but they're wider than felinids
+      and rodentians.
+    type: Add
+  id: 57
+  time: '2024-12-22T16:32:53.725550'
+- author: AstroDogeDX
+  changes:
+  - message: (Admin) aghosts now have an intrinsic HUD that shows all the stats at
+      a glance of an entity. This'll help us find you when you die on the VGroid.
+    type: Add
+  id: 56
+  time: '2024-12-22T16:39:31.993896'
+- author: AstroDogeDX
+  changes:
   - message: Events now have various cooldowns to be less chaotic.
     type: Tweak
   id: 55
