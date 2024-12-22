@@ -53,6 +53,10 @@ public abstract class SharedMechSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!; // Goobstation Change
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = default!; // Goobstation Change
     [Dependency] private readonly IConfigurationManager _config = default!; // Goobstation Change
+
+    // Goobstation: Local variable for checking if mech guns can be used out of them.
+    private bool _canUseMechGunOutside;
+    
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -71,6 +75,7 @@ public abstract class SharedMechSystem : EntitySystem
         SubscribeLocalEvent<MechPilotComponent, AttackAttemptEvent>(OnAttackAttempt);
         SubscribeLocalEvent<MechPilotComponent, EntGotRemovedFromContainerMessage>(OnEntGotRemovedFromContainer);
         SubscribeLocalEvent<MechEquipmentComponent, ShotAttemptedEvent>(OnShotAttempted); // Goobstation
+        Subs.CVar(_config, GoobCVars.MechGunOutsideMech, value => _canUseMechGunOutside = value, true); // Goobstation
     }
 
     // GoobStation: Fixes scram implants or teleports locking the pilot out of being able to move.
@@ -493,9 +498,9 @@ public abstract class SharedMechSystem : EntitySystem
     private void OnShotAttempted(EntityUid uid, MechEquipmentComponent component, ref ShotAttemptedEvent args)
     {
         if (!component.EquipmentOwner.HasValue
-            || !TryComp<MechComponent>(component.EquipmentOwner.Value, out var mech))
+            || !HasComp<MechComponent>(component.EquipmentOwner.Value))
         {
-            if (!_config.GetCVar(GoobCVars.MechGunOutsideMech))
+            if (!_canUseMechGunOutside)
                 args.Cancel();
             return;
         }

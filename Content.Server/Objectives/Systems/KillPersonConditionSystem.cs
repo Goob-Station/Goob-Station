@@ -3,7 +3,6 @@ using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.CCVar;
 using Content.Shared.Roles.Jobs;
 using Content.Shared.Mind;
@@ -56,19 +55,12 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
         }
 
-        // Goobstation: Only pick non-silicon players.
-        if (comp.NeedsOrganic && HasComp<SiliconComponent>(uid))
-        {
-            args.Cancelled = true;
-            return;
-        }
-
         // target already assigned
         if (target.Target != null)
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumans(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId, comp.NeedsOrganic);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;

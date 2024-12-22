@@ -74,6 +74,7 @@
         types:
           Heat: 3 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.05
+    - type: KillOnOverheat # GoobStation
     - type: Deathgasp
       prototype: SiliconDeathgasp
       needsCritical: false
