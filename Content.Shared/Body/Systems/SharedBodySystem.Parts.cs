@@ -371,6 +371,10 @@ public partial class SharedBodySystem
 
     private void RemoveLeg(Entity<BodyPartComponent> legEnt, Entity<BodyComponent?> bodyEnt)
     {
+        // If evasion procs on server side, the entity will still fall down on client
+        if (_net.IsClient)
+            return;
+
         if (!Resolve(bodyEnt, ref bodyEnt.Comp, logMissing: false))
             return;
 
