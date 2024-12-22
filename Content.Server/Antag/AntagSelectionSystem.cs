@@ -295,7 +295,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // It may otherwise process leftover slots if maxRetries have
         // been reached.
 
-        for (var i = 0; i < count; i++)
+        for (var i = ent.Comp.SelectedSessions.Count; i < count; i++)
         {
             MakeAntag(ent, null, def);
         }
