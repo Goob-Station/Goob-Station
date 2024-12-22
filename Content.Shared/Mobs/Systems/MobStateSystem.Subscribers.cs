@@ -104,15 +104,11 @@ public partial class MobStateSystem
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Alive);
                 break;
             case MobState.Critical:
-                if (_net.IsClient) // Shitmed - Evasion breaks stuff
-                    break;
                 _standing.Down(target);
                 RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation
                 _appearance.SetData(target, MobStateVisuals.State, MobState.Critical);
                 break;
             case MobState.Dead:
-                if (_net.IsClient) // Shitmed - Evasion breaks stuff
-                    break;
                 EnsureComp<CollisionWakeComponent>(target);
                 _standing.Down(target);
                 RaiseLocalEvent(target, new DropHandItemsEvent()); // Goobstation

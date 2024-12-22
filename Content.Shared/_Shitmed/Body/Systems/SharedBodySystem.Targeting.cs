@@ -194,6 +194,10 @@ public partial class SharedBodySystem
         out bool evaded)
     {
         evaded = false;
+
+        if (damage.GetTotal() == 0)
+            return false;
+
         var landed = false;
         var targets = SharedTargetingSystem.GetValidParts();
         foreach (var target in targets)
@@ -253,13 +257,11 @@ public partial class SharedBodySystem
     /// </summary>
     private TargetBodyPart GetRandomPartSpread(ushort torsoWeight = 9)
     {
-        // Random isn't predicted
-        if (_net.IsClient)
-            return TargetBodyPart.Torso;
+        var rand = new System.Random((int) _timing.CurTick.Value);
 
         const int targetPartsAmount = 9;
         // 5 = amount of target parts except Torso
-        return _random.Next(1, targetPartsAmount + torsoWeight) switch
+        return rand.Next(1, targetPartsAmount + torsoWeight) switch
         {
             1 => TargetBodyPart.Head,
             2 => TargetBodyPart.RightArm,
@@ -279,12 +281,10 @@ public partial class SharedBodySystem
         if (!Resolve(uid, ref target))
             return null;
 
-        // Random isn't predicted
-        if (_net.IsClient)
-            return TargetBodyPart.Torso;
+        var rand = new System.Random((int) _timing.CurTick.Value);
 
         var totalWeight = target.TargetOdds.Values.Sum();
-        var randomValue = _random.NextFloat() * totalWeight;
+        var randomValue = rand.NextFloat() * totalWeight;
 
         foreach (var (part, weight) in target.TargetOdds)
         {
@@ -510,11 +510,9 @@ public partial class SharedBodySystem
         if (evadeChance == 0f)
             return false;
 
-        // Random isn't predicted
-        if (_net.IsClient)
-            return false;
+        var rand = new System.Random((int) _timing.CurTick.Value);
 
-        return _random.NextFloat() < evadeChance;
+        return rand.Prob(evadeChance);
     }
 
 }
