@@ -196,6 +196,14 @@
   - TowelColorSilver
   - TowelColorWhite
   - TowelColorYellow
+  # Begin DeltaV Additions
+  - GoldRing
+  - SilverRing
+  - Cane
+  - WhiteCane
+  - CDDogtags # taken from Cosmatic Drift
+  - TapeRecorder
+  # End DeltaV Additions
 
 - type: loadoutGroup
   id: Glasses
