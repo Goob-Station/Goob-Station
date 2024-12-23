@@ -28,6 +28,29 @@
 		{
 			"name": "mod-core-standard",
 			"delays": [[0.1, 0.1, 0.1, 0.1]]
+		},
+		{
+			"name": "shell-core",
+			"delays": [[0.1, 0.1, 0.1, 0.1]]
+		},
+		{
+			"name": "shell-core-secured",
+			"delays": [[0.1, 0.1, 0.1, 0.1]]
+		},
+		{
+			"name": "shell-helmet"
+		},
+		{
+			"name": "shell-chestplate"
+		},
+		{
+			"name": "shell-gauntlets"
+		},
+		{
+			"name": "shell-boots"
+		},
+		{
+			"name": "shell-secured"
 		}
   ]
 }

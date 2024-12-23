@@ -133,9 +133,14 @@
         Heat: 0.90
         Radiation: 0.25
   - type: ToggleableClothing
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge 
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:Container {}
+      storagebase: !type:Container 
   - type: UserInterface
     interfaces:
       enum.ToggleClothingUiKey.Key:

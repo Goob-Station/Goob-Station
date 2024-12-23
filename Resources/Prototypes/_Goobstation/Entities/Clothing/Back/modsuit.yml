@@ -1,5 +1,5 @@
 - type: entity
-  parent: Clothing
+  parent: [Clothing, ContentsExplosionResistanceBase]
   id: ClothingModsuitStandard
   name: standard modsuit control
   description: A special modular suit contol containing all modular suit parts.
@@ -19,25 +19,26 @@
     quickEquip: false
     slots:
     - back
-  - type: SealableClothingControl
-  - type: WiresPanel
-  - type: PowerCellDraw
-    drawRate: 1 # Sealed draw rate
-    useRate: 5 # Draw rate for sealing
-  - type: PowerCellSlot
-    cellSlotId: cell_slot
-    fitsInCharger: false
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        whitelist:
-          components:
-            - PowerCell
-  - type: SealableClothingRequiresPower
-  - type: ItemSlotsRequirePanel
-    slots:
-      cell_slot: true
+  - type: Storage
+    grid:
+    - 0,0,6,3
+    maxItemSize: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+      toggleable-clothing: !type:Container
+      cell_slot: !type:ContainerSlot
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+      enum.ToggleClothingUiKey.Key:
+        type: ToggleableClothingBoundUserInterface
+  - type: UseDelay
+    delay: 0.5
+  - type: ExplosionResistance
+    damageCoefficient: 0.9
   - type: ToggleableClothing
     requiredSlot: back
     blockUnequipWhenAttached: true
@@ -47,19 +48,34 @@
       gloves: ClothingModsuitGauntletsStandard
       outerClothing: ClothingModsuitChestplateStandard
       shoes: ClothingModsuitBootsStandard
-  - type: UserInterface
-    interfaces:
-      enum.ToggleClothingUiKey.Key:
-        type: ToggleableClothingBoundUserInterface
+  - type: WiresPanel
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default
+        whitelist:
+          components:
+            - PowerCell
+  - type: ItemSlotsRequirePanel
+    slots:
+      cell_slot: true
+  - type: PowerCellDraw
+    drawRate: 1 # Sealed draw rate
+    useRate: 5 # Draw rate for sealing
+  - type: PowerCellSlot
+    cellSlotId: cell_slot
+    fitsInCharger: false
   - type: DoAfter
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:Container {}
+  - type: SealableClothingControl
+  - type: SealableClothingRequiresPower
   - type: SealableClothingVisuals
     visualLayers:
       back:
       - state: equipped-BACKPACK-sealed
         shader: unshaded
+  - type: Construction
+    graph: Modsuit
+    node: standard
 
 - type: entity
   parent: ClothingModsuitStandard

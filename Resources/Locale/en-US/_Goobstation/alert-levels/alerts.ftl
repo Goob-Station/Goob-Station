@@ -3,3 +3,6 @@ alerts-stasis-desc = You are placed in temporary stasis. You cannot interact wit
 
 alerts-knocked-down-name = [color=yellow]Knocked down[/color]
 alerts-knocked-down-desc = [color=yellow]Knocked down[/color]! You can't get up.
+
+alerts-modsuit-power-name = Modsuit power
+alerts-modsuit-power-desc = Current modsuit charge

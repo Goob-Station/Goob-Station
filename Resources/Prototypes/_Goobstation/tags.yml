@@ -144,3 +144,9 @@
 
 - type: Tag
   id: ModsuitChestplate
+
+- type: Tag
+  id: ModsuitCore
+
+- type: Tag
+  id: ModsuitPlatingExternal

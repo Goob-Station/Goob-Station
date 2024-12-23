@@ -90,6 +90,7 @@
   parent: PartModsuit
   name: MOD shell
   components:
+  - type: Appearance
   - type: Sprite
     state: shell
   - type: Icon
@@ -98,10 +99,28 @@
     materialComposition:
       Steel: 125
       Plasma: 62
-  - type: Tag
-    tags:
-    - ModsuitPart
-    - ModsuitShell
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:Container
+      core-container: !type:Container
+  - type: Construction
+    graph: Modsuit
+    node: start
+    defaultTarget: standard
+    containers:
+    - cell_slot
+    - core-container
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          shell-core: { state: shell-core }
+          shell-core-secured: { state: shell-core-secured }
+          shell-helmet: { state: shell-helmet }
+          shell-chestplate: { state: shell-chestplate }
+          shell-gauntlets: { state: shell-gauntlets }
+          shell-boots: { state: shell-boots }
+          shell-secured: { state: shell-secured }
 
 - type: entity
   id: ModsuitPlatingExternal
@@ -121,6 +140,7 @@
   - type: Tag
     tags:
     - ModsuitPart
+    - ModsuitPlatingExternal
 
 - type: entity
   id: ModsuitCoreStandard
@@ -135,3 +155,4 @@
   - type: Tag
     tags:
     - ModsuitPart
+    - ModsuitCore

@@ -30,5 +30,5 @@ public sealed partial class SealableClothingRequiresPowerComponent : Component
     /// Alert to show for suit power.
     /// </summary>
     [DataField]
-    public ProtoId<AlertPrototype> SuitPowerAlert = "SuitPower";
+    public ProtoId<AlertPrototype> SuitPowerAlert = "ModsuitPower";
 }
