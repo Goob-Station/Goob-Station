@@ -33,7 +33,6 @@ guide-entry-brute = Advanced Brute Medication
 guide-entry-botanicals = Botanicals
 guide-entry-cloning = Cloning
 guide-entry-cryogenics = Cryogenics
-guide-entry-medpatches = Medical Patches
 guide-entry-science = Science
 guide-entry-technologies = Technologies
 guide-entry-anomalous-research = Anomalous Research
