@@ -1,0 +1,85 @@
+- type: entity
+  id: portableChemicalMixer
+  parent: BaseItem
+  name: portable chemical mixer
+  description: A "Tider" grade chemical manipulator
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+    layers:
+      - state: chemical_mixer
+  - type: Item
+    size: Huge
+  - type: ChemMaster
+    pillDosageLimit: 20
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ActivatableUI
+    key: enum.ChemMasterUiKey.Key
+  - type: UserInterface
+    interfaces:
+      enum.ChemMasterUiKey.Key:
+        type: ChemMasterBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+      outputSlot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+      outputSlot:
+        whitelistFailPopup: chem-master-component-cannot-put-entity-message
+        whitelist:
+          tags:
+          - Bottle
+          - PillCanister
+  - type: SolutionContainerManager
+    solutions:
+      buffer:
+        maxVol: 400
+        canReact: false     # added becuse there where instances that the chemicals can mix on transfer
+  - type: DumpableSolution
+    solution: buffer
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: StaticPrice
+    price: 20
+  - type: SolutionItemStatus  # lets you see how full it is when holding it
+    solution: buffer
+  - type: Clothing  # Goes in the belt slot
+    slots: [belt]
+  - type: Construction
+    graph: portableChemicalMixerGraph
+    node: end
+
+- type: entity
+  id: portableChemicalMixerIncomplete
+  parent: BaseItem
+  name: Incomplete portable chemical mixer
+  description: A incompleted "Tider" grade chemical manipulator
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Tools/chemical_mixer.rsi
+    layers:
+      - state: incomplete
+  - type: Item
+    size: Huge

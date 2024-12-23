@@ -2920,3 +2920,563 @@ Entries:
       message: Felinids renamed to their true name, Gremlins.
   id: 330
   time: '2024-12-05T18:03:21.0000000+00:00'
+- author: ray-boop and Tonk
+  changes:
+    - type: Add
+      message: >-
+        Added a set of new drinks for bartenders to mix: Gin and Sonic, Golden
+        Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
+  id: 331
+  time: '2024-12-06T15:34:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix weird wheelchair bound behavior on cryo spawn.
+  id: 332
+  time: '2024-12-06T15:39:52.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Desoxyephedrine, aka METH, now explodes at 420K, 50K above the
+        temperature it is made at.
+  id: 333
+  time: '2024-12-09T14:13:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: The ore bag magnetism is now toggleable.
+  id: 334
+  time: '2024-12-09T14:15:50.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        The SecDrobe now has 5 bodycams, so you can film your clown abuse in
+        crystal clear 360p!
+  id: 335
+  time: '2024-12-09T14:17:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix dual wielded gun projectiles not hitting laying targets.
+    - type: Fix
+      message: Fix borgs being able to lie down in some conditions.
+    - type: Fix
+      message: Fix auto get up setting not working properly.
+    - type: Add
+      message: >-
+        Cluster grenade projectiles, reflected projectiles and heretic volcano
+        fireballs will always hit laying targets.
+    - type: Fix
+      message: >-
+        Heretic volcano projectiles won't hit ignored targets, it can now be
+        used safely.
+    - type: Add
+      message: >-
+        It is now possible to crawl while weightless, but not while flying on
+        jetpack.
+    - type: Add
+      message: Bullets will hit laying targets if they are moving fast enough.
+    - type: Fix
+      message: People will now always drop items when paralyzed or critted.
+  id: 336
+  time: '2024-12-09T14:30:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Added a medical cartridge autoinjector.
+    - type: Tweak
+      message: Cartridge autoinjectors now have a 30 second cooldown.
+    - type: Tweak
+      message: EMT belts now contain a tourniquet and medical cartridge autoinjector.
+    - type: Tweak
+      message: >-
+        Medical vendors now contain six tourniquets and two medical cartridge
+        autoinjectors.
+    - type: Tweak
+      message: >-
+        Ichor is no longer printable at an emagged autolathe, in its place is
+        puncturase cartridges.
+    - type: Fix
+      message: Tourniquets can now go inside medical belts.
+  id: 337
+  time: '2024-12-09T14:33:17.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Changeling headslugs can now crawl under tables and doors
+  id: 338
+  time: '2024-12-09T14:36:57.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Tweak
+      message: You can now get the Gentle and Jensen coats from your local Winterdrobe.
+    - type: Tweak
+      message: >-
+        Winterdrobes can now dispense the ultimate Space Asshole coat whenever
+        it's emagged.
+  id: 339
+  time: '2024-12-09T14:40:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: Removed bluespace crystal craft from protolathe.
+  id: 340
+  time: '2024-12-09T16:45:46.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+    - type: Fix
+      message: >-
+        Not a bugfix, but a warning, Surgery hasn't had anything coded in for
+        silicons, so you'll still have to "clamp bleeders" and use normal
+        surgical tools on them, will fix in around 2 weeks, have fun :trollface:
+  id: 341
+  time: '2024-12-09T19:10:32.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: Unfucked ALL IPC and some Harpy/Moth emotes
+  id: 342
+  time: '2024-12-10T17:57:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: IPCs can no longer be changelings and initial infected.
+    - type: Add
+      message: IPCs can be flashed now.
+    - type: Fix
+      message: IPCs can now enter cryostorage.
+    - type: Fix
+      message: IPCs can now heal ion damage using cables.
+    - type: Fix
+      message: You can now see IPC status icons.
+  id: 343
+  time: '2024-12-10T23:30:01.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cave expeditions having no ore or enemies.
+  id: 344
+  time: '2024-12-11T02:25:04.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: >-
+        Pacifists can now throw things with liquids in them, shoot syringe guns
+        and disablers
+  id: 345
+  time: '2024-12-11T22:04:11.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: Chemvend now contains two bottles of lead when emagged.
+    - type: Tweak
+      message: Steel now gives "7u Iron, 2u carbon, 1u Lead" when grinded.
+  id: 346
+  time: '2024-12-11T22:12:20.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Add BZ
+    - type: Add
+      message: Add Healium
+    - type: Add
+      message: Add Nitrium
+  id: 347
+  time: '2024-12-11T22:41:29.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a few more features to organs from Goliaths, Space Cobras, Laser
+        Raptors and Space Dragons.
+    - type: Add
+      message: Nukie doctors now start with an EVIL medical omnitool.
+    - type: Add
+      message: >-
+        The lobotomy procedure makes the target clumsy like the clown. This
+        makes them bonk when climbing tables and makes guns they're shooting
+        blow up on their face.
+    - type: Fix
+      message: >-
+        Enabled the "Mend brain tissue" surgical procedure on a lobotomized
+        target.
+    - type: Fix
+      message: >-
+        The lobotomized effect is now stored in the brain instead of the body.
+        The same brain stays lobotomized throughout brain transplants, and
+        transferring a normal brain to a body where a lobotomy occurred no
+        longer applies the lobotomized effect.
+    - type: Fix
+      message: >-
+        The lobotomy procedure now shows the proper popup during the
+        lobotomization step.
+    - type: Fix
+      message: Removed the ability to perform lobotomies on bodies without a brain.
+    - type: Fix
+      message: >-
+        The "Remove organ" surgery step on the UI now properly shows the
+        retractor sprite instead of the hemostat.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds now have full body parts and can take damage from
+        them. Naturally they are also valid for surgery.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds can now wear backpacks, glasses, gloves, and have
+        pockets! (if someone fixes their displacement maps/sprites im happy to
+        make em a playable species)
+  id: 348
+  time: '2024-12-11T22:46:28.0000000+00:00'
+- author: TheNeonViking
+  changes:
+    - type: Add
+      message: >-
+        Added Max Sentencing time column to the Crime list in guidebook. Added
+        preface sections about Accessory, Attempting, and Intention as well as
+        Stackable Crimes to Crime list page.
+  id: 349
+  time: '2024-12-11T22:47:01.0000000+00:00'
+- author: Tonk-GCR
+  changes:
+    - type: Add
+      message: >-
+        Added the Maxim Hardsuit, Mining Hardsuit, Clarke Mech, Retro Laser,
+        Medtek Cartridges, drills, plasteel and plasma glass to the vgroid.
+    - type: Tweak
+      message: >-
+        Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
+        increased piercing resistance to 70%, and added a 25% movement debuff. 
+  id: 350
+  time: '2024-12-11T22:48:03.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Phlogiston now has a priority of 20, which makes it's reaction take
+        place before foams and smokes :feelsgood:
+  id: 351
+  time: '2024-12-11T22:51:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: The Burner assault rifle now has 45 damage as god intended.
+    - type: Tweak
+      message: >-
+        The Burner assualt rifle now has 15 round mags and you can buy more in
+        the uplink.
+  id: 352
+  time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'
+- author: Yakub
+  changes:
+    - type: Tweak
+      message: Engineering goggles are renamed to meson goggles.
+    - type: Tweak
+      message: >-
+        Combat gloves, combat boots, jackboots, and mesons are no longer
+        contraband.
+    - type: Tweak
+      message: Spears fit in backpacks now.
+    - type: Tweak
+      message: Mini jetpacks are actually smaller than jetpacks in inventory now.
+  id: 355
+  time: '2024-12-13T19:59:33.0000000+00:00'
+- author: President
+  changes:
+    - type: Add
+      message: >-
+        Felinids Being Jolly and Eating a Nice Christmas Dinner with the
+        Gingerbread People
+  id: 356
+  time: '2024-12-13T20:11:07.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Tiders now have a intrinsic hivemind radio channel. Access it with ":i"
+  id: 357
+  time: '2024-12-13T21:51:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Eshield now doesn't break. Instead, it discharges. Hp reduced: 100 ->
+        20. Recharges 2 hp per second. When it is fully discharged, it is
+        unusable until it recharges. It takes 15 seconds to recharge after it is
+        fully discharged. Shield gets damaged when it reflects lasers though,
+        but has 50% heat resistance. Can be EMPd now. Can now be purchased from
+        traitor uplink, cost reduced: 40 -> 15.
+    - type: Fix
+      message: Toggleable shields can't block damage while toggled off.
+  id: 358
+  time: '2024-12-13T21:53:49.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: BS crystals are now way easier to obtain.
+  id: 359
+  time: '2024-12-13T21:57:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: You can no longer unanchor flaps.
+  id: 360
+  time: '2024-12-13T22:44:00.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Ipcs heal faster now.
+  id: 361
+  time: '2024-12-14T18:42:35.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Tweak
+      message: IPC no longer sounds like a empty c20
+  id: 362
+  time: '2024-12-14T18:46:16.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Tiders are now clumsy.
+    - type: Add
+      message: Tiders now randomly gib during the round.
+    - type: Remove
+      message: Remove maints access from tiders.
+  id: 363
+  time: '2024-12-14T18:50:11.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed fun.
+  id: 364
+  time: '2024-12-14T20:29:49.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        NEW NUKIE SHUTTLE!!! NEW NUKIE SHUTTLE!!!! ITS OVER FOR YOU SALVBROS!!!
+        NO LONGER WILL YOU STEAL THE SHUTTLE WITH A SINGLE SEISMIC CHARGE!!
+  id: 365
+  time: '2024-12-16T18:20:34.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed rules.
+  id: 366
+  time: '2024-12-17T15:39:20.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: >-
+        Fentanyl, a new drug for chemists to create! If you do drugs, you go to
+        hell before you die!
+  id: 367
+  time: '2024-12-17T22:01:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You may now choose how many items to split from a stack.
+  id: 368
+  time: '2024-12-17T22:07:29.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Added evasion to part targeting
+    - type: Add
+      message: New fleshmend and panacea chems for lings
+    - type: Add
+      message: BSC can be made again
+    - type: Fix
+      message: fix implant misinformation
+    - type: Fix
+      message: >-
+        Fixed mech battery drain from being EMP'd not being visible in the
+        status menu
+    - type: Tweak
+      message: Adjusted most mech weapons' fire rates and energy consumption.
+    - type: Tweak
+      message: Infused blades hardstun on grab
+    - type: Tweak
+      message: Goliaths stun for 3 seconds less
+    - type: Tweak
+      message: Removed most bundles from uplink and replaced them with individual guns
+    - type: Tweak
+      message: Energy swords now easily delimb
+    - type: Tweak
+      message: change a few minor uplink prices
+    - type: Tweak
+      message: reduce northstar stam cost
+    - type: Tweak
+      message: funny toy sword sprite
+    - type: Tweak
+      message: edagger more quiet
+    - type: Tweak
+      message: Fireaxe hits harder, slower, costs more stam, and does more firestacks.
+    - type: Tweak
+      message: disposable turret fires faster, has less ammo, and more HP
+    - type: Tweak
+      message: Many heretic and ling abilities can be done while cuffed
+    - type: Tweak
+      message: less ling armor slowdown
+    - type: Tweak
+      message: armblade does VERY little damage and is now a delimbing based weapon
+    - type: Tweak
+      message: plasma rifle blows up less
+    - type: Tweak
+      message: plasma cutter deals stam damage
+    - type: Tweak
+      message: buff priest ritual
+  id: 369
+  time: '2024-12-17T22:09:24.0000000+00:00'
+- author: BIGZi0348
+  changes:
+    - type: Tweak
+      message: Reflective vest now reflects lasers only while equipped.
+    - type: Tweak
+      message: Energy katana now reflects lasers and projectiles only while in hands.
+  id: 370
+  time: '2024-12-17T22:14:24.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Steathsuit stops working when in crit
+    - type: Tweak
+      message: Nuclear Oprative icon is visable when in stealth
+  id: 371
+  time: '2024-12-17T22:41:17.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed IPC glasses slot being in the wrong place. Glasses go on your
+        face, silly.
+  id: 372
+  time: '2024-12-17T22:42:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now tiles, firelocks and unpowered doors are pried instantly using a
+        tool.
+  id: 373
+  time: '2024-12-17T22:46:12.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Nitrosyl Plasmide
+    - type: Tweak
+      message: Modified Nitrium, Healium, N2O and BZ effects
+  id: 374
+  time: '2024-12-17T22:49:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Rapid Piping Device
+  id: 375
+  time: '2024-12-17T22:56:29.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: fixed some stuff i forgor on new nukeops shuttle
+  id: 376
+  time: '2024-12-18T01:48:56.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Hacked youtool now contains toolbelts.
+  id: 377
+  time: '2024-12-18T01:54:11.0000000+00:00'
+- author: VigersRay Roudenn Rxup
+  changes:
+    - type: Add
+      message: Blob added
+  id: 378
+  time: '2024-12-18T02:00:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Telebaton for command.
+    - type: Add
+      message: Contractor baton for traitors.
+    - type: Add
+      message: Captain now has n1984 pistol.
+    - type: Tweak
+      message: N1984 accuracy buffed.
+    - type: Add
+      message: Bso now has atreides.
+    - type: Tweak
+      message: Atreides accuracy nerfed.
+    - type: Tweak
+      message: 'Mateba firerate increased: 3 -> 5.'
+  id: 379
+  time: '2024-12-18T02:01:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed blob never spawning.
+  id: 380
+  time: '2024-12-19T15:27:44.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: All playable species can now wriggle free from being carried.
+  id: 381
+  time: '2024-12-19T15:29:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed ERP, once and for all.
+  id: 382
+  time: '2024-12-20T01:15:21.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: Enabled blob gamemode.
+  id: 383
+  time: '2024-12-20T01:49:31.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Fix
+      message: Yowies can now breathe easy. Literally.
+  id: 384
+  time: '2024-12-20T14:38:03.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: IPC thiefs have a new objective to collect power cells
+  id: 385
+  time: '2024-12-20T14:42:44.0000000+00:00'
+- author: Gubu zhan quwei yufang xiaozu
+  changes:
+    - type: Remove
+      message: Lequ, 1984 weiquan zhuyi hao wu quwei Admin is Pig taoyan lequ
+  id: 386
+  time: '2024-12-21T21:01:42.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+    - type: Add
+      message: Added borders to changeling's abilities.
+  id: 387
+  time: '2024-12-21T22:14:18.0000000+00:00'

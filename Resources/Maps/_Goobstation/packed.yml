@@ -66876,6 +66876,23 @@ entities:
     - type: Transform
       pos: 45.548477,23.915247
       parent: 2
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 15093
+    components:
+    - type: Transform
+      pos: 20.803614,24.495613
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
+- proto: MailTeleporter
+  entities:
+  - uid: 15092
+    components:
+    - type: Transform
+      pos: 17.5,23.5
+      parent: 2
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 12286
@@ -82441,6 +82458,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-7.5
+      parent: 2
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 15091
+    components:
+    - type: Transform
+      pos: 17.5,22.5
       parent: 2
 - proto: VendingMachineMedical
   entities:

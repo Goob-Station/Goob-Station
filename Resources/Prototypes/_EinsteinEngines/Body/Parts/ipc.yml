@@ -1,0 +1,263 @@
+- type: entity
+  id: PartIPC
+  parent: BaseItem
+  name: "ipc body part"
+  abstract: true
+  components:
+  - type: Damageable
+    damageContainer: Inorganic # Shitmed Change
+  - type: BodyPart
+  - type: Gibbable
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ1.ogg
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/organ2.ogg
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 110
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 150
+      behaviors:
+      - !type:GibPartBehavior { }
+  - type: StaticPrice
+    price: 100
+
+- type: entity
+  id: TorsoIPC
+  name: "ipc torso"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "torso_m"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "torso_m"
+  - type: BodyPart
+    partType: Torso
+    children: # I hate this so much I want to kill it AAAAAAAAAAAAAAAAAAAAAAAA
+      head:
+        id: "head"
+        type: Head
+      left arm:
+        id: "left arm"
+        type: Arm
+      right arm:
+        id: "right arm"
+        type: Arm
+      left leg:
+        id: "left leg"
+        type: Leg
+      right leg:
+        id: "right leg"
+        type: Leg
+    organs:
+      posbrain:
+        id: "posbrain"
+      pump:
+        id: "pump"
+  - type: ContainerContainer
+    containers:
+      torso_slot: !type:ContainerSlot {}
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Blunt
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+    - trigger:
+        !type:DamageTypeTrigger
+        damageType: Slash
+        damage: 400
+      behaviors:
+      - !type:GibPartBehavior { }
+
+- type: entity
+  id: HeadIPC
+  name: "ipc head"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "head_m"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "head_m"
+  - type: BodyPart
+    partType: Head
+    organs:
+      eyes:
+        id: "eyes"   
+    vital: true
+  - type: Input
+    context: "ghost"
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 0
+    baseSprintSpeed: 0
+  - type: InputMover
+  - type: GhostOnMove
+  - type: Tag
+    tags:
+      - Head
+
+- type: entity
+  id: LeftArmIPC
+  name: "left ipc arm"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_arm"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Left
+    children:
+      left hand:
+        id: "left hand"
+        type: Hand
+
+- type: entity
+  id: RightArmIPC
+  name: "right ipc arm"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_arm"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_arm"
+  - type: BodyPart
+    partType: Arm
+    symmetry: Right
+    children:
+      right hand:
+        id: "right hand"
+        type: Hand
+
+- type: entity
+  id: LeftHandIPC
+  name: "left ipc hand"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_hand"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Left
+
+- type: entity
+  id: RightHandIPC
+  name: "right ipc hand"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_hand"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_hand"
+  - type: BodyPart
+    partType: Hand
+    symmetry: Right
+
+- type: entity
+  id: LeftLegIPC
+  name: "left ipc leg"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_leg"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Left
+    children:
+      left foot:
+        id: "left foot"
+        type: Foot
+  - type: MovementBodyPart
+
+- type: entity
+  id: RightLegIPC
+  name: "right ipc leg"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_leg"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_leg"
+  - type: BodyPart
+    partType: Leg
+    symmetry: Right
+    children:
+      right foot:
+        id: "right foot"
+        type: Foot
+  - type: MovementBodyPart
+
+- type: entity
+  id: LeftFootIPC
+  name: "left ipc foot"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_foot"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "l_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Left
+
+- type: entity
+  id: RightFootIPC
+  name: "right ipc foot"
+  parent: PartIPC
+  components:
+  - type: Sprite
+    netsync: false
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_foot"
+  - type: Icon
+    sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
+    state: "r_foot"
+  - type: BodyPart
+    partType: Foot
+    symmetry: Right

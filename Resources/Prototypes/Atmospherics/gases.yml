@@ -86,7 +86,7 @@
   molarMass: 44
   color: 8F00FF
   reagent: NitrousOxide
-  pricePerMole: 0.5 # Goobstation - Gas Prices
+  pricePerMole: 0.1 # Goobstation - Gas Prices
 
 - type: gas
   id: 8
@@ -99,4 +99,41 @@
   gasMolesVisible: 0.6
   color: 3a758c
   reagent: Frezon
-  pricePerMole: 1.5 # Goobstation - Gas Prices
+  pricePerMole: 0.3 # Goobstation - Gas Prices
+
+#/tg/ gases
+- type: gas
+  id: 9
+  name: gases-bz
+  specificHeat: 20
+  heatCapacityRatio: 1.4
+  molarMass: 12
+  color: 9370db
+  reagent: BZ
+  pricePerMole: 2
+
+- type: gas
+  id: 10
+  name: gases-healium
+  specificHeat: 20
+  heatCapacityRatio: 1.4
+  molarMass: 15
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: healium
+  gasMolesVisible: 2
+  color: 8b0000
+  reagent: Healium
+  pricePerMole: 3
+
+- type: gas
+  id: 11
+  name: gases-nitrium
+  specificHeat: 10
+  heatCapacityRatio: 1.4
+  gasOverlaySprite: /Textures/Effects/atmospherics.rsi
+  gasOverlayState: nitrium
+  gasMolesVisible: 0.6
+  molarMass: 8
+  color: b76f0e
+  reagent: Nitrium
+  pricePerMole: 3

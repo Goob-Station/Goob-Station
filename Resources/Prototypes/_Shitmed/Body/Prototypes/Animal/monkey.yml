@@ -1,0 +1,51 @@
+# Shitmed - this is just a copy of human body but with animal organs.
+- type: body
+  id: Monkey
+  name: "Monkey"
+  root: torso
+  slots:
+    head:
+      part: HeadMonkey
+      connections:
+      - torso
+      organs:
+        brain: OrganAnimalBrain
+        eyes: OrganAnimalEyes
+    torso:
+      part: TorsoMonkey
+      connections:
+      - right arm
+      - left arm
+      - right leg
+      - left leg
+      - head
+      organs:
+        heart: OrganAnimalHeart
+        lungs: OrganAnimalLungs
+        stomach: OrganAnimalStomach
+        liver: OrganAnimalLiver
+        kidneys: OrganAnimalKidneys
+    right arm:
+      part: RightArmMonkey
+      connections:
+      - right hand
+    left arm:
+      part: LeftArmMonkey
+      connections:
+      - left hand
+    right hand:
+      part: RightHandMonkey
+    left hand:
+      part: LeftHandMonkey
+    right leg:
+      part: RightLegMonkey
+      connections:
+      - right foot
+    left leg:
+      part: LeftLegMonkey
+      connections:
+      - left foot
+    right foot:
+      part: RightFootMonkey
+    left foot:
+      part: LeftFootMonkey

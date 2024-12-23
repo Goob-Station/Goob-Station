@@ -232,9 +232,9 @@ public sealed partial class PowerCellSystem : SharedPowerCellSystem
         OnBatteryExamined(uid, battery, args);
     }
 
-    private void OnBatteryExamined(EntityUid uid, BatteryComponent? component, ExaminedEvent args)
+    public void OnBatteryExamined(EntityUid uid, BatteryComponent? component, ExaminedEvent args) // WD EDIT
     {
-        if (component != null)
+        if (Resolve(uid, ref component, false)) // WD EDIT
         {
             var charge = component.CurrentCharge / component.MaxCharge * 100;
             args.PushMarkup(Loc.GetString("power-cell-component-examine-details", ("currentCharge", $"{charge:F0}")));
