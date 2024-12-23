@@ -21,3 +21,11 @@
   components:
   - type: AccessReader
     access: [["BlueshieldOfficer"]]
+
+- type: entity
+  parent: DoorElectronics
+  id: DoorElectronicsRoboticist
+  suffix: Roboticist, Locked
+  components:
+  - type: AccessReader
+    access: [["Roboticist"]]
