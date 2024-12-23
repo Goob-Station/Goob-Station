@@ -3486,3 +3486,9 @@ Entries:
       message: Every time shooting a plasma rifle you will roll 1d20.
   id: 388
   time: '2024-12-23T14:15:10.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to throw felenids...
+  id: 389
+  time: '2024-12-23T14:17:49.0000000+00:00'
