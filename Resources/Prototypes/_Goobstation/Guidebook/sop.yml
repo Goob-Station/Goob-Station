@@ -4,8 +4,14 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
   - Alert Levels
+  - Succession
 
 - type: guideEntry
   id: Alert Levels
   name: guide-entry-sop-alert-levels
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels.xml"
+
+- type: guideEntry
+  id: Succession
+  name: guide-entry-sop-succession
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/CommandSuccession.xml"
