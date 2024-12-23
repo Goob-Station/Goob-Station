@@ -2,3 +2,10 @@
   id: SOP
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
+  children:
+  - Alert Levels
+
+- type: guideEntry
+  id: Alert Levels
+  name: guide-entry-sop-alert-levels
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels.xml"
