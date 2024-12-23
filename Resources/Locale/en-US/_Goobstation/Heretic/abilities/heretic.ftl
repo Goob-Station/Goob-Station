@@ -9,6 +9,7 @@ heretic-blade-examine = [color=yellow]Using it while it's in your hand will brea
 heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
 heretic-riposte-used = Riposte used!
 heretic-riposte-available = Riposte available!
+heretic-cant-shoot = Gods wont let me fire { THE($entity) }!
 
 ## paths exclusive
 heretic-rust-mark-itembreak = {$name} shatters into dust!
