@@ -2,6 +2,7 @@
 using Content.Server.Bible.Components;
 using Content.Server.GameTicking;
 using Content.Shared._Goobstation.Religion;
+using Content.Shared.GameTicking;
 using Content.Shared.Inventory;
 
 namespace Content.Server._Goobstation.Religion;
