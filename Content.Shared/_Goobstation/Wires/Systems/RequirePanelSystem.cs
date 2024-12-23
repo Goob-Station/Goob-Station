@@ -18,11 +18,11 @@ public sealed partial class RequirePanelSystem : EntitySystem
 
     private void ItemSlotInsertAttempt(Entity<ItemSlotsRequirePanelComponent> entity, ref ItemSlotInsertAttemptEvent args)
     {
-        args.Cancelled = CheckPanelStateForItemSlot(entity, args.Slot.ID);
+        args.Cancelled = !CheckPanelStateForItemSlot(entity, args.Slot.ID);
     }
     private void ItemSlotEjectAttempt(Entity<ItemSlotsRequirePanelComponent> entity, ref ItemSlotEjectAttemptEvent args)
     {
-        args.Cancelled = CheckPanelStateForItemSlot(entity, args.Slot.ID);
+        args.Cancelled = !CheckPanelStateForItemSlot(entity, args.Slot.ID);
     }
 
     public bool CheckPanelStateForItemSlot(Entity<ItemSlotsRequirePanelComponent> entity, string? slot)
@@ -39,6 +39,6 @@ public sealed partial class RequirePanelSystem : EntitySystem
         if (!TryComp<WiresPanelComponent>(uid, out var wiresPanel))
             return false;
 
-        return wiresPanel.Open != isRequireOpen;
+        return wiresPanel.Open == isRequireOpen;
     }
 }

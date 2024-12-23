@@ -156,3 +156,7 @@
     tags:
     - ModsuitPart
     - ModsuitCore
+  - type: PhysicalComposition
+    materialComposition:
+      Plasma: 50
+      Glass: 25

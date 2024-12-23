@@ -2,7 +2,7 @@
   id: CrateScienceModsuitCoresFilled
   parent: CrateScienceSecure
   name: MOD cores crate
-  description: Contains a three MOD cores inside.
+  description: Contains three MOD cores inside.
   components:
   - type: StorageFill
     contents:

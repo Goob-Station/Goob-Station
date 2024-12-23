@@ -51,7 +51,7 @@
     heatingCoefficient: 0.75
     coolingCoefficient: 0.5
   - type: ToggleableClothing # Goobstation - Modsuits change
-    clothingPrototypes: 
+    clothingPrototypes:
       head: ClothingHeadHelmetEVALarge
 
 #Prisoner EVA

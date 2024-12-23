@@ -16,7 +16,6 @@ namespace Content.Server.Atmos.Components
         [DataField]
         public SlotFlags AllowedSlots = SlotFlags.MASK | SlotFlags.HEAD;
 
-        [DataField]
         public bool IsFunctional;
 
         public EntityUid? ConnectedInternalsEntity;

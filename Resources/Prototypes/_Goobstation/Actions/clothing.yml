@@ -8,8 +8,8 @@
     confirmDelay: 0
     primeTime: 2
   - type: InstantAction
-    checkCanInteract: false
-    checkConsciousness: false
+    checkCanInteract: true
+    checkConsciousness: true
     itemIconStyle: NoItem
     icon:
       sprite: _Goobstation/Actions/modsuit.rsi
