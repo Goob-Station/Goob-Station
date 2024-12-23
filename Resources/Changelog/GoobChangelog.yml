@@ -3472,3 +3472,11 @@ Entries:
       message: Lequ, 1984 weiquan zhuyi hao wu quwei Admin is Pig taoyan lequ
   id: 386
   time: '2024-12-21T21:01:42.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+    - type: Add
+      message: Added borders to changeling's abilities.
+  id: 387
+  time: '2024-12-21T22:14:18.0000000+00:00'
