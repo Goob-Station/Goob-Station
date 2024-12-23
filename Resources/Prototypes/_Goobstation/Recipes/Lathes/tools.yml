@@ -1,6 +1,0 @@
-- type: latheRecipe
-  parent: BaseBigToolRecipe
-  id: ToolboxMechanical
-  result: ToolboxMechanical
-  materials:
-    Steel: 1000
