@@ -61,3 +61,4 @@
   - type: TargetObjective
     title: objective-condition-escape-identity-title
   - type: PickRandomPerson
+    needsOrganic: true # Don't pick IPCs.
