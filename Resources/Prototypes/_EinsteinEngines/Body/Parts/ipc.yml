@@ -103,7 +103,7 @@
     partType: Head
     organs:
       eyes:
-        id: "eyes"   
+        id: "eyes"
     vital: true
   - type: Input
     context: "ghost"
