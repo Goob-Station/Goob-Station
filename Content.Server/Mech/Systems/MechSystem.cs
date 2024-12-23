@@ -254,8 +254,14 @@ public sealed partial class MechSystem : SharedMechSystem
     //goobstation
     private void OnEmpPulse(EntityUid uid, MechComponent component, EmpPulseEvent args)
     {
+        args.Affected = true;
+        args.Disabled = true;
+        component.Energy -= args.EnergyConsumption;
+        if (component.Energy < 0)
+            component.Energy = 0;
         Dirty(uid, component);
         UpdateUserInterface(uid, component);
+        _actionBlocker.UpdateCanMove(uid);
     }
 
     private void OnDamageChanged(EntityUid uid, MechComponent component, DamageChangedEvent args)
