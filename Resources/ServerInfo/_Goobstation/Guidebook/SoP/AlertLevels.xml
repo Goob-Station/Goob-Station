@@ -1,4 +1,17 @@
 <Document>
 The following alert levels are the publicly defined levels on this station and what they entail.
 
+  <Table Columns="1">
+    <ColorBox Color="#388c34">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+        [bold][color=#ffffff]Green Alert[/color][/bold]
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+        This is an alert.
+      </Box>
+    </ColorBox>
+  </Table>
+
 </Document>

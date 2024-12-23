@@ -1,3 +1,3 @@
 guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
-guide-entry-sop = SoP
+guide-entry-sop = SOP
