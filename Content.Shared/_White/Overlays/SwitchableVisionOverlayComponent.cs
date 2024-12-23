@@ -1,5 +1,4 @@
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
@@ -7,11 +6,20 @@ namespace Content.Shared._White.Overlays;
 
 public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverlayComponent
 {
-    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    [DataField]
     public bool IsActive;
 
     [DataField]
     public bool DrawOverlay = true;
+
+    /// <summary>
+    /// If it is greater than 0, overlay isn't toggled but pulsed instead
+    /// </summary>
+    [DataField]
+    public float PulseTime;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float PulseAccumulator;
 
     [DataField]
     public virtual SoundSpecifier? ActivateSound { get; set; } =
@@ -32,4 +40,6 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
 public sealed class SwitchableVisionOverlayComponentState : IComponentState
 {
     public bool IsActive;
+
+    public float PulseAccumulator;
 }

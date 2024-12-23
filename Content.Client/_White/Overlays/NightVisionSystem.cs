@@ -23,7 +23,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
     private void OnToggle(Entity<NightVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        RefreshOverlay(args.Performer);
+        RefreshOverlay(args.User);
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> args)
@@ -39,9 +39,14 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
                 continue;
 
             if (comp.DrawOverlay)
-                nvComp ??= comp;
+            {
+                if (nvComp == null)
+                    nvComp = comp;
+                else if (nvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+                    nvComp = comp;
+            }
 
-            if (active && nvComp != null)
+            if (active && nvComp is { PulseTime: <= 0 })
                 break;
         }
 

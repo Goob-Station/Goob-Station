@@ -27,11 +27,38 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         SubscribeLocalEvent<TComp, ComponentHandleState>(OnHandleState);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_net.IsClient)
+            return;
+
+        var query = EntityQueryEnumerator<TComp>();
+
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime || !comp.IsActive)
+                continue;
+
+            comp.PulseAccumulator += frameTime;
+
+            if (comp.PulseAccumulator < comp.PulseTime)
+            {
+                Dirty(uid, comp);
+                continue;
+            }
+
+            Toggle(uid, comp, false, false);
+        }
+    }
+
     private void OnGetState(EntityUid uid, TComp component, ref ComponentGetState args)
     {
         args.State = new SwitchableVisionOverlayComponentState
         {
             IsActive = component.IsActive,
+            PulseAccumulator = component.PulseAccumulator,
         };
     }
 
@@ -40,7 +67,15 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         if (args.Current is not SwitchableVisionOverlayComponentState state)
             return;
 
-        component.IsActive = state.IsActive;
+        component.PulseAccumulator = state.PulseAccumulator;
+
+        if (component.PulseTime > 0f && component.PulseAccumulator >= component.PulseTime && !component.IsActive)
+            Toggle(uid, component, false, false);
+        else
+            component.IsActive = state.IsActive;
+
+        RaiseSwitchableOverlayToggledEvent(uid, uid);
+        RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid);
     }
 
     private void OnGetItemActions(Entity<TComp> ent, ref GetItemActionsEvent args)
@@ -56,28 +91,47 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnInit(EntityUid uid, TComp component, ComponentInit args)
     {
+        component.PulseAccumulator = component.PulseTime;
         if (component.ToggleAction != null)
             _actions.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
     }
 
     private void OnToggle(EntityUid uid, TComp component, TEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
+        Toggle(uid, component, component.PulseTime > 0f || !component.IsActive);
+        RaiseSwitchableOverlayToggledEvent(uid, args.Performer);
+        args.Handled = true;
+    }
 
-        component.IsActive = !component.IsActive;
-
-        if (_net.IsClient)
+    private void Toggle(EntityUid uid, TComp component, bool activate, bool playSound = true)
+    {
+        if (playSound && _net.IsClient && _timing.IsFirstTimePredicted)
         {
-            _audio.PlayEntity(component.IsActive ? component.ActivateSound : component.DeactivateSound, Filter.Local(), uid, false);
-            var ev = new SwitchableOverlayToggledEvent(args.Performer);
-            RaiseLocalEvent(uid, ref ev);
+            _audio.PlayEntity(activate ? component.ActivateSound : component.DeactivateSound,
+                Filter.Local(),
+                uid,
+                false);
         }
 
-        Dirty(uid, component);
-        args.Handled = true;
+        if (_net.IsServer || component.PulseTime > 0f && !activate) // It is wonky on client otherwise
+        {
+            component.IsActive = activate;
+            component.PulseAccumulator = activate ? 0f : component.PulseTime;
+        }
+
+        if (_net.IsServer)
+            Dirty(uid, component);
+    }
+
+    private void RaiseSwitchableOverlayToggledEvent(EntityUid uid, EntityUid user)
+    {
+        if (_net.IsServer)
+            return;
+
+        var ev = new SwitchableOverlayToggledEvent(user);
+        RaiseLocalEvent(uid, ref ev);
     }
 }
 
 [ByRefEvent]
-public record struct SwitchableOverlayToggledEvent(EntityUid Performer);
+public record struct SwitchableOverlayToggledEvent(EntityUid User);

@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
+using Content.Shared._White.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -30,6 +31,8 @@ public sealed class ThermalVisionOverlay : Overlay
 
     public float LightRadius;
 
+    public ThermalVisionComponent? Comp;
+
     public ThermalVisionOverlay()
     {
         IoCManager.InjectDependencies(this);
@@ -44,7 +47,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture is null)
+        if (ScreenTexture is null || Comp is null)
             return;
 
         var worldHandle = args.WorldHandle;
@@ -58,6 +61,9 @@ public sealed class ThermalVisionOverlay : Overlay
         if (!_entity.TryGetComponent(player, out TransformComponent? playerXform))
             return;
 
+        var accumulator = Math.Clamp(Comp.PulseAccumulator, 0f, Comp.PulseTime);
+        var alpha = Comp.PulseTime <= 0f ? 1f : float.Lerp(1f, 0f, accumulator / Comp.PulseTime);
+
         // Thermal vision grants some night vision (clientside light)
         if (LightRadius > 0)
         {
@@ -65,6 +71,8 @@ public sealed class ThermalVisionOverlay : Overlay
             _transform.SetParent(_lightEntity.Value, player.Value);
             var light = _entity.EnsureComponent<PointLightComponent>(_lightEntity.Value);
             _light.SetRadius(_lightEntity.Value, LightRadius, light);
+            _light.SetEnergy(_lightEntity.Value, alpha, light);
+            _light.SetColor(_lightEntity.Value, Comp.Color, light);
         }
         else
             ResetLight();
@@ -101,7 +109,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
         foreach (var entry in _entries)
         {
-            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot);
+            Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot, Comp.Color, alpha);
         }
 
         worldHandle.SetTransform(Matrix3x2.Identity);
@@ -110,7 +118,9 @@ public sealed class ThermalVisionOverlay : Overlay
     private void Render(Entity<SpriteComponent, TransformComponent> ent,
         MapId? map,
         DrawingHandleWorld handle,
-        Angle eyeRot)
+        Angle eyeRot,
+        Color color,
+        float alpha)
     {
         var (uid, sprite, xform) = ent;
         if (xform.MapID != map || !CanSee(uid, sprite))
@@ -119,7 +129,11 @@ public sealed class ThermalVisionOverlay : Overlay
         var position = _transform.GetWorldPosition(xform);
         var rotation = _transform.GetWorldRotation(xform);
 
+
+        var originalColor = sprite.Color;
+        sprite.Color = color.WithAlpha(alpha);
         sprite.Render(handle, eyeRot, rotation, position: position);
+        sprite.Color = originalColor;
     }
 
     private bool CanSee(EntityUid uid, SpriteComponent sprite)

@@ -24,29 +24,31 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
 
     private void OnToggle(Entity<ThermalVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        RefreshOverlay(args.Performer);
+        RefreshOverlay(args.User);
     }
 
     protected override void UpdateInternal(RefreshEquipmentHudEvent<ThermalVisionComponent> args)
     {
         base.UpdateInternal(args);
         ThermalVisionComponent? tvComp = null;
-        var active = false;
         var lightRadius = 0f;
         foreach (var comp in args.Components)
         {
-            if (comp.IsActive)
-                active = true;
-            else
+            if (!comp.IsActive)
                 continue;
 
             if (comp.DrawOverlay)
-                tvComp ??= comp;
+            {
+                if (tvComp == null)
+                    tvComp = comp;
+                else if (tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+                    tvComp = comp;
+            }
 
             lightRadius = MathF.Max(lightRadius, comp.LightRadius);
         }
 
-        UpdateThermalOverlay(active, lightRadius);
+        UpdateThermalOverlay(tvComp, lightRadius);
         UpdateOverlay(tvComp);
     }
 
@@ -55,18 +57,19 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         base.DeactivateInternal();
 
         UpdateOverlay(null);
-        UpdateThermalOverlay(false, 0f);
+        UpdateThermalOverlay(null, 0f);
     }
 
-    private void UpdateThermalOverlay(bool active, float lightRadius)
+    private void UpdateThermalOverlay(ThermalVisionComponent? comp, float lightRadius)
     {
-        switch (active)
+        switch (comp)
         {
-            case true when !_overlayMan.HasOverlay<ThermalVisionOverlay>():
+            case not null when !_overlayMan.HasOverlay<ThermalVisionOverlay>():
                 _thermalOverlay.LightRadius = lightRadius;
+                _thermalOverlay.Comp = comp;
                 _overlayMan.AddOverlay(_thermalOverlay);
                 break;
-            case false:
+            case null:
                 _overlayMan.RemoveOverlay(_thermalOverlay);
                 _thermalOverlay.ResetLight();
                 break;

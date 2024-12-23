@@ -11,12 +11,16 @@
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
   - type: NightVision
+  - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
   parent: ClothingEyesNightVisionGoggles
   id: ClothingEyesNightVisionGogglesSyndie
   suffix: "Chameleon"
   components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
   - type: ChameleonClothing
     slot: [eyes]
     default: ClothingEyesGlassesSunglasses
@@ -45,12 +49,18 @@
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
   - type: ThermalVision
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+  - type: IdentityBlocker
+    coverage: EYES
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles
   id: ClothingEyesThermalVisionGogglesSyndie
   suffix: "Chameleon"
   components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
   - type: ChameleonClothing
     slot: [eyes]
     default: ClothingEyesGlassesSunglasses

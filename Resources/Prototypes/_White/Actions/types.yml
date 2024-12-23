@@ -27,3 +27,13 @@
       sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
       state: icon
     event: !type:ToggleThermalVisionEvent
+
+- type: entity
+  id: PulseThermalVision
+  parent: ToggleThermalVision
+  name: Pulse Thermal Vision
+  description: Activate thermal vision temporarily.
+  noSpawn: true
+  components:
+  - type: InstantAction
+    useDelay: 4

@@ -738,8 +738,9 @@
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
   # WD EDIT START
-  - type: NightVision
   - type: ThermalVision
+    color: "#98EEFB"
+    lightRadius: 15
   # WD EDIT END
 
 #MISC. HARDSUITS
