@@ -3492,3 +3492,36 @@ Entries:
       message: Fixed not being able to throw felenids...
   id: 389
   time: '2024-12-23T14:17:49.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a CVAR that lets server operators decide if players should be able
+        to use mech guns without them being inside of a mech. Set to true by
+        default.
+    - type: Tweak
+      message: Reworked IPC fire mechanics to not round remove them from a tiny fire.
+    - type: Tweak
+      message: IPCs cannot be picked as impersonation objectives for Changelings
+    - type: Tweak
+      message: IPCs cannot be cloned now.
+    - type: Tweak
+      message: Entity hands get blocked when they are inside of a mech now.
+    - type: Tweak
+      message: 'Mech punches or mech drills cannot be wideswung. '
+    - type: Tweak
+      message: The mech PKA now consumes basically no energy.
+    - type: Fix
+      message: IPCs are finally not 3x more flammable than a plasmaman.
+    - type: Fix
+      message: >-
+        Fixed scram implants breaking your character if you use them inside of a
+        mech.
+    - type: Fix
+      message: Fixed EMPs completely bricking mech weapons.
+    - type: Fix
+      message: >-
+        Fixed IPC welding heals not checking if the targeted part is also
+        damaged.
+  id: 390
+  time: '2024-12-23T14:19:43.0000000+00:00'
