@@ -83,7 +83,7 @@
           tags:
           - Bottle
           - PillCanister
-          - MedicalPatch
+          - MedicalPatch # Goobstation
   - type: SolutionContainerManager
     solutions:
       buffer: {}
