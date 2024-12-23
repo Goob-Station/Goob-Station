@@ -1,7 +1,0 @@
-- type: accessLevel
-  id: NanotrasenRepresentative
-  name: id-card-access-level-ntr
-
-- type: accessLevel
-  id: BlueshieldOfficer
-  name: id-card-access-level-bso
