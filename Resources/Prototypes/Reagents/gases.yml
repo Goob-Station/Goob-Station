@@ -445,7 +445,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 10
+        time: 150
         refresh: false
       - !type:Emote
         conditions:
@@ -518,8 +518,8 @@
   name: reagent-name-healium
   desc: reagent-desc-healium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: sweet
-  color: "#8b0000"
+  flavor: rubbery
+  color: "#90560b"
   metabolisms:
     Gas:
       effects:
@@ -568,7 +568,7 @@
           max: 0.01
         key: ForcedSleep
         component: ForcedSleeping
-        time: 3
+        time: 1
         type: Add
       - !type:Drunk
         boozePower: 50
@@ -582,8 +582,8 @@
   name: reagent-name-nitrium
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: sour
-  color: "#b76f0e"
+  flavor: burning
+  color: "#90560B"
   metabolisms:
     Gas:
       effects:
