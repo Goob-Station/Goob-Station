@@ -3480,3 +3480,9 @@ Entries:
       message: Added borders to changeling's abilities.
   id: 387
   time: '2024-12-21T22:14:18.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Every time shooting a plasma rifle you will roll 1d20.
+  id: 388
+  time: '2024-12-23T14:15:10.0000000+00:00'
