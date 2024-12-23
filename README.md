@@ -14,7 +14,7 @@ The Goob Station [docs site](https://docs.goobstation.com/) has documentation on
 
 ## Contributing
 
-We are happy to accept contributions from anybody. Get in [Development Discord Server](https://discord.gg/jKjyu8ttsG) if you want to help. Feel free to check the [list of issues](https://github.com/Goob-Station/Goob-Station/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
+We are happy to accept contributions from anybody. Get in [Development Discord Server](https://discord.gg/zXk2cyhzPN) if you want to help. Feel free to check the [list of issues](https://github.com/Goob-Station/Goob-Station/issues) that need to be done and anybody can pick them up. Don't be afraid to ask for help either!
 While following the [Space Station 14 contribution guidelines](https://docs.spacestation14.com/en/general-development/codebase-info/pull-request-guidelines.html) is not mandatory for Goob Station, we recommend reviewing them for best practices.
 
 We are not currently accepting translations of the game on our main repository. If you would like to translate the game into another language consider creating a fork or contributing to a fork.
