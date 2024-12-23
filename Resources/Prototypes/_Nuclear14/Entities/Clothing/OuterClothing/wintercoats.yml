@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingOuterWinterCoat
+  id: N14ClothingOuterDdCorporateJacket
+  name: Discount Dan's Corporate Jacket
+  description: A cozy jacket with the Discount Dan's logo printed on the back. Merchandise rewarded to stations with a safety factor of uhh... seven.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Clothing/OuterClothing/WinterCoats/corpo_jacket_discount_dans.rsi
+  - type: Clothing
+    sprite: _Nuclear14/Clothing/OuterClothing/WinterCoats/corpo_jacket_discount_dans.rsi

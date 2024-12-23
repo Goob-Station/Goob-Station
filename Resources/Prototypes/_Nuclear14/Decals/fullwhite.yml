@@ -1,0 +1,15 @@
+- type: decal
+  id: N14FullTile
+  tags: ["Full Tile"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/FullWhite.rsi
+    state: full_tile
+    
+- type: decal
+  id: N14HalfTile
+  tags: ["Half Tile"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/FullWhite.rsi
+    state: half_tile

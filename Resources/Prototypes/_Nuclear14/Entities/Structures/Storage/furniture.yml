@@ -1,3 +1,35 @@
+# Washing Machines
+- type: entity
+  parent: ClosetBase
+  id: N14FurnitureWashingmachine
+  name: washing machine
+  description: wishy washy.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Furniture/washingmachine.rsi
+    layers:
+    - state: generic
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: generic_door
+      map: ["enum.StorageVisualLayers.Door"]
+  - type: EntityStorageVisuals
+    stateBaseClosed: generic
+    stateDoorOpen: generic_open
+    stateDoorClosed: generic_door
+  - type: Transform
+    anchored: true
+    noRot: false
+  - type: Physics
+    bodyType: Static
+
+- type: entity
+  parent: N14FurnitureWashingmachine
+  id: N14FurnitureWashingmachineIndustrial
+  suffix: Industrial
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Structures/Storage/Furniture/washingmachine_industrial.rsi
+
 # Safes
 - type: entity
   parent: N14ClosetBaseW
@@ -9,17 +41,17 @@
     sprite: _Nuclear14/Structures/Storage/Furniture/safe.rsi
 
 - type: entity
-  parent: [ N14ClosetSafe ]
+  parent: N14ClosetSafe
   id: N14LootClosetSafe
   suffix: Loot, Random Military
 
 - type: entity
-  parent: [ N14ClosetSafe ]
+  parent: N14ClosetSafe
   id: N14LootClosetSafeCurrency
   suffix: Loot, Currency one stack random
 
 - type: entity
-  parent: [ N14ClosetSafe ]
+  parent: N14ClosetSafe
   id: N14LootClosetSafePrewar
   suffix: Loot, safe pre-war
 

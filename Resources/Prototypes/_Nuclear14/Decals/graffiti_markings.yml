@@ -1,0 +1,602 @@
+- type: decal
+  id: N14GraffitiAid
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: aid
+    
+- type: decal
+  id: N14GraffitiArrow
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: arrow
+    
+- type: decal
+  id: N14GraffitiArrows
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: arrows_yellow
+    
+- type: decal
+  id: N14GraffitiBelow
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: below
+    
+- type: decal
+  id: N14GraffitiBoombooms
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: boombooms
+    
+- type: decal
+  id: N14GraffitiCampEast
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: camp_east
+    
+- type: decal
+  id: N14GraffitiCampNorth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: camp_north
+    
+- type: decal
+  id: N14GraffitiCampSouth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: camp_south
+    
+- type: decal
+  id: N14GraffitiCampWest
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: camp_west
+    
+- type: decal
+  id: N14GraffitiClueless
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: clueless
+    
+- type: decal
+  id: N14GraffitiCrabs
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: crabs
+    
+- type: decal
+  id: N14GraffitiDanger
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: danger
+    
+- type: decal
+  id: N14GraffitiDead
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: dead
+    
+- type: decal
+  id: N14GraffitiDeadcount
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: deadcount
+    
+- type: decal
+  id: N14GraffitiDeadinside
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: deadinside
+    
+- type: decal
+  id: N14GraffitiDeadman
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: deadman
+    
+- type: decal
+  id: N14GraffitiDeath
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: death
+    
+- type: decal
+  id: N14GraffitiDeath2
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: death2
+    
+- type: decal
+  id: N14GraffitiDieyoung
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: dieyoung
+    
+- type: decal
+  id: N14GraffitiDonot
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: donot
+    
+- type: decal
+  id: N14GraffitiDontOpen
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: dontopen
+    
+- type: decal
+  id: N14GraffitiEyes
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: eyes
+    
+- type: decal
+  id: N14GraffitiFollow
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: follow
+    
+- type: decal
+  id: N14GraffitiFort
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: fort
+    
+- type: decal
+  id: N14GraffitiFree
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: free
+    
+- type: decal
+  id: N14GraffitiFuckNCR
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: fuckncr
+    
+- type: decal
+  id: N14GraffitiFuckyou
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: fuckyou
+    
+- type: decal
+  id: N14GraffitiGangshit
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: gangshit
+    
+- type: decal
+  id: N14GraffitiGhouls
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ghouls
+    
+- type: decal
+  id: N14GraffitiGoHome
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: gohome
+    
+- type: decal
+  id: N14GraffitiGuns
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: guns
+    
+- type: decal
+  id: N14GraffitiLadderEast
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ladder_east
+    
+- type: decal
+  id: N14GraffitiLadderNorth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ladder_north
+    
+- type: decal
+  id: N14GraffitiLadderSouth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ladder_south
+    
+- type: decal
+  id: N14GraffitiLadderWest
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ladder_west
+    
+- type: decal
+  id: N14GraffitiLegion
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: legion
+    
+- type: decal
+  id: N14GraffitiEyesMany
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: many_eyes
+    
+- type: decal
+  id: N14GraffitiMark
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: mark
+    
+- type: decal
+  id: N14GraffitiMines
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: mines
+    
+- type: decal
+  id: N14GraffitiMirelurk
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: mirelurk
+    
+- type: decal
+  id: N14GraffitiMoyai
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: moyai
+    
+- type: decal
+  id: N14GraffitiNCR
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ncr
+    
+- type: decal
+  id: N14GraffitiNCRBear
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ncr_bear
+    
+- type: decal
+  id: N14GraffitiNCRCaution
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ncr_caution
+    
+- type: decal
+  id: N14GraffitiNCRStop
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ncr_stop
+    
+- type: decal
+  id: N14GraffitiNoWay
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: noway
+    
+- type: decal
+  id: N14GraffitiOurTown
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: ourtown
+    
+- type: decal
+  id: N14GraffitiPhoenix
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: phoenix
+    
+- type: decal
+  id: N14GraffitiRangers
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: rangers
+    
+- type: decal
+  id: N14GraffitiReaper
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: reaper
+    
+- type: decal
+  id: N14GraffitiRiddler1
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: riddler1
+    
+- type: decal
+  id: N14GraffitiRiddler2
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: riddler2
+    
+- type: decal
+  id: N14GraffitiRiddler3
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: riddler3
+    
+- type: decal
+  id: N14GraffitiScorpion_east
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: scorpion_east
+    
+- type: decal
+  id: N14GraffitiScorpionNorth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: scorpion_north
+    
+- type: decal
+  id: N14GraffitiScorpionSouth
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: scorpion_south
+    
+- type: decal
+  id: N14GraffitiScorpionWest
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: scorpion_west
+    
+- type: decal
+  id: N14GraffitiSkullbones
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: skullbones
+    
+- type: decal
+  id: N14GraffitiSlumbers
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: slumbers
+    
+- type: decal
+  id: N14GraffitiStop
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: stop
+    
+- type: decal
+  id: N14GraffitiVerydead
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/graffiti.rsi
+    state: verydead
+    
+# Shelter signs
+- type: decal
+  id: N14GraffitiArrowshelterleft
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: arrowshelter_left
+    
+- type: decal
+  id: N14GraffitiArrowshelterright
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: arrowshelter_right
+    
+- type: decal
+  id: N14GraffitiFalloutshelter
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: falloutshelter
+    
+- type: decal
+  id: N14GraffitiShelteryellow
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: shelteryellow
+    
+- type: decal
+  id: N14GraffitiShelteryellowleft
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: shelteryellow_left
+    
+- type: decal
+  id: N14GraffitiShelteryellowright
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: shelteryellow_right
+    
+- type: decal
+  id: N14GraffitiShelteryellowcircle
+  tags: ["graffiti"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/sheltersigns.rsi
+    state: shelteryellow_circle
+    
+# 64x64 graffiti
+# Note: 64x decals are not supported and need broken up into multiple parts, and I cba.
+# - type: decal
+  # id: N14GraffitiNCRCheckpoint
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: checkpoint_decal
+    
+# - type: decal
+  # id: N14GraffitiNofutureblack
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: nofuture_black
+    
+# - type: decal
+  # id: N14GraffitiNofuturered
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: nofuture_red
+    
+# - type: decal
+  # id: N14GraffitiNogodblack
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: nogod_black
+    
+# - type: decal
+  # id: N14GraffitiNogodred
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: nogod_red
+    
+# - type: decal
+  # id: N14GraffitiPresidentialSeal
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: seal_president
+    
+# - type: decal
+  # id: N14GraffitiWorkersonly
+  # tags: ["graffiti"]
+  # snapCardinals: true
+  # sprite:
+    # sprite: _Nuclear14/Decals/graffiti64x64.rsi
+    # state: workers_decal

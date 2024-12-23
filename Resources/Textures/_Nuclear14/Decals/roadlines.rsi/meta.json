@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Created by Peptide90 for Nuclear14",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "middlesolidcorner1"
+    },
+    {
+      "name": "middlesolidcorner2"
+    },
+    {
+      "name": "middlesolidsplit1"
+    },
+    {
+      "name": "middlesolidsplit2"
+    },
+    {
+      "name": "single1"
+    },
+    {
+      "name": "single2"
+    },
+    {
+      "name": "singlebroken1"
+    },
+    {
+      "name": "singlebroken2"
+    },
+    {
+      "name": "singlecorner"
+    },
+    {
+      "name": "singlecorner2"
+    },
+    {
+      "name": "singlecorner3"
+    },
+    {
+      "name": "double1"
+    },
+    {
+      "name": "double2"
+    },
+    {
+      "name": "doublebroken1"
+    },
+    {
+      "name": "doublebroken2"
+    },
+    {
+      "name": "doublecorner"
+    },
+    {
+      "name": "doublecorner2"
+    },
+    {
+      "name": "doublecorner3"
+    },
+    {
+      "name": "middlebrokensplit1"
+    },
+    {
+      "name": "middlebrokensplit2"
+    },
+    {
+      "name": "middlesolid1"
+    },
+    {
+      "name": "middlesolid2"
+    },
+    {
+      "name": "middlesolidbrokensplit1"
+    },
+    {
+      "name": "middlesolidbrokensplit2"
+    },
+    {
+      "name": "middlesolidbrokensplit3"
+    },
+    {
+      "name": "middlesolidbrokensplit4"
+    }
+  ]
+}

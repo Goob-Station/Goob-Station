@@ -1,0 +1,255 @@
+- type: decal
+  id: Drought1
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_1
+
+- type: decal
+  id: Drought2
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_2
+    
+- type: decal
+  id: Drought3
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_3
+    
+- type: decal
+  id: Drought4
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_4
+    
+- type: decal
+  id: Drought5
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_5
+    
+- type: decal
+  id: Drought6
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_6
+    
+- type: decal
+  id: Drought7
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_7
+    
+- type: decal
+  id: Drought8
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_8
+    
+- type: decal
+  id: Drought9
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_9
+    
+- type: decal
+  id: Drought10
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_10
+    
+- type: decal
+  id: Drought11
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_11
+    
+- type: decal
+  id: Drought12
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_12
+    
+- type: decal
+  id: Drought13
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_13
+    
+- type: decal
+  id: Drought14
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_14
+    
+- type: decal
+  id: Drought15
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_15
+    
+- type: decal
+  id: Drought16
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_16
+    
+- type: decal
+  id: Drought17
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_17
+    
+- type: decal
+  id: Drought18
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_18
+    
+- type: decal
+  id: Drought19
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_19
+    
+- type: decal
+  id: Drought20
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_20
+    
+- type: decal
+  id: Drought21
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_21
+    
+- type: decal
+  id: Drought22
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_22
+    
+- type: decal
+  id: Drought23
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_23
+    
+- type: decal
+  id: Drought24
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_24
+    
+- type: decal
+  id: Drought25
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_25
+    
+- type: decal
+  id: Drought26
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_26
+    
+- type: decal
+  id: Drought27
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_27
+    
+- type: decal
+  id: Drought28
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_28
+    
+- type: decal
+  id: Drought29
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_29
+    
+- type: decal
+  id: Drought30
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_30
+    
+- type: decal
+  id: Drought31
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_31
+    
+- type: decal
+  id: Drought32
+  tags: ["drought"]
+  snapCardinals: true
+  sprite:
+    sprite: _Nuclear14/Decals/droughtdecor.rsi
+    state: drought_32

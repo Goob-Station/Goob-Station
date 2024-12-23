@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA-3.0",
+  "copyright": "Taken from MS13 at commit https://github.com/Mojave-Sun/mojave-sun-13/commit/be7a9f24f2bca68f07e4b0b086dc03a3eb9f971f",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "sidewalk-0"
+    },
+    {
+      "name": "sidewalk-1"
+    },
+    {
+      "name": "sidewalk-2"
+    },
+    {
+      "name": "sidewalk-3"
+    },
+    {
+      "name": "sidewalk-4"
+    },
+    {
+      "name": "sidewalk-5"
+    },
+    {
+      "name": "sidewalk-6"
+    },
+    {
+      "name": "sidewalk-7"
+    },
+    {
+      "name": "sidewalk-8"
+    },
+    {
+      "name": "sidewalk-9"
+    },
+    {
+      "name": "sidewalk-10"
+    },
+    {
+      "name": "sidewalk-11"
+    },
+    {
+      "name": "sidewalk-12"
+    },
+    {
+      "name": "sidewalk-13"
+    },
+    {
+      "name": "sidewalk-14"
+    },
+    {
+      "name": "sidewalk-15"
+    },
+    {
+      "name": "sidewalk-21"
+    },
+    {
+      "name": "sidewalk-23"
+    },
+    {
+      "name": "sidewalk-29"
+    },
+    {
+      "name": "sidewalk-31"
+    },
+    {
+      "name": "sidewalk-38"
+    },
+    {
+      "name": "sidewalk-39"
+    },
+    {
+      "name": "sidewalk-46"
+    },
+    {
+      "name": "sidewalk-47"
+    },
+    {
+      "name": "sidewalk-55"
+    },
+    {
+      "name": "sidewalk-63"
+    },
+    {
+      "name": "sidewalk-74"
+    },
+    {
+      "name": "sidewalk-75"
+    },
+    {
+      "name": "sidewalk-78"
+    },
+    {
+      "name": "sidewalk-79"
+    },
+    {
+      "name": "sidewalk-95"
+    },
+    {
+      "name": "sidewalk-110"
+    },
+    {
+      "name": "sidewalk-111"
+    },
+    {
+      "name": "sidewalk-127"
+    },
+    {
+      "name": "sidewalk-137"
+    },
+    {
+      "name": "sidewalk-139"
+    },
+    {
+      "name": "sidewalk-141"
+    },
+    {
+      "name": "sidewalk-143"
+    },
+    {
+      "name": "sidewalk-157"
+    },
+    {
+      "name": "sidewalk-159"
+    },
+    {
+      "name": "sidewalk-175"
+    },
+    {
+      "name": "sidewalk-191"
+    },
+    {
+      "name": "sidewalk-203"
+    },
+    {
+      "name": "sidewalk-207"
+    },
+    {
+      "name": "sidewalk-223"
+    },
+    {
+      "name": "sidewalk-239"
+    },
+    {
+      "name": "sidewalk-255"
+    }
+  ]
+}
