@@ -3525,3 +3525,21 @@ Entries:
         damaged.
   id: 390
   time: '2024-12-23T14:19:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        EMP implanter energy drain heavily reduced, but it still disables energy
+        weapons for 10 seconds.
+    - type: Add
+      message: IPCs and borgs are now stunned when affected by EMP.
+    - type: Add
+      message: Eswords can be EMPd now.
+    - type: Tweak
+      message: Removed atreides from bso, replaced it with mk58.
+    - type: Tweak
+      message: Bso now has security survival box.
+    - type: Tweak
+      message: Energy pen is not as good at delimbing anymore.
+  id: 391
+  time: '2024-12-23T14:28:56.0000000+00:00'
