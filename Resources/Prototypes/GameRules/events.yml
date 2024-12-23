@@ -167,6 +167,8 @@
     - id: SpiderSpawn
     - id: VentClog
     - id: TidemindDevelop # Goobstation - Tidemind
+    - id: MothroachSpawn # DeltaV
+    - id: XenoVents # DeltaV
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -686,13 +688,11 @@
   - type: GameRule
     chaosScore: 240
   - type: VentCrittersRule
-    entries:
-    - id: MobAdultSlimesBlueAngry
-      prob: 0.02
-    - id: MobAdultSlimesGreenAngry
-      prob: 0.02
-    - id: MobAdultSlimesYellowAngry
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobAdultSlimesBlueAngry
+      - id: MobAdultSlimesGreenAngry
+      - id: MobAdultSlimesYellowAngry
 
 - type: entity
   id: SnakeSpawn
@@ -714,13 +714,11 @@
   - type: GameRule
     chaosScore: 240
   - type: VentCrittersRule
-    entries:
-    - id: MobPurpleSnake
-      prob: 0.02
-    - id: MobSmallPurpleSnake
-      prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    table: !type:GroupSelector # DeltaV: EntityTable instead of spawn entries
+      children:
+      - id: MobPurpleSnake
+      - id: MobSmallPurpleSnake
+      - id: MobCobraSpace
 
 - type: entity
   id: SpiderSpawn
@@ -742,9 +740,8 @@
   - type: GameRule
     chaosScore: 240
   - type: VentCrittersRule
-    entries:
-    - id: MobGiantSpiderAngry
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobGiantSpiderAngry
 
 - type: entity
   id: SpiderClownSpawn
@@ -767,9 +764,8 @@
     chaosScore: 240
   - type: VentCrittersRule
     playerRatio: 35 # DeltaV: Clown spiders are very robust
-    entries:
-    - id: MobClownSpider
-      prob: 0.05
+    table: # DeltaV: EntityTable instead of spawn entries
+      id: MobClownSpider
 
 - type: entity
   id: ZombieOutbreak
