@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Flashbang;
+using Content.Shared._White.Overlays;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Events;
@@ -71,6 +72,9 @@ public partial class InventorySystem
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowMindShieldIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowSyndicateIconsComponent>>(RelayInventoryEvent);
         SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ShowCriminalRecordIconsComponent>>(RelayInventoryEvent);
+
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<NightVisionComponent>>(RelayInventoryEvent); // Goobstation
+        SubscribeLocalEvent<InventoryComponent, RefreshEquipmentHudEvent<ThermalVisionComponent>>(RelayInventoryEvent); // Goobstation
 
         SubscribeLocalEvent<InventoryComponent, GetVerbsEvent<EquipmentVerb>>(OnGetEquipmentVerbs);
     }

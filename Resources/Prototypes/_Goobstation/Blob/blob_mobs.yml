@@ -187,6 +187,10 @@
         - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
           state: nautdamage
           shader: unshaded
+    - type: NightVision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
     - type: GuideHelp
       guides:
       - Blob

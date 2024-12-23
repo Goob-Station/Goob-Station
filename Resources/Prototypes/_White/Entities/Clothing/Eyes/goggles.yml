@@ -10,9 +10,7 @@
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
-  - type: ClothingGrantComponent
-    component:
-    - type: NightVision
+  - type: NightVision
 
 - type: entity
   parent: ClothingEyesNightVisionGoggles
@@ -46,9 +44,7 @@
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
-  - type: ClothingGrantComponent
-    component:
-    - type: ThermalVision
+  - type: ThermalVision
 
 - type: entity
   parent: ClothingEyesThermalVisionGoggles

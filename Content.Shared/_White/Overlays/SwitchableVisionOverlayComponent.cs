@@ -1,12 +1,17 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Overlays;
 
-public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
+public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverlayComponent
 {
-    [DataField, AutoNetworkedField]
-    public bool IsActive = true;
+    [DataField, ViewVariables(VVAccess.ReadOnly)]
+    public bool IsActive;
+
+    [DataField]
+    public bool DrawOverlay = true;
 
     [DataField]
     public virtual SoundSpecifier? ActivateSound { get; set; } =
@@ -17,8 +22,14 @@ public abstract partial class SwitchableOverlayComponent : BaseOverlayComponent
         new SoundPathSpecifier("/Audio/_White/Items/Goggles/deactivate.ogg");
 
     [DataField]
-    public virtual string? ToggleAction { get; set; }
+    public virtual EntProtoId? ToggleAction { get; set; }
 
     [ViewVariables]
     public EntityUid? ToggleActionEntity;
+}
+
+[Serializable, NetSerializable]
+public sealed class SwitchableVisionOverlayComponentState : IComponentState
+{
+    public bool IsActive;
 }

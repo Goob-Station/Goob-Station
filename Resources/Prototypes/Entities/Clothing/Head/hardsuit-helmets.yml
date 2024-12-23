@@ -737,6 +737,10 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
+  # WD EDIT START
+  - type: NightVision
+  - type: ThermalVision
+  # WD EDIT END
 
 #MISC. HARDSUITS
 #Clown Hardsuit

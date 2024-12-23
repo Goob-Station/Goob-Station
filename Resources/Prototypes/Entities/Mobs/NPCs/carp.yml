@@ -92,6 +92,10 @@
       interfaces:
         enum.SurgeryUIKey.Key:
           type: SurgeryBui
+    - type: NightVision # Goobstation - Nigthvision
+      color: "#808080"
+      activateSound: null
+      deactivateSound: null
 
 - type: entity
   parent: BaseMobCarp

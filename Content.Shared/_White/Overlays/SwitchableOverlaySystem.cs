@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
+using Content.Shared.Inventory;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -7,7 +9,7 @@ using Robust.Shared.Timing;
 namespace Content.Shared._White.Overlays;
 
 public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
-    where TComp : SwitchableOverlayComponent
+    where TComp : SwitchableVisionOverlayComponent
     where TEvent : InstantActionEvent
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
@@ -19,22 +21,44 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
     {
         SubscribeLocalEvent<TComp, TEvent>(OnToggle);
         SubscribeLocalEvent<TComp, ComponentInit>(OnInit);
-        SubscribeLocalEvent<TComp, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<TComp, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<TComp, GetItemActionsEvent>(OnGetItemActions);
+        SubscribeLocalEvent<TComp, ComponentGetState>(OnGetState);
+        SubscribeLocalEvent<TComp, ComponentHandleState>(OnHandleState);
     }
 
-    private void OnRemove(EntityUid uid, TComp component, ComponentRemove args)
+    private void OnGetState(EntityUid uid, TComp component, ref ComponentGetState args)
+    {
+        args.State = new SwitchableVisionOverlayComponentState
+        {
+            IsActive = component.IsActive,
+        };
+    }
+
+    private void OnHandleState(EntityUid uid, TComp component, ref ComponentHandleState args)
+    {
+        if (args.Current is not SwitchableVisionOverlayComponentState state)
+            return;
+
+        component.IsActive = state.IsActive;
+    }
+
+    private void OnGetItemActions(Entity<TComp> ent, ref GetItemActionsEvent args)
+    {
+        if (ent.Comp.ToggleAction != null && args.SlotFlags is not SlotFlags.POCKET and not null)
+            args.AddAction(ref ent.Comp.ToggleActionEntity, ent.Comp.ToggleAction);
+    }
+
+    private void OnShutdown(EntityUid uid, TComp component, ComponentShutdown args)
     {
         _actions.RemoveAction(uid, component.ToggleActionEntity);
-        UpdateVision(uid, false);
     }
 
     private void OnInit(EntityUid uid, TComp component, ComponentInit args)
     {
-        _actions.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
-        UpdateVision(uid, component.IsActive);
+        if (component.ToggleAction != null)
+            _actions.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
     }
-
-    protected virtual void UpdateVision(EntityUid uid, bool active) { }
 
     private void OnToggle(EntityUid uid, TComp component, TEvent args)
     {
@@ -44,9 +68,16 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         component.IsActive = !component.IsActive;
 
         if (_net.IsClient)
+        {
             _audio.PlayEntity(component.IsActive ? component.ActivateSound : component.DeactivateSound, Filter.Local(), uid, false);
+            var ev = new SwitchableOverlayToggledEvent(args.Performer);
+            RaiseLocalEvent(uid, ref ev);
+        }
 
+        Dirty(uid, component);
         args.Handled = true;
-        UpdateVision(uid, component.IsActive);
     }
 }
+
+[ByRefEvent]
+public record struct SwitchableOverlayToggledEvent(EntityUid Performer);

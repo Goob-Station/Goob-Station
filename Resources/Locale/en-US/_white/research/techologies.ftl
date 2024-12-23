@@ -1,2 +1,2 @@
-research-technology-night-vision = Night vision
-research-technology-thermal-vision = Thermal vision
+research-technology-night-vision = Night Vision Technology
+research-technology-thermal-vision = Thermal Vision Technology

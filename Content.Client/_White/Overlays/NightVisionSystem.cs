@@ -1,14 +1,12 @@
+using Content.Client.Overlays;
 using Content.Shared._White.Overlays;
-using Content.Shared.GameTicking;
+using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
-using Robust.Shared.Player;
 
 namespace Content.Client._White.Overlays;
 
-public sealed class NightVisionSystem : SwitchableOverlaySystem<NightVisionComponent, ToggleNightVisionEvent>
+public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 {
-    [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
     [Dependency] private readonly ILightManager _lightManager = default!;
 
@@ -18,48 +16,45 @@ public sealed class NightVisionSystem : SwitchableOverlaySystem<NightVisionCompo
     {
         base.Initialize();
 
-        SubscribeLocalEvent<NightVisionComponent, PlayerAttachedEvent>(OnPlayerAttached);
-        SubscribeLocalEvent<NightVisionComponent, PlayerDetachedEvent>(OnPlayerDetached);
-        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestart);
+        SubscribeLocalEvent<NightVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
         _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
     }
 
-    private void OnPlayerAttached(EntityUid uid, NightVisionComponent component, PlayerAttachedEvent args)
+    private void OnToggle(Entity<NightVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
     {
-        if (!component.IsActive)
-            return;
-
-        UpdateVision(args.Player, component.IsActive);
+        RefreshOverlay(args.Performer);
     }
 
-    private void OnPlayerDetached(EntityUid uid, NightVisionComponent component, PlayerDetachedEvent args)
+    protected override void UpdateInternal(RefreshEquipmentHudEvent<NightVisionComponent> args)
     {
-        UpdateVision(args.Player, false);
-    }
+        base.UpdateInternal(args);
+        var active = false;
+        NightVisionComponent? nvComp = null;
+        foreach (var comp in args.Components)
+        {
+            if (comp.IsActive)
+                active = true;
+            else
+                continue;
 
-    private void OnRestart(RoundRestartCleanupEvent ev)
-    {
-        _overlayMan.RemoveOverlay(_overlay);
-        _lightManager.DrawLighting = true;
-    }
+            if (comp.DrawOverlay)
+                nvComp ??= comp;
 
-    protected override void UpdateVision(EntityUid uid, bool active)
-    {
-        if (_player.LocalSession?.AttachedEntity != uid)
-            return;
+            if (active && nvComp != null)
+                break;
+        }
 
-        UpdateOverlay(active);
         UpdateNightVision(active);
+        UpdateOverlay(nvComp);
     }
 
-    private void UpdateVision(ICommonSession player, bool active)
+    protected override void DeactivateInternal()
     {
-        if (_player.LocalSession != player)
-            return;
+        base.DeactivateInternal();
 
-        UpdateOverlay(active);
-        UpdateNightVision(active);
+        UpdateNightVision(false);
+        UpdateOverlay(null);
     }
 
     private void UpdateNightVision(bool active)
@@ -67,19 +62,20 @@ public sealed class NightVisionSystem : SwitchableOverlaySystem<NightVisionCompo
         _lightManager.DrawLighting = !active;
     }
 
-    private void UpdateOverlay(bool active)
+    private void UpdateOverlay(NightVisionComponent? nvComp)
     {
-        if (_player.LocalEntity == null)
+        switch (nvComp)
         {
-            _overlayMan.RemoveOverlay(_overlay);
-            return;
+            case not null when !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>():
+                _overlay.Comp = nvComp;
+                _overlayMan.AddOverlay(_overlay);
+                break;
+            case null:
+                _overlayMan.RemoveOverlay(_overlay);
+                break;
         }
 
-        active |= TryComp<NightVisionComponent>(_player.LocalEntity.Value, out var component) && component.IsActive;
-
-        if (active)
-            _overlayMan.AddOverlay(_overlay);
-        else
-            _overlayMan.RemoveOverlay(_overlay);
+        if (_overlayMan.TryGetOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>(out var overlay))
+            overlay.IsActive = nvComp == null;
     }
 }

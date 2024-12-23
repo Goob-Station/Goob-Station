@@ -1,7 +1,6 @@
 using System.Linq;
 using System.Numerics;
 using Content.Client.Stealth;
-using Content.Shared._White.Overlays;
 using Content.Shared.Body.Components;
 using Content.Shared.Stealth.Components;
 using Robust.Client.GameObjects;
@@ -15,17 +14,21 @@ namespace Content.Client._White.Overlays;
 public sealed class ThermalVisionOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entity = default!;
-    [Dependency] private readonly IPlayerManager _players = default!;
+    [Dependency] private readonly IPlayerManager _player = default!;
 
     private readonly TransformSystem _transform;
-    private readonly OccluderSystem _occluder;
     private readonly StealthSystem _stealth;
     private readonly ContainerSystem _container;
+    private readonly SharedPointLightSystem _light;
 
     public override bool RequestScreenTexture => true;
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
     private readonly List<ThermalVisionRenderEntry> _entries = [];
+
+    private EntityUid? _lightEntity;
+
+    public float LightRadius;
 
     public ThermalVisionOverlay()
     {
@@ -33,18 +36,15 @@ public sealed class ThermalVisionOverlay : Overlay
 
         _container = _entity.System<ContainerSystem>();
         _transform = _entity.System<TransformSystem>();
-        _occluder = _entity.System<OccluderSystem>();
         _stealth = _entity.System<StealthSystem>();
+        _light = _entity.System<SharedPointLightSystem>();
 
         ZIndex = -1;
     }
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        if (ScreenTexture is null
-            || _players.LocalEntity == null
-            || !_entity.TryGetComponent<ThermalVisionComponent>(_players.LocalEntity.Value, out var component)
-            || !component.IsActive)
+        if (ScreenTexture is null)
             return;
 
         var worldHandle = args.WorldHandle;
@@ -53,6 +53,22 @@ public sealed class ThermalVisionOverlay : Overlay
         if (eye == null)
             return;
 
+        var player = _player.LocalEntity;
+
+        if (!_entity.TryGetComponent(player, out TransformComponent? playerXform))
+            return;
+
+        // Thermal vision grants some night vision (clientside light)
+        if (LightRadius > 0)
+        {
+            _lightEntity ??= _entity.SpawnAttachedTo(null, playerXform.Coordinates);
+            _transform.SetParent(_lightEntity.Value, player.Value);
+            var light = _entity.EnsureComponent<PointLightComponent>(_lightEntity.Value);
+            _light.SetRadius(_lightEntity.Value, LightRadius, light);
+        }
+        else
+            ResetLight();
+
         var mapId = eye.Position.MapId;
         var eyeRot = eye.Rotation;
 
@@ -60,7 +76,7 @@ public sealed class ThermalVisionOverlay : Overlay
         var entities = _entity.EntityQueryEnumerator<BodyComponent, SpriteComponent, TransformComponent>();
         while (entities.MoveNext(out var uid, out var body, out var sprite, out var xform))
         {
-            if (!CanSee(uid, sprite, body))
+            if (!CanSee(uid, sprite) || !body.ThermalVisibility)
                 continue;
 
             var entity = uid;
@@ -77,10 +93,10 @@ public sealed class ThermalVisionOverlay : Overlay
                 }
             }
 
-            if (_entries.Any(e => e.Ent.Item1 == entity))
+            if (_entries.Any(e => e.Ent.Owner == entity))
                 continue;
 
-            _entries.Add(new ThermalVisionRenderEntry((entity, sprite, xform, body), mapId, eyeRot));
+            _entries.Add(new ThermalVisionRenderEntry((entity, sprite, xform), mapId, eyeRot));
         }
 
         foreach (var entry in _entries)
@@ -88,16 +104,16 @@ public sealed class ThermalVisionOverlay : Overlay
             Render(entry.Ent, entry.Map, worldHandle, entry.EyeRot);
         }
 
-        worldHandle.SetTransform(Matrix3.Identity);
+        worldHandle.SetTransform(Matrix3x2.Identity);
     }
 
-    private void Render(Entity<SpriteComponent, TransformComponent, BodyComponent> ent,
+    private void Render(Entity<SpriteComponent, TransformComponent> ent,
         MapId? map,
         DrawingHandleWorld handle,
         Angle eyeRot)
     {
-        var (uid, sprite, xform, body) = ent;
-        if (xform.MapID != map || HasOccluders(uid) || !CanSee(uid, sprite, body))
+        var (uid, sprite, xform) = ent;
+        if (xform.MapID != map || !CanSee(uid, sprite))
             return;
 
         var position = _transform.GetWorldPosition(xform);
@@ -106,25 +122,23 @@ public sealed class ThermalVisionOverlay : Overlay
         sprite.Render(handle, eyeRot, rotation, position: position);
     }
 
-    private bool CanSee(EntityUid uid, SpriteComponent sprite, BodyComponent body)
+    private bool CanSee(EntityUid uid, SpriteComponent sprite)
     {
-        return sprite.Visible
-               && body.ThermalVisibility
-               && (!_entity.TryGetComponent(uid, out StealthComponent? stealth)
-                   || _stealth.GetVisibility(uid, stealth) > 0.5f);
+        return sprite.Visible && (!_entity.TryGetComponent(uid, out StealthComponent? stealth) ||
+                                  _stealth.GetVisibility(uid, stealth) > 0.5f);
     }
 
-    private bool HasOccluders(EntityUid uid)
+    public void ResetLight()
     {
-        var mapCoordinates = _transform.GetMapCoordinates(uid);
-        var occluders = _occluder.QueryAabb(mapCoordinates.MapId,
-            Box2.CenteredAround(mapCoordinates.Position, new Vector2(0.3f, 0.3f)));
+        if (_lightEntity == null)
+            return;
 
-        return occluders.Any(o => o.Component.Enabled);
+        _entity.DeleteEntity(_lightEntity);
+        _lightEntity = null;
     }
 }
 
 public record struct ThermalVisionRenderEntry(
-    (EntityUid, SpriteComponent, TransformComponent, BodyComponent) Ent,
+    Entity<SpriteComponent, TransformComponent> Ent,
     MapId? Map,
     Angle EyeRot);

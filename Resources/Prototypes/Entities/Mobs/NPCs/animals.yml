@@ -64,6 +64,10 @@
   - type: Tag
     tags:
     - VimPilot
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: bee
@@ -1789,9 +1793,9 @@
           sprite: Objects/Consumable/Food/skewer.rsi
           state: skewer-rat
   - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
     color: "#808080"
-    playSoundOn: false
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   parent: MobMouse
@@ -2452,9 +2456,9 @@
         Brute: -0.07
         Burn: -0.07
   - type: NightVision # Goobstation - Nigthvision
-    isToggle: true
     color: "#808080"
-    playSoundOn: false
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: tarantula

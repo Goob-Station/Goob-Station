@@ -1,12 +1,13 @@
 - type: entity
   id: ToggleNightVision
-  name: Switch night vision
-  description: Switches night vision.
+  name: Toggle Night Vision
+  description: Toggles night vision.
   noSpawn: true
   components:
   - type: InstantAction
     itemIconStyle: BigAction
     priority: -20
+    useDelay: 1
     icon:
       sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
       state: icon
@@ -14,13 +15,14 @@
 
 - type: entity
   id: ToggleThermalVision
-  name: Switch Thermal vision
-  description: Switches Thermal vision.
+  name: Toggle Thermal Vision
+  description: Toggles thermal vision.
   noSpawn: true
   components:
   - type: InstantAction
     itemIconStyle: BigAction
     priority: -20
+    useDelay: 1
     icon:
       sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
       state: icon

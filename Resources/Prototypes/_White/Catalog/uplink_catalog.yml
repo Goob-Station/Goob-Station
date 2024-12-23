@@ -8,7 +8,7 @@
   cost:
     Telecrystal: 15 # goob
   categories:
-  - UplinkArmor
+  - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
     blacklist:
@@ -23,7 +23,7 @@
   cost:
     Telecrystal: 15 # goob
   categories:
-  - UplinkArmor
+  - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
@@ -40,7 +40,7 @@
   cost:
     Telecrystal: 15 # goob
   categories:
-  - UplinkArmor
+  - UplinkWearables
 
 - type: listing
   id: UplinkThermalGogglesNukie
@@ -50,7 +50,7 @@
   cost:
     Telecrystal: 15 # goob
   categories:
-  - UplinkArmor
+  - UplinkWearables
   conditions:
   - !type:StoreWhitelistCondition
     whitelist:
