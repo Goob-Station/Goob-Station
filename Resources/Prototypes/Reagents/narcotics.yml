@@ -618,7 +618,7 @@
   group: Narcotics
   desc: reagent-desc-nitrosyl-plasmide
   physicalDesc: reagent-physical-desc-translucent
-  flavor: sourness
+  flavor: sour
   color: "#e1a116"
   metabolisms:
     Gas:

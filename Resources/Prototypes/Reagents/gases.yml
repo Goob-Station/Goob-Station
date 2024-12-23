@@ -518,7 +518,7 @@
   name: reagent-name-healium
   desc: reagent-desc-healium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: rubbery
+  flavor: strange
   color: "#90560b"
   metabolisms:
     Gas:
@@ -582,7 +582,7 @@
   name: reagent-name-nitrium
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: burning
+  flavor: sour
   color: "#90560B"
   metabolisms:
     Gas:
