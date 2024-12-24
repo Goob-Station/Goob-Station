@@ -1,0 +1,10 @@
+- type: entity
+  id: BulletLightRifleSubsonic
+  name: bullet (.30 rifle subsonic)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18
