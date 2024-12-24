@@ -80,8 +80,8 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
                 continue;
 
             Toggle(uid, comp, false, false);
-            RaiseSwitchableOverlayToggledEvent(uid, uid);
-            RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid);
+            RaiseSwitchableOverlayToggledEvent(uid, uid, comp.IsActive);
+            RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid, comp.IsActive);
         }
     }
 
@@ -89,7 +89,13 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
     {
         args.State = new SwitchableVisionOverlayComponentState
         {
+            Color = component.Color,
             IsActive = component.IsActive,
+            FlashDurationMultiplier = component.FlashDurationMultiplier,
+            ActivateSound = component.ActivateSound,
+            DeactivateSound = component.DeactivateSound,
+            ToggleAction = component.ToggleAction,
+            LightRadius = component is ThermalVisionComponent thermal ? thermal.LightRadius : 0f,
         };
     }
 
@@ -98,13 +104,29 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         if (args.Current is not SwitchableVisionOverlayComponentState state)
             return;
 
+        component.Color = state.Color;
+        component.FlashDurationMultiplier = state.FlashDurationMultiplier;
+        component.ActivateSound = state.ActivateSound;
+        component.DeactivateSound = state.DeactivateSound;
+
+        if (component.ToggleAction != state.ToggleAction)
+        {
+            _actions.RemoveAction(uid, component.ToggleActionEntity);
+            component.ToggleAction = state.ToggleAction;
+            if (component.ToggleAction != null)
+                _actions.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
+        }
+
+        if (component is ThermalVisionComponent thermal)
+            thermal.LightRadius = state.LightRadius;
+
         if (component.IsActive == state.IsActive)
             return;
 
         component.IsActive = state.IsActive;
 
-        RaiseSwitchableOverlayToggledEvent(uid, uid);
-        RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid);
+        RaiseSwitchableOverlayToggledEvent(uid, uid, component.IsActive);
+        RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid, component.IsActive);
     }
 
     private void OnGetItemActions(Entity<TComp> ent, ref GetItemActionsEvent args)
@@ -128,7 +150,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
     private void OnToggle(EntityUid uid, TComp component, TEvent args)
     {
         Toggle(uid, component, !component.IsActive);
-        RaiseSwitchableOverlayToggledEvent(uid, args.Performer);
+        RaiseSwitchableOverlayToggledEvent(uid, args.Performer, component.IsActive);
         args.Handled = true;
     }
 
@@ -152,15 +174,12 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         Dirty(uid, component);
     }
 
-    private void RaiseSwitchableOverlayToggledEvent(EntityUid uid, EntityUid user)
+    private void RaiseSwitchableOverlayToggledEvent(EntityUid uid, EntityUid user, bool activated)
     {
-        if (_net.IsServer)
-            return;
-
-        var ev = new SwitchableOverlayToggledEvent(user);
+        var ev = new SwitchableOverlayToggledEvent(user, activated);
         RaiseLocalEvent(uid, ref ev);
     }
 }
 
 [ByRefEvent]
-public record struct SwitchableOverlayToggledEvent(EntityUid User);
+public record struct SwitchableOverlayToggledEvent(EntityUid User, bool Activated);

@@ -58,7 +58,6 @@ public sealed partial class StingLayEggsEvent : EntityTargetActionEvent { }
 #region Events - Utility
 
 public sealed partial class ActionAnatomicPanaceaEvent : InstantActionEvent { }
-public sealed partial class ActionAugmentedEyesightEvent : InstantActionEvent { }
 public sealed partial class ActionBiodegradeEvent : InstantActionEvent { }
 public sealed partial class ActionChameleonSkinEvent : InstantActionEvent { }
 public sealed partial class ActionEphedrineOverdoseEvent : InstantActionEvent { }
@@ -68,5 +67,11 @@ public sealed partial class ActionLesserFormEvent : InstantActionEvent { }
 public sealed partial class ActionSpacesuitEvent : InstantActionEvent { }
 public sealed partial class ActionHivemindAccessEvent : InstantActionEvent { }
 public sealed partial class ActionContortBodyEvent : InstantActionEvent { }
+
+#endregion
+
+#region Events - Misc
+
+public sealed partial class AugmentedEyesightPurchasedEvent : EntityEventArgs { }
 
 #endregion

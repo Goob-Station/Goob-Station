@@ -2,7 +2,7 @@
   id: ToggleNightVision
   name: Toggle Night Vision
   description: Toggles night vision.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -17,7 +17,7 @@
   id: ToggleThermalVision
   name: Toggle Thermal Vision
   description: Toggles thermal vision.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     itemIconStyle: BigAction
@@ -33,7 +33,7 @@
   parent: ToggleThermalVision
   name: Pulse Thermal Vision
   description: Activate thermal vision temporarily.
-  noSpawn: true
+  categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
     useDelay: 4

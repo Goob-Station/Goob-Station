@@ -25,12 +25,10 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
     public float FlashDurationMultiplier = 1f;
 
     [DataField]
-    public virtual SoundSpecifier? ActivateSound { get; set; } =
-        new SoundPathSpecifier("/Audio/_White/Items/Goggles/activate.ogg");
+    public SoundSpecifier? ActivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/activate.ogg");
 
     [DataField]
-    public virtual SoundSpecifier? DeactivateSound { get; set; } =
-        new SoundPathSpecifier("/Audio/_White/Items/Goggles/deactivate.ogg");
+    public SoundSpecifier? DeactivateSound = new SoundPathSpecifier("/Audio/_White/Items/Goggles/deactivate.ogg");
 
     [DataField]
     public virtual EntProtoId? ToggleAction { get; set; }
@@ -42,5 +40,11 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
 [Serializable, NetSerializable]
 public sealed class SwitchableVisionOverlayComponentState : IComponentState
 {
+    public Color Color;
     public bool IsActive;
+    public float FlashDurationMultiplier;
+    public SoundSpecifier? ActivateSound;
+    public SoundSpecifier? DeactivateSound;
+    public EntProtoId? ToggleAction;
+    public float LightRadius;
 }
