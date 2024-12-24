@@ -22,6 +22,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
     {
         SubscribeLocalEvent<TComp, TEvent>(OnToggle);
         SubscribeLocalEvent<TComp, ComponentInit>(OnInit);
+        SubscribeLocalEvent<TComp, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<TComp, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<TComp, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<TComp, ComponentGetState>(OnGetState);
@@ -143,7 +144,11 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
     private void OnInit(EntityUid uid, TComp component, ComponentInit args)
     {
         component.PulseAccumulator = component.PulseTime;
-        if (component.ToggleAction != null)
+    }
+
+    private void OnMapInit(EntityUid uid, TComp component, MapInitEvent args)
+    {
+        if (component.ToggleActionEntity == null && component.ToggleAction != null)
             _actions.AddAction(uid, ref component.ToggleActionEntity, component.ToggleAction);
     }
 
