@@ -134,7 +134,7 @@
   minimumTemperature: 1500.0
   minimumRequirements:
   - 0     # oxygen
-  - 20    # nitrogen
+  - 10    # nitrogen
   - 0     # carbon dioxide
   - 0     # plasma
   - 20    # tritium
