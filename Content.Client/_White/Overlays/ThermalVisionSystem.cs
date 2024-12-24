@@ -16,7 +16,7 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
     {
         base.Initialize();
 
-        SubscribeLocalEvent<ThermalVisionComponent, SwitchableOverlayToggledEvent>(OnToggle, after: new[] { typeof(NightVisionSystem) });
+        SubscribeLocalEvent<ThermalVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
         _thermalOverlay = new ThermalVisionOverlay();
         _overlay = new BaseSwitchableOverlay<ThermalVisionComponent>();
@@ -37,13 +37,12 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
             if (!comp.IsActive)
                 continue;
 
-            if (comp.DrawOverlay)
-            {
-                if (tvComp == null)
-                    tvComp = comp;
-                else if (tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
-                    tvComp = comp;
-            }
+            if (tvComp == null)
+                tvComp = comp;
+            else if (!tvComp.DrawOverlay && comp.DrawOverlay)
+                tvComp = comp;
+            else if (tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+                tvComp = comp;
 
             lightRadius = MathF.Max(lightRadius, comp.LightRadius);
         }
@@ -80,11 +79,11 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
     {
         switch (tvComp)
         {
-            case not null when !_overlayMan.HasOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>():
+            case { DrawOverlay: true } when !_overlayMan.HasOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>():
                 _overlay.Comp = tvComp;
                 _overlayMan.AddOverlay(_overlay);
                 break;
-            case null:
+            case null or { DrawOverlay: false }:
                 _overlayMan.RemoveOverlay(_overlay);
                 break;
         }

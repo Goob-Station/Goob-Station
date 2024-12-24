@@ -6,8 +6,27 @@
   suffix: MagicItem
   components:
     - type: HereticMagicItem
+    - type: HereticClothing
     - type: Sprite
       sprite: _Goobstation/Heretic/amber_focus.rsi
       state: icon
     - type: Clothing
       sprite: _Goobstation/Heretic/amber_focus.rsi
+
+- type: entity
+  parent: ClothingNeckAmberFocus
+  id: ClothingEldritchMedalion
+  name: warm eldritch medallion
+  description: A strange medallion. Peering through the crystalline surface, the world around you melts away. You see your own beating heart, and the pulsing of a thousand others.
+  components:
+    - type: Sprite
+      sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+      state: icon
+    - type: Clothing
+      sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    - type: ThermalVision
+      isActive: true
+      color: white
+      drawOverlay: false
+      lightRadius: 0
+      toggleAction: null
