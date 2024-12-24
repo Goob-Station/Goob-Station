@@ -7,26 +7,20 @@ namespace Content.Server._Goobstation.RandomChanceSpawner;
 
 public sealed partial class RandomChanceSpawnerSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
-    public override void Update(float frameTime)
+    public override void Initialize()
     {
-        base.Update(frameTime);
+        SubscribeLocalEvent<RandomChanceSpawnerComponent, MapInitEvent>(OnMapInit);
+    }
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
-        foreach (var comp in EntityManager.EntityQuery<RandomChanceSpawnerComponent>())
+    public void OnMapInit(Entity<RandomChanceSpawnerComponent> ent, ref MapInitEvent args)
+    {
+        foreach(KeyValuePair<EntProtoId, float> kvp in ent.Comp.ToSpawn)
         {
-            var uid = comp.Owner;
-
-            foreach(KeyValuePair<EntProtoId, float> kvp in comp.ToSpawn)
-            {
-                if (kvp.Value >= _random.NextFloat(0.0f, 1.0f))
-                    Spawn(kvp.Key, Transform(uid).Coordinates);
-            }
-            EntityManager.QueueDeleteEntity(uid);
+            if (kvp.Value >= _random.NextFloat(0.0f, 1.0f))
+                Spawn(kvp.Key, Transform(ent).Coordinates);
         }
+        EntityManager.QueueDeleteEntity(ent);
     }
 }
