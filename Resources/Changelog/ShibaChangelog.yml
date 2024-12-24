@@ -1,6 +1,37 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Thief now has two new steal targets. Gee I wonder what they are...
+    type: Add
+  id: 66
+  time: '2024-12-24T05:18:18.885721'
+- author: AstroDogeDX
+  changes:
+  - message: Added the Experimental RPD - a self-charging version of the RPD!
+    type: Add
+  id: 65
+  time: '2024-12-24T05:17:14.334285'
+- author: AstroDogeDX
+  changes:
+  - message: Events have been tweaked YET AGAIN... we'll get there eventually...
+    type: Tweak
+  id: 64
+  time: '2024-12-24T05:18:54.075706'
+- author: AstroDogeDX
+  changes:
+  - message: Experimental RCD and Experimental RPD have been added to the CE locker!
+    type: Add
+  id: 63
+  time: '2024-12-24T05:17:42.883565'
+- author: AstroDogeDX
+  changes:
+  - message: (Admin) aghosts can now perform surgery and target limbs. This is useful
+      for admemes!
+    type: Add
+  id: 62
+  time: '2024-12-24T05:19:36.725884'
+- author: AstroDogeDX
+  changes:
   - message: Hostile mob spawns from vents have been tweaked again to stagger depending
       on player count, with the least to most robust mobs spawning as player count
       increases.
