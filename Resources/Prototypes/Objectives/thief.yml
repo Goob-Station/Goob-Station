@@ -237,6 +237,17 @@
   - type: Objective
     difficulty: 1
 
+- type: entity # ShibaStation - steal the new experimental RCD or RPD!
+  parent: BaseThiefStealObjective
+  id: CeToolStealObjective
+  components:
+  - type: NotJobRequirement
+    job: StationEngineer
+  - type: StealCondition
+    stealGroup: CeTool
+  - type: Objective
+    difficulty: 1.4
+
 - type: entity                                      #Cargo subgroup
   parent: BaseThiefStealObjective
   id: ExpeditionsCircuitboardStealObjective

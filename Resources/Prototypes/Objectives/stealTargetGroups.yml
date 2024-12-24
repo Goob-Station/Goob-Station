@@ -214,6 +214,13 @@
     sprite: Objects/Devices/flatpack.rsi
     state: ame-part
 
+- type: stealTargetGroup # ShibaStation - For experimental RCD and RPD steal targets
+  id: CeTool
+  name: steal-target-groups-ce-tool
+  sprite:
+    sprite: Objects/Tools/rcd.rsi
+    state: icon
+
 - type: stealTargetGroup
   id: SalvageExpeditionsComputerCircuitboard
   name: steal-target-groups-salvage-expeditions-computer-circuitboard

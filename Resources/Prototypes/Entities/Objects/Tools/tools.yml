@@ -397,6 +397,20 @@
   - type: Sprite
     sprite: Objects/Tools/rpd.rsi
 
+- type: entity # ShibaStation - Why not self-charge RPD too? :3
+  id: RPDRecharging
+  parent: RPD
+  name: experimental RPD
+  description: A bluespace-enhanced rapid piping device that passively generates its own compressed matter.
+  suffix: AutoRecharge
+  components:
+  - type: LimitedCharges
+    maxCharges: 45
+    charges: 45
+  - type: AutoRecharge
+    rechargeDuration: 10
+  - type: StealTarget # ShibaStation - Very useful item, so it should be steal target
+    stealGroup: CeTool
 
 - type: entity
   id: RCDEmpty
@@ -418,6 +432,8 @@
     charges: 20
   - type: AutoRecharge
     rechargeDuration: 10
+  - type: StealTarget # ShibaStation - Very useful item, so it should be steal target
+    stealGroup: CeTool
 
 - type: entity
   id: RCDExperimental

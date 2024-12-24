@@ -161,8 +161,8 @@
     - id: ClothingHandsGlovesColorYellow
     - id: ClothingHeadsetAltEngineering
     - id: DoorRemoteEngineering
-    - id: RCD
-    - id: RCDAmmo
+    - id: RCDRecharging # ShibaStation - Added experimental RCD and experimental RPD to CE locker
+    - id: RPDRecharging # ShibaStation - Added experimental RCD and experimental RPD to CE locker
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
 # Hardsuit table, used for suit storage as well
