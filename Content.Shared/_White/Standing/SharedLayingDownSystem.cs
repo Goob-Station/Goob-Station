@@ -1,7 +1,7 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.CCVar; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -111,7 +111,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
             TerminatingOrDeleted(uid) ||
             // Shitmed Change
             !TryComp<BodyComponent>(uid, out var body) ||
-            body.LegEntities.Count == 0 ||
+            body.LegEntities.Count < body.RequiredLegs ||
             HasComp<DebrainedComponent>(uid))
             return false;
 
@@ -149,36 +149,7 @@ public abstract class SharedLayingDownSystem : EntitySystem
         if (!TryComp(ent, out ActorComponent? actor))
             return;
 
-        // Goobstation start
-        bool fullyParalyzed = false;
-
-        if (TryComp<BodyComponent>(ent, out var body))
-        {
-            foreach (var legEntity in body.LegEntities)
-            {
-                if (!TryComp<BodyPartComponent>(legEntity, out var partCmp))
-                    continue;
-
-                if (!partCmp.Enabled)
-                {
-                    fullyParalyzed = true;
-                    continue;
-                }
-
-                fullyParalyzed = false;
-                break;
-            }
-        }
-
-        if (fullyParalyzed)
-        {
-            ent.Comp.AutoGetUp = false;
-            Dirty(ent);
-            return;
-        }
-        // Goobstation end
-
-        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, CCVars.AutoGetUp);
+        ent.Comp.AutoGetUp = _cfg.GetClientCVar(actor.PlayerSession.Channel, GoobCVars.AutoGetUp);
         Dirty(ent);
     }
 

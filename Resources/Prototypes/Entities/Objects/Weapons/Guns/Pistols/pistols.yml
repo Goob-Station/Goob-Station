@@ -230,8 +230,8 @@
     maxAngle: 8
     angleIncrease: 3
     angleDecay: 4
+    fireRate: 3
     # Goob edit end
-    fireRate: 4
     availableModes:
     - SemiAuto
     soundGunshot:

@@ -71,7 +71,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// <summary>
     ///     Shitmed Change: Whether this body part can be enabled or not. Used for non-functional prosthetics.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanEnable = true;
 
     /// <summary>

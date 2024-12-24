@@ -140,6 +140,20 @@
   - type: Objective
     difficulty: 0.5 # just for fun, collectings LAMP on Moth
 
+- type: entity  # Goobstation
+  parent: BaseThiefStealCollectionObjective
+  id: BatteryStealCollectionObjective
+  components:
+  - type: SpeciesRequirement
+    allowedSpecies:
+    - IPC
+  - type: StealCondition
+    stealGroup: Battery
+    minCollectionSize: 5
+    maxCollectionSize: 30
+  - type: Objective
+    difficulty: 0.5 # just for fun, collectings Battery for ipc
+
 # steal item
 
 - type: entity                                      #Security subgroup
