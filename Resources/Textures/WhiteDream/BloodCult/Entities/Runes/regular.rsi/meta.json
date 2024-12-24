@@ -1,0 +1,38 @@
+{
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from Paradise Station 13, edited by @kilath (discord 493110710377906196)",
+  "version": 1,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "barrier"
+    },
+    {
+      "name": "blood_boil"
+    },
+    {
+      "name": "empower"
+    },
+    {
+      "name": "offering"
+    },
+    {
+      "name": "revive"
+    },
+    {
+      "name": "spirit_realm"
+    },
+    {
+      "name": "strength"
+    },
+    {
+      "name": "summon"
+    },
+    {
+      "name": "teleport"
+    }
+  ]
+}

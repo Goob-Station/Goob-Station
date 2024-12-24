@@ -73,3 +73,6 @@
 - type: statusEffect
   id: Adrenaline
   alert: Adrenaline
+
+- type: statusEffect # WD Cult
+  id: PhaseShifted

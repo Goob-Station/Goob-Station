@@ -1,0 +1,29 @@
+﻿- type: tile
+  id: CultFloor
+  name: tiles-cult-floor
+  sprite: /Textures/WhiteDream/BloodCult/Tiles/cult_tile/cult.png
+  variants: 1
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000
+
+- type: tile
+  id: CultFloorConcealed
+  name: tiles-steel-floor
+  sprite: /Textures/WhiteDream/BloodCult/Tiles/cult_tile/concealed.png
+  variants: 3
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  baseTurf: Plating
+  isSubfloor: false
+  deconstructTools: [ Prying ]
+  footstepSounds:
+    collection: FootstepFloor
+  itemDrop: FloorTileItemSteel
+  heatCapacity: 10000

@@ -1,0 +1,11 @@
+﻿- type: psionicPowerPool
+  id: BloodCultPowers
+  powers:
+  - ActionBloodCultStun
+  - ActionBloodCultTeleport
+  - ActionBloodCultEmp
+  #- ActionBloodCultShadowShackles # removing them until they work
+  - ActionBloodCultTwistedConstruction
+  #- ActionBloodCultSummonCombatEquipment # OP
+  - ActionBloodCultSummonRitualDagger
+  - ActionBloodCultBloodRites
