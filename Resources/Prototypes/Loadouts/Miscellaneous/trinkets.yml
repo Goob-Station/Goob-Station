@@ -157,6 +157,19 @@
     back:
     - ClothingNeckAutismPin
 
+# GoobStation
+- type: loadout
+  id: CardBoxBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 36000 # 10hr
+  storage:
+    back:
+    - CardBoxBlack
+
+
 # Towels
 - type: loadout
   id: TowelColorWhite
