@@ -41,6 +41,11 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
+  conditions:
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+      - NukeOpsUplink
 
 - type: listing
   id: UplinkThermalGogglesNukie
