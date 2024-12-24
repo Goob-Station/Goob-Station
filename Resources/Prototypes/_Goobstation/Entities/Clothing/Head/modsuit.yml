@@ -1,0 +1,128 @@
+- type: entity
+  abstract: true
+  # Used to put pressureProtection, layers blocker and etc components into ComponentToggler
+  id: BaseClothingModsuitHelmet
+  name: base modsuit helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: icon
+  - type: Clickable
+  - type: InteractionOutline
+  - type: GroupExamine
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    quickEquip: false
+    slots: [ HEAD ]
+    clothingVisuals:
+      head:
+      - state: equipped-HEAD
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+
+- type: entity
+  abstract: true
+  parent: BaseClothingModsuitHelmet
+  # Used for helmets that hide your identity even if it's not sealed
+  id: BaseClothingModsuitHelmetHideIdentity
+  name: base modsuit helmet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: IdentityBlocker
+  - type: IngestionBlocker
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - Snout
+    - HeadTop
+    - HeadSide
+
+- type: entity
+  parent: BaseClothingModsuitHelmet
+  id: ClothingModsuitHelmetStandard
+  name: standard modsuit hemlet
+  description: A special modular suit spaceproof helmet designed for compact folding inside modular suit control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Modsuits/standard.rsi
+    layers:
+    - state: helmet
+    - state: helmet-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: HideLayerClothing # This helmet don't have sprite on unsealed state
+    slots:
+    - Snout
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-helmet
+    sealDownPopup: sealable-clothing-seal-down-helmet
+  - type: SealableClothingVisuals
+    visualLayers:
+      head:
+      - state: equipped-HEAD-sealed
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.90
+        Slash: 0.90
+        Piercing: 0.95
+        Heat: 0.90
+        Radiation: 0.75
+  - type: ComponentToggler
+    components:
+    - type: BreathMask
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      heatingCoefficient: 0.01
+      coolingCoefficient: 0.01
+    - type: IdentityBlocker
+    - type: IngestionBlocker
+    - type: HideLayerClothing
+      slots:
+      - Hair
+      - Snout
+      - HeadTop
+      - HeadSide
+  #THIS WILL BE REPLACED WITH MODULE ↓↓
+  - type: ToggleableLightVisuals
+  - type: PointLight
+    enabled: false
+    radius: 3
+    energy: 2
+    mask: /Textures/Effects/LightMasks/cone.png
+    autoRot: true
+    netsync: false
+  - type: HandheldLight
+    addPrefix: true
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: LightBehaviour
+    behaviours:
+      - !type:FadeBehaviour
+        id: radiating
+        interpolate: Linear
+        maxDuration: 2.0
+        startValue: 3.0
+        endValue: 2.0
+        isLooped: true
+        reverseWhenFinished: true
+      - !type:PulseBehaviour
+        id: blinking
+        interpolate: Nearest
+        maxDuration: 1.0
+        minValue: 0.1
+        maxValue: 2.0
+        isLooped: true
+  - type: Battery
+    maxCharge: 600 #lights drain 3/s but recharge of 2 makes this 1/s. Therefore 600 is 10 minutes of light.
+    startingCharge: 600
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 2
+
