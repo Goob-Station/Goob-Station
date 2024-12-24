@@ -3565,3 +3565,9 @@ Entries:
       message: You now get 5 presents instead of just one. Rejoice.
   id: 393
   time: '2024-12-24T15:55:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added sprites for /tg/ gases
+  id: 394
+  time: '2024-12-24T16:08:33.0000000+00:00'
