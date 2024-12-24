@@ -18,8 +18,8 @@
     destroyOnRemove: true
     breakoutTime: 2
     freeTime: 2
-    sprintSpeed: 0.8
-    walkSpeed: 0.8
+    sprintSpeed: 0.7
+    walkSpeed: 0.7
     staminaDamage: 10
 
 - type: entity
@@ -74,4 +74,4 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 20
+        Piercing: 17
