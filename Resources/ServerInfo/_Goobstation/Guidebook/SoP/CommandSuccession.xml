@@ -10,63 +10,36 @@ This is the ideal list for passing down the Captain role in command. There are s
 
 [bullet/]When choosing the succeeding Captain, they should be marked on their ID as [color=#1b67a5]Acting Captain[/color] (following the same promotion procedures).
 
-  <Table Columns="1">
-    <ColorBox Color="#1b67a5">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        [bold][color=#ffffff][head=1]Command Succession[/head][/color][/bold]
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
-        Command should follow this order of succession. More information can be found below.
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Captain
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Head of Personnel (HoP)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Head of Security (HoS)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Warden
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Research Director (RD)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Chief Medical Officer (CMO)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Chief Engineer (CE)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Quartermaster (QM)
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
-        Security Officer
-      </Box>
-    </ColorBox>
-  </Table>
+<Box>
+[bold][color=#1b67a5][head=1]Command Succession[/head][/color][/bold]
+</Box>
+<Box>
+Captain
+</Box>
+<Box>
+Head of Personnel (HoP)
+</Box>
+<Box>
+Head of Security (HoS)
+</Box>
+<Box>
+Warden
+</Box>
+<Box>
+Research Director (RD)
+</Box>
+<Box>
+Chief Medical Officer (CMO)
+</Box>
+<Box>
+Chief Engineer (CE)
+</Box>
+<Box>
+Quartermaster (QM)
+</Box>
+<Box>
+Security Officer
+</Box>
 
   ## Succession Decision Process
   The new Acting Captain should follow the same responsibilities and uphold the same duties as a normal Captain would. These can be found in the Captain SOP.
