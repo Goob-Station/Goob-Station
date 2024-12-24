@@ -168,3 +168,68 @@
     Steel: 1500
     Glass: 750
     Silver: 150
+
+# Ammo
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazinePistolCaselessRifle
+  result: MagazinePistolCaselessRifle
+  materials:
+    Steel: 145
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxCaselessRifle
+  result: MagazineBoxCaselessRifle
+  materials:
+    Steel: 720
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineLightRifleBoxEmpty
+  result: MagazineLightRifleBoxEmpty
+  materials:
+    Steel: 100
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineLightRifleBox
+  result: MagazineLightRifleBox
+  materials:
+    Steel: 1600
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineHighCaliberEmpty
+  result: MagazineHighCaliberEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineHighCaliber
+  result: MagazineHighCaliber
+  materials:
+    Steel: 325
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineBoxHighCaliber
+  result: MagazineBoxHighCaliber
+  materials:
+    Steel: 600
+
+- type: latheRecipe
+  parent: BaseEmptyAmmoRecipe
+  id: MagazineMagnumEmpty
+  result: MagazineMagnumEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMagnum
+  result: MagazineMagnum
+  materials:
+    Steel: 165

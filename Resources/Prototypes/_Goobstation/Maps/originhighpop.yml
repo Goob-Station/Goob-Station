@@ -65,3 +65,9 @@
             Musician: [ 3, 3 ]
             Boxer: [ 2, 2 ]
 
+        # Goobstation blob-config-start HUGE
+        - type: StationBlobConfig
+          stageBegin: 40
+          stageCritical: 450
+          stageTheEnd: 900
+        # Goobstation blob-config-end

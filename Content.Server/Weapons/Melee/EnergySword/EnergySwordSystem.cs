@@ -1,4 +1,6 @@
+using Content.Server.Emp;
 using Content.Shared.Interaction;
+using Content.Shared.Item.ItemToggle;
 using Content.Shared.Light;
 using Content.Shared.Light.Components;
 using Content.Shared.Toggleable;
@@ -13,6 +15,7 @@ public sealed class EnergySwordSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedToolSystem _toolSystem = default!;
+    [Dependency] private readonly ItemToggleSystem _toggle = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -20,7 +23,17 @@ public sealed class EnergySwordSystem : EntitySystem
 
         SubscribeLocalEvent<EnergySwordComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<EnergySwordComponent, InteractUsingEvent>(OnInteractUsing);
+
+        SubscribeLocalEvent<EnergySwordComponent, EmpPulseEvent>(OnEmp); // Goobstation
     }
+
+    private void OnEmp(Entity<EnergySwordComponent> ent, ref EmpPulseEvent args) // Goobstation
+    {
+        args.Affected = true;
+        args.Disabled = true;
+        _toggle.TryDeactivate(ent.Owner);
+    }
+
     // Used to pick a random color for the blade on map init.
     private void OnMapInit(EntityUid uid, EnergySwordComponent comp, MapInitEvent args)
     {

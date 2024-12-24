@@ -226,14 +226,16 @@
     sprite: Objects/Weapons/Guns/Pistols/N1984.rsi
   - type: Gun
     minAngle: 1
-    maxAngle: 20
-    angleIncrease: 8
-    angleDecay: 9
-    fireRate: 4
+    # Goob edit start
+    maxAngle: 8
+    angleIncrease: 3
+    angleDecay: 4
+    fireRate: 3
+    # Goob edit end
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/Weapons/Guns/Gunshots/mk58.ogg
+      path: /Audio/Weapons/Guns/Gunshots/mateba.ogg # Goob edit
   - type: ItemSlots
     slots:
       gun_magazine:

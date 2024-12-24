@@ -38,6 +38,11 @@
     - rods_3
     - rods_4
     - rods_5
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     state: rods_5
     layers:
@@ -45,7 +50,7 @@
       map: ["base"]
   - type: Item
     size: Normal
-#    heldPrefix: rods
+    heldPrefix: rods
   - type: Construction
     graph: MetalRod
     node: MetalRod

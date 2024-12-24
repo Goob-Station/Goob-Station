@@ -121,3 +121,25 @@
     - ultra farts
     - ultra farted
     - ultra farting
+
+- type: emote 
+  id: Flap
+  name: chat-emote-name-flap
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/chitter.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-flap"]
+  chatTriggers:
+   - flaps
+   - flapped
+   - flaps his wings
+   - flaps her wings
+   - flaps their wings
+   - flaps its wings
+
