@@ -24,9 +24,6 @@ uplink-signaller-desc = A device that can trigger signals at any distance. You c
 
 # bang bang pew pew eat it up i gota go
 
-uplink-rifle-mag-name = .20 Rifle Magazine
-uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
-
 uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
@@ -55,6 +52,9 @@ uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicat
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 
+uplink-MAKR-name = MAKR Bundle
+uplink-MAKR-desc = PPPSSSSHhhhh.
+
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
 
@@ -74,6 +74,12 @@ uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the C
 
 uplink-frag-grenade-name = Frag Grenade
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
+
+uplink-rifle-subsonic-mag-name = .30 Rifle Subsonic Magazine
+uplink-rifle-subsonic-mag-desc = A 35 round magazine containing .30 rifle subsonic bullets. Supports the MAKR, Lecter, and M-90
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.

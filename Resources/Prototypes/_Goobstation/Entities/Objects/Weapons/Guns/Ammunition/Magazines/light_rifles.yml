@@ -1,0 +1,22 @@
+- type: entity
+  id: MagazineLightRifleSubsonic
+  name: "magazine (.30 rifle subsonic)"
+  parent: BaseMagazineLightRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineLightRifleSubsonic
+      - MagazineLightRifle
+  - type: BallisticAmmoProvider
+    proto: CartridgeLightRifleSubsonic
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeLightRifleSubsonic
+    capacity: 35
+  - type: Sprite
+    layers:
+    - state: rubber
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]

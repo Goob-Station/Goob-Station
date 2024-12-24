@@ -1,0 +1,19 @@
+- type: entity
+  id: CartridgeLightRifleSubsonic
+  name: cartridge (.30 rifle subsonic)
+  parent: BaseCartridgeLightRifle
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeLightRifle
+    - CartridgeLightRifleSubsonic
+  - type: CartridgeAmmo
+    proto: BulletLightRifleSubsonic
+  - type: Sprite
+    layers:
+      - state: base
+        map: [ "enum.AmmoVisualLayers.Base" ]
+      - state: tip
+        map: [ "enum.AmmoVisualLayers.Tip" ]
+        color: "#00f8ff"

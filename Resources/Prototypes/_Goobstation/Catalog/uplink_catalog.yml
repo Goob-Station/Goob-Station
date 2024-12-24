@@ -93,7 +93,6 @@
   categories:
   - UplinkWeaponry
 
-
 - type: listing
   id: UplinkMiniatureEnergyCrossbow
   name: uplink-miniature-energy-crossbow-name
@@ -109,6 +108,17 @@
     blacklist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkMAKR
+  name: uplink-MAKR-name
+  description: uplink-MAKR-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
+  productEntity: ClothingBackpackDuffelSyndicateFilledMAKR
+  cost:
+    Telecrystal: 85
+  categories:
+  - UplinkWeaponry
 
 - type: listing
   id: UplinkWeaponRifleBurner
@@ -428,6 +438,17 @@
   productEntity: MagazineRifle
   cost:
     Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkLightRifleSubsonicMag
+  name: uplink-rifle-subsonic-mag-name
+  description: uplink-rifle-subsonic-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi, state: rubber }
+  productEntity: MagazineLightRifleSubsonic
+  cost:
+    Telecrystal: 5
   categories:
   - UplinkAmmo
 

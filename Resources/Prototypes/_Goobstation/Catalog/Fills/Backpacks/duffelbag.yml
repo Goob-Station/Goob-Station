@@ -50,3 +50,15 @@
       - id: WeaponRifleM90
       - id: MagazineRifle
       - id: MagazineRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledMAKR
+  name: MAKR bundle
+  description: "A bundle carrying the syndicate's MAKR assault rifle, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleMAKR
+      - id: MagazineLightRifleSubsonic
+        amount: 2
