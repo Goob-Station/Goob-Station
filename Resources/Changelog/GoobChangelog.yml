@@ -3543,3 +3543,19 @@ Entries:
       message: Energy pen is not as good at delimbing anymore.
   id: 391
   time: '2024-12-23T14:28:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Wheelchair bound people can no longer stand up.
+    - type: Tweak
+      message: Only head can evade now.
+    - type: Tweak
+      message: People with at least 1 broken leg can't stand up.
+    - type: Fix
+      message: Fix evasion popups appearing when they shouldn't.
+    - type: Fix
+      message: >-
+        Mobs always target torso now, so the person being hit by them can't
+        evade.
+  id: 392
+  time: '2024-12-23T14:27:41.0000000+00:00'
