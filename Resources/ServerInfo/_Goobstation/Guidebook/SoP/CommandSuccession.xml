@@ -1,9 +1,13 @@
 <Document>
 # Command Succession
 This is the ideal list for passing down the Captain role in command. There are several factors to take into respect here, but this boils down to a simple list.
+
 [bullet/][color=#1b67a5]Blueshield Officer[/color] (BSO) and [color=#1b67a5]Nanotrasen Representative[/color] (NTR) should never hold a position of command on this station.
+
 [bullet/]This list can be deviated from for special circumstances, with the vote resting on Command to do so.
+
 [bullet/][color=#1b67a5]Nanotrasen Representative[/color], if one is present, should assist in this process and guide the new Captain.
+
 [bullet/]When choosing the succeeding Captain, they should be marked on their ID as [color=#1b67a5]Acting Captain[/color] (following the same promotion procedures).
 
   <Table Columns="1">
@@ -12,20 +16,36 @@ This is the ideal list for passing down the Captain role in command. There are s
         [bold][color=#ffffff][head=1]Command Succession[/head][/color][/bold]
       </Box>
     </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-        Command should follow this order of succession. More information can be found below.
-        [bullet/]Captain
-        [bullet/]Head of Personnel (HoP)
-        [bullet/]Head of Security (HoS)
-        [bullet/]Warden
-        [bullet/]Research Director (RD)
-        [bullet/]Chief Medical Officer (CMO)
-        [bullet/]Chief Engineer (CE)
-        [bullet/]Quartermaster (QM)
-        [bullet/]Security Officer
-      </Box>
-    </ColorBox>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Command should follow this order of succession. More information can be found below.
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Captain
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Head of Personnel (HoP)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Head of Security (HoS)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Warden
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Research Director (RD)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Chief Medical Officer (CMO)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Chief Engineer (CE)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Quartermaster (QM)
+    </Box>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
+      Security Officer
+    </Box>
   </Table>
 
   ## Succession Decision Process
@@ -33,11 +53,14 @@ This is the ideal list for passing down the Captain role in command. There are s
   The succession list is shown from [bold]top to bottom[/bold] and should be followed as such.
 
   If it is deemed necessary, or by wish of the Head of Staff that is being chosen, the next person in the succession may be skipped.
+
   [bullet/]For choices where the Head of Staff is deemed necessary to skip by others, it should be put to a vote by successors (barring Security Officers).
+
   [bullet/]For choices where the Head of Staff chooses to not accept the title, they should have a valid reason for doing so and justify it if necessary.
 
-  ### Choosing Security Officers
+  [head=3]Choosing Security Officers[/head]
   When choosing Security Officers for Command Succession, it should be put to a vote by all those included if there is no [color=#1b67a5]Nanotrasen Representative[/color].
+
   When voting, it should be held as fast as possible. If a tie happens while voting, seniority should prevail.
 
   ## Procedure for Acquiring Access
