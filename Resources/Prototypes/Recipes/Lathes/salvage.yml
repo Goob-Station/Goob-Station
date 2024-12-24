@@ -66,13 +66,3 @@
     Plastic: 200
     Silver: 200
     Diamond: 100
-
-- type: latheRecipe
-  id: OreBag
-  result: OreBag # Goobstation
-  category: Tools
-  completetime: 3
-  materials:
-    Plastic: 500
-    Cloth: 200
-    Steel: 100
