@@ -92,7 +92,7 @@
     fireRate: 8
     projectileSpeed: 15
     soundGunshot:
-      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/heavy_shot_suppressed.ogg
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
   - type: ItemSlots
     slots:
       gun_magazine:
