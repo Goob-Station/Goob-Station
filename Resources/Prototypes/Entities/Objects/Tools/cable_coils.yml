@@ -14,6 +14,11 @@
     - CableCoil
   - type: Stack
     stackType: Cable
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: Sprite
     sprite: Objects/Tools/cable-coils.rsi
   - type: Item
@@ -30,18 +35,16 @@
     materialComposition:
       Steel: 15
   # EE Change Start
-  #Same as Ointment but divided by 5 and 3 because StackPrice needs to be 1 - Estacao Pirata IPCs
-  #1 Ointment = -50 damage of those types
-  #1 Cable ~= -50 (-49.8) damage of those types
+  #MORE than ointment Estacao Pirata IPCs
   - type: Healing
     delay: 0.6
     damageContainers:
     - Silicon
     damage:
       types: # these are all split across multiple types
-        Heat: -1.66
-        Shock: -1.66
-        Ion: -1.66 # Goobstation
+        Heat: -3.0
+        Shock: -3.0
+        Ion: -3.0 # Goobstation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
   # Uncomment this when its implemented, and make sure it handles StackComponent right

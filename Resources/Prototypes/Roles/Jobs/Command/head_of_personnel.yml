@@ -16,13 +16,6 @@
     - !type:DepartmentTimeRequirement
       department: Command
       time: 36000 # 10 hours
-    - !type:AgeRequirement
-      requiredAge: 21
-    # Goobstation - Siouxcide, prevent felinids from playing command
-    - !type:SpeciesRequirement
-      inverted: true
-      species:
-      - Felinid
   weight: 20
   startingGear: HoPGear
   icon: "JobIconHeadOfPersonnel"
@@ -73,3 +66,4 @@
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

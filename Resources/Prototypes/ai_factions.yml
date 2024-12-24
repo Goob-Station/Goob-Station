@@ -8,6 +8,7 @@
     - Zombie
     - Revolutionary
     - Heretic # goob edit - heretics
+    - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: NanoTrasen
@@ -19,6 +20,7 @@
   - Revolutionary
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Mouse
@@ -35,6 +37,7 @@
   - SimpleHostile
   - Zombie
   - Xeno
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: SimpleHostile
@@ -47,6 +50,7 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - GeometerOfBlood
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: SimpleNeutral
@@ -61,6 +65,7 @@
   - Zombie
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Xeno
@@ -72,6 +77,7 @@
   - Zombie
   - Revolutionary
   - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Zombie
@@ -85,6 +91,7 @@
   - Revolutionary
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
+  - Blob # Goobstation - Blob
 
 - type: npcFaction
   id: Revolutionary
@@ -93,3 +100,4 @@
   - Zombie
   - SimpleHostile
   - Dragon
+  - Blob # Goobstation - Blob
