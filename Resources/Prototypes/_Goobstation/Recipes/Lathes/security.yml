@@ -233,3 +233,17 @@
   result: MagazineMagnum
   materials:
     Steel: 165
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMagnumLeverRifleEmpty
+  result: MagazineMagnumLeverRifleEmpty
+  materials:
+    Steel: 25
+
+- type: latheRecipe
+  parent: BaseAmmoRecipe
+  id: MagazineMagnumLeverRifle
+  result: MagazineMagnumLeverRifle
+  materials:
+    Steel: 185

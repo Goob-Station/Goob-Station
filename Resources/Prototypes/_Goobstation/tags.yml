@@ -129,3 +129,6 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: MagazineMagnumLeverRifle

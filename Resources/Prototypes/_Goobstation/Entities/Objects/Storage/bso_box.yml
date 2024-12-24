@@ -1,0 +1,30 @@
+- type: entity
+  id: BlueshieldAmmunitionBox
+  name: blueshield ammunition box
+  description: A box containing various ammunition and magazines for magnum type weapons.
+  parent: BaseStorageItem
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Storage/bso_box.rsi
+    layers:
+    - map: [ base ]
+      state: icon
+  - type: EmitSoundOnLand
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,1
+    whitelist:
+      components:
+      - BallisticAmmoProvider
+  - type: Item
+    size: Normal
+    shape:
+    - 0,0,2,1
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: icon-open }
+          False: { state: icon }
+  - type: Appearance
