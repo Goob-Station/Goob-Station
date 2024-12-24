@@ -25,7 +25,23 @@ public sealed class LimitedItemGiverSystem : EntitySystem
         if (!TryComp<ActorComponent>(args.User, out var actor))
             return;
 
-        if (component.GrantedPlayers.Contains(actor.PlayerSession.UserId) || (component.RequiredHoliday is not null && !_holiday.IsCurrentlyHoliday(component.RequiredHoliday)))
+        if (component.RequiredHoliday is not null && !_holiday.IsCurrentlyHoliday(component.RequiredHoliday))
+        {
+            _popup.PopupEntity(Loc.GetString(component.DeniedPopup), uid, args.User);
+            return;
+        }
+
+        var presentsCount = 0;
+
+        foreach (var player in component.GrantedPlayers)
+        {
+            if (player == actor.PlayerSession.UserId)
+            {
+                presentsCount++;
+            }
+        }
+
+        if (presentsCount >= 5) // Magic number
         {
             _popup.PopupEntity(Loc.GetString(component.DeniedPopup), uid, args.User);
             return;
