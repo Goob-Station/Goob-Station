@@ -10,11 +10,8 @@ This is the ideal list for passing down the Captain role in command. There are s
 
 [bullet/]When choosing the succeeding Captain, they should be marked on their ID as [color=#1b67a5]Acting Captain[/color] (following the same promotion procedures).
 
-<Box>[U+223E]</Box>
-
-<Box>
-[bold][color=#1b67a5][head=1]Command Succession[/head][/color][/bold]
-</Box>
+<Box>~</Box>
+<Box>[bold][color=#1b67a5][head=1]Command Succession[/head][/color][/bold]</Box>
 <Box>Captain</Box>
 <Box>Head of Personnel (HoP)</Box>
 <Box>Head of Security (HoS)</Box>
@@ -24,8 +21,7 @@ This is the ideal list for passing down the Captain role in command. There are s
 <Box>Chief Engineer (CE)</Box>
 <Box>Quartermaster (QM)</Box>
 <Box>Security Officer</Box>
-
-<Box>[U+223E]</Box>
+<Box>~</Box>
 
 ## Succession Decision Process
 The new Acting Captain should follow the same responsibilities and uphold the same duties as a normal Captain would. These can be found in the Captain SOP.
