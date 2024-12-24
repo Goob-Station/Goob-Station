@@ -13,3 +13,6 @@ ghost-role-information-skibidi-toilet-rules = You are a [color=red][bold]Antagon
 ghost-role-information-Hecu-name = HECU Operative
 ghost-role-information-Hecu-description = Central Command needs something done.
 ghost-role-information-Hecu-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
+
+ghost-role-information-lootbug-name = LootBug
+ghost-role-information-lootbug-description = Try not to be butchered by tiders.

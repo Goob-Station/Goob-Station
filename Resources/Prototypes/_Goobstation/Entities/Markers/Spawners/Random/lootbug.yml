@@ -1,0 +1,51 @@
+- type: entity
+  name: Lootbug loot spawner
+  id: SpawnLootLootbug
+  parent: MarkerBase
+  components:
+  - type: RandomChanceSpawner
+    toSpawn:
+      # materials
+      SteelOre1: 0.6
+      SheetSteel1: 0.5
+      SheetSteel10: 0.05
+      SheetPlasteel1: 0.4
+      SheetPlasteel10: 0.04
+      SheetUranium1: 0.03
+      GoldOre1: 0.04
+      IngotGold1: 0.01
+      SilverOre1: 0.04
+      IngotSilver1: 0.01
+      # tools
+      Crowbar: 0.15
+      Wrench: 0.15
+      Wirecutter: 0.09
+      Screwdriver: 0.09
+      ClothingHeadHatWelding: 0.06
+      Handcuffs: 0.05
+      # parts
+      CapacitorStockPart: 0.1
+      MicroManipulatorStockPart: 0.1
+      MatterBinStockPart: 0.1
+      # id cards
+      PassengerIDCard: 0.07
+      TechnicalAssistantIDCard: 0.05
+      ResearchAssistantIDCard: 0.05
+      MedicalInternIDCard: 0.05
+      SecurityCadetIDCard: 0.01
+      # weapons
+      KitchenKnife: 0.06
+      ButchCleaver: 0.05
+      SurvivalKnife: 0.04
+      CombatKnife: 0.01
+      WeaponPistolMk58: 0.005
+      # trash
+      GoldRing: 0.001
+      SilverRing: 0.001
+      GoldRingDiamond: 0.001
+      GoldRingGem: 0.001
+      # fun
+      WizardsGrimoire: 0.000001
+      WeaponPistolDebug: 0.000001
+      MeleeDebugGib: 0.000001
+
