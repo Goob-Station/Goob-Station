@@ -5,6 +5,12 @@
   components:
   - type: EnergySword
   - type: ItemToggle
+    # Goobstation start
+    soundFailToActivate:
+      path: /Audio/Machines/button.ogg
+      params:
+        variation: 0.250
+    # Goobstation end
     soundActivate:
       path: /Audio/Weapons/ebladeon.ogg
     soundDeactivate:
@@ -169,6 +175,7 @@
     damage:
       types:
         Blunt: 1
+    clickPartDamageMultiplier: 1 #goob content
   - type: Item
     size: Tiny
     sprite: Objects/Weapons/Melee/e_dagger_loud.rsi
@@ -249,6 +256,7 @@
     damage:
       types:
         Blunt: 1
+    clickPartDamageMultiplier: 1 #goob content
   - type: Tag
     tags:
     - Write
