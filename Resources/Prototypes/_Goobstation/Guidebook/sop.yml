@@ -1,3 +1,4 @@
+# SOP Main Directory
 - type: guideEntry
   id: SOP
   name: guide-entry-sop
@@ -5,7 +6,34 @@
   children:
   - Alert Levels
   - Succession
+  - Jobs SOP
 
+# Jobs Main Directory and Subdirectories
+- type: guideEntry
+  id: Jobs SOP
+  name: guide-entry-sop-jobs
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/JobsSOP.xml"
+  children:
+  - Command SOP
+  - Security SOP
+
+- type: guideEntry
+  id: Command SOP
+  name: guide-entry-sop-command
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandSOP.xml"
+  children:
+  - Captain SOP
+  - HoP SOP
+  - HoS SOP
+
+- type: guideEntry
+  id: Security SOP
+  name: guide-entry-sop-security
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
+  children:
+  - Warden SOP
+
+# Basic SOP Entries
 - type: guideEntry
   id: Alert Levels
   name: guide-entry-sop-alert-levels
@@ -15,3 +43,25 @@
   id: Succession
   name: guide-entry-sop-succession
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/CommandSuccession.xml"
+
+# Command SOP Entries
+- type: guideEntry
+  id: Captain SOP
+  name: guide-entry-sop-captain
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
+
+- type: guideEntry
+  id: HoP SOP
+  name: guide-entry-sop-hop
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HoPSOP.xml"
+
+- type: guideEntry
+  id: HoS SOP
+  name: guide-entry-sop-hos
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HoSSOP.xml"
+
+# Security SOP Entries
+- type: guideEntry
+  id: Warden SOP
+  name: guide-entry-sop-warden
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
