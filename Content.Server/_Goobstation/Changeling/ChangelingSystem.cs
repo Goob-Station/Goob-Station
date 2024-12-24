@@ -57,13 +57,15 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Server.Flash.Components;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
-using Content.Shared.Body.Components;
+using Content.Shared._White.Overlays;
+using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     // this is one hell of a star wars intro text
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -131,7 +133,32 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+
         SubscribeAbilities();
+    }
+
+    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
+    {
+        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
+            flashImmunity.Enabled = active;
+    }
+
+    private void OnAugmentedEyesightPurchased(Entity<ChangelingComponent> ent, ref AugmentedEyesightPurchasedEvent args)
+    {
+        EnsureComp<FlashImmunityComponent>(ent);
+        EnsureComp<EyeProtectionComponent>(ent);
+
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#FB9898");
+        thermalVision.LightRadius = 15f;
+        thermalVision.FlashDurationMultiplier = 2f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(ent, thermalVision);
+        Dirty(ent, thermalVision);
     }
 
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -577,6 +604,10 @@ public sealed partial class ChangelingSystem : EntitySystem
             typeof(GhoulComponent),
             typeof(HereticComponent),
             typeof(StoreComponent),
+            typeof(FlashImmunityComponent),
+            typeof(EyeProtectionComponent),
+            typeof(NightVisionComponent),
+            typeof(ThermalVisionComponent),
             // ADD MORE TYPES HERE
         };
         foreach (var type in types)

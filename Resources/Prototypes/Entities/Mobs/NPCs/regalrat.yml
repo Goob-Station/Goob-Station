@@ -128,6 +128,11 @@
     attributes:
       gender: male
   - type: Sharp
+  - type: NightVision # Goobstation - Nigthvision
+    toggleAction: null
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobRatKingBuff
@@ -307,6 +312,10 @@
   - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: weightedRandomEntity
   id: RatKingLoot

@@ -1,0 +1,83 @@
+# Night Vision Goggles
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesNightVisionGoggles
+  name: night vision goggles
+  description: Now you can see in the dark!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+  - type: NightVision
+    flashDurationMultiplier: 2
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesNightVisionGoggles
+  id: ClothingEyesNightVisionGogglesSyndie
+  suffix: "Chameleon"
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ChameleonClothing
+    slot: [eyes]
+    default: ClothingEyesGlassesSunglasses
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingEyesNightVisionGogglesSyndie
+  id: ClothingEyesNightVisionGogglesNukie
+  suffix: "Chameleon, NukeOps"
+  components:
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
+
+# Thermal Vision Goggles
+
+- type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesThermalVisionGoggles
+  name: thermal vision goggles
+  description: Now you can see everyone!
+  components:
+  - type: Sprite
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: Clothing
+    sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+  - type: ThermalVision
+    flashDurationMultiplier: 2
+    pulseTime: 2
+    toggleAction: PulseThermalVision
+  - type: IdentityBlocker
+    coverage: EYES
+
+- type: entity
+  parent: ClothingEyesThermalVisionGoggles
+  id: ClothingEyesThermalVisionGogglesSyndie
+  suffix: "Chameleon"
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: ChameleonClothing
+    slot: [eyes]
+    default: ClothingEyesGlassesSunglasses
+  - type: UserInterface
+    interfaces:
+      enum.ChameleonUiKey.Key:
+        type: ChameleonBoundUserInterface
+
+- type: entity
+  parent: ClothingEyesThermalVisionGogglesSyndie
+  id: ClothingEyesThermalVisionGogglesNukie
+  suffix: "Chameleon, NukeOps"
+  components:
+  - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
