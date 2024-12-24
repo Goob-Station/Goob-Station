@@ -3559,3 +3559,9 @@ Entries:
         evade.
   id: 392
   time: '2024-12-23T14:27:41.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: You now get 5 presents instead of just one. Rejoice.
+  id: 393
+  time: '2024-12-24T15:55:13.0000000+00:00'
