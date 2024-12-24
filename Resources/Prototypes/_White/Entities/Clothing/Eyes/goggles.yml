@@ -11,6 +11,7 @@
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
   - type: NightVision
+    flashDurationMultiplier: 2
   - type: IdentityBlocker
     coverage: EYES
 
@@ -51,6 +52,7 @@
   - type: Clothing
     sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
   - type: ThermalVision
+    flashDurationMultiplier: 2
     pulseTime: 2
     toggleAction: PulseThermalVision
   - type: IdentityBlocker
