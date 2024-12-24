@@ -857,6 +857,8 @@
       - SyringeGun # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary
