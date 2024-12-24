@@ -30,11 +30,13 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [ClothingEyesNightVisionGogglesSyndie, ShowSecurityIcons]
+  parent: ClothingEyesNightVisionGogglesSyndie
   id: ClothingEyesNightVisionGogglesNukie
   suffix: "Chameleon, NukeOps"
   components:
   - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons
 
 # Thermal Vision Goggles
 
@@ -70,8 +72,10 @@
         type: ChameleonBoundUserInterface
 
 - type: entity
-  parent: [ClothingEyesThermalVisionGogglesSyndie, ShowSecurityIcons]
+  parent: ClothingEyesThermalVisionGogglesSyndie
   id: ClothingEyesThermalVisionGogglesNukie
   suffix: "Chameleon, NukeOps"
   components:
   - type: ShowSyndicateIcons
+  - type: ShowJobIcons
+  - type: ShowMindShieldIcons

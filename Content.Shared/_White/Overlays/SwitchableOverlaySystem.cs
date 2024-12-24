@@ -71,6 +71,8 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
         if (component.PulseTime > 0f && component.PulseAccumulator >= component.PulseTime && !component.IsActive)
             Toggle(uid, component, false, false);
+        else if (component.IsActive == state.IsActive)
+            return;
         else
             component.IsActive = state.IsActive;
 
