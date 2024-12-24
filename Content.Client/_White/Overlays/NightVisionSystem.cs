@@ -33,7 +33,7 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         NightVisionComponent? nvComp = null;
         foreach (var comp in args.Components)
         {
-            if (comp.IsActive)
+            if (comp.IsActive || comp.PulseTime > 0f && comp.PulseAccumulator < comp.PulseTime)
                 active = true;
             else
                 continue;
@@ -69,10 +69,11 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
 
     private void UpdateOverlay(NightVisionComponent? nvComp)
     {
+        _overlay.Comp = nvComp;
+
         switch (nvComp)
         {
             case not null when !_overlayMan.HasOverlay<BaseSwitchableOverlay<NightVisionComponent>>():
-                _overlay.Comp = nvComp;
                 _overlayMan.AddOverlay(_overlay);
                 break;
             case null:

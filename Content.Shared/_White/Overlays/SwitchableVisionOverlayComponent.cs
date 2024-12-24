@@ -40,6 +40,4 @@ public abstract partial class SwitchableVisionOverlayComponent : BaseVisionOverl
 public sealed class SwitchableVisionOverlayComponentState : IComponentState
 {
     public bool IsActive;
-
-    public float PulseAccumulator;
 }

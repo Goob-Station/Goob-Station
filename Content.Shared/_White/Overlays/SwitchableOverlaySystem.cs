@@ -27,29 +27,39 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         SubscribeLocalEvent<TComp, ComponentHandleState>(OnHandleState);
     }
 
+    public override void FrameUpdate(float frameTime)
+    {
+        base.FrameUpdate(frameTime);
+
+        if (_net.IsClient)
+            ActiveTick(frameTime);
+    }
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (_net.IsClient)
-            return;
+        if (_net.IsServer)
+            ActiveTick(frameTime);
+    }
 
+    private void ActiveTick(float frameTime)
+    {
         var query = EntityQueryEnumerator<TComp>();
 
         while (query.MoveNext(out var uid, out var comp))
         {
-            if (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime || !comp.IsActive)
+            if (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime)
                 continue;
 
             comp.PulseAccumulator += frameTime;
 
             if (comp.PulseAccumulator < comp.PulseTime)
-            {
-                Dirty(uid, comp);
                 continue;
-            }
 
             Toggle(uid, comp, false, false);
+            RaiseSwitchableOverlayToggledEvent(uid, uid);
+            RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid);
         }
     }
 
@@ -58,7 +68,6 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         args.State = new SwitchableVisionOverlayComponentState
         {
             IsActive = component.IsActive,
-            PulseAccumulator = component.PulseAccumulator,
         };
     }
 
@@ -67,14 +76,10 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
         if (args.Current is not SwitchableVisionOverlayComponentState state)
             return;
 
-        component.PulseAccumulator = state.PulseAccumulator;
-
-        if (component.PulseTime > 0f && component.PulseAccumulator >= component.PulseTime && !component.IsActive)
-            Toggle(uid, component, false, false);
-        else if (component.IsActive == state.IsActive)
+        if (component.IsActive == state.IsActive)
             return;
-        else
-            component.IsActive = state.IsActive;
+
+        component.IsActive = state.IsActive;
 
         RaiseSwitchableOverlayToggledEvent(uid, uid);
         RaiseSwitchableOverlayToggledEvent(uid, Transform(uid).ParentUid);
@@ -100,7 +105,7 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
 
     private void OnToggle(EntityUid uid, TComp component, TEvent args)
     {
-        Toggle(uid, component, component.PulseTime > 0f || !component.IsActive);
+        Toggle(uid, component, !component.IsActive);
         RaiseSwitchableOverlayToggledEvent(uid, args.Performer);
         args.Handled = true;
     }
@@ -115,14 +120,14 @@ public abstract class SwitchableOverlaySystem<TComp, TEvent> : EntitySystem
                 false);
         }
 
-        if (_net.IsServer || component.PulseTime > 0f && !activate) // It is wonky on client otherwise
+        if (component.PulseTime > 0f)
         {
-            component.IsActive = activate;
             component.PulseAccumulator = activate ? 0f : component.PulseTime;
+            return;
         }
 
-        if (_net.IsServer)
-            Dirty(uid, component);
+        component.IsActive = activate;
+        Dirty(uid, component);
     }
 
     private void RaiseSwitchableOverlayToggledEvent(EntityUid uid, EntityUid user)

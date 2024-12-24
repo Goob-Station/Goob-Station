@@ -34,14 +34,14 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
         var lightRadius = 0f;
         foreach (var comp in args.Components)
         {
-            if (!comp.IsActive)
+            if (!comp.IsActive && (comp.PulseTime <= 0f || comp.PulseAccumulator >= comp.PulseTime))
                 continue;
 
             if (tvComp == null)
                 tvComp = comp;
             else if (!tvComp.DrawOverlay && comp.DrawOverlay)
                 tvComp = comp;
-            else if (tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
+            else if (tvComp.DrawOverlay == comp.DrawOverlay && tvComp.PulseTime > 0f && comp.PulseTime <= 0f)
                 tvComp = comp;
 
             lightRadius = MathF.Max(lightRadius, comp.LightRadius);
@@ -61,11 +61,12 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
 
     private void UpdateThermalOverlay(ThermalVisionComponent? comp, float lightRadius)
     {
+        _thermalOverlay.LightRadius = lightRadius;
+        _thermalOverlay.Comp = comp;
+
         switch (comp)
         {
             case not null when !_overlayMan.HasOverlay<ThermalVisionOverlay>():
-                _thermalOverlay.LightRadius = lightRadius;
-                _thermalOverlay.Comp = comp;
                 _overlayMan.AddOverlay(_thermalOverlay);
                 break;
             case null:
@@ -77,10 +78,11 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
 
     private void UpdateOverlay(ThermalVisionComponent? tvComp)
     {
+        _overlay.Comp = tvComp;
+
         switch (tvComp)
         {
             case { DrawOverlay: true } when !_overlayMan.HasOverlay<BaseSwitchableOverlay<ThermalVisionComponent>>():
-                _overlay.Comp = tvComp;
                 _overlayMan.AddOverlay(_overlay);
                 break;
             case null or { DrawOverlay: false }:
