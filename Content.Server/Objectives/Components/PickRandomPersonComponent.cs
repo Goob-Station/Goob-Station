@@ -8,4 +8,6 @@ namespace Content.Server.Objectives.Components;
 [RegisterComponent, Access(typeof(KillPersonConditionSystem))]
 public sealed partial class PickRandomPersonComponent : Component
 {
+    [DataField]
+    public bool NeedsOrganic; // Goobstation: Only pick non-silicon players.
 }
