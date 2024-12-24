@@ -69,7 +69,7 @@
 
 - type: latheRecipe
   id: OreBag
-  result: OreBag
+  result: OreBag # Goobstation
   category: Tools
   completetime: 3
   materials:
