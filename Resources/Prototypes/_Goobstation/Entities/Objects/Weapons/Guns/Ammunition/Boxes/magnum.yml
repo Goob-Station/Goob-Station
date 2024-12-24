@@ -1,7 +1,7 @@
 - type: entity
   id: BaseMagazineBoxMagnumExtended
   parent: BaseMagazineBoxMagnum
-  abstact: true
+  abstract: true
   components:
   - type: BallisticAmmoProvider
     mayTransfer: true

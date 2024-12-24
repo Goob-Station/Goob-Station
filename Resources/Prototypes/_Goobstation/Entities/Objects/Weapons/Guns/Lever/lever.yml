@@ -23,14 +23,14 @@
         priority: 2
         whitelist:
           tags:
-            - MagazineMagnumLeverRifle
+          - MagazineMagnumLeverRifle
         whitelistFailPopup: gun-magazine-whitelist-fail
       gun_chamber:
         name: Chamber
         priority: 1
         whitelist:
           tags:
-            - CartridgeMagnum
+          - CartridgeMagnum
   - type: Gun
     fireRate: 0.55
     soundGunshot:
