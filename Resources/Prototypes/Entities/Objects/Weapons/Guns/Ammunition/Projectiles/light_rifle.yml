@@ -29,8 +29,8 @@
   - type: Projectile
     damage:
       types:
-        Blunt: 5
-        Heat: 19
+        Blunt: 4
+        Heat: 4
 
 - type: entity
   id: BulletLightRifleUranium
