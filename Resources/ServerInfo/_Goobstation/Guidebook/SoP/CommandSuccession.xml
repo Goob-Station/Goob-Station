@@ -12,40 +12,60 @@ This is the ideal list for passing down the Captain role in command. There are s
 
   <Table Columns="1">
     <ColorBox Color="#1b67a5">
-      <Box HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="10">
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
         [bold][color=#ffffff][head=1]Command Succession[/head][/color][/bold]
       </Box>
     </ColorBox>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Command should follow this order of succession. More information can be found below.
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Captain
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Head of Personnel (HoP)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Head of Security (HoS)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Warden
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Research Director (RD)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Chief Medical Officer (CMO)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Chief Engineer (CE)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Quartermaster (QM)
-    </Box>
-    <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="10">
-      Security Officer
-    </Box>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10">
+        Command should follow this order of succession. More information can be found below.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Captain
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Head of Personnel (HoP)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Head of Security (HoS)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Warden
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Research Director (RD)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Chief Medical Officer (CMO)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Chief Engineer (CE)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Quartermaster (QM)
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10">
+        Security Officer
+      </Box>
+    </ColorBox>
   </Table>
 
   ## Succession Decision Process
@@ -58,7 +78,7 @@ This is the ideal list for passing down the Captain role in command. There are s
 
   [bullet/]For choices where the Head of Staff chooses to not accept the title, they should have a valid reason for doing so and justify it if necessary.
 
-  [head=3]Choosing Security Officers[/head]
+  ## Choosing Security Officers
   When choosing Security Officers for Command Succession, it should be put to a vote by all those included if there is no [color=#1b67a5]Nanotrasen Representative[/color].
 
   When voting, it should be held as fast as possible. If a tie happens while voting, seniority should prevail.
