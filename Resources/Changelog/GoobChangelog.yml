@@ -3571,3 +3571,9 @@ Entries:
       message: Added sprites for /tg/ gases
   id: 394
   time: '2024-12-24T16:08:33.0000000+00:00'
+- author: goob lord dynamic fixer shi john stun
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+  id: 395
+  time: '2024-12-24T16:11:16.0000000+00:00'
