@@ -205,6 +205,8 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -338,6 +340,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 # Rat King Spawn
 - type: entity

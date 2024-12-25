@@ -34,7 +34,7 @@
   - type: AntagLoadProfileRule
     speciesOverride: Human
     speciesOverrideBlacklist:
-    - Vox # lol loser
+    - Yowie # lol loser
 
 - type: entity
   abstract: true

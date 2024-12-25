@@ -195,6 +195,10 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -478,6 +482,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: AntagLoadProfileRule # Goobstation
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 - type: entity
   parent: BaseTraitorRule
