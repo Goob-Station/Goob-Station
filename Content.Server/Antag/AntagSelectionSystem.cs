@@ -226,8 +226,21 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
 
+        // Goobstation start
+        int GetSelectedAntagCount()
+        {
+            return ent.Comp.SelectedSessions.Count + _pendingAntag.PendingAntags.Count;
+        }
+
+        bool AntagSelected(ICommonSession session)
+        {
+            return ent.Comp.SelectedSessions.Contains(session) ||
+                   _pendingAntag.PendingAntags.ContainsKey(session.UserId);
+        }
+
         // Oh well two different target antag counts. fml
-        var targetCount = ent.Comp.SelectedSessions.Count + count;
+        var targetCount = GetSelectedAntagCount() + count;
+        // Goobstation end
 
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
@@ -262,31 +275,30 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             var retry = 0;
             List<ICommonSession> failed = [];
 
-            while (ent.Comp.SelectedSessions.Count < targetCount && retry < maxRetries)
+            while (GetSelectedAntagCount() < targetCount && retry < maxRetries)
             {
                 var sessions = (ICommonSession[]?) null;
                 if (!playerPool.TryGetItems(RobustRandom,
                                             out sessions,
-                                            targetCount - ent.Comp.SelectedSessions.Count,
+                                            targetCount - GetSelectedAntagCount(),
                                             false))
                     break; // Ends early if there are no eligible sessions
 
                 foreach (var session in sessions)
                 {
                     MakeAntag(ent, session, def);
-                    if (!ent.Comp.SelectedSessions.Contains(session))
+                    if (!AntagSelected(session))
                     {
                         failed.Add(session);
                     }
                 }
                 // In case we're done
-                if (ent.Comp.SelectedSessions.Count >= targetCount)
+                if (GetSelectedAntagCount() >= targetCount)
                     break;
 
                 playerPool = playerPool.Where((session_) =>
                 {
-                    return !ent.Comp.SelectedSessions.Contains(session_) &&
-                        !failed.Contains(session_);
+                    return !AntagSelected(session_) && !failed.Contains(session_);
                 });
                 retry++;
             }
@@ -408,7 +420,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             var curMind = session.GetMind();
 
-            if (curMind == null || 
+            if (curMind == null ||
                 !TryComp<MindComponent>(curMind.Value, out var mindComp) ||
                 mindComp.OwnedEntity != antagEnt)
             {
