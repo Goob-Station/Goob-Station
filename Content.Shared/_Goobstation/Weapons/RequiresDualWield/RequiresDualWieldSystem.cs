@@ -1,0 +1,82 @@
+using System.Linq;
+using Content.Shared.Examine;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Events;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Hands;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Popups;
+using Robust.Shared.Timing;
+using Content.Shared._Goobstation.Weapons.RequiresDualWield;
+using Content.Shared._Goobstation.Weapons.Multishot;
+using Content.Shared.Research.Components;
+
+namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
+
+public sealed class RequiresDualWieldSystem : EntitySystem
+{
+
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly SharedGunSystem _gun = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
+        SubscribeLocalEvent<RequiresDualWieldComponent, ShotAttemptedEvent>(OnShootAttempt);
+
+    }
+
+    private void OnShootAttempt(EntityUid uid, RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    {
+        var comp = args.Used.Comp;
+
+        if (!TryComp<HandsComponent>(args.User, out var handsComp))
+            return;
+
+        if (handsComp.Count != 2)
+            return;
+
+        if (_handsSystem.EnumerateHeld(args.User, handsComp).ToList().Count <= 1)
+        {
+            args.Cancel();
+            PreventFiringWithoutDualWield(component,ref args);
+        }
+
+        foreach (var held in _handsSystem.EnumerateHeld(args.User, handsComp))
+        {
+            if (held == uid)
+                continue;
+
+            if (TryComp<RequiresDualWieldComponent>(held, out var DualWieldComponent))
+                continue;
+            
+            args.Cancel();
+
+            PreventFiringWithoutDualWield(component,ref args);
+        } 
+    }
+    private void OnExamineRequires(Entity<RequiresDualWieldComponent> entity, ref ExaminedEvent args)
+    {
+        if (entity.Comp.WieldRequiresExamineMessage != null)
+            args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
+    }
+
+    private void PreventFiringWithoutDualWield(RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
+    {
+
+        var time = _timing.CurTime;
+        if (time > component.LastPopup + component.PopupCooldown)
+        {
+            component.LastPopup = time;
+            var message = Loc.GetString("dual-wield-component-requires", ("item", args.Used));
+            _popupSystem.PopupClient(message, args.Used, args.User);
+        }
+
+    }
+
+}

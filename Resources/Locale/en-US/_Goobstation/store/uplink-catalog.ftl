@@ -110,3 +110,6 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
+
+uplink-dualetta-name = Dualetta Bundle
+uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, black gloves, noir suit, detectives trenchcoat, and laceup shoes.

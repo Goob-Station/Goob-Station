@@ -475,3 +475,14 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+- type: listing
+  id: UplinkDualetta
+  name: uplink-dualetta-name
+  description: uplink-dualetta-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BriefcaseSyndieDualettaBundleFilled
+  cost:
+    Telecrystal: 80
+  categories:
+  - UplinkWeaponry
