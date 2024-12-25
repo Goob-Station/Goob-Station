@@ -220,8 +220,8 @@ namespace Content.Client.Cargo.UI
                 var row = new CargoOrderRow
                 {
                     Order = order,
-                    
-                    Title = 
+
+                    Title =
                     {
                         Text = !string.IsNullOrEmpty(order.Requester) ?
                             Loc.GetString(
@@ -235,7 +235,7 @@ namespace Content.Client.Cargo.UI
 
                     Icon = { Texture = _spriteSystem.Frame0(product) },
 
-                    ProductName = 
+                    ProductName =
                     {
                         Text = Loc.GetString(
                             "cargo-console-menu-order-row-product-name",
