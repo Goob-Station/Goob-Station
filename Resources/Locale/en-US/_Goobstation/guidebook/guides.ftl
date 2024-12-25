@@ -10,6 +10,7 @@ guide-entry-sop-security = Security
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-succession = Succession
+guide-entry-sop-hiring = Hiring/Transfer
 # - Command
 guide-entry-sop-ntr = NTR
 guide-entry-sop-bso = BSO

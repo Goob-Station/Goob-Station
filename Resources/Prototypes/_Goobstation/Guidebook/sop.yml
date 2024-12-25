@@ -44,6 +44,11 @@
   name: guide-entry-sop-succession
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/CommandSuccession.xml"
 
+- type: guideEntry
+  id: Hiring SOP
+  name: guide-entry-sop-hiring
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/HiringTransfers.xml"
+
 # Command SOP Entries
 - type: guideEntry
   id: NTR SOP
