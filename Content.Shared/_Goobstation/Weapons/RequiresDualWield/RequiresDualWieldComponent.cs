@@ -7,14 +7,12 @@ namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
 /// Makes a weapon only able to be shot while dual wielding.
 /// </summary>
 [RegisterComponent, NetworkedComponent, Access(typeof(RequiresDualWieldSystem))]
-[AutoGenerateComponentState]
 public sealed partial class RequiresDualWieldComponent : Component
 {
-
-    [DataField, AutoNetworkedField]
+    
     public TimeSpan LastPopup;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan PopupCooldown = TimeSpan.FromSeconds(1);
 
     [DataField]

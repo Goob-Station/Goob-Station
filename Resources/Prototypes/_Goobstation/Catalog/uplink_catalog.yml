@@ -137,6 +137,17 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkDualetta
+  name: uplink-dualetta-name
+  description: uplink-dualetta-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BriefcaseSyndieDualettaBundleFilled
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -432,6 +443,17 @@
   - UplinkAmmo
 
 - type: listing
+  id: UplinkHighCapacityMagazinePistol
+  name: uplink-highcap-pistol-mag-name
+  description: uplink-highcap-pistol-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: red }
+  productEntity: MagazinePistolHighCapacity
+  cost:
+    Telecrystal: 2
+  categories:
+  - UplinkAmmo
+
+- type: listing
   id: UplinkSyndicateSegwayCrate
   name: uplink-syndicate-segway-crate-name # Funnily enough these localizations weren't removed when wiz removed vehicles
   description: uplink-syndicate-segway-crate-desc
@@ -475,14 +497,3 @@
     whitelist:
       tags:
       - NukeOpsUplink
-
-- type: listing
-  id: UplinkDualetta
-  name: uplink-dualetta-name
-  description: uplink-dualetta-desc
-  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
-  productEntity: BriefcaseSyndieDualettaBundleFilled
-  cost:
-    Telecrystal: 80
-  categories:
-  - UplinkWeaponry
