@@ -54,7 +54,8 @@ public sealed class BatteryDrainerSystem : SharedBatteryDrainerSystem
             MovementThreshold = 0.5f,
             BreakOnMove = true,
             CancelDuplicate = false,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);

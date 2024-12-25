@@ -23,13 +23,13 @@
         type: Hand
 
 - type: entity
-  parent: LeftHandHuman
+  parent: LeftHandDwarf
   id: BioSynthLeftHand
   name: bio-synthetic left hand
   description: This left hand can be transplanted into any living organism and it will adapt to its recipient.
 
 - type: entity
-  parent: RightHandHuman
+  parent: RightHandDwarf
   id: BioSynthRightHand
   name: bio-synthetic right hand
   description: This right hand can be transplanted into any living organism and it will adapt to its recipient.

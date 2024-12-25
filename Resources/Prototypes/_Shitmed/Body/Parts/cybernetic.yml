@@ -64,7 +64,7 @@
 
 - type: entity
   id: LeftHandCybernetic
-  parent: LeftHandHuman
+  parent: LeftHandDwarf
   name: cybernetic left hand
   components:
   - type: Damageable
@@ -78,7 +78,7 @@
 
 - type: entity
   id: RightHandCybernetic
-  parent: RightHandHuman
+  parent: RightHandDwarf
   name: cybernetic right hand
   components:
   - type: Damageable
@@ -173,3 +173,21 @@
     onAdd:
     - type: NoSlip
     - type: ProtectedFromStepTriggers
+
+- type: entity
+  id: DexLeftHand
+  parent: LeftHandCybernetic
+  name: D.E.X left hand
+  description: A cybernetic left hand that allows its wearer to interact faster.
+  components:
+  - type: DoAfterDelayMultiplier
+    multiplier: 0.8
+
+- type: entity
+  id: DexRightHand
+  parent: RightHandCybernetic
+  name: D.E.X right hand
+  description: A cybernetic right hand that allows its wearer to interact faster.
+  components:
+  - type: DoAfterDelayMultiplier
+    multiplier: 0.8

@@ -56,7 +56,7 @@ public abstract class SharedMechSystem : EntitySystem
 
     // Goobstation: Local variable for checking if mech guns can be used out of them.
     private bool _canUseMechGunOutside;
-    
+
     /// <inheritdoc/>
     public override void Initialize()
     {
@@ -529,6 +529,7 @@ public abstract class SharedMechSystem : EntitySystem
         var doAfterEventArgs = new DoAfterArgs(EntityManager, args.Dragged, component.EntryDelay, new MechEntryEvent(), uid, target: uid)
         {
             BreakOnMove = true,
+            MultiplyDelay = false // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

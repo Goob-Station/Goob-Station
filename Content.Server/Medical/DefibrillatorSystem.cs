@@ -143,7 +143,8 @@ public sealed class DefibrillatorSystem : EntitySystem
             uid, target, uid)
         {
             NeedHand = true,
-            BreakOnMove = !component.AllowDoAfterMovement
+            BreakOnMove = !component.AllowDoAfterMovement,
+            MultiplyDelay = false, // Goobstation
         });
     }
 

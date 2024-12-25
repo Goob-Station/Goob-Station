@@ -228,7 +228,8 @@ public sealed class CarryingSystem : EntitySystem
         var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
         {
             BreakOnMove = true,
-            NeedHand = true
+            NeedHand = true,
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(args);

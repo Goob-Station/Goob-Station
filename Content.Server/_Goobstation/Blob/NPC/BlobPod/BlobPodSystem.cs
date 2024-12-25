@@ -176,7 +176,8 @@ public sealed class BlobPodSystem : SharedBlobPodSystem
         {
             BreakOnMove = true,
             DistanceThreshold = 2f,
-            NeedHand = false
+            NeedHand = false,
+            MultiplyDelay = false
         };
 
         _doAfter.TryStartDoAfter(args);

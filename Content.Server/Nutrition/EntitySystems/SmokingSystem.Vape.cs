@@ -114,7 +114,8 @@ namespace Content.Server.Nutrition.EntitySystems
                 _doAfterSystem.TryStartDoAfter(new DoAfterArgs(EntityManager, args.User, delay, vapeDoAfterEvent, entity.Owner, target: args.Target, used: entity.Owner)
                 {
                     BreakOnMove = false,
-                    BreakOnDamage = true
+                    BreakOnDamage = true,
+                    MultiplyDelay = false, // Goobstation
                 });
             }
             args.Handled = true;

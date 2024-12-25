@@ -218,6 +218,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
             // do-after will stop if item is dropped when trying to feed someone else
             // or if the item started out in the user's own hands
             NeedHand = forceDrink || _hands.IsHolding(user, item),
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);
