@@ -1,15 +1,24 @@
+- type: alert
+  id: Resource
+  icons:
+  - sprite: /Textures/Interface/Alerts/essence_counter.rsi
+    state: essence0
+  alertViewEntity: AlertResourceSpriteView
+  name: alerts-revenant-essence-name
+  description: alerts-revenant-essence-desc
+
 - type: entity
-  id: AlertResources
+  id: AlertResourceSpriteView
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: /Textures/Interface/Alerts/essence_counter.rsi #too lazy to make seperate number sprites
     layers:
     - map: [ "enum.AlertVisualLayers.Base" ]
-    - map: [ "enum.ResourceVisualLayers.Digit1" ]
-    - map: [ "enum.ResourceVisualLayers.Digit2" ]
+    - map: [ "enum.FlockmindVisualLayers.Digit1" ]
+    - map: [ "enum.FlockmindVisualLayers.Digit2" ]
       offset: 0.125, 0
-    - map: [ "enum.ResourceVisualLayers.Digit3" ]
+    - map: [ "enum.FlockmindVisualLayers.Digit3" ]
       offset: 0.25, 0
-    - map: [ "enum.ResourceVisualLayers.Digit4" ]
+    - map: [ "enum.FlockmindVisualLayers.Digit4" ]
       offset: 0.375, 0

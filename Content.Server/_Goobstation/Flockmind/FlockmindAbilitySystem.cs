@@ -46,7 +46,7 @@ public sealed partial class FlockmindSystem : EntitySystem
         audioSystem.PlayFromEntity("/Audio/Effects/teleport_activate.ogg", rift);
     }
 
-    private void OnRadioStun(EntityUid uid, FlockmindComponent comp, ref OnRadioStun args)
+    private void OnRadioStun(EntityUid uid, FlockmindComponent comp, ref EventRadioStun args)
     {
         var radius = 15.0f;
         var transform = Transform(uid);
