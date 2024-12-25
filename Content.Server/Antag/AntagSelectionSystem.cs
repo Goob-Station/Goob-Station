@@ -226,6 +226,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
 
+        // Goobstation start
         int GetSelectedAntagCount()
         {
             return ent.Comp.SelectedSessions.Count + _pendingAntag.PendingAntags.Count;
@@ -239,6 +240,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
 
         // Oh well two different target antag counts. fml
         var targetCount = GetSelectedAntagCount() + count;
+        // Goobstation end
 
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
