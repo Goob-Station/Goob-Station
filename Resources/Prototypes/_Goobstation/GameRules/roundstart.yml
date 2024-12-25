@@ -148,12 +148,13 @@
   id: BlobRule
   parent: BaseGameRule
   categories: [ HideSpawnMenu ]
+  abstract: true
   components:
   - type: BlobRule
 
 - type: entity
   id: BlobGameMode
-  parent: BaseGameRule
+  parent: BlobRule
   categories: [ HideSpawnMenu ]
   components:
   - type: BlobRule
