@@ -52,12 +52,11 @@ public sealed partial class NPCCombatSystem
                 continue;
             }
 
-            // lava edit - added frameTime
-            Attack(uid, comp, curTime, frameTime, physicsQuery, xformQuery);
+            Attack(uid, comp, curTime, frameTime, physicsQuery, xformQuery); // Lavaland Change - added frameTime
         }
     }
 
-    // lava edit - added frameTime
+    // Lavaland Change - added frameTime
     private void Attack(EntityUid uid, NPCMeleeCombatComponent component, TimeSpan curTime, float frameTime, EntityQuery<PhysicsComponent> physicsQuery, EntityQuery<TransformComponent> xformQuery)
     {
         component.Status = CombatStatus.Normal;
@@ -106,7 +105,7 @@ public sealed partial class NPCCombatSystem
         if (weapon.NextAttack > curTime || !Enabled)
             return;
 
-        // lava edit - allow more dodging for melee attacks
+        // Lavaland Change Start
         if (component.ChargeupTimer < component.ChargeupDelay)
         {
             component.ChargeupTimer += frameTime;
@@ -114,7 +113,7 @@ public sealed partial class NPCCombatSystem
         }
 
         component.ChargeupTimer = 0f;
-        // lava edit end
+        // Lavaland Change End
 
         if (_random.Prob(component.MissChance) &&
             physicsQuery.TryGetComponent(component.Target, out var targetPhysics) &&

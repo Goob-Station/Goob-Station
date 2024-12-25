@@ -22,9 +22,10 @@ public sealed partial class NPCMeleeCombatComponent : Component
     ///     Lava edit - how much seconds does it take for a mob to begin attacking once in range.
     ///     This is to prevent instant attacks and give more time to dodge.
     /// </summary>
+    // Lavaland Change Start
     [ViewVariables] public float ChargeupDelay = 1f;
-    public float ChargeupTimer = 0f;
-    // lava edit end
+    [ViewVariables] public float ChargeupTimer = 0f;
+    // Lavaland Change end
 }
 
 public enum CombatStatus : byte

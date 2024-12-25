@@ -18,9 +18,10 @@ public sealed class SpawnOnDespawnSystem : EntitySystem
         if (!TryComp(uid, out TransformComponent? xform))
             return;
 
-        // lava edit - make it not required
+        // Lavaland Change start
         if (comp.Prototype != null)
             Spawn(comp.Prototype, xform.Coordinates);
+        // Lavaland Change end
 
         // Lavaland Change start
         // make it spawn more (without intrusion)

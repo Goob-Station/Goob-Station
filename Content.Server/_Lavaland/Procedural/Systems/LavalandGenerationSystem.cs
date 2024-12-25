@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server._Lavaland.Procedural.Prototypes;
@@ -8,6 +9,7 @@ using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.Atmos;
+using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
 using Content.Shared.Maps;
@@ -32,7 +34,7 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 public sealed class LavalandGenerationSystem : EntitySystem
 {
     [ViewVariables]
-    public List<LavalandMap> LavalandMaps = [];
+    public List<LavalandMap>? LavalandMaps = [];
 
     [ViewVariables]
     private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
@@ -70,15 +72,20 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
     private void OnRoundStart(PreGameMapLoad ev)
     {
+        if (!_config.GetCVar(CCVars.LavalandEnabled))
+        {
+            LavalandMaps = null;
+            return;
+        }
+
         SetupPreloader();
-        //if (_config.GetCVar())
         SetupLavaland();
     }
 
     private void OnCleanup(RoundRestartCleanupEvent ev)
     {
         ShutdownPreloader();
-        LavalandMaps.Clear();
+        LavalandMaps?.Clear();
     }
 
     private void SetupPreloader()
@@ -103,8 +110,23 @@ public sealed class LavalandGenerationSystem : EntitySystem
         _lavalandPreloader = null;
     }
 
+    public bool GetLavalands([NotNullWhen(true)] out List<LavalandMap>? maps)
+    {
+        maps = null;
+
+        if (LavalandMaps == null)
+            return false;
+
+        maps = LavalandMaps;
+
+        return true;
+    }
+
     public bool SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
     {
+        if (LavalandMaps == null)
+            return false;
+
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
 
@@ -192,7 +214,8 @@ public sealed class LavalandGenerationSystem : EntitySystem
             Uid = lavalandMap,
             Outpost = outpost,
         };
-        LavalandMaps.Add(map);
+
+        LavalandMaps!.Add(map);
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);

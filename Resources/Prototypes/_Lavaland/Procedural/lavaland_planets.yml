@@ -10,3 +10,7 @@
   - 6.524779 # oxygen, not enough for breathing
   - 20.10312 # nitrogen
   - 8.21301 # carbon dioxide
+  weather:
+  - AshfallLight
+  - AshfallMedium
+  - AshfallHeavy

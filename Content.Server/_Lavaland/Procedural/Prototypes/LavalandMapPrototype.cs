@@ -1,6 +1,8 @@
-﻿using Content.Shared.Atmos;
+﻿using Content.Server._Lavaland.Weather;
+using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
+using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Procedural.Prototypes;
@@ -59,6 +61,9 @@ public sealed partial class LavalandMapPrototype : IPrototype
 
     [DataField("mobs")]
     public List<ProtoId<BiomeMarkerLayerPrototype>> MobLayers = [];
+
+    [DataField("weather")]
+    public List<ProtoId<LavalandWeatherPrototype>>? AvailableWeather;
 
     #endregion
 }

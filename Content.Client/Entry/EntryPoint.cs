@@ -126,6 +126,7 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("lavalandMap");
             _prototypeManager.RegisterIgnore("lavalandRuin");
             _prototypeManager.RegisterIgnore("lavalandRuinPool");
+            _prototypeManager.RegisterIgnore("lavalandWeather");
             // Lavaland Change end
 
             _componentFactory.GenerateNetIds();

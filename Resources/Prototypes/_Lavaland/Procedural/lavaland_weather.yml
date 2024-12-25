@@ -1,0 +1,14 @@
+- type: lavalandWeather
+  id: AshfallLight
+  duration: 180
+  weatherType: AshfallLight
+
+- type: lavalandWeather
+  id: AshfallMedium
+  duration: 240
+  weatherType: Ashfall
+
+- type: lavalandWeather
+  id: AshfallHeavy
+  duration: 300
+  weatherType: AshfallHeavy
