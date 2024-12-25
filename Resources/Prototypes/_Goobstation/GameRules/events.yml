@@ -1,0 +1,6 @@
+- type: entity
+  parent: BaseGameRule
+  id: ERTSpawn
+  components:
+  - type: LoadMapRule
+    preloadedGrid: ERTDart
