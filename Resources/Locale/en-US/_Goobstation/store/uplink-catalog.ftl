@@ -67,6 +67,9 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 
+uplink-dualetta-name = Dualetta Bundle
+uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -93,6 +96,9 @@ uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive c
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
 
+uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
+uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
+
 # Mechs
 
 uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
@@ -110,9 +116,3 @@ uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
 uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
-
-uplink-dualetta-name = Dualetta Bundle
-uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
-
-uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
-uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
