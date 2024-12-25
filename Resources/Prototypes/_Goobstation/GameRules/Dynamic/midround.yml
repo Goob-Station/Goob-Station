@@ -396,4 +396,4 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 2
+    maxCarrierBlob: 1
