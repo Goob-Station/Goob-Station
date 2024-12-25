@@ -46,6 +46,16 @@
 
 # Command SOP Entries
 - type: guideEntry
+  id: NTR SOP
+  name: guide-entry-sop-ntr
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/NTRSOP.xml"
+
+- type: guideEntry
+  id: BSO SOP
+  name: guide-entry-sop-bso
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/BSOSOP.xml"
+
+- type: guideEntry
   id: Captain SOP
   name: guide-entry-sop-captain
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
@@ -53,12 +63,12 @@
 - type: guideEntry
   id: HoP SOP
   name: guide-entry-sop-hop
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HoPSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOPSOP.xml"
 
 - type: guideEntry
   id: HoS SOP
   name: guide-entry-sop-hos
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HoSSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOSSOP.xml"
 
 # Security SOP Entries
 - type: guideEntry

@@ -11,6 +11,8 @@ guide-entry-sop-security = Security
 guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-succession = Succession
 # - Command
+guide-entry-sop-ntr = NTR
+guide-entry-sop-bso = BSO
 guide-entry-sop-captain = Captain
 guide-entry-sop-hop = HOP
 guide-entry-sop-hos = HOS
