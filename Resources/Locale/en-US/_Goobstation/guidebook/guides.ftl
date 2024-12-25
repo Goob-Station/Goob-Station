@@ -13,10 +13,10 @@ guide-entry-sop-succession = Succession
 guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-demoting = Dismissal/Demoting
 # - Command
-guide-entry-sop-ntr = NTR
-guide-entry-sop-bso = BSO
+guide-entry-sop-ntr = Nanotrasen Rep
+guide-entry-sop-bso = Blueshield
 guide-entry-sop-captain = Captain
-guide-entry-sop-hop = HOP
-guide-entry-sop-hos = HOS
+guide-entry-sop-hop = Head of Personnel
+guide-entry-sop-hos = Head of Security
 # - Security
 guide-entry-sop-warden = Warden
