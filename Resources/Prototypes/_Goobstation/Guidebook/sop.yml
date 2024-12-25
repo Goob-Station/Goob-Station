@@ -7,6 +7,8 @@
   - Alert Levels
   - Succession
   - Jobs SOP
+  - Hiring SOP
+  - Demoting SOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -22,9 +24,11 @@
   name: guide-entry-sop-command
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandSOP.xml"
   children:
+  - NTR SOP
+  - BSO SOP
   - Captain SOP
-  - HoP SOP
-  - HoS SOP
+  - HOP SOP
+  - HOS SOP
 
 - type: guideEntry
   id: Security SOP
@@ -71,12 +75,12 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
 
 - type: guideEntry
-  id: HoP SOP
+  id: HOP SOP
   name: guide-entry-sop-hop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOPSOP.xml"
 
 - type: guideEntry
-  id: HoS SOP
+  id: HOS SOP
   name: guide-entry-sop-hos
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOSSOP.xml"
 
