@@ -112,7 +112,7 @@ uplink-helmet-swat-name = Syndicate SWAT Helmet
 uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.
 
 uplink-dualetta-name = Dualetta Bundle
-uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, black gloves, noir suit, detectives trenchcoat, and laceup shoes.
+uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 6 extra bullets for a total of 16 rounds.
