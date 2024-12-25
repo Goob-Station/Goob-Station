@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
+using Content.Shared._Goobstation.DoAfter;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Hands.Components;
@@ -204,6 +205,12 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             id = null;
             return false;
         }
+
+        // Goobstation start
+        var delayMultiplierEv = new GetDoAfterDelayMultiplierEvent();
+        RaiseLocalEvent(args.User, delayMultiplierEv);
+        args.Delay *= delayMultiplierEv.Multiplier;
+        // Goobstation end
 
         id = new DoAfterId(args.User, comp.NextId++);
         var doAfter = new DoAfter(id.Value.Index, args, GameTiming.CurTime);

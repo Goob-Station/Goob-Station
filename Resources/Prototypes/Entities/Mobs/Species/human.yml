@@ -28,6 +28,8 @@
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
   - type: FootPrints # WD EDIT
+  - type: DoAfterDelayMultiplier # Goobstation
+    multiplier: 0.8
 
 - type: entity
   parent: BaseSpeciesDummy
