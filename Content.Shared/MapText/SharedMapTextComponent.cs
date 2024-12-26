@@ -8,7 +8,7 @@ namespace Content.Shared.MapText;
 /// This is used for displaying text in world space
 /// </summary>
 
-[NetworkedComponent]
+[NetworkedComponent, Access(typeof(SharedMapTextSystem))]
 public abstract partial class SharedMapTextComponent : Component
 {
     public const string DefaultFont = "Default";
