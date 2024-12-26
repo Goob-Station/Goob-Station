@@ -1,0 +1,13 @@
+# Special thanks to all mappers from ss13 (Yogstation) for original ruins
+
+- files: ["outpost_lavaland.yml", "ruin_lavalake.yml"]
+  authors: mike32oz
+
+- files: ["ruin_golem_shuttle.yml", "ruin_rouge_ai.yml", "ruin_seed_vault.yml"]
+  authors: nyawul
+
+- files: ["ruin_beach_biodome.yml", "ruin_syndicate_base.yml"]
+  authors: aineias1
+
+- files: ["ruin_snow_biodome.yml", "ruin_hermit.yml"]
+  authors: rouden_
