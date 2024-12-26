@@ -101,6 +101,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -120,6 +121,7 @@
       - id: RCD
       - id: RCDAmmo
       - id: ClothingHandsGlovesAtmosInsulated # Goobstation - insulated atmos gloves
+      - id: ClothingBackpackFirefighterTank # Assmos - Firefighter nozzle
 
 - type: entity
   id: LockerEngineerFilledHardsuit
