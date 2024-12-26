@@ -58,7 +58,7 @@ uplink-grenadier-rig-name = grenadier chest rig
 uplink-grenadier-rig-desc = All you need for a loud party: 4 explosive grenades, 2 EMP grenades and 2 minibombs in a chest rig.
 
 uplink-emp-grenade-name = EMP Grenade
-uplink-emp-grenade-desc = A grenade designed to disrupt electronic systems. Useful for disrupting communications, security's energy weapons, and APCs when you're in a tight spot. Warning: EMP temporarily disables energy shield, dagger and swords.
+uplink-emp-grenade-desc = A grenade designed to disrupt electronic systems. Useful for disrupting communications, security's energy weapons, and APCs when you're in a tight spot.
 
 uplink-exploding-pen-name = Exploding pen
 uplink-exploding-pen-desc = A class IV explosive device contained within a standard pen. Comes with a 4 second fuse.
@@ -183,7 +183,7 @@ uplink-dna-scrambler-implanter-name = DNA Scrambler Implanter
 uplink-dna-scrambler-implanter-desc = A single use implant that can be activated to modify your DNA and give you a completely new look.
 
 uplink-emp-implanter-name = EMP Implanter
-uplink-emp-implanter-desc = Detonates a small EMP pulse on activation that drains nearby electronics of their power, runs off a slowly recharging internal cell. Warning: EMP temporarily disables energy shield, dagger and swords.
+uplink-emp-implanter-desc = Detonates a small EMP pulse on activation that drains nearby electronics of their power, runs off a slowly recharging internal cell.
 
 uplink-macro-bomb-implanter-name = Macro Bomb Implanter
 uplink-macro-bomb-implanter-desc = Inject this and on death you'll create a large explosion. Huge team casualty cost, use at own risk. Replaces internal micro bomb.
@@ -205,7 +205,7 @@ uplink-observation-kit-name = Observation Kit
 uplink-observation-kit-desc = Includes surveillance camera monitor board and security hud disguised as sunglasses.
 
 uplink-emp-kit-name = Electrical Disruptor Kit
-uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry: Disables disablers, stuns stunbatons, discharges laser guns! Contains 3 EMP grenades and an EMP implanter. Does not disrupt actual firearms. Warning: EMP temporarily disables energy shield, dagger and swords.
+uplink-emp-kit-desc = The ultimate reversal on energy-based weaponry: Disables disablers, stuns stunbatons, discharges laser guns! Contains 3 EMP grenades and an EMP implanter. Does not disrupt actual firearms.
 
 uplink-decoy-kit-name = Decoy Kit
 uplink-decoy-kit-desc = State-of-the-art distraction technology straight from RND. Comes with five realistic balloons, four decoy grenades, and some snap poppers!
@@ -352,7 +352,7 @@ uplink-snack-box-name = Syndicate Snack Box
 uplink-snack-box-desc = A box of delicious snacks and drinks to eat alone or with your team. Includes 1 toy you didn't want.
 
 uplink-eshield-name = Energy Shield
-uplink-eshield-desc = Exotic energy shield that reflects almost all laser beams, as well as a little protection from bullets and other physical attacks.
+uplink-eshield-desc = Exotic energy shield that reflects all laser beams and offers a little protection from bullets and other physical attacks. It is discharged from received damage and is able to recharge automatically. Warning: EMP pulses are able to discharge energy shield internal battery.
 
 uplink-soap-name = Soap
 uplink-soap-desc = An untrustworthy bar of soap. Smells of fear.
