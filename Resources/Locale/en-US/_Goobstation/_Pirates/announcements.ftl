@@ -15,3 +15,6 @@ pirates-announcement-irs-cancelled =
 
 pirates-announcement-irs-notenough =
     You filed your taxes incorrectly, A team has been sent to assist in liquidating assets and arrest you for tax fraud.
+
+data-siphon-activated =
+    Data theft signal detected; source registered on local GPS units.

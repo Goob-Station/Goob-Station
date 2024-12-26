@@ -22,6 +22,7 @@ public sealed partial class RansomSystem : EntitySystem
         while (eqe.MoveNext(out var uid, out var prule, out var gamerule))
         {
             _gt.EndGameRule(uid, gamerule);
+            _pprs.SendAnnouncement((uid, prule), PendingPirateRuleSystem.AnnouncementType.Paid);
         }
     }
 }

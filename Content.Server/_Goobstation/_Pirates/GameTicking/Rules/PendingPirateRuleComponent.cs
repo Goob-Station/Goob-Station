@@ -13,10 +13,8 @@ public sealed partial class PendingPirateRuleComponent : Component
 
     // we need this for random announcements otherwise it'd be bland
     [DataField] public string LocAnnouncer = "irs";
-    [DataField] public string LocAnnouncement = "irs";
 
     [DataField] public ProtoId<DatasetPrototype>? LocAnnouncers = null;
-    [DataField] public ProtoId<DatasetPrototype>? LocAnnouncements = null;
 
     [DataField] public float Ransom = 25000f;
 }
