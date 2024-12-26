@@ -1,7 +1,7 @@
 - type: species
   id: Resomi
   name: species-name-resomi
-  roundStart: true
+  roundStart: false # Shibastation - Temporary hide until displacements are fixed!
   prototype: MobResomi
   sprites: MobResomiSprites
   defaultSkinTone: "#faf7f7"
