@@ -54,11 +54,12 @@
   categories: [ HideSpawnMenu ]
   id: AtmosResin
   name: atmos resin
-  description: Special grenade for atmosians. 
+  description: Special grenade for atmosians.
   components:
   - type: Sprite
     sprite: Objects\Weapons\Grenades\frozen-smoke-capsule.rsi
-    state: icon
+    layers:
+      - state: icon
   - type: SmokeOnTrigger
     isResin: true
     duration: 5
