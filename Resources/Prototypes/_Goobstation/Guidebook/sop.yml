@@ -45,6 +45,10 @@
   - Captain SOP
   - HOP SOP
   - HOS SOP
+  - RD SOP
+  - CMO SOP
+  - CE SOP
+  - QM SOP
 
 - type: guideEntry
   id: Security SOP
@@ -52,6 +56,8 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
   children:
   - Warden SOP
+  - OfficerCadet SOP
+  - Detective SOP
 
 # Basic SOP Entries
 - type: guideEntry
@@ -119,12 +125,12 @@
 - type: guideEntry
   id: NTR SOP
   name: guide-entry-sop-ntr
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/NTRSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/NanotrasenRepSOP.xml"
 
 - type: guideEntry
   id: BSO SOP
   name: guide-entry-sop-bso
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/BSOSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/BlueshieldOfficerSOP.xml"
 
 - type: guideEntry
   id: Captain SOP
@@ -134,15 +140,45 @@
 - type: guideEntry
   id: HOP SOP
   name: guide-entry-sop-hop
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOPSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfPersonnelSOP.xml"
 
 - type: guideEntry
   id: HOS SOP
   name: guide-entry-sop-hos
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HOSSOP.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml"
+
+- type: guideEntry
+  id: RD SOP
+  name: guide-entry-sop-rd
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ResearchDirectorSOP.xml"
+
+- type: guideEntry
+  id: CMO SOP
+  name: guide-entry-sop-cmo
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefMedicalOfficerSOP.xml"
+
+- type: guideEntry
+  id: CE SOP
+  name: guide-entry-sop-ce
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefEngineerSOP.xml"
+
+- type: guideEntry
+  id: QM SOP
+  name: guide-entry-sop-qm
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
 
 # Security SOP Entries
 - type: guideEntry
   id: Warden SOP
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
+
+- type: guideEntry
+  id: OfficerCadet SOP
+  name: guide-entry-officercadet
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/OfficerCadetSOP.xml"
+
+- type: guideEntry
+  id: Detective SOP
+  name: guide-entry-sop-detective
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"

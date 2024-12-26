@@ -28,5 +28,11 @@ guide-entry-sop-bso = Blueshield Officer
 guide-entry-sop-captain = Captain
 guide-entry-sop-hop = Head of Personnel
 guide-entry-sop-hos = Head of Security
+guide-entry-sop-rd = Research Director
+guide-entry-sop-cmo = Chief Medical Ofc.
+guide-entry-sop-ce = Chief Engineer
+guide-entry-sop-qm = Quartermaster
 # - Security
 guide-entry-sop-warden = Warden
+guide-entry-sop-officercadet = Officer/Cadet
+guide-entry-sop-detective = Detective
