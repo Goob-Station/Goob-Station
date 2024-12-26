@@ -1,4 +1,5 @@
-﻿using Content.Server._Lavaland.Procedural.Prototypes;
+﻿using System.Linq;
+using Content.Server._Lavaland.Procedural.Prototypes;
 using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.Chat.Managers;
 using Content.Server.GameTicking;
@@ -39,6 +40,10 @@ public sealed partial class LavalandStormSchedulerRule : GameRuleSystem<Lavaland
     {
         if (!_lavaland.GetLavalands(out var maps))
             return;
+
+        // Filter out already stormed maps.
+        var newMaps = maps.Where(lavaland => !HasComp<LavalandStormedMapComponent>(lavaland.Uid)).ToList();
+        maps = newMaps;
 
         var map = _random.Pick(maps);
         if (map.PrototypeId == null)

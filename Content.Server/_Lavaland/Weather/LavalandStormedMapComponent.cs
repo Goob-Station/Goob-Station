@@ -17,9 +17,6 @@ public sealed partial class LavalandStormedMapComponent : Component
     public LavalandMap Lavaland;
 
     [DataField]
-    public DamageSpecifier Damage;
-
-    [DataField]
     public float Duration;
 
     [DataField]

@@ -2,7 +2,6 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Server._Lavaland.Weather;
 
@@ -21,14 +20,11 @@ public sealed class LavalandWeatherPrototype : IPrototype
     public ProtoId<WeatherPrototype> WeatherType;
 
     [DataField]
-    public string PopupMessage = "You feel like wind starts blowing stronger...";
+    public string PopupStartMessage = "You feel like wind starts blowing stronger...";
 
     [DataField]
-    public DamageSpecifier Damage = new()
-    {
-        DamageDict = new Dictionary<string, FixedPoint2>
-        {
-            { "Heat", 5 },
-        },
-    };
+    public string PopupEndMessage = "The wind is going out.";
+
+    [DataField]
+    public float TemperatureChange = 20000f;
 }
