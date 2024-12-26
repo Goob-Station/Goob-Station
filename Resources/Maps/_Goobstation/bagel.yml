@@ -59563,66 +59563,6 @@ entities:
     - type: Transform
       pos: -15.664602,-30.50866
       parent: 60
-  - uid: 25219
-    components:
-    - type: Transform
-      pos: 19.367416,-37.970898
-      parent: 60
-  - uid: 25220
-    components:
-    - type: Transform
-      pos: 19.76325,-38.09598
-      parent: 60
-  - uid: 25221
-    components:
-    - type: Transform
-      pos: 19.377832,-38.398277
-      parent: 60
-  - uid: 25222
-    components:
-    - type: Transform
-      pos: 19.51325,-38.658875
-      parent: 60
-  - uid: 25223
-    components:
-    - type: Transform
-      pos: 19.6695,-38.37743
-      parent: 60
-  - uid: 25224
-    components:
-    - type: Transform
-      pos: 19.482,-38.1898
-      parent: 60
-  - uid: 25225
-    components:
-    - type: Transform
-      pos: 16.45075,-38.35658
-      parent: 60
-  - uid: 25226
-    components:
-    - type: Transform
-      pos: 16.565332,-38.710995
-      parent: 60
-  - uid: 25227
-    components:
-    - type: Transform
-      pos: 16.909082,-38.492092
-      parent: 60
-  - uid: 25228
-    components:
-    - type: Transform
-      pos: 16.690332,-38.22107
-      parent: 60
-  - uid: 25229
-    components:
-    - type: Transform
-      pos: 16.32575,-38.481667
-      parent: 60
-  - uid: 25230
-    components:
-    - type: Transform
-      pos: 9.72755,13.377609
-      parent: 60
 - proto: ClothingHeadHatSkub
   entities:
   - uid: 6791
@@ -59772,13 +59712,6 @@ entities:
     components:
     - type: Transform
       pos: 29.516983,-1.2031906
-      parent: 60
-- proto: ClothingHeadHelmetHardsuitSanta
-  entities:
-  - uid: 25232
-    components:
-    - type: Transform
-      pos: 6.5692534,-35.849537
       parent: 60
 - proto: ClothingHeadHelmetRiot
   entities:
@@ -60273,40 +60206,6 @@ entities:
     - type: Transform
       pos: -47.44876,21.462833
       parent: 60
-- proto: ClothingOuterHardsuitSanta
-  entities:
-  - uid: 25231
-    components:
-    - type: Transform
-      pos: 6.5588365,-36.412426
-      parent: 60
-    - type: GroupExamine
-      group:
-      - hoverMessage: ""
-        contextText: verb-examine-group-other
-        icon: /Textures/Interface/examine-star.png
-        components:
-        - Armor
-        - ClothingSpeedModifier
-        entries:
-        - message: This decreases your speed by [color=yellow]10%[/color].
-          priority: 0
-          component: ClothingSpeedModifier
-        - message: >-
-            It provides the following protection:
-
-            - [color=yellow]Blunt[/color] damage reduced by [color=lightblue]15%[/color].
-
-            - [color=yellow]Slash[/color] damage reduced by [color=lightblue]10%[/color].
-
-            - [color=yellow]Piercing[/color] damage reduced by [color=lightblue]15%[/color].
-
-            - [color=yellow]Caustic[/color] damage reduced by [color=lightblue]20%[/color].
-
-            - [color=orange]Explosion[/color] damage reduced by [color=lightblue]15%[/color].
-          priority: 0
-          component: Armor
-        title: null
 - proto: ClothingOuterHoodieBlack
   entities:
   - uid: 17781
@@ -60327,43 +60226,6 @@ entities:
     components:
     - type: Transform
       pos: 22.509872,-51.419544
-      parent: 60
-- proto: ClothingOuterSanta
-  entities:
-  - uid: 25212
-    components:
-    - type: Transform
-      pos: 16.315332,-38.45978
-      parent: 60
-  - uid: 25213
-    components:
-    - type: Transform
-      pos: 16.70075,-38.428513
-      parent: 60
-  - uid: 25214
-    components:
-    - type: Transform
-      pos: 19.76325,-38.304462
-      parent: 60
-  - uid: 25215
-    components:
-    - type: Transform
-      pos: 19.252832,-38.33573
-      parent: 60
-  - uid: 25216
-    components:
-    - type: Transform
-      pos: 19.336166,-38.043865
-      parent: 60
-  - uid: 25217
-    components:
-    - type: Transform
-      pos: 19.63825,-38.27319
-      parent: 60
-  - uid: 25218
-    components:
-    - type: Transform
-      pos: 19.742416,-38.043865
       parent: 60
 - proto: ClothingOuterSkub
   entities:
