@@ -6,13 +6,16 @@
   id: Lavaland
   hugeRuins:
     #SyndicateBase: 1
+    #HierophantArena: 1
     RougeAI: 1
     BiodomeBeach: 2
     BiodomeSnow: 2
     GolemShuttle: 2
+    ToyShop: 2    
+    Chemistry: 3
     LavaLake: 3
-  smallRuins:
-    SeedVault: 3
+    Graveyard: 6
+    SeedVault: 6
     Hermit: 6
-    RuinedShuttle: 6
+  smallRuins:
     CommonRuin5x5: 100

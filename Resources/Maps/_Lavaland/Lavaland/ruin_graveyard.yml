@@ -1,0 +1,468 @@
+meta:
+  format: 6
+  postmapinit: false
+tilemap:
+  0: Space
+  16: FloorBasalt
+  43: FloorDirt
+  79: FloorPlanetDirt
+entities:
+- proto: ""
+  entities:
+  - uid: 2
+    components:
+    - type: MetaData
+      name: grid
+    - type: Transform
+      pos: 10.469587,-2.4892168
+      parent: invalid
+    - type: MapGrid
+      chunks:
+        0,0:
+          ind: 0,0
+          tiles: EAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          version: 6
+        -1,0:
+          ind: -1,0
+          tiles: AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAATwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAKwAAAAAATwAAAAAATwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAATwAAAAAATwAAAAAAKwAAAAAAKwAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+          version: 6
+    - type: Broadphase
+    - type: Physics
+      bodyStatus: InAir
+      angularDamping: 0.05
+      linearDamping: 0.05
+      fixedRotation: False
+      bodyType: Dynamic
+    - type: Fixtures
+      fixtures: {}
+    - type: OccluderTree
+    - type: SpreaderGrid
+    - type: Shuttle
+    - type: GridPathfinding
+    - type: Gravity
+      gravityShakeSound: !type:SoundPathSpecifier
+        path: /Audio/Effects/alert.ogg
+    - type: DecalGrid
+      chunkCollection:
+        version: 2
+        nodes:
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt1
+          decals:
+            291: -6.0636754,9.01588
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt2
+          decals:
+            289: -4.1886754,6.7658796
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt3
+          decals:
+            292: -7.5949254,6.0158796
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt5
+          decals:
+            290: -1.7667999,4.7971296
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt6
+          decals:
+            293: -2.126175,6.7658796
+        - node:
+            angle: 1.5707963267948966 rad
+            color: '#4D4C4AFF'
+            id: Basalt6
+          decals:
+            294: -5.9855504,6.8283796
+            295: -4.4386754,10.39088
+            296: 1.9207001,6.0940046
+            297: -1.4230499,1.9846296
+            298: 1.6394501,8.01588
+            299: -1.7042999,10.219005
+        - node:
+            angle: 3.141592653589793 rad
+            color: '#4D4C4AFF'
+            id: Basalt6
+          decals:
+            300: 0.13945007,9.14088
+            301: -5.7355504,10.26588
+            302: -4.4699254,10.67213
+            303: -5.7980504,2.9377546
+            304: -7.8293004,8.062755
+            305: -4.0011754,9.531505
+            306: -3.4699254,10.98463
+        - node:
+            color: '#4D4C4AFF'
+            id: Basalt7
+          decals:
+            307: 1.9050751,7.3596296
+        - node:
+            color: '#4D4C4AFF'
+            id: Bushf1
+          decals:
+            308: -1.0480499,6.7815046
+        - node:
+            color: '#4D4647FF'
+            id: Flowerspv1
+          decals:
+            311: -2.344925,9.07838
+            312: -3.2824254,9.64088
+        - node:
+            color: '#4D4647FF'
+            id: Flowerspv2
+          decals:
+            310: -2.907425,8.92213
+        - node:
+            color: '#4D4647FF'
+            id: Flowerspv3
+          decals:
+            309: -3.4699254,9.14088
+            313: -2.7043,9.687755
+        - node:
+            color: '#4D4647FF'
+            id: Grassc1
+          decals:
+            314: -3.3293004,9.219005
+            315: -2.8918,9.10963
+            316: -2.5168,9.29713
+            317: -2.9543,9.500255
+        - node:
+            angle: -1.5707963267948966 rad
+            color: '#4D4C4AFF'
+            id: VentSmall
+          decals:
+            185: -5.1484227,4.102413
+            186: -6.0702977,4.008663
+            187: -6.3359227,4.196163
+            188: -6.0702977,4.461788
+            189: -6.5859227,3.7899132
+            190: -6.6015477,4.399288
+            191: -5.2109227,3.6180382
+            192: -4.8827977,3.5086632
+            193: -4.6327977,3.3367882
+            194: -4.2890477,3.2586632
+            195: -4.2734227,3.8367882
+            196: -1.8119717,3.062883
+            197: -1.5307217,3.234758
+            198: -1.2338467,3.469133
+            199: -1.1869717,4.031633
+            200: -0.90572166,3.344133
+            201: -0.54634666,4.234758
+            202: -0.24947166,3.562883
+            203: -0.28072166,4.109758
+            204: 0.063028336,4.437883
+            205: 0.109903336,3.344133
+            206: 0.42240334,3.625383
+            207: 0.35990334,4.281633
+            208: 0.67240334,3.875383
+            209: 0.98490334,4.141008
+            210: -4.2402916,8.304017
+            211: -3.9902916,7.569642
+            212: -3.9434166,8.038392
+            213: -4.5527916,7.569642
+            214: -4.8340416,8.163392
+            215: -5.0996666,7.772767
+            216: -5.9277916,8.163392
+            217: -6.5499988,5.562617
+            218: -6.2218738,5.484492
+            219: -5.9562488,5.656367
+            220: -5.9874988,6.265742
+            221: -5.5812488,5.500117
+            222: -5.3624988,6.234492
+            223: -5.0968738,5.984492
+            224: -4.8312488,5.609492
+            225: -4.8156238,6.109492
+            226: -4.33751,5.468867
+            227: -4.30626,6.140742
+            228: -4.071885,5.625117
+            229: -4.05626,6.125117
+            230: -1.8893042,5.445227
+            231: -1.9049292,6.038977
+            232: -0.84242916,6.085852
+            233: -0.77992916,5.554602
+            234: -0.57680416,6.320227
+            235: -0.54555416,5.913977
+            236: -0.52992916,5.320227
+            237: -0.27992916,6.288977
+            238: 0.28257084,5.492102
+            239: 0.28257084,6.148352
+            240: 0.48569584,5.820227
+            241: -1.5762901,8.240236
+            242: -1.8887901,7.5058613
+            243: -1.5762901,7.1933613
+            244: -1.2950401,7.5058613
+            245: -1.0294151,8.240236
+            246: -0.98254013,7.7246113
+            247: -0.71691513,7.3652363
+            248: -0.74816513,8.083986
+            249: -0.45129013,8.271486
+            250: -0.15441513,8.287111
+            251: -0.15441513,7.3496113
+            252: 0.09558487,7.5996113
+            253: 0.11120987,8.177736
+            254: 0.43933487,7.5934753
+            255: -6.1712933,7.726366
+            256: -6.2181683,8.273241
+            257: -5.9212933,7.663866
+            258: -5.3744183,8.413866
+            259: -5.6556683,8.320116
+        - node:
+            color: '#4D4C4AFF'
+            id: VentSmall
+          decals:
+            124: -3.6348314,3.0533838
+            125: -3.4629564,3.2877588
+            126: -3.6348314,3.5377588
+            131: -3.0098314,3.2877588
+            132: -2.8223314,3.5533838
+            133: -3.1504564,3.0533838
+            134: -2.5254564,3.2877588
+            135: -2.3223314,3.0221338
+            136: -3.4160814,3.7408838
+            137: -2.9785814,3.7877588
+            138: -2.4942064,3.8033838
+            139: -3.6504564,4.022134
+            140: -3.4317064,4.256509
+            141: -3.1504564,4.506509
+            142: -2.8692064,4.709634
+            143: -2.5567064,4.928384
+            144: -3.3067064,4.772134
+            145: -3.5879564,5.006509
+            146: -2.8067064,4.053384
+            147: -2.3223314,4.037759
+            148: -2.7129564,4.303384
+            149: -2.4004564,4.522134
+            150: -3.5879564,8.631077
+            151: -3.4160814,8.349827
+            152: -2.9629564,8.365452
+            153: -2.4629564,8.381077
+            154: -2.2285814,8.662327
+            155: -3.291874,5.224293
+            156: -2.854374,5.224293
+            157: -2.369999,5.193043
+            158: -3.541874,5.505543
+            159: -3.057499,5.564137
+            160: -2.604374,5.517262
+            161: -3.338749,5.7911577
+            162: -2.338749,5.7599077
+            163: -2.557499,6.0255327
+            164: -3.073124,6.0724077
+            165: -2.2694225,6.3224077
+            166: -2.7694225,6.3536577
+            167: -3.3162975,6.3536577
+            168: -3.5374126,6.6164894
+            169: -3.0686626,6.6321144
+            170: -2.5530376,6.6164894
+            172: -2.7946444,6.9289894
+            173: -3.3258944,6.9446144
+            174: -3.5710707,7.1835117
+            175: -3.1023207,7.1835117
+            176: -2.6648207,7.1991367
+            177: -2.3601532,7.4335117
+            178: -2.6257782,7.6835117
+            179: -3.2820282,7.4803867
+            180: -3.0789032,7.7460117
+            181: -3.5476532,7.7460117
+            182: -3.3601532,8.058512
+            183: -2.8289032,8.042887
+            184: -2.3289032,8.027262
+        - node:
+            angle: 1.5707963267948966 rad
+            color: '#4D4C4AFF'
+            id: VentSmall
+          decals:
+            82: -4.2598944,7.7751045
+            83: -4.5098944,8.0876045
+            84: -5.6505194,7.8063545
+            85: -6.4473944,8.1657295
+            86: -6.6973944,7.9938545
+            87: -1.8862572,7.9626045
+            88: -1.5893822,7.7594795
+            89: -1.2612572,7.9782295
+            90: -0.46438217,7.7282295
+            91: -0.21438217,7.8376045
+            92: 0.5043678,8.1032295
+            93: 0.7543678,7.9313545
+            94: -6.839382,5.8868
+            95: -6.511257,6.089925
+            96: -6.230007,5.933675
+            97: -5.636257,5.98055
+            98: -5.386257,5.73055
+            99: -4.589382,5.933675
+            100: -7.011257,4.15985
+            101: -6.323757,3.6911001
+            102: -5.808132,4.300475
+            103: -5.542507,4.081725
+            104: -5.792507,3.8161001
+            105: -5.480007,3.6442251
+            106: -4.839382,4.03485
+            107: -4.573757,3.8317251
+            108: -1.8126688,4.0123987
+            109: -1.5626688,3.8561487
+            110: -1.8126688,3.5592737
+            111: -0.8439188,3.9186487
+            112: -0.5470438,3.7311487
+            113: 0.1404562,3.8717737
+            114: -1.6564188,5.7393255
+            115: -1.3907938,5.9737005
+            116: -1.0939188,5.7862005
+            117: 0.0154562,6.0362005
+            118: -0.2501688,5.7705755
+            119: 0.0154562,5.6143255
+            120: 0.7342062,6.0362005
+            121: 0.9842062,5.8330755
+            122: -6.405166,7.696926
+            123: -5.405166,7.884426
+        - node:
+            color: '#2B292EFF'
+            id: burnt1
+          decals:
+            16: -3.4942694,8.099474
+            17: -2.8692694,7.865099
+            18: -3.1505194,7.474474
+            19: -2.6973944,6.833849
+            20: -3.0411444,6.177599
+            21: -3.2442694,6.677599
+            22: -2.6036444,5.802599
+            23: -2.6348944,6.068224
+            24: -3.1661444,5.005724
+            25: -2.8380194,5.224474
+            26: -2.6973944,4.286974
+            27: -3.2755194,4.474474
+            28: -2.5567694,4.724474
+            29: -3.4317694,5.818224
+            30: -2.6817694,8.021349
+            31: -3.1036444,8.380724
+            32: -3.6661444,7.740099
+            69: -2.3223944,7.630724
+            70: -3.1348944,7.286974
+            71: -3.6192694,3.794582
+            75: -3.5880194,2.919582
+        - node:
+            angle: -1.5707963267948966 rad
+            color: '#4D4C4AFF'
+            id: burnt1
+          decals:
+            260: -4.2199254,3.5471296
+            261: -4.8293004,3.8127546
+            262: -6.5168004,3.8752546
+            263: -6.4386754,5.8283796
+            264: -5.2668004,5.8283796
+            265: -4.1730504,5.8596296
+            266: -6.6261754,7.9846296
+            267: -5.5480504,8.000255
+            268: -4.2511754,7.8908796
+            269: -1.5792999,7.6721296
+            270: -0.39179993,8.01588
+            271: 0.5457001,7.8752546
+            272: -1.8136749,5.6721296
+            273: -0.7355499,5.7971296
+            274: 0.014450073,5.9065046
+            275: 0.8113251,5.8283796
+            276: -1.7667999,3.5158796
+            277: -1.0324249,3.7971296
+            278: -0.42304993,3.7971296
+            279: 0.21757507,4.2033796
+            280: 0.21757507,3.6721296
+            281: -5.6418004,3.7815046
+            282: -6.4543004,5.7033796
+            283: -5.1261754,5.9377546
+            284: -3.5480504,5.8440046
+            285: -2.2043,3.5783796
+            286: -3.3449254,3.8596296
+            287: -2.251175,4.8283796
+            288: -3.3293004,6.7190046
+    - type: GridAtmosphere
+      version: 2
+      data:
+        chunkSize: 4
+    - type: GasTileOverlay
+- proto: CrateStoneGrave
+  entities:
+  - uid: 4
+    components:
+    - type: Transform
+      pos: -0.5,9.5
+      parent: 2
+  - uid: 5
+    components:
+    - type: Transform
+      pos: -4.5,9.5
+      parent: 2
+  - uid: 6
+    components:
+    - type: Transform
+      pos: -4.5,7.5
+      parent: 2
+  - uid: 7
+    components:
+    - type: Transform
+      pos: -4.5,5.5
+      parent: 2
+  - uid: 8
+    components:
+    - type: Transform
+      pos: -0.5,7.5
+      parent: 2
+  - uid: 9
+    components:
+    - type: Transform
+      pos: -0.5,5.5
+      parent: 2
+  - uid: 10
+    components:
+    - type: Transform
+      pos: -6.5,9.5
+      parent: 2
+  - uid: 11
+    components:
+    - type: Transform
+      pos: -6.5,7.5
+      parent: 2
+  - uid: 12
+    components:
+    - type: Transform
+      pos: -6.5,5.5
+      parent: 2
+  - uid: 13
+    components:
+    - type: Transform
+      pos: 1.5,5.5
+      parent: 2
+  - uid: 14
+    components:
+    - type: Transform
+      pos: 1.5,7.5
+      parent: 2
+  - uid: 15
+    components:
+    - type: Transform
+      pos: 1.5,9.5
+      parent: 2
+- proto: LightPostSmall
+  entities:
+  - uid: 16
+    components:
+    - type: Transform
+      pos: -3.5,9.5
+      parent: 2
+    - type: PointLight
+      color: '#FFAF38FF'
+  - uid: 17
+    components:
+    - type: Transform
+      pos: -1.5,9.5
+      parent: 2
+    - type: PointLight
+      color: '#FFAF38FF'
+- proto: Memorial
+  entities:
+  - uid: 3
+    components:
+    - type: Transform
+      pos: -2.5,10.5
+      parent: 2
+...

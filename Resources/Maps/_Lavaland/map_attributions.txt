@@ -6,7 +6,7 @@
 - files: ["ruin_golem_shuttle.yml", "ruin_rouge_ai.yml", "ruin_seed_vault.yml"]
   authors: nyawul
 
-- files: ["ruin_beach_biodome.yml", "ruin_syndicate_base.yml"]
+- files: ["ruin_beach_biodome.yml", "ruin_syndicate_base.yml", "ruin_graveyard.yml", "ruin_chemistry.yml", "ruin_toyshop".yml]
   authors: aineias1
 
 - files: ["ruin_snow_biodome.yml", "ruin_hermit.yml"]

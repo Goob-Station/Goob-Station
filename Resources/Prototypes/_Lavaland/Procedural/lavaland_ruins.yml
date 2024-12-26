@@ -4,9 +4,19 @@
   path: Maps/_Lavaland/Lavaland/common_ruin_5x5.yml
 
 - type: lavalandRuin
-  id: RuinedShuttle
-  name: Unknown Shuttle
-  path: Maps/_Lavaland/Lavaland/ruin_shuttle_lavaland.yml
+  id: Chemistry
+  name: Unknown Syndicate Laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_chemistry.yml
+
+- type: lavalandRuin
+  id: Graveyard
+  name: Graveyard
+  path: Maps/_Lavaland/Lavaland/ruin_graveyard.yml
+
+- type: lavalandRuin
+  id: ToyShop
+  name: Toy Shop
+  path: Maps/_Lavaland/Lavaland/ruin_toyshop.yml
 
 - type: lavalandRuin
   id: Hermit # Shelter
