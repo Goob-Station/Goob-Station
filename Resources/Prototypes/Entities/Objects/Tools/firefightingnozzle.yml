@@ -57,8 +57,8 @@
   description: Special grenade for atmosians. 
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
-    state: frozen-smoke-capsule
+    sprite: Objects\Weapons\Grenades\frozen-smoke-capsule.rsi
+    state: icon
   - type: SmokeOnTrigger
     isResin: true
     duration: 5
