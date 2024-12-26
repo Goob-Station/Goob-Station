@@ -44,6 +44,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  - type: ThrowableBlocked # Goobstation
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 

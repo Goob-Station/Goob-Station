@@ -54,6 +54,11 @@
     materialComposition:
       Glass: 60
   - type: SpaceGarbage
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   name: broken plate

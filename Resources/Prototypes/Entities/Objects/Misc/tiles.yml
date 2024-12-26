@@ -28,7 +28,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30
+        damage: 40 # Goob edit
       behaviors:
         - !type:DoActsBehavior
           acts: [ "Destruction" ]
@@ -47,6 +47,11 @@
     damage:
       types:
         Blunt: 5
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 20
 
 - type: entity
   name: steel dark checker tile

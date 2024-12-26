@@ -69,6 +69,11 @@
   - type: ToolRefinable
     refineResult:
     - id: SheetGlass1
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   parent: BaseLightbulb

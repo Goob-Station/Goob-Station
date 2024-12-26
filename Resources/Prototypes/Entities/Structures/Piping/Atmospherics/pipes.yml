@@ -173,6 +173,11 @@
     damage:
       types:
         Blunt: 8 # Woe, pipe be upon ye!
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 100
 
 - type: entity
   # Goobstation - Allow device-on-pipe stacking

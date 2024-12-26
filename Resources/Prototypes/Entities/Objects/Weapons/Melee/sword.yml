@@ -196,3 +196,9 @@
     - type: Grammar
       attributes:
         proper: true
+    - type: ThrowableBlocker # Goobstation
+      blockSound:
+        path: /Audio/Weapons/eblade1.ogg
+        params:
+          variation: 0.250
+          volume: -2

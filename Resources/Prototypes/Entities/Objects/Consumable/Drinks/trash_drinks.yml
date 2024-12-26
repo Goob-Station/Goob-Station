@@ -77,6 +77,12 @@
       Glass: 100
   - type: SpaceGarbage
   - type: DnaSubstanceTrace
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
+
 
 - type: entity
   name: base empty bottle

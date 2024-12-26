@@ -21,3 +21,4 @@
       types:
         Slash: 5
         Piercing: 10
+  - type: ThrowableBlocked # Goobstation

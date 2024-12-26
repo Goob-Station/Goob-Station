@@ -63,6 +63,11 @@
   - type: Tag
     tags:
     - Trash
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   name: broken bowl

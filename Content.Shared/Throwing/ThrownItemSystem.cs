@@ -137,7 +137,12 @@ namespace Content.Shared.Throwing
                 _adminLogger.Add(LogType.ThrowHit, LogImpact.Low,
                     $"{ToPrettyString(thrown):thrown} thrown by {ToPrettyString(component.Thrower.Value):thrower} hit {ToPrettyString(target):target}.");
 
-            RaiseLocalEvent(target, new ThrowHitByEvent(thrown, target, component), true);
+            // Goob edit start
+            var ev = new ThrowHitByEvent(thrown, target, component);
+            RaiseLocalEvent(target, ev, true);
+            if (ev.Handled)
+                return;
+            // Goob edit ent
             RaiseLocalEvent(thrown, new ThrowDoHitEvent(thrown, target, component), true);
         }
 

@@ -102,6 +102,11 @@
   - type: Spillable
     solution: beaker
   - type: DnaSubstanceTrace
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 15
 
 - type: entity
   id: VestineChemistryVial

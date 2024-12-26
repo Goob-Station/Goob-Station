@@ -173,6 +173,8 @@
     - Pie
   - type: SliceableFood
     slice: FoodPieBananaCreamSlice
+  - type: ThrowableBlocked # Goobstation
+    behavior: Destroy
 
 - type: entity
   name: slice of banana cream pie

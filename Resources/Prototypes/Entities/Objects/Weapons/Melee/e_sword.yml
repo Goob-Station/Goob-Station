@@ -119,6 +119,12 @@
   - type: Tag # WD EDIT
     tags:
     - EnergySword
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
 
 - type: entity
   name: energy dagger
@@ -308,6 +314,12 @@
         map: [ "blade" ]
   - type: Item
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
 
 - type: entity
   name: double-bladed energy sword
@@ -379,6 +391,12 @@
     otherTypeReflectProb: .2
     spread: 75
   - type: FlipOnHit # WD EDIT
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
 
 - type: entity # Goobstation
   parent: EnergySwordDoubleBase
