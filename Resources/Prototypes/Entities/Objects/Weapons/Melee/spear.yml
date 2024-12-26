@@ -48,7 +48,7 @@
       types:
         Piercing: 15
   - type: Item
-    size: Ginormous
+    size: Large # goobstation
   - type: Clothing
     quickEquip: false
     slots:
@@ -134,7 +134,7 @@
   - type: DamageOtherOnHit
     damage:
       types:
-        Piercing: 18
+        Piercing: 17
   - type: Construction
     graph: SpearReinforced
 

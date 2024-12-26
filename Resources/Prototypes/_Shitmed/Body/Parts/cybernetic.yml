@@ -129,6 +129,8 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
 
 - type: entity
   parent: RightArmCybernetic
@@ -141,6 +143,8 @@
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
+    - type: UseDelay # For insta prying
+      delay: 1
 
 - type: entity
   parent: LeftLegCybernetic

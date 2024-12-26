@@ -456,14 +456,13 @@ public partial class SharedBodySystem
             || !Initialized(uid)) // We do this last one for urists on test envs.
             return;
 
-        Logger.Debug($"{ToPrettyString(uid)}: ProfileLoadFinished with {HasComp<HumanoidAppearanceComponent>(uid)} and {component}");
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
     }
 
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.LegEntities.Count == 0 && ent.Comp.RequiredLegs > 0)
+        if (ent.Comp.LegEntities.Count < ent.Comp.RequiredLegs)
             args.Cancel();
     }
 

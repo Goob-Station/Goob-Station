@@ -26,6 +26,12 @@ public sealed partial class StealthComponent : Component
     public bool EnabledOnDeath = true;
 
     /// <summary>
+    /// The creature will continue invisible at Crit.
+    /// </summary>
+    [DataField("enabledOnCrit")]
+    public bool EnabledOnCrit = true; // Goobstation - Stealth change
+
+    /// <summary>
     /// Whether or not the entity previously had an interaction outline prior to cloaking.
     /// </summary>
     [DataField("hadOutline")]
@@ -79,12 +85,14 @@ public sealed class StealthComponentState : ComponentState
 {
     public readonly float Visibility;
     public readonly TimeSpan? LastUpdated;
+    public readonly float MaxVisibility; // Shitmed Change
     public readonly bool Enabled;
 
-    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, bool enabled)
+    public StealthComponentState(float stealthLevel, TimeSpan? lastUpdated, float maxVisibility, bool enabled)
     {
         Visibility = stealthLevel;
         LastUpdated = lastUpdated;
+        MaxVisibility = maxVisibility; // Shitmed Change
         Enabled = enabled;
     }
 }

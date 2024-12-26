@@ -162,7 +162,7 @@
   - type: SolutionContainerManager
     solutions:
       drink:
-        maxVol: 15  #Low volume but a full will last for 30sec
+        maxVol: 20  # lasts for 40 seconds, effectively half as good as a normal patch
   - type: RefillableSolution  # So Tiders can fill ther bandages whit hotch and ventcurd
     solution: drink
   - type: Construction
@@ -209,8 +209,8 @@
     edges:
     - to: medicalPatchMakeshift
       steps:
-      - material: Gauze
-        amount: 3
+      - material: Cloth
+        amount: 2
         doAfter: 10
   - node: medicalPatchMakeshift
     entity: MedicalPatchMakeshift
@@ -223,10 +223,37 @@
   targetNode: medicalPatchMakeshift
   category: construction-category-tools
   objectType: Item
-  description: a little better then nothig
+  description: a little better then nothing
   icon:
     sprite: _Goobstation/Objects/Medical/medical_patch.rsi
     state: MakeshiftPatch
 
+- type: constructionGraph
+  id: SilkPatchMakeshift
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: silkPatchMakeshift
+      steps:
+      - material: WebSilk
+        amount: 8
+        doAfter: 10
+  - node: silkPatchMakeshift
+    entity: MedicalPatchMakeshift
 
-
+- type: construction
+  name: Silk Makeshift Patch
+  id: SilkPatchMakeshift
+  graph: SilkPatchMakeshift
+  startNode: start
+  targetNode: silkPatchMakeshift
+  category: construction-category-tools
+  objectType: Item
+  description: a little better then nothing
+  icon:
+    sprite: _Goobstation/Objects/Medical/medical_patch.rsi
+    state: MakeshiftPatch
+  entityWhitelist:
+    tags:
+    - SpiderCraft

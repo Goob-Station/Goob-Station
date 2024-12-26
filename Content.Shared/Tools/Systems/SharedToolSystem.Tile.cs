@@ -3,6 +3,7 @@ using Content.Shared.Fluids.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
+using Content.Shared.Timing;
 using Content.Shared.Tools.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -65,6 +66,9 @@ public abstract partial class SharedToolSystem
         if (!Resolve(ent, ref ent.Comp1, ref ent.Comp2, false))
             return false;
 
+        if (TryComp(ent, out UseDelayComponent? delay) && _delay.IsDelayed((ent.Owner, delay))) // Goobstation
+            return false;
+
         var comp = ent.Comp1!;
         var tool = ent.Comp2!;
 
@@ -88,7 +92,7 @@ public abstract partial class SharedToolSystem
             return false;
 
         var args = new TileToolDoAfterEvent(GetNetEntity(gridUid), tileRef.GridIndices);
-        UseTool(ent, user, ent, comp.Delay, tool.Qualities, args, out _, toolComponent: tool);
+        UseTool(ent, user, ent, comp.Delay * tileDef.DeconstructTimeMultiplier, tool.Qualities, args, out _, toolComponent: tool); // Goob edit
         return true;
     }
 
