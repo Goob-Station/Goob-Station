@@ -1,4 +1,7 @@
 - type: Tag
+  id: DockMining
+
+- type: Tag
   id: LavalandInterior5x5
 
 - type: Tag

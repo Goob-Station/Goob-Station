@@ -16,6 +16,7 @@ using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
+using Content.Shared.Whitelist;
 using Robust.Server.GameObjects;
 using Robust.Server.Maps;
 using Robust.Shared.Configuration;
@@ -231,6 +232,11 @@ public sealed class LavalandGenerationSystem : EntitySystem
         // Start!!1!!!
         _mapManager.DoMapInitialize(lavalandMapId);
         _mapManager.SetMapPaused(lavalandMapId, false);
+
+        // Finally add destination, only for Mining Shittles
+        var dest = AddComp<FTLDestinationComponent>(lavalandMap);
+        dest.Whitelist = new EntityWhitelist {Components = ["MiningShuttle"]};
+
         return true;
     }
 
