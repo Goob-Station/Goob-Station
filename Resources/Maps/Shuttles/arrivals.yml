@@ -2690,7 +2690,7 @@ entities:
     missingComponents:
     - Destructible
     - Construction
-- proto: Thruster
+- proto: ThrusterShuttleArrivals # Goob edit
   entities:
   - uid: 169
     components:

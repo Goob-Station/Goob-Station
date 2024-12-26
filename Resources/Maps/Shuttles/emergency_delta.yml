@@ -4119,7 +4119,7 @@ entities:
     - type: Transform
       pos: -2.5,5.5
       parent: 1
-- proto: Thruster
+- proto: ThrusterShuttleEvac # Goob edit
   entities:
   - uid: 438
     components:
@@ -4180,7 +4180,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-19.5
       parent: 1
-    - type: Thruster
+    - type: ThrusterShuttleEvac # Goob edit
       enabled: False
   - uid: 708
     components:
