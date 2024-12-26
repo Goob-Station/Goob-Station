@@ -6472,7 +6472,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6534,7 +6534,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6596,7 +6596,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6669,7 +6669,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6796,7 +6796,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6858,7 +6858,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
@@ -6942,7 +6942,7 @@ entities:
           hard: True
           restitution: 0
           friction: 0.4
-        ThrusterShuttleEvac # Goob edit-burn:
+        thruster-burn:
           shape: !type:PolygonShape
             radius: 0.01
             vertices:
