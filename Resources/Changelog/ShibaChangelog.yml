@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: New species; Resomi! Definitely Legally Distinct™ space avians who are
+      small and cold resistant!
+    type: Add
+  id: 67
+  time: '2024-12-26T06:49:43.032857'
+- author: AstroDogeDX
+  changes:
   - message: Thief now has two new steal targets. Gee I wonder what they are...
     type: Add
   id: 66
