@@ -585,7 +585,7 @@
     weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
-    minimumPlayers: 4
+    minimumPlayers: 8 # ShibaStation - Increased from 4 to 8
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
