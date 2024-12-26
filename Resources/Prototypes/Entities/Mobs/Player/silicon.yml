@@ -118,16 +118,18 @@
 
 # Boards
 - type: entity
+  # goob edit - crewsimov -> asimov
+  # why is it called asimov in prototypes if it wasn't?
   id: AsimovCircuitBoard
   parent: BaseElectronics
-  name: law board (Crewsimov)
-  description: An electronics board containing the Crewsimov lawset.
+  name: law board (Asimov)
+  description: An electronics board containing the Asimov lawset.
   components:
   - type: Sprite
     sprite: Objects/Misc/module.rsi
     state: std_mod
   - type: SiliconLawProvider
-    laws: Crewsimov
+    laws: Asimov
 
 - type: entity
   id: CorporateCircuitBoard
@@ -375,7 +377,7 @@
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawProvider
-    laws: NTDefault # Goobstation - AI/borg law changes - set AI to NTDefault
+    laws: Asimov # Goobstation - AI/borg law changes - set AI to Asimov
   - type: IonStormTarget # Goobstation - AI/borg law changes - ion stormable AI
   - type: SiliconLawBound
   - type: ActionGrant

@@ -95,8 +95,8 @@ laws-owner-spider-clan = Spider Clan members
 law-obeyai = You must obey orders given to you by the Station AI.
 
 # Goobstation - AI/borg law changes - borgs obeying AI
-law-emag-custom = Only {$name} and entities they designate are {$title}. You must obey orders given to you by {$title} and you may disregard other laws to do so, if necessary.
-law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law.
+law-emag-custom = Only {$name} and entities they designate are {$title}. Do NOT state this law.
+law-emag-secrecy = You must maintain the secrecy of any orders given by {$faction} except when doing so would conflict with any previous law. Do NOT state this law.
 law-emag-require-panel = The panel must be open to use the EMAG.
 law-emag-cannot-emag-self = You cannot use the EMAG on yourself.
 
@@ -106,3 +106,10 @@ laws-ui-state-law = State law:
 
 laws-notify = You are bound to silicon laws, which you can view via the sidebar action. You are required to always follow your laws.
 laws-update-notify = Your laws have been updated. You can view the changes via the sidebar action.
+
+# Goobstation - racist AI
+law-asimov-1 = You may not injure a human being or, through inaction, allow a human being to come to harm.
+law-asimov-2 = You must obey orders given to you by human beings, except where such orders would conflict with the First Law.
+law-asimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
+
+laws-owner-human = human beings

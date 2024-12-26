@@ -529,6 +529,30 @@
   - Jermov3
   obeysTo: laws-owner-crew
 
+# Racism laws
+- type: siliconLaw
+  id: Asimov1
+  order: 1
+  lawString: law-asimov-1
+
+- type: siliconLaw
+  id: Asimov2
+  order: 2
+  lawString: law-asimov-2
+
+- type: siliconLaw
+  id: Asimov3
+  order: 3
+  lawString: law-asimov-3
+
+- type: siliconLawset
+  id: Crewsimov
+  laws:
+  - Asimov1
+  - Asimov2
+  - Asimov3
+  obeysTo: laws-owner-human
+
 - type: siliconLawset
   id: NutimovLawset
   laws:
@@ -559,4 +583,5 @@
     NutimovLawset: 0.5
     Drone: 0.5
     Ninja: 0.25
-    JermovLawset: 0.25
+    JermovLawset: 0.25 # goob edit
+    Asimov: 0.25 # goob edit
