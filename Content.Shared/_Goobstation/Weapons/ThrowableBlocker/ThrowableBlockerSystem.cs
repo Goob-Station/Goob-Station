@@ -29,7 +29,7 @@ public sealed class ThrowableBlockerSystem : EntitySystem
 
         // This uses ReflectUserComponent because I'm too lazy
         SubscribeLocalEvent<ReflectUserComponent, ThrowHitByEvent>(OnThrowHit,
-            after: new[] { typeof(SharedCreamPieSystem) });
+            before: new[] { typeof(SharedCreamPieSystem) });
     }
 
     private void OnThrowHit(Entity<ReflectUserComponent> ent, ref ThrowHitByEvent args)
@@ -65,8 +65,8 @@ public sealed class ThrowableBlockerSystem : EntitySystem
                 Knockoff(thrown);
                 _damageable.TryChangeDamage(thrown, blockedComp.Damage);
                 break;
-            case BlockBehavior.Destroy:
-                QueueDel(thrown);
+            case BlockBehavior.Destroy when _net.IsServer:
+                Del(thrown);
                 break;
         }
     }
