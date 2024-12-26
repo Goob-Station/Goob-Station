@@ -175,7 +175,7 @@
 
 - type: guideEntry
   id: OfficerCadet SOP
-  name: guide-entry-officercadet
+  name: guide-entry-sop-officercadet
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/OfficerCadetSOP.xml"
 
 - type: guideEntry
