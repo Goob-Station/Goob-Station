@@ -919,6 +919,9 @@
   id: NozzleBackTank
 
 - type: Tag
+  id: AtmosBackTank # Assmos - Extinguisher Nozzle
+
+- type: Tag
   id: Nugget # for chicken nuggets
 
 - type: Tag

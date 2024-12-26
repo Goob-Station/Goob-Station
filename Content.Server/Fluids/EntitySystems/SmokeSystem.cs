@@ -24,6 +24,8 @@ using System.Linq;
 using Content.Server.Nutrition.Components;
 using Content.Shared.Inventory;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
+using Content.Shared.Atmos; // Assmos - Extinguisher Nozzle
+using Content.Server.Atmos.EntitySystems; // Assmos - Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -46,6 +48,8 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly InventorySystem _inventory = default!; // Goobstation
+    [Dependency] private readonly AtmosphereSystem _atmo = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly GasTileOverlaySystem _gasOverlaySystem = default!; // Assmos - Extinguisher Nozzle
 
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
@@ -151,7 +155,8 @@ public sealed class SmokeSystem : EntitySystem
             var spreadAmount = Math.Max(0, smokePerSpread);
             entity.Comp.SpreadAmount -= args.NeighborFreeTiles.Count;
 
-            StartSmoke(ent, solution.Clone(), timer?.Lifetime ?? entity.Comp.Duration, spreadAmount);
+            StartSmoke(ent, solution.Clone(), timer?.Lifetime ?? entity.Comp.Duration, spreadAmount, entity.Comp.IsResin); // Assmos - Extinguisher Nozzle
+            //StartSmoke(ent, solution.Clone(), timer?.Lifetime ?? entity.Comp.Duration, spreadAmount);
 
             if (entity.Comp.SpreadAmount == 0)
             {
@@ -213,10 +218,15 @@ public sealed class SmokeSystem : EntitySystem
     /// <summary>
     /// Sets up a smoke component for spreading.
     /// </summary>
-    public void StartSmoke(EntityUid uid, Solution solution, float duration, int spreadAmount, SmokeComponent? component = null)
+    public void StartSmoke(EntityUid uid, Solution solution, float duration, int spreadAmount, bool isResin = false, SmokeComponent? component = null)
     {
         if (!Resolve(uid, ref component))
             return;
+
+        // Assmos - Extinguisher Nozzle
+        component.IsResin = isResin;
+        if (component.IsResin) UpdateAtmosphere(uid);
+        // Assmos end
 
         component.SpreadAmount = spreadAmount;
         component.Duration = duration;
@@ -355,5 +365,26 @@ public sealed class SmokeSystem : EntitySystem
 
         var color = solution.GetColor(_prototype);
         _appearance.SetData(smoke.Owner, SmokeVisuals.Color, color, smoke.Comp2);
+    }
+
+    /// <summary>
+    /// Used for ATMOS Resin. Assmos - Extinguisher Nozzle. 
+    /// </summary>
+    private void UpdateAtmosphere(EntityUid uid)
+    {
+        var mix = _atmo.GetContainingMixture(uid, true);
+
+        if (mix is null) return;
+        mix.AdjustMoles(Gas.CarbonDioxide, -mix.GetMoles(Gas.CarbonDioxide));
+        mix.AdjustMoles(Gas.Plasma, -mix.GetMoles(Gas.Plasma));
+        mix.AdjustMoles(Gas.Tritium, -mix.GetMoles(Gas.Tritium));
+        mix.AdjustMoles(Gas.Ammonia, -mix.GetMoles(Gas.Ammonia));
+        mix.AdjustMoles(Gas.NitrousOxide, -mix.GetMoles(Gas.NitrousOxide));
+        mix.AdjustMoles(Gas.Frezon, -mix.GetMoles(Gas.Frezon));
+        mix.AdjustMoles(Gas.BZ, -mix.GetMoles(Gas.BZ));
+        mix.AdjustMoles(Gas.Healium, -mix.GetMoles(Gas.Healium));
+        mix.AdjustMoles(Gas.Nitrium, -mix.GetMoles(Gas.Nitrium));
+        mix.Temperature = Atmospherics.T20C;
+        _gasOverlaySystem.UpdateSessions();
     }
 }

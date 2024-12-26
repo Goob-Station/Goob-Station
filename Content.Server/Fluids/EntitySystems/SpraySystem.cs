@@ -15,6 +15,8 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using System.Numerics;
 using Robust.Shared.Map;
+using Content.Shared.Inventory; // Assmos - Extinguisher Nozzle
+using Content.Shared.Whitelist; // Assmos - Extinguisher Nozzle
 
 namespace Content.Server.Fluids.EntitySystems;
 
@@ -30,6 +32,8 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly VaporSystem _vapor = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!; // Assmos - Extinguisher Nozzle
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!; // Assmos - Extinguisher Nozzle
 
     public override void Initialize()
     {
@@ -65,8 +69,24 @@ public sealed class SpraySystem : EntitySystem
 
     public void Spray(Entity<SprayComponent> entity, EntityUid user, MapCoordinates mapcoord)
     {
-        if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution))
-            return;
+        // Assmos - Extinguisher Nozzle
+        var sprayOwner = entity.Owner;
+        var solutionName = SprayComponent.SolutionName;
+
+        if (entity.Comp.ExternalContainer == true)
+        {
+            if (!_inventory.TryGetContainerSlotEnumerator(user, out var enumerator, entity.Comp.TargetSlot)) return;
+            while (enumerator.NextItem(out var item))
+            {
+                if (_whitelistSystem.IsWhitelistFailOrNull(entity.Comp.ProviderWhitelist, item)) continue;
+                sprayOwner = item;
+                solutionName = SprayComponent.TankSolutionName;
+            }
+        }
+
+        if (!_solutionContainer.TryGetSolution(sprayOwner, solutionName, out var soln, out var solution)) return;
+        // End of assmos changes
+        //if (!_solutionContainer.TryGetSolution(entity.Owner, SprayComponent.SolutionName, out var soln, out var solution)) return;
 
         var ev = new SprayAttemptEvent(user);
         RaiseLocalEvent(entity, ref ev);
