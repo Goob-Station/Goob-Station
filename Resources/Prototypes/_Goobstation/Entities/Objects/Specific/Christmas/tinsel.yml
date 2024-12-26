@@ -62,7 +62,6 @@
 
 - type: entity
   id: ChristmasTinselWhite1
-  parent: BaseItem
   description: Some white tinsel. It's a bit sparkly.
   components:
   - type: Sprite
