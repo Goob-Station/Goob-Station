@@ -54,7 +54,7 @@
   categories: [ HideSpawnMenu ]
   id: AtmosResin
   name: atmos resin
-  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  description: Special grenade for atmosians. 
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
