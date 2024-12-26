@@ -19,8 +19,8 @@ guide-entry-sop-containmentfail = Containment Fail
 guide-entry-sop-firegasspill = Fire/Gas Spills
 guide-entry-sop-meteorstorm = Meteor Storms
 guide-entry-sop-supermatterdelam = SM Delamination
-guide-entry-sop-virusoutbreak = Viral Outbreak
 guide-entry-sop-wardeclaration = War Declaration
+guide-entry-sop-zombieoutbreak = Zombie Outbreak
 # - Command
 guide-entry-sop-ntr = Nanotrasen Rep.
 guide-entry-sop-bso = Blueshield Officer

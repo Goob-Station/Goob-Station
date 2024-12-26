@@ -22,8 +22,8 @@
   - FireGasSpill SOP
   - MeteorStorm SOP
   - SMDelam SOP
-  - Virus SOP
   - WarDeclaration SOP
+  - Zombie SOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -100,14 +100,14 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/SupermatterDelam.xml"
 
 - type: guideEntry
-  id: Virus SOP
-  name: guide-entry-sop-virusoutbreak
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/VirusOutbreak.xml"
-
-- type: guideEntry
   id: WarDeclaration SOP
   name: guide-entry-sop-wardeclaration
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/WarDeclaration.xml"
+
+- type: guideEntry
+  id: Zombie SOP
+  name: guide-entry-sop-zombieoutbreak
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
 
 # Command SOP Entries
 - type: guideEntry
