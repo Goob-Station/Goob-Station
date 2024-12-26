@@ -22,6 +22,7 @@
   - FireGasSpill SOP
   - MeteorStorm SOP
   - SMDelam SOP
+  - StationDamage SOP
   - WarDeclaration SOP
   - Zombie SOP
 
@@ -93,6 +94,11 @@
   id: MeteorStorm SOP
   name: guide-entry-sop-meteorstorm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/MeteorStorm.xml"
+
+- type: guideEntry
+  id: StationDamage SOP
+  name: guide-entry-sop-stationdamage
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/StationDamage.xml"
 
 - type: guideEntry
   id: SMDelam SOP

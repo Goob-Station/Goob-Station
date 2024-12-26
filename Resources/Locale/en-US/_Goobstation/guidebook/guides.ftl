@@ -18,6 +18,7 @@ guide-entry-sop-confirmedrevs = Revolution
 guide-entry-sop-containmentfail = Containment Fail
 guide-entry-sop-firegasspill = Fire/Gas Spills
 guide-entry-sop-meteorstorm = Meteor Storms
+guide-entry-sop-stationdamage = Station Damage
 guide-entry-sop-supermatterdelam = SM Delamination
 guide-entry-sop-wardeclaration = War Declaration
 guide-entry-sop-zombieoutbreak = Zombie Outbreak
