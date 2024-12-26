@@ -100,6 +100,7 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingBackpackFirefighterTank
 
 - type: entity
   id: LockerAtmosphericsFilled
@@ -118,6 +119,7 @@
       - id: DoorRemoteFirefight # Goobstation - re adding fire door remote
       - id: RCD
       - id: RCDAmmo
+      - id: ClothingBackpackFirefighterTank
 
 - type: entity
   id: LockerEngineerFilledHardsuit
