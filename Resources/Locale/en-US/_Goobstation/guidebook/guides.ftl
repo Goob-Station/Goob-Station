@@ -4,6 +4,7 @@ guide-entry-medpatches = Medical Patches
 # Goob SOP
 # - Directories
 guide-entry-sop = SOP
+guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
 guide-entry-sop-command = Command
 guide-entry-sop-security = Security
@@ -12,6 +13,14 @@ guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-succession = Succession
 guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-demoting = Dismissal/Demoting
+# - Emergencies
+guide-entry-sop-confirmedrevs = Revolution
+guide-entry-sop-containmentfail = Containment Fail
+guide-entry-sop-firegasspill = Fire/Gas Spills
+guide-entry-sop-meteorstorm = Meteor Storms
+guide-entry-sop-supermatterdelam = SM Delamination
+guide-entry-sop-virusoutbreak = Viral Outbreak
+guide-entry-sop-wardeclaration = War Declaration
 # - Command
 guide-entry-sop-ntr = Nanotrasen Rep.
 guide-entry-sop-bso = Blueshield Officer

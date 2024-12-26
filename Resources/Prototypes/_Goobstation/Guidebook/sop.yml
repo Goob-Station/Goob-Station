@@ -6,9 +6,24 @@
   children:
   - Alert Levels
   - Succession
+  - Emergencies SOP
   - Jobs SOP
   - Hiring SOP
   - Demoting SOP
+
+# Emergencies Main Directory
+- type: guideEntry
+  id: Emergencies SOP
+  name: guide-entry-sop-emergencies
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/Emergencies.xml"
+  children:
+  - ConfirmedRevs SOP
+  - ContainmentFail SOP
+  - FireGasSpill SOP
+  - MeteorStorm SOP
+  - SMDelam SOP
+  - Virus SOP
+  - WarDeclaration SOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -57,6 +72,42 @@
   id: Demoting SOP
   name: guide-entry-sop-demoting
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/FiringDemotion.xml"
+
+# Emergency SOP Entries
+- type: guideEntry
+  id: ConfirmedRevs SOP
+  name: guide-entry-sop-confirmedrevs
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ConfirmedRevolutions.xml"
+
+- type: guideEntry
+  id: ContainmentFail SOP
+  name: guide-entry-sop-containmentfail
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ContainmentFail.xml"
+
+- type: guideEntry
+  id: FireGasSpill SOP
+  name: guide-entry-sop-firegasspill
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/FireGasSpill.xml"
+
+- type: guideEntry
+  id: MeteorStorm SOP
+  name: guide-entry-sop-meteorstorm
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/MeteorStorm.xml"
+
+- type: guideEntry
+  id: SMDelam SOP
+  name: guide-entry-sop-supermatterdelam
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/SupermatterDelam.xml"
+
+- type: guideEntry
+  id: Virus SOP
+  name: guide-entry-sop-virusoutbreak
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/VirusOutbreak.xml"
+
+- type: guideEntry
+  id: WarDeclaration SOP
+  name: guide-entry-sop-wardeclaration
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/WarDeclaration.xml"
 
 # Command SOP Entries
 - type: guideEntry
