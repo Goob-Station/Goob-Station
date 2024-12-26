@@ -2,7 +2,7 @@
   name: Dualetta
   parent: [BaseWeaponPistol, BaseSyndicateContraband]
   id: WeaponPistolDualetta
-  description: Coolest weapon in the sector, for the coolest.
+  description: The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without another paired pistol. Though, some people have mustered the will to simply use a different gun in the other hand.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi
