@@ -4180,7 +4180,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 2.5,-19.5
       parent: 1
-    - type: ThrusterShuttleEvac # Goob edit
+    - type: Thruster
       enabled: False
   - uid: 708
     components:

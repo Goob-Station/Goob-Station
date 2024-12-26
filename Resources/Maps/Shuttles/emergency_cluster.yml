@@ -3249,7 +3249,7 @@ entities:
     - type: Transform
       pos: 3.5,-5.5
       parent: 2
-    - type: ThrusterShuttleEvac # Goob edit
+    - type: Thruster
       enabled: False
   - uid: 452
     components:
