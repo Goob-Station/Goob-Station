@@ -1,0 +1,71 @@
+﻿- type: entity
+  id: FirefighterNozzle
+  parent: BaseItem
+  name: firefighter nozzle
+  description: A specialized nozzle intended to fight fires. 
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    state: icon
+  - type: Item
+    sprite: Objects/Weapons/Guns/Basic/extinguishernozzle.rsi
+    size: Normal
+  - type: Tag
+    tags:
+    - AtmosBackTank
+    
+  - type: Spray
+    transferAmount: 20
+    pushbackAmount: 60
+    spraySound:
+      path: /Audio/Effects/extinguish.ogg
+    sprayedPrototype: ExtinguisherSpray
+    vaporAmount: 5
+    vaporSpread: 120
+    sprayDistance: 5
+    sprayVelocity: 2.0
+    externalContainer: true
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - NozzleBackTank
+      - AtmosBackTank
+
+  - type: PacifismAllowedGun
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Effects/thunk.ogg
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+    clumsyProof: true
+  - type: ClothingSlotAmmoProvider
+    targetSlot: BACK
+    providerWhitelist:
+      tags:
+      - AtmosBackTank
+
+- type: entity
+  parent: [ BaseCivilianContraband, SmokeGrenade ]
+  categories: [ HideSpawnMenu ]
+  id: AtmosResin
+  name: atmos resin
+  description: Special grenade for janitors, releasing large cloud of space cleaner foam.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+      - state: frozen-smoke-capsule
+  - type: SmokeOnTrigger
+    isResin: true
+    duration: 5
+    spreadAmount: 1000
+    smokePrototype: Resin
+  - type: ActiveTimerTrigger
+    timeRemaining: 0.3
+  - type: DeleteOnTrigger
+        
