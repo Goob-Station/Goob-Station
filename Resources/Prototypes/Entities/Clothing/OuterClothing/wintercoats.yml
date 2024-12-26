@@ -1237,9 +1237,9 @@
   description: A Parka Sweater with a N on the Zipper.
   components:
   - type: Sprite
-    sprite: Clothing/OuterClothing/WinterCoats/coatNparka.rsi
+    sprite: Clothing/OuterClothing/WinterCoats/CoatNparka.rsi
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coatNparka.rsi
+    sprite: Clothing/OuterClothing/WinterCoats/CoatNparka.rsi
   - type: TemperatureProtection
     heatingCoefficient: 1.2
     coolingCoefficient: 0.15
