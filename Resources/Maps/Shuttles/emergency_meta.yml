@@ -6443,7 +6443,7 @@ entities:
     - type: Transform
       pos: 18.5,-2.5
       parent: 1
-- proto: ThrusterShuttleEvac # Goob edit
+- proto: Thruster
   entities:
   - uid: 318
     components:
@@ -6999,7 +6999,7 @@ entities:
           - 412
           - 413
           - 414
-- proto: ThrusterShuttleEvac # Goob editMachineCircuitboard
+- proto: ThrusterMachineCircuitboard
   entities:
   - uid: 324
     components:
