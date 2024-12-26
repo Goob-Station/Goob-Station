@@ -58,8 +58,7 @@
   components:
   - type: Sprite
     sprite: Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
-    layers:
-      - state: icon
+    state: icon
   - type: SmokeOnTrigger
     isResin: true
     duration: 5
