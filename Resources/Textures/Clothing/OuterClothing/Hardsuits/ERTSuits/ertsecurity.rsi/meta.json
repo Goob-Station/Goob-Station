@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Created by discord:SOL(Артур)#8162, reptilian made by hqlle(444118014024220672). Vox sprite by Flareguy for Space Station 14, Harpy Variant By Adeinitas",
+  "copyright": "Taken from paradisestation at commit https://github.com/ParadiseSS13/Paradise/commit/12c21ced8432015485484b17e311dcceb7c458f6. Vox sprite by Flareguy for Space Station 14, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -17,6 +17,10 @@
     {
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
+    },
+    {
+        "name": "equipped-OUTERCLOTHING-resomi",
+        "directions": 4
     },
     {
       "name": "inhand-left",

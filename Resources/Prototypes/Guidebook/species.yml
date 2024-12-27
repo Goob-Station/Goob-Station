@@ -19,6 +19,7 @@
     - Rodentia
     - Yowie
     - IPC
+    - Resomi
 
 - type: guideEntry
   id: Arachnid
@@ -95,3 +96,8 @@
   id: IPC
   name: species-name-ipc
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+
+- type: guideEntry
+  id: Resomi
+  name: species-name-resomi
+  text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
