@@ -10,7 +10,7 @@
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:HealthChange 
+      - !type:HealthChange
         conditions:
         - !type:OrganType
           type: Yowie
@@ -20,7 +20,7 @@
           types:
             Heat: -0.5
             Shock: -0.5
-            Cold: -0.5 
+            Cold: -0.5
             Radiation: -0.5
       - !type:HealthChange
         conditions:
@@ -106,3 +106,45 @@
       - !type:Emote # Now a bunch of emotes
         emote: Scream
         probability: 0.05
+
+- type: reagent
+  id: Tirizene
+  name: reagent-name-tirizene
+  group: Narcotics
+  desc: reagent-desc-tirizene
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#6E2828"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:TakeStaminaDamage
+        amount: 15
+        immediate: false
+
+- type: reagent
+  id: BlindToxin
+  name: reagent-name-blind-toxin
+  group: Narcotics
+  desc: reagent-desc-blind-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      metabolismRate: 1
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 3
+        refresh: false
+      - !type:ChemHealEyeDamage # Heal in reverse
+        amount: 1

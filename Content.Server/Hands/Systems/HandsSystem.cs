@@ -2,6 +2,7 @@ using System.Numerics;
 using Content.Server.Inventory;
 using Content.Server.Stack;
 using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems; // Shitmed Change
@@ -39,6 +40,7 @@ namespace Content.Server.Hands.Systems
         [Dependency] private readonly PullingSystem _pullingSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
         [Dependency] private readonly SharedBodySystem _bodySystem = default!; // Shitmed Change
+        [Dependency] private readonly GrabbingItemSystem _grabbingItem = default!; // Goobstation
         public override void Initialize()
         {
             base.Initialize();
@@ -162,6 +164,17 @@ namespace Content.Server.Hands.Systems
         {
             if (args.PullerUid != uid)
                 return;
+
+            if (component.ActiveHandEntity != null &&
+                _grabbingItem.TryGetGrabbingItem(uid, out var grabbingItem)) // Goobstation
+            {
+                grabbingItem.Value.Comp.GrabbedEntity = args.PulledUid;
+                var beingGrabbed = EnsureComp<BeingGrabbedComponent>(args.PulledUid);
+                beingGrabbed.GrabberItemUid = grabbingItem.Value.Owner;
+                Dirty(grabbingItem.Value);
+                Dirty(args.PulledUid, beingGrabbed);
+                return;
+            }
 
             if (TryComp<PullerComponent>(args.PullerUid, out var pullerComp) && !pullerComp.NeedsHands)
                 return;

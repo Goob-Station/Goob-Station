@@ -4,10 +4,10 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Weapons.AmmoSelector;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class AmmoSelectorComponent : Component
 {
-    [DataField]
+    [DataField, AutoNetworkedField]
     public HashSet<ProtoId<SelectableAmmoPrototype>> Prototypes = new();
 
     [DataField]

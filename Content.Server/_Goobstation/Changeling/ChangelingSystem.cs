@@ -59,7 +59,9 @@ using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
+using Content.Shared._Goobstation.Weapons.AmmoSelector;
 using Content.Shared.Body.Components;
+using Content.Shared.Projectiles;
 
 namespace Content.Server.Changeling;
 
@@ -96,8 +98,6 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
@@ -107,9 +107,13 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
+    [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+    public EntProtoId HammerPrototype = "ArmHammerChangeling";
+    public EntProtoId ClawPrototype = "ArmClawChangeling";
+    public EntProtoId DartGunPrototype = "DartGunChangeling";
 
     public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
@@ -131,7 +135,24 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
+
         SubscribeAbilities();
+    }
+
+    private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (HasComp<ChangelingComponent>(args.Target))
+            return;
+
+        if (ent.Comp.ReagentDivisor <= 0)
+            return;
+
+        if (!_proto.TryIndex(ent.Comp.StingConfiguration, out var configuration))
+            return;
+
+        TryInjectReagents(args.Target,
+            configuration.Reagents.Select(x => (x.Key, x.Value / ent.Comp.ReagentDivisor)).ToDictionary());
     }
 
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -357,11 +378,11 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         return true;
     }
-    public bool TryInjectReagents(EntityUid uid, List<(string, FixedPoint2)> reagents)
+    public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
     {
         var solution = new Solution();
         foreach (var reagent in reagents)
-            solution.AddReagent(reagent.Item1, reagent.Item2);
+            solution.AddReagent(reagent.Key, reagent.Value);
 
         if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
             return false;
@@ -371,19 +392,26 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         return true;
     }
-    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
+    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action)
     {
         var target = action.Target;
         if (!TrySting(uid, comp, action))
             return false;
 
-        if (!TryInjectReagents(target, reagents))
+        if (!TryComp(action.Action, out ChangelingReagentStingComponent? reagentSting))
+            return false;
+
+        if (!_proto.TryIndex(reagentSting.Configuration, out var configuration))
+            return false;
+
+        if (!TryInjectReagents(target, configuration.Reagents))
             return false;
 
         return true;
     }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp)
+    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp, out EntityUid? equipment)
     {
+        equipment = null;
         if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
@@ -394,6 +422,7 @@ public sealed partial class ChangelingSystem : EntitySystem
                 return false;
             }
             comp.Equipment.Add(proto.Id, item);
+            equipment = item;
             return true;
         }
 

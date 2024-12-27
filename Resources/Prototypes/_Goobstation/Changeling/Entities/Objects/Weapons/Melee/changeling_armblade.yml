@@ -10,20 +10,20 @@
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: 90
-    attackRate: 1.5
+    attackRate: 0.75
     damage:
       types:
-        Slash: 2.5
-        Piercing: 2.5
-        Structural: 30
-    clickPartDamageMultiplier: 10
-    heavyPartDamageMultiplier: 7
+        Slash: 25
+        Structural: 60
+    clickPartDamageMultiplier: 3
+    heavyPartDamageMultiplier: 2
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item
     size: Ginormous
     sprite: _Goobstation/Changeling/arm_blade.rsi
   - type: Prying
+    speedModifier: 2
     pryPowered: true
   - type: UseDelay # For insta prying
     delay: 1
@@ -40,8 +40,6 @@
   id: FakeArmBladeChangeling
   components:
   - type: MeleeWeapon
-    wideAnimationRotation: 90
-    attackRate: 0.75
     damage:
       types:
         Blunt: 1

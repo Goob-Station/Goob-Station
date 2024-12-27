@@ -1,3 +1,4 @@
+using Content.Shared._Goobstation.Grab;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Alert;
@@ -46,6 +47,7 @@ public sealed class PullingSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly HeldSpeedModifierSystem _clothingMoveSpeed = default!;
+    [Dependency] private readonly GrabbingItemSystem _grabbingItem = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -367,7 +369,8 @@ public sealed class PullingSystem : EntitySystem
             && !_handsSystem.TryGetEmptyHand(puller, out _)
             && pullerComp.Pulling == null)
         {
-            return false;
+            if (!_grabbingItem.TryGetGrabbingItem(puller, out _)) // Goobstation
+                return false;
         }
 
         if (!_blocker.CanInteract(puller, pullableUid))
@@ -530,7 +533,7 @@ public sealed class PullingSystem : EntitySystem
             return false;
 
         var msg = new AttemptStopPullingEvent(user);
-        RaiseLocalEvent(pullableUid, msg, true);
+        RaiseLocalEvent(pullableUid, ref msg, true); // Goob edit
 
         if (msg.Cancelled)
             return false;

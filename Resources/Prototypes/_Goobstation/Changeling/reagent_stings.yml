@@ -1,0 +1,20 @@
+- type: reagentStingConfiguration
+  id: StingMute
+  reagents:
+    MuteToxin: 3
+
+- type: reagentStingConfiguration
+  id: StingBlind
+  reagents:
+    BlindToxin: 3
+
+- type: reagentStingConfiguration
+  id: StingCryo
+  reagents:
+    Fresium: 10
+
+- type: reagentStingConfiguration
+  id: StingLethargic
+  reagents:
+    Impedrezene: 5
+    Tirizene: 5
