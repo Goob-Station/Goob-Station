@@ -1,3 +1,4 @@
+using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
@@ -12,6 +13,7 @@ using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Server._Lavaland.Shuttles.Systems;
 
@@ -29,6 +31,7 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 
         SubscribeLocalEvent<DockEvent>(OnDock);
         SubscribeLocalEvent<UndockEvent>(OnUndock);
+        SubscribeLocalEvent<FTLCompletedEvent>(OnFTLCompleted);
 
         Subs.BuiEvents<DockingConsoleComponent>(DockingConsoleUiKey.Key, subs =>
         {
@@ -40,6 +43,17 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     private void OnDock(DockEvent args)
     {
         UpdateConsoles(args.GridAUid, args.GridBUid);
+    }
+
+    private void OnFTLCompleted(ref FTLCompletedEvent args)
+    {
+        // Update the state after the cooldown. Shitcode because
+        // no events are raised on FTL cooldown completion
+        var ent = args.Entity;
+        if (!TryComp<FTLComponent>(ent, out var ftl))
+            return; // how?
+
+        Timer.Spawn(ftl.StateTime.Length + TimeSpan.FromSeconds(1), () => UpdateConsolesUsing(ent));
     }
 
     private void OnUndock(UndockEvent args)
@@ -127,11 +141,12 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     {
         EntityUid? largestGrid = null;
         var largestSize = 0f;
+        var mapUid = _map.GetMap(map);
 
-        if (TryComp<StationDataComponent>(_map.GetMap(map), out var station))
+        if (TryComp<LavalandMapComponent>(mapUid, out var lavaland))
         {
-            // prevent picking vgroid and stuff
-            return _station.GetLargestGrid(station);
+            // always pick Outpost when it's lavaland
+            return lavaland.Outpost;
         }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();
@@ -139,6 +154,9 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         {
             if (xform.MapID != map)
                 continue;
+
+            if (HasComp<BecomesStationComponent>(gridUid))
+                return gridUid;
 
             var size = grid.LocalAABB.Size.LengthSquared();
             if (size < largestSize)

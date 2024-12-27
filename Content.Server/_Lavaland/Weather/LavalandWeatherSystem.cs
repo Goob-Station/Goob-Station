@@ -1,10 +1,9 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
-using Content.Server._Lavaland.Procedural.Systems;
+using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.GameTicking;
 using Content.Server.Temperature.Systems;
 using Content.Server.Weather;
-using Content.Shared._Shitmed.Targeting;
 using Content.Shared.CCVar;
 using Content.Shared.Damage;
 using Content.Shared.Humanoid;
@@ -97,15 +96,15 @@ public sealed class LavalandWeatherSystem : EntitySystem
         base.Update(frameTime);
         _lavalandWeatherJobQueue.Process();
 
-        var maps = EntityQueryEnumerator<LavalandStormedMapComponent>();
-        while(maps.MoveNext(out var map, out var comp))
+        var maps = EntityQueryEnumerator<LavalandMapComponent, LavalandStormedMapComponent>();
+        while(maps.MoveNext(out var map,out var lavaland, out var comp))
         {
             comp.Accumulator += frameTime;
 
             // End the weather when it's time
             if (comp.Accumulator >= comp.Duration)
             {
-                EndWeather(comp.Lavaland);
+                EndWeather((map, lavaland));
             }
 
             comp.DamageAccumulator += frameTime;
@@ -123,19 +122,18 @@ public sealed class LavalandWeatherSystem : EntitySystem
         }
     }
 
-    public void StartWeather(LavalandMap map, ProtoId<LavalandWeatherPrototype> weather)
+    public void StartWeather(Entity<LavalandMapComponent> map, ProtoId<LavalandWeatherPrototype> weather)
     {
-        if (HasComp<LavalandStormedMapComponent>(map.Uid))
+        if (HasComp<LavalandStormedMapComponent>(map))
             return;
 
         var proto = _proto.Index(weather);
 
-        _weather.SetWeather(map.MapId, _proto.Index(proto.WeatherType), null);
+        _weather.SetWeather(map.Comp.MapId, _proto.Index(proto.WeatherType), null);
 
-        var comp = EnsureComp<LavalandStormedMapComponent>(map.Uid);
+        var comp = EnsureComp<LavalandStormedMapComponent>(map);
         comp.CurrentWeather = proto.ID;
         comp.Duration = proto.Duration + _random.NextFloat(-proto.Variety, proto.Variety);
-        comp.Lavaland = map;
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))
@@ -144,14 +142,14 @@ public sealed class LavalandWeatherSystem : EntitySystem
         }
     }
 
-    public void EndWeather(LavalandMap map)
+    public void EndWeather(Entity<LavalandMapComponent> map)
     {
-        _weather.SetWeather(map.MapId, null, null);
-        if (!TryComp<LavalandStormedMapComponent>(map.Uid, out var comp))
+        _weather.SetWeather(map.Comp.MapId, null, null);
+        if (!TryComp<LavalandStormedMapComponent>(map, out var comp))
             return;
 
         var popup = _proto.Index(comp.CurrentWeather).PopupEndMessage;
-        RemComp<LavalandStormedMapComponent>(map.Uid);
+        RemComp<LavalandStormedMapComponent>(map);
 
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))

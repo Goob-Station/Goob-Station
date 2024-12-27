@@ -35,9 +35,6 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 public sealed class LavalandGenerationSystem : EntitySystem
 {
     [ViewVariables]
-    public List<LavalandMap>? LavalandMaps = [];
-
-    [ViewVariables]
     private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
 
     [Dependency] private readonly SharedMapSystem _map = default!;
@@ -75,7 +72,6 @@ public sealed class LavalandGenerationSystem : EntitySystem
     {
         if (!_config.GetCVar(CCVars.LavalandEnabled))
         {
-            LavalandMaps = null;
             return;
         }
 
@@ -86,7 +82,6 @@ public sealed class LavalandGenerationSystem : EntitySystem
     private void OnCleanup(RoundRestartCleanupEvent ev)
     {
         ShutdownPreloader();
-        LavalandMaps?.Clear();
     }
 
     private void SetupPreloader()
@@ -111,25 +106,24 @@ public sealed class LavalandGenerationSystem : EntitySystem
         _lavalandPreloader = null;
     }
 
-    public bool GetLavalands([NotNullWhen(true)] out List<LavalandMap>? maps)
+    public List<Entity<LavalandMapComponent>> GetLavalands()
     {
-        maps = null;
+        var lavalandsQuery = EntityQueryEnumerator<LavalandMapComponent>();
+        var lavalands = new List<Entity<LavalandMapComponent>>();
+        while (lavalandsQuery.MoveNext(out var uid, out var comp))
+        {
+            lavalands.Add((uid, comp));
+        }
 
-        if (LavalandMaps == null)
-            return false;
-
-        maps = LavalandMaps;
-
-        return true;
+        return lavalands;
     }
 
     public bool SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
     {
-        if (LavalandMaps == null)
-            return false;
-
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
+        var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
+        Entity<LavalandMapComponent> lavaland = (lavalandMap, mapComp);
 
         // If specified, force new seed or prototype
         seed ??= _random.Next();
@@ -207,20 +201,14 @@ public sealed class LavalandGenerationSystem : EntitySystem
         if (TerminatingOrDeleted(outpost))
             return false;
 
-        var map = new LavalandMap
-        {
-            MapId = lavalandMapId,
-            PrototypeId = lavalandPrototypeId,
-            Seed = lavalandSeed,
-            Uid = lavalandMap,
-            Outpost = outpost,
-        };
-
-        LavalandMaps!.Add(map);
+        mapComp.Outpost = outpost;
+        mapComp.Seed = seed.Value;
+        mapComp.MapId = lavalandMapId;
+        mapComp.PrototypeId = lavalandPrototypeId;
 
         // Setup Ruins.
         var pool = _proto.Index(prototype.RuinPool);
-        SetupRuins(pool, map);
+        SetupRuins(pool, lavaland);
 
         // Hide all grids from the mass scanner.
 #if !DEBUG
@@ -240,9 +228,9 @@ public sealed class LavalandGenerationSystem : EntitySystem
         return true;
     }
 
-    private void SetupRuins(LavalandRuinPoolPrototype pool, LavalandMap lavaland)
+    private void SetupRuins(LavalandRuinPoolPrototype pool, Entity<LavalandMapComponent> lavaland)
     {
-        var random = new Random(lavaland.Seed);
+        var random = new Random(lavaland.Comp.Seed);
 
         var boundary = GetOutpostBoundary(lavaland);
         if (boundary == null)
@@ -372,11 +360,11 @@ public sealed class LavalandGenerationSystem : EntitySystem
         return coords;
     }
 
-    private List<Box2>? GetOutpostBoundary(LavalandMap lavaland, FixturesComponent? manager = null, TransformComponent? xform = null)
+    private List<Box2>? GetOutpostBoundary(Entity<LavalandMapComponent> lavaland, FixturesComponent? manager = null, TransformComponent? xform = null)
     {
-        var uid = lavaland.Outpost;
+        var uid = lavaland.Comp.Outpost;
 
-        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid != lavaland.Uid)
+        if (!Resolve(uid, ref manager, ref xform) || xform.MapUid != lavaland)
             return null;
 
         var aabbs = new List<Box2>(manager.Fixtures.Count);
@@ -398,7 +386,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
     // TODO: make this as CPU job
     private bool LoadRuin(
         LavalandRuinPrototype ruin,
-        LavalandMap lavaland,
+        Entity<LavalandMapComponent> lavaland,
         List<Box2> ruinBox,
         Random random,
         ref HashSet<Box2> usedSpace,
@@ -425,7 +413,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
 
         var salvMap = _lavalandPreloader!.Value.Uid;
         var mapXform = Transform(salvMap);
-        var gridsCount = _mapManager.GetAllGrids(lavaland.MapId).Count();
+        var gridsCount = _mapManager.GetAllGrids(lavaland.Comp.MapId).Count();
 
         // Try to load everything on a dummy map
         var opts = new MapLoadOptions
@@ -445,14 +433,14 @@ public sealed class LavalandGenerationSystem : EntitySystem
         while (mapChildren.MoveNext(out var mapChild))
         {
             var salvXForm = _xformQuery.GetComponent(mapChild);
-            _transform.SetParent(mapChild, salvXForm, lavaland.Uid);
-            _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland.Uid, salvXForm.Coordinates.Position.Rounded()));
+            _transform.SetParent(mapChild, salvXForm, lavaland);
+            _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland, salvXForm.Coordinates.Position.Rounded()));
             _metaData.SetEntityName(mapChild, ruin.Name);
             EnsureComp<LavalandRuinComponent>(mapChild);
         }
 
         // There should be more grids on Lavaland than before after re-parenting.
-        if (_mapManager.GetAllGrids(lavaland.MapId).Count() <= gridsCount)
+        if (_mapManager.GetAllGrids(lavaland.Comp.MapId).Count() <= gridsCount)
         {
             Log.Error("Failed to re-parent the grid from dummy map to Lavaland!");
             return false;
@@ -522,20 +510,5 @@ public sealed class LavalandGenerationSystem : EntitySystem
         }
 
         return ruinBounds;
-    }
-}
-
-public sealed class LavalandMap
-{
-    public EntityUid Uid;
-    public MapId MapId = MapId.Nullspace;
-    public ProtoId<LavalandMapPrototype>? PrototypeId;
-    public int Seed;
-    public EntityUid Outpost;
-
-    public override string ToString()
-    {
-        var lavaland = $"Type: {PrototypeId} , MapID: {MapId} , MapUid: {Uid} , Seed: {Seed}";
-        return lavaland;
     }
 }

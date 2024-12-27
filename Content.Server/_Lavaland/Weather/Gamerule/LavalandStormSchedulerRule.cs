@@ -2,11 +2,8 @@
 using Content.Server._Lavaland.Procedural.Prototypes;
 using Content.Server._Lavaland.Procedural.Systems;
 using Content.Server.Chat.Managers;
-using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
-using Content.Shared.CCVar;
 using Content.Shared.GameTicking.Components;
-using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -38,25 +35,26 @@ public sealed partial class LavalandStormSchedulerRule : GameRuleSystem<Lavaland
 
     private void StartRandomStorm()
     {
-        if (!_lavaland.GetLavalands(out var maps))
+        var maps = _lavaland.GetLavalands();
+        if (maps.Count == 0)
             return;
 
         // Filter out already stormed maps.
-        var newMaps = maps.Where(lavaland => !HasComp<LavalandStormedMapComponent>(lavaland.Uid)).ToList();
+        var newMaps = maps.Where(lavaland => !HasComp<LavalandStormedMapComponent>(lavaland)).ToList();
         maps = newMaps;
 
         var map = _random.Pick(maps);
-        if (map.PrototypeId == null)
+        if (map.Comp.PrototypeId == null)
             return;
 
-        var proto = _proto.Index<LavalandMapPrototype>(map.PrototypeId);
+        var proto = _proto.Index<LavalandMapPrototype>(map.Comp.PrototypeId);
         if (proto.AvailableWeather == null)
             return;
 
         var weather = _random.Pick(proto.AvailableWeather);
 
         _lavalandWeather.StartWeather(map, weather);
-        _chatManager.SendAdminAlert($"Starting Lavaland Storm for {ToPrettyString(map.Uid)}");
+        _chatManager.SendAdminAlert($"Starting Lavaland Storm for {ToPrettyString(map)}");
     }
 
     private void ResetTimer(LavalandStormSchedulerRuleComponent component)

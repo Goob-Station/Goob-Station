@@ -21,15 +21,12 @@ public sealed class LavalandListingCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        if (!_entityManager.System<LavalandGenerationSystem>().GetLavalands(out var lavalands))
-        {
-            shell.WriteLine("Lavaland is not initialized.");
-            return;
-        }
+        var lavalands = _entityManager.System<LavalandGenerationSystem>().GetLavalands();
 
-        foreach (var lavaland in lavalands)
+        foreach (var (owner, comp) in lavalands)
         {
-            shell.WriteLine(lavaland.ToString());
+            var lavalandString = $"Type: {comp.PrototypeId} , MapID: {comp.MapId} , MapUid: {owner} , Seed: {comp.Seed}";
+            shell.WriteLine(lavalandString);
         }
     }
 }

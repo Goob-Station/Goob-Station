@@ -14,9 +14,6 @@ public sealed partial class LavalandStormedMapComponent : Component
     public ProtoId<LavalandWeatherPrototype> CurrentWeather;
 
     [DataField]
-    public LavalandMap Lavaland;
-
-    [DataField]
     public float Duration;
 
     [DataField]

@@ -53,8 +53,17 @@ public sealed partial class DockingConsoleWindow : FancyWindow
             return;
         }
 
-        Destinations.OnItemSelected += args => _selected = args.ItemIndex;
-        Destinations.OnItemDeselected += _ => _selected = null;
+        Destinations.OnItemSelected += args =>
+        {
+            _selected = args.ItemIndex;
+            UpdateButton();
+        };
+
+        Destinations.OnItemDeselected += _ =>
+        {
+            _selected = null;
+            UpdateButton();
+        };
 
         FTLButton.OnPressed += _ =>
         {
@@ -103,9 +112,6 @@ public sealed partial class DockingConsoleWindow : FancyWindow
     protected override void FrameUpdate(FrameEventArgs args)
     {
         base.FrameUpdate(args);
-
-        UpdateButton();
-
         var progress = _ftlTime.ProgressAt(_timing.CurTime);
         FTLBar.Value = float.IsFinite(progress) ? progress : 1;
     }
