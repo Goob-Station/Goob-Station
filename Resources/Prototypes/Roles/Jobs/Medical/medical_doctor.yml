@@ -15,11 +15,11 @@
   - Maintenance
   extendedAccess:
   - Chemistry
-  special:
+  special: # Shitmed change
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      SpeedModifier: 1.75
+      speedModifier: 1.75
 
 
 - type: startingGear

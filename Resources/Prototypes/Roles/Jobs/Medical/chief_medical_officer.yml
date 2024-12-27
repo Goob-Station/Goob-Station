@@ -39,7 +39,7 @@
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      SpeedModifier: 2.5
+      speedModifier: 2.5
 
 - type: startingGear
   id: CMOGear
