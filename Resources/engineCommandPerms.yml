@@ -96,6 +96,7 @@
 - Flags: FUN
   Commands:
   - tippy
+  - loadprototype
   - tip
 
 - Flags: SERVER
@@ -137,7 +138,6 @@
 - Flags: QUERY
   Commands:
   - uploadfile
-  - loadprototype
   - uploadfolder
 
 - Commands:
