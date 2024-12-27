@@ -3627,3 +3627,9 @@ Entries:
       message: LootBugs.
   id: 401
   time: '2024-12-27T18:28:34.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Fixed Gingerbread not taking damage from being splashed with water
+  id: 402
+  time: '2024-12-27T18:37:22.0000000+00:00'
