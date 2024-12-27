@@ -42,6 +42,7 @@
                         <Button Name="OpenImagesButton" Text="{Loc 'humanoid-profile-editor-open-image-button'}"/>
                     </BoxContainer>
                 </ui:HighlightedContainer>
+            </BoxContainer>
             <Control MinHeight="10" />
             <!-- tabContainer -->
             <TabContainer Name="TabContainer" VerticalExpand="True">
