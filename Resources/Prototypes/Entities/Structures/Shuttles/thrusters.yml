@@ -307,19 +307,3 @@
         offset: 0, 1
   placement:
     mode: SnapgridCenter
-
-- type: entity
-  id: ThrusterShuttleArrivals # Can't be unanchored but easy to destroy
-  parent: ThrusterShuttleEvac
-  components:
-    - type: Destructible
-      thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 100  # Considering we need a lot of thrusters didn't want to make an individual one too tanky
-        behaviors:
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-          - !type:PlaySoundBehavior
-            sound:
-              collection: MetalBreak
