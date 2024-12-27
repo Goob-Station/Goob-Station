@@ -8,3 +8,15 @@
     inventory: Drop
     revertOnDeath: false
     revertOnCrit: false
+    
+- type: polymorph
+  id: Bananamen
+  configuration:
+    entity: MobBananaMen
+    forced: true
+    transferName: true
+    transferHumanoidAppearance: false
+    revertOnDeath: false
+    revertOnCrit: false
+    polymorphSound: /Audio/Items/bikehorn.ogg
+    inventory: Transfer

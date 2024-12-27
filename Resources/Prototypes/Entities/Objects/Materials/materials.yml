@@ -591,6 +591,8 @@
         Quantity: 5
       - ReagentId: Honk
         Quantity: 5
+      - ReagentId: BananiumEssence
+        Quantity: 5
   - type: Appearance
   - type: Item
     heldPrefix: bananium

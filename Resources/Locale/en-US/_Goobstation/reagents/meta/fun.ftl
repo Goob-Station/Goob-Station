@@ -1,6 +1,8 @@
 reagent-name-tranquility = tranquility
 reagent-desc-tranquility = You feel oddly calm...
 reagent-popup-tranquility = You feel oddly calm...
+reagent-name-bananiumessence = bananium essence
+reagent-desc-bananiumessence = Hu...Hu....hu-HONK!
 
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
