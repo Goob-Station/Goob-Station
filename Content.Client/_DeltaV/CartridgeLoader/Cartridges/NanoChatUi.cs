@@ -1,9 +1,9 @@
 using Content.Client.UserInterface.Fragments;
 using Content.Shared.CartridgeLoader;
-using Content.Shared.DeltaV.CartridgeLoader.Cartridges;
+using Content.Shared._DeltaV.CartridgeLoader.Cartridges;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.DeltaV.CartridgeLoader.Cartridges;
+namespace Content.Client._DeltaV.CartridgeLoader.Cartridges;
 
 public sealed partial class NanoChatUi : UIFragment
 {

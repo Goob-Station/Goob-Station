@@ -1,6 +1,6 @@
 <cartridges:NanoChatUiFragment
     xmlns="https://spacestation14.io"
-    xmlns:cartridges="clr-namespace:Content.Client.DeltaV.CartridgeLoader.Cartridges"
+    xmlns:cartridges="clr-namespace:Content.Client._DeltaV.CartridgeLoader.Cartridges"
     xmlns:customControls="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
     Orientation="Vertical"
@@ -53,12 +53,12 @@
                     <Control HorizontalExpand="True" VerticalExpand="True">
                         <TextureRect Name="BellIcon"
                                      StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/DeltaV/Interface/VerbIcons/bell.svg.png"
+                                     TexturePath="/Textures/_DeltaV/Interface/VerbIcons/bell.svg.png"
                                      Stretch="KeepAspectCentered"
                                      MinSize="18 18" />
                         <TextureRect Name="BellMutedIcon"
                                      StyleClasses="ButtonSquare"
-                                     TexturePath="/Textures/DeltaV/Interface/VerbIcons/bell_muted.png"
+                                     TexturePath="/Textures/_DeltaV/Interface/VerbIcons/bell_muted.png"
                                      Stretch="KeepAspectCentered"
                                      Visible="False"
                                      MinSize="18 18" />

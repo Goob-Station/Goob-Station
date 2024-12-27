@@ -2,7 +2,7 @@ using Content.Shared.Access.Components;
 using Content.Shared.Audio;
 using Content.Shared.CartridgeLoader;
 using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.DeltaV.NanoChat; // DeltaV
+using Content.Shared._DeltaV.NanoChat; // DeltaV
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Random;

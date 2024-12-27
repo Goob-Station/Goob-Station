@@ -1,5 +1,5 @@
-﻿using Content.Shared.CartridgeLoader.Cartridges;
-using Content.Shared.DeltaV.CartridgeLoader.Cartridges; // DeltaV
+using Content.Shared.CartridgeLoader.Cartridges;
+using Content.Shared._DeltaV.CartridgeLoader.Cartridges; // DeltaV
 using Robust.Shared.Audio;
 
 namespace Content.Server.CartridgeLoader.Cartridges;
