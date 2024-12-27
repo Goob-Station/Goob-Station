@@ -1,0 +1,7 @@
+- type: wireLayout
+  id: ShopVendor
+  wires:
+  - !type:AiInteractWireAction
+  - !type:PowerWireAction
+  - !type:AccessWireAction
+  - !type:LogWireAction

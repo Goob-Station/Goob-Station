@@ -1,0 +1,53 @@
+- type: shopInventory
+  id: SalvageVendorInventory
+  listings:
+  # TODO: marker beacons 1/10/30 for 10 each
+  - id: DrinkWhiskeyBottleFull
+    cost: 100
+  - id: DrinkAbsintheBottleFull
+    cost: 100
+  - id: CigarGold
+    cost: 150
+  - id: Soap
+    cost: 200
+  - id: SeismicCharge
+    cost: 250
+  - id: WeaponGrapplingGun
+    cost: 300
+  # TODO: laser pointer 300, toy facehugger 300
+  # TODO: stabilizing serum for 400
+  - id: FultonBeacon
+    cost: 400
+  # TODO: bluespace shelter capsule for 400
+  - id: ClothingEyesGlassesGarMeson
+    cost: 500
+  - id: ClothingBeltSalvageWebbing
+    cost: 500
+  - id: MedkitBruteFilled
+    cost: 600
+  - id: MedkitBurnFilled
+    cost: 600
+  # TODO: salvage 5g, 3 implants and a locator for 600
+  # TODO: wormhole jaunter for 750
+  - id: WeaponCrusher
+    cost: 750
+  - id: WeaponProtoKineticAccelerator
+    cost: 750
+  - id: AdvancedMineralScanner
+    cost: 800
+  # TODO: resonator for 800
+  - id: Fulton
+    cost: 1000
+  # TODO: lazarus injector for 1k
+  - id: ClothingBackpackDuffelSalvageConscription
+    cost: 1500
+  - id: SpaceCash1000
+    cost: 2000
+  # TODO: super resonator for 2500
+  # TODO: jump boots for 2500
+  - id: ClothingOuterHardsuitSalvage
+    cost: 3000
+  # TODO: luxury shelter capsule for 3k
+  # TODO: luxury elite bar capsule for 10k
+  # TODO: pka mods
+  # TODO: mining drone stuff
