@@ -54,7 +54,7 @@ public sealed class TeleportSystem : EntitySystem
         if (!TryComp<RandomTeleportComponent>(uid, out var teleport))
             return;
 
-        _adminLogger.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
+        _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
 
         RandomTeleport(args.User, teleport);
 
