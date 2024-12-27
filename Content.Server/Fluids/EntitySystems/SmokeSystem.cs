@@ -368,7 +368,8 @@ public sealed class SmokeSystem : EntitySystem
     }
 
     /// <summary>
-    /// Used for ATMOS Resin. Assmos - Extinguisher Nozzle. 
+    /// Used for ATMOS Resin. Assmos - Extinguisher Nozzle.
+    /// This only deals with the resin's effect on the atmosphere. Should eventually be moved to an atmopsheric system and component and made less rigid. 
     /// </summary>
     private void UpdateAtmosphere(EntityUid uid)
     {
