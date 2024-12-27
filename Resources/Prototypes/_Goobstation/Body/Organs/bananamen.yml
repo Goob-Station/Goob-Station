@@ -8,21 +8,6 @@
   - type: Sprite
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     state: organ
-  - type: Organ
-  - type: SolutionContainerManager
-    solutions:
-      stomach:
-        maxVol: 75
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
-  - type: Stomach
-  - type: Metabolizer
-    # mm very yummy
-    maxReagents: 5
-    metabolizerTypes: [Human]
 
 - type: entity
   id: OrganBananaMenLiver
@@ -61,28 +46,6 @@
     sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     layers:
       - state: organ
-  - type: Metabolizer
-    removeEmpty: true
-    solutionOnBody: false
-    solution: "Lung"
-    metabolizerTypes: [ Human ]
-    groups:
-    - id: Gas
-      rateModifier: 100.0
-  - type: SolutionContainerManager
-    solutions:
-      organ:
-        reagents:
-        - ReagentId: Nutriment
-          Quantity: 20
-      Lung:
-        maxVol: 100.0
-        canReact: false
-      food:
-        maxVol: 5
-        reagents:
-        - ReagentId: UncookedAnimalProteins
-          Quantity: 5
           
    
 - type: entity
