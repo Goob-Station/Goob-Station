@@ -1,0 +1,55 @@
+- type: entity
+  parent: MarkerBase
+  id: SpawnHeadcrabNest
+  name: headcrab nest spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Structures/Other/headcrab_nest.rsi
+        state: icon
+  - type: ConditionalSpawner
+    prototypes:
+      - HeadcrabNest
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHeadcrab
+  name: headcrab spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Animals/headcrab.rsi
+        state: alive
+  - type: ConditionalSpawner
+    prototypes:
+      - MobHeadcrab
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHeadcrabFast
+  name: fast headcrab spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Animals/headcrab_fast.rsi
+        state: alive
+  - type: ConditionalSpawner
+    prototypes:
+      - MobHeadcrabFast
+
+- type: entity
+  parent: MarkerBase
+  id: SpawnMobHeadcrabPoison
+  name: poison headcrab spawner
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _White/Mobs/Animals/headcrab_poison.rsi
+        state: alive
+  - type: ConditionalSpawner
+    prototypes:
+      - MobHeadcrabPoison

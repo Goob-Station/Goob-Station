@@ -1,0 +1,157 @@
+# BASE
+
+- type: entity
+  parent:
+    - BaseMob
+    - MobDamageable
+    - MobCombat
+    - MobAtmosStandard
+    - MobBloodstream
+    - MobFlammable
+  id: BaseMobHeadcrab
+  abstract: true
+  name: headcrab
+  description: It looks like something parasitic.
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    allowSpeech: false
+    name: ghost-role-information-headcrab-name
+    description: ghost-role-information-headcrab-description 
+    raffle:
+      settings: short
+  - type: Sprite
+    drawdepth: SmallMobs
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: alive
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Dead
+  - type: Headcrab
+    paralyzeTime: 3
+    chancePounce: 33
+    damage:
+      types:
+        Piercing: 2
+    jumpAction: ActionHeadcrabJump
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+          - SmallMobMask
+        layer:
+          - SmallMobLayer
+  - type: ZombieImmune
+  - type: Item
+    size: Large
+  - type: Clothing
+    quickEquip: false
+    slots:
+      - MASK
+      - HEAD
+  - type: Physics
+    bodyType: Dynamic
+  - type: MeleeWeapon
+    hidden: true
+    soundHit:
+      path: /Audio/Effects/bite.ogg
+    angle: 0
+    animation: WeaponArcBite
+    damage:
+      types:
+        Piercing: 2
+  - type: IgnoreSpiderWeb
+  - type: NoSlip
+  - type: NameIdentifier
+    group: GenericNumber
+  - type: NpcFactionMember
+    factions:
+      - Zombie
+  - type: HTN
+    rootTask:
+      task: SimpleHostileCompound
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.9
+    baseSprintSpeed: 3.9
+  - type: Tag
+    tags:
+    - WhitelistChameleon
+    - MonkeyWearable
+    - PetWearable
+  - type: LanguageKnowledge
+    speaks:
+    - Hissing
+    understands:
+    - Xeno
+    - Hissing
+    - Draconic
+    - TauCetiBasic
+  - type: GuideHelp
+    guides:
+    - Headcrabs
+
+# HEADCRABS
+
+- type: entity
+  parent: BaseMobHeadcrab
+  id: MobHeadcrab
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Animals/headcrab.rsi
+  - type: Clothing
+    sprite: _White/Mobs/Animals/headcrab.rsi
+  - type: GuideHelp
+    guides:
+    - Headcrab
+
+- type: entity
+  parent: BaseMobHeadcrab
+  id: MobHeadcrabFast
+  name: fast headcrab
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Animals/headcrab_fast.rsi
+  - type: Clothing
+    sprite: _White/Mobs/Animals/headcrab_fast.rsi
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.2
+    baseSprintSpeed: 4.2
+  - type: GuideHelp
+    guides:
+    - HeadcrabFast
+
+- type: entity
+  parent: BaseMobHeadcrab
+  id: MobHeadcrabPoison
+  name: poison headcrab
+  components:
+  - type: Sprite
+    sprite: _White/Mobs/Animals/headcrab_poison.rsi
+  - type: Clothing
+    sprite: _White/Mobs/Animals/headcrab_poison.rsi
+  - type: Headcrab
+    damage:
+      types:
+        Poison: 2
+  - type: MeleeWeapon
+    damage:
+      types:
+        Poison: 2
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.6
+    baseSprintSpeed: 3.6
+  - type: GuideHelp
+    guides:
+    - HeadcrabPoison

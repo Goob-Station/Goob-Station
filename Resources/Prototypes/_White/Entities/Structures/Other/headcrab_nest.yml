@@ -1,0 +1,51 @@
+- type: entity
+  parent: BaseStructure
+  id: HeadcrabNest
+  name: headcrab nest
+  description: It seems to be moving.
+  components:
+  - type: Sprite
+    sprite: _White/Structures/Other/headcrab_nest.rsi
+    layers:
+    - state: icon
+  - type: Damageable
+    damageContainer: Biological
+  - type: Flammable
+    fireSpread: true
+    damage:
+     types:
+       Heat: 10
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: desecration
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MobHeadcrab:
+            min: 0
+            max: 1
+          MobHeadcrabFast:
+            min: 0
+            max: 1
+          MobHeadcrabPoison:
+            min: 0
+            max: 1
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Timer
+  - type: TimedSpawner
+    prototypes:
+      - MobHeadcrab
+      - MobHeadcrabFast
+      - MobHeadcrabPoison
+    intervalSeconds: 60
+    minimumEntitiesSpawned: 1
+    maximumEntitiesSpawned: 2
+  - type: GuideHelp
+    guides:
+    - Headcrabs

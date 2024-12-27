@@ -1,0 +1,61 @@
+- type: entity
+  parent: BaseGameRule
+  id: WormholesSpawn
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: StationEvent
+    startAnnouncement: true
+    weight: 8
+    duration: 10
+    minimumPlayers: 15
+    earliestStart: 35
+    reoccurrenceDelay: 50
+  - type: RandomSpawnRule
+    prototype: AnomalyWormhole
+    minCount: 20
+    maxCount: 35
+
+- type: entity
+  parent: BaseGameRule
+  id: StraySupplyPod
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 8
+      duration: 1
+      minimumPlayers: 5
+      earliestStart: 10
+      reoccurrenceDelay: 15
+    - type: RandomSpawnRule
+      prototype: SpawnStraySupplyPod
+
+- type: entity
+  parent: BaseGameRule
+  id: StraySupplyPodSyndicate
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 6
+      duration: 1
+      minimumPlayers: 10
+      earliestStart: 15
+      reoccurrenceDelay: 40
+    - type: RandomSpawnRule
+      prototype: SpawnStraySupplyPodSyndicate
+
+- type: entity
+  parent: BaseGameRule
+  id: HeadcrabInvasion
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: StationEvent
+      startAnnouncement: true
+      weight: 8
+      duration: 1
+      minimumPlayers: 15
+      earliestStart: 15
+      reoccurrenceDelay: 25
+    - type: RandomSpawnRule
+      prototype: SpawnHeadcrabNest
