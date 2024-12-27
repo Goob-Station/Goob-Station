@@ -184,7 +184,7 @@ public abstract class SharedMagicSystem : EntitySystem
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }
 
-    private bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer)
+    public bool PassesSpellPrerequisites(EntityUid spell, EntityUid performer) // Goob edit
     {
         var ev = new BeforeCastSpellEvent(performer);
         RaiseLocalEvent(spell, ref ev);
@@ -548,7 +548,7 @@ public abstract class SharedMagicSystem : EntitySystem
 
     // When any spell is cast it will raise this as an event, so then it can be played in server or something. At least until chat gets moved to shared
     // TODO: Temp until chat is in shared
-    private void Speak(BaseActionEvent args)
+    public void Speak(BaseActionEvent args) // Goob edit
     {
         if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
             return;

@@ -1,0 +1,73 @@
+- type: entity
+  id: ActionMimeMalaise
+  name: Mime Malaise
+  description: ...
+  components:
+  - type: EntityTargetAction
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mime
+    event: !type:MimeMalaiseEvent
+  - type: Magic
+    requiresClothes: true
+
+- type: entity
+  id: ActionCluwneCurse
+  name: Curse of the Cluwne
+  description: It's time to start cluwning around.
+  components:
+  - type: EntityTargetAction
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: CluwneHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: cluwne
+    event: !type:CluwneCurseEvent
+      speech: action-speech-spell-cluwne
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionBananaTouch
+  name: Banana Touch
+  description: It's time to start clowning around.
+  components:
+  - type: EntityTargetAction
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: BikeHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: clown
+    event: !type:BananaTouchEvent
+      speech: action-speech-spell-clown
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true

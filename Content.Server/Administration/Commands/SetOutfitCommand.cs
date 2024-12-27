@@ -171,7 +171,7 @@ namespace Content.Server.Administration.Commands
                 var encryption = new InternalEncryptionKeySpawner();
                 encryption.TryInsertEncryptionKey(target, startingGear, entityManager);
             }
-            
+
             return true;
         }
     }
