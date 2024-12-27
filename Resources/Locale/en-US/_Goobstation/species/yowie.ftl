@@ -1,1 +1,0 @@
-species-name-yowie = Yowie
