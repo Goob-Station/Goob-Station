@@ -3595,3 +3595,9 @@ Entries:
       message: Incendiary rounds now ignite twice as much, but do less direct damage.
   id: 398
   time: '2024-12-27T18:22:54.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: Medical pathes can be stored in medical belts.
+  id: 399
+  time: '2024-12-27T18:23:30.0000000+00:00'
