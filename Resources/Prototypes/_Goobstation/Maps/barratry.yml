@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Merryatry {1}'
+          mapNameTemplate: '{0} Barratry {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
@@ -62,3 +62,5 @@
             Musician: [ 1, 1 ]
             #silicon
             StationAi: [ 1, 1 ]
+
+

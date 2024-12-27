@@ -11,7 +11,7 @@
         - type: StationEmergencyShuttle
           emergencyShuttlePath: /Maps/Shuttles/emergency_cluster.yml
         - type: StationNameSetup
-          mapNameTemplate: '{0} Christmuster Station {1}'
+          mapNameTemplate: '{0} Cluster Station {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'
@@ -62,3 +62,9 @@
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
 
+        # Goobstation blob-config-start SMALL+
+        - type: StationBlobConfig
+          stageBegin: 25
+          stageCritical: 350
+          stageTheEnd: 700
+        # Goobstation blob-config-end
