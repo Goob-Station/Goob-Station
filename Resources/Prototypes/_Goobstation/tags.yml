@@ -2,7 +2,55 @@
   id: BlueprintMedicalFabricator
 
 - type: Tag
+  id: Brain
+
+- type: Tag
+  id: Eyes
+
+- type: Tag
+  id: GasMask
+
+- type: Tag
+  id: Heart
+
+- type: Tag
+  id: JanicartKeys
+
+- type: Tag
+  id: Kidneys
+
+- type: Tag
+  id: Liver
+
+- type: Tag
+  id: Lungs
+
+- type: Tag
   id: MagazineHighCaliber
+
+- type: Tag
+  id: Mask
+
+- type: Tag
+  id: Organ
+
+- type: Tag
+  id: Poppy
+
+- type: Tag
+  id: Stomach
+
+- type: Tag
+  id: Table
+
+- type: Tag
+  id: Tongue
+
+- type: Tag
+  id: VehicleKey
+
+- type: Tag
+  id: WaterTank
 
 - type: Tag
   id: CartridgeHighCaliber
