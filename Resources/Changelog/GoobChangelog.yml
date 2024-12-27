@@ -3621,3 +3621,9 @@ Entries:
       message: mining hardsuit has been nerfed.
   id: 400
   time: '2024-12-27T18:25:10.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: LootBugs.
+  id: 401
+  time: '2024-12-27T18:28:34.0000000+00:00'
