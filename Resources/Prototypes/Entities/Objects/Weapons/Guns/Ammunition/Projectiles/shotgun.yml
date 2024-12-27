@@ -65,7 +65,7 @@
     damage:
       types:
         Blunt: 3
-        Heat: 7
+        Heat: 3
   - type: IgnitionSource
     ignited: true
 
@@ -76,7 +76,7 @@
   components:
   - type: ProjectileSpread
     proto: PelletShotgunIncendiary
-    count: 6
+    count: 4
     spread: 15
 
 - type: entity
