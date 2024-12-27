@@ -6,7 +6,7 @@
   description: "A very odd-looking banana, it looks like it's got room inside to store food ."
   components:
   - type: Sprite
-    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     state: organ
   - type: Organ
   - type: SolutionContainerManager
@@ -32,7 +32,7 @@
   description: "A very odd-looking banana, it looks like if it has room inside to metabolize chemicals"
   components:
   - type: Sprite
-    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     state: organ
   - type: Metabolizer
     metabolizerTypes: [Human]
@@ -45,7 +45,7 @@
   description: "A very odd-looking banana, it looks like its almost beating."
   components:
   - type: Sprite
-    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     state: organ
   - type: Metabolizer
     metabolizerTypes: [Human]
@@ -58,7 +58,7 @@
   description: "A very odd-looking banana, it looks flabby enough to store air or something."
   components:
   - type: Sprite
-    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     layers:
       - state: organ
   - type: Metabolizer
@@ -93,6 +93,6 @@
   description:  "A very odd-looking banana, it looks like it could be used to filter contaminants."
   components:
   - type: Sprite
-    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    sprite: _Goobstation/Mobs/Species/BananaMen/organs.rsi
     layers:
       - state: organ
