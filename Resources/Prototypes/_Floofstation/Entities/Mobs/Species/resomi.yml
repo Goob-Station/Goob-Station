@@ -196,6 +196,11 @@
         Heat : 3 #per second, scales with temperature & other constants
   - type: MovementSpeedModifier
     weightlessAcceleration: 2.5 # Goobstation - Birb move fast in zero-g
+  - type: PseudoItem # Goobstation - Baggable; certified smol ops
+    storedOffset: -10,0
+    shape:
+      - 0, 0, 3, 2
+      - 0, 2, 5, 4
 
 
 - type: entity
