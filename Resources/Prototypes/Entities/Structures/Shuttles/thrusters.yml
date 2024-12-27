@@ -241,6 +241,7 @@
   parent: BaseStructure
   name: thruster
   description: A thruster that allows a shuttle to move.
+  suffix: Evac shuttle, unanchorable
   components:
     - type: Fixtures
       fixtures:
