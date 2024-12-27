@@ -310,7 +310,7 @@
     - LargeBeaker
     - Dropper
     - ClothingEyesGlassesChemical
-    - MaterialBSCrystal1
+    - MaterialBSCrystal
     dynamicRecipes:
       - PowerDrill
       - MiningDrill
