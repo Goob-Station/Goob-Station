@@ -10,13 +10,13 @@
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: 90
-    attackRate: 0.75
+    attackRate: 1.5
     damage:
       types:
-        Slash: 25
-        Structural: 60
-    clickPartDamageMultiplier: 3
-    heavyPartDamageMultiplier: 2
+        Slash: 15
+        Structural: 20
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1.5
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

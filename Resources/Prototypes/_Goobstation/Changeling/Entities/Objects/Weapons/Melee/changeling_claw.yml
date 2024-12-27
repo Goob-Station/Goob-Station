@@ -12,6 +12,7 @@
     angle: 0
     wideAnimationRotation: 180
     attackRate: 1
+    heavyStaminaCost: 8
     damage:
       types:
         Piercing: 25
