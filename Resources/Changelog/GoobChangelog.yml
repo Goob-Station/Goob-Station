@@ -3559,3 +3559,33 @@ Entries:
         evade.
   id: 392
   time: '2024-12-23T14:27:41.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: You now get 5 presents instead of just one. Rejoice.
+  id: 393
+  time: '2024-12-24T15:55:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added sprites for /tg/ gases
+  id: 394
+  time: '2024-12-24T16:08:33.0000000+00:00'
+- author: goob lord dynamic fixer shi john stun
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+  id: 395
+  time: '2024-12-24T16:11:16.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix absurd amount of roundstart antags being selected.
+  id: 396
+  time: '2024-12-25T20:42:35.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed pirasmas, it's so over.
+  id: 397
+  time: '2024-12-27T01:10:25.0000000+00:00'
