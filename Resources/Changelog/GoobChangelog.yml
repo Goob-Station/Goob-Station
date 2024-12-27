@@ -3583,3 +3583,9 @@ Entries:
       message: Fix absurd amount of roundstart antags being selected.
   id: 396
   time: '2024-12-25T20:42:35.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed pirasmas, it's so over.
+  id: 397
+  time: '2024-12-27T01:10:25.0000000+00:00'
