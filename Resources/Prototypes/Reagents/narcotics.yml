@@ -448,7 +448,7 @@
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
-      metabolismRate: 1
+      metabolismRate: 1 # Goobstation
       effects:
       - !type:GenericStatusEffect
         conditions:
