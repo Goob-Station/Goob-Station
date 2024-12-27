@@ -1,0 +1,98 @@
+- type: entity
+  id: OrganBananaMenStomach
+  parent: [ OrganHumanStomach, FoodBanana ]
+  name: banana
+  suffix: OrganStomach
+  description: "A very odd-looking banana, it looks like it's got room inside to store food ."
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    state: organ
+  - type: Organ
+  - type: SolutionContainerManager
+    solutions:
+      stomach:
+        maxVol: 75
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+  - type: Stomach
+  - type: Metabolizer
+    # mm very yummy
+    maxReagents: 5
+    metabolizerTypes: [Human]
+
+- type: entity
+  id: OrganBananaMenLiver
+  parent: [ OrganHumanLiver, FoodBanana ]
+  name: banana
+  suffix: OrganLiver
+  description: "A very odd-looking banana, it looks like if it has room inside to metabolize chemicals"
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    state: organ
+  - type: Metabolizer
+    metabolizerTypes: [Human]
+
+- type: entity
+  id: OrganBananaMenHeart
+  parent: [ OrganHumanHeart, FoodBanana ]
+  name: banana
+  suffix: OrganHeart
+  description: "A very odd-looking banana, it looks like its almost beating."
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    state: organ
+  - type: Metabolizer
+    metabolizerTypes: [Human]
+
+- type: entity
+  id: OrganBananaMenLungs
+  parent: [ OrganHumanLungs, FoodBanana ]
+  name: banana
+  suffix: OrganLungs
+  description: "A very odd-looking banana, it looks flabby enough to store air or something."
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    layers:
+      - state: organ
+  - type: Metabolizer
+    removeEmpty: true
+    solutionOnBody: false
+    solution: "Lung"
+    metabolizerTypes: [ Human ]
+    groups:
+    - id: Gas
+      rateModifier: 100.0
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 20
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: UncookedAnimalProteins
+          Quantity: 5
+          
+   
+- type: entity
+  id: OrganBananaMenKidneys
+  parent: [ OrganHumanKidneys, FoodBanana ]
+  name: banana
+  suffix: OrganKidneys
+  description:  "A very odd-looking banana, it looks like it could be used to filter contaminants."
+  components:
+  - type: Sprite
+    sprite: _Goobstation\Mobs\Species\BananaMen\organs.rsi
+    layers:
+      - state: organ
