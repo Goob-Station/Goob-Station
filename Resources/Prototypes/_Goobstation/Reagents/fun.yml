@@ -31,24 +31,6 @@
         conditions:
         - !type:ReagentThreshold
           min: 25
-          
-- type: reagent
-  id: BananiumEssence
-  name: reagent-name-bananiumessence
-  group: Toxins
-  desc: reagent-desc-bananiumessence
-  physicalDesc: reagent-physical-desc-sweet
-  flavor: banana
-  color: "#bcb100"
-  metabolisms:
-    Poison:
-      metabolismRate: 0.25
-      effects:
-      - !type:Polymorph
-        prototype: Bananamen
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
 
 # CREATED BY Goldminermac
 # https://github.com/space-wizards/space-station-14/pull/31149
