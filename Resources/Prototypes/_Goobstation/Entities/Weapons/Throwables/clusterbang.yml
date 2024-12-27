@@ -9,7 +9,7 @@
     layers:
     - state: icon
       map: ["enum.TriggerVisualLayers.Base"]
-  - type: ClusterGrenade
+  - type: ScatteringGrenade
     fillPrototype: MobSyndieAngryBee
     maxGrenadesCount: 5
   - type: OnUseTimerTrigger
