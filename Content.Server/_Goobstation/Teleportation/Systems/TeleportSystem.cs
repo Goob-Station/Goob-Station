@@ -53,14 +53,7 @@ public sealed class TeleportSystem : EntitySystem
 
         RandomTeleport(args.User, component);
 
-        _alog.Add(LogType.Action, LogImpact.Low, $"{ToPrettyString(args.User):actor} teleported with {ToPrettyString(uid)}");
-
-        RandomTeleport(args.User, teleport);
-
-        if (!component.ConsumeOnUse)
-            return;
-
-        if (TryComp<StackComponent>(uid, out var stack))
+        if (component.ConsumeOnUse)
         {
             if (TryComp<StackComponent>(uid, out var stack))
             {
