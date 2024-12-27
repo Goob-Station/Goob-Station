@@ -281,7 +281,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnDropItem = true,
-            MultiplyDelay = false, // Goobstaation
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs);
