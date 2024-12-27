@@ -86,7 +86,97 @@ public sealed class SubdermalImplantSystem : SharedSubdermalImplantSystem
 
         _teleportSys.RandomTeleport(ent, teleport);
 
-        args.Handled = true;
+        // Check if the user is pulling anything, and drop it if so
+        if (TryComp<PullerComponent>(ent, out var puller) && TryComp<PullableComponent>(puller.Pulling, out var pullable))
+            _pullingSystem.TryStopPull(puller.Pulling.Value, pullable);
+
+        var xform = Transform(ent);
+        var targetCoords = SelectRandomTileInRange(xform, implant.TeleportRadius);
+
+        if (targetCoords != null)
+        {
+            _xform.SetCoordinates(ent, targetCoords.Value);
+            _audio.PlayPvs(implant.TeleportSound, ent);
+            args.Handled = true;
+        }
+    }
+
+    private EntityCoordinates? SelectRandomTileInRange(TransformComponent userXform, float radius)
+    {
+        var userCoords = userXform.Coordinates.ToMap(EntityManager, _xform);
+        _targetGrids.Clear();
+        _lookupSystem.GetEntitiesInRange(userCoords, radius, _targetGrids);
+        Entity<MapGridComponent>? targetGrid = null;
+
+        if (_targetGrids.Count == 0)
+            return null;
+
+        // Give preference to the grid the entity is currently on.
+        // This does not guarantee that if the probability fails that the owner's grid won't be picked.
+        // In reality the probability is higher and depends on the number of grids.
+        if (userXform.GridUid != null && TryComp<MapGridComponent>(userXform.GridUid, out var gridComp))
+        {
+            var userGrid = new Entity<MapGridComponent>(userXform.GridUid.Value, gridComp);
+            if (_random.Prob(0.5f))
+            {
+                _targetGrids.Remove(userGrid);
+                targetGrid = userGrid;
+            }
+        }
+
+        if (targetGrid == null)
+            targetGrid = _random.GetRandom().PickAndTake(_targetGrids);
+
+        EntityCoordinates? targetCoords = null;
+
+        do
+        {
+            var valid = false;
+
+            var range = (float) Math.Sqrt(radius);
+            var box = Box2.CenteredAround(userCoords.Position, new Vector2(range, range));
+            var tilesInRange = _mapSystem.GetTilesEnumerator(targetGrid.Value.Owner, targetGrid.Value.Comp, box, false);
+            var tileList = new ValueList<Vector2i>();
+
+            while (tilesInRange.MoveNext(out var tile))
+            {
+                tileList.Add(tile.GridIndices);
+            }
+
+            while (tileList.Count != 0)
+            {
+                var tile = tileList.RemoveSwap(_random.Next(tileList.Count));
+                valid = true;
+                foreach (var entity in _mapSystem.GetAnchoredEntities(targetGrid.Value.Owner, targetGrid.Value.Comp,
+                             tile))
+                {
+                    if (!_physicsQuery.TryGetComponent(entity, out var body))
+                        continue;
+
+                    if (body.BodyType != BodyType.Static ||
+                        !body.Hard ||
+                        (body.CollisionLayer & (int) CollisionGroup.MobMask) == 0)
+                        continue;
+
+                    valid = false;
+                    break;
+                }
+
+                if (valid)
+                {
+                    targetCoords = new EntityCoordinates(targetGrid.Value.Owner,
+                        _mapSystem.TileCenterToVector(targetGrid.Value, tile));
+                    break;
+                }
+            }
+
+            if (valid || _targetGrids.Count == 0) // if we don't do the check here then PickAndTake will blow up on an empty set.
+                break;
+
+            targetGrid = _random.GetRandom().PickAndTake(_targetGrids);
+        } while (true);
+
+        return targetCoords;
     }
 
     private void OnDnaScramblerImplant(EntityUid uid, SubdermalImplantComponent component, UseDnaScramblerImplantEvent args)
