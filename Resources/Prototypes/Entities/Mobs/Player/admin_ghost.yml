@@ -100,6 +100,7 @@
   - type: ShowHungerIcons # ShibaStation
   - type: ShowThirstIcons # ShibaStation
   - type: ShowJobIcons # ShibaStation
+  - type: ShowMindShieldIcons # ShibaStation
   - type: SurgeryTarget # ShibaStation - lets admin ghosts do surgery, until mocho refactors and we don't need this anymore.
   - type: Targeting # ShibaStation - lets admin ghosts target limbs, useful for a variety of reasons.
   - type: Sanitized # ShibaStation - so aghosts don't murder people with poison.
