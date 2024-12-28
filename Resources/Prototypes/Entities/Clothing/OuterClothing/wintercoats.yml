@@ -18,6 +18,7 @@
       coefficients:
         Slash: 0.95
         Heat: 0.90
+        Cold: 0.90 #goobstation rebalance
     priceMultiplier: 0
   - type: Food
     requiresSpecialDigestion: true
