@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Magic;
 using Content.Shared.Roles;
 using Robust.Shared.Prototypes;
@@ -75,4 +76,22 @@ public sealed partial class DisableTechEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public float DisableDuration = 60f;
+}
+
+public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "Smoke";
+
+    [DataField]
+    public float Duration = 10;
+
+    [DataField]
+    public int SpreadAmount = 30;
+
+    [DataField]
+    public Solution Solution = new("ThickSmoke", 50);
 }

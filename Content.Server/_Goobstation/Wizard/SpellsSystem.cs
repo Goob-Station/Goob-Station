@@ -1,10 +1,15 @@
 using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Commands;
 using Content.Server.Emp;
+using Content.Server.Fluids.EntitySystems;
+using Content.Server.Spreader;
 using Content.Shared._Goobstation.Wizard;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Clothing.Components;
+using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Maps;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 
@@ -12,7 +17,9 @@ namespace Content.Server._Goobstation.Wizard;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
-    [Dependency] private readonly EmpSystem _emo = default!;
+    [Dependency] private readonly EmpSystem _emp = default!;
+    [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private readonly SpreaderSystem _spreader = default!;
 
     protected override void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
     {
@@ -55,7 +62,34 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var coords = TransformSystem.GetMapCoordinates(ev.Performer);
         foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
         {
-            _emo.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
+            _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
         }
+    }
+
+    protected override void SpawnSmoke(SmokeSpellEvent ev)
+    {
+        base.SpawnSmoke(ev);
+
+        var xform = Transform(ev.Performer);
+        var mapCoords = TransformSystem.GetMapCoordinates(ev.Performer, xform);
+
+        if (!MapManager.TryFindGridAt(mapCoords, out var gridUid, out var grid) ||
+            !Map.TryGetTileRef(gridUid, grid, xform.Coordinates, out var tileRef) ||
+            tileRef.Tile.IsEmpty)
+            return;
+
+        if (_spreader.RequiresFloorToSpread(ev.Proto.ToString()) && tileRef.Tile.IsSpace())
+            return;
+
+        var coords = Map.MapToGrid(gridUid, mapCoords);
+        var ent = Spawn(ev.Proto, coords.SnapToGrid());
+        if (!TryComp<SmokeComponent>(ent, out var smoke))
+        {
+            Log.Error($"Smoke prototype {ev.Proto} was missing SmokeComponent");
+            Del(ent);
+            return;
+        }
+
+        _smoke.StartSmoke(ent, new Solution(ev.Solution), ev.Duration, ev.SpreadAmount, smoke);
     }
 }

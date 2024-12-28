@@ -20,10 +20,12 @@ public abstract class SharedSpellsSystem : EntitySystem
 {
     #region Dependencies
 
+    [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
     [Dependency] protected readonly InventorySystem Inventory = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
+    [Dependency] protected readonly SharedMapSystem Map = default!;
     [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
@@ -31,8 +33,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private   readonly SharedMapSystem _map = default!;
-    [Dependency] private   readonly IMapManager _mapManager = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
     #endregion
@@ -46,6 +46,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
+        SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
     }
 
     #region Spells
@@ -118,9 +119,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         var mapCoords = TransformSystem.ToMapCoordinates(coords);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var spawnCoords = _mapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
+        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
             ? TransformSystem.WithEntityId(coords, gridUid)
-            : new(_map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
+            : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
 
         var velocity = _physics.GetMapLinearVelocity(spawnCoords);
 
@@ -156,13 +157,23 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
-
     private void OnDisableTech(DisableTechEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
         Emp(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnSmoke(SmokeSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        SpawnSmoke(ev);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -181,6 +192,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void Emp(DisableTechEvent ev)
+    {
+    }
+
+    protected virtual void SpawnSmoke(SmokeSpellEvent ev)
     {
     }
 

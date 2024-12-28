@@ -24,3 +24,8 @@ spellbook-disable-tech-name = Disable Technology
 spellbook-disable-tech-desc =
     This spell disables all weapons, cameras and most other technology in range.
     Requires wizard's robe and hat to cast.
+
+spellbook-smoke-name = Smoke
+spellbook-smoke-desc =
+    This spell spawns a cloud of smoke at your location. People within will begin to choke and drop their items.
+    Doesn't require wizard's robe and hat to cast.

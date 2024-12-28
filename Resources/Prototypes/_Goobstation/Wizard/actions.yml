@@ -116,3 +116,21 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+
+- type: entity
+  id: ActionSmoke
+  name: Smoke
+  description: Spawns a cloud of choking smoke at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 12
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Effects/smoke.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: smoke
+    event: !type:SmokeSpellEvent
+  - type: Magic

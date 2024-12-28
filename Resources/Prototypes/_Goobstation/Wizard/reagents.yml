@@ -1,0 +1,31 @@
+- type: reagent
+  id: ThickSmoke
+  name: reagent-name-thick-smoke
+  desc: reagent-desc-thick-smoke
+  color: "#28005B"
+  physicalDesc: reagent-physical-desc-thick
+  metabolisms:
+    Poison:
+      effects:
+      - !type:Emote
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          component: Wizard
+          guidebookComponentName: reagent-comp-condition-wizard
+          invert: true
+        emote: Cough
+        showInChat: true
+        probability: 0.2
+      - !type:DropItemsEntityEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:HasComponentCondition
+          component: Wizard
+          guidebookComponentName: reagent-comp-condition-wizard
+          invert: true
+        probability: 0.2
