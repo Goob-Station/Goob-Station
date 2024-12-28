@@ -25,11 +25,12 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnCuttingEdge(Entity<HereticComponent> ent, ref HereticCuttingEdgeEvent args)
     {
-        ent.Comp.CanNotShootGuns = true;
+        ent.Comp.CanShootGuns = false;
     }
+
     private void OnShootAttempt(Entity<HereticComponent> ent, ref ShotAttemptedEvent args)
     {
-        if (ent.Comp.CanNotShootGuns)
+        if (ent.Comp.CanShootGuns == false)
         {
             _popup.PopupEntity(Loc.GetString("heretic-cant-shoot", ("entity", args.Used)), ent, ent);
             args.Cancel();
@@ -40,6 +41,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
     {
         EnsureComp<RiposteeComponent>(ent);
     }
+    
     private void OnRealignment(Entity<HereticComponent> ent, ref EventHereticRealignment args)
     {
         if (!TryUseAbility(ent, args))

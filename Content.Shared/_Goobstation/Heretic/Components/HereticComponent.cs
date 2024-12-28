@@ -58,5 +58,5 @@ public sealed partial class HereticComponent : Component
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
 
-    [ViewVariables(VVAccess.ReadWrite)] public bool CanNotShootGuns = false;
+    [ViewVariables(VVAccess.ReadWrite)] public bool CanShootGuns = true;
 }
