@@ -10,7 +10,7 @@
     state: e-scalpel-on
   discipline: CivilianServices
   tier: 2
-  cost: 9000 # Goobstation - reduce science cost
+  cost: 9000
   recipeUnlocks:
   - BorgModuleAdvancedTreatment
   - BorgModuleDefibrillator
@@ -27,7 +27,7 @@
     state: eyes
   discipline: CivilianServices
   tier: 2
-  cost: 14000 # Goobstation - reduce science cost
+  cost: 14000
   recipeUnlocks:
   - JawsOfLifeLeftArm
   - JawsOfLifeRightArm
@@ -45,7 +45,7 @@
     state: idle
   discipline: CivilianServices
   tier: 2
-  cost: 9000 # Goobstation - reduce science cost
+  cost: 9000
   recipeUnlocks:
   - AutodocCircuitboard
 
@@ -59,6 +59,6 @@
     state: omnimed
   discipline: CivilianServices
   tier: 3
-  cost: 9000 # Goobstation - reduce science cost
+  cost: 9000
   recipeUnlocks:
   - OmnimedTool

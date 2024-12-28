@@ -8,8 +8,7 @@
     state: handdrill
   discipline: Industrial
   tier: 1
-  cost: 9000 # Goobstation
- # Goobstation - reduce science cost
+  cost: 9000 # Goobstation # Goobstation - reduce science cost
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
