@@ -77,3 +77,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookRepulse
+  name: spellbook-repulse-name
+  description: spellbook-repulse-desc
+  productAction: ActionRepulse
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

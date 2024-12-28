@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Magic;
 using Content.Shared.Roles;
+using Content.Shared.Singularity.EntitySystems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Wizard;
@@ -94,4 +95,25 @@ public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public Solution Solution = new("ThickSmoke", 50);
+}
+
+public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public float Force = 180f;
+
+    [DataField]
+    public float MinRange = 0.00001f;
+
+    [DataField]
+    public float MaxRange = 5f;
+
+    [DataField]
+    public TimeSpan StunTime = TimeSpan.FromSeconds(4);
+
+    [DataField]
+    public EntProtoId? EffectProto = "EffectRepulse";
 }

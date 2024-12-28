@@ -1,6 +1,7 @@
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared.Clumsy;
 using Content.Shared.Cluwne;
+using Content.Shared.Ghost;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
@@ -26,13 +27,13 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly SharedMapSystem Map = default!;
-    [Dependency] private   readonly SharedStunSystem _stun = default!;
+    [Dependency] protected readonly SharedStunSystem Stun = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
     #endregion
@@ -47,6 +48,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
+        SubscribeLocalEvent<RepulseEvent>(OnRepulse);
     }
 
     #region Spells
@@ -59,7 +61,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
         _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
         _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
 
@@ -77,7 +79,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
         _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
         _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
 
@@ -102,7 +104,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Target, out StatusEffectsComponent? status))
             return;
 
-        _stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
 
         MakeMime(ev, status);
 
@@ -123,7 +125,9 @@ public abstract class SharedSpellsSystem : EntitySystem
             ? TransformSystem.WithEntityId(coords, gridUid)
             : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
 
-        var velocity = _physics.GetMapLinearVelocity(spawnCoords);
+        var velocity = Physics.GetMapLinearVelocity(spawnCoords);
+
+        var ghostQuery = GetEntityQuery<GhostComponent>();
 
         var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
         var hasTargets = false;
@@ -131,6 +135,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         foreach (var (target, _) in targets)
         {
             if (target == ev.Performer)
+                continue;
+
+            if (ghostQuery.HasComp(target)) // Just in case
                 continue;
 
             hasTargets = true;
@@ -179,9 +186,20 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnRepulse(RepulseEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Repulse(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
-    #region Helpers
+    #region ServerMethods
 
     protected virtual void MakeMime(MimeMalaiseEvent ev, StatusEffectsComponent? status = null)
     {
@@ -196,6 +214,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void SpawnSmoke(SmokeSpellEvent ev)
+    {
+    }
+
+    protected virtual void Repulse(RepulseEvent ev)
     {
     }
 

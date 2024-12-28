@@ -104,7 +104,7 @@
   - type: InstantAction
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 40
+    useDelay: 20
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/disable_tech.ogg
@@ -134,3 +134,24 @@
       state: smoke
     event: !type:SmokeSpellEvent
   - type: Magic
+
+- type: entity
+  id: ActionRepulse
+  name: Repulse
+  description: Throws everything around the user away.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/repulse.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: repulse
+    event: !type:RepulseEvent
+      speech: action-speech-spell-repulse
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true

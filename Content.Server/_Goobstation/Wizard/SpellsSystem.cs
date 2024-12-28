@@ -1,7 +1,9 @@
+using System.Numerics;
 using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Commands;
 using Content.Server.Emp;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Chemistry.Components;
@@ -12,6 +14,9 @@ using Content.Shared.Inventory;
 using Content.Shared.Maps;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
+using Robust.Shared.Map;
+using Robust.Shared.Physics;
+using Robust.Shared.Physics.Components;
 
 namespace Content.Server._Goobstation.Wizard;
 
@@ -20,6 +25,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
+    [Dependency] private readonly GravityWellSystem _gravityWell = default!;
 
     protected override void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
     {
@@ -91,5 +97,52 @@ public sealed class SpellsSystem : SharedSpellsSystem
         }
 
         _smoke.StartSmoke(ent, new Solution(ev.Solution), ev.Duration, ev.SpreadAmount, smoke);
+    }
+
+    protected override void Repulse(RepulseEvent ev)
+    {
+        var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);
+
+        if (mapPos == MapCoordinates.Nullspace)
+            return;
+
+        var baseMatrixDeltaV = new Matrix3x2(-ev.Force, 0f, 0f, -ev.Force, 0f, 0f);
+        var epicenter = mapPos.Position;
+        var minRange2 = ev.MinRange * ev.MinRange;
+        var xformQuery = GetEntityQuery<TransformComponent>();
+
+        foreach (var (entity, physics) in Lookup.GetEntitiesInRange<PhysicsComponent>(mapPos,
+                     ev.MaxRange,
+                     flags: LookupFlags.Dynamic | LookupFlags.Sundries))
+        {
+            if (physics.BodyType == BodyType.Static)
+                continue;
+
+            if (entity == ev.Performer)
+                continue;
+
+            if (!_gravityWell.CanGravPulseAffect(entity))
+                continue;
+
+            var xform = xformQuery.Comp(entity);
+
+            var displacement = epicenter - TransformSystem.GetWorldPosition(xform, xformQuery);
+            var distance2 = displacement.LengthSquared();
+            if (distance2 < minRange2)
+                continue;
+
+            Stun.TryParalyze(entity, ev.StunTime, true);
+
+            if (ev.EffectProto != null)
+            {
+                var effect = SpawnAttachedTo(ev.EffectProto.Value, xform.Coordinates);
+                TransformSystem.SetParent(effect, xformQuery.Comp(effect), entity, xform);
+            }
+
+            var scaling = (1f / distance2) * physics.Mass;
+            Physics.ApplyLinearImpulse(entity,
+                Vector2.TransformNormal(displacement, baseMatrixDeltaV) * scaling,
+                body: physics);
+        }
     }
 }
