@@ -90,3 +90,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookStopTime
+  name: spellbook-stop-time-name
+  description: spellbook-stop-time-desc
+  productAction: ActionStopTime
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

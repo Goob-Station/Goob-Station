@@ -1,7 +1,9 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
-using Content.Shared._Goobstation.CCVar; // Shitmed Change
+using Content.Shared._Goobstation.CCVar;
+using Content.Shared._Goobstation.Wizard.TimeStop;
+using Content.Shared.Administration; // Shitmed Change
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -60,9 +62,8 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
         var uid = args.SenderSession.AttachedEntity.Value;
 
-        // TODO: Wizard
-        //if (HasComp<FrozenComponent>(uid))
-        //   return;
+        if (HasComp<FrozenComponent>(uid) || HasComp<AdminFrozenComponent>(uid)) // Goob edit
+           return;
 
         if (!TryComp(uid, out StandingStateComponent? standing) ||
             !TryComp(uid, out LayingDownComponent? layingDown))
@@ -146,6 +147,13 @@ public abstract class SharedLayingDownSystem : EntitySystem
 
     private void OnCheckAutoGetUp(Entity<LayingDownComponent> ent, ref CheckAutoGetUpEvent args)
     {
+        if (HasComp<FrozenComponent>(ent) || HasComp<AdminFrozenComponent>(ent))
+        {
+            ent.Comp.AutoGetUp = false;
+            Dirty(ent);
+           return;
+        }
+
         if (!TryComp(ent, out ActorComponent? actor))
             return;
 

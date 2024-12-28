@@ -34,3 +34,8 @@ spellbook-repulse-name = Repulse
 spellbook-repulse-desc =
     This spell throws everything around the user away. Thrown mobs are stunned briefly.
     Requires wizard's robe and hat to cast.
+
+spellbook-stop-time-name = Stop Time
+spellbook-stop-time-desc =
+    This spell stops time for everyone except for you and whoever learned this spell, allowing you to move freely while your enemies and even projectiles are frozen.
+    Requires wizard's robe and hat to cast.

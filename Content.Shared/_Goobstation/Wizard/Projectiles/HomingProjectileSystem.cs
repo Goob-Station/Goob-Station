@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Interaction;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -18,9 +19,14 @@ public sealed class HomingProjectileSystem : EntitySystem
 
         var query = EntityQueryEnumerator<HomingProjectileComponent, PhysicsComponent, TransformComponent, FixturesComponent>();
 
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var frozenQuery = GetEntityQuery<FrozenComponent>();
         while (query.MoveNext(out var uid, out var homing, out var physics, out var xform, out var fix))
         {
-            if (!TryComp(homing.Target, out TransformComponent? targetXform))
+            if (frozenQuery.HasComp(uid))
+                continue;
+
+            if (!xformQuery.TryComp(homing.Target, out var targetXform))
                 continue;
 
             var goalAngle = (_transform.GetMapCoordinates(targetXform).Position -

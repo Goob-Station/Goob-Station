@@ -155,3 +155,25 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+
+- type: entity
+  id: ActionStopTime
+  name: Stop Time
+  description: Stops time around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 50
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: time
+    event: !type:StopTimeEvent
+      speech: action-speech-spell-stop-time
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+  - type: FrozenIgnoreMindAction

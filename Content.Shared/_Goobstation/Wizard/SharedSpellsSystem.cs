@@ -49,6 +49,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
+        SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
     }
 
     #region Spells
@@ -192,6 +193,21 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         Repulse(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnStopTime(StopTimeEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (_net.IsServer)
+        {
+            var effect = Spawn(ev.Proto, TransformSystem.GetMapCoordinates(ev.Performer));
+            EnsureComp<PreventCollideComponent>(effect).Uid = ev.Performer; // Just in case
+        }
 
         _magic.Speak(ev);
         ev.Handled = true;

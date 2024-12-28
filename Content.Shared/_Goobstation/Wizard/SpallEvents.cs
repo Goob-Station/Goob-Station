@@ -117,3 +117,12 @@ public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public EntProtoId? EffectProto = "EffectRepulse";
 }
+
+public sealed partial class StopTimeEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "Chronofield";
+}
