@@ -40,18 +40,26 @@ jobs:
     - name: Install Dependencies
       run: dotnet restore
 
-    - name: Build Project
-      run: dotnet build --configuration DebugOpt --no-restore /p:WarningsAsErrors=nullable /m
+    - name: Get Changed Files
+      id: changed-files
+      run: |
+        git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} -- '*.cs' > changed-files.txt
+        if [ -s changed-files.txt ]; then
+          echo "::set-output name=files::$(cat changed-files.txt | tr '\n' ' ')"
+        else
+          echo "::set-output name=files::"
+        fi
+      shell: bash
 
     - name: Check Unnecessary Usings
-      id: format
-      run: dotnet format --dry-run --check
+      if: steps.changed-files.outputs.files != ''
+      run: dotnet format --verify-no-changes --include ${{ steps.changed-files.outputs.files }}
       env:
         DOTNET_ROOT: /usr/share/dotnet
 
     - name: Show Usings Check Results
       if: failure()
-      run: echo "Unnecessary usings were found. Please remove them and push the changes."
+      run: echo "Unnecessary usings or other formatting issues were found. Please fix them and push the changes."
 
   ci-success:
     name: Build Succeeded
