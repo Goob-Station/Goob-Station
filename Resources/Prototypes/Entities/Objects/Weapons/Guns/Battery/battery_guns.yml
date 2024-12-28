@@ -782,16 +782,16 @@
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
-    fireCost: 100
+    fireCost: 150
   # Goob edit start
   #- type: BatteryWeaponFireModes
   #  fireModes:
   #  - proto: BulletLaserSpread
-  #    fireCost: 100
+  #    fireCost: 150
   #  - proto: BulletLaserSpreadNarrow
-  #    fireCost: 100
+  #    fireCost: 200
   #  - proto: BulletDisablerSmgSpread
-  #    fireCost: 100
+  #    fireCost: 120
   - type: AmmoSelector
     prototypes:
       - BulletLaserSpread

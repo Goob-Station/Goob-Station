@@ -1,6 +1,5 @@
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Power.Nodes

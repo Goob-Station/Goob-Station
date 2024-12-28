@@ -6,7 +6,6 @@ using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Tag;
 
 namespace Content.Shared.Emag.Systems;

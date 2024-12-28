@@ -1,4 +1,3 @@
-using Content.Shared.Emoting;
 using Content.Shared._Goobstation.Emoting;
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;

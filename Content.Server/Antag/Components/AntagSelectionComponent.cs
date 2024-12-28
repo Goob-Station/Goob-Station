@@ -1,4 +1,3 @@
-using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -189,7 +188,7 @@ public partial struct AntagSelectionDefinition()
     // goob edit - actual pacifism implant
     [DataField]
     public List<JobSpecial> Special = new();
-  
+
     /// <summary>
     /// Goobstation
     /// Does this antag role roll before job
