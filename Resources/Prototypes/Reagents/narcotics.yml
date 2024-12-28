@@ -612,7 +612,7 @@
         time: 5
         refresh: false
 
-- type: reagent # /tg/ gases
+- type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide
   name: reagent-name-nitrosyl-plasmide
   group: Narcotics
