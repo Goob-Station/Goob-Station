@@ -79,7 +79,7 @@
     sprite: Clothing/Shoes/Boots/highheelboots.rsi
 
 - type: entity
-  parent: ClothingShoesMilitaryBase # goobstation - not contra now
+  parent: [ ClothingShoesMilitaryBase ]
   id: ClothingShoesBootsMerc
   name: mercenary boots
   description: Boots that have gone through many conflicts and that have proven their combat reliability.
