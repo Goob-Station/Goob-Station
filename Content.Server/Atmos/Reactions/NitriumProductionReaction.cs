@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
+///     Assmos - /tg/ gases
 ///     Produces Nitrium by mixing Tritium, Nitrogen and BZ at temperatures above 1500K. 
 /// </summary>
 [UsedImplicitly]

@@ -7,6 +7,7 @@ using JetBrains.Annotations;
 namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
+///     Assmos - /tg/ gases
 ///     Consumes a tiny amount of tritium to convert CO2 and oxygen to pluoxium.
 /// </summary>
 [UsedImplicitly]

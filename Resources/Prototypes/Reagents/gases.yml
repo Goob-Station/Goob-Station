@@ -273,7 +273,7 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
@@ -288,7 +288,7 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         walkSpeedModifier: 0.65
@@ -304,7 +304,7 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         key: ForcedSleep
@@ -398,7 +398,7 @@
           reagent: Frezon
           min: 1
 
- #/tg/ gases
+ # Assmos - /tg/ gases
 - type: reagent
   id: BZ
   name: reagent-name-bz

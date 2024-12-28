@@ -91,7 +91,7 @@
   effects:
   - !type:N2ODecompositionReaction {}
 
- #/tg/ gases
+ # Assmos - /tg/ gases
 - type: gasReaction
   id: bzFormation
   priority: 2
@@ -185,6 +185,8 @@
   - 0     # nitrium
   effects:
   - !type:PluoxiumProductionReaction {}
+
+# Assmos - /tg/ gases end
 
 #- type: gasReaction
 #  id: WaterVaporPuddle

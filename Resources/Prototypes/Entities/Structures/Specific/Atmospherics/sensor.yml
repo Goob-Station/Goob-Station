@@ -25,10 +25,10 @@
         Ammonia: stationAmmonia
         NitrousOxide: stationNO
         Frezon: danger
-        BZ: danger #/tg/ gases
-        Healium: stationNO #/tg/ gases
-        Nitrium: danger #/tg/ gases
-        Pluoxium: ignore #/tg/ gases
+        BZ: danger # Assmos - /tg/ gases
+        Healium: stationNO # Assmos - /tg/ gases
+        Nitrium: danger # Assmos - /tg/ gases
+        Pluoxium: ignore # Assmos - /tg/ gases
     - type: Tag
       tags:
         - AirSensor
