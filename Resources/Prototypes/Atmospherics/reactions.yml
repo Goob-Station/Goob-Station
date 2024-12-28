@@ -165,6 +165,27 @@
   effects:
   - !type:NitriumDecompositionReaction {}
 
+- type: gasReaction
+  id: PluoxiumProduction
+  priority: 3
+  minimumTemperature: 50.0
+  maximumTemperature: 273.15
+  minimumRequirements:
+  - 0.01  # oxygen
+  - 0     # nitrogen
+  - 0.01  # carbon dioxide
+  - 0     # plasma
+  - 0.01  # tritium
+  - 0     # vapor
+  - 0     # miasma
+  - 0     # n2o
+  - 0     # frezon
+  - 0     # bz
+  - 0     # healium
+  - 0     # nitrium
+  effects:
+  - !type:PluoxiumProductionReaction {}
+
 #- type: gasReaction
 #  id: WaterVaporPuddle
 #  priority: 1

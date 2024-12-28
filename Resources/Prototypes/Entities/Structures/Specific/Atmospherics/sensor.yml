@@ -28,6 +28,7 @@
         BZ: danger #/tg/ gases
         Healium: stationNO #/tg/ gases
         Nitrium: danger #/tg/ gases
+        Pluoxium: ignore #/tg/ gases
     - type: Tag
       tags:
         - AirSensor

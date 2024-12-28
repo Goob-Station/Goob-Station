@@ -188,7 +188,7 @@ namespace Content.Shared.Atmos
         /// <summary>
         ///     Total number of gases. Increase this if you want to add more!
         /// </summary>
-        public const int TotalNumberOfGases = 12; ///tg/ gases
+        public const int TotalNumberOfGases = 13; ///tg/ gases
 
         /// <summary>
         ///     This is the actual length of the gases arrays in mixtures.
@@ -376,5 +376,6 @@ namespace Content.Shared.Atmos
         BZ = 9, ///tg/ gases
         Healium = 10, ///tg/ gases
         Nitrium = 11, ///tg/ gases
+        Pluoxium = 12, ///tg/ gases
     }
 }

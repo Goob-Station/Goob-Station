@@ -618,3 +618,39 @@
         damage:
           types:
             Asphyxiation: 15
+      
+- type: reagent
+  id: Pluoxium
+  name: reagent-name-pluoxium
+  desc: reagent-desc-pluoxium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#7b68ee"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Plant
+      # Convert Pluoxium into CO2.
+      - !type:ModifyLungGas
+        ratios:
+          CarbonDioxide: 1.0
+          Pluoxium: -1.0
