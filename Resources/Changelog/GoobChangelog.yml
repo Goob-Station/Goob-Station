@@ -3633,3 +3633,25 @@ Entries:
       message: Fixed Gingerbread not taking damage from being splashed with water
   id: 402
   time: '2024-12-27T18:37:22.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix goob coins not being saved on server shutdown.
+  id: 403
+  time: '2024-12-28T16:31:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Added poison damage to nitrosyl plasmide
+    - type: Fix
+      message: Fixed BZ rainbow effects
+  id: 404
+  time: '2024-12-28T16:38:05.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced nukie amount. Nukies still get a lot of tc for war declaration
+        on high pop.
+  id: 405
+  time: '2024-12-28T16:58:16.0000000+00:00'

@@ -619,7 +619,7 @@
   desc: reagent-desc-nitrosyl-plasmide
   physicalDesc: reagent-physical-desc-translucent
   flavor: sour
-  color: "#b76f0e"
+  color: "#e1a116"
   metabolisms:
     Gas:
       effects:
@@ -644,6 +644,10 @@
         key: ForcedSleep
         type: Remove
         time: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
     Medicine:
       effects:
       - !type:ResetNarcolepsy
