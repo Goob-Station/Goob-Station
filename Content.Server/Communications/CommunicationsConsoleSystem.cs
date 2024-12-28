@@ -3,7 +3,6 @@ using Content.Server.AlertLevel;
 using Content.Server.Chat.Systems;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Interaction;
 using Content.Server.Popups;
 using Content.Server.RoundEnd;
 using Content.Server.Screens.Components;

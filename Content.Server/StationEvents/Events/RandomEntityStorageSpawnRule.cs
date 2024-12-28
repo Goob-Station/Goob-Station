@@ -1,4 +1,3 @@
-using Content.Server.GameTicking.Rules.Components;
 using Content.Server.StationEvents.Components;
 using Content.Server.Storage.Components;
 using Content.Server.Storage.EntitySystems;

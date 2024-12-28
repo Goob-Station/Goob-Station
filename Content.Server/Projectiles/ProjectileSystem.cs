@@ -5,7 +5,6 @@ using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.Projectiles;
-using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 

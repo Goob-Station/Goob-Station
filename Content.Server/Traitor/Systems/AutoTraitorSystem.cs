@@ -1,7 +1,6 @@
 using Content.Server.Antag;
 using Content.Server.Traitor.Components;
 using Content.Shared.Mind.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Traitor.Systems;
 
