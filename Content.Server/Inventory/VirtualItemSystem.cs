@@ -1,4 +1,3 @@
-using Content.Shared.Hands;
 using Content.Shared.Inventory.VirtualItem;
 
 namespace Content.Server.Inventory;

@@ -2,7 +2,6 @@ using Content.Server._EinsteinEngines.Silicon.Death;
 using Content.Shared.Sound.Components;
 using Content.Server.Sound;
 using Content.Shared.Mobs;
-using Content.Shared._EinsteinEngines.Silicon.Systems;
 
 namespace Content.Server._EinsteinEngines.Silicon;
 

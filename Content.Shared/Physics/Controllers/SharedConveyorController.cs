@@ -1,7 +1,6 @@
 ﻿using System.Numerics;
 using Content.Shared.Conveyor;
 using Content.Shared.Gravity;
-using Content.Shared.Magic;
 using Content.Shared.Movement.Systems;
 using Robust.Shared.Collections;
 using Robust.Shared.Map;
