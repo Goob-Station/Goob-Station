@@ -1,6 +1,5 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
-using Content.Shared.Body.Part;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Content.Shared.Administration; // Shitmed Change

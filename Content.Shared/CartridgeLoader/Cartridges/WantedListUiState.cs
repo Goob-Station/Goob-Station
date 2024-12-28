@@ -1,4 +1,3 @@
-using Content.Shared.CriminalRecords;
 using Content.Shared.CriminalRecords.Systems;
 using Robust.Shared.Serialization;
 

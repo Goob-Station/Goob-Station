@@ -14,7 +14,6 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Content.Server._EinsteinEngines.Power.Components;
-using Content.Server._EinsteinEngines.Silicon;
 
 namespace Content.Server._EinsteinEngines.Power;
 

@@ -1,14 +1,10 @@
 using System.Numerics;
 using Content.Server.NPC.Components;
 using Content.Server.NPC.Events;
-using Content.Server.NPC.HTN.PrimitiveTasks.Operators.Combat;
 using Content.Server.Weapons.Melee;
 using Content.Shared.NPC;
-using Content.Shared.Weapons.Melee;
-using Robust.Shared.Collections;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 

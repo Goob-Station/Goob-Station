@@ -1,9 +1,7 @@
-﻿using Content.Shared.Antag;
-using Content.Shared._Goobstation.Blob;
+﻿using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 //using Content.Shared.Flesh;
 using Content.Shared.GameTicking;
-using Content.Shared.Ghost;
 using Content.Shared.StatusIcon;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Graphics;

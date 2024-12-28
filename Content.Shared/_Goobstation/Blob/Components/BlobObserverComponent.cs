@@ -1,11 +1,6 @@
 using Content.Shared.Actions;
-using Content.Shared.Antag;
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Blob.Components;

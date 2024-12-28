@@ -10,7 +10,6 @@ using Content.Shared.Robotics.Components;
 using Content.Shared.Robotics.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Timing;
-using System.Diagnostics.CodeAnalysis;
 
 namespace Content.Server.Research.Systems;
 

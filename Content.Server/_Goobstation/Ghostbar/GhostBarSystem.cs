@@ -12,7 +12,6 @@ using Content.Server.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Roles;
 using Content.Server.Antag.Components;
-using Content.Shared.Mind;
 using Content.Shared.Mindshield.Components;
 using Content.Shared.Players;
 
