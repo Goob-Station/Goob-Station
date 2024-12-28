@@ -19,6 +19,10 @@
     radius: 1.5
     energy: 5.0
   - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      params:
+        volume: -3
     damage:
       types:
         Heat: 0
