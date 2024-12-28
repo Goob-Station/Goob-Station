@@ -41,7 +41,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             return;
 
         var EnumeratedItems = _handsSystem.EnumerateHeld(args.User, handsComp);
-        
+
         if (EnumeratedItems.ToList().Count <= 1)
         {
             args.Cancel();
@@ -53,14 +53,14 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<MultishotComponent>(held))
+            if (HasComp<RequiresDualWieldComponent>(held))
                 continue;
 
             args.Cancel();
 
             DualWieldPopup(component, ref args);
             break;
-        } 
+        }
     }
 
     private void OnExamineRequires(Entity<RequiresDualWieldComponent> entity, ref ExaminedEvent args)
@@ -68,7 +68,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
         if (entity.Comp.WieldRequiresExamineMessage != null)
             args.PushText(Loc.GetString(entity.Comp.WieldRequiresExamineMessage));
     }
-    
+
     private void DualWieldPopup(RequiresDualWieldComponent component, ref ShotAttemptedEvent args)
     {
         var time = _timing.CurTime;

@@ -49,6 +49,9 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
+uplink-dualetta-kit-name = Dualetta kit
+uplink-dualetta-kit-desc = Two dualettas for a cheap price.
+
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
@@ -67,8 +70,8 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 
-uplink-dualetta-name = Dualetta Bundle
-uplink-dualetta-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
+uplink-dualetta-bundle-name = Dualetta Bundle
+uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
 # Ammo
 

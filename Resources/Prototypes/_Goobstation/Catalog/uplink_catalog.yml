@@ -138,13 +138,24 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkDualetta
-  name: uplink-dualetta-name
-  description: uplink-dualetta-desc
+  id: UplinkDualettaBundle
+  name: uplink-dualetta-bundle-name
+  description: uplink-dualetta-bundle-desc
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
   productEntity: BriefcaseSyndieDualettaBundleFilled
   cost:
     Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkDualettaKit
+  name: uplink-dualetta-kit-name
+  description: uplink-dualetta-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BoxDualettaKit
+  cost:
+    Telecrystal: 30
   categories:
   - UplinkWeaponry
 
