@@ -3639,3 +3639,11 @@ Entries:
       message: Fix goob coins not being saved on server shutdown.
   id: 403
   time: '2024-12-28T16:31:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Added poison damage to nitrosyl plasmide
+    - type: Fix
+      message: Fixed BZ rainbow effects
+  id: 404
+  time: '2024-12-28T16:38:05.0000000+00:00'
