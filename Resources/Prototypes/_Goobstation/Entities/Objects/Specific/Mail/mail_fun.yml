@@ -215,6 +215,9 @@
       - id: MobCockroach
         orGroup: Critter
         prob: 0.36
+      - id: MobLootbug
+        orGroup: Critter
+        prob: 0.36
       - id: MobSlug
         orGroup: Critter
         prob: 0.36
