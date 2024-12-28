@@ -19,6 +19,8 @@ jobs:
     steps:
     - name: Checkout Code
       uses: actions/checkout@v3.6.0
+      with:
+        fetch-depth: 0
 
     - name: Setup Submodule
       run: |
@@ -43,10 +45,13 @@ jobs:
     - name: Get Changed Files
       id: changed-files
       run: |
-        git diff --name-only origin/${{ github.base_ref }}...${{ github.head_ref }} -- '*.cs' > changed-files.txt
+        git diff --name-only origin/${{ github.event.pull_request.base.ref }}...${{ github.event.pull_request.head.ref }} -- '*.cs' > changed-files.txt
         if [ -s changed-files.txt ]; then
+          echo "Changed files:"
+          cat changed-files.txt
           echo "::set-output name=files::$(cat changed-files.txt | tr '\n' ' ')"
         else
+          echo "No C# files changed."
           echo "::set-output name=files::"
         fi
       shell: bash
