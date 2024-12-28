@@ -4,6 +4,7 @@
   description: ...
   components:
   - type: EntityTargetAction
+    raiseOnUser: true
     useDelay: 30
     itemIconStyle: BigAction
     whitelist:
@@ -26,6 +27,7 @@
   description: It's time to start cluwning around.
   components:
   - type: EntityTargetAction
+    raiseOnUser: true
     useDelay: 60
     itemIconStyle: BigAction
     whitelist:
@@ -52,6 +54,7 @@
   description: It's time to start clowning around.
   components:
   - type: EntityTargetAction
+    raiseOnUser: true
     useDelay: 30
     itemIconStyle: BigAction
     whitelist:
@@ -78,6 +81,8 @@
   description: Fires several stunning, slow moving, magic projectiles at nearby targets.
   components:
   - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
     useDelay: 20
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
@@ -87,6 +92,27 @@
       state: missile
     event: !type:MagicMissileEvent
       speech: action-speech-spell-magic-missile
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionDisableTech
+  name: Disable Technology
+  description: Disables all weapons, cameras and most other technology in range.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/disable_tech.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: emp
+    event: !type:DisableTechEvent
+      speech: action-speech-spell-emp
   - type: Magic
     requiresClothes: true
     requiresSpeech: true

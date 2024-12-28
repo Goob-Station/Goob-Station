@@ -61,3 +61,18 @@ public sealed partial class MagicMissileEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public float ProjectileSpeed = 4.5f;
 }
+
+public sealed partial class DisableTechEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public float Range = 10f;
+
+    [DataField]
+    public float EnergyConsumption = 50000f;
+
+    [DataField]
+    public float DisableDuration = 60f;
+}

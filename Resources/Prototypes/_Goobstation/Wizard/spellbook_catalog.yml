@@ -51,3 +51,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookDisableTech
+  name: spellbook-disable-tech-name
+  description: spellbook-disable-tech-desc
+  productAction: ActionDisableTech
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

@@ -1,5 +1,6 @@
 using Content.Server.Abilities.Mime;
 using Content.Server.Administration.Commands;
+using Content.Server.Emp;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Interaction.Components;
@@ -11,6 +12,8 @@ namespace Content.Server._Goobstation.Wizard;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
+    [Dependency] private readonly EmpSystem _emo = default!;
+
     protected override void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
     {
         base.SetGear(uid, gear, unremoveableClothingFlags);
@@ -42,5 +45,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
             EnsureComp<MimePowersComponent>(ev.Target).CanBreakVow = false;
         else
             StatusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
+    }
+
+    protected override void Emp(DisableTechEvent ev)
+    {
+        base.Emp(ev);
+
+        // This doesn't invoke EmpPulse() because I don't want it to spawn emp effect and play pulse sound
+        var coords = TransformSystem.GetMapCoordinates(ev.Performer);
+        foreach (var uid in Lookup.GetEntitiesInRange(coords, ev.Range))
+        {
+            _emo.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
+        }
     }
 }

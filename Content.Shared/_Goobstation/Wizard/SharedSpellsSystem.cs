@@ -9,7 +9,6 @@ using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
-using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -23,14 +22,14 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
     [Dependency] protected readonly InventorySystem Inventory = default!;
+    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
-    [Dependency] private   readonly EntityLookupSystem _lookup = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private   readonly SharedTransformSystem _transform = default!;
     [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private   readonly SharedMapSystem _map = default!;
     [Dependency] private   readonly IMapManager _mapManager = default!;
@@ -46,6 +45,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
         SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
         SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
+        SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
     }
 
     #region Spells
@@ -115,16 +115,16 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         var coords = Transform(ev.Performer).Coordinates;
-        var mapCoords = _transform.ToMapCoordinates(coords);
+        var mapCoords = TransformSystem.ToMapCoordinates(coords);
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var spawnCoords = _mapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
-            ? _transform.WithEntityId(coords, gridUid)
+            ? TransformSystem.WithEntityId(coords, gridUid)
             : new(_map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
 
         var velocity = _physics.GetMapLinearVelocity(spawnCoords);
 
-        var targets = _lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
+        var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
         var hasTargets = false;
 
         foreach (var (target, _) in targets)
@@ -142,7 +142,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             EnsureComp<HomingProjectileComponent>(missile).Target = target;
             _gunSystem.SetTarget(missile, target);
 
-            var direction = _transform.GetMapCoordinates(target).Position - mapCoords.Position;
+            var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
             _gunSystem.ShootProjectile(missile, direction, velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
         }
 
@@ -151,6 +151,18 @@ public abstract class SharedSpellsSystem : EntitySystem
             _popup.PopupClient(Loc.GetString("spell-no-targets"), ev.Performer, ev.Performer);
             return;
         }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+
+    private void OnDisableTech(DisableTechEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Emp(ev);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -165,6 +177,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
+    {
+    }
+
+    protected virtual void Emp(DisableTechEvent ev)
     {
     }
 

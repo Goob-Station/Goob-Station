@@ -19,3 +19,8 @@ spellbook-magic-missile-name = Magic Missile
 spellbook-magic-missile-desc =
     This spell fires several stunning, slow moving, magic projectiles at nearby targets.
     Requires wizard's robe and hat to cast.
+
+spellbook-disable-tech-name = Disable Technology
+spellbook-disable-tech-desc =
+    This spell disables all weapons, cameras and most other technology in range.
+    Requires wizard's robe and hat to cast.
