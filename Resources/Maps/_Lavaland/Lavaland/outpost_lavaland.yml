@@ -1530,6 +1530,14 @@ entities:
     - type: Transform
       pos: -3.5,7.5
       parent: 2
+- proto: BaseComputerAiAccess
+  entities:
+  - uid: 523
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,-0.5
+      parent: 2
 - proto: BedsheetMedical
   entities:
   - uid: 273
@@ -4107,6 +4115,18 @@ entities:
       parent: 2
 - proto: Chair
   entities:
+  - uid: 525
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,-2.5
+      parent: 2
+  - uid: 526
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 11.5,-3.5
+      parent: 2
   - uid: 1159
     components:
     - type: Transform
@@ -4154,18 +4174,24 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 13.5,-0.5
       parent: 2
-  - uid: 1167
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 9.5,-0.5
-      parent: 2
 - proto: ChairOfficeDark
   entities:
+  - uid: 524
+    components:
+    - type: Transform
+      pos: 8.5,0.5
+      parent: 2
   - uid: 1173
     components:
     - type: Transform
       pos: 8.5,8.5
+      parent: 2
+- proto: ChairOfficeLight
+  entities:
+  - uid: 300
+    components:
+    - type: Transform
+      pos: 7.5,0.5
       parent: 2
 - proto: CheapRollerBedSpawnFolded
   entities:
@@ -4310,13 +4336,13 @@ entities:
       rot: 3.141592653589793 rad
       pos: 14.264828,-2.4892714
       parent: 2
-- proto: ComputerBroken
+- proto: ComputerCargoOrders
   entities:
-  - uid: 1238
+  - uid: 296
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 7.5,-0.5
+      pos: 9.5,-0.5
       parent: 2
 - proto: ComputerCrewMonitoring
   entities:
@@ -4331,6 +4357,14 @@ entities:
     components:
     - type: Transform
       pos: 8.5,9.5
+      parent: 2
+- proto: ComputerShuttleMiningLavaland
+  entities:
+  - uid: 295
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,-0.5
       parent: 2
 - proto: ConveyorBelt
   entities:
@@ -10864,11 +10898,6 @@ entities:
     - type: Transform
       pos: 10.5,1.5
       parent: 2
-  - uid: 11502
-    components:
-    - type: Transform
-      pos: 8.5,0.5
-      parent: 2
   - uid: 11503
     components:
     - type: Transform
@@ -11397,12 +11426,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 14.5,-0.5
-      parent: 2
-  - uid: 11650
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 8.5,-0.5
       parent: 2
 - proto: TelecomServerFilledCargo
   entities:
