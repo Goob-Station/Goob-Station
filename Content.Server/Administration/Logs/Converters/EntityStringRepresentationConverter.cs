@@ -1,6 +1,5 @@
 using System.Text.Json;
 using Content.Server.Administration.Managers;
-using Robust.Server.Player;
 
 namespace Content.Server.Administration.Logs.Converters;
 

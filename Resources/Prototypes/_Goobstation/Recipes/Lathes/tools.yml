@@ -4,3 +4,13 @@
   result: ToolboxMechanical
   materials:
     Steel: 1000
+
+- type: latheRecipe
+  id: OreBag
+  result: OreBag
+  category: Tools
+  completetime: 3
+  materials:
+    Plastic: 500
+    Cloth: 200
+    Steel: 100

@@ -1,6 +1,5 @@
 using Content.Server.Antag;
 using Content.Server.Antag.Components;
-using Content.Server.GameTicking;
 using Content.Shared.GameTicking;
 using Content.Shared.Roles;
 using Robust.Shared.Network;

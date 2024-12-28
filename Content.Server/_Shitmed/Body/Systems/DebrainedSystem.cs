@@ -1,7 +1,6 @@
 using Content.Server._Shitmed.DelayedDeath;
 using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared.Body.Systems;
-using Content.Shared.Mind;
 using Content.Server.Popups;
 using Content.Shared.Speech;
 using Content.Shared.Standing;

@@ -1,7 +1,6 @@
 using Content.Server.Objectives.Components;
 using Content.Server.Objectives.Systems;
 using Content.Server.Popups;
-using Content.Server.Roles;
 using Content.Shared.Actions;
 using Content.Shared.Dragon;
 using Content.Shared.Maps;

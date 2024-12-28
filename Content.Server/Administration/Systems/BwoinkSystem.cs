@@ -19,7 +19,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Mind;
 using Content.Shared.Players.RateLimiting;
 using JetBrains.Annotations;
-using Pidgin.Configuration;
 using Robust.Server.Player;
 using Robust.Shared;
 using Robust.Shared.Configuration;
