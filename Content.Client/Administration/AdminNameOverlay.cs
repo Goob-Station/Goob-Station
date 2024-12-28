@@ -3,9 +3,7 @@ using Content.Client.Administration.Systems;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
-using Robust.Shared;
 using Robust.Shared.Enums;
-using Robust.Shared.Configuration;
 
 namespace Content.Client.Administration;
 

@@ -4,7 +4,6 @@ using Content.Server.Spawners.Components;
 using Content.Shared.EntityTable;
 using Content.Shared.GameTicking.Components;
 using JetBrains.Annotations;
-using Robust.Shared.Map;
 using Robust.Shared.Random;
 
 namespace Content.Server.Spawners.EntitySystems

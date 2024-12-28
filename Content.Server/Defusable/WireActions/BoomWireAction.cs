@@ -1,10 +1,7 @@
 using Content.Server.Defusable.Components;
 using Content.Server.Defusable.Systems;
-using Content.Server.Doors.Systems;
 using Content.Server.Wires;
 using Content.Shared.Defusable;
-using Content.Shared.Doors;
-using Content.Shared.Doors.Components;
 using Content.Shared.Wires;
 
 namespace Content.Server.Defusable.WireActions;

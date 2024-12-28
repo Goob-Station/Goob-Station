@@ -1,7 +1,5 @@
 using Content.Server.RoundEnd;
-using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
-using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -71,7 +69,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// Example: A value of 10 means one operative per 10 players.
     /// </summary>
     [DataField]
-    public int WarNukiePlayerRatio = 10;
+    public int WarNukiePlayerRatio = 12;
 
     /// <summary>
     /// Additional telecrystals granted per player on the server during war.
@@ -85,7 +83,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// Total bonus is divided by number of operatives.
     /// </summary>
     [DataField]
-    public int WarTcPerNukieMissing = 200;
+    public int WarTcPerNukieMissing = 100;
     // Goobstation end
 
     /// <summary>
