@@ -70,7 +70,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
 
         // Goobstation - Confirmable action with changed icon - Start
         if (!string.IsNullOrEmpty(comp.Popup))
-            _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupType.LargeCaution);
+            _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupFontType);
 
         _actions.SetToggled(ent, true);
         // Goobstation - Confirmable action with changed icon - End

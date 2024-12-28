@@ -18,7 +18,7 @@ public sealed partial class ConfirmableActionComponent : Component
     /// </summary>
     // Goobstation - Modsuits - Removed required string
     [DataField]
-    public LocId Popup = string.Empty;
+    public string Popup = string.Empty;
 
     /// <summary>
     /// Type of warning popup - Goobstaiton - Modsuits
