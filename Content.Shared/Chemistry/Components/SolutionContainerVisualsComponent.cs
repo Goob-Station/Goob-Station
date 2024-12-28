@@ -1,4 +1,3 @@
-using Content.Shared.Hands.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Chemistry.Components

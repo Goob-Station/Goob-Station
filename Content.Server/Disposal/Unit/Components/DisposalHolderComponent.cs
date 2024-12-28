@@ -1,5 +1,4 @@
 using Content.Server.Atmos;
-using Content.Server.Disposal.Tube.Components;
 using Content.Shared.Atmos;
 using Robust.Shared.Containers;
 

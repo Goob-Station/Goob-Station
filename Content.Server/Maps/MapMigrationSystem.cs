@@ -2,7 +2,6 @@
 using System.IO;
 using System.Linq;
 using Robust.Server.GameObjects;
-using Robust.Server.Maps;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Map.Events;
 using Robust.Shared.Prototypes;

@@ -9,8 +9,6 @@ using Content.Shared.Stunnable;
 using Content.Shared.Timing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Timing;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Ninja.Systems;
 

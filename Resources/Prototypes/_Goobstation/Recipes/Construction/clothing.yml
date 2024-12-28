@@ -1,0 +1,10 @@
+- type: construction
+  name: goliath cloak
+  id: GoliathCloak
+  graph: GoliathCloak
+  startNode: start
+  targetNode: cloak
+  category: construction-category-clothing
+  description: A cloak made from the hide of resilient fauna from a distant planet.
+  icon: { sprite: Clothing/Neck/Cloaks/goliathcloak.rsi, state: icon }
+  objectType: Item
