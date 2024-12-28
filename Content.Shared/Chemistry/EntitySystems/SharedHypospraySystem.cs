@@ -2,7 +2,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Timing;
 using Content.Shared.Verbs;
 using Content.Shared.Popups;
-using Robust.Shared.Player;
 using Content.Shared.Administration.Logs;
 
 namespace Content.Shared.Chemistry.EntitySystems;
@@ -14,7 +13,7 @@ public abstract class SharedHypospraySystem : EntitySystem
     [Dependency] protected readonly SharedSolutionContainerSystem _solutionContainers = default!;
     [Dependency] protected readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] protected readonly ReactiveSystem _reactiveSystem = default!;
-    
+
     public override void Initialize()
     {
         SubscribeLocalEvent<HyposprayComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleModeVerb);

@@ -8,7 +8,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
 using Content.Shared._Goobstation.CCVar;
-using Robust.Shared;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -122,15 +121,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var roundstartRules = GetRulesets(component.RoundstartRulesPool);
         foreach (var rule in roundstartRules)
         {
-            if (rule == null
-            || !rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
-            || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
-                continue;
+            if (rule == null) continue;
 
             // exclude gamerules if not enough overall budget or players
-            if (drc.Weight == 0
-            || component.RoundstartBudget < drc.Cost
-            || grc.MinPlayers > playersCount)
+            if (rule.DynamicRuleset.Weight == 0
+            || component.RoundstartBudget < rule.DynamicRuleset.Cost
+            || rule.GameRule.MinPlayers > playersCount)
                 continue;
 
             draftedRules.Add(rule);
@@ -175,15 +171,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     }
 
     #endregion
-
-    protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
-    {
-        base.Ended(uid, component, gameRule, args);
-
-        // end all other game rules because i'm evil and because it's the parent gamemode
-        foreach (var rule in component.ExecutedRules)
-            if (rule.Item2 != null) _gameTicker.EndGameRule((EntityUid) rule.Item2);
-    }
 
     #region roundend text
 

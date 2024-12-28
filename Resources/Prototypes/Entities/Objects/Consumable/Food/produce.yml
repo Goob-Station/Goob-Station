@@ -144,7 +144,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 7
+        maxVol: 13
         reagents:
         - ReagentId: Nutriment
           Quantity: 3
@@ -640,7 +640,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 18
+        maxVol: 20
         reagents:
         - ReagentId: Vitamin
           Quantity: 4
@@ -2866,3 +2866,12 @@
   - type: Tag
     tags:
     - Fruit
+  - type: FoodSequenceElement
+    sprite:
+      sprite: Objects/Specific/Hydroponics/anomaly_berry.rsi
+      state: produce
+    entries:
+      burger:
+        name: food-sequence-content-anomaly-berry
+      taco:
+        name: food-sequence-content-anomaly-berry

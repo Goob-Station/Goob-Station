@@ -1,10 +1,7 @@
 using Content.Client.Overlays;
-using Content.Shared.GameTicking;
 using Content.Shared.NightVision.Components;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
-using Robust.Client.Player;
-using Robust.Shared.Player;
 
 namespace Content.Client.NightVision;
 
