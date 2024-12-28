@@ -1,5 +1,4 @@
 using Content.Shared.CartridgeLoader;
-using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.GPS.Components;
 
 namespace Content.Server.CartridgeLoader.Cartridges;

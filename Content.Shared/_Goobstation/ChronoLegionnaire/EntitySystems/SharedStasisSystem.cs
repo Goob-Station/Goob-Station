@@ -6,7 +6,6 @@ using Content.Shared.Database;
 using Content.Shared.Emoting;
 using Content.Shared._Goobstation.ChronoLegionnaire.Components;
 using Content.Shared.Hands;
-using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;

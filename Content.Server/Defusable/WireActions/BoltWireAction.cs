@@ -1,10 +1,8 @@
 using Content.Server.Defusable.Components;
 using Content.Server.Defusable.Systems;
-using Content.Server.Popups;
 using Content.Server.Wires;
 using Content.Shared.Defusable;
 using Content.Shared.Wires;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.Defusable.WireActions;
 

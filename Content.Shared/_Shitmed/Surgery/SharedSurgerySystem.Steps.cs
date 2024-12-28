@@ -1,9 +1,7 @@
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
-using Content.Shared.Bed.Sleep;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Organ;
-using Content.Shared.Body.Events;
 using Content.Shared._Shitmed.BodyEffects;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared.Buckle.Components;
@@ -24,7 +22,6 @@ using Content.Shared._Shitmed.Body.Organ;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared.Popups;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Toolshed.TypeParsers;
 using System.Linq;
 
 namespace Content.Shared._Shitmed.Medical.Surgery;

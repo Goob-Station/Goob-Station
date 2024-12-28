@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-//using Content.Server.SpecForces;
-using Robust.Shared.Prototypes;
-
+﻿//using Content.Server.SpecForces;
 namespace Content.Server._Goobstation.Blob.Components;
 
 [RegisterComponent]

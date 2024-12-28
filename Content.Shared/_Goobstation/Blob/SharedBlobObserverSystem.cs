@@ -1,7 +1,6 @@
 ﻿using System.Numerics;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Interaction;
-using Content.Shared.Movement.Events;
 using Robust.Shared.Map;
 
 namespace Content.Shared._Goobstation.Blob;

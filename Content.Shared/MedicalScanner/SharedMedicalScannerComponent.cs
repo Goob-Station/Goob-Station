@@ -1,4 +1,3 @@
-using Content.Shared.DragDrop;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.MedicalScanner
