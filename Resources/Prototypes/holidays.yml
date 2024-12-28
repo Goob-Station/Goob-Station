@@ -411,8 +411,7 @@
   name: holiday-name-christmas
   beginDay: 1 # Edited for Goob Station so that christmas holdiay RSIs are used for the duration of December.
   endDay: 31
-  beginMonth: November # temporary
-  endMonth: December
+  beginMonth: December
   greet:
     !type:Custom
     text: holiday-custom-christmas
@@ -422,8 +421,7 @@
   name: holiday-name-festive-season
   beginDay: 1
   endDay: 31
-  beginMonth: November # Temporary
-  endMonth: December
+  beginMonth: December
   greet:
     !type:Custom
     text: holiday-custom-festive-season
