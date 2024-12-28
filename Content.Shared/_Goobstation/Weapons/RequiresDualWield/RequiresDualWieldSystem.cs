@@ -23,7 +23,6 @@ public sealed class RequiresDualWieldSystem : EntitySystem
 
     public override void Initialize()
     {
-
         base.Initialize();
 
         SubscribeLocalEvent<RequiresDualWieldComponent, ExaminedEvent>(OnExamineRequires);
