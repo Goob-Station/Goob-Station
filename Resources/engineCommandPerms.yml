@@ -96,8 +96,7 @@
 - Flags: FUN
   Commands:
   - tippy
-  - loadprototype
-  #Goob Station
+  - loadprototype # Goobstation
   - tip
 
 - Flags: SERVER
