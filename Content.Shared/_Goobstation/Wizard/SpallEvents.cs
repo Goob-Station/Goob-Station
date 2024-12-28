@@ -46,3 +46,18 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent, ISpeakSp
     [DataField]
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 }
+
+public sealed partial class MagicMissileEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "ProjectileMagicMissile";
+
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public float ProjectileSpeed = 4.5f;
+}

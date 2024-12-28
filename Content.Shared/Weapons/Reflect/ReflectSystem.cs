@@ -103,6 +103,7 @@ public sealed class ReflectSystem : EntitySystem
             // Goob edit start
             !((reflect.Reflects & reflective.Reflective) != 0x0 &&
                 _random.Prob(reflect.ReflectProb) ||
+                reflective.Reflective != ReflectType.None &&
                 (reflect.Reflects & reflective.Reflective) == 0x0 &&
                 _random.Prob(reflect.OtherTypeReflectProb)) ||
             // Goob edit end
@@ -185,6 +186,7 @@ public sealed class ReflectSystem : EntitySystem
             // Goob edit start
             !((reflect.Reflects & reflective) != 0x0 &&
                 _random.Prob(reflect.ReflectProb) ||
+                reflective != ReflectType.None &&
                 (reflect.Reflects & reflective) == 0x0 &&
                 _random.Prob(reflect.OtherTypeReflectProb)))
             // Goob edit end

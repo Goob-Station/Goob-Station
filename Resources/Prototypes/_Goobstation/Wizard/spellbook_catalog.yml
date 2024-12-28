@@ -37,3 +37,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+# Defensive
+- type: listing
+  id: SpellbookMagicMissile
+  name: spellbook-magic-missile-name
+  description: spellbook-magic-missile-desc
+  productAction: ActionMagicMissile
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

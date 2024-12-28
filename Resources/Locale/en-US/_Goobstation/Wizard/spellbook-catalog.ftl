@@ -14,3 +14,8 @@ spellbook-cluwne-curse-name = Curse of the Cluwne
 spellbook-cluwne-curse-desc =
     Turns the target into a fat and cursed monstrosity of a clown.
     Requires wizard's robe and hat to cast.
+
+spellbook-magic-missile-name = Magic Missile
+spellbook-magic-missile-desc =
+    This spell fires several stunning, slow moving, magic projectiles at nearby targets.
+    Requires wizard's robe and hat to cast.

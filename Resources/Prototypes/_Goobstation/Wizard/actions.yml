@@ -71,3 +71,22 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+
+- type: entity
+  id: ActionMagicMissile
+  name: Magic Missile
+  description: Fires several stunning, slow moving, magic projectiles at nearby targets.
+  components:
+  - type: InstantAction
+    useDelay: 20
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: missile
+    event: !type:MagicMissileEvent
+      speech: action-speech-spell-magic-missile
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true

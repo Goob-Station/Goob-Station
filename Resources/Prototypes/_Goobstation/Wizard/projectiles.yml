@@ -1,0 +1,26 @@
+- type: entity
+  id: ProjectileMagicMissile
+  parent: BaseBullet
+  name: magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm
+  - type: StunOnCollide
+    stunAmount: 6
+    knockdownAmount: 6
+  - type: Reflective
+    reflective: None
+  - type: PointLight
+    enabled: true
+    color: "#FF87FF"
+    radius: 1.5
+    energy: 5.0
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: TimedDespawn
+    lifetime: 2
