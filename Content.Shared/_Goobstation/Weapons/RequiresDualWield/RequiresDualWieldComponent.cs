@@ -9,7 +9,6 @@ namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
 [RegisterComponent, NetworkedComponent, Access(typeof(RequiresDualWieldSystem))]
 public sealed partial class RequiresDualWieldComponent : Component
 {
-    
     public TimeSpan LastPopup;
 
     [DataField]
@@ -17,5 +16,4 @@ public sealed partial class RequiresDualWieldComponent : Component
 
     [DataField]
     public LocId? WieldRequiresExamineMessage  = "gun-requires-dual-wield-component-examine";
-
 }
