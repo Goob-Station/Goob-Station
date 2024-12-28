@@ -1,6 +1,5 @@
 using Content.Server.DeviceLinking.Events;
 using Content.Server.DeviceLinking.Systems;
-using Content.Server.Disposal.Tube;
 using Content.Server.Disposal.Tube.Components;
 
 namespace Content.Server.Disposal.Tube.Systems;

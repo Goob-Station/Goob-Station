@@ -5,7 +5,6 @@ using Content.Server.Emp;
 using Content.Server.Power.Components;
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
-using Content.Shared.Timing;
 using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Utility;

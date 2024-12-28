@@ -59,7 +59,6 @@ using Content.Server.Explosion.EntitySystems;
 using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
-using Content.Shared.Body.Components;
 
 namespace Content.Server.Changeling;
 

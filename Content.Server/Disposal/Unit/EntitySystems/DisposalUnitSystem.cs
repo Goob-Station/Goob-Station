@@ -6,7 +6,6 @@ using Content.Server.Disposal.Tube;
 using Content.Server.Disposal.Tube.Components;
 using Content.Server.Disposal.Unit.Components;
 using Content.Server.Popups;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Atmos;

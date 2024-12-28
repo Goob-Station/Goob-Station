@@ -1,6 +1,3 @@
-using Content.Shared.Roles;
-using Robust.Shared.Prototypes;
-
 namespace Content.Shared.Silicons.Laws.Components;
 
 /// <summary>

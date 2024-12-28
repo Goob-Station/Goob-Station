@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
 using Content.Shared.Objectives.Components;
 

@@ -8,9 +8,7 @@ using Content.Shared.Sticky.Components;
 using Robust.Shared.Timing;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry;
-using Content.Server.Polymorph.Systems;
 using Content.Shared.Database;
-using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 
 namespace Content.Server.Medical;
