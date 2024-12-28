@@ -21,7 +21,7 @@ public sealed partial class ConfirmableActionComponent : Component
     public LocId Popup = string.Empty;
 
     /// <summary>
-    /// Popup type of warning popup - Goobstaiton - Modsuits
+    /// Type of warning popup - Goobstaiton - Modsuits
     /// </summary>
     [DataField("popupType")]
     public PopupType PopupFontType = PopupType.LargeCaution;

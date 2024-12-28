@@ -68,10 +68,12 @@ public sealed class ConfirmableActionSystem : EntitySystem
         comp.NextUnprime = comp.NextConfirm + comp.PrimeTime;
         Dirty(uid, comp);
 
+        // Goobstation - Confirmable action with changed icon - Start
         if (!string.IsNullOrEmpty(comp.Popup))
             _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupType.LargeCaution);
 
-        _actions.SetToggled(ent, true); // Goobstation - Confirmable action with changed icon
+        _actions.SetToggled(ent, true);
+        // Goobstation - Confirmable action with changed icon - End
     }
 
     private void Unprime(Entity<ConfirmableActionComponent> ent)

@@ -17,6 +17,7 @@ using System.Linq;
 
 namespace Content.Shared.Clothing.EntitySystems;
 
+// GOOBSTATION - MODSUITS - THIS SYSTEM FULLY CHANGED
 public sealed class ToggleableClothingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -55,7 +56,6 @@ public sealed class ToggleableClothingSystem : EntitySystem
         SubscribeLocalEvent<ToggleableClothingComponent, ToggleClothingDoAfterEvent>(OnDoAfterComplete);
     }
 
-    // Goobstation - Modsuits changes this system entirely
     private void GetRelayedVerbs(Entity<ToggleableClothingComponent> toggleable, ref InventoryRelayedEvent<GetVerbsEvent<EquipmentVerb>> args)
     {
         OnGetVerbs(toggleable, ref args.Args);

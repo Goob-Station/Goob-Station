@@ -37,7 +37,7 @@
       steps:
       - tag: ModsuitHelmet
         name: MOD helmet
-        doafter: 1
+        doAfter: 1
         completed:
         - !type:PlaySound
           sound: /Audio/Items/screwdriver2.ogg
@@ -50,7 +50,7 @@
       steps:
       - tag: ModsuitChestplate
         name: MOD chestplate
-        doafter: 1
+        doAfter: 1
         completed:
         - !type:PlaySound
           sound: /Audio/Items/screwdriver2.ogg
@@ -63,7 +63,7 @@
       steps:
       - tag: ModsuitGauntlets
         name: MOD gauntlets
-        doafter: 1
+        doAfter: 1
         completed:
         - !type:PlaySound
           sound: /Audio/Items/screwdriver2.ogg
@@ -76,7 +76,7 @@
       steps:
       - tag: ModsuitBoots
         name: MOD boots
-        doafter: 1
+        doAfter: 1
         completed:
         - !type:PlaySound
           sound: /Audio/Items/screwdriver2.ogg

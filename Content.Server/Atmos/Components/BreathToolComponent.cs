@@ -7,7 +7,6 @@ namespace Content.Server.Atmos.Components
     /// </summary>
     [RegisterComponent]
     [ComponentProtoName("BreathMask")]
-    [AutoGenerateComponentState]
     public sealed partial class BreathToolComponent : Component
     {
         /// <summary>
