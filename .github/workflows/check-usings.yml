@@ -1,0 +1,63 @@
+name: Build & Check Usings
+
+on:
+  pull_request:
+    types: [ opened, reopened, synchronize, ready_for_review ]
+    branches: [ master, staging, stable ]
+    paths:
+      - '**/*.cs'
+
+jobs:
+  build-and-check:
+    if: github.actor != 'PJBot' && github.event.pull_request.draft == false
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3.6.0
+
+    - name: Setup Submodule
+      run: |
+        git submodule update --init --recursive
+
+    - name: Pull Engine Updates
+      uses: space-wizards/submodule-dependency@v0.1.5
+
+    - name: Update Engine Submodules
+      run: |
+        cd RobustToolbox/
+        git submodule update --init --recursive
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v3.2.0
+      with:
+        dotnet-version: 8.0.x
+
+    - name: Install Dependencies
+      run: dotnet restore
+
+    - name: Build Project
+      run: dotnet build --configuration DebugOpt --no-restore /p:WarningsAsErrors=nullable /m
+
+    - name: Check Unnecessary Usings
+      id: format
+      run: dotnet format --dry-run --check
+      env:
+        DOTNET_ROOT: /usr/share/dotnet
+
+    - name: Show Usings Check Results
+      if: failure()
+      run: echo "Unnecessary usings were found. Please remove them and push the changes."
+
+  ci-success:
+    name: Build Succeeded
+    needs:
+      - build-and-check
+    runs-on: ubuntu-latest
+    steps:
+      - name: CI Success
+        run: exit 0
