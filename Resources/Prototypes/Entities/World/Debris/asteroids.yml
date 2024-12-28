@@ -50,6 +50,9 @@
           - id: WallRockBSCrystal # Goobstation
             prob: 0.05
             orGroup: rock
+          - id: WallRockBSCrystal # Goobstation
+            prob: 0.01
+            orGroup: rock
     - type: IFF
       flags: HideLabel
       color: "#d67e27"

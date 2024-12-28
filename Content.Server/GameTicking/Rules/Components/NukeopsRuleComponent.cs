@@ -71,7 +71,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// Example: A value of 10 means one operative per 10 players.
     /// </summary>
     [DataField]
-    public int WarNukiePlayerRatio = 10;
+    public int WarNukiePlayerRatio = 12;
 
     /// <summary>
     /// Additional telecrystals granted per player on the server during war.
@@ -85,7 +85,7 @@ public sealed partial class NukeopsRuleComponent : Component
     /// Total bonus is divided by number of operatives.
     /// </summary>
     [DataField]
-    public int WarTcPerNukieMissing = 200;
+    public int WarTcPerNukieMissing = 100;
     // Goobstation end
 
     /// <summary>
@@ -93,6 +93,12 @@ public sealed partial class NukeopsRuleComponent : Component
     /// </summary>
     [DataField]
     public TimeSpan WarNukieArriveDelay = TimeSpan.FromMinutes(15);
+
+    /// <summary>
+    ///     Time crew can't call emergency shuttle after war declaration.
+    /// </summary>
+    [DataField]
+    public TimeSpan WarEvacShuttleDisabled = TimeSpan.FromMinutes(25);
 
     /// <summary>
     ///     Minimal operatives count for war declaration
