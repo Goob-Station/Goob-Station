@@ -2,7 +2,6 @@ using Content.Shared.Coordinates;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Stealth.Components;
-using JetBrains.Annotations;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Whistle;

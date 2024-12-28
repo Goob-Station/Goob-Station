@@ -9,7 +9,6 @@ using Robust.Shared.Containers;
 
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Body.Systems;
