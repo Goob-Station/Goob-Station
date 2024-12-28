@@ -1,4 +1,4 @@
-# Tier 1
+﻿# Tier 1
 
 - type: technology
   id: SalvageEquipment
@@ -8,7 +8,8 @@
     state: handdrill
   discipline: Industrial
   tier: 1
-  cost: 10000 # Goobstation
+  cost: 9000 # Goobstation
+ # Goobstation - reduce science cost
   recipeUnlocks:
   - MiningDrill
   - WeaponPlasmaCutter # Goobstation
@@ -25,7 +26,7 @@
     state: icon
   discipline: Industrial
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - RadarConsoleCircuitboard
   - HandHeldMassScanner
@@ -39,7 +40,7 @@
     state: empty
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - PowerCellHigh
   - TurboItemRechargerCircuitboard
@@ -53,7 +54,7 @@
     state: base
   discipline: Industrial
   tier: 1
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - FlatpackerMachineCircuitboard
 
@@ -65,7 +66,7 @@
     state: building
   discipline: Industrial
   tier: 1
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - AutolatheHyperConvectionMachineCircuitboard
   - ProtolatheHyperConvectionMachineCircuitboard
@@ -80,7 +81,7 @@
     state: portgen0
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - PortableGeneratorPacmanMachineCircuitboard
   - PortableGeneratorSuperPacmanMachineCircuitboard
@@ -98,7 +99,7 @@
     state: freezerOff
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - ThermomachineFreezerMachineCircuitBoard
   - GasRecyclerMachineCircuitboard
@@ -111,7 +112,7 @@
     state: ripley
   discipline: Industrial
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - RipleyHarness
   - RipleyLArm
@@ -132,7 +133,7 @@
     state: base
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - ShuttleConsoleCircuitboard
   - ThrusterMachineCircuitboard
@@ -147,7 +148,7 @@
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - HellfireFreezerMachineCircuitBoard
   - PortableScrubberMachineCircuitBoard
@@ -163,7 +164,7 @@
     state: icon
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
     - WelderExperimental
     - PowerDrill
@@ -178,7 +179,7 @@
     state: handdrill
   discipline: Industrial
   tier: 2
-  cost: 12500
+  cost: 11500 # Goobstation - reduce science cost
   recipeUnlocks:
     - OreBagOfHolding
     - MiningDrillDiamond
@@ -193,7 +194,7 @@
     state: ripleymkii
   discipline: Industrial
   tier: 2
-  cost: 8000
+  cost: 7000 # Goobstation - reduce science cost
   recipeUnlocks:
   - RipleyMKIIHarness
   - RipleyUpgradeKit
@@ -208,7 +209,7 @@
     state: clarke
   discipline: Industrial
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - ClarkeHarness
   - ClarkeHead
@@ -230,7 +231,7 @@
     state: holding
   discipline: Industrial
   tier: 3
-  cost: 15000
+  cost: 14000 # Goobstation - reduce science cost
   recipeUnlocks:
   - ClothingBackpackHolding
   - ClothingBackpackSatchelHolding
@@ -244,7 +245,7 @@
     state: microreactor
   discipline: Industrial
   tier: 3
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - PowerCellMicroreactor
   technologyPrerequisites:
