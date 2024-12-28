@@ -110,7 +110,7 @@
   molarMass: 12
   color: 9370db
   reagent: BZ
-  pricePerMole: 2
+  pricePerMole: 1
 
 - type: gas
   id: 10
@@ -123,7 +123,7 @@
   gasMolesVisible: 2
   color: 8b0000
   reagent: Healium
-  pricePerMole: 3
+  pricePerMole: 2.5
 
 - type: gas
   id: 11
@@ -136,4 +136,4 @@
   molarMass: 8
   color: b76f0e
   reagent: Nitrium
-  pricePerMole: 3
+  pricePerMole: 3.5

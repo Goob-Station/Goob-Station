@@ -165,6 +165,7 @@
     - id: RCDAmmo
     - id: RubberStampCE
     - id: BaseHandheldStationMapPowerCe
+    - id: RPD # RPD
 # Hardsuit table, used for suit storage as well
 - type: entityTable
   id: FillChiefEngineerHardsuit
