@@ -1,4 +1,3 @@
-using Content.Shared.Construction.Prototypes;
 using Content.Shared.Research.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;

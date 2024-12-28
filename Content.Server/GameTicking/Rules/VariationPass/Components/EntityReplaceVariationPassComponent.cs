@@ -1,6 +1,4 @@
 ﻿using Content.Shared.Storage;
-using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.VariationPass.Components;
 

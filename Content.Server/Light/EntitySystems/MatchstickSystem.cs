@@ -1,5 +1,4 @@
 using Content.Server.Atmos.EntitySystems;
-using Content.Shared.Audio;
 using Content.Shared.Interaction;
 using Content.Shared.Item;
 using Content.Shared.Smoking;
@@ -9,7 +8,6 @@ using Content.Shared.Temperature;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 
 namespace Content.Server.Light.EntitySystems
 {
