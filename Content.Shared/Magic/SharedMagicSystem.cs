@@ -357,7 +357,7 @@ public abstract class SharedMagicSystem : EntitySystem
         var ent = Spawn(ev.Prototype, spawnCoords);
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
-        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+        _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
     }
     // End Projectile Spells
     #endregion
@@ -587,7 +587,7 @@ public abstract class SharedMagicSystem : EntitySystem
         if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
             return;
 
-        var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
+        var ev = new SpeakSpellEvent(args.Performer, speak.Speech, speak.ChatType);
         RaiseLocalEvent(ref ev);
     }
 }

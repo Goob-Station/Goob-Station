@@ -1,0 +1,109 @@
+﻿- type: entity
+  id: CultFactoryBase
+  parent: BaseStructure
+  name: base cult factory
+  description: You can make things here.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/altar.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GenericCultVisuals.Layer" ]
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.3,0.1,0.3"
+        density: 55
+        mask:
+        - TableMask
+        layer:
+        - TableLayer
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Appearance
+  - type: TimedFactory
+  - type: UserInterface
+    interfaces:
+      enum.RadialSelectorUiKey.Key:
+        type: RadialSelectorMenuBUI
+  - type: ActivatableUI
+    key: enum.RadialSelectorUiKey.Key
+    userWhitelist:
+      components:
+      - BloodCultist
+  - type: GenericVisualizer
+    visuals:
+      enum.GenericCultVisuals.State:
+        enum.GenericCultVisuals.Layer:
+          True: { state: "icon" }
+          False: { state: "icon_off" }
+
+- type: entity
+  id: CultFactoryAltar
+  parent: CultFactoryBase
+  name: altar
+  description: A bloodstained altar dedicated to Nar'Sie.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/altar.rsi
+  - type: TimedFactory
+    entries:
+    - prototype: ConstructShell
+    - prototype: WhetstoneCult
+  - type: Construction
+    graph: CultFactoryAltar
+    node: altar
+
+- type: entity
+  id: CultFactoryForge
+  parent: CultFactoryBase
+  name: daemon forge
+  description: A forge used in crafting the unholy weapons used by the armies of Nar'Sie.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/forge.rsi
+  - type: TimedFactory
+    entries:
+    - prototype: MirrorShieldCult
+    - prototype: EldritchLongsword
+    - prototype: ClothingOuterCultArmor
+    - prototype: ClothingOuterRobesCultTrue
+  - type: Construction
+    graph: CultFactoryForge
+    node: forge
+
+- type: entity
+  id: CultFactoryArchives
+  parent: CultFactoryBase
+  name: archives
+  description: A desk covered in arcane manuscripts and tomes in unknown languages. Looking at the text makes your skin crawl.
+  components:
+  - type: Sprite
+    sprite: WhiteDream/BloodCult/Entities/Structures/archives.rsi
+  - type: TimedFactory
+    entries:
+    - prototype: ShuttleCurse
+    - prototype: ClothingEyeCultBlindfold
+    - prototype: VeilShifter
+    - prototype: VoidTorch
+  - type: Construction
+    graph: CultFactoryArchives
+    node: archives
