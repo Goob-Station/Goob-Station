@@ -59,7 +59,7 @@
             ResearchDirector: [ 1, 1 ]
             Scientist: [ 4, 5 ]
           #silicon
-            StationAI: [ 1, 1 ]
+            StationAi: [ 1, 1 ]
             Borg: [ 3, 3 ]
           #supply
             CargoTechnician: [ 3, 5 ]
