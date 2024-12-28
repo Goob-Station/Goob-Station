@@ -1,8 +1,6 @@
 using Content.Server.Instruments;
 using Content.Server.Speech.Components;
-using Content.Server.UserInterface;
 using Content.Shared.Instruments;
-using Content.Shared.Instruments.UI;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Damage;
 using Content.Shared.Damage.ForceSay;
@@ -16,7 +14,6 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.UserInterface;
 using Content.Shared.Zombies;
-using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Content.Shared.DeltaV.Harpy.Components;

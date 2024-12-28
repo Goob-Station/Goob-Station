@@ -6,7 +6,6 @@ using Robust.Shared.Asynchronous;
 using Robust.Shared.Timing;
 using Content.Server.Database;
 using Robust.Server.Player;
-using Content.Shared._Goobstation.ServerCurrency;
 using Content.Shared._Goobstation.ServerCurrency.Events;
 
 namespace Content.Server._Goobstation.ServerCurrency
