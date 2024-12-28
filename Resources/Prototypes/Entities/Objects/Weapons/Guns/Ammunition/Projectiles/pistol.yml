@@ -30,7 +30,7 @@
     damage:
       types:
         Blunt: 2
-        Heat: 14
+        Heat: 2
 
 - type: entity
   id: BulletPistolUranium
