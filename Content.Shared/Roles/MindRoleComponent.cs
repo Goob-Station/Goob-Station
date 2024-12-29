@@ -1,5 +1,4 @@
 using Content.Shared.Mind;
-using JetBrains.Annotations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 

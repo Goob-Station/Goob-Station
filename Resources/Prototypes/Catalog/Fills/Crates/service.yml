@@ -287,6 +287,8 @@
           prob: 0.03
         - id: MobMouse
           prob: 0.05
+        - id: MobLootbug # Goobstation
+          prob: 0.02
           # Food Packaging
         - id: FoodPacketBoritosTrash
           prob: 0.1

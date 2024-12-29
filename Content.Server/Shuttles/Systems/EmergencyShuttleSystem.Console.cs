@@ -11,15 +11,11 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
-using Robust.Shared.Timing;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.UserInterface;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Timer = Robust.Shared.Timing.Timer;
-using System.Net;
-using System.Net.Sockets;
-using Robust.Shared.Network;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Chat.Systems;
 

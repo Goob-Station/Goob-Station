@@ -1,7 +1,6 @@
 using System.Linq;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Anomaly.Effects.Components;
-using Content.Shared.Ghost;
 using Content.Shared.Throwing;
 using Robust.Shared.Map;
 using Content.Shared.Physics;
