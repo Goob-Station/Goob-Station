@@ -7,7 +7,6 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
-using Robust.Shared.Physics;
 using Robust.Shared.Random;
 
 namespace Content.Server.Anomaly.Effects;

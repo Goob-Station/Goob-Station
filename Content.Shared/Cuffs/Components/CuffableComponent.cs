@@ -1,10 +1,8 @@
 using Content.Shared.Alert;
-using Content.Shared.Damage;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Cuffs.Components;
 

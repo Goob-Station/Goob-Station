@@ -1,9 +1,7 @@
 using Robust.Shared.Timing;
-using Robust.Server.GameObjects;
 using Content.Shared.Changeling;
 using Content.Shared.Mind;
 using Content.Server.Body.Systems;
-using Content.Shared.Store.Components;
 
 namespace Content.Server.Changeling;
 
@@ -42,13 +40,13 @@ public sealed partial class ChangelingEggSystem : EntitySystem
         }
 
         var newUid = Spawn("MobMonkey", Transform(uid).Coordinates);
-        
+
         var mind = EnsureComp<MindComponent>(newUid);
         _mind.TransferTo(comp.lingMind, newUid);
 
         var ling = EnsureComp<ChangelingComponent>(newUid);
         ling = comp.lingComp;
-        
+
         EntityManager.AddComponent(newUid, comp.lingStore);
 
         _bodySystem.GibBody((EntityUid) uid);

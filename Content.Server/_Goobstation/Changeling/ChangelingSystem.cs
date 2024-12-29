@@ -40,7 +40,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Cuffs;
@@ -60,7 +59,6 @@ using System.Linq;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
 using Content.Shared._Goobstation.Weapons.AmmoSelector;
-using Content.Shared.Body.Components;
 using Content.Shared.Projectiles;
 
 namespace Content.Server.Changeling;

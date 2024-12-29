@@ -1,5 +1,3 @@
-using Content.Shared.Kitchen;
-
 namespace Content.Server.Kitchen.Components;
 
 /// <summary>
