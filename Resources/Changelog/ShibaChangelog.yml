@@ -1,4 +1,11 @@
 Entries:
+- author: MilonPL (Ported by AstroDogeDX)
+  changes:
+  - message: Added PDA Messaging! Check your PDA for the NanoChat app and share your
+      numbers with your friends!
+    type: Add
+  id: 68
+  time: '2024-12-29T04:24:56.175814'
 - author: AstroDogeDX
   changes:
   - message: New species; Resomi! Definitely Legally Distinct™ space avians who are
