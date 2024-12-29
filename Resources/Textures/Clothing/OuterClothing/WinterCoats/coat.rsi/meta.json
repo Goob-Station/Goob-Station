@@ -29,6 +29,51 @@
         {
             "name": "inhand-right",
             "directions": 4
+        },
+        {
+            "name": "coatybits-icon"
+        },
+        {
+            "name": "winterbits-icon"
+        },
+        {
+            "name": "winterbits-tan-icon"
+        },
+        {
+            "name": "coatybits-equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "winterbits-equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "winterbits-tan-equipped-OUTERCLOTHING",
+            "directions": 4
+        },
+        {
+            "name": "coatybits-equipped-OUTERCLOTHING-vox",
+            "directions": 4
+        },
+        {
+            "name": "winterbits-equipped-OUTERCLOTHING-vox",
+            "directions": 4
+        },
+        {
+            "name": "coatybits-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "winterbits-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "coatybits-inhand-right",
+            "directions": 4
+        },
+        {
+            "name": "winterbits-inhand-right",
+            "directions": 4
         }
     ]
 }
