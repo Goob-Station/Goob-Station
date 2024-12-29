@@ -8,6 +8,7 @@ guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
 guide-entry-sop-command = Command
 guide-entry-sop-security = Security
+guide-entry-sop-cargo = Cargo
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-succession = Succession
@@ -36,3 +37,6 @@ guide-entry-sop-qm = Quartermaster
 guide-entry-sop-warden = Warden
 guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-detective = Detective
+# - Cargo
+guide-entry-sop-cargotech = Cargo Tech
+guide-entry-sop-salvage = Salvage Specialist

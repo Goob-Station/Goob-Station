@@ -34,6 +34,7 @@
   children:
   - Command SOP
   - Security SOP
+  - Cargo SOP
 
 - type: guideEntry
   id: Command SOP
@@ -58,6 +59,14 @@
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
+
+- type: guideEntry
+  id: Cargo SOP
+  name: guide-entry-sop-cargo
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoSOP.xml"
+  children:
+  - CargoTech SOP
+  - SalvageSpecialist SOP
 
 # Basic SOP Entries
 - type: guideEntry
@@ -182,3 +191,14 @@
   id: Detective SOP
   name: guide-entry-sop-detective
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"
+
+# Cargo SOP Entries
+- type: guideEntry
+  id: CargoTech SOP
+  name: guide-entry-sop-cargotech
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoTechSOP.xml"
+
+- type: guideEntry
+  id: SalvageSpecialist SOP
+  name: guide-entry-sop-salvage
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
