@@ -2,7 +2,6 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.Popups;
 using Content.Server.Temperature.Systems;
-using Content.Shared.Atmos;
 using Content.Shared.Popups;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;

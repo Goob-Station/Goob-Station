@@ -1,6 +1,5 @@
 using JetBrains.Annotations;
 using Content.Shared.Stacks;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Stack

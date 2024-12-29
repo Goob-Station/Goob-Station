@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Shared._Shitmed.Medical.Surgery.Conditions;
-using Content.Shared._Shitmed.Medical.Surgery.Effects.Complete;
 using Content.Shared.Body.Systems;
 using Content.Shared._Shitmed.Medical.Surgery.Steps;
 using Content.Shared._Shitmed.Medical.Surgery.Steps.Parts;

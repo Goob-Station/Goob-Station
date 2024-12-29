@@ -3,7 +3,6 @@ using Content.Server.Destructible;
 using Content.Shared.Atmos;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
-using Content.Shared.Explosion.EntitySystems;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Map.Components;
 
