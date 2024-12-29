@@ -14,10 +14,6 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Random;
 using Content.Shared.Destructible.Thresholds;
-using Content.Shared.Maps;
-using Content.Shared.Tiles;
-using Robust.Shared.Map.Components;
-using System.Linq;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.Teleportation;

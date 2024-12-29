@@ -5,7 +5,6 @@ using Content.Shared.CartridgeLoader.Cartridges;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Player;
 using Robust.Shared.Random;
 
 namespace Content.Server.CartridgeLoader.Cartridges;

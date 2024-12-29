@@ -25,8 +25,6 @@ using Robust.Shared.Random;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Targeting;
-using Content.Shared.Body.Components;
-using System.Linq;
 
 namespace Content.Server.Medical;
 
