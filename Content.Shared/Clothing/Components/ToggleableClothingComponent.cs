@@ -4,10 +4,10 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-
 
 namespace Content.Shared.Clothing.Components;
+
+// GOOBSTATION - MODSUITS FULLY CHANGE THIS SYSTEM
 
 /// <summary>
 ///     This component gives an item an action that will equip or un-equip some clothing e.g. hardsuits and hardsuit helmets.
@@ -16,7 +16,6 @@ namespace Content.Shared.Clothing.Components;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class ToggleableClothingComponent : Component
 {
-    // Goobstation - Modsuits changes this system entirely
     public const string DefaultClothingContainerId = "toggleable-clothing";
 
     /// <summary>
@@ -28,11 +27,25 @@ public sealed partial class ToggleableClothingComponent : Component
     [DataField, AutoNetworkedField]
     public EntityUid? ActionEntity;
 
+    // Goobstation - ClothingPrototype and Slot Fields saved for compatibility with old prototype
+    /// <summary>
+    ///     Default clothing entity prototype to spawn into the clothing container.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntProtoId? ClothingPrototype;
+
+    /// <summary>
+    ///     The inventory slot that the clothing is equipped to.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField, AutoNetworkedField]
+    public string Slot = string.Empty;
+
     /// <summary>
     ///     Dictionary of inventory slots and entity prototypes to spawn into the clothing container.
     /// </summary>
-    [DataField(required: true), AutoNetworkedField]
-    public Dictionary<string, EntProtoId> ClothingPrototypes = default!;
+    [DataField, AutoNetworkedField]
+    public Dictionary<string, EntProtoId> ClothingPrototypes = new();
 
     /// <summary>
     ///     Dictionary of clothing uids and slots

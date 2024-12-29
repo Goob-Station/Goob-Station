@@ -4,7 +4,6 @@ namespace Content.Server.Atmos.Components;
 
 [RegisterComponent]
 [Access(typeof(BarotraumaSystem))]
-[AutoGenerateComponentState] // Goobstation - Update component state on component toggle
 public sealed partial class PressureProtectionComponent : Component
 {
     [DataField]

@@ -430,7 +430,7 @@ public sealed class ToggleableClothingSystem : EntitySystem
             if (attachedComp.ClothingContainer == null || attachedComp.ClothingContainer.ContainedEntity != null)
                 return;
 
-            if (_inventorySystem.TryUnequip(user, parent, slot!))
+            if (_inventorySystem.TryUnequip(user, parent, slot))
                 _containerSystem.Insert(currentClothing.Value, attachedComp.ClothingContainer);
         }
 
@@ -477,6 +477,12 @@ public sealed class ToggleableClothingSystem : EntitySystem
 
         if (comp.ClothingUids.Count != 0 && comp.ActionEntity != null)
             return;
+
+        // Add prototype from ClothingPrototype and Slot field to ClothingPrototypes dictionary
+        if (comp.ClothingPrototype != null && !string.IsNullOrEmpty(comp.Slot) && !comp.ClothingPrototypes.ContainsKey(comp.Slot))
+        {
+            comp.ClothingPrototypes.Add(comp.Slot, comp.ClothingPrototype.Value);
+        }
 
         var xform = Transform(toggleable.Owner);
 

@@ -381,7 +381,7 @@ public abstract class SharedSealableClothingSystem : EntitySystem
             return;
         }
 
-        var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart)
+        var doAfterArgs = new DoAfterArgs(EntityManager, uid, sealableComponent.SealingTime, new SealClothingDoAfterEvent(), uid, target: processingPart, showTo: comp.WearerEntity)
         {
             NeedHand = false,
             RequireCanInteract = false,

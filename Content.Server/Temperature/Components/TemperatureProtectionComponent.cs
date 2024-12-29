@@ -4,7 +4,6 @@ namespace Content.Server.Temperature.Components;
 
 [RegisterComponent]
 [Access(typeof(TemperatureSystem))]
-[AutoGenerateComponentState] // Goobstation - Update component state on component toggle
 public sealed partial class TemperatureProtectionComponent : Component
 {
     /// <summary>

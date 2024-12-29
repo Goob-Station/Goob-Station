@@ -281,10 +281,10 @@ internal sealed class ChargerSystem : EntitySystem
             var relayEv = new FindInventoryBatteryEvent();
             _inventorySystem.RelayEvent((uid, inventory), ref relayEv);
 
-            if (relayEv.FoundedBattery != null)
+            if (relayEv.FoundBattery != null)
             {
-                batteryUid = relayEv.FoundedBattery.Value.Owner;
-                component = relayEv.FoundedBattery.Value.Comp;
+                batteryUid = relayEv.FoundBattery.Value.Owner;
+                component = relayEv.FoundBattery.Value.Comp;
                 return true;
             }
         }
@@ -299,5 +299,5 @@ public record struct FindInventoryBatteryEvent() : IInventoryRelayEvent
 {
     public SlotFlags TargetSlots { get; } = SlotFlags.WITHOUT_POCKET;
 
-    public Entity<BatteryComponent>? FoundedBattery { get; set; }
+    public Entity<BatteryComponent>? FoundBattery { get; set; }
 }

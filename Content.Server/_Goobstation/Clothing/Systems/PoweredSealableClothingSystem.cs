@@ -110,10 +110,10 @@ public sealed partial class PoweredSealableClothingSystem : SharedPoweredSealabl
     /// </summary>
     private void OnFindInventoryBatteryEvent(Entity<SealableClothingRequiresPowerComponent> entity, ref InventoryRelayedEvent<FindInventoryBatteryEvent> args)
     {
-        if (args.Args.FoundedBattery != null)
+        if (args.Args.FoundBattery != null)
             return;
 
         if (_powerCellSystem.TryGetBatteryFromSlot(entity, out var batteryEnt, out var battery))
-            args.Args.FoundedBattery = (batteryEnt.Value, battery);
+            args.Args.FoundBattery = (batteryEnt.Value, battery);
     }
 }
