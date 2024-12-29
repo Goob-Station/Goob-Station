@@ -10,6 +10,7 @@ guide-entry-sop-standards = Standard Procedures
 guide-entry-sop-command = Command
 guide-entry-sop-security = Security
 guide-entry-sop-cargo = Cargo
+guide-entry-sop-science = Science
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
 # - Standard Procedures
@@ -42,3 +43,6 @@ guide-entry-sop-detective = Detective
 # - Cargo
 guide-entry-sop-cargotech = Cargo Tech
 guide-entry-sop-salvage = Salvage Specialist
+# - Science
+guide-entry-sop-scientist = Scientist
+guide-entry-sop-robotocist = Robotocist

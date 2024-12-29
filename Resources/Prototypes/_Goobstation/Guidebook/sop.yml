@@ -42,6 +42,7 @@
   - Command SOP
   - Security SOP
   - Cargo SOP
+  - Science SOP
 
 - type: guideEntry
   id: Command SOP
@@ -74,6 +75,14 @@
   children:
   - CargoTech SOP
   - SalvageSpecialist SOP
+
+- type: guideEntry
+  id: Science SOP
+  name: guide-entry-sop-science
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScienceSOP.xml"
+  children:
+  - Scientist SOP
+  - Robotocist SOP
 
 # Basic SOP Entries
 - type: guideEntry
@@ -209,3 +218,14 @@
   id: SalvageSpecialist SOP
   name: guide-entry-sop-salvage
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
+
+# Science SOP Entries
+- type: guideEntry
+  id: Scientist SOP
+  name: guide-entry-sop-scientist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScientistSOP.xml"
+
+- type: guideEntry
+  id: Robotocist SOP
+  name: guide-entry-sop-robotocist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RobotocistSOP.xml"
