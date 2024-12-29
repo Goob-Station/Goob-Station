@@ -216,7 +216,7 @@
 # Medical SOP Entries
 - type: guideEntry
   id: DocterIntern SOP
-  name: guide-entry-sop-docterintern
+  name: guide-entry-sop-doctorintern
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/DoctorInternSOP.xml"
 
 - type: guideEntry
