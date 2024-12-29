@@ -10,6 +10,12 @@
   - Legal SOP
   - StandardProcedures SOP
 
+# Alert Levels Main Directory
+- type: guideEntry
+  id: Alert Levels
+  name: guide-entry-sop-alert-levels
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevels.xml"
+
 # Emergencies Main Directory
 - type: guideEntry
   id: Emergencies SOP
@@ -130,11 +136,6 @@
   - Reporter SOP
 
 # Basic SOP Entries
-- type: guideEntry
-  id: Alert Levels
-  name: guide-entry-sop-alert-levels
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels.xml"
-
 - type: guideEntry
   id: Demoting SOP
   name: guide-entry-sop-demoting

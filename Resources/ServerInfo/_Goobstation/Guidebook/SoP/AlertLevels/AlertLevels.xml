@@ -1,6 +1,10 @@
 <Document>
 # Alert Levels
 The following alert levels are the publicly defined levels on this station and what they entail.
+Below are the listed pop-ups for each alert and the color associated with them.
+
+There are individual entries for each alert level and what they entail for station personnel.
+
 
   <Table Columns="1">
     <ColorBox Color="#388c34">
