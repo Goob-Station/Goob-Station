@@ -24,8 +24,22 @@ public sealed class ThrownItemVisualizerSystem : EntitySystem
 
     private void OnAutoHandleState(EntityUid uid, ThrownItemComponent component, ref AfterAutoHandleStateEvent args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite) || !component.Animate)
+        if (!TryComp<SpriteComponent>(uid, out var sprite)) // Goob edit start
             return;
+
+        if (!component.Animate)
+        {
+            if (!_anim.HasRunningAnimation(uid, AnimationKey))
+                return;
+
+            _anim.Stop(uid, AnimationKey);
+
+            if (component.OriginalScale != null)
+                sprite.Scale = component.OriginalScale.Value;
+
+            return;
+        }
+        // Goob edit end
 
         var animationPlayer = EnsureComp<AnimationPlayerComponent>(uid);
 

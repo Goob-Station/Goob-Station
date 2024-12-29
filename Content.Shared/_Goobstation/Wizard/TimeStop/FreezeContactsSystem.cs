@@ -14,6 +14,7 @@ using Content.Shared.Throwing;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
@@ -30,6 +31,8 @@ public sealed class FreezeContactsSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> FrozenIgnoreMindActionTag = "FrozenIgnoreMindAction";
+
+    private const string ProjectileFixture = "projectile";
 
     public override void Initialize()
     {
@@ -67,8 +70,20 @@ public sealed class FreezeContactsSystem : EntitySystem
             _physics.SetLinearVelocity(uid, comp.OldLinearVelocity, true, true, fix, physics);
         }
 
-        if (TryComp(uid, out TimedDespawnComponent? despawn) && _net.IsServer)
+        if (comp.HadCollisionWake)
+            EnsureComp<CollisionWakeComponent>(uid);
+
+        if (comp.FreezeTime <= 0f)
+            return;
+
+        if (_net.IsServer && TryComp(uid, out TimedDespawnComponent? despawn))
             despawn.Lifetime -= comp.FreezeTime;
+
+        if (!TryComp(uid, out ThrownItemComponent? thrownItem) || thrownItem.LandTime == null)
+            return;
+
+        thrownItem.LandTime = thrownItem.LandTime.Value - TimeSpan.FromSeconds(comp.FreezeTime);
+        Dirty(uid, thrownItem);
     }
 
     private void OnInit(Entity<FrozenComponent> ent, ref ComponentInit args)
@@ -79,9 +94,15 @@ public sealed class FreezeContactsSystem : EntitySystem
             return;
 
         comp.OldLinearVelocity = physics.LinearVelocity;
-        comp.OldAngularVelocity = comp.OldAngularVelocity;
+        comp.OldAngularVelocity = physics.AngularVelocity;
         _physics.SetAngularVelocity(uid, 0f, false, fix, physics);
         _physics.SetLinearVelocity(uid, Vector2.Zero, true, false, fix, physics);
+
+        if (!HasComp<CollisionWakeComponent>(uid))
+            return;
+
+        comp.HadCollisionWake = true;
+        RemComp<CollisionWakeComponent>(uid);
     }
 
     private void MoveUpdate(EntityUid uid, FrozenComponent component, EntityEventArgs args)
@@ -101,7 +122,8 @@ public sealed class FreezeContactsSystem : EntitySystem
 
     private void OnPullAttempt(EntityUid uid, FrozenComponent component, PullAttemptEvent args)
     {
-        args.Cancelled = true;
+        if (args.PullerUid == uid)
+            args.Cancelled = true;
     }
 
     private void OnUpdateCanMove(EntityUid uid, FrozenComponent component, UpdateCanMoveEvent args)
@@ -138,6 +160,12 @@ public sealed class FreezeContactsSystem : EntitySystem
 
     private void OnEntityExit(EntityUid uid, FreezeContactsComponent component, ref EndCollideEvent args)
     {
+        if (_net.IsClient)
+            return;
+
+        if (!ShouldCollideWith(args.OtherFixture, args.OtherFixtureId))
+            return;
+
         var otherUid = args.OtherEntity;
 
         if (!TryComp<PhysicsComponent>(otherUid, out var body))
@@ -152,21 +180,34 @@ public sealed class FreezeContactsSystem : EntitySystem
 
     private void OnEntityEnter(EntityUid uid, FreezeContactsComponent component, ref StartCollideEvent args)
     {
+        if (!ShouldCollideWith(args.OtherFixture, args.OtherFixtureId))
+            return;
+
         var otherUid = args.OtherEntity;
 
-        if (!TryComp(uid, out TimedDespawnComponent? despawn))
+        if (!TryComp(uid, out TimedDespawnComponent? despawn) || despawn.Lifetime <= 0f)
             return;
 
         TimedDespawnComponent? otherDespawn;
+        ThrownItemComponent? thrownItem;
         if (TryComp(otherUid, out FrozenComponent? frozen))
         {
-            var newTime = MathF.Max(frozen.FreezeTime, despawn.Lifetime);
-            var difference = newTime - frozen.FreezeTime;
+            if (despawn.Lifetime <= frozen.FreezeTime)
+                return;
+
+            var difference = despawn.Lifetime - frozen.FreezeTime;
+
+            if (TryComp(otherUid, out thrownItem) && thrownItem.LandTime != null)
+            {
+                thrownItem.LandTime = thrownItem.LandTime.Value + TimeSpan.FromSeconds(difference);
+                thrownItem.Animate = false;
+                Dirty(otherUid, thrownItem);
+            }
 
             if (TryComp(otherUid, out otherDespawn))
                 otherDespawn.Lifetime += difference;
 
-            frozen.FreezeTime = newTime;
+            frozen.FreezeTime = despawn.Lifetime;
             return;
         }
 
@@ -177,9 +218,19 @@ public sealed class FreezeContactsSystem : EntitySystem
 
         EnsureComp<FrozenComponent>(otherUid).FreezeTime = despawn.Lifetime;
 
-        if (!TryComp(otherUid, out otherDespawn))
+        if (TryComp(otherUid, out otherDespawn))
+            otherDespawn.Lifetime += despawn.Lifetime;
+
+        if (!TryComp(otherUid, out thrownItem) || thrownItem.LandTime == null)
             return;
 
-        otherDespawn.Lifetime += despawn.Lifetime;
+        thrownItem.LandTime = thrownItem.LandTime.Value + TimeSpan.FromSeconds(despawn.Lifetime);
+        thrownItem.Animate = false;
+        Dirty(otherUid, thrownItem);
+    }
+
+    private bool ShouldCollideWith(Fixture fix, string id)
+    {
+        return fix.Hard || id == ProjectileFixture;
     }
 }
