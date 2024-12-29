@@ -3667,3 +3667,11 @@ Entries:
       message: Literally nothing.
   id: 407
   time: '2024-12-29T16:39:45.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Add
+      message: >-
+        Added Playing Cards. You may get them from the Games Vendor or as a
+        trinket in your loadout.
+  id: 408
+  time: '2024-12-29T18:40:06.0000000+00:00'
