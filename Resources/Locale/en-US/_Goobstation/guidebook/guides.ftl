@@ -6,11 +6,13 @@ guide-entry-medpatches = Medical Patches
 guide-entry-sop = SOP
 guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
+guide-entry-sop-standards = Standard Procedures
 guide-entry-sop-command = Command
 guide-entry-sop-security = Security
 guide-entry-sop-cargo = Cargo
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
+# - Standard Procedures
 guide-entry-sop-succession = Succession
 guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-demoting = Dismissal/Demoting

@@ -5,11 +5,8 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
   - Alert Levels
-  - Succession
   - Emergencies SOP
   - Jobs SOP
-  - Hiring SOP
-  - Demoting SOP
 
 # Emergencies Main Directory
 - type: guideEntry
@@ -25,6 +22,16 @@
   - StationDamage SOP
   - WarDeclaration SOP
   - Zombie SOP
+
+# Standard Procedures Main Directory
+- type: guideEntry
+  id: StandardProcedures SOP
+  name: guide-entry-sop-standards
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
+  children:
+  - Hiring SOP
+  - Demoting SOP
+  - Succession
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -77,17 +84,17 @@
 - type: guideEntry
   id: Succession
   name: guide-entry-sop-succession
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/CommandSuccession.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
 
 - type: guideEntry
   id: Hiring SOP
   name: guide-entry-sop-hiring
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/HiringTransfers.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/HiringTransfers.xml"
 
 - type: guideEntry
   id: Demoting SOP
   name: guide-entry-sop-demoting
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/FiringDemotion.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/FiringDemotion.xml"
 
 # Emergency SOP Entries
 - type: guideEntry
