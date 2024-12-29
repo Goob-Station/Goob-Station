@@ -30,8 +30,8 @@
   name: guide-entry-sop-standards
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
   children:
-  - Hiring SOP
   - Demoting SOP
+  - Hiring SOP
   - Succession
 
 # Jobs Main Directory and Subdirectories
@@ -40,10 +40,19 @@
   name: guide-entry-sop-jobs
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/JobsSOP.xml"
   children:
-  - Command SOP
-  - Security SOP
   - Cargo SOP
+  - Command SOP
+  - Medical SOP
   - Science SOP
+  - Security SOP
+
+- type: guideEntry
+  id: Cargo SOP
+  name: guide-entry-sop-cargo
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoSOP.xml"
+  children:
+  - CargoTech SOP
+  - SalvageSpecialist SOP
 
 - type: guideEntry
   id: Command SOP
@@ -61,21 +70,12 @@
   - QM SOP
 
 - type: guideEntry
-  id: Security SOP
-  name: guide-entry-sop-security
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
+  id: Medical SOP
+  name: guide-entry-sop-medical
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
-  - Warden SOP
-  - OfficerCadet SOP
-  - Detective SOP
-
-- type: guideEntry
-  id: Cargo SOP
-  name: guide-entry-sop-cargo
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoSOP.xml"
-  children:
-  - CargoTech SOP
-  - SalvageSpecialist SOP
+  - DocterIntern SOP
+  - Chemist SOP
 
 - type: guideEntry
   id: Science SOP
@@ -85,6 +85,15 @@
   - Scientist SOP
   - Robotocist SOP
 
+- type: guideEntry
+  id: Security SOP
+  name: guide-entry-sop-security
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/SecuritySOP.xml"
+  children:
+  - Warden SOP
+  - OfficerCadet SOP
+  - Detective SOP
+
 # Basic SOP Entries
 - type: guideEntry
   id: Alert Levels
@@ -92,9 +101,9 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels.xml"
 
 - type: guideEntry
-  id: Succession
-  name: guide-entry-sop-succession
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
+  id: Demoting SOP
+  name: guide-entry-sop-demoting
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/FiringDemotion.xml"
 
 - type: guideEntry
   id: Hiring SOP
@@ -102,9 +111,9 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/HiringTransfers.xml"
 
 - type: guideEntry
-  id: Demoting SOP
-  name: guide-entry-sop-demoting
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/FiringDemotion.xml"
+  id: Succession
+  name: guide-entry-sop-succession
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
 
 # Emergency SOP Entries
 - type: guideEntry
@@ -146,6 +155,17 @@
   id: Zombie SOP
   name: guide-entry-sop-zombieoutbreak
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
+
+# Cargo SOP Entries
+- type: guideEntry
+  id: CargoTech SOP
+  name: guide-entry-sop-cargotech
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoTechSOP.xml"
+
+- type: guideEntry
+  id: SalvageSpecialist SOP
+  name: guide-entry-sop-salvage
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
 
 # Command SOP Entries
 - type: guideEntry
@@ -193,6 +213,28 @@
   name: guide-entry-sop-qm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
 
+# Medical SOP Entries
+- type: guideEntry
+  id: DocterIntern SOP
+  name: guide-entry-sop-docterintern
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/DoctorInternSOP.xml"
+
+- type: guideEntry
+  id: Chemist SOP
+  name: guide-entry-sop-chemist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/ChemistSOP.xml"
+
+# Science SOP Entries
+- type: guideEntry
+  id: Scientist SOP
+  name: guide-entry-sop-scientist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScientistSOP.xml"
+
+- type: guideEntry
+  id: Robotocist SOP
+  name: guide-entry-sop-robotocist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
+
 # Security SOP Entries
 - type: guideEntry
   id: Warden SOP
@@ -208,25 +250,3 @@
   id: Detective SOP
   name: guide-entry-sop-detective
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"
-
-# Cargo SOP Entries
-- type: guideEntry
-  id: CargoTech SOP
-  name: guide-entry-sop-cargotech
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/CargoTechSOP.xml"
-
-- type: guideEntry
-  id: SalvageSpecialist SOP
-  name: guide-entry-sop-salvage
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Cargo/SalvageSpecialistSOP.xml"
-
-# Science SOP Entries
-- type: guideEntry
-  id: Scientist SOP
-  name: guide-entry-sop-scientist
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScientistSOP.xml"
-
-- type: guideEntry
-  id: Robotocist SOP
-  name: guide-entry-sop-robotocist
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
