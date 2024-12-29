@@ -1,19 +1,13 @@
 using System.Numerics;
 using Content.Server.Abilities.Mime;
-using Content.Server.Administration.Commands;
 using Content.Server.Emp;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared.Chemistry.Components;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Coordinates.Helpers;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Inventory;
 using Content.Shared.Maps;
-using Content.Shared.Speech.Muting;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -27,37 +21,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly SpreaderSystem _spreader = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
 
-    protected override void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
+    protected override void MakeMime(EntityUid uid)
     {
-        base.SetGear(uid, gear, unremoveableClothingFlags);
+        base.MakeMime(uid);
 
-        SetOutfitCommand.SetOutfit(uid, gear, EntityManager);
-
-        if (unremoveableClothingFlags == SlotFlags.NONE)
-            return;
-
-        var enumerator = Inventory.GetSlotEnumerator(uid, unremoveableClothingFlags);
-        while (enumerator.MoveNext(out var container))
-        {
-            if (HasComp<ClothingComponent>(container.ContainedEntity))
-                EnsureComp<UnremoveableComponent>(container.ContainedEntity.Value);
-        }
-    }
-
-    protected override void MakeMime(MimeMalaiseEvent ev, StatusEffectsComponent? status = null)
-    {
-        base.MakeMime(ev, status);
-
-        var targetWizard = HasComp<WizardComponent>(ev.Target);
-
-        SetGear(ev.Target,
-            ev.Gear,
-            targetWizard ? SlotFlags.NONE : SlotFlags.MASK | SlotFlags.INNERCLOTHING | SlotFlags.BELT);
-
-        if (!targetWizard)
-            EnsureComp<MimePowersComponent>(ev.Target).CanBreakVow = false;
-        else
-            StatusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
+        EnsureComp<MimePowersComponent>(uid).CanBreakVow = false;
     }
 
     protected override void Emp(DisableTechEvent ev)

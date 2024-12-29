@@ -9,12 +9,14 @@ using Content.Shared.Mind;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Pulling.Events;
 using Content.Shared.Speech;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
 namespace Content.Shared._Goobstation.Wizard.TimeStop;
@@ -25,6 +27,9 @@ public sealed class FreezeContactsSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly ActionBlockerSystem _blocker = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
+
+    private static readonly ProtoId<TagPrototype> FrozenIgnoreMindActionTag = "FrozenIgnoreMindAction";
 
     public override void Initialize()
     {
@@ -167,7 +172,7 @@ public sealed class FreezeContactsSystem : EntitySystem
 
         if (_mind.TryGetMind(otherUid, out var mindId, out _) &&
             TryComp(mindId, out ActionsContainerComponent? container) &&
-            container.Container.ContainedEntities.Any(HasComp<FrozenIgnoreMindActionComponent>))
+            container.Container.ContainedEntities.Any(e => _tag.HasTag(e, FrozenIgnoreMindActionTag)))
             return;
 
         EnsureComp<FrozenComponent>(otherUid).FreezeTime = despawn.Lifetime;

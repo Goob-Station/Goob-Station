@@ -1,19 +1,25 @@
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared.Access.Components;
+using Content.Shared.Clothing.Components;
 using Content.Shared.Clumsy;
 using Content.Shared.Cluwne;
 using Content.Shared.Ghost;
+using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.PDA;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -23,12 +29,12 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
-    [Dependency] protected readonly InventorySystem Inventory = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly SharedMapSystem Map = default!;
     [Dependency] protected readonly SharedStunSystem Stun = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
+    [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
@@ -89,9 +95,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!targetWizard)
             EnsureComp<ClumsyComponent>(ev.Target);
 
-        SetGear(ev.Target,
-            ev.Gear,
-            targetWizard ? SlotFlags.NONE : SlotFlags.MASK | SlotFlags.INNERCLOTHING | SlotFlags.FEET);
+        SetGear(ev.Target, ev.Gear, !targetWizard);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -107,7 +111,14 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
 
-        MakeMime(ev, status);
+        var targetWizard = HasComp<WizardComponent>(ev.Target);
+
+        SetGear(ev.Target, ev.Gear, !targetWizard);
+
+        if (!targetWizard)
+            MakeMime(ev.Target);
+        else
+            StatusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -215,13 +226,42 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     #endregion
 
-    #region ServerMethods
+    #region Helpers
 
-    protected virtual void MakeMime(MimeMalaiseEvent ev, StatusEffectsComponent? status = null)
+    private void SetGear(EntityUid uid, Dictionary<string, EntProtoId> gear, bool makeUnremoveable = true)
     {
+        if (_net.IsClient)
+            return;
+
+        if (!TryComp(uid, out InventoryComponent? inventoryComponent))
+            return;
+
+        foreach (var (slot, item) in gear)
+        {
+            _inventory.TryUnequip(uid, slot, true, true, false, inventoryComponent);
+
+            var ent = Spawn(item, Transform(uid).Coordinates);
+            if (!_inventory.TryEquip(uid, ent, slot, true, true, false, inventoryComponent))
+            {
+                Del(ent);
+                continue;
+            }
+
+            if (slot == "id" &&
+                TryComp(ent, out PdaComponent? pdaComponent) &&
+                TryComp<IdCardComponent>(pdaComponent.ContainedId, out var id))
+                id.FullName = MetaData(uid).EntityName;
+
+            if (makeUnremoveable && HasComp<ClothingComponent>(ent))
+                EnsureComp<UnremoveableComponent>(ent);
+        }
     }
 
-    protected virtual void SetGear(EntityUid uid, string gear, SlotFlags unremoveableClothingFlags = SlotFlags.NONE)
+    #endregion
+
+    #region ServerMethods
+
+    protected virtual void MakeMime(EntityUid uid)
     {
     }
 

@@ -176,4 +176,6 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
-  - type: FrozenIgnoreMindAction
+  - type: Tag
+    tags:
+      - FrozenIgnoreMindAction

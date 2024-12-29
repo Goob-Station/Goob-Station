@@ -25,7 +25,13 @@ public sealed partial class BananaTouchEvent : EntityTargetActionEvent, ISpeakSp
     public string? Speech { get; private set; }
 
     [DataField]
-    public ProtoId<StartingGearPrototype> Gear = "ClownGear";
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"mask", "ClothingMaskClown"},
+        {"jumpsuit", "ClothingUniformJumpsuitClown"},
+        {"shoes", "ClothingShoesClown"},
+        {"id", "ClownPDA"},
+    };
 
     [DataField]
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
@@ -40,7 +46,13 @@ public sealed partial class MimeMalaiseEvent : EntityTargetActionEvent, ISpeakSp
     public string? Speech { get; private set; }
 
     [DataField]
-    public ProtoId<StartingGearPrototype> Gear = "MimeGear";
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"mask", "ClothingMaskMime"},
+        {"jumpsuit", "ClothingUniformJumpsuitMime"},
+        {"belt", "ClothingBeltSuspendersRed"},
+        {"id", "MimePDA"},
+    };
 
     [DataField]
     public TimeSpan WizardMuteDuration = TimeSpan.FromSeconds(15);
