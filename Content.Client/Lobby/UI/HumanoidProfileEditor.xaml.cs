@@ -1,7 +1,6 @@
 using System.IO;
 using System.Linq;
 using System.Numerics;
-using System.Text;
 using Content.Client.Humanoid;
 using Content.Client.Lobby.UI.Loadouts;
 using Content.Client.Lobby.UI.Roles;

@@ -1,4 +1,3 @@
-using Content.Shared.Procedural.Distance;
 using Robust.Shared.Noise;
 
 namespace Content.Shared.Procedural.DungeonGenerators;

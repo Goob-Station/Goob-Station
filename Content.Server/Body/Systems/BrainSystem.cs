@@ -8,7 +8,6 @@ using Content.Shared.Pointing;
 
 // Shitmed Change
 using Content.Shared._Shitmed.Body.Organ;
-using Content.Server._Shitmed.DelayedDeath;
 using Content.Shared.Body.Systems;
 
 namespace Content.Server.Body.Systems

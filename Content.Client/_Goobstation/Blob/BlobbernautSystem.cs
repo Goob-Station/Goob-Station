@@ -1,11 +1,7 @@
-﻿using System.Linq;
-using Content.Client.DamageState;
+﻿using Content.Client.DamageState;
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
-using Content.Shared.Damage;
-using Content.Shared.Popups;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Client._Goobstation.Blob;
 

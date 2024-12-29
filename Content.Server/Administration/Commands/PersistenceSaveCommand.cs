@@ -4,7 +4,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Map;
-using System.Linq;
 
 namespace Content.Server.Administration.Commands;
 

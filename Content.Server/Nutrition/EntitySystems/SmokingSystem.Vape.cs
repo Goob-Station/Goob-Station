@@ -1,5 +1,3 @@
-using Content.Server.Atmos;
-using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
@@ -12,7 +10,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Nutrition;
-using System.Threading;
 using Content.Shared.Atmos;
 
 /// <summary>

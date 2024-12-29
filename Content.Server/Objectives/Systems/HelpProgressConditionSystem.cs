@@ -3,7 +3,6 @@ using Content.Server.Objectives.Components;
 using Content.Shared.Mind;
 using Content.Shared.Objectives.Components;
 using Content.Shared.Objectives.Systems;
-using Content.Shared.Roles.Jobs;
 using Robust.Shared.Random;
 using System.Linq;
 

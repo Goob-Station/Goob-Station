@@ -1,16 +1,8 @@
 using Content.Server.Defusable.Components;
 using Content.Server.Defusable.Systems;
-using Content.Server.Doors.Systems;
-using Content.Server.Explosion.EntitySystems;
-using Content.Server.Popups;
 using Content.Server.Wires;
-using Content.Shared.Administration.Logs;
-using Content.Shared.Database;
 using Content.Shared.Defusable;
-using Content.Shared.Doors;
-using Content.Shared.Doors.Components;
 using Content.Shared.Wires;
-using Robust.Server.GameObjects;
 
 namespace Content.Server.Defusable.WireActions;
 

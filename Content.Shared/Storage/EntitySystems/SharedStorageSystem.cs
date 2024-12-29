@@ -17,7 +17,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Lock;
 using Content.Shared.Materials;
-using Content.Shared.Placeable;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Storage.Components;
@@ -360,7 +359,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// <returns>true if inserted, false otherwise</returns>
     private void OnInteractUsing(EntityUid uid, StorageComponent storageComp, InteractUsingEvent args)
     {
-        if (args.Handled || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert, false))
+        if (args.Handled || !storageComp.ClickInsert || !CanInteract(args.User, (uid, storageComp), silent: false))
             return;
 
         var attemptEv = new StorageInteractUsingAttemptEvent();
@@ -380,7 +379,7 @@ public abstract class SharedStorageSystem : EntitySystem
     /// </summary>
     private void OnActivate(EntityUid uid, StorageComponent storageComp, ActivateInWorldEvent args)
     {
-        if (args.Handled || !args.Complex || !CanInteract(args.User, (uid, storageComp), storageComp.ClickInsert))
+        if (args.Handled || !args.Complex || !storageComp.OpenOnActivate || !CanInteract(args.User, (uid, storageComp)))
             return;
 
         // Toggle
