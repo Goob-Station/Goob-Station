@@ -8,6 +8,9 @@
   },
   "states": [
     {
+      "name": "corpse_explosion"
+    },
+    {
       "name": "time"
     },
     {

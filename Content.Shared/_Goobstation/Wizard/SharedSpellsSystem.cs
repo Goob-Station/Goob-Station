@@ -1,16 +1,24 @@
+using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Clumsy;
 using Content.Shared.Cluwne;
+using Content.Shared.Damage;
 using Content.Shared.Ghost;
+using Content.Shared.Gibbing.Events;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
@@ -34,13 +42,16 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedMapSystem Map = default!;
     [Dependency] protected readonly SharedStunSystem Stun = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
-    [Dependency] private readonly InventorySystem _inventory = default!;
+    [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
     [Dependency] private   readonly INetManager _net = default!;
+    [Dependency] private   readonly SharedBodySystem _body = default!;
+    [Dependency] private   readonly DamageableSystem _damageable = default!;
+    [Dependency] private   readonly MobStateSystem _mobState = default!;
 
     #endregion
 
@@ -56,6 +67,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
         SubscribeLocalEvent<RepulseEvent>(OnRepulse);
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
+        SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
     }
 
     #region Spells
@@ -140,6 +152,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var velocity = Physics.GetMapLinearVelocity(spawnCoords);
 
         var ghostQuery = GetEntityQuery<GhostComponent>();
+        var spectralQuery = GetEntityQuery<SpectralComponent>();
 
         var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
         var hasTargets = false;
@@ -149,7 +162,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (target == ev.Performer)
                 continue;
 
-            if (ghostQuery.HasComp(target)) // Just in case
+            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target))
                 continue;
 
             hasTargets = true;
@@ -168,7 +181,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (!hasTargets)
         {
-            _popup.PopupClient(Loc.GetString("spell-no-targets"), ev.Performer, ev.Performer);
+            _popup.PopupClient(Loc.GetString("spell-fail-no-targets"), ev.Performer, ev.Performer);
             return;
         }
 
@@ -224,6 +237,65 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnCorpseExplosion(CorpseExplosionEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<BorgChassisComponent>(ev.Target))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-borg"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        if (!_mobState.IsDead(ev.Target))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-not-dead"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        var coords = TransformSystem.GetMapCoordinates(ev.Target);
+
+        ExplodeCorpse(ev);
+
+        var targets = Lookup.GetEntitiesInRange<DamageableComponent>(coords, ev.KnockdownRange);
+        var ghostQuery = GetEntityQuery<GhostComponent>();
+        var spectralQuery = GetEntityQuery<SpectralComponent>();
+        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
+        var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
+        foreach (var (target, damageable) in targets)
+        {
+            if (target == ev.Performer || target == ev.Target)
+                continue;
+
+            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target) || bodyPartQuery.HasComp(target))
+                continue;
+
+            var range = (TransformSystem.GetMapCoordinates(target).Position - coords.Position).Length();
+
+            range = MathF.Max(1f, range);
+
+            _damageable.TryChangeDamage(target,
+                ev.Damage / range,
+                damageable: damageable,
+                origin: ev.Performer,
+                targetPart: TargetBodyPart.All);
+
+            if (!statusQuery.TryComp(target, out var status))
+                continue;
+
+            if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
+                Stun.TryParalyze(target, ev.SiliconStunTime / range, true, status);
+            else
+                Stun.TryKnockdown(target, ev.KnockdownTime / range, true, status);
+        }
+
+        _body.GibBody(ev.Target, contents: GibContentsOption.Gib);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -274,6 +346,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void Repulse(RepulseEvent ev)
+    {
+    }
+
+    protected virtual void ExplodeCorpse(CorpseExplosionEvent ev)
     {
     }
 

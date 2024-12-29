@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Server.Abilities.Mime;
 using Content.Server.Emp;
+using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
@@ -20,6 +21,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
+    [Dependency] private readonly ExplosionSystem _explosion = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -112,5 +114,20 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 Vector2.TransformNormal(displacement, baseMatrixDeltaV) * scaling,
                 body: physics);
         }
+    }
+
+    protected override void ExplodeCorpse(CorpseExplosionEvent ev)
+    {
+        base.ExplodeCorpse(ev);
+
+        _explosion.QueueExplosion(ev.Target,
+            ev.ExplosionId,
+            ev.TotalIntensity,
+            ev.Slope,
+            ev.MaxIntenity,
+            0f,
+            0,
+            false,
+            ev.Performer);
     }
 }

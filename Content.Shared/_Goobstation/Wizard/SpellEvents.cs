@@ -1,5 +1,7 @@
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Damage;
+using Content.Shared.Explosion;
 using Content.Shared.Magic;
 using Content.Shared.Roles;
 using Content.Shared.Singularity.EntitySystems;
@@ -137,4 +139,34 @@ public sealed partial class StopTimeEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public EntProtoId Proto = "Chronofield";
+}
+
+public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public float TotalIntensity = 200f;
+
+    [DataField]
+    public float Slope = 1.5f;
+
+    [DataField]
+    public float MaxIntenity = 100f;
+
+    [DataField]
+    public float KnockdownRange = 4f;
+
+    [DataField]
+    public TimeSpan SiliconStunTime = TimeSpan.FromSeconds(6f);
+
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(4f);
+
+    [DataField]
+    public ProtoId<ExplosionPrototype> ExplosionId = "Corpse";
+
+    [DataField(required: true)]
+    public DamageSpecifier Damage;
 }

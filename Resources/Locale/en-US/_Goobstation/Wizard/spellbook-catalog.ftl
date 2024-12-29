@@ -39,3 +39,8 @@ spellbook-stop-time-name = Stop Time
 spellbook-stop-time-desc =
     This spell stops time for everyone except for you and whoever learned this spell, allowing you to move freely while your enemies and even projectiles are frozen.
     Requires wizard's robe and hat to cast.
+
+spellbook-corpse-explosion-name = Corpse Explosion
+spellbook-corpse-explosion-desc =
+    Fills a corpse with energy, causing it to explode violently. Knocks down people and stuns silicons. It applies up to 100 brute damage to others surrounding the corpse; the damage lowering further out someone is. Wizard is immune to the effects of the explosion.
+    Requires wizard's robe and hat to cast.

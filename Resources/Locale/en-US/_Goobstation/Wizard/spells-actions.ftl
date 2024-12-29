@@ -4,3 +4,4 @@ action-speech-spell-magic-missile = FORTI GY AMA
 action-speech-spell-emp = NEC CANTIO
 action-speech-spell-repulse = GITTAH WEIGH
 action-speech-spell-stop-time = TOKI YO TOMARE
+action-speech-spell-corpse-explosion = JAH ITH BER

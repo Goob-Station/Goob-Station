@@ -38,6 +38,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookCorpseExplosion
+  name: spellbook-corpse-explosion-name
+  description: spellbook-corpse-explosion-desc
+  productAction: ActionCorpseExplosion
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

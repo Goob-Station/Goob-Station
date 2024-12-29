@@ -179,3 +179,31 @@
   - type: Tag
     tags:
       - FrozenIgnoreMindAction
+
+- type: entity
+  id: ActionCorpseExplosion
+  name: Corpse Explosion
+  description: Fills a corpse with energy, causing it to explode violently.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 5
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 100
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: corpse_explosion
+    event: !type:CorpseExplosionEvent
+      speech: action-speech-spell-corpse-explosion
+      damage:
+        groups:
+          Brute: 100
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
