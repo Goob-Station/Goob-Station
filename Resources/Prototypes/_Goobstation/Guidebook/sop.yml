@@ -7,6 +7,7 @@
   - Alert Levels
   - Emergencies SOP
   - Jobs SOP
+  - Legal SOP
   - StandardProcedures SOP
 
 # Emergencies Main Directory
@@ -24,7 +25,7 @@
   - WarDeclaration SOP
   - Zombie SOP
 
-# Standard Procedures Main Directory
+# Standard Procedures and Legal Main Directories
 - type: guideEntry
   id: StandardProcedures SOP
   name: guide-entry-sop-standards
@@ -33,6 +34,16 @@
   - Demoting SOP
   - Hiring SOP
   - Succession
+
+- type: guideEntry
+  id: Legal SOP
+  name: guide-entry-sop-legal
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/LegalSOP.xml"
+  children:
+  - Execution SOP
+  - PermaBrig SOP
+  - Punishments SOP
+  - Searches SOP
 
 # Jobs Main Directory and Subdirectories
 - type: guideEntry
@@ -179,6 +190,27 @@
   id: Zombie SOP
   name: guide-entry-sop-zombieoutbreak
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Emergencies/ZombieOutbreak.xml"
+
+# Legal SOP Entries
+- type: guideEntry
+  id: Execution SOP
+  name: guide-entry-sop-execution
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/ExecutionSOP.xml"
+
+- type: guideEntry
+  id: PermaBrig SOP
+  name: guide-entry-sop-permabrig
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/PermaBrigSOP.xml"
+
+- type: guideEntry
+  id: Punishments SOP
+  name: guide-entry-sop-punishments
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/PunishmentsSOP.xml"
+
+- type: guideEntry
+  id: Searches SOP
+  name: guide-entry-sop-searches
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/SearchesSOP.xml"
 
 # Cargo SOP Entries
 - type: guideEntry

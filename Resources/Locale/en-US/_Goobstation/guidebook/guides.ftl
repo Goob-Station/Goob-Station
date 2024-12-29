@@ -6,6 +6,7 @@ guide-entry-medpatches = Medical Patches
 guide-entry-sop = SOP
 guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
+guide-entry-sop-legal = Legal
 guide-entry-sop-standards = Standard Procedures
 # - Sub/Nested Directories
 guide-entry-sop-cargo = Cargo
@@ -30,6 +31,11 @@ guide-entry-sop-stationdamage = Station Damage
 guide-entry-sop-supermatterdelam = SM Delamination
 guide-entry-sop-wardeclaration = War Declaration
 guide-entry-sop-zombieoutbreak = Zombie Outbreak
+# - Legal
+guide-entry-sop-execution = Executions
+guide-entry-sop-permabrig = Permanent Brig
+guide-entry-sop-punishments = Punishments
+guide-entry-sop-searches = Searches
 # - Cargo
 guide-entry-sop-cargotech = Cargo Tech
 guide-entry-sop-salvage = Salvage Specialist
