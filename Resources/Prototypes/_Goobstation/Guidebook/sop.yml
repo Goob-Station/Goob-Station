@@ -4,7 +4,6 @@
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
-  - Alert Levels
   - Emergencies SOP
   - Jobs SOP
   - Legal SOP
@@ -46,6 +45,7 @@
   name: guide-entry-sop-standards
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
   children:
+  - Alert Levels
   - Demoting SOP
   - Hiring SOP
   - Succession
@@ -182,7 +182,7 @@
 
 - type: guideEntry
   id: VioletAlert SOP
-  name: guide-entry-violetalert
+  name: guide-entry-sop-violetalert
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/VioletAlertSOP.xml"
 
 # Basic SOP Entries
@@ -198,7 +198,7 @@
 
 - type: guideEntry
   id: Succession
-  name: guide-entry-sop-succession
+  name: guide-entry-sop-succession # Is named as "Chain of Command" in game.
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/CommandSuccession.xml"
 
 # Emergency SOP Entries

@@ -29,7 +29,7 @@ guide-entry-sop-violetalert = Violet Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
 guide-entry-sop-hiring = Hiring/Transfer
-guide-entry-sop-succession = Succession
+guide-entry-sop-succession = Chain of Command
 # - Emergencies
 guide-entry-sop-confirmedrevs = Revolution
 guide-entry-sop-containmentfail = Containment Fail
