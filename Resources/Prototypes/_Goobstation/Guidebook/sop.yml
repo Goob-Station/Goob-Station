@@ -14,7 +14,16 @@
 - type: guideEntry
   id: Alert Levels
   name: guide-entry-sop-alert-levels
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevels.xml"
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/AlertLevelsSOP.xml"
+  children:
+  - GreenAlert SOP
+  - BlueAlert SOP
+  - YellowAlert SOP
+  - RedAlert SOP
+  - DeltaAlert SOP
+  - EpsilonAlert SOP
+  - GammaAlert SOP
+  - VioletAlert SOP
 
 # Emergencies Main Directory
 - type: guideEntry
@@ -134,6 +143,47 @@
   - Librarian SOP
   - Mime SOP
   - Reporter SOP
+
+# Alert Levels SOP Entries
+- type: guideEntry
+  id: GreenAlert SOP
+  name: guide-entry-sop-greenalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/GreenAlertSOP.xml"
+
+- type: guideEntry
+  id: BlueAlert SOP
+  name: guide-entry-sop-bluealert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/BlueAlertSOP.xml"
+
+- type: guideEntry
+  id: YellowAlert SOP
+  name: guide-entry-sop-yellowalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/YellowAlertSOP.xml"
+
+- type: guideEntry
+  id: RedAlert SOP
+  name: guide-entry-sop-redalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/RedAlertSOP.xml"
+
+- type: guideEntry
+  id: DeltaAlert SOP
+  name: guide-entry-sop-deltaalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/DeltaAlertSOP.xml"
+
+- type: guideEntry
+  id: EpsilonAlert SOP
+  name: guide-entry-sop-epsilonalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/EpsilonAlertSOP.xml"
+
+- type: guideEntry
+  id: GammaAlert SOP
+  name: guide-entry-sop-gammaalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/GammaAlertSOP.xml"
+
+- type: guideEntry
+  id: VioletAlert SOP
+  name: guide-entry-violetalert
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/AlertLevels/VioletAlertSOP.xml"
 
 # Basic SOP Entries
 - type: guideEntry

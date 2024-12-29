@@ -4,6 +4,7 @@ guide-entry-medpatches = Medical Patches
 # Goob SOP
 # - Main Directories
 guide-entry-sop = SOP
+guide-entry-sop-alert-levels = Alert Levels
 guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
 guide-entry-sop-legal = Legal
@@ -16,8 +17,15 @@ guide-entry-sop-medical = Medical
 guide-entry-sop-science = Science
 guide-entry-sop-security = Security
 guide-entry-sop-service = Service
-# - Individuals
-guide-entry-sop-alert-levels = Alert Levels
+# - Alert Levels
+guide-entry-sop-greenalert = Green Alert
+guide-entry-sop-bluealert = Blue Alert
+guide-entry-sop-yellowalert = Yellow Alert
+guide-entry-sop-redalert = Red Alert
+guide-entry-sop-deltaalert = Delta Alert
+guide-entry-sop-epsilonalert = Epsilon Alert
+guide-entry-sop-gammaalert = Gamma Alert
+guide-entry-sop-violetalert = Violet Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
 guide-entry-sop-hiring = Hiring/Transfer
