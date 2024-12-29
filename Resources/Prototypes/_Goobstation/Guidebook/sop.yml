@@ -72,15 +72,15 @@
   name: guide-entry-sop-command
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CommandSOP.xml"
   children:
-  - NTR SOP
-  - BSO SOP
+  - NanotrasenRep SOP
+  - BlueshieldOfficer SOP
   - Captain SOP
-  - HOP SOP
-  - HOS SOP
-  - RD SOP
-  - CMO SOP
-  - CE SOP
-  - QM SOP
+  - HeadOfPersonnel SOP
+  - HeadOfSecurity SOP
+  - ResearchDirector SOP
+  - ChiefMedicalOfficer SOP
+  - ChiefEngineer SOP
+  - Quartermaster SOP
 
 - type: guideEntry
   id: Engineering SOP
@@ -225,12 +225,12 @@
 
 # Command SOP Entries
 - type: guideEntry
-  id: NTR SOP
+  id: NanotrasenRep SOP
   name: guide-entry-sop-ntr
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/NanotrasenRepSOP.xml"
 
 - type: guideEntry
-  id: BSO SOP
+  id: BlueshieldOfficer SOP
   name: guide-entry-sop-bso
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/BlueshieldOfficerSOP.xml"
 
@@ -240,32 +240,32 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/CaptainSOP.xml"
 
 - type: guideEntry
-  id: HOP SOP
+  id: HeadOfPersonnel SOP
   name: guide-entry-sop-hop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfPersonnelSOP.xml"
 
 - type: guideEntry
-  id: HOS SOP
+  id: HeadOfSecurity SOP
   name: guide-entry-sop-hos
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/HeadOfSecuritySOP.xml"
 
 - type: guideEntry
-  id: RD SOP
+  id: ResearchDirector SOP
   name: guide-entry-sop-rd
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ResearchDirectorSOP.xml"
 
 - type: guideEntry
-  id: CMO SOP
+  id: ChiefMedicalOfficer SOP
   name: guide-entry-sop-cmo
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefMedicalOfficerSOP.xml"
 
 - type: guideEntry
-  id: CE SOP
+  id: ChiefEngineer SOP
   name: guide-entry-sop-ce
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/ChiefEngineerSOP.xml"
 
 - type: guideEntry
-  id: QM SOP
+  id: Quartermaster SOP
   name: guide-entry-sop-qm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
 
