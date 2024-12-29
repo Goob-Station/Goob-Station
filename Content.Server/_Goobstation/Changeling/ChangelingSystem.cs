@@ -146,8 +146,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
     private void OnAugmentedEyesightPurchased(Entity<ChangelingComponent> ent, ref AugmentedEyesightPurchasedEvent args)
     {
-        EnsureComp<FlashImmunityComponent>(ent);
-        EnsureComp<EyeProtectionComponent>(ent);
+        InitializeAugmentedEyesight(ent);
+    }
+
+    public void InitializeAugmentedEyesight(EntityUid uid)
+    {
+        EnsureComp<FlashImmunityComponent>(uid);
+        EnsureComp<EyeProtectionComponent>(uid);
 
         var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
         thermalVision.Color = Color.FromHex("#FB9898");
@@ -157,8 +162,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         thermalVision.DeactivateSound = null;
         thermalVision.ToggleAction = null;
 
-        AddComp(ent, thermalVision);
-        Dirty(ent, thermalVision);
+        AddComp(uid, thermalVision);
     }
 
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
