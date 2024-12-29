@@ -9,6 +9,7 @@ using Robust.Client.Graphics;
 using Robust.Client.Player;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
+using Robust.Shared.Timing;
 
 namespace Content.Client._White.Overlays;
 
@@ -16,6 +17,7 @@ public sealed class ThermalVisionOverlay : Overlay
 {
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly TransformSystem _transform;
     private readonly StealthSystem _stealth;
@@ -144,7 +146,7 @@ public sealed class ThermalVisionOverlay : Overlay
 
     public void ResetLight()
     {
-        if (_lightEntity == null)
+        if (_lightEntity == null || !_timing.IsFirstTimePredicted)
             return;
 
         _entity.DeleteEntity(_lightEntity);

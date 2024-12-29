@@ -2,14 +2,12 @@ using Content.Client.Overlays;
 using Content.Shared._White.Overlays;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
-using Robust.Shared.Timing;
 
 namespace Content.Client._White.Overlays;
 
 public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionComponent>
 {
     [Dependency] private readonly IOverlayManager _overlayMan = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     private ThermalVisionOverlay _thermalOverlay = default!;
     private BaseSwitchableOverlay<ThermalVisionComponent> _overlay = default!;
@@ -32,10 +30,6 @@ public sealed class ThermalVisionSystem : EquipmentHudSystem<ThermalVisionCompon
     protected override void UpdateInternal(RefreshEquipmentHudEvent<ThermalVisionComponent> args)
     {
         base.UpdateInternal(args);
-
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         ThermalVisionComponent? tvComp = null;
         var lightRadius = 0f;
         foreach (var comp in args.Components)
