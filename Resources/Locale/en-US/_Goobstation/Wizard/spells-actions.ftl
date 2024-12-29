@@ -5,3 +5,4 @@ action-speech-spell-emp = NEC CANTIO
 action-speech-spell-repulse = GITTAH WEIGH
 action-speech-spell-stop-time = TOKI YO TOMARE
 action-speech-spell-corpse-explosion = JAH ITH BER
+action-speech-spell-blind = STI KALY

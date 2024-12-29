@@ -44,3 +44,8 @@ spellbook-corpse-explosion-name = Corpse Explosion
 spellbook-corpse-explosion-desc =
     Fills a corpse with energy, causing it to explode violently. Knocks down people and stuns silicons. It applies up to 100 brute damage to others surrounding the corpse; the damage lowering further out someone is. Wizard is immune to the effects of the explosion.
     Requires wizard's robe and hat to cast.
+
+spellbook-blind-name = Blind
+spellbook-blind-desc =
+    This spell temporarily blinds a single target.
+    Doesn't require wizard's robe and hat to cast.

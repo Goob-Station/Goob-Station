@@ -207,3 +207,28 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+
+- type: entity
+  id: ActionBlindSpell
+  name: Blind
+  description: Temporarily blinds a single target.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 100
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/blind.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: blind
+    event: !type:BlindSpellEvent
+      speech: action-speech-spell-blind
+  - type: Magic
+    requiresSpeech: true

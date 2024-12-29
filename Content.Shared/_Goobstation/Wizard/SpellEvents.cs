@@ -170,3 +170,18 @@ public sealed partial class CorpseExplosionEvent : EntityTargetActionEvent, ISpe
     [DataField(required: true)]
     public DamageSpecifier Damage;
 }
+
+public sealed partial class BlindSpellEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public TimeSpan BlindDuration = TimeSpan.FromSeconds(20f);
+
+    [DataField]
+    public TimeSpan BlurDuration = TimeSpan.FromSeconds(40f);
+
+    [DataField]
+    public EntProtoId Effect = "GrenadeFlashEffect";
+}

@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Server.Abilities.Mime;
+using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
@@ -22,6 +23,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly SpreaderSystem _spreader = default!;
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
+    [Dependency] private readonly ChatSystem _chat = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -129,5 +131,12 @@ public sealed class SpellsSystem : SharedSpellsSystem
             0,
             false,
             ev.Performer);
+    }
+
+    protected override void Emote(EntityUid uid, string emoteId)
+    {
+        base.Emote(uid, emoteId);
+
+        _chat.TryEmoteWithChat(uid, emoteId);
     }
 }

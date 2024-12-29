@@ -51,6 +51,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookBlind
+  name: spellbook-blind-name
+  description: spellbook-blind-desc
+  productAction: ActionBlindSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
