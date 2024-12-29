@@ -14,6 +14,7 @@ guide-entry-sop-engineering = Engineering
 guide-entry-sop-medical = Medical
 guide-entry-sop-science = Science
 guide-entry-sop-security = Security
+guide-entry-sop-service = Service
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
 # - Standard Procedures
@@ -55,3 +56,12 @@ guide-entry-sop-scientist = Scientist
 guide-entry-sop-detective = Detective
 guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-warden = Warden
+# - Service
+guide-entry-sop-bartender = Bartender
+guide-entry-sop-botanist = Botanist
+guide-entry-sop-chef = Chef
+guide-entry-sop-clown = Clown
+guide-entry-sop-janitor = Janitor
+guide-entry-sop-librarian = Librarian
+guide-entry-sop-mime = Mime
+guide-entry-sop-reporter = Reporter

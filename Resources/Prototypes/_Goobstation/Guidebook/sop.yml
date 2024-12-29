@@ -46,6 +46,7 @@
   - Medical SOP
   - Science SOP
   - Security SOP
+  - Service SOP
 
 - type: guideEntry
   id: Cargo SOP
@@ -102,6 +103,20 @@
   - Warden SOP
   - OfficerCadet SOP
   - Detective SOP
+
+- type: guideEntry
+  id: Service SOP
+  name: guide-entry-sop-service
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ServiceSOP.xml"
+  children:
+  - Bartender SOP
+  - Botanist SOP
+  - Chef SOP
+  - Clown SOP
+  - Janitor SOP
+  - Librarian SOP
+  - Mime SOP
+  - Reporter SOP
 
 # Basic SOP Entries
 - type: guideEntry
@@ -270,3 +285,44 @@
   id: Warden SOP
   name: guide-entry-sop-warden
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
+
+# Service SOP Entries
+- type: guideEntry
+  id: Bartender SOP
+  name: guide-entry-sop-bartender
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/BartenderSOP.xml"
+
+- type: guideEntry
+  id: Botanist SOP
+  name: guide-entry-sop-botanist
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/BotanistSOP.xml"
+
+- type: guideEntry
+  id: Chef SOP
+  name: guide-entry-sop-chef
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ChefSOP.xml"
+
+- type: guideEntry
+  id: Clown SOP
+  name: guide-entry-sop-clown
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ClownSOP.xml"
+
+- type: guideEntry
+  id: Janitor SOP
+  name: guide-entry-sop-janitor
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/JanitorSOP.xml"
+
+- type: guideEntry
+  id: Librarian SOP
+  name: guide-entry-sop-librarian
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/LibrarianSOP.xml"
+
+- type: guideEntry
+  id: Mime SOP
+  name: guide-entry-sop-mime
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/MimeSOP.xml"
+
+- type: guideEntry
+  id: Reporter SOP
+  name: guide-entry-sop-reporter
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Service/ReporterSOP.xml"
