@@ -44,6 +44,12 @@
         whitelist:
           tags:
             - CartridgePistol
+  - type: Tag
+    tags:
+    - WeaponPistolDualetta
   - type: Multishot
     spreadMultiplier: 1.25
   - type: RequiresDualWield
+    whitelist:
+      tags:
+      - WeaponPistolDualetta

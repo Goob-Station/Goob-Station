@@ -11,6 +11,7 @@ using Robust.Shared.Timing;
 using Content.Shared._Goobstation.Weapons.RequiresDualWield;
 using Content.Shared._Goobstation.Weapons.Multishot;
 using Content.Shared.Research.Components;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._Goobstation.Weapons.RequiresDualWield;
 
@@ -20,6 +21,7 @@ public sealed class RequiresDualWieldSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
 
     public override void Initialize()
     {
@@ -52,8 +54,11 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             if (held == uid)
                 continue;
 
-            if (HasComp<RequiresDualWieldComponent>(held))
-                continue;
+            if (HasComp<MultishotComponent>(held))
+            {
+                if (CheckGun(held,component.Whitelist))
+                    continue;
+            }
 
             args.Cancel();
 
@@ -78,5 +83,10 @@ public sealed class RequiresDualWieldSystem : EntitySystem
             var message = Loc.GetString("dual-wield-component-requires", ("item", args.Used));
             _popupSystem.PopupClient(message, args.Used, args.User);
         }
+    }
+
+    private bool CheckGun(EntityUid target, EntityWhitelist? whitelist)
+    {
+        return _whitelistSystem.IsWhitelistPassOrNull(whitelist, target);
     }
 }
