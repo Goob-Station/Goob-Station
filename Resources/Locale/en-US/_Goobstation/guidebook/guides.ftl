@@ -10,6 +10,7 @@ guide-entry-sop-standards = Standard Procedures
 # - Sub/Nested Directories
 guide-entry-sop-cargo = Cargo
 guide-entry-sop-command = Command
+guide-entry-sop-engineering = Engineering
 guide-entry-sop-medical = Medical
 guide-entry-sop-science = Science
 guide-entry-sop-security = Security
@@ -41,6 +42,9 @@ guide-entry-sop-rd = Research Director
 guide-entry-sop-cmo = Chief Medical Ofc.
 guide-entry-sop-ce = Chief Engineer
 guide-entry-sop-qm = Quartermaster
+# - Engineering
+guide-entry-sop-atmostech = Atmos Tech
+guide-entry-sop-stationengineer = Station Engineer
 # - Medical
 guide-entry-sop-chemist = Chemist
 guide-entry-sop-doctorintern = Docter/Intern

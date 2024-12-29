@@ -42,6 +42,7 @@
   children:
   - Cargo SOP
   - Command SOP
+  - Engineering SOP
   - Medical SOP
   - Science SOP
   - Security SOP
@@ -68,6 +69,14 @@
   - CMO SOP
   - CE SOP
   - QM SOP
+
+- type: guideEntry
+  id: Engineering SOP
+  name: guide-entry-sop-engineering
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/EngineeringSOP.xml"
+  children:
+  - AtmosTech SOP
+  - StationEngineer SOP
 
 - type: guideEntry
   id: Medical SOP
@@ -212,6 +221,17 @@
   id: QM SOP
   name: guide-entry-sop-qm
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Command/QuartermasterSOP.xml"
+
+# Engineering SOP Entries
+- type: guideEntry
+  id: AtmosTech SOP
+  name: guide-entry-sop-atmostech
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/AtmosTechSOP.xml"
+
+- type: guideEntry
+  id: StationEngineer SOP
+  name: guide-entry-sop-stationengineer
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Engineering/StationEngineerSOP.xml"
 
 # Medical SOP Entries
 - type: guideEntry
