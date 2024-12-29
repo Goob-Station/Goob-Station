@@ -9,7 +9,7 @@
     species: Reptilian
     hideLayersOnEquip:
     - Snout
-    - HeadTop
+#    - HeadTop # WWDP - Because visible horns its cool
     - HeadSide
   - type: Hunger
   - type: Puller
@@ -106,6 +106,10 @@
   components:
   - type: HumanoidAppearance
     species: Reptilian
+    hideLayersOnEquip: # WWDP
+    - Snout
+#    - HeadTop # WWDP - Because visible horns its cool
+    - HeadSide
   - type: Inventory
     speciesId: reptilian
     # WWDP-Edit-Start
