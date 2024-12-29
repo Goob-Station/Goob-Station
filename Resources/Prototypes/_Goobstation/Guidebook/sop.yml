@@ -237,9 +237,9 @@
 
 # Security SOP Entries
 - type: guideEntry
-  id: Warden SOP
-  name: guide-entry-sop-warden
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
+  id: Detective SOP
+  name: guide-entry-sop-detective
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"
 
 - type: guideEntry
   id: OfficerCadet SOP
@@ -247,6 +247,6 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/OfficerCadetSOP.xml"
 
 - type: guideEntry
-  id: Detective SOP
-  name: guide-entry-sop-detective
-  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/DetectiveSOP.xml"
+  id: Warden SOP
+  name: guide-entry-sop-warden
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Security/WardenSOP.xml"
