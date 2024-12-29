@@ -120,6 +120,10 @@
     Narcotic:
       effects:
       - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         amount: 15
         immediate: false
 
@@ -134,7 +138,6 @@
   meltingPoint: 36.0
   metabolisms:
     Narcotic:
-      metabolismRate: 1
       effects:
       - !type:GenericStatusEffect
         conditions:
@@ -146,5 +149,3 @@
         type: Add
         time: 3
         refresh: false
-      - !type:ChemHealEyeDamage # Heal in reverse
-        amount: 1

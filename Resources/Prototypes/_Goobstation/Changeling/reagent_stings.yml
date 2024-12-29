@@ -1,12 +1,12 @@
 - type: reagentStingConfiguration
   id: StingMute
   reagents:
-    MuteToxin: 3
+    MuteToxin: 2
 
 - type: reagentStingConfiguration
   id: StingBlind
   reagents:
-    BlindToxin: 3
+    BlindToxin: 2
 
 - type: reagentStingConfiguration
   id: StingCryo

@@ -68,7 +68,7 @@ evolutionmenu-combat-strainedmuscles-desc =
 
 evolutionmenu-sting-blind-name = Blind Sting
 evolutionmenu-sting-blind-desc =
-    Silently sting an organic target, completely blinding them for a short time, and rendering them near-sighted until oculine is applied.
+    Silently sting an organic target, completely blinding them for a short time.
     May be used while under the effects of Lesser Form.
     Costs 25 chemicals.
 
