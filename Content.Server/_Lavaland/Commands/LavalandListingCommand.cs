@@ -21,7 +21,7 @@ public sealed class LavalandListingCommand : IConsoleCommand
 
     public void Execute(IConsoleShell shell, string argStr, string[] args)
     {
-        var lavalands = _entityManager.System<LavalandGenerationSystem>().GetLavalands();
+        var lavalands = _entityManager.System<LavalandPlanetSystem>().GetLavalands();
 
         foreach (var (owner, comp) in lavalands)
         {

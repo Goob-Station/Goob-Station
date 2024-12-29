@@ -17,6 +17,8 @@ public sealed partial class LavalandMapPrototype : IPrototype
 
     [DataField] public string Name = "Lavaland Planet";
 
+    [DataField] public string OutpostName = "Lavaland Outpost";
+
     [DataField]
     public string OutpostPath = "";
 

@@ -70,8 +70,8 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
     private void ProcessLavalandDamage(Entity<DamageableComponent> entity, Entity<LavalandStormedMapComponent> lavaland)
     {
-        // Do the damage to all poor people on lava that are exposed to weather
-        if (Transform(entity).ParentUid != lavaland.Owner)
+        // Do the damage to all poor people on lava that are not on outpost/big ruins
+        if (HasComp<LavalandMemberComponent>(Transform(entity).ParentUid))
             return;
 
         var proto = _proto.Index(lavaland.Comp.CurrentWeather);

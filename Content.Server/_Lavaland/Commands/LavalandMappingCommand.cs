@@ -46,7 +46,7 @@ public sealed class LavalandMappingCommand : IConsoleCommand
                 break;
         }
 
-        if (!_entityManager.System<LavalandGenerationSystem>().SetupLavaland(lavalandSeed, lavalandProto))
+        if (!_entityManager.System<LavalandPlanetSystem>().SetupLavaland(lavalandSeed, lavalandProto))
             shell.WriteLine("Lavaland map already exists.");
     }
 }

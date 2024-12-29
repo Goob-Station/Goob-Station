@@ -25,6 +25,10 @@ public sealed class LavalandWeatherPrototype : IPrototype
     [DataField]
     public string PopupEndMessage = "The wind is going out.";
 
+    /// <summary>
+    /// Amount of temperature to apply every tick.
+    /// Be careful changing this number.
+    /// </summary>
     [DataField]
-    public float TemperatureChange = 20000f;
+    public float TemperatureChange = 24000f;
 }

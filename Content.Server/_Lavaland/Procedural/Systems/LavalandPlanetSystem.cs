@@ -8,6 +8,7 @@ using Content.Server.Atmos.EntitySystems;
 using Content.Server.GameTicking;
 using Content.Server.Parallax;
 using Content.Server.Shuttles.Systems;
+using Content.Server.Station.Components;
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
@@ -32,7 +33,7 @@ namespace Content.Server._Lavaland.Procedural.Systems;
 /// <summary>
 /// Basic system to create Lavaland planet.
 /// </summary>
-public sealed class LavalandGenerationSystem : EntitySystem
+public sealed class LavalandPlanetSystem : EntitySystem
 {
     [ViewVariables]
     private (EntityUid Uid, MapId Id)? _lavalandPreloader; // Global map for lavaland preloading
@@ -167,6 +168,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
         _mapManager.SetMapPaused(lavalandMapId, true);
 
         // Restricted Range
+        // TODO: Fix restricted range...
         var restricted = new RestrictedRangeComponent
         {
             Range = prototype.RestrictedRange,
@@ -191,10 +193,13 @@ public sealed class LavalandGenerationSystem : EntitySystem
         var outpost = EntityUid.Invalid;
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
-            if (!HasComp<LavalandOutpostComponent>(grid))
+            if (!HasComp<BecomesStationComponent>(grid))
                 continue;
 
             outpost = grid;
+            var member = EnsureComp<LavalandMemberComponent>(outpost);
+            member.LavalandMap = lavaland;
+            member.SignalName = prototype.OutpostName;
             break;
         }
 
@@ -211,7 +216,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
         SetupRuins(pool, lavaland);
 
         // Hide all grids from the mass scanner.
-#if !DEBUG
+#if !DEBUG && !TOOLS
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
             _shuttle.AddIFFFlag(grid, IFFFlags.Hide);
@@ -292,8 +297,14 @@ public sealed class LavalandGenerationSystem : EntitySystem
             const int attemps = 5;
             for (j = 0; j < attemps; j++)
             {
-                if (LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref randomCoords))
-                    break;
+                if (!LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref randomCoords, out var spawned) ||
+                    spawned == null)
+                    continue;
+
+                var member = EnsureComp<LavalandMemberComponent>(spawned.Value);
+                member.LavalandMap = lavaland;
+                member.SignalName = ruin.Name;
+                break;
             }
         }
 
@@ -322,7 +333,8 @@ public sealed class LavalandGenerationSystem : EntitySystem
             const int attemps = 3;
             for (j = 0; j < attemps; j++)
             {
-                if (LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref newCoords))
+                if (LoadRuin(ruin, lavaland, box, random, ref usedSpace, ref newCoords, out var spawned) &&
+                    spawned != null)
                     break;
             }
         }
@@ -383,15 +395,16 @@ public sealed class LavalandGenerationSystem : EntitySystem
         return aabbs;
     }
 
-    // TODO: make this as CPU job
     private bool LoadRuin(
         LavalandRuinPrototype ruin,
         Entity<LavalandMapComponent> lavaland,
         List<Box2> ruinBox,
         Random random,
         ref HashSet<Box2> usedSpace,
-        ref HashSet<Vector2> coords)
+        ref HashSet<Vector2> coords,
+        out EntityUid? spawned)
     {
+        spawned = null;
         var coord = random.Pick(coords);
 
         // Why there's no method to move the Box2 around???
@@ -436,7 +449,7 @@ public sealed class LavalandGenerationSystem : EntitySystem
             _transform.SetParent(mapChild, salvXForm, lavaland);
             _transform.SetCoordinates(mapChild, new EntityCoordinates(lavaland, salvXForm.Coordinates.Position.Rounded()));
             _metaData.SetEntityName(mapChild, ruin.Name);
-            EnsureComp<LavalandRuinComponent>(mapChild);
+            spawned = mapChild;
         }
 
         // There should be more grids on Lavaland than before after re-parenting.
