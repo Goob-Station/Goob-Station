@@ -16,9 +16,9 @@ guide-entry-sop-security = Security
 # - Individuals
 guide-entry-sop-alert-levels = Alert Levels
 # - Standard Procedures
-guide-entry-sop-succession = Succession
-guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-demoting = Dismissal/Demoting
+guide-entry-sop-hiring = Hiring/Transfer
+guide-entry-sop-succession = Succession
 # - Emergencies
 guide-entry-sop-confirmedrevs = Revolution
 guide-entry-sop-containmentfail = Containment Fail
@@ -42,12 +42,12 @@ guide-entry-sop-cmo = Chief Medical Ofc.
 guide-entry-sop-ce = Chief Engineer
 guide-entry-sop-qm = Quartermaster
 # - Medical
-guide-entry-sop-doctorintern = Docter/Intern
 guide-entry-sop-chemist = Chemist
+guide-entry-sop-doctorintern = Docter/Intern
 # - Science
-guide-entry-sop-scientist = Scientist
 guide-entry-sop-robotocist = Robotocist
+guide-entry-sop-scientist = Scientist
 # - Security
-guide-entry-sop-warden = Warden
-guide-entry-sop-officercadet = Officer/Cadet
 guide-entry-sop-detective = Detective
+guide-entry-sop-officercadet = Officer/Cadet
+guide-entry-sop-warden = Warden
