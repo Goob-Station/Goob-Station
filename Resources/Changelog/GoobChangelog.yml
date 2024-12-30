@@ -3681,3 +3681,11 @@ Entries:
       message: The maximum ling count has been decreased from 7 to 4.
   id: 409
   time: '2024-12-30T01:02:04.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Now emagging evac shuttle console has a 10 second do-after.
+    - type: Tweak
+      message: You can't unanchor evac shuttle thrusters anymore.
+  id: 410
+  time: '2024-12-30T14:12:24.0000000+00:00'
