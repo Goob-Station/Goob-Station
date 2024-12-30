@@ -221,7 +221,7 @@ public sealed partial class DoAfterArgs
         NetUser = entManager.GetNetEntity(User);
         NetTarget = entManager.GetNetEntity(Target);
         NetUsed = entManager.GetNetEntity(Used);
-        NetShowTo = entManager.GetNetEntity(ShowTo); Goobstation
+        NetShowTo = entManager.GetNetEntity(ShowTo); // Goobstation - Show doAfter popup to another entity
     }
 
     private DoAfterArgs()
