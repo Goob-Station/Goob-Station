@@ -13,4 +13,11 @@ public sealed partial class EmergencyShuttleConsoleComponent : Component
 
     [ViewVariables(VVAccess.ReadWrite), DataField("authorizationsRequired")]
     public int AuthorizationsRequired = 3;
+
+    /// <summary>
+    /// Goobstation
+    /// How long does it take to emag the console for early launch
+    /// </summary>
+    [DataField]
+    public TimeSpan EmagTime = TimeSpan.FromSeconds(10);
 }

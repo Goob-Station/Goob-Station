@@ -3564,7 +3564,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-2.5
       parent: 656
-- proto: Thruster
+- proto: ThrusterShuttleEvac # Goob edit
   entities:
   - uid: 474
     components:

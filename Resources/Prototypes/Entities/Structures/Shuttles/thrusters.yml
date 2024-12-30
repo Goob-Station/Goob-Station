@@ -234,3 +234,77 @@
       map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
       shader: unshaded
       visible: false
+
+# Goobstation
+- type: entity
+  id: ThrusterShuttleEvac # Can't be unanchored and hard to destroy
+  parent: BaseStructure
+  name: thruster
+  description: A thruster that allows a shuttle to move.
+  suffix: Evac shuttle, unanchorable
+  components:
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.45,-0.45,0.45,0.45"
+          density: 60
+          mask:
+          - MachineMask
+          layer:
+          - MachineLayer
+    - type: AmbientSound
+      enabled: false
+      range: 4
+      volume: -4
+      sound:
+        path: /Audio/Effects/shuttle_thruster.ogg
+    - type: Transform
+      anchored: true
+    - type: Physics
+      bodyType: Static
+    - type: Rotatable
+    - type: Thruster
+      damage:
+        types:
+          Heat: 40
+    - type: InteractionOutline
+    - type: Appearance
+    - type: ThrusterVisuals
+    - type: ApcPowerReceiver
+      powerLoad: 1500
+    - type: ExtensionCableReceiver
+    - type: Damageable
+      damageContainer: StructuralInorganic
+      damageModifierSet: Electronic
+    - type: Destructible
+      thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 5000
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:PlaySoundBehavior
+            sound:
+              collection: MetalBreak
+    - type: Clickable
+    - type: StaticPrice
+      price: 300
+    - type: Sprite
+      sprite: Structures/Shuttles/thruster.rsi
+      layers:
+      - state: base
+        map: ["enum.ThrusterVisualLayers.Base"]
+      - state: thrust
+        map: ["enum.ThrusterVisualLayers.ThrustOn"]
+        shader: unshaded
+        visible: false
+      - state: thrust_burn_unshaded
+        map: ["enum.ThrusterVisualLayers.ThrustingUnshaded"]
+        shader: unshaded
+        visible: false
+        offset: 0, 1
+  placement:
+    mode: SnapgridCenter

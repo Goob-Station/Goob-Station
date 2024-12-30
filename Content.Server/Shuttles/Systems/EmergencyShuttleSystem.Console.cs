@@ -7,7 +7,6 @@ using Content.Shared.Access;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.DeviceNetwork;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Shuttles.BUIStates;
 using Content.Shared.Shuttles.Events;
@@ -104,7 +103,6 @@ public sealed partial class EmergencyShuttleSystem
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleRepealMessage>(OnEmergencyRepeal);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, EmergencyShuttleRepealAllMessage>(OnEmergencyRepealAll);
         SubscribeLocalEvent<EmergencyShuttleConsoleComponent, ActivatableUIOpenAttemptEvent>(OnEmergencyOpenAttempt);
-        SubscribeLocalEvent<EmergencyShuttleConsoleComponent, GotEmaggedEvent>(OnEmagged); // Goobstation
     }
 
     private void OnEmergencyOpenAttempt(EntityUid uid, EmergencyShuttleConsoleComponent component, ActivatableUIOpenAttemptEvent args)
@@ -115,17 +113,6 @@ public sealed partial class EmergencyShuttleSystem
             args.Cancel();
             _popup.PopupEntity(Loc.GetString("emergency-shuttle-console-no-early-launches"), uid, args.User);
         }
-    }
-
-    private void OnEmagged(EntityUid uid, EmergencyShuttleConsoleComponent component, ref GotEmaggedEvent args) // Goobstation
-    {
-        if (!EarlyLaunch())
-        {
-            args.Handled = false;
-            return;
-        }
-        _logger.Add(LogType.EmergencyShuttle, LogImpact.Extreme, $"{ToPrettyString(args.UserUid):player} emagged shuttle console for early launch");
-        args.Handled = true;
     }
 
     private void SetAuthorizeTime(float obj)
