@@ -183,5 +183,5 @@ public sealed partial class BlindSpellEvent : EntityTargetActionEvent, ISpeakSpe
     public TimeSpan BlurDuration = TimeSpan.FromSeconds(40f);
 
     [DataField]
-    public EntProtoId Effect = "GrenadeFlashEffect";
+    public EntProtoId? Effect = "GrenadeFlashEffect";
 }

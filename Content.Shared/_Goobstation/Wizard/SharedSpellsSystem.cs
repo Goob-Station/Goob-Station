@@ -330,7 +330,8 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (TryComp(ev.Target, out VocalComponent? vocal) && !HasComp<BorgChassisComponent>(ev.Target))
                 Emote(ev.Target, vocal.ScreamId);
 
-            Spawn(ev.Effect, Transform(ev.Target).Coordinates);
+            if (ev.Effect != null)
+                Spawn(ev.Effect.Value, Transform(ev.Target).Coordinates);
         }
 
         _magic.Speak(ev);
