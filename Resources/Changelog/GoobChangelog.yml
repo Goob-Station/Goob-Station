@@ -3589,3 +3589,47 @@ Entries:
       message: Removed pirasmas, it's so over.
   id: 397
   time: '2024-12-27T01:10:25.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: Incendiary rounds now ignite twice as much, but do less direct damage.
+  id: 398
+  time: '2024-12-27T18:22:54.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: Medical pathes can be stored in medical belts.
+  id: 399
+  time: '2024-12-27T18:23:30.0000000+00:00'
+- author: Archylle
+  changes:
+    - type: Add
+      message: Added mining hardsuits to salvage roundstart
+    - type: Add
+      message: Added the spationaut suits to the salvage vendor
+    - type: Add
+      message: 'Added Leviathings and Founders to the VGRoid '
+    - type: Add
+      message: Added a new craftable cloak, the goliath cloak
+    - type: Remove
+      message: Removed spationaut suits from salvage round start
+    - type: Tweak
+      message: Increased the PKA's fire-rate and cooldown
+    - type: Tweak
+      message: maxim has been nerfed in pierce and buffed in blunt.
+    - type: Tweak
+      message: mining hardsuit has been nerfed.
+  id: 400
+  time: '2024-12-27T18:25:10.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: LootBugs.
+  id: 401
+  time: '2024-12-27T18:28:34.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Fixed Gingerbread not taking damage from being splashed with water
+  id: 402
+  time: '2024-12-27T18:37:22.0000000+00:00'
