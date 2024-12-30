@@ -310,10 +310,10 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         // It may otherwise process leftover slots if maxRetries have
         // been reached.
 
-        for (var i = ent.Comp.SelectedSessions.Count; i < targetCount; i++)
+        /* for (var i = ent.Comp.SelectedSessions.Count; i < targetCount; i++)
         {
             MakeAntag(ent, null, def);
-        }
+        } */
         ///// End of Einstein Engines changes /////
     }
 
