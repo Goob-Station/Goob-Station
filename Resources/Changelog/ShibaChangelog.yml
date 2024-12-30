@@ -1,4 +1,31 @@
 Entries:
+- author: AstroDogeDX
+  changes:
+  - message: Certain outerwear sprites were accidentally reverted; they're back in
+      step with Goob now. My bad!
+    type: Fix
+  id: 72
+  time: '2024-12-30T08:16:28.793209'
+- author: AstroDogeDX
+  changes:
+  - message: Giant Tarantulas are now hostile again! PEACE WAS NEVER AN OPTION!
+    type: Fix
+  id: 71
+  time: '2024-12-30T08:13:54.522072'
+- author: AstroDogeDX
+  changes:
+  - message: Event frequency and population requirements have been rebalanced, again...
+      we'll get there eventually.
+    type: Tweak
+  id: 70
+  time: '2024-12-30T08:15:35.778731'
+- author: AstroDogeDX
+  changes:
+  - message: Cleanbots can now move underneath doors and over tables to be better
+      at cleaning. Jani meta has been disrupted, cope and seethe galoshers.
+    type: Tweak
+  id: 69
+  time: '2024-12-30T08:14:32.818406'
 - author: MilonPL (Ported by AstroDogeDX)
   changes:
   - message: Added PDA Messaging! Check your PDA for the NanoChat app and share your
