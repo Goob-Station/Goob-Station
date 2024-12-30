@@ -1,0 +1,146 @@
+# Bingle
+
+- type: entity
+  name: bingle
+  id: MobBingle
+  parent: MobSpaceBasic
+  description: bingle
+  components:
+  - type: Bingle
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      140: Dead # by request
+  - type: MobState
+    allowedStates:
+      - Alive
+      - Dead
+  - type: Bloodstream
+    bloodMaxVolume: 300
+    bloodReagent: Nitrogen # by reequest
+  - type: MeleeWeapon
+    soundHit:
+        path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
+    angle: 0
+    wideAnimationRotation: -135
+    animation: WeaponArcSlash
+    damage:
+      types:
+        Blunt: 7
+        Structural: 20 # breaks down the walls
+    bluntStaminaDamageFactor: 2.0
+  - type: MovementSpeedModifier
+    baseWalkSpeed : 4 # same as slime
+    baseSprintSpeed : 4
+  - type: Stamina
+    critThreshold: 120
+  - type: StaminaDamageOnHit # from stunbaton
+    damage: 15
+    overtime: 40
+    sound: /Audio/Weapons/egloves.ogg
+  - type: Damageable
+    damageContainer: OrganicPart # unsure if this is the right type
+    damageModifierSet: Bingle
+
+- type: damageModifierSet
+  id: Bingle
+  coefficients:
+    Blunt: 0.8  # 20% reduction to all
+    Slash: 0.8
+    Piercing: 0.8
+    Shock: 0.8
+    Heat: 0.8
+    Ion: 2.0 # double damage from ion
+
+- type: entity
+  id: BinglePit
+  name: binglepit
+  description: Looks Hungry
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Sprite
+    drawdepth: Mobs
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base", "movement"]
+      state: tarantula
+      sprite: Mobs/Animals/spider.rsi
+  - type: BinglePit
+  - type: StepTrigger
+    requiredTriggeredSpeed: 0
+    intersectRatio: 0.4
+    blacklist:
+      tags:
+      - Catwalk
+    triggerGroups: # Goobstation
+      types:
+      - Chasm
+  - type: Transform
+    anchored: true
+  - type: Clickable
+  - type: Sprite
+    sprite: Tiles/Planet/Chasms/basalt_chasm.rsi
+    drawdepth: BelowFloor
+    layers:
+    - state: chasm
+  - type: Icon
+    sprite: Tiles/Planet/Chasms/basalt_chasm.rsi
+    state: full
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        layer:
+        - WallLayer
+        mask:
+        - ItemMask
+        density: 1000
+        hard: false
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Metallic
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 300
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  id: SpawnPointGhostBingle
+  name: ghost role spawn point
+  suffix: Bingle
+  parent: MarkerBase
+  components:
+  - type: GhostRole
+    name: ghost-role-information-bingle-name
+    description: ghost-role-information-bingle-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
+  - type: GhostRoleMobSpawner
+    prototype: MobBigle
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Mobs/Animals/bat.rsi
+        state: bat
