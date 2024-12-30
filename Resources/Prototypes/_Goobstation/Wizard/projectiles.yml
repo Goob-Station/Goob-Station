@@ -28,3 +28,10 @@
         Heat: 0
   - type: TimedDespawn
     lifetime: 2
+  - type: Trail
+    frequency: 0.1
+    lifetime: 8
+    lerpAmount: 0.05
+    sprite:
+      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm
