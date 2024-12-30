@@ -39,6 +39,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     #region Dependencies
 
     [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
     [Dependency] protected readonly EntityLookupSystem Lookup = default!;
     [Dependency] protected readonly SharedMapSystem Map = default!;

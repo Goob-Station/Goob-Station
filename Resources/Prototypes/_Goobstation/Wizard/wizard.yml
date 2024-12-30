@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleWizard
+  name: Wizard Role
+  components:
+  - type: MindRole
+    antagPrototype: Wizard
+    exclusiveAntag: true
+  - type: WizardRole
+
+- type: antag
+  id: Wizard
+  name: roles-antag-wizard-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-wizard-description
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 54000 # 15h
+  # guides: [ Wizard ]
+
+- type: startingGear
+  id: WizardGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizard
+    outerClothing: ClothingOuterWizard
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    pocket1: WizardsGrimoire
+
+- type: entity
+  categories: [ HideSpawnMenu, Spawner ]
+  parent: BaseAntagSpawner
+  id: SpawnPointWizard
+  components:
+  - type: GhostRole
+    name: roles-wizard-name
+    description: roles-wizard-objective
+    rules: ghost-role-information-antagonist-rules
+  - type: Sprite
+    sprite: Markers/jobs.rsi
+    layers:
+      - state: green
+      - sprite: Clothing/Head/Hats/wizardhat.rsi
+        state: icon
+
+- type: npcFaction
+  id: Wizard # Not hostile to angry mobs
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Zombie
+    - Revolutionary
+    - Changeling
+    - Heretic
+    - Blob
+
+- type: factionIcon
+  id: WizardFaction
+  isShaded: true
+  priority: 11
+  showTo:
+    components:
+      - ShowAntagIcons
+      - Wizard
+  icon:
+    sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
+    state: wizard

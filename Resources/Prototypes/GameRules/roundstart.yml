@@ -105,6 +105,7 @@
       fallbackRoles: [ Nukeops, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsCommander
       startingGear: SyndicateCommanderGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -122,6 +123,7 @@
       fallbackRoles: [ Nukeops, NukeopsCommander ]
       spawnerPrototype: SpawnPointNukeopsMedic
       startingGear: SyndicateOperativeMedicFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
@@ -141,6 +143,7 @@
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
       playerRatio: 16 # Goobstation
       startingGear: SyndicateOperativeGearFull
+      unequipOldGear: true
       roleLoadout:
       - RoleSurvivalNukie
       components:
