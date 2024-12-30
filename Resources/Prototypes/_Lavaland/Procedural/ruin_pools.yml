@@ -12,10 +12,10 @@
     BiodomeSnow: 2
     GolemShuttle: 2
     ToyShop: 2    
-    Chemistry: 3
+    Chemistry: 2
     LavaLake: 3
-    Graveyard: 6
-    SeedVault: 6
-    Hermit: 6
+    Graveyard: 2
+    SeedVault: 2
+    Hermit: 5
   smallRuins:
-    CommonRuin5x5: 100
+    CommonRuin5x5: 128

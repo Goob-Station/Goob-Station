@@ -6,7 +6,6 @@ using Content.Shared._Lavaland.Shuttles;
 using Content.Shared._Lavaland.Shuttles.Components;
 using Content.Shared._Lavaland.Shuttles.Systems;
 using Content.Server.Station.Components;
-using Content.Server.Station.Systems;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Shuttles.Systems;
 using Content.Shared.Timing;
@@ -23,7 +22,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Initialize()
     {
@@ -33,7 +31,8 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
         SubscribeLocalEvent<UndockEvent>(OnUndock);
         SubscribeLocalEvent<FTLCompletedEvent>(OnFTLCompleted);
 
-        Subs.BuiEvents<DockingConsoleComponent>(DockingConsoleUiKey.Key, subs =>
+        Subs.BuiEvents<DockingConsoleComponent>(DockingConsoleUiKey.Key,
+            subs =>
         {
             subs.Event<BoundUIOpenedEvent>(OnOpened);
             subs.Event<DockingConsoleFTLMessage>(OnFTL);

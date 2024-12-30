@@ -216,12 +216,17 @@ public sealed class LavalandPlanetSystem : EntitySystem
         SetupRuins(pool, lavaland);
 
         // Hide all grids from the mass scanner.
-#if !DEBUG && !TOOLS
+
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
-            _shuttle.AddIFFFlag(grid, IFFFlags.Hide);
+            var flag = IFFFlags.Hide;
+
+            #if DEBUG || TOOLS
+            flag = IFFFlags.HideLabel;
+            #endif
+
+            _shuttle.AddIFFFlag(grid, flag);
         }
-#endif
         // Start!!1!!!
         _mapManager.DoMapInitialize(lavalandMapId);
         _mapManager.SetMapPaused(lavalandMapId, false);
@@ -277,11 +282,12 @@ public sealed class LavalandPlanetSystem : EntitySystem
         random.Shuffle(hugeRuins);
 
         var randomCoords = coords.ToHashSet();
-
-        if (hugeRuins.Count >= coords.Count)
+        var spawnSmallRuins = true;
+        // Cut off ruins if there's not enough places for them
+        if (hugeRuins.Count >= randomCoords.Count)
         {
-            Log.Error("Too many Huge ruins for Lavaland map to handle!");
-            return;
+            hugeRuins.RemoveRange(randomCoords.Count - 1, hugeRuins.Count - randomCoords.Count + 1);
+            spawnSmallRuins = false;
         }
 
         // Try to load everything...
@@ -317,10 +323,12 @@ public sealed class LavalandPlanetSystem : EntitySystem
             newCoords = newCoords.Concat(list).ToHashSet();
         }
 
+        if (newCoords.Count == 0 || !spawnSmallRuins)
+            return;
+
         if (smallRuins.Count >= newCoords.Count)
         {
-            Log.Error("Too many Small ruins for Lavaland map to handle!");
-            return;
+            smallRuins.RemoveRange(newCoords.Count, smallRuins.Count - newCoords.Count);
         }
 
         // Go through all small ruins.
@@ -405,6 +413,9 @@ public sealed class LavalandPlanetSystem : EntitySystem
         out EntityUid? spawned)
     {
         spawned = null;
+        if (coords.Count == 0)
+            return false;
+
         var coord = random.Pick(coords);
 
         // Why there's no method to move the Box2 around???
