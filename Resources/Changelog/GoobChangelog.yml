@@ -3661,3 +3661,23 @@ Entries:
       message: Ore Bags can now be printed in the autolathe.
   id: 406
   time: '2024-12-28T18:00:18.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Literally nothing.
+  id: 407
+  time: '2024-12-29T16:39:45.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Add
+      message: >-
+        Added Playing Cards. You may get them from the Games Vendor or as a
+        trinket in your loadout.
+  id: 408
+  time: '2024-12-29T18:40:06.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: The maximum ling count has been decreased from 7 to 4.
+  id: 409
+  time: '2024-12-30T01:02:04.0000000+00:00'

@@ -10,6 +10,9 @@
 $ignore = @{
     "PJBot" = $true
     "github-actions[bot]" = $true
+    "GoobBot" = $true
+    "GoobBot[bot]" = $true
+    "GoobBot [bot]" = $true
     "ZDDM" = $true
     "TYoung86" = $true
     "paul" = $true # erroneously included -- presumably from PaulRitter, somehow, who is already credited
