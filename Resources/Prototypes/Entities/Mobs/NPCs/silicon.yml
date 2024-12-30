@@ -312,6 +312,17 @@
     size: Large
   - type: StationAiVision # Goobstation - AI can see through NT silicon
     range: 0
+  - type: Fixtures # ShibaStation - let cleanbots go under doors and tables to clean!
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
 
 - type: entity
   parent:
