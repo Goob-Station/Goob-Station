@@ -56,7 +56,7 @@ public sealed class EmagSystem : EntitySystem
             return false;
         }
 
-        var handled = DoEmagEffect(user, target, uid);
+        var handled = DoEmagEffect(user, target, uid); // Goob edit
         if (!handled)
             return false;
 
