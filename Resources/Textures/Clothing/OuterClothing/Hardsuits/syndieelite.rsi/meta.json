@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd, harpy by VMSolidus. Vox state made by Flareguy for SS14, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
+  "copyright": "Taken from tg at commit https://github.com/tgstation/tgstation/commit/3b364b1cea497ccf414539719b6b79f39d42cb1b. Vox state made by Flareguy for SS14, color tweaked by InfinityRedPanda. Grinch by SarahON, harpy by VMSolidus, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord)",
   "size": {
     "x": 32,
     "y": 32
@@ -15,16 +15,8 @@
       "directions": 4
     },
     {
-        "name": "equipped-OUTERCLOTHING-harpy",
-        "directions": 4
-    },
-    {
-        "name": "equipped-OUTERCLOTHING-vox",
-        "directions": 4
-    },
-    {
-        "name": "equipped-OUTERCLOTHING-resomi",
-        "directions": 4
+      "name": "equipped-OUTERCLOTHING-vox",
+      "directions": 4
     },
     {
       "name": "inhand-left",
@@ -32,6 +24,14 @@
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-harpy",
       "directions": 4
     }
   ]
