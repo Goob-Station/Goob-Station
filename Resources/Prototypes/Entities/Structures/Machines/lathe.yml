@@ -251,6 +251,8 @@
       - MagazineBoxHighCaliber # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
