@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared.Body.Part;
 using Content.Shared.Destructible;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -7,7 +6,6 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Storage;
 using Content.Shared.Tag;
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 
 namespace Content.Server.Tools.Innate;

@@ -1,8 +1,7 @@
-using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using JetBrains.Annotations;
 
-// Leaving this one in the default namespace because I am afraid to test it 
+// Leaving this one in the default namespace because I am afraid to test it
 // in the Shitmed namespace lmao.
 namespace Content.Server.Destructible.Thresholds.Behaviors;
 

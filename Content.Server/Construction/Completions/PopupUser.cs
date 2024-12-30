@@ -1,7 +1,6 @@
 using Content.Server.Popups;
 using Content.Shared.Construction;
 using JetBrains.Annotations;
-using Robust.Shared.Player;
 
 namespace Content.Server.Construction.Completions
 {
