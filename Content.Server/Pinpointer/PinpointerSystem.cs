@@ -4,7 +4,6 @@ using System.Linq;
 using System.Numerics;
 using Robust.Shared.Utility;
 using Content.Server.Shuttles.Events;
-using Content.Shared.IdentityManagement;
 
 namespace Content.Server.Pinpointer;
 

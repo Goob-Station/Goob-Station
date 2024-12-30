@@ -1,5 +1,4 @@
 using Content.Server.Xenoarchaeology.XenoArtifacts;
-using Content.Shared.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Content.Shared.EntityEffects;
 

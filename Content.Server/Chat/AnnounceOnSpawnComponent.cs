@@ -1,6 +1,5 @@
 using Content.Server.Chat.Systems;
 using Robust.Shared.Audio;
-using Robust.Shared.Maths;
 
 namespace Content.Server.Chat;
 

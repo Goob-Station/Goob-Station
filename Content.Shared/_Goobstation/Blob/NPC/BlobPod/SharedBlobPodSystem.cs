@@ -3,15 +3,10 @@ using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
-using Content.Shared.Movement.Events;
-using Content.Shared.Movement.Systems;
 using Content.Shared.Verbs;
-using Robust.Shared.Containers;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Blob.NPC.BlobPod;

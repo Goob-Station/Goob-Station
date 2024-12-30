@@ -4,11 +4,9 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Damage;
 using Content.Shared.Atmos;
-using Content.Server.Polymorph.Systems;
 using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
-using Content.Shared.Armor;
 
 namespace Content.Server.Heretic.Abilities;
 

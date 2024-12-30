@@ -1,5 +1,3 @@
-using Content.Server.Station.Systems;
-
 namespace Content.Server.Cargo.Components;
 
 /// <summary>

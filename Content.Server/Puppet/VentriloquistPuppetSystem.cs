@@ -2,7 +2,6 @@ using Content.Server.Ghost.Roles.Components;
 using Content.Server.Popups;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Puppet;
-using Content.Server.Speech.Muting;
 using Content.Shared.CombatMode;
 using Content.Shared.Hands;
 using Content.Shared.Speech.Muting;
