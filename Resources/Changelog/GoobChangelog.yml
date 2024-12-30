@@ -3675,3 +3675,9 @@ Entries:
         trinket in your loadout.
   id: 408
   time: '2024-12-29T18:40:06.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: The maximum ling count has been decreased from 7 to 4.
+  id: 409
+  time: '2024-12-30T01:02:04.0000000+00:00'
