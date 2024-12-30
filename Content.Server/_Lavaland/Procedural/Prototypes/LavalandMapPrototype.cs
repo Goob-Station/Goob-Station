@@ -54,7 +54,6 @@ public sealed partial class LavalandMapPrototype : IPrototype
         "OreQuartz",
         "OreGold",
         "OreSilver",
-        "OreBananium",
         "OrePlasma",
         "OreUranium",
         "OreArtifactFragment",

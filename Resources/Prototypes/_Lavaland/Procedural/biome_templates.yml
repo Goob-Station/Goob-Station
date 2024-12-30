@@ -42,9 +42,7 @@
       allowedTiles:
         - FloorBasalt
       entities:
-        - FloraRockSolid01
-        - FloraRockSolid02
-        - FloraRockSolid03
+        - FloraRockSolid
     - !type:BiomeEntityLayer
       threshold: 0.2
       noise:
