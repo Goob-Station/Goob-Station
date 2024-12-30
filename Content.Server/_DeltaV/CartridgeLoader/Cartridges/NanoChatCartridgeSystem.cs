@@ -134,17 +134,33 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (msg.RecipientNumber == null || msg.Content == null || msg.RecipientNumber == card.Comp.Number)
             return;
 
+        var name = msg.Content;
+        if (!string.IsNullOrWhiteSpace(name))
+        {
+            name = name.Trim();
+            if (name.Length > IdCardConsoleComponent.MaxFullNameLength)
+                name = name[..IdCardConsoleComponent.MaxFullNameLength];
+        }
+
+        var jobTitle = msg.RecipientJob;
+        if (!string.IsNullOrWhiteSpace(jobTitle))
+        {
+            jobTitle = jobTitle.Trim();
+            if (jobTitle.Length > IdCardConsoleComponent.MaxJobTitleLength)
+                jobTitle = jobTitle[..IdCardConsoleComponent.MaxJobTitleLength];
+        }
+
         // Add new recipient
         var recipient = new NanoChatRecipient(msg.RecipientNumber.Value,
-            msg.Content,
-            msg.RecipientJob);
+            name,
+            jobTitle);
 
         // Initialize or update recipient
         _nanoChat.SetRecipient((card, card.Comp), msg.RecipientNumber.Value, recipient);
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Low,
-            $"{ToPrettyString(msg.Actor):user} created new NanoChat conversation with #{msg.RecipientNumber:D4} ({msg.Content})");
+            $"{ToPrettyString(msg.Actor):user} created new NanoChat conversation with #{msg.RecipientNumber:D4} ({name})");
 
         var recipientEv = new NanoChatRecipientUpdatedEvent(card);
         RaiseLocalEvent(ref recipientEv);
@@ -221,10 +237,18 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         if (!EnsureRecipientExists(card, msg.RecipientNumber.Value))
             return;
 
+        var content = msg.Content;
+        if (!string.IsNullOrWhiteSpace(content))
+        {
+            content = content.Trim();
+            if (content.Length > NanoChatMessage.MaxContentLength)
+                content = content[..NanoChatMessage.MaxContentLength];
+        }
+
         // Create and store message for sender
         var message = new NanoChatMessage(
             _timing.CurTime,
-            msg.Content,
+            content,
             (uint)card.Comp.Number
         );
 
@@ -244,7 +268,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat,
             LogImpact.Low,
-            $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {msg.Content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
+            $"{ToPrettyString(card):user} sent NanoChat message to {recipientsText}: {content}{(deliveryFailed ? " [DELIVERY FAILED]" : "")}");
 
         var msgEv = new NanoChatMessageReceivedEvent(card);
         RaiseLocalEvent(ref msgEv);
