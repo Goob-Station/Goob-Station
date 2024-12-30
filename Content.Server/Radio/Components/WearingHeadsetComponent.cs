@@ -1,5 +1,3 @@
-using Content.Server.Radio.EntitySystems;
-
 namespace Content.Server.Radio.Components;
 
 /// <summary>

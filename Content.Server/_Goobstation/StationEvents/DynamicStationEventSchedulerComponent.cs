@@ -1,4 +1,3 @@
-using Content.Server.GameTicking.Rules;
 using Content.Shared.Dataset;
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Prototypes;

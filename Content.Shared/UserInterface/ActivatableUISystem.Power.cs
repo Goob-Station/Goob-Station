@@ -1,7 +1,6 @@
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Item.ItemToggle.Components;
 using Content.Shared.PowerCell;
-using Robust.Shared.Containers;
 
 namespace Content.Shared.UserInterface;
 

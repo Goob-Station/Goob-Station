@@ -1,4 +1,3 @@
-using Content.Server.Flash;
 using Content.Server.Stunnable;
 using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Examine;

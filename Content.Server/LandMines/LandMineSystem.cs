@@ -1,7 +1,6 @@
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.StepTrigger.Systems;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 
 namespace Content.Server.LandMines;

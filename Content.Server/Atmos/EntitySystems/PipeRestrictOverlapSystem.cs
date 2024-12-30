@@ -5,7 +5,6 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Popups;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Atmos;
-using Content.Shared.CCVar;
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Server.GameObjects;
