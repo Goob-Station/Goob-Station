@@ -146,6 +146,19 @@
 
 - type: entity
   parent: BasePDA
+  id: BaseSciencePDA
+  abstract: true
+  components:
+  - type: CartridgeLoader
+    preinstalled:
+      - CrewManifestCartridge
+      - NotekeeperCartridge
+      - NewsReaderCartridge
+      - SciScanCartridge
+      - NanoChatCartridge # DeltaV
+
+- type: entity
+  parent: BasePDA
   id: PassengerPDA
   name: passenger PDA
   description: Why isn't it gray?
