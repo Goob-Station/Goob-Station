@@ -28,6 +28,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Shared.Containers;
 using Content.Client.UserInterface.Systems.Chat;
 using Content.Shared._White;
 using Content.Shared.Chat;
@@ -137,6 +138,7 @@ namespace Content.Client.Popups
                     _replayRecording.RecordClientMessage(new PopupCoordinatesEvent(message, type, GetNetCoordinates(coordinates)));
             }
 
+            // WD EDIT START
             var popupData = new WorldPopupData(message, type, coordinates, entity);
             if (_aliveWorldLabels.TryGetValue(popupData, out var existingLabel))
             {
@@ -152,25 +154,36 @@ namespace Content.Client.Popups
 
             _aliveWorldLabels.Add(popupData, label);
 
-            // WD EDIT START
-            if (!_shouldLogInChat)
-                return;
+            if (_shouldLogInChat &&
+                _playerManager.LocalEntity != null &&
+                _examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
+            {
+                var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
+                var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
+                    ? "#C62828"
+                    : "#AEABC4";
 
-            if (_playerManager.LocalEntity == null)
-                return;
-
-            if (!_examine.InRangeUnOccluded(_playerManager.LocalEntity.Value, coordinates, 10))
-                return;
-
-            var fontsize = FontSizeDict.GetValueOrDefault(type, "10");
-            var fontcolor = type is PopupType.LargeCaution or PopupType.MediumCaution or PopupType.SmallCaution
-                ? "#C62828"
-                : "#AEABC4";
-
-            var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
-            var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
-            _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
+                var wrappedMessage = $"[font size={fontsize}][color={fontcolor}]{message}[/color][/font]";
+                var chatMsg = new ChatMessage(ChatChannel.Emotes, message, wrappedMessage, GetNetEntity(EntityUid.Invalid), null);
+                _uiManager.GetUIController<ChatUIController>().ProcessChatMessage(chatMsg);
+            }
             // WD EDIT END
+
+            var popupData = new WorldPopupData(message, type, coordinates, entity);
+            if (_aliveWorldLabels.TryGetValue(popupData, out var existingLabel))
+            {
+                WrapAndRepeatPopup(existingLabel, popupData.Message);
+                return;
+            }
+
+            var label = new WorldPopupLabel(coordinates)
+            {
+                Text = message,
+                Type = type,
+            };
+
+            _aliveWorldLabels.Add(popupData, label);
+
         }
 
         #region Abstract Method Implementations
