@@ -1,0 +1,27 @@
+- type: entity
+  name: Null Rod
+  parent: BaseItem
+  id: NullRod
+  description: A rod of pure obsidian, its very presence disrupts and dampens the powers of Nar-Sie's followers.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/nullrod.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 1
+    heavyStaminaCost: 10
+    damage:
+      types:
+        Blunt: 15
+        Holy: 25
+    soundHit:
+      collection: MetalThud
+  - type: Item
+    size: Small
+    sprite: _Goobstation/Objects/Weapons/Melee/nullrod.rsi
+  - type: Tool
+    qualities:
+    - Rolling
+    speedModifier: 0.75 # a bit unwieldly but does the job
+  #ToDo: Make the user of a Null Rod be immune to some cult magic.
