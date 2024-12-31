@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
@@ -50,8 +51,24 @@ public abstract class SharedBindSoulSystem : EntitySystem
         SubscribeLocalEvent<PhylacteryComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<PhylacteryComponent, ExaminedEvent>(OnExamined);
 
+        SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
+
         SubscribeLocalEvent<SoulBoundComponent, MindGotAddedEvent>(OnMindGetAdded);
         SubscribeLocalEvent<SoulBoundComponent, MindGotRemovedEvent>(OnMindGetRemoved);
+    }
+
+    private void OnMobStateChanged(MobStateChangedEvent ev)
+    {
+        if (ev.NewMobState != MobState.Dead)
+            return;
+
+        var mapUid = Transform(ev.Target).MapUid;
+
+        if (!Mind.TryGetMind(ev.Target, out var mind, out var mindComponent) ||
+            !TryComp(mind, out SoulBoundComponent? soulBound) || !ItemExistsAndOnSamePlane(soulBound.Item, mapUid))
+            return;
+
+        Mind.TransferTo(mind, null, mind: mindComponent);
     }
 
     private void OnMindGetRemoved(Entity<SoulBoundComponent> ent, ref MindGotRemovedEvent args)
@@ -74,12 +91,15 @@ public abstract class SharedBindSoulSystem : EntitySystem
                 targetPart: TargetBodyPart.Torso);
         }
 
+        if (!TerminatingOrDeleted(args.Container) && !EntityManager.IsQueuedForDeletion(args.Container))
+            QueueDel(args.Container);
+
         var item = ent.Comp.Item;
 
-        if (!TryComp(item, out TransformComponent? itemXform) || itemXform.MapUid != xform.MapUid)
+        if (!ItemExistsAndOnSamePlane(item, xform.MapUid))
             return;
 
-        var itemCoords = TransformSystem.GetMapCoordinates(item.Value, itemXform);
+        var itemCoords = TransformSystem.GetMapCoordinates(item.Value);
         var particle = Spawn(ParticlePrototype, coords);
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
@@ -87,6 +107,11 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);
+    }
+
+    private bool ItemExistsAndOnSamePlane([NotNullWhen(true)] EntityUid? item, EntityUid? mapUid)
+    {
+        return TryComp(item, out TransformComponent? xform) && xform.MapUid != null && xform.MapUid == mapUid;
     }
 
     private void OnMindGetAdded(Entity<SoulBoundComponent> ent, ref MindGotAddedEvent args)
