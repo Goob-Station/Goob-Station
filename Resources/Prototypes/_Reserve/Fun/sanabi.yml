@@ -1,0 +1,15 @@
+- type: entity
+  parent: BasePlushie
+  id: PlushieSanabi
+  name: плюшевый генерал бригадир
+  description: Важно дойти до конца!
+  components:
+  - type: Sprite
+    sprite: _Reserve/Fun/sanabi.rsi
+    state: sanabi
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: sanabi-inhand-left
+      right:
+      - state: sanabi-inhand-right
