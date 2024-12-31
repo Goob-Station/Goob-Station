@@ -1,0 +1,10 @@
+- type: entity
+  name: dualetta kit
+  parent: BoxCardboard
+  id: BoxDualettaKit
+  description: A box full of completely legal stuff.
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolDualetta
+        amount: 2

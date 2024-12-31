@@ -1,0 +1,21 @@
+- type: entity
+  id: BriefcaseSyndieDualettaBundleFilled
+  parent: BriefcaseSyndie
+  suffix: Syndicate, Dualetta Bundle
+  components:
+  - type: Item
+    size: Ginormous
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,6,3
+  - type: StorageFill
+    contents:
+      - id: WeaponPistolDualetta
+      - id: WeaponPistolDualetta
+      - id: MagazinePistolHighCapacity
+      - id: MagazinePistolHighCapacity
+      - id: ClothingHandsGlovesCombat
+      - id: ClothingUniformJumpsuitDetectiveGrey
+      - id: ClothingOuterCoatDetectiveLoadout
+      - id: ClothingShoesBootsLaceup

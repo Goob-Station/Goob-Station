@@ -137,6 +137,28 @@
       tags:
       - NukeOpsUplink
 
+- type: listing
+  id: UplinkDualettaBundle
+  name: uplink-dualetta-bundle-name
+  description: uplink-dualetta-bundle-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BriefcaseSyndieDualettaBundleFilled
+  cost:
+    Telecrystal: 50
+  categories:
+  - UplinkWeaponry
+
+- type: listing
+  id: UplinkDualettaKit
+  name: uplink-dualetta-kit-name
+  description: uplink-dualetta-kit-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Pistols/Dualetta.rsi, state: icon }
+  productEntity: BoxDualettaKit
+  cost:
+    Telecrystal: 30
+  categories:
+  - UplinkWeaponry
+
 # Wearables
 
 - type: listing
@@ -428,6 +450,17 @@
   productEntity: MagazineRifle
   cost:
     Telecrystal: 6 # Slightly more expensive than C20 mag due to more total damage
+  categories:
+  - UplinkAmmo
+
+- type: listing
+  id: UplinkHighCapacityMagazinePistol
+  name: uplink-highcap-pistol-mag-name
+  description: uplink-highcap-pistol-mag-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_high_capacity_mag.rsi, state: red }
+  productEntity: MagazinePistolHighCapacity
+  cost:
+    Telecrystal: 3
   categories:
   - UplinkAmmo
 
