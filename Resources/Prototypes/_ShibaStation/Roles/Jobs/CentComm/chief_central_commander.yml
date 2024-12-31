@@ -1,0 +1,16 @@
+- type: startingGear
+  id: ChiefCentralCommanderGear
+  equipment:
+    jumpsuit: CentcomAgentSkirt
+    back: ClothingBackpackSatchelHolding
+    shoes: ClothingShoesChameleonNoSlips
+    eyes: ClothingEyesGlassesMedSec
+    gloves: ClothingHandsGlovesCaptain
+    outerClothing: ClothingBlueshieldArmourVest
+    id: CentcomPDA
+    ears: ClothingHeadsetAltCentCom
+    head: ClothingHeadHatCentcomcap
+    neck: ClothingNeckCloakCentcom
+    belt: ClothingBeltSheathFilled
+    suitstorage: WeaponPulseCarbine
+    pocket1: SonicScrewdriver
