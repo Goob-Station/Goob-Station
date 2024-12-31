@@ -560,10 +560,10 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
-        probability: 0.3
+        probability: 1
         damage:
           types:
-            Heat: 0.5
+            Heat: 0.25
       - !type:ChemVomit
         probability: 0.15
         conditions:
@@ -575,6 +575,7 @@
       - !type:GenericStatusEffect
         key: PressureImmunity
         component: PressureImmunity
+        refresh: false
       - !type:GenericStatusEffect
         key: Stutter
         component: StutteringAccent

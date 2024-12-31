@@ -5,6 +5,7 @@
       amount: 1
     Plasma:
       amount: 1
+      catalyst: true
     Potassium:
       amount: 1
     Bicaridine:
