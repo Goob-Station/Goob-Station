@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
@@ -563,12 +564,18 @@ public abstract class SharedMagicSystem : EntitySystem
 
         var tarHasMind = _mind.TryGetMind(ev.Target, out var tarMind, out var tarMindComp);
 
+        _tag.AddTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.AddTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+
         _mind.TransferTo(perMind, ev.Target);
 
         if (tarHasMind)
         {
             _mind.TransferTo(tarMind, ev.Performer);
         }
+
+        _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
+        _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
         _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
         _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);

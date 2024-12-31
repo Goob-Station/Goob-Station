@@ -28,6 +28,9 @@
 - type: Tag
   id: BindSoulAction
 
+- type: Tag
+  id: IgnoreBindSoul
+
 # Mechs
 
 - type: Tag

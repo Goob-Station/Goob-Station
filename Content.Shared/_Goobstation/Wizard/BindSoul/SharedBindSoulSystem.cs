@@ -33,6 +33,8 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] private   readonly IPrototypeManager _proto = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
+    public static readonly ProtoId<TagPrototype> IgnoreBindSoulTag = "IgnoreBindSoul"; // Goobstation
+
     private static readonly ProtoId<TagPrototype> ActionTag = "BindSoulAction";
 
     private static readonly EntProtoId ParticlePrototype = "BindSoulParticle";
@@ -54,7 +56,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
     private void OnMindGetRemoved(Entity<SoulBoundComponent> ent, ref MindGotRemovedEvent args)
     {
-        if (HasComp<GhostComponent>(args.Container))
+        if (_net.IsClient || _tag.HasTag(args.Container, IgnoreBindSoulTag) || HasComp<GhostComponent>(args.Container))
             return;
 
         var xform = Transform(args.Container);
@@ -74,7 +76,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
         var item = ent.Comp.Item;
 
-        if (_net.IsClient || !TryComp(item, out TransformComponent? itemXform) || itemXform.MapUid != xform.MapUid)
+        if (!TryComp(item, out TransformComponent? itemXform) || itemXform.MapUid != xform.MapUid)
             return;
 
         var itemCoords = TransformSystem.GetMapCoordinates(item.Value, itemXform);
