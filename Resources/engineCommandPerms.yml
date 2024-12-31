@@ -93,7 +93,7 @@
   - tp
   - tpto
 
-- Flags: FULLADMIN
+- Flags: FULLADMIN # Goobstation (and every setting in this flag)
   Commands:
   - self
   - entities
