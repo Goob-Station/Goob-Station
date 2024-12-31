@@ -132,3 +132,7 @@
 
 - type: Tag
   id: MagazineMagnumLeverRifle
+  
+- type: Tag
+  id: WeaponPistolDualetta
+
