@@ -261,8 +261,30 @@
         - BodyPart
         - Organ
         - TimedDespawn
+        - Godmode
   - type: Magic
     requiresSpeech: true
   - type: Tag
     tags:
       - BindSoulAction
+
+- type: entity
+  id: ActionMutateSpell
+  name: Mutate
+  description: Causes you to turn into a hulk and gain laser vision for a short while.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/mutate.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mutate
+    event: !type:MutateSpellEvent
+      speech: action-speech-spell-mutate
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true

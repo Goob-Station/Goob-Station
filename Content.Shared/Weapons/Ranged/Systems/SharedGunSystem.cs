@@ -92,6 +92,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         InitializeClothing();
         InitializeContainer();
         InitializeSolution();
+        InitializeBasicHitScan(); // Goobstation
 
         // Interactions
         SubscribeLocalEvent<GunComponent, GetVerbsEvent<AlternativeVerb>>(OnAltVerb);
@@ -589,6 +590,21 @@ public abstract partial class SharedGunSystem : EntitySystem
         var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
         targeted.Target = target;
         Dirty(projectile, targeted);
+    }
+
+    public void SetFireRate(GunComponent component, float fireRate) // Goobstation
+    {
+        component.FireRate = fireRate;
+    }
+
+    public void SetUseKey(GunComponent component, bool useKey) // Goobstation
+    {
+        component.UseKey = useKey;
+    }
+
+    public void SetSoundGunshot(GunComponent component, SoundSpecifier? sound) // Goobstation
+    {
+        component.SoundGunshot = sound;
     }
 
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);

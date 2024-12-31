@@ -1,0 +1,63 @@
+using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Systems;
+using Content.Shared.Slippery;
+using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Prototypes;
+
+namespace Content.Shared._Goobstation.Wizard.Mutate;
+
+public abstract class SharedHulkSystem : EntitySystem
+{
+    [Dependency] private readonly IPrototypeManager _prototype = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<HulkComponent, BeforeStaminaDamageEvent>(OnBeforeStaminaDamage);
+        SubscribeLocalEvent<HulkComponent, BeforeStatusEffectAddedEvent>(OnBeforeStatusEffect);
+        SubscribeLocalEvent<HulkComponent, SlipAttemptEvent>(OnSlipAttempt);
+        SubscribeLocalEvent<HulkComponent, MeleeHitEvent>(OnMeleeHit);
+        SubscribeLocalEvent<HulkComponent, ComponentStartup>(OnStartup);
+    }
+
+    private void OnStartup(Entity<HulkComponent> ent, ref ComponentStartup args)
+    {
+        ent.Comp.StructuralDamage ??= new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Structural"), 80f);
+    }
+
+    private void OnMeleeHit(Entity<HulkComponent> ent, ref MeleeHitEvent args)
+    {
+        args.BonusDamage = args.BaseDamage * ent.Comp.FistDamageMultiplier;
+        if (ent.Comp.StructuralDamage != null)
+            args.BonusDamage += ent.Comp.StructuralDamage;
+
+        if (args.HitEntities.Count > 0)
+            Roar(ent);
+    }
+
+    private void OnSlipAttempt(Entity<HulkComponent> ent, ref SlipAttemptEvent args)
+    {
+        args.NoSlip = true;
+    }
+
+    private void OnBeforeStatusEffect(Entity<HulkComponent> ent, ref BeforeStatusEffectAddedEvent args)
+    {
+        if (args.Key is not ("KnockedDown" or "Stun"))
+            return;
+
+        Roar(ent, 1f);
+        args.Cancelled = true;
+    }
+
+    private void OnBeforeStaminaDamage(Entity<HulkComponent> ent, ref BeforeStaminaDamageEvent args)
+    {
+        args.Cancelled = true;
+    }
+
+    public virtual void Roar(Entity<HulkComponent> hulk, float prob = 0.2f)
+    {
+    }
+}

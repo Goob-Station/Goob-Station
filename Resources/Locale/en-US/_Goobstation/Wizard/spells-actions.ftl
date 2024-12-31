@@ -7,3 +7,4 @@ action-speech-spell-stop-time = TOKI YO TOMARE
 action-speech-spell-corpse-explosion = JAH ITH BER
 action-speech-spell-blind = STI KALY
 action-speech-spell-bind-soul = NECREM IMORTIUM!
+action-speech-spell-mutate = BIRUZ BENNAR

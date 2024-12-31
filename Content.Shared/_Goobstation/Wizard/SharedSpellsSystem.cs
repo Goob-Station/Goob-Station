@@ -1,5 +1,6 @@
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
@@ -88,6 +89,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
+        SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
+        SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
     }
 
     #region Spells
@@ -427,6 +430,25 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnPolymorph(PolymorphSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        ev.Handled = Polymorph(ev);
+    }
+
+    private void OnMutate(MutateSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        EnsureComp<HulkComponent>(ev.Performer).Duration = ev.Duration;
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -493,6 +515,11 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent)
     {
+    }
+
+    protected virtual bool Polymorph(PolymorphSpellEvent ev)
+    {
+        return true;
     }
 
     #endregion

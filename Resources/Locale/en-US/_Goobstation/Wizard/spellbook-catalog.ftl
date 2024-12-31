@@ -54,3 +54,8 @@ spellbook-bind-soul-name = Bind Soul
 spellbook-bind-soul-desc =
     A spell that binds your soul to an item in your hands. Binding your soul to an item will turn you into an immortal Lich. So long as the item remains intact and is on the same plane as your dead body, you will revive from death, no matter the circumstances.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-mutate-name = Mutate
+spellbook-mutate-desc =
+    Temporarily transforms you into a stun-immune hulk, capable of destroying walls with their massive strength and of shooting lasers using their massive minds.
+    Requires wizard's robe and hat to cast.

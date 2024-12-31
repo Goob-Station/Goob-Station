@@ -6,6 +6,7 @@ using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
 using Content.Server.Inventory;
+using Content.Server.Polymorph.Systems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Wizard;
@@ -32,6 +33,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly PolymorphSystem _polymorph = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -197,5 +199,24 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
 
         _antag.SendBriefing(mindComponent.Session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
+    }
+
+    protected override bool Polymorph(PolymorphSpellEvent ev)
+    {
+        if (ev.ProtoId == null)
+            return false;
+
+        var newEnt = _polymorph.PolymorphEntity(ev.Performer, ev.ProtoId.Value);
+
+        if (newEnt == null)
+            return false;
+
+        if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
+            EnsureComp<WizardComponent>(newEnt.Value);
+
+        if (ev.Speech != null)
+            _chat.TrySendInGameICMessage(newEnt.Value, Loc.GetString(ev.Speech), InGameICChatType.Speak, false);
+
+        return true;
     }
 }

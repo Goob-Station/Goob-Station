@@ -211,3 +211,24 @@ public sealed partial class BindSoulEvent : InstantActionEvent, ISpeakSpell
         {"outerClothing", "ClothingOuterWizardBlack"},
     };
 }
+
+public sealed partial class PolymorphSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public ProtoId<PolymorphPrototype>? ProtoId;
+
+    [DataField]
+    public bool MakeWizard = true;
+}
+
+public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public float Duration = 30f;
+}
