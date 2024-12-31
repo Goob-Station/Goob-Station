@@ -99,6 +99,8 @@ public struct NanoChatRecipient
 [Serializable, NetSerializable, DataRecord]
 public struct NanoChatMessage
 {
+    public const int MaxContentLength = 256;
+
     /// <summary>
     ///     When the message was sent.
     /// </summary>
