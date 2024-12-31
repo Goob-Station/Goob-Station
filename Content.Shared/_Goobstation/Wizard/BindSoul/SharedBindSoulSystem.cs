@@ -9,7 +9,6 @@ using Content.Shared.Ghost;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -82,14 +81,12 @@ public abstract class SharedBindSoulSystem : EntitySystem
         Dirty(ent);
 
         var coords = TransformSystem.GetMapCoordinates(args.Container, xform);
-        if (TryComp(args.Container, out MobStateComponent? mobState) && mobState.CurrentState != MobState.Dead)
-        {
-            _damageable.TryChangeDamage(args.Container,
-                new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 1000),
-                true,
-                false,
-                targetPart: TargetBodyPart.Torso);
-        }
+
+        _damageable.TryChangeDamage(args.Container,
+            new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 1000),
+            true,
+            false,
+            targetPart: TargetBodyPart.Torso);
 
         if (!TerminatingOrDeleted(args.Container) && !EntityManager.IsQueuedForDeletion(args.Container))
             QueueDel(args.Container);
