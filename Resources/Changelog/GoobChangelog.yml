@@ -3701,3 +3701,11 @@ Entries:
       message: Added PDA messaging!
   id: 412
   time: '2024-12-31T00:33:20.0000000+00:00'
+- author: ScyronX
+  changes:
+    - type: Add
+      message: >-
+        Added dualetta, a weapon that can only be fired when dual wielded with
+        another dualetta.
+  id: 413
+  time: '2024-12-31T03:08:57.0000000+00:00'
