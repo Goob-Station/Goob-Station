@@ -3721,3 +3721,11 @@ Entries:
       message: Standard Operating Procedure is here!
   id: 415
   time: '2024-12-31T22:58:50.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added 'FullAdmin' Permissions to give 'Self' and 'Entities' permissions
+        to Game Admins and higher.
+  id: 416
+  time: '2024-12-31T23:02:55.0000000+00:00'
