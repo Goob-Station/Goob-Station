@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
@@ -16,7 +17,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Wizard.BindSoul;
 
@@ -121,14 +121,14 @@ public abstract class SharedBindSoulSystem : EntitySystem
         if (!TryComp(uid, out ActionsContainerComponent? container))
             return;
 
-        var action = container.Container.ContainedEntities.FirstOrNull(x => _tag.HasTag(x, ActionTag));
+        var delay = TimeSpan.FromMinutes(3) + TimeSpan.FromSeconds(30) * comp.ResurrectionsCount;
 
-        if (action == null)
-            return;
-
-        _actions.SetUseDelay(action.Value,
-            TimeSpan.FromMinutes(3) + TimeSpan.FromSeconds(30) * comp.ResurrectionsCount);
-        _actions.StartUseDelay(action.Value);
+        var actions = container.Container.ContainedEntities.Where(x => _tag.HasTag(x, ActionTag));
+        foreach (var action in actions)
+        {
+            _actions.SetUseDelay(action, delay);
+            _actions.StartUseDelay(action);
+        }
     }
 
     private void OnExamined(Entity<PhylacteryComponent> ent, ref ExaminedEvent args)

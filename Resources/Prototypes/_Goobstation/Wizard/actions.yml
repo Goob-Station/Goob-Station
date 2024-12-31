@@ -257,6 +257,10 @@
         - MobState
         - NukeDisk
         - VirtualItem
+        - Body
+        - BodyPart
+        - Organ
+        - TimedDespawn
   - type: Magic
     requiresSpeech: true
   - type: Tag
