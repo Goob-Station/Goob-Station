@@ -232,3 +232,33 @@
       speech: action-speech-spell-blind
   - type: Magic
     requiresSpeech: true
+
+- type: entity
+  id: ActionBindSoul
+  name: Bind Soul
+  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    checkConsciousness: false
+    allowGhostAction: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: skeleton
+    event: !type:BindSoulEvent
+      speech: action-speech-spell-bind-soul
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/pope_entry.ogg
+      blacklist:
+        components:
+        - MobState
+        - NukeDisk
+        - VirtualItem
+  - type: Magic
+    requiresSpeech: true
+  - type: Tag
+    tags:
+      - BindSoulAction

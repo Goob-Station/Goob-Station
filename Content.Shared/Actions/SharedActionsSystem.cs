@@ -4,6 +4,7 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Actions.Events;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
+using Content.Shared.Ghost;
 using Content.Shared.Hands;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -867,9 +868,11 @@ public abstract class SharedActionsSystem : EntitySystem
 
         performer.Comp ??= EnsureComp<ActionsComponent>(performer);
 
+        var ghost = HasComp<GhostComponent>(performer); // Goobstation
+
         foreach (var actionId in container.Comp.Container.ContainedEntities)
         {
-            if (TryGetActionData(actionId, out var action))
+            if (TryGetActionData(actionId, out var action) && (!ghost || action.AllowGhostAction)) // Goob edit
                 AddActionDirect(performer, actionId, performer.Comp, action);
         }
     }

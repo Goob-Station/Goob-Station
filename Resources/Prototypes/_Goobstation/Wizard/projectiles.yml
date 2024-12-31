@@ -30,8 +30,52 @@
     lifetime: 2
   - type: Trail
     frequency: 0.1
-    lifetime: 8
+    lifetime: 0.8
     lerpAmount: 0.05
     sprite:
       sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+
+- type: entity
+  id: BindSoulParticle
+  name: unholy energy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    drawdepth: Effects
+    noRot: false
+    sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+    layers:
+    - state: icon
+  - type: TimedDespawn
+  - type: Trail
+    frequency: 0.2
+    lifetime: 2
+    lerpAmount: 0.02
+    sprite:
+      sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+      state: icon
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.1
+        hard: false
+  - type: HomingProjectile
+    homingSpeed: null

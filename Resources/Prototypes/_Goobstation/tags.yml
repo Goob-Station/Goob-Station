@@ -25,6 +25,9 @@
 - type: Tag
   id: FrozenIgnoreMindAction
 
+- type: Tag
+  id: BindSoulAction
+
 # Mechs
 
 - type: Tag

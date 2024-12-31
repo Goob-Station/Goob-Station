@@ -1,4 +1,5 @@
 using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
@@ -11,10 +12,14 @@ using Content.Shared.Damage;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
@@ -26,6 +31,8 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
@@ -45,6 +52,11 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedMapSystem Map = default!;
     [Dependency] protected readonly SharedStunSystem Stun = default!;
     [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
+    [Dependency] protected readonly SharedMindSystem Mind = default!;
+    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] protected readonly SharedHandsSystem Hands = default!;
+    [Dependency] protected readonly MetaDataSystem Meta = default!;
+    [Dependency] protected readonly SharedBodySystem Body = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
@@ -54,9 +66,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private   readonly SharedBodySystem _body = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;
+    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
 
     #endregion
 
@@ -74,6 +87,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
         SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
         SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
+        SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
     }
 
     #region Spells
@@ -263,7 +277,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var coords = TransformSystem.GetMapCoordinates(ev.Target);
 
         if (_timing.IsFirstTimePredicted)
-            _body.GibBody(ev.Target, contents: GibContentsOption.Gib);
+            Body.GibBody(ev.Target, contents: GibContentsOption.Gib);
 
         ExplodeCorpse(ev);
 
@@ -339,11 +353,88 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnBindSoul(BindSoulEvent ev)
+    {
+        if (ev.Handled)
+            return;
+
+        if (_mobState.IsCritical(ev.Performer))
+            return;
+
+        if (!Mind.TryGetMind(ev.Performer, out var mind, out var mindComponent))
+            return;
+
+        TryComp<SoulBoundComponent>(mind, out var soulBound);
+
+        if (Mind.IsCharacterDeadIc(mindComponent))
+        {
+            if (soulBound == null)
+            {
+                _popup.PopupClient(Loc.GetString("spell-fail-soul-not-bound"), ev.Performer, ev.Performer);
+                return;
+            }
+
+            if (!HasComp<PhylacteryComponent>(soulBound.Item))
+            {
+                _popup.PopupClient(Loc.GetString("spell-fail-item-destroyed"), ev.Performer, ev.Performer);
+                return;
+            }
+
+            if (!TryComp(soulBound.Item, out TransformComponent? xform) || xform.MapUid == null ||
+                xform.MapUid != soulBound.MapId)
+            {
+                _popup.PopupClient(Loc.GetString("spell-fail-item-on-another-plane"), ev.Performer, ev.Performer);
+                return;
+            }
+
+            _bindSoul.Resurrect(mind, soulBound.Item.Value, mindComponent, soulBound);
+            ev.Handled = true;
+            return;
+        }
+
+        if (soulBound != null)
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-no-soul"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        if (!_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!TryComp(ev.Performer, out HandsComponent? hands) || hands.ActiveHandEntity == null)
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-no-held-entity"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        var item = hands.ActiveHandEntity.Value;
+
+        if (HasComp<UnremoveableComponent>(item) || !HasComp<ItemComponent>(item))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-unremoveable", ("item", item)), ev.Performer, ev.Performer);
+            return;
+        }
+
+        if (_whitelist.IsValid(ev.Blacklist, item))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-soul-item-not-suitable", ("item", item)),
+                ev.Performer,
+                ev.Performer);
+            return;
+        }
+
+        BindSoul(ev, item, mind, mindComponent);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
 
-    private void SetGear(EntityUid uid, Dictionary<string, EntProtoId> gear, bool makeUnremoveable = true)
+    protected void SetGear(EntityUid uid,
+        Dictionary<string, EntProtoId> gear,
+        bool force = true,
+        bool makeUnremoveable = true)
     {
         if (_net.IsClient)
             return;
@@ -353,10 +444,10 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         foreach (var (slot, item) in gear)
         {
-            _inventory.TryUnequip(uid, slot, true, true, false, inventoryComponent);
+            _inventory.TryUnequip(uid, slot, true, force, false, inventoryComponent);
 
             var ent = Spawn(item, Transform(uid).Coordinates);
-            if (!_inventory.TryEquip(uid, ent, slot, true, true, false, inventoryComponent))
+            if (!_inventory.TryEquip(uid, ent, slot, true, force, false, inventoryComponent))
             {
                 Del(ent);
                 continue;
@@ -397,6 +488,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void Emote(EntityUid uid, string emoteId)
+    {
+    }
+
+    protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent)
     {
     }
 

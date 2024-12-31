@@ -129,3 +129,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookBindSoul
+  name: spellbook-bind-soul-name
+  description: spellbook-bind-soul-desc
+  productAction: ActionBindSoul
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

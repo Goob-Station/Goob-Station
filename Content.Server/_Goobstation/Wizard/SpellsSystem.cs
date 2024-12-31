@@ -1,15 +1,21 @@
 using System.Numerics;
 using Content.Server.Abilities.Mime;
+using Content.Server.Antag;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.Inventory;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
 using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Gibbing.Events;
 using Content.Shared.Maps;
+using Content.Shared.Mind;
+using Content.Shared.Mind.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -24,6 +30,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly GravityWellSystem _gravityWell = default!;
     [Dependency] private readonly ExplosionSystem _explosion = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly ServerInventorySystem _inventory = default!;
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -138,5 +146,56 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Emote(uid, emoteId);
 
         _chat.TryEmoteWithChat(uid, emoteId);
+    }
+
+    protected override void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent)
+    {
+        base.BindSoul(ev, item, mind, mindComponent);
+
+        var xform = Transform(ev.Performer);
+        var meta = MetaData(ev.Performer);
+
+        var mapId = xform.MapUid;
+
+        var newEntity = Spawn(ev.Entity,
+            TransformSystem.GetMapCoordinates(ev.Performer, xform),
+            rotation: TransformSystem.GetWorldRotation(ev.Performer));
+
+        if (Container.TryGetContainingContainer((ev.Performer, xform, meta), out var cont))
+            Container.Insert(newEntity, cont);
+
+        _inventory.TransferEntityInventories(ev.Performer, newEntity);
+        foreach (var hand in Hands.EnumerateHeld(ev.Performer))
+        {
+            Hands.TryDrop(ev.Performer, hand, checkActionBlocker: false);
+            Hands.TryPickupAnyHand(newEntity, hand);
+        }
+
+        var name = meta.EntityName;
+
+        Meta.SetEntityName(newEntity, name);
+
+        SetGear(newEntity, ev.Gear, false, false);
+
+        Mind.TransferTo(mind, newEntity, mind: mindComponent);
+
+        Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
+
+        RemCompDeferred<TransferMindOnGibComponent>(newEntity);
+        EnsureComp<WizardComponent>(newEntity);
+        EnsureComp<PhylacteryComponent>(item);
+        var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
+        soulBound.Name = name;
+        soulBound.Item = item;
+        soulBound.MapId = mapId;
+        AddComp(mind, soulBound, true);
+
+        if (ev.Speech != null)
+            _chat.TrySendInGameICMessage(newEntity, Loc.GetString(ev.Speech), InGameICChatType.Speak, false);
+
+        if (mindComponent.Session == null)
+            return;
+
+        _antag.SendBriefing(mindComponent.Session, Loc.GetString("lich-greeting"), Color.DarkRed, ev.Sound);
     }
 }

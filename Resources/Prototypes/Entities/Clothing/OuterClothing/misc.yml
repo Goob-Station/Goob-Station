@@ -200,7 +200,7 @@
   parent: ClothingOuterWizardBase
   id: ClothingOuterWizardRed
   name: red wizard robes
-  description: Strange-looking, red, hat-wear that most certainly belongs to a real magic user.
+  description: A bizarre gem-encrusted red robe that radiates magical energies. # Goob edit
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/Misc/redwizard.rsi

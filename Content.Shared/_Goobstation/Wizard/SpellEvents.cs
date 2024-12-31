@@ -3,8 +3,12 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Magic;
+using Content.Shared.Polymorph;
 using Content.Shared.Roles;
 using Content.Shared.Singularity.EntitySystems;
+using Content.Shared.Tag;
+using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Wizard;
@@ -184,4 +188,26 @@ public sealed partial class BlindSpellEvent : EntityTargetActionEvent, ISpeakSpe
 
     [DataField]
     public EntProtoId? Effect = "GrenadeFlashEffect";
+}
+
+public sealed partial class BindSoulEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntityWhitelist Blacklist;
+
+    [DataField]
+    public EntProtoId Entity = "MobSkeletonPerson";
+
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"head", "ClothingHeadHatBlackwizard"},
+        {"outerClothing", "ClothingOuterWizardBlack"},
+    };
 }

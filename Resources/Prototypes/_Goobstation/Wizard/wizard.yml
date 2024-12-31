@@ -19,16 +19,6 @@
     time: 54000 # 15h
   # guides: [ Wizard ]
 
-- type: startingGear
-  id: WizardGear
-  equipment:
-    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    head: ClothingHeadHatWizard
-    outerClothing: ClothingOuterWizard
-    shoes: ClothingShoesWizard
-    back: ClothingBackpack
-    pocket1: WizardsGrimoire
-
 - type: entity
   categories: [ HideSpawnMenu, Spawner ]
   parent: BaseAntagSpawner

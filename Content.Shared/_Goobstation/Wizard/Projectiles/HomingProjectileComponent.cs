@@ -8,7 +8,7 @@ public sealed partial class HomingProjectileComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid Target;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float? HomingSpeed = 180f;
 
     [DataField]
