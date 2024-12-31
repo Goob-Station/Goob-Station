@@ -63,7 +63,8 @@ public sealed partial class GenericStatusEffect : EntityEffect
     protected override string? ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys) => Loc.GetString(
         "reagent-effect-guidebook-status-effect",
         ("chance", Probability),
-        ("type", Type),
+        // If duration is refreshed, functionally it behaves the same as Set. Temporary fix till upstream fixes locstrings.
+        ("type", Refresh ? StatusEffectMetabolismType.Set : Type),
         ("time", Time),
         ("key", $"reagent-effect-status-effect-{Key}"));
 }
