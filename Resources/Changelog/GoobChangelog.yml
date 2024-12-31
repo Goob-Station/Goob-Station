@@ -3709,3 +3709,9 @@ Entries:
         another dualetta.
   id: 413
   time: '2024-12-31T03:08:57.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed borgs not being able to target limbs.
+  id: 414
+  time: '2024-12-31T03:09:59.0000000+00:00'
