@@ -580,6 +580,9 @@
         key: Stutter
         component: StutteringAccent
         refresh: false
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.9
+        sprintSpeedModifier: 0.9
       - !type:Jitter
       - !type:Emote
         conditions:
