@@ -3715,3 +3715,9 @@ Entries:
       message: Fixed borgs not being able to target limbs.
   id: 414
   time: '2024-12-31T03:09:59.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Standard Operating Procedure is here!
+  id: 415
+  time: '2024-12-31T22:58:50.0000000+00:00'
