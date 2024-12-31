@@ -3695,3 +3695,9 @@ Entries:
       message: Possible fix for nuke ops rule spawning a lot of nukie ghost roles.
   id: 411
   time: '2024-12-30T18:19:55.0000000+00:00'
+- author: MilonPL
+  changes:
+    - type: Add
+      message: Added PDA messaging!
+  id: 412
+  time: '2024-12-31T00:33:20.0000000+00:00'
