@@ -75,7 +75,6 @@ public sealed partial class GermanDeluxeAccentSystem : EntitySystem
         { "woman", "frau" },
         { "ma'am", "frau" },
         { "lady", "frau" },
-        { "miss", "frau" },
         { "mrs", "frau" },
         { "money", "geld" },
         { "water", "wasser" },
