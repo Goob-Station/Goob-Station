@@ -1,6 +1,20 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: All PDAs should now have the NanoChat app; and also fixed the missing
+      Science PDA base that went missing at some point!
+    type: Fix
+  id: 74
+  time: '2024-12-31T11:22:56.006388'
+- author: AstroDogeDX
+  changes:
+  - message: Removed 'miss' from the German accent; so you'll no longer frau your
+      shots.
+    type: Fix
+  id: 73
+  time: '2024-12-31T11:23:35.398332'
+- author: AstroDogeDX
+  changes:
   - message: Certain outerwear sprites were accidentally reverted; they're back in
       step with Goob now. My bad!
     type: Fix
