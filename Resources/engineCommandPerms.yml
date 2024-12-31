@@ -93,6 +93,11 @@
   - tp
   - tpto
 
+- Flags: FULLADMIN
+  Commands:
+  - self
+  - entities
+
 - Flags: FUN
   Commands:
   - tippy
