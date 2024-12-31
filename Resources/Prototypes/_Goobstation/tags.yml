@@ -153,3 +153,6 @@
 
 - type: Tag
   id: ModsuitPlatingExternal
+  
+- type: Tag
+  id: WeaponPistolDualetta
