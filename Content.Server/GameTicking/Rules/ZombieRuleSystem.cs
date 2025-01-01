@@ -20,6 +20,7 @@ using Robust.Shared.Audio.Systems; // goobstation
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Globalization;
+using Content.Shared._Goobstation.Blob.Components; //Goobstation
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -134,7 +135,7 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             _audio.PlayGlobal("/Audio/Announcements/outbreak7.ogg", Filter.Broadcast(), true, AudioParams.Default.WithVolume(-2f));
         }
 
-        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested())
+        if (GetInfectedFraction(false) > zombieRuleComponent.ZombieShuttleCallPercentage && !_roundEnd.IsRoundEndRequested() && !CheckForBlob()) // Goobstation
         {
             foreach (var station in _station.GetStations())
             {
@@ -230,5 +231,20 @@ public sealed class ZombieRuleSystem : GameRuleSystem<ZombieRuleComponent>
             healthy.Add(uid);
         }
         return healthy;
+    }
+    /// <summary>
+    /// Used to ceck if there is any blob cores on the station
+    ///  if there is a blob core used to prevent calling the shuttle.
+    /// </summary>
+    private bool CheckForBlob() //Goobstatrion
+    {
+        var query = EntityQueryEnumerator<BlobCoreComponent>();
+
+        while(query.MoveNext(out var uid, out var comp))
+        {
+            return true;
+        }
+
+        return false;
     }
 }
