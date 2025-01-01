@@ -105,7 +105,7 @@
   id: CardSc2OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-2-clubs-nanotrasen
+    name: card-sc-2-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Clubs_nanotrasen
@@ -116,7 +116,7 @@
   id: CardSc3OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-3-clubs-nanotrasen
+    name: card-sc-3-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Clubs_nanotrasen
@@ -127,7 +127,7 @@
   id: CardSc4OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-4-clubs-nanotrasen
+    name: card-sc-4-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Clubs_nanotrasen
@@ -138,7 +138,7 @@
   id: CardSc5OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-5-clubs-nanotrasen
+    name: card-sc-5-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Clubs_nanotrasen
@@ -149,7 +149,7 @@
   id: CardSc6OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-6-clubs-nanotrasen
+    name: card-sc-6-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Clubs_nanotrasen
@@ -160,7 +160,7 @@
   id: CardSc7OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-7-clubs-nanotrasen
+    name: card-sc-7-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Clubs_nanotrasen
@@ -171,7 +171,7 @@
   id: CardSc8OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-8-clubs-nanotrasen
+    name: card-sc-8-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Clubs_nanotrasen
@@ -182,7 +182,7 @@
   id: CardSc9OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-9-clubs-nanotrasen
+    name: card-sc-9-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Clubs_nanotrasen
@@ -193,7 +193,7 @@
   id: CardSc10OfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-10-clubs-nanotrasen
+    name: card-sc-10-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Clubs_nanotrasen
@@ -204,7 +204,7 @@
   id: CardScAceOfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-ace-clubs-nanotrasen
+    name: card-sc-ace-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Clubs_nanotrasen
@@ -216,7 +216,7 @@
   id: CardScJackOfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-jack-clubs-nanotrasen
+    name: card-sc-jack-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Jack_of_Clubs_nanotrasen
@@ -227,7 +227,7 @@
   id: CardScKingOfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-king-clubs-nanotrasen
+    name: card-sc-king-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Clubs_nanotrasen
@@ -238,7 +238,7 @@
   id: CardScQueenOfClubsNanotrasen
   components:
   - type: Card
-    name: card-sc-queen-clubs-nanotrasen
+    name: card-sc-queen-clubs
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Clubs_nanotrasen
@@ -250,7 +250,7 @@
   id: CardScJackOfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-jack-diamonds-nanotrasen
+    name: card-sc-jack-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Jack_of_Diamonds_nanotrasen
@@ -261,7 +261,7 @@
   id: CardScQueenOfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-queen-diamonds-nanotrasen
+    name: card-sc-queen-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Diamonds_nanotrasen
@@ -272,7 +272,7 @@
   id: CardScKingOfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-king-diamonds-nanotrasen
+    name: card-sc-king-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Diamonds_nanotrasen
@@ -283,7 +283,7 @@
   id: CardScAceOfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-ace-diamonds-nanotrasen
+    name: card-sc-ace-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Diamonds_nanotrasen
@@ -294,7 +294,7 @@
   id: CardSc2OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-2-diamonds-nanotrasen
+    name: card-sc-2-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Diamonds_nanotrasen
@@ -305,7 +305,7 @@
   id: CardSc3OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-3-diamonds-nanotrasen
+    name: card-sc-3-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Diamonds_nanotrasen
@@ -316,7 +316,7 @@
   id: CardSc4OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-4-diamonds-nanotrasen
+    name: card-sc-4-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Diamonds_nanotrasen
@@ -327,7 +327,7 @@
   id: CardSc5OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-5-diamonds-nanotrasen
+    name: card-sc-5-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Diamonds_nanotrasen
@@ -338,7 +338,7 @@
   id: CardSc6OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-6-diamonds-nanotrasen
+    name: card-sc-6-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Diamonds_nanotrasen
@@ -349,7 +349,7 @@
   id: CardSc7OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-7-diamonds-nanotrasen
+    name: card-sc-7-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Diamonds_nanotrasen
@@ -360,7 +360,7 @@
   id: CardSc8OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-8-diamonds-nanotrasen
+    name: card-sc-8-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Diamonds_nanotrasen
@@ -371,7 +371,7 @@
   id: CardSc9OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-9-diamonds-nanotrasen
+    name: card-sc-9-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Diamonds_nanotrasen
@@ -382,7 +382,7 @@
   id: CardSc10OfDiamondsNanotrasen
   components:
   - type: Card
-    name: card-sc-10-diamonds-nanotrasen
+    name: card-sc-10-diamonds
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Diamonds_nanotrasen
@@ -394,7 +394,7 @@
   id: CardSc2OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-2-hearts-nanotrasen
+    name: card-sc-2-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Hearts_nanotrasen
@@ -405,7 +405,7 @@
   id: CardSc3OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-3-hearts-nanotrasen
+    name: card-sc-3-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Hearts_nanotrasen
@@ -416,7 +416,7 @@
   id: CardSc4OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-4-hearts-nanotrasen
+    name: card-sc-4-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Hearts_nanotrasen
@@ -427,7 +427,7 @@
   id: CardSc5OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-5-hearts-nanotrasen
+    name: card-sc-5-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Hearts_nanotrasen
@@ -438,7 +438,7 @@
   id: CardSc6OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-6-hearts-nanotrasen
+    name: card-sc-6-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Hearts_nanotrasen
@@ -449,7 +449,7 @@
   id: CardSc7OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-7-hearts-nanotrasen
+    name: card-sc-7-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Hearts_nanotrasen
@@ -460,7 +460,7 @@
   id: CardSc8OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-8-hearts-nanotrasen
+    name: card-sc-8-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Hearts_nanotrasen
@@ -471,7 +471,7 @@
   id: CardSc9OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-9-hearts-nanotrasen
+    name: card-sc-9-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Hearts_nanotrasen
@@ -482,7 +482,7 @@
   id: CardSc10OfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-10-hearts-nanotrasen
+    name: card-sc-10-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Hearts_nanotrasen
@@ -493,7 +493,7 @@
   id: CardScKingOfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-king-hearts-nanotrasen
+    name: card-sc-king-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Hearts_nanotrasen
@@ -504,7 +504,7 @@
   id: CardScQueenOfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-queen-hearts-nanotrasen
+    name: card-sc-queen-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Hearts_nanotrasen
@@ -515,7 +515,7 @@
   id: CardScJackOfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-jack-hearts-nanotrasen
+    name: card-sc-jack-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Jack_of_Hearts_nanotrasen
@@ -526,7 +526,7 @@
   id: CardScAceOfHeartsNanotrasen
   components:
   - type: Card
-    name: card-sc-ace-hearts-nanotrasen
+    name: card-sc-ace-hearts
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Hearts_nanotrasen
@@ -538,7 +538,7 @@
   id: CardSc2OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-2-spades-nanotrasen
+    name: card-sc-2-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_2_of_Spades_nanotrasen
@@ -549,7 +549,7 @@
   id: CardSc3OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-3-spades-nanotrasen
+    name: card-sc-3-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_3_of_Spades_nanotrasen
@@ -560,7 +560,7 @@
   id: CardSc4OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-4-spades-nanotrasen
+    name: card-sc-4-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_4_of_Spades_nanotrasen
@@ -571,7 +571,7 @@
   id: CardSc5OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-5-spades-nanotrasen
+    name: card-sc-5-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_5_of_Spades_nanotrasen
@@ -582,7 +582,7 @@
   id: CardSc6OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-6-spades-nanotrasen
+    name: card-sc-6-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_6_of_Spades_nanotrasen
@@ -593,7 +593,7 @@
   id: CardSc7OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-7-spades-nanotrasen
+    name: card-sc-7-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_7_of_Spades_nanotrasen
@@ -604,7 +604,7 @@
   id: CardSc8OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-8-spades-nanotrasen
+    name: card-sc-8-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_8_of_Spades_nanotrasen
@@ -615,7 +615,7 @@
   id: CardSc9OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-9-spades-nanotrasen
+    name: card-sc-9-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_9_of_Spades_nanotrasen
@@ -627,7 +627,7 @@
   id: CardSc10OfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-10-spades-nanotrasen
+    name: card-sc-10-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_10_of_Spades_nanotrasen
@@ -638,7 +638,7 @@
   id: CardScKingOfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-king-spades-nanotrasen
+    name: card-sc-king-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_King_of_Spades_nanotrasen
@@ -649,7 +649,7 @@
   id: CardScQueenOfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-queen-spades-nanotrasen
+    name: card-sc-queen-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Queen_of_Spades_nanotrasen
@@ -660,7 +660,7 @@
   id: CardScJackOfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-jack-spades-nanotrasen
+    name: card-sc-jack-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Jack_of_Spades_nanotrasen
@@ -671,7 +671,7 @@
   id: CardScAceOfSpadesNanotrasen
   components:
   - type: Card
-    name: card-sc-ace-spades-nanotrasen
+    name: card-sc-ace-spades
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: sc_Ace_of_Spades_nanotrasen
@@ -682,7 +682,7 @@
   id: CardScJokerNanotrasen
   components:
   - type: Card
-    name: card-sc-joker-nanotrasen
+    name: card-sc-joker
   - type: Sprite
     sprite: EstacaoPirata/Objects/Misc/cards.rsi
     state: nanotrasen_joker
