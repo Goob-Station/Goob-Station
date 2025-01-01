@@ -24,25 +24,27 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
 
+    public Entity<StationDataComponent>? GetWizardTargetStation()
+    {
+        var stations = new List<Entity<StationDataComponent>>();
+        var query = EntityQueryEnumerator<StationWizardTargetComponent, StationDataComponent>();
+        while (query.MoveNext(out var station, out _, out var data))
+        {
+            stations.Add((station, data));
+        }
+
+        if (stations.Count == 0)
+            return null;
+
+        return RobustRandom.Pick(stations);
+    }
+
     protected override void Started(EntityUid uid,
         WizardRuleComponent component,
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
-        var eligible = new List<Entity<StationEventEligibleComponent, NpcFactionMemberComponent>>();
-        var eligibleQuery = EntityQueryEnumerator<StationEventEligibleComponent, NpcFactionMemberComponent>();
-        while (eligibleQuery.MoveNext(out var eligibleUid, out var eligibleComp, out var member))
-        {
-            if (!_faction.IsFactionHostile(component.Faction, (eligibleUid, member)))
-                continue;
-
-            eligible.Add((eligibleUid, eligibleComp, member));
-        }
-
-        if (eligible.Count == 0)
-            return;
-
-        component.TargetStation = RobustRandom.Pick(eligible);
+        component.TargetStation = GetWizardTargetStation();
     }
 
     private void OnGetBriefing(Entity<WizardRoleComponent> ent, ref GetBriefingEvent args)

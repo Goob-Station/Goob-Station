@@ -57,3 +57,9 @@
   icon:
     sprite: /Textures/_Goobstation/Interface/Misc/job_icons.rsi
     state: wizard
+
+- type: entity
+  id: BaseStationWizardTarget
+  abstract: true
+  components:
+    - type: StationWizardTarget

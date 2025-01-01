@@ -7,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Examine;
 using Content.Shared.Ghost;
+using Content.Shared.Gravity;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
@@ -14,6 +15,7 @@ using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
@@ -30,6 +32,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;
     [Dependency] private   readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] private   readonly IPrototypeManager _proto = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
@@ -64,7 +67,8 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var mapUid = Transform(ev.Target).MapUid;
 
         if (!Mind.TryGetMind(ev.Target, out var mind, out var mindComponent) ||
-            !TryComp(mind, out SoulBoundComponent? soulBound) || !ItemExistsAndOnSamePlane(soulBound.Item, mapUid))
+            !TryComp(mind, out SoulBoundComponent? soulBound) ||
+            !ItemExistsAndOnSamePlane(soulBound.Item, mapUid, out _))
             return;
 
         Mind.TransferTo(mind, null, mind: mindComponent);
@@ -93,10 +97,26 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
         var item = ent.Comp.Item;
 
-        if (!ItemExistsAndOnSamePlane(item, xform.MapUid))
+        if (!ItemExistsAndOnSamePlane(item, xform.MapUid, out var itemXform))
+        {
+            if (item == null || itemXform == null)
+                return;
+
+            // Item exists but on another plane, respawn it
+            if (!RespawnItem(item.Value, itemXform, xform))
+                return;
+        }
+        else if (itemXform.GridUid == null &&
+                 (!TryComp(item.Value, out PhysicsComponent? body) ||
+                  _gravity.IsWeightless(item.Value, body, itemXform)) && // If it is in space
+                 !RespawnItem(item.Value, itemXform, xform))
             return;
 
-        var itemCoords = TransformSystem.GetMapCoordinates(item.Value);
+        // If it is somehow on another plane after respawning
+        if (xform.MapUid == null || xform.MapUid != itemXform.MapUid)
+            return;
+
+        var itemCoords = TransformSystem.GetMapCoordinates(item.Value, itemXform);
         var particle = Spawn(ParticlePrototype, coords);
         var direction = itemCoords.Position - coords.Position;
         _physics.SetLinearVelocity(particle, direction.Normalized());
@@ -106,9 +126,12 @@ public abstract class SharedBindSoulSystem : EntitySystem
         Dirty(particle, homing);
     }
 
-    private bool ItemExistsAndOnSamePlane([NotNullWhen(true)] EntityUid? item, EntityUid? mapUid)
+    private bool ItemExistsAndOnSamePlane([NotNullWhen(true)] EntityUid? item,
+        EntityUid? mapUid,
+        [NotNullWhen(true)] out TransformComponent? xform)
     {
-        return TryComp(item, out TransformComponent? xform) && xform.MapUid != null && xform.MapUid == mapUid;
+        xform = null;
+        return TryComp(item, out xform) && xform.MapUid != null && xform.MapUid == mapUid;
     }
 
     private void OnMindGetAdded(Entity<SoulBoundComponent> ent, ref MindGotAddedEvent args)
@@ -150,6 +173,11 @@ public abstract class SharedBindSoulSystem : EntitySystem
         MindComponent mindComp,
         SoulBoundComponent soulBound)
     {
+    }
+
+    protected virtual bool RespawnItem(EntityUid item, TransformComponent itemXform, TransformComponent userXform)
+    {
+        return false;
     }
 
     protected virtual void MakeDestructible(EntityUid uid)

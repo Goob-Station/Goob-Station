@@ -36,7 +36,7 @@ public abstract class SharedHulkSystem : EntitySystem
             args.BonusDamage += ent.Comp.StructuralDamage;
 
         if (args.HitEntities.Count > 0)
-            Roar(ent);
+            Roar(ent, 0.2f);
     }
 
     private void OnSlipAttempt(Entity<HulkComponent> ent, ref SlipAttemptEvent args)
@@ -49,7 +49,7 @@ public abstract class SharedHulkSystem : EntitySystem
         if (args.Key is not ("KnockedDown" or "Stun"))
             return;
 
-        Roar(ent, 1f);
+        Roar(ent);
         args.Cancelled = true;
     }
 
@@ -62,7 +62,7 @@ public abstract class SharedHulkSystem : EntitySystem
     {
     }
 
-    public virtual void Roar(Entity<HulkComponent> hulk, float prob = 0.2f)
+    public virtual void Roar(Entity<HulkComponent> hulk, float prob = 1f)
     {
     }
 }

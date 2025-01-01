@@ -640,7 +640,7 @@ namespace Content.Shared.Cuffs
 
                 if (TryComp(user, out HulkComponent? hulk)) // Goobstation
                 {
-                    _hulk.Roar((user, hulk), 1f);
+                    _hulk.Roar((user, hulk));
                     Uncuff(user, user, cuffsToRemove.Value, cuffable);
                     return;
                 }

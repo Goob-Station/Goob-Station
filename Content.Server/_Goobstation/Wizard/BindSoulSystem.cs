@@ -3,6 +3,8 @@ using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Server.Respawn;
+using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Mind;
@@ -12,6 +14,10 @@ namespace Content.Server._Goobstation.Wizard;
 
 public sealed class BindSoulSystem : SharedBindSoulSystem
 {
+    [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
+    [Dependency] private readonly WizardRuleSystem _wizard = default!;
+    [Dependency] private readonly StationSystem _station = default!;
+
     public override void Resurrect(EntityUid mind,
         EntityUid phylactery,
         MindComponent mindComp,
@@ -33,6 +39,36 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         Stun.TryKnockdown(ent, TimeSpan.FromSeconds(20) + TimeSpan.FromSeconds(5) * soulBound.ResurrectionsCount, true);
         soulBound.ResurrectionsCount++;
         Dirty(mind, soulBound);
+    }
+
+    protected override bool RespawnItem(EntityUid item, TransformComponent itemXform, TransformComponent userXform)
+    {
+        var grid = userXform.GridUid;
+        var map = userXform.MapUid;
+
+        if (map == null)
+            return false;
+
+        if (grid == null)
+        {
+            var station = _wizard.GetWizardTargetStation();
+
+            if (station == null)
+                return false;
+
+            grid = _station.GetLargestGrid(station.Value.Comp);
+            if (grid == null)
+                return false;
+        }
+
+        if (itemXform.GridUid == grid.Value)
+            return true;
+
+        if (!_respawn.TryFindRandomTile(grid.Value, map.Value, 10, out var coords))
+            return false;
+
+        TransformSystem.SetCoordinates(item, itemXform, coords);
+        return true;
     }
 
     protected override void MakeDestructible(EntityUid uid)
