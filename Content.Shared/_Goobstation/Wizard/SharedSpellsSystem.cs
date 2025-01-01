@@ -2,6 +2,7 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
 using Content.Shared.Body.Part;
@@ -71,6 +72,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly MobStateSystem _mobState = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
+    [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
 
     #endregion
 
@@ -91,6 +93,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
+        SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
     }
 
     #region Spells
@@ -454,6 +457,23 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _magic.Speak(ev);
         ev.Handled = true;
+    }
+
+    private void OnTeslaBlast(TeslaBlastEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (TryComp(ev.Performer, out CastingTeslaBlastComponent? casting))
+        {
+            _teslaBlast.CancelDoAfter(ev.Performer, casting);
+
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
+
+        _teslaBlast.StartCharging(ev);
     }
 
     #endregion

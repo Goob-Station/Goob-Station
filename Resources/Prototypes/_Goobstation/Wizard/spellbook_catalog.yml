@@ -77,6 +77,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookTeslaBlast
+  name: spellbook-tesla-blast-name
+  description: spellbook-tesla-blast-desc
+  productAction: ActionTeslaBlast
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

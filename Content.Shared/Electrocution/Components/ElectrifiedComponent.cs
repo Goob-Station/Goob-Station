@@ -128,4 +128,18 @@ public sealed partial class ElectrifiedComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool IsWireCut = false;
+
+    /// <summary>
+    /// Goobstation
+    /// Whether this will ignore target insulation
+    /// </summary>
+    [DataField]
+    public bool IgnoreInsulation;
+
+    /// <summary>
+    /// Goobstation
+    /// Don't shock this entity
+    /// </summary>
+    [DataField]
+    public EntityUid? IgnoredEntity;
 }

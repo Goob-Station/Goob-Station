@@ -1,6 +1,8 @@
+using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.Magic;
 using Content.Shared.Polymorph;
@@ -10,6 +12,7 @@ using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -231,4 +234,37 @@ public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public float Duration = 30f;
+}
+
+public sealed partial class TeslaBlastEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public TimeSpan Delay = TimeSpan.FromSeconds(10);
+
+    [DataField]
+    public float Range = 7f;
+
+    [DataField]
+    public int BoltCount = 1;
+
+    [DataField]
+    public int ArcDepth = 5;
+
+    [DataField]
+    public Vector2 MinMaxDamage = new(15f, 50f);
+
+    [DataField]
+    public Vector2 MinMaxStunTime = new(2f, 8f);
+
+    [DataField]
+    public EntProtoId LightningPrototype = "SuperchargedLightning";
+
+    [DataField]
+    public EntProtoId EffectPrototype = "EffectElectricity";
+
+    [DataField]
+    public SoundSpecifier? Sound;
 }

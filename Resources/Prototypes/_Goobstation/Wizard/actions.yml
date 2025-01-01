@@ -288,3 +288,23 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+
+- type: entity
+  id: ActionTeslaBlast
+  name: Tesla Blast
+  description: Charge up a tesla arc and release it at random nearby targets.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: tesla
+    event: !type:TeslaBlastEvent
+      speech: action-speech-spell-tesla-blast
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
+  - type: Magic
+    requiresClothes: true

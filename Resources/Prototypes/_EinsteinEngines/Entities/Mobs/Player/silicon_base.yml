@@ -311,7 +311,7 @@
     - type: FireVisuals
       alternateState: Standing
     - type: LightningTarget
-      priority: 1
+      priority: 2 # Goobstation
       lightningExplode: false
     - type: ComplexInteraction
     - type: FootPrints

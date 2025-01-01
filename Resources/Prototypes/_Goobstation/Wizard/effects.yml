@@ -10,8 +10,28 @@
     layers:
       - shader: unshaded
         map: ["enum.EffectLayers.Unshaded"]
-        sprite: _Goobstation/Wizard/effects.rsi
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: shieldsparkles
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: EffectElectricity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: electricity
   - type: EffectVisuals
   - type: Tag
     tags:
@@ -32,7 +52,7 @@
     noRot: true
     layers:
       - shader: unshaded
-        sprite: _Goobstation/Wizard/effects160x160.rsi
+        sprite: _Goobstation/Wizard/Effects/effects160x160.rsi
         state: time
   - type: AnimationPlayer
   - type: FreezeContacts
