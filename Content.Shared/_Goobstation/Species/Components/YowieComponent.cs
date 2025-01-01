@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Species.Components;
 /// <summary>
-/// This will apply a movespeed multiplier on an entity when outerlayer item is worn
+/// This will apply a movespeed multiplier and damage on an entity when outerlayer item is worn
 /// </summary>
 
 [RegisterComponent, NetworkedComponent]

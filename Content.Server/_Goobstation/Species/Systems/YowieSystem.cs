@@ -1,10 +1,9 @@
 using Content.Shared._Goobstation.Species.Components;
 using Content.Shared.Clothing;
-using Content.Shared.Movement.Systems;
-using Content.Shared.Clothing.Components;
-using Robust.Shared.Containers;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
+using Content.Shared.Popups;
+using Content.Server.Popups;
 
 namespace Content.Server._Goobstation.Species.Systems;
 
@@ -12,37 +11,12 @@ public sealed partial class YowieSystem : EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    [Dependency] private readonly PopupSystem _popupSystem = default!;
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<YowieComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-        SubscribeLocalEvent<YowieComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
         SubscribeLocalEvent<YowieComponent, ClothingDidEquippedEvent>(OnEquip);
-        SubscribeLocalEvent<YowieComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
-    }
-
-    private void OnEntInserted(EntityUid uid, YowieComponent comp, ref EntInsertedIntoContainerMessage args)
-    {
-        if (TryComp<ClothingComponent>(args.Entity, out var cloth))
-        {
-            if (cloth.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
-            {
-                cloth.EquipDelay = TimeSpan.FromSeconds(comp.EquipDelay);
-                cloth.UnequipDelay = TimeSpan.FromSeconds(comp.UnequipDelay);
-            }
-        }
-    }
-
-    private void OnEntRemoved(EntityUid uid, YowieComponent comp, ref EntRemovedFromContainerMessage args)
-    {
-        if (TryComp<ClothingComponent>(args.Entity, out var cloth))
-        {
-            if (cloth.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
-            {
-                cloth.EquipDelay = default!;
-                cloth.UnequipDelay = default!;
-            }
-        }
+        SubscribeLocalEvent<YowieComponent, ClothingDidUnequippedEvent>(OnUnequip);
     }
 
     private void OnEquip(EntityUid uid, YowieComponent comp, ref ClothingDidEquippedEvent args)
@@ -50,19 +24,18 @@ public sealed partial class YowieSystem : EntitySystem
         if (args.Clothing.Comp.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
         {
             comp.OuterLayerEquipped = true;
-            _damageableSystem.TryChangeDamage(
-            uid,
-            comp.Damage,
-            true
-            );
+            if (_damageableSystem.TryChangeDamage(uid, comp.Damage, true) != null)
+            {
+                _popupSystem.PopupEntity("You barely stuff yourself into EVA suit", uid, uid, PopupType.SmallCaution);
+            }
         }
     }
 
-    private void OnMove(EntityUid uid, YowieComponent comp, RefreshMovementSpeedModifiersEvent args)
+    private void OnUnequip(EntityUid uid, YowieComponent comp, ref ClothingDidUnequippedEvent args)
     {
-        if (comp.OuterLayerEquipped)
+        if (args.Clothing.Comp.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
         {
-            args.ModifySpeed(comp.SoftSuitSpeedMultiplier);
+            comp.OuterLayerEquipped = false;
         }
     }
 }
