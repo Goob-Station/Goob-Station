@@ -14,6 +14,7 @@ using Content.Shared.Mobs;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
@@ -28,6 +29,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] protected readonly SharedMindSystem Mind = default!;
     [Dependency] protected readonly SharedStunSystem Stun = default!;
     [Dependency] protected readonly MetaDataSystem Meta = default!;
+    [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;
@@ -86,13 +88,16 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
         var coords = TransformSystem.GetMapCoordinates(args.Container, xform);
 
-        _damageable.TryChangeDamage(args.Container,
-            new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 1000),
-            true,
-            false,
-            targetPart: TargetBodyPart.Torso);
+        if (!Deleting(args.Container))
+        {
+            _damageable.TryChangeDamage(args.Container,
+                new DamageSpecifier(_proto.Index<DamageTypePrototype>("Blunt"), 1000),
+                true,
+                false,
+                targetPart: TargetBodyPart.Torso);
+        }
 
-        if (!TerminatingOrDeleted(args.Container) && !EntityManager.IsQueuedForDeletion(args.Container))
+        if (!Deleting(args.Container))
             QueueDel(args.Container);
 
         var item = ent.Comp.Item;
@@ -124,6 +129,11 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var homing = EnsureComp<HomingProjectileComponent>(particle);
         homing.Target = item.Value;
         Dirty(particle, homing);
+    }
+
+    private bool Deleting(EntityUid uid)
+    {
+        return TerminatingOrDeleted(uid) || EntityManager.IsQueuedForDeletion(uid);
     }
 
     private bool ItemExistsAndOnSamePlane([NotNullWhen(true)] EntityUid? item,

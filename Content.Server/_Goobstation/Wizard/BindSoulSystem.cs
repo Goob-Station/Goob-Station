@@ -67,7 +67,10 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         if (!_respawn.TryFindRandomTile(grid.Value, map.Value, 10, out var coords))
             return false;
 
-        TransformSystem.SetCoordinates(item, itemXform, coords);
+        if (Container.TryGetOuterContainer(item, itemXform, out var container))
+            item = container.Owner;
+
+        TransformSystem.SetCoordinates(item, coords);
         return true;
     }
 
