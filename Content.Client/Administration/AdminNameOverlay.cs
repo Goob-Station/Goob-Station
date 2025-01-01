@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Administration.Systems;
+using Content.Client.Stylesheets;
 using Robust.Client.Graphics;
 using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
@@ -24,7 +25,7 @@ internal sealed class AdminNameOverlay : Overlay
         _entityLookup = entityLookup;
         _userInterfaceManager = userInterfaceManager;
         ZIndex = 200;
-        _font = new VectorFont(resourceCache.GetResource<FontResource>("/Fonts/NotoSans/NotoSans-Regular.ttf"), 10);
+        _font = resourceCache.NotoStack(size: 10); // Goobstation
     }
 
     public override OverlaySpace Space => OverlaySpace.ScreenSpace;
