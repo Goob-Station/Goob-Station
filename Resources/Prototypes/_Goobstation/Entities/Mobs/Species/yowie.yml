@@ -41,7 +41,7 @@
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
   - type: NoWieldNeeded
   - type: Yowie
-    speedMultiplier: 0.1
+    softSuitSpeedMultiplier: 0.2
 
 - type: entity
   parent: BaseSpeciesDummy

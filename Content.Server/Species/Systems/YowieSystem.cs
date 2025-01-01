@@ -1,12 +1,7 @@
-using Content.Server.Mind;
 using Content.Shared.Species.Components;
-using Content.Shared.Body.Events;
-using Content.Shared.Zombies;
-using Content.Server.Zombies;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Timing;
 using Content.Shared.Clothing;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Clothing.Components;
 
 namespace Content.Server.Species.Systems;
 
@@ -19,28 +14,29 @@ public sealed partial class YowieSystem : EntitySystem
         SubscribeLocalEvent<YowieComponent, ClothingDidEquippedEvent>(OnEquip);
         SubscribeLocalEvent<YowieComponent, ClothingDidUnequippedEvent>(OnUnequip);
         SubscribeLocalEvent<YowieComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
+        SubscribeLocalEvent<YowieComponent, ClothingEquipDoAfterEvent>
     }
 
     private void OnEquip(EntityUid uid, YowieComponent comp, ref ClothingDidEquippedEvent args)
     {
-        if(args.Clothing.Comp.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
+        if (args.Clothing.Comp.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
         {
-            comp.SuitEquipped = true;
+            comp.OuterLayerEquipped = true;
         }
     }
     private void OnUnequip(EntityUid uid, YowieComponent comp, ref ClothingDidUnequippedEvent args)
     {
         if (args.Clothing.Comp.Slots == Shared.Inventory.SlotFlags.OUTERCLOTHING)
         {
-            comp.SuitEquipped = false;
+            comp.OuterLayerEquipped = false;
         }
     }
 
     private void OnMove(EntityUid uid, YowieComponent component, RefreshMovementSpeedModifiersEvent args)
     {
-        if (component.SuitEquipped)
+        if (component.OuterLayerEquipped)
         {
-            args.ModifySpeed(component.SpeedMultiplier);
+            args.ModifySpeed(component.SoftSuitSpeedMultiplier);
         }
     }
 }

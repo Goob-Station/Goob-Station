@@ -1,24 +1,22 @@
-using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Species.Components;
 /// <summary>
-/// This will replace one entity with another entity when it is removed from a body part.
-/// Obviously hyper-specific. If you somehow find another use for this, good on you. 
+/// This will apply a movespeed multiplier on an entity when outerlayer item is worn
 /// </summary>
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class YowieComponent : Component
 {
     /// <summary>
-    /// The entity to replace the organ with.
+    /// Movement speed multiplier, applied when worn
     /// </summary>
     [DataField(required: true)]
-    public float SpeedMultiplier = default!;
+    public float SoftSuitSpeedMultiplier = default!;
 
     /// <summary>
-    /// Whether to transfer the mind to this new entity.
+    /// Current state of outerlayer inventory slot
     /// </summary>
     [DataField]
-    public bool SuitEquipped = false;
+    public bool OuterLayerEquipped = false;
 }
