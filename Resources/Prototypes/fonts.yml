@@ -40,7 +40,7 @@
 
 - type: font
   id: Monospace
-  path: /Fonts/NotoSans/NotoSansMono-Regular.ttf
+  path: /Fonts/NotoSansMono/NotoSansMono-Regular.ttf
 
 - type: font
   id: Emoji

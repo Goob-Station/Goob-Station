@@ -22,8 +22,19 @@ namespace Content.Client.Stylesheets
     {
         public static Font NotoStack(this IResourceCache resCache, string variation = "Regular", int size = 10, bool display = false)
         {
-            var ds = display ? "Display" : "";
+            var ds = "";
             var sv = variation.StartsWith("Bold", StringComparison.Ordinal) ? "Bold" : "Regular";
+
+            if (variation == "Mono-Regular")
+            {
+                ds = "Mono";
+                sv = "Regular";
+            }
+            else
+            {
+                ds = display ? "Display" : "";
+            }
+
             return resCache.GetFont
             (
                 // Ew, but ok
@@ -37,7 +48,6 @@ namespace Content.Client.Stylesheets
                 },
                 size
             );
-
         }
 
     }
@@ -179,7 +189,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
-            var notoSansMono = resCache.GetFont("/Fonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
+            var notoSansMono = resCache.NotoStack(variation: "Mono-Regular", size: 12);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
