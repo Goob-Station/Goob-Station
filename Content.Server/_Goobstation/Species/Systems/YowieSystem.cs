@@ -1,4 +1,4 @@
-using Content.Shared.Species.Components;
+using Content.Shared._Goobstation.Species.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Clothing.Components;
@@ -6,7 +6,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 
-namespace Content.Server.Species.Systems;
+namespace Content.Server._Goobstation.Species.Systems;
 
 public sealed partial class YowieSystem : EntitySystem
 {
