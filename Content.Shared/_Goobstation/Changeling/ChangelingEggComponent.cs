@@ -1,4 +1,3 @@
-using Content.Shared.Mind;
 using Content.Shared.Store.Components;
 using Robust.Shared.GameStates;
 

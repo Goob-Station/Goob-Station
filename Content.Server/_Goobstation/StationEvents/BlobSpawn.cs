@@ -8,10 +8,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Random;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.Players;
 using Content.Shared.Station.Components;
 using Robust.Server.Player;
-using Robust.Shared.Player;
 
 namespace Content.Server.StationEvents.Events;
 
