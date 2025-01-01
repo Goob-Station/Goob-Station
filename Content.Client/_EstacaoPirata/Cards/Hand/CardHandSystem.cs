@@ -142,7 +142,7 @@ public sealed class CardHandSystem : EntitySystem
     }
     private void OnComponentStartupEvent(EntityUid uid, CardHandComponent comp, ComponentStartup args)
     {
-
+        DirtyEntity(uid);
         UpdateSprite(uid, comp);
     }
 

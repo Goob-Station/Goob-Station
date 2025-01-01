@@ -132,7 +132,7 @@ public sealed class CardDeckSystem : EntitySystem
     }
     private void OnComponentStartupEvent(EntityUid uid, CardDeckComponent comp, ComponentStartup args)
     {
-
+        DirtyEntity(uid);
         UpdateSprite(uid, comp);
     }
 
