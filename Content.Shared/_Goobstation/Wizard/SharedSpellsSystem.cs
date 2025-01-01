@@ -204,7 +204,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (!hasTargets)
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-no-targets"), ev.Performer, ev.Performer);
+            Popup(ev.Performer, "spell-fail-no-targets");
             return;
         }
 
@@ -267,13 +267,13 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (HasComp<BorgChassisComponent>(ev.Target))
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-borg"), ev.Performer, ev.Performer);
+            Popup(ev.Performer, "spell-fail-borg");
             return;
         }
 
         if (!_mobState.IsDead(ev.Target))
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-not-dead"), ev.Performer, ev.Performer);
+            Popup(ev.Performer, "spell-fail-not-dead");
             return;
         }
 
@@ -373,20 +373,20 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             if (soulBound == null)
             {
-                _popup.PopupClient(Loc.GetString("spell-fail-soul-not-bound"), ev.Performer, ev.Performer);
+                Popup(ev.Performer, "spell-fail-soul-not-bound");
                 return;
             }
 
             if (!HasComp<PhylacteryComponent>(soulBound.Item))
             {
-                _popup.PopupClient(Loc.GetString("spell-fail-item-destroyed"), ev.Performer, ev.Performer);
+                Popup(ev.Performer, "spell-fail-item-destroyed");
                 return;
             }
 
             if (!TryComp(soulBound.Item, out TransformComponent? xform) || xform.MapUid == null ||
                 xform.MapUid != soulBound.MapId)
             {
-                _popup.PopupClient(Loc.GetString("spell-fail-item-on-another-plane"), ev.Performer, ev.Performer);
+                Popup(ev.Performer, "spell-fail-item-on-another-plane");
                 return;
             }
 
@@ -395,9 +395,12 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
+        if (HasComp<GhostComponent>(ev.Performer))
+            return;
+
         if (soulBound != null)
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-no-soul"), ev.Performer, ev.Performer);
+            Popup(ev.Performer, "spell-fail-no-soul");
             return;
         }
 
@@ -406,7 +409,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (!TryComp(ev.Performer, out HandsComponent? hands) || hands.ActiveHandEntity == null)
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-no-held-entity"), ev.Performer, ev.Performer);
+            Popup(ev.Performer, "spell-fail-no-held-entity");
             return;
         }
 
@@ -414,15 +417,13 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (HasComp<UnremoveableComponent>(item) || !HasComp<ItemComponent>(item))
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-unremoveable", ("item", item)), ev.Performer, ev.Performer);
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-unremoveable", ("item", item)));
             return;
         }
 
         if (_whitelist.IsValid(ev.Blacklist, item))
         {
-            _popup.PopupClient(Loc.GetString("spell-fail-soul-item-not-suitable", ("item", item)),
-                ev.Performer,
-                ev.Performer);
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-soul-item-not-suitable", ("item", item)));
             return;
         }
 
@@ -443,6 +444,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
+        {
+            Popup(ev.Performer, "spell-fail-mutate-silicon");
+            return;
+        }
+
         EnsureComp<HulkComponent>(ev.Performer).Duration = ev.Duration;
 
         _magic.Speak(ev);
@@ -452,6 +459,16 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    private void Popup(EntityUid uid, string message)
+    {
+        _popup.PopupClient(Loc.GetString(message), uid, uid);
+    }
+
+    private void PopupLoc(EntityUid uid, string locMessage)
+    {
+        _popup.PopupClient(locMessage, uid, uid);
+    }
 
     protected void SetGear(EntityUid uid,
         Dictionary<string, EntProtoId> gear,

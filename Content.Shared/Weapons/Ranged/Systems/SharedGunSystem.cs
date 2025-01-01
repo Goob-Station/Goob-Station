@@ -607,6 +607,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         component.SoundGunshot = sound;
     }
 
+    public void SetClumsyProof(GunComponent component, bool clumsyProof) // Goobstation
+    {
+        component.ClumsyProof = clumsyProof;
+    }
+
     protected abstract void CreateEffect(EntityUid gunUid, MuzzleFlashEvent message, EntityUid? user = null);
 
     /// <summary>

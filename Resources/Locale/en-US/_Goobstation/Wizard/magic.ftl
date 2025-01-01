@@ -8,3 +8,4 @@ spell-fail-soul-item-not-suitable = {$item} is not suitable for emplacement of y
 spell-fail-soul-not-bound = Your soul is not bound to an item!
 spell-fail-item-destroyed = Your phylactery is gone!
 spell-fail-item-on-another-plane = Can't resurrect! Your phylactery is on another plane.
+spell-fail-mutate-silicon = Can't mutate while in silocon form!

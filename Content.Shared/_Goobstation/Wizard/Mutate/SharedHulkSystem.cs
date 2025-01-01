@@ -25,12 +25,13 @@ public abstract class SharedHulkSystem : EntitySystem
 
     private void OnStartup(Entity<HulkComponent> ent, ref ComponentStartup args)
     {
+        UpdateColorStartup(ent);
         ent.Comp.StructuralDamage ??= new DamageSpecifier(_prototype.Index<DamageTypePrototype>("Structural"), 80f);
     }
 
     private void OnMeleeHit(Entity<HulkComponent> ent, ref MeleeHitEvent args)
     {
-        args.BonusDamage = args.BaseDamage * ent.Comp.FistDamageMultiplier;
+        args.BonusDamage += args.BaseDamage * ent.Comp.FistDamageMultiplier;
         if (ent.Comp.StructuralDamage != null)
             args.BonusDamage += ent.Comp.StructuralDamage;
 
@@ -55,6 +56,10 @@ public abstract class SharedHulkSystem : EntitySystem
     private void OnBeforeStaminaDamage(Entity<HulkComponent> ent, ref BeforeStaminaDamageEvent args)
     {
         args.Cancelled = true;
+    }
+
+    protected virtual void UpdateColorStartup(Entity<HulkComponent> hulk)
+    {
     }
 
     public virtual void Roar(Entity<HulkComponent> hulk, float prob = 0.2f)

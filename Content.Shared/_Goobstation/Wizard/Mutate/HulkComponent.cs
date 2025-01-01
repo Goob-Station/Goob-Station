@@ -40,6 +40,9 @@ public sealed partial class HulkComponent : Component
     [ViewVariables(VVAccess.ReadOnly)]
     public TimeSpan NextRoar = TimeSpan.Zero;
 
+    [ViewVariables(VVAccess.ReadOnly)]
+    public List<Color> NonHumanoidOldLayerData = new();
+
     /// <summary>
     /// Multiplier is actually this value + 1
     /// </summary>

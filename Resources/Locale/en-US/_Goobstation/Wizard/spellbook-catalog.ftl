@@ -58,4 +58,5 @@ spellbook-bind-soul-desc =
 spellbook-mutate-name = Mutate
 spellbook-mutate-desc =
     Temporarily transforms you into a stun-immune hulk, capable of destroying walls with their massive strength and of shooting lasers using their massive minds.
+    Doesn't work in silicon form.
     Requires wizard's robe and hat to cast.
