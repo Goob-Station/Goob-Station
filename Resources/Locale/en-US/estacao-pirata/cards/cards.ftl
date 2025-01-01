@@ -83,3 +83,7 @@ card-sc-king-spades-black = king of spades
 card-sc-queen-spades-black = queen of spades
 
 card-sc-joker-black = joker
+
+container-sealed = A holographic security seal is on it. Opening it will have the seal dissipate.
+container-unsealed = The seal attached to it dissipates.
+
