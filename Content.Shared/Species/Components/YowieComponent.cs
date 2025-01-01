@@ -1,3 +1,4 @@
+using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared.Species.Components;
@@ -19,4 +20,22 @@ public sealed partial class YowieComponent : Component
     /// </summary>
     [DataField]
     public bool OuterLayerEquipped = false;
+
+    /// <summary>
+    /// Damage dealt to owner on succesful outerlayer equip attempt
+    /// </summary>
+    [DataField(required: true)]
+    public DamageSpecifier Damage = default!;
+
+    /// <summary>
+    /// Equip delay applied to outerlayer cloth when owner has it
+    /// </summary>
+    [DataField]
+    public float EquipDelay = 2f;
+
+    /// <summary>
+    /// Unequip delay applied to outerlayer cloth when owner has it
+    /// </summary>
+    [DataField]
+    public float UnequipDelay = 2f;
 }

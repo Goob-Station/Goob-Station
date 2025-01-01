@@ -42,6 +42,9 @@
   - type: NoWieldNeeded
   - type: Yowie
     softSuitSpeedMultiplier: 0.2
+    damage:
+      types:
+        Blunt: 10
 
 - type: entity
   parent: BaseSpeciesDummy
