@@ -40,6 +40,8 @@
   - type: Carriable 
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
   - type: NoWieldNeeded
+  - type: Yowie
+    speedMultiplier: 0.1
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -56,4 +58,3 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
- 
