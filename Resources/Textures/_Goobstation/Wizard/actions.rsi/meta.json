@@ -1,12 +1,15 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from paradise station at https://github.com/ParadiseSS13/Paradise/commit/e3bc7e3fd7787cc772353295a56f087fc1c37312",
+  "copyright": "Taken from paradise station at https://github.com/ParadiseSS13/Paradise/commit/e3bc7e3fd7787cc772353295a56f087fc1c37312, lightning taken from https://github.com/Citadel-Station-13/Citadel-Station-13/commit/06689416691093474d600924242f69eb7d223f3e and modified",
   "size": {
     "x": 32,
     "y": 32
   },
   "states": [
+    {
+      "name": "lightning"
+    },
     {
       "name": "tesla"
     },

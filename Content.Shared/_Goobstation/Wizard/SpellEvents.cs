@@ -268,3 +268,15 @@ public sealed partial class TeslaBlastEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public SoundSpecifier? Sound;
 }
+
+public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public float Damage = 60f;
+
+    [DataField]
+    public EntProtoId Proto = "ChargedLightning";
+}

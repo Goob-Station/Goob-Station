@@ -94,6 +94,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
+        SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
     }
 
     #region Spells
@@ -474,6 +475,18 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         _teslaBlast.StartCharging(ev);
+    }
+
+
+    private void OnLightningBolt(LightningBoltEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
     }
 
     #endregion

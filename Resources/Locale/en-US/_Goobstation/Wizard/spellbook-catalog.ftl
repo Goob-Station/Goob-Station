@@ -64,7 +64,12 @@ spellbook-mutate-desc =
 
 spellbook-tesla-blast-name = Tesla Blast
 spellbook-tesla-blast-desc =
-    Charge up a tesla arc and release it at random nearby targets! You can move freely while it charges. The arc jumps between targets and can stuns them. Ignores insulation. You are immune to your own lightning.
+    Charge up a tesla arc and release it at random nearby targets! You can move freely while it charges. The arc jumps between targets and stuns them. Ignores insulation. You are immune to your own lightning.
     Activate the spell again while it is charging to release the tesla blast, its power scales with charge time.
     If it fully charges up, you'll lose control of the bolt and the spell will do nothing.
     Requires wizard's robe and hat to cast.
+
+spellbook-lightning-bolt-name = Lightning Bolt
+spellbook-lightning-bolt-desc =
+    Fire a lightning bolt at your foes! Ignores insulation, but can't stun. You are immune to your own lightning.
+    Doesn't require wizard's robe and hat to cast.

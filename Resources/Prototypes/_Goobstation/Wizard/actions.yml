@@ -308,3 +308,26 @@
         path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
   - type: Magic
     requiresClothes: true
+
+- type: entity
+  id: ActionLightningBolt
+  name: Lightning Bolt
+  description: Fire a lightning bolt at your foes.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 100
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: lightning
+    event: !type:LightningBoltEvent
+      speech: action-speech-spell-lightning-bolt
+  - type: Magic
+    requiresSpeech: true

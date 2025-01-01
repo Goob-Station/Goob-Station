@@ -10,7 +10,7 @@ public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
 {
     [Dependency] private readonly LightningSystem _lightning = default!;
 
-    protected override void ShootRandomLightnings(EntityUid performer,
+    public override void ShootRandomLightnings(EntityUid performer,
         float power,
         float range,
         int boltCount,
@@ -54,5 +54,30 @@ public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
             false,
             performer,
             action);
+    }
+
+    public override void ShootLightning(EntityUid performer,
+        EntityUid target,
+        string lightningPrototype,
+        float damage)
+    {
+        base.ShootLightning(performer, target, lightningPrototype, damage);
+
+        var action = new Action<EntityUid>(uid =>
+        {
+            var preventCollide = EnsureComp<PreventCollideComponent>(uid);
+            preventCollide.Uid = performer;
+
+            var electrified = EnsureComp<ElectrifiedComponent>(uid);
+            electrified.IgnoredEntity = uid;
+            electrified.IgnoreInsulation = true;
+            electrified.ShockDamage = damage * 2f; // Multiplying by 2 because siemens is 0.5
+            electrified.SiemensCoefficient = 0.5f;
+
+            Entity<PreventCollideComponent, ElectrifiedComponent> ent = (uid, preventCollide, electrified);
+            Dirty(ent);
+        });
+
+        _lightning.ShootLightning(performer, target, lightningPrototype, false, action);
     }
 }

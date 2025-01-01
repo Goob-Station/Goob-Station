@@ -111,7 +111,7 @@ public abstract class SharedTeslaBlastSystem : EntitySystem
             _doAfter.Cancel(uid, casting.DoAfterId);
     }
 
-    protected virtual void ShootRandomLightnings(EntityUid performer,
+    public virtual void ShootRandomLightnings(EntityUid performer,
         float power,
         float range,
         int boltCount,
@@ -119,6 +119,13 @@ public abstract class SharedTeslaBlastSystem : EntitySystem
         string lightningPrototype,
         Vector2 minMaxDamage,
         Vector2 minMaxStunTime)
+    {
+    }
+
+    public virtual void ShootLightning(EntityUid performer,
+        EntityUid target,
+        string lightningPrototype,
+        float damage)
     {
     }
 }

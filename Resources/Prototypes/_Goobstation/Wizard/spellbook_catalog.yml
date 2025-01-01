@@ -90,6 +90,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookLightningBolt
+  name: spellbook-lightning-bolt-name
+  description: spellbook-lightning-bolt-desc
+  productAction: ActionLightningBolt
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
