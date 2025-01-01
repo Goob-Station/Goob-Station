@@ -5,8 +5,6 @@ using Content.Shared.Clothing.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.Inventory.Events;
 using Content.Shared.Popups;
 using Content.Shared.Inventory;
 

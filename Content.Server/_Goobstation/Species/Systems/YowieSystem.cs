@@ -4,6 +4,7 @@ using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Server.Popups;
+using Content.Shared.Inventory;
 
 namespace Content.Server._Goobstation.Species.Systems;
 
@@ -26,7 +27,7 @@ public sealed partial class YowieSystem : EntitySystem
             comp.OuterLayerEquipped = true;
             if (_damageableSystem.TryChangeDamage(uid, comp.Damage, true) != null)
             {
-                _popupSystem.PopupEntity("You barely stuff yourself into EVA suit", uid, uid, PopupType.SmallCaution);
+                _popupSystem.PopupEntity(Loc.GetString("yowie-eva-suit-equipped-message", ("entity", Name(args.Clothing))), uid, uid, PopupType.SmallCaution);
             }
         }
     }
