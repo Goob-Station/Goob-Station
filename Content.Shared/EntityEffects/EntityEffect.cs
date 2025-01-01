@@ -1,5 +1,4 @@
 using System.Linq;
-using System.Text.Json.Serialization;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Database;
@@ -9,7 +8,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Toolshed.TypeParsers;
 
 namespace Content.Shared.EntityEffects;
 

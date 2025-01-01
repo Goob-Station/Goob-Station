@@ -1,6 +1,5 @@
 ﻿using Content.Server.Instruments;
 using Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Components;
-using Content.Shared.Instruments;
 using Robust.Shared.Random;
 
 namespace Content.Server.Xenoarchaeology.XenoArtifacts.Effects.Systems;

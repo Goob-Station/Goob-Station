@@ -1,7 +1,6 @@
 ﻿using Content.Server.Mech.Components;
 using Content.Shared.Interaction;
 using Content.Shared.Tag;
-using Content.Shared.Tools.Components;
 using Content.Shared.Tools.Systems;
 using Robust.Server.Containers;
 using Robust.Shared.Containers;

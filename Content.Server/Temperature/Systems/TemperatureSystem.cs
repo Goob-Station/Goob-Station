@@ -12,7 +12,6 @@ using Content.Shared.Rejuvenate;
 using Content.Shared.Temperature;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Physics.Events;
 using Content.Shared.Projectiles;
 
 namespace Content.Server.Temperature.Systems;

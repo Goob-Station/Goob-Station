@@ -2,7 +2,6 @@ using Content.Shared.StationAi;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics;
 using Robust.Shared.Threading;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Silicons.StationAi;
 

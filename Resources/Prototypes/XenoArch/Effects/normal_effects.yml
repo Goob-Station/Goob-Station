@@ -386,6 +386,9 @@
     - id: MobMothroach
       orGroup: fauna
       maxAmount: 2
+    - id: MobLootbug # Goobstation
+      orGroup: fauna
+      maxAmount: 2
     - id: MobMonkeySyndicateAgent #so lucky
       orGroup: fauna
       maxAmount: 1

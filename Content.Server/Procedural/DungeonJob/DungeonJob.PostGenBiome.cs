@@ -1,7 +1,6 @@
 using System.Threading.Tasks;
 using Content.Server.Parallax;
 using Content.Shared.Maps;
-using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.PostGeneration;
 using Robust.Shared.Map;
@@ -31,7 +30,7 @@ public sealed partial class DungeonJob
 
             if (reservedTiles.Contains(node))
                 continue;
-            
+
             if (dunGen.TileMask is not null)
             {
                 if (!dunGen.TileMask.Contains(((ContentTileDefinition) _tileDefManager[tileRef.Value.Tile.TypeId]).ID))

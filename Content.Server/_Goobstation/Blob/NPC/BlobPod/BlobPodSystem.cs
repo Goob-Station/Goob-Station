@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.Blob.Components;
 using Content.Server.DoAfter;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.NPC.HTN;
@@ -15,7 +14,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Rejuvenate;
 using Robust.Server.Audio;

@@ -1,4 +1,3 @@
-using Content.Server._Goobstation.ServerCurrency;
 using Content.Shared.Administration;
 using Content.Server.Administration;
 using Robust.Shared.Console;
@@ -77,12 +76,12 @@ namespace Content.Server._Goobstation.ServerCurrency.Commands
                 shell.WriteError(Loc.GetString("server-currency-command-error-2"));
                 return;
             }
-            
+
             amount = Math.Abs(amount);
-            
+
             if (amount == 0)
                 amount = 1; // Trolled
-            
+
             if (!_currencyMan.CanAfford(shell.Player.UserId, amount, out int balance)){
                 shell.WriteError(Loc.GetString("server-currency-gift-command-error-2", ("balance", balance)));
                 return;
