@@ -40,6 +40,7 @@ namespace Content.Client.Stylesheets
         protected StyleBoxTexture BaseAngleRect { get; }
         protected StyleBoxTexture AngleBorderRect { get; }
 
+        // Goobstation - ZH text support
         protected StyleBase(IResourceCache resCache)
         {
             var notoSans12 = resCache.GetFont
@@ -48,7 +49,6 @@ namespace Content.Client.Stylesheets
                 {
                     "/Fonts/NotoSans/NotoSans-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Bold.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
                 },
@@ -60,7 +60,6 @@ namespace Content.Client.Stylesheets
                 {
                     "/Fonts/NotoSans/NotoSans-Italic.ttf",
                     "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Bold.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
                 },

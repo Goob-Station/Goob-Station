@@ -20,6 +20,7 @@ namespace Content.Client.Stylesheets
 {
     public static class ResCacheExtension
     {
+        // Goobstation - ZH text support start
         public static Font NotoStack(this IResourceCache resCache, string variation = "Regular", int size = 10, bool display = false)
         {
             var ds = "";
@@ -44,7 +45,6 @@ namespace Content.Client.Stylesheets
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Bold.ttf",
                 },
                 size
             );
@@ -60,11 +60,11 @@ namespace Content.Client.Stylesheets
                     $"/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
                     "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
-                    "/Fonts/NotoSans/NotoSansSC-Bold.ttf",
                 },
                 size
             );
         }
+        // Goobstation - ZH text support end
     }
     // STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
     public sealed class StyleNano : StyleBase
@@ -204,7 +204,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
-            var notoSansMono = resCache.NotoStack(variation: "Mono-Regular", size: 12);
+            var notoSansMono = resCache.NotoStack(variation: "Mono-Regular", size: 12); // Goobstation - ZH text support
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
