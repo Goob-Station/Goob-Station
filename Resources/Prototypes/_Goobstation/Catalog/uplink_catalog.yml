@@ -473,7 +473,8 @@
     Telecrystal: 5
   categories:
   - UplinkAmmo
-  
+
+- type: listing
   id: UplinkHighCapacityMagazinePistol
   name: uplink-highcap-pistol-mag-name
   description: uplink-highcap-pistol-mag-desc
