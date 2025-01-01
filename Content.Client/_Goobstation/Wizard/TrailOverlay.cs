@@ -34,6 +34,7 @@ public sealed class TrailOverlay : Overlay
         while (query.MoveNext(out _, out var trail))
         {
             var texture = _sprite.Frame0(trail.Sprite);
+            var pos = -(Vector2) texture.Size / 2f / EyeManager.PixelsPerMeter;
             foreach (var data in trail.TrailData)
             {
                 var worldPosition = data.Position;
@@ -45,7 +46,7 @@ public sealed class TrailOverlay : Overlay
                 var matty = Matrix3x2.Multiply(rotationMatrix, scaledWorld);
                 handle.SetTransform(matty);
 
-                handle.DrawTexture(texture, -(Vector2) texture.Size / 2f / EyeManager.PixelsPerMeter, data.Angle, data.Color);
+                handle.DrawTexture(texture, pos, data.Angle, data.Color);
             }
         }
 
