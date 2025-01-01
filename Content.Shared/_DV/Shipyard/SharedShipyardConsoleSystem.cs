@@ -13,8 +13,8 @@ namespace Content.Shared._DV.Shipyard;
 /// </summary>
 public abstract class SharedShipyardConsoleSystem : EntitySystem
 {
-    [Dependency] protected readonly AccessReaderSystem _access = default!;
-    [Dependency] protected readonly IPrototypeManager _proto = default!;
+    [Dependency] private readonly AccessReaderSystem _access = default!;
+    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
     [Dependency] protected readonly SharedPopupSystem Popup = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
@@ -23,7 +23,8 @@ public abstract class SharedShipyardConsoleSystem : EntitySystem
     {
         base.Initialize();
 
-        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key, subs =>
+        Subs.BuiEvents<ShipyardConsoleComponent>(ShipyardConsoleUiKey.Key,
+            subs =>
         {
             subs.Event<ShipyardConsolePurchaseMessage>(OnPurchase);
         });

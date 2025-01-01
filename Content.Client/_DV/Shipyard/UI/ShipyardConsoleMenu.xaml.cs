@@ -18,8 +18,8 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
 
     public event Action<string>? OnPurchased;
 
-    private readonly List<VesselPrototype> _vessels = new();
-    private readonly List<string> _categories = new();
+    private readonly List<VesselPrototype> _vessels = [];
+    private readonly List<string> _categories = [];
 
     public Entity<ShipyardConsoleComponent> Console;
     private string? _category;
@@ -78,7 +78,7 @@ public sealed partial class ShipyardConsoleMenu : FancyWindow
         var search = SearchBar.Text.Trim().ToLowerInvariant();
         foreach (var vessel in _vessels)
         {
-            if (search.Length != 0 && !vessel.Name.ToLowerInvariant().Contains(search))
+            if (search.Length != 0 && !vessel.Name.Contains(search, StringComparison.InvariantCultureIgnoreCase))
                 continue;
             if (_category != null && !vessel.Categories.Contains(_category))
                 continue;

@@ -3,7 +3,7 @@
                 HorizontalExpand="True">
     <BoxContainer Orientation="Horizontal"
                   HorizontalExpand="True">
-        <Button Name="Purchase" Text="{Loc 'purchase'}" StyleClasses="LabelSubText" />
+        <Button Name="Purchase" Text="{Loc 'shipyard-console-purchase'}" StyleClasses="LabelSubText" />
         <Label Name="VesselName" HorizontalExpand="True" />
         <PanelContainer>
             <PanelContainer.PanelOverride>

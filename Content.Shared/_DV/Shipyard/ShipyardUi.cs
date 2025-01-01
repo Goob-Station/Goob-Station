@@ -11,26 +11,16 @@ public enum ShipyardConsoleUiKey : byte
 }
 
 [Serializable, NetSerializable]
-public sealed class ShipyardConsoleState : BoundUserInterfaceState
+public sealed class ShipyardConsoleState(int balance) : BoundUserInterfaceState
 {
-    public readonly int Balance;
-
-    public ShipyardConsoleState(int balance)
-    {
-        Balance = balance;
-    }
+    public readonly int Balance = balance;
 }
 
 /// <summary>
 /// Ask the server to purchase a vessel.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class ShipyardConsolePurchaseMessage : BoundUserInterfaceMessage
+public sealed class ShipyardConsolePurchaseMessage(string vessel) : BoundUserInterfaceMessage
 {
-    public readonly ProtoId<VesselPrototype> Vessel;
-
-    public ShipyardConsolePurchaseMessage(string vessel)
-    {
-        Vessel = vessel;
-    }
+    public readonly ProtoId<VesselPrototype> Vessel = vessel;
 }

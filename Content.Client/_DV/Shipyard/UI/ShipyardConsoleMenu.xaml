@@ -1,5 +1,4 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
-                           xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
                            xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                            SetSize="500 360"
                            MinSize="460 280"

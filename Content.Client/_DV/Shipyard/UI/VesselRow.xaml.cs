@@ -19,7 +19,7 @@ public sealed partial class VesselRow : PanelContainer
         VesselName.Text = vessel.Name;
 
         var tooltip = new Tooltip();
-        tooltip.SetMessage(FormattedMessage.FromMarkup(vessel.Description));
+        tooltip.SetMessage(FormattedMessage.FromMarkupOrThrow(vessel.Description));
         Purchase.TooltipSupplier = _ => tooltip;
         Purchase.Disabled = !access;
         Purchase.OnPressed += _ => OnPurchasePressed?.Invoke();
