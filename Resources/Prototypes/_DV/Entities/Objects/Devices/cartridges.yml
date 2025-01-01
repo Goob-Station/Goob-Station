@@ -34,7 +34,7 @@
   - type: Cartridge
     programName: nano-chat-program-name
     icon:
-      sprite: __DV/Misc/program_icons.rsi
+      sprite: _DV/Misc/program_icons.rsi
       state: nanochat
   - type: ActiveRadio
     channels:
