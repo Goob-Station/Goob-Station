@@ -192,15 +192,15 @@
     - names_vox
 
 - type: entity
-  id: RandomHumanoidSpawnerERTSecurityEVAAtlas
+  id: RandomHumanoidSpawnerERTSecurityEVAAnnie
   parent: RandomHumanoidSpawnerERTSecurityEVA
-  suffix: ERTRole, Atlas, EVA
+  suffix: ERTRole, Annie, EVA
   components:
     - type: RandomHumanoidSpawner
-      settings: ERTSecurityEVAAtlas
+      settings: ERTSecurityEVAAnnie
 
 - type: randomHumanoidSettings
-  id: ERTSecurityEVAAtlas
+  id: ERTSecurityEVAAnnie
   parent: ERTSecurityEVA
   components:
     - type: GhostRole
@@ -211,5 +211,5 @@
         settings: short
       job: ERTSecurity
     - type: Loadout
-      prototypes: [ ERTSecurityGearEVAAtlas ]
+      prototypes: [ ERTSecurityGearEVAAnnie ]
       roleLoadout: [ RoleSurvivalEVA ]

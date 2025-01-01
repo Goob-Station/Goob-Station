@@ -45,13 +45,13 @@
     fireRate: 6
 
 - type: entity
-  name: Atlas
+  name: Annie
   parent: WeaponRifleAk
-  id: WeaponRifleAtlas
+  id: WeaponRifleAnnie
   description: A beast designed to shoulder the weight of impossible missions. Uses .30 rifle ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]
@@ -70,13 +70,13 @@
       path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
 
 - type: entity
-  name: MAKR
+  name: WSPR
   parent: WeaponRifleAk
-  id: WeaponRifleMAKR
+  id: WeaponRifleWSPR
   description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses .30 rifle subsonic ammo.
   components:
   - type: Sprite
-    sprite: Objects/Weapons/Guns/Rifles/ak.rsi
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
     layers:
       - state: base
         map: ["enum.GunVisualLayers.Base"]

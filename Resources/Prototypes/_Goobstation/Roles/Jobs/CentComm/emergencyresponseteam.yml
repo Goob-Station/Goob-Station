@@ -1,5 +1,5 @@
 - type: startingGear
-  id: ERTSecurityGearEVAAtlas
+  id: ERTSecurityGearEVAAnnie
   equipment:
     jumpsuit: ClothingUniformJumpsuitERTSecurity
     back: ClothingBackpackERTSecurity
@@ -14,7 +14,7 @@
     pocket1: MagazineRifle
     pocket2: MagazineRifle
   inhand:
-    - WeaponRifleAtlas
+    - WeaponRifleAnnie
   storage:
     back:
     - WeaponDisabler

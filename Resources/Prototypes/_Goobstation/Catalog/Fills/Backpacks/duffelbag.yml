@@ -53,12 +53,12 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
-  id: ClothingBackpackDuffelSyndicateFilledMAKR
-  name: MAKR bundle
-  description: "A bundle carrying the syndicate's MAKR assault rifle, packed with 2 spare magazines."
+  id: ClothingBackpackDuffelSyndicateFilledWSPR
+  name: WSPR bundle
+  description: "A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines."
   components:
   - type: StorageFill
     contents:
-      - id: WeaponRifleMAKR
+      - id: WeaponRifleWSPR
       - id: MagazineLightRifleSubsonic
         amount: 2

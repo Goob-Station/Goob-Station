@@ -110,11 +110,11 @@
       - NukeOpsUplink
 
 - type: listing
-  id: UplinkMAKR
-  name: uplink-MAKR-name
-  description: uplink-MAKR-desc
+  id: UplinkWSPR
+  name: uplink-WSPR-name
+  description: uplink-WSPR-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Rifles/ak.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledMAKR
+  productEntity: ClothingBackpackDuffelSyndicateFilledWSPR
   cost:
     Telecrystal: 85
   categories:
