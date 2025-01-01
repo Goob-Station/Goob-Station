@@ -97,6 +97,7 @@
   Commands:
   - self
   - entities
+  - nearby
 
 - Flags: FUN
   Commands:
