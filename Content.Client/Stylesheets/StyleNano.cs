@@ -204,7 +204,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
-            var notoSansMono = resCache.NotoStack(variation: "Mono-Regular", size: 12); // Goobstation - ZH text support
+            var notoSansMono = resCache.NotoStack2ElectricBoogaloo("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
