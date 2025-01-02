@@ -1,0 +1,58 @@
+- type: entity
+  parent: MobSiliconBase
+  id: MobCleanBotTurbo
+  name: turbo cleanbot
+  suffix: admeme
+  description: The racing stripes make it go faster.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Mobs/Silicon/Bots/cleanbot.rsi
+    state: cleanbot
+  - type: SentienceTarget
+    flavorKind: station-event-random-sentience-flavor-mechanical
+  - type: Absorbent
+    pickupAmount: 10
+  - type: SolutionRegeneration
+    duration: 0
+    solution: absorbed
+    generated:
+      reagents:
+        - ReagentId: Water
+          Quantity: 10
+  - type: SolutionPurge
+    solution: absorbed
+    preserve:
+      - Water
+    quantity: 10
+  - type: SolutionContainerManager
+    solutions:
+      absorbed:
+        maxVol: 50
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4
+  - type: HTN
+    rootTask:
+      task: CleanbotCompound
+  - type: DrainableSolution
+    solution: drainBuffer
+  - type: InteractionPopup
+    interactSuccessString: petting-success-cleanbot
+    interactFailureString: petting-failure-cleanbot
+    interactSuccessSound:
+      path: /Audio/Ambience/Objects/periodic_beep.ogg
+  - type: Item # Goobstation
+    size: Large
+  - type: StationAiVision # Goobstation - AI can see through NT silicon
+    range: 0
+  - type: Fixtures # ShibaStation - let cleanbots go under doors and tables to clean!
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.35
+        density: 50
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
