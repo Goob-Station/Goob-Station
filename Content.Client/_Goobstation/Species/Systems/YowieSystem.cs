@@ -3,17 +3,15 @@ using Content.Shared.Clothing;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Popups;
-using Content.Server.Popups;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 
-namespace Content.Server._Goobstation.Species.Systems;
+namespace Content.Client._Goobstation.Species.Systems;
 
 public sealed partial class YowieSystem : EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifierSystem = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifierSystem = default!;
     public override void Initialize()
@@ -28,10 +26,6 @@ public sealed partial class YowieSystem : EntitySystem
         if (args.Clothing.Comp.Slots == SlotFlags.OUTERCLOTHING)
         {
             comp.OuterLayerEquipped = true;
-            if (_damageableSystem.TryChangeDamage(uid, comp.Damage, true) != null)
-            {
-                _popupSystem.PopupEntity(Loc.GetString("yowie-eva-suit-equipped-message", ("entity", Name(args.Clothing))), uid, uid, PopupType.SmallCaution);
-            }
         }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
