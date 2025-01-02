@@ -1,6 +1,6 @@
 - type: gameMap
   id: Loop
-  mapName: 'Loop Station'
+  mapName: 'Loop' # ShibaStation - Changed map name to be consistent with other maps.
   mapPath: /Maps/loop.yml
   minPlayers: 0 # ShibaStation - This map can be zero pop'd, it's not that complex.
   maxPlayers: 70
