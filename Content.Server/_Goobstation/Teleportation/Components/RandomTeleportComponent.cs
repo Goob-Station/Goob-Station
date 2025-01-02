@@ -1,6 +1,5 @@
 using Content.Shared.Destructible.Thresholds;
 using Robust.Shared.Audio;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Teleportation;
 

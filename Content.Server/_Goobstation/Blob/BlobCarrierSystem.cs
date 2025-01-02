@@ -1,5 +1,4 @@
 ﻿using Content.Server.Actions;
-using Content.Server._Goobstation.Blob.Components;
 //using Content.Server.Language;
 using Content.Server.Body.Systems;
 using Content.Server.Ghost.Roles;

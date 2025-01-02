@@ -1,11 +1,6 @@
 using Content.Shared.Interaction;
-using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 using Robust.Shared.Serialization;
-using Robust.Shared.Timing;
-using Robust.Shared.Utility;
-using System.Linq;
 
 namespace Content.Shared.SubFloor;
 

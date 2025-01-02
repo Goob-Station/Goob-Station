@@ -319,6 +319,8 @@
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: NukeopsRule
     warDeclarationMinOps: 1 # challenge mode
+    warTcPerPlayer: 3
+    warTcPerNukieMissing: 0
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:

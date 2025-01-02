@@ -9,7 +9,6 @@ using Content.Shared.Chat;
 using Content.Shared.Prayer;
 using Content.Shared._Goobstation.Religion;
 using Content.Shared.Verbs;
-using Robust.Server.GameObjects;
 using Robust.Shared.Player;
 
 namespace Content.Server.Prayer;

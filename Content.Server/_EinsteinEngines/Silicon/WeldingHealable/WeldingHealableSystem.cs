@@ -6,7 +6,6 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Damage;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Tools;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Body.Systems;
 using SharedToolSystem = Content.Shared.Tools.Systems.SharedToolSystem;

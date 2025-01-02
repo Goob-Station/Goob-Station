@@ -1,8 +1,6 @@
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
-using Robust.Shared.Graphics;  // Goobstation - anythingburgers i dont even remember if i need this
 using Robust.Shared.Prototypes; // Goobstation - anythingburgers
 using Robust.Shared.Utility;
 

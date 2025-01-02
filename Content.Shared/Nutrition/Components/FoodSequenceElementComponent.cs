@@ -2,8 +2,6 @@ using System.Numerics;
 using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
-using Robust.Shared.Prototypes; // Goobstation - anythingburgers
-using Content.Shared._Goobstation.Nutrition.EntitySystems; // Goobstation - anythingburgers
 
 namespace Content.Shared.Nutrition.Components;
 

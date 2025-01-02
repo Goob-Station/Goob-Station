@@ -7,8 +7,6 @@ using Content.Server._Goobstation.Blob.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
