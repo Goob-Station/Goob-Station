@@ -1,0 +1,14 @@
+- type: entity
+  abstract: true
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHardsuitWithLightBaseNF
+
+- type: entity
+  abstract: true
+  parent: ClothingHeadHardsuitWithLightBaseNF
+  id: ClothingHeadHardsuitWithLightBaseNfsd
+  components:
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 10000
+  - type: BreathMask

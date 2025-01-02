@@ -525,6 +525,19 @@
   - Trinkets
   - GroupSpeciesBreathTool
 
+- type: roleLoadout
+  id: JobMercenary
+  groups:
+  - MercenaryHead
+  - MercenaryBelt
+  - MercenaryJumpsuitGroup
+  - MercenaryBackpackGroup
+  - MercenaryOuterClothing
+  - MercenaryShoes
+  - Survival
+  - Trinkets
+  - GroupSpeciesBreathTool
+
 # These loadouts are used for non-crew spawns, like off-station antags and event mobs
 # They will be used without player configuration, thus they will only ever apply what is forced by MinLimit
 

@@ -1,0 +1,30 @@
+
+- type: entity
+  abstract: true
+  parent: ClothingBackpack
+  id: NFClothingBackpack
+  components:
+  - type: Storage
+    maxItemSize: Large
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,6,3
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,6,3
+
+- type: entity
+  abstract: true
+  parent: ClothingBackpack
+  id: NFClothingDuffel
+  components:
+  - type: Storage
+    maxItemSize: Huge
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,4
+  - type: Item
+    size: Huge
+    shape:
+    - 0,0,7,5

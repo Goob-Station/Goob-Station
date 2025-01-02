@@ -1365,3 +1365,60 @@
   hidden: true
   loadouts:
   - LoadoutSpeciesBreathToolSecurity
+
+# Merc stuff 
+
+- type: loadoutGroup
+  id: MercenaryJumpsuitGroup
+  name: loadout-group-mercenary-jumpsuit
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MercenaryJumpsuit
+  - MercenarySergeantJumpsuit
+
+- type: loadoutGroup
+  id: MercenaryBackpackGroup
+  name: loadout-group-mercenary-backpack
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - MercenaryBackpack
+  - MercenarySatchel
+  - MercenaryDuffel
+
+- type: loadoutGroup
+  id: MercenaryOuterClothing
+  name: loadout-group-mercenary-outerclothing
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - ArmorVest
+  - ArmorVestSlim
+
+- type: loadoutGroup
+  id: MercenaryShoes
+  name: loadout-group-mercenary-shoes
+  minLimit: 1
+  maxLimit: 1
+  loadouts:
+  - JackBoots
+  - CombatBoots
+  - MercenaryBoots
+
+- type: loadoutGroup
+  id: MercenaryHead
+  name: loadout-group-mercenary-head
+  minLimit: 0
+  maxLimit: 1
+  loadouts:
+  - MercenaryBeret
+
+- type: loadoutGroup
+  id: MercenaryBelt
+  name: loadout-group-mercenary-belt
+  minLimit: 0
+  MaxLimit: 1
+  loadouts:
+  - MercenaryRig
+  - MercenaryHolster

@@ -48,3 +48,22 @@
         prob: 0.3
       - id: Flare
         prob: 0.3
+
+- type: entity
+  id: LockerMercenaryFilled
+  suffix: Filled
+  parent: LockerMercenary
+  components:
+  - type: StorageFill
+    contents: 
+    - id: SurvivalKnife
+    - id: HandheldGPSBasic
+    - id: RadioHandheld
+    - id: OreBag
+    - id: ClothingBeltUtilityFilled
+    - id: WeaponPistolMk58
+    - id: MagazinePistol
+    - id: ClothingHandsGlovesCombat
+    - id: ClothingShoesBootsJack
+    - id: ClothingOuterHardsuitMercenary
+    - id: ClothingShoesBootsMagMercenary

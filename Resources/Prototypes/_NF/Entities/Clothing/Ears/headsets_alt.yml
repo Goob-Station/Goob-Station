@@ -1,0 +1,9 @@
+﻿- type: entity
+  parent: [ClothingHeadsetCommon, ClothingHeadsetAlt]
+  id: ClothingHeadsetAltMercenary
+  name: mercenary over-ear headset
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Ears/Headsets/mercenary.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Ears/Headsets/mercenary.rsi

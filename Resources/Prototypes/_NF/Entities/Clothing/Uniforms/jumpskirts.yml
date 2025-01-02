@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingUniformSkirtBase
+  id: ClothingUniformJumpskirtMercenary
+  name: mercenary jumpskirt
+  description: Clothing for real mercenaries who have gone through fire, water and the jungle of planets flooded with dangerous monsters or targets for which a reward has been assigned.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpskirt/mercenary.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpskirt/mercenary.rsi

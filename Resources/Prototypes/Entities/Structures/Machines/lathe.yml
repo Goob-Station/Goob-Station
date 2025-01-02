@@ -244,8 +244,6 @@
       - ParamedHypo # Goobstation - ParamedHypo
       - MagazinePistolCaselessRifle # Goobstation
       - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
       - MagazineHighCaliberEmpty # Goobstation
       - MagazineHighCaliber # Goobstation
       - MagazineBoxHighCaliber # Goobstation
@@ -923,12 +921,13 @@
       - WeaponMechCombatDisabler
       - WeaponMechCombatFlashbangLauncher
       - WeaponMechCombatMissileRack8
+      - MagazineLightRifleBox # Red Astra
+      - WeaponLightMachineGunL6 # Red Astra
+      - BladesOfChaos # Red Astra
   - type: EmagLatheRecipes # Goobstation
     emagStaticRecipes:
     - MagazinePistolCaselessRifle # Goobstation
     - MagazineBoxCaselessRifle # Goobstation
-    - MagazineLightRifleBoxEmpty # Goobstation
-    - MagazineLightRifleBox # Goobstation
     - MagazineHighCaliberEmpty # Goobstation
     - MagazineHighCaliber # Goobstation
     - MagazineBoxHighCaliber # Goobstation
@@ -988,8 +987,6 @@
       emagStaticRecipes:
       - MagazinePistolCaselessRifle # Goobstation
       - MagazineBoxCaselessRifle # Goobstation
-      - MagazineLightRifleBoxEmpty # Goobstation
-      - MagazineLightRifleBox # Goobstation
       - MagazineHighCaliberEmpty # Goobstation
       - MagazineHighCaliber # Goobstation
       - MagazineBoxHighCaliber # Goobstation

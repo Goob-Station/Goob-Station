@@ -1,0 +1,10 @@
+- type: entity
+  id: ClothingHeadsetCommon
+  name: headset
+  description: An updated, modular intercom that fits over the head. Takes encryption keys.
+  abstract: true
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeyCommon

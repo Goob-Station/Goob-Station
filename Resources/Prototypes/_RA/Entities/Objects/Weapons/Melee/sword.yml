@@ -1,0 +1,37 @@
+- type: entity
+  name: blades of chaos
+  parent: [ BaseSword, BaseSyndicateContraband ] # Frontier: BaseMajorContraband<BaseC1Contraband
+  id: BladesOfChaos
+  description: Two huge blades on chains, linked to the user's arms. They burn with primordial flames. Capable of killing gods.
+  components:
+  - type: Tag
+    tags:
+    - Machete
+  - type: Sprite
+    sprite: _RA/Objects/Weapons/Melee/bladesofchaos.rsi
+  - type: MeleeWeapon
+    attackRate: 1.8
+    damage:
+      types:
+        Slash: 8
+        Heat: 8
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 7
+        Heat: 7
+  - type: Reflect
+    reflectProb: .5
+  - type: IgniteOnMeleeHit
+    fireStacks: 1
+  - type: Item
+    sprite: _RA/Objects/Weapons/Melee/bladesofchaos.rsi
+  - type: DisarmMalus
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
