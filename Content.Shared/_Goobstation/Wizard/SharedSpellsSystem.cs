@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Mutate;
@@ -95,6 +96,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
+        SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
     }
 
     #region Spells
@@ -168,18 +170,10 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        var coords = Transform(ev.Performer).Coordinates;
-        var mapCoords = TransformSystem.ToMapCoordinates(coords);
-
-        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
-            ? TransformSystem.WithEntityId(coords, gridUid)
-            : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
-
-        var velocity = Physics.GetMapLinearVelocity(spawnCoords);
-
         var ghostQuery = GetEntityQuery<GhostComponent>();
         var spectralQuery = GetEntityQuery<SpectralComponent>();
+
+        var (coords, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
         var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
         var hasTargets = false;
@@ -197,9 +191,16 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (_net.IsClient)
                 break;
 
-            var missile = Spawn(ev.Proto, mapCoords);
-            EnsureComp<PreventCollideComponent>(missile).Uid = ev.Performer;
-            EnsureComp<HomingProjectileComponent>(missile).Target = target;
+            var missile = Spawn(ev.Proto, spawnCoords);
+
+            var preventCollide = EnsureComp<PreventCollideComponent>(missile);
+            preventCollide.Uid = ev.Performer;
+            Dirty(missile, preventCollide);
+
+            var homing = EnsureComp<HomingProjectileComponent>(missile);
+            homing.Target = target;
+            Dirty(missile, homing);
+
             _gunSystem.SetTarget(missile, target);
 
             var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
@@ -477,13 +478,41 @@ public abstract class SharedSpellsSystem : EntitySystem
         _teslaBlast.StartCharging(ev);
     }
 
-
     private void OnLightningBolt(LightningBoltEvent ev)
     {
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnHomingToolbox(HomingToolboxEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (_net.IsServer)
+        {
+            var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
+
+            var toolbox = Spawn(ev.Proto, spawnCoords);
+
+            var preventCollide = EnsureComp<PreventCollideComponent>(toolbox);
+            preventCollide.Uid = ev.Performer;
+            Dirty(toolbox, preventCollide);
+
+            var homing = EnsureComp<HomingProjectileComponent>(toolbox);
+            homing.Target = ev.Target;
+            Dirty(toolbox, homing);
+
+            _gunSystem.SetTarget(toolbox, ev.Target);
+
+            var direction = TransformSystem.GetMapCoordinates(ev.Target).Position - mapCoords.Position;
+            _gunSystem.ShootProjectile(toolbox, direction, velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
+        }
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -501,6 +530,22 @@ public abstract class SharedSpellsSystem : EntitySystem
     private void PopupLoc(EntityUid uid, string locMessage)
     {
         _popup.PopupClient(locMessage, uid, uid);
+    }
+
+    private (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
+        GetProjectileData(EntityUid shooter)
+    {
+        var coords = Transform(shooter).Coordinates;
+        var mapCoords = TransformSystem.ToMapCoordinates(coords);
+
+        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
+        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(coords, gridUid)
+            : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
+
+        var velocity = Physics.GetMapLinearVelocity(spawnCoords);
+
+        return (coords, mapCoords, spawnCoords, velocity);
     }
 
     protected void SetGear(EntityUid uid,

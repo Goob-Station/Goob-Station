@@ -99,9 +99,7 @@ public sealed class TrailSystem : EntitySystem
 
             trail.Accumulator = 0f;
 
-            var rotation = _transform.GetWorldRotation(xform, xformQuery);
-            var position = _transform.GetWorldPosition(xform, xformQuery);
-
+            var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
             if (trail.TrailData.Count < trail.Lifetime / trail.Frequency)
             {
                 trail.TrailData.Add(new TrailData(position, rotation, Color.White));

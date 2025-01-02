@@ -331,3 +331,28 @@
       speech: action-speech-spell-lightning-bolt
   - type: Magic
     requiresSpeech: true
+
+- type: entity
+  id: ActionHomingToolbox
+  name: Homing Toolbox
+  description: Fires a magical homing toolbox at your opponent.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 4
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 100
+    sound:
+      path: /Audio/Weapons/smash.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: toolbox
+    event: !type:HomingToolboxEvent
+      speech: action-speech-spell-homing-toolbox
+  - type: Magic
+    requiresSpeech: true

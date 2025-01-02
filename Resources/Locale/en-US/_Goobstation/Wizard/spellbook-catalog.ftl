@@ -73,3 +73,8 @@ spellbook-lightning-bolt-name = Lightning Bolt
 spellbook-lightning-bolt-desc =
     Fire a lightning bolt at your foes! Ignores insulation, but can't stun. You are immune to your own lightning.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-homing-toolbox-name = Homing Toolbox
+spellbook-homing-toolbox-desc =
+    This spell summons and throws a magical homing toolbox at your opponent that knocks down on hit.
+    Doesn't require wizard's robe and hat to cast.

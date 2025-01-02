@@ -10,3 +10,4 @@ action-speech-spell-bind-soul = NECREM IMORTIUM!
 action-speech-spell-mutate = BIRUZ BENNAR
 action-speech-spell-tesla-blast = UN'LTD P'WAH!
 action-speech-spell-lightning-bolt = P'WAH, UNLIM'TED P'WAH!
+action-speech-spell-homing-toolbox = ROBUSTIO!

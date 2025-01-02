@@ -103,6 +103,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookHomingToolbox
+  name: spellbook-homing-toolbox-name
+  description: spellbook-homing-toolbox-desc
+  productAction: ActionHomingToolbox
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

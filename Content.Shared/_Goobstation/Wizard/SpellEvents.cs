@@ -280,3 +280,15 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeak
     [DataField]
     public EntProtoId Proto = "ChargedLightning";
 }
+
+public sealed partial class HomingToolboxEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "ProjectileToolboxHoming";
+
+    [DataField]
+    public float ProjectileSpeed = 20f;
+}
