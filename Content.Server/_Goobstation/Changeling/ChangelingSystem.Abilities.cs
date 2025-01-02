@@ -1,11 +1,7 @@
 using Content.Server.Flash.Components;
 using Content.Server.Light.Components;
-using Content.Server.Light.Components;
-using Content.Server.Nutrition.Components;
 using Content.Server.Nutrition.Components;
 using Content.Server.Objectives.Components;
-using Content.Server.Objectives.Components;
-using Content.Server.Radio.Components;
 using Content.Server.Radio.Components;
 using Content.Shared._White.Overlays;
 using Content.Shared.Changeling;
@@ -13,15 +9,10 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
-using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Components;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
 using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -205,7 +196,7 @@ public sealed partial class ChangelingSystem
         var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
         PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalNutriment.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
