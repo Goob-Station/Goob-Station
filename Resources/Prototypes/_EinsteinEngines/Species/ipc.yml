@@ -34,6 +34,7 @@
   id: MobIPCSprites
   sprites:
     Head: MobIPCHead
+    Face: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -57,6 +58,9 @@
       points: 1
       required: true
       defaultMarkings: [ MobIPCHeadDefault ]
+    Face:
+      points: 1
+      required: false
     Chest:
       points: 1
       required: true
@@ -124,7 +128,7 @@
   id: MobIPCHeadDefault
   bodyPart: Head
   markingCategory: Head
-  speciesRestriction: [IPC]
+  speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: head_m
@@ -144,7 +148,7 @@
   id: MobIPCChestDefault
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC]
+  speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: chest_m
@@ -153,7 +157,7 @@
   id: MobIPCChestFemaleDefault
   bodyPart: Chest
   markingCategory: Chest
-  speciesRestriction: [IPC]
+  speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: chest_f
@@ -195,6 +199,8 @@
 - type: marking
   id: MobIPCLLegDefault
   bodyPart: LLeg
+  markingCategory: LeftLeg
+  speciesRestriction: [ IPC ]
   markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
@@ -209,6 +215,8 @@
 - type: marking
   id: MobIPCLArmDefault
   bodyPart: LArm
+  markingCategory: LeftArm
+  speciesRestriction: [ IPC ]
   markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
@@ -223,6 +231,8 @@
 - type: marking
   id: MobIPCLHandDefault
   bodyPart: LHand
+  markingCategory: LeftHand
+  speciesRestriction: [ IPC ]
   markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
@@ -237,6 +247,8 @@
 - type: marking
   id: MobIPCLFootDefault
   bodyPart: LFoot
+  markingCategory: LeftFoot
+  speciesRestriction: [ IPC ]
   markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:
@@ -252,7 +264,7 @@
   id: MobIPCRLegDefault
   bodyPart: RLeg
   markingCategory: RightLeg
-  speciesRestriction: [IPC]
+  speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_leg
@@ -266,7 +278,7 @@
   id: MobIPCRArmDefault
   bodyPart: RArm
   markingCategory: RightArm
-  speciesRestriction: [IPC]
+  speciesRestriction: [ IPC ]
   sprites:
   - sprite: _EinsteinEngines/Mobs/Species/IPC/parts.rsi
     state: r_arm
@@ -279,6 +291,8 @@
 - type: marking
   id: MobIPCRHandDefault
   bodyPart: RHand
+  markingCategory: RightHand
+  speciesRestriction: [ IPC ]
   markingCategory: RightArm
   speciesRestriction: [IPC]
   sprites:
@@ -293,6 +307,8 @@
 - type: marking
   id: MobIPCRFootDefault
   bodyPart: RFoot
+  markingCategory: RightFoot
+  speciesRestriction: [ IPC ]
   markingCategory: RightLeg
   speciesRestriction: [IPC]
   sprites:

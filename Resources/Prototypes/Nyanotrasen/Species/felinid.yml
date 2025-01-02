@@ -25,6 +25,9 @@
 - type: markingPoints
   id: MobFelinidMarkingLimits
   points:
+    Face:
+      points: 1
+      required: false
     Hair:
       points: 1
       required: false

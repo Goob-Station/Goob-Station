@@ -26,6 +26,7 @@
   id: MobVulpkaninSprites
   sprites:
     Head: MobVulpkaninHead
+    Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -47,6 +48,9 @@
 - type: markingPoints
   id: MobVulpkaninMarkingLimits
   points:
+    Face:
+      points: 1
+      required: false
     Hair:
       points: 1
       required: false

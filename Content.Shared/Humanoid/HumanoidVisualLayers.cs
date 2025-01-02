@@ -25,6 +25,7 @@ namespace Content.Shared.Humanoid
     [Serializable, NetSerializable]
     public enum HumanoidVisualLayers : byte
     {
+        Face,
         Special, // for the cat ears
         Tail,
         Wings, // For IPC wings porting from SimpleStation

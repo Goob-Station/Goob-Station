@@ -37,6 +37,7 @@
   sprites:
     Special: MobHumanoidAnyMarking
     Head: MobHumanHead
+    Face: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -58,6 +59,9 @@
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
+    Face:
+      points: 1
+      required: false
     Special: # the cat ear joke, its real *godo*
       points: 1
       required: false
