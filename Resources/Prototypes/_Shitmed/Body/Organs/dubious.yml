@@ -1,0 +1,47 @@
+- type: entity
+  id: OrganDubiousBase
+  parent: OrganHumanHeart
+  name: gland
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Cyberlimbs/dubious-organs.rsi
+
+- type: entity
+  id: OrganDubiousHealth
+  parent: OrganDubiousBase
+  name: gland
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Organ
+    onAdd:
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 150
+      damage:
+        groups:
+          Brute: -0.14
+          Burn: -0.14
+          Airloss: -0.14
+          Toxin: -0.14
+          Genetic: -0.14
+
+- type: entity
+  id: OrganDubiousAA
+  parent: OrganDubiousBase
+  name: gland
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Organ
+    onAdd:
+    - type: Access
+      enabled: false
+      groups:
+      - AllAccess
+    - type: AccessReader
+      access: [["Command"], ["Research"]]
+
+- type: entity
+  id: OrganDubious
