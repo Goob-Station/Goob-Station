@@ -25,7 +25,7 @@ entities:
       name: NT Evac Cluster
     - type: Transform
       pos: -4.3957214,6.3308363
-
+      parent: 12
     - type: MapGrid
       chunks:
         0,-2:
@@ -64,10 +64,10 @@ entities:
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
     - type: DeviceNetwork
+      deviceNetId: Wireless
       configurators: []
       deviceLists: []
       transmitFrequencyId: ShuttleTimer
-      deviceNetId: Wireless
     - type: DecalGrid
       chunkCollection:
         version: 2
@@ -461,6 +461,18 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: GridPathfinding
+  - uid: 12
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
 - proto: AirCanister
   entities:
   - uid: 348
@@ -527,7 +539,7 @@ entities:
       parent: 2
 - proto: AirlockMedicalGlassLocked
   entities:
-  - uid: 12
+  - uid: 505
     components:
     - type: Transform
       pos: 9.5,-6.5
@@ -3195,7 +3207,7 @@ entities:
     - type: Transform
       pos: 12.5,-12.5
       parent: 2
-- proto: ThrusterShuttleEvac # Goob edit
+- proto: ThrusterShuttleEvac
   entities:
   - uid: 121
     components:
