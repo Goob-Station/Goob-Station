@@ -2,6 +2,7 @@
 - type: guideEntry
   id: SOP
   name: guide-entry-sop
+  priority: 3 # ShibaStation - reorder the guidebook entries
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
   - Emergencies SOP
