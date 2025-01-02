@@ -1,6 +1,34 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Added the Turbo Cleanbot (admeme) - for when the janitors are on strike
+      and the station is in dire need of a clean!
+    type: Add
+  id: 78
+  time: '2025-01-02T02:08:54.701210'
+- author: AstroDogeDX
+  changes:
+  - message: Pun Pun has been given combat training and pest control advice. He'll
+      now actively seek to defend the bar from hostile threats and keep the mice away!
+    type: Tweak
+  id: 77
+  time: '2025-01-02T02:08:54.701210'
+- author: AstroDogeDX
+  changes:
+  - message: Loop Station is now in low pop rotation. It's spacious but not complex
+      to need 30 minimum players.
+    type: Add
+  id: 76
+  time: '2025-01-02T02:08:54.700212'
+- author: AstroDogeDX
+  changes:
+  - message: All jetpacks now have the ability to be worn in suit storage! Time for
+      epic Security vs Syndicate space battles!
+    type: Tweak
+  id: 75
+  time: '2025-01-02T02:08:54.700212'
+- author: AstroDogeDX
+  changes:
   - message: All PDAs should now have the NanoChat app; and also fixed the missing
       Science PDA base that went missing at some point!
     type: Fix
