@@ -32,6 +32,10 @@ public sealed partial class YowieSystem : EntitySystem
             {
                 _popupSystem.PopupEntity(Loc.GetString("yowie-eva-suit-equipped-message", ("entity", Name(args.Clothing))), uid, uid, PopupType.SmallCaution);
             }
+            else
+            {
+                Logger.Warning($"Damage application failed for entity {uid}. Ensure Yowie penalty is properly configured.");
+            }
         }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
