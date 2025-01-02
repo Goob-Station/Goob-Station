@@ -1,0 +1,38 @@
+  - type: job
+  id: Brigmedic
+  name: job-name-security
+  description: job-description-brigmedic
+  playTimeTracker: JobBrigmedic
+  requirements:
+    - !type:DepartmentTimeRequirement
+      department: Security
+      time: 36000 #10 hrs
+      department: Medical
+      time: 14400 #4 hrs
+  startingGear: SecurityBrigmedic
+  icon: "JobIconBrigmedic"
+  supervisors: job-supervisors-hos
+  canBeAntag: false
+  access:
+  - Security
+  - Brig
+  - Medical
+  - Maintenance
+  - Service
+  - External
+  - Cryogenics
+  special:
+  - !type:AddImplantSpecial
+    implants: [ MindShieldImplant ]
+
+- type: startingGear
+  id: SecurityBrigmedic
+  equipment:
+    eyes: ClothingEyesGlassesSecurity
+    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    pocket1: WeaponPistolMk58
+  storage:
+    back:
+    - Flash
+    - MagazinePistol
+    - SecHypo # Goobstation
