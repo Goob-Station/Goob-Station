@@ -3745,3 +3745,9 @@ Entries:
       message: Medical jobs are now much faster at surgery.
   id: 418
   time: '2025-01-02T22:59:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Mousetraps now damage the feet specifically.
+  id: 419
+  time: '2025-01-02T23:43:37.0000000+00:00'
