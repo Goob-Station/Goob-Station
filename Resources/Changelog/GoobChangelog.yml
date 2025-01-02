@@ -3729,3 +3729,13 @@ Entries:
         to Game Admins and higher.
   id: 416
   time: '2024-12-31T23:02:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the Maoist accent.
+    - type: Tweak
+      message: >-
+        The Autodoc is now in Chinese. From now on it's known as the Glorious
+        People's Revolutionary Automated Surgery Machine.
+  id: 417
+  time: '2025-01-02T22:57:46.0000000+00:00'
