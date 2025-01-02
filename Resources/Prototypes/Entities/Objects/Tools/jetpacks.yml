@@ -47,6 +47,7 @@
       quickEquip: false
       slots:
         - Back
+        - SuitStorage # ShibaStation - Let all jetbacks be worn in suit storage
     - type: GasTank
       outputPressure: 21.3
       air:
@@ -86,6 +87,7 @@
     sprite: Objects/Tanks/Jetpacks/blue.rsi
     slots:
       - Back
+      - SuitStorage # ShibaStation - Let all jetbacks be worn in suit storage
 
 # Filled blue
 - type: entity
@@ -119,6 +121,7 @@
     sprite: Objects/Tanks/Jetpacks/black.rsi
     slots:
       - Back
+      - SuitStorage # ShibaStation - Let all jetbacks be worn in suit storage
 
 # Filled black
 - type: entity
@@ -194,7 +197,7 @@
       sprite: Objects/Tanks/Jetpacks/mini.rsi
       slots:
         - Back
-        - suitStorage
+        - SuitStorage # ShibaStation - possible typo was preventing this from being worn in suit storage
         - Belt
     - type: GasTank
       outputPressure: 42.6
@@ -233,6 +236,7 @@
     sprite: Objects/Tanks/Jetpacks/security.rsi
     slots:
       - Back
+      - SuitStorage # ShibaStation - Let all jetbacks be worn in suit storage
 
 #Filled security
 - type: entity
@@ -266,7 +270,7 @@
     sprite: Objects/Tanks/Jetpacks/void.rsi
     slots:
       - Back
-      - suitStorage
+      - SuitStorage # ShibaStation - possible typo was preventing this from being worn in suit storage
       - Belt
 
 # Filled void
