@@ -2,7 +2,7 @@
   id: Loop
   mapName: 'Loop Station'
   mapPath: /Maps/loop.yml
-  minPlayers: 30
+  minPlayers: 0 # ShibaStation - This map can be zero pop'd, it's not that complex.
   maxPlayers: 70
   stations:
     Loop:
