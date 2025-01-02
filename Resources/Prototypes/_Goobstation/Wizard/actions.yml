@@ -127,7 +127,7 @@
     useDelay: 12
     itemIconStyle: BigAction
     sound: !type:SoundPathSpecifier
-      path: /Audio/Effects/smoke.ogg
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: smoke

@@ -168,7 +168,7 @@
 
 - type: entity
   abstract: true
-  parent: ClothingOuterBase
+  parent: [ClothingOuterBase, AllowSuitStorageClothing] # Goob edit
   id: ClothingOuterWizardBase
   components:
   - type: WizardClothes
