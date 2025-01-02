@@ -21,6 +21,15 @@ public sealed class BeamSystem : SharedBeamSystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
+    public static ushort NextIndex; // Goobstation
+
+    public override void Shutdown() // Goobstation
+    {
+        base.Shutdown();
+
+        NextIndex = 0; // Goobstation
+    }
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +38,8 @@ public sealed class BeamSystem : SharedBeamSystem
         SubscribeLocalEvent<BeamComponent, BeamControllerCreatedEvent>(OnControllerCreated);
         SubscribeLocalEvent<BeamComponent, BeamFiredEvent>(OnBeamFired);
         SubscribeLocalEvent<BeamComponent, ComponentRemove>(OnRemove);
+
+        NextIndex = 0; // Goobstation
     }
 
     private void OnBeamCreationSuccess(EntityUid uid, BeamComponent component, CreateBeamSuccessEvent args)
@@ -85,6 +96,7 @@ public sealed class BeamSystem : SharedBeamSystem
             return;
 
         beamAction?.Invoke(ent); // Goobstation
+        beam.BeamIndex = NextIndex; // Goobstation
 
         FixturesComponent? manager = null;
         _fixture.TryCreateFixture(
@@ -127,6 +139,7 @@ public sealed class BeamSystem : SharedBeamSystem
             var newEnt = Spawn(prototype, beamSpawnPos);
 
             beamAction?.Invoke(newEnt); // Goobstation
+            Comp<BeamComponent>(newEnt).BeamIndex = NextIndex; // Goobstation
 
             var ev = new BeamVisualizerEvent(GetNetEntity(newEnt), distanceLength, userAngle, bodyState, shader);
             RaiseNetworkEvent(ev);

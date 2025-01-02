@@ -1,4 +1,5 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Beam.Components;
 using Content.Server.Light.Components;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
@@ -75,6 +76,16 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     private const float JitterAmplitude = 80f;
     private const float JitterFrequency = 8f;
 
+     // Goobstation, used to track hit entities so lightning doesn't hit them more than once
+    public static List<(ushort, EntityUid)> HitEntities = new();
+
+    public override void Shutdown() // Goobstation
+    {
+        base.Shutdown();
+
+        HitEntities = new();
+    }
+
     public override void Initialize()
     {
         base.Initialize();
@@ -87,6 +98,8 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         SubscribeLocalEvent<PoweredLightComponent, AttackedEvent>(OnLightAttacked);
 
         UpdatesAfter.Add(typeof(PowerNetSystem));
+
+        HitEntities = new(); // Goobstation
     }
 
     public override void Update(float frameTime)
@@ -158,8 +171,18 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
 
     private void OnElectrifiedStartCollide(EntityUid uid, ElectrifiedComponent electrified, ref StartCollideEvent args)
     {
-        if (electrified.OnBump)
-            TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
+        // Goob edit start
+        if (!electrified.OnBump)
+            return;
+        if (TryComp(uid, out BeamComponent? beam))
+        {
+            var tuple = (beam.BeamIndex, args.OtherEntity);
+            if (HitEntities.Contains(tuple))
+                return;
+            HitEntities.Add(tuple);
+        }
+        TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
+        // Goob edit end
     }
 
     private void OnElectrifiedAttacked(EntityUid uid, ElectrifiedComponent electrified, AttackedEvent args)

@@ -11,6 +11,7 @@ using Content.Shared.Gravity;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Roles;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
@@ -30,6 +31,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] protected readonly SharedStunSystem Stun = default!;
     [Dependency] protected readonly MetaDataSystem Meta = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] protected readonly NpcFactionSystem Faction = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;

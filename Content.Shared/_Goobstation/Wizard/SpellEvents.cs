@@ -184,7 +184,7 @@ public sealed partial class BlindSpellEvent : EntityTargetActionEvent, ISpeakSpe
     public string? Speech { get; private set; }
 
     [DataField]
-    public TimeSpan BlindDuration = TimeSpan.FromSeconds(20f);
+    public TimeSpan BlindDuration = TimeSpan.FromSeconds(30f);
 
     [DataField]
     public TimeSpan BlurDuration = TimeSpan.FromSeconds(40f);
@@ -254,7 +254,7 @@ public sealed partial class TeslaBlastEvent : InstantActionEvent, ISpeakSpell
     public int ArcDepth = 5;
 
     [DataField]
-    public Vector2 MinMaxDamage = new(15f, 50f);
+    public Vector2 MinMaxDamage = new(15f, 60f);
 
     [DataField]
     public Vector2 MinMaxStunTime = new(2f, 8f);
@@ -275,7 +275,7 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeak
     public string? Speech { get; private set; }
 
     [DataField]
-    public float Damage = 60f;
+    public float Damage = 50f;
 
     [DataField]
     public EntProtoId Proto = "ChargedLightning";

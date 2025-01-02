@@ -23,7 +23,13 @@ public abstract class SharedRevenantOverloadedLightsSystem : EntitySystem
             OnZap((uid, comp));
             RemCompDeferred(uid, comp);
         }
+
+        AccumulateBeamIndex(); // Goobstation
     }
 
     protected abstract void OnZap(Entity<RevenantOverloadedLightsComponent> component);
+
+    protected virtual void AccumulateBeamIndex() // Goobstation
+    {
+    }
 }

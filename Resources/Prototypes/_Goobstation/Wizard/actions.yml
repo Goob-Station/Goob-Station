@@ -8,10 +8,10 @@
     useDelay: 30
     itemIconStyle: BigAction
     whitelist:
+      requireAll: true
       components:
       - HumanoidAppearance
       - Inventory
-      - StatusEffects
     canTargetSelf: false
     interactOnMiss: false
     icon:
@@ -31,10 +31,10 @@
     useDelay: 60
     itemIconStyle: BigAction
     whitelist:
+      requireAll: true
       components:
       - HumanoidAppearance
       - Inventory
-      - StatusEffects
     canTargetSelf: false
     interactOnMiss: false
     sound: !type:SoundCollectionSpecifier
@@ -61,7 +61,6 @@
       components:
       - HumanoidAppearance
       - Inventory
-      - StatusEffects
     canTargetSelf: false
     interactOnMiss: false
     sound: !type:SoundCollectionSpecifier
@@ -190,6 +189,7 @@
     useDelay: 5
     itemIconStyle: BigAction
     whitelist:
+      requireAll: true
       components:
       - MobState
       - Body
@@ -215,7 +215,8 @@
   components:
   - type: EntityTargetAction
     raiseOnUser: true
-    useDelay: 20
+    checkCanInteract: false
+    useDelay: 15
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -308,6 +309,7 @@
         path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
   - type: Magic
     requiresClothes: true
+    requiresSpeech: true
 
 - type: entity
   id: ActionLightningBolt

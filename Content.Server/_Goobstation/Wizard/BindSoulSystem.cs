@@ -28,6 +28,8 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         var ent = Spawn(LichPrototype, TransformSystem.GetMapCoordinates(phylactery));
         Mind.TransferTo(mind, ent, mind: mindComp);
 
+        Faction.ClearFactions(ent, false);
+        Faction.AddFaction(ent, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(ent);
         EnsureComp<WizardComponent>(ent);
 

@@ -1,11 +1,10 @@
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Shared.GameTicking.Components;
-using Content.Shared.NPC.Components;
-using Content.Shared.NPC.Systems;
+using Content.Shared.NPC.Prototypes;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Wizard;
@@ -13,7 +12,8 @@ namespace Content.Server._Goobstation.Wizard;
 public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
-    [Dependency] private readonly NpcFactionSystem _faction = default!;
+
+    public static readonly ProtoId<NpcFactionPrototype> Faction = "Wizard";
 
     public override void Initialize()
     {

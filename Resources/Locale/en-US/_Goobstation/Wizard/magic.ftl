@@ -8,5 +8,9 @@ spell-fail-soul-item-not-suitable = {$item} is not suitable for emplacement of y
 spell-fail-soul-not-bound = Your soul is not bound to an item!
 spell-fail-item-destroyed = Your phylactery is gone!
 spell-fail-item-on-another-plane = Can't resurrect! Your phylactery is on another plane.
-spell-fail-mutate-silicon = Can't mutate while in silocon form!
+spell-fail-bind-soul-silicon = Can't bind soul while in silicon form!
+spell-fail-mutate-silicon = Can't mutate while in silicon form!
 spell-fail-tesla-blast = You lose control of the lightning!
+
+spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
+spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.

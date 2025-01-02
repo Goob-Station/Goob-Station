@@ -24,6 +24,7 @@ using Content.Shared.Jittering;
 using Content.Shared.Magic;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
@@ -33,6 +34,7 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
@@ -60,6 +62,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedHandsSystem Hands = default!;
     [Dependency] protected readonly MetaDataSystem Meta = default!;
     [Dependency] protected readonly SharedBodySystem Body = default!;
+    [Dependency] protected readonly NpcFactionSystem Faction = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
@@ -106,12 +109,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
-            return;
-
-        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
-        _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-        _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        if (TryComp(ev.Target, out StatusEffectsComponent? status))
+        {
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        }
 
         EnsureComp<CluwneComponent>(ev.Target);
 
@@ -124,12 +127,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
-            return;
-
-        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
-        _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-        _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        if (TryComp(ev.Target, out StatusEffectsComponent? status))
+        {
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        }
 
         var targetWizard = HasComp<WizardComponent>(ev.Target);
 
@@ -191,20 +194,13 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (_net.IsClient)
                 break;
 
-            var missile = Spawn(ev.Proto, spawnCoords);
-
-            var preventCollide = EnsureComp<PreventCollideComponent>(missile);
-            preventCollide.Uid = ev.Performer;
-            Dirty(missile, preventCollide);
-
-            var homing = EnsureComp<HomingProjectileComponent>(missile);
-            homing.Target = target;
-            Dirty(missile, homing);
-
-            _gunSystem.SetTarget(missile, target);
-
-            var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
-            _gunSystem.ShootProjectile(missile, direction, velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
+            SpawnHomingProjectile(ev.Proto,
+                spawnCoords,
+                target,
+                ev.Performer,
+                mapCoords,
+                velocity,
+                ev.ProjectileSpeed);
         }
 
         if (!hasTargets)
@@ -412,6 +408,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
+        {
+            Popup(ev.Performer, "spell-fail-bind-soul-silicon");
+            return;
+        }
+
         if (!TryComp(ev.Performer, out HandsComponent? hands) || hands.ActiveHandEntity == null)
         {
             Popup(ev.Performer, "spell-fail-no-held-entity");
@@ -498,20 +500,13 @@ public abstract class SharedSpellsSystem : EntitySystem
         {
             var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
-            var toolbox = Spawn(ev.Proto, spawnCoords);
-
-            var preventCollide = EnsureComp<PreventCollideComponent>(toolbox);
-            preventCollide.Uid = ev.Performer;
-            Dirty(toolbox, preventCollide);
-
-            var homing = EnsureComp<HomingProjectileComponent>(toolbox);
-            homing.Target = ev.Target;
-            Dirty(toolbox, homing);
-
-            _gunSystem.SetTarget(toolbox, ev.Target);
-
-            var direction = TransformSystem.GetMapCoordinates(ev.Target).Position - mapCoords.Position;
-            _gunSystem.ShootProjectile(toolbox, direction, velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
+            SpawnHomingProjectile(ev.Proto,
+                spawnCoords,
+                ev.Target,
+                ev.Performer,
+                mapCoords,
+                velocity,
+                ev.ProjectileSpeed);
         }
 
         _magic.Speak(ev);
@@ -530,6 +525,33 @@ public abstract class SharedSpellsSystem : EntitySystem
     private void PopupLoc(EntityUid uid, string locMessage)
     {
         _popup.PopupClient(locMessage, uid, uid);
+    }
+
+    private void SpawnHomingProjectile(EntProtoId proto,
+        EntityCoordinates coords,
+        EntityUid target,
+        EntityUid user,
+        MapCoordinates mapCoords,
+        Vector2 velocity,
+        float speed)
+    {
+        var projectile = Spawn(proto, coords);
+
+        var preventCollide = EnsureComp<PreventCollideComponent>(projectile);
+        preventCollide.Uid = user;
+
+        var homing = EnsureComp<HomingProjectileComponent>(projectile);
+        homing.Target = target;
+
+        _gunSystem.SetTarget(projectile, target, out var targeted, false);
+
+        Entity<PreventCollideComponent, HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile,
+            preventCollide, homing, targeted);
+
+        Dirty(ent);
+
+        var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
+        _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
     }
 
     private (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)

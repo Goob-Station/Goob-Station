@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Server.Beam;
 using Content.Server.Lightning;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared.Electrocution;
@@ -37,7 +38,7 @@ public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
             preventCollide.Uid = performer;
 
             var electrified = EnsureComp<ElectrifiedComponent>(uid);
-            electrified.IgnoredEntity = uid;
+            electrified.IgnoredEntity = performer;
             electrified.IgnoreInsulation = true;
             electrified.ShockDamage = damage;
             electrified.ShockTime = stunTime;
@@ -69,7 +70,7 @@ public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
             preventCollide.Uid = performer;
 
             var electrified = EnsureComp<ElectrifiedComponent>(uid);
-            electrified.IgnoredEntity = uid;
+            electrified.IgnoredEntity = performer;
             electrified.IgnoreInsulation = true;
             electrified.ShockDamage = damage * 2f; // Multiplying by 2 because siemens is 0.5
             electrified.SiemensCoefficient = 0.5f;
@@ -79,5 +80,7 @@ public sealed class TeslaBlastSystem : SharedTeslaBlastSystem
         });
 
         _lightning.ShootLightning(performer, target, lightningPrototype, false, action);
+
+        BeamSystem.NextIndex++;
     }
 }

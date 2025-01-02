@@ -173,6 +173,13 @@ public abstract class SharedMagicSystem : EntitySystem
             }
         }
 
+        if (!hasReqs) // Goobstation
+        {
+            _popup.PopupClient(Loc.GetString("spell-requirements-failed-clothes"), args.Performer, args.Performer);
+            args.Cancelled = true;
+            return;
+        }
+
         if (comp.RequiresSpeech && HasComp<MutedComponent>(args.Performer))
             hasReqs = false;
 
@@ -180,7 +187,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
 
         args.Cancelled = true;
-        _popup.PopupClient(Loc.GetString("spell-requirements-failed"), args.Performer, args.Performer);
+        _popup.PopupClient(Loc.GetString("spell-requirements-failed-speech"), args.Performer, args.Performer); // Goob edit
 
         // TODO: Pre-cast do after, either here or in SharedActionsSystem
     }

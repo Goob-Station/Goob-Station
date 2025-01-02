@@ -585,11 +585,16 @@ public abstract partial class SharedGunSystem : EntitySystem
         Dirty(gun);
     }
 
-    public void SetTarget(EntityUid projectile, EntityUid? target) // Goobstation
+     // Goobstation
+    public void SetTarget(EntityUid projectile,
+        EntityUid? target,
+        out TargetedProjectileComponent targeted,
+        bool dirty = true)
     {
-        var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
+        targeted = EnsureComp<TargetedProjectileComponent>(projectile);
         targeted.Target = target;
-        Dirty(projectile, targeted);
+        if (dirty)
+            Dirty(projectile, targeted);
     }
 
     public void SetFireRate(GunComponent component, float fireRate) // Goobstation

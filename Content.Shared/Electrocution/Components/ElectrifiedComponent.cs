@@ -133,13 +133,13 @@ public sealed partial class ElectrifiedComponent : Component
     /// Goobstation
     /// Whether this will ignore target insulation
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool IgnoreInsulation;
 
     /// <summary>
     /// Goobstation
     /// Don't shock this entity
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public EntityUid? IgnoredEntity;
 }

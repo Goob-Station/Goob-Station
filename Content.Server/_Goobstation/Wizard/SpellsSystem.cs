@@ -183,6 +183,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
 
+        Faction.ClearFactions(newEntity, false);
+        Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
         EnsureComp<PhylacteryComponent>(item);
