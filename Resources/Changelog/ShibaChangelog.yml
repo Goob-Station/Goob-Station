@@ -1,6 +1,48 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Salvage Shuttle now has a unique long-range holopad.
+    type: Add
+  id: 85
+  time: '2025-01-02T04:49:08.826934'
+- author: AstroDogeDX
+  changes:
+  - message: Cluster Station now has holopads.
+    type: Tweak
+  id: 84
+  time: '2025-01-02T04:46:15.306774'
+- author: AstroDogeDX
+  changes:
+  - message: Atlas Station has had its disposal chutes fixed and robotics lathe powered.
+    type: Fix
+  id: 83
+  time: '2025-01-02T04:46:48.296771'
+- author: AstroDogeDX
+  changes:
+  - message: Omega Station has a Material Silo and linked lathes now.
+    type: Tweak
+  id: 82
+  time: '2025-01-02T04:47:16.911300'
+- author: AstroDogeDX
+  changes:
+  - message: Packed Station now has a Material Silo and linked lathes.
+    type: Tweak
+  id: 81
+  time: '2025-01-02T04:47:41.715844'
+- author: AstroDogeDX
+  changes:
+  - message: Atlas Station now has holopads.
+    type: Tweak
+  id: 80
+  time: '2025-01-02T04:47:58.812140'
+- author: AstroDogeDX
+  changes:
+  - message: Saltern Station now has holopads.
+    type: Tweak
+  id: 79
+  time: '2025-01-02T04:48:39.145523'
+- author: AstroDogeDX
+  changes:
   - message: Added the Turbo Cleanbot (admeme) - for when the janitors are on strike
       and the station is in dire need of a clean!
     type: Add
