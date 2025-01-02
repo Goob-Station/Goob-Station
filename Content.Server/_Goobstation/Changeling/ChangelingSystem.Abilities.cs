@@ -195,7 +195,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
         PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalNutriment.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
