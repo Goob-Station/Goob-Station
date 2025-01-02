@@ -1,7 +1,7 @@
 - type: gameMap
   id: Cluster
   mapName: 'Cluster'
-  mapPath: /Maps/_Goobstation/cluster.yml
+  mapPath: /Maps/_ShibaStation/cluster.yml
   minPlayers: 0
   maxPlayers: 35
   stations:

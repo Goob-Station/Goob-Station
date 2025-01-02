@@ -11,13 +11,25 @@ tilemap:
 entities:
 - proto: ""
   entities:
+  - uid: 134
+    components:
+    - type: MetaData
+      name: Map Entity
+    - type: Transform
+    - type: Map
+      mapPaused: True
+    - type: PhysicsMap
+    - type: GridTree
+    - type: MovedGrids
+    - type: Broadphase
+    - type: OccluderTree
   - uid: 181
     components:
     - type: MetaData
       name: NT-Reclaimer
     - type: Transform
       pos: 2.2710133,-2.4148211
-
+      parent: 134
     - type: MapGrid
       chunks:
         -1,0:
@@ -1012,6 +1024,13 @@ entities:
     components:
     - type: Transform
       pos: -0.5,-0.5
+      parent: 181
+- proto: HolopadCentCommSalvageShuttle
+  entities:
+  - uid: 135
+    components:
+    - type: Transform
+      pos: -2.5,3.5
       parent: 181
 - proto: PersonalAI
   entities:
