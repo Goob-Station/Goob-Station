@@ -130,7 +130,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    scale: 2.0 , 2.0
+    scale: 1.8 , 1.8
     state: plushie_matryoskya
 
 - type: entity
@@ -174,7 +174,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: Antasisa_the_Tsaritsa
+    state: plushie_tsaritsa
 
 - type: entity
   parent: PlushieBlackburn
@@ -184,7 +184,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: Bellikova_the_tyrant
+    state: plushie_tyrant
 
 - type: entity
   parent: PlushieBlackburn
@@ -205,4 +205,4 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    state: Vaskashi_the_heretic
+    state: plushie_heretic
