@@ -1,0 +1,48 @@
+# Head
+- type: loadout
+  id: MercenaryBeret
+  equipment:
+    head: ClothingHeadHatBeretMerc
+
+# Jumpsuit
+- type: loadout
+  id: MercenaryJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+
+- type: loadout
+  id: MercenarySergeantJumpsuit
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitMilitaryTurtleneckMercenarySergeant
+
+# Back
+- type: loadout
+  id: MercenaryBackpack
+  equipment:
+    back: ClothingBackpackMerc
+
+- type: loadout
+  id: MercenarySatchel
+  equipment:
+    back: ClothingBackpackSatchelMercenary
+
+- type: loadout
+  id: MercenaryDuffel
+  equipment:
+    back: ClothingBackpackDuffelMercenary
+
+# Belt
+- type: loadout
+  id: MercenaryRig
+  equipment:
+    belt: ClothingBeltMilitaryWebbing
+
+- type: loadout
+  id: MercenaryHolster
+  equipment:
+    belt: ClothingBeltHolster
+
+- type: loadout
+  id: MercenaryBoots
+  equipment:
+    shoes: ClothingShoesBootsMerc

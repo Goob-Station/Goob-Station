@@ -1,0 +1,24 @@
+- type: job
+  id: Mercenary
+  name: job-name-mercenary
+  description: job-description-mercenary
+  playTimeTracker: JobMercenary
+  startingGear: MercenaryGear
+  icon: "JobIconMercenary"
+  supervisors: job-supervisors-captain
+  canBeAntag: false
+  access:
+  - Maintenance
+  - Service
+  - External
+  - Mercenary
+  - Cargo
+  - Salvage
+
+- type: startingGear
+  id: MercenaryGear
+  equipment:
+    ears: ClothingHeadsetAltMercenary 
+  storage:
+    back:
+    - SecHypo # Goobstation

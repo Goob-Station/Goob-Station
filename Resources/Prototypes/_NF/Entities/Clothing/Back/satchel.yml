@@ -1,0 +1,8 @@
+- type: entity
+  parent: ClothingBackpackSatchel
+  id: ClothingBackpackSatchelMercenary # Frontier - Merc to Mercenary
+  name: mercenary satchel
+  description: A satchel that has been in many dangerous places, a reliable combat satchel.
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Back/Satchels/mercenary.rsi

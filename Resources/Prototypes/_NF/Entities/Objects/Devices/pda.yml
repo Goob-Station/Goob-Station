@@ -1,0 +1,14 @@
+- type: entity
+  parent: BasePDA
+  id: MercenaryPDA
+  name: mercenary PDA
+  description: This PDA smells like gunpowder and booze.
+  components:
+  - type: Pda
+    id: MercenaryIDCard
+    state: pda-mercenary
+  - type: PdaBorderColor
+    borderColor: "#717059"
+    accentVColor: "#00cc35"
+  - type: Icon
+    state: pda-mercenary

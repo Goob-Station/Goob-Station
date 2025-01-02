@@ -1,0 +1,382 @@
+# BASE
+## COLOR
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckMercenary
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-turtleneck
+      color: "#b5b56e"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#b5b56e"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryMedic
+  name: mercenary medic jumpsuit
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-turtleneck
+      color: "#b5b56e"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+    - state: icon-decor-shoulder-patch
+      color: "#5a96bb"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+      - state: inhand-left-decor-shoulder-patch
+        color: "#5a96bb"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+      - state: inhand-right-decor-shoulder-patch
+        color: "#5a96bb"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#b5b56e"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+      - state: equipped-decor-shoulder-patch
+        color: "#5a96bb"
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckMercenaryCaptain
+  name: mercenary captain jumpsuit
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-turtleneck
+      color: "#b5b56e"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+      color: "#ffce5b"
+    - state: icon-decor-shoulder-patch
+      color: "#a52f29"
+    - state: icon-decor-epaulets
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-left-decor-shoulder-patch
+        color: "#a52f29"
+      - state: inhand-left-decor-epaulets
+        color: "#ffce5b"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-right-decor-shoulder-patch
+        color: "#a52f29"
+      - state: inhand-right-decor-epaulets
+        color: "#ffce5b"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#b5b56e"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+        color: "#ffce5b"
+      - state: equipped-decor-shoulder-patch
+        color: "#a52f29"
+      - state: equipped-decor-epaulets
+        color: "#ffce5b"
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenary
+  suffix: Military, Blue
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#412f24"
+    - state: icon-base-top-turtleneck
+      color: "#496ea0"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#412f24"
+      - state: inhand-left-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+      right:
+      - state: inhand-right-base-bottom
+        color: "#412f24"
+      - state: inhand-right-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#412f24"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#496ea0"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryMedic
+  name: mercenary medic jumpsuit
+  suffix: Military, Blue
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#412f24"
+    - state: icon-base-top-turtleneck
+      color: "#496ea0"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+    - state: icon-decor-shoulder-patch
+      color: "#aeb7bd"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#412f24"
+      - state: inhand-left-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+      - state: inhand-left-decor-shoulder-patch
+        color: "#aeb7bd"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#412f24"
+      - state: inhand-right-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+      - state: inhand-right-decor-shoulder-patch
+        color: "#aeb7bd"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#412f24"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#496ea0"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+      - state: equipped-decor-shoulder-patch
+        color: "#aeb7bd"
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckBlueMercenaryCaptain
+  name: mercenary captain jumpsuit
+  suffix: Military, Blue
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#412f24"
+    - state: icon-base-top-turtleneck
+      color: "#496ea0"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+      color: "#ffce5b"
+    - state: icon-decor-shoulder-patch
+      color: "#a52f29"
+    - state: icon-decor-epaulets
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#412f24"
+      - state: inhand-left-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-left-decor-shoulder-patch
+        color: "#a52f29"
+      - state: inhand-left-decor-epaulets
+        color: "#ffce5b"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#412f24"
+      - state: inhand-right-base-top-turtleneck
+        color: "#496ea0"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+        color: "#ffce5b"
+      - state: inhand-right-decor-shoulder-patch
+        color: "#a52f29"
+      - state: inhand-right-decor-epaulets
+        color: "#ffce5b"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#412f24"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#496ea0"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+        color: "#ffce5b"
+      - state: equipped-decor-shoulder-patch
+        color: "#a52f29"
+      - state: equipped-decor-epaulets
+        color: "#ffce5b"
+
+- type: entity
+  parent: ClothingUniformJumpsuitMercenary
+  id: ClothingUniformJumpsuitMilitaryTurtleneckMercenarySergeant
+  name: mercenary sergeant uniform
+  suffix: Military
+  components:
+  - type: Sprite
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    layers:
+    - state: icon-base-bottom
+      color: "#3e3e48"
+    - state: icon-base-top-turtleneck
+      color: "#b5b56e"
+    - state: icon-belt
+      color: "#3e3e48"
+    - state: icon-belt-buckle
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left-base-bottom
+        color: "#3e3e48"
+      - state: inhand-left-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-left-belt
+        color: "#3e3e48"
+      - state: inhand-left-belt-buckle
+        color: "#ffce5b"
+      right:
+      - state: inhand-right-base-bottom
+        color: "#3e3e48"
+      - state: inhand-right-base-top-turtleneck
+        color: "#b5b56e"
+      - state: inhand-right-belt
+        color: "#3e3e48"
+      - state: inhand-right-belt-buckle
+        color: "#ffce5b"
+  - type: Clothing
+    sprite: _NF/Clothing/Uniforms/Jumpsuit/military.rsi
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-base-bottom
+        color: "#3e3e48"
+      - state: equipped-base-top-turtleneck-alt
+        color: "#b5b56e"
+      - state: equipped-belt
+        color: "#3e3e48"
+      - state: equipped-belt-buckle
+        color: "#ffce5b"

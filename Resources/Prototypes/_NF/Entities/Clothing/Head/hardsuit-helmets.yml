@@ -1,0 +1,30 @@
+#When adding new hardsuits, please try to keep the organization consistent with hardsuit.yml (if possible.)
+
+#For now, since locational damage is not a thing, all "combat" hardsuits (with the exception of the deathsquad hardsuit) have the equvilent of a helmet in terms of armor. This is so people don't need to wear both regular, on-station helmets and hardsuits to get full protection.
+#Generally, unless you're adding something like caustic damage, you should probably avoid messing with armor outside of the above scenario.
+
+#Mercenary Hardsuit
+- type: entity
+  parent: ClothingHeadHardsuitWithLightBase
+  id: ClothingHeadHelmetHardsuitMercenary
+  categories: [ HideSpawnMenu ]
+  name: mercenary hardsuit helmet
+  description: Lightly armored hardsuit helmet for mercenary needs.
+  components:
+  - type: BreathMask
+  - type: Sprite
+    sprite: _NF/Clothing/Head/Hardsuits/mercenary.rsi
+  - type: Clothing
+    sprite: _NF/Clothing/Head/Hardsuits/mercenary.rsi
+  - type: PointLight
+    color: "#ffeead"
+  - type: PressureProtection
+    highPressureMultiplier: 0.525
+    lowPressureMultiplier: 10000
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.9
+        Slash: 0.9
+        Piercing: 0.9
+        Heat: 0.9

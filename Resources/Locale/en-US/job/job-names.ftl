@@ -50,6 +50,7 @@ job-name-ertjanitor = ERT Janitor
 job-name-boxer = Boxer
 job-name-zookeeper = Zookeeper
 job-name-visitor = Visitor
+job-name-mercenary = Mercenary
 
 # unused jobs
 # these are required for the agent ID job icon tooltips
@@ -98,6 +99,7 @@ JobLawyer = Lawyer
 JobLibrarian = Librarian
 JobMedicalDoctor = Medical doctor
 JobMedicalIntern = Medical intern
+JobMercenary = Mercenary
 JobMime = Mime
 JobMusician = Musician
 JobParamedic = Paramedic
