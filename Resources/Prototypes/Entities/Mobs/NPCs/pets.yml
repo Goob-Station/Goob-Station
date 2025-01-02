@@ -817,6 +817,12 @@
     attributes:
       proper: true
       gender: male
+  - type: NpcFactionMember # ShibaStation - Pun Pun self defense training
+    factions:
+      - PetsNT
+  - type: HTN # ShibaStation - Pun Pun self defense training
+    rootTask:
+      task: SimpleHostileCompound
 
 - type: entity
   name: Tropico
