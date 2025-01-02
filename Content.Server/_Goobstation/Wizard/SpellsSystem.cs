@@ -14,9 +14,11 @@ using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -177,6 +179,23 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         Meta.SetEntityName(newEntity, name);
 
+        int? age = null;
+        Gender? gender = null;
+        Sex? sex = null;
+        if (TryComp(ev.Performer, out HumanoidAppearanceComponent? humanoid))
+        {
+            age = humanoid.Age;
+            gender = humanoid.Gender;
+            sex = humanoid.Sex;
+            if (TryComp(newEntity, out HumanoidAppearanceComponent? newHumanoid))
+            {
+                newHumanoid.Age = age.Value;
+                newHumanoid.Gender = gender.Value;
+                newHumanoid.Sex = sex.Value;
+                Dirty(newEntity, newHumanoid);
+            }
+        }
+
         SetGear(newEntity, ev.Gear, false, false);
 
         Mind.TransferTo(mind, newEntity, mind: mindComponent);
@@ -187,11 +206,16 @@ public sealed class SpellsSystem : SharedSpellsSystem
         Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
         RemCompDeferred<TransferMindOnGibComponent>(newEntity);
         EnsureComp<WizardComponent>(newEntity);
+        if (!Role.MindHasRole<WizardRoleComponent>(mind, out _))
+            Role.MindAddRole(mind, WizardRuleSystem.Role.Id, mindComponent, true);
         EnsureComp<PhylacteryComponent>(item);
         var soulBound = EntityManager.ComponentFactory.GetComponent<SoulBoundComponent>();
         soulBound.Name = name;
         soulBound.Item = item;
         soulBound.MapId = mapId;
+        soulBound.Age = age;
+        soulBound.Gender = gender;
+        soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
         if (ev.Speech != null)

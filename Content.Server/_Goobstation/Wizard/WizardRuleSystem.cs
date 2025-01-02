@@ -3,6 +3,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Humanoid;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -12,8 +13,11 @@ namespace Content.Server._Goobstation.Wizard;
 public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
+    [Dependency] private readonly IRobustRandom _random = default!;
 
     public static readonly ProtoId<NpcFactionPrototype> Faction = "Wizard";
+
+    public static readonly EntProtoId Role = "MindRoleWizard";
 
     public override void Initialize()
     {
@@ -62,6 +66,13 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         var station = (rule.TargetStation is not null) ? Name(rule.TargetStation.Value) : "the station";
 
         _antag.SendBriefing(target, Loc.GetString("wizard-role-greeting", ("station", station)), Color.LightBlue, null);
+
+        if (!TryComp(target, out HumanoidAppearanceComponent? humanoid))
+            return true;
+
+        // Wizards are old
+        humanoid.Age = _random.Next(60, 121);
+        Dirty(target, humanoid);
 
         return true;
     }

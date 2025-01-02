@@ -48,10 +48,11 @@ public sealed class LightningSystem : SharedLightningSystem
     /// <param name="lightningPrototype">The prototype for the lightning to be created</param>
     /// <param name="triggerLightningEvents">if the lightnings being fired should trigger lightning events.</param>
     /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
-    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, Action<EntityUid>? beamAction = null)
+    /// <param name="accumulateIndex">Goobstation. Whether to accumulate BeamSystem.NextIndex.</param>
+    public void ShootLightning(EntityUid user, EntityUid target, string lightningPrototype = "Lightning", bool triggerLightningEvents = true, Action<EntityUid>? beamAction = null, bool accumulateIndex = true)
     {
         var spriteState = LightningRandomizer();
-        _beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction); // Goob edit
+        _beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction, accumulateIndex: accumulateIndex); // Goob edit
 
         if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
         {
@@ -96,7 +97,7 @@ public sealed class LightningSystem : SharedLightningSystem
             if (!_random.Prob(curTarget.Comp.HitProbability)) //Chance to ignore target
                 continue;
 
-            ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents, beamAction); // Goob edit
+            ShootLightning(user, targets[count].Owner, lightningPrototype, triggerLightningEvents, beamAction, false); // Goob edit
             if (arcDepth - targets[count].Comp.LightningResistance > 0)
             {
                 ShootRandomLightnings(targets[count].Owner, range, 1, lightningPrototype, arcDepth - targets[count].Comp.LightningResistance, triggerLightningEvents, ignoredEntity, beamAction); // Goob edit

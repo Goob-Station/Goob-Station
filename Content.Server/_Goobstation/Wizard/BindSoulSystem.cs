@@ -7,6 +7,7 @@ using Content.Server.Respawn;
 using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared.Humanoid;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 
@@ -34,6 +35,17 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         EnsureComp<WizardComponent>(ent);
 
         SetOutfitCommand.SetOutfit(ent, LichGear, EntityManager);
+
+        if (TryComp(ent, out HumanoidAppearanceComponent? humanoid))
+        {
+            if (soulBound.Age != null)
+                humanoid.Age = soulBound.Age.Value;
+            if (soulBound.Gender != null)
+                humanoid.Gender = soulBound.Gender.Value;
+            if (soulBound.Sex != null)
+                humanoid.Sex = soulBound.Sex.Value;
+            Dirty(ent, humanoid);
+        }
 
         if (soulBound.Name != string.Empty)
             Meta.SetEntityName(ent, soulBound.Name);

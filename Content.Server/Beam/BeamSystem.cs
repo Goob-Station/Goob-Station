@@ -160,7 +160,8 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="shader">Optional shader for the <see cref="bodyPrototype"/> if a default one is not given</param>
     /// <param name="controller"></param>
     /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
-    public void TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null) // Goob edit
+    /// <param name="accumulateIndex">Goobstation. Whether to accumulate NextIndex.</param>
+    public void TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goob edit
     {
         if (Deleted(user) || Deleted(target))
             return;
@@ -191,6 +192,9 @@ public sealed class BeamSystem : SharedBeamSystem
         var distanceCorrection = calculatedDistance - calculatedDistance.Normalized();
 
         CreateBeam(bodyPrototype, userAngle, calculatedDistance, beamStartPos, distanceCorrection, controller, bodyState, shader, beamAction);
+
+        if (accumulateIndex) // Goobstation
+            NextIndex++;
 
         var ev = new CreateBeamSuccessEvent(user, target);
         RaiseLocalEvent(user, ev);

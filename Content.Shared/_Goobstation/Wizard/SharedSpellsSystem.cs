@@ -28,6 +28,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Components;
 using Content.Shared.Speech.EntitySystems;
@@ -63,6 +64,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly MetaDataSystem Meta = default!;
     [Dependency] protected readonly SharedBodySystem Body = default!;
     [Dependency] protected readonly NpcFactionSystem Faction = default!;
+    [Dependency] protected readonly SharedRoleSystem Role = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
