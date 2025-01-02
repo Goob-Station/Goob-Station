@@ -1,25 +1,36 @@
+using Content.Server.Flash.Components;
+using Content.Server.Light.Components;
+using Content.Server.Light.Components;
+using Content.Server.Nutrition.Components;
+using Content.Server.Nutrition.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Radio.Components;
+using Content.Server.Radio.Components;
+using Content.Shared._White.Overlays;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
-using Content.Shared.Store.Components;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
-using Content.Server.Nutrition.Components;
+using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
-using Content.Shared.Damage.Components;
-using Content.Server.Radio.Components;
-using Content.Shared._White.Overlays;
+using Content.Shared.Store.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Changeling;
 
@@ -177,10 +188,18 @@ public sealed partial class ChangelingSystem
         if (!TryComp<FoodComponent>(target, out var food))
             return;
 
-        if (food.RequiresSpecialDigestion) // no eating winter coats
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
+            return;
+
+        var totalNutriment = FixedPoint2.New(0);
+        foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
+            totalNutriment += sol.Comp.Solution.GetTotalPrototypeQuantity("Nutriment");
+
+        if (food.RequiresSpecialDigestion || totalNutriment == 0) // no eating winter coats or food that won't give you anything
         {
             var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
             _popup.PopupEntity(popup, uid, uid);
+            return;
         }
 
         var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
@@ -193,6 +212,7 @@ public sealed partial class ChangelingSystem
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
             AttemptFrequency = AttemptFrequency.StartAndEnd
         };
         _doAfter.TryStartDoAfter(dargs);
@@ -207,8 +227,21 @@ public sealed partial class ChangelingSystem
         if (args.Cancelled)
             return;
 
-        UpdateBiomass(uid, comp, 10f);
-        UpdateChemicals(uid, comp, 10f);
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
+            return;
+
+        var totalNutriment = FixedPoint2.New(0);
+        foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
+        {
+            var solution = sol.Comp.Solution;
+            var quant = solution.GetTotalPrototypeQuantity("Nutriment");
+            totalNutriment += quant;
+            solution.RemoveReagent("Nutriment", quant);
+            _puddle.TrySpillAt(target, solution, out var _);
+        }
+
+        UpdateBiomass(uid, comp, totalNutriment.Float() * 0.15f); // 5% of default max for an apple
+        UpdateChemicals(uid, comp, totalNutriment.Float()); // 10 chemicals for an apple
 
         QueueDel(target); // eaten
     }

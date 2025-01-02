@@ -140,5 +140,4 @@ evolutionmenu-utility-hivemindaccess-desc =
 
 evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
 evolutionmenu-utility-absorbbiomatter-desc =
-    Absorbs an organic food item, letting you regain biomass and chemicals.
-    On success, gives 10 biomass and 10 chemicals.
+    Absorbs an organic food item, letting you regain biomass and chemicals depending on its nutriment contents.
