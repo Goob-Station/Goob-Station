@@ -1,0 +1,86 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/tgstation at at https://github.com/tgstation/tgstation/commit/40d89d11ea4a5cb81d61dc1018b46f4e7d32c62a",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "legion_skull"
+    },
+    {
+      "name": "rune_scimmy"
+    },
+    {
+      "name": "asclepius_active",
+      "delays": [
+        [
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          0.025,
+          5
+        ]
+      ]
+    },
+    {
+      "name": "demon_claws"
+    },
+    {
+      "name": "blue_cube"
+    },
+    {
+      "name": "red_cube"
+    },
+    {
+      "name": "legion_core_decayed"
+    },
+    {
+      "name": "legion_core",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "legion_core_stable",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.6
+        ]
+      ]
+    },
+    {
+        "name": "vavilon_book"
+    },
+    {
+        "name": "crystal"
+    },
+    {
+        "name": "cursed_heart",
+        "delays": [
+          [
+            0.1,
+            0.1,
+            0.2
+          ]
+        ]
+      }
+  ]
+}

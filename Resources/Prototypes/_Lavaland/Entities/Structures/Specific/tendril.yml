@@ -1,0 +1,100 @@
+- type: entity
+  id: ADTTendrilBase
+  parent: BaseStructure
+  name: tendrыl
+  abstract: true
+  description: e
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Lavaland/Structures/Specific/tendril.rsi
+    state: tendril
+    drawdepth: Mobs
+  - type: Tendril
+  - type: Damageable
+    damageContainer: Biological
+    damageModifierSet: Skeleton
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ADTCrateNecropolisRandom:
+            min: 1
+            max: 1
+  - type: Physics
+    bodyType: Static
+  - type: Transform
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.45,0.25,0.45"
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+        density: 200
+  - type: AshStormImmune
+
+- type: entity
+  id: ADTTendrilGoliath
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Goliath
+  components:
+  - type: Tendril
+    spawns:
+    - MobGoliath
+
+- type: entity
+  id: ADTTendrilLegion
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Legion
+  components:
+  - type: Tendril
+    spawns:
+    - ADTMobLegion
+
+- type: entity
+  id: ADTTendrilLavaWatcher
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Watcher
+  components:
+  - type: Tendril
+    spawns:
+    - MobWatcherLavaland
+
+- type: entity
+  id: ADTTendrilIcewingWatcher
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Ice Watcher
+  components:
+  - type: Tendril
+    spawns:
+    - MobWatcherIcewing
+
+- type: entity
+  id: ADTTendrilMagmawingWatcher
+  parent: ADTTendrilBase
+  name: tendrыl
+  description: e
+  suffix: Magma Watcher
+  components:
+  - type: Tendril
+    spawns:
+    - MobWatcherMagmawing

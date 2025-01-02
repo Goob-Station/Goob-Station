@@ -1,0 +1,45 @@
+- type: entity
+  id: ADTCrateNecropolisHeart
+  parent: ADTCrateNecropolis
+  suffix: Heart
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTCursedHeart
+
+- type: entity
+  id: ADTCrateNecropolisVavilon
+  parent: ADTCrateNecropolis
+  suffix: Vavilon
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVavilonBook
+
+- type: entity
+  id: ADTCrateNecropolisCultArmor
+  parent: ADTCrateNecropolis
+  suffix: Cult Armor
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterArmorCult
+
+- type: entity
+  id: ADTCrateNecropolisCultRobe
+  parent: ADTCrateNecropolis
+  suffix: Cult Robe
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterRobesCult
+      - id: BedsheetCult
+
+- type: entity
+  id: ADTCrateNecropolisVampirismCrystal
+  parent: ADTCrateNecropolis
+  suffix: Vampirism Crystal
+  components:
+  - type: StorageFill
+    contents:
+      - id: ADTVampirismCrystal
