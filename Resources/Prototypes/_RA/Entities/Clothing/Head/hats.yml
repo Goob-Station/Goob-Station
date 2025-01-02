@@ -1,0 +1,10 @@
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatBeretCaptain
+  name: captain's beret
+  description: A fancy dark blue beret. Looks like it's seen some action.
+  components:
+  - type: Sprite
+    sprite: _RA/Clothing/Head/Hats/beret_captain.rsi
+  - type: Clothing
+    sprite: _RA/Clothing/Head/Hats/beret_captain.rsi

@@ -1,0 +1,24 @@
+- type: technology
+  id: HeavyWeaponry
+  name: research-technology-heavy-weaponry
+  icon:
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 40000
+  recipeUnlocks:
+  - WeaponLightMachineGunL6
+  - MagazineLightRifleBox
+
+- type: technology
+  id: Slayer
+  name: research-technology-slayer
+  icon:
+    sprite: _RA/Objects/Weapons/Melee/bladesofchaos.rsi
+    state: icon
+  discipline: Arsenal
+  tier: 3
+  cost: 40000
+  recipeUnlocks:
+  - BladesOfChaos
