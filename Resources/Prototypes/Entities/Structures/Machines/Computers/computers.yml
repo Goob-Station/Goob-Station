@@ -91,6 +91,7 @@
   - type: AccessReader
     access:
     - [ Command ]
+    breakOnEmag: false # Goobstation
   - type: EmergencyShuttleConsole
   - type: ActivatableUI
     key: enum.EmergencyConsoleUiKey.Key
