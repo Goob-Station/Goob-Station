@@ -15,6 +15,7 @@ using Content.Server.Light.Components;
 using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Server.Nutrition.Components;
 using Content.Shared.Stealth.Components;
 using Content.Shared.Damage.Components;
 using Content.Server.Radio.Components;
@@ -60,6 +61,8 @@ public sealed partial class ChangelingSystem
         SubscribeLocalEvent<ChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
         SubscribeLocalEvent<ChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
 
     #region Basic Abilities
@@ -162,6 +165,52 @@ public sealed partial class ChangelingSystem
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
                 objective.Absorbed += 1;
+    }
+
+    private void OnAbsorbBiomatter(EntityUid uid, ChangelingComponent comp, ref AbsorbBiomatterEvent args)
+    {
+        var target = args.Target;
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        if (!TryComp<FoodComponent>(target, out var food))
+            return;
+
+        if (food.RequiresSpecialDigestion) // no eating winter coats
+        {
+            var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
+            _popup.PopupEntity(popup, uid, uid);
+        }
+
+        var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
+        PlayMeatySound(uid, comp);
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(3), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = true,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+        _doAfter.TryStartDoAfter(dargs);
+    }
+    private void OnAbsorbBiomatterDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbBiomatterDoAfterEvent args)
+    {
+        if (args.Args.Target == null)
+            return;
+
+        var target = args.Args.Target.Value;
+
+        if (args.Cancelled)
+            return;
+
+        UpdateBiomass(uid, comp, 10f);
+        UpdateChemicals(uid, comp, 10f);
+
+        QueueDel(target); // eaten
     }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)
