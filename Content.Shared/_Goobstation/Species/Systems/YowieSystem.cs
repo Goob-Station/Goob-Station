@@ -44,9 +44,6 @@ public sealed partial class YowieSystem : EntitySystem
 
     private void OnMove(EntityUid uid, YowieComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
-        if (comp.OuterLayerEquipped)
-        {
-            args.ModifySpeed(comp.SoftSuitSpeedMultiplier);
-        }
+        if (comp.OuterLayerEquipped) args.ModifySpeed(comp.SoftSuitSpeedMultiplier);
     }
 }

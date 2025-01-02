@@ -22,7 +22,7 @@ public sealed partial class YowieComponent : Component
     public bool OuterLayerEquipped = false;
 
     /// <summary>
-    /// Damage dealt to owner on succesful outerlayer equip attempt
+    /// Damage dealt to owner on successful outerlayer equip attempt
     /// </summary>
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;
