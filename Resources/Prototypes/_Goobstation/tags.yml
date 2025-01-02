@@ -174,3 +174,6 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: WeaponPistolDualetta

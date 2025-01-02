@@ -15,8 +15,6 @@ using Content.Server.Info;
 using Content.Server.IoC;
 using Content.Server.Maps;
 using Content.Server.NodeContainer.NodeGroups;
-using Content.Server.Objectives;
-using Content.Server.Players;
 using Content.Server.Players.JobWhitelist;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Players.RateLimiting;
@@ -48,6 +46,8 @@ namespace Content.Server.Entry
         private PlayTimeTrackingManager? _playTimeTracking;
         private IEntitySystemManager? _sysMan;
         private IServerDbManager? _dbManager;
+
+        private ServerCurrencyManager? _currencyManager; // Goobstation
 
         /// <inheritdoc />
         public override void Init()
@@ -113,7 +113,8 @@ namespace Content.Server.Entry
                 _playTimeTracking.Initialize();
                 IoCManager.Resolve<JobWhitelistManager>().Initialize();
                 IoCManager.Resolve<PlayerRateLimitManager>().Initialize();
-                IoCManager.Resolve<ServerCurrencyManager>().Initialize(); // Goobstation
+                _currencyManager = IoCManager.Resolve<ServerCurrencyManager>(); // Goobstation
+                _currencyManager.Initialize(); // Goobstation
             }
         }
 
@@ -168,12 +169,14 @@ namespace Content.Server.Entry
                 case ModUpdateLevel.FramePostEngine:
                     _updateManager.Update();
                     _playTimeTracking?.Update();
+                    _currencyManager?.Update(); // Goobstation
                     break;
             }
         }
 
         protected override void Dispose(bool disposing)
         {
+            _currencyManager?.Shutdown(); // Goobstation
             _playTimeTracking?.Shutdown();
             _dbManager?.Shutdown();
             IoCManager.Resolve<ServerApi>().Shutdown();

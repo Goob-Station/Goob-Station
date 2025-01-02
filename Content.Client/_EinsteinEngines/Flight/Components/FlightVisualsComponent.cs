@@ -1,5 +1,4 @@
 using Robust.Client.Graphics;
-using Robust.Shared.GameStates;
 
 namespace Content.Client._EinsteinEngines.Flight.Components;
 
