@@ -3739,3 +3739,9 @@ Entries:
         People's Revolutionary Automated Surgery Machine.
   id: 417
   time: '2025-01-02T22:57:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Medical jobs are now much faster at surgery.
+  id: 418
+  time: '2025-01-02T22:59:39.0000000+00:00'
