@@ -130,7 +130,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    scale: 1.8 , 1.8
+    scale: 2.0 , 2.8
     state: plushie_matryoskya
 
 - type: entity
