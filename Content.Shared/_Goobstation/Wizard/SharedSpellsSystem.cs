@@ -539,16 +539,12 @@ public abstract class SharedSpellsSystem : EntitySystem
     {
         var projectile = Spawn(proto, coords);
 
-        var preventCollide = EnsureComp<PreventCollideComponent>(projectile);
-        preventCollide.Uid = user;
-
         var homing = EnsureComp<HomingProjectileComponent>(projectile);
         homing.Target = target;
 
         _gunSystem.SetTarget(projectile, target, out var targeted, false);
 
-        Entity<PreventCollideComponent, HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile,
-            preventCollide, homing, targeted);
+        Entity<HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
 
         Dirty(ent);
 
