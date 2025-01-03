@@ -1084,16 +1084,6 @@
     - WantedListCartridge
     - MedTekCartridge
     - NanoChatCartridge # DeltaV
-    
-- type: entity
-  parent: ERTLeaderPDA
-  id: ERTSecurityPDA
-  name: ERT Security PDA
-  suffix: Security
-  description: Red for firepower, it has tally marks etched on the side.
-  components:
-  - type: Pda
-    id: ERTSecurityIDCard
 
 - type: entity
   parent: ClownPDA

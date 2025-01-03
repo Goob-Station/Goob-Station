@@ -59,10 +59,9 @@
     state: pda-centcom
     
 - type: entity
-  parent: BaseSecurityPDA
+  parent: ERTLeaderPDA
   id: BlueshieldPDA
   name: Blueshield Officer PDA
-  suffix: Leader
   description: Blue for defense, the silver shield of the Blueshield is engraved on the front.
   components:
   - type: Pda
@@ -71,14 +70,3 @@
   - type: Icon
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-blueshield
-  - type: CartridgeLoader
-    uiKey: enum.PdaUiKey.Key
-    preinstalled:
-      - CrewManifestCartridge
-      - NotekeeperCartridge
-      - NewsReaderCartridge
-      - MedTekCartridge
-      - WantedListCartridge
-      - LogProbeCartridge
-      - AstroNavCartridge
-      - NanoChatCartridge # DeltaV
