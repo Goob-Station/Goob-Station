@@ -1,3 +1,12 @@
+- type: loadoutEffectGroup
+  id: SeniorNanotransenRepresentative
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobNanotransenRepresentative
+      time: 54000
+
 #hat
 - type: loadout
   id: NanotrasenRepresentativeBowler
@@ -50,6 +59,15 @@
   id: NanotrasenRepresentativeJumpskirt
   equipment:
     jumpsuit: ClothingUniformJumpskirtNanotrasenRepresentative
+    
+# Neck
+- type: loadout
+  id: NanotransenRepresentativeBadge
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: SeniorNanotransenRepresentative
+  equipment:
+    neck: ClothingNeckCentcommBadge
 
 # Belt
 - type: loadout
