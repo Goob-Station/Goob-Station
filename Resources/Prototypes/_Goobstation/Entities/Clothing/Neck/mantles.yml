@@ -2,7 +2,7 @@
   parent: [ ClothingNeckBase, BaseCentcommContraband ]
   id: ClothingNeckMantleBlueshield
   name: blueshield officer mantle
-  description: A comfortable and protective mantle for qualify bodyguards.
+  description: A well-balanced, protective mantle, designed for optimal bodyguarding efficiency.
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Mantle/bsomantle.rsi
