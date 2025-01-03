@@ -20,4 +20,10 @@ public sealed partial class AntagLoadProfileRuleComponent : Component
     /// </summary>
     [DataField]
     public HashSet<ProtoId<SpeciesPrototype>>? SpeciesOverrideBlacklist;
+
+    /// <summary>
+    ///     Shitmed - Starlight Abductors: Species valid for the rule.
+    /// </summary>
+    [DataField]
+    public ProtoId<SpeciesPrototype>? SpeciesHardOverride;
 }

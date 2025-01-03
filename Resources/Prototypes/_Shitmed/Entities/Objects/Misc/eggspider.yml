@@ -13,3 +13,7 @@
     maximumEntitiesSpawned: 1
   - type: TimedDespawn 
     lifetime: 61
+  - type: FactionException
+  - type: PettableFriend
+    successString: petting-success-spider-egg
+    failureString: petting-failure-spider-egg

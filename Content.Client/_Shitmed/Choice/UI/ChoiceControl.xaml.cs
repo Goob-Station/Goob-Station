@@ -4,13 +4,13 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Utility;
 
-namespace Content.Client._Shitmed.Xenonids.UI;
+namespace Content.Client._Shitmed.Choice.UI;
 
 [GenerateTypedNameReferences]
 [Virtual]
-public partial class XenoChoiceControl : Control
+public partial class ChoiceControl : Control
 {
-    public XenoChoiceControl() => RobustXamlLoader.Load(this);
+    public ChoiceControl() => RobustXamlLoader.Load(this);
 
     public void Set(string name, Texture? texture)
     {

@@ -1,6 +1,6 @@
-<ui:XenoChoiceControl
+<ui:ChoiceControl
     xmlns="https://spacestation14.io"
-    xmlns:ui="clr-namespace:Content.Client._Shitmed.Xenonids.UI">
+    xmlns:ui="clr-namespace:Content.Client._Shitmed.Choice.UI">
     <BoxContainer Orientation="Horizontal">
         <Button Name="Button" Access="Public"
                 HorizontalExpand="True" VerticalExpand="False"
@@ -14,4 +14,4 @@
             </BoxContainer>
         </Button>
     </BoxContainer>
-</ui:XenoChoiceControl>
+</ui:ChoiceControl>

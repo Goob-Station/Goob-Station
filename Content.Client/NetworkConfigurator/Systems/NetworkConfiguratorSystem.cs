@@ -114,7 +114,8 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
             _configurator = configurator;
             _keyBindingName = keyBindingName;
             _label = new RichTextLabel { StyleClasses = { StyleNano.StyleClassItemStatus } };
-            AddChild(_label);
+            if (_configurator.ShowLabel)
+                AddChild(_label);
         }
 
         protected override void FrameUpdate(FrameEventArgs args)
@@ -125,6 +126,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
                 return;
 
             _linkModeActive = _configurator.LinkModeActive;
+
+            if (!_configurator.ShowLabel)
+                return;
 
             var modeLocString = _linkModeActive??false
                 ? "network-configurator-examine-mode-link"
