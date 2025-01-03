@@ -1,1 +1,1 @@
-mining-shuttle-names-dataset-1 = Salvage Shuttle
+mining-shuttle-names-dataset-1 = Шаттл спасения
