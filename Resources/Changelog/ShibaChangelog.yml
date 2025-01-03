@@ -1,6 +1,34 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Loot bugs are now on the 'Mouse' faction, making them targets of Shiva,
+      Aves and Pun Pun.
+    type: Tweak
+  id: 89
+  time: '2025-01-03T13:06:16.791338'
+- author: AstroDogeDX
+  changes:
+  - message: Loop Station has been removed from rotation. It has several issues that
+      make it unsuitable to play on.
+    type: Remove
+  id: 88
+  time: '2025-01-03T13:07:45.884181'
+- author: AstroDogeDX
+  changes:
+  - message: The Inebriation Recovery Kit has been added to the game. It contains
+      three ethyl medipens, two water bottles and a canister of dylovene pills. It
+      can be found in the Bartender's closet.
+    type: Add
+  id: 87
+  time: '2025-01-03T13:09:18.203822'
+- author: AstroDogeDX
+  changes:
+  - message: The Ethylredoxrazine Medipen has been added to the game.
+    type: Add
+  id: 86
+  time: '2025-01-03T13:08:20.655046'
+- author: AstroDogeDX
+  changes:
   - message: Salvage Shuttle now has a unique long-range holopad.
     type: Add
   id: 85
