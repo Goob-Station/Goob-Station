@@ -1,2 +1,2 @@
-ent-Torch = torch
-    .desc = A torch fashioned from some wood.
+ent-Torch = факел
+    .desc = Сделанный из дерева факел.

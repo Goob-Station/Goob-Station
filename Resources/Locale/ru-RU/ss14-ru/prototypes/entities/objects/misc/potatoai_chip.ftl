@@ -1,2 +1,2 @@
-ent-PotatoAIChip = supercompact AI chip
-    .desc = This high-tech AI chip requires a voltage of exactly 1.1V to function correctly.
+ent-PotatoAIChip = сверхкомпактный чип ИИ
+    .desc = Для корректной работы этого высокотехнологичного чипа искусственного интеллекта требуется напряжение ровно в 1,1 Вольт.

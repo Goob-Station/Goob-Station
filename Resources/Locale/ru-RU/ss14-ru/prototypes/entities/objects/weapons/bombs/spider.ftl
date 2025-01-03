@@ -1,2 +1,7 @@
-ent-SpiderCharge = spider clan charge
-    .desc = A modified C-4 charge supplied to you by the Spider Clan. Its explosive power has been juiced up, but only works in one specific area.
+# Corvax-HiddenDesc-Start
+ent-SpiderCharge = подозрительное устройство
+    .suffix = Бомба клана Паука
+    .desc = Чёрно-зелёное устройство с зашифрованным интерфейсом. Не похоже, чтобы это было разработкой NanoTrasen.
+
+# Corvax-HiddenDesc-End
+

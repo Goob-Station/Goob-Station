@@ -1,7 +1,7 @@
-flavor-base-basic = basic
-flavor-complex-fast = fast
-flavor-complex-greed = like greed
-flavor-complex-blast = like jungle warfare
-flavor-complex-torpedo = like convoy raiding
-flavor-complex-bees = like buzzing and honey
-flavor-base-earthy = earthy
+flavor-base-basic = основной
+flavor-complex-fast = быстрый
+flavor-complex-greed = как жадность
+flavor-complex-blast = как война в джунглях
+flavor-complex-torpedo = как налет на конвой
+flavor-complex-bees = как жужжание и мед
+flavor-base-earthy = земляной

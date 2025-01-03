@@ -1,2 +1,2 @@
-ent-DiskCase = diskcase
-    .desc = Case for storing a coordinates disk.
+ent-DiskCase = кейс для диска
+    .desc = Футляр для хранения диска координат.

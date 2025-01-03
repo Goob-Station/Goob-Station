@@ -1,5 +1,5 @@
-ent-KitchenReagentGrinder = reagent grinder
-    .desc = From BlenderTech. Will It Blend? Let's find out!
-    .suffix = grinder/juicer
-ent-ReagentGrinderIndustrial = industrial reagent grinder
-    .desc = An industrial reagent grinder.
+ent-KitchenReagentGrinder = измельчитель реагентов
+    .desc = От БлендерТех. Будет ли он работать? Давайте узнаем!
+    .suffix = Измельчитель/соковыжималка
+ent-ReagentGrinderIndustrial = промышленный измельчитель реагентов
+    .desc = Промышленный измельчитель реагентов.

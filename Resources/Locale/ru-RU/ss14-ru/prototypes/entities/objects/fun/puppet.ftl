@@ -1,5 +1,5 @@
-ent-MrChips = mr chips
-    .desc = It's a dummy, dummy!
-    .suffix = Dummy
-ent-MrDips = mr dips
+ent-MrChips = мистер Чипс
+    .desc = Это кукла!
+    .suffix = Кукла
+ent-MrDips = мистер Дипс
     .desc = { ent-MrChips.desc }

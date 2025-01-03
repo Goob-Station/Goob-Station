@@ -1,2 +1,2 @@
-admin-verb-make-changeling = Make the target into a changeling.
-admin-verb-text-make-changeling = Make Changeling
+admin-verb-make-changeling = Превратить цель в генокрада.
+admin-verb-text-make-changeling = Сделать генокрадом

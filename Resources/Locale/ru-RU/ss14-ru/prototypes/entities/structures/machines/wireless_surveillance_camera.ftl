@@ -1,5 +1,5 @@
-ent-SurveillanceWirelessCameraBase = wireless camera
-    .desc = A camera. It's watching you. Kinda.
+ent-SurveillanceWirelessCameraBase = беспроводная камера
+    .desc = Камера. Она наблюдает за тобой. Вроде как.
 ent-SurveillanceWirelessCameraAnchoredBase = { ent-SurveillanceWirelessCameraBase }
     .suffix = Anchored
     .desc = { ent-SurveillanceWirelessCameraBase.desc }

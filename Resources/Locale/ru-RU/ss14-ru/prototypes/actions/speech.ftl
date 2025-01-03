@@ -1,2 +1,2 @@
-ent-ActionConfigureMeleeSpeech = Set Battlecry
-    .desc = Set a custom battlecry for when you attack!
+ent-ActionConfigureMeleeSpeech = Установить боевой клич
+    .desc = Установите собственный боевой клич во время атаки!

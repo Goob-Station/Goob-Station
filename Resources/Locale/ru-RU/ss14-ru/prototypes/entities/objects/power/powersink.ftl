@@ -1,2 +1,7 @@
-ent-PowerSink = power sink
-    .desc = Drains immense amounts of electricity from the grid.
+# Corvax-HiddenDesc-Start
+ent-PowerSink = большое устройство с консолью
+    .suffix = поглотитель энергии Синдиката
+    .desc = Массивное устройство с большим количеством проводов и резисторов.
+
+# Corvax-HiddenDesc-End
+

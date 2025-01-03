@@ -1,12 +1,12 @@
-job-name-futureagent = Future Agent
-job-name-salvagediver = Salvage Diver
-job-name-ntr = Nanotrasen Representative
-job-name-bs = Blueshield
-job-name-overall = Overall
-job-name-hecu = HECU Operative
+job-name-futureagent = Агент будущего
+job-name-salvagediver = Водолаз-спасатель
+job-name-ntr = представитель nanotrasen
+job-name-bs = Синий щит
+job-name-overall = Общий
+job-name-hecu = Оперативник HECU
 
 # Role timers - Make these alphabetical or I cut you (dont listen to upstream, i copied and pasted this, make it very un-alphabetical :godo:)
 
-JobBlueshieldOfficer = Blueshield Officer
-JobNanotrasenRepresentative = Nanotrasen Representative
-JobHecuOperative = HECU Operative
+JobBlueshieldOfficer = Офицер синего щита
+JobNanotrasenRepresentative = Представитель Nanotrasen
+JobHecuOperative = Оператор HECU

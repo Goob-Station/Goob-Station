@@ -1,34 +1,34 @@
-heretic-ability-fail = Failed to cast
-heretic-ability-fail-magicitem = You cannot cast it without a focus!
-heretic-ability-fail-notarget = Couldn't find a valid target!
-heretic-magicitem-examine = [color=yellow]Allows you to use advanced spells while held or equipped.[/color]
+heretic-ability-fail = Не удалось разыграть
+heretic-ability-fail-magicitem = Вы не можете разыграть это заклинание без фокуса!
+heretic-ability-fail-notarget = Не удалось найти подходящую цель!
+heretic-magicitem-examine = [color=yellow]Позволяет использовать продвинутые заклинания, находясь в руках или снаряжении[/color].
 
 ## blade
 
-heretic-blade-examine = [color=yellow]Using it while it's in your hand will break the blade and teleport you away from danger.[/color]
-heretic-blade-use = The blade shatters, and you feel the voices pulling you away.
-heretic-riposte-used = Riposte used!
-heretic-riposte-available = Riposte available!
+heretic-blade-examine = [color=yellow]Если использовать его, пока он в руке, то клинок сломается и телепортирует вас подальше от опасности[/color].
+heretic-blade-use = Клинок разлетается на куски, и вы чувствуете, как голоса уводят вас прочь.
+heretic-riposte-used = Рипост использован!
+heretic-riposte-available = Рипост доступен!
 
 ## paths exclusive
 
-heretic-rust-mark-itembreak = { $name } shatters into dust!
-heretic-blade-void-examine = [color=cyan]While there is at least a single marked heathen in a large proximity, teleport behind its back without breaking the blade.[/color]
-mansus-infused-item-examine = [color=purple]The item's sheer presence alone gives you shivers. Should you really pick it up?[/color]
+heretic-rust-mark-itembreak = { $name } разбивается в пыль!
+heretic-blade-void-examine = [color=cyan]Пока в непосредственной близости находится хотя бы один отмеченный язычник, телепортируйтесь ему за спину, не сломав клинок[/color].
+mansus-infused-item-examine = [color=purple]От одного только вида этого предмета вас бросает в дрожь. Стоит ли брать его в руки?[/color]
 
 ## mansus link
 
-heretic-manselink-fail-exists = This creature is already connected!
-heretic-manselink-fail-nomind = This creature does not have a mind!
-heretic-manselink-start = You begin to connect this creature's mind to yours.
-heretic-manselink-start-target = You feel your mind being pulled somewhere...
+heretic-manselink-fail-exists = Это существо уже подключено!
+heretic-manselink-fail-nomind = У этого существа нет разума!
+heretic-manselink-start = Вы начинаете соединять разум этого существа со своим.
+heretic-manselink-start-target = Вы чувствуете, что ваш разум куда-то тянут...
 
 ## living heart
 
-heretic-livingheart-notargets = No available targets, visit the rune.
-heretic-livingheart-offstation = It's { $state }, off station, { $direction }!
-heretic-livingheart-onstation = It's { $state }, { $direction }!
-heretic-livingheart-unknown = It's... not in this plain of reality.
+heretic-livingheart-notargets = Нет доступных целей, посетите руну.
+heretic-livingheart-offstation = Это { $state }, вне станции, { $direction }!
+heretic-livingheart-onstation = Это { $state }, { $direction }!
+heretic-livingheart-unknown = Это... не на этой равнине реальности.
 
 ## speech
 

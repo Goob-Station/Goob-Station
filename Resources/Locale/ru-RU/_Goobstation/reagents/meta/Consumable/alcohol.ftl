@@ -1,2 +1,2 @@
-reagent-name-sigmajuice = sigmajuice
-reagent-desc-sigmajuice = Only real sigma males can drink this drink taken from the rizzlers of ohio.
+reagent-name-sigmajuice = Сигмаджюс
+reagent-desc-sigmajuice = Только настоящие мужчины-cигмы могут пить этот напиток, взятый у ризлеров из Огайо.

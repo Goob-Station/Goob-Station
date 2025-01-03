@@ -1,5 +1,5 @@
-ent-ParticleAcceleratorPowerBox = PA power box
-    .desc = Formally known as the Particle Focusing EM Lens. This uses electromagnetic waves to focus the Alpha-Particles.
-ent-ParticleAcceleratorPowerBoxUnfinished = PA power box
-    .desc = Formally known as the Particle Focusing EM Lens. This uses electromagnetic waves to focus the Alpha-Particles. It looks unfinished.
-    .suffix = Unfinished
+ent-ParticleAcceleratorPowerBox = силовая установка УЧ
+    .desc = Официально известна как ЭМ-линза фокусировки частиц. Она использует электромагнитные волны для фокусировки альфа-частиц.
+ent-ParticleAcceleratorPowerBoxUnfinished = силовая установка УЧ
+    .desc = Официально известна как ЭМ-линза фокусировки частиц. Она использует электромагнитные волны для фокусировки альфа-частиц. Выглядит незаконченной.
+    .suffix = Незаконченный

@@ -1,5 +1,5 @@
-ent-hydroponicsTray = hydroponics tray
-    .desc = An interstellar-grade space farmplot allowing for rapid growth and selective breeding of crops. Just... keep in mind the space weeds.
+ent-hydroponicsTray = гидропонный лоток
+    .desc = Космическая грядка межзвёздного класса, позволяющая быстро выращивать и селекционировать сельскохозяйственные культуры. Только... не забывайте о космических сорняках.
 ent-HydroponicsTrayEmpty = { ent-hydroponicsTray }
-    .suffix = Empty
+    .suffix = Пустой
     .desc = { ent-hydroponicsTray.desc }

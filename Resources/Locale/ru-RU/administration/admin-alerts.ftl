@@ -1,1 +1,1 @@
-admin-alert-shared-connection = { $player } is sharing a connection with { $otherCount } connected player(s): { $otherList }
+admin-alert-shared-connection = { $player } имеет общее интернет-соединение с { $otherCount } другим(-и) игроком(-ами): { $otherList }

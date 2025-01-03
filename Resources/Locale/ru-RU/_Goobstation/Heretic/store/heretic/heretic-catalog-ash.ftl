@@ -1,58 +1,58 @@
-knowledge-path-ash-s1-name = Nightwatcher's Secret
+knowledge-path-ash-s1-name = Секрет ночного наблюдателя
 knowledge-path-ash-s1-desc =
-    The City Guard know their watch. If you ask them at night, they may tell you about the ashy lantern.
-    
-    Opens up the Path of Ash to you.
-    Allows you to transmute a match and a knife into an Ashen Blade.
-knowledge-path-ash-s2-name = Grasp of Ash
+    Городская стража знает свои часы. Если вы спросите их ночью, они могут рассказать вам о пепельном фонаре.
+
+    Открывает перед вами Путь пепла.
+    Позволяет трансмутировать спичку и нож в Пепельный клинок.
+knowledge-path-ash-s2-name = Хватка пепла
 knowledge-path-ash-s2-desc =
-    The Nightwatcher was the first of them, his treason started it all. Their lantern, expired to ash - their watch, absent.
-    
-    Your Mansus Grasp will burn the eyes of the victim, damaging them and blurring their vision.
-knowledge-path-ash-s3-name = Ashen Shift
+    Ночной дозорный был первым из них, с его измены все началось. Их фонарь истлел в пепел, их часы отсутствуют.
+
+    Ваша «Мансусова хватка» обожжет глаза жертвы, повредит их и затуманит зрение.
+knowledge-path-ash-s3-name = Пепельный сдвиг
 knowledge-path-ash-s3-desc =
-    He knew how to walk between the planes.
-    
-    Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a short distance, passing though any walls.
-knowledge-path-ash-s4-name = Mark of Ash
+    Он умел ходить между плоскостями.
+
+    Наделяет вас заклинанием Ashen Passage, позволяющим выйти из реальности и преодолеть небольшое расстояние, минуя любые стены.
+knowledge-path-ash-s4-name = Знак пепла
 knowledge-path-ash-s4-desc =
-    He was a very particular man, always watching in the dead of night.
-    But in spite of his duty, he regularly tranced through the Manse with his blazing lantern held high.
-    He shone brightly in the darkness, until the blaze begin to die.
-    
-    Your Mansus Grasp now applies the Mark of Ash. The mark is triggered from an attack with your Ashen Blade.
-    When triggered, the victim takes additional stamina and burn damage, and the mark is transferred to a nearby heathen.
-knowledge-path-ash-s5-name = Volcanic Blast
+    Он был очень осторожным человеком, всегда бдительным в ночной темноте.
+    Но, несмотря на свой долг, он регулярно проходил через Манс с высоко поднятым фонарем.
+    Он ярко светил в темноте, пока пламя не начинало угасать.
+
+    Теперь ваша «Хватка Мансуса» накладывает «Метку пепла». Метка срабатывает после атаки вашим Пепельным клинком.
+    При срабатывании жертва получает дополнительный урон от выносливости и ожогов, а метка переносится на ближайшего язычника.
+knowledge-path-ash-s5-name = Вулканический взрыв
 knowledge-path-ash-s5-desc =
-    No fire was hot enough to rekindle them. No fire was bright enough to save them. No fire is eternal.
-    
-    Grants you Volcanic Blast, a spell that fires a ball of flames to the nearest Heathen.
-    On successful hit, the fireball continues it's way to another heathen.
-    Be careful, as fire still hurts. Make sure to carry an extinguisher on yourself.
-knowledge-path-ash-s6-name = Mask of Madness
+    Ни один огонь не был достаточно горячим, чтобы разжечь их. Ни один огонь не был достаточно ярким, чтобы спасти их. Ни один огонь не вечен.
+
+    Дает вам Вулканический взрыв, заклинание, которое выпускает шар пламени в ближайшего язычника.
+    При удачном попадании огненный шар продолжает свой путь к другому язычнику.
+    Будьте осторожны, так как огонь все еще причиняет боль. Обязательно носите с собой огнетушитель.
+knowledge-path-ash-s6-name = Маска безумия
 knowledge-path-ash-s6-desc =
-    The Nightwatcher was lost. That's what the Watch believed. Yet he walked the world, unnoticed by the masses.
-    
-    Allows you to transmute any mask, four candles, a stun baton, and a liver to create a Mask of Madness.
-    The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity.
-    Once worn you are unable to take it off by yourself...
-knowledge-path-ash-s7-name = Fiery Blade
+    Ночной Дозор был потерян. Так считал Дозор. И все же он ходил по миру, оставаясь незамеченным для масс.
+
+    Позволяет трансмутировать любую маску, четыре свечи, электрошоковую дубинку и печень, чтобы создать Маску безумия.
+    Маска вселяет страх в язычников, которые становятся ее свидетелями, вызывая урон выносливости, галлюцинации и безумие.
+    Надев ее, вы не сможете снять ее самостоятельно...
+knowledge-path-ash-s7-name = Огненный клинок
 knowledge-path-ash-s7-desc =
-    He returned, blade in hand, he swung and swung as the ash fell from the skies.
-    His city, the people he swore to watch... and watch he did, as they all burnt to cinders.
-    
-    Your blade now lights enemies ablaze on attack.
-knowledge-path-ash-s8-name = Nightwatcher's Rebirth
+    Он вернулся с клинком в руке, он размахивал и размахивал, пока с неба падал пепел.
+    Его город, люди, за которыми он поклялся присматривать... и он присматривал, пока все они сгорали дотла.
+
+    Теперь ваш клинок поджигает врагов при атаке.
+knowledge-path-ash-s8-name = Возрождение Ночного Наблюдателя
 knowledge-path-ash-s8-desc =
-    The fire was inescapable, and yet, life remained in his charred body. The Nightwatcher was a particular man, always watching.
-    
-    Grants you Nightwatcher's Rebirth, a spell that burns all nearby heathens who are currently on fire, healing you for every victim afflicted.
-    If any victims afflicted are in critical condition, they will instantly die.
-knowledge-path-ash-s9-name = Ashlord's Rite
+    Огонь был неизбежен, и все же в его обугленном теле оставалась жизнь. Ночной наблюдатель был особенным человеком, всегда наблюдающим за происходящим.
+
+    Дарует вам «Возрождение Ночного Наблюдателя» - заклинание, которое сжигает всех язычников, находящихся поблизости, и исцеляет вас за каждую пораженную жертву.
+    Если пострадавшие находятся в критическом состоянии, они мгновенно умирают.
+knowledge-path-ash-s9-name = Обряд Ашлорда
 knowledge-path-ash-s9-desc =
-    The ascension ritual of the Path of Ash.
-    Bring 3 burning or husked corpses to a transmutation rune to complete the ritual.
-    When completed, you become a harbinger of flames, gaining two abilites.
-    Cascade, which causes a massive, growing ring of fire around you,
-    and Oath of Flame, causing you to passively create a ring of flames as you walk.
-    You will also become immune to flames, space, and similar environmental hazards.
+    Ритуал вознесения на Пути Пепла.
+    Для завершения ритуала принесите 3 горящих или шелушащихся трупа к руне трансмутации.
+    После завершения вы становитесь предвестником пламени и получаете две способности.
+    Каскад, который создает вокруг вас массивное, растущее кольцо огня,
+    и «Клятва пламени», заставляющая вас пассивно создавать кольцо пламени, когда вы идете.
+    Вы также получите иммунитет к пламени, пространству и подобным опасностям окружающей среды.

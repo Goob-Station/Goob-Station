@@ -1,1 +1,1 @@
-damage-group-electronic = Electronic
+damage-group-electronic = Электронный

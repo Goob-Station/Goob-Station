@@ -1,15 +1,15 @@
-ent-BaseMobDragon = space dragon
-    .desc = A flying leviathan, loosely related to space carps.
+ent-BaseMobDragon = космический дракон
+    .desc = Летающий левиафан, имеющий мало общего с космическими карпами.
 ent-MobDragon = { ent-BaseMobDragon }
     .desc = { ent-BaseMobDragon.desc }
-ent-DragonsBreathGun = dragon's lung
-    .desc = For dragon's breathing.
+ent-DragonsBreathGun = драконье лёгкое
+    .desc = Для драконьего дыхания.
 ent-MobDragonDungeon = { ent-BaseMobDragon }
-    .suffix = Dungeon
+    .suffix = Подземелье
     .desc = { ent-BaseMobDragon.desc }
-ent-ActionSpawnRift = Summon Carp Rift
-    .desc = Summons a carp rift that will periodically spawns carps.
-ent-ActionDevour = [color=red]Devour[/color]
-    .desc = Attempt to break a structure with your jaws or swallow a creature.
-ent-ActionDragonsBreath = [color=orange]Dragon's Breath[/color]
-    .desc = Spew out flames at anyone foolish enough to attack you!
+ent-ActionSpawnRift = Создать карповый разлом
+    .desc = Создать карповый разлом, который будет периодически призывать карпов.
+ent-ActionDevour = [color=red]Поглотить[/color]
+    .desc = Попытаться разрушить конструкцию своими челюстями или проглотить существо.
+ent-ActionDragonsBreath = [color=orange]Дыхание дракона[/color]
+    .desc = Извергайте пламя на всех, кто поимеет глупость напасть на вас!

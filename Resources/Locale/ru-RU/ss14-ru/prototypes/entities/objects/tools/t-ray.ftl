@@ -1,2 +1,2 @@
-ent-trayScanner = t-ray scanner
-    .desc = A high-tech scanning device that uses Terahertz Radiation to detect subfloor infrastructure.
+ent-trayScanner = т-лучевой сканер
+    .desc = Высокотехнологичное сканирующее устройство, использующее терагерцовое радиоизлучение для обнаружения подпольной инфраструктуры.

@@ -1,6 +1,6 @@
-ent-ActionCritSuccumb = Succumb
-    .desc = Accept your fate.
-ent-ActionCritFakeDeath = Fake Death
-    .desc = Pretend to take your final breath while staying alive.
-ent-ActionCritLastWords = Say Last Words
-    .desc = Whisper your last words to anyone nearby, and then succumb to your fate. You only have 30 characters to work with.
+ent-ActionCritSuccumb = Сдаться
+    .desc = Смириться с судьбой.
+ent-ActionCritFakeDeath = Притвориться мёртвым
+    .desc = Притвориться, что вы делаете свой последний вдох, оставаясь при этом живым.
+ent-ActionCritLastWords = Произнести последние слова
+    .desc = Прошептать свои последние слова всем, кто находится поблизости, а затем сдаться на милость судьбы. Вам доступно только 30 символов.

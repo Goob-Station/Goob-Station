@@ -1,1 +1,1 @@
-lathe-technology-recipes-update-message = Lathe database has been updated with { $count } new recipes
+lathe-technology-recipes-update-message = База данных токарного станка была обновлена { $count } новыми рецептами

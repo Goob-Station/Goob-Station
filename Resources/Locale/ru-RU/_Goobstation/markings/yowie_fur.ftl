@@ -1,3 +1,3 @@
-marking-YowieFur = Yowie body fur
-marking-YowieFurFeetRight = Yowie right foot fur
-marking-YowieFurFeetLeft = Yowie left foot fur
+marking-YowieFur = Мех тела йоуи
+marking-YowieFurFeetRight = Мех правой ноги йоуи
+marking-YowieFurFeetLeft = Мех левой ноги йоуи

@@ -1,1 +1,1 @@
-research-technology-autodoc = Automated Surgery
+research-technology-autodoc = Автоматическая хирургия

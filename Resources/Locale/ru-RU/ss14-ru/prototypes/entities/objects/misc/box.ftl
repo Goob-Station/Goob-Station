@@ -1,2 +1,2 @@
-ent-BoxBase = { ent-BaseStorageItem }
-    .desc = { ent-BaseStorageItem.desc }
+ent-BoxBase = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }
