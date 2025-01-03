@@ -3751,3 +3751,11 @@ Entries:
       message: Mousetraps now damage the feet specifically.
   id: 419
   time: '2025-01-02T23:43:37.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added new song "The Future Soon" by Jonathan Coulton to the lobby music
+        and jukebox
+  id: 420
+  time: '2025-01-03T03:54:40.0000000+00:00'
