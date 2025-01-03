@@ -35,6 +35,8 @@ public abstract class ClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingComponent, ClothingUnequipDoAfterEvent>(OnUnequipDoAfter);
 
         SubscribeLocalEvent<ClothingComponent, BeforeItemStrippedEvent>(OnItemStripped);
+        SubscribeLocalEvent<HideLayerClothingComponent, ComponentInit>(OnHideLayerComponent); // Goobstation - Update component state on component toggle
+        SubscribeLocalEvent<HideLayerClothingComponent, ComponentRemove>(OnHideLayerComponent); // Goobstation - Update component state on component toggle
     }
 
     private void OnUseInHand(Entity<ClothingComponent> ent, ref UseInHandEvent args)
@@ -204,6 +206,22 @@ public abstract class ClothingSystem : EntitySystem
     {
         if (TryComp(equipment, out HideLayerClothingComponent? clothesComp) && TryComp(equipee, out HumanoidAppearanceComponent? appearanceComp))
             ToggleVisualLayers(equipee, clothesComp.Slots, appearanceComp.HideLayersOnEquip);
+    }
+
+    // Goobstation - Uses when hide layer component is removed to return layers back
+    private void CheckEquipmentForLayerHide(EntityUid equipee, HashSet<HumanoidVisualLayers> layers)
+    {
+        if (TryComp(equipee, out HumanoidAppearanceComponent? appearanceComponent))
+            ToggleVisualLayers(equipee, layers, appearanceComponent.HideLayersOnEquip);
+    }
+
+    // Goobstation - Update component state on component toggle
+    private void OnHideLayerComponent(EntityUid uid, HideLayerClothingComponent component, EntityEventArgs args)
+    {
+        if (!_invSystem.TryGetContainingEntity(uid, out var equipee))
+            return;
+
+        CheckEquipmentForLayerHide(equipee.Value, component.Slots);
     }
 
     #region Public API

@@ -1,0 +1,50 @@
+- type: latheRecipe
+  id: ModsuitChestplate
+  result: ModsuitChestplate
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitBoots
+  result: ModsuitBoots
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitHelmet
+  result: ModsuitHelmet
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitGauntlets
+  result: ModsuitGauntlets
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 250
+
+- type: latheRecipe
+  id: ModsuitShell
+  result: ModsuitShell
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 500
+    Plasma: 250
+
+- type: latheRecipe
+  id: ModsuitPlatingExternal
+  result: ModsuitPlatingExternal
+  category: Modsuit
+  completetime: 5
+  materials:
+    Steel: 300
+    Glass: 150
+    Plasma: 50

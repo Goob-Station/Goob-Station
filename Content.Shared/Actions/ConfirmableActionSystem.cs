@@ -10,6 +10,7 @@ namespace Content.Shared.Actions;
 public sealed class ConfirmableActionSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly SharedActionsSystem _actions = default!; // Goobstation
     [Dependency] private readonly SharedPopupSystem _popup = default!;
 
     public override void Initialize()
@@ -67,7 +68,12 @@ public sealed class ConfirmableActionSystem : EntitySystem
         comp.NextUnprime = comp.NextConfirm + comp.PrimeTime;
         Dirty(uid, comp);
 
-        _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupType.LargeCaution);
+        // Goobstation - Confirmable action with changed icon - Start
+        if (!string.IsNullOrEmpty(comp.Popup))
+            _popup.PopupClient(Loc.GetString(comp.Popup), user, user, comp.PopupFontType);
+
+        _actions.SetToggled(ent, true);
+        // Goobstation - Confirmable action with changed icon - End
     }
 
     private void Unprime(Entity<ConfirmableActionComponent> ent)
@@ -75,6 +81,9 @@ public sealed class ConfirmableActionSystem : EntitySystem
         var (uid, comp) = ent;
         comp.NextConfirm = null;
         comp.NextUnprime = null;
+
+        _actions.SetToggled(ent, false); // Goobstation - Confirmable action with changed icon
+
         Dirty(uid, comp);
     }
 }
