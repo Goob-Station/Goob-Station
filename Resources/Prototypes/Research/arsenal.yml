@@ -1,4 +1,4 @@
-# Tier 1
+﻿# Tier 1
 
 - type: technology
   id: SalvageWeapons
@@ -8,7 +8,7 @@
     state: icon
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponProtoKineticAccelerator
   - ShuttleGunKineticCircuitboard
@@ -23,7 +23,7 @@
     state: incendiarydisplay
   discipline: Arsenal
   tier: 1
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - BoxShotgunIncendiary
   - MagazineRifleIncendiary
@@ -44,7 +44,7 @@
     state: icon
   discipline: Arsenal
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponLaserCarbine
   - WeaponMechCombatFiredartLaser # Goobstation
@@ -57,7 +57,7 @@
     state: beanbag
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - MagazineShotgunBeanbag
   - BoxShellTranquilizer
@@ -73,7 +73,7 @@
     state: uranium
   discipline: Arsenal
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - MagazineRifleUranium
   - MagazinePistolUranium
@@ -93,7 +93,7 @@
     state: icon
   discipline: Arsenal
   tier: 1
-  cost: 8000
+  cost: 7000 # Goobstation - reduce science cost
   recipeUnlocks:
   - Truncheon
   - TelescopicShield
@@ -108,7 +108,7 @@
     state: payload-explosive-armed
   discipline: Arsenal
   tier: 1
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - SignallerAdvanced
   - SignalTrigger
@@ -126,7 +126,7 @@
     state: icon
   discipline: Arsenal
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - ClothingBackpackElectropack
 
@@ -140,7 +140,7 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponLaserCannon
   - WeaponMechCombatSolarisLaser # Goobstation
@@ -153,7 +153,7 @@
     state: icon
   discipline: Arsenal
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponXrayCannon
 
@@ -165,7 +165,7 @@
     state: full
   discipline: Arsenal
   tier: 2
-  cost: 10500
+  cost: 9500 # Goobstation - reduce science cost
   recipeUnlocks:
   - PowerCageRechargerCircuitboard
   - PowerCageSmall
@@ -189,7 +189,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 14000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponAdvancedLaser
   - PortableRecharger
@@ -203,7 +203,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 14000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponLaserSvalinn
 
@@ -215,7 +215,7 @@
     state: icon
   discipline: Arsenal
   tier: 3
-  cost: 15000
+  cost: 14000 # Goobstation - reduce science cost
   recipeUnlocks:
   - GrenadeEMP
   - PowerCageHigh

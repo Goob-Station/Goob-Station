@@ -1,4 +1,4 @@
-# Tier 1
+﻿# Tier 1
 
 # Tier 2
 
@@ -10,7 +10,7 @@
     state: mecha_bananamrtr
   discipline: CivilianServices
   tier: 2
-  cost: 6000
+  cost: 5000
   recipeUnlocks:
   - MechEquipmentHonkerBananaMortar
   - MechEquipmentHonkerMousetrapMortar
@@ -23,7 +23,7 @@
     state: rapid-syringe-gun
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 9000
   recipeUnlocks:
   - RapidSyringeGun
 

@@ -1,4 +1,4 @@
-# Tier 1
+﻿# Tier 1
 
 - type: technology
   id: Hydroponics
@@ -8,7 +8,7 @@
     state: seedextractor
   discipline: CivilianServices
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - BorgModuleGardening
   - BorgModuleHarvesting
@@ -24,7 +24,7 @@
     state: hamtr
   discipline: CivilianServices
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - HamtrHarness
   - HamtrLArm
@@ -44,7 +44,7 @@
     state: cameracase
   discipline: CivilianServices
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - SurveillanceCameraRouterCircuitboard
   - SurveillanceCameraWirelessRouterCircuitboard
@@ -62,7 +62,7 @@
     state: television
   discipline: CivilianServices
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
     - ComputerTelevisionCircuitboard
     - SynthesizerInstrument
@@ -78,7 +78,7 @@
     state: janitor
   discipline: CivilianServices
   tier: 1
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - BorgModuleAdvancedCleaning
 
@@ -90,7 +90,7 @@
     state: display
   discipline: CivilianServices
   tier: 1
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - FatExtractorMachineCircuitboard
   - BiofabricatorMachineCircuitboard
@@ -106,7 +106,7 @@
     state: astroice
   discipline: CivilianServices
   tier: 2
-  cost: 5000
+  cost: 4000 # Goobstation - reduce science cost
   recipeUnlocks:
   - FauxTileAstroGrass
   - FauxTileMowedAstroGrass
@@ -122,7 +122,7 @@
     state: icon
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - StasisBedMachineCircuitboard
   - CryoPodMachineCircuitboard
@@ -137,7 +137,7 @@
     state: advmop
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - AdvMopItem
   - MegaSprayBottle
@@ -150,7 +150,7 @@
     state: honker
   discipline: CivilianServices
   tier: 2
-  cost: 7500
+  cost: 6500 # Goobstation - reduce science cost
   recipeUnlocks:
   - HonkerHarness
   - HonkerLArm
@@ -170,7 +170,7 @@
     state: icon
   discipline: CivilianServices
   tier: 2
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - WeaponSprayNozzle
   - ClothingBackpackWaterTank
@@ -183,7 +183,7 @@
     state: display
   discipline: CivilianServices
   tier: 2
-  cost: 15000
+  cost: 14000 # Goobstation - reduce science cost
   recipeUnlocks:
   - CargoTelepadMachineCircuitboard
 
@@ -197,7 +197,7 @@
     state: icon
   discipline: CivilianServices
   tier: 3
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - ClothingShoesBootsSpeed
 
@@ -209,7 +209,7 @@
     state: beakerbluespace
   discipline: CivilianServices
   tier: 3
-  cost: 10000
+  cost: 9000 # Goobstation - reduce science cost
   recipeUnlocks:
   - BluespaceBeaker
   - SyringeBluespace
