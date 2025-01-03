@@ -2,7 +2,6 @@
 using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Robust.Client.GameObjects;
-using Robust.Shared.GameStates;
 
 namespace Content.Client._Goobstation.Blob;
 

@@ -1,4 +1,3 @@
-using Content.Shared.Flash.Components;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Damage.Components;

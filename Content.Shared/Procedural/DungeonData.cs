@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Maps;
 using Content.Shared.Storage;
 using Content.Shared.Whitelist;

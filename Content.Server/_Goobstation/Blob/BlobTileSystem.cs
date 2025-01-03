@@ -1,4 +1,3 @@
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using Content.Server.Construction.Components;
@@ -9,8 +8,6 @@ using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
-using Content.Shared.FixedPoint;
-using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;

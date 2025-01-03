@@ -1,5 +1,4 @@
 using Content.Server._Goobstation.Spawn.Components;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 
 namespace Content.Server._Goobstation.Spawn.Systems;

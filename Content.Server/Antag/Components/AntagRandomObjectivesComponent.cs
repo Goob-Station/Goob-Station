@@ -1,4 +1,3 @@
-using Content.Server.Antag;
 using Content.Shared.Random;
 using Robust.Shared.Prototypes;
 
