@@ -140,15 +140,15 @@
       - id: VendingMachineRestockRobustSoftdrinks
         amount: 2
 
-- type: entity
-  id: CrateVendingMachineRestockSalvageEquipmentFilled
-  parent: CrateGenericSteel
-  name: Salvage restock crate
-  description: Contains a restock box for the salvage vendor.
-  components:
-  - type: StorageFill
-    contents:
-      - id: VendingMachineRestockSalvageEquipment
+#- type: entity # DeltaV: Salvage vendor doesn't have stock anymore
+#  id: CrateVendingMachineRestockSalvageEquipmentFilled
+#  parent: CrateGenericSteel
+#  name: Salvage restock crate
+#  description: Contains a restock box for the salvage vendor.
+#  components:
+#  - type: StorageFill
+#    contents:
+#      - id: VendingMachineRestockSalvageEquipment
 
 - type: entity
   id: CrateVendingMachineRestockSecTechFilled

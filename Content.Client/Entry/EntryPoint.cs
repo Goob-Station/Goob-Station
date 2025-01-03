@@ -122,6 +122,13 @@ namespace Content.Client.Entry
             _prototypeManager.RegisterIgnore("nukeopsRole");
             _prototypeManager.RegisterIgnore("ghostRoleRaffleDecider");
 
+            // Lavaland Change start
+            _prototypeManager.RegisterIgnore("lavalandMap");
+            _prototypeManager.RegisterIgnore("lavalandRuin");
+            _prototypeManager.RegisterIgnore("lavalandRuinPool");
+            _prototypeManager.RegisterIgnore("lavalandWeather");
+            // Lavaland Change end
+
             _componentFactory.GenerateNetIds();
             _adminManager.Initialize();
             _screenshotHook.Initialize();

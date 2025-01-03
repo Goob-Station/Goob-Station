@@ -16,8 +16,7 @@
     slots:
     - belt
   - type: Item
-    heldPrefix: off
-    size: Ginormous
+    size: Huge # DeltaV: Was Ginormous, lets it fit in conscription bag
   - type: Storage
     maxItemSize: Normal
     grid:

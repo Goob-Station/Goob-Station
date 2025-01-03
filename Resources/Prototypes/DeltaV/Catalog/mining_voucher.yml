@@ -1,0 +1,70 @@
+- type: thiefBackpackSet
+  id: MiningCrusher
+  name: mining-voucher-crusher-name
+  description: mining-voucher-crusher-description
+  sprite:
+    sprite: Objects/Weapons/Melee/crusher.rsi
+    state: icon
+  content:
+  - WeaponCrusher
+  - FireExtinguisherMini
+
+- type: thiefBackpackSet
+  id: MiningExtraction
+  name: mining-voucher-extraction-name
+  description: mining-voucher-extraction-description
+  sprite:
+    sprite: Objects/Tools/fulton.rsi
+    state: extraction_pack
+  content:
+  - Fulton
+  - Fulton
+  - FultonBeacon
+  # TODO: 30 marker beacons
+
+# TODO: resonator
+#- type: thiefBackpackSet
+#  id: MiningResonator
+#  name: mining-voucher-resonator-name
+#  description: mining-voucher-resonator-description
+#  sprite:
+#    sprite: DeltaV/Objects/Weapons/Ranged/resonator.rsi
+#    state: icon
+#  content:
+#  - Resonator
+#  - FireExtinguisherMini
+
+# TODO: bluespace shelter capsule so this isnt a scam
+#- type: thiefBackpackSet
+#  id: MiningSurvival
+#  name: mining-voucher-survival-name
+#  description: mining-voucher-survival-description
+#  sprite:
+#    sprite: Clothing/Belt/salvagewebbing.rsi
+#    state: icon
+#  content:
+#  - ClothingBeltSalvageWebbing
+
+# TODO: mining drone
+#- type: thiefBackpackSet
+#  id: MiningDrone
+#  name: mining-voucher-minebot-name
+#  description: mining-voucher-minebot-description
+#  sprite:
+#    sprite: ...
+#    state: icon
+#  content:
+#  - mining drone...
+#  - WelderIndustrial
+#  - ClothingHeadHatWelding
+#  - drone passthrough ka modkit
+
+- type: thiefBackpackSet
+  id: MiningConscription
+  name: mining-voucher-conscription-name
+  description: mining-voucher-conscription-description
+  sprite:
+    sprite: Clothing/Back/Duffels/salvage.rsi
+    state: icon
+  content:
+  - ClothingBackpackDuffelSalvageConscription

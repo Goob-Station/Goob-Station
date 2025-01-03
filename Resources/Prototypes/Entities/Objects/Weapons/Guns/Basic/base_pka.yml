@@ -7,7 +7,18 @@
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
   - type: Item
     sprite: Objects/Weapons/Guns/Basic/kinetic_accelerator.rsi
-    size: Normal
+    size: Large # Lavaland Change
+    shape:
+    - 0,0,2,1
+  # Lavaland Change start
+  - type: UpgradeableGun 
+    whitelist:
+      tags:
+      - PKAUpgrade
+  - type: ContainerContainer
+    containers:
+      upgrades: !type:Container
+  # Lavaland Change end
   - type: GunWieldBonus
     minAngle: -43
     maxAngle: -43

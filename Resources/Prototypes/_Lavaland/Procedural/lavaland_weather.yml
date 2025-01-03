@@ -1,0 +1,7 @@
+- type: lavalandWeather
+  id: AshfallLight
+  weatherType: AshfallLight
+
+- type: lavalandWeather
+  id: AshfallHeavy
+  weatherType: Ashfall
