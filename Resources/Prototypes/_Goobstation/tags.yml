@@ -176,4 +176,11 @@
   id: Tourniquet
 
 - type: Tag
+  id: MagazineLightRifleSubsonic
+
+- type: Tag
+  id: CartridgeLightRifleSubsonic
+  
+- type: Tag
   id: WeaponPistolDualetta
+
