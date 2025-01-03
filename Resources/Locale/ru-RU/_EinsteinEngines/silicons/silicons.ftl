@@ -1,3 +1,3 @@
-silicon-overheating = You feel your circuits overheating!
-silicon-crit = Structural integrity critical!
-silicon-power-low = Power low!
+silicon-overheating = Вы чувствуете, что ваши схемы перегреваются!
+silicon-crit = Структурная целостность в критическом состоянии!
+silicon-power-low = Низкий уровень заряда!
