@@ -1,5 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
+﻿using System.Linq;
 using System.Numerics;
 using Content.Server._Lavaland.Procedural.Components;
 using Content.Server._Lavaland.Procedural.Prototypes;
@@ -139,11 +138,11 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
         // Marker Layers
         var biome = EnsureComp<BiomeComponent>(lavalandMap);
-
         foreach (var marker in prototype.OreLayers)
         {
             _biome.AddMarkerLayer(lavalandMap, biome, marker);
         }
+
         foreach (var marker in prototype.MobLayers)
         {
             _biome.AddMarkerLayer(lavalandMap, biome, marker);
@@ -176,12 +175,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         AddComp(lavalandMap, restricted);
 
         // Setup Outpost
-        var fixin = new Vector2(0.53125f, 0.390625f);
-        var options = new MapLoadOptions
-        {
-            Offset = fixin,
-        };
-        if (!_mapLoader.TryLoad(lavalandMapId, prototype.OutpostPath, out var outposts, options) || outposts.Count != 1)
+        if (!_mapLoader.TryLoad(lavalandMapId, prototype.OutpostPath, out var outposts) || outposts.Count != 1)
         {
             Log.Error(outposts?.Count > 1
                 ? $"Loading Outpost on lavaland map failed, {prototype.OutpostPath} is not saved as a grid."
@@ -204,7 +198,13 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
 
         if (TerminatingOrDeleted(outpost))
+        {
+            Log.Error("Lavaland outpost was loaded, but doesn't exist! (Maybe you forgot to add BecomesStationComponent?)");
             return false;
+        }
+
+        // Align  outpost to planet
+        _transform.SetCoordinates(outpost, new EntityCoordinates(lavaland, 0, 0));
 
         mapComp.Outpost = outpost;
         mapComp.Seed = seed.Value;
@@ -216,7 +216,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
         SetupRuins(pool, lavaland);
 
         // Hide all grids from the mass scanner.
-
         foreach (var grid in _mapManager.GetAllGrids(lavalandMapId))
         {
             var flag = IFFFlags.Hide;
@@ -264,10 +263,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
             }
         }
 
-        // No ruins no fun
-        if (hugeRuins.Count == 0)
-            return;
-
         foreach (var selectRuin in pool.SmallRuins)
         {
             var proto = _proto.Index(selectRuin.Key);
@@ -276,6 +271,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
                 smallRuins.Add(proto);
             }
         }
+
+        // No ruins no fun
+        if (hugeRuins.Count == 0 && smallRuins.Count == 0)
+            return;
 
         random.Shuffle(coords);
         random.Shuffle(smallRuins);

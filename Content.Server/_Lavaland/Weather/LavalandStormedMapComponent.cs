@@ -1,6 +1,4 @@
-﻿using Content.Server._Lavaland.Procedural.Systems;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
+﻿using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Weather;
 
@@ -17,7 +15,7 @@ public sealed partial class LavalandStormedMapComponent : Component
     public float Duration;
 
     [DataField]
-    public float NextDamage = 15.0f; // 15 seconds
+    public float NextDamage = 10f;
 
     [DataField]
     public float DamageAccumulator;

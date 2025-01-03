@@ -1,12 +1,10 @@
-using Content.Server._Lavaland.Aggression;
 using Content.Shared.Damage;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
 
 namespace Content.Server._Lavaland.Aggression.Systems;
 
-[Virtual]
-public partial class AggressorsSystem : EntitySystem
+public sealed partial class AggressorsSystem : EntitySystem
 {
     // TODO: make cooldowns for all individual aggressors that fall out of vision range
 

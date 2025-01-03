@@ -1,11 +1,10 @@
-using Content.Server._Lavaland.Mobs.Bosses.Components;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
+using Content.Server._Lavaland.Mobs.Hierophant.Components;
 
-namespace Content.Server._Lavaland.Mobs.Bosses;
+namespace Content.Server._Lavaland.Mobs.Hierophant;
 
 /// <summary>
 ///     Chaser works as a self replicator.

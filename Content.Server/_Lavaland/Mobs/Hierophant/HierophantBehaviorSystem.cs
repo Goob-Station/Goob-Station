@@ -1,10 +1,7 @@
 using Content.Server._Lavaland.Aggression;
-using Content.Server._Lavaland.Mobs.Bosses.Components;
 using Content.Server.Audio;
 using Content.Server.Destructible;
-using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Shared.Audio;
-using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
@@ -15,8 +12,11 @@ using Robust.Shared.Random;
 using System.Linq;
 using System.Numerics;
 using System.Threading.Tasks;
+using Content.Server._Lavaland.Mobs.Hierophant.Components;
 
-namespace Content.Server._Lavaland.Mobs.Bosses;
+#pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
+
+namespace Content.Server._Lavaland.Mobs.Hierophant;
 
 public sealed partial class HierophantBehaviorSystem : EntitySystem
 {
@@ -31,7 +31,7 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     [ValidatePrototypeId<EntityPrototype>] private const string ChaserPrototype = "LavalandHierophantChaser";
 
     // used in case of spawning multiple chasers, for example
-    static readonly float BaseActionDelay = 1f * 1000f;
+    private const float BaseActionDelay = 1f * 1000f;
 
     public override void Initialize()
     {
@@ -62,7 +62,7 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         var eqe = EntityQueryEnumerator<HierophantBossComponent>();
         while (eqe.MoveNext(out var uid, out var comp))
         {
-            var ent = (uid, comp);
+            Entity<HierophantBossComponent> ent = (uid, comp);
 
             if (TryComp<AggressiveComponent>(uid, out var aggressors))
             {

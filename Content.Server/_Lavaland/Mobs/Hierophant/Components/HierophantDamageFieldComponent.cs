@@ -1,7 +1,7 @@
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 
-namespace Content.Server._Lavaland.Mobs.Bosses.Components;
+namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
 
 [RegisterComponent]
 public sealed partial class HierophantDamageFieldComponent : Component

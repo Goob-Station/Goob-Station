@@ -18,8 +18,8 @@ public sealed partial class PressureBuffedSystem : EntitySystem
 
     public void OnExamined(Entity<PressureBuffedComponent> ent, ref ExaminedEvent args)
     {
-        var min = ent.Comp.RequiredPressure.Min;
-        var max = ent.Comp.RequiredPressure.Max;
+        var min = ent.Comp.RequiredPressure.X;
+        var max = ent.Comp.RequiredPressure.Y;
         var modifier = ent.Comp.AppliedModifier;
 
         var markup = Loc.GetString("lavaland-examine-pressure-buff", ("min", min), ("max", max), ("buff", modifier));
@@ -32,7 +32,7 @@ public sealed partial class PressureBuffedSystem : EntitySystem
         var minmax = ent.Comp.RequiredPressure;
 
         var pressure = mix?.Pressure ?? 0f; // can't get any lower than 0, right?...
-        var isInThresholds = pressure >= minmax.Min && pressure <= minmax.Max;
+        var isInThresholds = pressure >= minmax.X && pressure <= minmax.Y;
 
         if (!isInThresholds)
             return;

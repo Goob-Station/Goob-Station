@@ -1,12 +1,9 @@
-using Content.Server._Lavaland.Mobs.Bosses.Components;
 using Content.Server.Destructible;
-using Content.Shared.Damage;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Prototypes;
 using System.Linq;
-using System.Threading;
 
-namespace Content.Server._Lavaland.Mobs.Bosses;
+namespace Content.Server._Lavaland.Mobs;
 
 public sealed partial class MegafaunaSystem : EntitySystem
 {
@@ -30,10 +27,10 @@ public sealed partial class MegafaunaSystem : EntitySystem
         // check if the entity is a crusher or if any of it's parents are crusher
         // to account for crusher glaive, dagger and other stuff that you will not see :trollface:
         // generally makes it foolproof
-        var pid = prot!.ID;
+        var pid = prot.ID;
         var parents = prot!.Parents?.ToList() ?? new List<string>();
 
-        if (pid != null && (pid != CrusherPrototype || parents.Contains(CrusherPrototype)))
+        if ((pid != CrusherPrototype || parents.Contains(CrusherPrototype)))
             comp.CrusherOnly = false; // it's over...
     }
 
@@ -41,8 +38,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
     {
         var coords = Transform(uid).Coordinates;
 
-        if (comp.CancelToken != null)
-            comp.CancelToken.Cancel();
+        comp.CancelToken.Cancel();
 
         if (comp.Loot != null)
             Spawn(comp.Loot, coords);

@@ -1,7 +1,7 @@
 using Robust.Shared.Prototypes;
 using System.Threading;
 
-namespace Content.Server._Lavaland.Mobs.Bosses.Components;
+namespace Content.Server._Lavaland.Mobs;
 
 [Virtual, RegisterComponent]
 public partial class MegafaunaComponent : Component

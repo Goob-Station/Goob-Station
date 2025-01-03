@@ -1,6 +1,6 @@
 using Robust.Shared.Prototypes;
 
-namespace Content.Server._Lavaland.Mobs.Bosses.Components;
+namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
 
 [RegisterComponent]
 public sealed partial class HierophantChaserComponent : Component

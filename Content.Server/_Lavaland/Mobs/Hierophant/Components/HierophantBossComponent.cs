@@ -1,4 +1,4 @@
-namespace Content.Server._Lavaland.Mobs.Bosses.Components;
+namespace Content.Server._Lavaland.Mobs.Hierophant.Components;
 
 [RegisterComponent]
 public sealed partial class HierophantBossComponent : MegafaunaComponent
@@ -9,23 +9,39 @@ public sealed partial class HierophantBossComponent : MegafaunaComponent
     ///     Gets calculated automatically in the <see cref="HierophantBehaviorSystem"/>.
     ///     Is responsive for how fast the hierophant attacks.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public float Anger = 0f;
-    [ViewVariables(VVAccess.ReadOnly)] public float InterActionDelay = .5f;
+    [ViewVariables]
+    public float Anger = 0f;
 
-    [DataField] public float MajorAttackCooldown = 8f;
+    [ViewVariables]
+    public float InterActionDelay = 0.5f;
+
+    [DataField]
+    public float MajorAttackCooldown = 8f;
+
+    [ViewVariables]
     public float MajorAttackTimer = 8f;
 
-    [DataField] public float AttackCooldown = 4f;
+    [DataField]
+    public float AttackCooldown = 4f;
+
+    [ViewVariables]
     public float AttackTimer = 4f;
 
-    [DataField] public float MeleeReactionCooldown = 10f;
+    [DataField]
+    public float MeleeReactionCooldown = 10f;
+
+    [ViewVariables]
     public float MeleeReactionTimer = 10f;
+
+    [ViewVariables]
     public bool Meleed = false;
 
     /// <summary>
     ///     Spawns an AoE attack if being melee'd.
     /// </summary>
-    [ViewVariables(VVAccess.ReadOnly)] public bool ReactOnMelee = true;
+    [ViewVariables]
+    public bool ReactOnMelee = true;
 
-    [ViewVariables(VVAccess.ReadOnly)] public bool IsAttacking = false;
+    [ViewVariables]
+    public bool IsAttacking = false;
 }

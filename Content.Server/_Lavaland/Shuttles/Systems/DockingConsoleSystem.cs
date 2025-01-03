@@ -1,4 +1,3 @@
-using Content.Server._Lavaland.Procedural.Components;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
@@ -19,7 +18,6 @@ namespace Content.Server._Lavaland.Shuttles.Systems;
 public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!;
 
@@ -140,13 +138,6 @@ public sealed class DockingConsoleSystem : SharedDockingConsoleSystem
     {
         EntityUid? largestGrid = null;
         var largestSize = 0f;
-        var mapUid = _map.GetMap(map);
-
-        if (TryComp<LavalandMapComponent>(mapUid, out var lavaland))
-        {
-            // always pick Outpost when it's lavaland
-            return lavaland.Outpost;
-        }
 
         var query = EntityQueryEnumerator<MapGridComponent, TransformComponent>();
         while (query.MoveNext(out var gridUid, out var grid, out var xform))

@@ -2,7 +2,6 @@
 using Content.Shared.Atmos;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Parallax.Biomes.Markers;
-using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Procedural.Prototypes;

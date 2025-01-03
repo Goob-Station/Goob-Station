@@ -1,6 +1,4 @@
-﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
-using Content.Shared.Weather;
+﻿using Content.Shared.Weather;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server._Lavaland.Weather;
@@ -30,5 +28,5 @@ public sealed class LavalandWeatherPrototype : IPrototype
     /// Be careful changing this number.
     /// </summary>
     [DataField]
-    public float TemperatureChange = 24000f;
+    public float TemperatureChange = 18000f;
 }

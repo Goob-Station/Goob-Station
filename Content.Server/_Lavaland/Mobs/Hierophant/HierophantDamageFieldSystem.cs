@@ -1,11 +1,11 @@
-using Content.Server._Lavaland.Mobs.Bosses.Components;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using System.Linq;
+using Content.Server._Lavaland.Mobs.Hierophant.Components;
 
-namespace Content.Server._Lavaland.Mobs.Bosses;
+namespace Content.Server._Lavaland.Mobs.Hierophant;
 
 /// <summary>
 ///     We have to use it's own system even for the damage field because WIZDEN SYSTEMS FUCKING SUUUUUUUUUUUCKKKKKKKKKKKKKKK
@@ -30,7 +30,8 @@ public sealed partial class HierophantDamageFieldSystem : EntitySystem
         foreach (var shitter in shitters)
         {
             var lookup = _lookup.GetEntitiesInRange(shitter.Item1, .25f)
-                .Where(p => !HasComp<HierophantBossComponent>(p)).ToList();
+                .Where(p => !HasComp<HierophantBossComponent>(p))
+                .ToList();
             foreach (var entity in lookup)
             {
                 if (TryComp<DamageableComponent>(entity, out var dmg))
