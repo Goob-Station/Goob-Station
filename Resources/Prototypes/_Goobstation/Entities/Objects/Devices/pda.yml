@@ -66,3 +66,6 @@
   components:
   - type: Pda
     id: BlueshieldIDCard
+  - type: Icon
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-Blueshield
