@@ -240,7 +240,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         {
             BreakOnDamage = true,
             BreakOnMove = true,
-            BreakOnWeightlessMove = true
+            BreakOnWeightlessMove = true,
+            MultiplyDelay = false
         };
         _popup.PopupEntity(Loc.GetString("heretic-manselink-start"), ent, ent);
         _popup.PopupEntity(Loc.GetString("heretic-manselink-start-target"), args.Target, args.Target, PopupType.MediumCaution);

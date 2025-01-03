@@ -677,6 +677,8 @@
     - JawsOfLifeRightArm
     - SpeedLeftLeg
     - SpeedRightLeg
+    - DexLeftHand
+    - DexRightHand
     - BasicCyberneticEyes
     # Goobstation - Mechs
     - ClarkeHarness
