@@ -1,11 +1,11 @@
-ent-BaseChemistryEmptyVial = vial
-    .desc = A small vial.
+ent-BaseChemistryEmptyVial = пробирка
+    .desc = Маленькая пробирка.
 ent-VestineChemistryVial = { ent-BaseChemistryEmptyVial }
-    .suffix = vestine
+    .suffix = Вестин
     .desc = { ent-BaseChemistryEmptyVial.desc }
 ent-RadiumChemistryVial = { ent-BaseChemistryEmptyVial }
-    .suffix = radium
+    .suffix = Радий
     .desc = { ent-BaseChemistryEmptyVial.desc }
 ent-ChlorineChemistryVial = { ent-BaseChemistryEmptyVial }
-    .suffix = chlorine
+    .suffix = Хлор
     .desc = { ent-BaseChemistryEmptyVial.desc }

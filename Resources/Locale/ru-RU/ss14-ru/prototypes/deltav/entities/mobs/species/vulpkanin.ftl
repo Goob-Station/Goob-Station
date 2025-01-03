@@ -1,4 +1,4 @@
-ent-BaseMobVulpkanin = Urist McVulp
+ent-BaseMobVulpkanin = Урист МакВульпканин
     .desc = { ent-BaseMobSpeciesOrganic.desc }
-ent-MobVulpkaninDummy = Vulpkanin Dummy
-    .desc = A dummy vulpkanin meant to be used in character setup.
+ent-MobVulpkaninDummy = Манекен МакВульпканин
+    .desc = Манекен вульпканина, предназначенный для настройки персонажа.

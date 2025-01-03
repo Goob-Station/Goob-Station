@@ -1,19 +1,19 @@
 heretic-ascension-ash =
-    The Watch is dead, the Nightwatcher burned with it. Yet his fire burns evermore,
-    for the Nightwatcher brought forth the rite to mankind! His gaze continues, as now I am one with the flames,
-    WITNESS MY ASCENSION, THE ASHY LANTERN BLAZES ONCE MORE!
+    Дозор мертв, Ночной Наблюдатель сгорел вместе с ним. Но его огонь горит вечно,
+    ибо Ночной Дозор принес человечеству обряд! Его взгляд не ослабевает, ибо теперь я един с пламенем,
+    СВИДЕТЕЛЬ МОЕГО ВОЗНЕСЕНИЯ, ПЕПЕЛЬНЫЙ ФОНАРЬ ПЫЛАЕТ ВНОВЬ!
 heretic-ascension-blade =
-    The Torn Champion is freed! I will become the blade reunited, and with my greater ambition,
-    I AM UNMATCHED! A STORM OF STEEL AND SILVER IS UPON US! WITNESS MY ASCENSION!
+    Разорванный чемпион освобожден! Я стану воссоединенным клинком, и с моими большими амбициями,
+    МНЕ НЕТ РАВНЫХ! БУРЯ СТАЛИ И СЕРЕБРА НАДВИГАЕТСЯ НА НАС! СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕГО ВОЗНЕСЕНИЯ!
 heretic-ascension-lock =
-    The Stewards guided me, and I guided them.
-    My foes were the Locks and my blades were the Key!
-    The Labyrinth will be Locked no more, and freedom will be ours! WITNESS US!
+    Стюарды вели меня, а я вел их.
+    Мои враги были замками, а мои клинки - ключами!
+    Лабиринт больше не будет заперт, и мы обретем свободу! СВИДЕТЕЛЬСТВУЙТЕ НАМ!
 heretic-ascension-flesh =
-    With the Marshal's knowledge, my power had peaked. The throne was open to claim.
-    Men of this world, hear me, for the time has come! The Marshal guides my army!
-    Reality will bend to THE LORD OF THE NIGHT or be unraveled! WITNESS MY ASCENSION!
+    С ведома маршала моя власть достигла пика. Трон был открыт для притязаний.
+    Люди этого мира, услышьте меня, ибо время пришло! Маршал ведет мою армию!
+    Реальность покорится Владыке Ночи или будет разгадана! СТАНЬТЕ СВИДЕТЕЛЯМИ МОЕГО ВОСХОЖДЕНИЯ!
 heretic-ascension-void =
-    The world falls into darkness. I stand in an empty plane, small flakes of ice fall from the sky.
-    The Aristocrat stands before me, beckoning. We will play a waltz to the whispers of dying reality,
-    as the world is destroyed before our eyes. The void will return all to nothing, WITNESS MY ASCENSION!
+    Мир погружается во тьму. Я стою в пустом самолете, с неба падают мелкие хлопья льда.
+    Аристократ стоит передо мной, маня к себе. Мы сыграем вальс под шепот умирающей реальности,
+    пока мир разрушается на наших глазах. Пустота вернет все в ничто, УВИДИТЕ МОЕ ВОЗНЕСЕНИЕ!

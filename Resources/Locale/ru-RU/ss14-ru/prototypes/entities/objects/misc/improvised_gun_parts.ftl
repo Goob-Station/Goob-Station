@@ -1,4 +1,4 @@
-ent-ModularReceiver = modular receiver
-    .desc = A vital part used in the creation of firearms.
-ent-RifleStock = rifle stock
-    .desc = A robust wooden stock, used in the creation of firearms.
+ent-ModularReceiver = модульный ресивер
+    .desc = Важнейшая деталь, используемая при создании огнестрельного оружия.
+ent-RifleStock = ружейное ложе
+    .desc = Прочное деревянное ложе, используемое при создании огнестрельного оружия.

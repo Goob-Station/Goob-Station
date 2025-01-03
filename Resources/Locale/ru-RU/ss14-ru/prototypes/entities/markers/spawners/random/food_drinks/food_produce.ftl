@@ -1,2 +1,2 @@
-ent-RandomProduce = random produce spawner
+ent-RandomProduce = спавнер случайный плод растения
     .desc = { ent-MarkerBase.desc }

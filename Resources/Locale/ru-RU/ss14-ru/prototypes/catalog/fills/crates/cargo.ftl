@@ -1,4 +1,4 @@
-ent-CrateCargoLuxuryHardsuit = luxury mining hardsuit crate
-    .desc = Finally, a hardsuit Quartermasters could call their own. Centcomm has heard you, now stop asking.
-ent-CrateCargoGambling = the grand lottery $$$
-    .desc = A box containing treasure beyond your greatest imaginations!
+ent-CrateCargoLuxuryHardsuit = ящик элитного шахтёрского скафандра
+    .desc = Наконец-то, скафандр, который квартирмейстеры могут назвать своим собственным. Центком услышал вас, а теперь перестаньте спрашивать.
+ent-CrateCargoGambling = грандиозная лотерея $$$
+    .desc = Ящик с сокровищами, не поддающимися воображению!

@@ -1,2 +1,2 @@
-ent-PlaqueAtmos = atmos plaque
+ent-PlaqueAtmos = атмосферная табличка
     .desc = { ent-BaseSign.desc }

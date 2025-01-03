@@ -1,1 +1,1 @@
-species-name-yowie = Yowie
+species-name-yowie = Йоуи

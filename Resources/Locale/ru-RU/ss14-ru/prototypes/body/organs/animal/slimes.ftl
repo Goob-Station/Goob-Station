@@ -1,4 +1,4 @@
-ent-SentientSlimesCore = sentient slimes core
-    .desc = The source of incredible, unending gooeyness.
-ent-OrganSlimesLungs = slimes gas sacs
-    .desc = Collects nitrogen, which slime cells use for maintenance.
+ent-SentientSlimesCore = разумное ядро слайма
+    .desc = Источник невероятной, бесконечной липкости.
+ent-OrganSlimesLungs = газовые мешки слайма
+    .desc = Собирают азот, который клетки слайма используют для поддержания жизнедеятельности.

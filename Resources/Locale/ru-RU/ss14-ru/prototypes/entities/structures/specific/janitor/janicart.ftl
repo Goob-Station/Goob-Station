@@ -1,7 +1,7 @@
-ent-MopBucket = mop bucket
-    .desc = Holds water and the tears of the janitor.
-ent-MopBucketFull = mop bucket
-    .suffix = full
+ent-MopBucket = ведро для швабры
+    .desc = Содержит воду и слёзы уборщика.
+ent-MopBucketFull = ведро для швабры
+    .suffix = Полный
     .desc = { ent-MopBucket.desc }
-ent-JanitorialTrolley = janitorial trolley
-    .desc = This is the alpha and omega of sanitation.
+ent-JanitorialTrolley = тележка уборщика
+    .desc = Это альфа и омега санитарии.

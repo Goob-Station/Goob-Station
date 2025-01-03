@@ -1,2 +1,2 @@
-ent-RandomSnacks = random snack spawner
+ent-RandomSnacks = спавнер случайная закуска
     .desc = { ent-MarkerBase.desc }

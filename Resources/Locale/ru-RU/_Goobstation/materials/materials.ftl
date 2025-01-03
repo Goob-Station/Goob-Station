@@ -1,1 +1,1 @@
-materials-bscrystal = bluespace crystal
+materials-bscrystal = блюспейс кристал

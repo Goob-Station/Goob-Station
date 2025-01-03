@@ -1,4 +1,4 @@
-ent-SalvageMagnet = salvage magnet
-    .desc = Pulls in salvage.
-ent-SalvageLocator = salvage locator
-    .desc = Locates salvage.
+ent-SalvageMagnet = магнит обломков
+    .desc = Притягивает обломки.
+ent-SalvageLocator = локатор обломков
+    .desc = Находит обломки.

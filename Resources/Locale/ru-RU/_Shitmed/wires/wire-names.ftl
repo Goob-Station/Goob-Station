@@ -1,2 +1,2 @@
-wires-board-name-autodoc = Autodoc Mk.XIV
+wires-board-name-autodoc = АВТОДОК Mk.XIV
 wire-name-autodoc-safety = SAFE

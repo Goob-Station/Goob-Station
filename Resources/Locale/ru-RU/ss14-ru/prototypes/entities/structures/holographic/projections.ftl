@@ -1,8 +1,8 @@
-ent-HolosignWetFloor = wet floor sign
-    .desc = The words flicker as if they mean nothing.
-ent-HoloFan = holofan
-    .desc = A barrier of hard light that blocks air, but nothing else.
-ent-HolosignSecurity = holographic barrier
-    .desc = A barrier of hard light that blocks movement, but pretty weak.
-ent-HolosignForcefield = holographic force field
-    .desc = A powerful temporal containment field that doesn't let anything through, not even a tesla or singularity.
+ent-HolosignWetFloor = знак "мокрый пол"
+    .desc = Слова мерцают, как будто ничего не значат.
+ent-HoloFan = атмосферный барьер
+    .desc = Барьер из твёрдого света, который блокирует воздух, и ничего более.
+ent-HolosignSecurity = голографический барьер
+    .desc = Барьер из твёрдого света, блокирует движение, но довольно хрупкий.
+ent-HolosignForcefield = голографическое силовое поле
+    .desc = Мощное поле временного сдерживания, которое не пропустит ничего, даже Теслу или сингулярность.

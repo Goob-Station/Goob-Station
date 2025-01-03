@@ -1,2 +1,2 @@
-ent-ClothingNeckStoleChaplain = chaplain stole
-    .desc = An elegantly designed stole, with a vibrant gold plus on either end.
+ent-ClothingNeckStoleChaplain = стола священника
+    .desc = Элегантно оформленная накидка с яркими золотыми крестами на обоих концах.

@@ -1,5 +1,5 @@
-ent-ShuttleWindow = shuttle window
-    .desc = { ent-WindowRCDResistant.desc }
+ent-ShuttleWindow = окно шаттла
+    .desc = { ent-Window.desc }
 ent-ShuttleWindowDiagonal = { ent-ShuttleWindow }
-    .suffix = diagonal
+    .suffix = Диагональ
     .desc = { ent-ShuttleWindow.desc }
