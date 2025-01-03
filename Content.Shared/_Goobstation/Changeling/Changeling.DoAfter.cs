@@ -5,3 +5,5 @@ namespace Content.Shared.Changeling;
 
 [Serializable, NetSerializable]
 public sealed partial class AbsorbDNADoAfterEvent : SimpleDoAfterEvent { }
+[Serializable, NetSerializable]
+public sealed partial class AbsorbBiomatterDoAfterEvent : SimpleDoAfterEvent { }

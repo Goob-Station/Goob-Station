@@ -1,24 +1,26 @@
+using Content.Server.Flash.Components;
+using Content.Server.Light.Components;
+using Content.Server.Nutrition.Components;
+using Content.Server.Objectives.Components;
+using Content.Server.Radio.Components;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
+using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Cuffs.Components;
+using Content.Shared.Damage;
+using Content.Shared.Damage.Components;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.DoAfter;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Mobs;
-using Content.Shared.Store.Components;
-using Content.Shared.Popups;
-using Content.Shared.Damage;
-using Robust.Shared.Prototypes;
-using Content.Shared.Damage.Prototypes;
-using Content.Server.Objectives.Components;
-using Content.Server.Light.Components;
-using Content.Shared.Eye.Blinding.Systems;
-using Content.Shared.Eye.Blinding.Components;
-using Content.Server.Flash.Components;
 using Content.Shared.Movement.Pulling.Components;
+using Content.Shared.Popups;
 using Content.Shared.Stealth.Components;
-using Content.Shared.Damage.Components;
-using Content.Server.Radio.Components;
+using Content.Shared.Store.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Changeling;
 
@@ -61,6 +63,8 @@ public sealed partial class ChangelingSystem : EntitySystem
         SubscribeLocalEvent<ChangelingComponent, ActionLesserFormEvent>(OnLesserForm);
         SubscribeLocalEvent<ChangelingComponent, ActionSpacesuitEvent>(OnSpacesuit);
         SubscribeLocalEvent<ChangelingComponent, ActionHivemindAccessEvent>(OnHivemindAccess);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbBiomatterEvent>(OnAbsorbBiomatter);
+        SubscribeLocalEvent<ChangelingComponent, AbsorbBiomatterDoAfterEvent>(OnAbsorbBiomatterDoAfter);
     }
 
     #region Basic Abilities
@@ -162,6 +166,74 @@ public sealed partial class ChangelingSystem : EntitySystem
         if (_mind.TryGetMind(uid, out var mindId, out var mind))
             if (_mind.TryGetObjectiveComp<AbsorbConditionComponent>(mindId, out var objective, mind))
                 objective.Absorbed += 1;
+    }
+
+    private void OnAbsorbBiomatter(EntityUid uid, ChangelingComponent comp, ref AbsorbBiomatterEvent args)
+    {
+        var target = args.Target;
+
+        if (!TryUseAbility(uid, comp, args))
+            return;
+
+        if (!TryComp<FoodComponent>(target, out var food))
+            return;
+
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
+            return;
+
+        var totalNutriment = FixedPoint2.New(0);
+        foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
+            totalNutriment += sol.Comp.Solution.GetTotalPrototypeQuantity("Nutriment");
+
+        if (food.RequiresSpecialDigestion || totalNutriment == 0) // no eating winter coats or food that won't give you anything
+        {
+            var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
+            _popup.PopupEntity(popup, uid, uid);
+            return;
+        }
+
+        var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
+        _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
+        PlayMeatySound(uid, comp);
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalNutriment.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        {
+            DistanceThreshold = 1.5f,
+            BreakOnDamage = true,
+            BreakOnHandChange = false,
+            BreakOnMove = true,
+            BreakOnWeightlessMove = true,
+            DuplicateCondition = DuplicateConditions.SameEvent,
+            AttemptFrequency = AttemptFrequency.StartAndEnd
+        };
+        _doAfter.TryStartDoAfter(dargs);
+    }
+    private void OnAbsorbBiomatterDoAfter(EntityUid uid, ChangelingComponent comp, ref AbsorbBiomatterDoAfterEvent args)
+    {
+        if (args.Args.Target == null)
+            return;
+
+        var target = args.Args.Target.Value;
+
+        if (args.Cancelled)
+            return;
+
+        if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
+            return;
+
+        var totalNutriment = FixedPoint2.New(0);
+        foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
+        {
+            var solution = sol.Comp.Solution;
+            var quant = solution.GetTotalPrototypeQuantity("Nutriment");
+            totalNutriment += quant;
+            solution.RemoveReagent("Nutriment", quant);
+            _puddle.TrySpillAt(target, solution, out var _);
+        }
+
+        UpdateBiomass(uid, comp, totalNutriment.Float() * 0.15f); // 5% of default max for an apple
+        UpdateChemicals(uid, comp, totalNutriment.Float()); // 10 chemicals for an apple
+
+        QueueDel(target); // eaten
     }
 
     private void OnStingExtractDNA(EntityUid uid, ChangelingComponent comp, ref StingExtractDNAEvent args)

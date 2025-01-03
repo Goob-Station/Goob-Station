@@ -12,6 +12,9 @@ changeling-absorb-end-self = Another organic absorbed. You are evolving.
 changeling-absorb-end-self-ling = Another changeling absorbed. You are evolving more rapidly.
 changeling-absorb-onexamine = [color=red]The body feels hollow.[/color]
 
+changeling-absorbbiomatter-start = {THE($user)} starts absorbing the food!
+changeling-absorbbiomatter-bad-food = This food is not absorbable.
+
 changeling-transform-cycle = Switched to {$target}'s DNA.
 changeling-transform-cycle-empty = You don't have any DNA strains!
 changeling-transform-others = {CAPITALIZE(THE($user))}'s body twists and takes shape of another being!
