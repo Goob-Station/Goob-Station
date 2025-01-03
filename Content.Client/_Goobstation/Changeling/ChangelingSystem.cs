@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Client.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed class ChangelingSystem : SharedChangelingSystem
 {
 
     [Dependency] private readonly IPrototypeManager _prototype = default!;

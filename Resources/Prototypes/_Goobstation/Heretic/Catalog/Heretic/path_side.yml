@@ -32,6 +32,22 @@
     stage: 2
 
 - type: listing
+  id: HereticSidePath3AshenEyes
+  name: knowledge-path-side-s3-ashen-eyes-name
+  description: knowledge-path-side-s3-ashen-eyes-desc
+  icon: { sprite: _Goobstation/Heretic/eldritch_medalion.rsi, state: icon }
+  productHereticKnowledge: AshenEyesRitual
+  cost:
+    KnowledgePoint: 2
+  categories:
+  - HereticPathSide
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:HereticPathCondition
+    stage: 2
+
+- type: listing
   id: HereticSidePathKnowledge
   name: knowledge-path-side-knowledge-name
   description: knowledge-path-side-knowledge-desc

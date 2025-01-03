@@ -1,0 +1,39 @@
+- type: entity
+  id: ToggleNightVision
+  name: Toggle Night Vision
+  description: Toggles night vision.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+    icon:
+      sprite: _White/Clothing/Eyes/Goggles/nightvision.rsi
+      state: icon
+    event: !type:ToggleNightVisionEvent
+
+- type: entity
+  id: ToggleThermalVision
+  name: Toggle Thermal Vision
+  description: Toggles thermal vision.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    useDelay: 1
+    icon:
+      sprite: _White/Clothing/Eyes/Goggles/thermal.rsi
+      state: icon
+    event: !type:ToggleThermalVisionEvent
+
+- type: entity
+  id: PulseThermalVision
+  parent: ToggleThermalVision
+  name: Pulse Thermal Vision
+  description: Activate thermal vision temporarily.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 4

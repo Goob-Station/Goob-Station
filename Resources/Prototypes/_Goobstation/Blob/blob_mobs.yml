@@ -188,9 +188,9 @@
           state: nautdamage
           shader: unshaded
     - type: NightVision
-      isToggle: true
       color: "#808080"
-      playSoundOn: false
+      activateSound: null
+      deactivateSound: null
     - type: GuideHelp
       guides:
       - Blob
