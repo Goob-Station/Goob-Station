@@ -15,7 +15,7 @@
 
 - type: randomHumanoidSettings
   id: HecuSoldier
-  parent: EventHumanoidMindShielded
+  parent: EventHumanMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-Hecu-name

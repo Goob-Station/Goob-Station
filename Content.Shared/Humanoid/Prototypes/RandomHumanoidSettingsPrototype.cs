@@ -31,6 +31,13 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     public HashSet<string> SpeciesBlacklist { get; private set; } = new();
 
     /// <summary>
+    ///     Goobstation
+    ///     Specie that will be used.
+    /// </summary>
+    [DataField]
+    public string? SpecieWhitelist { get; private set; }
+
+    /// <summary>
     ///     Extra components to add to this entity.
     /// </summary>
     [DataField]
