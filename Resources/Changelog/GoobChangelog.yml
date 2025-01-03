@@ -3759,3 +3759,19 @@ Entries:
         and jukebox
   id: 420
   time: '2025-01-03T03:54:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added the Annie, a stronger variant of the AKMS for ERT, its pretty
+        strong and goes THOCK.
+    - type: Add
+      message: >-
+        Added the WSPR, a stronger variant of the AKMS for the Syndicate,
+        intended as an in-between for the M90 and Burner.
+    - type: Add
+      message: >-
+        Subsonic .30 bullets, they do less damage than their traditional
+        counterpart but are cheaper and have a slightly larger magazine size.
+  id: 421
+  time: '2025-01-03T15:44:29.0000000+00:00'
