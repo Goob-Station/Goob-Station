@@ -65,6 +65,8 @@
   suffix: Leader
   description: Blue for defense, the silver shield of the Blueshield is engraved on the front.
   components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Devices/pda.rsi
   - type: Pda
     id: BlueshieldIDCard
     state: pda-blueshield
@@ -73,7 +75,8 @@
     accentHColor: "#447987"
     accentVColor: "#447987"
   - type: Icon
-    state: pda-blueshield
+    sprite: _Goobstation/Objects/Devices/pda.rsi
+    state: pda-heccd
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     preinstalled:
