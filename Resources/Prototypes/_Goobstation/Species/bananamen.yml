@@ -1,0 +1,148 @@
+- type: species
+  id: BananaMen
+  name: species-name-bananamen
+  roundStart: false
+  prototype: MobBananaMen
+  sprites: MobBananaMenSprites
+  markingLimits: MobHumanMarkingLimits
+  dollPrototype: MobBananaMenDummy
+  skinColoration: NoColor
+
+- type: speciesBaseSprites
+  id: MobBananaMenSprites
+  sprites:
+    Head: MobBananaMenHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobBananaMenTorso
+    Eyes: MobHumanoidEyes
+    LArm: MobBananaMenLArm
+    RArm: MobBananaMenRArm
+    LHand: MobBananaMenLHand
+    RHand: MobBananaMenRHand
+    LLeg: MobBananaMenLLeg
+    RLeg: MobBananaMenRLeg
+    LFoot: MobBananaMenLFoot
+    RFoot: MobBananaMenRFoot
+    Tail: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+    
+- type: markingPoints
+  id: MobBananMenMarkingLimits
+  points:
+    Snout:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobBananaMenEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobBananaMenAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobBananaMenMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobBananaMenHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobBananaMenTorso
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenTorsoMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobBananaMenTorsoFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobBananaMenLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobBananaMenLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobBananaMenLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobBananaMenLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobBananaMenRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobBananaMenRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobBananaMenRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobBananaMenRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: r_foot
