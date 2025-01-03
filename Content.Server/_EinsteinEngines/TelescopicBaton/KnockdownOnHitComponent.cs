@@ -1,4 +1,4 @@
-﻿using Content.Shared._White.Standing;
+using Content.Shared._White.Standing;
 
 namespace Content.Server._EinsteinEngines.TelescopicBaton;
 
@@ -13,4 +13,7 @@ public sealed partial class KnockdownOnHitComponent : Component
 
     [DataField]
     public bool RefreshDuration = true;
+
+    [DataField]
+    public bool KnockdownOnHeavyAttack = true; // Goobstation
 }

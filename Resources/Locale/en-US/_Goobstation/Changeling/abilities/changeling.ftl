@@ -28,6 +28,8 @@ changeling-sting-fail-simplemob = You can't sting a lesser creature!
 changeling-sting-extract-fail = Unable to extract DNA
 changeling-sting-extract-max = Need to get rid of the stored DNA beforehand
 
+changeling-dartgun-no-stings = You don't have any reagent stings evolved!
+
 changeling-stasis-enter = You enter regenerative stasis
 changeling-stasis-enter-fail = Can't enter stasis!
 changeling-stasis-exit = You exit regenerative stasis

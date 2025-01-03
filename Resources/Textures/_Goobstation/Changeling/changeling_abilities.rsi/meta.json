@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0",
+    "copyright": "Taken and edited from Paradise Station wiki https://paradisestation.org/wiki/index.php/Changeling , sting_transform and sting_armblade retextures made by whateverusername0. dartgun, claw and hammer taken from baystation12 at https://github.com/Baystation12/Baystation12 at commit 869b8c5383f45d3ca64ccc17a80609f794bc64db and modified",
     "size": {
         "x": 32,
         "y": 32
@@ -102,6 +102,15 @@
         },
         {
             "name": "transform_cycle"
+        },
+        {
+            "name": "dartgun"
+        },
+        {
+            "name": "claw"
+        },
+        {
+            "name": "hammer"
         }
     ]
 }

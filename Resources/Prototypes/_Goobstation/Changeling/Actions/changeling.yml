@@ -154,6 +154,54 @@
     chemicalCost: 15
 
 - type: entity
+  id: ActionToggleHammer
+  name: Toggle Arm Hammer
+  description: Reform one of your arms into a strong hammer, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: hammer
+    event: !type:ToggleArmHammerEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
+  id: ActionToggleClaw
+  name: Toggle Arm Claw
+  description: Reform one of your arms into a strong claw, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: claw
+    event: !type:ToggleArmClawEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
+  id: ActionToggleDartGun
+  name: Toggle Dart Gun
+  description: Reform one of your arms into a dart gun, composed of bone and flesh. Retract on secondary use. Costs 15 chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    useDelay: 2
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: dartgun
+    event: !type:ToggleDartGunEvent {}
+  - type: ChangelingAction
+    chemicalCost: 15
+
+- type: entity
   id: ActionCreateBoneShard
   name: Form Bone Shard
   description: Break off shards of your bone and shape them into a throwing star. Costs 15 chemicals.
@@ -263,7 +311,7 @@
 - type: entity
   id: ActionStingBlind
   name: Blind Sting
-  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 35 chemicals.
+  description: Silently sting your target, blinding them for a short time and rendering them near sighted. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -277,15 +325,18 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_blind
-    event: !type:StingBlindEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 25
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingBlind
+    dartGunAmmo: StingBlind
 
 - type: entity
   id: ActionStingCryo
   name: Cryogenic Sting
-  description: Silently sting your target, constantly slowing and freezing them. Costs 35 chemicals.
+  description: Silently sting your target, constantly slowing and freezing them. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -299,15 +350,18 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_cryo
-    event: !type:StingCryoEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 25
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingCryo
+    dartGunAmmo: StingCryo
 
 - type: entity
   id: ActionStingLethargic
   name: Lethargic Sting
-  description: Silently inject a cocktail of anesthetics into the target. Costs 35 chemicals.
+  description: Silently inject a cocktail of anesthetics into the target. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -321,15 +375,18 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_lethargic
-    event: !type:StingLethargicEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 25
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingLethargic
+    dartGunAmmo: StingLethargic
 
 - type: entity
   id: ActionStingMute
   name: Mute Sting
-  description: Silently sting your target, completely silencing them for a short time. Costs 35 chemicals.
+  description: Silently sting your target, completely silencing them for a short time. Costs 25 chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction
@@ -343,10 +400,13 @@
     icon:
       sprite: _Goobstation/Changeling/changeling_abilities.rsi
       state: sting_mute
-    event: !type:StingMuteEvent {}
+    event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 35
+    chemicalCost: 25
     useInLesserForm: true
+  - type: ChangelingReagentSting
+    configuration: StingMute
+    dartGunAmmo: StingMute
 
 - type: entity
   id: ActionStingFakeArmblade
