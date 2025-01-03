@@ -14,13 +14,13 @@
       "name": "pda-heccd"
     },
 	{
+      "name": "pda-blueshield"
+    },
+	{
       "name": "id_overlay"
     },
 	{
       "name": "light_overlay"
-    }
-	{
-      "name": "pda-blueshield"
     },
   ]
 }
