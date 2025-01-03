@@ -11,25 +11,27 @@ public sealed partial class BinglePitComponent : Component
     /// ammount of stored
     /// </summary>
     [DataField]
-    public int Fallen = 0;
+    public float Fallen = 0f;
     /// <summary>
     /// amount of material needed for a new bingle
     /// </summary>
     [DataField]
-    public int SpawnNewAt = 10;
+    public float SpawnNewAt = 10f;
 
     /// <summary>
-    /// amount bingles needed to evolve / widen the pit / expand the ... THE FACTORY MUST GROW
+    /// amount bingles needed to evolve / gain a level / expand the ... THE FACTORY MUST GROW
     /// </summary>
     [DataField]
-    public int UpgradeLimit = 12;
+    public float UpgradeLimit = 12f;
 
+    /// <summary>
+    /// if the Bingle pit level
+    /// </summary>
     [DataField]
-    public bool SwallowMobs = false;
+    public float Level = 1f;
 
     /// <summary>
     /// Where the entities go when it falls into the pit, empties when it is destroyed.
     /// </summary>
-    [DataField]
     public Container Pit = default!;
 }

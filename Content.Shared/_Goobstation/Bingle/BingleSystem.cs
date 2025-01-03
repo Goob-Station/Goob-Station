@@ -7,9 +7,9 @@ public sealed class BingleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<BingleComponent, ComponentStartup>(OnStartup);
     }
-    private void OnMapInit(Entity<BingleComponent> ent, ref MapInitEvent args)
+    private void OnStartup(EntityUid uid, BingleComponent comp, ComponentStartup args)
     {
         //on mapint. check pit if this bingle shud be upgraded
         // this shud only afect bingles that spawn after pit evolves
