@@ -1,1 +1,1 @@
-chat-radio-mansus = Mansus Link
+chat-radio-mansus = Мансус

@@ -1,54 +1,54 @@
-knowledge-path-blade-s1-name = The Cutting Edge
+knowledge-path-blade-s1-name = Режущий грань
 knowledge-path-blade-s1-desc =
-    Our great ancestors forged swords and practiced sparring on the eve of great battles.
-    
-    Follow the path of blades.
-    Being unable to use any ranged weapons, transmute 4 knives into a sundered blade.
-knowledge-path-blade-s2-name = Grasp of the Blade
+    Наши великие предки ковали мечи и практиковали спарринги накануне великих битв.
+
+    Следуйте по пути клинков.
+    Не имея возможности использовать любое дальнобойное оружие, трансмутируйте 4 ножа в сарафанный клинок.
+knowledge-path-blade-s2-name = Хват клинка
 knowledge-path-blade-s2-desc =
-    The story of the footsoldier has been told since antiquity. It is one of blood and valor, and is championed by sword, steel and silver.
-    
-    Your Mansus Grasp will cause a short stun when used on someone lying down or facing away from you.
-knowledge-path-blade-s3-name = Dance of the Brand
+    История пешего солдата рассказывается с древности. Это история крови и доблести, за которую борются меч, сталь и серебро.
+
+    Ваш Хват Клинка вызывает короткое оглушение, если использовать его на лежащего или стоящего лицом к вам человека.
+knowledge-path-blade-s3-name = Танец клейма
 knowledge-path-blade-s3-desc =
-    The footsoldier was known to be a fearsome duelist. Their general quickly appointed them as their personal Champion.
-    
-    Being attacked while wielding any melee weapon in either hand will deliver a riposte towards your attacker. This effect can only trigger once every 20 seconds.
-knowledge-path-blade-s4-name = Mark of the Blade
+    Этот пехотинец был известен как грозный дуэлянт. Генерал быстро назначил его своим личным чемпионом.
+
+    Если вас атакуют, когда вы держите в обеих руках любое оружие ближнего боя, вы наносите ответный удар по нападающему. Этот эффект может сработать только раз в 20 секунд.
+knowledge-path-blade-s4-name = Знак клинка
 knowledge-path-blade-s4-desc =
-    His general wished to end the war, but the Champion knew there could be no life without death. He would slay the coward himself, and anyone who tried to run.
-    
-    Your Mansus Grasp now applies the Mark of the Blade.
-    Triggering the mark will summon a knife that will orbit you for a short time.
-    The knife will block any attack directed towards you, but is consumed on use.
-knowledge-path-blade-s5-name = Realignment
+    Его генерал хотел закончить войну, но чемпион знал, что без смерти не может быть жизни. Он убьет и самого труса, и любого, кто попытается бежать.
+
+    Теперь ваш Mansus Grasp применяет Знак клинка.
+    Срабатывание метки приведет к появлению ножа, который на короткое время будет вращаться вокруг вас.
+    Нож блокирует любую направленную на вас атаку, но расходуется при использовании.
+knowledge-path-blade-s5-name = Перестройка
 knowledge-path-blade-s5-desc =
-    In the flurry of death, he found peace within himself. Despite insurmountable odds, he forged on.
-    
-    Grants you Realignment a spell that wil realign your body rapidly for a short period.
-    During this process, you will rapidly regenerate stamina and quickly recover from stuns, however, you will be unable to attack.
-knowledge-path-blade-s6-name = Stance of the Torn Champion
+    В шквале смертей он обрел мир внутри себя. Несмотря на непреодолимые препятствия, он продолжал идти вперед.
+
+    Дает вам заклинание «Выравнивание», которое быстро выровняет ваше тело на короткий период.
+    Во время этого процесса вы будете быстро восстанавливать выносливость и быстро восстанавливаться после оглушения, однако не сможете атаковать.
+knowledge-path-blade-s6-name = Стойка разорванного чемпиона
 knowledge-path-blade-s6-desc =
-    In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
-    
-    Grants immunity to having your limbs dismembered.
-    Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
-knowledge-path-blade-s7-name = Empowered Blades
+    Со временем он остался один среди тел своих бывших товарищей, залитых кровью, но не его собственной. У него не было ни соперника, ни равного, ни цели.
+
+    Дает иммунитет к расчленению конечностей.
+    Кроме того, при уроне ниже 50% от максимального здоровья вы получаете повышенное сопротивление к получению ран и сопротивление дубинкам.
+knowledge-path-blade-s7-name = Усиленные клинки
 knowledge-path-blade-s7-desc =
-    I found him cleaved in twain, halves locked in a duel without end; a flurry of blades, neither hitting their mark, for the Champion was indomitable.
-    
-    You are able to infuse your mansus grasp directly into your blades, doubling their damage and stunning whoever picks them up.
-knowledge-path-blade-s8-name = Furious Steel
+    Я нашел его рассеченным на две части, половинки сцепились в поединке без конца; шквал клинков, но ни один не попал в цель, ибо чемпион был неукротим.
+
+    Вы можете влить хватку мансуса прямо в свои клинки, удваивая их урон и оглушая того, кто их поднимет.
+knowledge-path-blade-s8-name = Яростная сталь
 knowledge-path-blade-s8-desc =
-    Without thinking, I took the knife of a fallen soldier and threw with all my might. My aim was true! The Torn Champion smiled at their first taste of agony, and with a nod, their blades became my own.
-    
-    Grants you Furious Steel, a targeted spell. Using it will summon three orbiting blades around you. These blades will protect you from all attacks, but are consumed on use.
-    Additionally, you can click to fire the blades at a nearest target, dealing heavy damage.
-knowledge-path-blade-s9-name = Maelstrom of Silver
+    Не задумываясь, я взял нож павшего солдата и со всей силы метнул. Я попал точно в цель! Разорванный чемпион улыбнулся, впервые ощутив вкус агонии, и, кивнув, его клинки стали моими собственными.
+
+    Дарует вам Яростную сталь, целевое заклинание. При его использовании вы вызовете вокруг себя три орбитальных клинка. Эти клинки защищают вас от всех атак, но расходуются при использовании.
+    Кроме того, вы можете нажать на кнопку, чтобы выстрелить клинками в ближайшую цель, нанося ей сильный урон.
+knowledge-path-blade-s9-name = Серебряный шторм
 knowledge-path-blade-s9-desc =
-    The ascension ritual of the Path of Blades.
-    Bring 3 headless corpses to a transmutation rune to complete the ritual.
-    When completed, you will be surrounded in a constant, regenerating orbit of blades.
-    These blades will protect you from all attacks, but are consumed on use.
-    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shrug off stuns.
-    Every weapon you hold will deal bonus damage and heal you on attack for a portion of the damage dealt.
+    Ритуал вознесения Пути Клинков.
+    Принесите 3 безголовых трупа к руне трансмутации, чтобы завершить ритуал.
+    После завершения вы будете окружены постоянной, регенерирующей орбитой клинков.
+    Эти клинки защищают вас от любых атак, но расходуются при использовании.
+    Кроме того, вы станете мастером боя, обретя способность скользить по скользким поверхностям и снимать оглушение.
+    Каждое оружие, которое вы держите в руках, наносит бонусный урон и исцеляет вас при атаке на часть нанесенного урона.
