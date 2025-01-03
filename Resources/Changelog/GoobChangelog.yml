@@ -3775,3 +3775,11 @@ Entries:
         counterpart but are cheaper and have a slightly larger magazine size.
   id: 421
   time: '2025-01-03T15:44:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Eswords can no longer be EMPd.
+    - type: Add
+      message: Eswords will block bolas, spears, syringes, pies and similar stuff.
+  id: 422
+  time: '2025-01-03T15:55:47.0000000+00:00'
