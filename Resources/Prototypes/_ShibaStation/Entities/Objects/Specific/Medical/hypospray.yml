@@ -1,0 +1,27 @@
+- type: entity
+  name: ethylredoxrazine medipen
+  parent: ChemicalMedipen
+  id: EthylredoxrazineMedipen
+  description: A dose of a sobering substance, that'll help a heavy drinker get back on their feet.
+  components:
+  - type: Sprite
+    sprite: _ShibaStation/Objects/Specific/Medical/medipen.rsi
+    layers:
+    - state: ethylpen
+      map: ["enum.SolutionContainerLayers.Fill"]
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    changeColor: false
+    emptySpriteName: ethylpen_empty
+  - type: Hypospray
+    solutionName: pen
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: Ethylredoxrazine
+          Quantity: 30
+  - type: Tag
+    tags: []

@@ -1,0 +1,13 @@
+- type: entity
+  id: MedkitDrunkFilled
+  suffix: Filled
+  parent: MedkitDrunk
+  components:
+  - type: StorageFill
+    contents:
+      - id: EthylredoxrazineMedipen
+      - id: EthylredoxrazineMedipen
+      - id: EthylredoxrazineMedipen
+      - id: DrinkWaterBottleFull
+      - id: DrinkWaterBottleFull
+      - id: PillCanisterDylovene
