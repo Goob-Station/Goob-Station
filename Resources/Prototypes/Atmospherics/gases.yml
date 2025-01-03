@@ -101,7 +101,8 @@
   reagent: Frezon
   pricePerMole: 0.3 # Goobstation - Gas Prices
 
-#/tg/ gases
+# Assmos - /tg/ gases
+
 - type: gas
   id: 9
   name: gases-bz
@@ -135,3 +136,15 @@
   color: a52a2a
   reagent: Nitrium
   pricePerMole: 3
+
+- type: gas
+  id: 12
+  name: gases-pluoxium
+  specificHeat: 80
+  heatCapacityRatio: 1.33
+  molarMass: 32
+  color: 7b68ee
+  reagent: Pluoxium
+  pricePerMole: 0.1
+
+# Assmos - /tg/ gases end

@@ -230,6 +230,24 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         absorbedGas.Temperature = Math.Max(0,
             Math.Min(absorbedGas.Temperature, sm.HeatThreshold * heatModifier));
 
+        // Assmos - /tg/ gases
+        // Checks for carbon dioxide and spits out pluoxium if both CO2 and oxygen are present.
+        if (mix.GetMoles(Gas.CarbonDioxide) > 0.01f)
+        {
+            var co2PP = absorbedGas.Pressure * ((mix.GetMoles(Gas.CarbonDioxide) / mix.TotalMoles) * 100);
+            var co2Ratio = Math.Clamp(0.5f * (co2PP - (101.325f*0.01f)) / (co2PP + (101.325f*0.25f)), 0, 1);
+            var consumedCO2 = absorbedGas.GetMoles(Gas.CarbonDioxide) * co2Ratio;
+            consumedCO2 = Math.Min(consumedCO2, Math.Min(absorbedGas.GetMoles(Gas.Oxygen), absorbedGas.GetMoles(Gas.CarbonDioxide)));
+
+            if (consumedCO2 > 0)
+            {
+                absorbedGas.AdjustMoles(Gas.CarbonDioxide, -consumedCO2);
+                absorbedGas.AdjustMoles(Gas.Oxygen, -consumedCO2);
+                absorbedGas.AdjustMoles(Gas.Pluoxium, consumedCO2);
+            }
+        }
+        // Assmos - /tg/ gases end
+
         // Release the waste
         absorbedGas.AdjustMoles(Gas.Plasma, Math.Max(energy * heatModifier * sm.PlasmaReleaseModifier, 0f));
         absorbedGas.AdjustMoles(Gas.Oxygen, Math.Max((energy + absorbedGas.Temperature * heatModifier - Atmospherics.T0C) * sm.OxygenReleaseEfficiencyModifier, 0f));
