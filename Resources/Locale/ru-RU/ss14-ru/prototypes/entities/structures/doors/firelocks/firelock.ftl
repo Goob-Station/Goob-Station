@@ -1,8 +1,8 @@
-ent-BaseFirelock = пожарный шлюз
-    .desc = Примените монтировку.
+ent-BaseFirelock = firelock
+    .desc = Apply crowbar.
 ent-Firelock = { ent-BaseFirelock }
     .desc = { ent-BaseFirelock.desc }
-ent-FirelockGlass = стеклянный пожарный шлюз
+ent-FirelockGlass = glass firelock
     .desc = { ent-Firelock.desc }
-ent-FirelockEdge = пожарный шлюз
+ent-FirelockEdge = firelock
     .desc = { ent-Firelock.desc }

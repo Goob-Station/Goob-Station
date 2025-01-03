@@ -1,3 +1,3 @@
-objective-condition-steal-smsliver-title = Отрежьте кусочек от кристалла сверхматерии.
-objective-condition-steal-smsliver-description = Используйте любой режущий инструмент, который попадется под руку. Рекомендуется использовать скальпель. Кроме того, не умрите от радиационного отравления.
-steal-target-groups-battery = Энергоячейка
+objective-condition-steal-smsliver-title = Cut off a sliver from the supermatter crystal.
+objective-condition-steal-smsliver-description = Use any cutting tool that comes in handy. A scalpel is more recommended. Also, don't die of radiation poisoning.
+steal-target-groups-battery = Power Cell

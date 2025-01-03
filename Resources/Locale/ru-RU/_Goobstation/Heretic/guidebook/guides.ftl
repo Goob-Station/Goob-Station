@@ -1,1 +1,1 @@
-guide-entry-heretics = Еретик
+guide-entry-heretics = Heretics

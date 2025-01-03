@@ -1,60 +1,60 @@
-knowledge-path-lock-s1-name = Секрет стюарда
+knowledge-path-lock-s1-name = A Steward's Secret
 knowledge-path-lock-s1-desc =
-    Запертый лабиринт ведет к свободе. Но только попавшие в ловушку Стюарды знают правильный путь.
-
-    Открывает перед вами Путь Замка.
-    Позволяет трансмутировать нож и ломик в Клинок Ключа.
-    Помимо того, что они смертоносны, они выполняют функцию челюстей жизни и могут помещаться на поясе.
-knowledge-path-lock-s2-name = Захват замка
+    The Locked Labyrinth leads to freedom. But only the trapped Stewards know the correct path.
+    
+    Opens up the Path of Lock to you.
+    Allows you to transmute a knife and a crowbar into a Key Blade.
+    Aside from being deadly they function as jaws of life can fit into utility belts.
+knowledge-path-lock-s2-name = Grasp of Lock
 knowledge-path-lock-s2-desc =
-    Ничто не может остаться закрытым от моего прикосновения.
-
-    С помощью хватки мансуса вы можете получить доступ к чему угодно! Щелкните правой кнопкой мыши на шлюзе или шкафчике, чтобы открыть его.
-    Все замки сломаются. Любой пилот мехи будет мгновенно катапультирован. Консоли ломаются.
-    При использовании издает характерный стук.
-knowledge-path-lock-s3-name = Бремя хранителя ключей
+    Nothing may remain closed from my touch.
+    
+    Your mansus grasp allows you to access anything! Right click on an airlock or a locker to force it open.
+    All locks will break. Any mech pilot will be instantly ejected. Consoles will break.
+    Makes a distinctive knocking sound on use.
+knowledge-path-lock-s3-name = Key Keeper's Burden
 knowledge-path-lock-s3-desc =
-    Хранитель усмехнулся. Эти пластиковые прямоугольники - насмешка над ключами, и я проклинаю каждую дверь, которая их требует.
-
-    Позволяет использовать мансус на идентификационной карте, чтобы превратить ее в Эльдритч-карту.
-    Ударьте ею по паре шлюзов, чтобы создать пару порталов, которые будут телепортировать вас между ними, но телепортируют нееретиков случайным образом.
-    Одновременно каждая карта может поддерживать только одну пару порталов.
-    Функционирует и выглядит она так же, как и обычная ID-карта.
-    При атаке ею обычной ID-карты карта расходуется и получает доступ.
-    Не сохраняет первоначально использованную карту.
-knowledge-path-lock-s4-name = Знак блокировки
+    The Keeper sneered. These plastic rectangles are a mockery of keys, and I curse every door that desires them.
+    
+    Allows you to use your mansus grasp on an ID card to transform it into an Eldritch Card.
+    Hit a pair of airlocks with it to create a pair of portals, which will teleport you between them, but teleport non-heretics randomly.
+    Each card may only sustain a single pair of portals at the same time.
+    It also functions and appears the same as a regular ID Card.
+    Attacking a normal ID card with it consumes the card and gains its access.
+    Does not preserve the originally used card.
+knowledge-path-lock-s4-name = Mark of Lock
 knowledge-path-lock-s4-desc =
-    Привратница была коррумпированным Стюардом. Она мешала своим собратьям ради собственного извращенного развлечения.
-
-    Теперь ваша Мансусская хватка применяет Знак блокировки.
-    Атакуйте отмеченного человека, чтобы закрыть ему доступ ко всем проходам на время действия метки.
-    Это сделает так, что у них не будет никакого доступа, даже двери общественного доступа будут отвергать их.
-knowledge-path-lock-s6-name = Обряд консьержа
+    The Gatekeeper was a corrupt Steward. She hindered her fellows for her own twisted amusement.
+    
+    Your Mansus Grasp now applies the Mark of Lock.
+    Attack a marked person to bar them from all passages for the duration of the mark.
+    This will make it so that they have no access whatsoever, even public access doors will reject them.
+knowledge-path-lock-s6-name = Concierge's Rite
 knowledge-path-lock-s6-desc =
-    Консьерж вписал мое имя в справочник. Добро пожаловать в свой новый дом, коллега Стюард.
-
-    Позволяет трансмутировать палочку мела, деревянную доску и мультиинструмент, чтобы создать Справочник Лабиринта.
-    Может материализовать баррикаду на расстоянии, которое можете пройти только вы и люди, устойчивые к магии. Имеет ограниченное применение.
-knowledge-path-lock-s7-name = Ловкость взломщика
+    The Concierge scribbled my name into the Handbook. Welcome to your new home, fellow Steward.
+    
+    Allows you to transmute a stick of chalk, a wooden plank, and a multitool to create a Labyrinth Handbook.
+    It can materialize a barricade at range that only you and people resistant to magic can pass. Has limited uses.
+knowledge-path-lock-s7-name = Burglar's Finesse
 knowledge-path-lock-s7-desc =
-    Общение с духами взломщиков не одобряется, но Стюард всегда хочет узнать о новых дверях.
-
-    Дает вам «Изящество взломщика», заклинание одной цели, которое кладет случайный предмет из рюкзака жертвы в вашу руку.
-knowledge-path-lock-s8-name = Открывающий клинок
+    Consorting with Burglar spirits is frowned upon, but a Steward will always want to learn about new doors.
+    
+    Grants you Burglar's Finesse, a single-target spell that puts a random item from the victims backpack into your hand.
+knowledge-path-lock-s8-name = Opening Blade
 knowledge-path-lock-s8-desc =
-    Хирург-пилигрим не был стюардом. Тем не менее, его клинки и швы оказались подходящими для их ключей.
-
-    Ваш клинок имеет шанс удалить случайный орган при атаке.
-knowledge-path-lock-s9-name = Последнее убежище смотрителя
+    The Pilgrim-Surgeon was not an Steward. Nonetheless, its blades and sutures proved a match for their keys.
+    
+    Your blade has a chance to remove a random organ on attack.
+knowledge-path-lock-s9-name = Caretaker's Last Refuge
 knowledge-path-lock-s9-desc =
-    Завистливые Страж и Гончая охотились за мной. Но я открыл свою форму и стал лишь дымкой, неприкосновенной.
-
-    Дает вам заклинание, делающее вас прозрачным и неплотным. Не может быть использовано рядом с живыми разумными существами.
-    Находясь в убежище, вы не можете использовать руки и заклинания, а также невосприимчивы к замедлению.
-    Вы неуязвимы, но не можете причинить вреда. Отменяется при попадании антимагического предмета.
-knowledge-path-lock-s10-name = Разблокировать лабиринт
+    Jealously, the Guard and the Hound hunted me. But I unlocked my form, and was but a haze, untouchable.
+    
+    Gives you a spell that makes you transparent and not dense. Cannot be used near living sentient beings.
+    While in refuge, you cannot use your hands or spells, and you are immune to slowdown.
+    You are invincible but unable to harm anything. Cancelled by being hit with an anti-magic item.
+knowledge-path-lock-s10-name = Unlock the Labyrinth
 knowledge-path-lock-s10-desc =
-    Ритуал вознесения Пути Замка.
-    Принесите 3 трупа без органов в туловище к руне трансмутации, чтобы завершить ритуал.
-    После завершения вы создадите разрыв в сердце Лабиринта; разрыв в реальности находится в месте проведения этого ритуала.
-    Из этого разлома будут бесконечно литься эльдритские существа, обязанные повиноваться вашим указаниям.
+    The ascension ritual of the Path of Lock.
+    Bring 3 corpses without organs in their torso to a transmutation rune to complete the ritual.
+    When completed, you will create a tear to the Labyrinth's heart; a tear in reality located at the site of this ritual.
+    Eldritch creatures will endlessly pour from this rift who are bound to obey your instructions.

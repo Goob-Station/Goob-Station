@@ -1,12 +1,12 @@
 ent-BaseMagazineBoxRifle = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-MagazineBoxRifleBig = ящик патронов (.20 винтовочные)
+ent-MagazineBoxRifleBig = ammunition box (.20 rifle)
     .desc = { ent-BaseMagazineBoxRifle.desc }
-ent-MagazineBoxRifle = коробка патронов (.20 винтовочные)
+ent-MagazineBoxRifle = ammunition box (.20 rifle)
     .desc = { ent-BaseMagazineBoxRifle.desc }
-ent-MagazineBoxRiflePractice = коробка патронов (.20 винтовочные учебные)
+ent-MagazineBoxRiflePractice = ammunition box (.20 rifle practice)
     .desc = { ent-BaseMagazineBoxRifle.desc }
-ent-MagazineBoxRifleIncendiary = коробка патронов (.20 винтовочные зажигательные)
+ent-MagazineBoxRifleIncendiary = ammunition box (.20 rifle incendiary)
     .desc = { ent-BaseMagazineBoxRifle.desc }
-ent-MagazineBoxRifleUranium = коробка патронов (.20 винтовочные урановые)
+ent-MagazineBoxRifleUranium = ammunition box (.20 rifle uranium)
     .desc = { ent-BaseMagazineBoxRifle.desc }

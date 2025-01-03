@@ -1,2 +1,2 @@
-ent-BaseClockworkWindoor = раздвижное заводное окно
+ent-BaseClockworkWindoor = clockwork windoor
     .desc = { ent-BaseWindoor.desc }

@@ -1,4 +1,4 @@
-reagent-physical-desc-calming = успокаивающий
-reagent-physical-desc-stasizium = статический
-reagent-physical-desc-sigma = сигма
-reagent-physical-desc-ling = живой
+reagent-physical-desc-calming = calming
+reagent-physical-desc-stasizium = static
+reagent-physical-desc-sigma = sigma
+reagent-physical-desc-ling = living

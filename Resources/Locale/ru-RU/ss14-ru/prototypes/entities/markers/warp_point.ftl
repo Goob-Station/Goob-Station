@@ -3,5 +3,5 @@ ent-WarpPoint = warp point
 ent-WarpPointBeacon = warp point (beacon)
     .desc = { ent-WarpPoint.desc }
 ent-WarpPointBombing = warp point
-    .suffix = Цель взрыва бомбы ниндзя
+    .suffix = ninja bombing target
     .desc = { ent-WarpPoint.desc }

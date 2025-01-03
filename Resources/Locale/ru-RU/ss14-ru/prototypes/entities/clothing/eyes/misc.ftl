@@ -1,7 +1,7 @@
-ent-ClothingEyesEyepatch = глазная повязка
-    .desc = Яррр.
-ent-ClothingEyesBlindfold = повязка на глаза
-    .desc = Полоса непроницаемого материала.
+ent-ClothingEyesBlindfold = blindfold
+    .desc = The bind leading the blind.
+ent-ClothingEyesEyepatch = eyepatch
+    .desc = Yarr.
 ent-ClothingEyesEyepatchFlipped = { ent-ClothingEyesEyepatch }
-    .suffix = Перевёрнутый
+    .suffix = flipped
     .desc = { ent-ClothingEyesEyepatch.desc }

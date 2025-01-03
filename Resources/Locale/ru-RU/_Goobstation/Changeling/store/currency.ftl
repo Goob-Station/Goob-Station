@@ -1,1 +1,1 @@
-store-currency-display-evolutionpoints = Поинты эволюции
+store-currency-display-evolutionpoints = Evolution Points

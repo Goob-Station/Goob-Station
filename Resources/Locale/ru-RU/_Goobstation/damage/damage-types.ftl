@@ -1,1 +1,1 @@
-damage-type-ion = Ион
+damage-type-ion = Ion

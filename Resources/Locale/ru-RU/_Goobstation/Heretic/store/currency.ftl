@@ -1,1 +1,1 @@
-store-currency-display-knowledgepoint = Очки знаний
+store-currency-display-knowledgepoint = Knowledge Points

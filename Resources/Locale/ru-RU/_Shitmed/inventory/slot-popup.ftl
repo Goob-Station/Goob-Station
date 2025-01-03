@@ -1,1 +1,1 @@
-equip-part-missing-error = { $target } отсутствует его { $part }!
+equip-part-missing-error = { $target } is missing their { $part }!

@@ -1,6 +1,6 @@
 ent-PinionAirlock = { ent-Airlock }
-    .suffix = Шестерня, Заводной
+    .suffix = Pinion, Clockwork
     .desc = { ent-Airlock.desc }
 ent-PinionAirlockGlass = { ent-AirlockGlass }
-    .suffix = Шестерня, Заводной
+    .suffix = Pinion, Clockwork
     .desc = { ent-AirlockGlass.desc }

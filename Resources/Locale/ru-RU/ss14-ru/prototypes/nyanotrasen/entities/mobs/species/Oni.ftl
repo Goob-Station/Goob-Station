@@ -1,4 +1,4 @@
-ent-MobOniBase = Урист МакОни
+ent-MobOniBase = Urist McOni
     .desc = { ent-BaseMobHuman.desc }
-ent-MobOniDummy = Урист МакОни
-    .desc = Манекен Они, предназначенная для настройки персонажа.
+ent-MobOniDummy = Urist McOni
+    .desc = A dummy oni meant to be used in character setup.

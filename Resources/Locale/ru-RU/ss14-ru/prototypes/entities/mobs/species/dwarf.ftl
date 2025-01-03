@@ -1,5 +1,4 @@
-ent-BaseMobDwarf = Урист МакХэндс Дворф
+ent-BaseMobDwarf = Urist McHands The Dwarf
     .desc = { ent-BaseMobSpeciesOrganic.desc }
-    .suffix = Дворф
 ent-MobDwarfDummy = { ent-BaseSpeciesDummy }
     .desc = { ent-BaseSpeciesDummy.desc }

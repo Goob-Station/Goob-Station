@@ -1,2 +1,2 @@
-ent-StrangePill = странная таблетка
-    .desc = На этой необычной таблетке нет никакой маркировки. Неизвестно, что в ней находится.
+ent-StrangePill = strange pill
+    .desc = This unusual pill bears no markings. There's no telling what it contains.

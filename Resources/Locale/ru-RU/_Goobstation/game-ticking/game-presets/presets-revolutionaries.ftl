@@ -1,12 +1,12 @@
-revolutionaries-lose-announcement-shuttle-call = Судя по данным наших сенсоров дальнего действия, вражеские революционные ячейки на станции были подавлены и нейтрализованы.
-revolutionaries-lose-announcement = Судя по данным наших сенсоров дальнего действия, вражеские революционные ячейки на станции были подавлены и нейтрализованы.
+revolutionaries-lose-announcement-shuttle-call = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
+revolutionaries-lose-announcement = Based on scans from our long-range sensors, the enemy revolutionary cells on the station have been suppressed and neutralized.
 revolutionaries-win-announcement-shuttle-call =
-    По сообщениям лидера, командование корпорации свергнуто, и мы захватили контроль над станцией.
-
+    According to the leader's reports, the corporate command has been overthrown and we have seized control of the station.
+    
     Viva la revolution!
 revolutionaries-win-announcement =
-    По сообщениям лидера, командование корпорации свергнуто, и мы захватили контроль над станцией.
-
+    According to the leader's reports, the corporate command has been overthrown and we have seized control of the station.
+    
     Viva la revolution!
 revolutionaries-win-sender = Cybersun Communications
 revolutionaries-sender-cc = Nanotrasen Loyalty Division

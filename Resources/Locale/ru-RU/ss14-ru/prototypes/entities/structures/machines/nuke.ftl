@@ -1,8 +1,8 @@
-ent-NuclearBomb = ядерная боеголовка
-    .desc = Вам, вероятно, не стоит оставаться здесь, чтобы проверить, запущена ли она.
+ent-NuclearBomb = nuclear fission explosive
+    .desc = You probably shouldn't stick around to see if this is armed.
 ent-NuclearBombUnanchored = { ent-NuclearBomb }
-    .suffix = Не закреплено
+    .suffix = unanchored
     .desc = { ent-NuclearBomb.desc }
-ent-NuclearBombKeg = ядерная боеголовка
-    .desc = Вам, вероятно, не стоит оставаться здесь, чтобы проверить, запущена ли она. Сбоку имеется кран.
-    .suffix = Кег
+ent-NuclearBombKeg = nuclear fission explosive
+    .desc = You probably shouldn't stick around to see if this is armed. It has a tap on the side.
+    .suffix = keg

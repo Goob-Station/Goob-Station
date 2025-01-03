@@ -1,2 +1,2 @@
-humanoid-profile-editor-borgname-label = Предпочитаемое имя борга:
-humanoid-profile-editor-antag-roll-before-jobs = Имейте в виду, что все антаги, кроме начального зараженного и спящего агента, прокатываются перед заданиями.
+humanoid-profile-editor-borgname-label = Preferred Borg Name:
+humanoid-profile-editor-antag-roll-before-jobs = Keep in mind that all antags except for initial infected and sleeper agent are rolled before jobs.

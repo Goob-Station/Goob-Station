@@ -1,4 +1,4 @@
-heretic-influence-start = Слить влияние...
-heretic-ritualrune-examine = Текущий выбранный ритуал: [color=yellow]{ $rit }[/color]
-heretic-knowledge-gain = Вы кое-что узнали.
-heretic-knowledge-loss = Вы что-то забыли
+heretic-influence-start = Draining influence...
+heretic-ritualrune-examine = Current selected ritual: [color=yellow]{ $rit }[/color]
+heretic-knowledge-gain = You've learned something
+heretic-knowledge-loss = You're forgotten something

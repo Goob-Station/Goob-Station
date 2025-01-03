@@ -1,23 +1,17 @@
-ent-ReinforcementRadio = радио подкрепления Синдиката
-    .desc = Призовите на помощь агента Синдиката сомнительного качества, мгновенно! Предоставляется только базовое снаряжение.
-# Corvax-HiddenDesc-Start
-ent-ReinforcementRadioSyndicate = старое радио
-    .suffix = радио подкрепления Cиндиката
-    .desc = Винтажное радио с незнакомыми частотами.
-ent-ReinforcementRadioSyndicateNukeops = { ent-ReinforcementRadioSyndicate }
-    .suffix = Радио подкрепления ЯО, Ядерный Оперативник
-    .desc = { ent-ReinforcementRadioSyndicate.desc }
-ent-ReinforcementRadioSyndicateAncestor = телепорт подкрепления генетическим предком Синдиката
-    .desc = Призывает на помощь специально обученного предка по вашему выбору.
+ent-ReinforcementRadio = syndicate reinforcement radio
+    .desc = Call in a syndicate agent of questionable quality, instantly! Only basic equipment provided.
+ent-ReinforcementRadioSyndicate = syndicate reinforcement radio
+    .desc = Call in a syndicate agent of questionable quality, instantly!
+ent-ReinforcementRadioSyndicateNukeops = nuclear operative radio
+    .desc = Call in a nuclear operative of questionable quality, instantly! Basic nukeop equipment provided.
+    .suffix = NukeOps
+ent-ReinforcementRadioSyndicateAncestor = syndicate genetic ancestor reinforcement radio
+    .desc = Calls in a specially trained ancestor of your choosing to assist you.
 ent-ReinforcementRadioSyndicateAncestorNukeops = { ent-ReinforcementRadioSyndicateAncestor }
-    .suffix = Ядерные оперативники
+    .suffix = NukeOps
     .desc = { ent-ReinforcementRadioSyndicateAncestor.desc }
-ent-ReinforcementRadioSyndicateSyndiCat = телепорт подкрепления Синдикота
-    .desc = Призывает на помощь верного дрессированного кота с микробомбой.
-ent-ReinforcementRadioSyndicateCyborgAssault = { ent-ReinforcementRadioSyndicate }
-    .suffix = радио подкрепления штурмового киборга Синдиката
-    .desc = Призовите хорошо вооружённого штурмового киборга, немедленно!
-    .suffix = Ядерные оперативники
-
-# Corvax-HiddenDesc-End
-
+ent-ReinforcementRadioSyndicateSyndiCat = syndicat reinforcement radio
+    .desc = Calls in a faithfully trained cat with a microbomb to assist you.
+ent-ReinforcementRadioSyndicateCyborgAssault = syndicate assault cyborg reinforcement radio
+    .desc = Call in a well armed assault cyborg, instantly!
+    .suffix = NukeOps

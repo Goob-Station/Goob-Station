@@ -1,2 +1,2 @@
-ent-MailTeleporter = почтовый телепортатор
-    .desc = Телепортирует почту, адресованную экипажу этой станции.
+ent-MailTeleporter = mail teleporter
+    .desc = Teleports mail addressed to the crew of this station.

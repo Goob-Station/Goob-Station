@@ -1,1 +1,1 @@
-store-category-uplink-sales = Скидки!
+store-category-uplink-sales = Sales!

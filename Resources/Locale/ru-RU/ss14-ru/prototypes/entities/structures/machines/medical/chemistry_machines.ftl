@@ -1,6 +1,6 @@
 ent-BaseTabletopChemicalMachine = { ent-BaseMachinePowered }
     .desc = { ent-BaseMachinePowered.desc }
-ent-MachineElectrolysisUnit = электролизная установка
-    .desc = Технологическая новинка в области медицинских ударов током.
-ent-MachineCentrifuge = настольная центрифуга
-    .desc = Карусель, карусель...
+ent-MachineElectrolysisUnit = electrolysis unit
+    .desc = The latest in medicinal electrocution technology.
+ent-MachineCentrifuge = tabletop centrifuge
+    .desc = Around and around it goes...

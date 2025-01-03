@@ -1,10 +1,10 @@
-ent-MobSpawnCrabQuartz = спавнер моб рудокраб кварц
+ent-MobSpawnCrabQuartz = mobspawner quartzcrab
     .desc = { "" }
-ent-MobSpawnCrabIron = спавнер моб рудокраб железо
+ent-MobSpawnCrabIron = mobspawner ironcrab
     .desc = { ent-MobSpawnCrabQuartz.desc }
-ent-MobSpawnCrabSilver = спавнер моб рудокраб серебро
+ent-MobSpawnCrabSilver = mobspawner silvercrab
     .desc = { ent-MobSpawnCrabQuartz.desc }
-ent-MobSpawnCrabUranium = спавнер моб рудокраб уран
+ent-MobSpawnCrabUranium = mobspawner uraniumcrab
     .desc = { ent-MobSpawnCrabQuartz.desc }
 ent-EffectAnomalyFloraBulb = { "" }
     .desc = { "" }

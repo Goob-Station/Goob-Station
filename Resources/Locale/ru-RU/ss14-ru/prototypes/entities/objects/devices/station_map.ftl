@@ -1,11 +1,11 @@
-ent-BaseHandheldStationMap = карта станции
-    .desc = Отображает схему текущей станции.
+ent-BaseHandheldStationMap = station map
+    .desc = Displays a readout of the current station.
 ent-HandheldStationMap = { ent-BaseHandheldStationMap }
+    .suffix = Handheld, Powered
     .desc = { ent-BaseHandheldStationMap.desc }
-    .suffix = Ручной, Заряжен
 ent-HandheldStationMapEmpty = { ent-HandheldStationMap }
-    .suffix = Ручной, Пустой
+    .suffix = Handheld, Empty
     .desc = { ent-HandheldStationMap.desc }
 ent-HandheldStationMapUnpowered = { ent-BaseHandheldStationMap }
+    .suffix = Handheld, Unpowered
     .desc = { ent-BaseHandheldStationMap.desc }
-    .suffix = Ручной, Не требует питания

@@ -1,5 +1,5 @@
-lathe-menu-connected-to-silo-message = Подключен к силосу.
-signal-port-name-material-silo = Силос для материалов
-signal-port-description-material-silo = Силосное хранилище для материалов станции
-signal-port-name-material-silo-utilizer = Утилизатор силоса
-signal-port-description-material-silo-utilizer = Утилизатор для силоса станционных материалов
+lathe-menu-connected-to-silo-message = Connected to silo.
+signal-port-name-material-silo = Material silo
+signal-port-description-material-silo = Bluespace storage for station materials
+signal-port-name-material-silo-utilizer = Silo utilizer
+signal-port-description-material-silo-utilizer = Utilizer for station material silo

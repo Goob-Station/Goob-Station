@@ -1,9 +1,6 @@
-ent-JawsOfLife = челюсти жизни
-    .desc = Набор челюстей жизни, скомпонованных при помощи магии науки.
-# Corvax-HiddenDesc-Start
-ent-SyndicateJawsOfLife = чёрно-красные челюсти жизни
-    .suffix = Синдикат
-    .desc = Набор стильных челюстей жизни, скомпонованных при помощи магии науки.
-
-# Corvax-HiddenDesc-End
-
+ent-JawsOfLifeBase = jaws of life
+    .desc = A set of jaws of life, compressed through the magic of science.
+ent-JawsOfLife = { ent-JawsOfLifeBase }
+    .desc = { ent-JawsOfLifeBase.desc }
+ent-SyndicateJawsOfLife = syndicate jaws of life
+    .desc = Useful for entering the station or its departments.

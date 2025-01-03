@@ -1,1 +1,1 @@
-vehicle-slot-component-slot-name-keys = Ключи
+vehicle-slot-component-slot-name-keys = Keys

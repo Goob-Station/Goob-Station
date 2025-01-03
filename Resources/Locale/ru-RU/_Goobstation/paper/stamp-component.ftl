@@ -1,1 +1,1 @@
-stamp-component-stamped-name-nanorep = Представитель NanoTrasen
+stamp-component-stamped-name-nanorep = Nanotrasen Representative

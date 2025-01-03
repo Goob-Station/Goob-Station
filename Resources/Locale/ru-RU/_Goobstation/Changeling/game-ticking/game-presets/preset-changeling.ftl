@@ -1,13 +1,13 @@
-changeling-roundend-name = генокрад
-objective-issuer-hivemind = [color=orange]Улей[/color]
-roundend-prepend-changeling-absorbed-named = [color=white]{ $name }[/color] поглотил в общей сложности [color=red]{ $number }[/color] органики.
-roundend-prepend-changeling-stolen-named = [color=white]{ $name }[/color] добыл в общей сложности [color=orange]{ $number }[/color] образцов ДНК.
-roundend-prepend-changeling-absorbed = Кто-то поглотил в общей сложности [color=red]{ $number }[/color] органики.
-roundend-prepend-changeling-stolen = Кто-то добыл в общей сложности [color=orange]{$number }[/color] образцов ДНК.
-changeling-gamemode-title = Изменения
-changeling-gamemode-description = Улей генокрадов высадился на станцию, готовый забрать все, что пожелает, - оборудование, лица или жизни!
+changeling-roundend-name = changeling
+objective-issuer-hivemind = [color=orange]The Hive[/color]
+roundend-prepend-changeling-absorbed-named = [color=white]{ $name }[/color] has absorbed a total of [color=red]{ $number }[/color] organics.
+roundend-prepend-changeling-stolen-named = [color=white]{ $name }[/color] has extracted a total of [color=orange]{ $number }[/color] DNA samples.
+roundend-prepend-changeling-absorbed = Someone has absorbed a total of [color=red]{ $number }[/color] organics.
+roundend-prepend-changeling-stolen = Someone had extracted a total of [color=orange]{ $number }[/color] DNA samples.
+changeling-gamemode-title = Changelings
+changeling-gamemode-description = The changeling hive has boarded the station, ready to take anything it desires - be it your equipment, your faces, or your lives!
 changeling-role-greeting =
-    Вы - генокрад, который поглотил и принял форму { $name }!
-    Ваши цели перечислены в меню персонажа.
-    Поглощайте, меняйте форму и эволюционируйте, чтобы выполнить их!
-changeling-role-greeting-short = Вы - генокрад, который поглотил и принял начальную форму { $name }.
+    You are a changeling who has absorbed and taken the form of { $name }!
+    Your objectives are listed in the character menu.
+    Absorb, shapeshift and evolve to complete them!
+changeling-role-greeting-short = You are a changeling who has absorbed and taken the initial form of { $name }.

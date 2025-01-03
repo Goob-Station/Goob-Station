@@ -1,1 +1,1 @@
-station-beacon-centcomm-office = Офис Центкома
+station-beacon-centcomm-office = Centcomm Office

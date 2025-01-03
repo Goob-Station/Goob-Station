@@ -1,58 +1,58 @@
-knowledge-path-void-s1-name = Мерцание зимы
+knowledge-path-void-s1-name = Glimmer of Winter
 knowledge-path-void-s1-desc =
-    Я чувствую мерцание в воздухе, воздух вокруг меня становится все холоднее.
-    Я начинаю осознавать пустоту существования. Что-то наблюдает за мной.
-
-    Открывает перед вами Путь Пустоты.
-    Позволяет трансмутировать нож при отрицательных температурах в Клинок Пустоты.
-knowledge-path-void-s2-name = Хват пустоты
+    I feel a shimmer in the air, the air around me gets colder.
+    I start to realize the emptiness of existence. Something's watching me.
+    
+    Opens up the Path of Void to you.
+    Allows you to transmute a knife in sub-zero temperatures into a Void Blade.
+knowledge-path-void-s2-name = Grasp of Void
 knowledge-path-void-s2-desc =
-    Я увидел холодного наблюдателя, который наблюдает за мной. Во мне поднимается холод.
-    Они молчат. Это еще не конец тайны.
-
-    Ваша «Хватка Мансуса» на время заглушает и охлаждает жертву.
-knowledge-path-void-s3-name = Путь Аристократа
+    I saw the cold watcher who observes me. The chill mounts within me.
+    They are quiet. This isn't the end of the mystery.
+    
+    Your Mansus Grasp will temporarily mute and chill the victim.
+knowledge-path-void-s3-name = Aristocrat's Way
 knowledge-path-void-s3-desc =
-    Я нашел нить холодного дыхания. Она привела меня в странное святилище, сплошь состоящее из кристаллов.
-    Полупрозрачное и белое изображение дворянина стояло передо мной.
-
-    Дает вам иммунитет к низким температурам и избавляет вас от необходимости дышать.
-    Вы все еще можете получить урон из-за недостатка давления.
-knowledge-path-void-s4-name = Знак Пустоты
+    I found a thread of cold breath. It lead me to a strange shrine, all made of crystals.
+    Translucent and white, a depiction of a nobleman stood before me.
+    
+    Grants you immunity to cold temperatures, and removes your need to breathe.
+    You can still take damage due to a lack of pressure.
+knowledge-path-void-s4-name = Mark of Void
 knowledge-path-void-s4-desc =
-    Порыв ветра? Мерцание в воздухе? Присутствие ошеломляет, мои чувства начали предавать меня. Мой разум - мой собственный враг.
-
-    Теперь ваш Mansus Grasp применяет Знак Пустоты. Метка срабатывает после атаки вашим клинком Пустоты.
-    При срабатывании она заставляет жертву замолчать и быстро понижает температуру ее тела и воздуха вокруг нее.
-knowledge-path-void-s5-name = Взрыв Пустоты
+    A gust of wind? A shimmer in the air? The presence is overwhelming, my senses began to betray me. My mind is my own enemy.
+    
+    Your Mansus Grasp now applies the Mark of Void. The mark is triggered from an attack with your Void Blade.
+    When triggered, further silences the victim and swiftly lowers the temperature of their body and the air around them.
+knowledge-path-void-s5-name = Void Blast
 knowledge-path-void-s5-desc =
-    Каждая дверь, которую я открываю, сковывает мое тело. Я боюсь того, что за ними. Кто-то ждет меня,
-    и мои ноги начинают подкашиваться. Это... снег?
-
-    Дает вам заклинание Взрыв Пустоты, которое выстреливает перед вами конусом ледяной взрыв,
-    замораживая землю и всех находящихся в ней жертв.
-knowledge-path-void-s6-name = Фаза пустоты
+    Every door I open racks my body. I am afraid of what is behind them. Someone is expecting me,
+    and my legs start to drag. Is that... snow?
+    
+    Grants you Void Blast, a spell that shoots out a freezing blast in a cone in front of you,
+    freezing the ground and any victims within.
+knowledge-path-void-s6-name = Void Phase
 knowledge-path-void-s6-desc =
-    Существо называет себя Аристократом. Они легко проходят сквозь воздух, как сквозь пустоту, оставляя после себя резкий холодный ветер.
-    Они исчезают, а я остаюсь в метели.
-
-    Дает вам «Фазу пустоты», заклинание телепортации на дальние расстояния.
-    Дополнительно оглушает язычников вокруг места назначения.
-knowledge-path-void-s7-name = Телепорт клинка
+    The entity calls themself the Aristocrat. They effortlessly walk through air like nothing - leaving a harsh, cold breeze in their wake.
+    They disappear, and I am left in the blizzard.
+    
+    Grants you Void Phase, a long range targeted teleport spell.
+    Additionally stuns heathens around your original and target destination.
+knowledge-path-void-s7-name = Seeking Blade
 knowledge-path-void-s7-desc =
-    Мимолетные воспоминания, мимолетные шаги. Я отмечаю свой путь застывшей кровью на снегу. Укрыт и забыт.
-
-    Ваш клинок замораживает врагов. Кроме того, когда цель отмечена, активируйте клинок Пустоты в своей руке, чтобы телепортироваться прямо к ней, не сломав клинок.
-knowledge-path-void-s8-name = Притяжение пустоты
+    Fleeting memories, fleeting feet. I mark my way with frozen blood upon the snow. Covered and forgotten.
+    
+    Your blade freezes enemies. Additionally, when a target is marked, activate the Void Blade in your hand to teleport right next to them without breaking the blade.
+knowledge-path-void-s8-name = Void Pull
 knowledge-path-void-s8-desc =
-    Все мимолетно, но что еще остается? Я близок к тому, чтобы завершить начатое.
-    Аристократ снова предстает передо мной. Они говорят мне, что я опоздал. Их притяжение огромно, и я не могу повернуть назад.
-
-    Наделяет вас заклинанием Притяжения пустоты, которое притягивает к вам всех ближайших язычников, ненадолго оглушая их.
-knowledge-path-void-s9-name = Вальс в конце времен
+    All is fleeting, but what else stays? I'm close to ending what was started.
+    The Aristocrat reveals themselves to me again. They tell me I am late. Their pull is immense, I cannot turn back.
+    
+    Grants you Void Pull, a spell that pulls all nearby heathens towards you, stunning them briefly.
+knowledge-path-void-s9-name = Waltz at the End of Time
 knowledge-path-void-s9-desc =
-    Ритуал вознесения Пути Пустоты.
-    Принесите 3 трупа к руне трансмутации при отрицательных температурах, чтобы завершить ритуал.
-    По завершении ритуала вы получаете Благословение Аристократа.
-    Все вокруг вас превратится в снег, а воздух будет постоянно заморожен. Те, кто окажется поблизости, замолчат и замерзнут еще быстрее.
-    Вы также получите иммунитет к пламени, космосу и подобным опасностям окружающей среды.
+    The ascension ritual of the Path of Void.
+    Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
+    When completed, grants you Aristocrat's Blessing.
+    Everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
+    You will also become immune to flames, space, and similar environmental hazards.

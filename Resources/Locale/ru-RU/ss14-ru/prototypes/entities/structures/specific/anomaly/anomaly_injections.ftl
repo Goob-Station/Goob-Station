@@ -20,3 +20,5 @@ ent-AnomalyInjectionTech = { ent-AnomalyInjectionBase }
     .desc = { ent-AnomalyInjectionBase.desc }
 ent-AnomalyInjectionRock = { ent-AnomalyInjectionBase }
     .desc = { ent-AnomalyInjectionBase.desc }
+ent-AnomalyInjectionSanta = { ent-AnomalyInjectionBase }
+    .desc = { ent-AnomalyInjectionBase.desc }

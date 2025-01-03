@@ -1,2 +1,2 @@
-ent-SmartFridge = умный холодильник
-    .desc = Охлаждаемое хранилище для складирования лекарств и химикатов.
+ent-SmartFridge = SmartFridge
+    .desc = A refrigerated storage unit for keeping items cold and fresh.

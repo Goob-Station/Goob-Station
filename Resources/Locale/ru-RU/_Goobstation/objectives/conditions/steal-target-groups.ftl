@@ -1,2 +1,2 @@
-steal-target-groups-cargo-supermatter-sliver = осколок сверхматерии
-steal-target-groups-weapon-multiphase = X-01 мультифазный
+steal-target-groups-cargo-supermatter-sliver = supermatter sliver
+steal-target-groups-weapon-multiphase = X-01 multiphase

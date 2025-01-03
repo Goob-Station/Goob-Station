@@ -1,4 +1,4 @@
-ent-ParticlesProjectile = частицы
-    .desc = Ускоренные частицы.
-ent-AntiParticlesProjectile = античастицы
-    .desc = Отрицательно ускоренные частицы.
+ent-ParticlesProjectile = particles
+    .desc = Accelerated particles.
+ent-AntiParticlesProjectile = anti particles
+    .desc = Accelerated negative particles.

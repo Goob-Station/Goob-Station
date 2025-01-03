@@ -23,14 +23,15 @@ tips-dataset-22 = You can hold SPACE by default to slow the movement of the shut
 tips-dataset-23 = Dexalin, Dexalin Plus, and Epinephrine will all purge heartbreaker toxin from your bloodstream while metabolizing.
 tips-dataset-24 = Every crewmember comes with an emergency medipen in their survival box containing epinephrine and tranexamic acid.
 tips-dataset-25 = The AME is a high-priority target and is easily sabotaged. Make sure to set up the Singularity or Solars so that you don't run out of power if it blows.
-tips-dataset-26 = During a teslaloose, make sure to get rid of all electronic items so you don't become a target.
+tips-dataset-26 = If the tesla is loose, it will chase any people, stationary machines and computers. Turning off your electronics does not make you less of a target. Your best bet is not being close to it.
 tips-dataset-27 = You can add labels to any item, including food or pill canisters, using a hand labeller.
 tips-dataset-28 = Riot armor is significantly more powerful against opponents that aren't using guns compared to regular armor.
 tips-dataset-29 = As a ghost, you can use the Verb Menu to orbit around and follow any entity in game automatically.
 tips-dataset-30 = As a Traitor, you may sometimes be assigned to hunt other traitors, and in turn be hunted by others.
 tips-dataset-31 = As a Traitor, the syndicate encryption key can be used to communicate through a secure channel with any other traitors who have purchased it.
 tips-dataset-32 = As a Traitor, compromising important communications channels like security or engineering can give valuable intelligence. Be aware that this goes in both ways - security can compromise syndicate communications as well!
-tips-dataset-33 = As a Traitor, the syndicate toolbox is extremely versatile. For only 2 telecrystals, you can get a full set of tools to help you in an emergency, insulated combat gloves and a syndicate gas mask.
+# Goobstation - Telecrystal rework
+tips-dataset-33 = As a Traitor, the syndicate toolbox is extremely versatile. For only 10 telecrystals, you can get a full set of tools to help you in an emergency, insulated combat gloves and a syndicate gas mask.
 tips-dataset-34 = As a Traitor, never underestimate the web vest. It may not provide space protection, but its cheap cost and robust protection makes it handy for protecting against trigger-happy foes.
 tips-dataset-35 = As a Traitor, any purchased grenade penguins won't attack you, and will explode if killed.
 tips-dataset-36 = As a Traitor, be careful when using vestine from the chemical synthesis kit. If someone checks your station, they could easily out you.

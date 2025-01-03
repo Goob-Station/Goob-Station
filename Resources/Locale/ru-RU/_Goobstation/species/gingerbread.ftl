@@ -1,2 +1,2 @@
-species-name-gingerbread = Пряник
-gingerbread-hurt-by-water-popup = Вода растапливает некоторых из вас!
+species-name-gingerbread = Gingerbread
+gingerbread-hurt-by-water-popup = The water melts some of you away!

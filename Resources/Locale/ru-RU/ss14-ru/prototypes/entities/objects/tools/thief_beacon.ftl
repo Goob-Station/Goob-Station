@@ -1,2 +1,2 @@
-ent-ThiefBeacon = воровской маяк
-    .desc = Устройство, которое в конце смены телепортирует всё вокруг себя в хранилище вора.
+ent-ThiefBeacon = thieving beacon
+    .desc = A device that will teleport everything around it to the thief's vault at the end of the shift.
