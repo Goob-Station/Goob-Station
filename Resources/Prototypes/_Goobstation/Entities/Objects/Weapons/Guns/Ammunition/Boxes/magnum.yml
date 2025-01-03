@@ -1,0 +1,60 @@
+- type: entity
+  id: BaseMagazineBoxMagnumExtended
+  parent: BaseMagazineBoxMagnum
+  abstract: true
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    proto: CartridgeMagnum
+    capacity: 16
+
+- type: entity
+  id: MagazineBoxMagnumEnsnaring
+  parent: BaseMagazineBoxMagnumExtended
+  name: ammunition box (.45 magnum ensnaring)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumEnsnaring
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary #i changed just color because it almost white
+      color: "#cfff77"
+
+- type: entity
+  id: MagazineBoxMagnumEMP
+  parent: BaseMagazineBoxMagnumExtended
+  name: ammunition box (.45 magnum EMP)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumEMP
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#009eff"
+
+- type: entity
+  id: MagazineBoxMagnumFlash
+  parent: BaseMagazineBoxMagnumExtended
+  name: ammunition box (.45 magnum flash)
+  components:
+  - type: BallisticAmmoProvider
+    proto: CartridgeMagnumFlash
+  - type: Sprite
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: incendiary
+      color: "#fff94d"
