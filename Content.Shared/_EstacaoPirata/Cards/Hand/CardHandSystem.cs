@@ -107,6 +107,9 @@ public sealed class CardHandSystem : EntitySystem
 
     private void OnAlternativeVerb(EntityUid uid, CardHandComponent comp, GetVerbsEvent<AlternativeVerb> args)
     {
+        if (!args.CanAccess || !args.CanInteract || args.Hands == null)
+            return;
+
         args.Verbs.Add(new AlternativeVerb()
         {
             Act = () => OpenHandMenu(args.User, uid),

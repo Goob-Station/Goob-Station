@@ -39,7 +39,7 @@ public sealed class CardSystem : EntitySystem
         }
 
         comp.BackSprite ??= comp.FrontSprite;
-        Dirty(uid, comp);
+        DirtyEntity(uid);
         UpdateSprite(uid, comp);
     }
 
