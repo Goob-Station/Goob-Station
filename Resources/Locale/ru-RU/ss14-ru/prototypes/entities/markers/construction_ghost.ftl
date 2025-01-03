@@ -1,2 +1,2 @@
-ent-constructionghost = призрак конструкции
+ent-constructionghost = construction ghost
     .desc = { "" }

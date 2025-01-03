@@ -1,9 +1,9 @@
-ent-SmallboxItem = { ent-BaseItem }
-    .desc = { ent-BaseItem.desc }
-ent-Matchstick = спичка
-    .desc = Простая спичка, используемая для поджигания хороших курительных смесей.
+ent-SmallboxItem = { ent-BaseStorageItem }
+    .desc = { ent-BaseStorageItem.desc }
+ent-Matchstick = match stick
+    .desc = A simple match stick, used for lighting fine smokables.
 ent-MatchstickSpent = { ent-Matchstick }
-    .suffix = Использованный
+    .suffix = spent
     .desc = { ent-Matchstick.desc }
-ent-Matchbox = спичечный коробок
-    .desc = Небольшой коробок Почти-Но-Не-Совсем-Плазменных-Премиум-Спичек.
+ent-Matchbox = match box
+    .desc = A small box of Almost But Not Quite Plasma Premium Matches.

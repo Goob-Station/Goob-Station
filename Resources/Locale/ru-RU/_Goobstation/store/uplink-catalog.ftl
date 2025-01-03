@@ -1,97 +1,97 @@
-# Лишние костюмы
+# Surplus Hardsuits
 
-uplink-hardsuit-syndiemedic-name = Хардсит агента Горлекса
-uplink-hardsuit-syndiemedic-desc = Пакет с избыточным боевым комбинезоном медика, от Мародеров Горлекса.
-uplink-hardsuit-syndiecommander-name = Костюм командира Горлекса
-uplink-hardsuit-syndiecommander-desc = Лишний командирский комбинезон, от Мародеров Горлекса. Слишком громоздкий, чтобы поместить его в связку, поэтому танков в комплекте нет!
+uplink-hardsuit-syndiemedic-name = Gorlex Agent Hardsuit
+uplink-hardsuit-syndiemedic-desc = A bundle with a surplus combat medic hardsuit, from the Gorlex Marauders.
+uplink-hardsuit-syndiecommander-name = Gorlex Commander Hardsuit
+uplink-hardsuit-syndiecommander-desc = A surplus commander hardsuit, from the Gorlex Marauders. Too bulky to put in a bundle, so no tanks included!
 
-# Cybersun стелс
+# Cybersun Stealth
 
-uplink-hardsuit-cybersun-stealth-name = Киберсановый стелс-костюм
-uplink-hardsuit-cybersun-stealth-desc = Переработанный по технологии Клана Пауков, этот комбинезон имеет стелс-покрытие для специальных операций. Он немного медленнее и имеет меньше брони, чем стандартные костюмы.
+uplink-hardsuit-cybersun-stealth-name = Cybersun Stealth Hardsuit
+uplink-hardsuit-cybersun-stealth-desc = Reversed engineered from Spider Clan technology, this hardsuit has stealth plating in it for those special ops. Slightly slower and less armor than the default hardsuits.
 
-# Остальное
+# Misc
 
-uplink-gondola-name = Гондола-крейт
-uplink-gondola-desc = Ящик, содержащий одну стандартную гондолу.
-uplink-operative-radio-name = Телепортатор ядерных оперативников
-uplink-operative-radio-desc = Рация в ядерном оперативнике крайне сомнительного качества. Кнопка выключения отсутствует, покупайте его, если готовы веселиться. У них есть базовое снаряжение ядерного оперативника.
-uplink-signaller-name = Продвинутый дистанционный сигнализатор
-uplink-signaller-desc = Устройство, которое может подавать сигналы на любом расстоянии. Вы можете соединить предметы с помощью мультиинструмента или сетевого конфигуратора.
+uplink-gondola-name = Gondola Crate
+uplink-gondola-desc = Crate containing one standard issue gondola.
+uplink-operative-radio-name = Nuclear Operative Teleporter
+uplink-operative-radio-desc = Radio in a nuclear operative of extremely questionable quality. No off button, buy this if you're ready to party. They have basic nuclear operative gear.
+uplink-signaller-name = Advanced Remote Signaller
+uplink-signaller-desc = A device that can trigger signals at any distance. You can link items with a multitool or network configurator.
 
 # bang bang pew pew eat it up i gota go
 
-uplink-rifle-mag-name = Магазин для винтовки калибра .20
-uplink-rifle-mag-desc = Магазин на 25 патронов, содержащий винтовочные пули .20. Поддерживает Лектер и M-90.
-uplink-miniature-energy-crossbow-name = Миниатюрный энергетический арбалет
-uplink-miniature-energy-crossbow-desc = Энергетический арбалет Синдиката, маленький, бесшумный и смертоносный.
-uplink-hardlight-bow-name = Хардлайт лук
-uplink-hardlight-bow-desc = Современный лук, способный изготовлять стрелы повышенной прочности, предназначенный для бесшумной расправы над целями. Имеет 7 различных режимов стрельбы. Может складываться.
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
+uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
+uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
+uplink-hardlight-bow-name = Hardlight Bow
+uplink-hardlight-bow-desc = A modern bow that can fabricate hardlight arrows, designed for silent takedowns of targets. Has 7 different firing modes. Can be folded.
 
 # Job-specific
 
-uplink-pie-cannon-name = Регенерирующая пирожковая пушка
-uplink-pie-cannon-desc = Пирожковая пушка, которая автоматически регенерирует пирожки, по одному каждые десять секунд.
-uplink-mobroach-microbomb-name = Телепортатор СиндиМаггота
-uplink-mobroach-microbomb-desc = Призвать удобную личинку мотылька, оснащенную имплантатом микробомбы. Взрывается при серьезном ранении.
-uplink-advanced-combat-medipen-name = Продвинутый боевой медипен
-uplink-advanced-combat-medipen-desc = Усовершенствованный одноразовый медипен, содержащий химические вещества, которые быстро исцеляют большинство видов повреждений, полученных в бою.
-uplink-smugglers-satchel-name = Ранец контрабандиста
-uplink-smugglers-satchel-desc = Прочный ранец, который можно спрятать под плиткой пола. Просто снимите напольную плитку, прикрепите ранец к покрытию, а затем положите плитку обратно!
+uplink-pie-cannon-name = Regenerating Pie Cannon
+uplink-pie-cannon-desc = A pie cannon that automatically regenerates pies, one every ten seconds.
+uplink-mobroach-microbomb-name = SyndiMaggot Teleporter
+uplink-mobroach-microbomb-desc = Call in a handy moth maggot equipped with a microbomb implant. Explodes when seriously injured.
+uplink-advanced-combat-medipen-name = Advanced Combat Medipen
+uplink-advanced-combat-medipen-desc = An advanced single-use medipen containing chemicals that will rapidly heal most types of damage taken in a fight.
+uplink-smugglers-satchel-name = Smuggler's Satchel
+uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor tiles. Simply remove a floor tile, anchor the satchel to the plating, then put the tile back!
 
-# Оружие
+# Weapons
 
-uplink-dualetta-kit-name = Набор Дуалетты
-uplink-dualetta-kit-desc = Два дуалета по дешевой цене.
-uplink-contractor-baton-name = Дубинка подрядчика
-uplink-contractor-baton-desc = Компактная, специализированная дубинка, которая выдается подрядчикам Синдиката. Применяет легкие электрические разряды к целям. Эти разряды способны воздействовать и на внутренние схемы большинства роботов, вызывая кратковременное оглушение.
-uplink-weapon-burner-name = Тяжелая винтовка Burner
-uplink-weapon-burner-desc = Тяжелая винтовка Burner, превосходное оружие для прорыва и подавления.
+uplink-dualetta-kit-name = Dualetta kit
+uplink-dualetta-kit-desc = Two dualettas for a cheap price.
+uplink-contractor-baton-name = Contractor Baton
+uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
+uplink-weapon-burner-name = Burner Heavy Rifle
+uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
 uplink-c20r-name = C-20r
-uplink-c20r-desc = Старый верный: Классический пистолет-пулемет C-20r.
-uplink-buldog-name = Бульдог
-uplink-buldog-desc = Дробовик с магазинным питанием.
+uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
+uplink-buldog-name = Bulldog
+uplink-buldog-desc = A magazine fed fullauto shotgun.
 uplink-l6-saw-name = L6 Saw Bundle
-uplink-l6-saw-desc = Больше дакки: культовый легкий пулемет L6.
+uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
-uplink-m90-desc = Боевая винтовка M-90.
-uplink-dualetta-bundle-name = Пакет Дуалетты
-uplink-dualetta-bundle-desc = В комплект входят 2 пистолета Dualetta, 2 магазина к пистолетам-пулеметам, боевые перчатки, костюм нуар, плащ детектива и ботинки на шнуровке.
+uplink-m90-desc = An M-90 combat rifle.
+uplink-dualetta-bundle-name = Dualetta Bundle
+uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
 
-# Патроны
+# Ammo
 
-uplink-blast-grenade-name = Взрывная граната
-uplink-blast-grenade-desc = Повышенный урон, меньший радиус. Совместима с China-Lake.
+uplink-blast-grenade-name = Blast Grenade
+uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the China-Lake.
 uplink-frag-grenade-name = Frag Grenade
-uplink-frag-grenade-desc = Меньший урон, больший радиус. Совместимо с China-Lake.
-uplink-l6-box-name = Журнальный ящик (винтовка калибра 30)
-uplink-l6-box-desc = Журнальный ящик со 100 катриджами. Совместим с L6 SAW.
-uplink-shotgun-magazine-name = Барабан для дробовика (.50 pellet)
-uplink-shotgun-magazine-desc = Барабан для дробовика с 8 пулевыми патронами. Совместим с Bulldog.
-uplink-shotgun-magazine-slug-name = Барабан для дробовика (.50 пуля)
-uplink-shotgun-magazine-slug-desc = Барабан для дробовика с 8 пулевыми патронами. Совместим с Bulldog.
-uplink-high-caliber-magazine-name = Магазин для тяжелой винтовки (.50 anti-materiel)
-uplink-high-caliber-magazine-desc = Винтовочный магазин на 15 патронов. Совместим с «Горелкой».
-uplink-high-caliber-explosive-magazine-name = Магазин для тяжелой винтовки (.50 high-caliber-explosive)
-uplink-high-caliber-explosive-magazine-desc = Винтовочный магазин с 15 разрывными патронами. Совместим с Выжигателем.
-uplink-high-caliber-box-name = Ящик с патронами .50
-uplink-high-caliber-box-desc = Коробка с 30 противопехотными патронами 50-го калибра.
-uplink-highcap-pistol-mag-name = Пистолетный магазин повышенной емкости .35
-uplink-highcap-pistol-mag-desc = Пистолетный магазин повышенной емкости вмещает 4 дополнительных патрона, всего 16.
+uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+uplink-l6-box-name = Magazine Box (.30 rifle)
+uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
+uplink-shotgun-magazine-name = Shotgun Drum (.50 pellet)
+uplink-shotgun-magazine-desc = Shutgun drum with 8 pellet shells. Compatible with the Bulldog.
+uplink-shotgun-magazine-slug-name = Shotgun Drum (.50 slug)
+uplink-shotgun-magazine-slug-desc = Shutgun drum with 8 slug shells. Compatible with the Bulldog.
+uplink-high-caliber-magazine-name = Heavy Rifle Magazine (.50 anti-materiel)
+uplink-high-caliber-magazine-desc = Rifle magazine with 15 cartridges. Compatible with the Burner.
+uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-explosive)
+uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
+uplink-high-caliber-box-name = .50 Ammo box
+uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
+uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
+uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
-# Мехи
+# Mechs
 
-uplink-mech-teleporter-heavy-name = Тяжелый мех-телепортатор
-uplink-mech-teleporter-heavy-desc = Содержит тяжелобронированный мех Cybersun со встроенным цепным мечом, Ultra AC-2, LBX AC 10 «Scattershot», BRM-6 Missile Rack и P-X Tesla Cannon.
-uplink-mech-teleporter-assault-name = Штурмовой мех-телепортатор
-uplink-mech-teleporter-assault-desc = Содержит легкобронированный мех Cybersun со встроенным цепным мечом, LBX AC 10 «Scattershot», SRM-8 Light Missile Rack и P-X Tesla Cannon.
+uplink-mech-teleporter-heavy-name = Heavy Mech teleporter
+uplink-mech-teleporter-heavy-desc = Contains a heavily armored Cybersun mech with an integrated chainsword, Ultra AC-2, LBX AC 10 "Scattershot", BRM-6 Missile Rack and P-X Tesla Cannon.
+uplink-mech-teleporter-assault-name = Assault Mech teleporter
+uplink-mech-teleporter-assault-desc = Contains a lightly armored Cybersun mech with an integrated chainsword, LBX AC 10 "Scattershot", SRM-8 Light Missile Rack and P-X Tesla Cannon.
 
-# Импланты
+# Implants
 
-uplink-smoke-implant-name = Дымовой имплант
-uplink-smoke-implant-desc = Выпускает облако дыма при активации.
+uplink-smoke-implant-name = Smoke Implant
+uplink-smoke-implant-desc = Releases a cloud of smoke when activated.
 
-# Носимые предметы
+# Wearables
 
-uplink-helmet-swat-name = Шлем спецназа Синдиката
-uplink-helmet-swat-desc = Прочный шлем, обеспечивающий хорошую защиту, а также в некоторой степени подавляющий звуки от взрывов.
+uplink-helmet-swat-name = Syndicate SWAT Helmet
+uplink-helmet-swat-desc = Robust helmet that offers good protection and also suppresses flashbang sounds to some extent.

@@ -1,2 +1,2 @@
-id-card-access-level-ntr = Представитель NanoTrasen
-id-card-access-level-bso = Офицер синего щита
+id-card-access-level-ntr = Nanotrasen Representative
+id-card-access-level-bso = Blueshield Officer

@@ -1,3 +1,3 @@
-ent-MobReptilian = Урист МакХэндс Унатх
+ent-MobReptilian = Urist McScales
+    .suffix = Urisst' Mzhand
     .desc = { ent-BaseMobReptilian.desc }
-    .suffix = Урисст' МссХэндс

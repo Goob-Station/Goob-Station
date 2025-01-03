@@ -1,10 +1,10 @@
-ent-RandomWoodenSupport = спавнер деревянная балка
+ent-RandomWoodenSupport = wooden support spawner
     .desc = { ent-MarkerBase.desc }
-ent-RandomWoodenWall = спавнер деревянная стена
+ent-RandomWoodenWall = wooden wall spawner
     .desc = { ent-MarkerBase.desc }
-ent-RandomStalagmiteOrCrystal = спавнер сталагмит или кристалл
+ent-RandomStalagmiteOrCrystal = stalagmite or crystal spawner
     .desc = { ent-MarkerBase.desc }
-ent-RandomBrownStalagmite = спавнер коричневый сталагмит
+ent-RandomBrownStalagmite = brown stalagmite spawner
     .desc = { ent-MarkerBase.desc }
-ent-RandomGreyStalagmite = спавнер серый сталагмит
+ent-RandomGreyStalagmite = grey stalagmite spawner
     .desc = { ent-MarkerBase.desc }

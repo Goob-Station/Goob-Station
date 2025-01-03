@@ -1,5 +1,4 @@
-ent-BaseMobHuman = Урист МакХэндс
+ent-BaseMobHuman = Urist McHands
     .desc = { ent-BaseMobSpeciesOrganic.desc }
-    .suffix = Человек
 ent-MobHumanDummy = { ent-BaseSpeciesDummy }
     .desc = { ent-BaseSpeciesDummy.desc }

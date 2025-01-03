@@ -1,6 +1,6 @@
-ent-OrganBloodsuckerStomach = желудок
+ent-OrganBloodsuckerStomach = stomach
     .desc = { ent-OrganAnimalStomach.desc }
-ent-OrganBloodsuckerLiver = печень
+ent-OrganBloodsuckerLiver = liver
     .desc = { ent-OrganAnimalLiver.desc }
-ent-OrganBloodsuckerHeart = сердце
+ent-OrganBloodsuckerHeart = heart
     .desc = { ent-OrganAnimalHeart.desc }

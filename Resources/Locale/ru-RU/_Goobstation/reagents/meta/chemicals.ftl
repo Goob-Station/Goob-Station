@@ -1,6 +1,6 @@
-reagent-name-potash = поташ
-reagent-desc-potash = Калий в водорастворимой форме, первоначально созданный путем вымачивания и вываривания древесной золы. Используется в основном как удобрение для растений.
-reagent-name-saltpeter = селитра
-reagent-desc-saltpeter = Мощный источник питания для растений, но также используется в качестве окислителя при создании черного пороха.
-reagent-name-blackpowder = черный порох
-reagent-desc-blackpowder = Примитивное, но мощное взрывчатое вещество. Взрывается при нагревании до 474 К!
+reagent-name-potash = potash
+reagent-desc-potash = Potassium in a water-soluble form, originally created by soaking and boiling off wood ash. Used primarily as a fertilizer for plants.
+reagent-name-saltpeter = saltpeter
+reagent-desc-saltpeter = A potent source of nutrition for plants, but also used as an oxidizer in the creation of black powder.
+reagent-name-blackpowder = black powder
+reagent-desc-blackpowder = A primitive yet powerful explosive. Explodes when heated to 474K!

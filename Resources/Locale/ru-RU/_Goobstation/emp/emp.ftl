@@ -1,1 +1,1 @@
-emp-disabled-activate-attempt = { $item } неисправен!
+emp-disabled-activate-attempt = { $item } malfunctions!

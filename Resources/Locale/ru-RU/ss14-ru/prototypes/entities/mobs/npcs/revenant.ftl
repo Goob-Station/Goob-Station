@@ -1,2 +1,2 @@
-ent-MobRevenant = ревенант
-    .desc = Страшное привидение.
+ent-MobRevenant = revenant
+    .desc = A spooky ghostie.

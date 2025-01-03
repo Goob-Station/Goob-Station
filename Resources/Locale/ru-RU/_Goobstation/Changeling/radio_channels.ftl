@@ -1,1 +1,1 @@
-chat-radio-hivemind = Улей
+chat-radio-hivemind = Hivemind

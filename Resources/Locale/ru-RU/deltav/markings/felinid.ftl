@@ -1,7 +1,7 @@
-marking-FelinidFluffyTail-Felinid_fluffy_tail_full = Пушистый хвост
-marking-FelinidFluffyTailRings-Felinid_fluffy_tail_full = Пушистый хвост
-marking-FelinidFluffyTailRings-felinid_fluffy_tail_rings = Кольца для пушистых хвостов
-marking-FelinidFluffyTail = Пушистый хвост
-marking-FelinidFluffyTailRings = Пушистый хвост с кольцами
-marking-FelinidAlternativeTail = Альтернативный виляющий хвост
-marking-FelinidAlternativeTail-m_waggingtail_cat_FRONT = Альтернативный виляющий хвост
+marking-FelinidFluffyTail-Felinid_fluffy_tail_full = Fluffy Tail
+marking-FelinidFluffyTailRings-Felinid_fluffy_tail_full = Fluffy tail
+marking-FelinidFluffyTailRings-felinid_fluffy_tail_rings = Fluffy Tail Rings
+marking-FelinidFluffyTail = Fluffy Tail
+marking-FelinidFluffyTailRings = Fluffy Tail with rings
+marking-FelinidAlternativeTail = Alternative Wagging Tail
+marking-FelinidAlternativeTail-m_waggingtail_cat_FRONT = Alternative Wagging Tail

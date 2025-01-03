@@ -1,2 +1,2 @@
-ent-Recycler = переработчик мусора
-    .desc = Большая дробящая машина, используемая для неэффективной переработки мелких предметов. На боковой стороне есть лампочки.
+ent-Recycler = recycler
+    .desc = A large crushing machine used to recycle small items inefficiently. There are lights on the side.

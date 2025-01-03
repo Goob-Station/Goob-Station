@@ -1,6 +1,6 @@
-trait-scottish-name = Шотландский акцент
-trait-scottish-desc = Ваша шотландская гордость так же сильна, как и ваш акцент!
-trait-wheelchair-bound-name = Привязанный к инвалидному креслу
-trait-wheelchair-bound-desc = Вы не можете передвигаться без инвалидного кресла. Инвалидное кресло входит в комплект.
-trait-bogan-name = Боганский акцент
-trait-bogan-desc = Вы научились этому у мифического существа.
+trait-scottish-name = Scottish accent
+trait-scottish-desc = Your scottish pride is as strong as your accent!
+trait-wheelchair-bound-name = Wheelchair Bound
+trait-wheelchair-bound-desc = You cannot move without your wheelchair. Wheelchair included.
+trait-bogan-name = Bogan accent
+trait-bogan-desc = You learned this from a mythical creature.

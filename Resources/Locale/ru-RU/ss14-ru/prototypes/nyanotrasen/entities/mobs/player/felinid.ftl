@@ -1,2 +1,2 @@
-ent-MobFelinid = Урист МакФеленид
+ent-MobFelinid = Urist McFelinid
     .desc = { ent-MobFelinidBase.desc }

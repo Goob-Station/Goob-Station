@@ -1,2 +1,2 @@
-ent-ActionSmite = Кара
-    .desc = Мгновенно поражает цель.
+ent-ActionSmite = Smite
+    .desc = Instantly gibs a target.

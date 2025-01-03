@@ -1,2 +1,2 @@
-shuttle-call-error = Невозможно вызвать шаттл из-за ОШИБКА.
-shuttle-call-warops-nukies-present = Избавиться от оставшихся ядерных оперативников.
+shuttle-call-error = Cannot call the shuttle due to ERROR.
+shuttle-call-warops-nukies-present = Get rid of the remaining nuclear operatives.

@@ -1,4 +1,4 @@
-ent-MobGingerbread = Урист МакПеченька
+ent-MobGingerbread = Urist McCookie
     .desc = { ent-BaseMobGingerbread.desc }
-ent-MobGingerbreadAI = пряничный человечек
+ent-MobGingerbreadAI = gingerbread man
     .desc = { ent-MobGingerbread.desc }

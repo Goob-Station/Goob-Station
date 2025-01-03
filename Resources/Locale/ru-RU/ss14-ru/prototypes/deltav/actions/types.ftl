@@ -1,6 +1,6 @@
-ent-ActionOpenRadioImplant = Открыть радиоимплантат
-    .desc = Открывает отсек для ключей bluespace радиоимплантата, встроенного в ваш череп.
-ent-ActionOpenMouthStorage = Открыть хранилище в щеках
-    .desc = Позволяет хранить предметы в щеках.
-ent-ActionToggleSneakMode = Включить режим подкрадывания
-    .desc = Пробираться под столами.
+ent-ActionOpenRadioImplant = Open Radio Implant
+    .desc = Opens the bluespace key compartment of the radio implant embedded in your skull.
+ent-ActionOpenMouthStorage = Open cheek storage
+    .desc = Allows you to store items in your cheeks.
+ent-ActionToggleSneakMode = Toggle sneak mode
+    .desc = Sneak underneath tables.

@@ -1,2 +1,2 @@
-store-sales-amount = { $amount }% скидки!
-store-sales-over = Скидки закончились!
+store-sales-amount = { $amount }% off!
+store-sales-over = The sale is over!

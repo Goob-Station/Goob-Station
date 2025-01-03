@@ -1,2 +1,2 @@
-ent-FleshBlocker = комок плоти
-    .desc = Раздражающий комок плоти.
+ent-FleshBlocker = flesh clump
+    .desc = An annoying clump of flesh.

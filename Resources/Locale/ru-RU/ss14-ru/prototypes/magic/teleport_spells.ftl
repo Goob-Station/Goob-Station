@@ -1,2 +1,2 @@
-ent-ActionBlink = Прыжок
-    .desc = Телепортирует в выбранное место.
+ent-ActionBlink = Blink
+    .desc = Teleport to the clicked location.

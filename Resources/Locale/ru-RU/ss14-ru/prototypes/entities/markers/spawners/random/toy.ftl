@@ -1,7 +1,7 @@
-ent-ToySpawner = спавнер игрушки
+ent-ToySpawner = Toy Spawner
     .desc = { ent-MarkerBase.desc }
-ent-FigureSpawner = спавнер фигурки
+ent-FigureSpawner = Prize Figurine Spawner
     .desc = { ent-MarkerBase.desc }
-ent-SpacemenFigureSpawner = спавнер минифигурки космонавтов
-    .suffix = Только для библиотекарей, маппить с осторожностью!
+ent-SpacemenFigureSpawner = Spacemen Minifigure Spawner
+    .suffix = Librarian only, map with care!
     .desc = { ent-MarkerBase.desc }

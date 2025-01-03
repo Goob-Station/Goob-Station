@@ -1,1 +1,1 @@
-reagent-desc-juice-cherry = Лучший красный вкус.
+reagent-desc-juice-cherry = The best red flavor.

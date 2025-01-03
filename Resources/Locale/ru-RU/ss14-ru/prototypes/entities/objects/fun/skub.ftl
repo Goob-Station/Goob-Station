@@ -1,2 +1,2 @@
-ent-Skub = скаб
-    .desc = Скаб - это пятый Бог Хаоса.
+ent-Skub = skub
+    .desc = Skub is the fifth Chaos God.

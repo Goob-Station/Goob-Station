@@ -1,6 +1,6 @@
-ent-FireExtinguisher = огнетушитель
-    .desc = Он тушит пожары.
-ent-ExtinguisherSpray = струя огнетушителя
+ent-FireExtinguisher = fire extinguisher
+    .desc = It extinguishes fires.
+ent-ExtinguisherSpray = extinguisher spray
     .desc = { ent-Vapor.desc }
-ent-FireExtinguisherMini = карманный огнетушитель
-    .desc = Легкая и компактная модель огнетушителя в стекловолоконном корпусе. Вмещает меньше воды, чем его старший брат.
+ent-FireExtinguisherMini = pocket fire extinguisher
+    .desc = A light and compact fibreglass-framed model fire extinguisher. It holds less water than its bigger brother.

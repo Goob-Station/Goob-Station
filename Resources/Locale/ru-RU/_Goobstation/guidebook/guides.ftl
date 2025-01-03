@@ -1,80 +1,80 @@
-guide-entry-space-law = Космическое право
-guide-entry-medpatches = Медицинские пластыри
+guide-entry-space-law = Space Law
+guide-entry-medpatches = Medical Patches
 # Goob SOP
-# - Основные справочники
-guide-entry-sop = СРП
-guide-entry-sop-alert-levels = Уровни тревоги
-guide-entry-sop-emergencies = Чрезвычайные ситуации
-guide-entry-sop-jobs = Работа
-guide-entry-sop-legal = Юридический
-guide-entry-sop-standards = Стандартные процедуры
-# - Вложенные каталоги
-guide-entry-sop-cargo = Груз
-guide-entry-sop-command = Команда
-guide-entry-sop-engineering = Инженерное дело
-guide-entry-sop-medical = Медицина
-guide-entry-sop-science = Наука
-guide-entry-sop-security = Безопасность
-guide-entry-sop-service = Сервис
-# - Уровни оповещения
-guide-entry-sop-greenalert = Зеленая тревога
-guide-entry-sop-bluealert = Синяя тревога
-guide-entry-sop-yellowalert = Желтая тревога
-guide-entry-sop-redalert = Красная тревога
-guide-entry-sop-deltaalert = Дельта тревога
-guide-entry-sop-epsilonalert = Эпсилон Алерт
+# - Main Directories
+guide-entry-sop = SOP
+guide-entry-sop-alert-levels = Alert Levels
+guide-entry-sop-emergencies = Emergencies
+guide-entry-sop-jobs = Jobs
+guide-entry-sop-legal = Legal
+guide-entry-sop-standards = Standard Procedures
+# - Sub/Nested Directories
+guide-entry-sop-cargo = Cargo
+guide-entry-sop-command = Command
+guide-entry-sop-engineering = Engineering
+guide-entry-sop-medical = Medical
+guide-entry-sop-science = Science
+guide-entry-sop-security = Security
+guide-entry-sop-service = Service
+# - Alert Levels
+guide-entry-sop-greenalert = Green Alert
+guide-entry-sop-bluealert = Blue Alert
+guide-entry-sop-yellowalert = Yellow Alert
+guide-entry-sop-redalert = Red Alert
+guide-entry-sop-deltaalert = Delta Alert
+guide-entry-sop-epsilonalert = Epsilon Alert
 guide-entry-sop-gammaalert = Gamma Alert
-guide-entry-sop-violetalert = Фиолетовая тревога
-# - Стандартные процедуры
-guide-entry-sop-demoting = Увольнение/увольнение
-guide-entry-sop-hiring = Наем/Перевод
-guide-entry-sop-succession = Цепь командования
-# - Чрезвычайные ситуации
-guide-entry-sop-confirmedrevs = Революция
-guide-entry-sop-containmentfail = Неудачное сдерживание
-guide-entry-sop-firegasspill = Пожар/разлив газа
-guide-entry-sop-meteorstorm = Метеоритные бури
-guide-entry-sop-stationdamage = Повреждение станции
-guide-entry-sop-supermatterdelam = Расслаивание СМ
-guide-entry-sop-wardeclaration = Военная декларация
-guide-entry-sop-zombieoutbreak = Вспышка зомби
-# - Юридический
-guide-entry-sop-execution = Казни
-guide-entry-sop-permabrig = Постоянная бригада
-guide-entry-sop-punishments = Наказания
-guide-entry-sop-searches = Поиск
-# - Груз
-guide-entry-sop-cargotech = Грузовая техника
-guide-entry-sop-salvage = Специалист по спасению
-# - Командование
-guide-entry-sop-ntr = Нанотрасен представитель.
-guide-entry-sop-bso = Офицер синего щита
-guide-entry-sop-captain = Капитан
-guide-entry-sop-hop = начальник отдела кадров
-guide-entry-sop-hos = начальник службы безопасности
-guide-entry-sop-rd = Директор по исследованиям
-guide-entry-sop-cmo = главный врач.
-guide-entry-sop-ce = главный инженер
-guide-entry-sop-qm = квартермейстер
-# - Инженерный
-guide-entry-sop-atmostech = Атмосферная техника
-guide-entry-sop-stationengineer = Инженер станции
-# - Медицина
-guide-entry-sop-chemist = химик
-guide-entry-sop-doctorintern = Доктор/Интерн
-# - Наука
-guide-entry-sop-robotocist = Робототехник
-guide-entry-sop-scientist = Ученый
-# - Безопасность
-guide-entry-sop-detective = Детектив
-guide-entry-sop-officercadet = Офицер/Кадет
-guide-entry-sop-warden = Начальник
-# - Обслуживание
-guide-entry-sop-bartender = Бармен
-guide-entry-sop-botanist = Ботаник
-guide-entry-sop-chef = Шеф-повар
-guide-entry-sop-clown = Клоун
-guide-entry-sop-janitor = Уборщик
-guide-entry-sop-librarian = Библиотекарь
-guide-entry-sop-mime = Мим
-guide-entry-sop-reporter = Репортер
+guide-entry-sop-violetalert = Violet Alert
+# - Standard Procedures
+guide-entry-sop-demoting = Dismissal/Demoting
+guide-entry-sop-hiring = Hiring/Transfer
+guide-entry-sop-succession = Chain of Command
+# - Emergencies
+guide-entry-sop-confirmedrevs = Revolution
+guide-entry-sop-containmentfail = Containment Fail
+guide-entry-sop-firegasspill = Fire/Gas Spills
+guide-entry-sop-meteorstorm = Meteor Storms
+guide-entry-sop-stationdamage = Station Damage
+guide-entry-sop-supermatterdelam = SM Delamination
+guide-entry-sop-wardeclaration = War Declaration
+guide-entry-sop-zombieoutbreak = Zombie Outbreak
+# - Legal
+guide-entry-sop-execution = Executions
+guide-entry-sop-permabrig = Permanent Brig
+guide-entry-sop-punishments = Punishments
+guide-entry-sop-searches = Searches
+# - Cargo
+guide-entry-sop-cargotech = Cargo Tech
+guide-entry-sop-salvage = Salvage Specialist
+# - Command
+guide-entry-sop-ntr = Nanotrasen Rep.
+guide-entry-sop-bso = Blueshield Officer
+guide-entry-sop-captain = Captain
+guide-entry-sop-hop = Head of Personnel
+guide-entry-sop-hos = Head of Security
+guide-entry-sop-rd = Research Director
+guide-entry-sop-cmo = Chief Medical Ofc.
+guide-entry-sop-ce = Chief Engineer
+guide-entry-sop-qm = Quartermaster
+# - Engineering
+guide-entry-sop-atmostech = Atmos Tech
+guide-entry-sop-stationengineer = Station Engineer
+# - Medical
+guide-entry-sop-chemist = Chemist
+guide-entry-sop-doctorintern = Docter/Intern
+# - Science
+guide-entry-sop-robotocist = Robotocist
+guide-entry-sop-scientist = Scientist
+# - Security
+guide-entry-sop-detective = Detective
+guide-entry-sop-officercadet = Officer/Cadet
+guide-entry-sop-warden = Warden
+# - Service
+guide-entry-sop-bartender = Bartender
+guide-entry-sop-botanist = Botanist
+guide-entry-sop-chef = Chef
+guide-entry-sop-clown = Clown
+guide-entry-sop-janitor = Janitor
+guide-entry-sop-librarian = Librarian
+guide-entry-sop-mime = Mime
+guide-entry-sop-reporter = Reporter

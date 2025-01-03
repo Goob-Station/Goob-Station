@@ -1,1 +1,1 @@
-use-on-station-only-not-on-station = Чтобы воспользоваться этим, вам нужно быть на станции.
+use-on-station-only-not-on-station = You need to be on station to use this.

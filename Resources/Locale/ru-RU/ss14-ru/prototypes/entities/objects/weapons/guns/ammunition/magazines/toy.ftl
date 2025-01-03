@@ -1,2 +1,2 @@
-ent-MagazineFoamBox = коробка боеприпасов (пенопласт)
+ent-MagazineFoamBox = ammunition box (foam)
     .desc = { ent-MagazineLightRifleBox.desc }

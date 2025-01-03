@@ -1,2 +1,2 @@
-ent-CyborgEndoskeleton = эндоскелет киборга
-    .desc = Каркас, на котором собираются киборги. Значительно менее жуткий, чем ожидалось.
+ent-CyborgEndoskeleton = cyborg endoskeleton
+    .desc = A frame that cyborgs are built on. Significantly less spooky than expected.

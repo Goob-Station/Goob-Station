@@ -1,1 +1,1 @@
-residue-yellow = жёлтый
+residue-yellow = yellow

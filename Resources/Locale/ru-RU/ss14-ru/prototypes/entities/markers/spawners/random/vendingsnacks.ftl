@@ -1,3 +1,3 @@
-ent-RandomVendingSnacks = спавнер случайный торговый автомат
-    .suffix = Закуски
+ent-RandomVendingSnacks = random vending machine spawner
+    .suffix = Snacks
     .desc = { ent-MarkerBase.desc }

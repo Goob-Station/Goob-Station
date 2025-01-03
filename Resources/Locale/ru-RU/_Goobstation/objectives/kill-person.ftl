@@ -1,1 +1,1 @@
-objective-condition-pkill-person = Убить { $targetName }, { CAPITALIZE($job) }
+objective-condition-pkill-person = Kill { $targetName }, { CAPITALIZE($job) }

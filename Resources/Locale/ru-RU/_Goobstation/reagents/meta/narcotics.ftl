@@ -1,2 +1,2 @@
-reagent-name-fentanyl = Фентанил
-reagent-desc-fentanyl = Ужасающе токсичный уличный наркотик с целым списком побочных эффектов. Если вы принимаете наркотики, то попадете в ад раньше, чем умрете!
+reagent-name-fentanyl = Fentanyl
+reagent-desc-fentanyl = A horrifyingly toxic street drug with a laundry list of side-effects. If you do drugs, you go to hell before you die!

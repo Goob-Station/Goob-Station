@@ -1,18 +1,10 @@
-# Corvax-HiddenDesc-Start
-ent-HoloparasiteInjector = имплантер
-    .suffix = инъектор голопаразита
-    .desc = Одноразовый шприц, специально предназначенный для введения подкожных имплантов.
-ent-HoloClownInjector = имплантер
-    .suffix = инъектор голоклоуна
-    .desc = Одноразовый шприц, специально предназначенный для введения подкожных имплантов.
-ent-MagicalLamp = магическая лампа
-    .desc = Федерации магов пришлось как-то сократить расходы после скандала с товарами джиннов.
-ent-BoxHoloparasite = коробка
-    .suffix = коробка с голопаразитом
-    .desc = Коробка с рисунком странного существа.
-ent-BoxHoloclown = коробка
-    .suffix = коробка с голоклоуном
-    .desc = Розовая коробка с изображением клоуна.
-
-# Corvax-HiddenDesc-End
-
+ent-HoloparasiteInjector = holoparasite injector
+    .desc = A complex artwork of handheld machinery allowing the user to host a holoparasite guardian.
+ent-HoloClownInjector = holoclown injector
+    .desc = A complex artwork of handheld machinery allowing the user to host a holoclown guardian.
+ent-MagicalLamp = magical lamp
+    .desc = The wizard federation had to cut costs after the jinn merchandise scandal somehow.
+ent-BoxHoloparasite = holoparasite box
+    .desc = A box containing a holoparasite injector.
+ent-BoxHoloclown = holoclown box
+    .desc = A box containing a holoclown injector.

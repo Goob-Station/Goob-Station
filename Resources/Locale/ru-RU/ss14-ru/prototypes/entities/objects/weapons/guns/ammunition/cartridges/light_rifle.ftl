@@ -1,10 +1,10 @@
-ent-BaseCartridgeLightRifle = патрон (.30 винтовочный)
+ent-BaseCartridgeLightRifle = cartridge (.30 rifle)
     .desc = { ent-BaseCartridge.desc }
-ent-CartridgeLightRifle = патрон (.30 винтовочный)
+ent-CartridgeLightRifle = cartridge (.30 rifle)
     .desc = { ent-BaseCartridgeLightRifle.desc }
-ent-CartridgeLightRiflePractice = патрон (.30 винтовочный учебный)
+ent-CartridgeLightRiflePractice = cartridge (.30 rifle practice)
     .desc = { ent-BaseCartridgeLightRifle.desc }
-ent-CartridgeLightRifleIncendiary = патрон (.30 винтовочный зажигательный)
+ent-CartridgeLightRifleIncendiary = cartridge (.30 rifle incendiary)
     .desc = { ent-BaseCartridgeLightRifle.desc }
-ent-CartridgeLightRifleUranium = патрон (.30 винтовочный урановый)
+ent-CartridgeLightRifleUranium = cartridge (.30 rifle uranium)
     .desc = { ent-BaseCartridgeLightRifle.desc }

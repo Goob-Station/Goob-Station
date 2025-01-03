@@ -1,6 +1,6 @@
-ent-AirlockExternal = { ent-Airlock }
-    .desc = Он открывается, он закрывается, он может раздавить вас, а за ним лишь космос.
-    .suffix = Внешний
+ent-AirlockExternal = { ent-AirlockRCDResistant }
+    .desc = It opens, it closes, it might crush you, and there might be only space behind it.
+    .suffix = External
 ent-AirlockExternalGlass = { ent-AirlockExternal }
-    .suffix = Внешний, Стеклянный
+    .suffix = Glass, External
     .desc = { ent-AirlockExternal.desc }

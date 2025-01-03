@@ -1,14 +1,14 @@
-ghost-role-information-nukie-reinforcement-name = Ядерный оперативник
-ghost-role-information-nukie-reinforcement-description = Ядерным оперативникам нужно подкрепление. Вы, резервный агент, поможете им.
-ghost-role-information-nukie-reinforcement-rules = Вы являетесь [color=red][bold]командным антагонистом[/bold][/color] с вызвавшими вас ядерными оперативниками.
+ghost-role-information-nukie-reinforcement-name = Nuclear Operative
+ghost-role-information-nukie-reinforcement-description = The nuclear operatives need reinforcements. You, a reserve agent, will help them.
+ghost-role-information-nukie-reinforcement-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the nuclear operatives who summoned you.
 ghost-role-information-SyndiRoach-name = SyndiMaggot
-ghost-role-information-SyndiRoach-description = Вы - верный дрессированный питомец ядерных оперативников с микробомбой. Служите своему хозяину до смерти!
-ghost-role-information-SyndiRoach-rules = Вы являетесь [color=red][bold]командным антагонистом[/bold][/color] с агентом, который вас вызвал.
-ghost-role-information-skibidi-toilet-name = Туалет Скибиди
-ghost-role-information-skibidi-toilet-description = Уничтожайте людей своим скибидским огайским ризом.
-ghost-role-information-skibidi-toilet-rules = Вы - [color=red][bold]Антагонист[/bold][/color], цель которого - лишить жизни как можно больше жителей Огайо.
-ghost-role-information-Hecu-name = Оперативник HECU
-ghost-role-information-Hecu-description = Центральному командованию нужно кое-что сделать.
-ghost-role-information-Hecu-rules = Вы обязаны подчиняться приказам своего начальника, вы фактически являетесь его [color=#6495ed][bold]знакомым[/bold][/color].
+ghost-role-information-SyndiRoach-description = You're the faithful trained pet of nuclear operatives with a microbomb. Serve your master to the death!
+ghost-role-information-SyndiRoach-rules = You are a [color=red][bold]Team Antagonist[/bold][/color] with the agent who summoned you.
+ghost-role-information-skibidi-toilet-name = Skibidi Toilet
+ghost-role-information-skibidi-toilet-description = Unalive people with your skibidi ohio rizz.
+ghost-role-information-skibidi-toilet-rules = You are a [color=red][bold]Antagonist[/bold][/color] with the objective of unaliving as many ohioans as you can.
+ghost-role-information-Hecu-name = HECU Operative
+ghost-role-information-Hecu-description = Central Command needs something done.
+ghost-role-information-Hecu-rules = You are required to obey orders given by your superior, you are effectively their [color=#6495ed][bold]Familiar[/bold][/color].
 ghost-role-information-lootbug-name = LootBug
-ghost-role-information-lootbug-description = Постарайтесь не быть зарезанным тайдерами.
+ghost-role-information-lootbug-description = Try not to be butchered by tiders.

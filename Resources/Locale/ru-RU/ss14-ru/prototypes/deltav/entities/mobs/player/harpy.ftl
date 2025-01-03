@@ -1,2 +1,2 @@
-ent-MobHarpy = Урист МакГарпия
+ent-MobHarpy = Urist McHarpy
     .desc = { ent-MobHarpyBase.desc }

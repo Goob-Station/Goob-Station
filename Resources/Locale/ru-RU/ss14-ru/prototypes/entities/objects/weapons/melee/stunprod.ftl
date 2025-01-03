@@ -1,2 +1,2 @@
-ent-Stunprod = шок-палка
-    .desc = Электрошокер для незаконного обезвреживания.
+ent-Stunprod = stun prod
+    .desc = A stun prod for illegal incapacitation.

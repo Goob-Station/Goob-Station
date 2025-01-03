@@ -1,2 +1,2 @@
-ent-RadiationPulse = мерцающая аномалия
-    .desc = При взгляде на эту аномалию возникает странное чувство, как будто что-то давит на глаза.
+ent-RadiationPulse = shimmering anomaly
+    .desc = Looking at this anomaly makes you feel strange, like something is pushing at your eyes.

@@ -1,10 +1,10 @@
-ent-BulletMagnum = пуля (.45 магнум)
+ent-BulletMagnum = bullet (.45 magnum)
     .desc = { ent-BaseBullet.desc }
-ent-BulletMagnumPractice = пуля (.45 магнум учебная)
+ent-BulletMagnumPractice = bullet (.45 magnum practice)
     .desc = { ent-BaseBulletPractice.desc }
-ent-BulletMagnumIncendiary = пуля (.45 магнум зажигательная)
+ent-BulletMagnumIncendiary = bullet (.45 magnum incendiary)
     .desc = { ent-BaseBulletIncendiary.desc }
-ent-BulletMagnumAP = пуля (.45 магнум бронебойная)
+ent-BulletMagnumAP = bullet (.45 magnum armor-piercing)
     .desc = { ent-BaseBulletAP.desc }
-ent-BulletMagnumUranium = пуля (.45 магнум урановая)
+ent-BulletMagnumUranium = bullet (.45 magnum uranium)
     .desc = { ent-BaseBulletUranium.desc }
