@@ -1,2 +1,2 @@
-ent-FloorDrain = drain
-    .desc = Drains puddles around it. Useful for dumping mop buckets or keeping certain rooms clean.
+ent-FloorDrain = дренаж
+    .desc = Сливает лужи вокруг в себя. Пригодится для опорожнения вёдер или поддержания чистоты в определённых помещениях.

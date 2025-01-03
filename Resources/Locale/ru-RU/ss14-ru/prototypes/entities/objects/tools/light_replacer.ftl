@@ -1,5 +1,5 @@
-ent-LightReplacer = light replacer
-    .desc = An item which uses magnets to easily replace broken lights. Refill By adding more lights into the replacer.
+ent-LightReplacer = лампозаменитель
+    .desc = Устройство, использующее магниты для лёгкой замены сломанных лампочек. Чтобы пополнить, поместите лампочки в лампозаменитель.
 ent-LightReplacerEmpty = { ent-LightReplacer }
-    .suffix = Empty
+    .suffix = Пустой
     .desc = { ent-LightReplacer.desc }

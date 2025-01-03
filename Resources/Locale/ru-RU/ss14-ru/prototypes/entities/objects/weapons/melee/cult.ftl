@@ -1,6 +1,6 @@
-ent-RitualDagger = ritual dagger
-    .desc = A strange dagger used by sinister groups for rituals and sacrifices.
-ent-EldritchBlade = eldritch blade
-    .desc = A sword humming with unholy energy.
-ent-UnholyHalberd = unholy halberd
-    .desc = A poleaxe that seems to be linked to its wielder.
+ent-RitualDagger = ритуальный кинжал
+    .desc = Странного вида кинжал, используемый зловещими тайными обществами в ритуалах и жертвоприношениях.
+ent-EldritchBlade = потусторонний клинок
+    .desc = Меч, источающий нечестивую энергию.
+ent-UnholyHalberd = нечестивая алебарда
+    .desc = Алебарда, которая словно привязана к своему владельцу.

@@ -1,2 +1,2 @@
-ent-hydroponicsSoil = soil
+ent-hydroponicsSoil = почва
     .desc = { "" }

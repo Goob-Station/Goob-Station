@@ -1,8 +1,8 @@
-ent-TrumpetInstrument = trumpet
-    .desc = The favorite instrument of jazz musicians and egotistical middle schoolers.
-ent-TromboneInstrument = trombone
-    .desc = Everyone's favorite sliding brass instrument.
-ent-FrenchHornInstrument = french horn
-    .desc = The fact that holding it involves using your hand to muffle it may suggest something about its sound.
-ent-EuphoniumInstrument = euphonium
-    .desc = A baby tuba? A Baritone? Whatever it is, it's a pretty cool mess of pipes.
+ent-TrumpetInstrument = труба
+    .desc = Любимый инструмент джазовых музыкантов и эгоистичных школьников средних классов.
+ent-TromboneInstrument = тромбон
+    .desc = Всеми любимый подвижный духовой инструмент.
+ent-FrenchHornInstrument = валторна
+    .desc = Французский рожок. Тот факт, что при удержании его приходится заслонять рукой раструб для приглушения звука, может навести на определённые мысли о его звучании.
+ent-EuphoniumInstrument = эуфониум
+    .desc = Детская туба? Баритон? Что бы это ни было, это довольно крутое переплетение труб.

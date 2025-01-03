@@ -1,6 +1,6 @@
-ent-FoodBowlBig = bowl
-    .desc = A simple bowl, used for soups and salads.
-ent-FoodBowlBigTrash = broken bowl
-    .desc = A simple bowl, broken and useless.
-ent-FoodBowlFancy = bowl
-    .desc = A fancy bowl, used for SPECIAL soups and salads.
+ent-FoodBowlBig = миска
+    .desc = Простая миска, используемая для супов и салатов.
+ent-FoodBowlBigTrash = разбитая миска
+    .desc = Простая миска, разбитая и бесполезная.
+ent-FoodBowlFancy = миска
+    .desc = Изысканная миска, используемая для СПЕЦИАЛЬНЫХ супов и салатов.

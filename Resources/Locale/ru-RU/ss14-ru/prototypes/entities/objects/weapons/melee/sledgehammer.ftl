@@ -1,2 +1,2 @@
-ent-Sledgehammer = sledgehammer
-    .desc = The perfect tool for wanton carnage.
+ent-Sledgehammer = кувалда
+    .desc = Идеальный инструмент для кровавой бойни.

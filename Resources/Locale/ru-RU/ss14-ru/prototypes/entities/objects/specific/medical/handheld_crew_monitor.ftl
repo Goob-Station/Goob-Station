@@ -1,6 +1,6 @@
-ent-HandheldCrewMonitor = handheld crew monitor
-    .desc = A hand-held crew monitor displaying the status of suit sensors.
-    .suffix = DO NOT MAP
+ent-HandheldCrewMonitor = портативный монитор экипажа
+    .desc = Ручной монитор экипажа, отображающий состояние датчиков костюма.
+    .suffix = НЕ МАППИТЬ
 ent-HandheldCrewMonitorEmpty = { ent-HandheldCrewMonitor }
-    .suffix = Empty
+    .suffix = Пустой
     .desc = { ent-HandheldCrewMonitor.desc }

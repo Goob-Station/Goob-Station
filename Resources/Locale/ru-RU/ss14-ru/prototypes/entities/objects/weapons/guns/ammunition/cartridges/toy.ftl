@@ -1,4 +1,4 @@
-ent-BaseCartridgeCap = cartridge (cap)
+ent-BaseCartridgeCap = патрон (пистон)
     .desc = { ent-BaseCartridge.desc }
-ent-CartridgeCap = cap gun cartridge
+ent-CartridgeCap = пистон
     .desc = { ent-BaseCartridgeCap.desc }

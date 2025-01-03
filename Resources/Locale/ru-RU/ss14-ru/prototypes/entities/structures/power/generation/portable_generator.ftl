@@ -1,20 +1,20 @@
-ent-PortableGeneratorBase = { ent-BaseMachine }
-    .desc = { ent-BaseMachine.desc }
+ent-PortableGeneratorBase = { ent-ConstructibleMachine }
+    .desc = { ent-ConstructibleMachine.desc }
 ent-PortableGeneratorSwitchableBase = { ent-PortableGeneratorBase }
     .desc = { ent-PortableGeneratorBase.desc }
-ent-PortableGeneratorPacman = P.A.C.M.A.N.-type portable generator
+ent-PortableGeneratorPacman = портативный генератор П.А.К.М.А.Н.
     .desc =
-        A flexible backup generator for powering a variety of equipment.
-        Runs off solid plasma sheets and is rated for up to 30 kW.
-    .suffix = Plasma, 30 kW
-ent-PortableGeneratorSuperPacman = S.U.P.E.R.P.A.C.M.A.N.-type portable generator
+        Гибкий резервный генератор для обеспечения питанием различного оборудования.
+        Работает на листах твёрдой плазмы и может выдавать мощность до 30 кВт.
+    .suffix = Плазма, 30 кВт
+ent-PortableGeneratorSuperPacman = портативный генератор С.У.П.Е.Р.П.А.К.М.А.Н.
     .desc =
-        An advanced generator for powering departments.
-        Runs off uranium sheets and is rated for up to 50 kW.
-    .suffix = Uranium, 50 kW
-ent-PortableGeneratorJrPacman = J.R.P.A.C.M.A.N.-type portable generator
+        Продвинутый генератор для обеспечения питанием целых отделов.
+        Работает на листах урана и может выдавать мощность до 50 кВт.
+    .suffix = Уран, 50 кВт
+ent-PortableGeneratorJrPacman = портативный генератор М.И.Н.И.П.А.К.М.А.Н.
     .desc =
-        A small generator capable of powering individual rooms, in case of emergencies.
-        Runs off welding fuel and is rated for up to 8 kW.
-        Rated ages 3 and up.
-    .suffix = Welding Fuel, 8 kW
+        Небольшой генератор, способный обеспечивать электропитанием отдельные помещения при возникновении аварийных ситуаций.
+        Работает на сварочном топливе и может выдавать мощность до 8 кВт.
+        Для сотрудников от 3 лет и старше.
+    .suffix = Сварочное топливо, 8 кВт

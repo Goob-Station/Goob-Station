@@ -1,6 +1,6 @@
-ent-ActionMechCycleEquipment = Cycle
-    .desc = Cycles currently selected equipment
-ent-ActionMechOpenUI = Control Panel
-    .desc = Opens the control panel for the mech
-ent-ActionMechEject = Eject
-    .desc = Ejects the pilot from the mech
+ent-ActionMechCycleEquipment = Переключить снаряжение
+    .desc = Переключает выбранное снаряжение.
+ent-ActionMechOpenUI = Панель управления
+    .desc = Открывает панель управления меха.
+ent-ActionMechEject = Покинуть
+    .desc = Высаживает пилота из меха.

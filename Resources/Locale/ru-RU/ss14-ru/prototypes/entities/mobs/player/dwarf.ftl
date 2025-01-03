@@ -1,2 +1,2 @@
-ent-MobDwarf = Urist McHands The Dwarf
+ent-MobDwarf = { ent-BaseMobDwarf }
     .desc = { ent-BaseMobDwarf.desc }

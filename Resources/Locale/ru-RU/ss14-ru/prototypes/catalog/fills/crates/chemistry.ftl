@@ -1,8 +1,8 @@
-ent-CrateChemistryP = chemicals crate (P)
-    .desc = Contains chemicals from the P-Block of elements. Requires Chemistry access to open.
-ent-CrateChemistryS = chemicals crate (S)
-    .desc = Contains chemicals from the S-Block of elements. Requires Chemistry access to open.
-ent-CrateChemistryD = chemicals crate (D)
-    .desc = Contains chemicals from the D-Block of elements. Requires Chemistry access to open.
-ent-CratePlantBGone = bulk Plant-B-Gone crate
-    .desc = From Monstano. "Unwanted Weeds, Meet Your Celestial Roundup!"
+ent-CrateChemistryP = ящик химикатов (P-элементы)
+    .desc = Содержит химические вещества из P-блока элементов. Чтобы открыть необходим уровень доступа Химия.
+ent-CrateChemistryS = ящик химикатов (S-элементы)
+    .desc = Содержит химические вещества из S-блока элементов. Чтобы открыть необходим уровень доступа Химия.
+ent-CrateChemistryD = ящик химикатов (D-элементы)
+    .desc = Содержит химические вещества из D-блока элементов. Чтобы открыть необходим уровень доступа Химия.
+ent-CratePlantBGone = ящик гербицида Plant-B-Gone
+    .desc = Из Монстано. "Назойливые сорняки, встречайте свой смерть!"

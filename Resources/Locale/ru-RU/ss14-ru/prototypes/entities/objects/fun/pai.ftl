@@ -1,10 +1,13 @@
-ent-PersonalAI = personal ai device
-    .desc = Your electronic pal who's fun to be with!
-ent-SyndicatePersonalAI = syndicate personal ai device
-    .desc = Your Syndicate pal who's fun to be with!
-ent-PotatoAI = potato artificial intelligence
-    .desc = It's a potato. You forced it to be sentient, you monster.
-ent-ActionPAIPlayMidi = Play MIDI
-    .desc = Open your portable MIDI interface to soothe your owner.
-ent-ActionPAIOpenMap = Open Map
-    .desc = Open your map interface and guide your owner.
+ent-PersonalAI = персональный ИИ
+    .desc = Ваш электронный друг, с которым весело!
+# Corvax-HiddenDesc-Start
+ent-SyndicatePersonalAI = персональный ИИ
+    .suffix = Синдикат
+    .desc = Новейшая модель вашего электронного друга! Теперь веселье засияет новыми красками!
+# Corvax-HiddenDesc-End
+ent-PotatoAI = картофельный ИИ
+    .desc = Это картофелина. Вы заставили её быть разумной, вы, монстр.
+ent-ActionPAIPlayMidi = Запустить MIDI
+    .desc = Откройте портативный MIDI-интерфейс, чтобы развлечь своего владельца.
+ent-ActionPAIOpenMap = Открыть карту
+    .desc = Откройте интерфейс карты и укажите путь своему владельцу.

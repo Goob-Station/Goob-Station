@@ -1,4 +1,4 @@
-ent-DiceBag = bag of dice
-    .desc = Contains all the luck you'll ever need.
-ent-MagicDiceBag = bag of dice
+ent-DiceBag = мешочек с костями
+    .desc = Содержит всю удачу, которая вам только может понадобиться.
+ent-MagicDiceBag = мешочек с костями
     .desc = { ent-DiceBag.desc }

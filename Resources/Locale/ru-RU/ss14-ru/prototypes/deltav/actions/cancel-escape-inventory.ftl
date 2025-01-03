@@ -1,2 +1,2 @@
-ent-ActionCancelEscape = Stop escaping
-    .desc = Calm down and sit peacefuly in your carrier's inventory
+ent-ActionCancelEscape = Прекратить побег
+    .desc = Успокоиться и мирно сидеть в инвентаре вашего носителя

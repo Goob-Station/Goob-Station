@@ -1,2 +1,2 @@
-uplink-bionic-syrinx-implanter-name = Bionic Syrinx Implanter
-uplink-bionic-syrinx-implanter-desc = An implant that enhances a harpy's natural talent for mimicry to let you adjust your voice to whoever you can think of.
+uplink-bionic-syrinx-implanter-name = Бионический имплантант сиринкса
+uplink-bionic-syrinx-implanter-desc = Имплантат, усиливающий природный талант гарпии к мимикрии и позволяющий подстроить свой голос под любого, кого только можно придумать.

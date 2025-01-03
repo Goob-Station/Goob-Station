@@ -1,36 +1,46 @@
 ent-GrenadeBase = { ent-BaseItem }
     .desc = { ent-BaseItem.desc }
-ent-ExGrenade = explosive grenade
-    .desc = Grenade that creates a small but devastating explosion.
-ent-GrenadeFlashBang = flashbang
-    .desc = Eeeeeeeeeeeeeeeeeeeeee.
+ent-ExGrenade = разрывная граната
+    .desc = Граната, создающая небольшой но разрушительный взрыв.
+ent-GrenadeFlashBang = светошумовая граната
+    .desc = Пиииииииииииииииииииии
 ent-GrenadeFlashEffect = { "" }
     .desc = { "" }
-ent-SyndieMiniBomb = syndicate minibomb
-    .desc = A syndicate-manufactured explosive used to stow destruction and cause chaos.
-ent-SelfDestructSeq = self destruct
-    .desc = Go out on your own terms!
-ent-SupermatterGrenade = supermatter grenade
-    .desc = Grenade that simulates delamination of the supermatter engine, pulling things in a heap and exploding after some time.
-ent-WhiteholeGrenade = whitehole grenade
-    .desc = Grenade that repulses everything around for some time.
-ent-NuclearGrenade = the nuclear option
-    .desc = Please don't throw it, think of the children.
-ent-ModularGrenade = modular grenade
-    .desc = A grenade casing. Requires a trigger and a payload.
-ent-EmpGrenade = EMP grenade
-    .desc = A grenade designed to wreak havoc on electronic systems.
-ent-HolyHandGrenade = holy hand grenade
-    .desc = O Lord, bless this thy hand grenade, that with it thou mayst blow thine enemies to tiny bits, in thy mercy.
-ent-SmokeGrenade = smoke grenade
-    .desc = A tactical grenade that releases a large, long-lasting cloud of smoke when used.
-ent-CleanerGrenade = cleanade
-    .desc = Special grenade for janitors, releasing large cloud of space cleaner foam.
-ent-TearGasGrenade = tear gas grenade
-    .desc = A riot control tear gas grenade. Causes irritation, pain and makes you cry your eyes out.
-ent-MetalFoamGrenade = metal foam grenade
-    .desc = An emergency tool used for patching up holes. Almost as good as real walls.
-ent-GrenadeDummy = trick grenade
-    .desc = All the grenade without any of the boom.
-ent-SyndieTrickyBomb = syndicate trickybomb
-    .desc = A syndicate-manufactured explosive used to make an excellent distraction.
+# Corvax-HiddenDesc-Start
+ent-SyndieMiniBomb = минибомба с таймером
+    .suffix = Синдикат
+    .desc = Аккуратное, стильное взрывное устройство с приятно-потрескивающим таймером, предназначенное сеять хаос и разрушение.
+ent-SelfDestructSeq = Самоуничтожение
+    .desc = Уйти на своих условиях!
+# Corvax-HiddenDesc-End
+ent-SupermatterGrenade = граната суперматерии
+    .desc = Граната, имитирующая расслоение сверхматерии двигателя, притягивает всё в кучу и через некоторое время взрывается.
+ent-WhiteholeGrenade = граната белой дыры
+    .desc = Граната, которая некоторое время отталкивает всё вокруг.
+ent-NuclearGrenade = критическая масса
+    .desc = Пожалуйста не бросай её, подумай о детях.
+ent-ModularGrenade = модульная граната
+    .desc = Корпус гранаты. Требуется триггер и заряд.
+ent-EmpGrenade = ЭМИ граната
+    .desc = Граната, предназначенная для поражения электрических систем.
+# Corvax-HiddenDesc-Start
+ent-HolyHandGrenade = благословлённая держава
+    .suffix = святая граната Синдиката
+    .desc = «Благослови, Господи, сию ручную державу, да помоги мне исполнить мечты мои!».
+# Corvax-HiddenDesc-End
+ent-SmokeGrenade = дымовая граната
+    .desc = Граната тактического применения, при использовании выпускающая большое и продолжительное облако дыма.
+ent-CleanerGrenade = чистящая граната
+    .desc = Специальная граната для уборщиков, выпускающая большое облако пены для чистки помещений.
+ent-TearGasGrenade = слезоточивая граната
+    .desc = Граната со слезоточивым газом для борьбы с беспорядками. Вызывает раздражение, боль и заставляет вас выплакать глаза.
+ent-MetalFoamGrenade = металопенная граната
+    .desc = Аварийное приспособление, используемое для заделывания пробоин. Почти так же надёжно, как настоящие стены.
+ent-GrenadeDummy = граната-обманка
+    .desc = Граната есть - взрыва нет.
+# Corvax-HiddenDesc-Start
+ent-SyndieTrickyBomb = хитроумная бомба
+    .desc = Взрывное устройство, больше отвлекающее внимание, чем наносящее реальный вред.
+
+# Corvax-HiddenDesc-End
+

@@ -1,12 +1,12 @@
-ent-BaseItem = item
+ent-BaseItem = предмет
     .desc = { "" }
-ent-BaseStorageItem = storage item
+ent-BaseStorageItem = предмет хранения
     .desc = { ent-BaseItem.desc }
 ent-BaseBagOpenClose = { "" }
     .desc = { "" }
-ent-PowerCellSlotSmallItem = { "" }
+ent-PowerCellSlotSmallItem = a
     .desc = { "" }
-ent-PowerCellSlotMediumItem = { "" }
+ent-PowerCellSlotMediumItem = a
     .desc = { "" }
 ent-PowerCellSlotHighItem = { "" }
     .desc = { "" }
