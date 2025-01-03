@@ -1,0 +1,36 @@
+﻿- type: entity
+  id: ActionOpenRadioImplant
+  name: Open Radio Implant
+  description: Opens the bluespace key compartment of the radio implant embedded in your skull.
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -20
+    icon:
+      sprite: Clothing/Ears/Headsets/base.rsi
+      state: icon
+    event: !type:OpenStorageImplantEvent
+
+- type: entity
+  id: ActionOpenMouthStorage
+  name: Open cheek storage
+  description: Allows you to store items in your cheeks. 
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    priority: -10
+    icon: _DV/Interface/Actions/mouthStorageOpen.png
+    event: !type:OpenStorageImplantEvent
+
+- type: entity
+  id: ActionToggleSneakMode
+  name: Toggle sneak mode
+  description: Sneak underneath tables. 
+  components:
+  - type: InstantAction
+    itemIconStyle: BigAction
+    useDelay: 3
+    icon:
+      sprite: Structures/Furniture/Tables/generic.rsi
+      state: full
+    event: !type:ToggleCrawlingStateEvent
