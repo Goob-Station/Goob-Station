@@ -1,0 +1,21 @@
+- type: entity
+  parent: BaseGameRule
+  id: SpacePirates
+  components:
+  - type: StationEvent
+    weight: 5
+    duration: null
+    earliestStart: 30
+    reoccurrenceDelay: 60
+    minimumPlayers: 30
+  - type: PendingPirateRule
+    ransomPrototype: BikeHorn
+
+- type: entity
+  parent: BaseGameRule
+  id: PiratesSpawn
+  components:
+  - type: ActivePirateRule
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/Shuttles/pirate.yml
