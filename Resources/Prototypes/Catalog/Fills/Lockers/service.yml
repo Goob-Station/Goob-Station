@@ -9,6 +9,7 @@
       - id: WeaponShotgunDoubleBarreledRubber
       - id: DrinkShaker
       - id: ClothingEyesHudBeer
+      - id: MedkitDrunkFilled # ShibaStation - Added inebriation recovery kit
       - id: HandLabeler
         amount: 1
       - id: DrinkBottleBeer
