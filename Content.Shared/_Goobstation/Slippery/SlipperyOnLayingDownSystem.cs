@@ -28,7 +28,6 @@ public sealed class SlipperyOnLayingDownSystem : EntitySystem
     {
             EnsureComp<SlipperyComponent>(uid);
             EnsureComp<StepTriggerComponent>(uid);
-
     }
 
     private void OnGetUp(Entity<SlipperyOnLayingDownComponent> uid, ref StoodEvent args)
@@ -37,5 +36,3 @@ public sealed class SlipperyOnLayingDownSystem : EntitySystem
         RemComp<StepTriggerComponent>(uid);
     }
 }
-
-
