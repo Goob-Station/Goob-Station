@@ -56,6 +56,11 @@
   - type: ContainerContainer
     containers:
       toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon
 
 #Prisoner EVA
 - type: entity
