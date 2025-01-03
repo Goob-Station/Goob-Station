@@ -1,3 +1,4 @@
+using Content.Server._Goobstation.Wizard;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
 using Content.Server.Light.Components;
@@ -31,6 +32,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using PullableComponent = Content.Shared.Movement.Pulling.Components.PullableComponent;
 using PullerComponent = Content.Shared.Movement.Pulling.Components.PullerComponent;
 
@@ -76,16 +78,6 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
     private const float JitterAmplitude = 80f;
     private const float JitterFrequency = 8f;
 
-     // Goobstation, used to track hit entities so lightning doesn't hit them more than once
-    public static List<(ushort, EntityUid)> HitEntities = new();
-
-    public override void Shutdown() // Goobstation
-    {
-        base.Shutdown();
-
-        HitEntities = new();
-    }
-
     public override void Initialize()
     {
         base.Initialize();
@@ -98,8 +90,6 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
         SubscribeLocalEvent<PoweredLightComponent, AttackedEvent>(OnLightAttacked);
 
         UpdatesAfter.Add(typeof(PowerNetSystem));
-
-        HitEntities = new(); // Goobstation
     }
 
     public override void Update(float frameTime)
@@ -176,10 +166,11 @@ public sealed class ElectrocutionSystem : SharedElectrocutionSystem
             return;
         if (TryComp(uid, out BeamComponent? beam))
         {
-            var tuple = (beam.BeamIndex, args.OtherEntity);
-            if (HitEntities.Contains(tuple))
+            var struck = EnsureComp<StruckByLightningComponent>(args.OtherEntity);
+            if (!struck.BeamIndices.Add(beam.BeamIndex))
                 return;
-            HitEntities.Add(tuple);
+            if (TryComp(uid, out TimedDespawnComponent? despawn))
+                struck.Lifetime = MathF.Max(struck.Lifetime, despawn.Lifetime + 1f);
         }
         TryDoElectrifiedAct(uid, args.OtherEntity, 1, electrified);
         // Goob edit end

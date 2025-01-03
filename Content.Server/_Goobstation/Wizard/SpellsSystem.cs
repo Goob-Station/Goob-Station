@@ -118,10 +118,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             Stun.TryParalyze(entity, ev.StunTime, true);
 
             if (ev.EffectProto != null)
-            {
-                var effect = SpawnAttachedTo(ev.EffectProto.Value, xform.Coordinates);
-                TransformSystem.SetParent(effect, xformQuery.Comp(effect), entity, xform);
-            }
+                Spawn(ev.EffectProto.Value, TransformSystem.GetMapCoordinates(entity, xform));
 
             var scaling = (1f / distance2) * physics.Mass;
             Physics.ApplyLinearImpulse(entity,

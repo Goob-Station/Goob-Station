@@ -2,8 +2,9 @@
   id: EffectRepulse
   categories: [ HideSpawnMenu ]
   components:
-  - type: TimedDespawn
-    lifetime: 5
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.6
   - type: Sprite
     drawdepth: Effects
     noRot: true
@@ -12,7 +13,6 @@
         map: ["enum.EffectLayers.Unshaded"]
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: shieldsparkles
-  - type: EffectVisuals
   - type: Tag
     tags:
       - HideContextMenu
@@ -32,7 +32,6 @@
         map: ["enum.EffectLayers.Unshaded"]
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: electricity
-  - type: EffectVisuals
   - type: Tag
     tags:
       - HideContextMenu

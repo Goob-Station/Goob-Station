@@ -156,7 +156,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         if (!TryComp(uid, out ActionsContainerComponent? container))
             return;
 
-        var delay = TimeSpan.FromMinutes(3) + TimeSpan.FromSeconds(30) * comp.ResurrectionsCount;
+        var delay = TimeSpan.FromMinutes(1) + TimeSpan.FromSeconds(30) * comp.ResurrectionsCount;
 
         var actions = container.Container.ContainedEntities.Where(x => _tag.HasTag(x, ActionTag));
         foreach (var action in actions)

@@ -185,6 +185,7 @@
   description: Fills a corpse with energy, causing it to explode violently.
   components:
   - type: EntityTargetAction
+    checkCanAccess: false
     raiseOnUser: true
     useDelay: 5
     itemIconStyle: BigAction
@@ -214,6 +215,7 @@
   description: Temporarily blinds a single target.
   components:
   - type: EntityTargetAction
+    checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
     useDelay: 15
@@ -317,6 +319,7 @@
   description: Fire a lightning bolt at your foes.
   components:
   - type: EntityTargetAction
+    checkCanAccess: false
     raiseOnUser: true
     useDelay: 10
     itemIconStyle: BigAction
@@ -340,6 +343,7 @@
   description: Fires a magical homing toolbox at your opponent.
   components:
   - type: EntityTargetAction
+    checkCanAccess: false
     raiseOnUser: true
     useDelay: 4
     itemIconStyle: BigAction
