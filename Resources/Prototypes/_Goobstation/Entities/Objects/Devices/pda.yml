@@ -67,7 +67,7 @@
   components:
   - type: Pda
     id: BlueshieldIDCard
-    state: pda-ert
+    state: pda-blueshield
   - type: PdaBorderColor
     borderColor: "#A32D26"
     accentHColor: "#447987"
