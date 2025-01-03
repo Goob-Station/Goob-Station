@@ -30,6 +30,7 @@
     soundGunshot:
       collection: BulletMiss
     soundEmpty: null
+    clumsyProof: true # Goobstation
   - type: ItemSlots
     slots:
       projectiles:
