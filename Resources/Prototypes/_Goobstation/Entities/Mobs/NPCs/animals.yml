@@ -230,4 +230,4 @@
     - id: SpawnLootLootbug
   - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
     factions:
-      - Xeno # since they're a bit tankier than most pests, and can fight back, xeno seems more appropriate (like spiders)
+      - Mouse
