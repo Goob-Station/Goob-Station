@@ -1,1 +1,1 @@
-metabolizer-type-yowie = Yowie
+metabolizer-type-yowie = Йоуи
