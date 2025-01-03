@@ -57,4 +57,6 @@ public sealed partial class HereticComponent : Component
     ///     Requires wearing focus, codex cicatrix, hood or anything else that allows him to do so.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)] public bool CanCastSpells = false;
+
+    [ViewVariables(VVAccess.ReadWrite)] public bool CanShootGuns = true;
 }
