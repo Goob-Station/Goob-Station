@@ -471,8 +471,8 @@ public sealed class LavalandPlanetSystem : EntitySystem
 
 #if DEBUG
         // Markup da area for debug purposes.
-        var grid = Comp<MapGridComponent>(lavaland.Uid);
-        var tiles = (from bound in bounds select _map.GetTilesIntersecting(lavaland.Uid, grid, bound, false));
+        var grid = Comp<MapGridComponent>(lavaland);
+        var tiles = (from bound in bounds select _map.GetTilesIntersecting(lavaland, grid, bound, false));
         var sand = (ContentTileDefinition) _tileDefinitionManager["FloorAsteroidCoarseSand0"];
 
         // im sorry for making those programming war crimes

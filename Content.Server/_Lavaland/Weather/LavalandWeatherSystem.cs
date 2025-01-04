@@ -70,8 +70,9 @@ public sealed class LavalandWeatherSystem : EntitySystem
 
     private void ProcessLavalandDamage(Entity<DamageableComponent> entity, Entity<LavalandStormedMapComponent> lavaland)
     {
+        var xform = Transform(entity);
         // Do the damage to all poor people on lava that are not on outpost/big ruins
-        if (HasComp<LavalandMemberComponent>(Transform(entity).ParentUid))
+        if (xform.MapUid != lavaland.Owner || HasComp<LavalandMemberComponent>(xform.ParentUid))
             return;
 
         var proto = _proto.Index(lavaland.Comp.CurrentWeather);
@@ -138,6 +139,10 @@ public sealed class LavalandWeatherSystem : EntitySystem
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))
         {
+            var xform = Transform(human);
+            if (xform.MapUid != map.Owner)
+                continue;
+
             _popup.PopupEntity(proto.PopupStartMessage, human, human, PopupType.LargeCaution);
         }
     }
@@ -154,6 +159,10 @@ public sealed class LavalandWeatherSystem : EntitySystem
         var humans = EntityQueryEnumerator<HumanoidAppearanceComponent, DamageableComponent>();
         while (humans.MoveNext(out var human, out _, out _))
         {
+            var xform = Transform(human);
+            if (xform.MapUid != map.Owner)
+                continue;
+
             _popup.PopupEntity(popup, human, human, PopupType.Large);
         }
     }
