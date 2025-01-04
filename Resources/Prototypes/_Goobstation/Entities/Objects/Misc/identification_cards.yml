@@ -69,3 +69,7 @@
     
   - type: PresetIdCard
     job: BlueshieldOfficer
+  - type: Access
+    tags:
+    - CentralCommand
+    - BlueshieldOfficer
