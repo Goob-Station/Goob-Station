@@ -2,7 +2,7 @@
   id: KineticModifications
   name: research-technology-kinetic-modifications
   icon:
-    sprite: ADT/Objects/Tools/upgrade.rsi
+    sprite: _Lavaland/Objects/Weapons/upgrade.rsi
     state: display
   discipline: Arsenal
   tier: 2

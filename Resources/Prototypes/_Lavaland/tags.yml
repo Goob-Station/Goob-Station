@@ -2,6 +2,9 @@
   id: DockMining
 
 - type: Tag
+  id: PKAUpgrade
+
+- type: Tag
   id: LavalandInterior5x5
 
 - type: Tag
