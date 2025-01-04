@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ConstructShell
   name: construct shell
   description: empty construct shell
@@ -64,7 +64,8 @@
         layer:
         - FlyingMobLayer
   - type: Damageable
-    damageContainer: Biological
+    damageContainer: CorporealSpirit
+    damageModifierSet: CorporealSpirit
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -99,6 +100,15 @@
     - CannotSuicide
     - DoorBumpOpener
   - type: Appearance
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Eldritch
+    understands:
+    - TauCetiBasic
+    - Eldritch
+  - type: LanguageSpeaker
+  - type: StatusIcon
 
 - type: entity
   id: ConstructJuggernaut
@@ -130,7 +140,7 @@
         Structural: 90
         Blunt: 25
     soundHit:
-      path: /Audio/Weapons/smash.ogg
+      path: /Audio/Nyanotrasen/Weapons/club.ogg
   - type: GenericVisualizer
     visuals:
       enum.ConstructVisualsState.Transforming:

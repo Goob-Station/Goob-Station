@@ -7,22 +7,18 @@
   - type: Sprite
     sprite: WhiteDream/BloodCult/actions.rsi
     state: stun
-  - type: EntityTargetAction
-    checkCanAccess: false
-    range: 3
+  - type: InstantAction
     itemIconStyle: BigAction
     charges: 1
+    useDelay: 3
     temporary: true
-    canTargetSelf: false
-    interactOnMiss: false
-    whitelist:
-      components:
-      - Body
     icon:
       sprite: WhiteDream/BloodCult/actions.rsi
       state: stun
-    event: !type:BloodCultStunEvent
-      speech: "Fuu ma'jin!"
+    event: !type:SummonEquipmentEvent
+      prototypes:
+        hand1: StunAura
+      force: false
   - type: BaseCultSpell
 
 - type: entity
@@ -66,7 +62,7 @@
     temporary: true
     icon:
       sprite: WhiteDream/BloodCult/actions.rsi
-      state: teleport
+      state: create_emp
     event: !type:BloodCultEmpEvent
       speech: "Ta'gh fara'qha fel d'amar det!"
   - type: BaseCultSpell
@@ -80,22 +76,18 @@
   - type: Sprite
     sprite: WhiteDream/BloodCult/actions.rsi
     state: shackles
-  - type: EntityTargetAction
-    checkCanAccess: false
-    range: 3
+  - type: InstantAction
     itemIconStyle: BigAction
     charges: 4
+    useDelay: 3
     temporary: true
-    canTargetSelf: false
-    interactOnMiss: false
-    whitelist:
-      components:
-      - Body
     icon:
       sprite: WhiteDream/BloodCult/actions.rsi
       state: shackles
-    event: !type:BloodCultShacklesEvent
-      speech: "In'totum Lig'abis!"
+    event: !type:SummonEquipmentEvent
+      prototypes:
+        hand1: ShadowShacklesAura
+      force: false
   - type: BaseCultSpell
 
 - type: entity
@@ -192,6 +184,7 @@
       speech: "Fel'th Dol Ab'orod!"
       prototypes:
         hand1: BloodRitesAura
+      force: false
   - type: BaseCultSpell
 
 - type: entity

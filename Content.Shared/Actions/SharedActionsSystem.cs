@@ -995,8 +995,8 @@ public abstract class SharedActionsSystem : EntitySystem
         Dirty(actionId.Value, action);
         Dirty(performer, comp);
         ActionRemoved(performer, actionId.Value, comp, action);
-        if (action.Temporary)
-            QueueDel(actionId.Value);
+        if (action.Temporary && GameTiming.IsFirstTimePredicted)
+            Del(actionId.Value);
     }
 
     /// <summary>

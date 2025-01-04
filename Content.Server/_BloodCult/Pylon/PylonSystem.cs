@@ -5,10 +5,12 @@ using Content.Shared.Damage;
 using Content.Shared.Humanoid;
 using Content.Shared.Interaction;
 using Content.Shared.Maps;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.WhiteDream.BloodCult;
 using Content.Shared.WhiteDream.BloodCult.BloodCultist;
 using Content.Shared.WhiteDream.BloodCult.Components;
+using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
@@ -125,11 +127,11 @@ public sealed class PylonSystem : EntitySystem
     {
         var pylonPosition = Transform(pylon).Coordinates;
         var targets =
-            _lookup.GetEntitiesInRange<HumanoidAppearanceComponent>(pylonPosition, pylon.Comp.HealingAuraRange);
+            _lookup.GetEntitiesInRange<MobStateComponent>(pylonPosition, pylon.Comp.HealingAuraRange);
 
         foreach (var target in targets)
         {
-            if (HasComp<BloodCultistComponent>(target) && !_mobState.IsDead(target))
+            if ((HasComp<BloodCultistComponent>(target) || HasComp<ConstructComponent>(target)) && !_mobState.IsDead(target))
                 _damageable.TryChangeDamage(target, pylon.Comp.Healing, true);
         }
     }
