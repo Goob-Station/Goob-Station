@@ -1,7 +1,7 @@
 - type: gameMap
   id: Amber
   mapName: 'Amber'
-  mapPath: /Maps/amber.yml
+  mapPath: /Maps/_ShibaStation/amber.yml # ShibaStation - Shiba edit with mail department and some fixes!
   minPlayers: 0 # ShibaStation - More LOW POP LET'S GO
   maxPlayers: 50
   stations:
@@ -55,6 +55,7 @@
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 2, 3 ]
             CargoTechnician: [ 2, 3 ]
+            MailCarrier: [ 1, 2 ] # ShibaStation - Mail carrier slots!
             #civilian
             Passenger: [ -1, -1 ]
             Clown: [ 1, 1 ]
