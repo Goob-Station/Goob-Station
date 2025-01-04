@@ -1,6 +1,20 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Cherrypicked some PRs from Goob upstream that are pending merges; see
+      the Discord for more details!
+    type: Add
+  id: 91
+  time: '2025-01-04T16:08:26.871970'
+- author: AstroDogeDX
+  changes:
+  - message: Multiple adjustments made to Amber Station; see the Discord and PR for
+      more details!
+    type: Tweak
+  id: 90
+  time: '2025-01-04T16:07:57.270529'
+- author: AstroDogeDX
+  changes:
   - message: Loot bugs are now on the 'Mouse' faction, making them targets of Shiva,
       Aves and Pun Pun.
     type: Tweak
