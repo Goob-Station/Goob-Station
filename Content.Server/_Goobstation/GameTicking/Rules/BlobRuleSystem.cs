@@ -32,7 +32,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/outbreak5.ogg");
+    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/_ShibaStation/Announcements/blob-zombie-start.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -154,7 +154,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.AlertAudioNuke,
                     Color.Red);
                 }
                 else
@@ -164,7 +164,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical-NoNukeCode"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.AlertAudioNoNuke,
                     Color.Red);
                 }
 
