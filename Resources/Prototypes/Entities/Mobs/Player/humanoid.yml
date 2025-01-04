@@ -24,12 +24,12 @@
 - type: randomHumanoidSettings
   id: EventHuman
   parent: EventHumanoid
-  specieWhitelist: Human
+  speciesWhitelist: Human
 
 - type: randomHumanoidSettings
   id: EventHumanMindShielded
   parent: EventHumanoidMindShielded
-  specieWhitelist: Human
+  speciesWhitelist: Human
 # Goobstation end
 
 ## Death Squad
@@ -574,7 +574,7 @@
 
 - type: randomHumanoidSettings
   id: SyndicateAgent
-  specieWhitelist: Human # Goobstation
+  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -594,7 +594,7 @@
 
 - type: randomHumanoidSettings
   id: NukeOp
-  specieWhitelist: Human # Goobstation
+  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false

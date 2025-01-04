@@ -35,7 +35,7 @@ public sealed partial class RandomHumanoidSettingsPrototype : IPrototype, IInher
     ///     Specie that will be used.
     /// </summary>
     [DataField]
-    public string? SpecieWhitelist { get; private set; }
+    public string? SpeciesWhitelist { get; private set; }
 
     /// <summary>
     ///     Extra components to add to this entity.
