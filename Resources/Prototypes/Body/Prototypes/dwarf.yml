@@ -33,9 +33,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandDwarf # Goob edit
+      part: RightHandHuman
     left hand:
-      part: LeftHandDwarf # Goob edit
+      part: LeftHandHuman
     right leg:
       part: RightLegHuman
       connections:
