@@ -16,11 +16,11 @@
   extendedAccess:
   - Chemistry # ShibaStation - Added Chemistry to Doctor access
   - Research # ShibaStation - Added Research to Doctor access
-  special:
+  special: # Shitmed change
   - !type:AddComponentSpecial
     components:
     - type: SurgerySpeedModifier
-      SpeedModifier: 1.75
+      speedModifier: 1.75
 
 
 - type: startingGear
