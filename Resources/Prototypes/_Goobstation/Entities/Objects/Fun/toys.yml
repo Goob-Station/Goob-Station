@@ -170,7 +170,7 @@
   parent: PlushieBlackburn
   id: PlushieBlackburnTsar
   name: Antasisa the Tsaritsa
-  description: The crown of the Yukon.
+  description: -  description: The crown of the Yukon, a majestic kitsune who rules with an iron hand.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -190,7 +190,7 @@
   parent: PlushieBlackburn
   id: PlushieBlackburnDesiVillian
   name: Zbigniew The Desislava
-  description: A really angary Desislava; Don't mention her height to her.
+  description: A really angry Desislava, she is one of Bellikova's few advisors.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
@@ -201,7 +201,7 @@
   parent: PlushieBlackburn
   id: PlushieBlackburnHeretic
   name: Vaskashi the heretic
-  description: "render onto me! For I have seen the true meaning of the broken universe!"
+  description: "Render onto me! For I have seen the true meaning of the broken universe!"
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
