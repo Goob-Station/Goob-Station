@@ -119,7 +119,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    scale: 0.9 , 0.9
+    scale: 0.9,0.9
     state: plushie_plyushkina
 
 - type: entity
@@ -130,7 +130,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    scale: 2.0 , 2.8
+    scale: 2.0,2.0
     state: plushie_matryoskya
 
 - type: entity
@@ -194,7 +194,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Fun/toys.rsi
-    scale: 0.5 , 0.5
+    scale: 0.5,0.5
     state: plushie_blackburn
 
 - type: entity
