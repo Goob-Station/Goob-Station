@@ -2,7 +2,6 @@
 // if wizden ever does something to this system we're FUCKED
 // regards.
 
-using Content.Shared._White;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Hands.Components;

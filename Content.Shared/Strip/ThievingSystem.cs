@@ -1,5 +1,4 @@
 using Content.Shared.Inventory;
-using Content.Shared.Strip;
 using Content.Shared.Strip.Components;
 
 namespace Content.Shared.Strip;

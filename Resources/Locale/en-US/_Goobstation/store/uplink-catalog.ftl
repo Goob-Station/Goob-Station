@@ -24,9 +24,6 @@ uplink-signaller-desc = A device that can trigger signals at any distance. You c
 
 # bang bang pew pew eat it up i gota go
 
-uplink-rifle-mag-name = .20 Rifle Magazine
-uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
-
 uplink-miniature-energy-crossbow-name = Miniature Energy Crossbow
 uplink-miniature-energy-crossbow-desc = The syndicate's energy crossbow, small, silent and deadly.
 
@@ -49,11 +46,17 @@ uplink-smugglers-satchel-desc = A rugged satchel that can be hidden under floor 
 
 # Weapons
 
+uplink-dualetta-kit-name = Dualetta kit
+uplink-dualetta-kit-desc = Two dualettas for a cheap price.
+
 uplink-contractor-baton-name = Contractor Baton
 uplink-contractor-baton-desc = A compact, specialised baton assigned to Syndicate contractors. Applies light electrical shocks to targets. These shocks are capable of affecting the inner circuitry of most robots as well, applying a short stun.
 
 uplink-weapon-burner-name = Burner Heavy Rifle
 uplink-weapon-burner-desc = The Burner Heavy Rifle, an excelent breaching and suppression weapon.
+
+uplink-WSPR-name = WSPR Bundle
+uplink-WSPR-desc = PPPSSSSHhhhh.
 
 uplink-c20r-name = C-20r
 uplink-c20r-desc = Old faithful: The classic C-20r Submachine Gun.
@@ -67,6 +70,9 @@ uplink-l6-saw-desc = More dakka: The iconic L6 light machine gun.
 uplink-m90-name = M-90
 uplink-m90-desc = An M-90 combat rifle.
 
+uplink-dualetta-bundle-name = Dualetta Bundle
+uplink-dualetta-bundle-desc = Comes with 2 Dualetta pistols, 2 machine pistol magazines, combat gloves, noir suit, detectives trenchcoat, and laceup shoes.
+
 # Ammo
 
 uplink-blast-grenade-name = Blast Grenade
@@ -74,6 +80,12 @@ uplink-blast-grenade-desc = Higher damage, smaller radius. Compatible with the C
 
 uplink-frag-grenade-name = Frag Grenade
 uplink-frag-grenade-desc = Lower damage, bigger radius. Compatible with the China-Lake.
+
+uplink-rifle-mag-name = .20 Rifle Magazine
+uplink-rifle-mag-desc = A 25 round magazine containing .20 rifle bullets. Supports the Lecter and M-90.
+
+uplink-rifle-subsonic-mag-name = .30 Rifle Subsonic Magazine
+uplink-rifle-subsonic-mag-desc = A 35 round magazine containing .30 rifle subsonic bullets. Supports the WSPR and any other .30 rife.
 
 uplink-l6-box-name = Magazine Box (.30 rifle)
 uplink-l6-box-desc = Magazine box with 100 catridges. Compatible with the L6 SAW.
@@ -92,6 +104,9 @@ uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive c
 
 uplink-high-caliber-box-name = .50 Ammo box
 uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
+
+uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
+uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
 
 # Mechs
 

@@ -1,5 +1,3 @@
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
-
 namespace Content.Server.NPC.Pathfinding;
 
 /// <summary>

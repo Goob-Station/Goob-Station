@@ -1,5 +1,3 @@
-using Robust.Shared.GameStates;
-
 namespace Content.Server.Power.Components
 {
     /// <summary>

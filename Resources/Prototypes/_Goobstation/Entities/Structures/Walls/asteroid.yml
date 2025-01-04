@@ -5,7 +5,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -19,7 +19,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_asteroid_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: IronRockBSCrystal
@@ -28,7 +27,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -42,7 +41,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: ironrock_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockBSCrystal
@@ -51,7 +49,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -65,7 +63,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockBasaltBSCrystal
@@ -74,7 +71,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -88,7 +85,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_wall_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockSnowBSCrystal
@@ -97,7 +93,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -111,7 +107,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_snow_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockSandBSCrystal
@@ -120,7 +115,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -134,7 +129,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_sand_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockChromiteBSCrystal
@@ -143,7 +137,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -157,7 +151,6 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_chromite_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
 
 - type: entity
   id: WallRockAndesiteBSCrystal
@@ -166,7 +159,7 @@
   suffix: bluespace crystal
   components:
     - type: OreVein
-      oreChance: 3.0
+      oreChance: 1.0
       currentOre: oreBSCrystal
     - type: Sprite
       layers:
@@ -180,4 +173,3 @@
         - map: [ "enum.EdgeLayer.West" ]
           state: rock_andesite_west
         - state: rock_bluespace_crystal
-          map: [ "enum.MiningScannerVisualLayers.Overlay" ]
