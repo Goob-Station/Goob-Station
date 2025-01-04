@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ConstructShell
   name: construct shell
   description: empty construct shell
@@ -100,6 +100,15 @@
     - CannotSuicide
     - DoorBumpOpener
   - type: Appearance
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Eldritch
+    understands:
+    - TauCetiBasic
+    - Eldritch
+  - type: LanguageSpeaker
+  - type: StatusIcon
 
 - type: entity
   id: ConstructJuggernaut

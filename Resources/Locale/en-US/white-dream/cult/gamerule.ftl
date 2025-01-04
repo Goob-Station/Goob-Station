@@ -8,7 +8,7 @@ blood-cult-role-greeting = The Geometer of Blood, Nar-Sie, has sent a number of 
     As a cultist, you have an abundance of cult magics at your disposal, something for all situations.
     You must work with your brethren to summon an avatar of your eldritch goddess!
 
-blood-cult-role-briefing-short = Use '^' to contact other members of your brethren.
+blood-cult-role-briefing-short = Use your eldritch language to telepathically contact other members of your brethren.
 blood-cult-role-briefing-rending-locations = The veil can be thorn {$location}, {$coordinates}
 blood-cult-role-briefing-emergency-rending = We can draw {$amount} more rending or apocalypse runes!
 

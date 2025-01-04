@@ -1,5 +1,6 @@
 ﻿using Content.Server.Actions;
 using Content.Server.WhiteDream.BloodCult.Gamerule;
+using Content.Shared.Mobs;
 using Content.Shared.WhiteDream.BloodCult;
 using Content.Shared.WhiteDream.BloodCult.Constructs;
 using Robust.Server.GameObjects;
@@ -17,6 +18,7 @@ public sealed class ConstructSystem : EntitySystem
 
         SubscribeLocalEvent<ConstructComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<ConstructComponent, ComponentShutdown>(OnComponentShutdown);
+        SubscribeLocalEvent<ConstructComponent, MobStateChangedEvent>(OnMobStateChanged);
     }
 
     public override void Update(float frameTime)
@@ -62,5 +64,16 @@ public sealed class ConstructSystem : EntitySystem
         var cultistRule = EntityManager.EntityQueryEnumerator<BloodCultRuleComponent>();
         while (cultistRule.MoveNext(out _, out var rule))
             rule.Constructs.Remove(construct);
+    }
+
+    private void OnMobStateChanged(EntityUid uid, ConstructComponent component, MobStateChangedEvent args)
+    {
+        if (args.NewMobState != MobState.Dead)
+            return;
+
+        var xform = Transform(uid);
+        Spawn(component.SpawnOnDeathPrototype, xform.Coordinates);
+
+        QueueDel(uid);
     }
 }

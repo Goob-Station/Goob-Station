@@ -112,6 +112,7 @@
   - type: Clothing
     sprite: Clothing/Eyes/Misc/blindfold.rsi
   - type: FlashImmunity
+  - type: EyeProtection
   - type: ShowHealthBars
     damageContainers:
     - Biological
