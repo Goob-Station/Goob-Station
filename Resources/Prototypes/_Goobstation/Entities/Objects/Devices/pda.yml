@@ -73,3 +73,5 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Devices/pda.rsi
     state: pda-blueshield
+  - type: PdaBorderColor
+    borderColor: "#3c94c5"
