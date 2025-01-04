@@ -80,6 +80,7 @@
     uis:
       enum.StationMapUiKey.Key:
         toggleAction: ActionAGhostShowStationMap
+  - type: Targeting # Shitmed Change
   - type: ActivatableUI
     key: enum.BorgUiKey.Key
   - type: SiliconLawBound
