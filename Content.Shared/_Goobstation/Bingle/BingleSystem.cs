@@ -17,11 +17,12 @@ public sealed class BingleSystem : EntitySystem
     }
     public void UpgradeBingle(EntityUid uid, BingleComponent component)
     {
-        if (!component.Upgraded)
+        if (component.Upgraded)
             return; //end if already upgraded
         if (!TryComp<MeleeWeaponComponent>(uid, out var weponComp))
             return; //end if wepon comp not found
 
+        weponComp.Damage = component.UpgradeDamage;
         component.Upgraded = true;
     }
 }

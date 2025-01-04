@@ -7,6 +7,17 @@
   description: bingle
   components:
   - type: Bingle
+    upgradeDamage:
+      types:
+        Blunt: 14
+        Structural: 100
+  - type: GhostTakeoverAvailable
+  - type: GhostRole
+    name: ghost-role-information-bingle-name
+    description: ghost-role-information-bingle-description
+    rules: ghost-role-information-freeagent-rules
+    raffle:
+      settings: short
   - type: Sprite
     drawdepth: Mobs
     layers:
@@ -22,7 +33,7 @@
       - Alive
       - Dead
   - type: Bloodstream
-    bloodMaxVolume: 300
+    bloodMaxVolume: 100
     bloodReagent: Nitrogen # by reequest
   - type: MeleeWeapon
     soundHit:
@@ -64,6 +75,7 @@
   suffix: Bingle
   parent: MarkerBase
   components:
+  - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
     description: ghost-role-information-bingle-description
@@ -88,7 +100,6 @@
     mode: SnapgridCenter
   components:
   - type: BinglePit
-
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     intersectRatio: 0.4
