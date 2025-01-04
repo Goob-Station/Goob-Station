@@ -18,17 +18,17 @@
   - type: ContainerContainer
     containers:
       upgrades: !type:Container
+  #- type: GunWieldBonus
+  #  minAngle: -43
+  #  maxAngle: -43
+  #- type: Wieldable
   # Lavaland Change end
-  - type: GunWieldBonus
-    minAngle: -43
-    maxAngle: -43
-  - type: Wieldable
   - type: Gun
     fireRate: 0.7 #goobstation
     selectedMode: SemiAuto
-    angleDecay: 45
-    minAngle: 44
-    maxAngle: 45
+    #angleDecay: 45 # Lavaland Change
+    minAngle: 3 # Lavaland Change
+    maxAngle: 5 # Lavaland Change
     availableModes:
     - SemiAuto
     soundGunshot:

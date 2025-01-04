@@ -10,6 +10,8 @@
     cost: 150
   - id: Soap
     cost: 200
+  - id: PKAUpgradeLight
+    cost: 250
   - id: SeismicCharge
     cost: 250
   - id: WeaponGrapplingGun
@@ -31,15 +33,21 @@
     cost: 650
   # TODO: salvage 5g, 3 implants and a locator for 600
   # TODO: wormhole jaunter for 750
+  - id: PKAUpgradeFireRate
+    cost: 700
   - id: WeaponCrusher
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
   - id: AdvancedMineralScanner
     cost: 800
+  - id: PKAUpgradeRange
+    cost: 850
   # TODO: resonator for 800
   - id: Fulton
     cost: 1000
+  - id: PKAUpgradeDamage
+    cost: 1200
   # TODO: lazarus injector for 1k
   - id: ClothingBackpackDuffelSalvageConscription
     cost: 1500

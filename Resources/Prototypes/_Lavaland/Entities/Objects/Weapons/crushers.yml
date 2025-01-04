@@ -1,6 +1,6 @@
 - type: entity
   parent: [BaseItem, BaseSecurityCargoContraband]
-  id: WeaponKineticBase
+  id: LavalandWeaponKineticBase
   abstract: true
   components:
   - type: Tag
@@ -28,8 +28,8 @@
   - type: DisarmMalus
 
 - type: entity
-  parent: [WeaponKineticBase, BaseSecurityCargoContraband]
-  id: WeaponKineticSpear
+  parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
+  id: LavalandWeaponKineticSpear
   name: kinetic spear
   description: A long-ranged melee weapon which trades damage for a two-tile reach, similar to reagent/bone spears.
   components:
@@ -85,8 +85,8 @@
         Slash: 10
 
 - type: entity
-  parent: WeaponKineticBase
-  id: WeaponKineticHammer
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticHammer
   name: kinetic hammer
   description: A beefy, two-handed weapon that inflicts knockback and heavier damage than a crusher, but cannot backstab.
   components:
@@ -124,8 +124,8 @@
   - type: Wieldable
 
 - type: entity
-  parent: WeaponKineticBase
-  id: WeaponKineticClaws
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticClaws
   name: kinetic claws
   description: Unleash your inner edgelord with this two-handed claw small enough to fit in your backpack. Deals a paltry 45 damage on mark detonation, but sports a massive 120 damage backstab bonus.
   components:
@@ -162,8 +162,8 @@
     sprite: _Lavaland/Objects/Weapons/Crushers/crusher_claws-inhands.rsi
 
 - type: entity
-  parent: WeaponKineticBase
-  id: WeaponKineticMachete
+  parent: LavalandWeaponKineticBase
+  id: LavalandWeaponKineticMachete
   name: kinetic machete
   description: A smaller, one-handed variant of the crusher. Deals about 40 less damage than the PKC, but has a 15% melee block chance.
   components:
