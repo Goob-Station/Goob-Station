@@ -22,7 +22,7 @@
     - AnomalyFlora
     - AnomalyShadow
     - AnomalyTech
-    - AnomalySanta #Remove in 2025
+    # - AnomalySanta #Remove in 2025 # ShibaStation - Santa Anomaly has been disabled - but I don't want to straight up REMOVE it, it's fun!
     rareChance: 0.3
     rarePrototypes:
     - RandomAnomalyInjectorSpawner
@@ -67,6 +67,5 @@
     - AnomalyTrapGravity
     - AnomalyTrapTech
     - AnomalyTrapRock
-    - AnomalyTrapSanta # Remove in 2025
+    # - AnomalyTrapSanta # Remove in 2025 # ShibaStation - Santa Anomaly has been disabled - but I don't want to straight up REMOVE it, it's fun!
     chance: 1
-  
