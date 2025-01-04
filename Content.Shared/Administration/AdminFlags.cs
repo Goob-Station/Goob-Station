@@ -125,6 +125,12 @@
         NameColor = 1 << 21,
 
         /// <summary>
+        ///     Goobstation Full Admin extra perms.
+        ///     Specifically used for Full Admin only.
+        /// </summary>
+        FullAdmin = 1 << 22,
+
+        /// <summary>
         ///     Dangerous host permissions like scsi.
         /// </summary>
         Host = 1u << 31,

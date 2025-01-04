@@ -1,4 +1,3 @@
-using Content.Server.Animals.Systems;
 using Content.Server.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 

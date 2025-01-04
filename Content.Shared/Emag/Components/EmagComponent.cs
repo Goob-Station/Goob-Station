@@ -2,7 +2,6 @@ using Content.Shared.Emag.Systems;
 using Content.Shared.Tag;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Emag.Components;
 

@@ -1,5 +1,4 @@
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Content.Shared.Cloning.CloningConsole;
 using Robust.Client.UserInterface;
 

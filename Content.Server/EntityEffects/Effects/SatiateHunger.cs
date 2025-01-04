@@ -1,5 +1,3 @@
-using Content.Server.Nutrition.Components;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;

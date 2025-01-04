@@ -140,10 +140,7 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> AutoGetUp =
         CVarDef.Create("white.auto_get_up", true, CVar.CLIENT | CVar.ARCHIVE | CVar.REPLICATED); // WD EDIT
 
-    /*
-    * Blob
-    */
-
+    #region Blob
     public static readonly CVarDef<int> BlobMax =
         CVarDef.Create("blob.max", 3, CVar.SERVERONLY);
 
@@ -152,4 +149,16 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<bool> BlobCanGrowInSpace =
         CVarDef.Create("blob.grow_space", true, CVar.SERVER);
+    
+    #endregion
+
+    #region Mechs
+
+    /// <summary>
+    ///     Whether or not players can use mech guns outside of mechs.
+    /// </summary>
+    public static readonly CVarDef<bool> MechGunOutsideMech =
+        CVarDef.Create("mech.gun_outside_mech", true, CVar.SERVER | CVar.REPLICATED);
+
+    #endregion
 }
