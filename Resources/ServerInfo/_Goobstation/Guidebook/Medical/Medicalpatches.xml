@@ -1,32 +1,32 @@
 <Document>
-# Patches
+# Патчи
 
-Patches are a simple and effective way to slowly administer medication to a patient without risking an overdose.
-They can be made with the medfab and filled with the chemmaster. They can be directly applied to a patient and will fall off by themselves once empty.
+Пластыри - простой и эффективный способ медленного введения лекарств пациенту без риска передозировки.
+Их можно изготовить в медфабе и заполнить химмастером. Их можно наклеивать непосредственно на пациента, и они отпадут сами собой, как только опустеют.
 
 <GuideEntityEmbed Entity="MedicalPatchBasic" Rotation="0"/>
 
-There are 5 types of patches:
-- Basic
-- Rapid
-- Prefilled
-- Large
-- Makeshift
+Существует 5 типов патчей:
+- Базовый
+- быстрый
+- Готовый
+- Большой
+- Самодельный
 
-## Basic
-The basic patch holds 40 units of chems and transfers 1 unit at a time.
+## Базовый
+Базовый пластырь вмещает 40 единиц химикатов и переводит по 1 единице за раз.
 
-## Rapid
-The rapid patch holds 40 units and transfers chemicals twice as fast.
+## Быстрый
+Быстрый пластырь вмещает 40 единиц и переводит химические вещества в два раза быстрее.
 
-## Prefilled
-Some medkits contain prefilled patches. These hold 30 units and transfers 0.25 units per second. They cannot be filled or emptied
+## Готовые
+Некоторые аптечки содержат предварительно заполненные пластыри. Они вмещают 30 единиц и переносят 0,25 единицы в секунду. Их нельзя наполнять или опорожнять.
 
-## Large
-The large patch holds 60 units and transfers them one unit at a time.
-However the large patch also transfers 15% of its chemicals upon use (10 units if full).
+## Большой
+Большой пластырь вмещает 60 единиц и переводит их по одной единице за раз.
+Однако большой пластырь также передает 15% своих химикатов при использовании (10 единиц, если он полон).
 
-## Makeshift
-The makeshift patch can hold 15 units and transfer 1 unit every 2 seconds.
-However it can be crafted by hand and filled manually without a chemmaster
+## Временный
+Самодельный пластырь вмещает 15 единиц и передает 1 единицу каждые 2 секунды.
+Однако его можно изготовить вручную и заполнить вручную без химмастера.
 </Document>

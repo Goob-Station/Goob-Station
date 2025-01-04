@@ -262,30 +262,13 @@
     </ColorBox>
   </Table>
 
-  ## Accessory, Attempting, And Intention:
-  If someone intentionally, knowingly and substantially assists someone in enacting a crime they can be charged with the relevant crimes,
-  such as an engineer giving someone tools, who says they are going to break into an area.
-  Same goes for a clear and solid attempt at a crime, or a person who shows clear intent to act out a crime,
-  such as a syndicate nuclear operative arming a nuke but getting arrested before it goes off,
-  they can still be charged with terrorism. Does not apply to crimes that have an attempted listing already,
-  like attempted murder.
-
-  ## Stackable Crimes: Crimes are to be considered ‘stackable’
-  in the sense that if you charge someone with two or more different crimes,
-  you should combine the times you would give them for each crime.
-
   ## Minor Crimes
   - Warnings should be issued for a first offense.
   - If multiple minor crimes have been committed or it is a repeat offense, 5 minutes per minor crime is the maximum.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -306,11 +289,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Animal Cruelty
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -336,11 +314,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To make, hold, or use minor contraband without authorization.
       </Box>
     </ColorBox>
@@ -357,11 +330,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Petty Theft
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        3:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -389,11 +357,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To intentionally deface or superficially damage public or private property.
       </Box>
     </ColorBox>
@@ -411,11 +374,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Trespass
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -440,11 +398,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To cause a public disturbance.
       </Box>
     </ColorBox>
@@ -464,14 +417,10 @@
   ## Moderate Crimes
   - The maximum sentence per moderate crime is 5 minutes.
   - Depending on the situation you may want to issue a warning instead of a detaining.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox><ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -492,10 +441,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Failure to Comply
-      </Box>
-    </ColorBox><ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        2:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -521,11 +466,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        5:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To make, hold, or use major contraband without authorization.
       </Box>
     </ColorBox>
@@ -542,11 +482,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Damage/Destruction of Property
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -572,11 +507,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To recklessly put yourself or others in danger, either through direct action, or failure to act.
       </Box>
     </ColorBox>
@@ -596,15 +526,10 @@
   - The maximum sentence per major crime is 10 minutes.
   - Assault and Manslaughter are linked crimes, and cannot be stacked against a suspect.
   - It is recommended to not use maximum sentences for those being compliant.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -625,11 +550,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Breach of Arrest
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -655,11 +575,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To make, hold, or use Syndicate contraband.
       </Box>
     </ColorBox>
@@ -676,11 +591,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Grand Theft
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -707,11 +617,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        10:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To cause massive damage to an area or major station system.
       </Box>
     </ColorBox>
@@ -733,11 +638,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To enter a secured area without permission.
       </Box>
     </ColorBox>
@@ -754,11 +654,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Assault/Battery
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        6:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -784,11 +679,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        8:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To incidentally kill a sapient being without intent.
       </Box>
     </ColorBox>
@@ -809,11 +699,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        4:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To take part in a large group of personnel creating an unlawful public disturbance.
       </Box>
     </ColorBox>
@@ -830,19 +715,14 @@
   </Table>
 
   ## Extreme Crimes
-  - The maximum sentence per extreme crime is 10 minutes.
+  - The maximum sentence per extreme crime is 15 minutes.
   - Particularly violent offenders may be placed in perma. (Attacking officers in an attempt to escape prison)
   - Attempted murder and murder are linked crimes and cannot be stacked together.
   - Attempted murderers should be granted a more lenient sentence than a murderer.
-  <Table Columns="5">
+  <Table Columns="4">
     <ColorBox>
       <Box>
         Offense
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box>
-        Max Time
       </Box>
     </ColorBox>
     <ColorBox>
@@ -867,11 +747,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        5:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To break out of a cell or custody with the intention of escaping.
       </Box>
     </ColorBox>
@@ -888,11 +763,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Kidnapping
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        10:00
       </Box>
     </ColorBox>
     <ColorBox>
@@ -917,11 +787,6 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        10:00
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To make an attempt to use physical force against someone with the clear intent to kill.
       </Box>
     </ColorBox>
@@ -938,11 +803,6 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Murder
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        10:00
       </Box>
     </ColorBox>
     <ColorBox>

@@ -1,26 +1,26 @@
 <Document>
-  # Onis
+  # (Онис) Onis
 
   <Box>
     <GuideEntityEmbed Entity="MobOniDummy" Caption=""/>
   </Box>
 
-  Large, horned people that come in a variety of colors. Their accuracy with guns is terrible, but their physical strength brings them a lot of boons both in and out of combat.
+  Крупные рогатые люди, которые бывают самых разных цветов. Их меткость в обращении с оружием ужасна, но их физическая сила приносит им множество преимуществ как в бою, так и вне его.
 
-  ## Diet
-  - Nothing special.
+  ## Диета
+  - Ничего особенного.
 
-  ## Benefits
-  - Takes 15% less Blunt, Slash and Piercing damage.
-  - Does more damage in melee; 35% more Blunt and Asphyxiation, 20% more Slash and Piercing.
-  - Due to their big size, they can easily carry, shove and pull any other morphotypes.
-  - They are harder to shove.
-  - Slightly more stamina than Humans.
-  - They have an easier time prying open doors, taking around 50% less time than other species.
+  ## Преимущества
+  - Получает на 15% меньше тупого, колющего и проникающего урона.
+  - Наносит больше урона в ближнем бою: на 35% больше тупого и удушающего, на 20% больше колющего и пронзающего.
+  - Благодаря своим большим размерам они могут легко нести, толкать и тащить любые другие морфотипы.
+  - Их труднее толкать.
+  - Выносливость немного выше, чем у людей.
+  - Им легче открывать двери, на это уходит примерно на 50 % меньше времени, чем у других видов.
 
-  ## Drawbacks
-  - Their accuracy with guns is terrible.
-  - They are harder to carry and pull.
-  - They are bigger than Humans, making them easier to hit.
+  ## Недостатки
+  - Их точность при стрельбе из оружия ужасна.
+  - Их труднее носить и тащить.
+  - Они крупнее людей, поэтому в них легче попасть.
 
 </Document>

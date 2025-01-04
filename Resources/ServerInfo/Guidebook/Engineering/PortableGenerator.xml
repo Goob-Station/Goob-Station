@@ -1,43 +1,42 @@
-<Document>
-  # Portable Generators
+﻿<Document>
+  # Портативные генераторы
 
-  Need power? No engines running? The "P.A.C.M.A.N." line of portable generators has you covered.
+  Нужна мощность? Не работает двигатель? Линейка портативных генераторов " П.А.К.М.А.Н." обеспечит вас всем необходимым.
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
-    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
-    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="М.И.Н.И.П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="П.А.К.М.А.Н." />
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="С.У.П.Е.Р.П.А.К.М.А.Н." />
   </Box>
 
-  # The Junior
+  # Младший
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="J.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorJrPacman" Caption="М.И.Н.И.П.А.К.М.А.Н." />
     <GuideEntityEmbed Entity="WeldingFuelTank" />
   </Box>
 
-  The J.R.P.A.C.M.A.N. can be found across the station in maintenance shafts, and is ideal for crew to set up themselves whenever there are power issues. Its output of up to [color=orange][protodata="PortableGeneratorJrPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color] is enough to power a few important devices.
-  Setup is incredibly easy: wrench it down above an [color=green]LV[/color] power cable, give it some welding fuel, and start it up.
+  М.И.Н.И.П.А.К.М.А.Н. можно найти по всей станции в технических помещениях и это идеальное решение для экипажа, чтобы установить его самостоятельно, когда возникают проблемы с электричеством.
+  Установить его невероятно просто: закрепите его над [color=green]низковольтным[/color] кабелем, залейте в него сварочное топливо и запустите.
 
-  Welding fuel should be plentiful to find around the station. In a pinch, you can even transfer some from the big tanks with a soda can or water bottle. Just remember to empty the soda can first, I don't think it likes soda as fuel.
+  Сварочного топлива на станции должно быть много. В крайнем случае, можно даже перелить немного из больших баков с помощью банки из-под газировки. Только не забудьте сначала опорожнить банку, не думаю, что генератору нравится газировка в качестве топлива.
 
-  # The Big Ones
+  # Большие
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorPacman" Caption="П.А.К.М.А.Н." />
     <GuideEntityEmbed Entity="SheetPlasma" />
   </Box>
 
   <Box>
-    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="S.U.P.E.R.P.A.C.M.A.N." />
+    <GuideEntityEmbed Entity="PortableGeneratorSuperPacman" Caption="С.У.П.Е.Р.П.А.К.М.А.Н." />
     <GuideEntityEmbed Entity="SheetUranium" />
   </Box>
 
-  The (S.U.P.E.R.)P.A.C.M.A.N. is intended for usage by engineering for advanced power scenarios. Bootstrapping larger engines, powering departments, and so on.
+  (С.У.П.Е.Р.)П.А.К.М.А.Н. предназначен для использования инженерами для продвинутых сценариев питания. Начальный запуск двигателя, питание отделов и так далее.
 
-  The S.U.P.E.R.P.A.C.M.A.N. boasts a larger power output (up to [color=orange][protodata="PortableGeneratorSuperPacman" comp="FuelGenerator" member="MaxTargetPower" format="N0"/] W[/color]) and longer runtime at maximum output, but scales down to lower outputs less efficiently.
+  С.У.П.Е.Р.П.А.К.М.А.Н. может похвастаться большей мощностью и более длительным временем работы на максимальной мощности, но менее эффективно масштабируется до более низких мощностей.
 
-  They connect directly to [color=yellow]MV[/color] or [color=orange]HV[/color] power cables, and are able to switch between them for flexibility.
+  Они подключаются непосредственно к [color=yellow]СВ[/color] или [color=orange]ВВ[/color] кабелям с возможностью переключения между ними для гибкости.
 
-  The S.U.P.E.R.P.A.C.M.A.N and P.A.C.M.A.N require uranium sheets and plasma sheets as fuel, respectively.
 </Document>

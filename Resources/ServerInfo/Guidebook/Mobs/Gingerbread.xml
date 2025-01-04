@@ -1,15 +1,15 @@
 <Document>
-  # Gingerbread
+  # Gingerbread (пряник)
 
   <Box>
     <GuideEntityEmbed Entity="MobGingerbread" Caption=""/>
   </Box>
 
-  Gingerbreads are a species of sentient confectionary. They have sugar for blood, and can be butchered for cookies.
+  Пряники - это вид разумных кондитерских изделий. У них есть сахар в крови, и их можно разделывать на печенье.
 
-  ## Damage stats
+  ## Статистика урона
 
-  Gingerbreads take 3x less heat damage than Humans, but take a lot of damage from being exposed to water externally.
-  They take 3x more damage from being exposed to water externally than Slimes.
+  Пряники получают в 3 раза меньше теплового урона, чем люди, но получают много урона от внешнего воздействия воды.
+  Они получают в 3 раза больше урона от внешнего воздействия воды, чем слизеринцы.
 
 </Document>

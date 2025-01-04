@@ -1,52 +1,52 @@
 <Document>
-# Surgery
-Your usual weekly activity. By performing surgical operations on your patients, you can heal wounds, remove or add body parts, organs, and more.
+# Хирургия
+Ваше обычное еженедельное занятие. Проводя хирургические операции своим пациентам, вы можете заживлять раны, удалять или добавлять части тела, органы и многое другое.
 
-## The Basics
-To start surgery your patient needs to be laying down, and ideally sedated.
+## Основы
+Чтобы начать операцию, пациент должен лежать, а в идеале - находиться под действием успокоительного.
 
-If they are not sedated, they will be in a lot of pain, which decreases their mood, and will make surgical wounds worse.
-
-<Box>
-<GuideEntityEmbed Entity="NitrousOxideTank" Caption="nitrous oxide"/>
-<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="any breathing tool"/>
-</Box>
-
-You also need to wear protective gear such as a mask and gloves to prevent harming the patient due to contamination.
+Если его не успокоить, он будет испытывать сильную боль, что снизит его настроение и усугубит хирургические раны.
 
 <Box>
-<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="any mask"/>
-<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="any gloves"/>
+<GuideEntityEmbed Entity="NitrousOxideTank" Caption="оксид азота"/>
+<GuideEntityEmbed Entity="ClothingMaskBreathMedical" Caption="любая дыхательная маска"/>
 </Box>
 
-## Getting Started
-
-To engage in surgery, you'll need a set of surgical tools.
+Вам также необходимо надеть защитные средства, такие как маска и перчатки, чтобы не навредить пациенту из-за загрязнения.
 
 <Box>
-<GuideEntityEmbed Entity="Scalpel" Caption="scalpel"/>
-<GuideEntityEmbed Entity="Retractor" Caption="retractor"/>
-<GuideEntityEmbed Entity="Hemostat" Caption="hemostat"/>
-<GuideEntityEmbed Entity="Drill" Caption="drill"/>
+<GuideEntityEmbed Entity="ClothingMaskSterile" Caption="любая маска"/>
+<GuideEntityEmbed Entity="ClothingHandsGlovesNitrile" Caption="любые перчатки"/>
+</Box>
+
+## Начало работы
+
+Чтобы заняться хирургией, вам понадобится набор хирургических инструментов.
+
+<Box>
+<GuideEntityEmbed Entity="Scalpel" Caption="скальпель"/>
+<GuideEntityEmbed Entity="Retractor" Caption="ретрактор"/>
+<GuideEntityEmbed Entity="Hemostat" Caption="гемостат"/>
+<GuideEntityEmbed Entity="Drill" Caption="дрель"/>
 </Box>
 <Box>
-<GuideEntityEmbed Entity="Saw" Caption="saw"/>
-<GuideEntityEmbed Entity="Cautery" Caption="cautery"/>
-<GuideEntityEmbed Entity="BoneGel" Caption="bone gel"/>
+<GuideEntityEmbed Entity="Saw" Caption="пила"/>
+<GuideEntityEmbed Entity="Cautery" Caption="прибор для прижигания"/>
+<GuideEntityEmbed Entity="BoneGel" Caption="костный гель"/>
 </Box>
 
-Once you've got tools in hand, interact with your patient to begin surgery. You'll be able to choose which part you want to operate on.
+Взяв в руки инструменты, взаимодействуйте с пациентом, чтобы начать операцию. Вы сможете выбрать, какую часть тела вы хотите оперировать.
 
-## Ghetto Surgery
+## Гетто-хирургия
 
-Certain non-surgical tools can be used in a pinch, use the scalpel examine icon to see how good or bad something is.
+Некоторые нехирургические инструменты могут быть использованы в крайних случаях: используйте значок осмотра скальпеля, чтобы понять, насколько хорош или плох тот или иной инструмент.
 <Box>
-<GuideEntityEmbed Entity="Welder" Caption="welder"/>
-<GuideEntityEmbed Entity="Wirecutter" Caption="wirecutter"/>
-<GuideEntityEmbed Entity="KitchenKnife" Caption="knife"/>
-<GuideEntityEmbed Entity="Crowbar" Caption="crowbar"/>
+<GuideEntityEmbed Entity="Welder" Caption="сварочный аппарат"/>
+<GuideEntityEmbed Entity="Wirecutter" Caption="кусачки"/>
+<GuideEntityEmbed Entity="KitchenKnife" Caption="нож"/>
+<GuideEntityEmbed Entity="Crowbar" Caption="монтировка"/>
 </Box>
 
-They aren't ideal compared to real surgical equipment, but they'll do in a pinch!
+Они не идеальны по сравнению с настоящим хирургическим оборудованием, но в крайнем случае сгодятся!
 
 </Document>

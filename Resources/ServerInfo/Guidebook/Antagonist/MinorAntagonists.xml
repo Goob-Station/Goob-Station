@@ -1,66 +1,75 @@
 <Document>
-  # Minor Antagonists
+  # Малые антагонисты
 
-  Most if not all Minor Antagonists are ghost-controlled roles that gives dead people new ways to cause chaos around the station. They are spawned by random events.
+  Большинство, если не все, второстепенные антагонисты - это управляемые призраками роли, которые дают мертвецам новые способы устроить хаос на станции. Они возникают в результате случайных событий.
 
-  # Revenant
-
-  <Box>
-    <GuideEntityEmbed Entity="MobRevenant"/>
-  </Box>
-
-  Revenants are ethereal beings made of ectoplasm that haunt the crew and steal [color=#8f63e6]life essence[/color] from them.
-  - Your essence is your very own [bold]life force[/bold]. Taking damage reduces your essence.
-  - Essence is also spent to use [bold]abilities[/bold].
-  - To gain essence you first [bold]inspect[/bold] various souls for their worth. More worthy souls grant more essence. Then you must [bold]siphon[/bold] it either when the victim is crit, dead or asleep. All of this is done with [color=yellow][bold][keybind="Use"][/bold][/color].
-  - [bold]Stolen essence[/bold] is used to purchase new abilities to incapacitate the crew easier.
-  - You are [bold]vulnerable[/bold] to attacks when you siphon a soul or use an ability. You can tell when you are vulnerable when you have a [color=#8f63e6][italic]Corporeal[/italic][/color] status effect.
-
-  # Rat King
+  # Ревенант
 
   <Box>
-    <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
-    <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
-    <GuideEntityEmbed Entity="MobRatKing" Scale="2.4"/>
-    <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
-    <GuideEntityEmbed Entity="MobRatServant" Caption=""/>
+    <GuideEntityEmbed Entity="MobRevenant" Caption=""/>
+    <GuideEntityEmbed Entity="Ectoplasm" Caption=""/>
   </Box>
 
-  Rat kings are abnormally large rodents capable of [color=yellow]raising huge rat armies[/color] by eating equally huge amounts of food.
-  - You have several abilities that come at the cost of your [bold]hunger.[/bold]
-  - One such ability is [color=yellow][italic]Raise Army[/italic][/color], which summons a [bold]Rat Servant[/bold]. You can [bold]command[/bold] your servants to stay in place, follow you, attack a target of your choice or attack indiscriminately.
-  - You can conjure a cloud of [color=#77b58e]ammonia[/color] using [color=purple][italic]Rat King's Domain[/italic][/color]. This purple gas is mildly poisonous to humans but heals rats.
-  - [color=#9daa98][italic]Rummage[/italic][/color] through a disposal unit by using the context menu. Use this to find [bold]scraps of food[/bold] to grow your army.
-  - Besides your abilities, [bold]you are stronger than most other animals.[/bold] You and your servants are capable of speech and you're both small enough to fit under airlocks and tables.
-  - [bold]Your underlings are still very fragile![/bold] Beware of spacings, explosions and the buisness end of a melee weapon.
+  Ревенант наделён способностью преследовать членов экипажа и красть у них жизненную энергию.
 
-  # Space Dragon
+  ## Эссенция
+
+  - Ваша [color=#a4885c]эссенция[/color] - это ваша собственная жизненная сила и способ использовать способности за определенную плату, не позволяйте ей упасть до 0.
+  - Чтобы получить [color=#a4885c]эссенцию[/color], вы сначала проверяете различные души на предмет их ценности. Более достойные души дают больше эссенции.
+  Однако просто проверить их ценность недостаточно для сбора [color=#a4885c]эссенции[/color]. Вы должны поглотить её, когда жертва находится в критическом состоянии, мертва или спит.
+  - Хорошее начало - пойти в медпункт или жилые помещения, но будьте осторожны, вы уязвимы для атак, когда поглощаете душу. Получение урона уменьшает вашу [color=#a4885c]эссенцию[/color]! Поэтому планируйте свои атаки с умом.
+
+  ## Магазин и силы
+
+  - Используя [color=#a4885c]украденную эссенцию[/color], полученную при поглощении душ, вы можете получить в магазине навыки для таких злоключений, как разрушение окружающей среды, отключение электричества и поражение током.
+  - Использование способностей на некоторое время делает вас уязвимым для атак, поэтому планируйте всё заранее и готовьтесь перед атакой.
+
+  # Крысиный король
+
+  <Box>
+    <GuideEntityEmbed Entity="MobRatKing" Scale="2.4" Caption="The Rat King"/>
+  </Box>
+
+  Крысиный король - это гигантская крыса, способная устроить гнездо и создать крыс, которые будут выполнять её приказы (обычно для получения пищи).
+
+  ## Способности
+
+  За способности приходится расплачиваться голодом Крысиного короля. Простой приём пищи восполняет его.
+
+  <Box>
+   <GuideEntityEmbed Entity="MobMouse" Caption="Обычная мыша"/>
+   <GuideEntityEmbed Entity="MobRatServant" Caption="Крысиный слуга"/>
+  </Box>
+  - Вырастить армию [color=#a4885c]слуг-крыс[/color].
+  - Вызвать облако аммиака.
+
+  # Космический дракон
+
+  <Box>
+    <GuideEntityEmbed Entity="MobDragon" Caption=""/>
+  </Box>
+
+  Космический дракон - это гигантский дракон, который создаёт космические разломы и поедает экипаж.
+
+  ## Способности
+
+  - Пожирать мёртвых жертв, или в критическом состоянии.
 
   <Box>
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
     <GuideEntityEmbed Entity="CarpRift" Caption=""/>
-    <GuideEntityEmbed Entity="MobDragon"/>
-    <GuideEntityEmbed Entity="CarpRift" Caption=""/>
     <GuideEntityEmbed Entity="MobCarp" Caption=""/>
   </Box>
 
-  Space dragons are giant extradimensional fish that can [color=red]eat crew[/color] and create [color=#4b7fcc]carp rifts.[/color]
-  - Dragons have powerful jaws that allow them to [color=red][italic]Devour[/italic][/color] infrastructure such as doors, windows, and walls.
-  - They can also heal themselves by using [color=red][italic]Devour[/italic][/color] on crew members that have gone unconscious or have died.
-  - Your [color=orange][italic]Dragon's Breath[/italic][/color] is a [bold]flaming projectile[/bold] which travels a straight flight path, exploding multiple times and igniting things along the way. Try not to hit your carps with this!
-  - You have the ability to [color=#4b7fcc][italic]Summon a Carp Rift[/italic][/color]. Rifts periodically spawn [bold]space carp[/bold] and charge up energy over a period of 5 minutes, [bold]which is when it's vulnerable.[/bold] After 5 minutes, it becomes invulnerable and will continue summoning carp as long as the dragon lives.
-  - You'll suffer a [bold]temporary debilitating feedback effect[/bold] if one of your rifts are destroyed before it's done charging.
-  - If a period of five minutes passes since your spawn or since the last time a rift was charging, [bold]you'll disappear.[/bold]
-  - Dragons who have the maximum of 3 fully charged rifts will [bold]never disappear[/bold], but they are still mortal.
+  - Вызовите Карповый разлом, который периодически порождает [color=#a4885c]Космических карпов[/color].
 
-  # Slimes and Spiders
+  ## Carp Rifts
 
-  <Box>
-    <GuideEntityEmbed Entity="MobAdultSlimesBlueAngry" Caption=""/>
-    <GuideEntityEmbed Entity="MobGiantSpiderAngry" Caption=""/>
-  </Box>
+  - Space Dragons may have up to three Carp Rifts active at any given time.
+  - Carp Rifts spawn a [color=#a4885c]Space Carp[/color] every thirty seconds while active.
+  - Rifts charge with extradimensional energy over a period of five minutes and are vulnerable during this time. Protect them! The space dragon will suffer a temporary debilitating feedback effect in the event that its rifts are destroyed before they are done charging.
+  - You may only charge one rift at any given time.
+  - After the rifts are done charging, they are invulnerable and will continue to spawn [color=#a4885c]Space Carp[/color] so long as the Dragon lives.
+  - If a period of five minutes passes since the appearance of the Space Dragon or the last time a Carp Rift was charging and unless the Space Dragon already controls the maximum of three Carp Rifts, the Space Dragon will disappear.
 
-  Slimes and spiders have no remarkable features, but will [color=cyan]infest the station[/color] from time to time regardless. Both will give chase and attack anything they see.
-  - Slimes may [bold]deal extra cellular or poison damage[/bold], based upon their color. Water hurts them just as it would hurt a slime person.
-  - Spiders have a venomous bite and can [bold]create webs[/bold] that are hard to move though. Webs are easily destroyed with a blade. They can also pry open airlocks.
 </Document>

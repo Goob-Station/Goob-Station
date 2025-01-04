@@ -1,51 +1,51 @@
 <Document>
-# Organ Manipulation
-These surgeries allow you to remove or replace organs from a patient for healthy ones. Which can help treat conditions on their bodies.
+# Манипуляции с органами
+Эти операции позволяют удалить или заменить органы пациента на здоровые. Это может помочь в лечении заболеваний их организма.
 
-## Anatomy
-Normally a body has the following organs:
-
-<Box>
-<GuideEntityEmbed Entity="OrganHumanBrain" Caption="brain"/>
-<GuideEntityEmbed Entity="OrganHumanEyes" Caption="eyes"/>
-<GuideEntityEmbed Entity="OrganHumanHeart" Caption="heart"/>
-</Box>
-<Box>
-<GuideEntityEmbed Entity="OrganHumanKidneys" Caption="kidneys"/>
-<GuideEntityEmbed Entity="OrganHumanLiver" Caption="liver"/>
-<GuideEntityEmbed Entity="OrganHumanLungs" Caption="lungs"/>
-<GuideEntityEmbed Entity="OrganHumanStomach" Caption="stomach"/>
-</Box>
-
-Certain species might have more or less organs, such as Diona having a combined organ that serves multiple functions, but this is the rough outline of what you'll see.
-To remove an organ, you'll need to apply the respective Organ Removal surgery on it, which will then remove it without harming the patient.
-
-However if you want to transplant an organ, you'll need to apply the respective Organ Transplant surgery where it originally was.
-
-## What does each organ transplant do?
-
-- Transplanting a [color=#a4885c]brain[/color] will allow the patient to take over another body. An excellent alternative to cloning if you can afford to spare another body.
-- Transplanting a [color=#a4885c]liver[/color] will cure severe poisoning from a patient's body.
-- Transplanting [color=#a4885c]lungs[/color] will help cure patients from severe asphyxiation.
-- Transplanting a [color=#a4885c]heart[/color] will cure a patient's body of rot and decay.
-- Transplanting [color=#a4885c]eyes[/color] will allow the patient to see again, and heal any eye damage.
-
-## Where do I get more organs?
-
-Normally when your patients come in needing new organs, they'll need to get a new one, as their old ones will be either missing, or damaged beyond repair.
-For this you can use the Medical Biofabricator with some Biomass. Which can manufacture Biosynthetic organs for all species.
+## Анатомия
+Обычно в теле человека есть следующие органы:
 
 <Box>
-<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="medical biofabricator"/>
-<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="biofabricator board"/>
-<GuideEntityEmbed Entity="MaterialBiomass" Caption="biomass"/>
+<GuideEntityEmbed Entity="OrganHumanBrain" Caption="мозг"/>
+<GuideEntityEmbed Entity="OrganHumanEyes" Caption="глаза"/>
+<GuideEntityEmbed Entity="OrganHumanHeart" Caption="сердце"/>
+</Box>
+<Box>
+<GuideEntityEmbed Entity="OrganHumanKidneys" Caption="почки"/>
+<GuideEntityEmbed Entity="OrganHumanLiver" Caption="печень"/>
+<GuideEntityEmbed Entity="OrganHumanLungs" Caption="легкие"/>
+<GuideEntityEmbed Entity="OrganHumanStomach" Caption="желудок"/>
 </Box>
 
-By default, every Chief Medical Officer has access to a Medical Biofabricator board in their locker.
+У некоторых видов может быть больше или меньше органов, например, у Diona есть комбинированный орган, выполняющий несколько функций, но это лишь приблизительное описание того, что вы увидите.
+Чтобы удалить орган, вам нужно применить к нему соответствующую операцию «Удаление органа», которая позволит удалить его без вреда для пациента.
 
-## Why didn't the organ transplant
-## do anything?
+Если же вы хотите пересадить орган, вам нужно будет применить соответствующую операцию по пересадке органа на то место, где он изначально находился.
 
-Your patient's body rejected the organ as it is in a bad shape, try using a fresh organ from a donor, or getting a new one from the Medical Biofabricator.
+## Что делает каждая операция по пересадке органов?
+
+- Пересадка [color=#a4885c]мозга[/color] позволит пациенту взять на себя управление другим телом. Отличная альтернатива клонированию, если вы можете позволить себе выделить еще одно тело.
+- Пересадка [color=#a4885c]печени[/color] позволит вылечить тяжелое отравление в организме пациента.
+- Пересадка [color=#a4885c]легких[/color] поможет излечить пациента от тяжелой асфиксии.
+- Пересадка [color=#a4885c]сердца[/color] поможет излечить тело пациента от гниения и разложения.
+- Пересадка [color=#a4885c]глаза[/color] позволит пациенту снова видеть и исцелит все повреждения глаз.
+
+## Где я могу получить больше органов?
+
+Обычно, когда вашим пациентам требуются новые органы, им нужно получить новые, поскольку старые либо отсутствуют, либо повреждены до неузнаваемости.
+Для этого вы можете использовать Медицинский биофабрикатор с некоторым количеством биомассы. Она может производить биосинтетические органы для всех видов.
+
+<Box>
+<GuideEntityEmbed Entity="MedicalBiofabricator" Caption="медицинский биофабрикатор"/>
+<GuideEntityEmbed Entity="MedicalBiofabMachineBoard" Caption="доска биофабрикатора"/>
+<GuideEntityEmbed Entity="MaterialBiomass" Caption="биомасса"/>
+</Box>
+
+По умолчанию каждый главный врач имеет доступ к доске медицинского биофабрикатора в своем шкафчике.
+
+## Почему пересадка органов
+## ничего не дала?
+
+Организм вашего пациента отверг орган, так как он находится в плохом состоянии. Попробуйте использовать свежий орган от донора или получить новый от Медицинского биофабриканта.
 
 </Document>

@@ -1,52 +1,52 @@
 <Document>
   # I.P.C.
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
-  An IPC (short for Integrated Positronic Chassis) is a type of sentient robot and is considered an [color=yellow]independent individual[/color], meaning [color=red]they are not guided by any laws of robotics[/color]. IPCs cannot be hacked by Emags because they do not have to follow any predefined directives in their system. [color=red]IPCs are silicon-based beings, so doctors do not have the skills to repair them.[/color]
+  IPC (сокращение от Integrated Positronic Chassis) - это тип разумного робота, который считается [color=yellow]независимой личностью[/color], то есть [color=red]не подчиняется никаким законам робототехники[/color]. МПК не могут быть взломаны эмагами, потому что они не должны следовать каким-либо предопределенным директивам в своей системе. [color=red]МПК - существа на основе кремния, поэтому у врачей нет навыков их ремонта[/color].
 
   <Box>
     <GuideEntityEmbed Entity="PositronicBrain" Caption="Positronic Brain"/>
   </Box>
-  Like borgs, IPCs have a positronic brain as their processing source. However, unlike them, IPCs can't be assembled. "It's cheaper to create a shell that obeys you than one that doesn't! *wink*"
+  Как и борги, МПК имеют позитронный мозг в качестве источника обработки информации. Однако, в отличие от них, МПК не могут быть собраны. «Дешевле создать оболочку, которая подчиняется тебе, чем ту, которая не подчиняется! *wink*»
 
   ## Recharging an IPC
    <Box>
-    <GuideEntityEmbed Entity="APCBasic" Caption="APC Terminal"/>
-    <GuideEntityEmbed Entity="BorgCharger" Caption="Borg Charger"/>
-    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Power Cell"/>
+    <GuideEntityEmbed Entity="APCBasic" Caption="APC Терминал"/>
+    <GuideEntityEmbed Entity="BorgCharger" Caption="Зарядное устройство"/>
+    <GuideEntityEmbed Entity="PowerCellMedium" Caption="Элемент питания (батарея)"/>
   </Box>
-  IPCs can be recharged in three different ways:
+  IPC можно заряжать тремя различными способами:
 
-  APC Terminal: IPCs can use APC terminals to recharge. Press [color=yellow]Alt + left click[/color] on a terminal as many times as needed to fully recharge.
+  Терминал APC: МПК могут использовать терминалы APC для подзарядки. Нажмите [color=yellow]Alt + левый клик[/color] на терминале столько раз, сколько нужно для полной перезарядки.
 
-  Borg Rechargers: IPCs can use borg rechargers to recharge. Always prioritize the ones outside of the Sci area to avoid headaches.
+  Перезарядные устройства боргов: МПК могут использовать борговские перезарядные устройства для подзарядки. Всегда отдавайте предпочтение тем, которые находятся за пределами зоны Sci, чтобы избежать головной боли.
 
-  Power Cell: IPCs have an internal power cell that serves as their battery. They can simply swap it out by opening the hatch and manually replacing it.
+  Энергоячейка: у МПК есть внутренняя энергоячейка, которая служит им батареей. Они могут просто заменить его, открыв люк и вручную заменив его.
 
-  ## Integrated Radio
+  ## Встроенное радио
   <Box>
-    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Encryption key"/>
+    <GuideEntityEmbed Entity="EncryptionKeyScience" Caption="Ключ шифрования"/>
   </Box>
 
-  IPCs do [bold]not[/bold] use external radios because they already have one built in. They only need to get an encryption key from a radio. By clicking on an IPC with a [color=yellow]wire cutter[/color], you can remove their keys.
-  You can find new keys around the station or remove one from a sector radio using a [color=yellow]screwdriver[/color].
+  IPC не используют внешние радиоприемники, потому что они уже встроены в них. Им нужно только получить ключ шифрования от радио. Щелкнув по МПК [color=yellow]кусачками[/color], вы можете удалить их ключи.
+  Вы можете найти новые ключи на станции или извлечь один из секторальной рации с помощью [color=yellow]отвертки[/color].
 
   ## Repairing
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Welder"/>
-    Welders can be used to repair [color=yellow]Brute[/color] damage.
+    <GuideEntityEmbed Entity="WelderIndustrialAdvanced" Caption="Сварочный аппарат"/>
+    Сварочный аппарат может быть использован для устранения [color=yellow]повреждений, нанесенных Брутом (механический)[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="CableApcStack" Caption="Cables (any type)"/>
-    Cables can be used to repair [color=yellow]Burns[/color].
+    <GuideEntityEmbed Entity="CableApcStack" Caption="Кабели (любой тип)"/>
+    Кабели можно использовать для ремонта [color=yellow]ожогов[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    <GuideEntityEmbed Entity="SheetGlass" Caption="Glass Sheets (any type)"/>
-    Glass Sheets can be used to repair [color=yellow]Blindness[/color].
+    <GuideEntityEmbed Entity="SheetGlass" Caption="Стекло (любой тип)"/>
+    Стеклянные листы можно использовать для восстановления от [color=yellow]Слепоты[/color].
   </Box>
   <Box HorizontalAlignment="Stretch">
-    In the event an IPC dies, after being fully repaired, it should be restarted using the [color=yellow]"Restart"[/color] button (located by right-clicking).
+    В случае если IPC умер, после полного ремонта его следует перезапустить с помощью кнопки [color=yellow]«Restart»[/color] (находится при нажатии правой кнопки мыши).
 
-    [color=red]NEVER ELECTROCUTE AN IPC with a defibrillator or in any other way while it is dead, as this will cause the battery to discharge energy rays outward![/color]
+    [color=red]НИКОГДА НЕ ПРОВОДИТЕ ЭЛЕКТРОСВЯЗЬ НА МПК с помощью дефибриллятора или любым другим способом, пока он мертв, так как это приведет к разряду батареи лучами энергии наружу![/color]
   </Box>
 
 </Document>

@@ -13,7 +13,6 @@
   - Events you experienced as a different character.
   - All information related to the player of a character rather than the character itself. (See "Metafriending and Metagrudging" below.)
   - All information gained while dead or a ghost.
-  - All information gained while in critical condition or unconscious.
   - The fact that a round will end.
 
   This does not prevent knowing that a shift will end, but does prohibit things like preparing to kill people at central command when roleplay rules stop being enforced on LRP.
@@ -30,20 +29,6 @@
   - an operative name
   - a War Ops announcement
   - being a nuclear operative
-
-  ## Changelings
-
-  In the eyes of the public, changelings are an exterminated predatory lifeform and their potential existence on the station is shielded.
-  This metashield prohibits players from crew bloodtesting until the metashield is revealed.
-  
-  Knowledge about the abilities of changelings is not shielded.
-
-  The revealing condition for this shield is any of the following:
-  - discovering a hollowed body
-  - witnessing changeling use their non-stealth abilities (not stings or passive abilities)
-  - witnessing someone trying to absorb a body
-  - witnessing someone changing their appearance
-  - being a changeling
 
   ## Implanted Implants
 
@@ -81,6 +66,12 @@
   - seeing the item used for its hidden purpose
   - experiencing a situation where absolutely no other explanation is possible
   - discovering an unlocked uplink
+
+  ## MRP Amendment 1
+  A shield prevents your character from remembering anything that happened while unconscious. This shield is never revealed IC.
+
+  ## MRP Amendment 2
+  There is a "New Life Rule" shield. It prevents you from remembering anything that lead to your death, even if you are put into an MMI. If you are cloned, it also prevents you from remembering everything from that round. This shield is never revealed IC.
 
   ## Metafriending and Metagrudging
   This section provides additional information on a concept that is prohibited by multiple metashield items that are never revealed IC. Giving a person or character preferential treatment based on something that your character should not know is considered metafriending. Treating a person or character negatively based on something that your character should not know is considered metagrudging.

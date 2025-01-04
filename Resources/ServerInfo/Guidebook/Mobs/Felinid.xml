@@ -1,15 +1,15 @@
 <Document>
-  # Felinid
+  # Фелиниды
 
   <Box>
     <GuideEntityEmbed Entity="MobFelinid" Caption=""/>
   </Box>
   
-  Felinids are a mutation of humans, sporting their signature ears and tail from your favourite japanese cartoons.
-  They have a keen sixth sense to landing and [color=#1e90ff]take 80% less damage from falling or high speed impacts.[/color]
-  They will also be slowed down less when injured
+  Фелиниды - это мутация людей, с их фирменными ушами и хвостом из любимых японских мультфильмов.
+  Они обладают острым шестым чувством при приземлении и [color=#1e90ff]получают на 80 % меньше повреждений при падении или ударах на высокой скорости[/color].
+  Они также меньше замедляются при ранениях.
   
-  They will slash with their claws instead of using their fists, dealing [color=#ec3a3a]Slashing[/color] and [color=#ec3a3a]Piercing[/color] damage.
+  Когти вместо кулаков наносят [color=#ec3a3a]колющий[/color] и [color=#ec3a3a]пронзающий[/color] урон.
   
   ## Ew, Hairballs
   <Box>
@@ -17,8 +17,8 @@
 	<GuideEntityEmbed Entity="MobMouse" Caption=""/>
   </Box>
   
-  They are also capable of eating live rats, which will allow them to cough up a disgusting hairball.
-  Be careful when touching them, as they can [color=#ffa500]cause you to throwup when held.[/color]
-  Felinids will use this to their advantage to gross out adversaries
+  Они также способны питаться живыми крысами, что позволяет им выкашливать отвратительные комочки шерсти.
+  Будьте осторожны, прикасаясь к ним, так как они могут [color=#ffa500]вызвать у вас рвоту[/color].
+  Фелиниды используют это в своих целях, чтобы напугать противника.
   
 </Document>

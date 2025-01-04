@@ -1,84 +1,84 @@
 <Document>
   # The Mansus Veil Weakens
-  So you're a Heretic? Well, get ready for magic and battle. Grab influences, complete sacrifices, accomplish rituals, and ascend to godhood.
+  Так вы еретик? Что ж, приготовьтесь к магии и битвам. Оказывайте влияние, совершайте жертвоприношения, проводите ритуалы и восходите к божественности.
 
-  Your ultimate goal is to ascend and become all powerful, but to do that you must gain knowledge.
-  All knowledges cost 1 point, except for "public" ones, which are accessible from any path, or Ascensions.
+  Ваша конечная цель - вознестись и стать всемогущим, но для этого нужно получить знания.
+  Все знания стоят 1 очко, за исключением «общедоступных», которые доступны с любого пути, или вознесений.
 
-  You can gain knowledge points and become stronger through a few ways:
-  - Draining influences that spawn randomly around the station.
-  - Sacrificing crew members your dark patrons hunger for.
-  - Automatically getting one knowledge point every 20 minutes.
+  Получить очки знаний и стать сильнее можно несколькими способами:
+  - Истощение влияний, которые случайным образом появляются вокруг станции.
+  - Жертвуя членами экипажа, которых жаждут ваши темные покровители.
+  - Автоматическое получение одного очка знаний каждые 20 минут.
 
-  ## Eldritch Influences
+  ## Эльдритские влияния
   <Box>
     <GuideEntityEmbed Entity="EldritchInfluence" Caption=""/>
   </Box>
-  Influences are the easy way to gain power points. Whenever there are Heretics aboard Space Station 14, influences will randomly spawn across the station.
-  They are not visible to the naked eye of a crew member, hovewer they [bold]will[/bold] become visible after harvesting, aside from suddenly changing colors.
-  Tip: When using [color=green]Codex Cicatrix[/color] on an influence you will get double the points, but it will be a dead giveaway to anyone nearby that you're a heretic.
+  Влияния (influences) - это простой способ получить очки силы. Если на борту космической станции 14 есть еретики, то по всей станции случайным образом будут появляться влияния.
+  Они не видны невооруженным глазом членам экипажа, но после сбора урожая они [bold]станут заметны, кроме того, что внезапно изменят цвет.
+  Совет: при использовании [color=green]Codex Cicatrix[/color] на влиянии вы получите вдвое больше очков, но при этом всем, кто находится рядом, будет ясно, что вы еретик.
   <Box>
-    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Harvested influence. Notice the glow."/>
+    <GuideEntityEmbed Entity="EldritchInfluenceSpent" Caption="Собранное влияние (influences). Обратите внимание на свечение."/>
   </Box>
 
-  Each influence can only be harvested once, so the heretic that goes the fastest and grabs the most influences first has to do less killing and sacrificing to reach their ascensions.
+  Каждое влияние может быть собрано только один раз, поэтому еретик, который идет быстрее всех и первым собирает наибольшее количество влияний, должен совершить меньше убийств и жертвоприношений, чтобы достичь своего вознесения.
 
-  ## Sacrifices
-  Now it's time for you to grow some balls and start sacrificing crewmembers for points.
-  The Mansus desires only a select few Heathens (non-heretics) at any moment.
+  ## Жертвоприношения
+  Настало время отрастить яйца и начать жертвовать членами экипажа ради очков.
+  В любой момент Мансус желает получить лишь несколько Heathens (не-еретиков).
 
-  At the start of the round you will be assigned five sacrifice targets. You can reroll these with an optional knowledge (The Relentless Heartbeat) later on, but until then, you're stuck with those.
+  В начале раунда вам будут назначены пять целей для жертвоприношения. Позже вы сможете перебросить их с помощью необязательного знания (The Relentless Heartbeat), но до тех пор вы останетесь с этими.
 
-  - One target will be a Head of Staff. Heads of staff are worth an additional point!
-  - One target will be a member of security.
-  - One target will be a member of your department.
-  - Other targets will be completely random crewmembers.
+  - Одной целью будет начальник штаба. Начальники штаба стоят дополнительных очков!
+  - Одной целью будет сотрудник службы безопасности.
+  - Одна цель - сотрудник вашего отдела.
+  - Другими целями будут совершенно случайные члены экипажа.
   
-  You will only be able to sacrifice these targets. Your patrons will not accept just any old assistant.
+  Вы сможете принести в жертву только эти цели. Ваши покровители не примут любого старого помощника.
 
-  Follow your [color=red]Living Heart[/color] to your target of choice and incapacitate them through any means necessary. If your target's in critical condition or dead they're ready to sacrifice.
-  Drag them over a transmutation rune and invoke the [color=yellow]Heartbeat of the Mansus[/color] to sacrifice them.
+  Следуйте за своим [color=red]Живым сердцем[/color] к выбранной цели и выведите ее из строя любым способом. Если цель в критическом состоянии или мертва, она готова к жертвоприношению.
+  Перетащите их на руну трансмутации и вызовите [color=yellow]Сердцебиение Мансуса[/color], чтобы принести их в жертву.
 
-  You can reroll your targets by invoking [color=yellow]Relentless Heartbeat[/color] ritual.
+  Вы можете перебросить цели, вызвав ритуал [color=yellow]Relentless Heartbeat[/color].
 
-  ## Heretical Research
-  Once you have some power points, it's time to research! Open up your knowledge store using the action button.
-  The research menu forms a branching tree, and your first selection will be to commit to a path that defines your initial abilities and Final Ascension.
-  You can earn abilities from other paths to a limited degree, but overall your chosen path will heavily influence your play-style.
+  ## Еретические исследования
+  Как только вы получили несколько очков силы, пора заняться исследованиями! Откройте хранилище знаний с помощью кнопки действий.
+  Меню исследований образует ветвящееся дерево, и первым вашим выбором будет выбор пути, который определит ваши начальные способности и Финальное вознесение.
+  Вы можете получить способности из других путей в ограниченной степени, но в целом выбранный вами путь будет сильно влиять на ваш игровой стиль.
 
-  ## Transmutation is Key
-  Eventually, you'll need to start using proper magics. To draw a transmutation rune, you'll need a writing tool, such as a pen or crayon.
-  Activate [color=green]Mansus Grasp[/color] in your offhand and click on the floor to start drawing a rune.
-  These runes are highly noticeable and take up a 3x3 area.
-  You can freely remove runes by using your pen with the activated [color=green]Mansus Grasp[/color] on it, and you can also freely use other Heretic's runes.
+  ## Трансмутация - это ключ
+  Со временем вам понадобится начать использовать соответствующие магические способности. Чтобы нарисовать руну трансмутации, вам понадобится пишущий инструмент, например ручка или карандаш.
+  Активируйте [color=green]Mansus Grasp[/color] в свободной руке и нажмите на пол, чтобы начать рисовать руну.
+  Эти руны очень заметны и занимают площадь 3x3.
+  Вы можете свободно удалять руны, используя перо с активированной [color=green]Mansus Grasp[/color] на нем, а также свободно использовать руны других Еретиков.
 
-  To [bold]transmute[/bold], simply click the rune with your empty hand to choose the needed ritual, after that use your [color=green]Mansus Grasp[/color] on the rune to see what objects you require for the ritual.
-  You can always see your chosen ritual by [bold]inspecting[/bold] the rune.
+  Для [bold]трансмутации[/bold] просто нажмите на руну пустой рукой, чтобы выбрать нужный ритуал, после чего используйте [color=green]Mansus Grasp[/color] на руне, чтобы увидеть, какие предметы вам нужны для ритуала.
+  Вы всегда можете увидеть выбранный вами ритуал, если [bold]осмотрите[/bold] руну.
 
-  Transmutation Rituals allow you to create powerful artifacts, demonic monsters, and many useful tools that will help you progress towards ultimate power.
+  Ритуалы трансмутации позволяют создавать могущественные артефакты, демонических монстров и множество полезных инструментов, которые помогут вам продвинуться к высшему могуществу.
 
-  ## Focus is Necessary
-  To cast more advanced spells, you must focus by wearing an [color=orange]Amber Focus[/color].
-  You can acquire Ambes Focus using the eponymous ritual.
-  Some more powerful heretical equipment also functions as a focus - namely, the Ominous Armor from the Armorer's Ritual (when the hood is flipped up).
-  [color=yellow]Ascension[/color] disables the need for a focus.
+  ## Необходимо сосредоточиться
+  Чтобы произносить более сложные заклинания, вам необходимо сосредоточиться, надев [color=orange]Янтарный фокус[/color].
+  Вы можете получить Янтарный фокус с помощью одноименного ритуала.
+  Некоторые более мощные еретические предметы экипировки также работают как фокус - например, Зловещие доспехи из ритуала оружейника (когда капюшон откинут).
+  [color=yellow]Вознесение[/color] отменяет необходимость в фокусе.
 
-  ## Starting Knowledge
-  - \[ [color=red]Mansus Grasp[/color] \] - A short range spell that channels eldritch power straight to your palm. Upon contact, knocks down and confuses unsuspecting targets.
-  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Allows you to sacrifice targets who are in critical or worse condition to the Mansus, gibbing them and rewarding you with one knowledge point; two if your victim was a head of staff.
-  - \[ [color=red]Amber Focus[/color] \] - Allows you to transmute a sheet of glass and a pair of eyes into an Amber Focus. This is a small neck-worn item that allows you to cast advanced spells while worn.
-  - \[ [color=red]Living Heart[/color] \] - Allows you to pinpoint your targets. Plays an audible heartbeat sound, so use it carefully.
-  - \[ [color=red]Relentless Heartbeat[/color] \] - Allows you to reroll your target selection, in case you've run out of bodies or want a different approach.
-  - \[ [color=red]Codex Cicatrix[/color] \] - Allows you to cast advanced spells while open in hands, and drain more knowledge points from influences. If you lost your codex you can make a new one at the rune.
+  ## Начальные знания
+  - \[ [color=red]Mansus Grasp[/color]\] - Заклинание малой дальности, которое направляет эльдрическую силу прямо в вашу ладонь. При контакте с ней сбивает с ног и сбивает с толку ничего не подозревающие цели.
+  - \[ [color=red]Heartbeat of the Mansus[/color] \] - Позволяет принести в жертву Мансусу цели, находящиеся в критическом или худшем состоянии, при этом вы получаете одно очко знаний, а если жертвой стал глава администрации - два.
+  - \[ [color=red]Янтарный фокус[/color] \] - Позволяет трансмутировать лист стекла и пару глаз в Янтарный фокус. Это небольшой предмет для ношения на шее, который позволяет вам произносить продвинутые заклинания во время ношения.
+  - \[ [color=red]Живое сердце[/color]\] - Позволяет точно определять цели. Проигрывает звуки сердцебиения, поэтому используйте его осторожно.
+  - \[ [color=red]Relentless Heartbeat[/color] \] - Позволяет повторить выбор цели, если у вас закончились тела или вы хотите использовать другой подход.
+  - \[ [color=red]Codex Cicatrix[/color]\] - Позволяет произносить продвинутые заклинания с открытыми руками и отнимать больше очков знаний у влияний. Если вы потеряли свой кодекс, вы можете изготовить новый в руне.
 
-  ## Tips
-  - On Ashen Path, always carry a fire extinguisher or a bottle of water with you! While you can spew out fireballs, you are not immune to them until you ascend!
-  - As a [color=purple]Ghoul[/color], your [color=green]Mansus Link[/color] ability is extremely useful for communication. When you use it on someone, they gain a radio channel similar to changelings with :z key to talk privately.
-  - Unlike most other solo antagonists, Heretics start weak but grow stronger over time. It would be best not to attract too much attention to yourself until you unlock more powerful spells and equipment.
-  - Your Mansus Grasp will temporarily garble the speech of people who you use it on. This can let you get away with murder while comms are online, but be careful - it's not foolproof.
-  - [color=purple]Influences[/color] can spawn in almost any location on the station, ranging from the main hallways and public restrooms to [color=cyan]Command staff offices[/color] and [color=red]restricted security areas[/color] in the Brig. It's best to check every area you can access, public and department.
-  - By default, nothing on you is incriminating. If security suspects you, but can't actually pin anything heretical on you, you might be able to pass off as a Traitor instead.
-  - Monkeys and other animals make for great, usually non-suspicious sources of organs or corpses for your heretical rituals.
-  - Most summoned ghouls will drop the components used to create them on death. While having them to die is not ideal, you can easily grab the parts and summon another.
-  - [color=yellow]Eldritch Flask[/color], a stage 3 side path knowledge acts like a cryostasis beaker and has a total capacity of 100 units, meaning you can create deadly mixes that are easily triggered.
+  ## Советы
+  - На Пепельной тропе всегда носите с собой огнетушитель или бутылку с водой! Хотя вы можете извергать огненные шары, у вас нет иммунитета к ним, пока вы не вознесетесь!
+  - Ваша способность [color=purple]Ghoul[/color] [color=green]Mansus Link[/color] чрезвычайно полезна для общения. Когда вы используете ее на ком-то, он получает радиоканал, подобно чейнджлингам с клавишей :z, чтобы поговорить наедине.
+  - В отличие от большинства других одиночных антагонистов, Еретики начинают слабо, но со временем становятся сильнее. Лучше не привлекать к себе слишком много внимания, пока вы не откроете более мощные заклинания и снаряжение.
+  - Ваше заклинание Mansus Grasp временно искажает речь людей, на которых вы его используете. Это может позволить вам избежать наказания за убийство, пока связь находится в режиме онлайн, но будьте осторожны - это не защита от дурака.
+  - [color=purple]Влияния[/color] могут появиться практически в любом месте станции - от главных коридоров и общественных туалетов до [color=cyan]офисов командного состава[/color] и [color=red]закрытых зон безопасности[/color] на Бриге. Лучше всего проверить все доступные вам места, общественные и служебные.
+  - По умолчанию на вас нет ничего уличающего. Если охрана подозревает вас, но на самом деле не может повесить на вас ничего еретического, вы можете выдать себя за Предателя.
+  - Обезьяны и другие животные - отличные, обычно не вызывающие подозрений источники органов или трупов для ваших еретических ритуалов.
+  - Большинство призванных упырей при смерти выбрасывают компоненты, использованные для их создания. Хотя их смерть не идеальна, вы можете легко забрать части и призвать другого.
+  - [color=yellow]Eldritch Flask[/color], побочное знание 3-й ступени, действует как криостазная мензурка и имеет общую емкость 100 единиц, что означает, что вы можете создавать смертоносные смеси, которые легко вызвать.
 </Document>
