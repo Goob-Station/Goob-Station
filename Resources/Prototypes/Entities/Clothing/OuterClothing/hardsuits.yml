@@ -266,8 +266,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.5
-        Slash: 0.6
+        Blunt: 0.4
+        Slash: 0.4
         Piercing: 0.6
         Caustic: 0.7
         Heat: 0.7 # Goobstation
