@@ -14,17 +14,20 @@ using Content.Shared.Clothing.Components;
 using Content.Shared.Clumsy;
 using Content.Shared.Cluwne;
 using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
 using Content.Shared.Mind;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
@@ -85,6 +88,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
+    [Dependency] private   readonly ExamineSystemShared _examine = default!;
 
     #endregion
 
@@ -209,7 +213,8 @@ public abstract class SharedSpellsSystem : EntitySystem
                 ev.Performer,
                 mapCoords,
                 velocity,
-                ev.ProjectileSpeed);
+                ev.ProjectileSpeed,
+                false);
         }
 
         if (!hasTargets)
@@ -494,6 +499,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        if (!_examine.InRangeUnOccluded(ev.Performer, ev.Target, SharedInteractionSystem.MaxRaycastRange))
+        {
+            Popup(ev.Performer, "spell-fail-lightning-bolt");
+            return;
+        }
+
         _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
 
         _magic.Speak(ev);
@@ -505,17 +516,22 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        if (!ValidateLockOnAction(ev))
+            return;
+
         if (_net.IsServer)
         {
             var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
             SpawnHomingProjectile(ev.Proto,
                 spawnCoords,
-                ev.Target,
+                ev.Entity,
                 ev.Performer,
                 mapCoords,
                 velocity,
-                ev.ProjectileSpeed);
+                ev.ProjectileSpeed,
+                true,
+                ev.Coords == null ? null : TransformSystem.ToMapCoordinates(ev.Coords.Value));
         }
 
         _magic.Speak(ev);
@@ -527,7 +543,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (ev.Entity == null && ev.Coords == null)
+        if (!ValidateLockOnAction(ev))
             return;
 
         if (!TryComp(ev.Action.Owner, out SpellCardsActionComponent? spellCardsAction))
@@ -556,6 +572,20 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     #region Helpers
 
+    private bool ValidateLockOnAction(EntityWorldTargetActionEvent ev)
+    {
+        if (ev.Coords == null)
+            return false;
+
+        if (!TryComp(ev.Action.Owner, out LockOnMarkActionComponent? lockOnMark))
+            return false;
+
+        if (!TryComp(ev.Entity, out TransformComponent? xform))
+            return true;
+
+        return TransformSystem.InRange(ev.Coords.Value, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
+    }
+
     private void Popup(EntityUid uid, string message)
     {
         _popup.PopupClient(Loc.GetString(message), uid, uid);
@@ -568,25 +598,40 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     private void SpawnHomingProjectile(EntProtoId proto,
         EntityCoordinates coords,
-        EntityUid target,
+        EntityUid? target,
         EntityUid user,
         MapCoordinates mapCoords,
         Vector2 velocity,
-        float speed)
+        float speed,
+        bool checkMobState,
+        MapCoordinates? toCoords = null)
     {
+        if (target == null && toCoords == null)
+            return;
+
+        var targetPos = toCoords != null
+            ? toCoords.Value.Position
+            : TransformSystem.GetMapCoordinates(target!.Value).Position;
+
+        var direction = targetPos - mapCoords.Position;
+        if (direction == Vector2.Zero)
+            return;
+
         var projectile = Spawn(proto, coords);
+
+        _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
+
+        if (target == null || target == user || checkMobState && !HasComp<MobStateComponent>(target))
+            return;
+
+        _gunSystem.SetTarget(projectile, target, out var targeted, false);
 
         var homing = EnsureComp<HomingProjectileComponent>(projectile);
         homing.Target = target;
 
-        _gunSystem.SetTarget(projectile, target, out var targeted, false);
-
         Entity<HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
 
         Dirty(ent);
-
-        var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
-        _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
     }
 
     protected (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)

@@ -84,7 +84,6 @@
         - Impassable
         - BulletImpassable
   - type: HomingProjectile
-    homingSpeed: 270
   - type: KnockdownOnCollide
     behavior: DropIfStanding
 

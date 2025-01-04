@@ -342,7 +342,7 @@
   name: Homing Toolbox
   description: Fires a magical homing toolbox at your opponent.
   components:
-  - type: EntityTargetAction
+  - type: EntityWorldTargetAction
     checkCanAccess: false
     raiseOnUser: true
     useDelay: 4
@@ -362,6 +362,7 @@
       speech: action-speech-spell-homing-toolbox
   - type: Magic
     requiresSpeech: true
+  - type: LockOnMarkAction
 
 - type: entity
   id: ActionSpellCards
@@ -390,3 +391,4 @@
   - type: Magic
     requiresSpeech: true
   - type: SpellCardsAction
+  - type: LockOnMarkAction

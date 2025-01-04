@@ -266,6 +266,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
 
         var mapDirection = targetMap.Position - mapCoords.Position;
+        if (mapDirection == Vector2.Zero)
+            return;
         var mapAngle = mapDirection.ToAngle();
 
         var angles = _gun.LinearSpread(mapAngle - ev.Spread / 2, mapAngle + ev.Spread / 2, ev.ProjectilesAmount);

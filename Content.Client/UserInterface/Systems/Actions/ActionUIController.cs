@@ -298,7 +298,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var coords = args.Coordinates;
 
         // Goobstation start
-        if (_entMan.HasComponent<SpellCardsActionComponent>(actionId) && _mark != null && _entMan.EntityExists(_mark.Target))
+        if (_entMan.HasComponent<LockOnMarkActionComponent>(actionId) && _mark != null &&
+            _entMan.EntityExists(_mark.Target))
             entity = _mark.Target.Value;
         // Goobstation end
 
@@ -984,7 +985,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (_mark == null)
             return;
 
-        if (!_entMan.TryGetComponent(SelectingTargetFor, out SpellCardsActionComponent? spellCards))
+        if (!_entMan.TryGetComponent(SelectingTargetFor, out LockOnMarkActionComponent? lockOnMark))
         {
             _mark.SetMark(null);
             return;
@@ -993,7 +994,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         var coords = _eye.PixelToMap(_input.MouseScreenPosition);
 
         var targets =
-            _lookup.GetEntitiesInRange<MobStateComponent>(coords, spellCards.LockOnRadius, LookupFlags.Dynamic);
+            _lookup.GetEntitiesInRange<MobStateComponent>(coords, lockOnMark.LockOnRadius, LookupFlags.Dynamic);
         var xformQuery = _entMan.GetEntityQuery<TransformComponent>();
         List<(float range, EntityUid target)> selectedTargets = new();
         foreach (var (target, _) in targets)

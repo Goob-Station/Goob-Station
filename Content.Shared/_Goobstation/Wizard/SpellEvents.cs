@@ -276,7 +276,7 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeak
     public EntProtoId Proto = "ChargedLightning";
 }
 
-public sealed partial class HomingToolboxEvent : EntityTargetActionEvent, ISpeakSpell
+public sealed partial class HomingToolboxEvent : EntityWorldTargetActionEvent, ISpeakSpell
 {
     [DataField]
     public string? Speech { get; private set; }

@@ -5,9 +5,6 @@ namespace Content.Shared._Goobstation.Wizard.SpellCards;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpellCardsActionComponent : Component
 {
-    [DataField]
-    public float LockOnRadius = 3f;
-
     /// <summary>
     /// How many times the spell can be casted without cooldown resetting
     /// </summary>
