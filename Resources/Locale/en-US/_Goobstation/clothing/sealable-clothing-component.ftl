@@ -3,14 +3,14 @@ sealable-clothing-equipment-seal-failed = Sealing failed!
 sealable-clothing-seal-verb = Toggle seals
 
 sealable-clothing-seal-up = The {$partName} is sealing
-sealable-clothing-seal-up-helmet =  The {$partName} hisses as it closed
+sealable-clothing-seal-up-helmet =  The {$partName} hisses as it closes
 sealable-clothing-seal-up-gauntlets = The {$partName} tighten around your fingers and wrists
 sealable-clothing-seal-up-chestplate = The {$partName} clenches tightly around your chest
 sealable-clothing-seal-up-boots = The {$partName} seal around your feet
 
 sealable-clothing-seal-down = The {$partName} is unsealing
 sealable-clothing-seal-down-helmet = The {$partName} hisses open
-sealable-clothing-seal-down-gauntlets = The {$partName} become loose around your finger
+sealable-clothing-seal-down-gauntlets = The {$partName} become loose around your fingers
 sealable-clothing-seal-down-chestplate = The {$partName} releases your chest
 sealable-clothing-seal-down-boots= The {$partName} relax their grip on your legs
 
