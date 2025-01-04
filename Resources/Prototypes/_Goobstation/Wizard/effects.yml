@@ -1,0 +1,91 @@
+- type: entity
+  id: EffectRepulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.6
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: shieldsparkles
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: EffectElectricity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        map: ["enum.EffectLayers.Unshaded"]
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: electricity
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: Chronofield
+  name: chronofield
+  description: ZA WARUDO!
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    color: "#FFFFFF80"
+    drawdepth: FloorEffects
+    offset: 0, 0.5
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects160x160.rsi
+        state: time
+  - type: AnimationPlayer
+  - type: FreezeContacts
+  - type: GravPulseOnMapInit # This is required to trigger physics collision
+    maxRange: 2
+    baseRadialAcceleration: 0.01
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        hard: false
+        layer:
+        - Opaque
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        - BulletImpassable
+        - BlobImpassable
+
+- type: entity
+  id: ActionTargetMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+      - sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: marker
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Transform

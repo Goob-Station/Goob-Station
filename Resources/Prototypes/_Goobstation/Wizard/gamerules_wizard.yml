@@ -1,0 +1,103 @@
+- type: entity
+  abstract: true
+  parent: BaseGameRule
+  id: BaseWizardRule
+  components:
+  - type: WizardRule
+  - type: GameRule
+    minPlayers: 20
+  - type: AntagObjectives
+    objectives:
+    - WizardSurviveObjective
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    agentName: wizard-roundend-name
+    definitions:
+    - spawnerPrototype: SpawnPointWizard
+      prefRoles: [ Wizard ]
+      playerRatio: 20
+      min: 1
+      max: 1
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - wizard_first
+        - wizard_last
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    speciesOverrideBlacklist:
+    - Yowie # Can't wear robes, still should be possible to select them in magic mirror
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # temp
+
+- type: entity
+  parent: BaseWizardRule
+  id: Wizard
+
+- type: entity
+  parent: BaseWizardRule
+  id: WizardDynamic
+  components:
+  - type: DynamicRuleset
+    nameLoc: dynamic-gamerule-wizard-title
+    weight: 3
+    cost: 20
+    highImpact: true
+
+- type: entity
+  parent: WizardDynamic
+  id: WizardDynamicMidround
+  components:
+  - type: StationEvent
+    earliestStart: 35
+    weight: 5.5
+    minimumPlayers: 20
+    duration: 1
+  - type: AntagSelection
+    selectionTime: PostPlayerSpawn
+    definitions:
+    - spawnerPrototype: SpawnPointWizard
+      playerRatio: 20
+      min: 1
+      max: 1
+      pickPlayer: false
+      mindRoles:
+      - MindRoleWizard
+      startingGear: WizardGear
+      unequipOldGear: true
+      roleLoadout:
+      - RoleSurvivalEVA
+      components:
+      - type: Wizard
+      - type: RandomMetadata
+        nameSegments:
+        - wizard_first
+        - wizard_last
+      - type: NpcFactionMember
+        factions:
+        - Wizard
+
+- type: gamePreset
+  id: Wizard
+  alias:
+    - wiz
+  name: wizard-title
+  description: wizard-description
+  showInVote: false
+  rules:
+    - Wizard
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation

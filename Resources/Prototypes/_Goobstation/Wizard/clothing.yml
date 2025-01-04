@@ -1,0 +1,21 @@
+- type: entity
+  parent: ClothingHeadHatWizardBase
+  id: ClothingHeadHatBlackwizard
+  name: black wizard hat
+  description: Strange-looking black hat-wear that most certainly belongs to a real lich.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Head/blackwizard.rsi
+
+- type: entity
+  parent: ClothingOuterWizardBase
+  id: ClothingOuterWizardBlack
+  name: black wizard robes
+  description: An unnerving black gem-lined robe that reeks of death and decay.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/OuterClothing/blackwizard.rsi

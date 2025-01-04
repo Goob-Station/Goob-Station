@@ -21,6 +21,15 @@ public sealed class BeamSystem : SharedBeamSystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
+    public static ushort NextIndex; // Goobstation
+
+    public override void Shutdown() // Goobstation
+    {
+        base.Shutdown();
+
+        NextIndex = 0; // Goobstation
+    }
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +38,8 @@ public sealed class BeamSystem : SharedBeamSystem
         SubscribeLocalEvent<BeamComponent, BeamControllerCreatedEvent>(OnControllerCreated);
         SubscribeLocalEvent<BeamComponent, BeamFiredEvent>(OnBeamFired);
         SubscribeLocalEvent<BeamComponent, ComponentRemove>(OnRemove);
+
+        NextIndex = 0; // Goobstation
     }
 
     private void OnBeamCreationSuccess(EntityUid uid, BeamComponent component, CreateBeamSuccessEvent args)
@@ -66,6 +77,7 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="controller"> The virtual beam controller that this beam will use. If one doesn't exist it will be created here.</param>
     /// <param name="bodyState">Optional sprite state for the <see cref="prototype"/> if it needs a dynamic one</param>
     /// <param name="shader">Optional shader for the <see cref="prototype"/> and <see cref="bodyState"/> if it needs something other than default</param>
+    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
     private void CreateBeam(string prototype,
         Angle userAngle,
         Vector2 calculatedDistance,
@@ -73,7 +85,8 @@ public sealed class BeamSystem : SharedBeamSystem
         Vector2 distanceCorrection,
         EntityUid? controller,
         string? bodyState = null,
-        string shader = "unshaded")
+        string shader = "unshaded",
+        Action<EntityUid>? beamAction = null) // Goob edit
     {
         var beamSpawnPos = beamStartPos;
         var ent = Spawn(prototype, beamSpawnPos);
@@ -81,6 +94,9 @@ public sealed class BeamSystem : SharedBeamSystem
 
         if (!TryComp<PhysicsComponent>(ent, out var physics) || !TryComp<BeamComponent>(ent, out var beam))
             return;
+
+        beamAction?.Invoke(ent); // Goobstation
+        beam.BeamIndex = NextIndex; // Goobstation
 
         FixturesComponent? manager = null;
         _fixture.TryCreateFixture(
@@ -122,6 +138,9 @@ public sealed class BeamSystem : SharedBeamSystem
             beamSpawnPos = beamSpawnPos.Offset(calculatedDistance.Normalized());
             var newEnt = Spawn(prototype, beamSpawnPos);
 
+            beamAction?.Invoke(newEnt); // Goobstation
+            Comp<BeamComponent>(newEnt).BeamIndex = NextIndex; // Goobstation
+
             var ev = new BeamVisualizerEvent(GetNetEntity(newEnt), distanceLength, userAngle, bodyState, shader);
             RaiseNetworkEvent(ev);
         }
@@ -140,7 +159,9 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="bodyState">Optional sprite state for the <see cref="bodyPrototype"/> if a default one is not given</param>
     /// <param name="shader">Optional shader for the <see cref="bodyPrototype"/> if a default one is not given</param>
     /// <param name="controller"></param>
-    public void TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null)
+    /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
+    /// <param name="accumulateIndex">Goobstation. Whether to accumulate NextIndex.</param>
+    public void TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goob edit
     {
         if (Deleted(user) || Deleted(target))
             return;
@@ -170,7 +191,10 @@ public sealed class BeamSystem : SharedBeamSystem
 
         var distanceCorrection = calculatedDistance - calculatedDistance.Normalized();
 
-        CreateBeam(bodyPrototype, userAngle, calculatedDistance, beamStartPos, distanceCorrection, controller, bodyState, shader);
+        CreateBeam(bodyPrototype, userAngle, calculatedDistance, beamStartPos, distanceCorrection, controller, bodyState, shader, beamAction);
+
+        if (accumulateIndex) // Goobstation
+            NextIndex++;
 
         var ev = new CreateBeamSuccessEvent(user, target);
         RaiseLocalEvent(user, ev);

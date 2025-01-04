@@ -1,0 +1,685 @@
+using System.Numerics;
+using Content.Shared._EinsteinEngines.Silicon.Components;
+using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Mutate;
+using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goobstation.Wizard.TeslaBlast;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Access.Components;
+using Content.Shared.Actions;
+using Content.Shared.Body.Part;
+using Content.Shared.Body.Systems;
+using Content.Shared.Clothing.Components;
+using Content.Shared.Clumsy;
+using Content.Shared.Cluwne;
+using Content.Shared.Damage;
+using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.Ghost;
+using Content.Shared.Gibbing.Events;
+using Content.Shared.Hands.Components;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Interaction.Components;
+using Content.Shared.Inventory;
+using Content.Shared.Item;
+using Content.Shared.Jittering;
+using Content.Shared.Magic;
+using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Systems;
+using Content.Shared.PDA;
+using Content.Shared.Physics;
+using Content.Shared.Popups;
+using Content.Shared.Roles;
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Speech.Components;
+using Content.Shared.Speech.EntitySystems;
+using Content.Shared.Speech.Muting;
+using Content.Shared.StatusEffect;
+using Content.Shared.Stunnable;
+using Content.Shared.Weapons.Ranged.Components;
+using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Whitelist;
+using Robust.Shared.Containers;
+using Robust.Shared.Map;
+using Robust.Shared.Network;
+using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
+
+namespace Content.Shared._Goobstation.Wizard;
+
+public abstract class SharedSpellsSystem : EntitySystem
+{
+    #region Dependencies
+
+    [Dependency] protected readonly IRobustRandom Random = default!;
+    [Dependency] protected readonly IMapManager MapManager = default!;
+    [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
+    [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
+    [Dependency] protected readonly EntityLookupSystem Lookup = default!;
+    [Dependency] protected readonly SharedMapSystem Map = default!;
+    [Dependency] protected readonly SharedStunSystem Stun = default!;
+    [Dependency] protected readonly SharedPhysicsSystem Physics = default!;
+    [Dependency] protected readonly SharedMindSystem Mind = default!;
+    [Dependency] protected readonly SharedContainerSystem Container = default!;
+    [Dependency] protected readonly SharedHandsSystem Hands = default!;
+    [Dependency] protected readonly MetaDataSystem Meta = default!;
+    [Dependency] protected readonly SharedBodySystem Body = default!;
+    [Dependency] protected readonly NpcFactionSystem Faction = default!;
+    [Dependency] protected readonly SharedRoleSystem Role = default!;
+    [Dependency] private   readonly INetManager _net = default!;
+    [Dependency] private   readonly IGameTiming _timing = default!;
+    [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private   readonly InventorySystem _inventory = default!;
+    [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
+    [Dependency] private   readonly SharedStutteringSystem _stutter = default!;
+    [Dependency] private   readonly SharedMagicSystem _magic = default!;
+    [Dependency] private   readonly SharedPopupSystem _popup = default!;
+    [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
+    [Dependency] private   readonly DamageableSystem _damageable = default!;
+    [Dependency] private   readonly MobStateSystem _mobState = default!;
+    [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
+    [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
+    [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
+    [Dependency] private   readonly SharedActionsSystem _actions = default!;
+
+    #endregion
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<CluwneCurseEvent>(OnCluwneCurse);
+        SubscribeLocalEvent<BananaTouchEvent>(OnBananaTouch);
+        SubscribeLocalEvent<MimeMalaiseEvent>(OnMimeMalaise);
+        SubscribeLocalEvent<MagicMissileEvent>(OnMagicMissile);
+        SubscribeLocalEvent<DisableTechEvent>(OnDisableTech);
+        SubscribeLocalEvent<SmokeSpellEvent>(OnSmoke);
+        SubscribeLocalEvent<RepulseEvent>(OnRepulse);
+        SubscribeLocalEvent<StopTimeEvent>(OnStopTime);
+        SubscribeLocalEvent<CorpseExplosionEvent>(OnCorpseExplosion);
+        SubscribeLocalEvent<BlindSpellEvent>(OnBlind);
+        SubscribeLocalEvent<BindSoulEvent>(OnBindSoul);
+        SubscribeLocalEvent<PolymorphSpellEvent>(OnPolymorph);
+        SubscribeLocalEvent<MutateSpellEvent>(OnMutate);
+        SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
+        SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
+        SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
+        SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
+    }
+
+    #region Spells
+
+    private void OnCluwneCurse(CluwneCurseEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (TryComp(ev.Target, out StatusEffectsComponent? status))
+        {
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        }
+
+        EnsureComp<CluwneComponent>(ev.Target);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnBananaTouch(BananaTouchEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (TryComp(ev.Target, out StatusEffectsComponent? status))
+        {
+            Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
+            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+        }
+
+        var targetWizard = HasComp<WizardComponent>(ev.Target);
+
+        if (!targetWizard)
+            EnsureComp<ClumsyComponent>(ev.Target);
+
+        SetGear(ev.Target, ev.Gear, !targetWizard);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnMimeMalaise(MimeMalaiseEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
+            return;
+
+        Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
+
+        var targetWizard = HasComp<WizardComponent>(ev.Target);
+
+        SetGear(ev.Target, ev.Gear, !targetWizard);
+
+        if (!targetWizard)
+            MakeMime(ev.Target);
+        else
+            _statusEffects.TryAddStatusEffect<MutedComponent>(ev.Target, "Muted", ev.WizardMuteDuration, true, status);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnMagicMissile(MagicMissileEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        var ghostQuery = GetEntityQuery<GhostComponent>();
+        var spectralQuery = GetEntityQuery<SpectralComponent>();
+
+        var (coords, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
+
+        var targets = Lookup.GetEntitiesInRange<StatusEffectsComponent>(coords, ev.Range, LookupFlags.Dynamic);
+        var hasTargets = false;
+
+        foreach (var (target, _) in targets)
+        {
+            if (target == ev.Performer)
+                continue;
+
+            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target))
+                continue;
+
+            hasTargets = true;
+
+            if (_net.IsClient)
+                break;
+
+            SpawnHomingProjectile(ev.Proto,
+                spawnCoords,
+                target,
+                ev.Performer,
+                mapCoords,
+                velocity,
+                ev.ProjectileSpeed);
+        }
+
+        if (!hasTargets)
+        {
+            Popup(ev.Performer, "spell-fail-no-targets");
+            return;
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnDisableTech(DisableTechEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Emp(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnSmoke(SmokeSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        SpawnSmoke(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnRepulse(RepulseEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Repulse(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnStopTime(StopTimeEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (_net.IsServer)
+        {
+            var effect = Spawn(ev.Proto, TransformSystem.GetMapCoordinates(ev.Performer));
+            EnsureComp<PreventCollideComponent>(effect).Uid = ev.Performer; // Just in case
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnCorpseExplosion(CorpseExplosionEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<BorgChassisComponent>(ev.Target))
+        {
+            Popup(ev.Performer, "spell-fail-borg");
+            return;
+        }
+
+        if (!_mobState.IsDead(ev.Target))
+        {
+            Popup(ev.Performer, "spell-fail-not-dead");
+            return;
+        }
+
+        var coords = TransformSystem.GetMapCoordinates(ev.Target);
+
+        if (_timing.IsFirstTimePredicted)
+            Body.GibBody(ev.Target, contents: GibContentsOption.Gib);
+
+        ExplodeCorpse(ev);
+
+        var targets = Lookup.GetEntitiesInRange<DamageableComponent>(coords, ev.KnockdownRange);
+        var ghostQuery = GetEntityQuery<GhostComponent>();
+        var spectralQuery = GetEntityQuery<SpectralComponent>();
+        var statusQuery = GetEntityQuery<StatusEffectsComponent>();
+        var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
+        foreach (var (target, damageable) in targets)
+        {
+            if (target == ev.Performer || target == ev.Target)
+                continue;
+
+            if (ghostQuery.HasComp(target) || spectralQuery.HasComp(target) || bodyPartQuery.HasComp(target))
+                continue;
+
+            var range = (TransformSystem.GetMapCoordinates(target).Position - coords.Position).Length();
+
+            range = MathF.Max(1f, range);
+
+            _damageable.TryChangeDamage(target,
+                ev.Damage / range,
+                damageable: damageable,
+                origin: ev.Performer,
+                targetPart: TargetBodyPart.All);
+
+            if (!statusQuery.TryComp(target, out var status))
+                continue;
+
+            if (HasComp<SiliconComponent>(target) || HasComp<BorgChassisComponent>(target))
+                Stun.TryParalyze(target, ev.SiliconStunTime / range, true, status);
+            else
+                Stun.TryKnockdown(target, ev.KnockdownTime / range, true, status);
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnBlind(BlindSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<GhostComponent>(ev.Target) || HasComp<SpectralComponent>(ev.Target))
+            return;
+
+        if (!TryComp(ev.Target, out StatusEffectsComponent? status))
+            return;
+
+        _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(ev.Target,
+            "TemporaryBlindness",
+            ev.BlindDuration,
+            true,
+            status);
+
+        _statusEffects.TryAddStatusEffect<BlurryVisionComponent>(ev.Target,
+            "BlurryVision",
+            ev.BlurDuration,
+            true,
+            status);
+
+        if (_net.IsServer)
+        {
+            if (TryComp(ev.Target, out VocalComponent? vocal) && !HasComp<BorgChassisComponent>(ev.Target))
+                Emote(ev.Target, vocal.ScreamId);
+
+            if (ev.Effect != null)
+                Spawn(ev.Effect.Value, Transform(ev.Target).Coordinates);
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnBindSoul(BindSoulEvent ev)
+    {
+        if (ev.Handled)
+            return;
+
+        if (_mobState.IsCritical(ev.Performer))
+            return;
+
+        if (!Mind.TryGetMind(ev.Performer, out var mind, out var mindComponent))
+            return;
+
+        TryComp<SoulBoundComponent>(mind, out var soulBound);
+
+        if (Mind.IsCharacterDeadIc(mindComponent))
+        {
+            if (soulBound == null)
+            {
+                Popup(ev.Performer, "spell-fail-soul-not-bound");
+                return;
+            }
+
+            if (!HasComp<PhylacteryComponent>(soulBound.Item))
+            {
+                Popup(ev.Performer, "spell-fail-item-destroyed");
+                return;
+            }
+
+            if (!TryComp(soulBound.Item, out TransformComponent? xform) || xform.MapUid == null ||
+                xform.MapUid != soulBound.MapId)
+            {
+                Popup(ev.Performer, "spell-fail-item-on-another-plane");
+                return;
+            }
+
+            _bindSoul.Resurrect(mind, soulBound.Item.Value, mindComponent, soulBound);
+            ev.Handled = true;
+            return;
+        }
+
+        if (HasComp<GhostComponent>(ev.Performer))
+            return;
+
+        if (soulBound != null)
+        {
+            Popup(ev.Performer, "spell-fail-no-soul");
+            return;
+        }
+
+        if (!_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
+        {
+            Popup(ev.Performer, "spell-fail-bind-soul-silicon");
+            return;
+        }
+
+        if (!TryComp(ev.Performer, out HandsComponent? hands) || hands.ActiveHandEntity == null)
+        {
+            Popup(ev.Performer, "spell-fail-no-held-entity");
+            return;
+        }
+
+        var item = hands.ActiveHandEntity.Value;
+
+        if (HasComp<UnremoveableComponent>(item) || !HasComp<ItemComponent>(item))
+        {
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-unremoveable", ("item", item)));
+            return;
+        }
+
+        if (_whitelist.IsValid(ev.Blacklist, item))
+        {
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-soul-item-not-suitable", ("item", item)));
+            return;
+        }
+
+        BindSoul(ev, item, mind, mindComponent);
+        ev.Handled = true;
+    }
+
+    private void OnPolymorph(PolymorphSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        ev.Handled = Polymorph(ev);
+    }
+
+    private void OnMutate(MutateSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<SiliconComponent>(ev.Performer) || HasComp<BorgChassisComponent>(ev.Performer))
+        {
+            Popup(ev.Performer, "spell-fail-mutate-silicon");
+            return;
+        }
+
+        EnsureComp<HulkComponent>(ev.Performer).Duration = ev.Duration;
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnTeslaBlast(TeslaBlastEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (TryComp(ev.Performer, out CastingTeslaBlastComponent? casting))
+        {
+            _teslaBlast.CancelDoAfter(ev.Performer, casting);
+
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
+
+        _teslaBlast.StartCharging(ev);
+    }
+
+    private void OnLightningBolt(LightningBoltEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        _teslaBlast.ShootLightning(ev.Performer, ev.Target, ev.Proto, ev.Damage);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnHomingToolbox(HomingToolboxEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (_net.IsServer)
+        {
+            var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
+
+            SpawnHomingProjectile(ev.Proto,
+                spawnCoords,
+                ev.Target,
+                ev.Performer,
+                mapCoords,
+                velocity,
+                ev.ProjectileSpeed);
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnSpellCards(SpellCardsEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (ev.Entity == null && ev.Coords == null)
+            return;
+
+        if (!TryComp(ev.Action.Owner, out SpellCardsActionComponent? spellCardsAction))
+            return;
+
+        ShootSpellCards(ev, spellCardsAction.PurpleCard ? ev.PurpleProto : ev.RedProto);
+
+        spellCardsAction.PurpleCard = !spellCardsAction.PurpleCard;
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+        if (_net.IsClient)
+            return;
+        spellCardsAction.UsesLeft--;
+        if (spellCardsAction.UsesLeft > 0)
+            _actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
+        else
+        {
+            _actions.SetUseDelay(ev.Action, ev.UseDelay);
+            spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
+            RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
+        }
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private void Popup(EntityUid uid, string message)
+    {
+        _popup.PopupClient(Loc.GetString(message), uid, uid);
+    }
+
+    private void PopupLoc(EntityUid uid, string locMessage)
+    {
+        _popup.PopupClient(locMessage, uid, uid);
+    }
+
+    private void SpawnHomingProjectile(EntProtoId proto,
+        EntityCoordinates coords,
+        EntityUid target,
+        EntityUid user,
+        MapCoordinates mapCoords,
+        Vector2 velocity,
+        float speed)
+    {
+        var projectile = Spawn(proto, coords);
+
+        var homing = EnsureComp<HomingProjectileComponent>(projectile);
+        homing.Target = target;
+
+        _gunSystem.SetTarget(projectile, target, out var targeted, false);
+
+        Entity<HomingProjectileComponent, TargetedProjectileComponent> ent = (projectile, homing, targeted);
+
+        Dirty(ent);
+
+        var direction = TransformSystem.GetMapCoordinates(target).Position - mapCoords.Position;
+        _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
+    }
+
+    protected (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
+        GetProjectileData(EntityUid shooter)
+    {
+        var coords = Transform(shooter).Coordinates;
+        var mapCoords = TransformSystem.ToMapCoordinates(coords);
+
+        // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
+        var spawnCoords = MapManager.TryFindGridAt(mapCoords, out var gridUid, out _)
+            ? TransformSystem.WithEntityId(coords, gridUid)
+            : new(Map.GetMapOrInvalid(mapCoords.MapId), mapCoords.Position);
+
+        var velocity = Physics.GetMapLinearVelocity(spawnCoords);
+
+        return (coords, mapCoords, spawnCoords, velocity);
+    }
+
+    protected void SetGear(EntityUid uid,
+        Dictionary<string, EntProtoId> gear,
+        bool force = true,
+        bool makeUnremoveable = true)
+    {
+        if (_net.IsClient)
+            return;
+
+        if (!TryComp(uid, out InventoryComponent? inventoryComponent))
+            return;
+
+        foreach (var (slot, item) in gear)
+        {
+            _inventory.TryUnequip(uid, slot, true, force, false, inventoryComponent);
+
+            var ent = Spawn(item, Transform(uid).Coordinates);
+            if (!_inventory.TryEquip(uid, ent, slot, true, force, false, inventoryComponent))
+            {
+                Del(ent);
+                continue;
+            }
+
+            if (slot == "id" &&
+                TryComp(ent, out PdaComponent? pdaComponent) &&
+                TryComp<IdCardComponent>(pdaComponent.ContainedId, out var id))
+                id.FullName = MetaData(uid).EntityName;
+
+            if (makeUnremoveable && HasComp<ClothingComponent>(ent))
+                EnsureComp<UnremoveableComponent>(ent);
+        }
+    }
+
+    #endregion
+
+    #region ServerMethods
+
+    protected virtual void MakeMime(EntityUid uid)
+    {
+    }
+
+    protected virtual void Emp(DisableTechEvent ev)
+    {
+    }
+
+    protected virtual void SpawnSmoke(SmokeSpellEvent ev)
+    {
+    }
+
+    protected virtual void Repulse(RepulseEvent ev)
+    {
+    }
+
+    protected virtual void ExplodeCorpse(CorpseExplosionEvent ev)
+    {
+    }
+
+    protected virtual void Emote(EntityUid uid, string emoteId)
+    {
+    }
+
+    protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent)
+    {
+    }
+
+    protected virtual bool Polymorph(PolymorphSpellEvent ev)
+    {
+        return true;
+    }
+
+    protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
+    {
+    }
+
+    #endregion
+}
+
+[Serializable, NetSerializable]
+public sealed class StopTargetingEvent : EntityEventArgs;

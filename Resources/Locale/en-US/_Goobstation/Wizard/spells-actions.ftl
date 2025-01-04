@@ -1,0 +1,14 @@
+action-speech-spell-clown = NWOLC YRGNA
+action-speech-spell-cluwne = NWOLC EGNEVER
+action-speech-spell-magic-missile = FORTI GY AMA
+action-speech-spell-emp = NEC CANTIO
+action-speech-spell-repulse = GITTAH WEIGH
+action-speech-spell-stop-time = TOKI YO TOMARE
+action-speech-spell-corpse-explosion = JAH ITH BER
+action-speech-spell-blind = STI KALY
+action-speech-spell-bind-soul = NECREM IMORTIUM!
+action-speech-spell-mutate = BIRUZ BENNAR
+action-speech-spell-tesla-blast = UN'LTD P'WAH!
+action-speech-spell-lightning-bolt = P'WAH, UNLIM'TED P'WAH!
+action-speech-spell-homing-toolbox = ROBUSTIO!
+action-speech-spell-spell-cards = Sigi'lu M'Fan 'Tasia!

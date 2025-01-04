@@ -67,6 +67,15 @@
 - type: Tag
   id: NukeOpsReinforcementUplink
 
+- type: Tag
+  id: FrozenIgnoreMindAction
+
+- type: Tag
+  id: BindSoulAction
+
+- type: Tag
+  id: IgnoreBindSoul
+
 # Mechs
 
 - type: Tag

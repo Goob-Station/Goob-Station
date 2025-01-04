@@ -195,6 +195,13 @@ public partial struct AntagSelectionDefinition()
     /// </summary>
     [DataField]
     public bool RollBeforeJob = true;
+
+    /// <summary>
+    /// Goobstation
+    /// Unequip all gear before making antag
+    /// </summary>
+    [DataField]
+    public bool UnequipOldGear;
 }
 
 /// <summary>
