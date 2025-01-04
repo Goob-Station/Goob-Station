@@ -362,3 +362,31 @@
       speech: action-speech-spell-homing-toolbox
   - type: Magic
     requiresSpeech: true
+
+- type: entity
+  id: ActionSpellCards
+  name: Spell Cards
+  description: Fire up to five bursts of homing spell cards.
+  components:
+  - type: EntityWorldTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    repeat: true
+    useDelay: 0.5 # SpellCardsEvent handles use delay
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 100
+    sound:
+      path: /Audio/Magic/staff_healing.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: spellcard
+    event: !type:SpellCardsEvent
+      speech: action-speech-spell-spell-cards
+  - type: Magic
+    requiresSpeech: true
+  - type: SpellCardsAction

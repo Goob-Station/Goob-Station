@@ -79,3 +79,8 @@ spellbook-homing-toolbox-name = Homing Toolbox
 spellbook-homing-toolbox-desc =
     This spell summons and throws a magical homing toolbox at your opponent that knocks down on hit.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-spell-cards-name = Spell Cards
+spellbook-spell-cards-desc =
+    Blazing hot rapid-fire homing cards. Send your foes to the shadow realm with their mystical power!
+    Doesn't require wizard's robe and hat to cast.

@@ -11,3 +11,4 @@ action-speech-spell-mutate = BIRUZ BENNAR
 action-speech-spell-tesla-blast = UN'LTD P'WAH!
 action-speech-spell-lightning-bolt = P'WAH, UNLIM'TED P'WAH!
 action-speech-spell-homing-toolbox = ROBUSTIO!
+action-speech-spell-spell-cards = Sigi'lu M'Fan 'Tasia!

@@ -31,7 +31,8 @@
   - type: Trail
     frequency: 0.1
     lifetime: 0.8
-    lerpAmount: 0.05
+    colorLerpAmount: 0.05
+    shader: unshaded
     sprite:
       sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
@@ -68,7 +69,7 @@
   - type: Trail
     frequency: 0.02
     lifetime: 0.8
-    lerpAmount: 0.05
+    colorLerpAmount: 0.05
     sprite:
       sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
       state: icon
@@ -88,6 +89,78 @@
     behavior: DropIfStanding
 
 - type: entity
+  id: ProjectileSpellCardRed
+  parent: BaseBullet
+  name: enchanted card
+  description: A piece of paper enchanted to give it extreme durability and stiffness, along with a very hot burn to anyone unfortunate enough to get hit by a charged one.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/spellcard.rsi
+    layers:
+    - state: red
+      shader: unshaded
+      map: [ "base" ]
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    damage:
+      types:
+        Heat: 3
+  - type: Trail
+    color: "#FF0033"
+    lineThickness: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    colorLerpAmount: 0
+    thicknessLerpAmount: 0.03
+    shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: SpellCard
+    flippedTrailColor: "#AA00FF"
+  - type: HomingProjectile
+    homingSpeed: 450
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.SpellCardVisuals.State:
+        base:
+          0: { state: red }
+          1: { state: red_to_purple }
+          2: { state: purple }
+
+- type: entity
+  id: ProjectileSpellCardPurple
+  parent: ProjectileSpellCardRed
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    layers:
+    - state: purple
+      shader: unshaded
+      map: [ "base" ]
+  - type: Trail
+    color: "#AA00FF"
+  - type: SpellCard
+    flippedTrailColor: "#FF0033"
+  - type: GenericVisualizer
+    visuals:
+      enum.SpellCardVisuals.State:
+        base:
+          0: { state: purple }
+          1: { state: purple_to_red }
+          2: { state: red }
+
+- type: entity
   id: BindSoulParticle
   name: unholy energy
   categories: [ HideSpawnMenu ]
@@ -102,7 +175,8 @@
   - type: Trail
     frequency: 0.2
     lifetime: 2
-    lerpAmount: 0.02
+    colorLerpAmount: 0.02
+    shader: unshaded
     sprite:
       sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
       state: icon

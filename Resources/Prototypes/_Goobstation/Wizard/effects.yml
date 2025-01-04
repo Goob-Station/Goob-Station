@@ -74,3 +74,18 @@
         - LowImpassable
         - BulletImpassable
         - BlobImpassable
+
+- type: entity
+  id: ActionTargetMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+      - sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: marker
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Transform

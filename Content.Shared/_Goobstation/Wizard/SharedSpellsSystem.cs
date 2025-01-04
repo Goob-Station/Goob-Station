@@ -3,9 +3,11 @@ using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
+using Content.Shared.Actions;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
@@ -43,6 +45,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Serialization;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Wizard;
@@ -51,6 +55,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 {
     #region Dependencies
 
+    [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
     [Dependency] protected readonly SharedTransformSystem TransformSystem = default!;
@@ -79,6 +84,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
+    [Dependency] private   readonly SharedActionsSystem _actions = default!;
 
     #endregion
 
@@ -102,6 +108,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TeslaBlastEvent>(OnTeslaBlast);
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
+        SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
     }
 
     #region Spells
@@ -515,6 +522,36 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnSpellCards(SpellCardsEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (ev.Entity == null && ev.Coords == null)
+            return;
+
+        if (!TryComp(ev.Action.Owner, out SpellCardsActionComponent? spellCardsAction))
+            return;
+
+        ShootSpellCards(ev, spellCardsAction.PurpleCard ? ev.PurpleProto : ev.RedProto);
+
+        spellCardsAction.PurpleCard = !spellCardsAction.PurpleCard;
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+        if (_net.IsClient)
+            return;
+        spellCardsAction.UsesLeft--;
+        if (spellCardsAction.UsesLeft > 0)
+            _actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
+        else
+        {
+            _actions.SetUseDelay(ev.Action, ev.UseDelay);
+            spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
+            RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
+        }
+    }
+
     #endregion
 
     #region Helpers
@@ -552,7 +589,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         _gunSystem.ShootProjectile(projectile, direction, velocity, user, user, speed);
     }
 
-    private (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
+    protected (EntityCoordinates coords, MapCoordinates mapCoords, EntityCoordinates spawnCoords, Vector2 velocity)
         GetProjectileData(EntityUid shooter)
     {
         var coords = Transform(shooter).Coordinates;
@@ -637,5 +674,12 @@ public abstract class SharedSpellsSystem : EntitySystem
         return true;
     }
 
+    protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
+    {
+    }
+
     #endregion
 }
+
+[Serializable, NetSerializable]
+public sealed class StopTargetingEvent : EntityEventArgs;

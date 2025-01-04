@@ -6,7 +6,7 @@ namespace Content.Shared._Goobstation.Wizard.Projectiles;
 public sealed partial class HomingProjectileComponent : Component
 {
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public EntityUid Target;
+    public EntityUid? Target;
 
     [DataField, AutoNetworkedField]
     public float? HomingSpeed = 180f;

@@ -2,6 +2,7 @@ using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
 namespace Content.Client._Goobstation.Wizard;
@@ -9,14 +10,14 @@ namespace Content.Client._Goobstation.Wizard;
 public sealed class TrailSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _overlay.AddOverlay(new TrailOverlay(EntityManager));
+        _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan));
 
-        SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
     }
 
@@ -32,15 +33,17 @@ public sealed class TrailSystem : EntitySystem
         var trail = EnsureComp<TrailComponent>(remainingTrail);
         trail.Frequency = 0f;
         trail.Lifetime = comp.Lifetime;
-        trail.LerpAmount = comp.LerpAmount;
+        trail.ColorLerpAmount = comp.ColorLerpAmount;
+        trail.ThicknessLerpAmount = comp.ThicknessLerpAmount;
         trail.Sprite = comp.Sprite;
+        trail.Color = comp.Color;
+        trail.LineThickness = comp.LineThickness;
         trail.TrailData = comp.TrailData;
-        trail.TrailData.Sort((x, y) => y.Color.A.CompareTo(x.Color.A));
-    }
-
-    private void OnStartup(Entity<TrailComponent> ent, ref ComponentStartup args)
-    {
-        ent.Comp.Accumulator = ent.Comp.Frequency;
+        trail.Shader = comp.Shader;
+        if (comp.ColorLerpAmount > 0f)
+            trail.TrailData.Sort((x, y) => x.Color.A.CompareTo(y.Color.A));
+        else if (comp.ThicknessLerpAmount > 0f)
+            trail.TrailData.Sort((x, y) => x.Thickness.CompareTo(y.Thickness));
     }
 
     public override void Shutdown()
@@ -65,11 +68,14 @@ public sealed class TrailSystem : EntitySystem
             if (frozenQuery.HasComp(uid))
                 continue;
 
-            if (trail.LerpAmount > 0f)
+            if (trail.ColorLerpAmount > 0f || trail.ThicknessLerpAmount > 0f)
             {
                 foreach (var data in trail.TrailData)
                 {
-                    data.Color = data.Color.WithAlpha(float.Lerp(data.Color.A, 0f, trail.LerpAmount));
+                    if (trail.ColorLerpAmount > 0f)
+                        data.Color = data.Color.WithAlpha(float.Lerp(data.Color.A, 0f, trail.ColorLerpAmount));
+                    if (trail.ThicknessLerpAmount > 0f)
+                        data.Thickness = float.Lerp(data.Thickness, 0f, trail.ThicknessLerpAmount);
                 }
             }
 
@@ -89,7 +95,7 @@ public sealed class TrailSystem : EntitySystem
                     continue;
                 }
 
-                trail.TrailData.RemoveAt(trail.TrailData.Count - 1);
+                trail.TrailData.RemoveAt(0);
 
                 continue;
             }
@@ -102,18 +108,29 @@ public sealed class TrailSystem : EntitySystem
             var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
             if (trail.TrailData.Count < trail.Lifetime / trail.Frequency)
             {
-                trail.TrailData.Add(new TrailData(position, rotation, Color.White));
+                trail.TrailData.Add(new TrailData(position, rotation, trail.Color, trail.LineThickness));
             }
             else
             {
                 if (trail.CurIndex >= trail.TrailData.Count)
                     trail.CurIndex = 0;
 
-                trail.TrailData[trail.CurIndex].Color = Color.White;
-                trail.TrailData[trail.CurIndex].Position = position;
-                trail.TrailData[trail.CurIndex].Angle = rotation;
+                var data = trail.TrailData[trail.CurIndex];
 
-                trail.CurIndex++;
+                data.Color = trail.Color;
+                data.Position = position;
+                data.Angle = rotation;
+                data.Thickness = trail.LineThickness;
+
+                if (trail.Sprite == null)
+                {
+                    if (trail.ColorLerpAmount > 0f)
+                        trail.TrailData.Sort((x, y) => x.Color.A.CompareTo(y.Color.A));
+                    else if (trail.ThicknessLerpAmount > 0f)
+                        trail.TrailData.Sort((x, y) => x.Thickness.CompareTo(y.Thickness));
+                }
+                else
+                    trail.CurIndex++;
             }
         }
     }

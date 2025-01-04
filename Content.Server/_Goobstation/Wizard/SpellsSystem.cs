@@ -9,8 +9,10 @@ using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
+using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Gibbing.Events;
@@ -18,10 +20,14 @@ using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Wizard;
 
@@ -36,6 +42,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly ServerInventorySystem _inventory = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
+    [Dependency] private readonly GunSystem _gun = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -241,5 +248,59 @@ public sealed class SpellsSystem : SharedSpellsSystem
             _chat.TrySendInGameICMessage(newEnt.Value, Loc.GetString(ev.Speech), InGameICChatType.Speak, false);
 
         return true;
+    }
+
+    protected override void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
+    {
+        base.ShootSpellCards(ev, proto);
+
+        MapCoordinates targetMap;
+
+        if (ev.Coords != null)
+            targetMap = TransformSystem.ToMapCoordinates(ev.Coords.Value);
+        else if (TryComp(ev.Entity, out TransformComponent? xform))
+            targetMap = TransformSystem.GetMapCoordinates(ev.Entity.Value, xform);
+        else
+            return;
+
+        var (_, mapCoords, spawnCoords, velocity) = GetProjectileData(ev.Performer);
+
+        var mapDirection = targetMap.Position - mapCoords.Position;
+        var mapAngle = mapDirection.ToAngle();
+
+        var angles = _gun.LinearSpread(mapAngle - ev.Spread / 2, mapAngle + ev.Spread / 2, ev.ProjectilesAmount);
+
+        var linearDamping = Random.NextFloat() * (ev.MinMaxLinearDamping.Y - ev.MinMaxLinearDamping.X) +
+                            ev.MinMaxLinearDamping.X;
+
+        var setHoming = Exists(ev.Entity) && ev.Entity != ev.Performer && HasComp<MobStateComponent>(ev.Entity);
+
+        for (var i = 0; i < ev.ProjectilesAmount; i++)
+        {
+            var newUid = Spawn(proto, spawnCoords);
+            _gun.ShootProjectile(newUid, angles[i].ToVec(), velocity, ev.Performer, ev.Performer, ev.ProjectileSpeed);
+
+            if (!TryComp(newUid, out PhysicsComponent? physics))
+                continue;
+
+            Physics.SetAngularVelocity(newUid,
+                (Random.NextFloat() - 0.5f) * ev.MaxAngularVelocity,
+                false,
+                body: physics);
+            Physics.SetLinearDamping(newUid, physics, linearDamping, false);
+
+            var spellCard = EnsureComp<SpellCardComponent>(newUid);
+            if (!setHoming)
+            {
+                Dirty(newUid, physics);
+                continue;
+            }
+
+            spellCard.Target = ev.Entity;
+            _gun.SetTarget(newUid, ev.Entity, out var targeted, false);
+            Entity<SpellCardComponent, PhysicsComponent, TargetedProjectileComponent> ent = (newUid, spellCard, physics,
+                targeted);
+            Dirty(ent);
+        }
     }
 }

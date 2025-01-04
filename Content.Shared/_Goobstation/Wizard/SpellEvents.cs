@@ -2,17 +2,12 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
-using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.Magic;
 using Content.Shared.Polymorph;
-using Content.Shared.Roles;
-using Content.Shared.Singularity.EntitySystems;
-using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Wizard;
 
@@ -291,4 +286,34 @@ public sealed partial class HomingToolboxEvent : EntityTargetActionEvent, ISpeak
 
     [DataField]
     public float ProjectileSpeed = 20f;
+}
+
+public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId RedProto = "ProjectileSpellCardRed";
+
+    [DataField]
+    public EntProtoId PurpleProto = "ProjectileSpellCardPurple";
+
+    [DataField]
+    public float ProjectileSpeed = 20f;
+
+    [DataField]
+    public int ProjectilesAmount = 7;
+
+    [DataField]
+    public Angle Spread = Angle.FromDegrees(30);
+
+    [DataField]
+    public float MaxAngularVelocity = MathF.PI * 2f / 3f;
+
+    [DataField]
+    public Vector2 MinMaxLinearDamping = new (3f, 7f);
+
+    [DataField]
+    public TimeSpan UseDelay = TimeSpan.FromSeconds(6f);
 }
