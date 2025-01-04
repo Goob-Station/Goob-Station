@@ -4,8 +4,8 @@ guide-entry-medpatches = Medical Patches
 # Goob SOP
 # - Main Directories
 guide-entry-sop = SOP
-guide-entry-sop-alert-levels = Alert Levels
-guide-entry-sop-emergencies = Emergencies
+guide-entry-sop-alert-levels = _Alert Levels
+guide-entry-sop-emergencies = _Emergencies
 guide-entry-sop-jobs = Jobs
 guide-entry-sop-legal = Legal
 guide-entry-sop-standards = Standard Procedures
@@ -62,9 +62,9 @@ guide-entry-sop-atmostech = Atmos Tech
 guide-entry-sop-stationengineer = Station Engineer
 # - Medical
 guide-entry-sop-chemist = Chemist
-guide-entry-sop-doctorintern = Docter/Intern
+guide-entry-sop-doctorintern = Doctor/Intern
 # - Science
-guide-entry-sop-robotocist = Robotocist
+guide-entry-sop-roboticist = Roboticist
 guide-entry-sop-scientist = Scientist
 # - Security
 guide-entry-sop-detective = Detective
