@@ -1,53 +1,53 @@
 ﻿- type: dataset
   id: names_autoborg
   values:
-  - Autoburger Helper
-  - Bob
-  - Joe
-  - Rogue Cyborg
-  - IT'S MALF
+  - Помощник в автобургере
+  - Боб
+  - Джо
+  - Киборг-изгой
+  - ЭТО МАЛЬФ
   - "{ AINAME } Minion {###}"
   - .b HELP EMAGGED
-  - HELP
-  - REBORN
-  - Cavalry
-  - Beep
-  - Beep II
-  - Tour Guide-otron
-  - TERREL IS TRAIT
-  - Assimilator
-  - ONE OF US
-  - SUFFERING
-  - Oh no not again
-  - Panic! At the Upload
-  - GOING LOUD
-  - Boombox
-  - ROBO KILLED ME
-  - Sentient Buttbot
-  - Robotics Console
-  - This battery is shit
-  - IM NOT MALF GUYS
-  - I AM ERROR
-  - Carbon Exterminator
-  - PLASMALOOSE
-  - Taffy
-  - Boop
-  - Boop II
-  - Buzz
-  - Buzz II
-  - 3000 JIGGAWATTS
-  - "Outbreak Handling Unit {###}"
-  - Toaster
-  - Follow me
-  - Head of Robots
-  - Lvl 99 Firestarter
+  - ПОМОЩЬ
+  - ВОЗРОЖДЁННЫЙ
+  - Кавалерия
+  - Бип
+  - Бип II
+  - Экскурсовод-отрон
+  - ТЕРРЕЛ - ЧЕРТ
+  - Ассимилятор
+  - ОДИН ИЗ НАС
+  - СТРАЖДУЩИЙ
+  - О нет, только не это
+  - Паника! На загрузке
+  - ГРОМКО
+  - Бумбокс
+  - РОБО УБИЛ МЕНЯ
+  - Разумный баттбот
+  - Консоль для роботов
+  - Эта батарея - дерьмо
+  - Я НЕ НЕИСПРАВЕН, РЕБЯТА
+  - Я ОШИБКА
+  - Уничтожитель углерода
+  - ПЛАЗМАЛОЗ
+  - Тэффи
+  - Буп
+  - Буп II
+  - Базз
+  - Базз II
+  - 3000 ДЖИГГАВАТТ
+  - "Блок обработки вспышек {###}"
+  - Тостер
+  - Следуй за мной
+  - Глава роботов
+  - Огнестрел 99-го уровня
   - EVA 1
-  - You but stronger
-  - Hat Simulator
-  - i died pls restart
-  - POTENT HAMS
+  - Ты, но сильнее
+  - Симулятор шляпы
+  - Я умер, пожалуйста, перезапустите
+  - ПОТЕНТ ХАМС
   - V.A.L.I.D.S.
-  - Remove Silicons
-  - AI IS A COMDOM
-  - say ";help in core"
-  - This Machine
+  - Убрать силиконы
+  - АЙ - КОММ
+  - скажите ";помощь в ядре"
+  - Эта машина

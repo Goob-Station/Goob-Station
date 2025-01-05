@@ -412,3 +412,119 @@
   ruleEntry: true
   priority: 100
   text: "/ServerInfo/Guidebook/ServerRules/BanDurations.xml"
+
+#Reserve-Rules-Start
+
+- type: guideEntry
+  id: ReserveRul0
+  name: "Не будь мудаком!"
+  ruleEntry: true
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul0.xml"
+
+- type: guideEntry
+  id: ReserveRul1
+  name: "Гриф"
+  ruleEntry: true
+  priority: 2
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul1.xml"
+
+- type: guideEntry
+  id: ReserveRul2
+  name: "Убийство"
+  ruleEntry: true
+  priority: 3
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul2.xml"
+
+- type: guideEntry
+  id: ReserveRul3
+  name: "Нарушение игровой атмосферы"
+  ruleEntry: true
+  priority: 4
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul3.xml"
+
+- type: guideEntry
+  id: ReserveRul32
+  name: "Метагейм"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul32.xml"
+
+- type: guideEntry
+  id: ReserveRul34
+  name: "IC в LOOC"
+  ruleEntry: true
+  priority: 6
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul34.xml"
+
+- type: guideEntry
+  id: "ReserveRul35"
+  name: "Мультиаккаунт"
+  ruleEntry: true
+  priority: 7
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul35.xml"
+
+- type: guideEntry
+  id: ReserveRul36
+  name: "Выход из роли"
+  ruleEntry: true
+  priority: 8
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul36.xml"
+
+- type: guideEntry
+  id: ReserveRul37
+  name: "Безграмотность"
+  ruleEntry: true
+  priority: 9
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul37.xml"
+
+- type: guideEntry
+  id: ReserveRul38
+  name: "Поддержание уважительной обстановки"
+  ruleEntry: true
+  priority: 10
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul38.xml"
+
+- type: guideEntry
+  id: ReserveRul4
+  name: "Логика персонажей"
+  ruleEntry: true
+  priority: 11
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul4.xml"
+
+- type: guideEntry
+  id: ReserveRul6
+  name: "Ответственная игра за антагониста"
+  ruleEntry: true
+  priority: 12
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul6.xml"
+
+- type: guideEntry
+  id: ReserveRul7
+  name: "Самоантагонизм"
+  ruleEntry: true
+  priority: 13
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul7.xml"
+
+- type: guideEntry
+  id: ReserveRul8
+  name: "Валидхант"
+  ruleEntry: true
+  priority: 15
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul8.xml"
+
+- type: guideEntry
+  id: ReserveRul9
+  name: "ERP"
+  ruleEntry: true
+  priority: 16
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul9.xml"
+
+- type: guideEntry
+  id: ReserveRul10
+  name: "Нечестная игра"
+  ruleEntry: true
+  priority: 17
+  text: "/ServerInfo/Guidebook/ServerRules/ReserveRul10.xml"
+
+# Reserve-Rule-End
