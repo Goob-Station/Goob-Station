@@ -1,0 +1,162 @@
+- type: entity
+  id: PartModsuit
+  parent: BaseItem
+  name: MOD part
+  description: A part used in MOD construction.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+  - type: Icon
+    sprite: _Goobstation/Objects/Specific/Robotics/modsuit_parts.rsi
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      bodypart: !type:Container
+        ents: []
+  #- type: GuideHelp TODO: Guide
+
+- type: entity
+  id: ModsuitChestplate
+  parent: PartModsuit
+  name: MOD chestplate
+  components:
+  - type: Sprite
+    state: chestplate
+  - type: Icon
+    state: chestplate
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitChestplate
+
+- type: entity
+  id: ModsuitBoots
+  parent: PartModsuit
+  name: MOD boots
+  components:
+  - type: Sprite
+    state: boots
+  - type: Icon
+    state: boots
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitBoots
+
+- type: entity
+  id: ModsuitHelmet
+  parent: PartModsuit
+  name: MOD helmet
+  components:
+  - type: Sprite
+    state: helmet
+  - type: Icon
+    state: helmet
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitHelmet
+
+- type: entity
+  id: ModsuitGauntlets
+  parent: PartModsuit
+  name: MOD gauntlets
+  components:
+  - type: Sprite
+    state: gauntlets
+  - type: Icon
+    state: gauntlets
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 62
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitGauntlets
+
+- type: entity
+  id: ModsuitShell
+  parent: PartModsuit
+  name: MOD shell
+  components:
+  - type: Appearance
+  - type: Sprite
+    state: shell
+  - type: Icon
+    state: shell
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Plasma: 62
+  - type: ContainerContainer
+    containers:
+      cell_slot: !type:Container
+      core-container: !type:Container
+  - type: Construction
+    graph: Modsuit
+    node: start
+    defaultTarget: standard
+    containers:
+    - cell_slot
+    - core-container
+  - type: GenericVisualizer
+    visuals:
+      enum.ConstructionVisuals.Key:
+        enum.ConstructionVisuals.Layer:
+          shell-core: { state: shell-core }
+          shell-core-secured: { state: shell-core-secured }
+          shell-helmet: { state: shell-helmet }
+          shell-chestplate: { state: shell-chestplate }
+          shell-gauntlets: { state: shell-gauntlets }
+          shell-boots: { state: shell-boots }
+          shell-secured: { state: shell-secured }
+
+- type: entity
+  id: ModsuitPlatingExternal
+  parent: PartModsuit
+  name: MOD standard external plating
+  description: A part used in MOD construction.
+  components:
+  - type: Sprite
+    state: standard-plating
+  - type: Icon
+    state: standard-plating
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 75
+      Glass: 37
+      Plasma: 12
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitPlatingExternal
+
+- type: entity
+  id: ModsuitCoreStandard
+  parent: PartModsuit
+  name: MOD standard core
+  description: Growing in the most lush, fertile areas of the planet Sprout, there is a crystal known as the Heartbloom. These rare, organic piezoelectric crystals are of incredible cultural significance to the artist castes of the Ethereals, owing to their appearance; which is exactly similar to that of an Ethereal's heart. Which one you have in your suit is unclear, but either way, it's been repurposed to be an internal power source for a Modular Outerwear Device.
+  components:
+  - type: Sprite
+    state: mod-core-standard
+  - type: Icon
+    state: mod-core-standard
+  - type: Tag
+    tags:
+    - ModsuitPart
+    - ModsuitCore
+  - type: PhysicalComposition
+    materialComposition:
+      Plasma: 50
+      Glass: 25

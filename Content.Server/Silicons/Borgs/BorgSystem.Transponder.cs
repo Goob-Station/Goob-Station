@@ -7,7 +7,6 @@ using Content.Shared.Silicons.Borgs.Components;
 using Content.Server.DeviceNetwork;
 using Content.Server.DeviceNetwork.Components;
 using Content.Server.DeviceNetwork.Systems;
-using Content.Server.Explosion.Components;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Silicons.Borgs;

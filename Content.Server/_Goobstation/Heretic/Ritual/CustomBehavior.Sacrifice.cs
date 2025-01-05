@@ -1,5 +1,4 @@
 using Content.Shared.Heretic.Prototypes;
-using Content.Shared.Changeling;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Prototypes;
 using Content.Shared.Humanoid;

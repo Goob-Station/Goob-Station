@@ -1,8 +1,5 @@
-using Robust.Shared.GameObjects;
-using Robust.Shared.IoC;
 using Content.Shared.Nutrition.Components;
 using Content.Shared.Nutrition.EntitySystems;
-using Robust.Shared.Utility;
 
 
 namespace Content.Shared._Goobstation.Nutrition.EntitySystems

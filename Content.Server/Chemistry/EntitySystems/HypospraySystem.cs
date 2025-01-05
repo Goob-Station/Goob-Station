@@ -14,8 +14,6 @@ using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Server.Interaction;
 using Content.Server.Body.Components;
-using Robust.Shared.GameStates;
-using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Robust.Server.Audio;
 

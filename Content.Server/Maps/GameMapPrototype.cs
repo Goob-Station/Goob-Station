@@ -3,7 +3,6 @@ using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Diagnostics;
-using System.Numerics;
 
 namespace Content.Server.Maps;
 

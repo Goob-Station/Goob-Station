@@ -1,5 +1,4 @@
 using Content.Shared.DeltaV.Abilities;
-using Content.Shared.Popups;
 using Robust.Client.GameObjects;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 

@@ -15,7 +15,6 @@ using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Nyanotrasen.Item.PseudoItem;
 using Content.Shared.Popups;
-using Content.Shared.Pulling;
 using Content.Shared.Resist;
 using Content.Shared.Standing;
 using Content.Shared.Storage;
@@ -228,7 +227,8 @@ public sealed class CarryingSystem : EntitySystem
         var args = new DoAfterArgs(EntityManager, carrier, length, ev, carried, target: carried)
         {
             BreakOnMove = true,
-            NeedHand = true
+            NeedHand = true,
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(args);

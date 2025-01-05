@@ -205,6 +205,8 @@
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -319,6 +321,8 @@
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: NukeopsRule
     warDeclarationMinOps: 1 # challenge mode
+    warTcPerPlayer: 3
+    warTcPerNukieMissing: 0
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
@@ -338,6 +342,9 @@
         - Syndicate
       mindRoles:
       - MindRoleNukeops
+  - type: AntagLoadProfileRule
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 # Rat King Spawn
 - type: entity
@@ -391,4 +398,4 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 2
+    maxCarrierBlob: 1
