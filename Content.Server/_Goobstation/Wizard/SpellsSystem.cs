@@ -272,8 +272,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         var angles = _gun.LinearSpread(mapAngle - ev.Spread / 2, mapAngle + ev.Spread / 2, ev.ProjectilesAmount);
 
-        var linearDamping = Random.NextFloat() * (ev.MinMaxLinearDamping.Y - ev.MinMaxLinearDamping.X) +
-                            ev.MinMaxLinearDamping.X;
+        var linearDamping = Random.NextFloat(ev.MinMaxLinearDamping.X, ev.MinMaxLinearDamping.Y);
 
         var setHoming = Exists(ev.Entity) && ev.Entity != ev.Performer && HasComp<MobStateComponent>(ev.Entity);
 
@@ -286,7 +285,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 continue;
 
             Physics.SetAngularVelocity(newUid,
-                (Random.NextFloat() - 0.5f) * ev.MaxAngularVelocity,
+                Random.NextFloat(-ev.MaxAngularVelocity, ev.MaxAngularVelocity),
                 false,
                 body: physics);
             Physics.SetLinearDamping(newUid, physics, linearDamping, false);

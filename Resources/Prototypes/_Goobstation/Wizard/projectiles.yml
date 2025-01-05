@@ -214,7 +214,7 @@
   - type: Trail
     color: "#FF0BC255"
     lineThickness: 0.08
-    frequency: 0.02
+    frequency: 0.05
     lifetime: 0.3
     colorLerpAmount: 0.06
     thicknessLerpAmount: 0.03
@@ -235,3 +235,16 @@
     radius: 1.5
     energy: 1
     color: "#FF0BC2"
+
+- type: entity
+  id: BulletMagic
+  name: magic bullet
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: StaminaDamageOnCollide
+    damage: 80

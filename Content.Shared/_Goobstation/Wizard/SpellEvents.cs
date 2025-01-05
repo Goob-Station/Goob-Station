@@ -309,7 +309,7 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpe
     public Angle Spread = Angle.FromDegrees(30);
 
     [DataField]
-    public float MaxAngularVelocity = MathF.PI * 2f / 3f;
+    public float MaxAngularVelocity = MathF.PI * 4f / 3f;
 
     [DataField]
     public Vector2 MinMaxLinearDamping = new (3f, 7f);
@@ -325,4 +325,13 @@ public sealed partial class ArcaneBarrageEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public EntProtoId Proto = "ArcaneBarrage";
+}
+
+public sealed partial class LesserSummonGunsEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "WeaponBoltActionEnchanted";
 }

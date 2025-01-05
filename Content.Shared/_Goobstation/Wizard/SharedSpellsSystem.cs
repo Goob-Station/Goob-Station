@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
@@ -114,6 +115,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
+        SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
     }
 
     #region Spells
@@ -574,25 +576,25 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (!TryComp(ev.Performer, out HandsComponent? hands))
+        if (SpawnItemInHands(ev.Performer, ev.Proto, ev.Action) == null)
             return;
 
-        if (!Hands.TryGetEmptyHand(ev.Performer, out var hand, hands))
-        {
-            Popup(ev.Performer, "spell-fail-hands-occupied");
-            return;
-        }
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
 
-        if (_net.IsServer)
-        {
-            var barrage = Spawn(ev.Proto, Transform(ev.Performer).Coordinates);
-            if (!Hands.TryPickup(ev.Performer, barrage, hand, false, false, hands))
-            {
-                QueueDel(barrage);
-                _actions.SetCooldown(ev.Action, TimeSpan.FromSeconds(0.5));
-                return;
-            }
-        }
+    private void OnLesserSummonGuns(LesserSummonGunsEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        var gun = SpawnItemInHands(ev.Performer, ev.Proto, ev.Action);
+        if (gun == null)
+            return;
+
+        var comp = EnsureComp<EnchantedBoltActionRifleComponent>(gun.Value);
+        comp.Caster = ev.Performer;
+        Dirty(gun.Value, comp);
 
         _magic.Speak(ev);
         ev.Handled = true;
@@ -601,6 +603,29 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    private EntityUid? SpawnItemInHands(EntityUid user, EntProtoId proto, EntityUid action)
+    {
+        if (!TryComp(user, out HandsComponent? hands))
+            return null;
+
+        if (!Hands.TryGetEmptyHand(user, out var hand, hands))
+        {
+            Popup(user, "spell-fail-hands-occupied");
+            return null;
+        }
+
+        if (_net.IsClient)
+            return null;
+
+        var item = Spawn(proto, Transform(user).Coordinates);
+        if (Hands.TryPickup(user, item, hand, false, false, hands))
+            return item;
+
+        QueueDel(item);
+        _actions.SetCooldown(action, TimeSpan.FromSeconds(0.5));
+        return null;
+    }
 
     private bool ValidateLockOnAction(EntityWorldTargetActionEvent ev)
     {

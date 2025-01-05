@@ -1,7 +1,6 @@
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Ranged.Events;
@@ -17,7 +16,6 @@ public sealed class ArcaneBarrageSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
@@ -100,7 +98,11 @@ public sealed class ArcaneBarrageSystem : EntitySystem
         }
 
         ent.Comp.Unremoveable = false;
-        _hands.DoDrop(user, oldHand, false, hands);
+        if (!_hands.TryDrop(user, oldHand, null, false, false, hands))
+        {
+            ResetDelays(ent);
+            return;
+        }
         if (!_hands.TryPickup(user, ent, otherHand, false, false, hands) && _net.IsServer)
             QueueDel(ent);
         ent.Comp.Unremoveable = true;

@@ -31,6 +31,12 @@
 - type: Tag
   id: IgnoreBindSoul
 
+- type: Tag
+  id: CartridgeMagicBullet
+
+- type: Tag
+  id: BarrageLSGAction
+
 # Mechs
 
 - type: Tag

@@ -8,6 +8,9 @@
   },
   "states": [
     {
+      "name": "bolt_action"
+    },
+    {
       "name": "arcane_barrage"
     },
     {

@@ -130,10 +130,14 @@ public sealed class TrailSystem : EntitySystem
 
                 if (trail.Sprite == null)
                 {
-                    if (trail.ColorLerpAmount > 0f)
-                        trail.TrailData.Sort((x, y) => x.Color.A.CompareTo(y.Color.A));
-                    else if (trail.ThicknessLerpAmount > 0f)
-                        trail.TrailData.Sort((x, y) => x.Thickness.CompareTo(y.Thickness));
+                    if (trail.ColorLerpAmount <= 0f || trail.ThicknessLerpAmount <= 0f)
+                        continue;
+
+                    for (var i = 0; i + 1 < trail.TrailData.Count; i++)
+                    {
+                        // Push first element to the end of the list
+                        (trail.TrailData[i], trail.TrailData[i + 1]) = (trail.TrailData[i + 1], trail.TrailData[i]);
+                    }
                 }
                 else
                     trail.CurIndex++;

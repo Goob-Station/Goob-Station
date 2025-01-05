@@ -37,3 +37,60 @@
     energy: 1
     color: "#FF0BC2"
   - type: AmmoCounter
+
+- type: entity
+  name: enchanted bolt action rifle
+  parent: [BaseWeaponSniper, BaseGunWieldable]
+  id: WeaponBoltActionEnchanted
+  description: Careful not to lose your head.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle_icon.rsi
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    size: Huge
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
+    quickEquip: false
+    slots:
+    - Back
+    - suitStorage
+  - type: UseDelay
+    delay: 0.5
+  - type: UseDelayBlockShoot
+  - type: BallisticAmmoProvider
+    capacity: 1
+    proto: CartridgeMagicBullet
+    whitelist:
+      tags:
+      - CartridgeMagicBullet
+  - type: Gun
+    minAngle: 20
+    maxAngle: 30
+    fireRate: 2
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
+  - type: AmmoCounter
+  - type: EnchantedBoltActionRifle
+
+- type: entity
+  id: CartridgeMagicBullet
+  name: magic bullet cartridge
+  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeMagicBullet
+  - type: CartridgeAmmo
+    proto: BulletMagic
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals

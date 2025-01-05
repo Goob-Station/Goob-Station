@@ -206,7 +206,6 @@
         groups:
           Brute: 100
   - type: Magic
-    requiresClothes: true
     requiresSpeech: true
 
 - type: entity
@@ -264,6 +263,7 @@
         - BodyPart
         - Organ
         - TimedDespawn
+        - FadingTimedDespawn
         - Godmode
         - DeleteOnDropAttempt
   - type: Magic
@@ -409,3 +409,25 @@
     event: !type:ArcaneBarrageEvent
   - type: Magic
     requiresClothes: true
+  - type: Tag
+    tags:
+      - BarrageLSGAction
+
+- type: entity
+  id: ActionLesserSummonGuns
+  name: Lesser Summon Guns
+  description: Summon an unending stream of bolt action rifles.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bolt_action
+    event: !type:LesserSummonGunsEvent
+  - type: Magic
+    requiresClothes: true
+  - type: Tag
+    tags:
+      - BarrageLSGAction

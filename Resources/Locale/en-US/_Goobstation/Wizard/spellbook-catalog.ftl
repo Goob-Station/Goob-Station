@@ -43,7 +43,7 @@ spellbook-stop-time-desc =
 spellbook-corpse-explosion-name = Corpse Explosion
 spellbook-corpse-explosion-desc =
     Fills a corpse with energy, causing it to explode violently. Knocks down people and stuns silicons. It applies up to 100 brute damage to others surrounding the corpse; the damage lowering further out someone is. Wizard is immune to the effects of the explosion.
-    Requires wizard's robe and hat to cast.
+    Doesn't require wizard's robe and hat to cast.
 
 spellbook-blind-name = Blind
 spellbook-blind-desc =
@@ -87,6 +87,12 @@ spellbook-spell-cards-desc =
 
 spellbook-arcane-barrage-name = Arcane Barrage
 spellbook-arcane-barrage-desc =
-    Fire a torrent of arcane energy at your foes with this powerful spell. Deals more damage than Lesser Summon Guns, but won't knock targets down. The spell is more effective when both of your hands are free.
+    Fire a torrent of arcane energy at your foes with this powerful spell. Deals more damage than Lesser Summon Guns, but won't stun targets. The spell is more effective when both of your hands are free.
     Learning this spell makes you unable to learn Lesser Summon Guns.
+    Requires wizard's robe and hat to cast.
+
+spellbook-lesser-summon-guns-name = Lesser Summon Guns
+spellbook-lesser-summon-guns-desc =
+    Why reload when you have infinite guns? Summons an unending stream of bolt action rifles that deal little damage, but will stun targets. The spell is more effective when both of your hands are free.
+    Learning this spell makes you unable to learn Arcane Barrage.
     Requires wizard's robe and hat to cast.
