@@ -270,4 +270,18 @@
   output:
     HereticEldritchFlask: 1
 
+- type: hereticRitual
+  id: AshenEyesRitual
+  locName: knowledge-path-side-s3-ashen-eyes-name
+  locDesc: knowledge-path-side-s3-ashen-eyes-desc
+  icon:
+    sprite: _Goobstation/Heretic/eldritch_medalion.rsi
+    state: icon
+  requiredTags:
+    GlassShard: 1
+    Eyes: 1
+    Flare: 1
+  output:
+    ClothingEldritchMedalion: 1
+
 ## stage 7

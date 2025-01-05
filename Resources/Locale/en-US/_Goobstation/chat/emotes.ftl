@@ -19,3 +19,6 @@ emote-fart-out-of-farts = You're all out of farts!
 emote-fart-super-fart = You (literally) fart your ass off!
 emote-fart-inhale-notice = You breathe in, arming a super fart.
 emote-fart-inhale-disarm-notice = You disarm your super fart.
+
+chat-emote-name-boop = Boop
+chat-emote-name-whirr = Whirr
