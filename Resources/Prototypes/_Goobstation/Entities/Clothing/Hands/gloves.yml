@@ -19,7 +19,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: ClothingHandsGlovesCombat
+  parent: [ClothingHandsGlovesCombat, BaseGrandTheftContraband]
   id: ClothingHandsGlovesChiefEngineer
   name: chief engineer's power gauntlets
   description: A set of hyper-advanced power-gauntlets designed for the chief engineer of the station. Allows for rapid construction and transportation of structures.
@@ -48,3 +48,8 @@
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
     mustBeEquippedToUse: true
+  - type: Tag
+    tags:
+    - HighRiskItem
+  - type: StealTarget
+    stealGroup: ClothingHandsGlovesChiefEngineer
