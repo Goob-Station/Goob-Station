@@ -11,7 +11,7 @@
   name: guide-entry-rules-core
   ruleEntry: true
   priority: 30
-  text: "/ServerInfo/Guidebook/ServerRules/CoreRules/RuleC0.xml"
+  text: "/ServerInfo/Guidebook/ServerRules"
   children:
   - ReserveRul0
   - ReserveRul1
