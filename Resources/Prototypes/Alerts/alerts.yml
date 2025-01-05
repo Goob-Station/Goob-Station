@@ -9,6 +9,7 @@
     - category: Stamina
     - alertType: ChangelingChemicals # goobstation - changelings
     - alertType: SuitPower
+    - alertType: ModsuitPower # Goobstation - Modsuits
     - category: Internals
     - alertType: Fire
     - alertType: Handcuffed

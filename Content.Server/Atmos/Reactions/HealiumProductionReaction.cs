@@ -6,6 +6,7 @@ using JetBrains.Annotations;
 namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
+///     Assmos - /tg/ gases
 ///     Produces Healium by mixing BZ and Frezon at temperatures between 23K and 293K. Efficiency increases in colder temperatures.  
 /// </summary>
 [UsedImplicitly]
