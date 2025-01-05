@@ -87,7 +87,8 @@ public sealed class SharedExecutionSystem : EntitySystem
             {
                 BreakOnMove = true,
                 BreakOnDamage = true,
-                NeedHand = true
+                NeedHand = true,
+                MultiplyDelay = false, // Goobstation
             };
 
         _doAfter.TryStartDoAfter(doAfter);
