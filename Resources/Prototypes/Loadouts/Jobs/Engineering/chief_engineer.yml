@@ -64,6 +64,12 @@
   equipment:
     outerClothing: ClothingOuterWinterCE
 
+# Gloves
+- type: loadout
+  id: InsulatedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorYellow
+
 # Shoes
 - type: loadout
   id: BrownShoes

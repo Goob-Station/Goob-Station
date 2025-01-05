@@ -105,6 +105,12 @@
   equipment:
     outerClothing: ClothingOuterWinterEngi
 
+# Gloves
+- type: loadout
+  id: InsulatedGloves
+  equipment:
+    gloves: ClothingHandsGlovesColorYellow
+
 # Shoes
 - type: loadout
   id: WorkBoots

@@ -713,6 +713,13 @@
   - ChiefEngineerWintercoat
 
 - type: loadoutGroup
+  id: ChiefEngineerGloves
+  name: loadout-group-chief-engineer-gloves
+  minLimit: 0
+  loadouts:
+  - InsulatedGloves
+
+- type: loadoutGroup
   id: ChiefEngineerShoes
   name: loadout-group-chief-engineer-shoes
   loadouts:
@@ -760,6 +767,13 @@
   loadouts:
   - StationEngineerOuterVest
   - StationEngineerWintercoat
+
+- type: loadoutGroup
+  id: StationEngineerGloves
+  name: loadout-group-station-engineer-gloves
+  minLimit: 0
+  loadouts:
+  - InsulatedGloves
 
 - type: loadoutGroup
   id: StationEngineerShoes
