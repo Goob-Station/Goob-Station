@@ -42,6 +42,7 @@
     id: CEPDA
     eyes: ClothingEyesGlassesMeson
     ears: ClothingHeadsetAltEngineering # Goobstation
+    gloves : ClothingHandsGlovesChiefEngineer
     belt: ClothingBeltUtilityEngineering
   storage:
     back:

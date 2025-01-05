@@ -17,3 +17,23 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesChiefEngineer
+  name: chief engineer's power gauntlets
+  description: A set of hyper-advanced power-gauntlets designed for the chief engineer of the station. Allows for rapid construction and transportation of structures.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
+  - type: Insulated
+  - type: FingerprintMask
+  - type: MeleeWeapon
+    attackRate: 0.5
+    damage:
+      types:
+        Blunt: 12
+    animation: WeaponArcFist
+    mustBeEquippedToUse: true
