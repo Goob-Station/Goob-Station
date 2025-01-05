@@ -1,10 +1,10 @@
 - type: loadoutEffectGroup
-  id: SeniorNanotransenRepresentative
+  id: SeniorNanotrasenRepresentative
   effects:
   - !type:JobRequirementLoadoutEffect
     requirement:
       !type:RoleTimeRequirement
-      role: JobNanotransenRepresentative
+      role: JobNanotrasenRepresentative
       time: 54000
 
 #hat
@@ -62,10 +62,10 @@
     
 # Neck
 - type: loadout
-  id: NanotransenRepresentativeBadge
+  id: NanotrasenRepresentativeBadge
   effects:
   - !type:GroupLoadoutEffect
-    proto: SeniorNanotransenRepresentative
+    proto: SeniorNanotrasenRepresentative
   equipment:
     neck: ClothingNeckCentcommBadge
 
