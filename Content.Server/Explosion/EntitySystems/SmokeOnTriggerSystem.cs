@@ -50,7 +50,6 @@ public sealed class SmokeOnTriggerSystem : SharedSmokeOnTriggerSystem
             return;
         }
 
-        _smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, comp.IsResin, smoke); // Assmos - Extinguisher Nozzle
-        //_smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, smoke); 
+        _smoke.StartSmoke(ent, comp.Solution, comp.Duration, comp.SpreadAmount, smoke); 
     }
 }
