@@ -183,6 +183,9 @@
   name: chat-speech-verb-name-bingle
   speechVerbStrings:
   - "Croaks"
+  - "Mumbles"
+  - "Harks"
+  - "Grumbles"
 
 - type: accent
   id: bingle
@@ -191,3 +194,21 @@
   - "Bing"
   - "Bongle"
   - "Bong"
+  - "B"
+  - "BINGLE"
+  - "I need it"
+
+- type: entity
+  id: BingleSpawn
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAnnouncement: "Bingle Bingle Bingle"
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 20
+    weight: 6
+    duration: 50
+    minimumPlayers: 15
+  - type: RandomSpawnRule
+    prototype: BinglePit
