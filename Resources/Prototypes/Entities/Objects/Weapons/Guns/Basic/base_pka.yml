@@ -13,7 +13,7 @@
     maxAngle: -43
   - type: Wieldable
   - type: Gun
-    fireRate: 0.5
+    fireRate: 0.7 #goobstation
     selectedMode: SemiAuto
     angleDecay: 45
     minAngle: 44
@@ -32,7 +32,7 @@
           False: { visible: True }
         #todo: add other 'empty' animations
   - type: RechargeBasicEntityAmmo
-    rechargeCooldown: 0.75
+    rechargeCooldown: 0.65 #Goobstation
     rechargeSound:
       path: /Audio/Weapons/Guns/MagIn/kinetic_reload.ogg
   - type: BasicEntityAmmoProvider

@@ -26,4 +26,4 @@ reagent-name-healium = healium
 reagent-desc-healium = A powerful sleeping agent with regenerative properties.
 
 reagent-name-nitrium = nitrium
-reagent-desc-nitrium = A strong stimulant that will improve reflexes and stamina, though excessive inhalation may lead to lung failure.
+reagent-desc-nitrium = An experimental performance enhancing gas. Nitrium can have amplified effects as more of it gets into your bloodstream.
