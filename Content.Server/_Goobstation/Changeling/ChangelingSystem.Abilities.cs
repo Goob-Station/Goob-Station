@@ -237,7 +237,7 @@ public sealed partial class ChangelingSystem
             _puddle.TrySpillAt(target, solution, out var _);
         }
 
-        UpdateBiomass(uid, comp, totalFood.Float() * 0.15f); // 5% of default max for an apple
+        UpdateBiomass(uid, comp, totalFood.Float() * 0.1f); // 5% of default max for an apple
         UpdateChemicals(uid, comp, totalFood.Float()); // 10 chemicals for an apple
 
         QueueDel(target); // eaten
