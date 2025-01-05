@@ -35,7 +35,10 @@
   id: CartridgeMagicBullet
 
 - type: Tag
-  id: BarrageLSGAction
+  id: ArcaneBarrageAction
+
+- type: Tag
+  id: LesserSummonGunsAction
 
 # Mechs
 

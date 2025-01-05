@@ -412,7 +412,7 @@
     requiresClothes: true
   - type: Tag
     tags:
-      - BarrageLSGAction
+      - ArcaneBarrageAction
 
 - type: entity
   id: ActionLesserSummonGuns
@@ -431,4 +431,4 @@
     requiresClothes: true
   - type: Tag
     tags:
-      - BarrageLSGAction
+      - LesserSummonGunsAction

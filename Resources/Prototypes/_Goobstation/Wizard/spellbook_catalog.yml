@@ -142,7 +142,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:BuyerActionsDontHaveTagCondition
-    tag: BarrageLSGAction
+    tag: LesserSummonGunsAction
 
 - type: listing
   id: SpellbookLesserSummonGuns
@@ -157,7 +157,7 @@
   - !type:ListingLimitedStockCondition
     stock: 1
   - !type:BuyerActionsDontHaveTagCondition
-    tag: BarrageLSGAction
+    tag: ArcaneBarrageAction
 
 # Defensive
 - type: listing

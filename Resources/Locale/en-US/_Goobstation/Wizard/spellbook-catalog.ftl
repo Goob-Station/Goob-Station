@@ -87,7 +87,7 @@ spellbook-spell-cards-desc =
 
 spellbook-arcane-barrage-name = Arcane Barrage
 spellbook-arcane-barrage-desc =
-    Fire a torrent of arcane energy at your foes with this powerful spell. Deals more damage than Lesser Summon Guns, but won't stun targets. The spell is more effective when both of your hands are free.
+    Fire a torrent of arcane energy at your foes with this powerful spell. Shoots faster than Lesser Summon Guns, but won't stun targets. The spell is more effective when both of your hands are free.
     Learning this spell makes you unable to learn Lesser Summon Guns.
     Requires wizard's robe and hat to cast.
 
