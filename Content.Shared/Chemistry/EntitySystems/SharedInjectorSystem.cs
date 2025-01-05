@@ -7,7 +7,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
-using Robust.Shared.Player;
 
 namespace Content.Shared.Chemistry.EntitySystems;
 

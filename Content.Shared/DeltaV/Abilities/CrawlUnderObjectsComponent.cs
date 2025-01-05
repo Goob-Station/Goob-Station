@@ -1,5 +1,4 @@
 using Content.Shared.Actions;
-using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

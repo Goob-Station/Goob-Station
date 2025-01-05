@@ -4,7 +4,6 @@ using Content.Shared.DoAfter;
 using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Verbs;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -145,7 +144,7 @@ public abstract class SharedRatKingSystem : EntitySystem
     private void OnDoAfterComplete(EntityUid uid, RatKingRummageableComponent component, RatKingRummageDoAfterEvent args)
     {
         // DeltaV - Rummaging an object updates the looting cooldown rather than a "previously looted" check.
-        // Note that the "Looted" boolean can still be checked (by mappers/admins) 
+        // Note that the "Looted" boolean can still be checked (by mappers/admins)
         // to disable rummaging on the object indefinitely, but rummaging will no
         // longer permanently prevent future rummaging.
         var time = _gameTiming.CurTime;

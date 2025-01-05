@@ -16,7 +16,6 @@ using System.Numerics;
 
 // Shitmed Change
 using System.Linq;
-using Content.Shared.Damage;
 using Content.Shared.Gibbing.Events;
 
 namespace Content.Server.Body.Systems;

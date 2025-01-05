@@ -219,7 +219,8 @@ public class RCDSystem : EntitySystem
             BreakOnMove = true,
             AttemptFrequency = AttemptFrequency.EveryTick,
             CancelDuplicate = false,
-            BlockDuplicate = false
+            BlockDuplicate = false,
+            MultiplyDelay = false, // Goobstation
         };
 
         args.Handled = true;

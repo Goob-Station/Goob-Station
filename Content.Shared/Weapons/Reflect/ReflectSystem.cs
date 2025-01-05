@@ -1,7 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Alert;
 using Content.Shared.Audio;
 using Content.Shared.Damage;
 using Content.Shared.Database;

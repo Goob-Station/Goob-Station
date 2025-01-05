@@ -15,8 +15,8 @@
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 7
-      playerRatio: 10
+      max: 4
+      playerRatio: 12
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -65,9 +65,9 @@
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
+    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -105,7 +105,7 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10
-      playerRatio: 15
+      playerRatio: 20
       startingGear: SyndicateOperativeGearFull
       components:
       - type: NukeOperative
@@ -159,15 +159,10 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
-    delay: # 7-10 minutes
-      min: 420
-      max: 600
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Blob ]
-      min: 1
-      max: 2
-      playerRatio: 40 #players = 2 blobs
       allowNonHumans: true
       blacklist:
         components:
@@ -194,4 +189,4 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 2
+    maxCarrierBlob: 1

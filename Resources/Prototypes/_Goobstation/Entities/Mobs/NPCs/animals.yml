@@ -170,3 +170,64 @@
         Piercing: 1.5
   - type: TimedDespawn
     lifetime: 5
+
+- type: entity
+  name: lootbug
+  id: MobLootbug
+  parent: SimpleMobBase
+  description: It eats metal, maybe it's eaten something of value?
+  components:
+  - type: Sprite
+    drawdepth: SmallMobs
+    sprite: _Goobstation/Mobs/Animals/lootbug.rsi
+    layers:
+    - map: ["enum.DamageStateVisualLayers.Base"]
+      state: lootbug
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.2
+        density: 100
+        mask:
+        - SmallMobMask
+        layer:
+        - SmallMobLayer
+  - type: GhostRole
+    makeSentient: true
+    allowSpeech: true
+    allowMovement: true
+    name: ghost-role-information-lootbug-name
+    description: ghost-role-information-lootbug-description
+    rules: ghost-role-information-freeagent-rules
+  - type: GhostTakeoverAvailable
+  - type: Speech
+    speechVerb: SmallMob
+    speechSounds: Squeak
+    allowedEmotes: ['Squeak']
+  - type: MobState
+  - type: DamageStateVisuals
+    states:
+      Alive:
+        Base: lootbug
+      Dead:
+        Base: lootbug_dead
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      100: Dead
+  - type: Bloodstream
+    bloodReagent: InsectBlood
+    bloodMaxVolume: 40
+  - type: Tag
+    tags:
+    - Trash
+    - VimPilot
+  - type: Butcherable
+    spawned:
+    - id: SpawnLootLootbug
+  - type: NpcFactionMember # they're pests, makes them the target of shiva and aves
+    factions:
+      - Mouse
