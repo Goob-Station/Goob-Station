@@ -19,6 +19,12 @@ public sealed class TrailSystem : EntitySystem
         _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan));
 
         SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
+        SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
+    }
+
+    private void OnStartup(Entity<TrailComponent> ent, ref ComponentStartup args)
+    {
+        ent.Comp.Accumulator = ent.Comp.Frequency;
     }
 
     private void OnRemove(Entity<TrailComponent> ent, ref ComponentRemove args)

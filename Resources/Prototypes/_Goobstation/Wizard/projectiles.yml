@@ -193,3 +193,45 @@
         hard: false
   - type: HomingProjectile
     homingSpeed: null
+
+- type: entity
+  id: ProjectileArcaneBarrage
+  parent: BaseBullet
+  name: arcane bolt
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: arcane_barrage
+      shader: unshaded
+  - type: Reflective
+    reflective: None
+  - type: Projectile
+    damage:
+      types:
+        Heat: 20
+  - type: Trail
+    color: "#FF0BC255"
+    lineThickness: 0.08
+    frequency: 0.02
+    lifetime: 0.3
+    colorLerpAmount: 0.06
+    thicknessLerpAmount: 0.03
+    shader: unshaded
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.2,0.1,0.2"
+        hard: false
+        mask:
+        - Opaque
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1
+    color: "#FF0BC2"

@@ -113,6 +113,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<LightningBoltEvent>(OnLightningBolt);
         SubscribeLocalEvent<HomingToolboxEvent>(OnHomingToolbox);
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
+        SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
     }
 
     #region Spells
@@ -566,6 +567,35 @@ public abstract class SharedSpellsSystem : EntitySystem
             spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
         }
+    }
+
+    private void OnArcaneBarrage(ArcaneBarrageEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!TryComp(ev.Performer, out HandsComponent? hands))
+            return;
+
+        if (!Hands.TryGetEmptyHand(ev.Performer, out var hand, hands))
+        {
+            Popup(ev.Performer, "spell-fail-hands-occupied");
+            return;
+        }
+
+        if (_net.IsServer)
+        {
+            var barrage = Spawn(ev.Proto, Transform(ev.Performer).Coordinates);
+            if (!Hands.TryPickup(ev.Performer, barrage, hand, false, false, hands))
+            {
+                QueueDel(barrage);
+                _actions.SetCooldown(ev.Action, TimeSpan.FromSeconds(0.5));
+                return;
+            }
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
     }
 
     #endregion

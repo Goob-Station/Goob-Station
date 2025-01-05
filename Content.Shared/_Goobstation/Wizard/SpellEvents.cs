@@ -317,3 +317,12 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpe
     [DataField]
     public TimeSpan UseDelay = TimeSpan.FromSeconds(6f);
 }
+
+public sealed partial class ArcaneBarrageEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "ArcaneBarrage";
+}

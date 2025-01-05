@@ -84,3 +84,9 @@ spellbook-spell-cards-name = Spell Cards
 spellbook-spell-cards-desc =
     Blazing hot rapid-fire homing cards. Send your foes to the shadow realm with their mystical power!
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-arcane-barrage-name = Arcane Barrage
+spellbook-arcane-barrage-desc =
+    Fire a torrent of arcane energy at your foes with this powerful spell. Deals more damage than Lesser Summon Guns, but won't knock targets down. The spell is more effective when both of your hands are free.
+    Learning this spell makes you unable to learn Lesser Summon Guns.
+    Requires wizard's robe and hat to cast.

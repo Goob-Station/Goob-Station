@@ -9,11 +9,13 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Containers;
 using Robust.Shared.Input.Binding;
+using Robust.Shared.Network;
 
 namespace Content.Shared.Hands.EntitySystems;
 
 public abstract partial class SharedHandsSystem
 {
+    [Dependency] private readonly INetManager _net = default!; // Goobstation
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;

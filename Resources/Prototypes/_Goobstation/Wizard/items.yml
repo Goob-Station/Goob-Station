@@ -1,0 +1,39 @@
+- type: entity
+  name: arcane barrage
+  parent: BaseItem
+  id: ArcaneBarrage
+  description: Pew Pew Pew.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+    state: icon
+  - type: Item
+    size: Ginormous
+    sprite: _Goobstation/Wizard/Objects/Weapons/arcane_barrage.rsi
+  - type: UseDelay
+    delay: 0.5
+  - type: ArcaneBarrage
+  - type: DeleteOnDropAttempt
+  - type: UseDelayBlockShoot
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileArcaneBarrage
+    capacity: 30
+  - type: Gun
+    minAngle: 0
+    maxAngle: 0
+    angleIncrease: 0
+    fireRate: 4
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    clumsyProof: true
+    resetOnHandSelected: false
+    soundEmpty: null
+    soundGunshot:
+      path: /Audio/Weapons/emitter.ogg
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 1
+    color: "#FF0BC2"
+  - type: AmmoCounter

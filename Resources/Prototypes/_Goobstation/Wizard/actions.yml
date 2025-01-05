@@ -265,6 +265,7 @@
         - Organ
         - TimedDespawn
         - Godmode
+        - DeleteOnDropAttempt
   - type: Magic
     requiresSpeech: true
   - type: Tag
@@ -392,3 +393,19 @@
     requiresSpeech: true
   - type: SpellCardsAction
   - type: LockOnMarkAction
+
+- type: entity
+  id: ActionArcaneBarrage
+  name: Arcane Barrage
+  description: Fire a torrent of arcane energy at your foes.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: arcane_barrage
+    event: !type:ArcaneBarrageEvent
+  - type: Magic
+    requiresClothes: true
