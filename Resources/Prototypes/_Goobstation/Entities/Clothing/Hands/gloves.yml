@@ -31,7 +31,7 @@
   - type: Insulated
   - type: FingerprintMask
   - type: MeleeWeapon
-    attackRate: 0.5
+    attackRate: 0.6
     damage:
       types:
         Blunt: 12
@@ -47,7 +47,6 @@
     speedModifier: 1.5
     pryPowered: true
     useSound: /Audio/Items/jaws_pry.ogg
-    mustBeEquippedToUse: true
   - type: Tag
     tags:
     - HighRiskItem
