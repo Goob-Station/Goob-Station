@@ -6,3 +6,6 @@ trait-wheelchair-bound-desc = You cannot move without your wheelchair. Wheelchai
 
 trait-bogan-name = Bogan accent
 trait-bogan-desc = You learned this from a mythical creature.
+
+trait-maoist-accent-name = Maoist accent
+trait-maoist-accent-desc = SShit$$eKKK mu$$t be de$$troyed. Death to KKKommand.
