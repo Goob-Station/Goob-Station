@@ -215,3 +215,25 @@
   - type: StorageFill
     contents:
       - id: SpaceHeaterFlatpack
+
+# RPD
+- type: entity
+  id: CrateRPD
+  parent: CrateEngineeringSecure
+  name: RPD crate
+  description: A crate containing a single rapid piping device.
+  components:
+  - type: StorageFill
+    contents:
+    - id: RPD
+
+# Assmos - Extinguisher Nozzle
+- type: entity
+  id: CrateEngineeringFirefighterBackpackTank
+  parent: CrateEngineering
+  name: firefighter crate
+  description: Contains a firefighter backpack water tank.
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingBackpackFirefighterTank
