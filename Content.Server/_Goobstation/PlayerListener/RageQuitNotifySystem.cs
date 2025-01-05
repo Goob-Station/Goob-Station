@@ -58,7 +58,7 @@ public sealed class RageQuitNotifySystem : EntitySystem
             return;
 
         var callout = GetCallout(args.Channel);
-        _chat.ChatMessageToAll(ChatChannel.Notifications, callout, callout, _ent, false, true, colorOverride: Color.FromHex("#fff0ff", Color.Honeydew));
+        _chat.ChatMessageToAll(ChatChannel.OOC, callout, callout, _ent, false, true, colorOverride: Color.FromHex("#fff0ff", Color.Honeydew));
     }
 
     private void OnActorMobStateChanged(Entity<ActorComponent> ent, ref MobStateChangedEvent args)
