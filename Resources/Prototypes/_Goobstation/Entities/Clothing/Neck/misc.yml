@@ -5,6 +5,6 @@
   description: A stylish green badge to prove that you work for Central Command. No one will care, but atleast you look nice!
   components:
   - type: Sprite
-    sprite: Clothing/Neck/Misc/centcommbadge.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/centcommbadge.rsi
   - type: Clothing
-    sprite: Clothing/Neck/Misc/centcommbadge.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/centcommbadge.rsi
