@@ -3821,3 +3821,9 @@ Entries:
       message: Slime and gingerbread people now die to ling absorbing.
   id: 426
   time: '2025-01-05T01:50:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Tweak
+      message: The nuke and nuke disk are now immune to Supermatter.
+  id: 427
+  time: '2025-01-05T01:59:42.0000000+00:00'
