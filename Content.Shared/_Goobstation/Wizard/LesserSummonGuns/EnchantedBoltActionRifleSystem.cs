@@ -65,11 +65,14 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
         if (!_hands.TryDrop(user, oldHand, null, false, false, hands))
             return;
 
+        // This is required so that muzzle flash faces where it should face
+        _transform.SetWorldRotationNoLerp(uid, _transform.GetWorldRotation(uid) - MathHelper.PiOver2);
+
         if (_net.IsClient)
             return;
 
         var dir = _random.NextAngle().ToVec();
-        var speed = _random.NextFloat(comp.ThrowningSpeed.X, comp.ThrowningSpeed.Y);
+        var speed = _random.NextFloat(comp.ThrowingSpeed.X, comp.ThrowingSpeed.Y);
 
         _throwingSystem.TryThrow(uid, dir, speed, user, 0, recoil: false);
 

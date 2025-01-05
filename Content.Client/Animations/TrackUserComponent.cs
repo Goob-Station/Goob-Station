@@ -14,4 +14,6 @@ public sealed partial class TrackUserComponent : Component
     /// Offset in the direction of the entity's rotation.
     /// </summary>
     public Vector2 Offset = Vector2.Zero;
+
+    public bool TrackRotation; // Goobstation
 }

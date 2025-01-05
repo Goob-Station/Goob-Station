@@ -17,5 +17,5 @@ public sealed partial class EnchantedBoltActionRifleComponent : Component
     public EntProtoId Proto = "WeaponBoltActionEnchanted";
 
     [DataField]
-    public Vector2 ThrowningSpeed = new(2f, 4f);
+    public Vector2 ThrowingSpeed = new(2f, 4f);
 }

@@ -91,7 +91,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
         var coords = TransformSystem.GetMapCoordinates(args.Container, xform);
 
         if (!Deleting(args.Container))
-            _body.GibBody(args.Container, contents: GibContentsOption.Gib);
+            _body.GibBody(args.Container, true, contents: GibContentsOption.Skip);
 
         if (!Deleting(args.Container))
             QueueDel(args.Container);

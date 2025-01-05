@@ -316,11 +316,10 @@ public sealed partial class GunSystem : SharedGunSystem
         var ent = Spawn(message.Prototype, coordinates);
         TransformSystem.SetWorldRotationNoLerp(ent, message.Angle);
 
-        TransformSystem.SetParent(ent, gunUid); // Goobstation
-
         if (tracked != null)
         {
             var track = EnsureComp<TrackUserComponent>(ent);
+            track.TrackRotation = true; // Goobstation
             track.User = tracked;
             track.Offset = Vector2.UnitX / 2f;
         }

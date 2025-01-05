@@ -78,7 +78,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         if (itemXform.GridUid == grid.Value)
             return true;
 
-        if (!_respawn.TryFindRandomTile(grid.Value, map.Value, 10, out var coords))
+        if (!_respawn.TryFindRandomTile(grid.Value, map.Value, 10, out var coords, false))
             return false;
 
         if (Container.TryGetOuterContainer(item, itemXform, out var container))

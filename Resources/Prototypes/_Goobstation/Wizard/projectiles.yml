@@ -107,11 +107,11 @@
       types:
         Heat: 3
   - type: Trail
-    color: "#FF0033"
+    color: "#FF0033DD"
     lineThickness: 0.08
     frequency: 0.02
     lifetime: 0.3
-    colorLerpAmount: 0
+    colorLerpAmount: 0.06
     thicknessLerpAmount: 0.03
     shader: unshaded
   - type: Fixtures
@@ -125,7 +125,7 @@
         - Impassable
         - BulletImpassable
   - type: SpellCard
-    flippedTrailColor: "#AA00FF"
+    flippedTrailColor: "#AA00FFDD"
   - type: HomingProjectile
     homingSpeed: 450
   - type: Appearance
@@ -148,9 +148,9 @@
       shader: unshaded
       map: [ "base" ]
   - type: Trail
-    color: "#AA00FF"
+    color: "#AA00FFDD"
   - type: SpellCard
-    flippedTrailColor: "#FF0033"
+    flippedTrailColor: "#FF0033DD"
   - type: GenericVisualizer
     visuals:
       enum.SpellCardVisuals.State:

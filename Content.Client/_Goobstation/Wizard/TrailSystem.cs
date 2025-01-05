@@ -116,9 +116,9 @@ public sealed class TrailSystem : EntitySystem
             {
                 trail.TrailData.Add(new TrailData(position, rotation, trail.Color, trail.LineThickness));
             }
-            else
+            else if (trail.TrailData.Count > 0)
             {
-                if (trail.CurIndex >= trail.TrailData.Count)
+                if (trail.CurIndex >= trail.TrailData.Count || trail.Sprite == null)
                     trail.CurIndex = 0;
 
                 var data = trail.TrailData[trail.CurIndex];
@@ -130,14 +130,11 @@ public sealed class TrailSystem : EntitySystem
 
                 if (trail.Sprite == null)
                 {
-                    if (trail.ColorLerpAmount <= 0f || trail.ThicknessLerpAmount <= 0f)
+                    if (trail is { ColorLerpAmount: <= 0f, ThicknessLerpAmount: <= 0f })
                         continue;
 
-                    for (var i = 0; i + 1 < trail.TrailData.Count; i++)
-                    {
-                        // Push first element to the end of the list
-                        (trail.TrailData[i], trail.TrailData[i + 1]) = (trail.TrailData[i + 1], trail.TrailData[i]);
-                    }
+                    trail.TrailData.RemoveAt(0);
+                    trail.TrailData.Add(data);
                 }
                 else
                     trail.CurIndex++;

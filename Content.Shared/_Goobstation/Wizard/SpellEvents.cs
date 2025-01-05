@@ -310,7 +310,7 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpe
     public Angle Spread = Angle.FromDegrees(30);
 
     [DataField]
-    public float MaxAngularVelocity = MathF.PI * 4f / 3f;
+    public float MaxAngularVelocity = MathF.PI / 3f;
 
     [DataField]
     public Vector2 MinMaxLinearDamping = new (3f, 7f);
