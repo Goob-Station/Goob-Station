@@ -336,10 +336,6 @@
     - BorgEmotes
     - HarpyEmotes
   chatMessages: ["chat-emote-msg-buzz"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - buzzing
     - buzz
@@ -401,10 +397,6 @@
     - HarpyEmotes
     - IPCEmotes
   chatMessages: ["chat-emote-msg-beep"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - beep
     - beeps
@@ -422,10 +414,6 @@
     - HarpyEmotes
     - IPCEmotes
   chatMessages: ["chat-emote-msg-chime"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - chime
     - chimes
@@ -443,10 +431,6 @@
     - HarpyEmotes
     - IPCEmotes
   chatMessages: ["chat-emote-msg-buzzestwo"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -470,10 +454,6 @@
     - HarpyEmotes
     - IPCEmotes
   chatMessages: ["chat-emote-msg-ping"]
-  whitelist: #Goobstation - IPCs
-    components:
-    - Silicon
-    - BorgChassis
   chatTriggers:
     - ping
     - pings
