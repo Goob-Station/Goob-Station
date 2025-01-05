@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
@@ -49,7 +49,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 continue;
 
             GameTicker.EndGameRule(uid, gameRule);
-            Log.Error("blob is active!!! remove!");
+            Log.Warning("blob is active!!! remove!");
             break;
         }
     }

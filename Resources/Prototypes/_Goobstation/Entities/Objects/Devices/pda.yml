@@ -62,7 +62,7 @@
   parent: ERTLeaderPDA
   id: BlueshieldPDA
   name: Blueshield Officer PDA
-  description: Blue for defense, the silver shield of the Blueshield is engraved on the front.
+  description: The silver shield of the Blueshield is engraved on the front.
   components:
   - type: Pda
     id: BlueshieldIDCard

@@ -5,6 +5,10 @@
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
   - sdeathgasp
+  whitelist:
+    components:
+    - Silicon
+    - BorgChassis
 
 - type: emote
   id: Boop
@@ -15,13 +19,17 @@
     tags:
     - IPCEmotes
     - HarpyEmotes
-  chatMessages: [ boops! ]
+  chatMessages: [ boops. ]
   chatTriggers:
-    - boops
+  - boops
 
 - type: emote
-  id: Whirr # uncategorized as it is generic
+  id: Whirr
   name: chat-emote-name-whirr
-  chatMessages: [ whirrs! ]
+  whitelist: # ShibaStation - Whitelist
+    tags:
+    - IPCEmotes
+    - HarpyEmotes
+  chatMessages: [ whirrs. ]
   chatTriggers:
     - whirrs
