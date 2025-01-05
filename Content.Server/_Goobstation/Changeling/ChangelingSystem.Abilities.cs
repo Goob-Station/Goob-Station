@@ -105,7 +105,8 @@ public sealed partial class ChangelingSystem
             BreakOnHandChange = false,
             BreakOnMove = true,
             BreakOnWeightlessMove = true,
-            AttemptFrequency = AttemptFrequency.StartAndEnd
+            AttemptFrequency = AttemptFrequency.StartAndEnd,
+            MultiplyDelay = false,
         };
         _doAfter.TryStartDoAfter(dargs);
     }
