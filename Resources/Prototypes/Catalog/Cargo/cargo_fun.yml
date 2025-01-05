@@ -215,6 +215,6 @@
     sprite: Objects/Fun/Instruments/structureinstruments.rsi
     state: daw-base
   product: DawInstrument
-  cost: 5000
+  cost: 2500
   category: cargoproduct-category-name-fun
   group: market
