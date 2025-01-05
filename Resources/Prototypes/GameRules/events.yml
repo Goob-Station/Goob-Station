@@ -39,6 +39,7 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
+    #- id: BingleSpawn #Goobstation - Bingle
 
 - type: entity
   id: BaseStationEvent

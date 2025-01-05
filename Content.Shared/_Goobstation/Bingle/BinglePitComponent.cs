@@ -11,9 +11,9 @@ public sealed partial class BinglePitComponent : Component
     /// ammount of stored
     /// </summary>
     [DataField]
-    public float Fallen = 0f;
+    public float BinglePoints = 0f;
     /// <summary>
-    /// amount of material needed for a new bingle
+    /// amount of Bingle Points needed for a new bingle
     /// </summary>
     [DataField]
     public float SpawnNewAt = 10f;
@@ -25,13 +25,13 @@ public sealed partial class BinglePitComponent : Component
     public float MinionsMade = 0f;
 
     [DataField]
-    public float UpgradeMinionsAfter = 12f; //changed for testing
+    public float UpgradeMinionsAfter = 12f;
 
     /// <summary>
     /// if the Bingle pit level
     /// </summary>
     [DataField]
-    public float Level = 1f;
+    public float Level = 0f;
 
     /// <summary>
     /// Where the entities go when it falls into the pit, empties when it is destroyed.

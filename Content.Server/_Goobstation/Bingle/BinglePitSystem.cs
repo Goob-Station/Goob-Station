@@ -5,6 +5,7 @@ using Robust.Shared.Containers;
 using Content.Shared.Destructible;
 using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Stunnable;
+using Content.Shared.Humanoid;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -27,28 +28,32 @@ public sealed class BinglePitSystem : EntitySystem
     }
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
-        // dont add already falling and bingles
+        // dont swallow bingles
         if (HasComp<BingleComponent>(args.Tripper))
             return;
-        // after consuming start consuming living,
-        if (HasComp<MobStateComponent>(args.Tripper) && (component.Level==0))
+        // need to be at levl 1 or above to swallo anything alive
+        if (HasComp<MobStateComponent>(args.Tripper) && component.Level == 0)
             return;
 
         StartFalling(uid, component, args.Tripper);
 
-        if (component.Fallen >= component.SpawnNewAt)
+        if (component.BinglePoints >= component.SpawnNewAt)
         {
             SpawnBingle(uid, component);
-            component.Fallen = component.Fallen - component.SpawnNewAt;
+            component.BinglePoints = component.BinglePoints - component.SpawnNewAt;
         }
     }
 
     public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper)
     {
         if (HasComp<MobStateComponent>(tripper))
-            component.Fallen = component.Fallen + 10f;
+        {
+            component.BinglePoints = component.BinglePoints + 5f;
+            if (HasComp<HumanoidAppearanceComponent>(tripper))
+                component.BinglePoints = component.BinglePoints + 5f;
+        }
         else
-            component.Fallen++;
+            component.BinglePoints++;
 
         if (component.Pit == null)
             component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
@@ -67,7 +72,11 @@ public sealed class BinglePitSystem : EntitySystem
 
         component.MinionsMade++;
         if (component.MinionsMade >= component.UpgradeMinionsAfter)
+        {
+            component.MinionsMade = 0;
+            component.Level++;
             UpgradeBingles(uid, component);
+        }
     }
     public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
     {
