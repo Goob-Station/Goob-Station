@@ -61,7 +61,6 @@
     sprite: Objects/Weapons/Grenades/frozen-smoke-capsule.rsi
     state: icon
   - type: SmokeOnTrigger
-    isResin: true
     duration: 12
     spreadAmount: 1000
     smokePrototype: Resin
