@@ -7,6 +7,7 @@ using Content.Shared._White.Overlays;
 using Content.Shared.Changeling;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -169,6 +170,7 @@ public sealed partial class ChangelingSystem
                 objective.Absorbed += 1;
     }
 
+    public List<ProtoId<ReagentPrototype>> BiomassAbsorbedChemicals = new() { "Nutriment", "Protein", "UncookedAnimalProteins", "Fat" }; // fat so absorbing raw meat good
     private void OnAbsorbBiomatter(EntityUid uid, ChangelingComponent comp, ref AbsorbBiomatterEvent args)
     {
         var target = args.Target;
@@ -182,11 +184,12 @@ public sealed partial class ChangelingSystem
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
             return;
 
-        var totalNutriment = FixedPoint2.New(0);
+        var totalFood = FixedPoint2.New(0);
         foreach (var (_, sol) in _solution.EnumerateSolutions((target, solMan)))
-            totalNutriment += sol.Comp.Solution.GetTotalPrototypeQuantity("Nutriment");
+            foreach (var proto in BiomassAbsorbedChemicals)
+                totalFood += sol.Comp.Solution.GetTotalPrototypeQuantity(proto);
 
-        if (food.RequiresSpecialDigestion || totalNutriment == 0) // no eating winter coats or food that won't give you anything
+        if (food.RequiresSpecialDigestion || totalFood == 0) // no eating winter coats or food that won't give you anything
         {
             var popup = Loc.GetString("changeling-absorbbiomatter-bad-food");
             _popup.PopupEntity(popup, uid, uid);
@@ -196,7 +199,7 @@ public sealed partial class ChangelingSystem
         var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
         PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalNutriment.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalFood.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
@@ -221,18 +224,21 @@ public sealed partial class ChangelingSystem
         if (!TryComp<SolutionContainerManagerComponent>(target, out var solMan))
             return;
 
-        var totalNutriment = FixedPoint2.New(0);
+        var totalFood = FixedPoint2.New(0);
         foreach (var (name, sol) in _solution.EnumerateSolutions((target, solMan)))
         {
             var solution = sol.Comp.Solution;
-            var quant = solution.GetTotalPrototypeQuantity("Nutriment");
-            totalNutriment += quant;
-            solution.RemoveReagent("Nutriment", quant);
+            foreach (var proto in BiomassAbsorbedChemicals)
+            {
+                var quant = solution.GetTotalPrototypeQuantity(proto);
+                totalFood += quant;
+                solution.RemoveReagent(proto, quant);
+            }
             _puddle.TrySpillAt(target, solution, out var _);
         }
 
-        UpdateBiomass(uid, comp, totalNutriment.Float() * 0.15f); // 5% of default max for an apple
-        UpdateChemicals(uid, comp, totalNutriment.Float()); // 10 chemicals for an apple
+        UpdateBiomass(uid, comp, totalFood.Float() * 0.15f); // 5% of default max for an apple
+        UpdateChemicals(uid, comp, totalFood.Float()); // 10 chemicals for an apple
 
         QueueDel(target); // eaten
     }
