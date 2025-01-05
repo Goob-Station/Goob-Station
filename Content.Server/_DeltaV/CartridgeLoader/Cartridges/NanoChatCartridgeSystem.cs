@@ -25,6 +25,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedNanoChatSystem _nanoChat = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     // Messages in notifications get cut off after this point
     // no point in storing it on the comp
@@ -406,8 +407,7 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
         _nanoChat.AddMessage((recipient, recipient.Comp), senderNumber.Value, message with { DeliveryFailed = false });
 
 
-        if (_nanoChat.GetCurrentChat((recipient, recipient.Comp)) != senderNumber)
-            HandleUnreadNotification(recipient, message);
+        HandleUnreadNotification(recipient, message, (uint) senderNumber);
 
         var msgEv = new NanoChatMessageReceivedEvent(recipient);
         RaiseLocalEvent(ref msgEv);
@@ -417,33 +417,36 @@ public sealed class NanoChatCartridgeSystem : EntitySystem
     /// <summary>
     ///     Handles unread message notifications and updates unread status.
     /// </summary>
-    private void HandleUnreadNotification(Entity<NanoChatCardComponent> recipient, NanoChatMessage message)
+    private void HandleUnreadNotification(Entity<NanoChatCardComponent> recipient,
+        NanoChatMessage message,
+        uint senderNumber)
     {
         // Get sender name from contacts or fall back to number
         var recipients = _nanoChat.GetRecipients((recipient, recipient.Comp));
-        var senderName = recipients.TryGetValue(message.SenderId, out var existingRecipient)
-            ? existingRecipient.Name
+        var senderName = recipients.TryGetValue(message.SenderId, out var senderRecipient)
+            ? senderRecipient.Name
             : $"#{message.SenderId:D4}";
-
-        if (!recipient.Comp.Recipients[message.SenderId].HasUnread && !recipient.Comp.NotificationsMuted)
-        {
-            var pdaQuery = EntityQueryEnumerator<PdaComponent>();
-            while (pdaQuery.MoveNext(out var pdaUid, out var pdaComp))
-            {
-                if (pdaComp.ContainedId != recipient)
-                    continue;
-
-                _cartridge.SendNotification(pdaUid,
-                    Loc.GetString("nano-chat-new-message-title", ("sender", senderName)),
-                    Loc.GetString("nano-chat-new-message-body", ("message", TruncateMessage(message.Content))));
-                break;
-            }
-        }
+        var hasSelectedCurrentChat = _nanoChat.GetCurrentChat((recipient, recipient.Comp)) == senderNumber;
 
         // Update unread status
-        _nanoChat.SetRecipient((recipient, recipient.Comp),
-            message.SenderId,
-            existingRecipient with { HasUnread = true });
+        if (!hasSelectedCurrentChat)
+            _nanoChat.SetRecipient((recipient, recipient.Comp),
+                message.SenderId,
+                senderRecipient with { HasUnread = true });
+
+        if (recipient.Comp.NotificationsMuted ||
+            recipient.Comp.PdaUid is not {} pdaUid ||
+            !TryComp<CartridgeLoaderComponent>(pdaUid, out var loader) ||
+            // Don't notify if the recipient has the NanoChat program open with this chat selected.
+            (hasSelectedCurrentChat &&
+                _ui.IsUiOpen(pdaUid, PdaUiKey.Key) &&
+                HasComp<NanoChatCartridgeComponent>(loader.ActiveProgram)))
+            return;
+
+        _cartridge.SendNotification(pdaUid,
+            Loc.GetString("nano-chat-new-message-title", ("sender", senderName)),
+            Loc.GetString("nano-chat-new-message-body", ("message", TruncateMessage(message.Content))),
+            loader);
     }
 
     /// <summary>

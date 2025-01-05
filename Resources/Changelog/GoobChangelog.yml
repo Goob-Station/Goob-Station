@@ -3729,3 +3729,109 @@ Entries:
         to Game Admins and higher.
   id: 416
   time: '2024-12-31T23:02:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the Maoist accent.
+    - type: Tweak
+      message: >-
+        The Autodoc is now in Chinese. From now on it's known as the Glorious
+        People's Revolutionary Automated Surgery Machine.
+  id: 417
+  time: '2025-01-02T22:57:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Medical jobs are now much faster at surgery.
+  id: 418
+  time: '2025-01-02T22:59:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Mousetraps now damage the feet specifically.
+  id: 419
+  time: '2025-01-02T23:43:37.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added new song "The Future Soon" by Jonathan Coulton to the lobby music
+        and jukebox
+  id: 420
+  time: '2025-01-03T03:54:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added the Annie, a stronger variant of the AKMS for ERT, its pretty
+        strong and goes THOCK.
+    - type: Add
+      message: >-
+        Added the WSPR, a stronger variant of the AKMS for the Syndicate,
+        intended as an in-between for the M90 and Burner.
+    - type: Add
+      message: >-
+        Subsonic .30 bullets, they do less damage than their traditional
+        counterpart but are cheaper and have a slightly larger magazine size.
+  id: 421
+  time: '2025-01-03T15:44:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Eswords can no longer be EMPd.
+    - type: Add
+      message: Eswords will block bolas, spears, syringes, pies and similar stuff.
+  id: 422
+  time: '2025-01-03T15:55:47.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Add
+      message: >-
+        Modsuits can be reseached as T1 experimental technology. Modules not
+        implemented yet.
+  id: 423
+  time: '2025-01-05T01:41:36.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: Heretic who chose path of blade will not be able to shoot.
+    - type: Fix
+      message: >-
+        Heretic blade path Realignment spell will apply pacified effect on the
+        user.
+  id: 424
+  time: '2025-01-05T01:42:50.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Updated BSO equipment and loadout
+  id: 425
+  time: '2025-01-05T01:46:32.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ghost roles such as ninja, lone operative, ert and deathsquad can only
+        be human.
+    - type: Add
+      message: Blob antag rolls before jobs now.
+    - type: Fix
+      message: Blob doesn't die to flashes anymore.
+    - type: Fix
+      message: Slime and gingerbread people now die to ling absorbing.
+  id: 426
+  time: '2025-01-05T01:50:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Tweak
+      message: The nuke and nuke disk are now immune to Supermatter.
+  id: 427
+  time: '2025-01-05T01:59:42.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: >-
+        Guidebook reagent entries now properly tell you if their effects
+        accumulate or not
+  id: 428
+  time: '2025-01-05T02:07:53.0000000+00:00'
