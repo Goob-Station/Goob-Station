@@ -3827,3 +3827,11 @@ Entries:
       message: The nuke and nuke disk are now immune to Supermatter.
   id: 427
   time: '2025-01-05T01:59:42.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: >-
+        Guidebook reagent entries now properly tell you if their effects
+        accumulate or not
+  id: 428
+  time: '2025-01-05T02:07:53.0000000+00:00'
