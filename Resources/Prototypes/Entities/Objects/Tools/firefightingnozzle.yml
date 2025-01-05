@@ -1,4 +1,5 @@
-﻿- type: entity
+﻿# Assmos - Extinguisher Nozzle
+- type: entity
   id: FirefighterNozzle
   parent: BaseItem
   name: firefighter nozzle
@@ -61,10 +62,10 @@
     state: icon
   - type: SmokeOnTrigger
     isResin: true
-    duration: 5
+    duration: 12
     spreadAmount: 1000
     smokePrototype: Resin
   - type: ActiveTimerTrigger
     timeRemaining: 0.3
   - type: DeleteOnTrigger
-        
+  

@@ -267,3 +267,4 @@
   - type: FoamVisuals
     animationTime: 0.6
     animationState: resin-dissolve
+  - type: AtmosResinDespawn

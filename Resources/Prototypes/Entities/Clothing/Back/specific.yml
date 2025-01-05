@@ -90,14 +90,14 @@
   - type: SolutionAmmoProvider
     solutionId: tank
     proto: AtmosResin
-    fireCost: 50
+    fireCost: 40
   - type: SolutionContainerManager
     solutions:
       tank:
-        maxVol: 1250
+        maxVol: 1200
         reagents:
         - ReagentId: Water
-          Quantity: 1250
+          Quantity: 1200
   - type: SolutionTransfer
     transferAmount: 50
     maxTransferAmount: 100
