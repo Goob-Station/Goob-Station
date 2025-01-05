@@ -15,6 +15,7 @@
   <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
   <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
   <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
   <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
   </Box>

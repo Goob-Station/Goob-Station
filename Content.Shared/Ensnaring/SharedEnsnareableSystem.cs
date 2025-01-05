@@ -11,6 +11,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
@@ -58,6 +59,7 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         SubscribeLocalEvent<EnsnaringComponent, StepTriggerAttemptEvent>(AttemptStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, StepTriggeredOffEvent>(OnStepTrigger);
         SubscribeLocalEvent<EnsnaringComponent, ThrowDoHitEvent>(OnThrowHit);
+        SubscribeLocalEvent<EnsnaringComponent, ProjectileHitEvent>(OnProjectileHit); // Goobstation
         SubscribeLocalEvent<EnsnaringComponent, AttemptPacifiedThrowEvent>(OnAttemptPacifiedThrow);
     }
 
@@ -254,6 +256,18 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         }
     }
 
+    // Goobstation
+    private void OnProjectileHit(EntityUid uid, EnsnaringComponent component, ProjectileHitEvent args)
+    {
+        if (!component.CanThrowTrigger)
+            return;
+
+        if (TryEnsnare(args.Target, uid, component))
+        {
+            _audio.PlayPvs(component.EnsnareSound, uid);
+        }
+    }
+
     /// <summary>
     /// Used where you want to try to ensnare an entity with the <see cref="EnsnareableComponent"/>
     /// </summary>
@@ -308,14 +322,14 @@ public abstract class SharedEnsnareableSystem : EntitySystem
 
         var target = component.Ensnared.Value;
 
-        Container.Remove(ensnare, ensnareable.Container, force: true);
+        Container.TryRemoveFromContainer(ensnare, force: true); // Goobstation - fix on ensnare entity remove
         ensnareable.IsEnsnared = ensnareable.Container.ContainedEntities.Count > 0;
         Dirty(component.Ensnared.Value, ensnareable);
         component.Ensnared = null;
 
         UpdateAlert(target, ensnareable);
         var ev = new EnsnareRemoveEvent(component.WalkSpeed, component.SprintSpeed);
-        RaiseLocalEvent(ensnare, ev);
+        RaiseLocalEvent(target, ev);
     }
 
     /// <summary>
