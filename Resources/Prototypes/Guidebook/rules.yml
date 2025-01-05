@@ -135,7 +135,7 @@
   priority: 15
   text: "/ServerInfo/Guidebook/ServerRules/ReserveRul9.xml"
 
-  - type: guideEntry
+- type: guideEntry
   id: ReserveRul10
   name: Нечестная игра
   ruleEntry: true
