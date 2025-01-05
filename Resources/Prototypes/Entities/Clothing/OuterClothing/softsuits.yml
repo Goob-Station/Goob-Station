@@ -50,9 +50,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.75
     coolingCoefficient: 0.5
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
   - type: Tag
     tags:
     - SuitEVA
