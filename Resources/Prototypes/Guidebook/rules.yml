@@ -141,3 +141,10 @@
   ruleEntry: true
   priority: 16
   text: "/ServerInfo/Guidebook/ServerRules/ReserveRul10.xml"
+
+- type: guideEntry
+  id: Космический Закон
+  name: guide-entry-rules-space-law
+  priority: 1
+  text: "/ServerInfo/Guidebook/ServerRules/SpaceLaw/SpaceLaw.xml"
+  children:
