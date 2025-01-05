@@ -96,3 +96,8 @@ spellbook-lesser-summon-guns-desc =
     Why reload when you have infinite guns? Summons an unending stream of bolt action rifles that deal little damage, but will stun targets. The spell is more effective when both of your hands are free.
     Learning this spell makes you unable to learn Arcane Barrage.
     Requires wizard's robe and hat to cast.
+
+spellbook-barnyard-name = Curse of the Barnyard
+spellbook-barnyard-desc =
+    This spell dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
+    Doesn't require wizard's robe and hat to cast.

@@ -40,6 +40,9 @@
 - type: Tag
   id: LesserSummonGunsAction
 
+- type: Tag
+  id: CursedAnimalMask
+
 # Mechs
 
 - type: Tag

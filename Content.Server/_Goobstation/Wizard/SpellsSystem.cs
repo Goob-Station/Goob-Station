@@ -304,4 +304,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
             Dirty(ent);
         }
     }
+
+    protected override void Speak(EntityUid uid, string message)
+    {
+        base.Speak(uid, message);
+
+        _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
+    }
 }

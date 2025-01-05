@@ -159,6 +159,19 @@
   - !type:BuyerActionsDontHaveTagCondition
     tag: ArcaneBarrageAction
 
+- type: listing
+  id: SpellbookBarnyardCurse
+  name: spellbook-barnyard-name
+  description: spellbook-barnyard-desc
+  productAction: ActionBarnyardCurse
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

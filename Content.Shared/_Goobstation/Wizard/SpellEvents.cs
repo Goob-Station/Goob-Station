@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Magic;
 using Content.Shared.Polymorph;
+using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -20,7 +21,7 @@ public sealed partial class CluwneCurseEvent : EntityTargetActionEvent, ISpeakSp
     public TimeSpan ParalyzeDuration = TimeSpan.FromSeconds(5);
 
     [DataField]
-    public TimeSpan JitterStutterDuration = TimeSpan.FromSeconds(30);
+    public TimeSpan StutterDuration = TimeSpan.FromSeconds(30);
 }
 
 public sealed partial class BananaTouchEvent : EntityTargetActionEvent, ISpeakSpell
@@ -334,4 +335,16 @@ public sealed partial class LesserSummonGunsEvent : InstantActionEvent, ISpeakSp
 
     [DataField]
     public EntProtoId Proto = "WeaponBoltActionEnchanted";
+}
+
+public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField(required: true)]
+    public Dictionary<EntProtoId, SoundSpecifier?> Masks = new();
+
+    [DataField]
+    public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
 }

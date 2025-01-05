@@ -41,13 +41,16 @@ using Content.Shared.Speech.EntitySystems;
 using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
@@ -90,6 +93,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
+    [Dependency] private   readonly TagSystem _tag = default!;
+    [Dependency] private   readonly SharedAudioSystem _audio = default!;
 
     #endregion
 
@@ -116,6 +121,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SpellCardsEvent>(OnSpellCards);
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
+        SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
     }
 
     #region Spells
@@ -128,8 +134,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (TryComp(ev.Target, out StatusEffectsComponent? status))
         {
             Stun.TryParalyze(ev.Target, ev.ParalyzeDuration, true, status);
-            _jitter.DoJitter(ev.Target, ev.JitterStutterDuration, true, status: status);
-            _stutter.DoStutter(ev.Target, ev.JitterStutterDuration, true, status);
+            _jitter.DoJitter(ev.Target, ev.StutterDuration, true, status: status);
         }
 
         EnsureComp<CluwneComponent>(ev.Target);
@@ -600,6 +605,52 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnBarnyardCurse(BarnyardCurseEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (ev.Masks.Count == 0)
+            return;
+
+        if (!TryComp(ev.Target, out InventoryComponent? inventory))
+            return;
+
+        if (!_inventory.HasSlot(ev.Target, "mask", inventory))
+        {
+            Popup(ev.Performer, "spell-fail-target-cant-wear-mask");
+            return;
+        }
+
+        if (_inventory.TryGetSlotEntity(ev.Target, "mask", out var ent, inventory) &&
+            HasComp<UnremoveableComponent>(ent) && _tag.HasTag(ent.Value, ev.CursedMaskTag))
+        {
+            Popup(ev.Performer, "spell-fail-target-cursed");
+            return;
+        }
+
+        if (_net.IsClient)
+            return;
+
+        var (maskEnt, sound) = Random.Pick(ev.Masks);
+
+        var gear = new Dictionary<string, EntProtoId>
+        {
+            { "mask", maskEnt },
+        };
+
+        SetGear(ev.Target, gear);
+
+        if (sound != null)
+            _audio.PlayEntity(sound, Filter.Pvs(ev.Target), ev.Target, true);
+
+        // This should transform into animal noise
+        Speak(ev.Target, "!");
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -664,9 +715,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (target == null && toCoords == null)
             return;
 
-        var targetPos = toCoords != null
-            ? toCoords.Value.Position
-            : TransformSystem.GetMapCoordinates(target!.Value).Position;
+        var targetPos = toCoords?.Position ?? TransformSystem.GetMapCoordinates(target!.Value).Position;
 
         var direction = targetPos - mapCoords.Position;
         if (direction == Vector2.Zero)
@@ -775,6 +824,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
+    {
+    }
+
+    protected virtual void Speak(EntityUid uid, string message)
     {
     }
 

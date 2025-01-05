@@ -196,7 +196,7 @@
       - Body
     canTargetSelf: false
     interactOnMiss: false
-    range: 100
+    range: 15
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: corpse_explosion
@@ -224,7 +224,7 @@
       - StatusEffects
     canTargetSelf: false
     interactOnMiss: false
-    range: 100
+    range: 15
     sound: !type:SoundPathSpecifier
       path: /Audio/_Goobstation/Wizard/blind.ogg
     icon:
@@ -330,7 +330,7 @@
       - MobState
     canTargetSelf: false
     interactOnMiss: false
-    range: 100
+    range: 15
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: lightning
@@ -354,7 +354,7 @@
       - MobState
     canTargetSelf: false
     interactOnMiss: false
-    range: 100
+    range: 15
     sound:
       path: /Audio/Weapons/smash.ogg
     icon:
@@ -382,7 +382,7 @@
       - MobState
     canTargetSelf: false
     interactOnMiss: false
-    range: 100
+    range: 15
     sound:
       path: /Audio/Magic/staff_healing.ogg
     icon:
@@ -432,3 +432,45 @@
   - type: Tag
     tags:
       - LesserSummonGunsAction
+
+- type: entity
+  id: ActionBarnyardCurse
+  name: Curse of the Barnyard
+  description: Dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Inventory
+      - HumanoidAppearance
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: barn
+    event: !type:BarnyardCurseEvent
+      speech: action-speech-spell-barnyard
+      masks:
+        ClothingMaskPig:
+          path: /Audio/_Goobstation/Wizard/pighead_curse.ogg
+        ClothingMaskFrog: null
+        ClothingMaskCow:
+          path: /Audio/_Goobstation/Wizard/cowhead_curse.ogg
+        ClothingMaskHorse:
+          path: /Audio/_Goobstation/Wizard/horsehead_curse.ogg
+        ClothingMaskRat: null
+        ClothingMaskFox: null
+        ClothingMaskBee: null
+        ClothingMaskBear: null
+        ClothingMaskRaven: null
+        ClothingMaskJackal: null
+        ClothingMaskBat: null
+  - type: Magic
+    requiresSpeech: true

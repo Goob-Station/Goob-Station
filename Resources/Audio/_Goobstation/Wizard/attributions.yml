@@ -47,3 +47,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/smoke.ogg"
+
+- files: ["horsehead_curse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/horsehead_curse.ogg"
+
+- files: ["cowhead_curse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/cowhead_curse.ogg"
+
+- files: ["pighead_curse.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/pighead_curse.ogg"

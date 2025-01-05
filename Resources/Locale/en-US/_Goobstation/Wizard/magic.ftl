@@ -13,6 +13,8 @@ spell-fail-mutate-silicon = Can't mutate while in silicon form!
 spell-fail-tesla-blast = You lose control of the lightning!
 spell-fail-lightning-bolt = Can't shoot lightning there.
 spell-fail-hands-occupied = You need an empty hand for this spell.
+spell-fail-target-cant-wear-mask = Target can't wear masks!
+spell-fail-target-cursed = Target is cursed already.
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
