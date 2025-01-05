@@ -122,6 +122,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ArcaneBarrageEvent>(OnArcaneBarrage);
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
+        SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
     }
 
     #region Spells
@@ -290,7 +291,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (HasComp<BorgChassisComponent>(ev.Target))
         {
-            Popup(ev.Performer, "spell-fail-borg");
+            Popup(ev.Performer, "spell-fail-target-borg");
             return;
         }
 
@@ -651,6 +652,24 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnScreamForMe(ScreamForMeEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (HasComp<BorgChassisComponent>(ev.Target) || HasComp<SiliconComponent>(ev.Target))
+        {
+            Popup(ev.Performer, "spell-fail-target-silicon");
+            return;
+        }
+
+        if (!ScreamForMe(ev))
+            return;
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -829,6 +848,11 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     protected virtual void Speak(EntityUid uid, string message)
     {
+    }
+
+    protected virtual bool ScreamForMe(ScreamForMeEvent ev)
+    {
+        return true;
     }
 
     #endregion

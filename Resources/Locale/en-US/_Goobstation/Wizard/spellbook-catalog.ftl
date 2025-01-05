@@ -101,3 +101,8 @@ spellbook-barnyard-name = Curse of the Barnyard
 spellbook-barnyard-desc =
     This spell dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-scream-for-me-name = Scream For Me
+spellbook-scream-for-me-desc =
+    Sadistic sanguine spell that inflicts numerous severe blood wounds all over the victim's body.
+    Doesn't require wizard's robe and hat to cast.

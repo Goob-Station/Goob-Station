@@ -89,3 +89,18 @@
     tags:
       - HideContextMenu
   - type: Transform
+
+- type: entity
+  id: SanguineFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: PointLight
+      enabled: true
+      radius: 5
+      energy: 8
+      color: red
+      netsync: false
+    - type: LightFade
+      duration: 0.5
+    - type: TimedDespawn
+      lifetime: 0.5

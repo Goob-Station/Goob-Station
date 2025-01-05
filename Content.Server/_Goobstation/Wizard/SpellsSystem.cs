@@ -1,6 +1,8 @@
 using System.Numerics;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
+using Content.Server.Body.Components;
+using Content.Server.Body.Systems;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
@@ -21,13 +23,13 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 
 namespace Content.Server._Goobstation.Wizard;
 
@@ -43,6 +45,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly GunSystem _gun = default!;
+    [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -310,5 +313,22 @@ public sealed class SpellsSystem : SharedSpellsSystem
         base.Speak(uid, message);
 
         _chat.TrySendInGameICMessage(uid, message, InGameICChatType.Speak, false);
+    }
+
+    protected override bool ScreamForMe(ScreamForMeEvent ev)
+    {
+        if (!TryComp(ev.Target, out BloodstreamComponent? bloodstream))
+            return false;
+
+        if (TryComp(ev.Target, out VocalComponent? vocal))
+            Emote(ev.Target, vocal.ScreamId);
+
+        Spawn(ev.Effect, TransformSystem.GetMapCoordinates(ev.Target));
+
+        _bloodstream.SpillAllSolutions(ev.Target, bloodstream);
+        _bloodstream.TryModifyBleedAmount(ev.Target, bloodstream.MaxBleedAmount, bloodstream);
+        EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
+
+        return true;
     }
 }

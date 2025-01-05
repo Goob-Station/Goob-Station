@@ -348,3 +348,12 @@ public sealed partial class BarnyardCurseEvent : EntityTargetActionEvent, ISpeak
     [DataField]
     public ProtoId<TagPrototype> CursedMaskTag = "CursedAnimalMask";
 }
+
+public sealed partial class ScreamForMeEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Effect = "SanguineFlashEffect";
+}
