@@ -14,6 +14,7 @@ namespace Content.Server.Speech.EntitySystems
         private static readonly IReadOnlyDictionary<string, string> SpecialWords = new Dictionary<string, string>()
         {
             { "you", "wu" },
+            { "ты", "ти" }, // Reserve-Localization
         };
 
         public override void Initialize()
@@ -29,6 +30,10 @@ namespace Content.Server.Speech.EntitySystems
             }
 
             return message.Replace("!", _random.Pick(Faces))
+                // Reserve-Localization-Start
+                .Replace("р", "в").Replace("Р", "В")
+                .Replace("л", "в").Replace("Л", "В")
+                // Reserve-Localization-End
                 .Replace("r", "w").Replace("R", "W")
                 .Replace("l", "w").Replace("L", "W");
         }

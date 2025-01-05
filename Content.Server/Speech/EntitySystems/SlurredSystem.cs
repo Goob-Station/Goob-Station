@@ -71,6 +71,12 @@ public sealed class SlurredSystem : SharedSlurredSystem
                     'a' => "ah",
                     'u' => "oo",
                     'c' => "k",
+                    // Reserve-Localization Start
+                    'о' => "а",
+                    'к' => "кх",
+                    'щ' => "шч",
+                    'ц' => "тс",
+                    // Reserve-Localization End
                     _ => $"{character}",
                 };
 

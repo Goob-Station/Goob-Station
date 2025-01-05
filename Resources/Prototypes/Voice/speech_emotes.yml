@@ -28,6 +28,17 @@
     - yells
     - yelled
     - yelling
+    # Reserve-Localization-Start
+    - кричит
+    - кричит.
+    - кричит!
+    - орёт
+    - орёт.
+    - орёт!
+    - визжит
+    - визжит.
+    - визжит!
+    # Reserve-Localization-End
 
 - type: emote
   id: Laugh
@@ -57,6 +68,15 @@
     - chortle
     - chortles
     - chortling
+    # Reserve-Localization-Start
+    - смеется
+    - смеётся
+    - хохочет
+    - хихикает
+    - хихикнул
+    - хихикнула
+    - ржёт
+    # Reserve-Localization-End
 
 - type: emote
   id: Honk
@@ -74,6 +94,11 @@
     - honks
     - honked
     - honking
+    # Reserve-Localization-Start
+    - хонк
+    - хонкает
+    - хонкнул
+    # Reserve-Localization-End
 
 - type: emote
   id: Sigh
@@ -91,6 +116,11 @@
     - sigh
     - sighs
     - sighed
+    # Reserve-Localization-Start
+    - вздыхает
+    - вздохнул
+    - вздохнула
+    # Reserve-Localization-End
 
 - type: emote
   id: Whistle
@@ -108,6 +138,10 @@
     - whistle
     - whistles
     - whistleblowing
+    # Reserve-Localization-Start
+    - свистит
+    - свистнул
+    # Reserve-Localization-End
 
 - type: emote
   id: Crying
@@ -128,6 +162,11 @@
     - sob
     - sobs
     - sobbing
+    # Reserve-Localization-Start
+    - плачет
+    - рыдает
+    - хныкает
+    # Reserve-Localization-End
 
 - type: emote
   id: Squish
@@ -146,6 +185,9 @@
     - squish
     - squishing
     - squishes
+    # Reserve-Localization-Start
+    - хлюпает
+    # Reserve-Localization-End
 
 - type: emote
   id: Chitter
@@ -164,6 +206,9 @@
    - chitter
    - chitters
    - chittered
+   # Reserve-Localization-Start
+   - стрекочет
+   # Reserve-Localization-End
 
 - type: emote
   id: Squeak
@@ -182,6 +227,11 @@
    - squeak
    - squeaks
    - squeaked
+   # Reserve-Localization-Start
+   - пищит
+   - скуик
+   - скуик!
+   # Reserve-Localization-End
 
 - type: emote
   id: Click
@@ -199,6 +249,10 @@
   chatTriggers:
    - click
    - clicks
+   # Reserve-Localization-Start
+   - клац
+   - клацает
+   # Reserve-Localization-End
 
 # hand emotes
 - type: emote
@@ -218,6 +272,15 @@
     - claps
     - clapping
     - clapped
+    # Reserve-Localization-Start
+    - хлопает
+    - хлопнул
+    - хлопнула
+    - хлопает в ладоши
+    - хлопнул в ладоши
+    - хлопнула в ладоши
+    - апплодирует
+    # Reserve-Localization-End
 
 - type: emote
   id: Snap
@@ -241,6 +304,20 @@
     - snaps their fingers
     - snapping fingers
     - snapped fingers
+    # Reserve-Localization-Start
+    - щелкает
+    - щелкнул
+    - щелкнула
+    - щёлкает
+    - щёлкнул
+    - щёлкнула
+    - щелкает пальцами
+    - щелкнул пальцами
+    - щелкнула пальцами
+    - щёлкает пальцами
+    - щёлкнул пальцами
+    - щёлкнула пальцами
+    # Reserve-Localization-End
 
 - type: emote
   id: Thump
@@ -266,6 +343,13 @@
     - thumps her tail
     - thumps his tail
     - thumps its tail
+    # Reserve-Localization-Start
+    - стучит хвостом
+    - стукнул хвостом
+    - стукнула хвостом
+    - стукнул своим хвостом
+    - стукнула своим хвостом
+    # Reserve-Localization-End
 
 - type: emote
   id: Salute
@@ -282,6 +366,12 @@
   chatTriggers:
     - salute
     - salutes
+    # Reserve-Localization-Start
+    - салютует
+    - отдаёт честь
+    - отдал честь
+    - отдала честь
+    # Reserve-Localization-End
 
 - type: emote
   id: Gasp
@@ -323,6 +413,11 @@
     - buzz
     - buzzed
     - buzzes
+    # Reserve-Localization-Start
+    - жужжит
+    - зажужжал
+    - зажужжала
+    # Reserve-Localization-End
 
 - type: emote
   id: Weh
@@ -353,6 +448,9 @@
     - chirps
     - chirped
     - chirping
+    # Reserve-Localization-Start
+    - чирикает
+    # Reserve-Localization-End
 
 # Machine Emotes
 - type: emote
@@ -366,6 +464,9 @@
     - beeps
     - beeped
     - beeping
+    # Reserve-Localization-Start
+    - бип
+    # Reserve-Localization-End
 
 - type: emote
   id: Chime
@@ -378,6 +479,9 @@
     - chimes
     - chimed
     - chiming
+    # Reserve-Localization-Start
+    - дзынь
+    # Reserve-Localization-End
 
 - type: emote
   id: Buzz-Two
@@ -396,6 +500,14 @@
     - buzzes twice
     - buzzing twice
     - buzzed twice
+    # Reserve-Localization-Start
+    - бипбуп
+    - бип буп
+    - бип-буп
+    - бипбип
+    - бип бип
+    - бип-бип
+    # Reserve-Localization-End
 
 - type: emote
   id: Ping
@@ -408,3 +520,6 @@
     - pings
     - pinged
     - pinging
+    # Reserve-Localization-Start
+    - пинг
+    # Reserve-Localization-End
