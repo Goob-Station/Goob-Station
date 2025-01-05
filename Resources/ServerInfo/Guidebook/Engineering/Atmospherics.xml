@@ -42,6 +42,19 @@
     <GuideEntityEmbed Entity="TritiumCanister"/>
   </Box>
 
+  ##Pluoxium
+  Pluoxium is a non-reactive Oxygen substitute that delivers eight times as much O2 to the bloodstream, with as little 3 kPa minimum pressure required for internals.
+
+  Pluoxium may be created by exposing O2, CO2 and Tritium together in an exothermic reaction between 50 K and 273 K. Furthermore, Pluoxium is also created by the Supermatter, when Oxygen and CO2 are present.
+
+  <Box>
+    <GuideEntityEmbed Entity="OxygenCanister"/>
+    <GuideEntityEmbed Entity="CarbonDioxideCanister"/>
+    <GuideEntityEmbed Entity="TritiumCanister"/>
+    <GuideEntityEmbed Entity="GasVentScrubber"/>
+    <GuideEntityEmbed Entity="PluoxiumCanister"/>
+  </Box>
+
   ##BZ
   BZ gas is a potent hallucinogenic, as well as a sleeping agent for slimes. It is toxic to breathe and causes respiratory irritation and coughing. BZ sees frequent use as an ingredient in more complex gas reactions. 
 
@@ -59,7 +72,7 @@
     <GuideEntityEmbed Entity="TritiumCanister"/>
     <GuideEntityEmbed Entity="AirCanister"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="frezon canister"/>
+    <GuideEntityEmbed Entity="FrezonCanister"/>
   </Box>
 
   It is critical to understand that a frezon leak can devastate the station, causing a wintery hell filled with itchy sweaters and cold burns. Frezon is very cold, and can freeze the station to death if even a few moles get out, so make sure that you lock your canisters or just move your Frezon straight into a storage room.
@@ -69,9 +82,9 @@
 
   <Box>
     <GuideEntityEmbed Entity="BZCanister"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="frezon canister"/>
+    <GuideEntityEmbed Entity="FrezonCanister"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="healium canister"/>
+    <GuideEntityEmbed Entity="HealiumCanister"/>
   </Box>
 
   ##Nitrium
@@ -82,7 +95,7 @@
     <GuideEntityEmbed Entity="TritiumCanister"/>
     <GuideEntityEmbed Entity="NitrogenCanister"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="nitrium canister"/>
+    <GuideEntityEmbed Entity="NitriumCanister"/>
   </Box>
 
   Nitrium degrades into nitrogen and water vapor on contact with room temperature oxygen. This reaction can produce a good deal of heat, making the station uncomfortably warm in the event of a leak. 
