@@ -125,6 +125,6 @@ public abstract partial class SharedGunSystem
         public int Shots;
         public int MaxShots;
         public float FireCost;
-        public string? Prototype;
+        public string? Prototype; // Shitmed Change
     }
 }

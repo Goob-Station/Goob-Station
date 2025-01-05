@@ -122,6 +122,7 @@
     malus: 0.225
   - type: ThrowingAngle
     angle: 225
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   name: survival knife
@@ -181,6 +182,7 @@
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyflatcap.rsi
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   parent: BladedFlatcapGrey
