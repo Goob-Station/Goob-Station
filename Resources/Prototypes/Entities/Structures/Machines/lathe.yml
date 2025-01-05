@@ -251,6 +251,8 @@
       - MagazineBoxHighCaliber # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
   - type: BlueprintReceiver
     whitelist:
       tags:
@@ -873,6 +875,8 @@
       - SyringeGun # Goobstation
       - MagazineMagnumEmpty # Goobstation
       - MagazineMagnum # Goobstation
+      - MagazineMagnumLeverRifle # Goobstation
+      - MagazineMagnumLeverRifleEmpty # Goobstation
     dynamicRecipes:
       - BoxBeanbag
       - BoxShotgunIncendiary

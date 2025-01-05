@@ -44,19 +44,18 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    shoes: ClothingShoesBootsJackFilled
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
-    pocket2: WeaponPistolMk58
+    pocket2: PinpointerNuclear
+    suitstorage: WeaponLeverChester
   storage:
     back:
     - Flash
-    - MagazinePistol
-    - PinpointerNuclear
+    - BlueshieldAmmunitionBoxFilled
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo

@@ -176,6 +176,9 @@
   id: Tourniquet
 
 - type: Tag
+  id: MagazineMagnumLeverRifle
+  
+- type: Tag
   id: ModsuitPart
 
 - type: Tag
