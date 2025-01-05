@@ -1,31 +1,31 @@
 ﻿# Non-fungible apes, anyone?
 - type: nameIdentifierGroup
   id: Monkey
-  prefix: MK
+  prefix: ОБ # Reserve-Localization
 
 - type: nameIdentifierGroup
   id: Kobold
-  prefix: KB
+  prefix: КБ # Reserve-Localization
 
 - type: nameIdentifierGroup
   id: Holoparasite
-  prefix: HOLO
+  prefix: ГОЛО # Reserve-Localization
 
 - type: nameIdentifierGroup
   id: MMI
-  prefix: MMI
+  prefix: ЧМИ # Reserve-Localization
   minValue: 100
   maxValue: 999
 
 - type: nameIdentifierGroup
   id: PositronicBrain
-  prefix: PB
+  prefix: ПМ # Reserve-Localization
   minValue: 10
   maxValue: 99
 
 - type: nameIdentifierGroup
   id: Silicon
-  prefix: Si
+  prefix: Кр # Reserve-Localization
   minValue: 1000
   maxValue: 9999
 
