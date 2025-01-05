@@ -20,24 +20,51 @@ namespace Content.Client.Stylesheets
 {
     public static class ResCacheExtension
     {
+        // Goobstation - ZH text support start
         public static Font NotoStack(this IResourceCache resCache, string variation = "Regular", int size = 10, bool display = false)
         {
-            var ds = display ? "Display" : "";
+            var ds = "";
             var sv = variation.StartsWith("Bold", StringComparison.Ordinal) ? "Bold" : "Regular";
+
+            if (variation == "Mono-Regular")
+            {
+                ds = "Mono";
+                sv = "Regular";
+            }
+            else
+            {
+                ds = display ? "Display" : "";
+            }
+
             return resCache.GetFont
             (
                 // Ew, but ok
                 new[]
                 {
-                    $"/Fonts/NotoSans{ds}/NotoSans{ds}-{variation}.ttf",
+                    $"/Fonts/NotoSans{ds}/NotoSans{ds}-{sv}.ttf",
                     $"/Fonts/NotoSans/NotoSansSymbols-{sv}.ttf",
-                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf"
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
                 },
                 size
             );
-
         }
-
+        public static Font NotoStack2ElectricBoogaloo(this IResourceCache resCache, string path = "/Fonts/NotoSans/NotoSans-Regular.ttf", int size = 10)
+        {
+            return resCache.GetFont
+            (
+                // Ew, but ok
+                new[]
+                {
+                    path,
+                    $"/Fonts/NotoSans/NotoSansSymbols-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSymbols2-Regular.ttf",
+                    "/Fonts/NotoSans/NotoSansSC-Regular.ttf",
+                },
+                size
+            );
+        }
+        // Goobstation - ZH text support end
     }
     // STLYE SHEETS WERE A MISTAKE. KILL ALL OF THIS WITH FIRE
     public sealed class StyleNano : StyleBase
@@ -177,7 +204,7 @@ namespace Content.Client.Stylesheets
             var notoSansBold16 = resCache.NotoStack(variation: "Bold", size: 16);
             var notoSansBold18 = resCache.NotoStack(variation: "Bold", size: 18);
             var notoSansBold20 = resCache.NotoStack(variation: "Bold", size: 20);
-            var notoSansMono = resCache.GetFont("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12);
+            var notoSansMono = resCache.NotoStack2ElectricBoogaloo("/EngineFonts/NotoSans/NotoSansMono-Regular.ttf", size: 12); // Goobstation - ZH text support
             var windowHeaderTex = resCache.GetTexture("/Textures/Interface/Nano/window_header.png");
             var windowHeader = new StyleBoxTexture
             {
@@ -511,7 +538,7 @@ namespace Content.Client.Stylesheets
             var sliderFillBlue = new StyleBoxTexture(sliderFillBox) { Modulate = Color.Blue };
             var sliderFillWhite = new StyleBoxTexture(sliderFillBox) { Modulate = Color.White };
 
-            var boxFont13 = resCache.GetFont("/Fonts/Boxfont-round/Boxfont Round.ttf", 13);
+            var boxFont13 = resCache.NotoStack2ElectricBoogaloo("/Fonts/Boxfont-round/Boxfont Round.ttf", 13); // Goobstation - ZH text support
 
             var insetBack = new StyleBoxTexture
             {

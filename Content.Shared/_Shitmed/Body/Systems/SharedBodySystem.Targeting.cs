@@ -15,6 +15,7 @@ using Content.Shared._Shitmed.Targeting.Events;
 using Robust.Shared.CPUJob.JobQueues;
 using Robust.Shared.CPUJob.JobQueues.Queues;
 using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
@@ -34,7 +35,7 @@ public partial class SharedBodySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
 
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    private readonly string[] _severingDamageTypes = { "Slash", "Piercing", "Blunt" };
+    private readonly ProtoId<DamageTypePrototype>[] _severingDamageTypes = { "Slash", "Piercing", "Blunt" };
     private const double IntegrityJobTime = 0.005;
     private readonly JobQueue _integrityJobQueue = new(IntegrityJobTime);
     public sealed class IntegrityJob : Job<object>

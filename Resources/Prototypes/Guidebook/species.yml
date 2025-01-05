@@ -19,6 +19,7 @@
     - Rodentia
     - Yowie
     - IPC
+    - Oni
 
 - type: guideEntry
   id: Arachnid
@@ -95,3 +96,8 @@
   id: IPC
   name: species-name-ipc
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+
+- type: guideEntry
+  id: Oni
+  name: species-name-oni
+  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Oni.xml"

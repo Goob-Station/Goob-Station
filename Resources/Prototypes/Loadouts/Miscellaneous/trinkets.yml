@@ -157,6 +157,33 @@
     back:
     - ClothingNeckAutismPin
 
+# Playing Cards (GoobStation)
+- type: loadout
+  id: CardBoxBlack
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:OverallPlaytimeRequirement
+      time: 36000 # 10hr
+  storage:
+    back:
+    - CardBoxBlack
+
+# Nanotrasen Variant
+- type: loadout
+  id: CardBoxNanotrasen
+  effects:
+  - !type:JobRequirementLoadoutEffect
+    requirement:
+      !type:RoleTimeRequirement
+      role: JobQuartermaster
+      time: 36000 # 10hr
+  storage:
+    back:
+    - CardBoxNanotrasen
+
+# End GoobStation
+
 # Towels
 - type: loadout
   id: TowelColorWhite
