@@ -1,0 +1,4 @@
+- files: ["nominal.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Taken from TG station."
+  source: "https://github.com/tgstation/tgstation/commit/3517810d119fcb5eeb9d477c87cda3eb3cd2048c"
