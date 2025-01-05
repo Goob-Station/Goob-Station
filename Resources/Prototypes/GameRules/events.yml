@@ -5,18 +5,18 @@
     - id: AnomalySpawn
     - id: BluespaceArtifact
     - id: BluespaceLocker
-    - id: BreakerFlip
-    - id: BureaucraticError
-    - id: ClericalError
+#    - id: BreakerFlip
+#    - id: BureaucraticError
+#    - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
-    - id: GreytideVirus
+#    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
     - id: MouseMigration
-    - id: PowerGridCheck
+#    - id: PowerGridCheck
     - id: RandomSentience
     - id: SlimesSpawn
     - id: SolarFlare
@@ -104,44 +104,44 @@
   components:
   - type: StationEvent
     weight: 2
-    reoccurrenceDelay: 5
+    reoccurrenceDelay: 1000
     earliestStart: 1
     duration: 1
   - type: BluespaceLockerRule
 
-- type: entity
-  id: BreakerFlip
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    weight: 7
-    duration: 1
-    minimumPlayers: 15
-  - type: BreakerFlipRule
+#- type: entity
+#  id: BreakerFlip
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    weight: 7
+#    duration: 1
+#    minimumPlayers: 15
+#  - type: BreakerFlipRule
 
-- type: entity
-  id: BureaucraticError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-bureaucratic-error-announcement
-    minimumPlayers: 25
-    weight: 3
-    duration: 1
-  - type: BureaucraticErrorRule
-    ignoredJobs:
-    - StationAi
+#- type: entity
+#  id: BureaucraticError
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-bureaucratic-error-announcement
+#    minimumPlayers: 25
+#    weight: 3
+#    duration: 1
+#  - type: BureaucraticErrorRule
+#    ignoredJobs:
+#    - StationAi
 
-- type: entity
-  id: ClericalError
-  parent: BaseGameRule
-  components:
-  - type: StationEvent
-    startAnnouncement: station-event-clerical-error-announcement
-    minimumPlayers: 15
-    weight: 5
-    duration: 1
-  - type: ClericalErrorRule
+#- type: entity
+#  id: ClericalError
+#  parent: BaseGameRule
+#  components:
+#  - type: StationEvent
+#    startAnnouncement: station-event-clerical-error-announcement
+#    minimumPlayers: 15
+#    weight: 5
+#    duration: 1
+#  - type: ClericalErrorRule
 
 - type: entity
   parent: BaseGameRule
@@ -150,7 +150,7 @@
   - type: StationEvent
     weight: 5
     duration: 1
-    minimumPlayers: 10
+    minimumPlayers: 20
   - type: RandomEntityStorageSpawnRule
     prototype: MobSkeletonCloset
 
@@ -277,21 +277,21 @@
     duration: 240
   - type: KudzuGrowthRule
 
-- type: entity
-  id: PowerGridCheck
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    weight: 5
-    startAnnouncement: station-event-power-grid-check-start-announcement
-    endAnnouncement: station-event-power-grid-check-end-announcement
-    startAudio:
-      path: /Audio/Announcements/power_off.ogg
-      params:
-        volume: -4
-    duration: 60
-    maxDuration: 120
-  - type: PowerGridCheckRule
+#- type: entity
+#  id: PowerGridCheck
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    weight: 5
+#    startAnnouncement: station-event-power-grid-check-start-announcement
+#    endAnnouncement: station-event-power-grid-check-end-announcement
+#    startAudio:
+#      path: /Audio/Announcements/power_off.ogg
+#      params:
+#        volume: -4
+#    duration: 60
+#    maxDuration: 120
+#  - type: PowerGridCheckRule
 
 - type: entity
   parent: BaseGameRule
@@ -343,10 +343,10 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 40
+    minimumPlayers: 1
     weight: 0.5 # GoobStation: was 5, vent critters bad
-    duration: 60
+    duration: 120
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -364,8 +364,8 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/attention.ogg
-    earliestStart: 20
-    minimumPlayers: 15
+    earliestStart: 40
+    minimumPlayers: 1
     weight: 2 # GoobStation: was 5, critters because bad
     duration: 60
   - type: VentCrittersRule
@@ -386,9 +386,9 @@
     startAudio:
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
-    minimumPlayers: 15
+    minimumPlayers: 1
     weight: 1 # GoobStation: was 1, vent critters bad
-    duration: 60
+    duration: 80
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -402,10 +402,10 @@
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
       path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 20
+    earliestStart: 120
+    minimumPlayers: 1
     weight: 0.5 # GoobStation: was 1.5, vent critters bad
-    duration: 60
+    duration: 80
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider
@@ -417,7 +417,7 @@
   components:
   - type: StationEvent
     earliestStart: 90
-    minimumPlayers: 40
+    minimumPlayers: 1
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
   - type: ZombieRule
@@ -451,7 +451,7 @@
   - type: StationEvent
     earliestStart: 35
     weight: 5.5
-    minimumPlayers: 20
+    minimumPlayers: 1
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
@@ -486,7 +486,7 @@
   - type: StationEvent
     earliestStart: 30
     weight: 8
-    minimumPlayers: 15
+    minimumPlayers: 1
     maxOccurrences: 1 # can only happen once per round
     startAnnouncement: station-event-communication-interception
     startAudio:
@@ -544,26 +544,26 @@
     weight: 5
   - type: MobReplacementRule
 
-- type: entity
-  id: GreytideVirus
-  parent: BaseStationEventShortDelay
-  components:
-  - type: StationEvent
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
-    weight: 5
-    minimumPlayers: 25
-    reoccurrenceDelay: 20
-  - type: GreytideVirusRule
-    accessGroups:
-    - Cargo
-    - Command
-    - Engineering
-    - Research
-    - Security
-    - Service
-    blacklist:
-    - External # don't space everything
+#- type: entity
+#  id: GreytideVirus
+#  parent: BaseStationEventShortDelay
+#  components:
+#  - type: StationEvent
+#    startAudio:
+#      path: /Audio/Announcements/attention.ogg
+#    weight: 5
+#    minimumPlayers: 25
+#    reoccurrenceDelay: 20
+#  - type: GreytideVirusRule
+#    accessGroups:
+#    - Cargo
+#    - Command
+#    - Engineering
+#    - Research
+#    - Security
+#    - Service
+#    blacklist:
+#    - External # don't space everything
 
 - type: entity
   parent: BaseGameRule
