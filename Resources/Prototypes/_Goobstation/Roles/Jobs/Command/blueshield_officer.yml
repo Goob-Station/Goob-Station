@@ -17,7 +17,7 @@
       requiredAge: 21
   weight: 20
   startingGear: BlueshieldOfficerGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconBlueshield"
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
