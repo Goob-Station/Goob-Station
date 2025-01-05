@@ -13,17 +13,6 @@
   event: !type:AnimationFlipEmoteEvent
 
 - type: emote
-  id: Spin
-  name: chat-emote-name-spin
-  chatMessages: ["chat-emote-msg-spin"]
-  chatTriggers:
-  - spin
-  - spins
-  - spins.
-  - spins!
-  event: !type:AnimationSpinEmoteEvent
-
-- type: emote
   id: Jump
   name: chat-emote-name-jump
   chatMessages: ["chat-emote-msg-jump"]
