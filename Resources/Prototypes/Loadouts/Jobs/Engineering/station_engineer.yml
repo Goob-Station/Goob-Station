@@ -107,7 +107,7 @@
 
 # Gloves
 - type: loadout
-  id: InsulatedGloves
+  id: StationEngineerInsulatedGloves
   equipment:
     gloves: ClothingHandsGlovesColorYellow
 

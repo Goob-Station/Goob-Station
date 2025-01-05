@@ -717,7 +717,7 @@
   name: loadout-group-chief-engineer-gloves
   minLimit: 0
   loadouts:
-  - InsulatedGloves
+  - ChiefEngineerInsulatedGloves
 
 - type: loadoutGroup
   id: ChiefEngineerShoes
@@ -773,7 +773,7 @@
   name: loadout-group-station-engineer-gloves
   minLimit: 0
   loadouts:
-  - InsulatedGloves
+  - StationEngineerInsulatedGloves
 
 - type: loadoutGroup
   id: StationEngineerShoes
