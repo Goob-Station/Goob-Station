@@ -771,10 +771,12 @@
     state: pda-centcom
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
+    diskSpace: 16 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - MailMetricsCartridge
       - MedTekCartridge
       - SciScanCartridge # Shibastation - adding SciScan cartridge to CentCom PDA to compliment the Admin one.
       - WantedListCartridge
@@ -797,11 +799,12 @@
   - type: CartridgeLoader
     uiKey: enum.PdaUiKey.Key
     notificationsEnabled: false
-    diskSpace: 10 # DeltaV
+    diskSpace: 16 # DeltaV
     preinstalled:
       - CrewManifestCartridge
       - NotekeeperCartridge
       - NewsReaderCartridge
+      - MailMetricsCartridge
       - LogProbeCartridge
       - WantedListCartridge
       - SciScanCartridge # Shibastation - adding SciScan cartridge to admin PDA to compliment the MedTek one.
