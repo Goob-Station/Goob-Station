@@ -74,16 +74,16 @@ public sealed class BinglePitSystem : EntitySystem
     {
         Spawn("SpawnPointGhostBingle", Transform(uid).Coordinates);
 
-       component.MinionsMade++;
+        component.MinionsMade++;
         if (component.MinionsMade >= component.UpgradeMinionsAfter)
-            UpgradeBingles(uid,component);
+            UpgradeBingles(uid, component);
     }
     public void UpgradeBingles(EntityUid uid, BinglePitComponent component)
     {
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var _uid, out var bingle))
         {
-           _BingleSystem.UpgradeBingle(_uid, bingle);
+            _BingleSystem.UpgradeBingle(_uid, bingle);
         }
     }
     private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
@@ -97,5 +97,7 @@ public sealed class BinglePitSystem : EntitySystem
                 RemComp<StunnedComponent>(pitUid);
             }
         }
+
+        // delete all spawner whitin 3 tile
     }
 }

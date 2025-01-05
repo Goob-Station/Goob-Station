@@ -16,6 +16,9 @@
     },
     {
         "name": "icon"
+    },
+    {
+        "name": "dead"
     }
   ]
 }

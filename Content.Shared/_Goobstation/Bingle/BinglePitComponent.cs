@@ -22,10 +22,10 @@ public sealed partial class BinglePitComponent : Component
     /// amount bingles needed to evolve / gain a level / expand the ... THE FACTORY MUST GROW
     /// </summary>
     [DataField]
-    public float MinionsMade= 0f;
+    public float MinionsMade = 0f;
 
     [DataField]
-    public float UpgradeMinionsAfter = 2f; //changed for testing
+    public float UpgradeMinionsAfter = 12f; //changed for testing
 
     /// <summary>
     /// if the Bingle pit level

@@ -32,6 +32,13 @@
     allowedStates:
       - Alive
       - Dead
+  - type: DamageStateVisuals
+    rotate: true
+    states:
+      Alive:
+        Base: alive
+      Dead:
+        Base: dead
   - type: Bloodstream
     bloodMaxVolume: 100
     bloodReagent: Nitrogen # by reequest
@@ -90,7 +97,6 @@
       - state: green
       - sprite:  _Goobstation/Mobs/Bingle/bingle.rsi
         state: icon
-
 
 - type: entity
   id: BinglePit
