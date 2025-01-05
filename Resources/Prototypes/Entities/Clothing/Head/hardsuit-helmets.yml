@@ -231,8 +231,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8
+        Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
   - type: FlashImmunity # Goobstation
@@ -710,7 +710,7 @@
 
 #Deathsquad Hardsuit
 - type: entity
-  parent: [ BaseCentcommContraband, ClothingHeadHardsuitBase ]
+  parent: [ BaseCentcommContraband, ClothingHeadHardsuitWithLightBase ]
   id: ClothingHeadHelmetHardsuitDeathsquad
   name: deathsquad hardsuit helmet
   description: A robust helmet for special operations.
@@ -737,6 +737,17 @@
   - type: FlashImmunity # Goobstation
   - type: FlashSoundSuppression # Goobstation
     protectionRange: 0
+  - type: PointLight # Goobstation - Light to deathsquad hardsuit
+    color: "#567fc4"
+    rotation: 30
+    energy: 10
+    radius: 5
+  # WD EDIT START
+  - type: ThermalVision
+    color: "#98EEFB"
+    lightRadius: 15
+  # WD EDIT END
+
 
 #MISC. HARDSUITS
 #Clown Hardsuit

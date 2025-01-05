@@ -1,6 +1,6 @@
 - type: entity
   name: head slug
-  parent: [SimpleMobBase]
+  parent: [SimpleSpaceMobBase] # no dying in space
   id: MobHeadcrab
   description: You don't want to touch it.
   components:
@@ -40,3 +40,6 @@
         - SmallMobMask
         layer:
         - SmallMobLayer
+  - type: Tag # Removes DoorBumpOpener
+    tags:
+      []
