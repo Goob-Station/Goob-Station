@@ -176,6 +176,30 @@
   id: Tourniquet
 
 - type: Tag
+  id: ModsuitPart
+
+- type: Tag
+  id: ModsuitShell
+
+- type: Tag
+  id: ModsuitGauntlets
+
+- type: Tag
+  id: ModsuitHelmet
+
+- type: Tag
+  id: ModsuitBoots
+
+- type: Tag
+  id: ModsuitChestplate
+
+- type: Tag
+  id: ModsuitCore
+
+- type: Tag
+  id: ModsuitPlatingExternal
+  
+- type: Tag
   id: MagazineLightRifleSubsonic
 
 - type: Tag
