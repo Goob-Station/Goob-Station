@@ -91,7 +91,7 @@ public sealed partial class FartSystem : SharedFartSystem
 
             // Release ammonia into the air
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
-            tileMix?.AdjustMoles(Gas.Ammonia, FartComponent.MolesAmmoniaPerFart);
+            tileMix?.AdjustMoles(Gas.Ammonia, component.MolesAmmoniaPerFart);
 
             // One minute timeout for ammonia release (60000MS = 60S)
             Timer.Spawn(60000, () =>
@@ -157,7 +157,7 @@ public sealed partial class FartSystem : SharedFartSystem
 
             // Release ammonia into the air
             var tileMix = _atmos.GetTileMixture(uid, excite: true);
-            tileMix?.AdjustMoles(Gas.Ammonia, FartComponent.MolesAmmoniaPerFart * 2);
+            tileMix?.AdjustMoles(Gas.Ammonia, component.MolesAmmoniaPerFart * 2);
 
             _entMan.SpawnEntity("Butt", xformSystem.GetMapCoordinates(uid));
 

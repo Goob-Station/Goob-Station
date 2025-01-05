@@ -1,0 +1,77 @@
+- type: entity
+  id: BulletMagnumEnsnaring
+  name: bullet (.45 magnum ensnaring)
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+  - type: Projectile
+    deleteOnCollide: false
+    damage:
+      types:
+        Piercing: 15 #Low damage, but ensnaring
+  - type: Ensnaring
+    canThrowTrigger: true
+    destroyOnRemove: true
+    breakoutTime: 2
+    freeTime: 2
+    sprintSpeed: 0.7
+    walkSpeed: 0.7
+    staminaDamage: 10
+
+- type: entity
+  id: BulletMagnumEMP
+  name: bullet (.45 magnum EMP)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+      color: "#009eff"
+  - type: EmpOnTrigger
+    range: 0.2
+    energyConsumption: 80
+    disableDuration: 1
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: blue
+    energy: 0.5
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 10
+        Ion: 20
+
+- type: entity
+  id: BulletMagnumFlash
+  name: bullet (.45 magnum flash)
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles2.rsi
+    layers:
+    - state: rubber
+      color: "#fff94d"
+  - type: FlashOnTrigger
+    range: 5
+    duration: 4
+  - type: SpawnOnTrigger
+    proto: GrenadeFlashEffect
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    radius: 1.5
+    color: yellow
+    energy: 1
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 18

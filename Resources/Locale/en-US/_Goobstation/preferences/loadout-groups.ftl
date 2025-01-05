@@ -9,6 +9,7 @@ loadout-group-bso-backpack = Blueshield Officer backpack
 loadout-group-bso-jumpsuit = Blueshield Officer jumpsuit
 loadout-group-bso-outer = Blueshield Officer armor
 loadout-group-bso-neck = Blueshield Officer neck
+loadout-group-bso-shoes = Blueshield Officer shoes
 
 loadout-group-reporter-outerclothing = Reporter outer clothing
 
