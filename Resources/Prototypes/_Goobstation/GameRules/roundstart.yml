@@ -65,9 +65,9 @@
   - type: GameRule
     minPlayers: 30
   - type: LoadMapRule
-    mapPath: /Maps/Nonstations/nukieplanet.yml
+    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -159,15 +159,10 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
-    delay: # 7-10 minutes
-      min: 420
-      max: 600
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Blob ]
-      min: 1
-      max: 2
-      playerRatio: 40 #players = 2 blobs
       allowNonHumans: true
       blacklist:
         components:
@@ -194,4 +189,4 @@
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
-    maxCarrierBlob: 2
+    maxCarrierBlob: 1
