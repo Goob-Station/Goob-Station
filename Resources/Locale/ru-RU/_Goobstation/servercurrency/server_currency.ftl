@@ -1,20 +1,20 @@
-server-currency-name-singular = Reserve Coin
-server-currency-name-plural = Reserve Coins
+server-currency-name-singular = Коин
+server-currency-name-plural = Коины
 
 ## Команды
 
-server-currency-gift-command = подарок
+server-currency-gift-command = gift
 server-currency-gift-command-description = Подарить часть своего баланса другому игроку.
 server-currency-gift-command-help = Использование: gift <игрок> <значение>
 server-currency-gift-command-error-1 = Вы не можете подарить себя!
 server-currency-gift-command-error-2 = Вы не можете позволить себе подарить это! У вас есть баланс в размере { $balance }.
 server-currency-gift-command-giver = Вы подарили { $player } { $amount }.
 server-currency-gift-command-reciever = { $player } подарил вам { $amount }.
-server-currency-balance-command = баланс
+server-currency-balance-command = balanse
 server-currency-balance-command-description = Возвращает ваш баланс.
-server-currency-balance-command-help = Использование: balance
+server-currency-balance-command-help = use:balance
 server-currency-balance-command-return = У вас есть { $balance }.
-server-currency-add-command = баланс:добавить
+server-currency-add-command = balance:add
 server-currency-add-command-description = Добавляет валюту к балансу игрока.
 server-currency-add-command-help = Использование: balance:add <игрок> <значение>
 server-currency-remove-command = balance:rem
