@@ -46,7 +46,7 @@
   equipment:
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
-    id: ERTSecurityPDA
+    id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
