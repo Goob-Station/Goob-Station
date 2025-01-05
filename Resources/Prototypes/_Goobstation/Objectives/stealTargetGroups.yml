@@ -11,3 +11,10 @@
   sprite:
     sprite: DeltaV/Objects/Weapons/Guns/Battery/multiphase_energygun.rsi
     state: base
+
+- type: stealTargetGroup
+  id: ClothingHandsGlovesChiefEngineer
+  name: steal-target-groups-clothing-shoes-boots-power-gauntlets
+  sprite:
+    sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
+    state: icon
