@@ -65,6 +65,27 @@
   - type: Damageable
     damageContainer: OrganicPart # unsure if this is the right type
     damageModifierSet: Bingle
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Effects/Footsteps/slime1.ogg
+      params:
+        volume: 3
+  - type: TypingIndicator
+    proto: alien
+  - type: Speech
+    speechVerb: Bingle
+    speechSounds: Slime
+  - type: ReplacementAccent
+    accent: bingle
+  - type: PassiveDamage
+    allowedStates:
+    - Alive
+    damage:
+      types:
+        Poison: -0.1
+      groups:
+        Brute: -0.1
+        Burn: -0.1
 
 - type: damageModifierSet
   id: Bingle
@@ -152,3 +173,19 @@
   - type: EmitSoundOnSpawn
     sound:
       path: /Audio/Weapons/Guns/Gunshots/rocket_launcher.ogg
+
+- type: speechVerb
+  id: Bingle
+  name: chat-speech-verb-name-bingle
+  speechVerbStrings:
+  - "Bingle"
+  - "bongle"
+  - "bing!"
+
+- type: accent
+  id: bingle
+  fullReplacements:
+  - "Bingle"
+  - "Bing"
+  - "Bongle"
+  - "Bong"

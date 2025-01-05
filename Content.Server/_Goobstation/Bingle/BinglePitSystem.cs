@@ -1,6 +1,4 @@
-using Content.Shared.ActionBlocker;
-using Content.Shared.Buckle.Components;
-
+using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Containers;
@@ -45,7 +43,7 @@ public sealed class BinglePitSystem : EntitySystem
         }
     }
 
-    public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper, bool playSound = true)
+    public void StartFalling(EntityUid uid, BinglePitComponent component, EntityUid tripper)
     {
         if (HasComp<MobStateComponent>(tripper))
             component.Fallen = component.Fallen + 10f;
@@ -90,7 +88,17 @@ public sealed class BinglePitSystem : EntitySystem
                 RemComp<StunnedComponent>(pitUid);
             }
         }
+        RemoveAllBingleGhosroles();
+    }
+    public void RemoveAllBingleGhosroles()
+    {
+        var query = EntityQueryEnumerator<GhostRoleMobSpawnerComponent>();
 
-        // delete all spawner whitin 3 tile
+        while (query.MoveNext(out var GRMSUid, out var GRMScomp))
+        {
+            //TODO: add a range check
+            if (GRMScomp.Prototype == "MobBingle")
+                QueueDel(GRMSUid);
+        }
     }
 }
