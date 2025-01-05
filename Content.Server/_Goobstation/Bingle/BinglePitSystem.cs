@@ -1,17 +1,10 @@
 using Content.Shared.ActionBlocker;
 using Content.Shared.Buckle.Components;
-using Content.Shared.Movement.Events;
+
 using Content.Shared.StepTrigger.Systems;
-using Robust.Shared.Audio;
-using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
-using Robust.Shared.Physics.Components;
-using Robust.Shared.Timing;
-using Content.Shared.Chasm;
 using Content.Shared.Mobs.Components;
 using Robust.Shared.Containers;
 using Content.Shared.Destructible;
-using Robust.Shared.Network;
 using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Stunnable;
 
@@ -19,8 +12,8 @@ namespace Content.Server._Goobstation.Bingle;
 
 public sealed class BinglePitSystem : EntitySystem
 {
-    [Dependency] private readonly SharedContainerSystem ContainerSystem = default!;
-    [Dependency] private readonly BingleSystem _BingleSystem = default!;
+    [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
+    [Dependency] private readonly BingleSystem _bingleSystem = default!;
 
     public override void Initialize()
     {
@@ -32,7 +25,7 @@ public sealed class BinglePitSystem : EntitySystem
     }
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
     {
-        component.Pit = ContainerSystem.EnsureContainer<Container>(uid, "pit");
+        component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
     }
     private void OnStepTriggered(EntityUid uid, BinglePitComponent component, ref StepTriggeredOffEvent args)
     {
@@ -60,9 +53,9 @@ public sealed class BinglePitSystem : EntitySystem
             component.Fallen++;
 
         if (component.Pit == null)
-            component.Pit = ContainerSystem.EnsureContainer<Container>(uid, "pit");
+            component.Pit = _containerSystem.EnsureContainer<Container>(uid, "pit");
 
-        ContainerSystem.Insert(tripper, component.Pit);
+        _containerSystem.Insert(tripper, component.Pit);
         EnsureComp<StunnedComponent>(tripper);
     }
 
@@ -83,14 +76,14 @@ public sealed class BinglePitSystem : EntitySystem
         var query = EntityQueryEnumerator<BingleComponent>();
         while (query.MoveNext(out var _uid, out var bingle))
         {
-            _BingleSystem.UpgradeBingle(_uid, bingle);
+            _bingleSystem.UpgradeBingle(_uid, bingle);
         }
     }
     private void OnDestruction(EntityUid uid, BinglePitComponent component, DestructionEventArgs args)
     {
         if (component.Pit != null)
         {
-            var list =  ContainerSystem.EmptyContainer(component.Pit);
+            var list = _containerSystem.EmptyContainer(component.Pit);
 
             foreach (var pitUid in list)
             {
