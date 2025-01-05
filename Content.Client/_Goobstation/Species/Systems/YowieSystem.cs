@@ -24,18 +24,14 @@ public sealed partial class YowieSystem : EntitySystem
     private void OnEquip(EntityUid uid, YowieComponent comp, ref ClothingDidEquippedEvent args)
     {
         if (args.Clothing.Comp.Slots == SlotFlags.OUTERCLOTHING)
-        {
             comp.OuterLayerEquipped = true;
-        }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 
     private void OnUnequip(EntityUid uid, YowieComponent comp, ref ClothingDidUnequippedEvent args)
     {
         if (args.Clothing.Comp.Slots == SlotFlags.OUTERCLOTHING)
-        {
             comp.OuterLayerEquipped = false;
-        }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 }

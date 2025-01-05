@@ -29,13 +29,9 @@ public sealed partial class YowieSystem : EntitySystem
         {
             comp.OuterLayerEquipped = true;
             if (_damageableSystem.TryChangeDamage(uid, comp.Damage, true) != null)
-            {
                 _popupSystem.PopupEntity(Loc.GetString("yowie-eva-suit-equipped-message", ("entity", Name(args.Clothing))), uid, uid, PopupType.SmallCaution);
-            }
             else
-            {
                 Logger.Warning($"Damage application failed for entity {uid}. Ensure Yowie penalty is properly configured.");
-            }
         }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
@@ -43,9 +39,7 @@ public sealed partial class YowieSystem : EntitySystem
     private void OnUnequip(EntityUid uid, YowieComponent comp, ref ClothingDidUnequippedEvent args)
     {
         if (args.Clothing.Comp.Slots == SlotFlags.OUTERCLOTHING)
-        {
             comp.OuterLayerEquipped = false;
-        }
         _movementSpeedModifierSystem.RefreshMovementSpeedModifiers(uid);
     }
 }
