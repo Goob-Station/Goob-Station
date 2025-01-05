@@ -89,6 +89,7 @@ public sealed class SpellbookSystem : EntitySystem
             BreakOnMove = true,
             BreakOnDamage = true,
             NeedHand = true, //What, are you going to read with your eyes only??
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterEventArgs);

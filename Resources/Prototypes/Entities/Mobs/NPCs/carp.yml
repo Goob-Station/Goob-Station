@@ -93,9 +93,9 @@
         enum.SurgeryUIKey.Key:
           type: SurgeryBui
     - type: NightVision # Goobstation - Nigthvision
-      isToggle: true
       color: "#808080"
-      playSoundOn: false
+      activateSound: null
+      deactivateSound: null
 
 - type: entity
   parent: BaseMobCarp

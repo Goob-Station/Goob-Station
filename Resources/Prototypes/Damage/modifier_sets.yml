@@ -161,7 +161,7 @@
     Piercing: 1.2
     Cold: 1.5
     Poison: 0.8
-    Cellular: 0.2
+    Cellular: 1 # Goob edit - changelings
 
 - type: damageModifierSet
   id: Infernal
@@ -234,7 +234,7 @@
     Radiation: 0.5
     Asphyxiation: 0.0
     Bloodloss: 0.0
-    Cellular: 0.0
+    # Cellular: 0.0 # Goobstation - changelings
 
 # Represents which damage types should be modified
 # in relation to how they cause bleed rate.
