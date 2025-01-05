@@ -98,6 +98,9 @@ public sealed class RageQuitNotifySystem : EntitySystem
 
     private HashSet<NetUserId> GetPendingRageQuitList()
     {
-        return Comp<PlayerListenerComponent>(_ent).UserIds;
+        // This has to be a trycomp due to tests not actually creating the entity anyway
+        TryComp<PlayerListenerComponent>(_ent, out var plcomp);
+
+        return plcomp?.UserIds ?? [];
     }
 }
