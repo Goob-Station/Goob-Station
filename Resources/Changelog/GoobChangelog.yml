@@ -3801,3 +3801,9 @@ Entries:
         user.
   id: 424
   time: '2025-01-05T01:42:50.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Updated BSO equipment and loadout
+  id: 425
+  time: '2025-01-05T01:46:32.0000000+00:00'
