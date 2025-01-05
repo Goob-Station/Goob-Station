@@ -123084,13 +123084,6 @@ entities:
     - type: Transform
       pos: 9.979597,-87.56328
       parent: 82
-- proto: PlushieBlackburnDesiVillian
-  entities:
-  - uid: 26505
-    components:
-    - type: Transform
-      pos: 6.482095,-12.603356
-      parent: 82
 - proto: PlushieBlackburnMatryoskya
   entities:
   - uid: 26487
@@ -123114,20 +123107,6 @@ entities:
     components:
     - type: Transform
       pos: -6.2501254,-108.18722
-      parent: 82
-- proto: PlushieBlackburnTsar
-  entities:
-  - uid: 26849
-    components:
-    - type: Transform
-      pos: 20.46026,-102.48763
-      parent: 82
-- proto: PlushieBlackburnTyrant
-  entities:
-  - uid: 26459
-    components:
-    - type: Transform
-      pos: 3.5178983,-51.515892
       parent: 82
 - proto: PlushieDesislavaBlackburn
   entities:
