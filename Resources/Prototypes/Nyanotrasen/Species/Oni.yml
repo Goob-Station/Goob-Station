@@ -24,9 +24,6 @@
 - type: markingPoints
   id: MobOniMarkingLimits
   points:
-    Face:
-      points: 1
-      required: false
     Hair:
       points: 1
       required: false

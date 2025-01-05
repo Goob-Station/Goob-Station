@@ -23,6 +23,7 @@
   id: MobMothSprites
   sprites:
     Head: MobMothHead
+    Face: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
     Chest: MobMothChest
     Groin: MobMothGroin

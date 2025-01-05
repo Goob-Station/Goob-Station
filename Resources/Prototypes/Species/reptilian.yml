@@ -47,9 +47,6 @@
   id: MobReptilianMarkingLimits
   onlyWhitelisted: true
   points:
-    Face:
-      points: 1
-      required: false
     Hair:
       points: 0
       required: false

@@ -59,12 +59,6 @@
 - type: markingPoints
   id: MobHumanMarkingLimits
   points:
-    Face:
-      points: 1
-      required: false
-    Special: # the cat ear joke, its real *godo*
-      points: 1
-      required: false
     Hair:
       points: 1
       required: false
