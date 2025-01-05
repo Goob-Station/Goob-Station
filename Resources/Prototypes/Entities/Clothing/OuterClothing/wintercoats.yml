@@ -58,10 +58,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ATMOS-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -75,10 +72,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: BAR-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterBartender
@@ -92,10 +86,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CAP-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCaptain
@@ -109,10 +100,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CARGO-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCargo
@@ -126,10 +114,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CE-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCE
@@ -143,10 +128,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: CENTCOM-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterCentcom
@@ -224,10 +206,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ENGI-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterEngineer
@@ -262,10 +241,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: HOP-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOP
@@ -304,10 +280,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: HOS-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHOS
@@ -321,10 +294,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: HYDRO-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterHydro
@@ -379,10 +349,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: MIME-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterMime
@@ -396,10 +363,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: MINER-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterMiner
@@ -434,10 +398,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: QM-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterQM
@@ -473,10 +434,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: ROBO-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterRobo
@@ -512,10 +470,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: SEC-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSec
@@ -574,10 +529,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: WARD-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterWarden
@@ -592,10 +544,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: SYNDIECAP-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
@@ -626,10 +575,7 @@
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
   - type: Item
   - type: Clothing
-    sprite: Clothing/OuterClothing/WinterCoats/coat.rsi
-    clothingVisuals:
-      outerClothing:
-      - state: SYNDIE-equipped-OUTERCLOTHING
+    sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHatHoodWinterSyndie
