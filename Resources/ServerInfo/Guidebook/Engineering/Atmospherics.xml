@@ -72,7 +72,7 @@
     <GuideEntityEmbed Entity="TritiumCanister"/>
     <GuideEntityEmbed Entity="AirCanister"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="frezon canister"/>
+    <GuideEntityEmbed Entity="FrezonCanister"/>
   </Box>
 
   It is critical to understand that a frezon leak can devastate the station, causing a wintery hell filled with itchy sweaters and cold burns. Frezon is very cold, and can freeze the station to death if even a few moles get out, so make sure that you lock your canisters or just move your Frezon straight into a storage room.
@@ -82,7 +82,7 @@
 
   <Box>
     <GuideEntityEmbed Entity="BZCanister"/>
-    <GuideEntityEmbed Entity="StorageCanister" Caption="frezon canister"/>
+    <GuideEntityEmbed Entity="FrezonCanister"/>
     <GuideEntityEmbed Entity="GasVentScrubber"/>
     <GuideEntityEmbed Entity="HealiumCanister"/>
   </Box>
