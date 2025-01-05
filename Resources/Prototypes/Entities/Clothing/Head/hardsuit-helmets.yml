@@ -231,8 +231,8 @@
   - type: Armor
     modifiers:
       coefficients:
-        Blunt: 0.9
-        Slash: 0.9
+        Blunt: 0.8
+        Slash: 0.8
         Piercing: 0.9
         Heat: 0.9
   - type: FlashImmunity # Goobstation
@@ -742,6 +742,12 @@
     rotation: 30
     energy: 10
     radius: 5
+  # WD EDIT START
+  - type: ThermalVision
+    color: "#98EEFB"
+    lightRadius: 15
+  # WD EDIT END
+
 
 #MISC. HARDSUITS
 #Clown Hardsuit

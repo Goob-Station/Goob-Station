@@ -72,6 +72,8 @@
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "l_hand"
+  - type: DoAfterDelayMultiplier # Goobstation
+    multiplier: 0.9
 
 - type: entity
   id: RightHandHuman
@@ -81,6 +83,8 @@
   - type: Sprite
     sprite: Mobs/Species/Human/parts.rsi
     state: "r_hand"
+  - type: DoAfterDelayMultiplier # Goobstation
+    multiplier: 0.9
 
 - type: entity
   id: LeftLegHuman
