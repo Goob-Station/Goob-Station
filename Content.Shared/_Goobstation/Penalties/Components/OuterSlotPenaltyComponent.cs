@@ -32,15 +32,15 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     /// Equip delay applied to outerlayer cloth when owner has it in inventory/equipped
     /// It's a flat value, since most equips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("equipDelay", required: true)]
     public float EquipDelay = 2f;
 
     /// <summary>
     /// Unequip delay applied to outerlayer cloth when owner has it in inventory/equipped
     /// It's a flat value, since most unequips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
+    [DataField]
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("unequipDelay", required: true)]
     public float UnequipDelay = 2f;
 }
