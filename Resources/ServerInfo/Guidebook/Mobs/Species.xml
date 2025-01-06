@@ -10,10 +10,18 @@
   <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobMoth" Caption="Ниан"/>
+  <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
+  <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+  <GuideEntityEmbed Entity="MobMoth" Caption="Моль"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймомен"/>
+  <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+  </Box>
+  <Box>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Редентия"/>
+  <GuideEntityEmbed Entity="MobYowie" Caption="Йоуи"/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   </Box>
 
 </Document>
