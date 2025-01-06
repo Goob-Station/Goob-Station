@@ -14,7 +14,7 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     /// Movement speed multiplier, applied when worn only to prevent slowdown while in hand
     /// </summary>
     [DataField(required: true)]
-    public float EquippedSpeedMultiplier = default!;
+    public float EquippedSpeedMultiplier = 1.0f;
 
     /// <summary>
     /// Current state of outerlayer inventory slot
@@ -26,19 +26,21 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     /// Damage dealt to owner on successful outerlayer equip attempt
     /// </summary>
     [DataField(required: true)]
-    public DamageSpecifier Damage = default!;
+    public DamageSpecifier Damage = new();
 
     /// <summary>
     /// Equip delay applied to outerlayer cloth when owner has it in inventory/equipped
     /// It's a flat value, since most equips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("equipDelay", required: true, customTypeSerializer: typeof(TimeSpan))]
     public float EquipDelay = 2f;
 
     /// <summary>
     /// Unequip delay applied to outerlayer cloth when owner has it in inventory/equipped
     /// It's a flat value, since most unequips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
-    [DataField]
+    [ViewVariables(VVAccess.ReadWrite)]
+    [DataField("unequipDelay", required: true, customTypeSerializer: typeof(TimeSpan))]
     public float UnequipDelay = 2f;
 }
