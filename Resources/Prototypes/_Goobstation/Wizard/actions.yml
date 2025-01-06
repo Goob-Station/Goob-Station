@@ -518,3 +518,20 @@
   - type: ConfirmableAction
     popup: instant-summons-confirm-popup
     shouldCancel: false
+
+- type: entity
+  id: ActionTeleportWizard
+  name: Teleport
+  description: This spell teleports you to an area of your selection.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: teleport
+    event: !type:WizardTeleportEvent
+  - type: Magic
+    requiresSpeech: true

@@ -277,3 +277,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookTeleport
+  name: spellbook-teleport-name
+  description: spellbook-teleport-desc
+  productAction: ActionTeleportWizard
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

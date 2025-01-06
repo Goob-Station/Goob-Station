@@ -4,7 +4,6 @@ using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Respawn;
-using Content.Server.Station.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Humanoid;
@@ -17,7 +16,6 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
 {
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
-    [Dependency] private readonly StationSystem _station = default!;
 
     public override void Resurrect(EntityUid mind,
         EntityUid phylactery,
@@ -63,17 +61,10 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
         if (map == null)
             return false;
 
+        grid ??= _wizard.GetWizardTargetRandomStationGrid();
+
         if (grid == null)
-        {
-            var station = _wizard.GetWizardTargetStation();
-
-            if (station == null)
-                return false;
-
-            grid = _station.GetLargestGrid(station.Value.Comp);
-            if (grid == null)
-                return false;
-        }
+            return false;
 
         if (itemXform.GridUid == grid.Value)
             return true;

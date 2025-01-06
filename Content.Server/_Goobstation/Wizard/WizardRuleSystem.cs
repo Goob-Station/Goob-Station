@@ -1,7 +1,9 @@
+using System.Linq;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Roles;
 using Content.Server.Station.Components;
+using Content.Server.Station.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.NPC.Prototypes;
@@ -12,6 +14,7 @@ namespace Content.Server._Goobstation.Wizard;
 
 public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
 {
+    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
@@ -28,19 +31,24 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         SubscribeLocalEvent<WizardRoleComponent, GetBriefingEvent>(OnGetBriefing);
     }
 
-    public Entity<StationDataComponent>? GetWizardTargetStation()
+    public IEnumerable<Entity<StationDataComponent>> GetWizardTargetStations()
     {
-        var stations = new List<Entity<StationDataComponent>>();
         var query = EntityQueryEnumerator<StationWizardTargetComponent, StationDataComponent>();
         while (query.MoveNext(out var station, out _, out var data))
         {
-            stations.Add((station, data));
+            yield return (station, data);
         }
+    }
 
-        if (stations.Count == 0)
-            return null;
+    public IEnumerable<EntityUid?> GetWizardTargetStationGrids()
+    {
+        return GetWizardTargetStations().Select(station => _station.GetLargestGrid(station.Comp));
+    }
 
-        return RobustRandom.Pick(stations);
+    public EntityUid? GetWizardTargetRandomStationGrid()
+    {
+        var grids = GetWizardTargetStationGrids().Where(grid => grid != null).ToList();
+        return grids.Count == 0 ? null : _random.Pick(grids);
     }
 
     protected override void Started(EntityUid uid,
@@ -48,7 +56,10 @@ public sealed class WizardRuleSystem : GameRuleSystem<WizardRuleComponent>
         GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
-        component.TargetStation = GetWizardTargetStation();
+        var stations = GetWizardTargetStations().ToList();
+        if (stations.Count == 0)
+            return;
+        component.TargetStation = _random.Pick(stations);
     }
 
     private void OnGetBriefing(Entity<WizardRoleComponent> ent, ref GetBriefingEvent args)

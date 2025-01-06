@@ -94,3 +94,28 @@
       map: ["enum.AmmoVisualLayers.Base"]
   - type: Appearance
   - type: SpentAmmoVisuals
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station.
+  parent: BaseItem
+  id: ScrollTeleport
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    slots:
+      - Belt
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+  - type: UserInterface
+    interfaces:
+      enum.WizardTeleportUiKey.Key:
+        type: WizardTeleportBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.WizardTeleportUiKey.Key
+  - type: TeleportScroll

@@ -369,3 +369,9 @@ public sealed partial class InstantSummonsEvent : InstantActionEvent, ISpeakSpel
     [DataField]
     public SoundSpecifier? SummonSound;
 }
+
+public sealed partial class WizardTeleportEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+}

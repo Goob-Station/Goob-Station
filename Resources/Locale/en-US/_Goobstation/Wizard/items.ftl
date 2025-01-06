@@ -7,3 +7,6 @@ enchanted-rifle-guns-left = Guns left: [color=yellow]{$guns}[/color].
 
 instant-summons-item-marked = Sucessfully marked {$item}.
 instant-summons-confirm-popup = This action will remove the current mark! Use it again to confirm.
+
+teleport-scroll-uses-left = Uses left: [color=yellow]{$uses}[/color].
+teleport-scroll-no-charges = The scroll runs out of uses and crumbles to dust!

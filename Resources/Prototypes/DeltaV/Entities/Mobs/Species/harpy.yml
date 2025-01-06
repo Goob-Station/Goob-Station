@@ -37,6 +37,8 @@
         type: StoreBoundUserInterface
       enum.HereticLivingHeartKey.Key: # goob edit - heretics
         type: LivingHeartMenuBoundUserInterface
+      enum.WizardTeleportUiKey.Key: # Goobstation - wizard
+        type: WizardTeleportBoundUserInterface
       enum.SurgeryUIKey.Key: # Shitmed
         type: SurgeryBui
   - type: Sprite

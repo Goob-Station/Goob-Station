@@ -6,6 +6,7 @@
     outerClothing: ClothingOuterWizard
     shoes: ClothingShoesWizard
     back: ClothingBackpack
+    belt: ScrollTeleport
     pocket1: WizardsGrimoire
 
 - type: startingGear

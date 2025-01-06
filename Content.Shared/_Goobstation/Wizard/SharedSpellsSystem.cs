@@ -7,6 +7,7 @@ using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
@@ -102,6 +103,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] private   readonly SharedAudioSystem _audio = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
+    [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
 
     #endregion
 
@@ -131,6 +133,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
+        SubscribeLocalEvent<WizardTeleportEvent>(OnTeleport);
     }
 
     #region Spells
@@ -764,6 +767,14 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _magic.Speak(ev);
         ev.Handled = true;
+    }
+
+    private void OnTeleport(WizardTeleportEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        _teleport.OnTeleportSpell(ev.Performer, ev.Action);
     }
 
     #endregion

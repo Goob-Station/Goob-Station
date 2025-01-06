@@ -110,5 +110,11 @@ spellbook-scream-for-me-desc =
 spellbook-instant-summons-name = Instant Summons
 spellbook-instant-summons-desc =
     This spell can be used to recall a previously marked item to your hand from anywhere in the universe.
+    Activate the spell while holding an item in your hands to mark it. Activate it again to recall the item to an empty hand. You can mark another item, this will remove the old mark.
     If the marked item is in container, the entire container will be summoned.
+    Doesn't require wizard's robe and hat to cast.
+
+spellbook-teleport-name = Teleport
+spellbook-teleport-desc =
+    Teleports you to an area of your selection.
     Doesn't require wizard's robe and hat to cast.
