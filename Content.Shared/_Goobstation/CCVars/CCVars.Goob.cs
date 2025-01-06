@@ -78,6 +78,19 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    /// <summary>
+    ///     Broadcast to all players that a player has ragequit.
+    /// </summary>
+    public static readonly CVarDef<bool> PlayerRageQuitNotify =
+        CVarDef.Create("player.ragequit.notify", true, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Time between being eligible for a "rage quit" after reaching a damage threshold.
+    ///     Default is 5f.
+    /// </summary>
+    public static readonly CVarDef<float> PlayerRageQuitTimeThreshold =
+        CVarDef.Create("player.ragequit.threshold", 5f);
+
     #region Surgery
 
     public static readonly CVarDef<bool> CanOperateOnSelf =
@@ -149,7 +162,7 @@ public sealed partial class GoobCVars
 
     public static readonly CVarDef<bool> BlobCanGrowInSpace =
         CVarDef.Create("blob.grow_space", true, CVar.SERVER);
-    
+
     #endregion
 
     #region Mechs
