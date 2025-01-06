@@ -1,4 +1,4 @@
-using Content.Shared._Goobstation.Species.Components;
+using Content.Shared._Goobstation.Penalties.Components;
 using Content.Shared.Clothing;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Clothing.Components;
@@ -8,23 +8,24 @@ using Content.Shared.Damage;
 using Content.Shared.Popups;
 using Content.Shared.Inventory;
 
-namespace Content.Shared._Goobstation.Species.Systems;
+namespace Content.Shared._Goobstation.Penalties.Systems;
 
-public sealed partial class YowieSystem : EntitySystem
+public sealed partial class OuterSlotPenaltySystem: EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly ClothingSpeedModifierSystem _clothingSpeedModifierSystem = default!;
+
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<YowieComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
-        SubscribeLocalEvent<YowieComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
-        SubscribeLocalEvent<YowieComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
+        SubscribeLocalEvent<OuterSlotPenaltyComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<OuterSlotPenaltyComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
+        SubscribeLocalEvent<OuterSlotPenaltyComponent, RefreshMovementSpeedModifiersEvent>(OnMove);
     }
 
-    private void OnEntInserted(EntityUid uid, YowieComponent comp, ref EntInsertedIntoContainerMessage args)
+    private void OnEntInserted(EntityUid uid, OuterSlotPenaltyComponent comp, ref EntInsertedIntoContainerMessage args)
     {
         if (TryComp<ClothingComponent>(args.Entity, out var cloth) && cloth.Slots == SlotFlags.OUTERCLOTHING)
         {
@@ -33,7 +34,7 @@ public sealed partial class YowieSystem : EntitySystem
         }
     }
 
-    private void OnEntRemoved(EntityUid uid, YowieComponent comp, ref EntRemovedFromContainerMessage args)
+    private void OnEntRemoved(EntityUid uid, OuterSlotPenaltyComponent comp, ref EntRemovedFromContainerMessage args)
     {
         if (TryComp<ClothingComponent>(args.Entity, out var cloth) && cloth.Slots == SlotFlags.OUTERCLOTHING)
         {
@@ -42,9 +43,9 @@ public sealed partial class YowieSystem : EntitySystem
         }
     }
 
-    private void OnMove(EntityUid uid, YowieComponent comp, RefreshMovementSpeedModifiersEvent args)
+    private void OnMove(EntityUid uid, OuterSlotPenaltyComponent comp, RefreshMovementSpeedModifiersEvent args)
     {
         if (comp.OuterLayerEquipped)
-            args.ModifySpeed(comp.SoftSuitSpeedMultiplier);
+            args.ModifySpeed(comp.EquippedSpeedMultiplier);
     }
 }

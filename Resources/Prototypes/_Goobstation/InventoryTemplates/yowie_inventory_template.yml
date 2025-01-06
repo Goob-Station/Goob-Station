@@ -17,7 +17,7 @@
       displayName: Suit
       whitelist:
         tags:
-          - SuitEVA
+          - Softsuit
     - name: gloves
       slotTexture: gloves
       slotFlags: GLOVES
