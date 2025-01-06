@@ -3,8 +3,8 @@ guide-entry-medpatches = Медицинские пластыри
 # Goob SOP
 # - Основные справочники
 guide-entry-sop = СРП
-guide-entry-sop-alert-levels = Уровни тревоги
-guide-entry-sop-emergencies = Чрезвычайные ситуации
+guide-entry-sop-alert-levels = _Уровни тревоги
+guide-entry-sop-emergencies = _Чрезвычайные ситуации
 guide-entry-sop-jobs = Работа
 guide-entry-sop-legal = Юридический
 guide-entry-sop-standards = Стандартные процедуры
