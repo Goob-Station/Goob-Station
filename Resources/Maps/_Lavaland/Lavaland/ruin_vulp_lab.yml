@@ -16,26 +16,13 @@ tilemap:
 entities:
 - proto: ""
   entities:
-  - uid: 1
-    components:
-    - type: MetaData
-      name: Map Entity
-    - type: Transform
-    - type: Map
-      mapPaused: True
-    - type: PhysicsMap
-    - type: GridTree
-    - type: MovedGrids
-    - type: Broadphase
-    - type: OccluderTree
-    - type: LoadedMap
   - uid: 2
     components:
     - type: MetaData
       name: grid
     - type: Transform
       pos: -3.46875,-1.328125
-      parent: 1
+      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -1357,58 +1344,21 @@ entities:
       parent: 2
 - proto: SalvageHumanCorpseSpawner
   entities:
-  - uid: 299
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,4.5
-      parent: 2
   - uid: 300
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 8.5,3.5
       parent: 2
-  - uid: 301
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 7.5,2.5
-      parent: 2
-  - uid: 302
-    components:
-    - type: Transform
-      pos: 0.5,16.5
-      parent: 2
-  - uid: 303
-    components:
-    - type: Transform
-      pos: 1.5,16.5
-      parent: 2
   - uid: 304
     components:
     - type: Transform
       pos: 3.5,16.5
       parent: 2
-  - uid: 305
-    components:
-    - type: Transform
-      pos: 4.5,16.5
-      parent: 2
-  - uid: 306
-    components:
-    - type: Transform
-      pos: 3.5,15.5
-      parent: 2
   - uid: 307
     components:
     - type: Transform
       pos: 1.5,15.5
-      parent: 2
-  - uid: 308
-    components:
-    - type: Transform
-      pos: 0.5,15.5
       parent: 2
 - proto: SalvageSpawnerMobMiningAsteroid
   entities:

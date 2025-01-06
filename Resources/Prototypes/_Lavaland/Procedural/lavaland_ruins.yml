@@ -83,7 +83,7 @@
   name: Vulpkanin Laboratory
   path: Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
 
-  - type: lavalandRuin
+- type: lavalandRuin
   id: Shelter
   name: Shelter
   path: Maps/_Lavaland/Lavaland/ruin_shelter.yml

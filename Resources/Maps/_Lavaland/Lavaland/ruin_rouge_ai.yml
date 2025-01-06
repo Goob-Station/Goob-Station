@@ -2646,7 +2646,7 @@ entities:
   - uid: 914
     components:
     - type: Transform
-      pos: -5.5126057,3.4463158
+      pos: -6.2593775,-2.7397146
       parent: 1
 - proto: LeftArmBorg
   entities:
@@ -2861,13 +2861,6 @@ entities:
     components:
     - type: Transform
       pos: 8.5,-1.5
-      parent: 1
-- proto: PlayerStationAiEmpty
-  entities:
-  - uid: 55
-    components:
-    - type: Transform
-      pos: 5.5,5.5
       parent: 1
 - proto: PosterContrabandBorgFancyv2
   entities:
@@ -3417,11 +3410,6 @@ entities:
     - type: Transform
       pos: -0.5,13.5
       parent: 1
-  - uid: 869
-    components:
-    - type: Transform
-      pos: 26.5,0.5
-      parent: 1
 - proto: SalvageSpawnerScrapCommon
   entities:
   - uid: 781
@@ -3724,6 +3712,13 @@ entities:
     components:
     - type: Transform
       pos: 5.4119854,14.082565
+      parent: 1
+- proto: ToyAi
+  entities:
+  - uid: 55
+    components:
+    - type: Transform
+      pos: 5.509103,5.863124
       parent: 1
 - proto: TrashBananaPeel
   entities:

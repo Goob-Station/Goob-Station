@@ -1,9 +1,9 @@
 - type: entity
   id: ADTTendrilBase
   parent: BaseStructure
-  name: tendrыl
+  name: tendril
   abstract: true
-  description: e
+  description: A huge structure.
   components:
   - type: Sprite
     noRot: true
@@ -42,13 +42,12 @@
         layer:
         - MobLayer
         density: 200
-  - type: AshStormImmune
 
 - type: entity
   id: ADTTendrilGoliath
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
+  name: tendril
+  description: A huge structure.
   suffix: Goliath
   components:
   - type: Tendril
@@ -58,8 +57,8 @@
 - type: entity
   id: ADTTendrilLegion
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
+  name: tendril
+  description: A huge structure.
   suffix: Legion
   components:
   - type: Tendril
@@ -69,8 +68,8 @@
 - type: entity
   id: ADTTendrilLavaWatcher
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
+  name: tendril
+  description: A huge structure.
   suffix: Watcher
   components:
   - type: Tendril
@@ -80,8 +79,8 @@
 - type: entity
   id: ADTTendrilIcewingWatcher
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
+  name: tendril
+  description: A huge structure.
   suffix: Ice Watcher
   components:
   - type: Tendril
@@ -91,8 +90,8 @@
 - type: entity
   id: ADTTendrilMagmawingWatcher
   parent: ADTTendrilBase
-  name: tendrыl
-  description: e
+  name: tendril
+  description: A huge structure.
   suffix: Magma Watcher
   components:
   - type: Tendril

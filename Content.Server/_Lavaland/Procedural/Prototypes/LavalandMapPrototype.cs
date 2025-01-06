@@ -22,7 +22,7 @@ public sealed partial class LavalandMapPrototype : IPrototype
     public string OutpostPath = "";
 
     [DataField]
-    public float RestrictedRange = 256f;
+    public float RestrictedRange = 512f;
 
     [DataField(required: true)]
     public ProtoId<LavalandRuinPoolPrototype> RuinPool;
