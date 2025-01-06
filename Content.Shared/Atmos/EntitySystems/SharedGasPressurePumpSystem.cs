@@ -5,11 +5,8 @@ using Content.Shared.Atmos.Piping.Binary.Components;
 using Content.Shared.Atmos.Piping.Components;
 using Content.Shared.Database;
 using Content.Shared.Examine;
-using Content.Shared.Popups;
 using Content.Shared.Power;
-using Content.Shared.Power.Components;
 using Content.Shared.Power.EntitySystems;
-using Content.Shared.UserInterface;
 
 namespace Content.Shared.Atmos.EntitySystems;
 

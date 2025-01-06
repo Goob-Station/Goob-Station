@@ -409,8 +409,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var nukiesCount = EntityQuery<NukeopsRoleComponent>().Count();
         if (nukiesCount == 0)
             return rule.WarTcAmountPerNukie;
-        var playersCount = Math.Max(0, _playerManager.Sessions.Length - nukiesCount);
-        var maxNukies = playersCount / rule.WarNukiePlayerRatio;
+        var totalPlayersCount = _antag.GetTotalPlayerCount(_playerManager.Sessions);
+        var playersCount = Math.Max(0, totalPlayersCount - nukiesCount);
+        var maxNukies = totalPlayersCount / rule.WarNukiePlayerRatio;
         var nukiesMissing = Math.Max(0, maxNukies - nukiesCount);
         var totalBonus = playersCount * rule.WarTcPerPlayer;
         totalBonus += nukiesMissing * rule.WarTcPerNukieMissing;

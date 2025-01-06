@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     # Hey there fork dev! If you like to include your own contributors in this then you can probably just change this to your own repo
     # Do this in dump_github_contributors.ps1 too into your own repo
-    if: github.repository == 'space-wizards/space-station-14'
+    if: github.repository == 'Goob-Station/Goob-Station'
     
     steps:
       - uses: actions/checkout@v3.6.0
@@ -50,5 +50,5 @@ jobs:
           commit-message: Update Credits
           title: Update Credits
           body: This is an automated Pull Request. This PR updates the github contributors in the credits section.
-          author: PJBot <pieterjan.briers+bot@gmail.com>
+          author: GoobBot <uristmchands@proton.me>
           branch: automated/credits-${{env.NOW}}

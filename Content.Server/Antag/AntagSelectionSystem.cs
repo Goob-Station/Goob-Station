@@ -304,13 +304,16 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             }
         }
 
+        if (def.SpawnerPrototype == null) // Goobstation
+            return;
+
         // This preserves previous behavior for when def.PickPlayer
         // was not satisfied. This behavior is not that obvious to
         // read from the previous code.
         // It may otherwise process leftover slots if maxRetries have
         // been reached.
 
-        for (var i = ent.Comp.SelectedSessions.Count; i < targetCount; i++)
+        for (var i = GetSelectedAntagCount(); i < targetCount; i++)
         {
             MakeAntag(ent, null, def);
         }

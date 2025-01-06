@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared.Buckle.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
