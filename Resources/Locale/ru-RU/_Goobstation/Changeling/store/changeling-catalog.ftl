@@ -82,8 +82,8 @@ evolutionmenu-utility-panacea-desc =
     Затрачивает 30 химикатов.
 evolutionmenu-utility-eyesight-name = Улучшенное зрение
 evolutionmenu-utility-eyesight-desc =
-    Эволюция дополнительных функций в ваших глазах, таких как защита от вспышек.
-    Бесплатно.
+    Развивайте дополнительные функции в глазах, такие как отключаемое тепловое зрение и защита от вспышек.
+    В режиме теплового зрения вы становитесь более уязвимы для устройств со вспышкой.
 evolutionmenu-utility-biodegrade-name = Биодеградация
 evolutionmenu-utility-biodegrade-desc =
     Выплевывает едкое вещество на все сковывающие вас предметы, позволяя освободиться.
@@ -92,3 +92,7 @@ evolutionmenu-utility-biodegrade-desc =
 evolutionmenu-utility-chameleon-name = Кожа хамелеона
 evolutionmenu-utility-chameleon-desc =
     Изменяет пигмент вашей кожи в соответствии с окружающей обстановкой,
+evolutionmenu-utility-lastresort-name = Крайняя мера
+evolutionmenu-utility-lastresort-desc =
+    Откажитесь от своего текущего тела и сбегите в форме слизняка.
+    Стоит 20 химикатов.

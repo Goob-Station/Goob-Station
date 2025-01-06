@@ -1,5 +1,6 @@
 # Shown when examining an in-construction object
-construction-insert-arbitrary-entity = Далее, вставьте { $stepName }.
+construction-insert-arbitrary-entity = Далее вставьте [color=cyan]{$stepName}[/color].
+
 construction-insert-info-examine-name-instrument-brass = духовой инструмент
 construction-insert-info-examine-name-instrument-keyed = клавишный инструмент
 construction-insert-info-examine-name-instrument-percussion = ударный инструмент

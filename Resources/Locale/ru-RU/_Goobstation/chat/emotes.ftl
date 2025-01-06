@@ -16,3 +16,6 @@ emote-fart-out-of-farts = У вас закончился пук!
 emote-fart-super-fart = Вы (буквально) пердите во всю задницу!
 emote-fart-inhale-notice = Вы вдыхаете воздух, чтобы получить суперпук.
 emote-fart-inhale-disarm-notice = Вы обезвреживаете свой суперпук.
+
+chat-emote-name-boop = Буп
+chat-emote-name-whirr = Вирр

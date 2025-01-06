@@ -1,3 +1,4 @@
+emote-menu-category-farts = Пукать
 chat-emote-name-flip = Сделать сальто
 chat-emote-name-spin = Крутиться
 chat-emote-name-jump = Прыгать

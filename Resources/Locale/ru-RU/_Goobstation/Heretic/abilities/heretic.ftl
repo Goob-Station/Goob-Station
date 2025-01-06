@@ -9,6 +9,7 @@ heretic-blade-examine = [color=yellow]Если использовать его, 
 heretic-blade-use = Клинок разлетается на куски, и вы чувствуете, как голоса уводят вас прочь.
 heretic-riposte-used = Рипост использован!
 heretic-riposte-available = Рипост доступен!
+heretic-cant-shoot = Я не могу использовать { THE($entity) } из-за моего священного обещания следовать по пути клинка.
 
 ## paths exclusive
 
