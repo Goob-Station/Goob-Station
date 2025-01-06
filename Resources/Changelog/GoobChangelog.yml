@@ -3847,3 +3847,11 @@ Entries:
       message: 'Added a Brigging Guideline: DON''T REMOVE IPC BATTERIES YOU NUMBNUTS!'
   id: 430
   time: '2025-01-06T21:42:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Closet freezers now have 99% explosive resistance, which lets them
+        survive nukes.
+  id: 431
+  time: '2025-01-06T22:03:52.0000000+00:00'
