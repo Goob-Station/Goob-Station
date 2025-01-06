@@ -4,7 +4,6 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Client._Shitmed.Targeting;
 using Robust.Client.GameObjects;
 using Robust.Client.UserInterface.Controllers;
-using Robust.Client.Player;
 using Robust.Shared.Utility;
 using Robust.Client.Graphics;
 

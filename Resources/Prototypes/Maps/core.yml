@@ -9,7 +9,7 @@
       stationProto: StandardNanotrasenStation
       components:
         - type: StationNameSetup
-          mapNameTemplate: '{0} Coal Core {1}'
+          mapNameTemplate: '{0} Core {1}'
           nameGenerator:
             !type:NanotrasenNameGenerator
             prefixCreator: '14'

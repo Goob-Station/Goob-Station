@@ -1,4 +1,3 @@
-using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared.SurveillanceCamera;

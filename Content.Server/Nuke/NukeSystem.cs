@@ -629,6 +629,7 @@ public sealed class NukeSystem : EntitySystem
             BreakOnDamage = true,
             BreakOnMove = true,
             NeedHand = true,
+            MultiplyDelay = false, // Goobstation
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter))

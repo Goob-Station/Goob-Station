@@ -1,4 +1,3 @@
-using Content.Shared.Singularity.Components;
 using Content.Server.Singularity.EntitySystems;
 
 namespace Content.Server.Singularity.Components;

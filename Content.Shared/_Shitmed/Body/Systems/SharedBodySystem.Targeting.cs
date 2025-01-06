@@ -32,9 +32,10 @@ public partial class SharedBodySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly StandingStateSystem _standing = default!;
 
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    private readonly string[] _severingDamageTypes = { "Slash", "Piercing", "Blunt" };
+    private readonly ProtoId<DamageTypePrototype>[] _severingDamageTypes = { "Slash", "Piercing", "Blunt" };
     private const double IntegrityJobTime = 0.005;
     private readonly JobQueue _integrityJobQueue = new(IntegrityJobTime);
     public sealed class IntegrityJob : Job<object>
@@ -126,7 +127,7 @@ public partial class SharedBodySystem
                 // If the target is Torso then have a 33% chance to hit another part
                 if (targetPart.Value == TargetBodyPart.Torso)
                 {
-                    var additionalPart = GetRandomPartSpread(_random, 10);
+                    var additionalPart = GetRandomPartSpread(10);
                     targetPart = targetPart.Value | additionalPart;
                 }
             }
@@ -136,7 +137,8 @@ public partial class SharedBodySystem
                 // such as an animal, so we attack a random part.
                 if (args.Origin.HasValue)
                 {
-                    targetPart = GetRandomBodyPart(ent, targetEnt);
+                    // Evasion would trigger constantly if we don't target torso
+                    targetPart = args.CanEvade ? TargetBodyPart.Torso : GetRandomBodyPart(ent, targetEnt);
                 }
                 // Otherwise we damage all parts equally (barotrauma, explosions, etc).
                 else if (damage != null)
@@ -150,8 +152,8 @@ public partial class SharedBodySystem
             if (targetPart == null)
                 return;
 
-            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value)
-                && args.CanEvade)
+            if (!TryChangePartDamage(ent, args.Damage, args.IgnoreResistances, args.CanSever, args.CanEvade, args.PartMultiplier, targetPart.Value, out var evaded)
+                && args.CanEvade && evaded)
             {
                 if (_net.IsServer)
                     _popup.PopupEntity(Loc.GetString("surgery-part-damage-evaded", ("user", Identity.Entity(ent, EntityManager))), ent);
@@ -188,8 +190,14 @@ public partial class SharedBodySystem
         bool canSever,
         bool canEvade,
         float partMultiplier,
-        TargetBodyPart targetParts)
+        TargetBodyPart targetParts,
+        out bool evaded)
     {
+        evaded = false;
+
+        if (damage.GetTotal() == 0)
+            return false;
+
         var landed = false;
         var targets = SharedTargetingSystem.GetValidParts();
         foreach (var target in targets)
@@ -201,7 +209,10 @@ public partial class SharedBodySystem
             if (GetBodyChildrenOfType(entity, targetType, symmetry: targetSymmetry) is { } part)
             {
                 if (canEvade && TryEvadeDamage(entity, GetEvadeChance(targetType)))
+                {
+                    evaded = true;
                     continue;
+                }
 
                 var damageResult = _damageable.TryChangeDamage(part.FirstOrDefault().Id, damage * partMultiplier, ignoreResistances, canSever: canSever);
                 if (damageResult != null && damageResult.GetTotal() != 0)
@@ -244,11 +255,13 @@ public partial class SharedBodySystem
     /// Torso if the result is 9 or more. The higher torsoWeight is, the higher chance to return it.
     /// By default, the chance to return Torso is 50%.
     /// </summary>
-    private static TargetBodyPart GetRandomPartSpread(IRobustRandom random, ushort torsoWeight = 9)
+    private TargetBodyPart GetRandomPartSpread(ushort torsoWeight = 9)
     {
+        var rand = new System.Random((int) _timing.CurTick.Value);
+
         const int targetPartsAmount = 9;
         // 5 = amount of target parts except Torso
-        return random.Next(1, targetPartsAmount + torsoWeight) switch
+        return rand.Next(1, targetPartsAmount + torsoWeight) switch
         {
             1 => TargetBodyPart.Head,
             2 => TargetBodyPart.RightArm,
@@ -268,8 +281,10 @@ public partial class SharedBodySystem
         if (!Resolve(uid, ref target))
             return null;
 
+        var rand = new System.Random((int) _timing.CurTick.Value);
+
         var totalWeight = target.TargetOdds.Values.Sum();
-        var randomValue = _random.NextFloat() * totalWeight;
+        var randomValue = rand.NextFloat() * totalWeight;
 
         foreach (var (part, weight) in target.TargetOdds)
         {
@@ -473,10 +488,10 @@ public partial class SharedBodySystem
         return partType switch
         {
             BodyPartType.Head => 0.70f,  // 70% chance to evade
-            BodyPartType.Arm => 0.20f,   // 20% chance to evade
-            BodyPartType.Hand => 0.20f, // 20% chance to evade
-            BodyPartType.Leg => 0.20f,   // 20% chance to evade
-            BodyPartType.Foot => 0.20f, // 20% chance to evade
+            BodyPartType.Arm => 0f,   // 0% chance to evade
+            BodyPartType.Hand => 0f, // 0% chance to evade
+            BodyPartType.Leg => 0f,   // 0% chance to evade
+            BodyPartType.Foot => 0f, // 0% chance to evade
             BodyPartType.Torso => 0f, // 0% chance to evade
             _ => 0f
         };
@@ -484,14 +499,7 @@ public partial class SharedBodySystem
 
     public bool CanEvadeDamage(EntityUid uid)
     {
-        if (!TryComp<MobStateComponent>(uid, out var mobState)
-            || !TryComp<StandingStateComponent>(uid, out var standingState)
-            || _mobState.IsCritical(uid, mobState)
-            || _mobState.IsDead(uid, mobState)
-            || standingState.CurrentState == StandingState.Lying)
-            return false;
-
-        return true;
+        return !_mobState.IsIncapacitated(uid) && !_standing.IsDown(uid);
     }
 
     public bool TryEvadeDamage(EntityUid uid, float evadeChance)
@@ -499,7 +507,12 @@ public partial class SharedBodySystem
         if (!CanEvadeDamage(uid))
             return false;
 
-        return _random.NextFloat() < evadeChance;
+        if (evadeChance == 0f)
+            return false;
+
+        var rand = new System.Random((int) _timing.CurTick.Value);
+
+        return rand.Prob(evadeChance);
     }
 
 }

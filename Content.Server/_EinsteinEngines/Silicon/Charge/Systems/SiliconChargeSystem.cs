@@ -16,12 +16,8 @@ using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Mind;
 using Content.Shared.Alert;
-using Content.Server._EinsteinEngines.Silicon.Death;
-using Content.Server._EinsteinEngines.Power.Components;
 using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;
@@ -187,8 +183,9 @@ public sealed class SiliconChargeSystem : EntitySystem
             if (!_random.Prob(Math.Clamp(temperComp.CurrentTemperature / (upperThresh * 5), 0.001f, 0.9f)))
                 return hotTempMulti;
 
-            _flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
-            _flammable.Ignite(silicon, silicon, flamComp);
+            // Goobstation: Replaced by KillOnOverheatSystem
+            //_flammable.AdjustFireStacks(silicon, Math.Clamp(siliconComp.FireStackMultiplier, -10, 10), flamComp);
+            //_flammable.Ignite(silicon, silicon, flamComp);
             return hotTempMulti;
         }
 

@@ -612,14 +612,14 @@
         time: 5
         refresh: false
 
-- type: reagent # /tg/ gases
+- type: reagent # Assmos - /tg/ gases
   id: NitrosylPlasmide
   name: reagent-name-nitrosyl-plasmide
   group: Narcotics
   desc: reagent-desc-nitrosyl-plasmide
   physicalDesc: reagent-physical-desc-translucent
   flavor: sour
-  color: "#b76f0e"
+  color: "#e1a116"
   metabolisms:
     Gas:
       effects:
@@ -644,6 +644,10 @@
         key: ForcedSleep
         type: Remove
         time: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
     Medicine:
       effects:
       - !type:ResetNarcolepsy

@@ -5,18 +5,31 @@
   chatMessages: ["chat-emote-msg-deathgasp-silicon"]
   chatTriggers:
   - sdeathgasp
+  whitelist:
+    components:
+    - Silicon
+    - BorgChassis
 
 - type: emote
   id: Boop
   name: chat-emote-name-boop
   category: Vocal
-  chatMessages: [ boops ]
+  chatMessages: [ boops. ]
   chatTriggers:
-    - boops
+  - boops
+  whitelist:
+    components:
+    - Silicon
+    - BorgChassis
 
 - type: emote
-  id: Whirr # uncategorized as it is generic
+  id: Whirr
   name: chat-emote-name-whirr
-  chatMessages: [ whirrs ]
+  category: Vocal
+  chatMessages: [ whirrs. ]
   chatTriggers:
-    - whirrs
+  - whirrs
+  whitelist:
+    components:
+    - Silicon
+    - BorgChassis

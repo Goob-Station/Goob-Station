@@ -21,9 +21,9 @@
 
 #Mercenary web vest
 - type: entity
-  parent: [ClothingOuterStorageBase, BaseMajorContraband] #web vest so it should have some pockets for ammo \\ Goobstation - issue #733 fix, changed from minor to major contraband
+  parent: [ BaseMajorContraband, ClothingOuterVestWeb] #web vest so it should have some pockets for ammo
   id: ClothingOuterVestWebMerc
-  name: merc web vest
+  name: mercenary web vest
   description: A high-quality armored vest made from a hard synthetic material. It's surprisingly flexible and light, despite formidable armor plating.
   components:
   - type: Sprite

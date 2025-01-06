@@ -59,7 +59,7 @@
     proto: BulletPlasmaCutterStrong
     fireCost: 100
   - type: WeaponRandomExplode
-    explosionChance: 0.03
+    explosionChance: 0.05 # 1d20 roll
     multiplyByCharge: 1.0
   - type: MagazineVisuals
     magState: mag

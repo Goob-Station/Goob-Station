@@ -302,6 +302,10 @@
   whitelist:
     components:
     - MobState
+  blacklist: #Goobstation - Replace deathgasp for IPCs and cyborgs
+    components:
+    - Silicon
+    - BorgChassis
   chatMessages: ["chat-emote-msg-deathgasp"]
   chatTriggers:
   - deathgasp
@@ -318,6 +322,10 @@
   category: Vocal
   icon: Interface/Emotes/buzz.png
   chatMessages: ["chat-emote-msg-buzz"]
+  whitelist: #Goobstation - IPCs
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - buzzing
     - buzz
@@ -329,7 +337,14 @@
   name: chat-emote-name-weh
   category: Vocal
   icon: Interface/Emotes/weh.png
-  chatMessages: [wehs]
+  chatMessages: ["chat-emote-msg-weh"]
+
+- type: emote
+  id: Hew
+  name: chat-emote-name-hew
+  category: Vocal
+  icon: Interface/Emotes/hew.png
+  chatMessages: ["chat-emote-msg-hew"]
 
 - type: emote
   id: Chirp
@@ -354,6 +369,10 @@
   category: Vocal
   icon: Interface/Emotes/beep.png
   chatMessages: ["chat-emote-msg-beep"]
+  whitelist: #Goobstation - IPCs
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - beep
     - beeps
@@ -366,6 +385,10 @@
   category: Vocal
   icon: Interface/Emotes/chime.png
   chatMessages: ["chat-emote-msg-chime"]
+  whitelist: #Goobstation - IPCs
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - chime
     - chimes
@@ -378,6 +401,10 @@
   category: Vocal
   icon: Interface/Emotes/buzztwo.png
   chatMessages: ["chat-emote-msg-buzzestwo"]
+  whitelist: #Goobstation - IPCs
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - buzztwice
     - buzzstwice
@@ -396,6 +423,10 @@
   category: Vocal
   icon: Interface/Emotes/ping.png
   chatMessages: ["chat-emote-msg-ping"]
+  whitelist: #Goobstation - IPCs
+    components:
+    - Silicon
+    - BorgChassis
   chatTriggers:
     - ping
     - pings

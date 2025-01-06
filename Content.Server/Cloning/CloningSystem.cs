@@ -9,6 +9,7 @@ using Content.Server.Jobs;
 using Content.Server.Materials;
 using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
+using Content.Shared._EinsteinEngines.Silicon.Components; // Goobstation
 using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
@@ -166,6 +167,9 @@ namespace Content.Server.Cloning
 
             if (!TryComp<HumanoidAppearanceComponent>(bodyToClone, out var humanoid))
                 return false; // whatever body was to be cloned, was not a humanoid
+
+            if (HasComp<SiliconComponent>(bodyToClone))
+                return false; // Goobstation: Don't clone IPCs.
 
             if (!_prototype.TryIndex(humanoid.Species, out var speciesPrototype))
                 return false;

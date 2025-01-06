@@ -33,6 +33,7 @@
     - BZ
     - Healium
     - Nitrium
+    - Pluoxium
     #- Helium3 TODO: fusion
   - type: AirIntake
   # for intake and filter to work
@@ -48,6 +49,7 @@
       enum.MechUiKey.Key:
         type: MechBoundUserInterface
   - type: MeleeWeapon
+    canWideSwing: false
     hidden: true
     attackRate: 0.75
     damage:

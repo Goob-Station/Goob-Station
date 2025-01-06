@@ -196,7 +196,7 @@
   - type: ShowSyndicateIcons
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
+  parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
   id: ClothingEyesHudSyndicate
   name: syndicate visor
   description: The syndicate's professional head-up display, designed for better detection of humanoids and their subsequent elimination.
@@ -206,9 +206,11 @@
   - type: Clothing
     sprite: Clothing/Eyes/Hud/synd.rsi
   - type: ShowSyndicateIcons
+  - type: ShowJobIcons # Goob
+  - type: ShowMindShieldIcons # Goob
 
 - type: entity
-  parent: [ClothingEyesBase, ShowSecurityIcons, BaseSyndicateContraband]
+  parent: [ClothingEyesBase, BaseSyndicateContraband] # Goob edit
   id: ClothingEyesHudSyndicateAgent
   name: syndicate agent visor
   description: The Syndicate Agent's professional heads-up display, designed for quick diagnosis of their team's status.
@@ -219,6 +221,8 @@
     sprite: Clothing/Eyes/Hud/syndagent.rsi
   - type: ShowSyndicateIcons
   - type: ShowHealthBars
+  - type: ShowJobIcons # Goob
+  - type: ShowMindShieldIcons # Goob
 
 - type: entity
   parent: [ClothingEyesGlassesSunglasses, ShowSecurityIcons]
