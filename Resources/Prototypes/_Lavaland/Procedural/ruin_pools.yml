@@ -5,17 +5,25 @@
 - type: lavalandRuinPool
   id: Lavaland
   hugeRuins:
-    #SyndicateBase: 1
+    SyndicateBase: 1
     #HierophantArena: 1
     RougeAI: 1
     BiodomeBeach: 2
     BiodomeSnow: 2
     GolemShuttle: 2
-    ToyShop: 2    
+    ToyShop: 1    
     Chemistry: 2
     LavaLake: 3
-    Graveyard: 2
+    Graveyard: 1
     SeedVault: 2
     Hermit: 5
+    WaffleCo: 2
+    ArrivalsBack: 1
+    ArrivalsFront: 1
+    CargoDebris: 2
+    VulpLab: 1
+    Shelter: 4
+    OwOLab: 1
+    MiningPost: 3
   smallRuins:
     CommonRuin5x5: 128

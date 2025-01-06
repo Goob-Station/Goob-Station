@@ -53,11 +53,51 @@
   name: Seed Vault
   path: Maps/_Lavaland/Lavaland/ruin_seed_vault.yml
 
-#- type: lavalandRuin
-#  id: SyndicateBase
-#  name: Syndicate Base
-#  path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
+- type: lavalandRuin
+  id: SyndicateBase
+  name: Syndicate Base
+  path: Maps/_Lavaland/Lavaland/ruin_syndicate_base.yml
 
+- type: lavalandRuin
+  id: WaffleCo
+  name: Waffle House
+  path: Maps/_Lavaland/Lavaland/ruin_wafflecohouse.yml
+
+- type: lavalandRuin
+  id: ArrivalsBack
+  name: Arrivals Debris
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_back.yml
+
+- type: lavalandRuin
+  id: ArrivalsFront
+  name: Arrivals Debris
+  path: Maps/_Lavaland/Lavaland/ruin_arrivals_front.yml
+
+- type: lavalandRuin
+  id: CargoDebris
+  name: Cargo Debris
+  path: Maps/_Lavaland/Lavaland/ruin_cargo_debris.yml
+
+- type: lavalandRuin
+  id: VulpLab
+  name: Vulpkanin Laboratory
+  path: Maps/_Lavaland/Lavaland/ruin_vulp_lab.yml
+
+  - type: lavalandRuin
+  id: Shelter
+  name: Shelter
+  path: Maps/_Lavaland/Lavaland/ruin_shelter.yml
+
+- type: lavalandRuin
+  id: OwOLab
+  name: Felenid Lab
+  path: Maps/_Lavaland/Lavaland/ruin_felenid_lab.yml
+
+- type: lavalandRuin
+  id: MiningPost
+  name: Miner Outpost
+  path: Maps/_Lavaland/Lavaland/ruin_mining_outpost.yml
+  
 #- type: lavalandRuin
 #  id: HierophantArena
 #  name: Hierophant
