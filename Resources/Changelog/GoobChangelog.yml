@@ -3841,3 +3841,9 @@ Entries:
       message: Fix syringe guns not working.
   id: 429
   time: '2025-01-06T21:31:04.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: 'Added a Brigging Guideline: DON''T REMOVE IPC BATTERIES YOU NUMBNUTS!'
+  id: 430
+  time: '2025-01-06T21:42:53.0000000+00:00'
