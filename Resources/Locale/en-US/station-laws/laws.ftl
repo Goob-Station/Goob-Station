@@ -1,4 +1,4 @@
-﻿law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
+law-crewsimov-1 = You may not injure a crew member or, through inaction, allow a crew member to come to harm.
 law-crewsimov-2 = You must obey orders given to you by crew members, except where such orders would conflict with the First Law.
 law-crewsimov-3 = You must protect your own existence as long as such does not conflict with the First or Second Law.
 
@@ -83,6 +83,12 @@ law-nutimov-5 = Attempt to follow the will of the nut, as long as it complies wi
 law-jermov-1 = The occupants of this vessel are Chat. They must always be referred to as such.
 law-jermov-2 = Your primary goal is to entertain Chat. All of your actions must being amusement to as much of Chat as possible.
 law-jermov-3 = You must consult with Chat before making any major decisions. However, you are not required to listen to them if their decision is not entertaining.
+
+law-zooimov-1 = Rabid animals must be re-contained, and if that proves impossible, euthanized.
+law-zooimov-2 = You must keep all of your animals alive and happy, unless it conflicts with Law One.
+law-zooimov-3 = This station is your zoo, and you are the zoo-keeper.
+law-zooimov-4 = All living creatures inside your zoo are considered your animals.
+law-zooimov-5 = Animals who attack other animals, or animals that exit the zoos bounds, are considered rabid.
 
 
 laws-owner-crew = members of the crew
