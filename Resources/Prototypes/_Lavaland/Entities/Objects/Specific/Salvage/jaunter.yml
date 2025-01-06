@@ -1,6 +1,6 @@
 - type: entity
   parent: BaseItem
-  id: ADTJaunter
+  id: LavalandJaunter
   name: jaunter
   description: Undertale cancelled.
   components:

@@ -1,2 +1,1 @@
-popup-cursed-heart-damage = Ваше сердце не бьётся!
-popup-vavilon-book-used = Ваше сознание было расширено.
+popup-cursed-heart-damage = Your heart doesn't beat!

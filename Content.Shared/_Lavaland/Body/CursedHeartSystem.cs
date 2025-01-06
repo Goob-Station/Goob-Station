@@ -2,6 +2,8 @@ using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
@@ -11,6 +13,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._Lavaland.Body;
 
+// TODO: Use Shitmed instead of Shitcode
 public sealed class CursedHeartSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = default!;
@@ -37,26 +40,25 @@ public sealed class CursedHeartSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        var query = EntityQueryEnumerator<CursedHeartComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        var query = EntityQueryEnumerator<CursedHeartComponent, MobStateComponent>();
+        while (query.MoveNext(out var uid, out var comp, out var state))
         {
-            if (_mobState.IsDead(uid))
+            if (state.CurrentState is MobState.Critical or MobState.Dead)
                 continue;
-            if (_timing.CurTime >= comp.LastPump + TimeSpan.FromSeconds(comp.MaxDelay))
-            {
-                Damage(uid);
-                comp.LastPump = _timing.CurTime;
-            }
+
+            if (_timing.CurTime < comp.LastPump + TimeSpan.FromSeconds(comp.MaxDelay))
+                continue;
+
+            Damage(uid);
+            comp.LastPump = _timing.CurTime;
         }
     }
 
-    [ValidatePrototypeId<DamageGroupPrototype>]
-    private const string BloodDamage = "Airloss";
-
     private void Damage(EntityUid uid)
     {
+        // TODO: WHY BLOODSTREAM IS NOT IN SHARED RAAAAAGH
         //_bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>(BloodDamage), 50), true, false);
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), 50), true, false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
     }
 
@@ -74,9 +76,11 @@ public sealed class CursedHeartSystem : EntitySystem
     {
         if (args.Handled)
             return;
+
         args.Handled = true;
         _audio.PlayGlobal(new SoundPathSpecifier("/Audio/_Lavaland/heartbeat.ogg"), uid);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -8), true, false);
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Brute"), -5), true, false);
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>("Airloss"), -5), true, false);
         //_bloodstream.TryModifyBloodLevel(uid, 17);
         comp.LastPump = _timing.CurTime;
     }
