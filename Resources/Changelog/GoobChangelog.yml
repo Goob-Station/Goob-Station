@@ -3873,3 +3873,9 @@ Entries:
       message: Nothing ever happens. I'm betting all in.
   id: 434
   time: '2025-01-06T22:17:38.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Increased the default threshold for a ragequit to 30 seconds from 5.
+  id: 435
+  time: '2025-01-06T22:51:37.0000000+00:00'
