@@ -89,7 +89,7 @@ public sealed partial class GoobCVars
     ///     Default is 5f.
     /// </summary>
     public static readonly CVarDef<float> PlayerRageQuitTimeThreshold =
-        CVarDef.Create("player.ragequit.threshold", 5f);
+        CVarDef.Create("player.ragequit.threshold", 30f);
 
     #region Surgery
 
