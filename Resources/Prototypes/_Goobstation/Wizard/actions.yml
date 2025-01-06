@@ -496,3 +496,25 @@
       speech: action-speech-spell-scream-for-me
   - type: Magic
     requiresSpeech: true
+
+- type: entity
+  id: ActionInstantSummons
+  name: Instant Summons
+  description: Recalls a previously marked item to your hand from anywhere in the universe.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: summons
+    event: !type:InstantSummonsEvent
+      speech: action-speech-spell-instant-summons
+      summonSound:
+        path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
+  - type: Magic
+  - type: InstantSummonsAction
+  - type: ConfirmableAction
+    popup: instant-summons-confirm-popup
+    shouldCancel: false

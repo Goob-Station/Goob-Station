@@ -8,6 +8,9 @@
   },
   "states": [
     {
+      "name": "summons"
+    },
+    {
       "name": "scream_for_me"
     },
     {

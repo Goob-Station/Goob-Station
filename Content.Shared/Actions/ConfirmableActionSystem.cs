@@ -38,6 +38,9 @@ public sealed class ConfirmableActionSystem : EntitySystem
 
     private void OnAttempt(Entity<ConfirmableActionComponent> ent, ref ActionAttemptEvent args)
     {
+        if (!ent.Comp.ShouldCancel) // Goobstation
+            return;
+
         if (args.Cancelled)
             return;
 
@@ -60,7 +63,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         Unprime(ent);
     }
 
-    private void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user)
+    public void Prime(Entity<ConfirmableActionComponent> ent, EntityUid user) // Goob edit
     {
         var (uid, comp) = ent;
         comp.NextConfirm = _timing.CurTime + comp.ConfirmDelay;
@@ -70,7 +73,7 @@ public sealed class ConfirmableActionSystem : EntitySystem
         _popup.PopupClient(Loc.GetString(comp.Popup), user, user, PopupType.LargeCaution);
     }
 
-    private void Unprime(Entity<ConfirmableActionComponent> ent)
+    public void Unprime(Entity<ConfirmableActionComponent> ent) // Goob edit
     {
         var (uid, comp) = ent;
         comp.NextConfirm = null;

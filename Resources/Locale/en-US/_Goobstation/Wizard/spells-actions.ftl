@@ -14,3 +14,4 @@ action-speech-spell-homing-toolbox = ROBUSTIO!
 action-speech-spell-spell-cards = Sigi'lu M'Fan 'Tasia!
 action-speech-spell-barnyard = KN'A FTAGHU, PUCK 'BTHNK!
 action-speech-spell-scream-for-me = SCREAM FOR ME!!
+action-speech-spell-instant-summons = GAR YOK

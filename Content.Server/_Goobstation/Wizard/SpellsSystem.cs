@@ -64,6 +64,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         {
             _emp.TryEmpEffects(uid, ev.EnergyConsumption, ev.DisableDuration);
         }
+
+        Spawn(ev.Effect, coords);
     }
 
     protected override void SpawnSmoke(SmokeSpellEvent ev)
@@ -127,8 +129,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
             Stun.TryParalyze(entity, ev.StunTime, true);
 
-            if (ev.EffectProto != null)
-                Spawn(ev.EffectProto.Value, TransformSystem.GetMapCoordinates(entity, xform));
+            Spawn(ev.EffectProto, TransformSystem.GetMapCoordinates(entity, xform));
 
             var scaling = (1f / distance2) * physics.Mass;
             Physics.ApplyLinearImpulse(entity,

@@ -104,3 +104,18 @@
       duration: 0.5
     - type: TimedDespawn
       lifetime: 0.5
+
+- type: entity
+  id: EmpFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: PointLight
+      enabled: true
+      radius: 10
+      energy: 8
+      color: blue
+      netsync: false
+    - type: LightFade
+      duration: 0.5
+    - type: TimedDespawn
+      lifetime: 0.5

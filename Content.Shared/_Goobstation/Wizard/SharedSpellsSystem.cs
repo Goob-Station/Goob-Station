@@ -1,6 +1,8 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.InstantSummons;
 using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
@@ -9,6 +11,7 @@ using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
+using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
 using Content.Shared.Clothing.Components;
@@ -24,6 +27,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
+using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
@@ -34,6 +38,7 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Projectiles;
 using Content.Shared.Roles;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Speech.Components;
@@ -49,6 +54,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -95,6 +101,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] private   readonly SharedAudioSystem _audio = default!;
+    [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
 
     #endregion
 
@@ -123,6 +130,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<LesserSummonGunsEvent>(OnLesserSummonGuns);
         SubscribeLocalEvent<BarnyardCurseEvent>(OnBarnyardCurse);
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
+        SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
     }
 
     #region Spells
@@ -670,9 +678,135 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnInstantSummons(InstantSummonsEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
+
+        if (!TryComp(ev.Action, out InstantSummonsActionComponent? summons))
+            return;
+
+        if (!TryComp(ev.Performer, out HandsComponent? hands))
+            return;
+
+        var held = hands.ActiveHandEntity;
+
+        if (held != null && held == summons.Entity)
+            return;
+
+        bool ItemValid([NotNullWhen(true)] EntityUid? item)
+        {
+            return HasComp<ItemComponent>(item) && !HasComp<VirtualItemComponent>(item);
+        }
+
+        void MarkItem(EntityUid item)
+        {
+            summons.Entity = item;
+            PopupLoc(ev.Performer, Loc.GetString("instant-summons-item-marked", ("item", item)));
+            Dirty(ev.Action, summons);
+        }
+
+        if (!Exists(summons.Entity) || !TryComp(summons.Entity.Value, out TransformComponent? xform))
+        {
+            if (ItemValid(held))
+                MarkItem(held.Value);
+            else
+                Popup(ev.Performer, "spell-fail-no-held-entity");
+
+            return;
+        }
+
+        if (ItemValid(held))
+        {
+            if (TryComp(ev.Action, out ConfirmableActionComponent? confirmable))
+            {
+                // if not primed, prime it and cancel the action
+                if (confirmable.NextConfirm is not { } confirm)
+                {
+                    _confirmableAction.Prime((ev.Action, confirmable), ev.Performer);
+                    return;
+                }
+
+                // primed but the delay isnt over, cancel the action
+                if (_timing.CurTime < confirm)
+                    return;
+
+                // primed and delay has passed, let the action go through
+                _confirmableAction.Unprime((ev.Action, confirmable));
+            }
+
+            MarkItem(held.Value);
+            return;
+        }
+
+        var item = summons.Entity.Value;
+
+        if (TryGetOuterNonMobContainer(item, xform, out var container))
+            item = container.Owner;
+
+        if (_net.IsServer)
+            _audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
+
+        TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
+        TransformSystem.AttachToGridOrMap(item);
+
+        if (TryComp(item, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
+        {
+            Physics.SetBodyType(item, BodyType.Dynamic);
+            embeddable.EmbeddedIntoUid = null;
+            Dirty(item, embeddable);
+        }
+
+        Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
+
+    // Copied straight from SharedContainerSystem.
+    private bool TryGetOuterNonMobContainer(EntityUid uid,
+        TransformComponent xform,
+        [NotNullWhen(true)] out BaseContainer? container)
+    {
+        container = null;
+
+        if (!uid.IsValid())
+            return false;
+
+        var child = uid;
+        var parent = xform.ParentUid;
+
+        var managerQuery = GetEntityQuery<ContainerManagerComponent>();
+        var xformQuery = GetEntityQuery<TransformComponent>();
+        var bodyQuery = GetEntityQuery<BodyComponent>();
+        var bodyPartQuery = GetEntityQuery<BodyPartComponent>();
+        var inventoryQuery = GetEntityQuery<InventoryComponent>();
+        var handsQuery = GetEntityQuery<HandsComponent>();
+
+        while (parent.IsValid() && !bodyQuery.HasComp(parent) && !bodyPartQuery.HasComp(parent) &&
+               !inventoryQuery.HasComp(parent) && !handsQuery.HasComp(parent))
+        {
+            if (((EntityManager.MetaQuery.GetComponent(child).Flags & MetaDataFlags.InContainer) ==
+                 MetaDataFlags.InContainer) && managerQuery.TryGetComponent(parent, out var conManager) &&
+                Container.TryGetContainingContainer(parent, child, out var parentContainer, conManager))
+            {
+                container = parentContainer;
+            }
+
+            var parentXform = xformQuery.GetComponent(parent);
+            child = parent;
+            parent = parentXform.ParentUid;
+        }
+
+        return container != null;
+    }
 
     private EntityUid? SpawnItemInHands(EntityUid user, EntProtoId proto, EntityUid action)
     {

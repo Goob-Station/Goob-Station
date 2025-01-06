@@ -106,3 +106,9 @@ spellbook-scream-for-me-name = Scream For Me
 spellbook-scream-for-me-desc =
     Sadistic sanguine spell that inflicts numerous severe blood wounds all over the victim's body.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-instant-summons-name = Instant Summons
+spellbook-instant-summons-desc =
+    This spell can be used to recall a previously marked item to your hand from anywhere in the universe.
+    If the marked item is in container, the entire container will be summoned.
+    Doesn't require wizard's robe and hat to cast.

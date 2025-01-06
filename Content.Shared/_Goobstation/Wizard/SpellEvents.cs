@@ -94,6 +94,9 @@ public sealed partial class DisableTechEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public float DisableDuration = 60f;
+
+    [DataField]
+    public EntProtoId Effect = "EmpFlashEffect";
 }
 
 public sealed partial class SmokeSpellEvent : InstantActionEvent, ISpeakSpell
@@ -132,7 +135,7 @@ public sealed partial class RepulseEvent : InstantActionEvent, ISpeakSpell
     public TimeSpan StunTime = TimeSpan.FromSeconds(4);
 
     [DataField]
-    public EntProtoId? EffectProto = "EffectRepulse";
+    public EntProtoId EffectProto = "EffectRepulse";
 }
 
 public sealed partial class StopTimeEvent : InstantActionEvent, ISpeakSpell
@@ -356,4 +359,13 @@ public sealed partial class ScreamForMeEvent : EntityTargetActionEvent, ISpeakSp
 
     [DataField]
     public EntProtoId Effect = "SanguineFlashEffect";
+}
+
+public sealed partial class InstantSummonsEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public SoundSpecifier? SummonSound;
 }

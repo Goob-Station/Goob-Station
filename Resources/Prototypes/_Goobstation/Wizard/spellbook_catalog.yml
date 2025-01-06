@@ -263,3 +263,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+# Utility
+- type: listing
+  id: SpellbookInstantSummons
+  name: spellbook-instant-summons-name
+  description: spellbook-instant-summons-desc
+  productAction: ActionInstantSummons
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
