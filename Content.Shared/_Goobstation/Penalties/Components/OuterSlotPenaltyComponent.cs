@@ -33,7 +33,7 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     /// It's a flat value, since most equips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("equipDelay", required: true, customTypeSerializer: typeof(TimeSpan))]
+    [DataField("equipDelay", required: true)]
     public float EquipDelay = 2f;
 
     /// <summary>
@@ -41,6 +41,6 @@ public sealed partial class OuterSlotPenaltyComponent : Component
     /// It's a flat value, since most unequips in this slot are instantenous, so mult wouldn't make sense
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    [DataField("unequipDelay", required: true, customTypeSerializer: typeof(TimeSpan))]
+    [DataField("unequipDelay", required: true)]
     public float UnequipDelay = 2f;
 }
