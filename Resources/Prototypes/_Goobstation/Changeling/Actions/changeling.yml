@@ -327,7 +327,7 @@
       state: sting_blind
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingBlind
@@ -352,7 +352,7 @@
       state: sting_cryo
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingCryo
@@ -377,7 +377,7 @@
       state: sting_lethargic
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 30
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingLethargic
@@ -402,7 +402,7 @@
       state: sting_mute
     event: !type:StingReagentEvent {}
   - type: ChangelingAction
-    chemicalCost: 25
+    chemicalCost: 20
     useInLesserForm: true
   - type: ChangelingReagentSting
     configuration: StingMute

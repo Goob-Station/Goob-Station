@@ -8,7 +8,7 @@ namespace Content.Shared.Changeling;
 public sealed partial class ChangelingChemicalsAmmoProviderComponent : AmmoProviderComponent
 {
     [DataField]
-    public float FireCost = 5f;
+    public float FireCost = 7f;
 
     [ViewVariables(VVAccess.ReadWrite), DataField(required: true)]
     public EntProtoId Proto;

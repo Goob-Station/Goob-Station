@@ -311,7 +311,15 @@ public sealed partial class ChangelingSystem : EntitySystem
         return false;
     }
 
-    public bool TryUseAbility(EntityUid uid, ChangelingComponent comp, BaseActionEvent action)
+    public float? GetEquipmentChemCostOverride(ChangelingComponent comp, EntProtoId proto)
+    {
+        return comp.Equipment.ContainsKey(proto) ? 0f : null;
+    }
+
+    public bool TryUseAbility(EntityUid uid,
+        ChangelingComponent comp,
+        BaseActionEvent action,
+        float? chemCostOverride = null)
     {
         if (action.Handled)
             return false;
@@ -331,7 +339,9 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
-        if (comp.Chemicals < lingAction.ChemicalCost)
+        var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
+
+        if (comp.Chemicals < chemCost)
         {
             _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
             return false;
@@ -344,7 +354,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -lingAction.ChemicalCost);
+        UpdateChemicals(uid, comp, -chemCost);
         UpdateBiomass(uid, comp, -lingAction.BiomassCost);
 
         action.Handled = true;

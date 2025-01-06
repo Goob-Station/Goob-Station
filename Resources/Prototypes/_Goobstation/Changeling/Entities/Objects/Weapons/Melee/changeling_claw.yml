@@ -16,7 +16,7 @@
     damage:
       types:
         Piercing: 25
-        Structural: 30
+        Structural: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Item

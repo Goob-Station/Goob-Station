@@ -5,7 +5,7 @@
     sprite: _Goobstation/Changeling/changeling_abilities.rsi
     state: sting_blind
   protoId: ChangelingDartBlind
-  fireCost: 5
+  fireCost: 7
 
 - type: selectableAmmo
   id: StingMute
@@ -14,7 +14,7 @@
     sprite: _Goobstation/Changeling/changeling_abilities.rsi
     state: sting_mute
   protoId: ChangelingDartMute
-  fireCost: 5
+  fireCost: 7
 
 - type: selectableAmmo
   id: StingCryo
@@ -23,7 +23,7 @@
     sprite: _Goobstation/Changeling/changeling_abilities.rsi
     state: sting_cryo
   protoId: ChangelingDartCryo
-  fireCost: 5
+  fireCost: 7
 
 - type: selectableAmmo
   id: StingLethargic
@@ -32,4 +32,4 @@
     sprite: _Goobstation/Changeling/changeling_abilities.rsi
     state: sting_lethargic
   protoId: ChangelingDartLethargic
-  fireCost: 5
+  fireCost: 10

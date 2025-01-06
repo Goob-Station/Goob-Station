@@ -59,6 +59,8 @@ public sealed class SelectableAmmoSystem : EntitySystem
         if (!SetProviderProto(ent, index))
             return false;
 
+        ent.Comp.CurrentlySelected = index;
+
         if (index.Color != null && TryComp(ent, out AppearanceComponent? appearance))
             _appearance.SetData(ent, ToggleableLightVisuals.Color, index.Color, appearance);
 

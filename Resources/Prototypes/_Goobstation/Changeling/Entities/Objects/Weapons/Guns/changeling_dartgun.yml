@@ -15,7 +15,8 @@
   - type: DisarmMalus
     malus: 0
   - type: Gun
-    fireRate: 0.3
+    fireRate: 1
+    clumsyProof: true
     resetOnHandSelected: false
     soundEmpty: null
     soundGunshot:

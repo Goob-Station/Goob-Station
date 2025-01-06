@@ -265,7 +265,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
     private void OnToggleArmblade(EntityUid uid, ChangelingComponent comp, ref ToggleArmbladeEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ArmbladePrototype)))
             return;
 
         if (!TryToggleItem(uid, ArmbladePrototype, comp, out _))
@@ -275,7 +275,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnToggleHammer(EntityUid uid, ChangelingComponent comp, ref ToggleArmHammerEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, HammerPrototype)))
             return;
 
         if (!TryToggleItem(uid, HammerPrototype, comp, out _))
@@ -285,7 +285,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnToggleClaw(EntityUid uid, ChangelingComponent comp, ref ToggleArmClawEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ClawPrototype)))
             return;
 
         if (!TryToggleItem(uid, ClawPrototype, comp, out _))
@@ -295,7 +295,9 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnToggleDartGun(EntityUid uid, ChangelingComponent comp, ref ToggleDartGunEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        var chemCostOverride = GetEquipmentChemCostOverride(comp, DartGunPrototype);
+
+        if (!TryUseAbility(uid, comp, args, chemCostOverride))
             return;
 
         if (!TryToggleItem(uid, DartGunPrototype, comp, out var dartgun))
@@ -327,7 +329,7 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         if (ammoSelector.Prototypes.Count == 0)
         {
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             _popup.PopupEntity(Loc.GetString("changeling-dartgun-no-stings"), uid, uid);
             comp.Equipment.Remove(DartGunPrototype);
             QueueDel(dartgun.Value);
@@ -350,13 +352,15 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnToggleArmor(EntityUid uid, ChangelingComponent comp, ref ToggleChitinousArmorEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        float? chemCostOverride = comp.ActiveArmor == null ? null : 0f;
+
+        if (!TryUseAbility(uid, comp, args, chemCostOverride))
             return;
 
         if (!TryToggleArmor(uid, comp, [(ArmorHelmetPrototype, "head"), (ArmorPrototype, "outerClothing")]))
         {
             _popup.PopupEntity(Loc.GetString("changeling-equip-armor-fail"), uid, uid);
-            comp.Chemicals += Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
+            comp.Chemicals += chemCostOverride ?? Comp<ChangelingActionComponent>(args.Action).ChemicalCost;
             return;
         }
 
@@ -364,7 +368,7 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void OnToggleShield(EntityUid uid, ChangelingComponent comp, ref ToggleOrganicShieldEvent args)
     {
-        if (!TryUseAbility(uid, comp, args))
+        if (!TryUseAbility(uid, comp, args, GetEquipmentChemCostOverride(comp, ShieldPrototype)))
             return;
 
         if (!TryToggleItem(uid, ShieldPrototype, comp, out _))
