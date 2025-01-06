@@ -1,6 +1,6 @@
 - type: entity
   parent: MarkerBase
-  id: ADTCrateNecropolisRandom
+  id: LavalandCrateNecropolisRandom
   name: random necropolis chest spawner
   suffix: Lavaland
   components:
@@ -12,10 +12,9 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - ADTCrateNecropolisHeart
-      - ADTCrateNecropolisCultRobe
-      - ADTCrateNecropolisCultArmor
+    - LavalandCrateNecropolisCultRobe
+    - LavalandCrateNecropolisCultArmor
     rarePrototypes:
-      - ADTCrateNecropolisVavilon
-      - ADTCrateNecropolisVampirismCrystal
+    - LavalandCrateNecropolisHeart
+    - LavalandCrateNecropolisVampirismCrystal
     chance: 1

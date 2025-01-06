@@ -1,6 +1,6 @@
 - type: entity
   parent: MarkerBase
-  id: ADTRandomTendrilSpawner
+  id: LavalandRandomTendrilSpawner
   name: random tendril
   suffix: Lavaland
   components:
@@ -12,8 +12,8 @@
   - type: RandomSpawner
     offset: 0
     prototypes:
-      - ADTTendrilGoliath
-      - ADTTendrilLegion
-      - ADTTendrilLavaWatcher
-      - ADTTendrilIcewingWatcher
-      - ADTTendrilMagmawingWatcher
+      - LavalandTendrilGoliath
+      - LavalandTendrilLegion
+      - LavalandTendrilLavaWatcher
+      - LavalandTendrilIcewingWatcher
+      - LavalandTendrilMagmawingWatcher

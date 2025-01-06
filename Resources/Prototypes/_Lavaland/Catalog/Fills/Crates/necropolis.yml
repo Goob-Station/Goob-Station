@@ -1,24 +1,15 @@
 - type: entity
-  id: ADTCrateNecropolisHeart
-  parent: ADTCrateNecropolis
+  id: LavalandCrateNecropolisHeart
+  parent: LavalandCrateNecropolis
   suffix: Heart
   components:
   - type: StorageFill
     contents:
-      - id: ADTCursedHeart
+      - id: LavalandCursedHeart
 
 - type: entity
-  id: ADTCrateNecropolisVavilon
-  parent: ADTCrateNecropolis
-  suffix: Vavilon
-  components:
-  - type: StorageFill
-    contents:
-      - id: ADTVavilonBook
-
-- type: entity
-  id: ADTCrateNecropolisCultArmor
-  parent: ADTCrateNecropolis
+  id: LavalandCrateNecropolisCultArmor
+  parent: LavalandCrateNecropolis
   suffix: Cult Armor
   components:
   - type: StorageFill
@@ -26,8 +17,8 @@
       - id: ClothingOuterArmorCult
 
 - type: entity
-  id: ADTCrateNecropolisCultRobe
-  parent: ADTCrateNecropolis
+  id: LavalandCrateNecropolisCultRobe
+  parent: LavalandCrateNecropolis
   suffix: Cult Robe
   components:
   - type: StorageFill
@@ -36,10 +27,10 @@
       - id: BedsheetCult
 
 - type: entity
-  id: ADTCrateNecropolisVampirismCrystal
-  parent: ADTCrateNecropolis
+  id: LavalandCrateNecropolisVampirismCrystal
+  parent: LavalandCrateNecropolis
   suffix: Vampirism Crystal
   components:
   - type: StorageFill
     contents:
-      - id: ADTVampirismCrystal
+      - id: LavalandVampirismCrystal

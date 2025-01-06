@@ -1,22 +1,18 @@
-ent-ADTCrateNecropolis = суднук некрополя
+ent-LavalandCrateNecropolis = суднук некрополя
     .desc = Сундук, состоящий из костей и мяса. Таит внутри себя неизведанные артефакты.
 
-ent-ADTCrateNecropolisHeart = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
+ent-LavalandCrateNecropolisHeart = { ent-LavalandCrateNecropolis }
+    .desc = { ent-LavalandCrateNecropolis.desc }
     .suffix = Проклятое сердце
 
-ent-ADTCrateNecropolisVavilon = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
-    .suffix = Книга вавилона
-
-ent-ADTCrateNecropolisCultArmor = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
+ent-LavalandCrateNecropolisCultArmor = { ent-LavalandCrateNecropolis }
+    .desc = { ent-LavalandCrateNecropolis.desc }
     .suffix = Броня культа
 
-ent-ADTCrateNecropolisCultRobe = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
+ent-LavalandCrateNecropolisCultRobe = { ent-LavalandCrateNecropolis }
+    .desc = { ent-LavalandCrateNecropolis.desc }
     .suffix = Роба культа
 
-ent-ADTCrateNecropolisVampirismCrystal = { ent-ADTCrateNecropolis }
-    .desc = { ent-ADTCrateNecropolis.desc }
+ent-LavalandCrateNecropolisVampirismCrystal = { ent-LavalandCrateNecropolis }
+    .desc = { ent-LavalandCrateNecropolis.desc }
     .suffix = Кристалл вампиризма

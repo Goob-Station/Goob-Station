@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTTendrilBase
+  id: LavalandTendrilBase
   parent: BaseStructure
   name: tendril
   abstract: true
@@ -24,7 +24,7 @@
         acts: [ "Destruction" ]
       - !type:SpawnEntitiesBehavior
         spawn:
-          ADTCrateNecropolisRandom:
+          LavalandCrateNecropolisRandom:
             min: 1
             max: 1
   - type: Physics
@@ -44,8 +44,8 @@
         density: 200
 
 - type: entity
-  id: ADTTendrilGoliath
-  parent: ADTTendrilBase
+  id: LavalandTendrilGoliath
+  parent: LavalandTendrilBase
   name: tendril
   description: A huge structure.
   suffix: Goliath
@@ -55,19 +55,19 @@
     - MobGoliath
 
 - type: entity
-  id: ADTTendrilLegion
-  parent: ADTTendrilBase
+  id: LavalandTendrilLegion
+  parent: LavalandTendrilBase
   name: tendril
   description: A huge structure.
   suffix: Legion
   components:
   - type: Tendril
     spawns:
-    - ADTMobLegion
+    - RandomHumanoidSpawnerChronolegioneer
 
 - type: entity
-  id: ADTTendrilLavaWatcher
-  parent: ADTTendrilBase
+  id: LavalandTendrilLavaWatcher
+  parent: LavalandTendrilBase
   name: tendril
   description: A huge structure.
   suffix: Watcher
@@ -77,8 +77,8 @@
     - MobWatcherLavaland
 
 - type: entity
-  id: ADTTendrilIcewingWatcher
-  parent: ADTTendrilBase
+  id: LavalandTendrilIcewingWatcher
+  parent: LavalandTendrilBase
   name: tendril
   description: A huge structure.
   suffix: Ice Watcher
@@ -88,8 +88,8 @@
     - MobWatcherIcewing
 
 - type: entity
-  id: ADTTendrilMagmawingWatcher
-  parent: ADTTendrilBase
+  id: LavalandTendrilMagmawingWatcher
+  parent: LavalandTendrilBase
   name: tendril
   description: A huge structure.
   suffix: Magma Watcher

@@ -1,14 +1,8 @@
-ent-ADTLegionCore = ядро легиона
-    .desc = Всё ещё бьётся. Можно использовать для лечения.
-
-ent-ADTLegionCoreDecayed = мёртвое ядро легиона
-    .desc = Оно уже мертво.
-
-ent-ADTCursedHeart = проклятое сердце
+ent-LavalandCursedHeart = проклятое сердце
     .desc = Оно тянется к вашей грудной клетке...
 
-ent-ADTVavilonBook = вавилонская книга
+ent-LavalandVavilonBook = вавилонская книга
     .desc = Кладезь бесчисленных знаний. Кажется, вот-вот рассыпется в прах.
 
-ent-ADTVampirismCrystal = красный кристалл
+ent-LavalandVampirismCrystal = красный кристалл
     .desc = Слабо высасывает ваши силы. На удивление хорошо подходит под слот модулей ПКА.

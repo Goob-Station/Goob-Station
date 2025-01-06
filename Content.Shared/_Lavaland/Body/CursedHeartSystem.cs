@@ -51,12 +51,12 @@ public sealed class CursedHeartSystem : EntitySystem
     }
 
     [ValidatePrototypeId<DamageGroupPrototype>]
-    private const string BloodDamage = "Bloodloss";
+    private const string BloodDamage = "Airloss";
 
     private void Damage(EntityUid uid)
     {
         //_bloodstream.TryModifyBloodLevel(uid, -50, spill: false);
-        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>(BloodDamage), 30), true, false);
+        _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index<DamageGroupPrototype>(BloodDamage), 50), true, false);
         _popup.PopupEntity(Loc.GetString("popup-cursed-heart-damage"), uid, uid, PopupType.MediumCaution);
     }
 

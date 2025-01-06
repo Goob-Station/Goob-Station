@@ -1,5 +1,5 @@
 - type: entity
-  id: ADTCursedHeart
+  id: LavalandCursedHeart
   parent: BaseHumanOrgan
   name: heart
   description: "I feel bad for the heartless bastard who lost this."
@@ -12,7 +12,7 @@
   - type: CursedHeartGrant
 
 - type: entity
-  id: ADTVampirismCrystal
+  id: LavalandVampirismCrystal
   parent: BasePKAUpgrade
   name: a red crystal
   components:
