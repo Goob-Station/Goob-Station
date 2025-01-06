@@ -3861,3 +3861,9 @@ Entries:
       message: Dwarfs now need less alcohol to start healing, but will heal slower.
   id: 432
   time: '2025-01-06T22:08:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: The server now notifies everyone if you had rage quit the game.
+  id: 433
+  time: '2025-01-06T22:13:18.0000000+00:00'
