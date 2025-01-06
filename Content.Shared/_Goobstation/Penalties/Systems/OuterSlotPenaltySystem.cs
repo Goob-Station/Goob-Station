@@ -10,7 +10,7 @@ using Content.Shared.Inventory;
 
 namespace Content.Shared._Goobstation.Penalties.Systems;
 
-public sealed partial class OuterSlotPenaltySystem: EntitySystem
+public sealed partial class OuterSlotPenaltySystem : EntitySystem
 {
     [Dependency] private readonly ClothingSystem _clothingSystem = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
