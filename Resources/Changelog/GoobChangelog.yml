@@ -3867,3 +3867,9 @@ Entries:
       message: The server now notifies everyone if you had rage quit the game.
   id: 433
   time: '2025-01-06T22:13:18.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Nothing ever happens. I'm betting all in.
+  id: 434
+  time: '2025-01-06T22:17:38.0000000+00:00'
