@@ -6,7 +6,8 @@ using JetBrains.Annotations;
 namespace Content.Server.Atmos.Reactions;
 
 /// <summary>
-///    The decomposition of nitrium in the presence of oxygen at temperatures below 343K.
+///     Assmos - /tg/ gases
+///     The decomposition of nitrium in the presence of oxygen at temperatures below 343K.
 /// </summary>
 [UsedImplicitly]
 public sealed partial class NitriumDecompositionReaction : IGasReactionEffect

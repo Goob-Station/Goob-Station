@@ -38,3 +38,18 @@
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Head/Hats/mailman.rsi
+
+- type: entity
+  parent: ClothingHeadBase
+  id: ClothingHeadHatCowboyBlueshield
+  name: blueshield cowboy hat
+  description: Sheriff's back in town, kids
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Head/Hats/cowboyhatbso.rsi
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon

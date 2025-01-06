@@ -104,8 +104,9 @@
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
   - type: Clothing
     sprite: Clothing/OuterClothing/Misc/chaplain_hoodie.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodChaplainHood
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodChaplainHood
 
 - type: entity
   parent: ClothingOuterBase

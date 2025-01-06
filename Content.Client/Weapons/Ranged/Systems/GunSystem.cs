@@ -192,7 +192,7 @@ public sealed partial class GunSystem : SharedGunSystem
 
         NetEntity? target = null;
         if (_state.CurrentState is GameplayStateBase screen)
-            target = GetNetEntity(screen.GetClickedEntity(mousePos));
+            target = GetNetEntity(screen.GetDamageableClickedEntity(mousePos)); // Goob edit
 
         Log.Debug($"Sending shoot request tick {Timing.CurTick} / {Timing.CurTime}");
 

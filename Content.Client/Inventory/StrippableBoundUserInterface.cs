@@ -6,6 +6,8 @@ using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Controls;
 using Content.Client.UserInterface.Systems.Hands.Controls;
 using Content.Client.Verbs.UI;
+using Content.Shared._EstacaoPirata.Cards.Card;
+using Content.Shared._EstacaoPirata.Cards.Hand;
 using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Ensnaring.Components;
@@ -171,8 +173,10 @@ namespace Content.Client.Inventory
                 if (EntMan.TryGetComponent<CuffableComponent>(Owner, out var cuff) && _cuffable.GetAllCuffs(cuff).Contains(virt.BlockingEntity))
                     button.BlockedRect.MouseFilter = MouseFilterMode.Ignore;
             }
-
-            UpdateEntityIcon(button, hand.HeldEntity);
+            //Goobstation: Cards are always hidden. NO CHEATING FOR U.
+            var isCard = EntMan.HasComponent<CardComponent>(hand.HeldEntity) ||
+                         EntMan.HasComponent<CardHandComponent>(hand.HeldEntity);
+            UpdateEntityIcon(button, isCard ? _virtualHiddenEntity : hand.HeldEntity);
             _strippingMenu!.HandsContainer.AddChild(button);
         }
 
@@ -213,6 +217,15 @@ namespace Content.Client.Inventory
             // this does not work for modified clients because they are still sent the real entity
             if (entity != null && _strippable.IsStripHidden(slotDef, _player.LocalEntity))
                 entity = _virtualHiddenEntity;
+
+            // Goobstation: Playing Cards are always obscured in strip menu.
+            // I wanted to make the cards themselves appear hidden but this is simpler
+            var isCard = EntMan.HasComponent<CardComponent>(entity) ||
+                         EntMan.HasComponent<CardHandComponent>(entity);
+            if (entity != null && isCard)
+            {
+                entity = _virtualHiddenEntity;
+            }
 
             var button = new SlotButton(new SlotData(slotDef, container));
             button.Pressed += SlotPressed;
