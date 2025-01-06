@@ -80,6 +80,12 @@ namespace Content.Server.Atmos.Components
         [DataField, ViewVariables(VVAccess.ReadWrite)]
         public float FirestackFade = -0.1f;
 
+        /// <summary>
+        ///     How stronger will firestack increases be?
+        /// </summary>
+        [DataField]
+        public float FireStackIncreaseMultiplier = 1f;
+        
         [DataField]
         public ProtoId<AlertPrototype> FireAlert = "Fire";
     }

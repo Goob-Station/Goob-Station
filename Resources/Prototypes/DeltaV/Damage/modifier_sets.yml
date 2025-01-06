@@ -1,7 +1,8 @@
 - type: damageModifierSet
   id: Vulpkanin
   coefficients:
-    Heat: 1.15
+    Heat: 1.25 #ever left a dog in a car on a hot day?
+    Cold: 0.75
 
 - type: damageModifierSet
   id: Harpy

@@ -288,6 +288,9 @@ namespace Content.Server.Atmos.EntitySystems
             if (!Resolve(uid, ref flammable))
                 return;
 
+            if (relativeFireStacks > 0)
+                relativeFireStacks *= flammable.FireStackIncreaseMultiplier;
+
             flammable.FireStacks = MathF.Min(MathF.Max(flammable.MinimumFireStacks, stacks), flammable.MaximumFireStacks);
 
             if (flammable.FireStacks <= 0)

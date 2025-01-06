@@ -8,6 +8,7 @@
   - type: HumanoidAppearance
     species: Vulpkanin
   - type: Hunger
+    baseDecayRate: 0.02083333332 # 25% more than default
   - type: Inventory # Allows vulps to wear properly shaped helmets
     speciesId: vulpkanin
   - type: Thirst
@@ -20,6 +21,11 @@
   - type: Speech
     speechSounds: Vulpkanin
     speechVerb: Vulpkanin
+  - type: Flammable
+    fireStackIncreaseMultiplier: 1.15
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 1
+    baseSprintSpeed: 1.05
   - type: Sprite
     netsync: false
     noRot: true
@@ -103,6 +109,7 @@
     - DoorBumpOpener
     - VulpEmotes
   - type: FootPrints # WD EDIT
+  - type: Doomed #when you want to remove this, just comment it out please
 
 - type: entity
   save: false
