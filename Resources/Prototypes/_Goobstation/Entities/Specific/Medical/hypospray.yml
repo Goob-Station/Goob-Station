@@ -2,7 +2,7 @@
   name: blueshield hypospray
   parent: [BaseItem, BaseCentcommContraband]
   description: A specially designed hypospray for rapid-administering of chemicals to critical command staff.
-  id: SyndiHypo
+  id: BlueshieldHypo
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Specific/Medical/blueshieldhypo.rsi
