@@ -2,9 +2,9 @@
   parent: ClothingNeckBase
   id: ClothingNeckCentcommBadge
   name: centcomm badge
-  description: A stylish green badge to prove that you work for Central Command. No one will care, but atleast you look nice!
+  description: A stylish green badge to prove that you work for Central Command. No one will care, but at least you look nice!
   components:
   - type: Sprite
-    sprite: _Goobstation/Clothing/Neck/Misc/centcommbadge.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
   - type: Clothing
-    sprite: _Goobstation/Clothing/Neck/Misc/centcommbadge.rsi
+    sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
