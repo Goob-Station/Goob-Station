@@ -160,6 +160,11 @@
       collection: VulpkaninGekker
     Yip:
       collection: LizardYip
+    # ShibaStation Emotes
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -325,6 +330,6 @@
       collection: LizardYip
     # ShibaStation Emotes
     Trill:
-      collection: HarpyTrills
+      collection: ReptilianTrills
     Rattle:
-      collection: HarpyRattles
+      collection: ReptilianRattles
