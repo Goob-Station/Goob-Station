@@ -223,8 +223,6 @@
           type: StoreBoundUserInterface
         enum.HereticLivingHeartKey.Key: # goob edit - heretics
           type: LivingHeartMenuBoundUserInterface
-        enum.SurgeryUIKey.Key: # Shitmed
-          type: SurgeryBui
     - type: Emoting
     - type: Grammar
       attributes:
@@ -317,5 +315,4 @@
     - type: FootPrints
     - type: Carriable
     - type: Targeting
-    - type: SurgeryTarget
     - type: LayingDown

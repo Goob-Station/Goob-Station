@@ -549,7 +549,6 @@
     - Mouse
   - type: Body
     prototype: Mothroach
-  - type: SurgeryTarget # Shitmed
   - type: TypingIndicator
     proto: moth
   - type: Destructible
@@ -568,8 +567,6 @@
     interfaces:
       enum.StrippingUiKey.Key:
         type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key: # Shitmed
-        type: SurgeryBui
   - type: InventorySlots
   - type: Inventory
     speciesId: hamster
@@ -856,11 +853,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: HTN
     rootTask:
       task: RuminantCompound
@@ -936,11 +928,6 @@
       task: RuminantCompound
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
 
 - type: entity
   name: goat
@@ -1028,11 +1015,6 @@
     - Passive
   - type: Body
     prototype: AnimalRuminant
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: NPCRetaliation
     attackMemoryLength: 5
   - type: FactionException
@@ -1251,7 +1233,6 @@
   components:
   - type: CombatMode
   # Shitmed Change Start
-  - type: SurgeryTarget
   - type: Targeting
   - type: HumanoidAppearance
     species: Monkey
@@ -1329,12 +1310,6 @@
   - type: Body # Shitmed Change
     prototype: Monkey
     requiredLegs: 2
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.StrippingUiKey.Key:
-        type: StrippableBoundUserInterface
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: CreamPied
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
@@ -1615,11 +1590,6 @@
   components:
   - type: Body
     prototype: Mouse
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: GhostRole
     makeSentient: true
     allowSpeech: true
@@ -2353,11 +2323,6 @@
   - type: CombatMode
   - type: Body
     prototype: AnimalHemocyanin
-  - type: SurgeryTarget # Shitmed
-  - type: UserInterface # Shitmed
-    interfaces:
-      enum.SurgeryUIKey.Key:
-        type: SurgeryBui
   - type: MobThresholds
     thresholds:
       0: Alive
