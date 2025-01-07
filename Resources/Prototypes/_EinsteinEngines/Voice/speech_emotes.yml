@@ -6,9 +6,9 @@
   chatTriggers:
   - sdeathgasp
   whitelist:
-    components:
-    - Silicon
-    - BorgChassis
+    tags:
+    - IPCEmotes
+    - BorgEmotes
 
 - type: emote
   id: Boop
@@ -22,6 +22,9 @@
   chatMessages: [ boops. ]
   chatTriggers:
   - boops
+  - boop
+  - booped
+  - booping
 
 - type: emote
   id: Whirr
@@ -33,3 +36,6 @@
   chatMessages: [ whirrs. ]
   chatTriggers:
     - whirrs
+    - whirr
+    - whirred
+    - whirring

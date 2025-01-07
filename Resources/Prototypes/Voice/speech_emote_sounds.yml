@@ -112,6 +112,8 @@
       collection: ReptilianHisses
     Hew:
       collection: Hew
+    Yip:
+      collection: LizardYip
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
@@ -146,6 +148,8 @@
       collection: ReptilianHisses
     Hew:
       collection: Hew
+    Yip:
+      collection: LizardYip
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

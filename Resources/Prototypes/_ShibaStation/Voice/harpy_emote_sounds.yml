@@ -162,6 +162,13 @@
     # Weh
     Weh:
       collection: Weh
+    Hew:
+      collection: Hew
+    # Floof Emotes
+    Gekker:
+      collection: VulpkaninGekker
+    Yip:
+      collection: LizardYip
 
 - type: emoteSounds
   id: SoundsHarpyMale
@@ -327,4 +334,10 @@
     # Weh
     Weh:
       collection: Weh
-
+    Hew:
+      collection: Hew
+    # Floof Emotes
+    Gekker:
+      collection: VulpkaninGekker
+    Yip:
+      collection: LizardYip
