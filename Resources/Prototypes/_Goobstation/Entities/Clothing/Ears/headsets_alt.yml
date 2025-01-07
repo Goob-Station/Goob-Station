@@ -24,7 +24,7 @@
   parent: [ClothingHeadsetAlt, BaseCommandContraband]
   id: ClothingHeadsetAltWarden
   name: warden's over-ear headset
-  description: An updated, modular intercom based off of the head of securitie''s headset.
+  description: An updated, modular intercom, allowing for rapid communication with command personnel.
   components:
   - type: ContainerFill
     containers:
@@ -33,6 +33,6 @@
       - EncryptionKeyCommand
       - EncryptionKeyCommon
   - type: Sprite
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
   - type: Clothing
-    sprite: Clothing/Ears/Headsets/security.rsi
+    sprite: _Goobstation/Clothing/Ears/Headsets/warden.rsi
