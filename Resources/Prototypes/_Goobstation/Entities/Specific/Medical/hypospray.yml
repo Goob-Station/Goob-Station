@@ -1,7 +1,7 @@
 - type: entity
   name: blueshield hypospray
   parent: [BaseItem, BaseCentcommContraband]
-  description: A specially designed hypospray for rapid-administering of chemicals to critical command staff.
+  description: A specially designed hypospray for rapid-distribution of chemicals to critical command staff.
   id: BlueshieldHypo
   components:
   - type: Sprite
