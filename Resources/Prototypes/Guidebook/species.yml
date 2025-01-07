@@ -97,8 +97,3 @@
   id: Resomi
   name: species-name-resomi
   text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
-
-- type: guideEntry
-  id: Oni
-  name: species-name-oni
-  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Oni.xml"
