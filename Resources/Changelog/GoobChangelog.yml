@@ -3905,3 +3905,9 @@ Entries:
       message: Tweaked SOP on executions
   id: 439
   time: '2025-01-07T14:49:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed all sharp objects not being usable for ghetto surgery.
+  id: 440
+  time: '2025-01-07T15:44:13.0000000+00:00'
