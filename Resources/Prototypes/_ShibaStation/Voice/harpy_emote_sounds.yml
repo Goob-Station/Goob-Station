@@ -325,6 +325,6 @@
       collection: LizardYip
     # ShibaStation Emotes
     Trill:
-      collection: ReptilianTrills
+      collection: HarpyTrills
     Rattle:
-      collection: ReptilianRattles
+      collection: HarpyRattles
