@@ -597,7 +597,7 @@
 - type: entity
   id: ActionAbsorbBiomatter
   name: Absorb Biomatter
-  description: Absorb a food item to regain some biomass and chemicals.
+  description: Absorb a food item to regain some chemicals.
   categories: [ HideSpawnMenu ]
   components:
   - type: EntityTargetAction

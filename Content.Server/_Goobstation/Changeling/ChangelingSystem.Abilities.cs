@@ -199,7 +199,8 @@ public sealed partial class ChangelingSystem
         var popupOthers = Loc.GetString("changeling-absorbbiomatter-start", ("user", Identity.Entity(uid, EntityManager)));
         _popup.PopupEntity(popupOthers, uid, PopupType.MediumCaution);
         PlayMeatySound(uid, comp);
-        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalFood.Float() * 0.3f), new AbsorbBiomatterDoAfterEvent(), uid, target)
+        // so you can't just instantly mukbang a bag of food mid-combat, 2.7s for raw meat
+        var dargs = new DoAfterArgs(EntityManager, uid, TimeSpan.FromSeconds(totalFood.Float() * 0.15f), new AbsorbBiomatterDoAfterEvent(), uid, target)
         {
             DistanceThreshold = 1.5f,
             BreakOnDamage = true,
@@ -237,8 +238,7 @@ public sealed partial class ChangelingSystem
             _puddle.TrySpillAt(target, solution, out var _);
         }
 
-        UpdateBiomass(uid, comp, totalFood.Float() * 0.1f); // 5% of default max for an apple
-        UpdateChemicals(uid, comp, totalFood.Float()); // 10 chemicals for an apple
+        UpdateChemicals(uid, comp, totalFood.Float() * 2); // 36 for raw meat
 
         QueueDel(target); // eaten
     }

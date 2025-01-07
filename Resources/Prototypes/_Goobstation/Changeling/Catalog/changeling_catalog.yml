@@ -349,7 +349,7 @@
   icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: absorb_biomatter }
   productAction: ActionAbsorbBiomatter
   cost:
-    EvolutionPoint: 4
+    EvolutionPoint: 3
   categories:
   - ChangelingAbilityUtility
   conditions:

@@ -140,5 +140,5 @@ evolutionmenu-utility-hivemindaccess-desc =
 
 evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
 evolutionmenu-utility-absorbbiomatter-desc =
-    Absorbs an organic food item, letting you regain biomass and chemicals depending on its contents.
+    Absorbs an organic food item, letting you regain chemicals depending on its contents.
     Can absorb nutriment, cooked and uncooked proteins, and fat.
