@@ -50,7 +50,7 @@ public sealed partial class ToggleableClothingComponent : Component
     /// <summary>
     ///     Dictionary of clothing uids and slots
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [DataField]
     public Dictionary<EntityUid, string> ClothingUids = new();
 
     /// <summary>
