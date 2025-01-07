@@ -27,8 +27,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
-      - id: Multitool
-
+      - id: Multitool # Goobstation
 - type: entity
   id: LockerWardenFilled
   suffix: Filled
@@ -55,7 +54,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
-      - id: Multitool
+      - id: Multitool # Goobstation
 
 - type: entity
   id: LockerSecurityFilled
