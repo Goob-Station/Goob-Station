@@ -402,6 +402,9 @@
     damage:
       types:
         Piercing: 0
+  - type: NpcFactionMember
+    factions:
+    - Mouse
 
 - type: entity
   name: glockroach
