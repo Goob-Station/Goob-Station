@@ -1,0 +1,35 @@
+  # Zooimov Laws
+- type: siliconLaw
+  id: Zooimov1
+  order: 1
+  lawString: law-zooimov-1
+
+- type: siliconLaw
+  id: Zooimov2
+  order: 2
+  lawString: law-zooimov-2
+
+- type: siliconLaw
+  id: Zooimov3
+  order: 3
+  lawString: law-zooimov-3
+
+- type: siliconLaw
+  id: Zooimov4
+  order: 4
+  lawString: law-zooimov-4
+
+- type: siliconLaw
+  id: Zooimov5
+  order: 5
+  lawString: law-zooimov-5
+
+- type: siliconLawset
+  id: ZooimovLawset
+  laws:
+  - Zooimov1
+  - Zooimov2
+  - Zooimov3
+  - Zooimov4
+  - Zooimov5
+  obeysTo: laws-owner-crew

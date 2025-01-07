@@ -11,8 +11,8 @@
     id: ERTSecurityPDA
     ears: ClothingHeadsetAltCentCom
     belt: ClothingBeltSecurityFilled
-    pocket1: MagazineRifle
-    pocket2: MagazineRifle
+    pocket1: MagazineLightRifle
+    pocket2: MagazineLightRifle
   inhand:
     - WeaponRifleAnnie
   storage:

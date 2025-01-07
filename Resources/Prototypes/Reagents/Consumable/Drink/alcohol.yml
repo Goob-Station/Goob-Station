@@ -189,13 +189,21 @@
         conditions:
         - !type:ReagentThreshold
           min: 15
-        - !type:OrganType
-          type: Dwarf
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
         damage:
           groups:
             Brute: -1
+      - !type:HealthChange # Goobstation - Dwarf buff
+        conditions:
+        - !type:ReagentThreshold
+          min: 3
+        - !type:OrganType
+          type: Dwarf
+        damage:
+          groups:
+            Brute: -0.5
+            Burn: -0.5
       - !type:ChemVomit
         probability: 0.04
         conditions:
