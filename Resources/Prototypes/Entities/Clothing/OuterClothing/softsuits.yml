@@ -14,7 +14,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - Softsuit # Yowie
+    - Softsuit # OuterSlotClothingPenalty
 
 #Syndicate EVA
 - type: entity
@@ -32,7 +32,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - Softsuit # Yowie
+    - Softsuit # OuterSlotClothingPenalty
 
 #Emergency EVA
 - type: entity
@@ -57,7 +57,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - Softsuit # Yowie
+    - Softsuit # OuterSlotClothingPenalty
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetEVALarge
@@ -78,7 +78,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-    - Softsuit # Yowie
+    - Softsuit # OuterSlotClothingPenalty
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
