@@ -46,6 +46,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     [Dependency] private readonly RotateToFaceSystem _rotateToFace = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
 
     /// <summary>
     /// Cache of all surgery prototypes' singleton entities.
@@ -67,6 +68,7 @@ public abstract partial class SharedSurgerySystem : EntitySystem
 
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
 
+        SubscribeLocalEvent<SurgeryTargetComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SurgeryTargetComponent, SurgeryDoAfterEvent>(OnTargetDoAfter);
         SubscribeLocalEvent<SurgeryCloseIncisionConditionComponent, SurgeryValidEvent>(OnCloseIncisionValid);
         //SubscribeLocalEvent<SurgeryLarvaConditionComponent, SurgeryValidEvent>(OnLarvaValid);
@@ -91,6 +93,12 @@ public abstract partial class SharedSurgerySystem : EntitySystem
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
         _surgeries.Clear();
+    }
+
+    private void OnMapInit(Entity<SurgeryTargetComponent> ent, ref MapInitEvent args)
+    {
+        var data = new InterfaceData("SurgeryBui");
+        _ui.SetUi(ent.Owner, SurgeryUIKey.Key, data);
     }
 
     private void OnTargetDoAfter(Entity<SurgeryTargetComponent> ent, ref SurgeryDoAfterEvent args)
