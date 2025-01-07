@@ -13,3 +13,5 @@
   weather:
   - AshfallLight
   - AshfallHeavy
+  mobs:
+  - RandomTendrilLavaland

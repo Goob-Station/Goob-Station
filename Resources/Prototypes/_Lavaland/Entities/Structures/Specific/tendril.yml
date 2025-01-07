@@ -51,6 +51,7 @@
   suffix: Goliath
   components:
   - type: Tendril
+    maxSpawns: 2
     spawns:
     - MobGoliath
 
@@ -61,9 +62,9 @@
   description: A huge structure.
   suffix: Legion
   components:
+  # TODO: Add Legioners
   - type: Tendril
-    spawns:
-    - RandomHumanoidSpawnerChronolegioneer
+    spawns: []
 
 - type: entity
   id: LavalandTendrilLavaWatcher
@@ -97,3 +98,35 @@
   - type: Tendril
     spawns:
     - MobWatcherMagmawing
+
+# Tendril Random Spawners
+- type: entityTable
+  id: LavalandTendrils
+  table: !type:GroupSelector
+    children:
+    - !type:GroupSelector
+      weight: 70
+      children:
+      - id: LavalandTendrilMagmawingWatcher
+    - !type:GroupSelector
+      weight: 30
+      children:
+      - id: LavalandTendrilGoliath
+      #- id: LavalandTendrilLegion
+
+- type: entity
+  name: tendril spawner
+  id: SpawnerRandomTendrilLavaland
+  parent: MarkerBase
+  suffix: Lavaland
+  components:
+  - type: Sprite
+    layers:
+    - state: red
+    - sprite: _Lavaland/Structures/Specific/tendril.rsi
+      state: tendril
+  - type: EntityTableSpawner
+    table: !type:NestedSelector
+      tableId: LavalandTendrils
+  placement:
+    mode: AlignTileAny
