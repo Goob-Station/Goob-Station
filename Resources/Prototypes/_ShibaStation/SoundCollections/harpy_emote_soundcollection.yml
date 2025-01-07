@@ -22,9 +22,9 @@
 - type: soundCollection
   id: HarpyScreamsLikeCat
   files:
-    - /Audio/Voice/Felinid/cat_scream1.ogg
-    - /Audio/Voice/Felinid/cat_scream2.ogg
-    - /Audio/Voice/Felinid/cat_scream3.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
 
 - type: soundCollection
   id: HarpyScreamsLikeMonkey
@@ -207,7 +207,9 @@
 - type: soundCollection
   id: HarpyVulpSnarls
   files:
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl1.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl2.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl3.ogg
 
 # Felinids/Cats
 

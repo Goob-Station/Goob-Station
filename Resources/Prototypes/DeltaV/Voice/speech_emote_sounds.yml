@@ -35,8 +35,6 @@
       collection: VulpkaninWhines
     Howl:
       collection: VulpkaninHowls
-    Awoo:
-      collection: VulpkaninHowls
     Gekker:
       collection: VulpkaninGekker
     Gasp:
@@ -80,8 +78,6 @@
     Whine:
       collection: VulpkaninWhines
     Howl:
-      collection: VulpkaninHowls
-    Awoo:
       collection: VulpkaninHowls
     Gekker:
       collection: VulpkaninGekker
