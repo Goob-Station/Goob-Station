@@ -76,7 +76,7 @@ public sealed class LavalandPlanetSystem : EntitySystem
         }
 
         SetupPreloader();
-        SetupLavaland();
+        SetupLavaland(out _);
     }
 
     private void OnCleanup(RoundRestartCleanupEvent ev)
@@ -118,12 +118,12 @@ public sealed class LavalandPlanetSystem : EntitySystem
         return lavalands;
     }
 
-    public bool SetupLavaland(int? seed = null, LavalandMapPrototype? prototype = null)
+    public bool SetupLavaland(out Entity<LavalandMapComponent> lavaland, int? seed = null, LavalandMapPrototype? prototype = null)
     {
         // Basic setup.
         var lavalandMap = _map.CreateMap(out var lavalandMapId, runMapInit: false);
         var mapComp = EnsureComp<LavalandMapComponent>(lavalandMap);
-        Entity<LavalandMapComponent> lavaland = (lavalandMap, mapComp);
+        lavaland = (lavalandMap, mapComp);
 
         // If specified, force new seed or prototype
         seed ??= _random.Next();
