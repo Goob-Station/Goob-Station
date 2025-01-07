@@ -22,9 +22,9 @@
 - type: soundCollection
   id: HarpyScreamsLikeCat
   files:
-    - /Audio/Voice/Felinid/cat_scream1.ogg
-    - /Audio/Voice/Felinid/cat_scream2.ogg
-    - /Audio/Voice/Felinid/cat_scream3.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+    - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
 
 - type: soundCollection
   id: HarpyScreamsLikeMonkey
@@ -207,7 +207,9 @@
 - type: soundCollection
   id: HarpyVulpSnarls
   files:
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl1.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl2.ogg
+    - /Audio/DeltaV/Voice/Vulpkanin/dog_snarl3.ogg
 
 # Felinids/Cats
 
@@ -261,6 +263,8 @@
     - /Audio/Machines/windoor_open.ogg
     - /Audio/Effects/spray.ogg
     - /Audio/Effects/spray2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_hiss2.ogg
 
 - type: soundCollection
   id: HarpyRings
@@ -418,6 +422,10 @@
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
     - /Audio/Voice/Talk/pai_exclaim.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_chirp3.ogg
+    - /Audio/Animals/nymph_chirp.ogg
 
 - type: soundCollection
   id: HarpyRawrs
@@ -442,3 +450,16 @@
     - /Audio/Effects/beep1.ogg
     - /Audio/Effects/chime.ogg
     - /Audio/Effects/voteding.ogg
+
+- type: soundCollection
+  id: HarpyTrills
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_trill2.ogg
+
+- type: soundCollection
+  id: HarpyRattles
+  files:
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle1.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle2.ogg
+    - /Audio/_ShibaStation/Voice/Reptilian/reptilian_rattle3.ogg

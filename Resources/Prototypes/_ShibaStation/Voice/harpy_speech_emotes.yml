@@ -395,6 +395,23 @@
     - sneezing like a woman
     - sneezed like a woman
 
+# Gasps
+- type: emote
+  id: HarpyGaspsLikeMan
+  name: Gasps Like A Man
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+
+- type: emote
+  id: HarpyGaspsLikeWoman
+  name: Gasps Like A Woman
+  category: Vocal
+  whitelist:
+    tags:
+    - HarpyEmotes
+
 ## Species Specific Emote Imitations
 
 - type: emote
