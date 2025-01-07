@@ -320,6 +320,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Zookeeper
+  saleLimit: 1
 
 
 # chemicals
