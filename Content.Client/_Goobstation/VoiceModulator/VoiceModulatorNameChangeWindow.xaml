@@ -1,6 +1,6 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
-               Title="{Loc 'voice-mask-name-change-window'}"
+               Title="{Loc 'voice-Modulator-name-change-window'}"
                MinSize="5 30">
     <BoxContainer Orientation="Vertical" Margin="5">
         <Label Text="{Loc 'voice-mask-name-change-info'}" />
