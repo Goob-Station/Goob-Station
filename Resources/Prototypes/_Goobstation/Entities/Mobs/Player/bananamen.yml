@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Urist McPotassium
+  parent: BaseMobBananaMen
+  id: MobBananaMen

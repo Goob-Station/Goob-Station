@@ -4,6 +4,7 @@
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
+  - type: HereticClothing
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_armor.rsi
     state: icon
@@ -19,6 +20,6 @@
         Caustic: 0.50
   - type: ExplosionResistance
     damageCoefficient: 0.25
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodHeretic
-    slot: head
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHatHoodHeretic
