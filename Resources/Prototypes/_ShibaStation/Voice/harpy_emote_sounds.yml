@@ -129,15 +129,6 @@
       collection: HarpyBangs
     HarpyBangsLikeGun:
       collection: HarpyBangsLikeGun
-    # Chirp
-    HarpyChirps:
-      collection: HarpyChirps
-    # Beep
-    HarpyBeeps:
-      collection: HarpyBeeps
-    # Click
-    HarpyClicks:
-      collection: HarpyClicks
     # Pews
     HarpyPews:
       collection: HarpyPews
@@ -301,15 +292,6 @@
       collection: HarpyBangs
     HarpyBangsLikeGun:
       collection: HarpyBangsLikeGun
-    # Chirp
-    HarpyChirps:
-      collection: HarpyChirps
-    # Beep
-    HarpyBeeps:
-      collection: HarpyBeeps
-    # Click
-    HarpyClicks:
-      collection: HarpyClicks
     # Pews
     HarpyPews:
       collection: HarpyPews
@@ -341,3 +323,8 @@
       collection: VulpkaninGekker
     Yip:
       collection: LizardYip
+    # ShibaStation Emotes
+    Trill:
+      collection: ReptilianTrills
+    Rattle:
+      collection: ReptilianRattles
