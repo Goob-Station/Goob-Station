@@ -1,6 +1,47 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Fixed a bunch of bugs with emotes.
+    type: Fix
+  id: 97
+  time: '2025-01-07T13:08:23.625858'
+- author: AstroDogeDX
+  changes:
+  - message: Space Cobras have been removed from the Snake Vent Event. No easy stealth
+      glands, go bother Salvage.
+    type: Tweak
+  id: 96
+  time: '2025-01-07T13:08:52.181568'
+- author: AstroDogeDX
+  changes:
+  - message: Lootbugs have been rebalanced to be the gross vermin that they are. Their
+      damage threshold has been reduced considerably and their attacks do less damage.
+    type: Tweak
+  id: 95
+  time: '2025-01-07T13:09:29.026553'
+- author: AstroDogeDX
+  changes:
+  - message: Fixed all outstanding issues with the YAML Linter and Integration Tests;
+      this probably won't be noticeable to players but it means a lot to me!
+    type: Fix
+  id: 94
+  time: '2025-01-07T13:10:57.544827'
+- author: AstroDogeDX
+  changes:
+  - message: Lizard Yipping and Vulp Gekkering have been ported over from Floofstation!
+      YIP YIP!
+    type: Add
+  id: 93
+  time: '2025-01-07T13:09:49.142617'
+- author: AstroDogeDX
+  changes:
+  - message: Cockroaches are now on the Mouse faction, like all the other pests. This
+      means station pets that hunt will now target them too.
+    type: Tweak
+  id: 92
+  time: '2025-01-07T13:10:13.791835'
+- author: AstroDogeDX
+  changes:
   - message: Cherrypicked some PRs from Goob upstream that are pending merges; see
       the Discord for more details!
     type: Add
