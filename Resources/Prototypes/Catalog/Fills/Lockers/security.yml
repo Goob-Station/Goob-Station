@@ -6,12 +6,12 @@
   - type: StorageFill
     contents:
       - id: FlashlightSeclite
-      - id: WeaponEnergyShotgun
+      - id: WeaponEnergyShotgun # Goobstation
       - id: WeaponDisabler
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadAltSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
@@ -42,7 +42,7 @@
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
-      - id: ClothingHeadAltSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden

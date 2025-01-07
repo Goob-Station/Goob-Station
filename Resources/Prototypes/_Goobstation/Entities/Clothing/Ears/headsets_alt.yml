@@ -19,3 +19,20 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  id: ClothingHeadsetAltWarden
+  name: warden's over-ear headset
+  description: An updated, modular intercom based off of the head of securitie''s headset.
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommand
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
