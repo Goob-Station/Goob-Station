@@ -52,10 +52,6 @@ public sealed class SurgeryBui : BoundUserInterface
 
     private void Update(SurgeryBuiState state)
     {
-        if (!_entities.TryGetComponent(_player.LocalEntity, out SurgeryTargetComponent? surgeryTargetComp)
-            || !surgeryTargetComp.CanOperate)
-            return;
-
         if (_window == null)
         {
             _window = new SurgeryWindow();
