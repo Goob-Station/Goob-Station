@@ -4,7 +4,6 @@
   name: guide-entry-sop
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/SoP.xml"
   children:
-  - Emergencies SOP
   - Jobs SOP
   - Legal SOP
   - StandardProcedures SOP
@@ -46,6 +45,7 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/StandardProcedures/StandardProceduresSOP.xml"
   children:
   - Alert Levels
+  - Emergencies SOP
   - Demoting SOP
   - Hiring SOP
   - Succession
@@ -110,7 +110,7 @@
   name: guide-entry-sop-medical
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/MedicalSOP.xml"
   children:
-  - DocterIntern SOP
+  - DoctorIntern SOP
   - Chemist SOP
 
 - type: guideEntry
@@ -119,7 +119,7 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScienceSOP.xml"
   children:
   - Scientist SOP
-  - Robotocist SOP
+  - Roboticist SOP
 
 - type: guideEntry
   id: Security SOP
@@ -333,7 +333,7 @@
 
 # Medical SOP Entries
 - type: guideEntry
-  id: DocterIntern SOP
+  id: DoctorIntern SOP
   name: guide-entry-sop-doctorintern
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Medical/DoctorInternSOP.xml"
 
@@ -349,8 +349,8 @@
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/ScientistSOP.xml"
 
 - type: guideEntry
-  id: Robotocist SOP
-  name: guide-entry-sop-robotocist
+  id: Roboticist SOP
+  name: guide-entry-sop-roboticist
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Jobs/Science/RoboticistSOP.xml"
 
 # Security SOP Entries

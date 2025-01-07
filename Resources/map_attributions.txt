@@ -54,3 +54,6 @@
 
 - files: ["cog.yml"]
   authors: Spacemann
+
+- files: ["submarine.yml"]
+  authors: Piras314, UnicornOnLSD, IamVelcroboy, deltanedas, rosieposieeee, Peptide90, SimpleStation14, VMSolidus, DEATHB4DEFEAT

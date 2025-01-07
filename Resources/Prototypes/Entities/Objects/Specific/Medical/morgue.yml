@@ -41,6 +41,8 @@
         density: 20
         mask:
         - ItemMask
+        layer:
+        - TabletopMachineLayer #Goobstation - Damageable body bag
   - type: EntityStorage
     capacity: 1
     isCollidableWhenOpen: true
@@ -90,6 +92,20 @@
       paper_label: !type:ContainerSlot
   - type: StaticPrice
     price: 50
+  - type: Damageable #Goobstation - Damageable body bag
+    damageContainer: StructuralInorganic
+    damageModifierSet: Web
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          path: /Audio/Effects/poster_broken.ogg
 
 - type: entity
   id: BodyBagFolded
