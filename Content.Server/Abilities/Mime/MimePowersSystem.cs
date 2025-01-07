@@ -10,6 +10,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
+using Robust.Shared.Random; // Goobstation - Mime Enforcement
+using Content.Server.Body.Systems; // Goobstation - Mime Enforcement
 
 namespace Content.Server.Abilities.Mime
 {
@@ -22,6 +24,8 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly IMapManager _mapMan = default!;
         [Dependency] private readonly SharedContainerSystem _container = default!;
         [Dependency] private readonly IGameTiming _timing = default!;
+        [Dependency] private readonly IRobustRandom _rand = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly BodySystem _body = default!; // Goobstation - Mime Enforcement
 
         public override void Initialize()
         {
@@ -126,6 +130,12 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
+            Gib(uid); // Goobstation - Mime Enforcement
+        }
+
+        private void Gib(EntityUid ent) // Goobstation - Mime Enforcement
+        {
+            if (_rand.Next(6) == 0) {_body.GibBody(ent);} // Goobstation - Mime Enforcement
         }
 
         /// <summary>
