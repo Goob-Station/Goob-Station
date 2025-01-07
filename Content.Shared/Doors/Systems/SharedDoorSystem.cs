@@ -479,6 +479,9 @@ public abstract partial class SharedDoorSystem : EntitySystem
         if (!Resolve(uid, ref door, ref physics))
             return false;
 
+        // Goobstation - Door close fix 
+        door.Partial = true;
+
         // Make sure no entity walked into the airlock when it started closing.
         if (!CanClose(uid, door))
         {
@@ -486,10 +489,13 @@ public abstract partial class SharedDoorSystem : EntitySystem
             door.State = DoorState.Open;
             AppearanceSystem.SetData(uid, DoorVisuals.State, DoorState.Open);
             Dirty(uid, door);
+
+            // Goobstation - Door close fix
+            door.Partial = false;
+
             return false;
         }
 
-        door.Partial = true;
         SetCollidable(uid, true, door, physics);
         door.NextStateChange = GameTiming.CurTime + door.CloseTimeTwo;
         Dirty(uid, door);
