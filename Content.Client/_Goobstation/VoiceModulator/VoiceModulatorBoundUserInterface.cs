@@ -20,11 +20,9 @@ public sealed class VoiceModulatorBoundUserInterface : BoundUserInterface
         base.Open();
 
         _window = this.CreateWindow<VoiceModulatorNameChangeWindow>();
-        //_window.ReloadVerbs(_protomanager);
-        //_window.AddVerbs();
+
 
         _window.OnNameChange += OnNameSelected;
-        //_window.OnVerbChange += verb => SendMessage(new VoiceMaskChangeVerbMessage(verb));
     }
 
     private void OnNameSelected(string name)

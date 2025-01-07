@@ -36,12 +36,13 @@
   - chat-speech-verb-dead-7
   - chat-speech-verb-dead-8
   - chat-speech-verb-dead-9
-  
+
 - type: speechVerb
   id: VoiceModulator
-  name: voiceModulator
+  name: chat-speech-verb-VoiceModulator-name
   speechVerbStrings:
-  - "modulates"
-  - "buzzes"
-  - "drones"
-  - "hums"
+  - chat-speech-verb-VoiceModulator-1
+  - chat-speech-verb-VoiceModulator-2
+  - chat-speech-verb-VoiceModulator-3
+  - chat-speech-verb-VoiceModulator-4
+  - chat-speech-verb-VoiceModulator-5
