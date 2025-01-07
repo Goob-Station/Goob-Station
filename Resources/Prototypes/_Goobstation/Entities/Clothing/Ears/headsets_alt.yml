@@ -21,7 +21,7 @@
   - type: Unremoveable
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAlt, BaseRestrictedContraband]
   id: ClothingHeadsetAltWarden
   name: warden's over-ear headset
   description: An updated, modular intercom, allowing for rapid communication with command personnel.
