@@ -10,7 +10,6 @@
     noRot: true
     layers:
       - shader: unshaded
-        map: ["enum.EffectLayers.Unshaded"]
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: shieldsparkles
   - type: Tag
@@ -29,7 +28,6 @@
     noRot: true
     layers:
       - shader: unshaded
-        map: ["enum.EffectLayers.Unshaded"]
         sprite: _Goobstation/Wizard/Effects/effects.rsi
         state: electricity
   - type: Tag
@@ -91,31 +89,115 @@
   - type: Transform
 
 - type: entity
+  id: BaseFlashEffect
+  abstract: true
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: BaseFlashEffect
   id: SanguineFlashEffect
   categories: [ HideSpawnMenu ]
   components:
-    - type: PointLight
-      enabled: true
-      radius: 5
-      energy: 8
-      color: red
-      netsync: false
-    - type: LightFade
-      duration: 0.5
-    - type: TimedDespawn
-      lifetime: 0.5
+  - type: PointLight
+    color: red
 
 - type: entity
+  parent: BaseFlashEffect
   id: EmpFlashEffect
   categories: [ HideSpawnMenu ]
   components:
-    - type: PointLight
-      enabled: true
-      radius: 10
-      energy: 8
-      color: blue
-      netsync: false
-    - type: LightFade
-      duration: 0.5
-    - type: TimedDespawn
-      lifetime: 0.5
+  - type: PointLight
+    radius: 10
+    color: blue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: BlindingTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+
+- type: entity
+  parent: BaseFlashEffect
+  id: FlameTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: red
+
+- type: entity
+  parent: BaseFlashEffect
+  id: ChillTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: lightblue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: StunTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: yellow
+
+- type: entity
+  parent: BaseFlashEffect
+  id: DamageTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: green
+
+- type: entity
+  id: EffectSpark
+  name: sparks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: sparks
+  - type: AnimationPlayer
+  - type: PointLight
+    enabled: true
+    radius: 1.5
+    energy: 1
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 0.7
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu

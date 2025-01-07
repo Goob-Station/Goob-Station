@@ -375,3 +375,25 @@ public sealed partial class WizardTeleportEvent : InstantActionEvent, ISpeakSpel
     [DataField]
     public string? Speech { get; private set; }
 }
+
+public sealed partial class TrapsSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public List<EntProtoId> Traps = new()
+    {
+        "TrapShock",
+        "TrapFlame",
+        "TrapDamage",
+        "TrapChill",
+        "TrapBlind",
+    };
+
+    [DataField]
+    public float Range = 3f;
+
+    [DataField]
+    public int Amount = 5;
+}

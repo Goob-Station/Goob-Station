@@ -85,7 +85,10 @@ public abstract class SharedTeslaBlastSystem : EntitySystem
                 ev.MinMaxStunTime,
                 ev.LightningPrototype,
                 GetNetEntity(ev.Action)),
-            ev.Performer);
+            ev.Performer)
+        {
+            MultiplyDelay = false,
+        };
 
         if (!_doAfter.TryStartDoAfter(doAfterArgs, out var id))
             return;

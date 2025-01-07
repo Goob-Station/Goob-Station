@@ -101,7 +101,7 @@ public sealed class HulkSystem : SharedHulkSystem
         AddComp(uid, hitscan, true);
     }
 
-    public override void Roar(Entity<HulkComponent> hulk, float prob = 0.2f)
+    public override void Roar(Entity<HulkComponent> hulk, float prob = 1f)
     {
         base.Roar(hulk, prob);
 

@@ -104,8 +104,8 @@ spellbook-barnyard-desc =
 
 spellbook-scream-for-me-name = Scream For Me
 spellbook-scream-for-me-desc =
-    Sadistic sanguine spell that inflicts numerous severe blood wounds all over the victim's body.
-    Doesn't require wizard's robe and hat to cast.
+    Sadistic sanguine spell that spills all victim's blood, causing them to die within seconds.
+    Requires wizard's robe and hat to cast.
 
 spellbook-instant-summons-name = Instant Summons
 spellbook-instant-summons-desc =
@@ -118,3 +118,8 @@ spellbook-teleport-name = Teleport
 spellbook-teleport-desc =
     Teleports you to an area of your selection.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-the-traps-name = The Traps!
+spellbook-the-traps-desc =
+    Summon a number of traps around you. They will damage and enrage any enemies that step on them. You are immune to your own traps.
+    Requires wizard's robe and hat to cast.

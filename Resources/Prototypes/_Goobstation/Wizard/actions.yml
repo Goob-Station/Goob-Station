@@ -496,6 +496,7 @@
       speech: action-speech-spell-scream-for-me
   - type: Magic
     requiresSpeech: true
+    requiresClothes: true
 
 - type: entity
   id: ActionInstantSummons
@@ -535,3 +536,22 @@
     event: !type:WizardTeleportEvent
   - type: Magic
     requiresSpeech: true
+
+- type: entity
+  id: ActionTrapsSpell
+  name: The Traps!
+  description: Summon a number of traps around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 25
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: the_traps
+    event: !type:TrapsSpellEvent
+      speech: action-speech-spell-the-traps
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true

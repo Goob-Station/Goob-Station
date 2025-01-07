@@ -264,6 +264,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookTraps
+  name: spellbook-the-traps-name
+  description: spellbook-the-traps-desc
+  productAction: ActionTrapsSpell
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookInstantSummons

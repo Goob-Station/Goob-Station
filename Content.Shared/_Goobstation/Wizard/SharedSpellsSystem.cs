@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using System.Numerics;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -9,6 +10,7 @@ using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
+using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Access.Components;
 using Content.Shared.Actions;
@@ -32,6 +34,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -54,6 +57,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
@@ -134,6 +138,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ScreamForMeEvent>(OnScreamForMe);
         SubscribeLocalEvent<InstantSummonsEvent>(OnInstantSummons);
         SubscribeLocalEvent<WizardTeleportEvent>(OnTeleport);
+        SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
     }
 
     #region Spells
@@ -775,6 +780,69 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         _teleport.OnTeleportSpell(ev.Performer, ev.Action);
+    }
+
+    private void OnTraps(TrapsSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (ev.Traps.Count == 0)
+            return;
+
+        if (_net.IsClient)
+        {
+            _magic.Speak(ev);
+            ev.Handled = true;
+            return;
+        }
+
+        if (!Mind.TryGetMind(ev.Performer, out var mind, out _))
+            return;
+
+        var range = ev.Range;
+        var mapPos = TransformSystem.GetMapCoordinates(ev.Performer);
+        var box = Box2.CenteredAround(mapPos.Position, new Vector2(range, range));
+        var circle = new Circle(mapPos.Position, range);
+        var grids = new List<Entity<MapGridComponent>>();
+        MapManager.FindGridsIntersecting(mapPos.MapId, box, ref grids);
+
+        bool IsTileValid((EntityCoordinates, TileRef) data)
+        {
+            var (coords, tile) = data;
+
+            if (tile.IsSpace())
+                return false;
+
+            var flags = LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Sensors;
+            foreach (var (_, fix) in Lookup.GetEntitiesInRange<FixturesComponent>(coords, 0.1f, flags))
+            {
+                if (fix.Fixtures.Any(x => (x.Value.CollisionLayer & (int) CollisionGroup.SlipLayer) != 0))
+                    return false;
+            }
+
+            return true;
+        }
+
+        var tiles = new List<(EntityCoordinates, TileRef)>();
+        foreach (var grid in grids)
+        {
+            tiles.AddRange(Map.GetTilesIntersecting(grid.Owner, grid.Comp, circle)
+                .Select(x => (Map.GridTileToLocal(grid.Owner, grid.Comp, x.GridIndices), x))
+                .Where(IsTileValid));
+        }
+
+        for (var i = 0; i < Math.Min(tiles.Count, ev.Amount); i++)
+        {
+            var (coords, _) = Random.PickAndTake(tiles);
+            var trap = Spawn(Random.Pick(ev.Traps), coords);
+            var trapComp = EnsureComp<WizardTrapComponent>(trap);
+            trapComp.IgnoredMinds.Add(mind);
+            Dirty(trap, trapComp);
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
     }
 
     #endregion
