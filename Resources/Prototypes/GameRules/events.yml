@@ -392,8 +392,8 @@
       prob: 0.02
     - id: MobSmallPurpleSnake
       prob: 0.02
-    - id: MobCobraSpace
-      prob: 0.02
+    # - id: MobCobraSpace # ShibaStation - No longer spawns free stealth glands
+    #   prob: 0.02
 
 - type: entity
   id: SpiderSpawn
