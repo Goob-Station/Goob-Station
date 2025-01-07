@@ -3911,3 +3911,19 @@ Entries:
       message: Fixed all sharp objects not being usable for ghetto surgery.
   id: 440
   time: '2025-01-07T15:44:13.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: New species, Resomi!
+    - type: Tweak
+      message: >-
+        Resomi can tolerate much colder temperatures before taking damage, but
+        can't tolerate much heat as a consequence.
+    - type: Tweak
+      message: Resomi can move faster in Zero-G, on account of their wings.
+    - type: Tweak
+      message: >-
+        Like the other animal-type species, Resomi can digest uncooked animal
+        proteins, but get poisoned by theobromine. No coffee for you.
+  id: 441
+  time: '2025-01-07T15:53:11.0000000+00:00'
