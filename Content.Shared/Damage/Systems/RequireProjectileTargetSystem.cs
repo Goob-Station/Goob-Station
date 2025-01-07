@@ -3,10 +3,7 @@ using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Standing;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Containers;
-using Content.Shared.Mobs.Systems;
-using Content.Shared.Mobs;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared.Damage.Components;
 

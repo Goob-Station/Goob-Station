@@ -1,6 +1,4 @@
-using System;
 using System.Linq;
-using System.Reflection;
 using System.Text.RegularExpressions;
 using Content.Shared.CCVar;
 using Content.Shared.Dataset;
@@ -8,7 +6,6 @@ using Content.Shared.GameTicking;
 using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Prototypes;
 using Content.Shared.Preferences.Loadouts;
-using Content.Shared.Random;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Roles;
 using Content.Shared.Traits;

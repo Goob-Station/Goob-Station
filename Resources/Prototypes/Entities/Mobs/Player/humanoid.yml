@@ -7,6 +7,7 @@
   - Monkey
   - Kobold
   # end-backmen: species
+  - Yowie # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -18,6 +19,18 @@
   components:
     - type: MindShield
     - type: AntagImmune
+
+# Goobstation start
+- type: randomHumanoidSettings
+  id: EventHuman
+  parent: EventHumanoid
+  speciesWhitelist: Human
+
+- type: randomHumanoidSettings
+  id: EventHumanMindShielded
+  parent: EventHumanoidMindShielded
+  speciesWhitelist: Human
+# Goobstation end
 
 ## Death Squad
 
@@ -38,7 +51,7 @@
 
 - type: randomHumanoidSettings
   id: DeathSquad
-  parent: EventHumanoidMindShielded
+  parent: EventHumanMindShielded # Goob edit
   randomizeName: false
   components:
     - type: GhostRole
@@ -75,7 +88,7 @@
 
 - type: randomHumanoidSettings
   id: ERTLeader
-  parent: EventHumanoidMindShielded
+  parent: EventHumanMindShielded # Goob edit
   randomizeName: false
   components:
     - type: GhostRole
@@ -503,7 +516,7 @@
 
 - type: randomHumanoidSettings
   id: CBURNAgent
-  parent: EventHumanoidMindShielded
+  parent: EventHumanMindShielded # Goob edit
   components:
     - type: Loadout
       prototypes: [CBURNGear]
@@ -533,7 +546,7 @@
 
 - type: randomHumanoidSettings
   id: CentcomOfficial
-  parent: EventHumanoidMindShielded
+  parent: EventHumanMindShielded
   components:
     - type: GhostRole
       name: ghost-role-information-centcom-official-name
@@ -561,6 +574,7 @@
 
 - type: randomHumanoidSettings
   id: SyndicateAgent
+  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false
@@ -580,6 +594,7 @@
 
 - type: randomHumanoidSettings
   id: NukeOp
+  speciesWhitelist: Human # Goobstation
   components:
     - type: RandomHumanoidAppearance
       randomizeName: false

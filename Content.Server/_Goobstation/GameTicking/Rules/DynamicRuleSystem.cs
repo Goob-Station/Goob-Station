@@ -8,7 +8,6 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
 using Content.Shared._Goobstation.CCVar;
-using Robust.Shared;
 
 namespace Content.Server.GameTicking.Rules;
 

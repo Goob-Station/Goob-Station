@@ -13,3 +13,23 @@
     state: icon
   name: alerts-knocked-down-name
   description: alerts-knocked-down-desc
+
+- type: alert
+  id: ModsuitPower
+  icons:
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower0
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower1
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower2
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower3
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower4
+  - sprite: /Textures/_Goobstation/Interface/Alerts/modpower.rsi
+    state: modpower5
+  name: alerts-modsuit-power-name
+  description: alerts-modsuit-power-desc
+  minSeverity: 0
+  maxSeverity: 5
