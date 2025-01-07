@@ -38,6 +38,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
                 // TODO remove ransom
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
                 _gt.StartGameRule(_PirateSpawnRule);
+                _gt.EndGameRule(uid, gamerule);
             }
         }
     }
@@ -61,11 +62,11 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
 
             var orderId = CargoSystem.GenerateOrderId(cargoDb) + 1984;
 
-            var name = $"pirates-ransom-{announcer}-name";
-            var reason = $"pirates-ransom-{announcer}-desc";
-            var requester = $"pirates-announcer-{announcer}";
+            var name = Loc.GetString($"pirates-ransom-{announcer}-name");
+            var reason = Loc.GetString($"pirates-ransom-{announcer}-desc", ("num", price));
+            var requester = Loc.GetString($"pirates-announcer-{announcer}");
 
-            var ransom = new CargoOrderData(orderId, "EntityPirateRansom", name, price, 1, requester, reason, 30);
+            var ransom = new CargoOrderData(orderId, component.RansomPrototype, name, price, 1, requester, reason, 30);
             _cargo.TryAddOrder(station.Value, ransom, cargoDb);
         }
 
@@ -80,8 +81,10 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
             announcer = _rand.Pick(_prot.Index<DatasetPrototype>(pprule.Comp.LocAnnouncers).Values);
 
         var type = atype.ToString().ToLower();
-        announcer = Loc.GetString($"pirates-announcer-{announcer}");
         var announcement = Loc.GetString($"pirates-announcement-{announcer}-{type}");
+
+        // announcer at the end because shitcode
+        announcer = Loc.GetString($"pirates-announcer-{announcer}");
 
         _chat.DispatchGlobalAnnouncement(announcement, announcer, colorOverride: Color.Orange);
     }

@@ -9,7 +9,7 @@
     reoccurrenceDelay: 60
     minimumPlayers: 30
   - type: PendingPirateRule
-    ransomPrototype: BikeHorn
+    ransomPrototype: BikeHornRansom
 
 - type: entity
   parent: BaseGameRule
@@ -19,3 +19,10 @@
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/Shuttles/pirate.yml
+
+- type: entity
+  parent: BikeHorn
+  id: BikeHornRansom
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ransom

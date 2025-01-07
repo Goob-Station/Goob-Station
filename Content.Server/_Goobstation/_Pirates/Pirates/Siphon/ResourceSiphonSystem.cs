@@ -1,4 +1,5 @@
 using Content.Server.Chat.Systems;
+using Content.Server.Popups;
 using Content.Server.Station.Systems;
 using Content.Shared.Interaction;
 
@@ -8,18 +9,27 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 {
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly StationSystem _station = default!;
+    [Dependency] private readonly PopupSystem _popup = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<ResourceSiphonComponent, AfterInteractEvent>(OnInteract);
+        SubscribeLocalEvent<ResourceSiphonComponent, AfterInteractUsingEvent>(OnInteractUsing);
     }
 
     private void OnInteract(Entity<ResourceSiphonComponent> ent, ref AfterInteractEvent args)
     {
+
+
         // TODO do a confirmation check
-        ActivateSiphon(ent);
+        //ActivateSiphon(ent);
+    }
+
+    private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref AfterInteractUsingEvent args)
+    {
+        // todo add money
     }
 
     public void ActivateSiphon(Entity<ResourceSiphonComponent> ent)
