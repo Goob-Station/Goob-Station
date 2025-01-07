@@ -359,6 +359,10 @@
   id: Hew
   name: chat-emote-name-hew
   category: Vocal
+  whitelist:
+    tags:
+    - ReptilianEmotes
+    - HarpyEmotes
   icon: Interface/Emotes/hew.png
   chatMessages: ["chat-emote-msg-hew"]
   chatTriggers:
