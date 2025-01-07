@@ -19,7 +19,7 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
-using Content.Shared._Shitmed.Surgery;
+using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
