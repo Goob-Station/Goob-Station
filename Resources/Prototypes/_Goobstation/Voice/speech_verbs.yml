@@ -22,3 +22,12 @@
     path: /Audio/Machines/beep.ogg
   exclaimSound:
     path: /Audio/Machines/beep.ogg
+
+- type: speechVerb
+  id: VoiceModulator
+  name: voiceModulator
+  speechVerbStrings:
+  - "modulates"
+  - "buzzes"
+  - "drones"
+  - "hums"

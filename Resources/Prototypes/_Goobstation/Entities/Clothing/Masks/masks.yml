@@ -45,13 +45,14 @@
     - type: BreathMask
     - type: IdentityBlocker
     - type: VoiceMask
+      voiceMaskSpeechVerb: VoiceModulator
     - type: HideLayerClothing
       slots:
       - Snout
     - type: UserInterface
       interfaces:
         enum.VoiceMaskUIKey.Key:
-          type: VoiceMaskBoundUserInterface
+          type: VoiceModulatorBoundUserInterface
     - type: Tag
       tags:
       - IPCMaskWearable # EE - IPCs
