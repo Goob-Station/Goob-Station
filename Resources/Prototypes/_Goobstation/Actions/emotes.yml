@@ -22,3 +22,14 @@
   - jumps.
   - jumps!
   event: !type:AnimationJumpEmoteEvent
+
+- type: emote # ShibaStation - Spin IS BACK
+  id: Spin
+  name: chat-emote-name-spin
+  chatMessages: ["chat-emote-msg-spin"]
+  chatTriggers:
+  - spin
+  - spins
+  - spins.
+  - spins!
+  event: !type:AnimationSpinEmoteEvent

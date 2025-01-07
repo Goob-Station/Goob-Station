@@ -1,0 +1,9 @@
+- type: soundCollection
+  id: VulpkaninGekker
+  files:
+  - /Audio/_Floofstation/Voice/Vulpkanin/gekker.ogg
+
+- type: soundCollection
+  id: LizardYip
+  files:
+  - /Audio/_Floofstation/Voice/Reptilian/yip.ogg
