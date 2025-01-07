@@ -8,10 +8,10 @@
     },
     "states": [
         {
-            "name": "icon"
+            "name": "ntr-icon"
         },
         {
-            "name": "equipped-NECK",
+            "name": "ntr-equipped-NECK",
             "directions": 4
         }
     ]
