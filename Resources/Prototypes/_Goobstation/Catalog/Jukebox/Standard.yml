@@ -171,3 +171,9 @@
   name: Jonathan Coulton - The Future Soon
   path:
     path: /Audio/Lobby/the_future_soon.ogg
+
+- type: jukebox
+  id: brother_hao
+  name: Brother Hao - 没有共产党就没有新中国！
+  path:
+    path: /Audio/Lobby/brother_hao.ogg
