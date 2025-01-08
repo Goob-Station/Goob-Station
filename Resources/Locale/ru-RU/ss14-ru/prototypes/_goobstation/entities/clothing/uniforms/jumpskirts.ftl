@@ -4,5 +4,5 @@ ent-ClothingUniformJumpskirtNanotrasenRepresentative = nanotrasen representative
     .desc = A black skirt worn by officials.
 ent-ClothingUniformJumpskirtBlueshieldOfficer = blueshield officer jumpskirt
     .desc = A short-sleeved grey and blue jumpskirt, made out of a sturdy material. Blueshield standard issue.
-ent-ClothingUniformSkirtMailCarrier = mail carrier's jumpskirt
-    .desc = Enemy of dogs everywhere.
+ent-ClothingUniformSkirtMailCarrier = юбка почтальона
+    .desc = Враг собак - везде.
