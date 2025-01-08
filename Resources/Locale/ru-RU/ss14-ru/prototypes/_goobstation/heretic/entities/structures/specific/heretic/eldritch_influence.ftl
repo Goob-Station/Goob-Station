@@ -1,5 +1,5 @@
 ent-EldritchInfluence = сдвиг реальности
-    .desc = Your eyes start to burn just from a single look. Should you delve deeper?
+    .desc = Глаза начинают гореть от одного только взгляда. Стоит ли всматриваться глубже?
 ent-EldritchInfluenceIntermediate = { "" }
     .desc = { "" }
 ent-EldritchInfluenceSpent = разлом реальности
