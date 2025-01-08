@@ -17,13 +17,9 @@
   - type: Gun
     minAngle: 11
     maxAngle: 25
-    angleIncrease: 3
-    angleDecay: 3
+    angleIncrease: 2
+    angleDecay: 10
     fireRate: 3
-    availableModes:
-    - SemiAuto
-    selectedMode:
-    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
