@@ -3927,3 +3927,43 @@ Entries:
         proteins, but get poisoned by theobromine. No coffee for you.
   id: 441
   time: '2025-01-07T15:53:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added Warden's Headset.
+    - type: Tweak
+      message: Warden's locker now starts with a multitool.
+  id: 442
+  time: '2025-01-08T14:42:13.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Severed harpy limbs are no longer invisible. Wings are still weird
+        sadly.
+  id: 443
+  time: '2025-01-08T14:46:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Making bluespace crystals doubles the value of the materials instead of
+        50xing the value
+  id: 444
+  time: '2025-01-08T14:47:08.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed all the Winter Coats storage being inaccessible. Now you can take
+        things back out that you stored inside.
+  id: 445
+  time: '2025-01-08T14:49:00.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Early Evacuation Procedures to SOP.
+    - type: Add
+      message: Added clarification for how Alert Levels are treated in SOP.
+  id: 446
+  time: '2025-01-08T16:41:29.0000000+00:00'
