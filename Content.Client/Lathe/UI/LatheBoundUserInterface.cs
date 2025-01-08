@@ -1,4 +1,4 @@
-using Content.Shared.DeltaV.Salvage; // DeltaV
+using Content.Shared._DV.Salvage; // DeltaV
 using Content.Shared.Lathe;
 using Content.Shared.Research.Components;
 using JetBrains.Annotations;

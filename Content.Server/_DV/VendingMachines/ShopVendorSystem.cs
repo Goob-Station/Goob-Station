@@ -1,8 +1,8 @@
 using Content.Server.Advertise;
 using Content.Server.Advertise.Components;
-using Content.Shared.DeltaV.VendingMachines;
+using Content.Shared._DV.VendingMachines;
 
-namespace Content.Server.DeltaV.VendingMachines;
+namespace Content.Server._DV.VendingMachines;
 
 public sealed class ShopVendorSystem : SharedShopVendorSystem
 {

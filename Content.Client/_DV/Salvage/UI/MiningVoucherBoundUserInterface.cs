@@ -1,7 +1,7 @@
-using Content.Shared.DeltaV.Salvage;
+using Content.Shared._DV.Salvage;
 using Robust.Client.UserInterface;
 
-namespace Content.Client.DeltaV.Salvage.UI;
+namespace Content.Client._DV.Salvage.UI;
 
 public sealed class MiningVoucherBoundUserInterface : BoundUserInterface
 {

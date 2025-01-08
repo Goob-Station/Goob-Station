@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Shared.DeltaV.VendingMachines;
+namespace Content.Shared._DV.VendingMachines;
 
 /// <summary>
 /// A vending machine that sells items for a currency controlled by events.

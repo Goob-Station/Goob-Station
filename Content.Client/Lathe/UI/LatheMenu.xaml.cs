@@ -1,8 +1,8 @@
 using System.Linq;
 using System.Text;
 using Content.Client.Materials;
-using Content.Shared.DeltaV.Salvage.Components; // DeltaV
-using Content.Shared.DeltaV.Salvage.Systems; // DeltaV
+using Content.Shared._DV.Salvage.Components; // DeltaV
+using Content.Shared._DV.Salvage.Systems; // DeltaV
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
 using Content.Shared.Research.Prototypes;

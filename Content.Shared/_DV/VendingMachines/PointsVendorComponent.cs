@@ -1,6 +1,6 @@
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.DeltaV.VendingMachines;
+namespace Content.Shared._DV.VendingMachines;
 
 /// <summary>
 /// Makes a <see cref="ShopVendorComponent"/> use mining points to buy items.

@@ -1,8 +1,8 @@
-using Content.Shared.DeltaV.Salvage.Systems;
+using Content.Shared._DV.Salvage.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared.DeltaV.Salvage.Components;
+namespace Content.Shared._DV.Salvage.Components;
 
 /// <summary>
 /// Stores mining points for a holder, such as an ID card or ore processor.

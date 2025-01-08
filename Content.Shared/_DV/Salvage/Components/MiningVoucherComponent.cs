@@ -1,11 +1,11 @@
-using Content.Shared.DeltaV.Salvage.Systems;
+using Content.Shared._DV.Salvage.Systems;
 using Content.Shared.Thief;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared.DeltaV.Salvage.Components;
+namespace Content.Shared._DV.Salvage.Components;
 
 /// <summary>
 /// Thief toolbox except it uses a radial menu and has to be redeemed at the salvage vendor.

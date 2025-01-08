@@ -32,6 +32,7 @@
     <None Include="Goobstation\Changeling\Changeling.Actions.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="DeltaV\" />
     <Folder Include="_Lavaland\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />

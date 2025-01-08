@@ -1,5 +1,5 @@
 using Content.Shared.Access.Systems;
-using Content.Shared.DeltaV.Salvage.Systems;
+using Content.Shared._DV.Salvage.Systems;
 using Content.Shared.Destructible;
 using Content.Shared.Popups;
 using Content.Shared.Power;
@@ -10,7 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
-namespace Content.Shared.DeltaV.VendingMachines;
+namespace Content.Shared._DV.VendingMachines;
 
 public abstract class SharedShopVendorSystem : EntitySystem
 {
