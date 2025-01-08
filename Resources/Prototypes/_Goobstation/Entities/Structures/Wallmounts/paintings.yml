@@ -1,0 +1,10 @@
+# Mocho requested so yea.
+- type: entity
+  parent: PaintingBase
+  id: PaintingBlunt
+  name: Blunt Painting
+  description: A blunt smoking weird-cat thing with a smug look.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Structures/Wallmounts/Paintings/ps3moira.rsi
+    state: bluntpainting

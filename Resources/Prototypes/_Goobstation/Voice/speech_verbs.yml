@@ -22,3 +22,17 @@
     path: /Audio/Machines/beep.ogg
   exclaimSound:
     path: /Audio/Machines/beep.ogg
+
+- type: speechVerb
+  id: Dead
+  name: chat-speech-verb-name-dead
+  speechVerbStrings:
+  - chat-speech-verb-dead-1
+  - chat-speech-verb-dead-2
+  - chat-speech-verb-dead-3
+  - chat-speech-verb-dead-4
+  - chat-speech-verb-dead-5
+  - chat-speech-verb-dead-6
+  - chat-speech-verb-dead-7
+  - chat-speech-verb-dead-8
+  - chat-speech-verb-dead-9
