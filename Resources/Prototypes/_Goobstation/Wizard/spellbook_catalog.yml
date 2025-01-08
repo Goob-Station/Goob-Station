@@ -185,6 +185,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookLesserSummonBees
+  name: spellbook-bees-name
+  description: spellbook-bees-desc
+  productAction: ActionLesserSummonBees
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
@@ -23,6 +24,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Physics;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Enums;
@@ -30,6 +32,8 @@ using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
+using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Wizard;
 
@@ -331,5 +335,45 @@ public sealed class SpellsSystem : SharedSpellsSystem
         EnsureComp<BloodlossDamageMultiplierComponent>(ev.Target);
 
         return true;
+    }
+
+    private IEnumerable<MapCoordinates> GetSpawnCoordinatesAroundPerformer(EntityUid performer,
+        float range,
+        int amount,
+        int collisionMask)
+    {
+        var coords = TransformSystem.GetMapCoordinates(performer);
+
+        var positions = _gun.LinearSpread(Angle.Zero, MathHelper.TwoPi, amount)
+            .Select(x => new MapCoordinates(coords.Position + x.ToVec() * range, coords.MapId));
+
+        foreach (var position in positions)
+        {
+            var dir = (position.Position - coords.Position).Normalized();
+
+            var ray = new CollisionRay(coords.Position, dir, collisionMask);
+
+            var result = Physics.IntersectRay(coords.MapId, ray, range, performer).FirstOrNull();
+
+            if (result != null)
+                yield return new MapCoordinates(result.Value.HitPos, coords.MapId);
+            else
+                yield return position;
+        }
+    }
+
+    protected override void SpawnBees(LesserSummonBeesEvent ev)
+    {
+        base.SpawnBees(ev);
+
+        if (ev.Mobs.Count == 0)
+            return;
+
+        var positions =
+            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, (int) CollisionGroup.FlyingMobMask);
+        foreach (var pos in positions)
+        {
+            Spawn(Random.Pick(ev.Mobs), pos);
+        }
     }
 }

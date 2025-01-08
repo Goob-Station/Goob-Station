@@ -397,3 +397,18 @@ public sealed partial class TrapsSpellEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public int Amount = 5;
 }
+
+public sealed partial class LesserSummonBeesEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public List<EntProtoId> Mobs = new();
+
+    [DataField]
+    public float Range = 1f;
+
+    [DataField]
+    public int Amount = 9;
+}

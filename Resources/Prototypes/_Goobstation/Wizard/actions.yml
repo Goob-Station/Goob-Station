@@ -557,3 +557,41 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+
+- type: entity
+  id: ActionLesserSummonBees
+  name: Lesser Summon Bees
+  description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/bee.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bee
+    event: !type:LesserSummonBeesEvent
+      speech: action-speech-spell-bees
+      range: 1
+      mobs:
+      - BeeLicoxide
+      - BeeAmatoxin
+      - BeeLexorin
+      - BeeChloralHydrate
+      - BeeUnstableMutagen
+      - BeeMindbreakerToxin
+      - BeePax
+      - BeeLead
+      - BeeLipolicide
+      - BeeImpedrezene
+      - BeeRazorium
+      - BeeMuteToxin
+      - BeeBuzzochloricBees
+      - BeeLaughter
+      - BeeToxin
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true

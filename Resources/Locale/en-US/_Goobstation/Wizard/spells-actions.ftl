@@ -17,3 +17,4 @@ action-speech-spell-scream-for-me = SCREAM FOR ME!!
 action-speech-spell-instant-summons = GAR YOK
 action-speech-spell-teleport = SCYAR NILA, {$location}
 action-speech-spell-the-traps = CAVERE INSIDIAS
+action-speech-spell-bees = NOT THE BEES

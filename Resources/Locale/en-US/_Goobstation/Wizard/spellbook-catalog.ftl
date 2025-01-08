@@ -123,3 +123,8 @@ spellbook-the-traps-name = The Traps!
 spellbook-the-traps-desc =
     Summon a number of traps around you. They will damage and enrage any enemies that step on them. You are immune to your own traps.
     Requires wizard's robe and hat to cast.
+
+spellbook-bees-name = Lesser Summon Bees
+spellbook-bees-desc =
+    This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location. These bees are not friendly to anyone except wizards. Summoned bees inject various toxins into their victims.
+    Requires wizard's robe and hat to cast.
