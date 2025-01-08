@@ -66,7 +66,7 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
             return;
 
         // This is required so that muzzle flash faces where it should face
-        _transform.SetWorldRotationNoLerp(uid, _transform.GetWorldRotation(uid) - MathHelper.PiOver2);
+        _transform.SetWorldRotationNoLerp(uid, _transform.GetWorldRotation(uid) - MathHelper.PiOver4 * 3f);
 
         if (_net.IsClient)
             return;

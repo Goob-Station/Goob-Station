@@ -234,7 +234,10 @@ public sealed partial class MeleeWeaponSystem
                 if (angle == null)
                     TransformSystem.SetWorldPosition(uid, targetPos);
                 else
-                    TransformSystem.SetWorldPositionRotation(uid, targetPos, angle.Value, xform);
+                {
+                    var newAngle = angle.Value + arcComponent.RotationOffset;
+                    TransformSystem.SetWorldPositionRotation(uid, targetPos, newAngle, xform);
+                }
             }
             else
                 TransformSystem.SetWorldPosition(uid, targetPos);

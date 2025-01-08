@@ -16,4 +16,6 @@ public sealed partial class TrackUserComponent : Component
     public Vector2 Offset = Vector2.Zero;
 
     public bool TrackRotation; // Goobstation
+
+    public Angle RotationOffset; // Goobstation
 }

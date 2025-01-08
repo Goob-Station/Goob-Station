@@ -4,5 +4,5 @@ namespace Content.Shared._Goobstation.Wizard.Traps;
 public sealed partial class FlameTrapComponent : Component
 {
     [DataField]
-    public float FireStacks = 8f;
+    public float FireStacks = 6f;
 }

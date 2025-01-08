@@ -45,7 +45,7 @@
   description: Careful not to lose your head.
   components:
   - type: Sprite
-    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle_icon.rsi
+    sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
   - type: Item
     sprite: _Goobstation/Wizard/Objects/Weapons/enchanted_rifle.rsi
     size: Huge
@@ -65,6 +65,7 @@
       tags:
       - CartridgeMagicBullet
   - type: Gun
+    muzzleFlashRotationOffset: 45
     minAngle: 20
     maxAngle: 30
     fireRate: 2
