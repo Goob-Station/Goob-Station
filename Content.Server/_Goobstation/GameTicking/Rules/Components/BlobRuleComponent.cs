@@ -18,6 +18,9 @@ public sealed partial class BlobRuleComponent : Component
 
     [ViewVariables]
     public float Accumulator = 0f;
+
+    [ViewVariables]
+    public bool AllowEvacRecall = false;
 }
 
 
