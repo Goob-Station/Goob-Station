@@ -55,7 +55,7 @@ public sealed partial class RageQuitNotifySystem
         // Doing `async void` without catching exceptions is LE BAD, okay?
         catch (Exception e)
         {
-            Log.Error($"Failed to send ragequit information to webhook!\n{e.Message}");
+            Log.Error($"Failed to send ragequit information to webhook!\n{e}");
         }
     }
 }
