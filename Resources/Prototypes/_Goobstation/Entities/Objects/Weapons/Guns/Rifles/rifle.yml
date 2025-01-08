@@ -22,6 +22,8 @@
     fireRate: 3
     availableModes:
     - SemiAuto
+    selectedMode:
+    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
