@@ -76,9 +76,10 @@
   - type: WizardTrap
     effect: DamageTrapFlashEffect
   - type: DamageTrap
+    spawnedEntity: LargeRockFading
     damage:
       types:
-        Blunt: 60
+        Blunt: 50
 
 - type: entity
   parent: BaseTrap

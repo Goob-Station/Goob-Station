@@ -33,7 +33,7 @@
   - RevenantDynamicMidround # revenant spawn (M)
   - ZombiesDynamicMidround # zombie outbreak (M)
   - BlobDynamicMidround # blob mouse spawn(M)
-  - WizardDynamicMidround # wizard spawn (M)
+  # - WizardDynamicMidround # wizard spawn (M)
   # spider infestation todo (M)
   # xenos todo (M)
   # improved kudzu todo (M)

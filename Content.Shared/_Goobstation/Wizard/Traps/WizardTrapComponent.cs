@@ -10,7 +10,7 @@ public sealed partial class WizardTrapComponent : Component
     [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public HashSet<EntityUid> IgnoredMinds = new();
 
-    [ViewVariables(VVAccess.ReadOnly)]
+    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
     public bool Triggered;
 
     [DataField]

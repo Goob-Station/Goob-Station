@@ -547,6 +547,8 @@
     checkCanIteract: false
     useDelay: 25
     itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/welder.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: the_traps

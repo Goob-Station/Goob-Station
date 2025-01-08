@@ -34,9 +34,6 @@
         factions:
         - Wizard
   - type: AntagLoadProfileRule
-    speciesOverride: Human
-    speciesOverrideBlacklist:
-    - Yowie # Can't wear robes, still should be possible to select them in magic mirror
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # temp

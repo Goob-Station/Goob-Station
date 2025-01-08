@@ -6,7 +6,6 @@ using Content.Shared.Electrocution;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
-using Content.Shared.Jittering;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -29,7 +28,6 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
     [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly StatusEffectsSystem _status = default!;
     [Dependency] private   readonly DamageableSystem _damageable = default!;
-    [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private   readonly INetManager _net = default!;
 
     public override void Initialize()
@@ -49,8 +47,9 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
     private void OnDamageTriggered(Entity<DamageTrapComponent> ent, ref TrapTriggeredEvent args)
     {
-        _jitter.DoJitter(args.Victim, TimeSpan.FromSeconds(2), true, 20f, 16f);
         _damageable.TryChangeDamage(args.Victim, ent.Comp.Damage, true, targetPart: TargetBodyPart.Feet);
+        if (_net.IsServer && ent.Comp.SpawnedEntity is { } toSpawn)
+            Spawn(toSpawn, _transform.GetMapCoordinates(ent));
     }
 
     private void OnBlindTriggered(Entity<BlindingTrapComponent> ent, ref TrapTriggeredEvent args)
@@ -93,22 +92,21 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         if (comp.Triggered)
             return;
 
-        if (HasComp<FadingTimedDespawnComponent>(uid))
-            return;
-
         if (HasComp<GodmodeComponent>(args.OtherEntity) || HasComp<IceCubeComponent>(args.OtherEntity))
             return;
 
         if (IsEntityMindIgnored(args.OtherEntity, comp))
             return;
 
-        comp.Triggered = true;
+        _popup.PopupClient(Loc.GetString("trap-triggered-message", ("trap", uid)),
+            args.OtherEntity,
+            PopupType.LargeCaution);
 
-        if (_net.IsServer)
-        {
-            _popup.PopupEntity(Loc.GetString("trap-triggered-message", ("trap", uid)),
-                    args.OtherEntity, args.OtherEntity, PopupType.LargeCaution);
-        }
+        comp.Triggered = true;
+        Dirty(ent);
+
+        if (HasComp<FadingTimedDespawnComponent>(uid))
+            return;
 
         if (comp.StunTime > TimeSpan.Zero)
             _stun.TryParalyze(args.OtherEntity, comp.StunTime, true);
@@ -156,7 +154,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
 
         var fading = EnsureComp<FadingTimedDespawnComponent>(uid);
         fading.Lifetime = 0.5f;
-        fading.FadeOutTime = 1f;
+        fading.FadeOutTime = 2f;
     }
 
     private void OnExamineAttempt(Entity<WizardTrapComponent> ent, ref ExamineAttemptEvent args)

@@ -180,8 +180,8 @@
   - type: AnimationPlayer
   - type: PointLight
     enabled: true
-    radius: 1.5
-    energy: 1
+    radius: 2
+    energy: 4
     color: "#FAA019"
     netsync: false
   - type: LightFade
