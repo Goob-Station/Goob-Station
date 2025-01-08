@@ -36,6 +36,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
+  - type: StealTarget #Goobstation - IPC steal
+    stealGroup: Battery
 
 - type: entity
   name: potato battery

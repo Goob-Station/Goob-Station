@@ -15,9 +15,7 @@ using Content.Shared.GameTicking;
 using Content.Shared.Hands.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Inventory;
-using Content.Shared.Mind;
 using Content.Shared.PDA;
-using Content.Shared.Players;
 using Content.Shared.Players.PlayTimeTracking;
 using Content.Shared.Popups;
 using Content.Shared.Roles;
@@ -337,10 +335,15 @@ public sealed class AdminSystem : EntitySystem
 
     private void UpdatePanicBunker()
     {
-        var admins = PanicBunker.CountDeadminnedAdmins
-            ? _adminManager.AllAdmins
-            : _adminManager.ActiveAdmins;
-        var hasAdmins = admins.Any();
+        var hasAdmins = false;
+        foreach (var admin in _adminManager.AllAdmins)
+        {
+            if (_adminManager.HasAdminFlag(admin, AdminFlags.Admin, includeDeAdmin: PanicBunker.CountDeadminnedAdmins))
+            {
+                hasAdmins = true;
+                break;
+            }
+        }
 
         // TODO Fix order dependent Cvars
         // Please for the sake of my sanity don't make cvars & order dependent.

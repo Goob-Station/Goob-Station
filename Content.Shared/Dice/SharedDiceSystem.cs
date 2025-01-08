@@ -1,7 +1,6 @@
 using Content.Shared.Examine;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Throwing;
-using Robust.Shared.GameStates;
 
 namespace Content.Shared.Dice;
 

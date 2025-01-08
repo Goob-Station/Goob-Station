@@ -1,0 +1,13 @@
+- type: biomeMarkerLayer
+  id: BSCrystal
+  entityMask:
+    AsteroidRock: MeteorRockBSCrystal
+    WallRock: WallRockBSCrystal
+    WallRockBasalt: WallRockBasaltBSCrystal
+    WallRockChromite: WallRockChromiteBSCrystal
+    WallRockSand: WallRockSandBSCrystal
+    WallRockSnow: WallRockSnowBSCrystal
+  maxCount: 6
+  minGroupSize: 1
+  maxGroupSize: 2
+  radius: 3

@@ -38,6 +38,18 @@
     #   safe: false
     # - type: EyeProtection # You'll want this if your robot can't wear glasses, like an IPC.
     #   protectionTime: 12
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeCircle
+            radius: 0.35
+          density: 185
+          restitution: 0.0
+          mask:
+          - MobMask
+          layer:
+          - MobLayer
     - type: Silicon
       entityType: enum.SiliconType.Player
       batteryPowered: false # Needs to also have a battery!
@@ -51,7 +63,7 @@
         1: 0.45
         0: 0.00
     - type: Temperature
-      heatDamageThreshold: 325
+      heatDamageThreshold: 1800 # GoobStation: Roughly the melting point of mild steels
       coldDamageThreshold: 260
       currentTemperature: 310.15
       specificHeat: 42
@@ -62,6 +74,7 @@
         types:
           Heat: 3 #per second, scales with temperature & other constants
       atmosTemperatureTransferEfficiency: 0.05
+    - type: KillOnOverheat # GoobStation
     - type: Deathgasp
       prototype: SiliconDeathgasp
       needsCritical: false
@@ -161,7 +174,7 @@
       canResistFire: true
       damage:
         types:
-          Heat: 0.75 #per second, scales with number of fire 'stacks'
+          Heat: 0 # GoobStation: Replaced fire damage with overheating shutdown
     # - type: Barotrauma # Not particularly modifiable. In the future, some response to pressure changes would be nice.
     #   damage:
     #     types:
@@ -306,11 +319,3 @@
     - type: Targeting
     - type: SurgeryTarget
     - type: LayingDown
-
-- type: damageModifierSet
-  id: IPC
-  coefficients:
-    Poison: 0
-    Cold: 0.2
-    Heat: 2
-    Shock: 2.5

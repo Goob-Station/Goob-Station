@@ -13,20 +13,20 @@ There are 5 types of patches:
 - Large
 - Makeshift
 
-### Basic
+## Basic
 The basic patch holds 40 units of chems and transfers 1 unit at a time.
 
-### Rapid
+## Rapid
 The rapid patch holds 40 units and transfers chemicals twice as fast.
 
-### Prefilled
+## Prefilled
 Some medkits contain prefilled patches. These hold 30 units and transfers 0.25 units per second. They cannot be filled or emptied
 
-### Large
-The large patch holds 60 units and transfers them one unit at a time. 
-However the large patch also transfers 15% of its chemicals upon use (10 units if full)
-=
-### Makeshift
+## Large
+The large patch holds 60 units and transfers them one unit at a time.
+However the large patch also transfers 15% of its chemicals upon use (10 units if full).
+
+## Makeshift
 The makeshift patch can hold 15 units and transfer 1 unit every 2 seconds.
 However it can be crafted by hand and filled manually without a chemmaster
 </Document>

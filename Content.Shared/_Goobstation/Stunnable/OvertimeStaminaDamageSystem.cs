@@ -1,6 +1,5 @@
 using Content.Shared.Damage.Systems;
 using Robust.Shared.Network;
-using System.Text;
 
 namespace Content.Shared.Stunnable;
 

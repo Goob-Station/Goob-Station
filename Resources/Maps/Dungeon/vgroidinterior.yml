@@ -2556,7 +2556,7 @@ entities:
     - type: Transform
       pos: 8.4227705,9.29027
       parent: 1
-- proto: WeaponMechMelleDrill
+- proto: WeaponMechMeleeDrill
   entities:
   - uid: 450
     components:

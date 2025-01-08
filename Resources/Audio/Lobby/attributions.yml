@@ -134,32 +134,7 @@
   copyright: "Monument by Six Umbrellas."
   source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
 
-- files: ["robot_holiday.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Robot Holiday by Xennial. Converted from MP3 to OGG."
-  source: "https://freemusicarchive.org/music/xennial/the-bells-of-yule-a-christmas-instrumental-album/17-robot-holiday/"
-
-- files: ["rocking_around.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Piras314"
-  source: "https://goobstation.com"
-
-- files: ["are_they_clueless_about_christmas.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Piras314"
-  source: "https://goobstation.com"
-
-- files: ["miniscule_christmas.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Piras314"
-  source: "https://goobstation.com"
-
-- files: ["jingle_smells.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Mrjajkes"
-  source: "https://goobstation.com"
-
-- files: ["secway_bells.ogg"]
-  license: "CC-BY-4.0"
-  copyright: "Piras314"
-  source: "https://goobstation.com"
+- files: ["the_future_soon.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "The Future Soon by Jonathan Coulton"
+  source: "https://www.youtube.com/watch?v=l5PEz3kGbp4"

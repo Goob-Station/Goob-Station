@@ -7,3 +7,14 @@
     - type: StorageFill
       contents:
         - id: MobGondola
+
+- type: entity
+  id: CrateNPCLootbug
+  parent: CrateLivestock
+  name: crate of lootbugs
+  description: A crate containing four lootbugs.
+  components:
+  - type: StorageFill
+    contents:
+      - id: MobLootbug
+        amount: 4

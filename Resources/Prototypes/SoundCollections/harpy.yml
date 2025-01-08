@@ -92,12 +92,12 @@
   files:
     - /Audio/Nyanotrasen/Voice/Felinid/cat_growl1.ogg
     - /Audio/Animals/bear.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl1.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl2.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl3.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl4.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl5.ogg
-    - /Audio/DeltaV/Voice/Vulpkanin/dog_growl6.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl1.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl2.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl3.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl4.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl5.ogg
+    - /Audio/_DV/Voice/Vulpkanin/dog_growl6.ogg
 
 - type: soundCollection
   id: HarpyPurrs
@@ -233,12 +233,12 @@
 - type: soundCollection
   id: HarpyCaws
   files: 
-    - /Audio/DeltaV/Voice/Harpy/caw1.ogg
+    - /Audio/_DV/Voice/Harpy/caw1.ogg
 
 - type: soundCollection
   id: HarpyChirps
   files: 
-    - /Audio/DeltaV/Voice/Harpy/chirp1.ogg
+    - /Audio/_DV/Voice/Harpy/chirp1.ogg
     - /Audio/Voice/Talk/pai.ogg
     - /Audio/Voice/Talk/pai_ask.ogg
     - /Audio/Voice/Talk/pai_exclaim.ogg

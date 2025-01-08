@@ -50,3 +50,15 @@
       - id: WeaponRifleM90
       - id: MagazineRifle
       - id: MagazineRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledWSPR
+  name: WSPR bundle
+  description: "A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleWSPR
+      - id: MagazineLightRifleSubsonic
+        amount: 2

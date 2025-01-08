@@ -1,5 +1,4 @@
-﻿using Content.Shared.Body.Components;
-using Content.Shared.Body.Part; // Shitmed Change
+﻿using Content.Shared.Body.Part; // Shitmed Change
 using Content.Shared.Inventory;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
