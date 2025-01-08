@@ -32,6 +32,11 @@
 - type: entity
   parent: BaseMagazineBoxHighCaliber
   id: MagazineBoxHighCaliber
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 45
+    proto: CartridgeHighCaliber
+
 
 - type: entity
   parent: BaseMagazineBoxHighCaliber
