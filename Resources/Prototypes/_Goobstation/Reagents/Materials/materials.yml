@@ -5,4 +5,4 @@
   unit: materials-unit-piece
   icon: { sprite: _Goobstation/Objects/Materials/materials.rsi, state: bluespace_crystal }
   color: "#80ffff"
-  price: 30
+  price: 1.175
