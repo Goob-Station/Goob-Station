@@ -1,8 +1,8 @@
 using Content.Shared.GameTicking;
-using Content.Shared.DeltaV.CCVars;
+using Content.Shared._DV.CCVars;
 using Robust.Shared.Configuration;
 
-namespace Content.Client.DeltaV.RoundEnd;
+namespace Content.Client._DV.RoundEnd;
 
 public sealed class NoEorgPopupSystem : EntitySystem
 {
