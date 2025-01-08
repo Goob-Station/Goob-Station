@@ -173,6 +173,10 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi
+  - type: PaintableAirlock
+    department: Civilian
+  - type: Wires
+    layoutId: AirlockService
 
 # Glass
 - type: entity
@@ -322,3 +326,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi
+  - type: PaintableAirlock
+    department: Civilian
+  - type: Wires
+    layoutId: AirlockService
