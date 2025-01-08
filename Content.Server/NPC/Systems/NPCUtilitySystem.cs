@@ -28,6 +28,8 @@ using Robust.Server.Containers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Server._Goobstation.Wizard.NPC;
+using Content.Server.Weapons.Ranged.Systems;
 
 namespace Content.Server.NPC.Systems;
 
@@ -52,6 +54,7 @@ public sealed class NPCUtilitySystem : EntitySystem
     [Dependency] private readonly ExamineSystemShared _examine = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private readonly MobThresholdSystem _thresholdSystem = default!;
+    [Dependency] private readonly GunSystem _gun = default!; // Goobstation
 
     private EntityQuery<PuddleComponent> _puddleQuery;
     private EntityQuery<TransformComponent> _xformQuery;
@@ -279,6 +282,13 @@ public sealed class NPCUtilitySystem : EntitySystem
                 }
 
                 return Math.Clamp(distance / radius, 0f, 1f);
+            }
+            case TargetCanFireCon: // Goobstation
+            {
+                if (!HasComp<GunComponent>(targetUid))
+                    return 0f;
+
+                return GunCanFirePrecondition.CanFire(EntityManager, _gun, targetUid) ? 1f : 0f;
             }
             case TargetAmmoCon:
             {

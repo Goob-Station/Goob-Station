@@ -140,6 +140,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<WizardTeleportEvent>(OnTeleport);
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<LesserSummonBeesEvent>(OnBees);
+        SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
     }
 
     #region Spells
@@ -857,6 +858,17 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnSimians(SummonSimiansEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        SpawnMonkeys(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -1081,6 +1093,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     }
 
     protected virtual void SpawnBees(LesserSummonBeesEvent ev)
+    {
+    }
+
+    protected virtual void SpawnMonkeys(SummonSimiansEvent ev)
     {
     }
 

@@ -128,3 +128,8 @@ spellbook-bees-name = Lesser Summon Bees
 spellbook-bees-desc =
     This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location. These bees are not friendly to anyone except wizards. Summoned bees inject various toxins into their victims.
     Requires wizard's robe and hat to cast.
+
+spellbook-simians-name = Summon Simians
+spellbook-simians-desc =
+    This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons primal monkeys and gorillas that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
+    Requires wizard's robe and hat to cast.

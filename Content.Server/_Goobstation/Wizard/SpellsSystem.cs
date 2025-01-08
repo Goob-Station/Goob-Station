@@ -15,16 +15,19 @@ using Content.Server.Spreader;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Gibbing.Events;
+using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Physics;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Enums;
@@ -33,6 +36,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Spawners;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Wizard;
@@ -374,6 +378,53 @@ public sealed class SpellsSystem : SharedSpellsSystem
         foreach (var pos in positions)
         {
             Spawn(Random.Pick(ev.Mobs), pos);
+        }
+    }
+
+    protected override void SpawnMonkeys(SummonSimiansEvent ev)
+    {
+        base.SpawnMonkeys(ev);
+
+        if (!ProtoMan.TryIndex(ev.Mobs, out var mobs) || !ProtoMan.TryIndex(ev.Weapons, out var weapons))
+            return;
+
+        if (mobs.Weights.Count == 0)
+            return;
+
+        var handsQuery = GetEntityQuery<HandsComponent>();
+        var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
+        var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
+
+        var positions =
+            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, (int) CollisionGroup.MobMask);
+        foreach (var pos in positions)
+        {
+            var mob = Spawn(mobs.Pick(Random), pos);
+
+            if (!handsQuery.TryComp(mob, out var hands) || hands.Count == 0 || weapons.Weights.Count == 0)
+                continue;
+
+            var weapon = Spawn(weapons.Pick(Random), pos);
+
+            if (!Hands.TryPickupAnyHand(mob, weapon, true, false, false, hands))
+            {
+                QueueDel(weapon);
+                continue;
+            }
+
+            FadingTimedDespawnComponent? weaponDespawn;
+            if (despawnQuery.TryComp(mob, out var despawn))
+            {
+                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
+                weaponDespawn.Lifetime = despawn.Lifetime + 30f;
+                weaponDespawn.FadeOutTime = 4f;
+            }
+            else if (fadingQuery.TryComp(mob, out var fading))
+            {
+                weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
+                weaponDespawn.Lifetime = fading.Lifetime + 30f;
+                weaponDespawn.FadeOutTime = 4f;
+            }
         }
     }
 }

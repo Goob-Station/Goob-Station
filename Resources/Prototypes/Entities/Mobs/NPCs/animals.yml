@@ -1133,7 +1133,7 @@
       collection: Punch
     damage:
       types:
-        Blunt: 20
+        Blunt: 30 # Goob edit
     animation: WeaponArcFist
   - type: NPCRetaliation
   - type: FactionException
@@ -1143,6 +1143,11 @@
   - type: HTN
     rootTask:
       task: SimpleHostileCompound
+  - type: MobThresholds # Goobstation
+    thresholds:
+      0: Alive
+      220: Critical
+      300: Dead
 
 - type: entity
   name: kangaroo

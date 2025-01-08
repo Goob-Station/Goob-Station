@@ -5,6 +5,7 @@ using Content.Shared.Damage;
 using Content.Shared.Explosion;
 using Content.Shared.Magic;
 using Content.Shared.Polymorph;
+using Content.Shared.Random;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
@@ -411,4 +412,22 @@ public sealed partial class LesserSummonBeesEvent : InstantActionEvent, ISpeakSp
 
     [DataField]
     public int Amount = 9;
+}
+
+public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomEntityPrototype> Mobs;
+
+    [DataField(required: true)]
+    public ProtoId<WeightedRandomEntityPrototype> Weapons;
+
+    [DataField]
+    public float Range = 1f;
+
+    [DataField]
+    public int Amount = 4;
 }

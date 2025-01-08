@@ -1,0 +1,46 @@
+- type: entity
+  parent: MobGorilla
+  id: MobGorillaAngry
+  suffix: Angry
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+
+- type: entity
+  parent: MobGorillaAngry
+  id: MobGorillaAngryTemp
+  suffix: Angry, temporary
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 120
+    fadeOutTime: 4
+
+- type: entity
+  name: monkey
+  id: MobMonkeyAngry
+  parent: MobBaseAncestor
+  suffix: Angry
+  description: New church of neo-darwinists actually believe that EVERY animal evolved from a monkey. Tastes like pork, and killing them is both fun and relaxing.
+  components:
+  - type: NameIdentifier
+    group: Monkey
+  - type: Speech
+    speechSounds: Monkey
+    speechVerb: Monkey
+  - type: MonkeyAccent
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+  - type: HTN
+    rootTask:
+      task: SimpleHumanoidHostileCompound
+
+- type: entity
+  parent: MobMonkeyAngry
+  id: MobMonkeyAngryTemp
+  suffix: Angry, temporary
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 120
+    fadeOutTime: 4

@@ -575,7 +575,6 @@
       state: bee
     event: !type:LesserSummonBeesEvent
       speech: action-speech-spell-bees
-      range: 1
       mobs:
       - BeeLicoxide
       - BeeAmatoxin
@@ -592,6 +591,29 @@
       - BeeBuzzochloricBees
       - BeeLaughter
       - BeeToxin
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+
+- type: entity
+  id: ActionSummonSimians
+  name: Summon Simians
+  description: This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons monkeys and gorillas that will promptly flip out and attack everything in sight. Fun!
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 90
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTable
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
