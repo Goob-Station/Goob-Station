@@ -433,38 +433,16 @@
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkMagazineHighCaliber
-  name: uplink-high-caliber-magazine-name
-  description: uplink-high-caliber-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: base }
-  productEntity: MagazineHighCaliber
+- type: listing # box is to worsen the weapons sustained dps since they have to pause their momentum to restack mags
+  id: UplinkHighCaliberBox
+  name: uplink-high-caliber-box-name
+  description: uplink-high-caliber-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxHighCaliber
   cost:
-    Telecrystal: 6 # Slightly more total damage compared to C20 mags
+    Telecrystal: 45 # 1 TC per round
   categories:
   - UplinkAmmo
-
-- type: listing
-  id: UplinkMagazineHighCaliberExplosive
-  name: uplink-high-caliber-explosive-magazine-name
-  description: uplink-high-caliber-explosive-magazine-desc
-  icon: { sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/heavy_rifle_mags.rsi, state: red }
-  productEntity: MagazineHighCaliberExplosive
-  cost:
-    Telecrystal: 12 # Twice as much compared to regular mags. Idk if it's reasonable
-  categories:
-  - UplinkAmmo
-
-#- type: listing # A box, really? Why not like... mags?
-#  id: UplinkHighCaliberBox
-#  name: uplink-high-caliber-box-name
-#  description: uplink-high-caliber-box-desc
-#  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
-#  productEntity: MagazineBoxHighCaliber
-#  cost:
-#    Telecrystal: 40 # ammo should be a big cost for this
-#  categories:
-#  - UplinkAmmo
 
 # 弾薬
 - type: listing

@@ -10,7 +10,7 @@
       tags:
         - CartridgeHighCaliber
     proto: CartridgeHighCaliber
-    capacity: 30
+    capacity: 45
   - type: Item
     size: Small
   - type: ContainerContainer
@@ -39,5 +39,5 @@
   name: ammunition box (.50 high-explosive)
   components:
   - type: BallisticAmmoProvider
-    capacity: 30
+    capacity: 45
     proto: CartridgeHighCaliberExplosive
