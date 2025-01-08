@@ -1,6 +1,32 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Tildes (~) are now treated like punctuation with emotes; meaning you
+      can use them at the end of an emote and actually works!
+    type: Fix
+  id: 101
+  time: '2025-01-08T17:07:18.436170'
+- author: AstroDogeDX
+  changes:
+  - message: Janitorial airlocks now have a unique colourscheme, purple and yellow,
+      to make them more distinct from standard airlocks!
+    type: Add
+  id: 100
+  time: '2025-01-08T17:08:05.932247'
+- author: AstroDogeDX
+  changes:
+  - message: Added the Illeism Accent trait; now you can speak in the third person!
+    type: Add
+  id: 99
+  time: '2025-01-08T17:06:10.916605'
+- author: AstroDogeDX
+  changes:
+  - message: Chemists now have access to Botany during Extended Access (Low Pop)!
+    type: Tweak
+  id: 98
+  time: '2025-01-08T17:06:39.967413'
+- author: AstroDogeDX
+  changes:
   - message: Fixed a bunch of bugs with emotes.
     type: Fix
   id: 97
