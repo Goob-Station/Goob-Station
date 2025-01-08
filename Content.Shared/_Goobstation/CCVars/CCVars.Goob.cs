@@ -89,13 +89,13 @@ public sealed partial class GoobCVars
     ///     Default is 5f.
     /// </summary>
     public static readonly CVarDef<float> PlayerRageQuitTimeThreshold =
-        CVarDef.Create("ragequit.threshold", 30f);
+        CVarDef.Create("ragequit.threshold", 30f, CVar.SERVERONLY);
 
     /// <summary>
     ///     Log ragequits to a discord webhook, set to empty to disable.
     /// </summary>
     public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
-        CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY);
+        CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     #region Surgery
 
