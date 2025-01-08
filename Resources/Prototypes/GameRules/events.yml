@@ -160,7 +160,7 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 75
+    earliestStart: 60 # Goobstation - Earlier antag spawns: if station didn't evac by that time things are probably going well
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
@@ -190,7 +190,7 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 45
+    earliestStart: 30 # Goobstation - Earlier antag spawns
     reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule

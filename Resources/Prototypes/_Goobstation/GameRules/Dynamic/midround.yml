@@ -257,7 +257,7 @@
   - type: StationEvent
     weight: 7.5
     duration: 1
-    earliestStart: 45
+    earliestStart: 30
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -312,7 +312,7 @@
     cost: 7
     highImpact: true
   - type: StationEvent
-    earliestStart: 35
+    earliestStart: 30
     weight: 5.5
     minimumPlayers: 20
     duration: 1
@@ -390,7 +390,7 @@
     highImpact: true
   - type: StationEvent
     weight: 6.5
-    earliestStart: 50
+    earliestStart: 30
     minimumPlayers: 30 # how is that 20 people when rat king is 30??? changed.
     duration: null
     maxOccurrences: 2
