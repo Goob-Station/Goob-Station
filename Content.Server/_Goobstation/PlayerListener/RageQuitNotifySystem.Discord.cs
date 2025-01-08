@@ -34,9 +34,11 @@ public sealed partial class RageQuitNotifySystem
 
             var hook = _webhook.Value.ToIdentifier();
 
+            var duration = _ticker.RoundDuration();
+
             // ToString gives us milliseconds, and we don't really need it.
             var time =
-                $"{_ticker.RoundDuration().Hours}:{_ticker.RoundDuration().Minutes}:{_ticker.RoundDuration().Seconds}";
+                $"{duration.Hours}:{duration.Minutes}:{duration.Seconds}";
 
             var message = Loc.GetString("rage-quit-notify-discord",
                 ("round", _ticker.RoundId),
