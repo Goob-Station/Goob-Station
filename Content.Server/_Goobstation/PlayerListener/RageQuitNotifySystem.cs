@@ -1,5 +1,4 @@
 ﻿using Content.Server.Chat.Managers;
-using Content.Server.Discord;
 using Content.Server.GameTicking.Events;
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.Chat;
