@@ -1,4 +1,4 @@
-store-heretic-path-ash = Пепельная тропа
+store-heretic-path-ash = Путь пепла
 store-heretic-path-lock = Путь замка
 store-heretic-path-flesh = Путь плоти
 store-heretic-path-void = Путь пустоты

@@ -1,3 +1,3 @@
-ent-ClothingNeckAmberFocus = amber focus
-    .desc = An amber focusing glass that provides a link to the world beyond. The necklace seems to twitch, but only when you look at it from the corner of your eye.
+ent-ClothingNeckAmberFocus = Янтарный фокус
+    .desc = Янтарное фокусирующее стекло, обеспечивающее связь с потусторонним миром. Ожерелье кажется дергается, но только когда смотришь на него краем глаза.
     .suffix = MagicItem
