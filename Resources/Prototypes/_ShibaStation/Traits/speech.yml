@@ -12,10 +12,11 @@
 # 2 cost
 
 - type: trait
-  id: IllismAccent
-  name: trait-illism-name
-  description: trait-illism-desc
+  id: IlleismAccent
+  name: trait-illeism-name
+  description: trait-illeism-desc
   category: SpeechTraits
   cost: 2
   components:
-  - type: IllismAccent
+  - type: IlleismAccent
+

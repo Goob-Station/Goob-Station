@@ -7,7 +7,7 @@ using Robust.Shared.IoC;
 
 namespace Content.Server._ShibaStation.Speech.EntitySystems;
 
-public sealed class IllismAccentSystem : EntitySystem
+public sealed class IlleismAccentSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
@@ -18,10 +18,10 @@ public sealed class IllismAccentSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<IllismAccentComponent, AccentGetEvent>(OnAccent);
+        SubscribeLocalEvent<IlleismAccentComponent, AccentGetEvent>(OnAccent);
     }
 
-    private void OnAccent(EntityUid uid, IllismAccentComponent component, AccentGetEvent args)
+    private void OnAccent(EntityUid uid, IlleismAccentComponent component, AccentGetEvent args)
     {
         args.Message = Accentuate(uid, args.Message);
     }
