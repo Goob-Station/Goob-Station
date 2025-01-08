@@ -1146,8 +1146,8 @@
   - type: MobThresholds # Goobstation
     thresholds:
       0: Alive
-      220: Critical
-      300: Dead
+      120: Critical
+      220: Dead
 
 - type: entity
   name: kangaroo
