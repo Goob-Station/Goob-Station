@@ -125,9 +125,9 @@
   name: uplink-weapon-burner-name
   description: uplink-weapon-burner-desc
   icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Rifles/burner.rsi, state: icon }
-  productEntity: WeaponRifleBurner
+  productEntity: ClothingBackpackDuffelSyndicateBurner
   cost:
-    Telecrystal: 100 # don't kill me piras
+    Telecrystal: 125 # more expensive since its a bundle again
   categories:
   - UplinkWeaponry
 

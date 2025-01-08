@@ -92,7 +92,7 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 35
+        Piercing: 45
         Structural: 130 # if you were a wall would you like having a .50 cal anti materiel round go through you? (this breaks a normal wall in 3 shots, one mag goes through four normal walls, 10 rounds to take down a reinforced wall)
 
 
@@ -105,15 +105,15 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 10
-        Heat: 5
+        Piercing: 15
+        Heat: 10
         Structural: 20
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: Default
     maxIntensity: 2
     intensitySlope: 2
-    totalIntensity: 18 # 30 damage per tile
+    totalIntensity: 18 # 30 damage per tile in a 3x3 area
     maxTileBreak: 0
   - type: PointLight
     radius: 3.5
