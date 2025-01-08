@@ -283,4 +283,8 @@
     footstepSoundCollection:
       collection: FootstepSkates
       params:
+<<<<<<< HEAD
         variation: 0.08
+=======
+        variation: 0.08
+>>>>>>> c25f65114e669ec1e54864ac815e59aee82ca6c5
