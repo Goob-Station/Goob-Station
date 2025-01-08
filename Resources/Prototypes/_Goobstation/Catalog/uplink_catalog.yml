@@ -444,6 +444,17 @@
   categories:
   - UplinkAmmo
 
+- type: listing # box is to worsen the weapons sustained dps since they have to pause their momentum to restack mags
+  id: UplinkHighCaliberExplosiveBox
+  name: uuplink-high-caliber-explosive-box-name
+  description: uplink-high-caliber-explosive-box-desc
+  icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
+  productEntity: MagazineBoxHighCaliber
+  cost:
+    Telecrystal: 70 # 1.5 TC per round, HE is kinda busted and should be limited.
+  categories:
+  - UplinkAmmo
+
 # 弾薬
 - type: listing
   id: UplinkRifleMag

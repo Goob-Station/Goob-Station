@@ -103,7 +103,10 @@ uplink-high-caliber-explosive-magazine-name = Heavy Rifle Magazine (.50 high-exp
 uplink-high-caliber-explosive-magazine-desc = Rifle magazine with 15 explosive cartridges. Compatible with the Burner.
 
 uplink-high-caliber-box-name = .50 Ammo box
-uplink-high-caliber-box-desc = A box of 30 .50 caliber anti-materiel rounds.
+uplink-high-caliber-box-desc = A box of 45 .50 caliber anti-materiel rounds.
+
+uplink-high-caliber-explosive-box-name = Explosive .50 Ammo box
+uplink-high-caliber-explosive-box-desc = A box of 45 .50 caliber high explosive rounds.
 
 uplink-highcap-pistol-mag-name = High Capacity .35 Pistol Magazine
 uplink-highcap-pistol-mag-desc = High capacity pistol magazine holds 4 extra bullets for a total of 16 rounds.
