@@ -284,30 +284,3 @@
       collection: FootstepSkates
       params:
         variation: 0.08
-
-- type: entity
-  parent: ClothingShoesBase
-  id: ClothingShoesWizardSkates
-  name: Wizard Skates
-  description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
-  components:
-  - type: Sprite
-    sprite: Clothing/Shoes/Specific/skateswizard.rsi
-  - type: Clothing
-    sprite: Clothing/Shoes/Specific/skateswizard.rsi
-    clothingVisuals:
-      shoes:
-      - state: equipped-FEET
-        offset: "0, -0.04"
-  - type: ClothingSpeedModifier
-    walkModifier: 1.1
-    sprintModifier: 1.1
-  - type: WizardSkates
-    friction: 2.0
-    frictionNoInput: 2.5
-    acceleration: 4.5
-  - type: FootstepModifier
-    footstepSoundCollection:
-      collection: FootstepSkates
-      params:
-        variation: 0.08
