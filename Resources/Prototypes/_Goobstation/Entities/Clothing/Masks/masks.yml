@@ -46,6 +46,7 @@
     - type: IdentityBlocker
     - type: VoiceMask
       voiceMaskSpeechVerb: VoiceModulator
+      enableAction: false
     - type: HideLayerClothing
       slots:
       - Snout
