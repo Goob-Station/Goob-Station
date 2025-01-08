@@ -16,6 +16,8 @@
   - Maintenance
   extendedAccess:
   - Research # ShibaStation - Added Research to Chemist access
+  - Hydroponics # ShibaStation - Added Hydroponics to Chemist access
+  - Service # ShibaStation - Added Service to Chemist access
   # Shitmed Change
   special:
   - !type:AddComponentSpecial
