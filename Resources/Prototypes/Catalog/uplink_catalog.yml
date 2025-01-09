@@ -527,7 +527,7 @@
   icon: { sprite: /Textures/Objects/Storage/boxicons.rsi, state: vials }
   productEntity: ChemicalSynthesisKit
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 25 # goob, edited 1/9/2025 to include a chemical payload with a 5tc markup from 20tc
   categories:
   - UplinkChemicals
 
