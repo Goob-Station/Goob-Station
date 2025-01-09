@@ -98,9 +98,6 @@
     - Hissing
     - Draconic
     - TauCetiBasic
-  - type: GuideHelp
-    guides:
-    - Headcrabs
 
 # HEADCRABS
 
@@ -112,9 +109,6 @@
     sprite: _White/Mobs/Animals/headcrab.rsi
   - type: Clothing
     sprite: _White/Mobs/Animals/headcrab.rsi
-  - type: GuideHelp
-    guides:
-    - Headcrab
 
 - type: entity
   parent: BaseMobHeadcrab
@@ -128,9 +122,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.2
     baseSprintSpeed: 4.2
-  - type: GuideHelp
-    guides:
-    - HeadcrabFast
 
 - type: entity
   parent: BaseMobHeadcrab
@@ -152,6 +143,3 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.6
     baseSprintSpeed: 3.6
-  - type: GuideHelp
-    guides:
-    - HeadcrabPoison

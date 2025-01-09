@@ -46,6 +46,3 @@
     intervalSeconds: 60
     minimumEntitiesSpawned: 1
     maximumEntitiesSpawned: 2
-  - type: GuideHelp
-    guides:
-    - Headcrabs
