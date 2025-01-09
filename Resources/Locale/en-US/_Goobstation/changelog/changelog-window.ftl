@@ -1,1 +1,1 @@
-changelog-tab-title-Gooblog = Gooblog
+changelog-tab-title-Gooblog = Goob Changelog
