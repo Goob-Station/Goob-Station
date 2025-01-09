@@ -55,6 +55,9 @@
                         <PanelContainer StyleClasses="AngleRect">
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
+                        <PanelContainer StyleClasses="AngleRect">
+                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                        </PanelContainer>
                     </BoxContainer>
                 </Control>
                 <!-- Character setup state -->
