@@ -1,15 +1,15 @@
 - type: entity
   name: head slug
   parent: [SimpleSpaceMobBase] # no dying in space
-  id: MobHeadcrab
-  description: You don't want to touch it.
+  id: MobHeadslug
+  description: Absolutely not de-beaked or harmless. Keep away from corpses
   components:
   - type: Sprite
     drawdepth: SmallMobs
     layers:
     - map: ["enum.DamageStateVisualLayers.Base"]
-      state: headcrab
-      sprite: _Goobstation/Changeling/headcrab.rsi
+      state: headslug
+      sprite: _Goobstation/Changeling/headslug.rsi
   - type: Physics
   - type: Bloodstream
     bloodReagent: BloodChangeling
@@ -17,9 +17,9 @@
   - type: DamageStateVisuals
     states:
       Alive:
-        Base: headcrab
+        Base: headslug
       Dead:
-        Base: headcrab_dead
+        Base: headslug_dead
   - type: MobThresholds
     thresholds:
       0: Alive

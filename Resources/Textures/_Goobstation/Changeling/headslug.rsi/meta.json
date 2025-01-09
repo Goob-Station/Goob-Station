@@ -8,11 +8,11 @@
   },
   "states": [
     {
-      "name": "headcrab",
+      "name": "headslug",
       "directions": 4
     },
     {
-      "name": "headcrab_dead",
+      "name": "headslug_dead",
       "directions": 4
     }
   ]
