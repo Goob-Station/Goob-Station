@@ -3967,3 +3967,9 @@ Entries:
       message: Added clarification for how Alert Levels are treated in SOP.
   id: 446
   time: '2025-01-08T16:41:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Changeling ability to recover chemicals from food items.
+  id: 447
+  time: '2025-01-09T17:38:36.0000000+00:00'
