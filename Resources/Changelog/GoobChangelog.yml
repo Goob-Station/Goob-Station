@@ -3985,7 +3985,7 @@ Entries:
       message: Fixed cloning not transferring you to the new body when you accept it.
   id: 449
   time: '2025-01-09T18:00:58.0000000+00:00'
-- author: Piras314
+- author: Piras314, mrjajkes
   changes:
     - type: Add
       message: >-
