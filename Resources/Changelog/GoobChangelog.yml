@@ -1,5 +1,3 @@
-Name: Gooblog
-Order: -1
 Entries:
 - author: Piras314
   changes:
@@ -3995,3 +3993,17 @@ Entries:
         and the other plays when the blob is critical!
   id: 450
   time: '2025-01-09T19:22:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 451
+  time: '2025-01-09T20:14:36.0000000+00:00'
