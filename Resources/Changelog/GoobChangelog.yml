@@ -1,3 +1,5 @@
+Name: Gooblog
+Order: -1
 Entries:
 - author: Piras314
   changes:
@@ -752,7 +754,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling can't be butchered on meat spike. (you can still put it in
-        biomass reclaimer or burn it in crematorium)  
+        biomass reclaimer or burn it in crematorium)
     - type: Fix
       message: Changeling in lesser form can't use most abilities.
     - type: Fix
@@ -1501,7 +1503,7 @@ Entries:
         added station AI to train, mail drobe/teleporter to train cargo, and a
         singular pickaxe to train engi, more cameras for AI, edited atmos so the
         salv shuttle can fit (you have been compensated with a fireaxe and
-        combat gloves atmosians...), 
+        combat gloves atmosians...),
     - type: Tweak
       message: put train back in the map pool (min pop 30, max pop 60)
   id: 184
@@ -2852,7 +2854,7 @@ Entries:
     - type: Add
       message: >-
         Harpy wings (currently on their right arm lol) now give you the ability
-        to fly. 
+        to fly.
     - type: Add
       message: >-
         Severing wings from a harpy will render it unable to fly, and
@@ -3149,7 +3151,7 @@ Entries:
     - type: Tweak
       message: >-
         Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
-        increased piercing resistance to 70%, and added a 25% movement debuff. 
+        increased piercing resistance to 70%, and added a 25% movement debuff.
   id: 350
   time: '2024-12-11T22:48:03.0000000+00:00'
 - author: Speebr0
@@ -3985,7 +3987,7 @@ Entries:
       message: Fixed cloning not transferring you to the new body when you accept it.
   id: 449
   time: '2025-01-09T18:00:58.0000000+00:00'
-- author: Piras314, mrjajkes
+- author: Piras314 & mrjajkes
   changes:
     - type: Add
       message: >-
