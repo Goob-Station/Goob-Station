@@ -4025,3 +4025,19 @@ Entries:
         'Wizden' instead of just 'Changelog'
   id: 452
   time: '2025-01-09T20:22:48.0000000+00:00'
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added more markings for Lizards / Reptilians
+    - type: Remove
+      message: Removed Lizards / Reptilians only being able to eat fruit / meat
+    - type: Tweak
+      message: >-
+        Lizard / Reptilian horn markings can now be any colour instead of just
+        black
+    - type: Tweak
+      message: >-
+        Changed the appearance of Lizards / Reptilians. They now have funky
+        legs.
+  id: 453
+  time: '2025-01-09T21:18:19.0000000+00:00'
