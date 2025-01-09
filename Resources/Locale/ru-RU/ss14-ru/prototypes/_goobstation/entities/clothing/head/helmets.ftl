@@ -1,7 +1,7 @@
-ent-ClothingHeadHelmetHelldiver = salvage NT-01 tactical helmet
-    .desc = This armor is the NanoTrasen standard issue, made from the same titanium alloy as the Goliath hull.
-ent-ClothingHeadHelmetHEV = H.E.V helmet
-    .desc = Not included in a set with crowbar, long jump module and gravity manipulation device.
+ent-ClothingHeadHelmetHelldiver = тактический шлем NT-01
+    .desc = Эта броня - стандарт выдаваемый элитным утилизаторам NanoTrasen, изготовленную из того же титанового сплава, что и корпус Дюранда.
+ent-ClothingHeadHelmetHEV = H.E.V шлем
+    .desc = Не входит в комплект с ломом, модулем длинного прыжка и устройством манипулирования гравитацией.
 ent-ClothingHeadHelmetBasicAlt = { ent-ClothingHeadHelmetBasic }
     .suffix = Alt
     .desc = { ent-ClothingHeadHelmetBasic.desc }

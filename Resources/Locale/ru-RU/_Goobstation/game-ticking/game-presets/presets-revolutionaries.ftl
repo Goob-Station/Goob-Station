@@ -8,5 +8,5 @@ revolutionaries-win-announcement =
     По сообщениям лидера, командование корпорации свергнуто, и мы захватили контроль над станцией.
 
     Viva la revolution!
-revolutionaries-win-sender = Cybersun Communications
-revolutionaries-sender-cc = Nanotrasen Loyalty Division
+revolutionaries-win-sender = Коммандование Синдиката
+revolutionaries-sender-cc = Отдел лояльности Нанотрасен

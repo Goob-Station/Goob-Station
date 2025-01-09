@@ -1,34 +1,34 @@
-guide-entry-space-law = Космическое право
+guide-entry-space-law = Космо-закон
 guide-entry-medpatches = Медицинские пластыри
 # Goob SOP
 # - Основные справочники
 guide-entry-sop = СРП
 guide-entry-sop-alert-levels = _Уровни тревоги
 guide-entry-sop-emergencies = _Чрезвычайные ситуации
-guide-entry-sop-jobs = Работа
-guide-entry-sop-legal = Юридический
+guide-entry-sop-jobs = Профессии
+guide-entry-sop-legal = Закон
 guide-entry-sop-standards = Стандартные процедуры
 # - Вложенные каталоги
-guide-entry-sop-cargo = Груз
-guide-entry-sop-command = Команда
-guide-entry-sop-engineering = Инженерное дело
-guide-entry-sop-medical = Медицина
-guide-entry-sop-science = Наука
-guide-entry-sop-security = Безопасность
+guide-entry-sop-cargo = Отдел снабжения
+guide-entry-sop-command = Командование
+guide-entry-sop-engineering = Инженерный отдел
+guide-entry-sop-medical = Медицинский отдел
+guide-entry-sop-science = Научный отдел
+guide-entry-sop-security = Служба Безопасности
 guide-entry-sop-service = Сервис
 # - Уровни оповещения
-guide-entry-sop-greenalert = Зеленая тревога
-guide-entry-sop-bluealert = Синяя тревога
-guide-entry-sop-yellowalert = Желтая тревога
-guide-entry-sop-redalert = Красная тревога
-guide-entry-sop-deltaalert = Дельта тревога
-guide-entry-sop-epsilonalert = Эпсилон Алерт
-guide-entry-sop-gammaalert = Gamma Alert
-guide-entry-sop-violetalert = Фиолетовая тревога
+guide-entry-sop-greenalert = Зеленый код
+guide-entry-sop-bluealert = Синий код
+guide-entry-sop-yellowalert = Желтый код
+guide-entry-sop-redalert = Красный код
+guide-entry-sop-deltaalert = Код Дельта
+guide-entry-sop-epsilonalert = Код Эпсилон
+guide-entry-sop-gammaalert = Код гамма
+guide-entry-sop-violetalert = Фиолетовый код
 # - Стандартные процедуры
-guide-entry-sop-demoting = Увольнение/увольнение
+guide-entry-sop-demoting = Увольнение/понижение
 guide-entry-sop-hiring = Наем/Перевод
-guide-entry-sop-succession = Цепь командования
+guide-entry-sop-succession = Иерархия  командования
 # - Чрезвычайные ситуации
 guide-entry-sop-confirmedrevs = Революция
 guide-entry-sop-containmentfail = Неудачное сдерживание
@@ -36,29 +36,29 @@ guide-entry-sop-firegasspill = Пожар/разлив газа
 guide-entry-sop-meteorstorm = Метеоритные бури
 guide-entry-sop-stationdamage = Повреждение станции
 guide-entry-sop-supermatterdelam = Расслаивание СМ
-guide-entry-sop-wardeclaration = Военная декларация
-guide-entry-sop-zombieoutbreak = Вспышка зомби
+guide-entry-sop-wardeclaration = Война
+guide-entry-sop-zombieoutbreak = Зомби
 # - Юридический
 guide-entry-sop-execution = Казни
-guide-entry-sop-permabrig = Постоянная бригада
+guide-entry-sop-permabrig = Перманентный бриг
 guide-entry-sop-punishments = Наказания
-guide-entry-sop-searches = Поиск
+guide-entry-sop-searches = Обыски
 # - Груз
-guide-entry-sop-cargotech = Грузовая техника
-guide-entry-sop-salvage = Специалист по спасению
+guide-entry-sop-cargotech = Грузчик
+guide-entry-sop-salvage = Утилизатор
 # - Командование
-guide-entry-sop-ntr = Нанотрасен представитель.
+guide-entry-sop-ntr = ПНТ.
 guide-entry-sop-bso = Офицер синего щита
 guide-entry-sop-captain = Капитан
-guide-entry-sop-hop = начальник отдела кадров
-guide-entry-sop-hos = начальник службы безопасности
-guide-entry-sop-rd = Директор по исследованиям
-guide-entry-sop-cmo = главный врач.
-guide-entry-sop-ce = главный инженер
-guide-entry-sop-qm = квартермейстер
+guide-entry-sop-hop = ГП
+guide-entry-sop-hos = ГСБ
+guide-entry-sop-rd = НР
+guide-entry-sop-cmo = ГВ.
+guide-entry-sop-ce = СИ
+guide-entry-sop-qm = КМ
 # - Инженерный
-guide-entry-sop-atmostech = Атмосферная техника
-guide-entry-sop-stationengineer = Инженер станции
+guide-entry-sop-atmostech = Атмос
+guide-entry-sop-stationengineer = Инженер 
 # - Медицина
 guide-entry-sop-chemist = химик
 guide-entry-sop-doctorintern = Доктор/Интерн
@@ -68,7 +68,7 @@ guide-entry-sop-scientist = Ученый
 # - Безопасность
 guide-entry-sop-detective = Детектив
 guide-entry-sop-officercadet = Офицер/Кадет
-guide-entry-sop-warden = Начальник
+guide-entry-sop-warden = Смотритель
 # - Обслуживание
 guide-entry-sop-bartender = Бармен
 guide-entry-sop-botanist = Ботаник
