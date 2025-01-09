@@ -3985,3 +3985,11 @@ Entries:
       message: Fixed cloning not transferring you to the new body when you accept it.
   id: 449
   time: '2025-01-09T18:00:58.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Added two songs to blob, one plays when the blob is announced/detected
+        and the other plays when the blob is critical!
+  id: 450
+  time: '2025-01-09T19:22:07.0000000+00:00'
