@@ -90,14 +90,14 @@
     - WhitelistChameleon
     - MonkeyWearable
     - PetWearable
-  - type: LanguageKnowledge
-    speaks:
-    - Hissing
-    understands:
-    - Xeno
-    - Hissing
-    - Draconic
-    - TauCetiBasic
+#  - type: LanguageKnowledge
+#    speaks:
+#    - Hissing
+#    understands:
+#    - Xeno
+#    - Hissing
+#    - Draconic
+#    - TauCetiBasic
 
 # HEADCRABS
 
