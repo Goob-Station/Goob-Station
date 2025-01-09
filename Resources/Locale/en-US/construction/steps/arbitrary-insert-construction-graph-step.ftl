@@ -1,5 +1,5 @@
 # Shown when examining an in-construction object
-construction-insert-arbitrary-entity = Next, insert {$stepName}.
+construction-insert-arbitrary-entity = Next, insert [color=cyan]{$stepName}[/color].
 
 construction-insert-info-examine-name-instrument-brass = brass instrument
 construction-insert-info-examine-name-instrument-keyed = keyed instrument

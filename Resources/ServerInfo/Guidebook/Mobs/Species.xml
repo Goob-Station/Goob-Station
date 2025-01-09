@@ -13,17 +13,18 @@
   <Box>
   <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
   <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
   <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
+  <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
   </Box>
   <Box>
+  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Slime Person"/>
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
-  <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
   <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
   </Box>
 
 </Document>

@@ -133,3 +133,8 @@
   license: "CC-BY-NC-SA-3.0"
   copyright: "Monument by Six Umbrellas."
   source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
+
+- files: ["the_future_soon.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "The Future Soon by Jonathan Coulton"
+  source: "https://www.youtube.com/watch?v=l5PEz3kGbp4"

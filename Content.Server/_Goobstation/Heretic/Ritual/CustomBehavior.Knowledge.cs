@@ -12,13 +12,15 @@ namespace Content.Server.Heretic.Ritual;
 public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
 {
     // made static so that it doesn't regenerate itself each time
-    private static Dictionary<ProtoId<TagPrototype>, int> requiredTags = new();
-    private List<EntityUid> toDelete = new();
+    private static HashSet<ProtoId<TagPrototype>> _requiredTags = new();
+    private HashSet<ProtoId<TagPrototype>> _missingTags = new();
+    private List<EntityUid> _toDelete = new();
 
     private IPrototypeManager _prot = default!;
     private IRobustRandom _rand = default!;
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
+    private TagSystem _tag = default!;
 
     [ValidatePrototypeId<DatasetPrototype>]
     public const string EligibleTagsDataset = "EligibleTags";
@@ -30,48 +32,42 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _rand = IoCManager.Resolve<IRobustRandom>();
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
+        _tag = args.EntityManager.System<TagSystem>();
 
         outstr = null;
 
         // generate new set of tags
-        if (requiredTags.Count == 0)
+        var dataset = _prot.Index<DatasetPrototype>(EligibleTagsDataset);
+        if (_requiredTags.Count == 0)
             for (int i = 0; i < 4; i++)
-                requiredTags.Add(_rand.Pick(_prot.Index<DatasetPrototype>(EligibleTagsDataset).Values), 1);
+                _requiredTags.Add(_rand.Pick(dataset.Values));
 
         var lookup = _lookup.GetEntitiesInRange(args.Platform, .75f);
-        var missingList = new List<string>();
 
+        _toDelete.Clear();
+        _missingTags.Clear();
+        _missingTags.UnionWith(_requiredTags);
         foreach (var look in lookup)
         {
-            foreach (var tag in requiredTags)
-            {
-                if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
-                    continue;
-                var ltags = tags.Tags;
+            if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
+                continue;
 
-                if (ltags.Contains(tag.Key))
+            _missingTags.RemoveWhere(tag =>
+            {
+                if (_tag.HasTag(tags, tag))
                 {
-                    requiredTags[tag.Key] -= 1;
-                    toDelete.Add(look);
+                    _toDelete.Add(look);
+                    return true;
                 }
-            }
+
+                return false;
+            });
         }
 
-        foreach (var tag in requiredTags)
-            if (tag.Value > 0)
-                missingList.Add(tag.Key);
-
-        if (missingList.Count > 0)
+        if (_missingTags.Count > 0)
         {
-            var sb = new StringBuilder();
-            for (int i = 0; i < missingList.Count; i++)
-            {
-                if (i != missingList.Count - 1)
-                    sb.Append($"{missingList[i]}, ");
-                else sb.Append(missingList[i]);
-            }
-
-            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", sb.ToString()));
+            var missing = string.Join(", ", _missingTags);
+            outstr = Loc.GetString("heretic-ritual-fail-items", ("itemlist", missing));
             return false;
         }
 
@@ -81,14 +77,14 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     public override void Finalize(RitualData args)
     {
         // delete all and reset
-        foreach (var ent in toDelete)
+        foreach (var ent in _toDelete)
             args.EntityManager.QueueDeleteEntity(ent);
-        toDelete = new();
+        _toDelete.Clear();
 
         if (args.EntityManager.TryGetComponent<HereticComponent>(args.Performer, out var hereticComp))
             _heretic.UpdateKnowledge(args.Performer, hereticComp, 4);
 
         // reset tags
-        requiredTags = new();
+        _requiredTags.Clear();
     }
 }

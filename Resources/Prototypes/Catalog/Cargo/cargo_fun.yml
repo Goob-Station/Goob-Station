@@ -208,3 +208,13 @@
   #cooldown: 600 LET'S GO GAMBLING
   category: cargoproduct-category-name-fun
   group: market
+
+- type: cargoProduct  # GoobStation Addition - Bounty
+  id: FunDigitalAudioWorkstation
+  icon:
+    sprite: Objects/Fun/Instruments/structureinstruments.rsi
+    state: daw-base
+  product: DawInstrument
+  cost: 2500
+  category: cargoproduct-category-name-fun
+  group: market

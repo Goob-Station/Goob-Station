@@ -64,9 +64,11 @@ public sealed partial class ClothingComponent : Component
     /// </summary>
     public string? InSlot;
 
+    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadWrite)]
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan EquipDelay = TimeSpan.Zero;
 
+    [Access(typeof(ClothingSystem), typeof(InventorySystem), Other = AccessPermissions.ReadWrite)]
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan UnequipDelay = TimeSpan.Zero;
 

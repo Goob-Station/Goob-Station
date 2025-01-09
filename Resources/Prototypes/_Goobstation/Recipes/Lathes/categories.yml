@@ -38,3 +38,7 @@
 - type: latheCategory
   id: MechWeapons
   name: lathe-category-mechs-weapons
+
+- type: latheCategory
+  id: Modsuit
+  name: lathe-category-modsuit

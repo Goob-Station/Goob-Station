@@ -45,7 +45,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -57,7 +57,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - DionaFirst
     - DionaLast
 
@@ -69,7 +69,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -81,7 +81,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -93,7 +93,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_moth_first_female
     - names_moth_last
 
@@ -105,7 +105,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -117,7 +117,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -129,7 +129,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_rodentia_male
     - names_rodentia_last
 
@@ -141,7 +141,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_reptilian_male
 
 - type: entity
@@ -152,7 +152,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_vulpkanin_male
     - names_vulpkanin_last
 
@@ -164,7 +164,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_first
     - names_last
 
@@ -176,7 +176,7 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_yowie_male
     - names_yowie_last
 
@@ -188,5 +188,28 @@
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
-    nameSegments: 
+    nameSegments:
     - names_vox
+
+- type: entity
+  id: RandomHumanoidSpawnerERTSecurityEVAAnnie
+  parent: RandomHumanoidSpawnerERTSecurityEVA
+  suffix: ERTRole, Annie, EVA
+  components:
+    - type: RandomHumanoidSpawner
+      settings: ERTSecurityEVAAnnie
+
+- type: randomHumanoidSettings
+  id: ERTSecurityEVAAnnie
+  parent: ERTSecurityEVA
+  components:
+    - type: GhostRole
+      name: ghost-role-information-ert-security-name
+      description: ghost-role-information-ert-security-description
+      rules: ghost-role-information-nonantagonist-rules
+      raffle:
+        settings: short
+      job: ERTSecurity
+    - type: Loadout
+      prototypes: [ ERTSecurityGearEVAAnnie ]
+      roleLoadout: [ RoleSurvivalEVA ]
