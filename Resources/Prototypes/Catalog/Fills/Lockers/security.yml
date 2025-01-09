@@ -11,6 +11,7 @@
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
@@ -26,7 +27,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
-
+      - id: Multitool # Goobstation
 - type: entity
   id: LockerWardenFilled
   suffix: Filled
@@ -40,6 +41,7 @@
       - id: ClothingBeltSecurityFilled
       - id: Flash
       - id: ClothingEyesGlassesSecurity
+      - id: ClothingHeadsetAltWarden # Goobstation
       - id: ClothingHandsGlovesCombat
       - id: ClothingShoesBootsJack
       - id: ClothingOuterCoatWarden
@@ -52,6 +54,7 @@
         amount: 2
       - id: RemoteSignaller
         amount: 2
+      - id: Multitool # Goobstation
 
 - type: entity
   id: LockerSecurityFilled
