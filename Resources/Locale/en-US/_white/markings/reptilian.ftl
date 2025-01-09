@@ -9,7 +9,7 @@ marking-LizardShoutEasternDragon-eastern_dragon_overlay = Inner
 marking-LizardShoutEasternDragonUsiki= Lizard, eastern dragon (Mustache)
 marking-LizardShoutEasternDragonUsiki-eastern_dragon = Outer
 marking-LizardShoutEasternDragonUsiki-eastern_dragon_overlay = Inner
-marking-LizardShoutEasternDragonUsiki-eastern_dragon_usiki = Tentacle
+marking-LizardShoutEasternDragonUsiki-eastern_dragon_usiki = Mustache
 
 marking-LizardHeadCobraHood = Lizard, hood with ears (Cobra)
 marking-LizardHeadCobraHood-cobra_hood_with_ears = Outer
