@@ -1,4 +1,4 @@
-﻿using Content.Server.Popups;
+using Content.Server.Popups;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Shuttles.Components;
 using Content.Shared.Construction.Components;
@@ -64,7 +64,7 @@ public sealed class StationAnchorSystem : EntitySystem
             SetStatus(ent, false);
     }
 
-    private void SetStatus(Entity<StationAnchorComponent> ent, bool enabled, ShuttleComponent? shuttleComponent = default)
+    public void SetStatus(Entity<StationAnchorComponent> ent, bool enabled, ShuttleComponent? shuttleComponent = default)
     {
         var transform = Transform(ent);
         var grid = transform.GridUid;
