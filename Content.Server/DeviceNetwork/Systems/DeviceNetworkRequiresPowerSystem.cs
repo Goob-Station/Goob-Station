@@ -1,5 +1,4 @@
 using Content.Server.DeviceNetwork.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 
 namespace Content.Server.DeviceNetwork.Systems;

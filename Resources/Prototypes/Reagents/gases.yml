@@ -16,6 +16,10 @@
           type: Human
       - !type:Oxygenate
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+      - !type:Oxygenate
+        conditions:
         - !type:OrganType
           type: Animal
       - !type:Oxygenate
@@ -72,6 +76,10 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 3
@@ -81,6 +89,10 @@
     Gas:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
         damage:
@@ -163,6 +175,9 @@
           shouldHave: false
         - !type:OrganType
           type: Vox
+          shouldHave: false
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
           shouldHave: false
         # Don't want people to get toxin damage from the gas they just
         # exhaled, right?
@@ -258,7 +273,7 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         type: Local
@@ -273,20 +288,23 @@
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:GenericStatusEffect
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 1
         - !type:OrganType
           type: Slime
           shouldHave: false
-        - !type:BloodReagentThreshold # /tg/ gases
+        - !type:BloodReagentThreshold #  Assmos - /tg/ gases
           reagent: NitrosylPlasmide
           max: 0.1
         key: ForcedSleep
@@ -295,6 +313,9 @@
         type: Add
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: NitrousOxide
           min: 3.5
@@ -320,6 +341,21 @@
       effects:
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5 
+            Radiation: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Frezon
           min: 0.5
@@ -362,7 +398,7 @@
           reagent: Frezon
           min: 1
 
- #/tg/ gases
+ # Assmos - /tg/ gases
 - type: reagent
   id: BZ
   name: reagent-name-bz
@@ -409,7 +445,7 @@
         key: SeeingRainbows
         component: SeeingRainbows
         type: Add
-        time: 10
+        time: 150
         refresh: false
       - !type:Emote
         conditions:
@@ -482,8 +518,8 @@
   name: reagent-name-healium
   desc: reagent-desc-healium
   physicalDesc: reagent-physical-desc-gaseous
-  flavor: sweet
-  color: "#8b0000"
+  flavor: strange
+  color: "#90560b"
   metabolisms:
     Gas:
       effects:
@@ -532,7 +568,7 @@
           max: 0.01
         key: ForcedSleep
         component: ForcedSleeping
-        time: 3
+        time: 1
         type: Add
       - !type:Drunk
         boozePower: 50
@@ -547,7 +583,7 @@
   desc: reagent-desc-nitrium
   physicalDesc: reagent-physical-desc-gaseous
   flavor: sour
-  color: "#b76f0e"
+  color: "#90560B"
   metabolisms:
     Gas:
       effects:
@@ -582,3 +618,39 @@
         damage:
           types:
             Asphyxiation: 15
+      
+- type: reagent
+  id: Pluoxium
+  name: reagent-name-pluoxium
+  desc: reagent-desc-pluoxium
+  physicalDesc: reagent-physical-desc-gaseous
+  flavor: bitter
+  color: "#7b68ee"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Human
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Animal
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Rat
+      - !type:Oxygenate
+        factor: 8
+        conditions:
+        - !type:OrganType
+          type: Plant
+      # Convert Pluoxium into CO2.
+      - !type:ModifyLungGas
+        ratios:
+          CarbonDioxide: 1.0
+          Pluoxium: -1.0

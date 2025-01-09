@@ -186,7 +186,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             return;
 
         var players = _playerManager.Sessions
-            .Where(x => GameTicker.PlayerGameStatuses[x.UserId] == PlayerGameStatus.JoinedGame)
+            .Where(x => GameTicker.PlayerGameStatuses.TryGetValue(x.UserId, out var status) && status == PlayerGameStatus.JoinedGame)
             .ToList();
 
         ChooseAntags((uid, component), players, midround: true);
@@ -226,6 +226,22 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         var playerPool = GetPlayerPool(ent, pool, def);
         var count = GetTargetAntagCount(ent, GetTotalPlayerCount(pool), def);
 
+        // Goobstation start
+        int GetSelectedAntagCount()
+        {
+            return ent.Comp.SelectedSessions.Count + _pendingAntag.PendingAntags.Count;
+        }
+
+        bool AntagSelected(ICommonSession session)
+        {
+            return ent.Comp.SelectedSessions.Contains(session) ||
+                   _pendingAntag.PendingAntags.ContainsKey(session.UserId);
+        }
+
+        // Oh well two different target antag counts. fml
+        var targetCount = GetSelectedAntagCount() + count;
+        // Goobstation end
+
         // if there is both a spawner and players getting picked, let it fall back to a spawner.
         var noSpawner = def.SpawnerPrototype == null;
         var picking = def.PickPlayer;
@@ -238,26 +254,70 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
             picking = false;
         }
 
-        for (var i = 0; i < count; i++)
+        ///// Einstein Engines changes /////
+        //
+        // Fixes issues caused by failures in making someone antag while
+        // not breaking any API on this system.
+        //
+        // This will either allocate `count` slots from the player pool,
+        // or will call MakeAntag with null sessions to fill up the slots.
+        //
+        if (def.PickPlayer)
         {
-            var session = (ICommonSession?)null;
-            if (picking)
+            // Tries multiple times to assign antags.
+            // When any number of assignments fail, next iteration
+            // gets new items to replace those.
+            // Already selected or failed sessions are avoided.
+            // It retries until it ends with no failures or up
+            // to maxRetries attempts.
+
+            const int maxRetries = 4;
+            var retry = 0;
+            List<ICommonSession> failed = [];
+
+            while (GetSelectedAntagCount() < targetCount && retry < maxRetries)
             {
-                if (!playerPool.TryPickAndTake(RobustRandom, out session) && noSpawner)
+                var sessions = (ICommonSession[]?) null;
+                if (!playerPool.TryGetItems(RobustRandom,
+                                            out sessions,
+                                            targetCount - GetSelectedAntagCount(),
+                                            false))
+                    break; // Ends early if there are no eligible sessions
+
+                foreach (var session in sessions)
                 {
-                    Log.Warning($"Couldn't pick a player for {ToPrettyString(ent):rule}, no longer choosing antags for this definition");
+                    MakeAntag(ent, session, def);
+                    if (!AntagSelected(session))
+                    {
+                        failed.Add(session);
+                    }
+                }
+                // In case we're done
+                if (GetSelectedAntagCount() >= targetCount)
                     break;
-                }
 
-                if (session != null && ent.Comp.SelectedSessions.Contains(session))
+                playerPool = playerPool.Where((session_) =>
                 {
-                    Log.Warning($"Somehow picked {session} for an antag when this rule already selected them previously");
-                    continue;
-                }
+                    return !AntagSelected(session_) && !failed.Contains(session_);
+                });
+                retry++;
             }
-
-            MakeAntag(ent, session, def);
         }
+
+        if (def.SpawnerPrototype == null) // Goobstation
+            return;
+
+        // This preserves previous behavior for when def.PickPlayer
+        // was not satisfied. This behavior is not that obvious to
+        // read from the previous code.
+        // It may otherwise process leftover slots if maxRetries have
+        // been reached.
+
+        for (var i = GetSelectedAntagCount(); i < targetCount; i++)
+        {
+            MakeAntag(ent, null, def);
+        }
+        ///// End of Einstein Engines changes /////
     }
 
     /// <summary>
@@ -363,7 +423,7 @@ public sealed partial class AntagSelectionSystem : GameRuleSystem<AntagSelection
         {
             var curMind = session.GetMind();
 
-            if (curMind == null || 
+            if (curMind == null ||
                 !TryComp<MindComponent>(curMind.Value, out var mindComp) ||
                 mindComp.OwnedEntity != antagEnt)
             {

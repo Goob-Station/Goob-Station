@@ -6,7 +6,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Whitelist;
 using Robust.Server.Audio;
-using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;

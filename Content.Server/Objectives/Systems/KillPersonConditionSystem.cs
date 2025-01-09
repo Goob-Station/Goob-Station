@@ -1,7 +1,6 @@
 using Content.Server.GameTicking.Rules;
 using Content.Server._Goobstation.Objectives.Components;
 using Content.Server.Objectives.Components;
-using Content.Server.Revolutionary.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared.CCVar;
 using Content.Shared.Roles.Jobs;
@@ -60,7 +59,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId, comp.NeedsOrganic);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
@@ -84,14 +83,14 @@ public sealed class KillPersonConditionSystem : EntitySystem
             return;
 
         // no other humans to kill
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;
             return;
         }
 
-        var allHeads = new List<EntityUid>();
+        var allHeads = new HashSet<Entity<MindComponent>>();
         foreach (var mind in allHumans)
         {
             // RequireAdminNotify used as a cheap way to check for command department
@@ -118,7 +117,7 @@ public sealed class KillPersonConditionSystem : EntitySystem
         if (target.Target != null)
             return;
 
-        var allHumans = _mind.GetAliveHumansExcept(args.MindId);
+        var allHumans = _mind.GetAliveHumans(args.MindId);
         if (allHumans.Count == 0)
         {
             args.Cancelled = true;

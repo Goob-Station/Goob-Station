@@ -16,7 +16,7 @@
     selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2
+      max: 1
       playerRatio: 10
       blacklist:
         components:
@@ -52,7 +52,7 @@
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
-      max: 2
+      max: 1
       playerRatio: 25
       lateJoinAdditional: true
       allowNonHumans: true
@@ -76,12 +76,17 @@
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
+  - type: AntagObjectives
+    objectives:
+    - ChangelingStealDNAObjective
+    - EscapeIdentityObjective
+    - ChangelingSurviveObjective
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
+      max: 1
       playerRatio: 10
       blacklist:
         components:
@@ -103,12 +108,17 @@
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 2
+      max: 1
       playerRatio: 15
       blacklist:
         components:
@@ -116,6 +126,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 # Revolution
 - type: entity
@@ -166,7 +177,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    selectionTime: PrePlayerSpawn
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -202,7 +213,7 @@
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
       max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
-      playerRatio: 10
+      playerRatio: 16
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalSyndicate

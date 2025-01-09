@@ -104,7 +104,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: [ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing]
+  parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
   id: ClothingOuterSuitRad
   name: radiation suit
   description: "A suit that protects against radiation. The label reads, 'Made with lead. Please do not consume insulation.'"
@@ -119,12 +119,9 @@
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/rad.rsi
   - type: GroupExamine
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodRad
-    slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodRad
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
@@ -155,6 +152,7 @@
   # phase cloak
   - type: ToggleClothing
     action: ActionTogglePhaseCloak
+    disableOnUnequip: true
   - type: ComponentToggler
     parent: true
     components:
@@ -243,7 +241,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterSuitIan
   name: ian suit
   description: Who's a good boy?
@@ -254,11 +252,9 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/iansuit.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodIan
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodIan
   - type: Construction
     graph: ClothingOuterSuitIan
     node: suit
@@ -266,7 +262,7 @@
     slots: WITHOUT_POCKET
 
 - type: entity
-  parent: ClothingOuterBase
+  parent: [ ClothingOuterBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterSuitCarp
   name: carp suit
   description: A special suit that makes you look just like a space carp, if your eyesight is bad.
@@ -278,11 +274,9 @@
     size: Normal
   - type: Clothing
     sprite: Clothing/OuterClothing/Suits/carpsuit.rsi
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHatHoodCarp
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHatHoodCarp
 
 - type: entity
   parent: ClothingOuterSuitCarp
@@ -295,5 +289,6 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetHardsuitCarp
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHelmetHardsuitCarp

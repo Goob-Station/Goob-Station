@@ -5,7 +5,6 @@ using Content.Shared.Humanoid;
 using Content.Shared.Humanoid.Markings;
 using Robust.Client.GameObjects;
 using Robust.Shared.Utility;
-using Content.Shared.Body.Components;
 // Shitmed Change End
 
 namespace Content.Client.Body.Systems;

@@ -172,7 +172,7 @@
     stateDoorOpen: freezer_open
     stateDoorClosed: freezer_door
   - type: ExplosionResistance
-    damageCoefficient: 0.50
+    damageCoefficient: 0.01
   - type: AntiRottingContainer
   - type: Construction
     graph: ClosetFreezer
@@ -368,6 +368,20 @@
     stateBaseClosed: shotguncase
     stateDoorOpen: shotguncase_open
     stateDoorClosed: shotguncase_door
+  - type: AccessReader
+  - type: Construction
+    graph: GunSafe
+    node: done
+    containers:
+    - entity_storage
+  - type: StaticPrice
+    price: 660
+
+- type: entity
+  id: GunSafeBaseSecure
+  parent: GunSafe
+  suffix: Armory, Locked
+  components:
   - type: AccessReader
     access: [["Armory"]]
 

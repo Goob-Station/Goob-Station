@@ -29,11 +29,6 @@
       path: /Audio/Items/Culinary/chop.ogg
   - type: Scalpel # Shitmed
     speed: 0.65
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: kitchen knife
@@ -107,6 +102,7 @@
         Slash: 12
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     damage:
@@ -119,6 +115,9 @@
       sprite: Objects/Weapons/Melee/combat_knife.rsi
   - type: DisarmMalus
     malus: 0.225
+  - type: ThrowingAngle
+    angle: 225
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   name: survival knife
@@ -137,7 +136,7 @@
 
 - type: entity
   name: kukri knife
-  parent: [CombatKnife, BaseMinorContraband]
+  parent: [CombatKnife, BaseSecurityCargoContraband]
   id: KukriKnife
   description: Professionals have standards. Be polite. Be efficient. Have a plan to kill everyone you meet.
   components:
@@ -151,6 +150,7 @@
         Slash: 15
   - type: Item
     sprite: Objects/Weapons/Melee/kukri_knife.rsi
+    storedSprite: null
 
 - type: entity
   parent: ClothingHeadHatGreyFlatcap
@@ -177,6 +177,7 @@
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyflatcap.rsi
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   parent: BladedFlatcapGrey
@@ -280,7 +281,7 @@
   name: throwing knife
   parent: [BaseKnife, BaseSyndicateContraband]
   id: ThrowingKnife
-  description: This bloodred knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
+  description: This blood-red knife is very aerodynamic and easy to throw, but good luck trying to fight someone hand-to-hand.
   components:
   - type: Tag
     tags:
@@ -297,6 +298,7 @@
         Slash: 5
   - type: EmbeddableProjectile
     sound: /Audio/Weapons/star_hit.ogg
+    offset: -0.15,0.0
   - type: LandAtCursor
   - type: DamageOtherOnHit
     ignoreResistances: true
@@ -306,3 +308,5 @@
         Piercing: 15
   - type: Item
     sprite: Objects/Weapons/Melee/throwing_knife.rsi
+  - type: ThrowingAngle
+    angle: 225

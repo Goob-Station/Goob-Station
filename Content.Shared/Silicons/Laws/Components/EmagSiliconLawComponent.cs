@@ -1,6 +1,4 @@
-using Content.Shared.Roles;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Audio;
 
 namespace Content.Shared.Silicons.Laws.Components;
@@ -28,13 +26,6 @@ public sealed partial class EmagSiliconLawComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public TimeSpan StunTime = TimeSpan.Zero;
-
-    /// <summary>
-    /// A role given to entities with this component when they are emagged.
-    /// Mostly just for admin purposes.
-    /// </summary>
-    [DataField]
-    public ProtoId<AntagPrototype>? AntagonistRole = "SubvertedSilicon";
 
     /// <summary>
     /// The sound that plays for the borg player

@@ -16,7 +16,6 @@ using Content.Shared.Speech;
 using Content.Shared.Standing;
 using Content.Shared.Strip.Components;
 using Content.Shared.Throwing;
-using Robust.Shared.Physics.Components;
 
 namespace Content.Shared.Mobs.Systems;
 

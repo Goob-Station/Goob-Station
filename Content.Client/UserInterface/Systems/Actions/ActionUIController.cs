@@ -433,6 +433,12 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 return true;
             if (a == null || b == null)
                 return false;
+            // Goobstation start
+            if (a.Value == b.Value)
+                return true;
+            if (entity == localEntity) // Action EntityUids are not equal but this is the same entity
+                return false;
+            // Goobstation end
             if (!metaQuery.TryGetComponent(a.Value, out var metaA) ||
                 !metaQuery.TryGetComponent(b.Value, out var metaB))
                 return false;

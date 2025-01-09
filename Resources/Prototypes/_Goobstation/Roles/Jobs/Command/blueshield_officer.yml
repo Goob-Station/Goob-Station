@@ -17,7 +17,7 @@
       requiredAge: 21
   weight: 20
   startingGear: BlueshieldOfficerGear
-  icon: "JobIconNanotrasen"
+  icon: "JobIconBlueshield"
   requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
@@ -44,20 +44,18 @@
 - type: startingGear
   id: BlueshieldOfficerGear
   equipment:
-    shoes: ClothingShoesBootsJackFilled
     eyes: ClothingEyesGlassesMedSec
     gloves: ClothingHandsGlovesCombat
-    id: ERTSecurityPDA
+    id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
     belt: ClothingBeltSecurityFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
-    suitstorage: WeaponSubMachineGunAtreides
+    suitstorage: WeaponLeverChester
   storage:
     back:
     - Flash
-    - MagazinePistolSubMachineGun
-    - MagazinePistolSubMachineGun
+    - BlueshieldAmmunitionBoxFilled
     - BluespaceLifelineImplanter
     - WeaponEnergyRevolver
     - SecHypo

@@ -1,6 +1,6 @@
 - type: entity
   id: SurgeryStepBase
-  categories: [ HideSpawnMenu ]
+  abstract: true
   components:
   - type: SurgeryStep
 
@@ -526,12 +526,12 @@
         - type: OhioAccent
         - type: RatvarianLanguage
         - type: Clumsy
-          clumsyDamage:
-            types:
-              Blunt: 5
-              Piercing: 4
-            groups:
-              Burn: 3
+          # clumsyDamage:
+          #   types:
+          #     Blunt: 5
+          #     Piercing: 4
+          #   groups:
+          #     Burn: 3
     duration: 5
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
@@ -557,9 +557,9 @@
         - type: OhioAccent
         - type: RatvarianLanguage
         - type: Clumsy
-          clumsyDamage:
-            types:
-              Blunt: 0
+          # clumsyDamage:
+          #   types:
+          #     Blunt: 0
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/hemostat.rsi
     state: hemostat

@@ -7,7 +7,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Noise;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
-using Robust.Shared.Utility;
 
 namespace Content.Shared.Parallax.Biomes;
 
@@ -183,7 +182,7 @@ public abstract class SharedBiomeSystem : EntitySystem
     }
 
 
-    private bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, int seed, MapGridComponent grid,
+    public bool TryGetEntity(Vector2i indices, List<IBiomeLayer> layers, Tile tileRef, int seed, MapGridComponent grid,
         [NotNullWhen(true)] out string? entity)
     {
         var tileId = TileDefManager[tileRef.TypeId].ID;

@@ -3,7 +3,6 @@ using Content.Shared.Implants;
 using Robust.Shared.Containers;
 using Content.Shared.Mindcontrol;
 using Content.Server.Mindcontrol;
-using Content.Shared.Implants.Components;
 
 namespace Content.Server.Implants;
 public sealed class MindcontrolImplantSystem : EntitySystem
