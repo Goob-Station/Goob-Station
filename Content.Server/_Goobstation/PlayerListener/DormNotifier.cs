@@ -26,7 +26,8 @@ namespace Content.Server._Goobstation.PlayerListener;
 ///     3. None of the players are dead, crit, AFK or disconnected
 /// </summary>
 /// <remarks>
-///     Fires faster if at least 1 out of 2 or more players has nothing in their body clothing slot
+///     Fires faster if at least 1 out of 2 or more players has nothing in their body clothing slot.
+///     This is called "expedited" here.
 /// </remarks>
 public sealed class DormNotifier : EntitySystem
 {
@@ -42,7 +43,7 @@ public sealed class DormNotifier : EntitySystem
     private int _frequency = 10;
 
     private int _timeout = 120;
-    private int _timeoutGrave = 25;
+    private int _timeoutExpedited = 25;
 
     public override void Initialize()
     {
@@ -51,7 +52,7 @@ public sealed class DormNotifier : EntitySystem
         Subs.CVar(_cfg, GoobCVars.DormNotifier, value => _enabled = value, true);
         Subs.CVar(_cfg, GoobCVars.DormNotifierFrequency, value => _frequency = value, true);
         Subs.CVar(_cfg, GoobCVars.DormNotifierPresenceTimeout, value => _timeout = value, true);
-        Subs.CVar(_cfg, GoobCVars.DormNotifierPresenceTimeoutNude, value => _timeoutGrave = value, true);
+        Subs.CVar(_cfg, GoobCVars.DormNotifierPresenceTimeoutNude, value => _timeoutExpedited = value, true);
 
         SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRestartCleanup);
@@ -140,7 +141,7 @@ public sealed class DormNotifier : EntitySystem
         var expedited = DetermineExpedited(condemned);
 
         dnc.Value.Comp.Potential.Add(potential);
-        QueueRecheck(TimeSpan.FromSeconds(expedited ? _timeoutGrave : _timeout), potential, expedited);
+        QueueRecheck(TimeSpan.FromSeconds(expedited ? _timeoutExpedited : _timeout), potential, expedited);
     }
 
     /// <summary>
@@ -172,7 +173,7 @@ public sealed class DormNotifier : EntitySystem
                 .Select(con => new Entity<HumanoidAppearanceComponent>(con, Comp<HumanoidAppearanceComponent>(con)))
                 .ToHashSet();
 
-            bool valid = Validate(condemned.Marker, sinners, out var currentSinners);
+            bool valid = Validate(condemned.Marker, sinners, out _);
 
             if (!valid)
             {
@@ -185,15 +186,17 @@ public sealed class DormNotifier : EntitySystem
             Log.Warning("Entity didn't have HumanoidAppearanceComponent");
         }
 
+        var current = DetermineExpedited(condemned.Condemned);
+
         // It was expedited
         if (expedited)
         {
             // But isn't now.
-            if (!DetermineExpedited(condemned.Condemned))
+            if (!current)
             {
-                if (_timeout > _timeoutGrave)
+                if (_timeout > _timeoutExpedited)
                 {
-                    QueueRecheck(TimeSpan.FromSeconds(_timeout - _timeoutGrave), condemned);
+                    QueueRecheck(TimeSpan.FromSeconds(_timeout - _timeoutExpedited), condemned);
                     return;
                 }
 
@@ -202,7 +205,8 @@ public sealed class DormNotifier : EntitySystem
             }
         }
 
-        Notify(condemned, expedited);
+        // If it wasn't expedited, but is now - oh well.
+        Notify(condemned, current);
     }
 
     private void ApplyPermanently(Condemnation condemn)
