@@ -3973,3 +3973,9 @@ Entries:
       message: Changeling ability to recover chemicals from food items.
   id: 447
   time: '2025-01-09T17:38:36.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Repalleted the HoS and HoP cloaks to fit in better with their jumpsuits.
+  id: 448
+  time: '2025-01-09T17:40:22.0000000+00:00'
