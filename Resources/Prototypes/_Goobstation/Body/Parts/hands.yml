@@ -1,4 +1,22 @@
 - type: entity
+  id: LeftHandDwarf
+  name: "left dwarf hand"
+  parent: [PartHuman, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandDwarf
+  name: "right dwarf hand"
+  parent: [PartHuman, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
+
+- type: entity
   id: LeftHandFelinid
   name: "left felinid hand"
   parent: [PartHuman, BaseLeftHand]
