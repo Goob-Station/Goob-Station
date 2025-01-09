@@ -11,5 +11,5 @@ changelog-button = Changelog
 changelog-button-new-entries = Changelog (new!)
 
 # Goobstation
-changelog-tab-title-Changelog = Wizden Changelog
+changelog-tab-title-Changelog = Wizden
 changelog-tab-title-Admin = Admin
