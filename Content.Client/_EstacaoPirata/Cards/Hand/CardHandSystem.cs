@@ -142,7 +142,13 @@ public sealed class CardHandSystem : EntitySystem
     }
     private void OnComponentStartupEvent(EntityUid uid, CardHandComponent comp, ComponentStartup args)
     {
-
+        if (!TryComp(uid, out CardStackComponent? stack))
+        {
+            _notInit[(uid, comp)] = 0;
+            return;
+        }
+        if(stack.Cards.Count <= 0)
+            _notInit[(uid, comp)] = 0;
         UpdateSprite(uid, comp);
     }
 

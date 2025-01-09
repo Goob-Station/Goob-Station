@@ -26,10 +26,8 @@
   id: BlobMob
 
 - type: entity
-  name: cancer mouse
-  description: Toxic. Squeak!
-  parent: MobMouseCancer
-  id: MobMouseCancerBlob
+  parent: MobMouse
+  id: MobMouseBlob
   suffix: Blob
   components:
   - type: BlobCarrier
@@ -41,7 +39,7 @@
   parent: BaseAntagSpawner
   components:
     - type: GhostRoleMobSpawner
-      prototype: MobMouseCancerBlob
+      prototype: MobMouseBlob
     - type: GhostRole
       makeSentient: true
       name: blob-carrier-role-name
