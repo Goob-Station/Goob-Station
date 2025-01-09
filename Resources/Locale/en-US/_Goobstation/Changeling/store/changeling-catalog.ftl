@@ -137,3 +137,8 @@ evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
     Default radio key is :g
+
+evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
+evolutionmenu-utility-absorbbiomatter-desc =
+    Absorbs an organic food item, letting you regain chemicals depending on its contents.
+    Can absorb nutriment, cooked and uncooked proteins, and fat.
