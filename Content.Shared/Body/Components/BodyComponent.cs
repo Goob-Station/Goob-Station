@@ -41,4 +41,9 @@ public sealed partial class BodyComponent : Component
     [ViewVariables]
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> LegEntities = new();
+
+    // WD EDIT START
+    [DataField, AutoNetworkedField]
+    public bool ThermalVisibility = true;
+    // WD EDIT END
 }

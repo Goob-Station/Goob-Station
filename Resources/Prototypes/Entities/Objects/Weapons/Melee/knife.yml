@@ -29,11 +29,6 @@
       path: /Audio/Items/Culinary/chop.ogg
   - type: Scalpel # Shitmed
     speed: 0.65
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
 
 - type: entity
   name: kitchen knife
@@ -122,6 +117,7 @@
     malus: 0.225
   - type: ThrowingAngle
     angle: 225
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   name: survival knife
@@ -140,7 +136,7 @@
 
 - type: entity
   name: kukri knife
-  parent: [CombatKnife, BaseMinorContraband]
+  parent: [CombatKnife, BaseSecurityCargoContraband]
   id: KukriKnife
   description: Professionals have standards. Be polite. Be efficient. Have a plan to kill everyone you meet.
   components:
@@ -181,6 +177,7 @@
     sprite: Clothing/Head/Hats/greyflatcap.rsi
   - type: Clothing
     sprite: Clothing/Head/Hats/greyflatcap.rsi
+  - type: ThrowableBlocked # Goobstation
 
 - type: entity
   parent: BladedFlatcapGrey

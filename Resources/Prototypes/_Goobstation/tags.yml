@@ -2,7 +2,52 @@
   id: BlueprintMedicalFabricator
 
 - type: Tag
+  id: Eyes
+
+- type: Tag
+  id: GasMask
+
+- type: Tag
+  id: Heart
+
+- type: Tag
+  id: JanicartKeys
+
+- type: Tag
+  id: Kidneys
+
+- type: Tag
+  id: Liver
+
+- type: Tag
+  id: Lungs
+
+- type: Tag
   id: MagazineHighCaliber
+
+- type: Tag
+  id: Mask
+
+- type: Tag
+  id: Organ
+
+- type: Tag
+  id: Poppy
+
+- type: Tag
+  id: Stomach
+
+- type: Tag
+  id: Table
+
+- type: Tag
+  id: Tongue
+
+- type: Tag
+  id: VehicleKey
+
+- type: Tag
+  id: WaterTank
 
 - type: Tag
   id: CartridgeHighCaliber
@@ -129,3 +174,40 @@
 
 - type: Tag
   id: Tourniquet
+
+- type: Tag
+  id: MagazineMagnumLeverRifle
+  
+- type: Tag
+  id: ModsuitPart
+
+- type: Tag
+  id: ModsuitShell
+
+- type: Tag
+  id: ModsuitGauntlets
+
+- type: Tag
+  id: ModsuitHelmet
+
+- type: Tag
+  id: ModsuitBoots
+
+- type: Tag
+  id: ModsuitChestplate
+
+- type: Tag
+  id: ModsuitCore
+
+- type: Tag
+  id: ModsuitPlatingExternal
+  
+- type: Tag
+  id: MagazineLightRifleSubsonic
+
+- type: Tag
+  id: CartridgeLightRifleSubsonic
+  
+- type: Tag
+  id: WeaponPistolDualetta
+

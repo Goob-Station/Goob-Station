@@ -1,4 +1,3 @@
-using Content.Server.NPC.Systems;
 using Robust.Shared.Audio;
 
 namespace Content.Server.NPC.Components;

@@ -271,6 +271,7 @@
         - SurgeryTool
         - Dropper
         - Tourniquet #Goobstation - ParamedHypo
+        - MedicalPatch # Goobstation
       components:
         - Hypospray
         - Injector
@@ -458,7 +459,7 @@
   - type: Appearance
 
 - type: entity
-  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseRestrictedContraband] # Goobstation
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseRestrictedContraband]
   id: ClothingBeltSecurity
   name: security belt
   description: Can hold security gear like handcuffs and flashes.
