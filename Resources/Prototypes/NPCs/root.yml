@@ -49,9 +49,6 @@
 - type: htnCompound
   id: SimpleHumanoidHostileCompound
   branches:
-    - tasks: # Goobstation
-        - !type:HTNCompoundTask
-          task: WieldItemCompound
     - tasks:
         - !type:HTNCompoundTask
           task: RangedCombatCompound

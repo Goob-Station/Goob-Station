@@ -14,10 +14,7 @@ public sealed partial class WieldOperator : HTNOperator
 
     public override HTNOperatorStatus Update(NPCBlackboard blackboard, float frameTime)
     {
-        if (!blackboard.TryGetValue(NPCBlackboard.ActiveHand, out Hand? activeHand, _entManager))
-            return HTNOperatorStatus.Finished;
-
-        if (activeHand.HeldEntity is not { } item)
+        if (!blackboard.TryGetValue(NPCBlackboard.ActiveHandEntity, out EntityUid? item, _entManager))
             return HTNOperatorStatus.Finished;
 
         if (!_entManager.TryGetComponent(item, out WieldableComponent? wieldable) || wieldable.Wielded)
@@ -26,6 +23,8 @@ public sealed partial class WieldOperator : HTNOperator
         var owner = blackboard.GetValueOrDefault<EntityUid>(NPCBlackboard.Owner, _entManager);
         var wieldableSystem = _entManager.System<WieldableSystem>();
 
-        return wieldableSystem.TryWield(item, wieldable, owner) ? HTNOperatorStatus.Finished : HTNOperatorStatus.Failed;
+        return wieldableSystem.TryWield(item.Value, wieldable, owner)
+            ? HTNOperatorStatus.Finished
+            : HTNOperatorStatus.Failed;
     }
 }

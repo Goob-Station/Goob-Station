@@ -14,8 +14,7 @@ public sealed partial class UnwieldedEntityInHandsPrecondition : HTNPrecondition
 
     public override bool IsMet(NPCBlackboard blackboard)
     {
-        var result = blackboard.TryGetValue(NPCBlackboard.ActiveHand, out Hand? activeHand, _entManager) &&
-                     activeHand.HeldEntity is { } item &&
+        var result = blackboard.TryGetValue(NPCBlackboard.ActiveHandEntity, out EntityUid? item, _entManager) &&
                      _entManager.TryGetComponent(item, out WieldableComponent? wieldable) && !wieldable.Wielded;
 
         return result ^ Invert;

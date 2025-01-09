@@ -32,9 +32,12 @@
     WeaponShotgunBlunderbuss: 2
     WeaponSniperMosin: 2
     WeaponRevolverPirate: 2
+    WeaponPistolMk58: 2
     WeaponRevolverInspector: 1
     WeaponRevolverDeckard: 1
     WeaponRevolverPython: 1
     WeaponShotgunSawn: 1
     WeaponPistolFlintlock: 1
     Musket: 1
+    WeaponPistolViper: 1
+    WeaponPistolCobra: 1

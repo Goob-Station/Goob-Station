@@ -1,3 +1,4 @@
+using System.Linq;
 using Content.Server.NPC;
 using Content.Server.NPC.HTN.Preconditions;
 using Content.Server.Weapons.Ranged.Systems;
@@ -6,6 +7,9 @@ using Content.Shared.Weapons.Ranged.Components;
 
 namespace Content.Server._Goobstation.Wizard.NPC;
 
+/// <summary>
+/// Whether gun either has no ammo (other precondition handles that case) and it's not bolted/has no spent cartridges
+/// </summary>
 public sealed partial class GunCanFirePrecondition : HTNPrecondition
 {
     [Dependency] private readonly IEntityManager _entManager = default!;
@@ -21,39 +25,45 @@ public sealed partial class GunCanFirePrecondition : HTNPrecondition
         if (!gunSystem.TryGetGun(owner, out var gunUid, out _))
             return false;
 
-        return CanFire(_entManager, gunSystem, gunUid) ^ Invert;
+        return CanFire(gunSystem, gunUid) ^ Invert;
     }
 
-    public static bool CanFire(IEntityManager entManager, GunSystem gunSystem, EntityUid gunUid)
+    private bool CanFire(GunSystem gunSystem, EntityUid gunUid)
     {
-        if (entManager.TryGetComponent(gunUid, out RevolverAmmoProviderComponent? revolver))
+        if (_entManager.TryGetComponent(gunUid, out RevolverAmmoProviderComponent? revolver))
         {
-            var ammo = revolver.AmmoSlots[revolver.CurrentIndex];
-
-            return ammo == null || IsAmmoValid(ammo.Value);
+            // No ammo, let other precondition handle that OR there is at least 1 unspent casing
+            return revolver.Chambers.All(x => x is null) || revolver.Chambers.Any(x => x is true);
         }
 
-        if (entManager.TryGetComponent(gunUid, out BallisticAmmoProviderComponent? ballistic))
+        if (_entManager.TryGetComponent(gunUid, out BallisticAmmoProviderComponent? ballistic))
             return CanBallisticShoot(ballistic);
 
-        if (entManager.HasComponent<MagazineAmmoProviderComponent>(gunUid))
-        {
-            if (gunSystem.GetMagazineEntity(gunUid) is not { } mag)
-                return false;
+        if (_entManager.HasComponent<MagazineAmmoProviderComponent>(gunUid))
+            return CanMagazineShoot(gunUid);
 
-            return entManager.TryGetComponent(mag, out BallisticAmmoProviderComponent? ballisticMag) &&
-                   CanBallisticShoot(ballisticMag);
-        }
-
-        if (entManager.TryGetComponent(gunUid, out ChamberMagazineAmmoProviderComponent? chamberMagazine))
+        // ReSharper disable once InvertIf
+        if (_entManager.TryGetComponent(gunUid, out ChamberMagazineAmmoProviderComponent? chamberMagazine))
         {
             if (chamberMagazine.BoltClosed is false)
                 return false;
 
-            return gunSystem.GetChamberEntity(gunUid) is { } ammo && IsAmmoValid(ammo);
+            if (gunSystem.GetChamberEntity(gunUid) is { } ammo)
+                return IsAmmoValid(ammo);
+
+            return CanMagazineShoot(gunUid);
         }
 
         return true;
+
+        bool CanMagazineShoot(EntityUid gunEnt)
+        {
+            if (gunSystem.GetMagazineEntity(gunEnt) is not { } mag)
+                return true;
+
+            return !_entManager.TryGetComponent(mag, out BallisticAmmoProviderComponent? ballisticMag) ||
+                   CanBallisticShoot(ballisticMag);
+        }
 
         bool CanBallisticShoot(BallisticAmmoProviderComponent ballisticProvider)
         {
@@ -66,7 +76,7 @@ public sealed partial class GunCanFirePrecondition : HTNPrecondition
 
         bool IsAmmoValid(EntityUid ammo)
         {
-            return !entManager.TryGetComponent(ammo, out CartridgeAmmoComponent? cartridge) || !cartridge.Spent;
+            return !_entManager.TryGetComponent(ammo, out CartridgeAmmoComponent? cartridge) || !cartridge.Spent;
         }
     }
 }

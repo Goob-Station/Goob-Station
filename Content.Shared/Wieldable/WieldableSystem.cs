@@ -183,7 +183,7 @@ public sealed class WieldableSystem : EntitySystem
             args.Handled = TryUnwield(uid, component, args.User);
     }
 
-    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false)
+    public bool CanWield(EntityUid uid, WieldableComponent component, EntityUid user, bool quiet = false, bool checkHolding = true) // Goob edit
     {
         // Do they have enough hands free?
         if (!EntityManager.TryGetComponent<HandsComponent>(user, out var hands))
@@ -194,14 +194,14 @@ public sealed class WieldableSystem : EntitySystem
         }
 
         // Is it.. actually in one of their hands?
-        if (!_handsSystem.IsHolding(user, uid, out _, hands))
+        if (checkHolding && !_handsSystem.IsHolding(user, uid, out _, hands))
         {
             if (!quiet)
                 _popupSystem.PopupClient(Loc.GetString("wieldable-component-not-in-hands", ("item", uid)), user, user);
             return false;
         }
 
-        if (_handsSystem.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
+        if (_handsSystem.CountFreeableHands((user, hands), true) < component.FreeHandsRequired) // Goob edit
         {
             if (!quiet)
             {
