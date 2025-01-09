@@ -26,3 +26,4 @@
         variation: 0.08
   - type: DamageOnHighSpeedImpact
     minimumSpeed: 999
+    
