@@ -83,6 +83,10 @@ namespace Content.Server.VentCraw
                     return;
                 }
             }
+            if(!crawler.AllowInventory){
+                //Drop
+                //popup telling to drop22
+            }
 
             var args = new DoAfterArgs(EntityManager, user, crawler.EnterDelay, new EnterVentDoAfterEvent(), user, uid, user)
             {
