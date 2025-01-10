@@ -341,3 +341,17 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: EvolutionMenuUtilityAbsorbBiomatter
+  name: evolutionmenu-utility-absorbbiomatter-name
+  description: evolutionmenu-utility-absorbbiomatter-desc
+  icon: { sprite: _Goobstation/Changeling/changeling_abilities.rsi, state: absorb_biomatter }
+  productAction: ActionAbsorbBiomatter
+  cost:
+    EvolutionPoint: 3
+  categories:
+  - ChangelingAbilityUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

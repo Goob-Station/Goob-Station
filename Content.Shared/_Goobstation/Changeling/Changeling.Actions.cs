@@ -23,6 +23,7 @@ public sealed partial class ChangelingActionComponent : Component
 
 public sealed partial class OpenEvolutionMenuEvent : InstantActionEvent { }
 public sealed partial class AbsorbDNAEvent : EntityTargetActionEvent { }
+public sealed partial class AbsorbBiomatterEvent : EntityTargetActionEvent { }
 public sealed partial class StingExtractDNAEvent : EntityTargetActionEvent { }
 public sealed partial class ChangelingTransformCycleEvent : InstantActionEvent { }
 public sealed partial class ChangelingTransformEvent : InstantActionEvent { }
