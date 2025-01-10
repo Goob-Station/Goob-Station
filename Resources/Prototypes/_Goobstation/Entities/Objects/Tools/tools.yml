@@ -15,8 +15,10 @@
     - Multitool
   - type: Prying
     enabled: false
-  - type: UseDelay # For insta prying
-    delay: 1
+    speedModifier: 2 # ShibaStation - future tech go faster :)
+    pryPowered: true # ShibaStation - let the sonic screwdriver pry powered doors too, why not
+  # - type: UseDelay # For insta prying # ShibaStation - disabled because item is admeme and the usedelay also applies to the mode switching, which is annoying.
+  #   delay: 1
   - type: Tool
     qualities:
       - Screwing
@@ -32,15 +34,15 @@
         useSound:
           path: /Audio/Items/drill_use.ogg
         changeSound:
-          path: /Audio/Effects/Arcade/newgame.ogg
+          path: /Audio/Effects/beep1.ogg # ShibaStation - less grating sound effect
       - behavior: Prying
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
-          state: cutter
+          state: crowbar
         useSound:
           path: /Audio/Items/jaws_pry.ogg
         changeSound:
-          path: /Audio/Effects/Arcade/newgame.ogg
+          path: /Audio/Effects/beep1.ogg # ShibaStation - less grating sound effect
       - behavior: Anchoring
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
@@ -48,21 +50,21 @@
         useSound:
           path: /Audio/Items/ratchet.ogg
         changeSound:
-          path: /Audio/Effects/Arcade/newgame.ogg
+          path: /Audio/Effects/beep1.ogg # ShibaStation - less grating sound effect
       - behavior: Cutting
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
-          state: crowbar
+          state: cutter
         useSound:
           path: /Audio/Items/jaws_cut.ogg
         changeSound:
-          path: /Audio/Effects/Arcade/newgame.ogg
+          path: /Audio/Effects/beep1.ogg # ShibaStation - less grating sound effect
       - behavior: Pulsing
         sprite:
           sprite: _Goobstation/Objects/Tools/sonic_screwdriver.rsi
           state: icon
         changeSound:
-          path: /Audio/Effects/Arcade/newgame.ogg
+          path: /Audio/Effects/beep1.ogg # ShibaStation - less grating sound effect
 
 
 - type: entity
