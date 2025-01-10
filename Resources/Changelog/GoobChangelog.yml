@@ -4041,3 +4041,9 @@ Entries:
         legs.
   id: 453
   time: '2025-01-09T21:18:19.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: ragequit messages can now be sent to a discord webhook
+  id: 454
+  time: '2025-01-10T14:28:33.0000000+00:00'
