@@ -139,7 +139,7 @@
   - type: Objective
     icon:
       sprite: Structures/Machines/computers.rsi
-      state: avionics_systems
+      state: avionics-systems
 
 - type: entity
   parent: BaseAbductorVictimObjective
@@ -454,7 +454,7 @@
   - type: Objective
     icon:
       sprite: Structures/Machines/computers.rsi
-      state: avionics_systems
+      state: avionics-systems
 
 - type: entity
   parent: BaseAbductorVictimObjective

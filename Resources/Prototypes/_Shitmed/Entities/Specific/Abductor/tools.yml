@@ -82,7 +82,6 @@
     - Screwdriver
   - type: Item
     sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
-    state: abductor
     storedRotation: -90
   - type: MeleeWeapon
     wideAnimationRotation: -90
