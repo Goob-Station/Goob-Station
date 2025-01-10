@@ -62,7 +62,7 @@
       - MASK
       - HEAD
   - type: Physics
-    bodyType: Dynamic
+    bodyType: KinematicController
   - type: MeleeWeapon
     hidden: true
     soundHit:

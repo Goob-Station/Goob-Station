@@ -12,14 +12,14 @@ public sealed partial class HeadcrabComponent : Component
     /// <summary>
     /// WorldTargetAction
     /// </summary>
-    [DataField(required: true, customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string JumpAction = "ActionHeadcrabJump";
+    [DataField]
+    public EntProtoId JumpAction = "ActionHeadcrabJump";
 
     [DataField]
-    public float ParalyzeTime = 3f;
+    public TimeSpan ParalyzeTime = TimeSpan.FromSeconds(3);
 
     [DataField]
-    public int ChancePounce = 33;
+    public float ChancePounce = 0.33f;
 
     [DataField(required: true)]
     public DamageSpecifier Damage = default!;

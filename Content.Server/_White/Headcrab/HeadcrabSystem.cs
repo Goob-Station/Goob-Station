@@ -86,7 +86,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("headcrab-eat-other-entity-face",
             ("entity", args.Equipee)), args.Equipee, Filter.PvsExcept(uid), true, PopupType.Large);
 
-        _stunSystem.TryParalyze(args.Equipee, TimeSpan.FromSeconds(component.ParalyzeTime), true);
+        _stunSystem.TryParalyze(args.Equipee, component.ParalyzeTime, true);
         _damageableSystem.TryChangeDamage(args.Equipee, component.Damage, origin: uid);
     }
 
@@ -131,8 +131,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
     {
-        if (!args.HitEntities.Any()
-            || _random.Next(1, 101) <= component.ChancePounce)
+        if (!args.HitEntities.Any() || !_random.Prob(component.ChancePounce / 100f))
             return;
 
         TryEquipHeadcrab(uid, args.HitEntities.First(), component);
@@ -148,9 +147,15 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var mapCoords = _transform.ToMapCoordinates(args.Target);
         var direction = mapCoords.Position - _transform.GetMapCoordinates(xform).Position;
 
+        if (direction.LengthSquared() == 0)
+        {
+            return;
+        }
+
+        direction = direction.Normalized() * 5f;
+
         _throwing.TryThrow(uid, direction, 7F, uid, 10F);
-        if (component.JumpSound != null)
-            _audioSystem.PlayPvs(component.JumpSound, uid, component.JumpSound.Params);
+        _audioSystem.PlayPvs(component.JumpSound, uid, component.JumpSound?.Params);
     }
 
     public override void Update(float frameTime)
@@ -187,7 +192,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         }
     }
 
-        private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
+    private bool TryEquipHeadcrab(EntityUid uid, EntityUid target, HeadcrabComponent component)
     {
         if (_mobState.IsDead(uid)
             || !_mobState.IsAlive(target)
@@ -197,6 +202,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         _inventory.TryGetSlotEntity(target, "head", out var headItem);
         return !HasComp<IngestionBlockerComponent>(headItem)
-            && !_inventory.TryEquip(target, uid, "mask", true);
+            && _inventory.TryEquip(target, uid, "mask", true);
     }
 }
