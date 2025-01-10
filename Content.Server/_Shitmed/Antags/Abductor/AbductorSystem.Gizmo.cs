@@ -17,7 +17,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
     [Dependency] private readonly IGameTiming _time = default!;
-    private static readonly ProtoId<TagPrototype> _abductor = "Abductor";
+    private static readonly ProtoId<TagPrototype> Abductor = "Abductor";
     public void InitializeGizmo()
     {
         SubscribeLocalEvent<AbductorGizmoComponent, AfterInteractEvent>(OnGizmoInteract);
@@ -55,7 +55,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void GizmoUse(Entity<AbductorGizmoComponent> ent, EntityUid target, EntityUid user)
     {
         var time = TimeSpan.FromSeconds(6);
-        if (_tags.HasTag(target, _abductor))
+        if (_tags.HasTag(target, Abductor))
             time = TimeSpan.FromSeconds(0.5);
 
         var doAfter = new DoAfterArgs(EntityManager, user, time, new AbductorGizmoMarkDoAfterEvent(), ent, target, ent.Owner)

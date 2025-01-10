@@ -37,7 +37,7 @@ public sealed partial class ItemSwitchComponent : Component
     /// /// <remarks>
     /// If server-side systems affect the item's toggle, like charge/fuel systems, then the item is not predictable.
     /// </remarks>
-    [ViewVariables(VVAccess.ReadWrite), DataField, AutoNetworkedField]
+    [DataField]
     public bool Predictable = true;
 }
 [DataDefinition]

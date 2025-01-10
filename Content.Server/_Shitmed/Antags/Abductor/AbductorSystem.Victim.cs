@@ -18,7 +18,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     [Dependency] private readonly RoleSystem _role = default!;
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
 
-    private readonly string _defaultAbductorVictimRule = "AbductorVictim";
+    private static readonly string DefaultAbductorVictimRule = "AbductorVictim";
     public void InitializeVictim()
     {
         SubscribeLocalEvent<AbductorComponent, SurgeryStepEvent>(OnSurgeryStepComplete);
@@ -39,7 +39,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         {
             _role.MindAddRole(mindId, "MindRoleAbductorVictim");
             victimComp.Implanted = true;
-            _antag.ForceMakeAntag<AbductorVictimRuleComponent>(actor.PlayerSession, _defaultAbductorVictimRule);
+            _antag.ForceMakeAntag<AbductorVictimRuleComponent>(actor.PlayerSession, DefaultAbductorVictimRule);
 
             _adminLogManager.Add(LogType.Mind,
                 LogImpact.Medium,

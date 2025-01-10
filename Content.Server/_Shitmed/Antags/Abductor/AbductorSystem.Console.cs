@@ -26,9 +26,9 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         SubscribeLocalEvent<AbductorComponent, AbductorAttractDoAfterEvent>(OnDoAfterAttract);
     }
     private void OnAbductGetProgress(Entity<AbductConditionComponent> ent, ref ObjectiveGetProgressEvent args)
-        => args.Progress = DoorjackProgress(ent.Comp, _number.GetTarget(ent.Owner));
+        => args.Progress = AbductProgress(ent.Comp, _number.GetTarget(ent.Owner));
 
-    private float DoorjackProgress(AbductConditionComponent comp, int target)
+    private float AbductProgress(AbductConditionComponent comp, int target)
         => target == 0 ? 1f : MathF.Min(comp.Abducted / (float) target, 1f);
 
     private void OnCompleteExperimentBuiMsg(EntityUid uid, AbductorConsoleComponent component, AbductorCompleteExperimentBuiMsg args)
@@ -65,7 +65,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         if (ent.Comp.Target == null || ent.Comp.AlienPod == null) return;
         var target = GetEntity(ent.Comp.Target.Value);
         EnsureComp<TransformComponent>(target, out var xform);
-        var effectEnt = SpawnAttachedTo(_teleportationEffectEntity, xform.Coordinates);
+        var effectEnt = SpawnAttachedTo(TeleportationEffectEntity, xform.Coordinates);
         _xformSys.SetParent(effectEnt, target);
         EnsureComp<TimedDespawnComponent>(effectEnt, out var despawnEffectEntComp);
         despawnEffectEntComp.Lifetime = 3.0f;
@@ -73,7 +73,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
         var telepad = GetEntity(ent.Comp.AlienPod.Value);
         var telepadXform = EnsureComp<TransformComponent>(telepad);
-        var effect = _entityManager.SpawnEntity(_teleportationEffect, telepadXform.Coordinates);
+        var effect = _entityManager.SpawnEntity(TeleportationEffect, telepadXform.Coordinates);
         EnsureComp<TimedDespawnComponent>(effect, out var despawnComp);
         despawnComp.Lifetime = 3.0f;
         _audioSystem.PlayPvs("/Audio/_Shitmed/Misc/alien_teleport.ogg", effect);
