@@ -13,7 +13,8 @@ using Robust.Shared.Containers;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
-
+using Content.Server.Inventory;
+using Content.Shared.Hands.EntitySystems;
 namespace Content.Server.VentCraw
 {
     public sealed class VentCrawTubeSystem : EntitySystem
@@ -26,6 +27,8 @@ namespace Content.Server.VentCraw
         [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
         [Dependency] private readonly SharedMoverController _mover = default!;
+        [Dependency] private readonly ServerInventorySystem _inventory = default!;
+        [Dependency] private readonly SharedHandsSystem _hands = default!;
 
         public override void Initialize()
         {
@@ -83,9 +86,28 @@ namespace Content.Server.VentCraw
                     return;
                 }
             }
-            if(!crawler.AllowInventory){
-                //Drop
-                //popup telling to drop22
+            if (!crawler.AllowInventory){
+                if (_inventory.TryGetSlotEntity(user, "outerClothing", out var suit) || _inventory.TryGetSlotEntity(user, "back", out var backpack))
+                {
+                    _popup.PopupEntity("your equiptment is blocking you from entering the pipe network", user);
+                    return;
+                }
+                if (_hands.TryGetHand(user, "body_part_slot_right hand", out var rhand))
+                {
+                    if (!rhand.IsEmpty)
+                    {
+                        _popup.PopupEntity("need my hands free to enter the pipe network", user);
+                        return;
+                    }
+                }
+                if (_hands.TryGetHand(user, "body_part_slot_left hand", out var lhand))
+                {
+                    if (!lhand.IsEmpty)
+                    {
+                        _popup.PopupEntity("need my hands free to enter the pipe network", user);
+                        return;
+                    }
+                }
             }
 
             var args = new DoAfterArgs(EntityManager, user, crawler.EnterDelay, new EnterVentDoAfterEvent(), user, uid, user)

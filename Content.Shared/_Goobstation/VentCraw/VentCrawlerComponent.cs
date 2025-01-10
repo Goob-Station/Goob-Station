@@ -12,6 +12,7 @@ public sealed partial class VentCrawlerComponent : Component
 
     public float EnterDelay = 2.5f;
 
+    //used for if the user can have inventory on backpack, suit and suit slot.
     public bool AllowInventory = true;
 }
 
