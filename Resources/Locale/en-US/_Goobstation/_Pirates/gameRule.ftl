@@ -11,11 +11,9 @@ antag-pirate-briefing-short =
     You are a pirate.
     Protect the ship, siphon the credits from the station, and raid it for even more loot!
 
-pirate-roundend-append =
-    The pirate crew plundered the station of it's valuables worth a total of [color=yellow]{$num}[/color] credits!
+pirate-roundend-append = The pirate crew plundered the station of it's valuables worth a total of [color=yellow]{$num}[/color] credits!
 
-pirate-roundend-append-siphon =
-    [color=green]The pirate crew managed to siphon[/color] [color=yellow]{$num}[/color] [color=green]credits from the station![/color]
+pirate-roundend-append-siphon = [color=green]The pirate crew managed to siphon[/color] [color=yellow]{$num}[/color] [color=green]credits from the station![/color]
 
 pirate-roundend-list =
     The pirates were:

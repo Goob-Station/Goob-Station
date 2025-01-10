@@ -18,7 +18,21 @@
   - type: ActivePirateRule
   - type: RuleGrids
   - type: LoadMapRule
-    mapPath: /Maps/Shuttles/pirate.yml
+    mapPath: /Maps/_Goobstation/Shuttles/pirates_irs.yml
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: PirateScoonerSpawner
+      pickPlayer: false
+      max: 4
+      mindRoles:
+      - MindRolePirate
+      startingGear: PirateGear
+    - spawnerPrototype: PirateCaptainScoonerSpawner
+      pickPlayer: false
+      max: 1
+      startingGear: PirateCaptainGear
+      mindRoles:
+      - MindRolePirate
 
 - type: entity
   parent: BikeHorn

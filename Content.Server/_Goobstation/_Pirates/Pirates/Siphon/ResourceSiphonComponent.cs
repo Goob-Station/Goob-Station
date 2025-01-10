@@ -10,7 +10,8 @@ public sealed partial class ResourceSiphonComponent : Component
     [DataField] public float SciencePointsThreshold = 50000f;
 
     [ViewVariables(VVAccess.ReadWrite)] public float Credits = 0f;
-    [ViewVariables(VVAccess.ReadWrite)] public float SciencePoints = 0f;
+
+    [DataField] public float DrainRate = 10f;
 
     public int ActivationPhase = 0;
     public float ActivationRewindTime = 3.5f;

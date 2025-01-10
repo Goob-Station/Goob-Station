@@ -1,0 +1,15 @@
+- type: antag
+  id: Pirate
+  antagonist: true
+  setPreference: false
+  objective: roles-antag-syndicate-agent-objective
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRolePirate
+  name: Pirate Role
+  components:
+  - type: MindRole
+    antagPrototype: Pirate
+    exclusiveAntag: true
+  - type: PirateRole

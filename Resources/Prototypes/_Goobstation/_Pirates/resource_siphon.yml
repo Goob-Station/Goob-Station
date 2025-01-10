@@ -1,10 +1,15 @@
 - type: entity
   parent: BaseStructure
-  name: Data Siphon
+  id: DataSiphon
+  name: data siphon
   description: Drains the station of it's valuables and stores valuables in expendable form.
   placement:
     mode: AlignTileAny
   components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _Goobstation/_Pirates/siphon.rsi
+    state: icon
   - type: ResourceSiphon
   - type: StationAnchor
     switchedOn: false
