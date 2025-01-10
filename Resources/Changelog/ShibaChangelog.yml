@@ -1,4 +1,18 @@
+Name: ShibaChangelog
+Order: -2
 Entries:
+- author: AstroDogeDX
+  changes:
+  - message: The SetOutfit admin command now includes bag contents when applied!
+    type: Fix
+  id: 103
+  time: '2025-01-10T17:16:16.522066'
+- author: AstroDogeDX
+  changes:
+  - message: Certain exotic organs are now recognized as contraband. Sec to Surgery!
+    type: Add
+  id: 102
+  time: '2025-01-10T17:17:06.202452'
 - author: AstroDogeDX
   changes:
   - message: Tildes (~) are now treated like punctuation with emotes; meaning you
