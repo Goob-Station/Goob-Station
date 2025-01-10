@@ -7,6 +7,7 @@ using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Materials;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Whitelist;
@@ -57,6 +58,7 @@ namespace Content.Shared.Containers.ItemSlots
             SubscribeLocalEvent<ItemSlotsComponent, ComponentHandleState>(HandleItemSlotsState);
 
             SubscribeLocalEvent<ItemSlotsComponent, ItemSlotButtonPressedEvent>(HandleButtonPressed);
+            SubscribeLocalEvent<ItemSlotsComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
         }
 
         #region ComponentManagement
@@ -913,6 +915,16 @@ namespace Content.Shared.Containers.ItemSlots
         private void GetItemSlotsState(EntityUid uid, ItemSlotsComponent component, ref ComponentGetState args)
         {
             args.State = new ItemSlotsComponentState(component.Slots);
+        }
+
+        // Goobstation - Recycle update - Empty container in recycle
+        private void OnReclaimed(EntityUid uid, ItemSlotsComponent component, GotReclaimedEvent args)
+        {
+            foreach (var slot in component.Slots.Values)
+            {
+                if (slot.ContainerSlot != null)
+                    _containers.EmptyContainer(slot.ContainerSlot, destination: args.ReclaimerCoordinates);
+            }
         }
     }
 }

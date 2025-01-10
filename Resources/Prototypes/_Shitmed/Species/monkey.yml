@@ -1,0 +1,144 @@
+- type: species
+  id: Monkey
+  name: species-name-monkey
+  roundStart: false # sad...
+  prototype: MobMonkey
+  sprites: MobMonkeySprites
+  dollPrototype: MobMonkeyDummy
+  skinColoration: Hues
+  defaultSkinTone: "#ffffff"
+  markingLimits: MobMonkeyMarkingLimits
+
+- type: speciesBaseSprites
+  id: MobMonkeySprites
+  sprites:
+    Special: MobMonkeyAnyMarking
+    Head: MobMonkeyHead
+    HeadTop: MobMonkeyAnyMarking
+    Chest: MobMonkeyTorso
+    Tail: MobMonkeyTail
+    Eyes: MobMonkeyEyes
+    LArm: MobMonkeyLArm
+    RArm: MobMonkeyRArm
+    LHand: MobMonkeyLHand
+    RHand: MobMonkeyRHand
+    LLeg: MobMonkeyLLeg
+    RLeg: MobMonkeyRLeg
+    LFoot: MobMonkeyLFoot
+    RFoot: MobMonkeyRFoot
+
+- type: humanoidBaseSprite
+  id: MobMonkeyAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobMonkeyMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobMonkeyHead
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyHeadMale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyHeadFemale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobMonkeyTorso
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyTorsoMale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobMonkeyTorsoFemale
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobMonkeyLLeg
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobMonkeyLArm
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobMonkeyLHand
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobMonkeyLFoot
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobMonkeyRLeg
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobMonkeyRArm
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobMonkeyRHand
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobMonkeyRFoot
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: r_foot
+
+- type: humanoidBaseSprite
+  id: MobMonkeyTail
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: tail
+
+- type: humanoidBaseSprite
+  id: MobMonkeyEyes
+  baseSprite:
+    sprite: Mobs/Animals/monkey.rsi
+    state: eyes
+
+- type: markingPoints
+  id: MobMonkeyMarkingLimits
+  points:
+    Special: # the cat ear joke
+      points: 1 # Corvax-Sponsors
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false

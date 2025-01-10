@@ -1,0 +1,43 @@
+- type: entity
+  abstract: true
+  parent: [ BaseItem, BaseSyndicateContraband ]
+  id: BaseMagazineBoxHighCaliber
+  name: ammunition box (.50 anti-materiel)
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeHighCaliber
+    proto: CartridgeHighCaliber
+    capacity: 30
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi
+    layers:
+    - state: base-b
+      map: ["enum.GunVisualLayers.Base"]
+    - state: magb-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: magb
+    steps: 4
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliber
+
+- type: entity
+  parent: BaseMagazineBoxHighCaliber
+  id: MagazineBoxHighCaliberExplosive
+  name: ammunition box (.50 high-explosive)
+  components:
+  - type: BallisticAmmoProvider
+    capacity: 30
+    proto: CartridgeHighCaliberExplosive

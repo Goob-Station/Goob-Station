@@ -31,9 +31,9 @@
     interfaces:
       enum.TransferAmountUiKey.Key:
         type: TransferAmountBoundUserInterface
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
+      Steel: 100
   - type: DnaSubstanceTrace
   - type: ReactionMixer
     mixOnInteract: false
@@ -147,9 +147,9 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/jigger.rsi
     state: icon
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 20
+      Steel: 50
 
 - type: entity
   parent: [BaseItem, BartenderMixer]
@@ -166,6 +166,6 @@
   - type: Sprite
     sprite: Objects/Consumable/Drinks/icebucket.rsi
     state: icon
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 75
+      Steel: 100

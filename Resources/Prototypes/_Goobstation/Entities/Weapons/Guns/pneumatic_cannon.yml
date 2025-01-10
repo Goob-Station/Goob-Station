@@ -6,6 +6,7 @@
   suffix: Regenerating
 
   components:
+  - type: PacifismAllowedGun
   - type: Sprite
     sprite: Objects/Weapons/Guns/Cannons/pie_cannon.rsi
 

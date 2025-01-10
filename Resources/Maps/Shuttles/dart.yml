@@ -28,7 +28,7 @@ entities:
       name: NT-Dart
     - type: Transform
       pos: 0.55555725,0.5
-      parent: invalid
+
     - type: MapGrid
       chunks:
         -1,-1:

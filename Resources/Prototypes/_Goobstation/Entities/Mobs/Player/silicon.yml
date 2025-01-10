@@ -9,3 +9,15 @@
     state: std_mod
   - type: SiliconLawProvider
     laws: JermovLawset
+
+- type: entity
+  id: ZooimovCircuitBoard
+  parent: BaseElectronics
+  name: law board (Zooimov)
+  description: An electronics board containing the Zooimov lawset.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: std_mod
+  - type: SiliconLawProvider
+    laws: ZooimovLawset

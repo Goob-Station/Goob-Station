@@ -53,6 +53,10 @@
           implantOnly:
             True: {state: broken}
             False: {state: implanter0}
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 125
+        Glass: 125
 
 - type: entity
   id: Implanter

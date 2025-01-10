@@ -16,27 +16,20 @@
     spawned:
     - id: FoodMeatHuman
       amount: 5
-  
+  - type: Body
+    prototype: Yowie
+    requiredLegs: 2
   - type: HumanoidAppearance
     species: Yowie
     hideLayersOnEquip:
     - Hair
     - Snout
-  - type: Temperature # Fur = bad with heat, stole numbers from moth
-    heatDamageThreshold: 320
-    coldDamageThreshold: 230
-    currentTemperature: 310.15
-    specificHeat: 46
-    coldDamage:
-      types:
-        Cold : 0.05 #per second, scales with temperature & other constants
-    heatDamage:
-      types:
-        Heat : 3 #per second, scales with temperature & other constants
   - type: MeleeWeapon
+    altDisarm: false
+    heavyStaminaCost: 1.5
     damage:
       types:
-        Blunt: 8
+        Blunt: 10
   - type: Inventory
     templateId: yowie
   - type: Damageable
@@ -46,6 +39,12 @@
   - type: BoganAccent
   - type: Carriable 
     freeHandsRequired: 4 # easiest way to make them uncarriable without removing carriable from base mob
+  - type: NoWieldNeeded
+  - type: OuterSlotPenalty # Due to whitelist, it'll only be applied on softsuits
+    equippedSpeedMultiplier: 0.2
+    damage:
+      types:
+        Blunt: 10
 
 - type: entity
   parent: BaseSpeciesDummy
@@ -62,4 +61,3 @@
           32:
             sprite: Mobs/Species/Human/displacement.rsi
             state: jumpsuit-female
- 

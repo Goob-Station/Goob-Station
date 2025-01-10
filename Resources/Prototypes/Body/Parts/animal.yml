@@ -44,7 +44,7 @@
     - state: r_hand
   - type: BodyPart
     partType: Hand
-    symmetry: Left
+    #symmetry: Left
     slotId: hands # Shitmed
 
 - type: entity

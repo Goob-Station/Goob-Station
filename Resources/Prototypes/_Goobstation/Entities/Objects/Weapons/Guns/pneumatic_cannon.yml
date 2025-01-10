@@ -33,6 +33,8 @@
       storagebase: !type:Container
         ents: []
   - type: SyringeGun
+  - type: PacifismAllowedGun
+
 
 
 - type: entity
@@ -54,6 +56,8 @@
       - SyringeGunAmmo
   - type: Gun
     fireRate: 1.5
+  - type: PacifismAllowedGun
+
 
 - type: entity
   name: dart syringe gun
@@ -80,5 +84,7 @@
     - 0,0,1,0
   - type: SyringeGun
     pierceArmor: true
+  - type: PacifismAllowedGun
+
 
 # TODO: Add the proper dart gun that regenerates every 25s, and draws from a 100u reservoir

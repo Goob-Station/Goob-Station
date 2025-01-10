@@ -35,6 +35,10 @@
     sprite: Objects/Weapons/Melee/pickaxe.rsi
     storedRotation: -45
   - type: UseDelay
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 250
+      Wood: 125
 
 - type: entity
   name: mining drill
@@ -63,6 +67,10 @@
         Brute: 3
       types:
         Structural: 15
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+      Plastic: 25
 
 - type: entity
   name: diamond tipped mining drill
@@ -85,7 +93,12 @@
         Brute: 6
       types:
         Structural: 30
-
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 150
+      Plastic: 50
+      Silver: 50
+      Diamond: 25
 
 - type: entity
   abstract: true

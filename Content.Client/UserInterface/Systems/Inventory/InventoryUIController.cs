@@ -21,7 +21,6 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
 using Robust.Shared.Map;
-using Robust.Shared.Player;
 using Robust.Shared.Utility;
 using static Content.Client.Inventory.ClientInventorySystem;
 
@@ -141,7 +140,7 @@ public sealed class InventoryUIController : UIController, IOnStateEntered<Gamepl
 
         foreach (var (_, data) in clientInv.SlotData)
         {
-            if (!data.ShowInWindow || data.SlotDef.Disabled || !_slotGroups.TryGetValue(data.SlotGroup, out var container)) // Shitmed Change
+            if (!data.ShowInWindow || !_slotGroups.TryGetValue(data.SlotGroup, out var container))
                 continue;
 
             if (!container.TryGetButton(data.SlotName, out var button))

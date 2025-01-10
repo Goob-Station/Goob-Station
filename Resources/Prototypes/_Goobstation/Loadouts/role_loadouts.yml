@@ -17,8 +17,10 @@
   groups:
   - BlueshieldOfficerHead
   - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerBackpack
   - BlueshieldOfficerOuter
   - BlueshieldOfficerNeck
+  - BlueshieldOfficerShoes
   - Trinkets
   - GroupSpeciesBreathTool
-  - Survival
+  - SurvivalSecurity

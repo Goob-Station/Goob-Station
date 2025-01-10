@@ -227,7 +227,11 @@
     baseSprintSpeed: 3.5
     baseWalkSpeed: 2.5
   - type: StaticPrice
-    price: 125
+    price: 175
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Plastic: 125
 
 - type: entity
   parent: VehicleWheelchair

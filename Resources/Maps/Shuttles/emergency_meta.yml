@@ -24,7 +24,7 @@ entities:
       name: NT Evac Meta
     - type: Transform
       pos: -2.4375,0.859375
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:

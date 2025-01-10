@@ -42,6 +42,9 @@
   - type: StepTrigger
     requiredTriggeredSpeed: 0
     stepOn: true
+    triggerGroups: # Goobstation
+      types:
+      - Landmine
 
 - type: entity
   name: kick mine

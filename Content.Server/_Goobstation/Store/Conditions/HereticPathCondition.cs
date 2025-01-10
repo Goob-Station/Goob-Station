@@ -1,7 +1,6 @@
 using Content.Shared.Heretic;
 using Content.Shared.Mind;
 using Content.Shared.Store;
-using System.Linq;
 
 namespace Content.Server.Store.Conditions;
 

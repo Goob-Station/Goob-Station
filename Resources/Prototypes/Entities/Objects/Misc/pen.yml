@@ -15,9 +15,9 @@
     tags:
     - Write
     - Pen
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 25
+      Plastic: 12
   - type: EmitSoundOnUse
     sound:
       path: /Audio/Items/pen_click.ogg
@@ -44,6 +44,7 @@
       path: /Audio/_Shitmed/Medical/Surgery/retractor1.ogg
     endSound:
       path: /Audio/_Shitmed/Medical/Surgery/hemostat1.ogg
+  - type: ThrowableBlocked # Goobstation
 
 #TODO: I want the luxury pen to write a cool font like Merriweather in the future.
 

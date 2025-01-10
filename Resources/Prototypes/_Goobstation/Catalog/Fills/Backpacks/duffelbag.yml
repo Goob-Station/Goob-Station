@@ -28,6 +28,19 @@
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateBurner
+  name: Burner Bundle
+  description: "A high caliber Burner rifle, comes with some anti materiel and high explosive ammunition."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleBurner
+      - id: MagazineHighCaliberExplosive
+      - id: MagazineHighCaliber
+      - id: MagazineHighCaliber
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicateM90Bundle # - 古い M90 バンドルがこの ID を使用しているかどうかはわかりませんが、その ID はコメントアウトされており、もう存在しないと思います。
   name: M-90 bundle
   description: "A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines."
@@ -37,3 +50,15 @@
       - id: WeaponRifleM90
       - id: MagazineRifle
       - id: MagazineRifle
+
+- type: entity
+  parent: ClothingBackpackDuffelSyndicateBundle
+  id: ClothingBackpackDuffelSyndicateFilledWSPR
+  name: WSPR bundle
+  description: "A bundle carrying the syndicate's WSPR assault rifle, packed with 2 spare magazines."
+  components:
+  - type: StorageFill
+    contents:
+      - id: WeaponRifleWSPR
+      - id: MagazineLightRifleSubsonic
+        amount: 2

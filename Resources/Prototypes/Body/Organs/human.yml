@@ -34,6 +34,9 @@
   abstract: true
   components:
   - type: Gibbable
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 5
 
 - type: entity
   id: OrganHumanBrain

@@ -2,22 +2,25 @@
   id: DefaultMapPool
   maps:
   - Atlas
+  #- Amber TODO: goob amber
   - Bagel
   - Box
   - Cluster
-  #- Cog Goobstation - cog is broken
+  #- Cog # Goobstation - cog is broken
   - Core
   - Fland
+  #- Gate TODO: goob gate
+  - Loop
   - Marathon
-  #- Meta TODO: pirasmas meta
-  #- Oasis TODO: pirasmas oasis
-  #- Omega TODO: pirasmas omega
-  #- Origin TODO: pirasmas origin
-  #- Saltern TODO: pirasmas saltern
-  #- Packed TODO: pirasmas packed
-  #- Reach TODO: pirasmas reach
-  #- Train Goobstation - all my friends hate train
+  - Meta
+  - Oasis
+  - Omega
+  - Origin
+  - Saltern
+  - Packed
+  - Reach
+#  - Train # Goobstation - all my friends hate train
   - FlandHighPop
-  #- OasisHighPop TODO: pirasmas oasis
+  - OasisHighPop
   - Barratry # Goobstation - Re-add barratry
   - Kettle # Goobstation - Re-add kettle (before it was gemini!)

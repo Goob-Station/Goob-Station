@@ -55,6 +55,7 @@
     skipChecks: true
   - type: Ghost
   - type: GhostHearing
+  - type: ShowElectrocutionHUD
   - type: IntrinsicRadioReceiver
   - type: ActiveRadio
     receiveAllChannels: true
@@ -62,6 +63,8 @@
   - type: Tag
     tags:
     - BypassInteractionRangeChecks
+  - type: Speech #Goobstation - Dead chat verbs
+    speechVerb: Dead
 
 # proto for player ghosts specifically
 - type: entity

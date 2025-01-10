@@ -39,3 +39,76 @@
           - !type:Temperature
             min: 263.15
           amount: -50000
+
+- type: reagent
+  id: LingPanacea
+  name: reagent-name-panacea
+  group: Medicine
+  desc: reagent-desc-panacea
+  physicalDesc: reagent-physical-desc-ling
+  flavor: clean
+  color: "#ff0000"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+        - !type:HealthChange
+          damage:
+            types:
+              Poison: -3
+              Cellular: -3
+              Radiation: -3
+        - !type:PopupMessage
+            type: Local
+            messages: [ "reagent-popup-panacea" ]
+            probability: 0.2
+        - !type:AdjustReagent
+            reagent: Pax
+            amount: -3.0
+        - !type:GenericStatusEffect
+            key: Drowsiness
+            component: Drowsiness
+            time: 10.0
+            type: Remove
+        - !type:GenericStatusEffect
+            key: Jitter
+            time: 10.0
+            type: Remove
+        - !type:GenericStatusEffect
+            key: SeeingRainbows
+            time: 10.0
+            type: Remove
+        - !type:GenericStatusEffect
+            key: Drunk
+            time: 10.0
+            type: Remove
+
+- type: reagent
+  id: LingFleshmend
+  name: reagent-name-fleshmend
+  group: Medicine
+  desc: reagent-desc-fleshmend
+  physicalDesc: reagent-physical-desc-ling
+  flavor: clean
+  color: "#ff0000"
+  worksOnTheDead: true
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.5
+      effects:
+        - !type:ModifyBloodLevel
+          amount: 5
+        - !type:ModifyBleedAmount
+          amount: -2
+        - !type:HealthChange
+          damage:
+            types:
+              Blunt: -3
+              Piercing: -3
+              Slash: -3
+              Heat: -3
+              Cold: -3
+        - !type:PopupMessage
+            type: Local
+            messages: [ "reagent-popup-fleshmend" ]
+            probability: 0.2

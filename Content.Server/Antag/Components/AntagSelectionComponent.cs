@@ -1,4 +1,3 @@
-using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
@@ -185,6 +184,10 @@ public partial struct AntagSelectionDefinition()
     /// </remarks>
     [DataField]
     public EntProtoId? SpawnerPrototype;
+
+    // goob edit - actual pacifism implant
+    [DataField]
+    public List<JobSpecial> Special = new();
 
     /// <summary>
     /// Goobstation

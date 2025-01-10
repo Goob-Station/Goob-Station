@@ -6,6 +6,7 @@ using Content.Shared.Alert;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.Database;
+using Content.Shared._EinsteinEngines.Flight; // Goobstation
 using Content.Shared.DoAfter;
 using Content.Shared.Hands;
 using Content.Shared.Hands.Components;
@@ -461,6 +462,12 @@ namespace Content.Shared.Cuffs
             if (!_interaction.InRangeUnobstructed(handcuff, target))
                 return false;
 
+            // if the amount of hands the target has is equal to or less than the amount of hands that are cuffed
+            // don't apply the new set of cuffs
+            // (how would you even end up with more cuffed hands than actual hands? either way accounting for it)
+            if (TryComp<HandsComponent>(target, out var hands) && hands.Count <= component.CuffedHandCount)
+                return false;
+
             // Success!
             _hands.TryDrop(user, handcuff);
 
@@ -494,6 +501,15 @@ namespace Content.Shared.Cuffs
                 _popup.PopupClient(Loc.GetString("handcuff-component-cannot-drop-cuffs", ("target", Identity.Name(target, EntityManager, user))), user, user);
                 return false;
             }
+
+            // Goobstation Change Start
+            if (TryComp<FlightComponent>(target, out var flight) && flight.On)
+            {
+                _popup.PopupClient(Loc.GetString("handcuff-component-target-flying-error",
+                    ("targetName", Identity.Name(target, EntityManager, user))), user, user);
+                return true;
+            }
+            // Goobstation Change End
 
             var cuffTime = handcuffComponent.CuffTime;
 

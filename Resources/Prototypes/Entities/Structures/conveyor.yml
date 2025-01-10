@@ -82,4 +82,8 @@
     node: item
   - type: StaticPrice
     price: 40
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 62
+      Plastic: 12
 

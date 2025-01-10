@@ -134,6 +134,7 @@ public sealed partial class NoteEdit : FancyWindow
                 SecretCheckBox.Pressed = false;
                 SeverityOption.Disabled = false;
                 PermanentCheckBox.Pressed = true;
+                SubmitButton.Disabled = true;
                 UpdatePermanentCheckboxFields();
                 break;
             case (int) NoteType.Message: // Message: these are shown to the player when they log on
@@ -263,7 +264,7 @@ public sealed partial class NoteEdit : FancyWindow
             return true;
         }
 
-        if (string.IsNullOrWhiteSpace(ExpiryLineEdit.Text) || !DateTime.TryParse(ExpiryLineEdit.Text, out var result) || DateTime.UtcNow > result.ToUniversalTime())
+        if (string.IsNullOrWhiteSpace(ExpiryLineEdit.Text) || !DateTime.TryParse(ExpiryLineEdit.Text, out var result) || DateTime.UtcNow > result)
         {
             ExpiryLineEdit.ModulateSelfOverride = Color.Red;
             return false;

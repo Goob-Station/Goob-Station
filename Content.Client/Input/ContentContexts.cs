@@ -105,11 +105,6 @@ namespace Content.Client.Input
             {
                 common.AddFunction(boundKey);
             }
-            // goobstation
-            foreach (var boundKey in ContentKeyFunctions.GetLoadoutBoundKeys())
-            {
-                common.AddFunction(boundKey);
-            }
 
             var aghost = contexts.New("aghost", "common");
             aghost.AddFunction(EngineKeyFunctions.MoveUp);

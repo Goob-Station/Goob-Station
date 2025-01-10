@@ -1,0 +1,113 @@
+- type: constructionGraph
+  id: Modsuit
+  start: start
+  graph:
+  - node: start
+    entity: ModsuitShell
+    edges:
+    - to: shell-core
+      steps:
+      - tag: ModsuitCore
+        name: MOD core
+        store: core-container
+        completed:
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
+
+  - node: shell-core
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: start
+      steps:
+      - tool: Prying
+        completed:
+          - !type:EmptyContainer
+            container: core-container
+    - to: shell-core-secured
+      steps:
+      - tool: Screwing
+        doAfter: 1
+
+  - node: shell-core-secured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-helmet
+      steps:
+      - tag: ModsuitHelmet
+        name: MOD helmet
+        doAfter: 1
+        completed:
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
+
+  - node: shell-helmet
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-chestplate
+      steps:
+      - tag: ModsuitChestplate
+        name: MOD chestplate
+        doAfter: 1
+        completed:
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
+
+  - node: shell-chestplate
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-gauntlets
+      steps:
+      - tag: ModsuitGauntlets
+        name: MOD gauntlets
+        doAfter: 1
+        completed:
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
+
+  - node: shell-gauntlets
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-boots
+      steps:
+      - tag: ModsuitBoots
+        name: MOD boots
+        doAfter: 1
+        completed:
+        - !type:PlaySound
+          sound: /Audio/Items/screwdriver2.ogg
+
+  - node: shell-boots
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: shell-secured
+      steps:
+      - tool: Anchoring
+        doAfter: 1
+
+      - tool: Screwing
+        doAfter: 1
+
+  - node: shell-secured
+    actions:
+    - !type:AppearanceChange
+    edges:
+    - to: standard
+      steps:
+        - tag: ModsuitPlatingExternal
+          name: any MOD plating
+          doAfter: 1
+          completed:
+          - !type:PlaySound
+            sound: /Audio/Items/screwdriver2.ogg
+
+        - tool: Anchoring
+          doAfter: 1
+
+  - node: standard
+    entity: ClothingModsuitStandard

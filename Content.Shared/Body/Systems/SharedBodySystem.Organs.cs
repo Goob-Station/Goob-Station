@@ -9,7 +9,6 @@ using Robust.Shared.Containers;
 
 using Content.Shared.Damage;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Organ;
 
 namespace Content.Shared.Body.Systems;
@@ -111,7 +110,14 @@ public partial class SharedBodySystem
 
         Containers.EnsureContainer<ContainerSlot>(parent.Value, GetOrganContainerId(slotId));
         slot = new OrganSlot(slotId);
-        return part.Organs.TryAdd(slotId, slot.Value);
+
+        // Shitmed Change Start
+        if (!part.Organs.ContainsKey(slotId)
+            && !part.Organs.TryAdd(slotId, slot.Value))
+            return false;
+
+        return true;
+        // Shitmed Change End
     }
 
     /// <summary>

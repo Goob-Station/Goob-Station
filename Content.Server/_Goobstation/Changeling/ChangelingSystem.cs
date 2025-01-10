@@ -1,3 +1,4 @@
+using Content.Server.Administration.Systems;
 using Content.Server.DoAfter;
 using Content.Server.Forensics;
 using Content.Server.Polymorph.Systems;
@@ -56,10 +57,15 @@ using Content.Server.Stunnable;
 using Content.Shared.Jittering;
 using Content.Server.Explosion.EntitySystems;
 using System.Linq;
+using Content.Server.Flash.Components;
+using Content.Shared.Heretic;
+using Content.Shared._Goobstation.Actions;
+using Content.Shared._White.Overlays;
+using Content.Shared.Eye.Blinding.Components;
 
 namespace Content.Server.Changeling;
 
-public sealed partial class ChangelingSystem : EntitySystem
+public sealed partial class ChangelingSystem : SharedChangelingSystem
 {
     // this is one hell of a star wars intro text
     [Dependency] private readonly IGameTiming _timing = default!;
@@ -101,6 +107,8 @@ public sealed partial class ChangelingSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly ExplosionSystem _explosionSystem = default!;
     [Dependency] private readonly BodySystem _bodySystem = default!;
+    [Dependency] private readonly IComponentFactory _compFactory = default!;
+    [Dependency] private readonly RejuvenateSystem _rejuv = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
@@ -125,7 +133,36 @@ public sealed partial class ChangelingSystem : EntitySystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
+
         SubscribeAbilities();
+    }
+
+    protected override void UpdateFlashImmunity(EntityUid uid, bool active)
+    {
+        if (TryComp(uid, out FlashImmunityComponent? flashImmunity))
+            flashImmunity.Enabled = active;
+    }
+
+    private void OnAugmentedEyesightPurchased(Entity<ChangelingComponent> ent, ref AugmentedEyesightPurchasedEvent args)
+    {
+        InitializeAugmentedEyesight(ent);
+    }
+
+    public void InitializeAugmentedEyesight(EntityUid uid)
+    {
+        EnsureComp<FlashImmunityComponent>(uid);
+        EnsureComp<EyeProtectionComponent>(uid);
+
+        var thermalVision = _compFactory.GetComponent<ThermalVisionComponent>();
+        thermalVision.Color = Color.FromHex("#FB9898");
+        thermalVision.LightRadius = 15f;
+        thermalVision.FlashDurationMultiplier = 2f;
+        thermalVision.ActivateSound = null;
+        thermalVision.DeactivateSound = null;
+        thermalVision.ToggleAction = null;
+
+        AddComp(uid, thermalVision);
     }
 
     private void OnRefreshSpeed(Entity<ChangelingComponent> ent, ref RefreshMovementSpeedModifiersEvent args)
@@ -180,14 +217,17 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        comp.Biomass += amount ?? -1;
+        float amt = amount ?? -1f;
+        comp.Biomass += amt;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
 
         var random = (int) _rand.Next(1, 3);
 
-        if (comp.Biomass <= 0)
+        bool doEffects = amt < 0; // no vomiting blood if you gained biomass
+
+        if (comp.Biomass <= 0 && doEffects)
             // game over, man
             _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
 
@@ -195,13 +235,16 @@ public sealed partial class ChangelingSystem : EntitySystem
         {
             // THE FUNNY ITCH IS REAL!!
             comp.BonusChemicalRegen = 3f;
-            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
-            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+            if (doEffects)
+            {
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+            }
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
             // vomit blood
-            if (random == 1)
+            if (random == 1 && doEffects)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
                     _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
@@ -218,7 +261,7 @@ public sealed partial class ChangelingSystem : EntitySystem
             }
 
             // the funny itch is not real
-            if (random == 3)
+            if (random == 3 && doEffects)
             {
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
@@ -226,7 +269,7 @@ public sealed partial class ChangelingSystem : EntitySystem
         }
         else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
         {
-            if (random == 1)
+            if (random == 1 && doEffects)
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
         }
         else comp.BonusChemicalRegen = 0f;
@@ -328,15 +371,12 @@ public sealed partial class ChangelingSystem : EntitySystem
     }
     public bool TrySting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, bool overrideMessage = false)
     {
-        if (!TryUseAbility(uid, comp, action))
-            return false;
-
         var target = action.Target;
 
         // can't get his dna if he doesn't have it!
         if (!HasComp<AbsorbableComponent>(target) || HasComp<AbsorbedComponent>(target))
         {
-            _popup.PopupEntity(Loc.GetString("changeling-sting-extract-fail"), uid, uid);
+            _popup.PopupEntity(Loc.GetString("changeling-sting-fail"), uid, uid);
             return false;
         }
 
@@ -346,6 +386,10 @@ public sealed partial class ChangelingSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("changeling-sting-fail-ling"), target, target);
             return false;
         }
+
+        if (!TryUseAbility(uid, comp, action))
+            return false;
+
         if (!overrideMessage)
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         return true;
@@ -551,23 +595,45 @@ public sealed partial class ChangelingSystem : EntitySystem
             if (!persistentDna && data != null)
                 newLingComp?.AbsorbedDNA.Remove(data);
             RemCompDeferred<ChangelingComponent>(uid);
-
-            if (TryComp<StoreComponent>(uid, out var storeComp))
-            {
-                var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
-                RemComp<StoreComponent>(newUid.Value);
-                EntityManager.AddComponent(newUid.Value, storeCompCopy);
-            }
         }
+
+        //    if (TryComp<StoreComponent>(uid, out var storeComp))
+        //    {
+        //        var storeCompCopy = _serialization.CreateCopy(storeComp, notNullableOverride: true);
+        //        RemComp<StoreComponent>(newUid.Value);
+        //        EntityManager.AddComponent(newUid.Value, storeCompCopy);
+        //    }
+        //}
 
         // exceptional comps check
         // there's no foreach for types i believe so i gotta thug it out yandev style.
-        if (HasComp<HeadRevolutionaryComponent>(uid))
-            EnsureComp<HeadRevolutionaryComponent>(newEnt);
-        if (HasComp<RevolutionaryComponent>(uid))
-            EnsureComp<RevolutionaryComponent>(newEnt);
+        List<Type> types = new()
+        {
+            typeof(HeadRevolutionaryComponent),
+            typeof(RevolutionaryComponent),
+            typeof(GhoulComponent),
+            typeof(HereticComponent),
+            typeof(StoreComponent),
+            typeof(FlashImmunityComponent),
+            typeof(EyeProtectionComponent),
+            typeof(NightVisionComponent),
+            typeof(ThermalVisionComponent),
+            // ADD MORE TYPES HERE
+        };
+        foreach (var type in types)
+        {
+            if (EntityManager.TryGetComponent(uid, type, out var icomp))
+            {
+                var newComp = (Component) _compFactory.GetComponent(_compFactory.GetComponentName(type));
+                var temp = (object) newComp;
+                _serialization.CopyTo(icomp, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent(newEnt, (Component) temp!);
+            }
+        }
 
-        QueueDel(uid);
+        RaiseNetworkEvent(new LoadActionsEvent(GetNetEntity(uid)), newEnt);
+
+        Timer.Spawn(300, () => { QueueDel(uid); });
 
         return newUid;
     }
@@ -648,6 +714,13 @@ public sealed partial class ChangelingSystem : EntitySystem
         UpdateBiomass(uid, comp, 0);
         // make their blood unreal
         _blood.ChangeBloodReagent(uid, "BloodChangeling");
+
+        // Shitmed: Prevent changelings from getting their body parts severed
+        foreach (var (id, part) in _bodySystem.GetBodyChildren(uid))
+        {
+            part.CanSever = false;
+            Dirty(id, part);
+        }
     }
 
     private void OnMobStateChange(EntityUid uid, ChangelingComponent comp, ref MobStateChangedEvent args)

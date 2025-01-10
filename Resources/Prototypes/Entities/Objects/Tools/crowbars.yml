@@ -23,12 +23,14 @@
     useSound:
       path: /Audio/Items/crowbar.ogg
   - type: ToolTileCompatible
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
+      Steel: 50
   - type: StaticPrice
     price: 22
   - type: Prying
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Sprite
     sprite: Objects/Tools/crowbar.rsi
   - type: Clothing

@@ -28,6 +28,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: DetectivePDA
+    gloves: ClothingHandsGlovesForensic
     ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltHolsterFilled
   storage:

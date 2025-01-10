@@ -36,6 +36,8 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedLightLaser
     fireCost: 50
+  - type: StealTarget #Goobstation - IPC steal
+    stealGroup: Battery
 
 - type: entity
   name: potato battery
@@ -76,6 +78,12 @@
   - type: Tag
     tags:
       - PowerCellSmall
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 12
+      Steel: 12
+    chemicalComposition:
+      Zinc: 5
 
 - type: entity
   id: PowerCellSmallPrinted
@@ -114,6 +122,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 50
+      Steel: 50
+      Glass: 75
+      Gold: 2
+    chemicalComposition:
+      Zinc: 10
 
 - type: entity
   id: PowerCellMediumPrinted
@@ -152,6 +168,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 37
+      Steel: 50
+      Glass: 100
+      Gold: 5
+    chemicalComposition:
+      Zinc: 15
 
 - type: entity
   id: PowerCellHighPrinted
@@ -231,6 +255,14 @@
   - type: HitscanBatteryAmmoProvider
     proto: RedMediumLaser
     fireCost: 100
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 100
+      Glass: 75
+      Uranium: 25
+      Gold: 12
+    chemicalComposition:
+      Zinc: 20
 
 - type: entity
   parent: PowerCellMicroreactor

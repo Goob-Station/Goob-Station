@@ -7,7 +7,6 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Events;
 using Content.Shared.Throwing;
 using Content.Shared.Toggleable;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -176,7 +175,8 @@ public abstract partial class SharedTetherGunSystem : EntitySystem
             return false;
 
         if (physics.BodyType == BodyType.Static && !component.CanUnanchor ||
-            _container.IsEntityInContainer(target))
+            _container.IsEntityInContainer(target) ||
+            HasComp<PhysicsGunBlacklistComponent>(target) && !component.CanUnanchor) // Goobstation
             return false;
 
         if (physics.Mass > component.MassLimit)

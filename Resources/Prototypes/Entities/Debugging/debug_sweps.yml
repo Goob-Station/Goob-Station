@@ -1,5 +1,5 @@
 - type: entity
-  name: bang, ded
+  name: goob, ded # Goobstation edit
   parent: BaseWeaponPistol
   id: WeaponPistolDebug
   description: ded
@@ -84,7 +84,7 @@
     proto: BulletDebug
 
 - type: entity
-  name: bang stick gibber
+  name: goob stick gibber # Goobstation edit
   parent: BaseItem
   id: MeleeDebugGib
   description: hit hard ye
@@ -105,7 +105,7 @@
     sprite: Objects/Weapons/Melee/debug.rsi
 
 - type: entity
-  name: bang stick 100dmg
+  name: goob stick 100dmg # Goobstation edit
   parent: MeleeDebugGib
   id: MeleeDebug100
   components:
@@ -118,7 +118,7 @@
         Blunt: 100
 
 - type: entity
-  name: bang stick 200dmg
+  name: goob stick 200dmg # Goobstation edit
   parent: MeleeDebugGib
   id: MeleeDebug200
   components:
@@ -129,55 +129,3 @@
     damage:
       types:
         Blunt: 200
-
-# Shitmed Change Start
-
-- type: entity
-  name: bang severer
-  parent: BaseItem
-  id: MeleeDebugSever
-  description: sever yer parts a week from now
-  suffix: DEBUG
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: Sprite
-    sprite: Objects/Weapons/Melee/debug.rsi
-    state: icon
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 20000
-    clickPartDamageMultiplier: 10
-  - type: Item
-    size: Tiny
-    sprite: Objects/Weapons/Melee/debug.rsi
-
-- type: entity
-  name: bang severer 100dmg
-  parent: MeleeDebugSever
-  id: MeleeDebugSever100
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 100
-
-- type: entity
-  name: bang severer 200dmg
-  parent: MeleeDebugSever
-  id: MeleeDebugSever200
-  components:
-  - type: Tag
-    tags:
-      - Debug
-  - type: MeleeWeapon
-    damage:
-      types:
-        Slash: 200
-
-# Shitmed Change End

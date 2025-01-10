@@ -1,7 +1,7 @@
 - type: emote
   id: Fart
   name: chat-emote-name-fart
-  category: General
+  category: Farts
   icon: _Goobstation/Interface/Emotes/fart.png
   whitelist:
     components:
@@ -9,6 +9,7 @@
   blacklist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: ["chat-emote-msg-fart"]
   chatTriggers:
     - fart
@@ -55,7 +56,7 @@
 - type: emote
   id: FartInhale
   name: chat-emote-name-fart-inhale
-  category: General
+  category: Farts
   icon: _Goobstation/Interface/Emotes/fart-in.png
   whitelist:
     components:
@@ -63,6 +64,7 @@
   blacklist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: ["chat-emote-msg-fart-inhale"]
   chatTriggers:
     - inhale anally
@@ -95,7 +97,7 @@
 - type: emote
   id: FartSuper
   name: chat-emote-name-fart-super
-  category: General
+  category: Farts
   icon: _Goobstation/Interface/Emotes/fart-super.png
   whitelist:
     components:
@@ -103,6 +105,7 @@
   blacklist:
     components:
     - BorgChassis
+    - Silicon
   chatMessages: ["chat-emote-msg-fart-super"]
   chatTriggers:
     - superfart
@@ -121,3 +124,25 @@
     - ultra farts
     - ultra farted
     - ultra farting
+
+- type: emote 
+  id: Flap
+  name: chat-emote-name-flap
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/chitter.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-flap"]
+  chatTriggers:
+   - flaps
+   - flapped
+   - flaps his wings
+   - flaps her wings
+   - flaps their wings
+   - flaps its wings
+

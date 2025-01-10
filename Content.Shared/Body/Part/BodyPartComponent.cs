@@ -7,7 +7,6 @@ using Robust.Shared.Serialization;
 // Shitmed Change
 
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Content.Shared._Shitmed.Medical.Surgery.Tools;
 using Content.Shared._Shitmed.Targeting;
@@ -71,7 +70,7 @@ public sealed partial class BodyPartComponent : Component, ISurgeryToolComponent
     /// <summary>
     ///     Shitmed Change: Whether this body part can be enabled or not. Used for non-functional prosthetics.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public bool CanEnable = true;
 
     /// <summary>

@@ -6,7 +6,7 @@
   sprites: MobYowieSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobYowieDummy
-  skinColoration: TintedHues
+  skinColoration: NoColor
   maleFirstNames: names_yowie_male
   femaleFirstNames: names_yowie_female
   lastNames: names_yowie_last

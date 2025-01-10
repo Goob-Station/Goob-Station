@@ -76,7 +76,10 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
-
+    - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
@@ -101,6 +104,9 @@
     - type: Construction
       graph: GasUnary
       node: passivevent
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
     - type: VentCrawEntry # Goobstation - ventcrawl
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
@@ -166,7 +172,10 @@
       range: 5
       sound:
         path: /Audio/Ambience/Objects/gas_vent.ogg
-
+    - type: Weldable
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentScrubber
+      
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
@@ -205,6 +214,9 @@
       visibleLayers:
       - enum.SubfloorLayers.FirstLayer
       - enum.LightLayers.Unshaded
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: GasVentOpening
+      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl
@@ -258,7 +270,9 @@
       examinableAddress: true
     - type: WiredNetworkConnection
     - type: PowerSwitch
-
+    - type: AtmosMonitoringConsoleDevice
+      navMapBlip: Thermoregulator
+      
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer
@@ -464,3 +478,5 @@
   - type: ExaminableSolution
     solution: tank
   - type: PowerSwitch
+  - type: AtmosMonitoringConsoleDevice
+    navMapBlip: Thermoregulator

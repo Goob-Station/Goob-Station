@@ -63,3 +63,16 @@
     stealGroup: SupermatterSliver
     objectiveNoOwnerText: objective-condition-steal-smsliver-title
     descriptionText: objective-condition-steal-smsliver-description
+
+- type: entity
+  parent: BaseTraitorStealObjective
+  id: MultiphaseStealObjective
+  components:
+  - type: Objective
+    # HoS will have this on them a lot of the time so..
+    difficulty: 3
+  - type: NotJobRequirement
+    job: HeadOfSecurity
+  - type: StealCondition
+    stealGroup: WeaponEnergyGunMultiphase
+    owner: job-name-hos

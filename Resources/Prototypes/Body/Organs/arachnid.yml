@@ -25,6 +25,9 @@
     tags:
     - Meat
     - Organ
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 5
 
 - type: entity
   id: OrganArachnidStomach

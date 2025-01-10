@@ -14,7 +14,6 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.BodyEffects;
-using Content.Shared._Shitmed.Targeting.Events;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory;
 using Content.Shared.Random;
@@ -503,7 +502,8 @@ public partial class SharedBodySystem
         Containers.EnsureContainer<ContainerSlot>(partId.Value, GetPartSlotContainerId(slotId));
         slot = new BodyPartSlot(slotId, partType);
 
-        if (!part.Children.TryAdd(slotId, slot.Value))
+        if (!part.Children.ContainsKey(slotId) // Shitmed Change
+            && !part.Children.TryAdd(slotId, slot.Value))
             return false;
 
         Dirty(partId.Value, part);

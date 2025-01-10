@@ -18,7 +18,7 @@ using JetBrains.Annotations;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
-using Robust.Shared.Player;
+using Robust.Shared.Map.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -66,6 +66,42 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
         SubscribeLocalEvent<NetworkConfiguratorComponent, BoundUserInterfaceCheckRangeEvent>(OnUiRangeCheck);
 
         SubscribeLocalEvent<DeviceListComponent, ComponentRemove>(OnComponentRemoved);
+
+        SubscribeLocalEvent<BeforeSaveEvent>(OnMapSave);
+    }
+
+    private void OnMapSave(BeforeSaveEvent ev)
+    {
+        var enumerator = AllEntityQuery<NetworkConfiguratorComponent>();
+        while (enumerator.MoveNext(out var uid, out var conf))
+        {
+            if (CompOrNull<TransformComponent>(conf.ActiveDeviceList)?.MapUid != ev.Map)
+                continue;
+
+            // The linked device list is (probably) being saved. Make sure that the configurator is also being saved
+            // (i.e., not in the hands of a mapper/ghost). In the future, map saving should raise a separate event
+            // containing a set of all entities that are about to be saved, which would make checking this much easier.
+            // This is a shitty bandaid, and will force close the UI during auto-saves.
+            // TODO Map serialization refactor
+
+            var xform = Transform(uid);
+            if (xform.MapUid == ev.Map && IsSaveable(uid))
+                continue;
+
+            _uiSystem.CloseUi(uid, NetworkConfiguratorUiKey.Configure);
+            DebugTools.AssertNull(conf.ActiveDeviceList);
+        }
+
+        bool IsSaveable(EntityUid uid)
+        {
+            while (uid.IsValid())
+            {
+                if (Prototype(uid)?.MapSavable == false)
+                    return false;
+                uid = Transform(uid).ParentUid;
+            }
+            return true;
+        }
     }
 
     private void OnUiRangeCheck(Entity<NetworkConfiguratorComponent> ent, ref BoundUserInterfaceCheckRangeEvent args)
@@ -81,10 +117,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     private void OnShutdown(EntityUid uid, NetworkConfiguratorComponent component, ComponentShutdown args)
     {
         ClearDevices(uid, component);
-
-        if (TryComp(component.ActiveDeviceList, out DeviceListComponent? list))
-            list.Configurators.Remove(uid);
-        component.ActiveDeviceList = null;
+        ClearActiveDeviceList(uid, component); // Goobstation - Fix desync of configurator lists
     }
 
     private void OnMapInit(EntityUid uid, NetworkConfiguratorComponent component, MapInitEvent args)
@@ -469,11 +502,53 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
+    /// Goobstation - Fix desync of configurator lists
+    /// Clears the active device list pointed at while maintaining reference tracking on the device itself
+    /// </summary>
+    public void ClearActiveDeviceList(EntityUid configUid, NetworkConfiguratorComponent configComp, EntityUid? prevListUid = null, DeviceListComponent? prevListComp = null)
+    {
+        if (!prevListUid.HasValue)
+        {
+            prevListUid = configComp.ActiveDeviceList;
+            if (!prevListUid.HasValue) return;
+        }
+        // hack to prevent Resolve from null-ing prevListComp if the entity is mid-teardown
+        DebugTools.Assert(prevListUid.Value == configComp.ActiveDeviceList);
+        if (prevListComp != null || Resolve(prevListUid.Value, ref prevListComp))
+        {
+            prevListComp.Configurators.Remove(configUid);
+        }
+        configComp.ActiveDeviceList = null;
+
+        _deviceListSystem.VerifyDeviceList(prevListUid.Value, prevListComp);
+    }
+
+    /// <summary>
+    /// Goobstation - Fix desync of configurator lists
+    /// Sets the active device list pointed at while maintaining reference tracking on the device itself
+    /// </summary>
+    public void SetActiveDeviceList(EntityUid configUid, NetworkConfiguratorComponent configComp, EntityUid? nextListUid = null, DeviceListComponent? nextListComp = null)
+    {
+        // unset previous
+        ClearActiveDeviceList(configUid, configComp, configComp.ActiveDeviceList);
+
+        // set new one
+        if (nextListUid.HasValue && Resolve(nextListUid.Value, ref nextListComp))
+        {
+            _deviceListSystem.VerifyDeviceList(nextListUid); // pre-check
+
+            nextListComp.Configurators.Remove(configUid);
+            configComp.ActiveDeviceList = nextListUid;
+            _deviceListSystem.VerifyDeviceList(nextListUid); // post-check
+        }
+    }
+
+    /// <summary>
     /// Opens the config ui. It can be used to modify the devices in the targets device list.
     /// </summary>
     private void OpenDeviceListUi(EntityUid configuratorUid, EntityUid? targetUid, EntityUid userUid, NetworkConfiguratorComponent configurator)
     {
-        if (configurator.ActiveDeviceLink == targetUid)
+        if (configurator.ActiveDeviceList == targetUid) // Goobstation - Fix desync of configurator lists
             return;
 
         if (Delay(configurator))
@@ -484,6 +559,9 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
 
         if (!TryComp(targetUid, out DeviceListComponent? list))
             return;
+
+        if (TryComp(configurator.ActiveDeviceList, out DeviceListComponent? oldList))
+            oldList.Configurators.Remove(configuratorUid);
 
         list.Configurators.Add(configuratorUid);
         configurator.ActiveDeviceList = targetUid;
@@ -527,36 +605,29 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
     }
 
     /// <summary>
+    /// Goobstation - Fix desync of configurator lists
     /// Clears the active device list when the ui is closed
     /// </summary>
     private void OnUiClosed(EntityUid uid, NetworkConfiguratorComponent component, BoundUIClosedEvent args)
     {
-        if (!args.UiKey.Equals(NetworkConfiguratorUiKey.Configure)
-            && !args.UiKey.Equals(NetworkConfiguratorUiKey.Link)
-            && !args.UiKey.Equals(NetworkConfiguratorUiKey.List))
+        if (args.UiKey.Equals(NetworkConfiguratorUiKey.Configure))
         {
-            return;
+            ClearActiveDeviceList(uid, component);
         }
-
-        if (TryComp(component.ActiveDeviceList, out DeviceListComponent? list))
-        {
-            list.Configurators.Remove(uid);
-        }
-
-        component.ActiveDeviceList = null;
-
-        if (args.UiKey is NetworkConfiguratorUiKey.Link)
+        else if (args.UiKey is NetworkConfiguratorUiKey.Link)
         {
             component.ActiveDeviceLink = null;
             component.DeviceLinkTarget = null;
         }
     }
 
-    public void OnDeviceListShutdown(Entity<NetworkConfiguratorComponent?> conf, Entity<DeviceListComponent> list)
+    // Goobstation - Fix desync of configurator lists
+    public void OnDeviceListShutdown(EntityUid confUid, Entity<DeviceListComponent> list)
     {
-        list.Comp.Configurators.Remove(conf.Owner);
-        if (Resolve(conf.Owner, ref conf.Comp))
-            conf.Comp.ActiveDeviceList = null;
+        if (TryComp(confUid, out NetworkConfiguratorComponent? confComp))
+        {
+            ClearActiveDeviceList(confUid, confComp, list.Owner, list.Comp);
+        }
     }
 
     /// <summary>
@@ -758,7 +829,7 @@ public sealed class NetworkConfiguratorSystem : SharedNetworkConfiguratorSystem
                 {
                     if (query.TryGetComponent(device, out var comp))
                     {
-                        component.Devices[addr] = device;
+                        component.Devices.Add(addr, device);
                         comp.Configurators.Add(uid);
                     }
                 }

@@ -30,6 +30,9 @@
   abstract: true
   components:
   - type: Gibbable
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Biomass: 3
 
 - type: entity
   id: OrganAnimalLungs

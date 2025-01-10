@@ -23,6 +23,9 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
     [DataField]
     public Color? Color;
 
+    [DataField]
+    public float FireCost = 100f;
+
     public object Clone()
     {
         return new SelectableAmmoPrototype
@@ -32,6 +35,7 @@ public sealed partial class SelectableAmmoPrototype : IPrototype, ICloneable
             Desc = Desc,
             ProtoId = ProtoId,
             Color = Color,
+            FireCost = FireCost,
         };
     }
 }

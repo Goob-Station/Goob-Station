@@ -641,6 +641,25 @@
           defaultPrototype: PowerCellSmall
 
 - type: entity
+  id: SMESAdvancedMachineCircuitboard
+  parent: BaseMachineCircuitboard
+  name: advanced SMES machine board
+  description: A machine printed circuit board for an Advanced SMES.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/module.rsi
+    state: power_mod
+  - type: MachineBoard
+    prototype: SMESAdvancedEmpty
+    stackRequirements:
+      Capacitor: 2
+      CableHV: 20
+    componentRequirements:
+      PowerCell:
+        amount: 4
+        defaultPrototype: PowerCellMedium
+
+- type: entity
   id: CellRechargerCircuitboard
   parent: BaseMachineCircuitboard
   name: cell recharger machine board
@@ -654,10 +673,10 @@
       stackRequirements:
         Capacitor: 2
         Cable: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
 
@@ -676,10 +695,10 @@
         Capacitor: 4
         Steel: 5
         Cable: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 25
+        Glass: 125
     - type: StaticPrice
       price: 30
 
@@ -697,10 +716,10 @@
       stackRequirements:
         Capacitor: 2
         Cable: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
 
@@ -718,10 +737,10 @@
       stackRequirements:
         Capacitor: 2
         CableMV: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Steel: 30
-        Plastic: 30
+        Steel: 12
+        Plastic: 12
     - type: StaticPrice
       price: 15
 
@@ -739,10 +758,11 @@
     stackRequirements:
       Capacitor: 2
       CableMV: 5
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 30
-      Plastic: 30
+      Steel: 25
+      Glass: 125
+      Gold: 25
 
 - type: entity
   id: SubstationMachineCircuitboard
@@ -760,11 +780,11 @@
         PowerCell:
           amount: 1
           defaultPrototype: PowerCellSmall
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 58
 
@@ -813,11 +833,11 @@
       stackRequirements:
         Capacitor: 1
         CableHV: 5
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 
@@ -856,11 +876,11 @@
       stackRequirements:
         Capacitor: 2
         CableHV: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 
@@ -876,11 +896,11 @@
       stackRequirements:
         Capacitor: 1
         Cable: 10
-    - type: PhysicalComposition
+    - type: PhysicalComposition #Goobstation - Recycle update
       materialComposition:
-        Glass: 200
+        Glass: 125
       chemicalComposition:
-        Silicon: 20
+        Silicon: 5
     - type: StaticPrice
       price: 40
 

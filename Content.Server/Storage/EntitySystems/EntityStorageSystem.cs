@@ -9,6 +9,7 @@ using Content.Shared.Explosion;
 using Content.Shared.Foldable;
 using Content.Shared.Interaction;
 using Content.Shared.Lock;
+using Content.Shared.Materials;
 using Content.Shared.Movement.Events;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
@@ -42,6 +43,7 @@ public sealed class EntityStorageSystem : SharedEntityStorageSystem
         SubscribeLocalEvent<EntityStorageComponent, GetVerbsEvent<InteractionVerb>>(AddToggleOpenVerb);
         SubscribeLocalEvent<EntityStorageComponent, ContainerRelayMovementEntityEvent>(OnRelayMovement);
         SubscribeLocalEvent<EntityStorageComponent, FoldAttemptEvent>(OnFoldAttempt);
+        SubscribeLocalEvent<EntityStorageComponent, GotReclaimedEvent>(OnReclaimed); // Goobstation - Recycle update
 
         SubscribeLocalEvent<EntityStorageComponent, ComponentGetState>(OnGetState);
         SubscribeLocalEvent<EntityStorageComponent, ComponentHandleState>(OnHandleState);

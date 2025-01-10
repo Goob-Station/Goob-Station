@@ -72,7 +72,7 @@
     damage:
       types:
         Blunt: 5
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 25
   - type: ExaminableSolution
@@ -82,6 +82,11 @@
   - type: Tag
     tags:
       - DrinkGlass
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 # Transformable container - normal glass
 - type: entity

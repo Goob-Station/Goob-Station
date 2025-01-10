@@ -34,6 +34,7 @@
     LFoot: MobHumanLFoot
     RFoot: MobHumanRFoot
     Tail: MobHumanoidAnyMarking # Goobstation - Required for felinids & harpies.
+    HeadSide: MobHumanoidAnyMarking # Oni port from DeltaV
 
 - type: markingPoints
   id: MobHumanMarkingLimits

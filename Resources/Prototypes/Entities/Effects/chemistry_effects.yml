@@ -76,6 +76,9 @@
     animationState: foam-dissolve
   - type: Slippery
   - type: StepTrigger
+    triggerGroups:
+      types:
+      - SlipTile
   # disabled until foam reagent duplication is fixed
   #- type: ScoopableSolution
   #  solution: solutionArea

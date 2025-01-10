@@ -19,13 +19,10 @@ using Robust.Shared.Utility;
 using Content.Shared._Shitmed.Body.Events;
 using Content.Shared._Shitmed.Body.Part;
 using Content.Shared._Shitmed.Humanoid.Events;
-using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
-using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
 using Robust.Shared.Timing;
 
@@ -187,7 +184,7 @@ public partial class SharedBodySystem
                 cameFromEntities[connection] = childPart;
 
                 var childPartComponent = Comp<BodyPartComponent>(childPart);
-                var partSlot = CreatePartSlot(parentEntity, connection, childPartComponent.PartType, parentPartComponent);
+                TryCreatePartSlot(parentEntity, connection, childPartComponent.PartType, out var partSlot, parentPartComponent);
                 // Shitmed Change Start
                 childPartComponent.ParentSlot = partSlot;
                 Dirty(childPart, childPartComponent);
@@ -214,7 +211,7 @@ public partial class SharedBodySystem
     {
         foreach (var (organSlotId, organProto) in organs)
         {
-            var slot = CreateOrganSlot((ent, ent), organSlotId);
+            TryCreateOrganSlot(ent, organSlotId, out var slot); // Shitmed Change
             SpawnInContainerOrDrop(organProto, ent, GetOrganContainerId(organSlotId));
 
             if (slot is null)
@@ -426,8 +423,21 @@ public partial class SharedBodySystem
             if (IsPartRoot(bodyEnt, partId, part: part))
                 return false;
 
+            var gibs = new HashSet<EntityUid>();
+            // Todo: Kill this in favor of husking.
             DropSlotContents((partId, part));
             RemovePartChildren((partId, part), bodyEnt);
+            foreach (var organ in GetPartOrgans(partId, part))
+                _gibbingSystem.TryGibEntityWithRef(bodyEnt, organ.Id, GibType.Drop, GibContentsOption.Skip,
+                    ref gibs, playAudio: false, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
+
+            _gibbingSystem.TryGibEntityWithRef(partId, partId, GibType.Gib, GibContentsOption.Gib, ref gibs,
+                playAudio: false, launchGibs: true, launchImpulse: GibletLaunchImpulse, launchImpulseVariance: GibletLaunchImpulseVariance);
+
+            if (HasComp<InventoryComponent>(partId))
+                foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
+                    SharedTransform.AttachToGridOrMap(item);
+
             QueueDel(partId);
             return true;
         }
@@ -438,27 +448,40 @@ public partial class SharedBodySystem
     private void OnProfileLoadFinished(EntityUid uid, BodyComponent component, ProfileLoadFinishedEvent args)
     {
         if (!HasComp<HumanoidAppearanceComponent>(uid)
-            || TerminatingOrDeleted(uid))
+            || TerminatingOrDeleted(uid)
+            || !Initialized(uid)) // We do this last one for urists on test envs.
+            return;
 
         foreach (var part in GetBodyChildren(uid, component))
             EnsureComp<BodyPartAppearanceComponent>(part.Id);
     }
+
     private void OnStandAttempt(Entity<BodyComponent> ent, ref StandAttemptEvent args)
     {
-        if (ent.Comp.LegEntities.Count == 0)
+        if (ent.Comp.LegEntities.Count < ent.Comp.RequiredLegs)
             args.Cancel();
     }
 
     private void OnBeingEquippedAttempt(Entity<BodyComponent> ent, ref IsEquippingAttemptEvent args)
     {
-        TryGetPartFromSlotContainer(args.Slot, out var bodyPart);
-        if (bodyPart is not null)
+        if (!TryComp(args.EquipTarget, out BodyComponent? targetBody)
+            || targetBody.Prototype == null
+            || HasComp<BorgChassisComponent>(args.EquipTarget))
+            return;
+
+        if (TryGetPartFromSlotContainer(args.Slot, out var bodyPart)
+            && bodyPart is not null)
         {
-            if (!GetBodyChildrenOfType(args.EquipTarget, bodyPart.Value).Any())
+            var bodyPartString = bodyPart.Value.ToString().ToLower();
+            var prototype = Prototypes.Index(targetBody.Prototype.Value);
+            var hasPartConnection = prototype.Slots.Values.Any(slot =>
+                slot.Connections.Contains(bodyPartString));
+
+            if (hasPartConnection
+                && !GetBodyChildrenOfType(args.EquipTarget, bodyPart.Value).Any())
             {
-                if (_timing.IsFirstTimePredicted)
-                    _popup.PopupEntity(Loc.GetString("equip-part-missing-error",
-                        ("target", args.EquipTarget), ("part", bodyPart.Value.ToString())), args.Equipee, args.Equipee);
+                _popup.PopupClient(Loc.GetString("equip-part-missing-error",
+                    ("target", args.EquipTarget), ("part", bodyPartString)), args.Equipee, args.Equipee);
                 args.Cancel();
             }
         }

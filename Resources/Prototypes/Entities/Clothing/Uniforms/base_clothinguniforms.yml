@@ -52,6 +52,9 @@
   - type: WirelessNetworkConnection
     range: 1200
   - type: StationLimitedNetwork
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Cloth: 75
 
 - type: entity
   abstract: true

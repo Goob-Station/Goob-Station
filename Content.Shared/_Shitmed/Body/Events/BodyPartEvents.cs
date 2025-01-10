@@ -1,4 +1,3 @@
-using Content.Shared.Humanoid;
 using Content.Shared.Body.Part;
 
 namespace Content.Shared._Shitmed.Body.Events;

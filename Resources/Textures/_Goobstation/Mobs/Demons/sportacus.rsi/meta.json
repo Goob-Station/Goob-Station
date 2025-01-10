@@ -1,47 +1,17 @@
 {
     "version": 1,
     "size": {
-        "x": 512,
-        "y": 512
+        "x": 256,
+        "y": 256
     },
     "license": "CC-BY-NC-SA-3.0",
     "copyright": "lazy town real",
     "states": [
         {
-            "name": "alive",
-            "directions": 4,
-            "delays": [
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ]
-            ]
+            "name": "alive"
         },
         {
-            "name": "dead",
-            "directions": 4,
-            "delays": [
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ],
-                [
-                    1.0
-                ]
-            ]
+            "name": "dead"
         }
     ]
 }

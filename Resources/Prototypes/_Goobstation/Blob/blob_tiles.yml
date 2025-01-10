@@ -1,0 +1,342 @@
+﻿- type: entity
+  id: SpawnPointGhostBlob
+  name: Blob
+  suffix: DONTMAP, spawner
+  parent: MarkerBase
+  components:
+    - type: GhostRoleMobSpawner
+      prototype: CoreBlobTile
+    - type: GhostRole
+      name: ghost-role-information-blob-name
+      description: ghost-role-information-blob-description
+      rules: You are an antagonist, destroy the station!
+      raffle:
+        settings: default
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: _Goobstation/Blob/Mobs/blob.rsi
+          state: blob_nuke_overlay
+
+- type: entity
+  parent: BaseBlob
+  id: CoreBlobTile
+  name: Core Blob
+  description: The most important part of the Blob. This is the brain and heart of the Blob.
+  save: false
+  components:
+  - type: Temperature
+    heatDamage:
+      types:
+        Heat: 5
+    coldDamage: {}
+    coldDamageThreshold: 0
+  - type: Flammable
+    fireSpread: true
+    damage:
+      types:
+        Heat: 1
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: BlobTile
+    blobTileType: Core
+  - type: Store
+    currencyWhitelist:
+    - BlobPoint
+  - type: BlobCore
+    blobTileCosts:
+      !type:BlobTileCosts
+      core: 0
+      invalid: 0
+      resource: 60
+      factory: 80
+      node: 50
+      reflective: 15
+      strong: 15
+      normal: 6
+#      storage: 50
+#      turret: 75
+    actionPrototypes:
+      - ActionSwapBlobChem
+      - ActionTeleportBlobToCore
+      - ActionCreateBlobFactory
+      - ActionCreateBlobResource
+      - ActionCreateBlobNode
+      - ActionCreateBlobbernaut
+      - ActionSplitBlobCore
+      - ActionSwapBlobCore
+      - ActionDowngradeBlob
+  - type: BlobNode
+  - type: BlobResource
+    pointsPerPulsed: 5
+  - type: Sprite
+    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    drawdepth: BlobTiles
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: blob_core
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: blob_core_glow
+#        shader: unshaded
+      - state: blob_core_overlay
+  - type: WarpPoint
+    location: blob core
+  - type: GhostRole
+    prob: 1
+    name: ghost-role-information-blob-name
+    description: ghost-role-information-blob-description
+    rules: You are an antagonist, destroy the station!
+    reregister: false
+    raffle:
+      settings: default
+  - type: GhostTakeoverAvailable
+
+- type: entity
+  parent: BaseBlob
+  id: NormalBlobTile
+  name: Normal Blob
+  categories: [ HideSpawnMenu ]
+  description: An ordinary part of yours required for the construction of more advanced tiles.
+  components:
+  - type: Temperature
+    heatDamage:
+      types:
+        Heat: 5
+    coldDamage: {}
+    coldDamageThreshold: 0
+  - type: Flammable
+    fireSpread: true
+    damage:
+      types:
+        Heat: 1
+  - type: BlobTile
+    blobTileType: Normal
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 25
+        behaviors:
+          - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+  - type: Sprite
+    sprite: _Goobstation/Blob/Mobs/blob.rsi
+    drawdepth: BlobTiles
+    layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: blob
+#      Vanila vs new type, idk
+#  - type: SlowContacts
+#    walkSpeedModifier: 0.3
+#    sprintSpeedModifier: 0.3
+#    ignoreWhitelist:
+#      tags:
+#        - BlobMob
+#  - type: DamageContacts
+#    damage:
+#      types:
+#        Poison: 1.5
+#        Piercing: 1.5
+#    ignoreWhitelist:
+#      tags:
+#        - BlobMob
+#  - type: Fixtures
+#    fixtures:
+#      fix1:
+#        density: 7
+#        shape:
+#          !type:PhysShapeAabb
+#          bounds: "-0.5,-0.5,0.5,0.5"
+#        layer:
+#          - BlobTileLayer
+#        mask:
+#          - BlobTileMask
+
+
+
+
+- type: entity
+  parent: BaseBlob
+  id: FactoryBlobTile
+  name: Factory Blob
+  description: The so-called BlobPods come out of the factory and attack passers-by and zombify the corpses of these same passers-by. One factory produces 3 of these BlobPods; they cannot be placed next to each other at a distance of 7 tiles; one factory can produce only one Blobbernaut.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Temperature
+      heatDamage:
+        types:
+          Heat: 5
+      coldDamage: {}
+      coldDamageThreshold: 0
+    - type: Flammable
+      fireSpread: true
+      damage:
+        types:
+          Heat: 1
+    - type: BlobTile
+      blobTileType: Factory
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: BlobFactory
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      drawdepth: BlobTiles
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: blob_special
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: blob_glow_special
+#          shader: unshaded
+
+- type: entity
+  parent: BaseBlob
+  id: ResourceBlobTile
+  name: Resource Blob
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Temperature
+      heatDamage:
+        types:
+          Heat: 5
+      coldDamage: {}
+      coldDamageThreshold: 0
+    - type: Flammable
+      fireSpread: true
+      damage:
+        types:
+          Heat: 1
+    - type: BlobTile
+      blobTileType: Resource
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 90
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: BlobResource
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      drawdepth: BlobTiles
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: blob_special
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: blob_glow_special
+#          shader: unshaded
+        - state: blob_resource_overlay
+
+- type: entity
+  parent: BaseBlob
+  id: NodeBlobTile
+  name: Node Blob
+  description: The second, but mini, Blob core, near which you can place factories and resource blobs. Required to split the core.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Temperature
+      heatDamage:
+        types:
+          Heat: 5
+      coldDamage: {}
+      coldDamageThreshold: 0
+    - type: Flammable
+      fireSpread: true
+      damage:
+        types:
+          Heat: 1
+    - type: BlobTile
+      blobTileType: Node
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 200
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: BlobNode
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      drawdepth: BlobTiles
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: blob_node
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: blob_node_glow
+#          shader: unshaded
+        - state: blob_node_overlay
+
+- type: entity
+  parent: BaseBlob
+  id: StrongBlobTile
+  name: StrongBlobTile
+  description: The basis of defensive positions has not only a strength of 6 times, this tile is also capable of withstanding various gases in order to become an atmospheric technician to protect the core, for example, from plasma that the enemy can set on fire.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Airtight
+    - type: BlobTile
+      blobTileType: Strong
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 150
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      drawdepth: BlobTiles
+      layers:
+        - map: [ "enum.DamageStateVisualLayers.Base" ]
+          state: blob_shield
+        - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+          state: blob_glow
+#          shader: unshaded
+
+- type: entity
+  parent: BaseBlob
+  id: ReflectiveBlobTile
+  name: ReflectiveBlobTile
+  description: Upgrading a fortified cell in which they pay less strength for the ability to reflect only energy projectiles and lasers with a 90% chance.
+  categories: [ HideSpawnMenu ]
+  components:
+    - type: Airtight
+    - type: BlobTile
+      blobTileType: Reflective
+    - type: Destructible
+      thresholds:
+        - trigger:
+            !type:DamageTrigger
+            damage: 100
+          behaviors:
+            - !type:DoActsBehavior
+              acts: [ "Destruction" ]
+    - type: Reflect
+      reflectProb: 0.6
+      spread: 20
+      reflects:
+        - Energy
+    - type: Sprite
+      sprite: _Goobstation/Blob/Mobs/blob.rsi
+      drawdepth: BlobTiles
+      layers:
+      - map: [ "enum.DamageStateVisualLayers.Base" ]
+        state: blob_shield
+      - map: [ "enum.DamageStateVisualLayers.BaseUnshaded" ]
+        state: blob_glow
+        shader: unshaded

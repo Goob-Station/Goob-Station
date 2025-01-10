@@ -1,0 +1,13 @@
+- type: reaction
+  id: Barozine
+  reactants:
+    Chlorine:
+      amount: 1
+    Plasma:
+      amount: 1
+    Potassium:
+      amount: 1
+    Bicaridine:
+      amount: 1
+  products:
+    Barozine: 1

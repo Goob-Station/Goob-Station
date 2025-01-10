@@ -1,0 +1,65 @@
+- type: reaction
+  id: GinAndSonic
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    GinTonic:
+      amount: 1
+    Desoxyephedrine:
+      amount: 1
+  products:
+    GinAndSonic: 2
+
+- type: reaction
+  id: GoldenCat
+  requiredMixerCategories:
+  - Stir
+  reactants:
+    Whiskey:
+      amount: 1
+    Rum:
+      amount: 2
+    Gold:
+      amount: 2
+  products:
+    GoldenCat: 5
+
+- type: reaction
+  id: PineappleBlast
+  reactants:
+    JuicePineapple:
+      amount: 2
+    Moonshine:
+      amount: 2
+    Napalm:
+      amount: 1
+  products:
+    PineappleBlast: 5
+
+- type: reaction
+  id: TorpedoJuice
+  requiredMixerCategories:
+  - Shake
+  reactants:
+    JuicePineapple:
+      amount: 2
+    Ethanol:
+      amount: 2
+    Thermite:
+      amount: 1
+  products:
+    TorpedoJuice: 5
+
+- type: reaction
+  id: BeesKnees
+  reactants:
+    JuiceLemon:
+      amount: 1
+    BuzzochloricBees:
+      amount: 2
+    Gin:
+      amount: 1
+    Mead:
+      amount: 1
+  products:
+    BeesKnees: 5

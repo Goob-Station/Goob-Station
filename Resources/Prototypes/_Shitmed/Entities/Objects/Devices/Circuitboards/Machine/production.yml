@@ -22,3 +22,16 @@
   components:
   - type: MachineBoard
     prototype: AutodocSyndie
+
+- type: entity
+  parent: BaseMachineCircuitboard
+  id: OperatingTableCircuitboard
+  name: operating table machine board
+  description: A machine printed circuit board for an operating table.
+  components:
+  - type: MachineBoard
+    prototype: OperatingTable
+    stackRequirements:
+      Cable: 3
+      Silver: 2
+      Steel: 4

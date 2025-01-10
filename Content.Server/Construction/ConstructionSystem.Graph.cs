@@ -1,14 +1,13 @@
 using Content.Server.Construction.Components;
-using Content.Server.Containers;
 using Content.Shared.Construction;
 using Content.Shared.Construction.Prototypes;
 using Content.Shared.Construction.Steps;
 using Content.Shared.Containers;
 using Content.Shared.Database;
-using Robust.Server.Containers;
 using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.Hands.Components;
 
 namespace Content.Server.Construction
 {
@@ -304,8 +303,8 @@ namespace Content.Server.Construction
                 return null;
 
             // [Optional] Exit if the new entity's prototype is a parent of the original
-            // E.g., if an entity with the 'AirlockCommand' prototype was to be replaced with a new entity that 
-            // had the 'Airlock' prototype, and DoNotReplaceInheritingEntities was true, the code block would 
+            // E.g., if an entity with the 'AirlockCommand' prototype was to be replaced with a new entity that
+            // had the 'Airlock' prototype, and DoNotReplaceInheritingEntities was true, the code block would
             // exit here because 'AirlockCommand' is derived from 'Airlock'
             if (GetCurrentNode(uid, construction)?.DoNotReplaceInheritingEntities == true &&
                 metaData.EntityPrototype?.ID != null)
@@ -394,6 +393,17 @@ namespace Content.Server.Construction
                 }
             }
 
+            // WD EDIT START
+            if (userUid != null && IsTransformParentOf(userUid.Value, transform) && TryComp(userUid, out HandsComponent? hands))
+            {
+                var hand = hands.Hands.Values.FirstOrDefault(h => h.HeldEntity == uid);
+                if (hand != null)
+                    _handsSystem.TryDrop(userUid.Value, hand, handsComp: hands);
+
+                _handsSystem.PickupOrDrop(userUid, newUid, handsComp: hands);
+            }
+            // WD EDIT END
+
             var entChangeEv = new ConstructionChangeEntityEvent(newUid, uid);
             RaiseLocalEvent(uid, entChangeEv);
             RaiseLocalEvent(newUid, entChangeEv, broadcast: true);
@@ -408,6 +418,13 @@ namespace Content.Server.Construction
             QueueDel(uid);
 
             return newUid;
+        }
+
+        private bool IsTransformParentOf(EntityUid uid, TransformComponent target) // WD EDIT
+        {
+            var parentUid = target.ParentUid;
+
+            return parentUid == uid || TryComp(parentUid, out TransformComponent? trans) && IsTransformParentOf(uid, trans);
         }
 
         /// <summary>

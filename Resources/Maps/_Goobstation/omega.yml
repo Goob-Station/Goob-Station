@@ -5869,6 +5869,11 @@ entities:
     - type: Transform
       pos: 6.5,18.5
       parent: 4812
+  - uid: 3404
+    components:
+    - type: Transform
+      pos: -46.5,-12.5
+      parent: 4812
 - proto: AirlockCommandLocked
   entities:
   - uid: 11928
@@ -5973,11 +5978,6 @@ entities:
     components:
     - type: Transform
       pos: -37.5,-8.5
-      parent: 4812
-  - uid: 9888
-    components:
-    - type: Transform
-      pos: -46.5,-12.5
       parent: 4812
   - uid: 9958
     components:
@@ -62039,6 +62039,20 @@ entities:
     - type: Transform
       pos: -21.281672,23.225285
       parent: 4812
+- proto: MailMetricsCartridge
+  entities:
+  - uid: 13711
+    components:
+    - type: Transform
+      pos: 20.027636,21.660025
+      parent: 4812
+- proto: MailTeleporter
+  entities:
+  - uid: 13710
+    components:
+    - type: Transform
+      pos: 17.5,20.5
+      parent: 4812
 - proto: MaintenanceFluffSpawner
   entities:
   - uid: 278
@@ -62189,6 +62203,13 @@ entities:
     components:
     - type: Transform
       pos: 8.48969,29.428799
+      parent: 4812
+- proto: MaterialSilo
+  entities:
+  - uid: 9888
+    components:
+    - type: Transform
+      pos: -47.5,-13.5
       parent: 4812
 - proto: MatterBinStockPart
   entities:
@@ -66322,11 +66343,6 @@ entities:
     - type: Transform
       pos: 21.5,8.5
       parent: 4812
-  - uid: 3404
-    components:
-    - type: Transform
-      pos: -47.5,-13.5
-      parent: 4812
   - uid: 3748
     components:
     - type: Transform
@@ -69984,8 +70000,11 @@ entities:
   - uid: 3470
     components:
     - type: Transform
-      pos: -47.48832,-13.469177
+      pos: -50.26853,-11.864944
       parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
   - uid: 3849
     components:
     - type: Transform
@@ -70113,8 +70132,11 @@ entities:
   - uid: 3749
     components:
     - type: Transform
-      pos: -47.503944,-13.422302
+      pos: -48.14353,-11.864944
       parent: 4812
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: Shovel
   entities:
   - uid: 13238
@@ -77060,6 +77082,13 @@ entities:
     components:
     - type: Transform
       pos: -16.5,17.5
+      parent: 4812
+- proto: VendingMachineMailDrobe
+  entities:
+  - uid: 13712
+    components:
+    - type: Transform
+      pos: 16.5,27.5
       parent: 4812
 - proto: VendingMachineMedical
   entities:

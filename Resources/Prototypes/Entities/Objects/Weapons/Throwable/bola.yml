@@ -22,9 +22,11 @@
     breakoutTime: 3.5 #all bola should generally be fast to remove
     walkSpeed: 0.7 #makeshift bola shouldn't slow too much
     sprintSpeed: 0.7
-    staminaDamage: 25 # Sudden weight increase sapping stamina
+    staminaDamage: 0
     canThrowTrigger: true
     canMoveBreakout: true
+  - type: KnockdownOnCollide
+  - type: ThrowableBlocked
 
 - type: entity
   name: bola
@@ -57,6 +59,11 @@
     damage:
       types:
         Blunt: 5
+  - type: ThrowableBlocked
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 15
 
 - type: entity
   name: energy bola
@@ -69,8 +76,15 @@
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Throwable/energy_bola.rsi
   - type: Ensnaring
-    staminaDamage: 55
+    freeTime: 2.0
+    breakoutTime: 3.5 #all bola should generally be fast to remove
+    walkSpeed: 0.5 #makeshift bola shouldn't slow too much
+    sprintSpeed: 0.5
+    staminaDamage: 0 # anything but this is gamebreaking
+    canThrowTrigger: true
+    canMoveBreakout: true
     destroyOnRemove: true
   - type: Tag
     tags:
     - BolaEnergy
+  - type: LandAtCursor

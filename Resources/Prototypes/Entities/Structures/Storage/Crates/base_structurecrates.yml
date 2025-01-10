@@ -153,3 +153,7 @@
     - Energy
     reflectProb: 0.2
     spread: 90
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 125
+  - type: RecyclableOnUnlock #Goobstation - Recycle update

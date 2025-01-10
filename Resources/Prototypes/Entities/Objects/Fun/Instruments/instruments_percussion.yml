@@ -84,6 +84,11 @@
     - KeyedInstrument
   - type: StaticPrice
     price: 90
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 75
+      Glass: 25
 
 - type: entity
   parent: BaseHandheldInstrument

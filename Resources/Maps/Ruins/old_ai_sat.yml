@@ -18,7 +18,6 @@ entities:
       name: grid
     - type: Transform
       pos: -1.53125,0.062469482
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
