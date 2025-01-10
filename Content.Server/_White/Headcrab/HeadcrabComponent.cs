@@ -55,4 +55,7 @@ public sealed partial class HeadcrabComponent : Component
 
     [DataField]
     public HashSet<ProtoId<NpcFactionPrototype>> OldFactions = new();
+
+    [DataField]
+    public LocId MindLostMessageSelf = "headcrab-mind";
 }

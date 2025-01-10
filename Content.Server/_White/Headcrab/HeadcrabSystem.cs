@@ -102,6 +102,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _npc.WakeNPC(args.Equipee, htn);
         _htn.Replan(htn);
 
+        var mindlostMessage = Loc.GetString(component.MindLostMessageSelf);
+
         if (TryComp<ActorComponent>(args.Equipee, out var actor) && actor.PlayerSession.GetMind() is { } mind)
         {
             var session = actor.PlayerSession;
@@ -109,6 +111,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
                 return;
 
             component.StolenMind = mind;
+
+            _popup.PopupPredicted(mindlostMessage,
+                args.Equipee, args.Equipee, PopupType.LargeCaution);
         }
 
         if (_mobState.IsDead(uid))

@@ -9,3 +9,5 @@ headcrab-hit-entity-head = You got { CAPITALIZE($entity) } head!
 headcrab-entity-bite = Headcrab bit your hand!
 
 headcrab-try-unequip = You cant take headcrab off your head.
+
+headcrab-mind = You will return to the body as soon as the headcrab loses control of it.
