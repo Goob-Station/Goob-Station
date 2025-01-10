@@ -17,7 +17,7 @@
     - type: PressureImmunity
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [OrganAnimalHeart, BaseMajorContraband] # ShibaStation - goliath heart is contraband
   id: OrganGoliathHeart
   name: goliath heart
   components:
@@ -29,7 +29,7 @@
     state: heart-on
 
 - type: entity
-  parent: OrganAnimalLungs
+  parent: [OrganAnimalLungs, BaseMajorContraband] # ShibaStation - dragon lungs are contraband
   id: OrganDragonLungs
   name: dragon lungs
   components:
@@ -40,7 +40,7 @@
       gunProto: DragonsBreathGun
 
 - type: entity
-  parent: OrganHumanEyes
+  parent: [OrganHumanEyes, BaseMajorContraband] # ShibaStation - laser raptor eyes are contraband
   id: OrganLaserEyes
   name: laser raptor eyes
   components:
@@ -64,7 +64,7 @@
       soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
 
 - type: entity
-  parent: OrganAnimalHeart
+  parent: [OrganAnimalHeart, BaseMinorContraband] # ShibaStation - cobra gland is contraband
   id: OrganCobraHeart
   name: cobra gland
   components:
