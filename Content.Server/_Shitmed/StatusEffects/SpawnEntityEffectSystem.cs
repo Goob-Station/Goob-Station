@@ -13,6 +13,10 @@ public sealed class SpawnEntityEffectSystem : EntitySystem
     {
         SubscribeLocalEvent<SpawnSpiderEggsComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<SpawnSlimesComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SpawnEmpComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SpawnGravityWellComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SpawnFlashComponent, ComponentInit>(OnInit);
+        SubscribeLocalEvent<SpawnSmokeComponent, ComponentInit>(OnInit);
     }
 
     private void OnInit(EntityUid uid, SpawnEntityEffectComponent component, ComponentInit args)
@@ -34,7 +38,7 @@ public sealed class SpawnEntityEffectSystem : EntitySystem
             if (EnsureComp<FactionExceptionComponent>(entity, out var comp))
                 return;
 
-            _factionException.IgnoreEntities(entity, comp.Ignored);
+            _factionException.IgnoreEntities(entity, new[] { uid });
         }
 
     }

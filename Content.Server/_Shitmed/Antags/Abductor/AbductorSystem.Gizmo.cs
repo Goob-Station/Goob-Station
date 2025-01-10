@@ -1,13 +1,14 @@
 ﻿using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.Medical.Surgery;
+using Content.Shared.ActionBlocker;
 using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
+using Content.Shared.Popups;
+using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
-using Content.Shared.Interaction;
-using Content.Shared.Weapons.Melee.Events;
-using Content.Shared.Tag;
-using Content.Shared.Popups;
-using Content.Shared.ActionBlocker;
+using Robust.Shared.Timing;
 
 namespace Content.Server._Shitmed.Antags.Abductor;
 
@@ -15,7 +16,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 {
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlockerSystem = default!;
-
+    [Dependency] private readonly IGameTiming _time = default!;
     private static readonly ProtoId<TagPrototype> _abductor = "Abductor";
     public void InitializeGizmo()
     {

@@ -7,17 +7,7 @@ public enum AbductorExperimentatorVisuals : byte
 {
     Full
 }
-[Serializable, NetSerializable]
-public enum AbductorOrganType : byte
-{
-    None,
-    Health,
-    Plasma,
-    Gravity,
-    Egg,
-    Spider,
-    Vent
-}
+
 [Serializable, NetSerializable]
 public enum AbductorCameraConsoleUIKey
 {

@@ -10,6 +10,7 @@
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
     state: abductor
+    heldPrefix: abductor
     storedRotation: 90
   - type: SurgeryTool
     startSound:
@@ -47,6 +48,7 @@
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
     state: abductor
+    heldPrefix: abductor
     storedRotation: 90
   - type: SurgeryTool
     startSound:
@@ -80,6 +82,7 @@
   - type: Item
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
     state: abductor
+    heldPrefix: abductor
     storedRotation: 90
   - type: SurgeryTool
     startSound:
@@ -112,6 +115,7 @@
     - type: Item
       sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
       state: abductor
+      heldPrefix: abductor
       storedRotation: 90
     - type: SurgeryTool
       startSound:

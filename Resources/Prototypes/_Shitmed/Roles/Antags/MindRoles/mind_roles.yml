@@ -7,3 +7,13 @@
     exclusiveAntag: true
     antagPrototype: LoneAbductorAntag
   - type: Abductor
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAbductorVictim
+  name: Abductee Role
+  components:
+  - type: MindRole
+    antagonist: true
+    antagPrototype: AbductorVictimAntag
+  - type: AbductorVictim

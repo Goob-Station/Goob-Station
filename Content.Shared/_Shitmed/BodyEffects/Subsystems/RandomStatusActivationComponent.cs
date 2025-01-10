@@ -3,7 +3,7 @@ using Robust.Shared.Prototypes;
 using Content.Shared.StatusEffect;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
-namespace Content.Server._Shitmed.BodyEffects.Subsystems;
+namespace Content.Shared._Shitmed.BodyEffects.Subsystems;
 
 [RegisterComponent]
 [AutoGenerateComponentPause]
@@ -13,7 +13,7 @@ public sealed partial class RandomStatusActivationComponent : Component
     /// List of status effects to roll while the organ is installed.
     /// </summary>
     [DataField(required: true)]
-    public List<ProtoId<StatusEffectPrototype>> StatusEffects = new();
+    public Dictionary<ProtoId<StatusEffectPrototype>, string> StatusEffects = new();
 
     /// <summary>
     ///     How long the status effect should last for.

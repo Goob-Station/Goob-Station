@@ -11,7 +11,11 @@
   alwaysAllowed: true
 
 - type: statusEffect
-  id: SpawnEMP
+  id: SpawnEmp
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnSmoke
   alwaysAllowed: true
 
 - type: statusEffect
@@ -23,26 +27,17 @@
   alwaysAllowed: true
 
 - type: statusEffect
-  id: CreateLightning
-  alwaysAllowed: true
-
-- type: statusEffect
-  id: TriggerArmblade
-  alwaysAllowed: true
-
-- type: statusEffect
   id: ExpelGas
   alwaysAllowed: true
 
 - type: statusEffect
-  id: TriggerChemSplash
+  id: ScrambleDnaEffect
   alwaysAllowed: true
 
 - type: statusEffect
-  id: ScrambleDNA
+  id: ScrambleLocationEffect
   alwaysAllowed: true
 
 - type: statusEffect
-  id: ScrambleLocation
+  id: ActivateArtifactEffect
   alwaysAllowed: true
-

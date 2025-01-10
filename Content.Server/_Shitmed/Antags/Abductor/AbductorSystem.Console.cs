@@ -29,7 +29,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         => args.Progress = DoorjackProgress(ent.Comp, _number.GetTarget(ent.Owner));
 
     private float DoorjackProgress(AbductConditionComponent comp, int target)
-        => target == 0 ? 1f : MathF.Min(comp.Abducted / (float)target, 1f);
+        => target == 0 ? 1f : MathF.Min(comp.Abducted / (float) target, 1f);
 
     private void OnCompleteExperimentBuiMsg(EntityUid uid, AbductorConsoleComponent component, AbductorCompleteExperimentBuiMsg args)
     {
@@ -41,7 +41,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             var victim = container.ContainedEntities.FirstOrDefault(HasComp<AbductorVictimComponent>);
             if (victim != default && TryComp(victim, out AbductorVictimComponent? victimComp))
             {
-                if (victimComp.Organ != AbductorOrganType.None
+                if (victimComp.Implanted
                     && TryComp<MindContainerComponent>(args.Actor, out var mindContainer)
                     && mindContainer.Mind.HasValue
                     && TryComp<MindComponent>(mindContainer.Mind.Value, out var mind)

@@ -6,4 +6,4 @@ namespace Content.Shared._Shitmed.StatusEffects;
 ///     Randomly teleports the entity to a random location.
 /// </summary>
 [RegisterComponent]
-public sealed partial class ScramEffectComponent : Component;
+public sealed partial class ScrambleLocationEffectComponent : Component;

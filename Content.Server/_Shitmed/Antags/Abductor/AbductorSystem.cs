@@ -45,7 +45,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
         InitializeActions();
         InitializeGizmo();
         InitializeConsole();
-        InitializeOrgans();
+        InitializeVictim();
         base.Initialize();
     }
 

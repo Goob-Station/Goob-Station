@@ -2,6 +2,7 @@ using Content.Shared.Actions;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Audio;
 
 namespace Content.Shared._Shitmed.Antags.Abductor;
 
@@ -58,19 +59,15 @@ public sealed partial class AbductorVictimComponent : Component
     [DataField("position"), AutoNetworkedField]
     public EntityCoordinates? Position;
 
-    [DataField("organ"), AutoNetworkedField]
-    public AbductorOrganType Organ = AbductorOrganType.None;
+    [DataField, AutoNetworkedField]
+    public bool Implanted;
 
-    [DataField]
+    [DataField, AutoNetworkedField]
     public TimeSpan? LastActivation;
 }
 
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
-public sealed partial class AbductorOrganComponent : Component
-{
-    [DataField("organ"), AutoNetworkedField]
-    public AbductorOrganType Organ;
-}
+[RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem))]
+public sealed partial class AbductorOrganComponent : Component;
 
 [RegisterComponent, NetworkedComponent, Access(typeof(SharedAbductorSystem)), AutoGenerateComponentState]
 public sealed partial class AbductorScientistComponent : Component

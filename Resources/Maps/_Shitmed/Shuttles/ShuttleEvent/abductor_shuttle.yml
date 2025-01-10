@@ -13,7 +13,6 @@ entities:
       name: grid
     - type: Transform
       pos: -0.5520833,-0.5416667
-      parent: invalid
     - type: MapGrid
       chunks:
         0,0:
@@ -222,6 +221,23 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 4.5,0.5
+      parent: 1
+- proto: BasicCyberneticEyes
+  entities:
+  - uid: 225
+    components:
+    - type: Transform
+      pos: 2.4815433,0.0026143193
+      parent: 1
+  - uid: 226
+    components:
+    - type: Transform
+      pos: 2.4815433,0.0026143193
+      parent: 1
+  - uid: 227
+    components:
+    - type: Transform
+      pos: 2.4815433,0.0026143193
       parent: 1
 - proto: CableApcExtension
   entities:
@@ -633,6 +649,58 @@ entities:
     - type: Transform
       pos: 1.167351,-1.4260883
       parent: 1
+- proto: DubiousOrganSpawner
+  entities:
+  - uid: 209
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 210
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 211
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 212
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 213
+    components:
+    - type: Transform
+      pos: -0.5,-1.5
+      parent: 1
+  - uid: 214
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
+  - uid: 215
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
+  - uid: 216
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
+  - uid: 217
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
+  - uid: 218
+    components:
+    - type: Transform
+      pos: 0.5,-1.5
+      parent: 1
 - proto: GasMinerNitrogen
   entities:
   - uid: 241
@@ -709,8 +777,6 @@ entities:
       pos: 0.5,-1.5
       parent: 1
     - type: DeviceNetwork
-      configurators:
-      - invalid
       deviceLists:
       - 248
 - proto: GeneratorBasic15kW
@@ -774,12 +840,22 @@ entities:
     - type: Transform
       pos: 1.136101,-1.4417133
       parent: 1
-- proto: SpawnPointLoneAbductor
+- proto: MedicalCyberneticEyes
   entities:
-  - uid: 255
+  - uid: 219
     components:
     - type: Transform
-      pos: 0.5,1.5
+      pos: 2.4815433,0.5442808
+      parent: 1
+  - uid: 220
+    components:
+    - type: Transform
+      pos: 2.4815433,0.5442808
+      parent: 1
+  - uid: 221
+    components:
+    - type: Transform
+      pos: 2.4815433,0.5442808
       parent: 1
 - proto: MedkitAdvancedFilled
   entities:
@@ -798,106 +874,6 @@ entities:
     - type: Transform
       pos: 1.6355276,-1.5437355
       parent: 1
-#- proto: OrganDubiousEgg
-#  entities:
-#  - uid: 12
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: -0.16077393,-1.3948383
-#      parent: 1
-#  - uid: 254
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: -0.16077393,-1.3948383
-#      parent: 1
-#  - uid: 268
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.16735107,-1.5823383
-#      parent: 1
-#- proto: OrganDubiousGravity
-#  entities:
-#  - uid: 256
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.40172607,-1.2385883
-#      parent: 1
-#  - uid: 257
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.40172607,-1.2385883
-#      parent: 1
-#  - uid: 267
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: -0.12952393,-1.4729633
-#      parent: 1
-#- proto: OrganDubiousHealth
-#  entities:
-#  - uid: 262
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.18297607,-1.4260883
-#      parent: 1
-#  - uid: 263
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.18297607,-1.4260883
-#      parent: 1
-#  - uid: 264
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.13610107,-1.4260883
-#      parent: 1
-#- proto: OrganDubiousPlasma
-#  entities:
-#  - uid: 260
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.55797607,-1.3479633
-#      parent: 1
-#  - uid: 261
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.55797607,-1.3479633
-#      parent: 1
-#  - uid: 265
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.16735107,-1.4417133
-#      parent: 1
-#- proto: OrganDubiousSpider
-#  entities:
-#  - uid: 258
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.27672607,-1.5042133
-#      parent: 1
-#  - uid: 259
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.27672607,-1.5042133
-#      parent: 1
-#  - uid: 266
-#    components:
-#    - type: Transform
-#      rot: -1.5707963267948966 rad
-#      pos: 0.13610107,-1.4417133
-#      parent: 1
 - proto: Poweredlight
   entities:
   - uid: 237
@@ -926,12 +902,36 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 0.5,6.5
       parent: 1
+- proto: SecurityCyberneticEyes
+  entities:
+  - uid: 222
+    components:
+    - type: Transform
+      pos: 2.4815433,-0.49738568
+      parent: 1
+  - uid: 223
+    components:
+    - type: Transform
+      pos: 2.4815433,-0.49738568
+      parent: 1
+  - uid: 224
+    components:
+    - type: Transform
+      pos: 2.4815433,-0.49738568
+      parent: 1
 - proto: SMESBasic
   entities:
   - uid: 174
     components:
     - type: Transform
       pos: -2.5,-3.5
+      parent: 1
+- proto: SpawnPointLoneAbductor
+  entities:
+  - uid: 255
+    components:
+    - type: Transform
+      pos: 0.5,1.5
       parent: 1
 - proto: SubstationBasic
   entities:

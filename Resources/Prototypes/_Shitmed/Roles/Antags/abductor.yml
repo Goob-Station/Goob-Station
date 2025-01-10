@@ -3,3 +3,9 @@
   name: abductors-ghost-role-name
   antagonist: true
   objective: roles-antag-abductor-objective
+
+- type: antag
+  id: AbductorVictimAntag
+  name: abductor-victim-role-name
+  antagonist: true
+  objective: roles-antag-abductor-victim

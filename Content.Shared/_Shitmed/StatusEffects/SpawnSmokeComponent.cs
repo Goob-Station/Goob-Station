@@ -3,7 +3,7 @@ using Robust.Shared.GameStates;
 namespace Content.Shared._Shitmed.StatusEffects;
 
 /// <summary>
-///     For use as a status effect. Spawns EMPs.
+///     For use as a status effect. Spawns a smoke cloud.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
 public sealed partial class SpawnSmokeComponent : SpawnEntityEffectComponent

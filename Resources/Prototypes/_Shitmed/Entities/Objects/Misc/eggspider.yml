@@ -1,7 +1,7 @@
 - type: entity
-  parent: BaseItem
+  parent: EggSpider
   id: EggSpiderFertilized
-  name: egg spider
+  name: spider egg
   description: Is it a gemstone? Is it an egg? It looks expensive.
   components:
   - type: Timer

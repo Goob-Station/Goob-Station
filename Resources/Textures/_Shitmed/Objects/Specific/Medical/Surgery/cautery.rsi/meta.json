@@ -25,6 +25,14 @@
               ]
             ]
 		},
+        {
+            "name": "abductor-inhand-left",
+            "directions": 4
+        },
+        {
+            "name": "abductor-inhand-right",
+            "directions": 4
+        },
 		{
 			"name": "inhand-left",
 			"directions": 4
