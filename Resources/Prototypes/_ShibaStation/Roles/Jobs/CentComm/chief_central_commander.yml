@@ -1,7 +1,7 @@
 - type: startingGear
-  id: ChiefCentralCommanderGear
+  id: ChiefCCAdmemeGear
   equipment:
-    jumpsuit: CentcomAgentSkirt
+    jumpsuit: ClothingUniformJumpskirtCentcomFormalDress
     back: ClothingBackpackSatchelHolding
     shoes: ClothingShoesChameleonNoSlips
     eyes: ClothingEyesGlassesMedSec
@@ -12,5 +12,51 @@
     head: ClothingHeadHatCentcomcap
     neck: ClothingNeckCloakCentcom
     belt: ClothingBeltSheathFilled
-    suitstorage: WeaponPulseCarbine
-    pocket1: SonicScrewdriver
+  storage:
+    back:
+    # Survival
+    - BoxSurvivalSlotsEngineering
+    # Tools
+    - SonicScrewdriver
+    - RCDChrono
+    - RPDRecharging
+    - Multitool # todo: make sonic screwdriver also do multitool stuff
+    - WelderExperimental
+    - ClothingEyesGlassesMeson
+    - GasAnalyzer
+    - trayScanner
+    - AccessConfiguratorUniversal
+    - DoorRemoteAll
+    # Science
+    - AnomalyLocator
+    - WeaponPistolCHIMP
+    - AnomalyScanner
+    - ChronoTeleporter
+    # Security
+    - StasisBaton
+    - WeaponDisablerSMG
+    - WeaponPulseRifle
+    - Handcuffs
+    - Handcuffs
+    - Handcuffs
+    # Medical
+    - DefibrillatorCompact
+    - MedkitCombatStasiziumFilled
+    - MedkitCombatFilled
+    - OmnimedTool
+    - ClothingMaskSterile
+    - ClothingHandsGlovesNitrile
+    # Implants
+    - LightImplanter
+    - MindShieldImplanter
+    - TrackingImplanter
+    - FreedomImplanter
+    - ScramImplanter
+    - StorageImplanter
+    # Misc
+    - JetpackChrono
+    - LightReplacerLEDAdmeme
+    - PortableRecharger
+    - PowerCellMicroreactor
+    - PowerCellMicroreactor
+    - PowerCellMicroreactor
