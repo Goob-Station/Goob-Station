@@ -12,16 +12,18 @@
   <Box>
   <GuideEntityEmbed Entity="MobHarpy" Caption="Гарпия"/>
   <GuideEntityEmbed Entity="MobHuman" Caption="Человек"/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
   <GuideEntityEmbed Entity="MobMoth" Caption="Моль"/>
+  <GuideEntityEmbed Entity="MobOni" Caption="Они"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Унатх"/>
-  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймомен"/>
-  <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+  <GuideEntityEmbed Entity="MobResomi" Caption="Резоми"/>
   </Box>
   <Box>
-  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
   <GuideEntityEmbed Entity="MobRodentia" Caption="Редентия"/>
-  <GuideEntityEmbed Entity="MobYowie" Caption="Йоуи"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+  <GuideEntityEmbed Entity="MobSlimePerson" Caption="Слаймолюд"/>
+  <GuideEntityEmbed Entity="MobVox" Caption="Вокс"/>
+  <GuideEntityEmbed Entity="MobVulpkanin" Caption="Вульпканин"/>
+  <GuideEntityEmbed Entity="MobYowie" Caption="Йови"/>
   </Box>
 
 </Document>
