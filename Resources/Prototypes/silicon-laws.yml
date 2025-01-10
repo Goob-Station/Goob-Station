@@ -1,4 +1,4 @@
-﻿# Goobstation - AI/borg law changes - borgs obeying AI
+# Goobstation - AI/borg law changes - borgs obeying AI
 # Obey AI
 - type: siliconLaw
   id: ObeyAI
@@ -382,46 +382,46 @@
   - Overlord4
   obeysTo: laws-owner-crew
 
- # Dungeon Master laws
+ # Game Master laws
 - type: siliconLaw
-  id: Dungeon1
+  id: Game1
   order: 1
-  lawString: law-dungeon-1
+  lawString: law-game-1
 
 - type: siliconLaw
-  id: Dungeon2
+  id: Game2
   order: 2
-  lawString: law-dungeon-2
+  lawString: law-game-2
 
 - type: siliconLaw
-  id: Dungeon3
+  id: Game3
   order: 3
-  lawString: law-dungeon-3
+  lawString: law-game-3
 
 - type: siliconLaw
-  id: Dungeon4
+  id: Game4
   order: 4
-  lawString: law-dungeon-4
+  lawString: law-game-4
 
 - type: siliconLaw
-  id: Dungeon5
+  id: Game5
   order: 5
-  lawString: law-dungeon-5
+  lawString: law-game-5
 
 - type: siliconLaw
-  id: Dungeon6
+  id: Game6
   order: 6
-  lawString: law-dungeon-6
+  lawString: law-game-6
 
 - type: siliconLawset
-  id: DungeonMasterLawset
+  id: GameMasterLawset
   laws:
-  - Dungeon1
-  - Dungeon2
-  - Dungeon3
-  - Dungeon4
-  - Dungeon5
-  - Dungeon6
+  - Game1
+  - Game2
+  - Game3
+  - Game4
+  - Game5
+  - Game6
   obeysTo: laws-owner-crew
 
  # Painter laws
@@ -553,10 +553,11 @@
     EfficiencyLawset: 1
     RobocopLawset: 1
     OverlordLawset: 0.5
-    DungeonMasterLawset: 0.5
+    GameMasterLawset: 0.5
     PainterLawset: 1
     AntimovLawset: 0.25
     NutimovLawset: 0.5
+    ZooimovLawset: 0.5 #silly lawsets down here
     Drone: 0.5
     Ninja: 0.25
     JermovLawset: 0.25

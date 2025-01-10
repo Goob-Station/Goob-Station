@@ -1,2 +1,3 @@
-greenshift-title = Greenshift
-greenshift-description = An event-less preset for admin events to play through without interference.
+# goobstation edits
+greenshift-title = Chudshift
+greenshift-description = Nothing ever happens...

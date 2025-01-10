@@ -1,7 +1,6 @@
 ﻿using Content.Server.Administration.Logs;
 using Content.Server.Chat.Managers;
 using Content.Shared.Administration.Events;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 
 namespace Content.Server.Administration.Systems;

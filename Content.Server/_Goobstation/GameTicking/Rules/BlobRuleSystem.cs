@@ -1,4 +1,4 @@
-﻿using System.Diagnostics.CodeAnalysis;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Antag;
@@ -7,8 +7,6 @@ using Content.Server._Goobstation.Blob.Components;
 using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
-using Content.Server.GameTicking;
-using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Nuke;
 using Content.Server.Objectives;
@@ -34,7 +32,6 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
     [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     [Dependency] private readonly IChatManager _chatManager = default!;
 
-    private static readonly SoundPathSpecifier BlobDetectAudio = new ("/Audio/Announcements/outbreak5.ogg");
     public override void Initialize()
     {
         base.Initialize();
@@ -51,7 +48,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                 continue;
 
             GameTicker.EndGameRule(uid, gameRule);
-            Log.Error("blob is active!!! remove!");
+            Log.Warning("blob is active!!! remove!");
             break;
         }
     }
@@ -134,7 +131,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-detect"),
                     stationName,
                     true,
-                    BlobDetectAudio,
+                    blobRuleComp.DetectedAudio,
                     Color.Red);
 
                 _alertLevelSystem.SetLevel(stationUid, StationAlertDetected, true, true, true, true);
@@ -156,7 +153,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
                 else
@@ -166,7 +163,7 @@ public sealed class BlobRuleSystem : GameRuleSystem<BlobRuleComponent>
                     Loc.GetString("blob-alert-critical-NoNukeCode"),
                     stationName,
                     true,
-                    blobRuleComp.AlertAudio,
+                    blobRuleComp.CriticalAudio,
                     Color.Red);
                 }
 

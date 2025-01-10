@@ -1,6 +1,4 @@
 using Content.Shared.Actions;
-using Content.Shared.Antag;
-using Content.Shared.StatusIcon;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;

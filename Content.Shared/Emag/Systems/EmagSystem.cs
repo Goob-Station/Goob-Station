@@ -6,7 +6,6 @@ using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
-using Content.Shared.Silicons.Laws.Components;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
 
@@ -66,7 +65,14 @@ public sealed class EmagSystem : EntitySystem
             return false;
         }
 
-        var handled = DoEmagEffect(user, target);
+        // Shitmed - Starlight Abductors: Check if the target has a whitelist, and check if it passes
+        if (!_whitelist.IsWhitelistFail(comp.ValidTargets, target))
+        {
+            _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", uid)), user, user);
+            return false;
+        }
+
+        var handled = DoEmagEffect(user, target, uid); // Goob edit
         if (!handled)
             return false;
 
@@ -83,7 +89,7 @@ public sealed class EmagSystem : EntitySystem
     /// <summary>
     /// Does the emag effect on a specified entity
     /// </summary>
-    public bool DoEmagEffect(EntityUid user, EntityUid target)
+    public bool DoEmagEffect(EntityUid user, EntityUid target, EntityUid? emag = null) // Goob edit
     {
         // prevent emagging twice
         if (HasComp<EmaggedComponent>(target))
@@ -96,7 +102,7 @@ public sealed class EmagSystem : EntitySystem
         if (onAttemptEmagEvent.Handled)
             return false;
 
-        var emaggedEvent = new GotEmaggedEvent(user);
+        var emaggedEvent = new GotEmaggedEvent(user, EmagUid: emag); // Goob edit
         RaiseLocalEvent(target, ref emaggedEvent);
 
         if (emaggedEvent.Handled && !emaggedEvent.Repeatable)
@@ -111,9 +117,10 @@ public sealed class EmagSystem : EntitySystem
 /// <param name="UserUid">Emag user</param>
 /// <param name="Handled">Did the emagging succeed? Causes a user-only popup to show on client side</param>
 /// <param name="Repeatable">Can the entity be emagged more than once? Prevents adding of <see cref="EmaggedComponent"/></param>
+/// <param name="EmagUid">Uid of emag entity, Goobstation</param>
 /// <remarks>Needs to be handled in shared/client, not just the server, to actually show the emagging popup</remarks>
 [ByRefEvent]
-public record struct GotEmaggedEvent(EntityUid UserUid, bool Handled = false, bool Repeatable = false);
+public record struct GotEmaggedEvent(EntityUid UserUid, bool Handled = false, bool Repeatable = false, EntityUid? EmagUid = null); // Goob edit
 
 [ByRefEvent]
 public record struct OnAttemptEmagEvent(EntityUid UserUid, bool Handled = false);

@@ -1,7 +1,5 @@
 using Content.Server._Goobstation.Blob.Components;
-using Content.Shared._Goobstation.Blob;
 using Content.Shared._Goobstation.Blob.Components;
-using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
 
 namespace Content.Server._Goobstation.Blob;

@@ -83,7 +83,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30 #excess damage avoids cost of spawning entities.
+        damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -116,6 +116,11 @@
     inHandsMaxFillLevels: 1
     equippedFillBaseName: -fill-
     equippedMaxFillLevels: 1
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 20
 
 
 - type: entity
@@ -194,7 +199,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 30 #excess damage avoids cost of spawning entities.
+        damage: 40 # Goob edit, excess damage avoids cost of spawning entities.
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

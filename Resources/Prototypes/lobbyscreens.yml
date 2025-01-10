@@ -1,27 +1,26 @@
-# uh i was gonna comment out the cqcm lobby files but apparently they arent even in so uh. thats an issue for non-christmas (i cant make that stuff festive, but it's fire...)
 - type: lobbyBackground
   id: Goob
   background: /Textures/LobbyScreens/goob.webp
 
-#- type: lobbyBackground
-#  id: gugel
-#  background: /Textures/LobbyScreens/gugel.webp
+- type: lobbyBackground
+  id: gugel
+  background: /Textures/LobbyScreens/gugel.webp
 
 - type: lobbyBackground
   id: mime
   background: /Textures/LobbyScreens/mime.webp
 
-#- type: lobbyBackground
-#  id: breakingchem
-#  background: /Textures/LobbyScreens/breakingchem.webp
+- type: lobbyBackground
+  id: breakingchem
+  background: /Textures/LobbyScreens/breakingchem.webp
 
 - type: lobbyBackground
   id: clown
   background: /Textures/LobbyScreens/clown.webp
 
-#- type: lobbyBackground
-#  id: command
-#  background: /Textures/LobbyScreens/command.webp
+- type: lobbyBackground
+  id: command
+  background: /Textures/LobbyScreens/command.webp
 
 - type: lobbyBackground
   id: JustAWeekAway
@@ -43,9 +42,9 @@
   id: DoNotTouch
   background: /Textures/LobbyScreens/donottouch.webp
 
-#- type: lobbyBackground
-#  id: Cburn
-#  background: /Textures/LobbyScreens/cburn.webp
+- type: lobbyBackground
+  id: Cburn
+  background: /Textures/LobbyScreens/cburn.webp
 
 - type: lobbyBackground
   id: ClownHell
@@ -59,9 +58,9 @@
   id: GrandTheftGoob
   background: /Textures/LobbyScreens/grandtheftgoob.webp
 
-#- type: lobbyBackground
-#  id: Killsigned
-#  background: /Textures/LobbyScreens/killsigned.webp
+- type: lobbyBackground
+  id: Killsigned
+  background: /Textures/LobbyScreens/killsigned.webp
 
 - type: lobbyBackground
   id: GoobNukie

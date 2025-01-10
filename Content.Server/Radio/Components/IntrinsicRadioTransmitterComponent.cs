@@ -1,4 +1,3 @@
-using Content.Server.Chat.Systems;
 using Content.Shared.Chat;
 using Content.Shared.Radio;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Set;

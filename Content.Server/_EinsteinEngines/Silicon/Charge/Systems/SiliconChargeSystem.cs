@@ -16,12 +16,8 @@ using Content.Server.PowerCell;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 using Robust.Shared.Utility;
-using Content.Shared.CCVar;
 using Content.Shared.PowerCell.Components;
-using Content.Shared.Mind;
 using Content.Shared.Alert;
-using Content.Server._EinsteinEngines.Silicon.Death;
-using Content.Server._EinsteinEngines.Power.Components;
 using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server._EinsteinEngines.Silicon.Charge;

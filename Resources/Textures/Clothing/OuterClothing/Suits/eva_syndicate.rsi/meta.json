@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Sprites by Flareguy & cboyjet, heavily edited from space suit sprites found in https://github.com/tgstation/tgstation/commit/fb2d71495bfe81446159ef528534193d09dd8d34, monkey derivative made by brainfood1183 (github) for ss14, harpy edit by VMSolidus",
+  "copyright": "Sprites by Flareguy & cboyjet, heavily edited from space suit sprites found in https://github.com/tgstation/tgstation/commit/fb2d71495bfe81446159ef528534193d09dd8d34, monkey derivative made by brainfood1183 (github) for ss14, harpy edit by VMSolidus, equipped-OUTERCLOTHING-resomi made by Pofitlo",
   "size": {
     "x": 32,
     "y": 32
@@ -23,11 +23,23 @@
       "directions": 4
     },
     {
+      "name": "equipped-OUTERCLOTHING-reptilian",
+      "directions": 4
+    },
+    {
       "name": "inhand-left",
       "directions": 4
     },
     {
       "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-harpy",
       "directions": 4
     }
   ]

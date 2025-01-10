@@ -12,7 +12,6 @@ using Robust.Shared.Random;
 using Content.Shared.Item; // Goobstation - anythingburgers
 using Content.Shared.Chemistry.Components.SolutionManager; // Goobstation - anythingburgers
 using Content.Server.Singularity.Components; // Goobstation - anythingburgers
-using Content.Shared.Singularity.Components; // Goobstation - anythingburgers
 
 namespace Content.Server.Nutrition.EntitySystems;
 

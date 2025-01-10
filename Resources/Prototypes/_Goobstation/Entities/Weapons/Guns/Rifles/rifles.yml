@@ -43,3 +43,72 @@
   - type: Appearance
   - type: Gun
     fireRate: 6
+
+- type: entity
+  name: Annie
+  parent: WeaponRifleAk
+  id: WeaponRifleAnnie
+  description: A beast designed to shoulder the weight of impossible missions. Uses .30 rifle ammo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/annie.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    availableModes:
+    - FullAuto
+    - Burst
+    burstFireRate: 12
+    burstCooldown: 0.8
+    shotsPerBurst: 4
+    fireRate: 6.5
+    projectileSpeed: 35
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/thock.ogg
+
+- type: entity
+  name: WSPR
+  parent: WeaponRifleAk
+  id: WeaponRifleWSPR
+  description: A cutting-edge rifle from Cybersun, versatile, reliable, and Syndicate-approved. Uses .30 rifle subsonic ammo.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Rifles/wspr.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-0
+        map: ["enum.GunVisualLayers.Mag"]
+  - type: Gun
+    availableModes:
+    - FullAuto
+    - Burst
+    selectedMode: Burst
+    burstFireRate: 16
+    burstCooldown: 0.5
+    fireRate: 8
+    projectileSpeed: 15
+    soundGunshot:
+      path: /Audio/_Goobstation/Weapons/Guns/Gunshots/bwuh.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineLightRifleSubsonic
+        insertSound: /Audio/Weapons/Guns/MagIn/ltrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/ltrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+            - MagazineLightRifleSubsonic
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        startingItem: CartridgeLightRifleSubsonic
+        priority: 1
+        whitelist:
+          tags:
+            - CartridgeLightRifleSubsonic
