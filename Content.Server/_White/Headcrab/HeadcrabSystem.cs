@@ -1,5 +1,7 @@
 using System.Linq;
 using Content.Server.Actions;
+using Content.Server.Chat;
+using Content.Server.Chat.Systems;
 using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.NPC;
@@ -53,6 +55,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly AutoEmoteSystem _autoEmote = default!;
 
     public override void Initialize()
     {
@@ -80,6 +83,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
+
+        EnsureComp<AutoEmoteComponent>(args.Equipee);
+        _autoEmote.AddEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
@@ -149,6 +155,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
     {
         if (args.Slot != "mask")
             return;
+
+        _autoEmote.RemoveEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = EntityUid.Invalid;
         RemCompDeferred<PacifiedComponent>(uid);
