@@ -116,7 +116,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objectes/Specific/Hydroponics/cannabis.rsi
+      sprite: Objects/Specific/Hydroponics/cannabis.rsi
       state: produce
 
 - type: entity
@@ -127,7 +127,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Wallmount/camera.rsi
+      sprite: Structures/Wallmounts/camera.rsi
       state: cameracase
 
 - type: entity
@@ -139,7 +139,7 @@
   - type: Objective
     icon:
       sprite: Structures/Machines/computers.rsi
-      state: avionics_systems.png
+      state: avionics_systems
 
 - type: entity
   parent: BaseAbductorVictimObjective
@@ -172,7 +172,7 @@
   - type: Objective
     icon:
       sprite: Objects/Fun/Instruments/guitar.rsi
-      state: avionics_systems.png
+      state: icon
 
 - type: entity
   parent: BaseAbductorVictimObjective
@@ -182,7 +182,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Specific/Misc/bureaucracy.rsi
+      sprite: Objects/Misc/bureaucracy.rsi
       state: folder-colormap
 
 - type: entity
@@ -193,7 +193,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Wallmount/camera.rsi
+      sprite: Structures/Wallmounts/camera.rsi
       state: cameracase
 
 - type: entity
@@ -204,7 +204,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Objects/Specific/Misc/books.rsi
+      sprite: Objects/Misc/books.rsi
       state: book_icon
 
 - type: entity
@@ -316,7 +316,7 @@
   components:
   - type: Objective
     icon:
-      sprite: Structures/Shuttle/gyroscope.rsi
+      sprite: Structures/Shuttles/gyroscope.rsi
       state: base
 
 - type: entity
@@ -454,7 +454,7 @@
   - type: Objective
     icon:
       sprite: Structures/Machines/computers.rsi
-      state: avionics_systems.png
+      state: avionics_systems
 
 - type: entity
   parent: BaseAbductorVictimObjective

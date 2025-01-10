@@ -14,6 +14,5 @@
   name: Abductee Role
   components:
   - type: MindRole
-    antagonist: true
     antagPrototype: AbductorVictimAntag
   - type: AbductorVictim

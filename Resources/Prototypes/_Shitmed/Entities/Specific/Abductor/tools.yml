@@ -45,7 +45,6 @@
       path: /Audio/Items/wirecutter.ogg
   - type: Item
     sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
-    state: abductor
     storedRotation: -90
   - type: ToolTileCompatible
   - type: PhysicalComposition
