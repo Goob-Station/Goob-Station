@@ -123,8 +123,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
             if (entityHasMind)
                 _mindSystem.TransferTo(mindId, uid, mind: mind);
 
-            if (!TryComp(uid, out ActionsComponent? comp))
-                return;
             _action.RemoveAction(uid, component.JumpActionEntity);
 
             _popup.PopupPredicted(mindlostMessage,
@@ -201,26 +199,23 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         component.OldFactions.Clear();
 
-        if (Exists(component.StolenMind))
-        {
-            var headcrabHasMind = _mindSystem.TryGetMind(uid, out var mindId, out var mind);
-            var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
+        var headcrabHasMind = _mindSystem.TryGetMind(uid, out var mindId, out var mind);
+        var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
 
-            if (!headcrabHasMind && !hostHasMind)
+        if (!headcrabHasMind && !hostHasMind)
                 return;
 
-            if (headcrabHasMind)
-            {
-                _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
-            }
-
-            if (hostHasMind)
-            {
-                _mindSystem.TransferTo(hostMindId, uid, mind: hostMind);
-            }
-
-            _action.AddAction(uid, ref component.JumpActionEntity, component.JumpAction, uid);
+        if (headcrabHasMind)
+        {
+            _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
         }
+
+        if (hostHasMind)
+        {
+            _mindSystem.TransferTo(hostMindId, uid, mind: hostMind);
+        }
+
+        _action.AddAction(uid, ref component.JumpActionEntity, component.JumpAction, uid);
     }
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
