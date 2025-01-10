@@ -446,7 +446,7 @@
 
 - type: listing # box is to worsen the weapons sustained dps since they have to pause their momentum to restack mags
   id: UplinkHighCaliberExplosiveBox
-  name: uuplink-high-caliber-explosive-box-name
+  name: uplink-high-caliber-explosive-box-name
   description: uplink-high-caliber-explosive-box-desc
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
   productEntity: MagazineBoxHighCaliber
