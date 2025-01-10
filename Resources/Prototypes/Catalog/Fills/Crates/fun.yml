@@ -45,7 +45,7 @@
       children:
       - id: PlushieBlackburn
         weight: 0.35
-      - id: PlushieBlackburnRomanova
+      - id: PlushieBlackburnKobliska
         weight: 0.25
       - id: PlushieBlackburnMatryoskya
         weight: 0.25
