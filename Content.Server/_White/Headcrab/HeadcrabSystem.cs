@@ -176,6 +176,12 @@ public sealed partial class HeadcrabSystem : EntitySystem
         if (args.Slot != "mask")
             return;
 
+        if (Terminating(args.Equipee))
+            return;
+
+        if (Terminating(uid))
+            return;
+
         _autoEmote.RemoveEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = EntityUid.Invalid;
