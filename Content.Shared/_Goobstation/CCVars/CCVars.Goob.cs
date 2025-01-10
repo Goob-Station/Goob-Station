@@ -111,14 +111,20 @@ public sealed partial class GoobCVars
     ///     Broadcast to all players that a player has ragequit.
     /// </summary>
     public static readonly CVarDef<bool> PlayerRageQuitNotify =
-        CVarDef.Create("player.ragequit.notify", true, CVar.SERVERONLY);
+        CVarDef.Create("ragequit.notify", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     Time between being eligible for a "rage quit" after reaching a damage threshold.
     ///     Default is 5f.
     /// </summary>
     public static readonly CVarDef<float> PlayerRageQuitTimeThreshold =
-        CVarDef.Create("player.ragequit.threshold", 30f);
+        CVarDef.Create("ragequit.threshold", 30f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Log ragequits to a discord webhook, set to empty to disable.
+    /// </summary>
+    public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
+        CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
 
     #endregion PlayerListener
 
