@@ -26,10 +26,10 @@
     RArm: MobReptilianRArm
     LHand: MobReptilianLHand
     RHand: MobReptilianRHand
-    LLeg: MobReptilianLLegDigi # WWDP-Edit
-    RLeg: MobReptilianRLegDigi # WWDP-Edit
-    LFoot: MobReptilianLFootDigi # WWDP-Edit
-    RFoot: MobReptilianRFootDigi # WWDP-Edit
+    LLeg: MobReptilianLLeg
+    RLeg: MobReptilianRLeg
+    LFoot: MobReptilianLFoot
+    RFoot: MobReptilianRFoot
 
 - type: markingPoints
   id: MobReptilianMarkingLimits
@@ -53,7 +53,7 @@
       points: 2
       required: false
     HeadSide:
-      points: 2 # WWDP-Edit
+      points: 1
       required: false
     Chest:
       points: 3
