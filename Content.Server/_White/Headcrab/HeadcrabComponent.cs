@@ -1,5 +1,7 @@
 ﻿using Content.Server.NPC.HTN;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
+using Content.Shared.Mind;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -15,6 +17,8 @@ public sealed partial class HeadcrabComponent : Component
     /// </summary>
     [DataField]
     public EntProtoId JumpAction = "ActionHeadcrabJump";
+
+    public EntityUid? JumpActionEntity;
 
     [DataField]
     public TimeSpan ParalyzeTime = TimeSpan.FromSeconds(3);

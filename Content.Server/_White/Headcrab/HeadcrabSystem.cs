@@ -20,8 +20,11 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
 using Content.Shared.Nutrition.Components;
 using Content.Shared._White.Headcrab;
+using Content.Shared.Actions;
+using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
@@ -52,6 +55,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly GhostSystem _ghostSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly SharedMindSystem _mindSystem = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -88,7 +93,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _autoEmote.AddEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = args.Equipee;
-        EnsureComp<PacifiedComponent>(uid);
         RemComp<HTNComponent>(uid);
         var npcFaction = EnsureComp<NpcFactionMemberComponent>(args.Equipee);
         component.OldFactions.Clear();
@@ -104,13 +108,24 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         var mindlostMessage = Loc.GetString(component.MindLostMessageSelf);
 
-        if (TryComp<ActorComponent>(args.Equipee, out var actor) && actor.PlayerSession.GetMind() is { } mind)
+        if (TryComp<ActorComponent>(args.Equipee, out var actor))
         {
             var session = actor.PlayerSession;
-            if (!_ghostSystem.OnGhostAttempt(mind, false))
+            var headcrabHasMind = _mindSystem.TryGetMind(uid, out var hostMindId, out var hostMind);
+            var entityHasMind = _mindSystem.TryGetMind(args.Equipee, out var mindId, out var mind);
+
+            if (!entityHasMind && !headcrabHasMind)
                 return;
 
-            component.StolenMind = mind;
+            if (headcrabHasMind)
+                _mindSystem.TransferTo(hostMindId, args.Equipee, mind: hostMind);
+
+            if (entityHasMind)
+                _mindSystem.TransferTo(mindId, uid, mind: mind);
+
+            if (!TryComp(uid, out ActionsComponent? comp))
+                return;
+            _action.RemoveAction(uid, component.JumpActionEntity);
 
             _popup.PopupPredicted(mindlostMessage,
                 args.Equipee, args.Equipee, PopupType.LargeCaution);
@@ -182,7 +197,23 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         if (Exists(component.StolenMind))
         {
-            _mind.TransferTo(component.StolenMind.Value, args.Equipee);
+            var headcrabHasMind = _mindSystem.TryGetMind(uid, out var mindId, out var mind);
+            var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
+
+            if (!headcrabHasMind && !hostHasMind)
+                return;
+
+            if (headcrabHasMind)
+            {
+                _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
+            }
+
+            if (hostHasMind)
+            {
+                _mindSystem.TransferTo(hostMindId, uid, mind: hostMind);
+            }
+
+            _action.AddAction(uid, ref component.JumpActionEntity, component.JumpAction, uid);
         }
     }
 
