@@ -1,6 +1,10 @@
 using System.Linq;
 using Content.Server.Actions;
+using Content.Server.Ghost;
+using Content.Server.Mind;
+using Content.Server.NPC;
 using Content.Server.NPC.Components;
+using Content.Server.NPC.HTN;
 using Content.Server.Popups;
 using Content.Server.NPC.Systems;
 using Content.Server.Nutrition.Components;
@@ -17,7 +21,9 @@ using Content.Shared._White.Headcrab;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
+using Content.Shared.Players;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -40,6 +46,10 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly GhostSystem _ghostSystem = default!;
+    [Dependency] private readonly NPCSystem _npc = default!;
+    [Dependency] private readonly HTNSystem _htn = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -74,7 +84,26 @@ public sealed partial class HeadcrabSystem : EntitySystem
         component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
         RemComp<NPCMeleeCombatComponent>(uid);
-        _npcFaction.AddFaction(args.Equipee, "Zombie");
+        var npcFaction = EnsureComp<NpcFactionMemberComponent>(args.Equipee);
+        component.OldFactions.Clear();
+        component.OldFactions.UnionWith(npcFaction.Factions);
+        _npcFaction.ClearFactions((args.Equipee, npcFaction), false);
+        _npcFaction.AddFaction((args.Equipee, npcFaction), component.HeadcrabFaction);
+
+        component.HasNpc = !EnsureComp<HTNComponent>(args.Equipee, out var htn);
+        htn.RootTask = new HTNCompoundTask { Task = component.TakeoverTask };
+        htn.Blackboard.SetValue(NPCBlackboard.Owner, args.Equipee);
+        _npc.WakeNPC(args.Equipee, htn);
+        _htn.Replan(htn);
+
+        if (TryComp<ActorComponent>(args.Equipee, out var actor) && actor.PlayerSession.GetMind() is { } mind)
+        {
+            var session = actor.PlayerSession;
+            if (!_ghostSystem.OnGhostAttempt(mind, false))
+                return;
+
+            component.StolenMind = mind;
+        }
 
         if (_mobState.IsDead(uid))
             return;
@@ -126,7 +155,20 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
         EnsureComp<NPCMeleeCombatComponent>(uid);
-        _npcFaction.RemoveFaction(args.Equipee, "Zombie");
+
+        if (component.HasNpc)
+            RemComp<HTNComponent>(args.Equipee);
+
+        var npcFaction = EnsureComp<NpcFactionMemberComponent>(args.Equipee);
+        _npcFaction.RemoveFaction((args.Equipee, npcFaction), component.HeadcrabFaction, false);
+        _npcFaction.AddFactions((args.Equipee, npcFaction), component.OldFactions);
+
+        component.OldFactions.Clear();
+
+        if (Exists(component.StolenMind))
+        {
+            _mind.TransferTo(component.StolenMind.Value, args.Equipee);
+        }
     }
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)

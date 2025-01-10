@@ -1,4 +1,6 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Server.NPC.HTN;
+using Content.Shared.Damage;
+using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
@@ -35,4 +37,23 @@ public sealed partial class HeadcrabComponent : Component
     [DataField]
     public SoundSpecifier? JumpSound = new SoundPathSpecifier("/Audio/_White/Misc/Headcrab/headcrab_jump.ogg");
 
+    /// <summary>
+    /// Whether or not is currently attached to an NPC.
+    /// </summary>
+    [DataField]
+    public bool HasNpc;
+
+    /// <summary>
+    /// The mind that was booted from the wearer when the headcrab took over.
+    /// </summary>
+    [DataField]
+    public EntityUid? StolenMind;
+
+    public ProtoId<HTNCompoundPrototype> TakeoverTask = "SimpleHostileCompound";
+
+    [DataField]
+    public ProtoId<NpcFactionPrototype> HeadcrabFaction = "Zombie";
+
+    [DataField]
+    public HashSet<ProtoId<NpcFactionPrototype>> OldFactions = new();
 }
