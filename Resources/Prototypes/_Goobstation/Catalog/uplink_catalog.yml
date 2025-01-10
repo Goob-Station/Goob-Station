@@ -440,7 +440,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
   productEntity: MagazineBoxHighCaliber
   cost:
-    Telecrystal: 45 # 1 TC per round
+    Telecrystal: 25
   categories:
   - UplinkAmmo
 
@@ -451,7 +451,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Boxes/anti_materiel.rsi, state: base-b }
   productEntity: MagazineBoxHighCaliber
   cost:
-    Telecrystal: 70 # 1.5 TC per round, HE is kinda busted and should be limited.
+    Telecrystal: 45 # 1 TC per round, HE is kinda busted and should be limited.
   categories:
   - UplinkAmmo
 
