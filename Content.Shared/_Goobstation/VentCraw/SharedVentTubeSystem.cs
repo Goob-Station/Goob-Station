@@ -1,6 +1,3 @@
-// this file is under Starlight License
-// https://github.com/ss14Starlight/space-station-14
-
 using System.Linq;
 using Content.Shared.VentCraw.Tube.Components;
 using Robust.Shared.Map;

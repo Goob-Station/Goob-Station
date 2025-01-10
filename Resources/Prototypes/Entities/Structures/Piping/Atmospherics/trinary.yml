@@ -72,7 +72,6 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl
@@ -183,7 +182,6 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl

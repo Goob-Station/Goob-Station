@@ -1,6 +1,3 @@
-// this file is under Starlight License
-// https://github.com/ss14Starlight/space-station-14
-
 using Content.Server.Atmos.EntitySystems;
 using Content.Server.Body.Systems;
 using Content.Server.NodeContainer;

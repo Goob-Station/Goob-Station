@@ -3,9 +3,6 @@
   name: uplink-contortionist-jumpsuit-name
   description: uplink-contortionist-jumpsuit-desc
   productEntity: ClothingUniformJumpsuitAtmosSyndie
-  discountCategory: usualDiscounts
-  discountDownTo:
-    Telecrystal: 15 # Goobstation edit
   cost:
     Telecrystal: 30 # Goobstation edit
   categories:

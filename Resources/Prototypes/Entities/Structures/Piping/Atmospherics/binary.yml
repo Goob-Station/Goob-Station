@@ -75,7 +75,6 @@
       path: /Audio/Ambience/Objects/gas_pump.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasFlowRegulator
-    
   - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
   - type: VentCrawTransit # Goobstation - ventcrawl
@@ -141,7 +140,6 @@
     - type: WiredNetworkConnection
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-    
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit # Goobstation - ventcrawl
@@ -179,7 +177,6 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
-      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit # Goobstation - ventcrawl
@@ -236,7 +233,6 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
-      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawTransit # Goobstation - ventcrawl
@@ -304,7 +300,6 @@
       path: /Audio/Ambience/Objects/gas_hiss.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
-      
   - type: VentCrawTube # Goobstation - ventcrawl
     containerId: VentCrawTube
   - type: VentCrawTransit # Goobstation - ventcrawl
@@ -342,7 +337,6 @@
       node: port
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl
@@ -409,7 +403,7 @@
       enabled: true
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+
 - type: entity
   parent: [ BaseMachine, ConstructibleMachine ]
   id: GasRecycler
@@ -474,7 +468,7 @@
     board: GasRecyclerMachineCircuitboard
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
-    
+
 - type: entity
   parent: GasBinaryBase
   id: HeatExchanger

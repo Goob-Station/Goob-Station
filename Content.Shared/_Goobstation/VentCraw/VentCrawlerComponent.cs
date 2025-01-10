@@ -11,6 +11,8 @@ public sealed partial class VentCrawlerComponent : Component
     public bool InTube = false;
 
     public float EnterDelay = 2.5f;
+
+    public bool AllowInventory = true;
 }
 
 

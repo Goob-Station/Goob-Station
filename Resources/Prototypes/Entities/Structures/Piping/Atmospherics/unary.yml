@@ -104,7 +104,6 @@
       node: passivevent
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-
     - type: VentCrawEntry # Goobstation - ventcrawl
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
@@ -212,7 +211,6 @@
       - enum.LightLayers.Unshaded
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl
