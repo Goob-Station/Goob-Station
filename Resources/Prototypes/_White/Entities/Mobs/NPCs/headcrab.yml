@@ -31,7 +31,7 @@
       50: Dead
   - type: Headcrab
     paralyzeTime: 3
-    chancePounce: 33
+    chancePounce: 25
     damage:
       types:
         Piercing: 5
