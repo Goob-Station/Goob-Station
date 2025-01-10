@@ -34,7 +34,7 @@
     chancePounce: 33
     damage:
       types:
-        Piercing: 2
+        Piercing: 5
     jumpAction: ActionHeadcrabJump
   - type: DamageStateVisuals
     states:
@@ -135,7 +135,7 @@
   - type: Headcrab
     damage:
       types:
-        Poison: 2
+        Poison: 5
   - type: MeleeWeapon
     damage:
       types:
