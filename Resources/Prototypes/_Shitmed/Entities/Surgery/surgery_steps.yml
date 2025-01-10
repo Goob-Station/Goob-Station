@@ -1,6 +1,6 @@
 - type: entity
   id: SurgeryStepBase
-  categories: [ HideSpawnMenu ]
+  abstract: true
   components:
   - type: SurgeryStep
 

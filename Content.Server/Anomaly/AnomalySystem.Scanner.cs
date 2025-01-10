@@ -3,7 +3,6 @@ using Content.Shared.Anomaly;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Robust.Shared.Player;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Anomaly;

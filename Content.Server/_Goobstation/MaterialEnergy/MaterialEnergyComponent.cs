@@ -1,7 +1,3 @@
-using Content.Shared.Whitelist;
-using Robust.Shared.Prototypes;
-
-
 namespace Content.Server._Goobstation.MaterialEnergy;
 
 [RegisterComponent]

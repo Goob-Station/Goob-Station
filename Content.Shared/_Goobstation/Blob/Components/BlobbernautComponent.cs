@@ -1,4 +1,3 @@
-using Content.Shared._Goobstation.Blob;
 using Content.Shared.Damage;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;

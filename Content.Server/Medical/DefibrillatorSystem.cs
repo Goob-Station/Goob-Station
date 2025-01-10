@@ -10,17 +10,12 @@ using Content.Server.Traits.Assorted;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Item.ItemToggle;
 using Content.Shared.Medical;
 using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.PowerCell;
-using Content.Shared.Timing;
-using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -143,7 +138,8 @@ public sealed class DefibrillatorSystem : EntitySystem
             uid, target, uid)
         {
             NeedHand = true,
-            BreakOnMove = !component.AllowDoAfterMovement
+            BreakOnMove = !component.AllowDoAfterMovement,
+            MultiplyDelay = false, // Goobstation
         });
     }
 
