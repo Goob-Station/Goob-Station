@@ -56,7 +56,7 @@
       briefing:
         text: abductor-victim-role-greeting
         color: Red
-        sound: /Audio/_Shitmed/Misc/abductors.ogg
+        sound: /Audio/_Shitmed/Misc/abducted.ogg
   - type: AntagRandomObjectives
     maxDifficulty: 1
     sets:
