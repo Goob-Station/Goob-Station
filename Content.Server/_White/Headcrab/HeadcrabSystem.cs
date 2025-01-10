@@ -89,7 +89,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         component.EquippedOn = args.Equipee;
         EnsureComp<PacifiedComponent>(uid);
-        RemComp<NPCMeleeCombatComponent>(uid);
+        RemComp<HTNComponent>(uid);
         var npcFaction = EnsureComp<NpcFactionMemberComponent>(args.Equipee);
         component.OldFactions.Clear();
         component.OldFactions.UnionWith(npcFaction.Factions);
@@ -167,7 +167,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
         RemCompDeferred<PacifiedComponent>(uid);
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
-        EnsureComp<NPCMeleeCombatComponent>(uid);
+        EnsureComp<HTNComponent>(uid, out var htn);
+        htn.RootTask = new HTNCompoundTask { Task = component.TakeoverTask };
+        _htn.Replan(htn);
 
         if (component.HasNpc)
             RemComp<HTNComponent>(args.Equipee);
