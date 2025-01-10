@@ -220,7 +220,7 @@
           - type: NetworkConfigurator
             showLabel: false
         soundStateActivate:
-          collection: WelderOn
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
@@ -229,7 +229,7 @@
         verb: on
         sprite:
           sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
-          state: abductor
+          state: override-abductor
         components:
         - type: LimitedCharges
           charges: 0
@@ -240,7 +240,7 @@
             components:
             - Airlock
         soundStateActivate:
-          collection: WelderOff
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
