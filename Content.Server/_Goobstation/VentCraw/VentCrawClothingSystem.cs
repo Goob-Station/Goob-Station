@@ -1,6 +1,3 @@
-// this file is under Starlight License
-// https://github.com/ss14Starlight/space-station-14
-
 using Content.Shared.Clothing;
 using Content.Shared.VentCraw.Components;
 using Content.Shared.VentCraw;

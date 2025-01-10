@@ -28,8 +28,6 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Weldable # Goobstation - ventcrawl
-      time: 3
     - type: VentCrawTube  # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawEntry
@@ -79,7 +77,7 @@
     - type: Weldable
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+
 - type: entity
   parent: GasUnaryBase
   id: GasPassiveVent
@@ -106,7 +104,7 @@
       node: passivevent
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+
     - type: VentCrawEntry # Goobstation - ventcrawl
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
@@ -124,8 +122,6 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: Weldable  # Goobstation - ventcrawl
-      time: 3
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawEntry  # Goobstation - ventcrawl
@@ -175,7 +171,7 @@
     - type: Weldable
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentScrubber
-      
+
 - type: entity
   parent: GasUnaryBase
   id: GasOutletInjector
@@ -216,7 +212,7 @@
       - enum.LightLayers.Unshaded
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-      
+
     - type: VentCrawTube # Goobstation - ventcrawl
       containerId: VentCrawTube
     - type: VentCrawJunction # Goobstation - ventcrawl
@@ -272,7 +268,7 @@
     - type: PowerSwitch
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: Thermoregulator
-      
+
 - type: entity
   parent: BaseGasThermoMachine
   id: GasThermoMachineFreezer

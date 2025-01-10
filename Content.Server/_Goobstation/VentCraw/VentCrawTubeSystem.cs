@@ -1,6 +1,3 @@
-// this file is under Starlight License
-// https://github.com/ss14Starlight/space-station-14
-
 using System.Linq;
 using Content.Server.Construction.Completions;
 using Content.Server.Popups;

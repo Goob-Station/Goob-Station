@@ -1,6 +1,3 @@
-// this file is under Starlight License
-// https://github.com/ss14Starlight/space-station-14
-
 using Content.Client.SubFloor;
 using Content.Shared.VentCraw;
 using Robust.Client.Player;

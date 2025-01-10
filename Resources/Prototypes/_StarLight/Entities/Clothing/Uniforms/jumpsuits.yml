@@ -1,8 +1,6 @@
-# Under Starligth licence start
 - type: entity
   parent: ClothingUniformJumpsuitAtmos
   id: ClothingUniformJumpsuitAtmosSyndie
   name: Contortionist's Jumpsuit
   components:
   - type: VentCrawClothing
-# Under Starligth licence end
