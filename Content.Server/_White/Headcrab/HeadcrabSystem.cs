@@ -93,7 +93,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _autoEmote.AddEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = args.Equipee;
+        RemComp<CombatModeComponent>(uid);
         RemComp<HTNComponent>(uid);
+//        _action.RemoveAction(uid, component.JumpActionEntity, component.JumpAction); // Skill issue
         var npcFaction = EnsureComp<NpcFactionMemberComponent>(args.Equipee);
         component.OldFactions.Clear();
         component.OldFactions.UnionWith(npcFaction.Factions);
@@ -122,8 +124,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
             if (entityHasMind)
                 _mindSystem.TransferTo(mindId, uid, mind: mind);
-
-            _action.RemoveAction(uid, component.JumpActionEntity);
 
             _popup.PopupPredicted(mindlostMessage,
                 args.Equipee, args.Equipee, PopupType.LargeCaution);
@@ -183,12 +183,10 @@ public sealed partial class HeadcrabSystem : EntitySystem
         _autoEmote.RemoveEmote(args.Equipee, "ZombieGroan");
 
         component.EquippedOn = EntityUid.Invalid;
-        RemCompDeferred<PacifiedComponent>(uid);
         var combatMode = EnsureComp<CombatModeComponent>(uid);
         _combat.SetInCombatMode(uid, true, combatMode);
         EnsureComp<HTNComponent>(uid, out var htn);
         htn.RootTask = new HTNCompoundTask { Task = component.TakeoverTask };
-        _htn.Replan(htn);
 
         if (component.HasNpc)
             RemComp<HTNComponent>(args.Equipee);
