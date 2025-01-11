@@ -1,0 +1,6 @@
+- type: biomeMarkerLayer
+  id: RandomTendrilLavaland
+  prototype: SpawnerRandomTendrilLavaland
+  radius: 64
+  maxCount: 24
+  size: 512

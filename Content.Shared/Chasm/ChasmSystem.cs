@@ -40,6 +40,17 @@ public sealed class ChasmSystem : EntitySystem
             if (_timing.CurTime < chasm.NextDeletionTime)
                 continue;
 
+            // Lavaland Change start: Jaunter
+            var ev = new _Lavaland.Chasm.BeforeChasmFallingEvent(uid);
+            RaiseLocalEvent(uid, ref ev);
+            if (ev.Cancelled)
+            {
+                RemComp<ChasmFallingComponent>(uid);
+                _blocker.UpdateCanMove(uid);
+                continue;
+            }
+            // Lavaland Change end: Jaunter
+
             QueueDel(uid);
         }
     }

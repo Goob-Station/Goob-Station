@@ -1,0 +1,13 @@
+- type: entity
+  id: ActionPumpCursedHeart
+  name: action-pump-heart
+  description: action-pump-heart-desc
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: InstantAction
+    icon:
+      sprite: _Lavaland/Objects/Specific/Lavaland/loot.rsi
+      state: cursed_heart
+    itemIconStyle: BigAction
+    event: !type:PumpHeartActionEvent
+    useDelay: 1

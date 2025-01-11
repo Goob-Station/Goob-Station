@@ -1,0 +1,17 @@
+<controls:FancyWindow xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        SetSize="500 500">
+    <BoxContainer Orientation="Vertical">
+	    <ScrollContainer SetHeight="256" HorizontalExpand="True">
+    	    <ItemList Name="Destinations"/> <!-- Populated from comp.Destinations -->
+	    </ScrollContainer>
+        <controls:StripeBack MinSize="48 48">
+            <Label Text="{Loc 'shuttle-console-ftl-label'}" VerticalExpand="True" HorizontalAlignment="Center"/>
+        </controls:StripeBack>
+	    <Label Name="MapFTLState" Text="{Loc 'shuttle-console-ftl-state-Available'}" VerticalAlignment="Stretch" HorizontalAlignment="Center"/>
+    	<ProgressBar Name="FTLBar" HorizontalExpand="True" Margin="5" MinValue="0.0" MaxValue="1.0" Value="1.0" SetHeight="32"/>
+	    <controls:StripeBack HorizontalExpand="True">
+    	    <Button Name="FTLButton" Text="{Loc 'docking-console-ftl'}" Disabled="True" SetSize="128 48" Margin="5"/>
+		</controls:StripeBack>
+	</BoxContainer>
+</controls:FancyWindow>
