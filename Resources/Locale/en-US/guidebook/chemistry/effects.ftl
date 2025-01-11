@@ -408,6 +408,8 @@ reagent-effect-guidebook-plant-seeds-remove =
         *[other] remove the
     } seeds of the plant
 
+reagent-effect-guidebook-purify-evil = Purifies evil powers
+
 reagent-effect-guidebook-add-to-chemicals =
     { $chance ->
         [1] { $deltasign ->

@@ -12,6 +12,7 @@
   - Revolutionaries
   - MinorAntagonists
   - SpaceNinja
+  - BloodCult # WD Cult
   - Thieves
 
 - type: guideEntry
@@ -48,3 +49,8 @@
   id: Thieves
   name: guide-entry-thieves
   text: "/ServerInfo/Guidebook/Antagonist/Thieves.xml"
+
+- type: guideEntry # WD Cult
+  id: BloodCult
+  name: guide-entry-blood-cult
+  text: "/ServerInfo/Guidebook/Antagonist/BloodCult.xml"
