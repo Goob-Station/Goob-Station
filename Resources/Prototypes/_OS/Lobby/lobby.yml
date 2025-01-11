@@ -1,0 +1,35 @@
+- type: animatedLobbyScreen
+  id: SpaceHoleLobbyScreen
+  path: /Textures/_OS/Lobby/space-hole.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun1Screen
+  path: /Textures/_OS/Lobby/evening_sun1.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun2Screen
+  path: /Textures/_OS/Lobby/evening_sun2.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun3Screen
+  path: /Textures/_OS/Lobby/evening_sun3.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun4Screen
+  path: /Textures/_OS/Lobby/evening_sun4.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun5Screen
+  path: /Textures/_OS/Lobby/evening_sun5.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun6Screen
+  path: /Textures/_OS/Lobby/evening_sun6.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun7Screen
+  path: /Textures/_OS/Lobby/evening_sun7.rsi
+
+- type: animatedLobbyScreen
+  id: EveningSun8Screen
+  path: /Textures/_OS/Lobby/evening_sun8.rsi
