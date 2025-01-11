@@ -1,9 +1,0 @@
-ent-LockerOldAISat = closet
-    .suffix = NTSRA voidsuit locker
-    .desc = { ent-LockerSyndicate.desc }
-ent-LockerSyndicateShipGearBasic = { ent-LockerSyndicate }
-    .suffix = Basic ship gear, Random
-    .desc = { ent-LockerSyndicate.desc }
-ent-LockerSyndicateShipGearBasicChameleonKit = { ent-LockerSyndicateShipGearBasic }
-    .suffix = Basic ship gear, Random, Chameleon Kit
-    .desc = { ent-LockerSyndicateShipGearBasic.desc }
