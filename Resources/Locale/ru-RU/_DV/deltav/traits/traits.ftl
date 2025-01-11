@@ -1,8 +1,8 @@
-trait-ultravision-name = Ultraviolet Vision
-trait-ultravision-desc =
-    Whether through custom bionic eyes, random mutation,
-    or being a Harpy, you perceive the world with ultraviolet light.
-trait-deuteranopia-name = Deuteranopia
-trait-deuteranopia-desc =
-    Whether through custom bionic eyes, random mutation,
-    or being a Vulpkanin, you have red–green colour blindness.
+trait-ultravision-name = Ультрафиолетовое Зрение
+trait-ultravision-desc = 
+    Будь то через индивидуальные бионические глаза, случайную мутацию 
+    или будучи гарпией, вы воспринимаете мир в ультрафиолетовом свете.
+trait-deuteranopia-name = Дефект Зрения (Дейтеранопия)
+trait-deuteranopia-desc = 
+    Будь то через индивидуальные бионические глаза, случайную мутацию 
+    или будучи Вулпканином, вы страдаете от красно-зеленой цветовой слепоты.
