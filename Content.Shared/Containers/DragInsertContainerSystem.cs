@@ -3,6 +3,7 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Database;
 using Content.Shared.DragDrop;
+using Content.Shared.DoAfter;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
 
@@ -14,6 +15,7 @@ public sealed class DragInsertContainerSystem : EntitySystem
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
 
     public override void Initialize()
     {
@@ -28,8 +30,24 @@ public sealed class DragInsertContainerSystem : EntitySystem
     {
         if (args.Handled)
             return;
+        var (uid, comp) = ent;
 
-        var (_, comp) = ent;
+        if (comp.Delay > 0)// Goobstation if delay is more then 0 start start a do after, if not its instant.
+        {
+
+            var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(comp.Delay), new InsertOnDragDoAfterEvent(), uid, target: args.Dragged, uid)
+            {
+                BreakOnMove = true,
+                DistanceThreshold = 2f,
+                CancelDuplicate = true,
+                BlockDuplicate = true,
+            };
+
+            _doAfter.TryStartDoAfter(doAfterArgs);
+            args.Handled = true;
+            return;
+        }
+
         if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
 
