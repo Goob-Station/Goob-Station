@@ -4103,3 +4103,11 @@ Entries:
         not poisoned by ethanol and heal twice as much by metabolizing it.
   id: 459
   time: '2025-01-11T20:02:43.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: >-
+        Janitors now have unique airlocks to help them find their closet; and
+        tiders to find their galoshes.
+  id: 460
+  time: '2025-01-11T20:03:42.0000000+00:00'
