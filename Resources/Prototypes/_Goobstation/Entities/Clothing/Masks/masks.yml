@@ -30,3 +30,10 @@
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
     event: !type:HailerActionEvent
+
+- type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownUnremoveable
+  name: unremoveable banana clown wig and mask
+  components:
+  - type: Unremoveable
