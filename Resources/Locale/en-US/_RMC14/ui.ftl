@@ -21,11 +21,10 @@ rmc-ui-shoutout-example = Example:
 rmc-ui-shoutout-info = Each name is randomly chosen between all the Patrons of this tier.
   Make sure the names you choose are in-character and don't break the rules.
   If you aren't sure, ask in AHelp! (F1)
-rmc-ui-named-items-in-preferences = You can change the names of your items per-character in Character Setup.
-rmc-ui-figurine = Character Figurine
-rmc-ui-figurine-in-preferences = You can export your character to be made into a figurine in Character Setup.
-  Limited to one active figurine per person!
-  If you want to change yours, tell us on Discord.
+
+rmc-ui-ghost-color = Ghost Color
+rmc-ui-ghost-color-clear = Clear
+rmc-ui-ghost-color-save = Save
 
 rmc-ui-shoutout-marine = [bold]Operation funded by [color=green]{$name}[/color]![/bold]
 rmc-ui-shoutout-xeno = [bold]Hive established by [color=purple]{$name}[/color]![/bold]
