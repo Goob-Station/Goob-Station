@@ -1,6 +1,36 @@
-Name: ShibaChangelog
-Order: -2
 Entries:
+- author: AstroDogeDX
+  changes:
+  - message: The Station Announcer has had some of her lines trimmed to be less chatty.
+    type: Tweak
+  id: 108
+  time: '2025-01-11T14:17:43.778419'
+- author: AstroDogeDX
+  changes:
+  - message: Gas leaks should now happen further apart from each other and only a
+      maximum of 5 times per round.
+    type: Tweak
+  id: 107
+  time: '2025-01-11T14:20:30.633616'
+- author: AstroDogeDX
+  changes:
+  - message: The accentless speech trait is now actually free; costing no trait points.
+    type: Fix
+  id: 106
+  time: '2025-01-11T14:21:16.045880'
+- author: AstroDogeDX
+  changes:
+  - message: Air Alarms are a little less sensitive with BZ gas now, releasing the
+      firelocks when there's less than 0.5% BZ in concentration.
+    type: Tweak
+  id: 105
+  time: '2025-01-11T14:17:20.363998'
+- author: AstroDogeDX
+  changes:
+  - message: Removed communism from the AutoDoc.
+    type: Remove
+  id: 104
+  time: '2025-01-11T14:19:51.653163'
 - author: AstroDogeDX
   changes:
   - message: The SetOutfit admin command now includes bag contents when applied!
@@ -694,3 +724,5 @@ Entries:
     type: Tweak
   id: 0
   time: '2024-11-10T15:43:03.920133'
+Name: ShibaChangelog
+Order: -2
