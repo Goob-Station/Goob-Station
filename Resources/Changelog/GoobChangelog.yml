@@ -4057,3 +4057,9 @@ Entries:
         not take damage when jaunting 
   id: 455
   time: '2025-01-11T14:09:57.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Ashen Jaunt won't let you use it if it would crit you.
+  id: 456
+  time: '2025-01-11T16:40:43.0000000+00:00'
