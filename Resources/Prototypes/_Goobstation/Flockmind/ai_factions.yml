@@ -1,0 +1,4 @@
+- type: npcFaction
+  id: Flock
+  hostile:
+  - FlockTarget
