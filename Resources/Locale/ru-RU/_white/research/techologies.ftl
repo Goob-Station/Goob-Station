@@ -1,2 +1,2 @@
-research-technology-night-vision = Night Vision Technology
-research-technology-thermal-vision = Thermal Vision Technology
+research-technology-night-vision = Технология Ночного Зрения
+research-technology-thermal-vision = Технология Термального Зрения
