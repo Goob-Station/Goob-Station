@@ -40,7 +40,7 @@
   description: Releases a cloud of smoke around you.
   components:
   - type: InstantAction
-    useDelay: 20
+    useDelay: 40
     itemIconStyle: BigAction
     priority: -20
     icon:
