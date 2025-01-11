@@ -48,7 +48,6 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     // Goobstation start
-    [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
     // Goobstation end
 
@@ -479,17 +478,15 @@ public sealed class NukeSystem : EntitySystem
         // Goobstation start
         // If it's honkops, we use a different soundcollection!
         var activeRules = _gameTicker.GetActiveGameRules();
-        if (activeRules != null && activeRules.Any())
+
+        foreach (var rule in activeRules)
         {
-            foreach (var rule in activeRules)
+            if (TryComp<NukeopsRuleComponent>(rule, out var nukeopsComp))
             {
-                if (_entityManager.TryGetComponent<NukeopsRuleComponent>(rule, out var nukeopsComp))
+                if (nukeopsComp.LocalePrefix == "honkops-") // This is a silly way of doing it, but why make another bool when you can just hardcode this?
                 {
-                    if (nukeopsComp.LocalePrefix == "honkops-") // This is a silly way of doing it, but why make another bool when you can just hardcode this?
-                    {
-                        _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
-                        break;
-                    }
+                    _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
+                    break;
                 }
             }
         }
