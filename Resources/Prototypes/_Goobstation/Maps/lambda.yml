@@ -26,7 +26,7 @@
             NanotrasenRepresentative: [ 1, 1 ]
             BlueshieldOfficer: [ 1, 1 ]
             Bartender: [ 2, 2 ]
-            Botanist: [2 , 3 ]
+            Botanist: [ 2 , 3 ]
             Chef: [ 1, 2 ]
             Janitor: [ 2, 3 ]
             Chaplain: [ 1, 1 ]
