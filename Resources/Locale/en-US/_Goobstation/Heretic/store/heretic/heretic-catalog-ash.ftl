@@ -16,6 +16,7 @@ knowledge-path-ash-s3-desc =
     He knew how to walk between the planes.
 
     Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a short distance, passing though any walls.
+    Warning: Using this ability will deal moderate heat damage to you.
 
 knowledge-path-ash-s4-name = Mark of Ash
 knowledge-path-ash-s4-desc =

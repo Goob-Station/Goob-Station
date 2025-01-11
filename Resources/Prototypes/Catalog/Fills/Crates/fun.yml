@@ -44,7 +44,8 @@
     - !type:GroupSelector
       children:
       - id: PlushieBlackburn
-      - id: PlushieBlackburnPlyushkina
+        weight: 0.35
+      - id: PlushieBlackburnKobliska
         weight: 0.25
       - id: PlushieBlackburnMatryoskya
         weight: 0.25
