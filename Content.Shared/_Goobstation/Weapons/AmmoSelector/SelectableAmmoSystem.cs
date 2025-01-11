@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared.Changeling;
 using Content.Shared.Examine;
 using Content.Shared.Popups;
 using Content.Shared.Toggleable;
@@ -35,8 +36,8 @@ public sealed class SelectableAmmoSystem : EntitySystem
 
     private void OnMapInit(Entity<AmmoSelectorComponent> ent, ref MapInitEvent args)
     {
-        if (!ent.Comp.Prototypes.Any() || !TrySetProto(ent, ent.Comp.Prototypes.First()))
-            QueueDel(ent);
+        if (ent.Comp.Prototypes.Count > 0)
+            TrySetProto(ent, ent.Comp.Prototypes.First());
     }
 
     private void OnMessage(Entity<AmmoSelectorComponent> ent, ref AmmoSelectedMessage args)
@@ -50,13 +51,15 @@ public sealed class SelectableAmmoSystem : EntitySystem
         _audio.PlayPvs(ent.Comp.SoundSelect, ent);
     }
 
-    private bool TrySetProto(Entity<AmmoSelectorComponent> ent, ProtoId<SelectableAmmoPrototype> proto)
+    public bool TrySetProto(Entity<AmmoSelectorComponent> ent, ProtoId<SelectableAmmoPrototype> proto)
     {
         if (!_protoManager.TryIndex(proto, out var index))
             return false;
 
         if (!SetProviderProto(ent, index))
             return false;
+
+        ent.Comp.CurrentlySelected = index;
 
         if (index.Color != null && TryComp(ent, out AppearanceComponent? appearance))
             _appearance.SetData(ent, ToggleableLightVisuals.Color, index.Color, appearance);
@@ -72,6 +75,9 @@ public sealed class SelectableAmmoSystem : EntitySystem
 
         if (TryComp(uid, out ProjectileBatteryAmmoProviderComponent? projectileBattery))
             return _protoManager.TryIndex(projectileBattery.Prototype, out var index) ? index.Name : null;
+
+        if (TryComp(uid, out ChangelingChemicalsAmmoProviderComponent? chemicals))
+            return _protoManager.TryIndex(chemicals.Proto, out var index) ? index.Name : null;
 
         // Add more providers if needed
 
@@ -90,6 +96,13 @@ public sealed class SelectableAmmoSystem : EntitySystem
         {
             projectileBattery.Prototype = proto.ProtoId;
             projectileBattery.FireCost = proto.FireCost;
+            return true;
+        }
+
+        if (TryComp(uid, out ChangelingChemicalsAmmoProviderComponent? chemicals))
+        {
+            chemicals.Proto = proto.ProtoId;
+            chemicals.FireCost = proto.FireCost;
             return true;
         }
 
