@@ -78,18 +78,55 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> SiloEnabled =
         CVarDef.Create("goob.silo_enabled", true, CVar.SERVER | CVar.REPLICATED);
 
+    #region Player Listener
+
+    /// <summary>
+    ///     Enable Dorm Notifier
+    /// </summary>
+    public static readonly CVarDef<bool> DormNotifier =
+        CVarDef.Create("dorm_notifier.enable", true, CVar.SERVER);
+
+    /// <summary>
+    ///     Check for dorm activity every X amount of ticks
+    ///     Default is 10.
+    /// </summary>
+    public static readonly CVarDef<int> DormNotifierFrequency =
+        CVarDef.Create("dorm_notifier.frequency", 10, CVar.SERVER);
+
+    /// <summary>
+    ///     Time given to be found to be engaging in dorm activity
+    ///     Default is 120.
+    /// </summary>
+    public static readonly CVarDef<int> DormNotifierPresenceTimeout =
+        CVarDef.Create("dorm_notifier.timeout", 120, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds.");
+
+    /// <summary>
+    ///     Time given to be found engaging in dorm activity if any of the sinners are nude
+    ///     Default if 25.
+    /// </summary>
+    public static readonly CVarDef<int> DormNotifierPresenceTimeoutNude =
+        CVarDef.Create("dorm_notifier.timeout_nude", 25, CVar.SERVER, "Mark as condemned if present near a dorm marker for more than X amount of seconds while being nude.");
+
     /// <summary>
     ///     Broadcast to all players that a player has ragequit.
     /// </summary>
     public static readonly CVarDef<bool> PlayerRageQuitNotify =
-        CVarDef.Create("player.ragequit.notify", true, CVar.SERVERONLY);
+        CVarDef.Create("ragequit.notify", true, CVar.SERVERONLY);
 
     /// <summary>
     ///     Time between being eligible for a "rage quit" after reaching a damage threshold.
     ///     Default is 5f.
     /// </summary>
     public static readonly CVarDef<float> PlayerRageQuitTimeThreshold =
-        CVarDef.Create("player.ragequit.threshold", 30f);
+        CVarDef.Create("ragequit.threshold", 30f, CVar.SERVERONLY);
+
+    /// <summary>
+    ///     Log ragequits to a discord webhook, set to empty to disable.
+    /// </summary>
+    public static readonly CVarDef<string> PlayerRageQuitDiscordWebhook =
+        CVarDef.Create("ragequit.discord_webhook", "", CVar.SERVERONLY | CVar.CONFIDENTIAL);
+
+    #endregion PlayerListener
 
     #region Surgery
 
