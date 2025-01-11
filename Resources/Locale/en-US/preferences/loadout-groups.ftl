@@ -107,6 +107,7 @@ loadout-group-salvage-specialist-shoes = Salvage Specialist shoes
 loadout-group-chief-engineer-head = Chief Engineer head
 loadout-group-chief-engineer-jumpsuit = Chief Engineer jumpsuit
 loadout-group-chief-engineer-outerclothing = Chief Engineer outer clothing
+loadout-group-chief-engineer-gloves = Chief Engineer gloves
 loadout-group-chief-engineer-neck = Chief Engineer neck
 loadout-group-chief-engineer-shoes = Chief Engineer shoes
 
@@ -116,6 +117,7 @@ loadout-group-station-engineer-head = Station Engineer head
 loadout-group-station-engineer-jumpsuit = Station Engineer jumpsuit
 loadout-group-station-engineer-backpack = Station Engineer backpack
 loadout-group-station-engineer-outerclothing = Station Engineer outer clothing
+loadout-group-station-engineer-gloves = Station Engineer gloves
 loadout-group-station-engineer-shoes = Station Engineer shoes
 loadout-group-station-engineer-id = Station Engineer ID
 
