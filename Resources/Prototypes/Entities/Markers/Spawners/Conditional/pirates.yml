@@ -1,6 +1,6 @@
 - type: entity
   id: SpawnPointPirates
-  parent: MarkerBase
+  parent: BaseAntagSpawner
   name: Pirate spawn point
   components:
   - type: SpawnPoint
@@ -9,3 +9,9 @@
     - state: green
     - sprite: Mobs/Species/Skeleton/parts.rsi
       state: skull_icon
+  - type: GhostRole
+    name: ghost-role-information-pirate-irs-captain-name
+    description: ghost-role-information-pirate-irs-captain-description
+    rules: ghost-role-information-pirate-irs-rules
+    raffle:
+      settings: default

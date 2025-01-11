@@ -6,6 +6,7 @@ using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Research.Components;
 using Content.Shared.Research.Prototypes;
+using Content.Server._Goobstation._Pirates.Pirates.Siphon;
 
 namespace Content.Server.Research.Systems;
 
@@ -22,6 +23,13 @@ public sealed partial class ResearchSystem
 
     private void OnConsoleUnlock(EntityUid uid, ResearchConsoleComponent component, ConsoleUnlockTechnologyMessage args)
     {
+        // goob edit - spirates
+        var eqe = EntityQueryEnumerator<ResourceSiphonComponent>();
+        while (eqe.MoveNext(out var siphon))
+            if (siphon.Active)
+                return;
+        // goob edit end
+
         var act = args.Actor;
 
         if (!this.IsPowered(uid, EntityManager))
@@ -101,3 +109,5 @@ public sealed partial class ResearchSystem
     }
 
 }
+
+public sealed partial class ResearchConsoleUnlockEvent : CancellableEntityEventArgs { }
