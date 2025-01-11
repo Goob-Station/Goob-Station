@@ -19,6 +19,8 @@
     - Rodentia
     - Yowie
     - IPC
+    - Resomi
+    - Oni
 
 - type: guideEntry
   id: Arachnid
@@ -82,11 +84,6 @@
   text: "/ServerInfo/Guidebook/Mobs/Vulpkanin.xml"
 
 - type: guideEntry
-  id: Rodentia
-  name: species-name-rodentia
-  text: "/ServerInfo/Guidebook/Mobs/DeltaV/Rodentia.xml"
-
-- type: guideEntry
   id: Yowie
   name: species-name-yowie
   text: "/ServerInfo/Guidebook/Mobs/Yowie.xml"
@@ -95,3 +92,8 @@
   id: IPC
   name: species-name-ipc
   text: "/ServerInfo/Guidebook/Mobs/IPCs.xml"
+
+- type: guideEntry
+  id: Resomi
+  name: species-name-resomi
+  text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"

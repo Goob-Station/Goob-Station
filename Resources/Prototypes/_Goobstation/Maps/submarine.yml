@@ -1,0 +1,67 @@
+- type: gameMap
+  id: Submarine
+  mapName: 'Submarine'
+  mapPath: /Maps/_Goobstation/submarine.yml
+  minPlayers: 60
+  stations:
+    Submarine:
+      stationProto: StandardNanotrasenStation
+      components:
+        - type: StationNameSetup
+          mapNameTemplate: '{0} Submarine {1}'
+          nameGenerator:
+            !type:NanotrasenNameGenerator
+            prefixCreator: 'DV'
+        - type: StationEmergencyShuttle
+          emergencyShuttlePath: /Maps/_Goobstation/Shuttles/NTES_Propeller.yml
+        - type: StationJobs
+          availableJobs:
+          #civilian
+            Passenger: [ -1, -1 ]
+            Librarian: [ 1, 1 ]
+          #command
+            Captain: [ 1, 1 ]
+          #engineering
+            AtmosphericTechnician: [ 2, 4 ]
+            ChiefEngineer: [ 1, 1 ]
+            StationEngineer: [ 4, 6 ]
+            TechnicalAssistant: [ 1, 2 ]
+          #medical
+            Chemist: [ 2, 2 ]
+            ChiefMedicalOfficer: [ 1, 1 ]
+            MedicalDoctor: [ 4, 5 ]
+            MedicalIntern: [ 1, 2 ]
+            Paramedic: [ 2, 3 ]
+            Psychologist: [ 1, 2 ]
+          #security
+            Detective: [ 1, 1 ]
+            HeadOfSecurity: [ 1, 1 ]
+            SecurityOfficer: [ 4, 6 ]
+            SecurityCadet: [ 1, 2 ]
+            Warden: [ 1, 1 ]
+          #service
+            Bartender: [ 2, 3 ]
+            Botanist: [ 2, 4 ]
+            Boxer: [ 2, 2 ]
+            Chef: [ 3, 4 ]
+            Clown: [ 1, 1 ]
+            HeadOfPersonnel: [ 1, 1 ]
+            Janitor: [ 2, 3 ]
+            Lawyer: [ 2, 3 ]
+            Mime: [ 1, 1 ]
+            Musician: [ 2, 2 ]
+            Reporter: [ 1, 2 ]
+            ServiceWorker: [ 1, 2 ]
+            Zookeeper: [ 2, 2 ]
+          #science
+            Chaplain: [ 1, 1 ]
+            ResearchAssistant: [ 1, 2 ]
+            ResearchDirector: [ 1, 1 ]
+            Scientist: [ 4, 5 ]
+          #silicon
+            StationAi: [ 1, 1 ]
+            Borg: [ 3, 3 ]
+          #supply
+            CargoTechnician: [ 3, 5 ]
+            SalvageSpecialist: [ 3, 5 ]
+            Quartermaster: [ 1, 1 ]

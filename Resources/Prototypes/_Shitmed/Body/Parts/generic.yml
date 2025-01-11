@@ -23,16 +23,24 @@
         type: Hand
 
 - type: entity
-  parent: LeftHandHuman
+  parent: [PartHuman, BaseLeftHand]
   id: BioSynthLeftHand
   name: bio-synthetic left hand
   description: This left hand can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "l_hand"
 
 - type: entity
-  parent: RightHandHuman
+  parent: [PartHuman, BaseRightHand]
   id: BioSynthRightHand
   name: bio-synthetic right hand
   description: This right hand can be transplanted into any living organism and it will adapt to its recipient.
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Human/parts.rsi
+    state: "r_hand"
 
 - type: entity
   parent: LeftLegHuman
