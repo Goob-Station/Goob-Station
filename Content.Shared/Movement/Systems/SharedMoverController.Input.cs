@@ -5,6 +5,7 @@ using Content.Shared.Follower.Components;
 using Content.Shared.Input;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
+using Robust.Shared.Maths;
 using Robust.Shared.GameStates;
 using Robust.Shared.Input;
 using Robust.Shared.Input.Binding;
@@ -92,7 +93,11 @@ namespace Content.Shared.Movement.Systems
 
             // Relay the fact we had any movement event.
             // TODO: Ideally we'd do these in a tick instead of out of sim.
-            var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons);
+            Vector2 vector2 = DirVecForButtons(buttons);    // Goobstation - Ventcralwing
+            Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y);
+            Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection();
+
+            var moveEvent = new MoveInputEvent(entity, buttons, dir, buttons != 0);// Goobstation - ventcrawling
             entity.Comp.HeldMoveButtons = buttons;
             RaiseLocalEvent(entity, ref moveEvent);
             Dirty(entity, entity.Comp);
@@ -117,9 +122,13 @@ namespace Content.Shared.Movement.Systems
             entity.Comp.LastInputTick = GameTick.Zero;
             entity.Comp.LastInputSubTick = 0;
 
+            Vector2 vector2 = DirVecForButtons(entity.Comp.HeldMoveButtons); //Goobstation - Ventcrawler
+            Vector2i vector2i = new Vector2i((int)vector2.X, (int)vector2.Y); //Goobstation - Ventcrawler
+            Direction dir = (vector2i == Vector2i.Zero) ? Direction.Invalid : vector2i.AsDirection(); //Goobstation - Ventcrawler
+
             if (entity.Comp.HeldMoveButtons != state.HeldMoveButtons)
             {
-                var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons);
+                var moveEvent = new MoveInputEvent(entity, entity.Comp.HeldMoveButtons, dir, state.HeldMoveButtons != 0); //Goobstation - Ventcrawler
                 entity.Comp.HeldMoveButtons = state.HeldMoveButtons;
                 RaiseLocalEvent(entity.Owner, ref moveEvent);
 
@@ -312,6 +321,13 @@ namespace Content.Shared.Movement.Systems
 
             if (!MoverQuery.TryGetComponent(entity, out var moverComp))
                 return;
+
+            var moverEntity = new Entity<InputMoverComponent>(entity, moverComp); //Goobstation - Ventcrawler
+
+            // Relay the fact we had any movement event.
+            // TODO: Ideally we'd do these in a tick instead of out of sim.
+            var moveEvent = new MoveInputEvent(moverEntity, moverComp.HeldMoveButtons, dir, state); //Goobstation - Ventcrawler
+            RaiseLocalEvent(entity, ref moveEvent); //Goobstation - Ventcrawler
 
             // For stuff like "Moving out of locker" or the likes
             // We'll relay a movement input to the parent.

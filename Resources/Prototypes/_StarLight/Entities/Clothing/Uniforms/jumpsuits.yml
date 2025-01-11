@@ -1,0 +1,6 @@
+- type: entity
+  parent: ClothingUniformJumpsuitAtmos
+  id: ClothingUniformJumpsuitAtmosSyndie
+  name: Contortionist's Jumpsuit
+  components:
+  - type: VentCrawClothing
