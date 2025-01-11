@@ -10,10 +10,6 @@
     icon:
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashen_shift
-    event: !type:EventHereticAshenShift
-      damage:
-        types:
-          Heat: 25
     checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
