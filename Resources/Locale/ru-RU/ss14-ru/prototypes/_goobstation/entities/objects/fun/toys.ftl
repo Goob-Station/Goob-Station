@@ -1,0 +1,14 @@
+ent-PlushieLouie = louie plushie
+    .desc = A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
+ent-FoamThrongler = Foam Throngler
+    .desc = Not the Throngler you wanted, But the Throngler you deserve.
+ent-PlushieDurk = Durk plushie
+    .desc = A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
+ent-PlushieBlackburn = Blackburn plushie
+    .desc = A "kitsune-like" human hybrid plushie made by Nanotrasen as charity for Blackburnians displaced by the Yukon Insurgency's tyrannical ways.
+ent-PlushieBlackburnKobliska = Kobliska plushie
+    .desc = A slimmer Blackburn designed to clear out fox holes and trenches; scientists debate the maximum lifetime of "Kobliskins" as they are the Insurgency's first self-designed subspecies.
+ent-PlushieBlackburnMatryoskya = Matryoskya plushie
+    .desc = An urban legend told by Nanotrasen war veterans; a beast uncontrolled by both Yukon insurgents and Nanotrasen, now available as a plushie.
+ent-PlushieDesislavaBlackburn = Desislava plushie
+    .desc = A tiny sub-species of the BKv1 blackburn designed to fit in tankettes and some tank variants, this one is in a "Darwin 6A2M C7 YKN."
