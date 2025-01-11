@@ -28,6 +28,7 @@ guide-entry-sop-gammaalert = Gamma Alert
 guide-entry-sop-violetalert = Violet Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
+guide-entry-sop-evacuation = Early Evacuation
 guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-succession = Chain of Command
 # - Emergencies
@@ -62,9 +63,9 @@ guide-entry-sop-atmostech = Atmos Tech
 guide-entry-sop-stationengineer = Station Engineer
 # - Medical
 guide-entry-sop-chemist = Chemist
-guide-entry-sop-doctorintern = Docter/Intern
+guide-entry-sop-doctorintern = Doctor/Intern
 # - Science
-guide-entry-sop-robotocist = Robotocist
+guide-entry-sop-roboticist = Roboticist
 guide-entry-sop-scientist = Scientist
 # - Security
 guide-entry-sop-detective = Detective

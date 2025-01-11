@@ -23,6 +23,11 @@
   equipment:
     head: ClothingHeadHatBeretOfficer
 
+- type: loadout
+  id: BlueshieldOfficerHeadCowboy
+  equipment:
+    head: ClothingHeadHatCowboyBlueshield
+
 # Jumpsuits
 - type: loadout
   id: BlueshieldOfficerInnerBlueshieldSkirt
@@ -39,7 +44,6 @@
   equipment:
     jumpsuit: ClothingUniformJumpsuitBlueshieldShirt
 
-
 # Outer
 - type: loadout
   id: BlueshieldOfficerOuterBlueshieldArmorVest
@@ -50,6 +54,11 @@
   id: BlueshieldOfficerOuterBlueshieldArmoredJacket
   equipment:
     outerClothing: ClothingBlueshieldArmoredJacket
+
+- type: loadout
+  id: BlueshieldOfficerOuterBlueshieldCowboyVest
+  equipment:
+    outerClothing: ClothingBlueshieldArmoredCowboyJacket
 
 # Neck
 - type: loadout
@@ -76,3 +85,8 @@
   equipment:
     back: ClothingBackpackDuffelBlueshield
 
+# Shoes
+- type: loadout
+  id: BlackCowboyBoots
+  equipment:
+    shoes: ClothingShoesBootsCowboyBlackFilled

@@ -85,11 +85,11 @@
     price: 0
   - type: Scalpel # Shitmed
     speed: 0.45
-  - type: SurgeryTool # Shitmed
-    startSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel1.ogg
-    endSound:
-      path: /Audio/_Shitmed/Medical/Surgery/scalpel2.ogg
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 100
 
 - type: entity
   parent: ShardBase

@@ -93,7 +93,7 @@ evolutionmenu-utility-panacea-desc =
 
 evolutionmenu-utility-eyesight-name = Augmented Eyesight
 evolutionmenu-utility-eyesight-desc =
-    Evolve additional features in your eyes, such as flash protection.
+    Evolve additional features in your eyes, such toggleable thermal vision and flash protection. You become more vulnerable to flash-based devices while in thermal vision mode.
     Cost-free.
 
 evolutionmenu-utility-biodegrade-name = Biodegrade
@@ -117,9 +117,9 @@ evolutionmenu-utility-fleshmend-name = Fleshmend
 evolutionmenu-utility-fleshmend-desc =
     Rapidly heal yourself of all bruises and burns.
     Costs 35 chemicals.
-    
+
 evolutionmenu-utility-lastresort-name = Last Resort
-evolutionmenu-utility-lastresort-desc = 
+evolutionmenu-utility-lastresort-desc =
     Abandon your current body and escape in the form of a headslug.
     Costs 20 chemicals.
 
@@ -137,3 +137,8 @@ evolutionmenu-utility-hivemindaccess-name = Hivemind Access
 evolutionmenu-utility-hivemindaccess-desc =
     Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
     Default radio key is :g
+
+evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
+evolutionmenu-utility-absorbbiomatter-desc =
+    Absorbs an organic food item, letting you regain chemicals depending on its contents.
+    Can absorb nutriment, cooked and uncooked proteins, and fat.

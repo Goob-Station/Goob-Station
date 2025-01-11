@@ -71,6 +71,7 @@ namespace Content.IntegrationTests.Tests
             "OasisHighPop",
             "Barratry", // Goobstation - add Barratry
             "Kettle", // Goobstation - add Kettle
+            "Submarine", // Goobstation - add Submarine
             "Amber",
             "Gate",
             "Loop"

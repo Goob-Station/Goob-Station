@@ -1,0 +1,53 @@
+# Empty mags
+- type: entity
+  id: BaseMagazineMagnumLeverRifle
+  name: "magazine (.45 rifle)"
+  parent: [ BaseItem, BaseRestrictedContraband ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+      - MagazineMagnumLeverRifle
+  - type: BallisticAmmoProvider
+    mayTransfer: true
+    whitelist:
+      tags:
+        - CartridgeMagnum
+    proto: CartridgeMagnum
+    capacity: 8
+  - type: Item
+    size: Small
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/LightRifle/light_rifle_mag.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 9
+    zeroVisible: false
+  - type: Appearance
+
+- type: entity
+  id: MagazineMagnumLeverRifle
+  name: "lever rifle magazine (.45)"
+  parent: BaseMagazineMagnumLeverRifle
+  components:
+  - type: Tag
+    tags:
+      - MagazineMagnumLeverRifle
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Ammunition/Magazine/lever_rifle_mags.rsi
+
+- type: entity
+  id: MagazineMagnumLeverRifleEmpty
+  parent: MagazineMagnumLeverRifle
+  suffix: Empty
+  components:
+  - type: BallisticAmmoProvider
+    proto: null

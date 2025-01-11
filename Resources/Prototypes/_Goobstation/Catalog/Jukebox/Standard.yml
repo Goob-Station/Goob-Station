@@ -165,3 +165,9 @@
   name: Philip Dyer - Atomic Amnesia MMX
   path:
     path: /Audio/Lobby/atomicamnesiammx.ogg
+
+- type: jukebox
+  id: the_future_soon
+  name: Jonathan Coulton - The Future Soon
+  path:
+    path: /Audio/Lobby/the_future_soon.ogg
