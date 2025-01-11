@@ -27,6 +27,12 @@
   - NanotrasenRepresentativeJumpskirt
 
 - type: loadoutGroup
+  id: NanotrasenRepresentativeNeck
+  name: loadout-group-ntr-neck
+  loadouts:
+  - NanotrasenRepresentativeBadge
+
+- type: loadoutGroup
   id: NanotrasenRepresentativeBelt
   name: loadout-group-ntr-belt
   minLimit: 0
