@@ -38,10 +38,10 @@
         Piercing: 5
     healOnEqupped:
       types:
-        Brute: -1.25
-        Burn: -1.25
-        Airloss: -1.25
-        Toxin: -1.25
+        Brute: -5.25
+        Burn: -5.25
+        Airloss: -10.25
+        Toxin: -5.25
     jumpAction: ActionHeadcrabJump
   - type: DamageStateVisuals
     states:
@@ -60,6 +60,7 @@
           - SmallMobMask
         layer:
           - SmallMobLayer
+  - type: MouseRotator
   - type: ZombieImmune
   - type: Item
     size: Large

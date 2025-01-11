@@ -82,6 +82,9 @@ public sealed partial class HeadcrabSystem : EntitySystem
         if (args.Slot != "mask")
             return;
 
+        if (!_mobState.IsAlive(uid))
+            return;
+
         EnsureComp<AutoEmoteComponent>(args.Equipee);
         _autoEmote.AddEmote(args.Equipee, "ZombieGroan");
         _tagSystem.AddTag(args.Equipee, "CannotSuicide");
@@ -134,8 +137,8 @@ public sealed partial class HeadcrabSystem : EntitySystem
             ("entity", args.Equipee)), args.Equipee, Filter.PvsExcept(uid), true, PopupType.Large);
 
         _stunSystem.TryParalyze(args.Equipee, component.ParalyzeTime, true);
-        _damageableSystem.TryChangeDamage(args.Equipee, component.Damage, origin: uid);
-        _damageableSystem.TryChangeDamage(uid, component.HealOnEqupped, true);
+        _damageableSystem.TryChangeDamage(args.Equipee, component.Damage, origin: uid); // Damage Entity
+        _damageableSystem.TryChangeDamage(uid, component.HealOnEqupped, true); // Heal headcrab
     }
 
     private void OnUnequipAttempt(EntityUid uid, HeadcrabComponent component, BeingUnequippedAttemptEvent args)
@@ -195,11 +198,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         var headcrabHasMind = _mindSystem.TryGetMind(uid, out var mindId, out var mind);
         var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
-
-        if (headcrabHasMind && !hostHasMind)
-        {
-            _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
-        }
 
         if (headcrabHasMind && hostHasMind)
         {
