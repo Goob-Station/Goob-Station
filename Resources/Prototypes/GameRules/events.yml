@@ -274,7 +274,8 @@
     endAudio:
       path: /Audio/_ShibaStation/Announcements/gasleak-end.ogg
     weight: 6 # ShibaStation - Reduced from 8 to 6
-    reoccurrenceDelay: 15 # ShibaStation - Gas leaks now can only happen after 15 minutes since the last one.
+    reoccurrenceDelay: 30 # ShibaStation - Gas leaks now can only happen after 30 minutes since the last one.
+    maxOccurrences: 5 # ShibaStation - Gas leaks now can only happen 5 times per round.
   - type: GasLeakRule
 
 - type: entity
