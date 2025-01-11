@@ -40,7 +40,7 @@
       Durathread: 50
 
 - type: entity
-  parent: [ ClothingOuterBaseToggleable, ClothingOuterWinterCoat ]
+  parent: [ ClothingOuterWinterCoat, ClothingOuterBaseToggleable ]
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
   categories: [ HideSpawnMenu ]
@@ -56,7 +56,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatatmos.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -70,7 +69,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatbar.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -84,7 +82,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcap.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -98,7 +95,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcargo.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -112,7 +108,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatce.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -126,7 +121,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcentcom.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -141,7 +135,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatchef.rsi
 
@@ -152,7 +145,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatchem.rsi
   - type: Armor
@@ -173,7 +165,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatcmo.rsi
   - type: Armor
@@ -204,7 +195,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatengi.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -218,7 +208,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatgen.rsi
   - type: Armor
@@ -239,7 +228,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathop.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -278,7 +266,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathos.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -292,7 +279,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coathydro.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -326,7 +312,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatmed.rsi
   - type: Armor
@@ -347,7 +332,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatmime.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -361,7 +345,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatminer.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -375,7 +358,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatparamed.rsi
   - type: Armor
@@ -396,7 +378,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatqm.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -411,7 +392,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatrd.rsi
   - type: Armor
@@ -432,7 +412,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatrobo.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -447,7 +426,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsci.rsi
   - type: Armor
@@ -468,7 +446,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatsec.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -482,7 +459,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatviro.rsi
   - type: Armor
@@ -527,7 +503,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatwarden.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -542,7 +517,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/coatsyndiecap.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -573,7 +547,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/syndicate/wintercoatsyndie.rsi
   - type: ToggleableClothing # Goobstation - Modsuits change
@@ -599,7 +572,6 @@
   components:
   - type: Sprite
     sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
-  - type: Item
   - type: Clothing
     sprite: Clothing/OuterClothing/WinterCoats/coatweb.rsi
   - type: Construction
