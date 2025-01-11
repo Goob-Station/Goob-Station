@@ -122076,7 +122076,7 @@ entities:
     - type: Transform
       pos: 18.399445,-108.58758
       parent: 82
-- proto: PlushieBlackburnPlyushkina
+- proto: PlushieBlackburnKobliska
   entities:
   - uid: 26484
     components:

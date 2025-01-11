@@ -593,3 +593,26 @@
   - type: ChangelingAction
     chemicalCost: 0
     useInLesserForm: true
+
+- type: entity
+  id: ActionAbsorbBiomatter
+  name: Absorb Biomatter
+  description: Absorb a food item to regain some chemicals.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: EntityTargetAction
+    whitelist:
+      components:
+      - Food
+    canTargetSelf: false
+    interactOnMiss: false
+    itemIconStyle: NoItem
+    icon:
+      sprite: _Goobstation/Changeling/changeling_abilities.rsi
+      state: absorb_biomatter
+    event: !type:AbsorbBiomatterEvent {}
+  - type: ChangelingAction
+    chemicalCost: 0
+    requireBiomass: false
+    useInLesserForm: true
+    useInLastResort: true
