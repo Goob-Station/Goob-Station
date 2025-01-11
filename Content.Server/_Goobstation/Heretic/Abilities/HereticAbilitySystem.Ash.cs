@@ -7,6 +7,7 @@ using Content.Shared.Atmos;
 using Content.Server.Temperature.Components;
 using Content.Shared.Temperature.Components;
 using Content.Server.Body.Components;
+using Content.Shared._Shitmed.Targeting;
 
 namespace Content.Server.Heretic.Abilities;
 
@@ -27,20 +28,25 @@ public sealed partial class HereticAbilitySystem : EntitySystem
 
     private void OnJaunt(Entity<HereticComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        var damage = args.Damage;
+        if (damage != null && ent.Comp.CurrentPath == "Ash")
+            damage *= float.Lerp(1f, 0.6f, ent.Comp.PathStage * 0.1f);
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, damage))
             args.Handled = true;
     }
     private void OnJauntGhoul(Entity<GhoulComponent> ent, ref EventHereticAshenShift args)
     {
-        if (TryUseAbility(ent, args) && TryDoJaunt(ent))
+        if (TryUseAbility(ent, args) && TryDoJaunt(ent, null))
             args.Handled = true;
     }
-    private bool TryDoJaunt(EntityUid ent)
+    private bool TryDoJaunt(EntityUid ent, DamageSpecifier? damage)
     {
         Spawn("PolymorphAshJauntAnimation", Transform(ent).Coordinates);
         var urist = _poly.PolymorphEntity(ent, "AshJaunt");
         if (urist == null)
             return false;
+        if (damage != null)
+            _dmg.TryChangeDamage(ent, damage, true, false, targetPart: TargetBodyPart.Torso);
         return true;
     }
 
