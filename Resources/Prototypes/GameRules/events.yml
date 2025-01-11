@@ -192,7 +192,7 @@
     duration: null
     earliestStart: 45
     reoccurrenceDelay: 20
-    minimumPlayers: 30
+    minimumPlayers: 1
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
   - type: AntagObjectives
@@ -345,7 +345,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 40
     minimumPlayers: 1
-    weight: 0.5 # GoobStation: was 5, vent critters bad
+    weight: 1 # GoobStation: was 5, vent critters bad
     duration: 120
   - type: VentCrittersRule
     entries:
@@ -452,6 +452,7 @@
     earliestStart: 35
     weight: 5.5
     minimumPlayers: 1
+    maxOccurrences: 3
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule

@@ -2435,7 +2435,7 @@
   components:
   - type: NpcFactionMember
     factions:
-      - Xeno
+     - SimpleHostile
   - type: InputMover
   - type: MobMover
   - type: HTN
