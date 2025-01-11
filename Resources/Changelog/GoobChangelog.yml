@@ -4047,3 +4047,83 @@ Entries:
       message: ragequit messages can now be sent to a discord webhook
   id: 454
   time: '2025-01-10T14:28:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ashen passage now deals heat damage to the user on activation. Ashen
+        path heretics receive less damage from this, the higher their path stage
+        is, the lower the damage will be. Flesh stalkers and raw prophets will
+        not take damage when jaunting 
+  id: 455
+  time: '2025-01-11T14:09:57.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Ashen Jaunt won't let you use it if it would crit you.
+  id: 456
+  time: '2025-01-11T16:40:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added 2 new ling melee weapons: arm hammer and arm claw.'
+    - type: Add
+      message: Added ling dart gun, able to sting at range.
+    - type: Add
+      message: People without legs can't break out of grabs anymore.
+    - type: Tweak
+      message: Armblade damage is now 15 slash, it delimbs roughly the same as before.
+    - type: Tweak
+      message: Ling stings are now cheaper but inject less reagents.
+    - type: Tweak
+      message: Cryo sting doesn't inject chloral hydrate anymore.
+    - type: Tweak
+      message: >-
+        Lethargic sting doesn't inject mute toxin but slowly drains victim's
+        stamina. 
+    - type: Tweak
+      message: Toggling of ling equipment doesn't cost any chemicals anymore.
+  id: 457
+  time: '2025-01-11T17:14:38.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: Replaced "Clearly Nuclear" with the new version, "Blatantly Nuclear"!
+  id: 458
+  time: '2025-01-11T17:21:57.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: >-
+        Fix resomi and bananamen receiving do-after modifier buff from their
+        hands.
+    - type: Tweak
+      message: >-
+        Dwarves no longer have faster do-afters like humans but instead they are
+        not poisoned by ethanol and heal twice as much by metabolizing it.
+  id: 459
+  time: '2025-01-11T20:02:43.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: >-
+        Janitors now have unique airlocks to help them find their closet; and
+        tiders to find their galoshes.
+  id: 460
+  time: '2025-01-11T20:03:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 461
+  time: '2025-01-11T20:11:55.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added Honkops, nukeops, but HONK! They even have their own HONKing
+        amazing nuke song, Opposing Nuke by mrjajkes!
+  id: 462
+  time: '2025-01-11T22:27:31.0000000+00:00'
