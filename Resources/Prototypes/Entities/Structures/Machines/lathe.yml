@@ -1141,6 +1141,7 @@
       - ClothingUniformJumpskirtCaptain
       - ClothingUniformJumpsuitCapFormal
       - ClothingUniformJumpskirtCapFormalDress
+      - ClothingUniformJumpsuitCasualCommand
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -1167,6 +1168,7 @@
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitSeniorEngineer
       - ClothingUniformJumpskirtSeniorEngineer
+      - ClothingUniformJumpsuitCasualEngineer
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
@@ -1289,12 +1291,14 @@
       - ClothingUniformJumpskirtCentcomFormalDress
       - ClothingUniformJumpsuitCentcomOfficer
       - ClothingUniformJumpsuitCentcomOfficial
+      - ClothingUniformJumpsuitCasualCentcom
       - ClothingHeadHatSyndieMAA
       - ClothingHeadHatSyndie
       - ClothingUniformJumpsuitOperative
       - ClothingUniformJumpskirtOperative
       - ClothingUniformJumpsuitSyndieFormal
       - ClothingUniformJumpskirtSyndieFormalDress
+      - ClothingUniformJumpsuitCasualSyndicate
       - ClothingHeadPyjamaSyndicateBlack
       - ClothingUniformJumpsuitPyjamaSyndicateBlack
       - ClothingHeadPyjamaSyndicatePink

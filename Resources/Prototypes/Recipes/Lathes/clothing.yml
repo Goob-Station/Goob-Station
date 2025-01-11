@@ -143,6 +143,16 @@
   id: ClothingUniformJumpsuitCentcomOfficial
   result: ClothingUniformJumpsuitCentcomOfficial
 
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualCentcom
+  result: ClothingUniformJumpsuitCasualCentcom
+
+- type: latheRecipe
+  parent: BaseCommandJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualCommand
+  result: ClothingUniformJumpsuitCasualCommand
+
 ## CE
 
 - type: latheRecipe
@@ -263,6 +273,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtSeniorEngineer
   result: ClothingUniformJumpskirtSeniorEngineer
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualEngineer
+  result: ClothingUniformJumpsuitCasualEngineer
 
 ## HoP
 
@@ -423,6 +438,11 @@
   parent: BaseJumpsuitRecipe
   id: ClothingUniformJumpskirtOperative
   result: ClothingUniformJumpskirtOperative
+
+- type: latheRecipe
+  parent: BaseJumpsuitRecipe
+  id: ClothingUniformJumpsuitCasualSyndicate
+  result: ClothingUniformJumpsuitCasualSyndicate
 
 ## Paramedic
 
