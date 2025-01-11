@@ -1,3 +1,5 @@
+Name: Gooblog
+Order: -1
 Entries:
 - author: Piras314
   changes:
@@ -752,7 +754,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling can't be butchered on meat spike. (you can still put it in
-        biomass reclaimer or burn it in crematorium)  
+        biomass reclaimer or burn it in crematorium)
     - type: Fix
       message: Changeling in lesser form can't use most abilities.
     - type: Fix
@@ -1501,7 +1503,7 @@ Entries:
         added station AI to train, mail drobe/teleporter to train cargo, and a
         singular pickaxe to train engi, more cameras for AI, edited atmos so the
         salv shuttle can fit (you have been compensated with a fireaxe and
-        combat gloves atmosians...), 
+        combat gloves atmosians...),
     - type: Tweak
       message: put train back in the map pool (min pop 30, max pop 60)
   id: 184
@@ -2852,7 +2854,7 @@ Entries:
     - type: Add
       message: >-
         Harpy wings (currently on their right arm lol) now give you the ability
-        to fly. 
+        to fly.
     - type: Add
       message: >-
         Severing wings from a harpy will render it unable to fly, and
@@ -3149,7 +3151,7 @@ Entries:
     - type: Tweak
       message: >-
         Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
-        increased piercing resistance to 70%, and added a 25% movement debuff. 
+        increased piercing resistance to 70%, and added a 25% movement debuff.
   id: 350
   time: '2024-12-11T22:48:03.0000000+00:00'
 - author: Speebr0
@@ -3835,3 +3837,213 @@ Entries:
         accumulate or not
   id: 428
   time: '2025-01-05T02:07:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix syringe guns not working.
+  id: 429
+  time: '2025-01-06T21:31:04.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: 'Added a Brigging Guideline: DON''T REMOVE IPC BATTERIES YOU NUMBNUTS!'
+  id: 430
+  time: '2025-01-06T21:42:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Closet freezers now have 99% explosive resistance, which lets them
+        survive nukes.
+  id: 431
+  time: '2025-01-06T22:03:52.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Dwarfs now need less alcohol to start healing, but will heal slower.
+  id: 432
+  time: '2025-01-06T22:08:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: The server now notifies everyone if you had rage quit the game.
+  id: 433
+  time: '2025-01-06T22:13:18.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Nothing ever happens. I'm betting all in.
+  id: 434
+  time: '2025-01-06T22:17:38.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Increased the default threshold for a ragequit to 30 seconds from 5.
+  id: 435
+  time: '2025-01-06T22:51:37.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the map Submarine from Einstein Engines!
+  id: 436
+  time: '2025-01-07T02:28:19.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Yowies can now wear softsuits at a massive penalty. Yow(ch)!
+  id: 437
+  time: '2025-01-07T14:47:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new lawset, Zooimov. It can randomly occur via ion storm, or can
+        be bought by syndicate zookeepers.
+  id: 438
+  time: '2025-01-07T14:48:43.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Tweaked SOP on executions
+  id: 439
+  time: '2025-01-07T14:49:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed all sharp objects not being usable for ghetto surgery.
+  id: 440
+  time: '2025-01-07T15:44:13.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: New species, Resomi!
+    - type: Tweak
+      message: >-
+        Resomi can tolerate much colder temperatures before taking damage, but
+        can't tolerate much heat as a consequence.
+    - type: Tweak
+      message: Resomi can move faster in Zero-G, on account of their wings.
+    - type: Tweak
+      message: >-
+        Like the other animal-type species, Resomi can digest uncooked animal
+        proteins, but get poisoned by theobromine. No coffee for you.
+  id: 441
+  time: '2025-01-07T15:53:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added Warden's Headset.
+    - type: Tweak
+      message: Warden's locker now starts with a multitool.
+  id: 442
+  time: '2025-01-08T14:42:13.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Severed harpy limbs are no longer invisible. Wings are still weird
+        sadly.
+  id: 443
+  time: '2025-01-08T14:46:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Making bluespace crystals doubles the value of the materials instead of
+        50xing the value
+  id: 444
+  time: '2025-01-08T14:47:08.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed all the Winter Coats storage being inaccessible. Now you can take
+        things back out that you stored inside.
+  id: 445
+  time: '2025-01-08T14:49:00.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Early Evacuation Procedures to SOP.
+    - type: Add
+      message: Added clarification for how Alert Levels are treated in SOP.
+  id: 446
+  time: '2025-01-08T16:41:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Changeling ability to recover chemicals from food items.
+  id: 447
+  time: '2025-01-09T17:38:36.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Repalleted the HoS and HoP cloaks to fit in better with their jumpsuits.
+  id: 448
+  time: '2025-01-09T17:40:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cloning not transferring you to the new body when you accept it.
+  id: 449
+  time: '2025-01-09T18:00:58.0000000+00:00'
+- author: Piras314 & mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added two songs to blob, one plays when the blob is announced/detected
+        and the other plays when the blob is critical!
+  id: 450
+  time: '2025-01-09T19:22:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 451
+  time: '2025-01-09T20:14:36.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Fix
+      message: Fixed the changelog bot messing up the changelog order and ID
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 452
+  time: '2025-01-09T20:22:48.0000000+00:00'
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added more markings for Lizards / Reptilians
+    - type: Remove
+      message: Removed Lizards / Reptilians only being able to eat fruit / meat
+    - type: Tweak
+      message: >-
+        Lizard / Reptilian horn markings can now be any colour instead of just
+        black
+    - type: Tweak
+      message: >-
+        Changed the appearance of Lizards / Reptilians. They now have funky
+        legs.
+  id: 453
+  time: '2025-01-09T21:18:19.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: ragequit messages can now be sent to a discord webhook
+  id: 454
+  time: '2025-01-10T14:28:33.0000000+00:00'

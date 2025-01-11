@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Made by MagnusCrowe (Github) for SS14",
+  "copyright": "Made by MagnusCrowe (Github) for SS14, equipped-OUTERCLOTHING-resomi made by Pofitlo",
   "size": {
     "x": 32,
     "y": 32
@@ -35,6 +35,14 @@
     },
     {
       "name": "open-inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "equipped-OUTERCLOTHING-resomi",
+      "directions": 4
+    },
+    {
+      "name": "open-equipped-OUTERCLOTHING-resomi",
       "directions": 4
     }
   ]
