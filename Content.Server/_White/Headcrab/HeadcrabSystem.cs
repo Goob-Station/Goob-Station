@@ -109,7 +109,6 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         if (TryComp<ActorComponent>(args.Equipee, out var actor))
         {
-            var session = actor.PlayerSession;
             var headcrabHasMind = _mindSystem.TryGetMind(uid, out var hostMindId, out var hostMind);
             var entityHasMind = _mindSystem.TryGetMind(args.Equipee, out var mindId, out var mind);
 
