@@ -4085,3 +4085,9 @@ Entries:
       message: Toggling of ling equipment doesn't cost any chemicals anymore.
   id: 457
   time: '2025-01-11T17:14:38.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: Replaced "Clearly Nuclear" with the new version, "Blatantly Nuclear"!
+  id: 458
+  time: '2025-01-11T17:21:57.0000000+00:00'
