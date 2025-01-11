@@ -121,6 +121,19 @@ public sealed partial class NukeopsRuleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
+
+    // Goobstation
+    [DataField]
+    public bool CallERT = true;
+
+    [DataField]
+    public float ERTChance = 0.25f;
+
+    [DataField]
+    public float ERTDeadPercentage = 0.5f;
+
+    public bool ERTRolled = false;
+    public bool ERTCalled = false;
 }
 
 public enum WinType : byte

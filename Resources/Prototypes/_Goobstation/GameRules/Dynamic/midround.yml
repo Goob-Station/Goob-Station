@@ -323,6 +323,8 @@
     warDeclarationMinOps: 1 # challenge mode
     warTcPerPlayer: 3
     warTcPerNukieMissing: 0
+    roundEndBehavior: Nothing
+    callERT: false
   - type: AntagSelection
     selectionTime: PostPlayerSpawn
     definitions:
