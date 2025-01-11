@@ -7,8 +7,11 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared.Cargo.Components;
+using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Station.Components;
+using Robust.Server.GameObjects;
 
 namespace Content.Server._Goobstation._Pirates.Pirates.Siphon;
 
@@ -19,6 +22,8 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly StationAnchorSystem _anchor = default!;
     [Dependency] private readonly CargoSystem _cargo = default!;
+    [Dependency] private readonly PricingSystem _pricing = default!;
+    [Dependency] private readonly TransformSystem _xform = default!;
 
     private float TickTimer = 1f;
 
@@ -27,8 +32,9 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ResourceSiphonComponent, ComponentInit>(OnInit);
-        SubscribeLocalEvent<ResourceSiphonComponent, AfterInteractEvent>(OnInteract);
-        SubscribeLocalEvent<ResourceSiphonComponent, AfterInteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<ResourceSiphonComponent, InteractHandEvent>(OnInteract);
+        SubscribeLocalEvent<ResourceSiphonComponent, InteractUsingEvent>(OnInteractUsing);
+        SubscribeLocalEvent<ResourceSiphonComponent, ExaminedEvent>(OnExamine);
     }
 
     public override void Update(float frameTime)
@@ -63,8 +69,12 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (!TryComp<StationBankAccountComponent>(station, out var bank))
             return;
 
-        _cargo.DeductFunds(bank, (int) ent.Comp.DrainRate);
-        ent.Comp.Credits = MathF.Min(ent.Comp.Credits + ent.Comp.DrainRate, ent.Comp.CreditsThreshold);
+        var funds = bank.Balance - ent.Comp.DrainRate;
+        if (funds > 0)
+        {
+            _cargo.DeductFunds(bank, (int) ent.Comp.DrainRate);
+            UpdateCredits(ent, ent.Comp.DrainRate);
+        }
     }
 
     #region Event Handlers
@@ -73,7 +83,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (!TryBindRule(ent)) return;
     }
 
-    private void OnInteract(Entity<ResourceSiphonComponent> ent, ref AfterInteractEvent args)
+    private void OnInteract(Entity<ResourceSiphonComponent> ent, ref InteractHandEvent args)
     {
         if (ent.Comp.Active) return;
 
@@ -95,9 +105,23 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         else ActivateSiphon(ent);
     }
 
-    private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref AfterInteractUsingEvent args)
+    private void OnInteractUsing(Entity<ResourceSiphonComponent> ent, ref InteractUsingEvent args)
     {
-        // todo add money
+        if (HasComp<CashComponent>(args.Used))
+        {
+            var price = _pricing.GetPrice(args.Used);
+            if (price == 0) return;
+
+            UpdateCredits(ent, (float) price);
+            QueueDel(args.Used);
+        }
+
+        // add more stuff here if needed
+    }
+
+    private void OnExamine(Entity<ResourceSiphonComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", ent.Comp.Credits)));
     }
     #endregion
 
@@ -108,7 +132,11 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         if (TryComp<StationAnchorComponent>(ent, out var anchor))
             _anchor.SetStatus((ent, anchor), true);
 
-        _chat.DispatchGlobalAnnouncement(Loc.GetString("data-siphon-activated"), "Priority", colorOverride: Color.Red);
+        var coords = _xform.GetWorldPosition(Transform(ent));
+        _popup.PopupCoordinates(Loc.GetString("data-siphon-activated"), Transform(ent).Coordinates, Shared.Popups.PopupType.Medium);
+
+        var anloc = Loc.GetString("data-siphon-activated-announcement", ("pos", $"X: {coords.X}; Y: {coords.Y}"));
+        _chat.DispatchGlobalAnnouncement(anloc, "Priority", colorOverride: Color.Red);
     }
 
     public bool TryBindRule(Entity<ResourceSiphonComponent> ent)
@@ -142,5 +170,17 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         prule.Credits = ent.Comp.Credits;
 
         return true;
+    }
+
+    public void UpdateCredits(Entity<ResourceSiphonComponent> ent, float amount)
+    {
+        var newAmount = ent.Comp.Credits + amount;
+        ent.Comp.Credits = Math.Min(ent.Comp.CreditsThreshold, newAmount);
+
+        if (newAmount > ent.Comp.CreditsThreshold)
+        {
+            if (ent.Comp.Active)
+                ent.Comp.Active = false; // stop siphoning
+        }
     }
 }

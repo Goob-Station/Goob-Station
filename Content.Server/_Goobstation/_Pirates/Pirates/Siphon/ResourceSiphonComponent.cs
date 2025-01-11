@@ -6,14 +6,13 @@ public sealed partial class ResourceSiphonComponent : Component
     [ViewVariables(VVAccess.ReadWrite)] public EntityUid? BoundGamerule;
     [ViewVariables(VVAccess.ReadOnly)] public bool Active = false;
 
-    [DataField] public float CreditsThreshold = 50000f;
-    [DataField] public float SciencePointsThreshold = 50000f;
+    [DataField] public float CreditsThreshold = 100000f;
 
     [ViewVariables(VVAccess.ReadWrite)] public float Credits = 0f;
 
     [DataField] public float DrainRate = 10f;
 
-    public int ActivationPhase = 0;
-    public float ActivationRewindTime = 3.5f;
-    public float ActivationRewindClock = 3.5f;
+    [ViewVariables(VVAccess.ReadOnly)] public int ActivationPhase = 0;
+    [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindTime = 3.5f;
+    [ViewVariables(VVAccess.ReadOnly)] public float ActivationRewindClock = 3.5f;
 }

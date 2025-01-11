@@ -32,7 +32,8 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
 
     private void OnAntagSelect(Entity<ActivePirateRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        TryMakePirate(ent);
+        TryMakePirate(args.EntityUid);
+
     }
 
     protected override void AppendRoundEndText(EntityUid uid, ActivePirateRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)
