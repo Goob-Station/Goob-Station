@@ -165,7 +165,6 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: SurgeryTarget # Shitmed
   - type: Sanitized # Shitmed
 
   # Visual
