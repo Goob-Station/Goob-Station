@@ -76,6 +76,8 @@
     name: ghost-role-information-tomatokiller-name
     description: ghost-role-information-tomatokiller-description
     rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: short
   - type: GhostTakeoverAvailable

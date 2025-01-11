@@ -116,6 +116,8 @@
     name: ghost-role-information-apprentice-destruction-name
     description: ghost-role-information-apprentice-destruction-desc
     rules: ghost-role-information-apprentice-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
     raffle:
       settings: default
   - type: GhostRoleMobSpawner

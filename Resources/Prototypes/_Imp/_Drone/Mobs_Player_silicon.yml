@@ -143,6 +143,8 @@
     name: ghost-role-information-drone-name
     description: ghost-role-information-drone-description
     rules: ghost-role-information-drone-rules
+    mindRoles:
+    - MindRoleGhostRoleSilicon
   - type: GhostTakeoverAvailable
   - type: SiliconLawBound
   - type: SiliconLawProvider

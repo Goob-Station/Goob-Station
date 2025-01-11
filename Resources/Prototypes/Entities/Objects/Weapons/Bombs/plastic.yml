@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BasePlasticExplosive
   parent: BaseItem
   abstract: true
@@ -84,6 +84,8 @@
     name: ghost-role-information-c4-name
     description: ghost-role-information-c4-description
     rules: ghost-role-information-familiar-rules
+    mindRoles:
+    - MindRoleGhostRoleFamiliar
   - type: GhostTakeoverAvailable
   - type: IntrinsicRadioReceiver
   - type: IntrinsicRadioTransmitter

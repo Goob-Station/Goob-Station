@@ -177,7 +177,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
         base.EnsureSubvertedSiliconRole(mindId);
 
         if (!_roles.MindHasRole<SubvertedSiliconRoleComponent>(mindId))
-            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon");
+            _roles.MindAddRole(mindId, "MindRoleSubvertedSilicon", silent: true);
     }
 
     protected override void RemoveSubvertedSiliconRole(EntityUid mindId)
