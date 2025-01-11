@@ -4119,3 +4119,11 @@ Entries:
         damage.
   id: 461
   time: '2025-01-11T20:11:55.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added Honkops, nukeops, but HONK! They even have their own HONKing
+        amazing nuke song, Opposing Nuke by mrjajkes!
+  id: 462
+  time: '2025-01-11T22:27:31.0000000+00:00'
