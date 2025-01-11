@@ -4063,3 +4063,25 @@ Entries:
       message: Ashen Jaunt won't let you use it if it would crit you.
   id: 456
   time: '2025-01-11T16:40:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added 2 new ling melee weapons: arm hammer and arm claw.'
+    - type: Add
+      message: Added ling dart gun, able to sting at range.
+    - type: Add
+      message: People without legs can't break out of grabs anymore.
+    - type: Tweak
+      message: Armblade damage is now 15 slash, it delimbs roughly the same as before.
+    - type: Tweak
+      message: Ling stings are now cheaper but inject less reagents.
+    - type: Tweak
+      message: Cryo sting doesn't inject chloral hydrate anymore.
+    - type: Tweak
+      message: >-
+        Lethargic sting doesn't inject mute toxin but slowly drains victim's
+        stamina. 
+    - type: Tweak
+      message: Toggling of ling equipment doesn't cost any chemicals anymore.
+  id: 457
+  time: '2025-01-11T17:14:38.0000000+00:00'
