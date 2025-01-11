@@ -569,7 +569,7 @@
       path: /Audio/Weapons/Guns/Gunshots/taser.ogg
   - type: ProjectileBatteryAmmoProvider
     proto: BulletTaser
-    fireCost: 200
+    fireCost: 500
   - type: MagazineVisuals
     magState: mag
     steps: 5
@@ -783,6 +783,9 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletLaserSpread
     fireCost: 150
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
   # Goob edit start
   #- type: BatteryWeaponFireModes
   #  fireModes:
@@ -858,6 +861,9 @@
   - type: ProjectileBatteryAmmoProvider
     proto: BulletDisabler
     fireCost: 50 # Goob edit
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 40
   # Goob edit start
   #- type: EnergyGun
   #  fireModes:
