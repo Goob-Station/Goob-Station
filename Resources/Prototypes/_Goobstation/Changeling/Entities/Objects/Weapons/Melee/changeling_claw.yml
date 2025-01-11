@@ -15,7 +15,8 @@
     heavyStaminaCost: 8
     damage:
       types:
-        Piercing: 25
+        Slash: 5
+        Piercing: 15
         Structural: 10
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
