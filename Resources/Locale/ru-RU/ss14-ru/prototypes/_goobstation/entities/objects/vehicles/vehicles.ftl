@@ -1,0 +1,15 @@
+ent-BaseVehicle = { "" }
+    .desc = { "" }
+ent-VehicleSecway = secway
+    .desc = The future of transportation. Popularized by St. James, the patron saint of security officers and internet forum moderators.
+ent-VehicleSyndicateSegway = syndicate segway
+    .desc = Be an enemy of the corporation, in style.
+ent-VehicleATV = ATV
+    .desc = All-Tile Vehicle.
+ent-VehicleJanicart = janicart
+    .desc = The janitor's trusty steed.
+ent-VehicleWheelchair = wheelchair
+    .desc = A chair with big wheels. It looks like you can move in these on your own.
+ent-VehicleWheelchairFolded = { ent-VehicleWheelchair }
+    .suffix = folded
+    .desc = { ent-VehicleWheelchair.desc }

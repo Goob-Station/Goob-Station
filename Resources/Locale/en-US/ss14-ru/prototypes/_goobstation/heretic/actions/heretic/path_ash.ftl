@@ -1,0 +1,10 @@
+ent-ActionHereticJaunt = Ashen Passage
+    .desc = A short range spell that allows you to pass unimpeded through walls.
+ent-ActionHereticVolcanoBlast = Volcanic Blast
+    .desc = Charge up a blast of fire that chains between nearby targets, setting them ablaze.
+ent-ActionHereticNightwatcherRebirth = Nightwatcher's Rebirth
+    .desc = A spell that extinguishes you and drains nearby heathens engulfed in flames of their life force.
+ent-ActionHereticAscension1 = Oath of Flame
+    .desc = For a minute, you will passively create a ring of fire around you.
+ent-ActionHereticAscension2 = Fire Cascade
+    .desc = Heats the air around you.

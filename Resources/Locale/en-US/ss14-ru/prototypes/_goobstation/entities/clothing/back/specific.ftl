@@ -1,0 +1,11 @@
+ent-ClothingBackpackStasisBattery = stasis storage
+    .desc = Stores energy to freeze time flow, warping the space inside for more capacity.
+ent-ClothingBackpackStasisBatteryUnremoveable = { ent-ClothingBackpackStasisBattery }
+    .suffix = Unremoveable
+    .desc = { ent-ClothingBackpackStasisBattery.desc }
+ent-ClothingBackpackStasisBatteryUnremoveableFilled = { ent-ClothingBackpackStasisBatteryUnremoveable }
+    .suffix = Filled, Unremoveable
+    .desc = { ent-ClothingBackpackStasisBatteryUnremoveable.desc }
+ent-ClothingBackpackMercFilledHECU = { ent-ClothingBackpackMerc }
+    .suffix = Filled, HECU
+    .desc = { ent-ClothingBackpackMerc.desc }

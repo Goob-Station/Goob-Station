@@ -1,0 +1,14 @@
+ent-ClothingUniformJumpsuitDurathread = durathread jumpsuit
+    .desc = A loose worn durathread shirt with a grey pants, its resilient fibres provide some protection to the wearer.
+ent-ClothingUniformJumpsuitNanotrasenRepresentative = nanotrasen representative suit
+    .desc = A black suit worn by officials.
+ent-ClothingUniformJumpsuitCasualSyndicate = casual syndicate jumpsuit
+    .desc = Short sleeves, short temper.
+ent-ClothingUniformJumpsuitBlueshieldOfficer = blueshield officer jumpsuit
+    .desc = A short-sleeved grey and blue jumpsuit, made out of a sturdy material. Blueshield standard issue.
+ent-ClothingUniformJumpsuitBlueshieldShirt = blueshield officer blue shirt
+    .desc = An official security uniform. Pretty safe and pretty busy.
+ent-ClothingUniformMailCarrier = mail carrier's uniform
+    .desc = Enemy of dogs everywhere.
+ent-ClothingUniformHecu = HECU uniform
+    .desc = Hunt down the Freeman.

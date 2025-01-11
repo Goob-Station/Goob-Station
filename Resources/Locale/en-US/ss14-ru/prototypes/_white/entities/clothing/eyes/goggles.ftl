@@ -1,0 +1,16 @@
+ent-ClothingEyesNightVisionGoggles = night vision goggles
+    .desc = Now you can see in the dark!
+ent-ClothingEyesNightVisionGogglesSyndie = { ent-ClothingEyesNightVisionGoggles }
+    .suffix = Chameleon
+    .desc = { ent-ClothingEyesNightVisionGoggles.desc }
+ent-ClothingEyesNightVisionGogglesNukie = { ent-ClothingEyesNightVisionGogglesSyndie }
+    .suffix = Chameleon, NukeOps
+    .desc = { ent-ClothingEyesNightVisionGogglesSyndie.desc }
+ent-ClothingEyesThermalVisionGoggles = thermal vision goggles
+    .desc = Now you can see everyone!
+ent-ClothingEyesThermalVisionGogglesSyndie = { ent-ClothingEyesThermalVisionGoggles }
+    .suffix = Chameleon
+    .desc = { ent-ClothingEyesThermalVisionGoggles.desc }
+ent-ClothingEyesThermalVisionGogglesNukie = { ent-ClothingEyesThermalVisionGogglesSyndie }
+    .suffix = Chameleon, NukeOps
+    .desc = { ent-ClothingEyesThermalVisionGogglesSyndie.desc }
