@@ -1,7 +1,7 @@
 - type: entity
   id: ActionHereticJaunt
   name: Ashen Passage
-  description: A short range spell that allows you to pass unimpeded through walls.
+  description: A short range spell that allows you to pass unimpeded through walls. Using this spell will damage you.
   categories: [ HideSpawnMenu ]
   components:
   - type: InstantAction
@@ -11,6 +11,9 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashen_shift
     event: !type:EventHereticAshenShift
+      damage:
+        types:
+          Heat: 25
     checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
