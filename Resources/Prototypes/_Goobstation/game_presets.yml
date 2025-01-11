@@ -104,3 +104,18 @@
   - AntagStationEventScheduler
   - BasicRoundstartVariation
   - SubGamemodesRule
+
+- type: gamePreset
+  id: Honkops
+  alias:
+    - honkops
+  name: honkops-title
+  description: honkops-description
+  showInVote: false
+  rules:
+    - Honkops
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
