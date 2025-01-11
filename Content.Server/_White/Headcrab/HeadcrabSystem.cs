@@ -2,10 +2,8 @@ using System.Linq;
 using Content.Server.Actions;
 using Content.Server.Chat;
 using Content.Server.Chat.Systems;
-using Content.Server.Ghost;
 using Content.Server.Mind;
 using Content.Server.NPC;
-using Content.Server.NPC.Components;
 using Content.Server.NPC.HTN;
 using Content.Server.Popups;
 using Content.Server.NPC.Systems;
@@ -14,23 +12,19 @@ using Content.Shared.Zombies;
 using Content.Shared.CombatMode;
 using Content.Shared.Ghost;
 using Content.Shared.Damage;
-using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Humanoid;
-using Content.Shared.Nutrition.Components;
 using Content.Shared._White.Headcrab;
-using Content.Shared.Actions;
-using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
-using Content.Shared.Players;
 using Content.Shared.Popups;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
@@ -52,11 +46,10 @@ public sealed partial class HeadcrabSystem : EntitySystem
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly GhostSystem _ghostSystem = default!;
     [Dependency] private readonly NPCSystem _npc = default!;
     [Dependency] private readonly HTNSystem _htn = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly ActionsSystem _action = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
@@ -91,6 +84,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         EnsureComp<AutoEmoteComponent>(args.Equipee);
         _autoEmote.AddEmote(args.Equipee, "ZombieGroan");
+        _tagSystem.AddTag(args.Equipee, "CannotSuicide");
 
         component.EquippedOn = args.Equipee;
         RemComp<CombatModeComponent>(uid);
@@ -181,6 +175,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             return;
 
         _autoEmote.RemoveEmote(args.Equipee, "ZombieGroan");
+        _tagSystem.RemoveTag(args.Equipee, "CannotSuicide");
 
         component.EquippedOn = EntityUid.Invalid;
         var combatMode = EnsureComp<CombatModeComponent>(uid);
@@ -200,16 +195,14 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var headcrabHasMind = _mindSystem.TryGetMind(uid, out var mindId, out var mind);
         var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
 
-        if (!headcrabHasMind && !hostHasMind)
-            return;
-
-        if (headcrabHasMind)
+        if (headcrabHasMind && !hostHasMind)
         {
             _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
         }
 
-        if (hostHasMind)
+        if (headcrabHasMind && hostHasMind)
         {
+            _mindSystem.TransferTo(mindId, args.Equipee, mind: mind);
             _mindSystem.TransferTo(hostMindId, uid, mind: hostMind);
         }
 

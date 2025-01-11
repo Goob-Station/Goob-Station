@@ -1,7 +1,5 @@
 ﻿using Content.Server.NPC.HTN;
 using Content.Shared.Damage;
-using Content.Shared.DoAfter;
-using Content.Shared.Mind;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
