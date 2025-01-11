@@ -21,6 +21,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Mouse
@@ -65,6 +66,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Xeno
@@ -91,6 +93,7 @@
   - Changeling # goob edit - changelings
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  - Wizard # goob edit - wizard
 
 - type: npcFaction
   id: Revolutionary
@@ -100,3 +103,4 @@
   - SimpleHostile
   - Dragon
   - Blob # Goobstation - Blob
+  - Wizard # Goobstation - wizard

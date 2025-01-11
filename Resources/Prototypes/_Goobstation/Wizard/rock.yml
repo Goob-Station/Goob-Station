@@ -1,0 +1,50 @@
+- type: entity
+  id: LargeRock
+  parent: BaseStructure
+  name: large rock
+  description: A volcanic rock. Pioneers used to ride these babies for miles.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/basalt.rsi
+    layers:
+    - state: basalt1
+      map: [ "rock" ]
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: Rock
+  - type: RandomSprite
+    available:
+    - rock:
+        basalt1: ""
+        basalt2: ""
+        basalt3: ""
+        basalt4: ""
+  - type: RequireProjectileTarget
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+        - !type:DoActsBehavior
+          acts: [ "Destruction" ]
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.35,0.25,0.35"
+        density: 250
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+
+- type: entity
+  id: LargeRockFading
+  parent: LargeRock
+  suffix: Fading
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 20
+    fadeOutTime: 4

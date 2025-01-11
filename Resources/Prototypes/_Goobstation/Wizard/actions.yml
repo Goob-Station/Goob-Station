@@ -1,0 +1,619 @@
+- type: entity
+  id: ActionMimeMalaise
+  name: Mime Malaise
+  description: ...
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mime
+    event: !type:MimeMalaiseEvent
+  - type: Magic
+    requiresClothes: true
+
+- type: entity
+  id: ActionCluwneCurse
+  name: Curse of the Cluwne
+  description: It's time to start cluwning around.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: CluwneHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: cluwne
+    event: !type:CluwneCurseEvent
+      speech: action-speech-spell-cluwne
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionBananaTouch
+  name: Banana Touch
+  description: It's time to start clowning around.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 30
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - HumanoidAppearance
+      - Inventory
+    canTargetSelf: false
+    interactOnMiss: false
+    sound: !type:SoundCollectionSpecifier
+      collection: BikeHorn
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: clown
+    event: !type:BananaTouchEvent
+      speech: action-speech-spell-clown
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionMagicMissile
+  name: Magic Missile
+  description: Fires several stunning, slow moving, magic projectiles at nearby targets.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/magic_missile.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: missile
+    event: !type:MagicMissileEvent
+      speech: action-speech-spell-magic-missile
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionDisableTech
+  name: Disable Technology
+  description: Disables all weapons, cameras and most other technology in range.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 20
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/disable_tech.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: emp
+    event: !type:DisableTechEvent
+      speech: action-speech-spell-emp
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionSmoke
+  name: Smoke
+  description: Spawns a cloud of choking smoke at your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 12
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/smoke.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: smoke
+    event: !type:SmokeSpellEvent
+  - type: Magic
+
+- type: entity
+  id: ActionRepulse
+  name: Repulse
+  description: Throws everything around the user away.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/repulse.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: repulse
+    event: !type:RepulseEvent
+      speech: action-speech-spell-repulse
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionStopTime
+  name: Stop Time
+  description: Stops time around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 50
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/timeparadox2.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: time
+    event: !type:StopTimeEvent
+      speech: action-speech-spell-stop-time
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+  - type: Tag
+    tags:
+      - FrozenIgnoreMindAction
+
+- type: entity
+  id: ActionCorpseExplosion
+  name: Corpse Explosion
+  description: Fills a corpse with energy, causing it to explode violently.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 5
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - MobState
+      - Body
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: corpse_explosion
+    event: !type:CorpseExplosionEvent
+      speech: action-speech-spell-corpse-explosion
+      damage:
+        groups:
+          Brute: 100
+  - type: Magic
+    requiresSpeech: true
+
+- type: entity
+  id: ActionBlindSpell
+  name: Blind
+  description: Temporarily blinds a single target.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - StatusEffects
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/blind.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: blind
+    event: !type:BlindSpellEvent
+      speech: action-speech-spell-blind
+  - type: Magic
+    requiresSpeech: true
+
+- type: entity
+  id: ActionBindSoul
+  name: Bind Soul
+  description: Bind your soul to an item to ressurrect after death. If your soul it already bound to an item and you are dead, attempt resurrecton.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    checkConsciousness: false
+    allowGhostAction: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: skeleton
+    event: !type:BindSoulEvent
+      speech: action-speech-spell-bind-soul
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/pope_entry.ogg
+      blacklist:
+        components:
+        - MobState
+        - NukeDisk
+        - VirtualItem
+        - Body
+        - BodyPart
+        - Organ
+        - TimedDespawn
+        - FadingTimedDespawn
+        - Godmode
+        - DeleteOnDropAttempt
+        - EnchantedBoltActionRifle
+  - type: Magic
+    requiresSpeech: true
+  - type: Tag
+    tags:
+      - BindSoulAction
+
+- type: entity
+  id: ActionMutateSpell
+  name: Mutate
+  description: Causes you to turn into a hulk and gain laser vision for a short while.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 40
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/mutate.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: mutate
+    event: !type:MutateSpellEvent
+      speech: action-speech-spell-mutate
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionTeslaBlast
+  name: Tesla Blast
+  description: Charge up a tesla arc and release it at random nearby targets.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 30
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: tesla
+    event: !type:TeslaBlastEvent
+      speech: action-speech-spell-tesla-blast
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/lightning_chargeup.ogg
+  - type: Magic
+    requiresClothes: true
+    requiresSpeech: true
+
+- type: entity
+  id: ActionLightningBolt
+  name: Lightning Bolt
+  description: Fire a lightning bolt at your foes.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: lightning
+    event: !type:LightningBoltEvent
+      speech: action-speech-spell-lightning-bolt
+  - type: Magic
+    requiresSpeech: true
+
+- type: entity
+  id: ActionHomingToolbox
+  name: Homing Toolbox
+  description: Fires a magical homing toolbox at your opponent.
+  components:
+  - type: EntityWorldTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    useDelay: 4
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound:
+      path: /Audio/Weapons/smash.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: toolbox
+    event: !type:HomingToolboxEvent
+      speech: action-speech-spell-homing-toolbox
+  - type: Magic
+    requiresSpeech: true
+  - type: LockOnMarkAction
+
+- type: entity
+  id: ActionSpellCards
+  name: Spell Cards
+  description: Fire up to five bursts of homing spell cards.
+  components:
+  - type: EntityWorldTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    repeat: true
+    useDelay: 0.5 # SpellCardsEvent handles use delay
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    sound:
+      path: /Audio/Magic/staff_healing.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: spellcard
+    event: !type:SpellCardsEvent
+      speech: action-speech-spell-spell-cards
+  - type: Magic
+    requiresSpeech: true
+  - type: SpellCardsAction
+  - type: LockOnMarkAction
+
+- type: entity
+  id: ActionArcaneBarrage
+  name: Arcane Barrage
+  description: Fire a torrent of arcane energy at your foes.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: arcane_barrage
+    event: !type:ArcaneBarrageEvent
+  - type: Magic
+    requiresClothes: true
+  - type: Tag
+    tags:
+      - ArcaneBarrageAction
+
+- type: entity
+  id: ActionLesserSummonGuns
+  name: Lesser Summon Guns
+  description: Summon an unending stream of bolt action rifles.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bolt_action
+    event: !type:LesserSummonGunsEvent
+  - type: Magic
+    requiresClothes: true
+  - type: Tag
+    tags:
+      - LesserSummonGunsAction
+
+- type: entity
+  id: ActionBarnyardCurse
+  name: Curse of the Barnyard
+  description: Dooms an unlucky soul to possess the speech and facial attributes of a barnyard animal.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Inventory
+      - HumanoidAppearance
+    canTargetSelf: false
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: barn
+    event: !type:BarnyardCurseEvent
+      speech: action-speech-spell-barnyard
+      masks:
+        ClothingMaskPig:
+          path: /Audio/_Goobstation/Wizard/pighead_curse.ogg
+        ClothingMaskFrog: null
+        ClothingMaskCow:
+          path: /Audio/_Goobstation/Wizard/cowhead_curse.ogg
+        ClothingMaskHorse:
+          path: /Audio/_Goobstation/Wizard/horsehead_curse.ogg
+        ClothingMaskRat: null
+        ClothingMaskFox: null
+        ClothingMaskBee: null
+        ClothingMaskBear: null
+        ClothingMaskRaven: null
+        ClothingMaskJackal: null
+        ClothingMaskBat: null
+  - type: Magic
+    requiresSpeech: true
+
+- type: entity
+  id: ActionScreamForMe
+  name: Scream For Me
+  description: This wicked spell inflicts many severe wounds on your target, causing them to likely bleed to death unless they receive immediate medical attention.
+  components:
+  - type: EntityTargetAction
+    raiseOnUser: true
+    useDelay: 60
+    itemIconStyle: BigAction
+    whitelist:
+      components:
+      - MobState
+    canTargetSelf: false
+    interactOnMiss: false
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: scream_for_me
+    event: !type:ScreamForMeEvent
+      speech: action-speech-spell-scream-for-me
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+
+- type: entity
+  id: ActionInstantSummons
+  name: Instant Summons
+  description: Recalls a previously marked item to your hand from anywhere in the universe.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 10
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: summons
+    event: !type:InstantSummonsEvent
+      speech: action-speech-spell-instant-summons
+      summonSound:
+        path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
+  - type: Magic
+  - type: InstantSummonsAction
+  - type: ConfirmableAction
+    popup: instant-summons-confirm-popup
+    shouldCancel: false
+
+- type: entity
+  id: ActionTeleportWizard
+  name: Teleport
+  description: This spell teleports you to an area of your selection.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: teleport
+    event: !type:WizardTeleportEvent
+  - type: Magic
+    requiresSpeech: true
+
+- type: entity
+  id: ActionTrapsSpell
+  name: The Traps!
+  description: Summon a number of traps around you.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 25
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Items/welder.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: the_traps
+    event: !type:TrapsSpellEvent
+      speech: action-speech-spell-the-traps
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+
+- type: entity
+  id: ActionLesserSummonBees
+  name: Lesser Summon Bees
+  description: This spell magically kicks a transdimensional beehive, instantly summoning a swarm of bees to your location.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/bee.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: bee
+    event: !type:LesserSummonBeesEvent
+      speech: action-speech-spell-bees
+      mobs:
+      - BeeLicoxide
+      - BeeAmatoxin
+      - BeeLexorin
+      - BeeChloralHydrate
+      - BeeUnstableMutagen
+      - BeeMindbreakerToxin
+      - BeePax
+      - BeeLead
+      - BeeLipolicide
+      - BeeImpedrezene
+      - BeeRazorium
+      - BeeMuteToxin
+      - BeeBuzzochloricBees
+      - BeeLaughter
+      - BeeToxin
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+
+- type: entity
+  id: ActionSummonSimians
+  name: Summon Simians
+  description: This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons monkeys and gorillas that will promptly flip out and attack everything in sight. Fun!
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 90
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTable
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true

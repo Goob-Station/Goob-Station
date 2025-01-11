@@ -1,0 +1,203 @@
+- type: entity
+  id: EffectRepulse
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: FadingTimedDespawn
+    lifetime: 0.6
+    fadeOutTime: 0.6
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: shieldsparkles
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: EffectElectricity
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: electricity
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: AnimationPlayer
+
+- type: entity
+  id: Chronofield
+  name: chronofield
+  description: ZA WARUDO!
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    color: "#FFFFFF80"
+    drawdepth: FloorEffects
+    offset: 0, 0.5
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects160x160.rsi
+        state: time
+  - type: AnimationPlayer
+  - type: FreezeContacts
+  - type: GravPulseOnMapInit # This is required to trigger physics collision
+    maxRange: 2
+    baseRadialAcceleration: 0.01
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeCircle
+          radius: 2
+        hard: false
+        layer:
+        - Opaque
+        - Impassable
+        - MidImpassable
+        - HighImpassable
+        - LowImpassable
+        - BulletImpassable
+        - BlobImpassable
+
+- type: entity
+  id: ActionTargetMark
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+      - sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: marker
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: Transform
+
+- type: entity
+  id: BaseFlashEffect
+  abstract: true
+  components:
+  - type: PointLight
+    enabled: true
+    radius: 5
+    energy: 8
+    netsync: false
+  - type: LightFade
+    duration: 0.5
+  - type: TimedDespawn
+    lifetime: 0.5
+
+- type: entity
+  parent: BaseFlashEffect
+  id: SanguineFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    color: red
+
+- type: entity
+  parent: BaseFlashEffect
+  id: EmpFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 10
+    color: blue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: BlindingTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+
+- type: entity
+  parent: BaseFlashEffect
+  id: FlameTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: red
+
+- type: entity
+  parent: BaseFlashEffect
+  id: ChillTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: lightblue
+
+- type: entity
+  parent: BaseFlashEffect
+  id: StunTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: yellow
+
+- type: entity
+  parent: BaseFlashEffect
+  id: DamageTrapFlashEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: PointLight
+    radius: 3
+    color: green
+
+- type: entity
+  id: EffectSpark
+  name: sparks
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: Sprite
+    drawdepth: Effects
+    noRot: true
+    layers:
+      - shader: unshaded
+        sprite: _Goobstation/Wizard/Effects/effects.rsi
+        state: sparks
+  - type: AnimationPlayer
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 0.7
+  - type: Physics
+    bodyStatus: InAir
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.3
+        hard: false
+  - type: Tag
+    tags:
+      - HideContextMenu

@@ -3,6 +3,7 @@ using Content.Shared.Chemistry.Hypospray.Events;
 using Content.Shared.Climbing.Components;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Medical;
 using Content.Shared.Popups;
@@ -10,6 +11,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -24,6 +26,7 @@ public sealed class ClumsySystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -31,6 +34,16 @@ public sealed class ClumsySystem : EntitySystem
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeDefibrillatorZapsEvent>(BeforeDefibrillatorZapsEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeGunShotEvent>(BeforeGunShotEvent);
         SubscribeLocalEvent<ClumsyComponent, SelfBeforeClimbEvent>(OnBeforeClimbEvent);
+        SubscribeLocalEvent<ClumsyComponent, ComponentInit>(OnInit); // Goobstation
+    }
+
+    private void OnInit(Entity<ClumsyComponent> ent, ref ComponentInit args) // Goobstation
+    {
+        if (ent.Comp.GunShootFailDamage != null)
+            return;
+
+        ent.Comp.GunShootFailDamage = new DamageSpecifier(_prototype.Index<DamageGroupPrototype>("Brute"), 12f);
+        Dirty(ent);
     }
 
     // If you add more clumsy interactions add them in this section!
@@ -38,7 +51,7 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeHyposprayEvent(Entity<ClumsyComponent> ent, ref SelfBeforeHyposprayInjectsEvent args)
     {
         // Clumsy people sometimes inject themselves! Apparently syringes are clumsy proof...
-    
+
         // checks if ClumsyHypo is false, if so, skips.
         if (!ent.Comp.ClumsyHypo)
             return;
@@ -54,7 +67,7 @@ public sealed class ClumsySystem : EntitySystem
     private void BeforeDefibrillatorZapsEvent(Entity<ClumsyComponent> ent, ref SelfBeforeDefibrillatorZapsEvent args)
     {
         // Clumsy people sometimes defib themselves!
-        
+
         // checks if ClumsyDefib is false, if so, skips.
         if (!ent.Comp.ClumsyDefib)
             return;

@@ -1,0 +1,12 @@
+- type: htnCompound
+  id: WieldItemCompound
+  branches:
+  - preconditions:
+      - !type:ActiveHandComponentPrecondition
+        components:
+        - type: Wieldable
+    tasks:
+      - !type:HTNPrimitiveTask
+        preconditions:
+        - !type:UnwieldedEntityInHandsPrecondition
+        operator: !type:WieldOperator

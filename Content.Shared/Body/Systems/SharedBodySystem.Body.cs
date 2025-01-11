@@ -24,6 +24,7 @@ using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Humanoid;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Standing;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Body.Systems;
@@ -438,7 +439,8 @@ public partial class SharedBodySystem
                 foreach (var item in _inventory.GetHandOrInventoryEntities(partId))
                     SharedTransform.AttachToGridOrMap(item);
 
-            QueueDel(partId);
+            if (_net.IsServer) // Goob edit
+                QueueDel(partId);
             return true;
         }
 

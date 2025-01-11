@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared.Alert;
 using Content.Shared.Body.Part;
 using Content.Shared.Body.Systems;
@@ -30,6 +31,7 @@ public sealed partial class EnsnareableDoAfterEvent : SimpleDoAfterEvent
 public abstract class SharedEnsnareableSystem : EntitySystem
 {
     [Dependency] private   readonly INetManager _net = default!; // Goobstation
+    [Dependency] private   readonly SharedHulkSystem _hulk = default!; // Goobstation
     [Dependency] private   readonly AlertsSystem _alerts = default!;
     [Dependency] private   readonly MovementSpeedModifierSystem _speedModifier = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
@@ -103,6 +105,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         }
         else
             _hands.PickupOrDrop(args.Args.User, args.Args.Used.Value);
+
+        if (args.User == args.Target && TryComp(args.User, out HulkComponent? hulk))
+            _hulk.Roar((args.User, hulk));
         // Goobstation end
 
         if (args.User == args.Target)
@@ -174,6 +179,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         var freeTime = user == target ? component.BreakoutTime : component.FreeTime;
         var breakOnMove = !component.CanMoveBreakout;
 
+        if (user == target && HasComp<HulkComponent>(user)) // Goobstation
+            freeTime = 0f;
+
         var doAfterEventArgs = new DoAfterArgs(EntityManager, user, freeTime, new EnsnareableDoAfterEvent(), target, target: target, used: ensnare)
         {
             BreakOnMove = breakOnMove,
@@ -183,6 +191,9 @@ public abstract class SharedEnsnareableSystem : EntitySystem
         };
 
         if (!_doAfter.TryStartDoAfter(doAfterEventArgs))
+            return;
+
+        if (freeTime == 0f) // Goobstation
             return;
 
         if (user == target)

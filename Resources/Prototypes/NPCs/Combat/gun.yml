@@ -88,6 +88,7 @@
     - preconditions:
         - !type:GunAmmoPrecondition
           minPercent: 0.001
+        - !type:GunCanFirePrecondition # Goobstation
       tasks:
         - !type:HTNCompoundTask
           task: GunCombatCompound
@@ -96,10 +97,24 @@
 - type: htnCompound
   id: RangedCombatCompound
   branches:
+    # Goobstation - Discard gun if it can't fire
+    - preconditions:
+        - !type:ActiveHandComponentPrecondition
+          components:
+            - type: Gun
+        - !type:GunCanFirePrecondition
+          invert: true
+      tasks:
+        - !type:HTNPrimitiveTask
+          preconditions:
+            - !type:ActiveHandEntityPrecondition
+          operator: !type:DropOperator
+
     # Move to target and shoot them if ammo
     - preconditions:
         - !type:GunAmmoPrecondition
           minPercent: 0.001
+        - !type:GunCanFirePrecondition # Goobstation
       tasks:
         - !type:HTNCompoundTask
           task: GunCombatCompound

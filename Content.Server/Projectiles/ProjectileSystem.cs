@@ -38,7 +38,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
         if (attemptEv.Cancelled)
         {
             SetShooter(uid, component, target);
-            _guns.SetTarget(uid, null); // Goobstation
+            _guns.SetTarget(uid, null, out _); // Goobstation
             component.IgnoredEntities.Clear(); // Goobstation
             return;
         }

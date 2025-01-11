@@ -1,0 +1,19 @@
+- type: startingGear
+  id: WizardGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorDarkBlue
+    head: ClothingHeadHatWizard
+    outerClothing: ClothingOuterWizard
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack
+    belt: ScrollTeleport
+    pocket1: WizardsGrimoire
+
+- type: startingGear
+  id: LichGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorBlack
+    head: ClothingHeadHatBlackwizard
+    outerClothing: ClothingOuterWizardBlack
+    shoes: ClothingShoesWizard
+    back: ClothingBackpack

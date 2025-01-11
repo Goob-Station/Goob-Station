@@ -2,6 +2,9 @@
 - type: htnCompound
   id: SimpleHostileCompound
   branches:
+    - tasks: # Goobstation
+        - !type:HTNCompoundTask
+          task: WieldItemCompound
     - tasks:
         - !type:HTNCompoundTask
           task: MeleeCombatCompound

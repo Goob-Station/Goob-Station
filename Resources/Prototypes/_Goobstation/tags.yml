@@ -67,6 +67,27 @@
 - type: Tag
   id: NukeOpsReinforcementUplink
 
+- type: Tag
+  id: FrozenIgnoreMindAction
+
+- type: Tag
+  id: BindSoulAction
+
+- type: Tag
+  id: IgnoreBindSoul
+
+- type: Tag
+  id: CartridgeMagicBullet
+
+- type: Tag
+  id: ArcaneBarrageAction
+
+- type: Tag
+  id: LesserSummonGunsAction
+
+- type: Tag
+  id: CursedAnimalMask
+
 # Mechs
 
 - type: Tag

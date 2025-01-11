@@ -289,13 +289,6 @@ public sealed partial class GunSystem : SharedGunSystem
         }
     }
 
-    public void SetTarget(EntityUid projectile, EntityUid? target) // Goobstation
-    {
-        var targeted = EnsureComp<TargetedProjectileComponent>(projectile);
-        targeted.Target = target;
-        Dirty(projectile, targeted);
-    }
-
     private void ShootOrThrow(EntityUid uid, Vector2 mapDirection, Vector2 gunVelocity, GunComponent gun, EntityUid gunUid, EntityUid? user)
     {
         if (gun.Target is { } target && !TerminatingOrDeleted(target))
@@ -323,7 +316,7 @@ public sealed partial class GunSystem : SharedGunSystem
     /// <param name="start">Start angle in degrees</param>
     /// <param name="end">End angle in degrees</param>
     /// <param name="intervals">How many shots there are</param>
-    private Angle[] LinearSpread(Angle start, Angle end, int intervals)
+    public Angle[] LinearSpread(Angle start, Angle end, int intervals) // Goob edit
     {
         var angles = new Angle[intervals];
         DebugTools.Assert(intervals > 1);
