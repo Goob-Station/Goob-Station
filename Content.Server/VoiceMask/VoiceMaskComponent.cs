@@ -37,4 +37,9 @@ public sealed partial class VoiceMaskComponent : Component
     /// </summary>
     [DataField]
     public EntityUid? ActionEntity;
+    /// <summary>
+    ///     if UI Action shud be added on equipt
+    /// </summary>
+    [DataField]
+    public bool EnableAction = true; //Goobstation
 }

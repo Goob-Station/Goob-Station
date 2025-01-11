@@ -30,3 +30,33 @@
   - type: InstantAction
     icon: { sprite: Clothing/Mask/gassecurity.rsi, state: icon }
     event: !type:HailerActionEvent
+
+- type: entity
+  parent: [ClothingMaskBase, BaseMinorContraband]
+  id: ClothingMaskGasVoiceCraftable
+  suffix: Voice Mask, Craftable
+  name: Voice Modulator Mask
+  description: a shoddy combined gasmask and voice trigger, makes your voice change.
+  components:
+    - type: Sprite
+      sprite: Clothing/Mask/gas.rsi
+    - type: Clothing
+      sprite: Clothing/Mask/gas.rsi
+    - type: BreathMask
+    - type: IdentityBlocker
+    - type: VoiceMask
+      voiceMaskSpeechVerb: VoiceModulator
+      enableAction: false
+    - type: HideLayerClothing
+      slots:
+      - Snout
+    - type: UserInterface
+      interfaces:
+        enum.VoiceMaskUIKey.Key:
+          type: VoiceModulatorBoundUserInterface
+    - type: Tag
+      tags:
+      - IPCMaskWearable # EE - IPCs
+    - type: Construction
+      graph: VoiceMaskCraftable
+      node: end
