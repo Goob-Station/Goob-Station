@@ -43,7 +43,6 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             if (damageableComp.Damage.GetTotal() + damage.GetTotal() >= critThreshold)
             {
                 _popup.PopupEntity(Loc.GetString("heretic-ability-fail-lowhealth", ("damage", damage.GetTotal())), ent, PopupType.LargeCaution);
-                args.Handled = true;
                 return;
             }
         }
