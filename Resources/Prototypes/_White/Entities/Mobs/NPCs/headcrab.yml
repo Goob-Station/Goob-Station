@@ -36,6 +36,12 @@
     damage:
       types:
         Piercing: 5
+    healOnEqupped:
+      types:
+        Brute: -1.25
+        Burn: -1.25
+        Airloss: -1.25
+        Toxin: -1.25
     jumpAction: ActionHeadcrabJump
   - type: DamageStateVisuals
     states:

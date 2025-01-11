@@ -135,6 +135,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
 
         _stunSystem.TryParalyze(args.Equipee, component.ParalyzeTime, true);
         _damageableSystem.TryChangeDamage(args.Equipee, component.Damage, origin: uid);
+        _damageableSystem.TryChangeDamage(uid, component.HealOnEqupped, true);
     }
 
     private void OnUnequipAttempt(EntityUid uid, HeadcrabComponent component, BeingUnequippedAttemptEvent args)
