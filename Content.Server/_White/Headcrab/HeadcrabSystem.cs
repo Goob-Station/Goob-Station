@@ -201,7 +201,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
         var hostHasMind = _mindSystem.TryGetMind(args.Equipee, out var hostMindId, out var hostMind);
 
         if (!headcrabHasMind && !hostHasMind)
-                return;
+            return;
 
         if (headcrabHasMind)
         {
@@ -213,7 +213,7 @@ public sealed partial class HeadcrabSystem : EntitySystem
             _mindSystem.TransferTo(hostMindId, uid, mind: hostMind);
         }
 
-        _action.AddAction(uid, ref component.JumpActionEntity, component.JumpAction, uid);
+//        _action.AddAction(uid, ref component.JumpActionEntity, component.JumpAction, uid); // Skill issue
     }
 
     private void OnMeleeHit(EntityUid uid, HeadcrabComponent component, MeleeHitEvent args)
