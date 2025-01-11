@@ -129,9 +129,9 @@
       - id: MagazineShotgun
         amount: 4
       - id: MagazineLightRifleBox
-        amount: 2
+        amount: 4
       - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
-        amount: 1
+        amount: 2
       - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
 
 

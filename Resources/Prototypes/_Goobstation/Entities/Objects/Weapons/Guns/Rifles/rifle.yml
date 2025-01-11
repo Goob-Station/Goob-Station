@@ -11,8 +11,15 @@
         map: ["enum.GunVisualLayers.Base"]
       - state: mag-0
         map: ["enum.GunVisualLayers.Mag"]
+  - type: GunWieldBonus
+    minAngle: -10
+    maxAngle: -10
   - type: Gun
-    fireRate: 3.5
+    minAngle: 11
+    maxAngle: 25
+    angleIncrease: 2
+    angleDecay: 10
+    fireRate: 3
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/sniper.ogg
   - type: ChamberMagazineAmmoProvider
