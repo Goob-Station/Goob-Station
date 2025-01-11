@@ -121,7 +121,7 @@
       description: ghost-role-information-blobbernaut-description
       rules: You are an antagonist, defend your blob core!
       raffle:
-        settings: default
+        settings: short
     - type: GhostTakeoverAvailable
     - type: Blobbernaut
     - type: Physics
