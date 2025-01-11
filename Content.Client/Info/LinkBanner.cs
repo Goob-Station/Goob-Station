@@ -1,4 +1,6 @@
 ﻿using Content.Client.Changelog;
+﻿using Content.Client._RMC14.LinkAccount;
+using Content.Client.Stylesheets;
 using Content.Client.UserInterface.Systems.EscapeMenu;
 using Content.Client.UserInterface.Systems.Guidebook;
 using Content.Shared.CCVar;
@@ -47,6 +49,16 @@ namespace Content.Client.Info
             var changelogButton = new ChangelogButton();
             changelogButton.OnPressed += args => UserInterfaceManager.GetUIController<ChangelogUIController>().ToggleWindow();
             buttons.AddChild(changelogButton);
+
+            var linkAccount = UserInterfaceManager.GetUIController<LinkAccountUIController>();
+            var linkAccountButton = new Button
+            {
+                Text = Loc.GetString("rmc-ui-link-discord-account"),
+            };
+            linkAccountButton.OnPressed += _ => linkAccount.ToggleWindow();
+            buttons.AddChild(linkAccountButton);
+
+            AddInfoButton("rmc-ui-patreon", CCVars.InfoLinksPatreon);
 
             void AddInfoButton(string loc, CVarDef<string> cVar)
             {
