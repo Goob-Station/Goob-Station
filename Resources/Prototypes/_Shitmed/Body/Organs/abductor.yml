@@ -1,0 +1,73 @@
+- type: entity
+  id: OrganAbductorBrain
+  parent: OrganHumanBrain
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: brain
+
+- type: entity
+  id: OrganAbductorEyes
+  parent: OrganHumanEyes
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: eyeballs
+    layers:
+      - state: eyeballs
+
+- type: entity
+  id: OrganAbductorEars
+  parent: OrganHumanEars
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: ears
+
+- type: entity
+  id: OrganAbductorLungs
+  parent: OrganHumanLungs
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    layers:
+      - state: lung-l
+      - state: lung-r
+  - type: Lung
+    alert: LowNitrogen
+  - type: Organ
+    slotId: lungs
+
+- type: entity
+  id: OrganAbductorHeart
+  parent: OrganHumanHeart
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: heart-on
+
+- type: entity
+  id: OrganAbductorStomach
+  parent: OrganHumanStomach
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: stomach
+
+- type: entity
+  id: OrganAbductorLiver
+  parent: OrganHumanLiver
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    state: liver
+
+- type: entity
+  id: OrganAbductorKidneys
+  parent: OrganHumanKidneys
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Abductor/organs.rsi
+    layers:
+      - state: kidney-l
+      - state: kidney-r

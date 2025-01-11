@@ -349,6 +349,9 @@ public abstract class SharedMindSystem : EntitySystem
         var title = Name(objective);
         _adminLogger.Add(LogType.Mind, LogImpact.Low, $"Objective {objective} ({title}) added to mind of {MindOwnerLoggingString(mind)}");
         mind.Objectives.Add(objective);
+        // Shitmed Change - Raise an event on the mind ent with the objective.
+        var ev = new ObjectiveAddedEvent(objective);
+        RaiseLocalEvent(mindId, ev);
     }
 
     /// <summary>
@@ -563,3 +566,9 @@ public abstract class SharedMindSystem : EntitySystem
 /// <param name="Dead"></param>
 [ByRefEvent]
 public record struct GetCharactedDeadIcEvent(bool? Dead);
+
+/// <summary>
+///     Shitmed Change: Raised on an entity to notify that an objective has been added to the mind.
+/// </summary>
+/// <param name="Objective"></param>
+public record struct ObjectiveAddedEvent(EntityUid Objective);

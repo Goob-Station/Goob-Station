@@ -5,6 +5,7 @@ using Content.Shared.NPC.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Timing;
+using Content.Shared._Shitmed.Spawners.EntitySystems; // Shitmed Change
 
 namespace Content.Shared.Friends.Systems;
 
@@ -26,6 +27,7 @@ public sealed class PettableFriendSystem : EntitySystem
 
         SubscribeLocalEvent<PettableFriendComponent, UseInHandEvent>(OnUseInHand);
         SubscribeLocalEvent<PettableFriendComponent, GotRehydratedEvent>(OnRehydrated);
+        SubscribeLocalEvent<PettableFriendComponent, SpawnerSpawnedEvent>(OnSpawned); // Shitmed Change
     }
 
     private void OnUseInHand(Entity<PettableFriendComponent> ent, ref UseInHandEvent args)
@@ -58,5 +60,14 @@ public sealed class PettableFriendSystem : EntitySystem
             return;
 
         _factionException.IgnoreEntities(args.Target, comp.Ignored);
+    }
+
+    // Shitmed Change
+    private void OnSpawned(Entity<PettableFriendComponent> ent, ref SpawnerSpawnedEvent args)
+    {
+        if (!TryComp<FactionExceptionComponent>(ent, out var comp))
+            return;
+
+        _factionException.IgnoreEntities(args.Entity, comp.Ignored);
     }
 }

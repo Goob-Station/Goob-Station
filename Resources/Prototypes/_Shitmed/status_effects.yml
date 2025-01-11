@@ -1,3 +1,43 @@
 - type: statusEffect
   id: BreathingImmunity
   alwaysAllowed: true # Used by space animal lungs to work on anything
+
+- type: statusEffect
+  id: SpawnSpiderEggs
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnSlimes
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnEmp
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnSmoke
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnGravityWell
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: SpawnFlash
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: ExpelGas
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: ScrambleDnaEffect
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: ScrambleLocationEffect
+  alwaysAllowed: true
+
+- type: statusEffect
+  id: ActivateArtifactEffect
+  alwaysAllowed: true

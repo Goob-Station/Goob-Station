@@ -2,11 +2,12 @@
 
 - type: randomHumanoidSettings
   id: EventHumanoid
-    # start-backmen: species
+  # Shitmed Change Start
   speciesBlacklist:
   - Monkey
   - Kobold
-  # end-backmen: species
+  - Abductor
+  # Shitmed Change End
   - Yowie # Goobstation
   components:
     - type: RandomHumanoidAppearance

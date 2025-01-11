@@ -241,5 +241,15 @@ namespace Content.Shared.ActionBlocker
 
             return !ev.Cancelled;
         }
+
+        // Shitmed Change Start - Starlight Abductors
+        public bool CanInstrumentInteract(EntityUid user, EntityUid used, EntityUid? target)
+        {
+            var ev = new InteractionAttemptEvent(user, target);
+            RaiseLocalEvent(used, ref ev);
+
+            return !ev.Cancelled;
+        }
+        // Shitmed Change End - Starlight Abductors
     }
 }
