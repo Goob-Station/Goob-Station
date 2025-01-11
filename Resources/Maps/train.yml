@@ -59,7 +59,7 @@ tilemap:
   122: FloorWoodTile
   123: Lattice
   124: Plating
-  126: PlatingBurnt
+  126: PlatingDamaged
   129: TrainLattice
 entities:
 - proto: ""
@@ -32278,12 +32278,7 @@ entities:
     - type: Transform
       pos: -4.5,-312.5
       parent: 2
-  - uid: 4759
-    components:
-    - type: Transform
-      pos: 4.5,-355.5
-      parent: 2
-  - uid: 4760
+  - uid: 13772
     components:
     - type: Transform
       pos: -25.5,-255.5
@@ -35110,6 +35105,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,-146.5
       parent: 2
+  - uid: 7565
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,-356.5
+      parent: 2
 - proto: ChairFolding
   entities:
   - uid: 5273
@@ -36475,6 +36476,13 @@ entities:
     - type: Transform
       pos: -5.086961,-272.51526
       parent: 2
+- proto: ClothingEyesBlindfold
+  entities:
+  - uid: 7570
+    components:
+    - type: Transform
+      pos: 4.544596,-355.42102
+      parent: 2
 - proto: ClothingEyesEyepatchHudBeer
   entities:
   - uid: 5471
@@ -37307,13 +37315,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 8.5,-279.5
-      parent: 2
-- proto: ComputerShuttleSalvage
-  entities:
-  - uid: 5607
-    components:
-    - type: Transform
-      pos: -5.5,-270.5
       parent: 2
 - proto: ComputerSolarControl
   entities:
@@ -49514,7 +49515,7 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
-- proto: FloraTree01
+- proto: FloraTree
   entities:
   - uid: 7625
     components:
@@ -49522,21 +49523,17 @@ entities:
       rot: 3.141592653589793 rad
       pos: 2.7296805,-40.53731
       parent: 2
-- proto: FloraTree05
-  entities:
-  - uid: 7626
+  - uid: 7529
     components:
     - type: Transform
       pos: 11.2466135,-200.43379
       parent: 2
-- proto: FloraTree06
-  entities:
-  - uid: 7627
+  - uid: 7530
     components:
     - type: Transform
       pos: 9.820292,-197.55566
       parent: 2
-- proto: FloraTreeLarge01
+- proto: FloraTreeLarge
   entities:
   - uid: 7628
     components:
@@ -49833,14 +49830,7 @@ entities:
       parent: 2
 - proto: GasMixer
   entities:
-  - uid: 7667
-    components:
-    - type: Transform
-      pos: 5.5,-356.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 7668
+  - uid: 13428
     components:
     - type: Transform
       pos: -15.5,-254.5
@@ -49929,15 +49919,7 @@ entities:
     - type: Transform
       pos: -25.5,-253.5
       parent: 2
-  - uid: 7682
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 7.5,-357.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 7683
+  - uid: 7571
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -50541,15 +50523,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 7763
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 4.5,-356.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 7764
+  - uid: 7660
     components:
     - type: Transform
       pos: 7.5,-328.5
@@ -50643,15 +50617,7 @@ entities:
       parent: 2
     - type: AtmosPipeColor
       color: '#990000FF'
-  - uid: 7776
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 5.5,-357.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 7777
+  - uid: 7673
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -57237,7 +57203,21 @@ entities:
   - uid: 8642
     components:
     - type: Transform
-      pos: 0.5,-255.5
+      rot: 1.5707963267948966 rad
+      pos: -17.5,-252.5
+      parent: 2
+  - uid: 8645
+    components:
+    - type: Transform
+      pos: 1.5,-242.5
+      parent: 2
+    - type: AtmosPipeColor
+      color: '#FF1212FF'
+  - uid: 8646
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,-2.5
       parent: 2
     - type: AtmosPipeColor
       color: '#0335FCFF'
@@ -64866,21 +64846,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -21.5,-245.5
       parent: 2
-  - uid: 9634
-    components:
-    - type: Transform
-      pos: 5.5,-355.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 9635
-    components:
-    - type: Transform
-      pos: 4.5,-355.5
-      parent: 2
-    - type: AtmosPipeColor
-      color: '#FFD800FF'
-  - uid: 9636
+  - uid: 9450
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
@@ -76409,7 +76375,7 @@ entities:
       pos: 8.5,-176.5
       parent: 2
     - type: Door
-      secondsUntilStateChange: -150907.12
+      secondsUntilStateChange: -148220.45
       state: Closing
   - uid: 11497
     components:
@@ -78615,7 +78581,11 @@ entities:
         shark_slot: !type:ContainerSlot
           showEnts: False
           occludes: True
-          ent: 11844
+          ent: 11564
+        item_slot: !type:ContainerSlot
+          showEnts: False
+          occludes: True
+          ent: null
 - proto: MopItem
   entities:
   - uid: 628
@@ -78781,13 +78751,6 @@ entities:
     components:
     - type: Transform
       pos: -13.5,-257.5
-      parent: 2
-- proto: NitrousOxideCanister
-  entities:
-  - uid: 11872
-    components:
-    - type: Transform
-      pos: 5.5,-355.5
       parent: 2
 - proto: NoticeBoard
   entities:
@@ -91762,7 +91725,17 @@ entities:
       parent: 2
 - proto: TableReinforced
   entities:
-  - uid: 14037
+  - uid: 4726
+    components:
+    - type: Transform
+      pos: 5.5,-355.5
+      parent: 2
+  - uid: 5560
+    components:
+    - type: Transform
+      pos: 4.5,-355.5
+      parent: 2
+  - uid: 11786
     components:
     - type: Transform
       pos: 1.5,-89.5
@@ -93277,6 +93250,13 @@ entities:
     components:
     - type: Transform
       pos: 4.883979,-282.15594
+      parent: 2
+- proto: ToyFigurineChaplain
+  entities:
+  - uid: 7659
+    components:
+    - type: Transform
+      pos: 5.399611,-355.25436
       parent: 2
 - proto: ToyFigurineChemist
   entities:
