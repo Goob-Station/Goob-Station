@@ -4047,3 +4047,13 @@ Entries:
       message: ragequit messages can now be sent to a discord webhook
   id: 454
   time: '2025-01-10T14:28:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ashen passage now deals heat damage to the user on activation. Ashen
+        path heretics receive less damage from this, the higher their path stage
+        is, the lower the damage will be. Flesh stalkers and raw prophets will
+        not take damage when jaunting 
+  id: 455
+  time: '2025-01-11T14:09:57.0000000+00:00'
