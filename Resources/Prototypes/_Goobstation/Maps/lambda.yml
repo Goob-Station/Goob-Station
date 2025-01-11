@@ -59,7 +59,7 @@
             CargoTechnician: [ 4, 6 ]
             #civillian
             Passenger: [ -1, -1 ]
-            Clown: [ 1, 1 ]
+            Clown: [ 2, 2 ]
             Mime: [ 1, 1 ]
             Musician: [ 1, 1 ]
             #Silicon
