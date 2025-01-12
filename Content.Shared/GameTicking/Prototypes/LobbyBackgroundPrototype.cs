@@ -21,11 +21,9 @@ public sealed partial class LobbyBackgroundPrototype : IPrototype
     [DataField("background", required: true)]
     public ResPath Background = default!;
 
-    // Goobstation start
     [DataField("name", required: false)]
     public string? Name;
 
     [DataField("artist", required: false)]
     public string? Artist;
-    // Goobstation end
 }

@@ -5,13 +5,14 @@ using System.Linq;
 
 namespace Content.Server.GameTicking;
 
+// Goobstation - this file is heavily modified to add credits for lobby backgrounds
 public sealed partial class GameTicker
 {
     [ViewVariables]
     public LobbyBackgroundPrototype? LobbyBackground { get; private set; }
 
     [ViewVariables]
-    private List<LobbyBackgroundPrototype> _lobbyBackgrounds = []; // Goobstation
+    private List<LobbyBackgroundPrototype> _lobbyBackgrounds = [];
 
     private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
 
