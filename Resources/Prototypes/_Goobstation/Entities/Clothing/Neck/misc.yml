@@ -6,5 +6,7 @@
   components:
   - type: Sprite
     sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
+    state: ntr-icon
   - type: Clothing
     sprite: _Goobstation/Clothing/Neck/Misc/pins.rsi
+    state: ntr-equipped-NECK
