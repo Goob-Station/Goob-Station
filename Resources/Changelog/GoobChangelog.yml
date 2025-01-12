@@ -4127,3 +4127,23 @@ Entries:
         amazing nuke song, Opposing Nuke by mrjajkes!
   id: 462
   time: '2025-01-11T22:27:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Credits are now displayed for lobby backgrounds, similar and next to
+        credits for lobby music/songs.
+    - type: Add
+      message: Added a new lobby background, Greytide Worldwide by Piras314
+    - type: Remove
+      message: Removed a bunch of old low-quality lobby backgrounds.
+    - type: Fix
+      message: >-
+        Fixed some pixel art lobby backgrounds being 1080p with filter instead
+        of being downscaled without filter. They should look a lot better now.
+    - type: Fix
+      message: Fixed QCQM lobby backgrounds not showing up.
+    - type: Fix
+      message: Fixed some broken/missing attributions for lobby backgrounds.
+  id: 463
+  time: '2025-01-12T19:28:39.0000000+00:00'
