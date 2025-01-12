@@ -75,7 +75,8 @@
     weight: 5
     duration: 240
     earliestStart: 30
-    minimumPlayers: 10
+    maxOccurrences: 3
+    minimumPlayers: 1
   - type: CargoGiftsRule
     description: cargo-gift-eng
     dest: cargo-gift-dest-eng
@@ -132,7 +133,8 @@
     weight: 8
     duration: 120
     earliestStart: 20
-    minimumPlayers: 30
+    maxOccurrences: 3
+    minimumPlayers: 1
   - type: CargoGiftsRule
     description: cargo-gift-medical-supply
     dest: cargo-gift-dest-med

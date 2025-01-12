@@ -228,7 +228,7 @@
       fly-by: *flybyfixture
   - type: Ammo
   - type: StaminaDamageOnCollide
-    damage: 30
+    damage: 35
   - type: Projectile
     impactEffect: BulletImpactEffectDisabler
     damage:
