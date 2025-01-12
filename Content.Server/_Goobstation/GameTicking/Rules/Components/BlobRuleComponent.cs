@@ -8,7 +8,10 @@ namespace Content.Server.GameTicking.Rules.Components;
 public sealed partial class BlobRuleComponent : Component
 {
     [DataField]
-    public SoundSpecifier? AlertAudio = new SoundPathSpecifier("/Audio/Announcements/outbreak5.ogg");
+    public SoundSpecifier? DetectedAudio = new SoundPathSpecifier("/Audio/_Goobstation/Announcements/blob_detected.ogg");
+
+    [DataField]
+    public SoundSpecifier? CriticalAudio = new SoundPathSpecifier("/Audio/StationEvents/blobin_time.ogg");
 
     [ViewVariables]
     public List<(EntityUid mindId, MindComponent mind)> Blobs = new(); //BlobRoleComponent

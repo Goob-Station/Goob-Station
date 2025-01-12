@@ -13,11 +13,11 @@
   <Box>
   <GuideEntityEmbed Entity="MobHarpy" Caption="Harpy"/>
   <GuideEntityEmbed Entity="MobHuman" Caption="Human"/>
-  <GuideEntityEmbed Entity="MobIPCDummy" Caption="I.P.C."/>
+  <GuideEntityEmbed Entity="MobIPCDummy" Caption="IPC"/>
   <GuideEntityEmbed Entity="MobMoth" Caption="Moth Person"/>
   <GuideEntityEmbed Entity="MobOni" Caption="Oni"/>
   <GuideEntityEmbed Entity="MobReptilian" Caption="Reptilian"/>
-
+  <GuideEntityEmbed Entity="MobResomi" Caption="Resomi"/>
   </Box>
   <Box>
   <GuideEntityEmbed Entity="MobRodentia" Caption="Rodentia"/>
@@ -25,7 +25,6 @@
   <GuideEntityEmbed Entity="MobVox" Caption="Vox"/>
   <GuideEntityEmbed Entity="MobVulpkanin" Caption="Vuplkanin"/>
   <GuideEntityEmbed Entity="MobYowie" Caption="Yowie"/>
-  
   </Box>
 
 </Document>

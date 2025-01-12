@@ -1,0 +1,23 @@
+- type: humanoidBaseSprite
+  id: MobReptilianLLegDigi
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: l_leg_digi
+
+- type: humanoidBaseSprite
+  id: MobReptilianLFootDigi
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: l_foot_digi
+
+- type: humanoidBaseSprite
+  id: MobReptilianRLegDigi
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: r_leg_digi
+
+- type: humanoidBaseSprite
+  id: MobReptilianRFootDigi
+  baseSprite:
+    sprite: _White/Mobs/Species/Reptilian/parts.rsi
+    state: r_foot_digi
