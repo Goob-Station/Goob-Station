@@ -5,8 +5,6 @@
   id: MobSharkmanBase
   abstract: true
   components:
-  - type: Sprite
-    scale: 1, 1
   - type: HumanoidAppearance
     species: Sharkman
   - type: Body
@@ -14,16 +12,18 @@
   - type: Butcherable
     butcheringType: Spike
     spawned:
-    - id: FoodMeatFish
+    - id: FoodMeatFish #Carp Fillet
       amount: 5
+  - type: Hunger
+    baseDecayRate: 0.0467 # 33% faster than usual
   - type: MeleeWeapon
     soundHit:
       collection: Punch
     animation: WeaponArcClaw
     damage:
       types:
-        Blunt: 2
-        Slash: 5
+        Blunt: 2 #Tail
+        Slash: 5 #Claws
   - type: TemperatureProtection
     heatingCoefficient: 0.1
     coolingCoefficient: 0.1

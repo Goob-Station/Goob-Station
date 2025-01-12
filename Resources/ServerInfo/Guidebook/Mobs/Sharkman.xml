@@ -1,0 +1,27 @@
+<Document>
+  # Sharkman
+
+  <Box>
+    <GuideEntityEmbed Entity="MobSharkmanDummy" Caption="Sharkman"/>
+  </Box>
+
+  A genetic experiment trying to make aquatic humans caused the Sharkmen to be created. They look like humans that resemble sharks.
+
+  ## Special Feature
+
+  <Box>
+    <GuideEntityEmbed Entity="KitchenSpike" Caption="Meat Spike"/>
+  </Box>
+
+  - When put on a meat spike and used for meat, you will find their meat is identical to the space carps you find while salvaging.
+
+  ## Advantages
+
+  - Uses their claws and tail to do some Slashing and Blunt damage.
+  - More resilient to temperature changes.
+
+  ## Disadvantages
+
+  - Gets hungry 33% faster.
+
+</Document>

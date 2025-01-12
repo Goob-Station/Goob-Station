@@ -20,6 +20,7 @@
     - Yowie
     - IPC
     - Oni
+    - Sharkman
 
 - type: guideEntry
   id: Arachnid
@@ -101,3 +102,8 @@
   id: Oni
   name: species-name-oni
   text: "/ServerInfo/Guidebook/Mobs/DeltaV/Oni.xml"
+
+- type: guideEntry
+  id: Sharkman
+  name: species-name-sharkman
+  text: "/ServerInfo/Guidebook/Mobs/Sharkman.xml"
