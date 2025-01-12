@@ -30,7 +30,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 });
 
             migrationBuilder.CreateTable(
-                name: "rmc_patron_round_end_marine_shoutouts",
+                name: "rmc_patron_round_end_nt_shoutouts",
                 columns: table => new
                 {
                     patron_id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -38,27 +38,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_rmc_patron_round_end_marine_shoutouts", x => x.patron_id);
+                    table.PrimaryKey("PK_rmc_patron_round_end_nt_shoutouts", x => x.patron_id);
                     table.ForeignKey(
-                        name: "FK_rmc_patron_round_end_marine_shoutouts_rmc_patrons_patron_id",
-                        column: x => x.patron_id,
-                        principalTable: "rmc_patrons",
-                        principalColumn: "player_id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "rmc_patron_round_end_xeno_shoutouts",
-                columns: table => new
-                {
-                    patron_id = table.Column<Guid>(type: "TEXT", nullable: false),
-                    name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_rmc_patron_round_end_xeno_shoutouts", x => x.patron_id);
-                    table.ForeignKey(
-                        name: "FK_rmc_patron_round_end_xeno_shoutouts_rmc_patrons_patron_id",
+                        name: "FK_rmc_patron_round_end_nt_shoutouts_rmc_patrons_patron_id",
                         column: x => x.patron_id,
                         principalTable: "rmc_patrons",
                         principalColumn: "player_id",
@@ -73,10 +55,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 name: "rmc_patron_lobby_messages");
 
             migrationBuilder.DropTable(
-                name: "rmc_patron_round_end_marine_shoutouts");
-
-            migrationBuilder.DropTable(
-                name: "rmc_patron_round_end_xeno_shoutouts");
+                name: "rmc_patron_round_end_nt_shoutouts");
         }
     }
 }

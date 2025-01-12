@@ -1129,7 +1129,7 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.ToTable("rmc_patron_lobby_messages", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndMarineShoutout", b =>
+            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndNTShoutout", b =>
                 {
                     b.Property<Guid>("PatronId")
                         .HasColumnType("uuid")
@@ -1142,27 +1142,9 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnName("name");
 
                     b.HasKey("PatronId")
-                        .HasName("PK_rmc_patron_round_end_marine_shoutouts");
+                        .HasName("PK_rmc_patron_round_end_nt_shoutouts");
 
-                    b.ToTable("rmc_patron_round_end_marine_shoutouts", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndXenoShoutout", b =>
-                {
-                    b.Property<Guid>("PatronId")
-                        .HasColumnType("uuid")
-                        .HasColumnName("patron_id");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("character varying(100)")
-                        .HasColumnName("name");
-
-                    b.HasKey("PatronId")
-                        .HasName("PK_rmc_patron_round_end_xeno_shoutouts");
-
-                    b.ToTable("rmc_patron_round_end_xeno_shoutouts", (string)null);
+                    b.ToTable("rmc_patron_round_end_nt_shoutouts", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>
@@ -2113,26 +2095,14 @@ namespace Content.Server.Database.Migrations.Postgres
                     b.Navigation("Patron");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndMarineShoutout", b =>
+            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndNTShoutout", b =>
                 {
                     b.HasOne("Content.Server.Database.RMCPatron", "Patron")
-                        .WithOne("RoundEndMarineShoutout")
-                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndMarineShoutout", "PatronId")
+                        .WithOne("RoundEndNTShoutout")
+                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndNTShoutout", "PatronId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_rmc_patron_round_end_marine_shoutouts_rmc_patrons_patron_id");
-
-                    b.Navigation("Patron");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndXenoShoutout", b =>
-                {
-                    b.HasOne("Content.Server.Database.RMCPatron", "Patron")
-                        .WithOne("RoundEndXenoShoutout")
-                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndXenoShoutout", "PatronId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_rmc_patron_round_end_xeno_shoutouts_rmc_patrons_patron_id");
+                        .HasConstraintName("FK_rmc_patron_round_end_nt_shoutouts_rmc_patrons_patron_id");
 
                     b.Navigation("Patron");
                 });
@@ -2457,9 +2427,7 @@ namespace Content.Server.Database.Migrations.Postgres
                 {
                     b.Navigation("LobbyMessage");
 
-                    b.Navigation("RoundEndMarineShoutout");
-
-                    b.Navigation("RoundEndXenoShoutout");
+                    b.Navigation("RoundEndNTShoutout");
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>

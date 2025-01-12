@@ -45,11 +45,10 @@ public sealed class LinkAccountManager : IPostInjectInit
         if (patron?.LobbyMessage is { Message.Length: > 0 } patronMsg)
             lobbyMessage = new SharedRMCLobbyMessage(patronMsg.Message);
 
-        var marineName = patron?.RoundEndMarineShoutout?.Name;
-        var xenoName = patron?.RoundEndXenoShoutout?.Name;
+        var ntName = patron?.RoundEndNTShoutout?.Name;
         SharedRMCRoundEndShoutouts? shoutouts = null;
-        if (marineName != null || xenoName != null)
-            shoutouts = new SharedRMCRoundEndShoutouts(marineName, xenoName);
+        if (ntName != null)
+            shoutouts = new SharedRMCRoundEndShoutouts(ntName);
 
         Robust.Shared.Maths.Color? ghostColor = null;
         if (patron?.GhostColor is { } patronColor)
@@ -124,7 +123,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         _db.SetLobbyMessage(user, text);
     }
 
-    private void OnChangeMarineShoutout(RMCChangeMarineShoutoutMsg message)
+    private void OnChangeNTShoutout(RMCChangeNTShoutoutMsg message)
     {
         var name = message.Name;
         if (name == null)
@@ -137,23 +136,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         if (name.Length > SharedRMCRoundEndShoutouts.CharacterLimit)
             name = name[..SharedRMCRoundEndShoutouts.CharacterLimit];
 
-        _db.SetMarineShoutout(user, name);
-    }
-
-    private void OnChangeXenoShoutout(RMCChangeXenoShoutoutMsg message)
-    {
-        var name = message.Name;
-        if (name == null)
-            return;
-
-        var user = message.MsgChannel.UserId;
-        if (GetPatron(user)?.Tier is not { RoundEndShoutout: true })
-            return;
-
-        if (name.Length > SharedRMCRoundEndShoutouts.CharacterLimit)
-            name = name[..SharedRMCRoundEndShoutouts.CharacterLimit];
-
-        _db.SetXenoShoutout(user, name);
+        _db.SetNTShoutout(user, name);
     }
 
     private void SetGhostColor(NetUserId user, Robust.Shared.Maths.Color? color)
@@ -216,8 +199,7 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<RMCClearGhostColorMsg>(OnClearGhostColor);
         _net.RegisterNetMessage<RMCChangeGhostColorMsg>(OnChangeGhostColor);
         _net.RegisterNetMessage<RMCChangeLobbyMessageMsg>(OnChangeLobbyMessage);
-        _net.RegisterNetMessage<RMCChangeMarineShoutoutMsg>(OnChangeMarineShoutout);
-        _net.RegisterNetMessage<RMCChangeXenoShoutoutMsg>(OnChangeXenoShoutout);
+        _net.RegisterNetMessage<RMCChangeNTShoutoutMsg>(OnChangeNTShoutout);
         _userDb.AddOnLoadPlayer(LoadData);
         _userDb.AddOnFinishLoad(FinishLoad);
         _userDb.AddOnPlayerDisconnect(ClientDisconnected);
