@@ -1878,7 +1878,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
 
             if (ntName == null)
-                ntName = "Piras314";
+                ntName = "John Nanotrasen";
 
             return (ntName);
         }
