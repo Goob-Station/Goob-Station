@@ -4,8 +4,8 @@ guide-entry-medpatches = Medical Patches
 # Goob SOP
 # - Main Directories
 guide-entry-sop = SOP
-guide-entry-sop-alert-levels = _Alert Levels
-guide-entry-sop-emergencies = _Emergencies
+guide-entry-sop-alert-levels = Alert Levels
+guide-entry-sop-emergencies = Emergencies
 guide-entry-sop-jobs = Jobs
 guide-entry-sop-legal = Legal
 guide-entry-sop-standards = Standard Procedures
@@ -28,6 +28,7 @@ guide-entry-sop-gammaalert = Gamma Alert
 guide-entry-sop-violetalert = Violet Alert
 # - Standard Procedures
 guide-entry-sop-demoting = Dismissal/Demoting
+guide-entry-sop-evacuation = Early Evacuation
 guide-entry-sop-hiring = Hiring/Transfer
 guide-entry-sop-succession = Chain of Command
 # - Emergencies

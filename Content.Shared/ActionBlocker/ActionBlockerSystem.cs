@@ -204,6 +204,8 @@ namespace Content.Shared.ActionBlocker
 
             var ev = new AttackAttemptEvent(uid, target, weapon, disarm);
             RaiseLocalEvent(uid, ev);
+            if (weapon != null) // Goobstation
+                RaiseLocalEvent(weapon.Value, ev);
 
             if (ev.Cancelled)
                 return false;
