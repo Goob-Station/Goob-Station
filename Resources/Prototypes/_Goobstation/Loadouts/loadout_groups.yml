@@ -109,3 +109,13 @@
   loadouts:
   - Bodycam # Goobstation - Body cameras
 
+#honkops
+
+- type: loadoutGroup
+  id: GroupHonkopsMask
+  name: loadout-group-honkops-mask
+  minLimit: 1
+  maxLimit: 1
+  hidden: true
+  loadouts:
+  - LoadoutHonkopsMask

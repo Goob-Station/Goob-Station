@@ -10,5 +10,6 @@ changelog-version-tag = version v{ $version }
 changelog-button = Changelog
 changelog-button-new-entries = Changelog (new!)
 
-changelog-tab-title-Changelog = Changelog
+# Goobstation
+changelog-tab-title-Changelog = Wizden
 changelog-tab-title-Admin = Admin
