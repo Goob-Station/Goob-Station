@@ -227,6 +227,9 @@
       "name": "pda-seniorofficer"
     },
     {
+      "name": "pda-mercenary"
+    },
+    {
       "name": "equipped-IDCARD",
       "directions": 4
     }
