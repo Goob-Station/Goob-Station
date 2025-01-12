@@ -41,6 +41,7 @@ public sealed class DragInsertContainerSystem : EntitySystem
                 DistanceThreshold = 2f,
                 CancelDuplicate = true,
                 BlockDuplicate = true,
+
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);

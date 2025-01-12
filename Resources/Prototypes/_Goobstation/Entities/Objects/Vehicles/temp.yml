@@ -1,0 +1,113 @@
+- type: entity
+  id: ActionThankDriver
+  name: Thank Driver
+  description: show the driver you enjoy beeing a passanger
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Objects/Fun/bikehorn.rsi
+      state: icon
+    event: !type:ThankRiderActionEvent
+    useDelay: 60
+
+- type: entity
+  parent: BaseVehicle
+  id: TestlowncarBase
+  name: testclowncar
+  components:
+
+  - type: Sprite
+    sprite: Objects/Vehicles/clowncar.rsi
+    layers:
+      - state: clowncar
+        map: ["enum.ClowncarLayers.Base"]
+    netsync: false
+    noRot: true
+
+  - type: Vehicle
+    renderOver: North, NorthEast, East, SouthEast, South, SouthWest, West, NorthWest
+    requiredHands: 1
+    hornSound:
+      collection: BikeHorn
+      params:
+        variation: 0.125
+  - type: MovementSpeedModifier
+    weightlessModifier: 0
+    acceleration: 1
+    friction: 1
+    baseWalkSpeed: 4.5
+    baseSprintSpeed: 7
+  - type: ItemSlots
+    slots:
+      key_slot:
+        name: vehicle-slot-component-slot-name-keys
+        whitelist:
+          requireAll: true
+          tags:
+          - VehicleKey
+          - BikeHorn
+        insertSound:
+          path: /Audio/Effects/Vehicle/vehiclestartup.ogg
+          params:
+            volume: -3
+  - type: Strap
+    maxBuckleDistance: 1
+    unbuckleSound:
+      collection: ClowncarCrash
+  #  whitelist:
+  #    components:
+  #    - Clumsy
+  - type: UnpoweredFlashlight
+  - type: PointLight
+    enabled: false
+    mask: /Textures/Effects/LightMasks/cone.png
+
+    autoRot: true
+    radius: 3.5
+    softness: 2
+    netsync: false
+
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+
+  - type: DragInsertContainer
+    containerId: entity_storage
+    delay: 2
+    useVerbs: false
+
+  - type: InsertToContainerOnCollide
+    container: entity_storage
+    requiredVelocity: 3
+    insertableEntities:
+      components:
+        - HumanoidAppearance
+    blacklistedEntities:
+      components:
+        - KnockedDown
+
+  - type: RemoveFromContainerOnCollide
+    container: entity_storage
+    requiredVelocity: 3
+    removeEverything: true
+    collidableEntities:
+      components:
+        - HumanoidAppearance
+        - KnockedDown
+        - Item
+        - SlowContacts
+        - Puddle
+        - Airlock
+        - Door
+        - Strap
+
+  - type: Clowncar
+    cannonActivateSound:
+      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
+      params:
+        volume: 5
+    cannonDeactivateSound:
+      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
+      params:
+        volume: 5
