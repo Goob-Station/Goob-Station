@@ -121,7 +121,7 @@ public sealed class SanguineStrikeSystem : SharedSanguineStrikeSystem
 
                 var restoredBlood = FixedPoint2.Min(tempSol.Volume, missingBlood);
                 _bloodStream.TryModifyBloodLevel(user, restoredBlood, userBlood);
-                _bloodStream.TryModifyBleedAmount(user, 0f, userBlood);
+                _bloodStream.TryModifyBleedAmount(user, -userBlood.BleedAmount, userBlood);
                 if (restoredBlood < tempSol.Volume && tempSol.Volume > 0 && tempSol.Contents.Count > 0)
                 {
                     var toRemove = restoredBlood / tempSol.Volume;
