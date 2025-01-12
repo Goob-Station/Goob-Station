@@ -1,2 +1,2 @@
-ent-MobHeadcrab = head slug
-    .desc = You don't want to touch it.
+ent-MobHeadcrab = Головной слизняк
+    .desc = Контролирует твой разум.

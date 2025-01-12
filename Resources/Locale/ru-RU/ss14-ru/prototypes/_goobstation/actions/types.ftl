@@ -1,8 +1,8 @@
-ent-ActionActivateBluespaceLifeline = Activate Bluespace Lifeline
-    .desc = Activates your bluespace lifeline implant, teleporting you far-far away from this station. You won't be able to come back.
-ent-ActionHorn = Honk!
-    .desc = Beep the horn at whoever you will run over.
-ent-ActionSiren = Siren
-    .desc = Alert your victim to your presence.
-ent-ActivateSmokeImplant = Release a cloud of smoke
-    .desc = Releases a cloud of smoke around you.
+ent-ActionActivateBluespaceLifeline = Активировать блюспейс трос
+    .desc = Активирует ваш имплантат блюспейс троса, телепортируя вас далеко-далеко от этой станции. Вы не сможете вернуться.
+ent-ActionHorn = Хонк!
+    .desc = Хонкайте!
+ent-ActionSiren = Сирена
+    .desc = Предупредите о вашем присутствии.
+ent-ActivateSmokeImplant = Выпусить облако дыма
+    .desc = Выпускает облако дыма.

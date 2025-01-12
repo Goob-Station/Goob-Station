@@ -1,8 +1,8 @@
 ent-ClothingBackpackDuffelSyndicateMedicHardsuitBundle = syndicate medic hardsuit bundle
     .desc = A surplus combat medic hardsuit, bundled for your LARP.
-ent-ClothingBackpackDuffelSyndicateStealthHardsuitBundle = cybersun stealthsuit bundle
-    .desc = An advanced cybersun stealth hardsuit bundle.
-ent-ClothingBackpackDuffelSyndicateBurner = Burner Bundle
-    .desc = A high caliber Burner rifle, comes with some anti materiel and high explosive ammunition.
-ent-ClothingBackpackDuffelSyndicateM90Bundle = M-90 bundle
-    .desc = A bundle carrying the syndicate's M-90 assault rifle, packed with 2 spare magazines.
+ent-ClothingBackpackDuffelSyndicateStealthHardsuitBundle = набор cybersun стелс костюм
+    .desc = Набор содержащий стелс костюм.
+ent-ClothingBackpackDuffelSyndicateBurner = набор Burner
+    .desc = Набор Burner. Содержит Взрывные и Высококалиберные магазины и саму винтовку.
+ent-ClothingBackpackDuffelSyndicateM90Bundle = набор M-90
+    .desc = Набор с автоматом синдиката М-90 и двумя запасными магазинами..

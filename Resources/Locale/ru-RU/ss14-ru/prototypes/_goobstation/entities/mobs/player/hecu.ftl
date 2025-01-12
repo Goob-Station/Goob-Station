@@ -1,3 +1,3 @@
-ent-RandomHumanoidHECUSpawner = HECU Operative
+ent-RandomHumanoidHECUSpawner = Оперативник HECU
     .suffix = ERTRole
     .desc = { "" }

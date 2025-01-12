@@ -1,8 +1,8 @@
-ent-OrganYowieStomach = yowie stomach
+ent-OrganYowieStomach = желудок Йоуи
     .desc = { ent-OrganHumanStomach.desc }
-ent-OrganYowieLiver = yowie liver
+ent-OrganYowieLiver = печень Йоуи
     .desc = { ent-OrganHumanLiver.desc }
-ent-OrganYowieHeart = yowie heart
+ent-OrganYowieHeart = сердце Йоуи
     .desc = { ent-OrganHumanHeart.desc }
-ent-OrganYowieLungs = lungs
-    .desc = Filters oxygen from an atmosphere, which is then sent into the bloodstream to be used as an electron carrier.
+ent-OrganYowieLungs = легкие Йоуи
+    .desc = Фильтрует кислород из атмосферы, который затем направляется в кровоток для использования в качестве переносчика электронов.

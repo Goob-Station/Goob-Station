@@ -1,2 +1,2 @@
-ent-ImmovableRodSkibidi = immovable Skibidi
-    .desc = skibidi dob dob yes yes
+ent-ImmovableRodSkibidi = скибиди туалет
+    .desc = УБЕЙ СЕБЯ!!!

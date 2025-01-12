@@ -1,4 +1,4 @@
-ent-BibleAtheist = goobbit
-    .desc = This weird book smells awful for some reason.
-ent-BibleBhuddhist = tripitaka
-    .desc = This book is an ancient collection of Buddhist sacred scriptures.
+ent-BibleAtheist = Дваченомикон
+    .desc = Эта странная книга почему-то ужасно пахнет.
+ent-BibleBhuddhist = трипитака
+    .desc = Эта книга представляет собой древнее собрание буддийских священных писаний.

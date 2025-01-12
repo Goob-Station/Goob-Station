@@ -1,2 +1,2 @@
-ent-ChronoPortal = tachyon portal
-    .desc = Looks futuristic.
+ent-ChronoPortal = странный портал
+    .desc = Футуристичненько.

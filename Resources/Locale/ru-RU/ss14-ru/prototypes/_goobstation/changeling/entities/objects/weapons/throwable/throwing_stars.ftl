@@ -1,2 +1,2 @@
-ent-ThrowingStarChangeling = bone shard
+ent-ThrowingStarChangeling = костяной осколок
     .desc = { ent-ThrowingStar.desc }

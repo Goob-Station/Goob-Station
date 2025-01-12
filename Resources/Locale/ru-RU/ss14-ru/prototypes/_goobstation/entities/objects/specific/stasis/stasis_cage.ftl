@@ -1,2 +1,2 @@
-ent-StasisCage = stasis container
-    .desc = It's smaller on the outside than it is on the inside.
+ent-StasisCage = стазис контейнер
+    .desc = Снаружи он меньше, чем внутри.

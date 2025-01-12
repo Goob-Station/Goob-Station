@@ -1,2 +1,2 @@
-ent-AdvancedCombatMedipen = advanced combat medipen
-    .desc = A single-use advanced medipen containing chemicals extracted from eldritch beasts.
+ent-AdvancedCombatMedipen = усовершенствованный боевой медипен
+    .desc = Усовершенствованный одноразовый медипен, содержащая химические вещества, полученные из мяса космического дракона.
