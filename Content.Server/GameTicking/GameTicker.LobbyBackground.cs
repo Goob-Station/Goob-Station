@@ -25,7 +25,7 @@ public sealed partial class GameTicker
                 continue;
             }
 
-            _lobbyBackgrounds.Append(prototype);
+            _lobbyBackgrounds.Add(prototype);
         }
 
         RandomizeLobbyBackground();

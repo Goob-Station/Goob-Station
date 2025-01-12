@@ -11,7 +11,8 @@ using Robust.Client.ResourceManagement;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
-using Content.Client._Goobstation.ServerCurrency; // Goobstation - Goob Coin
+using Content.Client._Goobstation.ServerCurrency;
+using Robust.Shared.Log; // Goobstation - Goob Coin
 
 namespace Content.Client.Lobby
 {
@@ -24,8 +25,9 @@ namespace Content.Client.Lobby
         [Dependency] private readonly IUserInterfaceManager _userInterfaceManager = default!;
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IVoteManager _voteManager = default!;
-        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - Goob Coin
+        [Dependency] private readonly ServerCurrencySystem _serverCur = default!; // Goobstation - server currency
 
+        private ISawmill _sawmill = default!; // Goobstation
         private ClientGameTicker _gameTicker = default!;
         private ContentAudioSystem _contentAudioSystem = default!;
 
@@ -45,6 +47,7 @@ namespace Content.Client.Lobby
             _gameTicker = _entityManager.System<ClientGameTicker>();
             _contentAudioSystem = _entityManager.System<ContentAudioSystem>();
             _contentAudioSystem.LobbySoundtrackChanged += UpdateLobbySoundtrackInfo;
+            _sawmill = Logger.GetSawmill("lobby");
 
             chatController.SetMainChat(true);
 
@@ -245,6 +248,7 @@ namespace Content.Client.Lobby
                 return;
             }
 
+            _sawmill.Warning("_gameTicker.LobbyBackground was null! No lobby background selected.");
             Lobby!.Background.Texture = null;
             Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text")); // Goobstation
         }
