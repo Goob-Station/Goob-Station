@@ -1,4 +1,4 @@
-using Content.Server.GameTicking.Prototypes;
+using Content.Shared.GameTicking.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
@@ -8,24 +8,30 @@ namespace Content.Server.GameTicking;
 public sealed partial class GameTicker
 {
     [ViewVariables]
-    public string? LobbyBackground { get; private set; }
+    public LobbyBackgroundPrototype? LobbyBackground { get; private set; }
 
     [ViewVariables]
-    private List<ResPath>? _lobbyBackgrounds;
+    private List<LobbyBackgroundPrototype> _lobbyBackgrounds = []; // Goobstation
 
     private static readonly string[] WhitelistedBackgroundExtensions = new string[] {"png", "jpg", "jpeg", "webp"};
 
     private void InitializeLobbyBackground()
     {
-        _lobbyBackgrounds = _prototypeManager.EnumeratePrototypes<LobbyBackgroundPrototype>()
-            .Select(x => x.Background)
-            .Where(x => WhitelistedBackgroundExtensions.Contains(x.Extension))
-            .ToList();
+        foreach (var prototype in _prototypeManager.EnumeratePrototypes<LobbyBackgroundPrototype>())
+        {
+            if (!WhitelistedBackgroundExtensions.Contains(prototype.Background.Extension))
+            {
+                _sawmill.Warning($"Lobby background '{prototype.ID}' has an invalid extension '{prototype.Background.Extension}' and will be ignored.");
+                continue;
+            }
+
+            _lobbyBackgrounds.Append(prototype);
+        }
 
         RandomizeLobbyBackground();
     }
 
     private void RandomizeLobbyBackground() {
-        LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!).ToString() : null;
+        LobbyBackground = _lobbyBackgrounds!.Any() ? _robustRandom.Pick(_lobbyBackgrounds!) : null;
     }
 }

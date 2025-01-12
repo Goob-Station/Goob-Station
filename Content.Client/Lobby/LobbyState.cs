@@ -224,20 +224,20 @@ namespace Content.Client.Lobby
         {
             if (_gameTicker.LobbyBackground != null)
             {
-                Lobby!.Background.Texture = _resourceCache.GetResource<LobbyBackgroundResource>(_gameTicker.LobbyBackground);
+                Lobby!.Background.Texture = _resourceCache.GetResource<TextureResource>(_gameTicker.LobbyBackground.Background);
 
-                var lobbyBackgroundResource = Lobby!.Background.Texture;
+                var lobbyBackground = _gameTicker.LobbyBackground;
 
-                var title = string.IsNullOrEmpty(lobbyBackgroundResource.Title)
+                var name = string.IsNullOrEmpty(lobbyBackground.Name)
                     ? Loc.GetString("lobby-state-song-unknown-title")
-                    : lobbyBackgroundResource.Title;
+                    : lobbyBackground.Name;
 
-                var artist = string.IsNullOrEmpty(lobbyBackgroundResource.Artist)
+                var artist = string.IsNullOrEmpty(lobbyBackground.Artist)
                     ? Loc.GetString("lobby-state-song-unknown-artist")
-                    : lobbyBackgroundResource.Artist;
+                    : lobbyBackground.Artist;
 
                 var markup = Loc.GetString("lobby-state-song-text",
-                    ("backgroundName", title),
+                    ("backgroundName", name),
                     ("backgroundArtist", artist));
 
                 Lobby!.LobbyBackground.SetMarkup(markup);
@@ -245,10 +245,8 @@ namespace Content.Client.Lobby
                 return;
             }
 
-
             Lobby!.Background.Texture = null;
             Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text")); // Goobstation
-
         }
 
         private void SetReady(bool newReady)
