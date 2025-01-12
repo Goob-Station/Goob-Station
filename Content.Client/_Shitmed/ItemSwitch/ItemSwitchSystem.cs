@@ -1,5 +1,7 @@
+using Content.Client.Items;
 using Content.Shared._Shitmed.ItemSwitch;
 using Content.Shared._Shitmed.ItemSwitch.Components;
+using Content.Client._Shitmed.ItemSwitch.UI;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._Shitmed.ItemSwitch;
@@ -10,6 +12,7 @@ public sealed class ItemSwitchSystem : SharedItemSwitchSystem
     {
         base.Initialize();
 
+        Subs.ItemStatus<ItemSwitchComponent>(ent => new ItemSwitchStatusControl(ent));
         SubscribeLocalEvent<ItemSwitchComponent, AfterAutoHandleStateEvent>(OnChanged);
     }
 

@@ -2,7 +2,7 @@
   # Abductors
 
   <Box>
-    [color=#999999][italic]" ..."[/italic][/color]
+    <GuideEntityEmbed Entity="MobLoneAbductor"/>
   </Box>
   Abductors are an alien society set on cataloging and experimenting on the sectors personnel.
   Its important to note: Abductors, unlike most antagonists are [color=red]NOT set on killing people[/color] and are rather purely interested in completing their experiments.

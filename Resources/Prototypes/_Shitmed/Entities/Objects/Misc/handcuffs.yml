@@ -2,7 +2,7 @@
   name: handcuffs
   description: Used to detain criminals and other assholes.
   id: AbductorHandcuffs
-  parent: Handcuffs
+  parent: [Handcuffs, BaseRestrictedContraband]
   components:
   - type: Handcuff
     cuffTime: 1.5
@@ -16,7 +16,6 @@
     state: handcuff
   - type: GuideHelp
     guides:
-    - Security
-    - Antagonists
+    - Abductors
   - type: UseDelay
     delay: 1.5

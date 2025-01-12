@@ -37,7 +37,7 @@
     useDelay: 30
     icon:
       sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
-      state: implant
+      state: take
     priority: -12
     event: !type:AbductorReturnToShipEvent
 

@@ -2,7 +2,7 @@
   name: abductor's mechanical pinches
   id: MechanicalPinchesAbductor
   description: A highly advanced set of mechanical pinches, they seem to work like a hemostat and retractor.
-  parent: BaseToolSurgery
+  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/cautery.rsi
@@ -34,12 +34,15 @@
     speed: 2
   - type: Tending
     speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
 
 - type: entity
   name: abductor's searing tool
   description: A highly advanced cautery with an energy tip, it seems to also work as a drill.
   id: SearingToolAbductor
-  parent: BaseToolSurgery
+  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/drill.rsi
@@ -67,12 +70,15 @@
     speed: 2
   - type: Cautery
     speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
 
 - type: entity
   name: abductor's energy scalpel
   description: A scalpel which uses an energy blade, it seems to also work as a saw.
   id: EnergyScalpelAbductor
-  parent: BaseToolSurgery
+  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
   - type: Sprite
     sprite: _Shitmed/Objects/Specific/Medical/Surgery/scalpel.rsi
@@ -100,11 +106,14 @@
     speed: 2
   - type: BoneSaw
     speed: 2
+  - type: GuideHelp
+    guides:
+    - Abductors
 
 - type: entity
   name: abductor's bone manipulator
   id: BoneManipulatorAbductor
-  parent: BaseToolSurgery
+  parent: [BaseToolSurgery, BaseMedicalScienceContraband]
   components:
     - type: Sprite
       sprite: _Shitmed/Objects/Specific/Medical/Surgery/bonesetter.rsi
@@ -120,3 +129,6 @@
       speed: 2
     - type: BoneGel
       speed: 2
+    - type: GuideHelp
+      guides:
+      - Abductors

@@ -365,10 +365,11 @@
       Glass: 37
       Plasma: 37
   - type: ItemSwitch
-    state: off
+    showLabel: true
+    state: cautery
     states:
-      off: !type:ItemSwitchState
-        verb: off
+      cautery: !type:ItemSwitchState
+        verb: cautery
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
           state: e-cautery
@@ -381,8 +382,8 @@
             variation: 0.125
             volume: -5
 
-      on: !type:ItemSwitchState
-        verb: on
+      drill: !type:ItemSwitchState
+        verb: drill
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-cautery.rsi
           state: e-cautery-on
@@ -390,7 +391,7 @@
           - type: Drill
             speed: 1.5
         soundStateActivate:
-          collection: WelderOff
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
@@ -422,10 +423,11 @@
       Glass: 37
       Gold: 37
   - type: ItemSwitch
-    state: off
+    showLabel: true
+    state: scalpel
     states:
-      off: !type:ItemSwitchState
-        verb: off
+      scalpel: !type:ItemSwitchState
+        verb: scalpel
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
           state: e-scalpel
@@ -433,13 +435,13 @@
           - type: Scalpel
             speed: 1.5
         soundStateActivate:
-          collection: WelderOn
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
 
-      on: !type:ItemSwitchState
-        verb: on
+      saw: !type:ItemSwitchState
+        verb: saw
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/e-scalpel.rsi
           state: e-scalpel-on
@@ -447,7 +449,7 @@
           - type: BoneSaw
             speed: 1.5
         soundStateActivate:
-          collection: WelderOff
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
@@ -479,10 +481,11 @@
       Glass: 37
       Silver: 37
   - type: ItemSwitch
-    state: off
+    showLabel: true
+    state: retractor
     states:
-      off: !type:ItemSwitchState
-        verb: off
+      retractor: !type:ItemSwitchState
+        verb: retractor
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
           state: adv-retractor
@@ -490,13 +493,13 @@
           - type: Retractor
             speed: 1.5
         soundStateActivate:
-          collection: WelderOn
+          collection: sparks
           params:
             variation: 0.125
             volume: -5
 
-      on: !type:ItemSwitchState
-        verb: on
+      hemostat: !type:ItemSwitchState
+        verb: hemostat
         sprite:
           sprite: _Shitmed/Objects/Specific/Medical/Surgery/adv-retractor.rsi
           state: adv-retractor-on
@@ -508,7 +511,7 @@
           - type: Tending
             speed: 1.5
         soundStateActivate:
-          collection: WelderOff
+          collection: sparks
           params:
             variation: 0.125
             volume: -5

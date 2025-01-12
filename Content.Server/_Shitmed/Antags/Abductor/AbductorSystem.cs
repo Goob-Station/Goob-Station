@@ -90,10 +90,10 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
 
             if (TryComp(args.Actor, out EyeComponent? eyeComp))
             {
-                _eye.SetVisibilityMask(args.Actor, eyeComp.VisibilityMask | (int)VisibilityFlags.Abductor, eyeComp);
+                _eye.SetVisibilityMask(args.Actor, eyeComp.VisibilityMask | (int) VisibilityFlags.Abductor, eyeComp);
                 _eye.SetTarget(args.Actor, eye, eyeComp);
                 _eye.SetDrawFov(args.Actor, false);
-
+                _eye.SetRotation(args.Actor, Angle.Zero, eyeComp);
                 if (!HasComp<StationAiOverlayComponent>(args.Actor))
                     AddComp(args.Actor, new StationAiOverlayComponent { AllowCrossGrid = true });
                 if (!TryComp(eye, out RemoteEyeSourceContainerComponent? remoteEyeSourceContainerComponent))
@@ -104,6 +104,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
                 else
                     remoteEyeSourceContainerComponent.Actor = args.Actor;
                 Dirty(eye, remoteEyeSourceContainerComponent);
+                Dirty(args.Actor, eyeComp);
             }
 
             AddActions(args);
@@ -127,8 +128,9 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
                 if (HasComp<StationAiOverlayComponent>(actor))
                     RemComp<StationAiOverlayComponent>(actor);
 
-                _eye.SetVisibilityMask(actor, eyeComp.VisibilityMask ^ (int)VisibilityFlags.Abductor, eyeComp);
+                _eye.SetVisibilityMask(actor, eyeComp.VisibilityMask ^ (int) VisibilityFlags.Abductor, eyeComp);
                 _eye.SetDrawFov(actor, true);
+                _eye.SetTarget(actor, null, eyeComp);
             }
             RemoveActions(actor);
             QueueDel(relay);

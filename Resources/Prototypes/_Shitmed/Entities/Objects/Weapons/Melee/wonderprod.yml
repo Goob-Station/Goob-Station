@@ -1,6 +1,6 @@
 - type: entity
   name: wonderprod
-  parent: BaseItem
+  parent: [BaseItem, BaseRestrictedContraband]
   id: Wonderprod
   description: Universal tool of the abductor agent.
   components:
@@ -17,6 +17,9 @@
   - type: Sprite
     sprite: _Shitmed/Objects/Weapons/Melee/wonderprod.rsi
     state: icon
+  - type: GuideHelp
+    guides:
+    - Abductors
   - type: RestrictByUserTag
     contains:
     - Abductor
@@ -27,6 +30,7 @@
     - abductors-weapon-restricted-4
   - type: ItemSwitch
     state: stun
+    showLabel: true
     states:
       stun: !type:ItemSwitchState
         verb: stun

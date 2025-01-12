@@ -39,6 +39,12 @@ public sealed partial class ItemSwitchComponent : Component
     /// </remarks>
     [DataField]
     public bool Predictable = true;
+
+    /// <summary>
+    ///     Whether the item's currently toggled state should be shown in the UI.
+    /// </summary>
+    [DataField]
+    public bool ShowLabel = false;
 }
 [DataDefinition]
 public sealed partial class ItemSwitchState : BoundUserInterfaceMessage
