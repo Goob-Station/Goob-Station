@@ -12,7 +12,6 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Timing;
 using Content.Client._Goobstation.ServerCurrency;
-using Robust.Shared.Log; // Goobstation - Goob Coin
 
 namespace Content.Client.Lobby
 {
