@@ -20,6 +20,7 @@
     - Yowie
     - IPC
     - Resomi
+    - Sharkman
     - Oni
 
 - type: guideEntry
@@ -97,3 +98,8 @@
   id: Resomi
   name: species-name-resomi
   text: "/ServerInfo/Guidebook/Mobs/Resomi.xml"
+
+- type: guideEntry
+  id: Sharkman
+  name: species-name-sharkman
+  text: "/ServerInfo/Guidebook/Mobs/Sharkman.xml"
