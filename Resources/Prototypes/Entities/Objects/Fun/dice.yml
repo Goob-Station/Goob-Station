@@ -120,6 +120,9 @@
         - ItemMask
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - Shard
   - type: TriggerOnStepTrigger
   - type: PreventableStepTrigger
   - type: Slippery

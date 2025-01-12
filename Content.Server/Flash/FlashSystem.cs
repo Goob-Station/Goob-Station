@@ -4,6 +4,7 @@ using Content.Shared.Flash.Components;
 using Content.Server.Light.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._Goobstation.Flashbang;
 using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Eye.Blinding.Components;
@@ -122,19 +123,25 @@ namespace Content.Server.Flash
             if (attempt.Cancelled)
                 return;
 
+            // Goobstation start
+            var multiplierEv = new FlashDurationMultiplierEvent();
+            RaiseLocalEvent(target, multiplierEv);
+            var multiplier = multiplierEv.Multiplier;
+            // Goobstation end
+
             // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration / 1000f), true))
+            if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true)) // Goob edit
                 return;
 
             if (stunDuration != null)
             {
                 // goob edit - stunmeta
-                _stun.TryKnockdown(target, stunDuration.Value, true);
+                _stun.TryKnockdown(target, stunDuration.Value * multiplier, true); // Goob edit
             }
             else
             {
-                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration / 1000f), true,
-                slowTo, slowTo);
+                _stun.TrySlowdown(target, TimeSpan.FromSeconds(flashDuration * multiplier / 1000f), true,
+                slowTo, slowTo); // Goob edit
             }
 
             if (displayPopup && user != null && target != user && Exists(user.Value))
@@ -176,6 +183,9 @@ namespace Content.Server.Flash
 
                 // They shouldn't have flash removed in between right?
                 Flash(entity, user, source, duration, slowTo, displayPopup);
+
+                var distance = (mapPosition.Position - _transform.GetMapCoordinates(entity).Position).Length(); // Goobstation
+                RaiseLocalEvent(source, new AreaFlashEvent(range, distance, entity)); // Goobstation
             }
 
             _audio.PlayPvs(sound, source, AudioParams.Default.WithVolume(1f).WithMaxDistance(3f));

@@ -1,5 +1,4 @@
-﻿using Content.Server.Atmos;
-using Content.Shared.Atmos;
+﻿using Content.Shared.Atmos;
 
 namespace Content.Server.Mech.Components;
 

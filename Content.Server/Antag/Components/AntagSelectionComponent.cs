@@ -1,9 +1,7 @@
-using Content.Server.Administration.Systems;
 using Content.Shared.Antag;
 using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Preferences.Loadouts;
 using Content.Shared.Roles;
-using Content.Shared.Storage;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
@@ -148,9 +146,16 @@ public partial struct AntagSelectionDefinition()
 
     /// <summary>
     /// Components added to the player's mind.
+    /// Do NOT use this to add role-type components. Add those as MindRoles instead
     /// </summary>
     [DataField]
     public ComponentRegistry MindComponents = new();
+
+    /// <summary>
+    /// List of Mind Role Prototypes to be added to the player's mind.
+    /// </summary>
+    [DataField]
+    public List<ProtoId<EntityPrototype>>? MindRoles;
 
     /// <summary>
     /// A set of starting gear that's equipped to the player.
@@ -179,6 +184,17 @@ public partial struct AntagSelectionDefinition()
     /// </remarks>
     [DataField]
     public EntProtoId? SpawnerPrototype;
+
+    // goob edit - actual pacifism implant
+    [DataField]
+    public List<JobSpecial> Special = new();
+
+    /// <summary>
+    /// Goobstation
+    /// Does this antag role roll before job
+    /// </summary>
+    [DataField]
+    public bool RollBeforeJob = true;
 }
 
 /// <summary>

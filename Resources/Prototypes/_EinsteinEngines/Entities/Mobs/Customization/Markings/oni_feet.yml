@@ -1,0 +1,13 @@
+- type: marking
+  id: OniTwoToedFeet
+  bodyPart: RFoot # Can't be LFoot to avoid visual glitches
+  markingCategory: Legs
+  speciesRestriction: [Oni]
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#454545"
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Customization/oni_feet.rsi
+    state: two_toes

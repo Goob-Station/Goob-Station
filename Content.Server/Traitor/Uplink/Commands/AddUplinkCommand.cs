@@ -1,9 +1,6 @@
 using Content.Server.Administration;
 using Content.Shared.Administration;
-using Content.Shared.CCVar;
-using Content.Shared.FixedPoint;
 using Robust.Server.Player;
-using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Player;
 
@@ -32,6 +29,7 @@ namespace Content.Server.Traitor.Uplink.Commands
             };
         }
 
+        // goob edit - removed embedded discounts
         public void Execute(IConsoleShell shell, string argStr, string[] args)
         {
             if (args.Length > 2)

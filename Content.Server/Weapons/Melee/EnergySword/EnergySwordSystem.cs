@@ -21,6 +21,7 @@ public sealed class EnergySwordSystem : EntitySystem
         SubscribeLocalEvent<EnergySwordComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<EnergySwordComponent, InteractUsingEvent>(OnInteractUsing);
     }
+
     // Used to pick a random color for the blade on map init.
     private void OnMapInit(EntityUid uid, EnergySwordComponent comp, MapInitEvent args)
     {

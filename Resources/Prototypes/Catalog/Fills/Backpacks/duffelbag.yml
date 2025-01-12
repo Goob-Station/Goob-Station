@@ -7,11 +7,12 @@
   - type: StorageFill
     contents:
       - id: Hemostat
-      - id: Saw
+      - id: SawElectric # Shitmed Change
       - id: Drill
       - id: Cautery
       - id: Retractor
       - id: Scalpel
+      - id: BoneGel # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateMedicalBundle
@@ -29,6 +30,7 @@
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
+      - id: BoneGel # Shitmed Change
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle
@@ -41,7 +43,7 @@
       - id: WeaponShotgunBulldog
       - id: MagazineShotgun
       - id: MagazineShotgun
-      - id: MagazineShotgunBeanbag
+      - id: MagazineShotgunSlug
 #     - id: ThermalImagingGoggles
 
 - type: entity
@@ -116,16 +118,22 @@
   parent: ClothingBackpackDuffelSyndicateAmmo
   id: ClothingBackpackDuffelSyndicateAmmoFilled
   name: ammo bundle
-  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, and 2 ammo boxes for the L6 SAW."
+  description: "Reloading! Contains 4 magazines for the C-20r, 4 drums for the Bulldog, 2 ammo boxes for the L6 SAW, and 3 mags for the Burner."
   components:
   - type: StorageFill
     contents:
       - id: MagazinePistolSubMachineGun
         amount: 4
+      - id: MagazineRifle # goobstation - m90がアップリンクに戻る
+        amount: 3
       - id: MagazineShotgun
         amount: 4
       - id: MagazineLightRifleBox
         amount: 2
+      - id: MagazineHighCaliber # Goobstation - Burner Heavy Assault Rifle
+        amount: 1
+      - id: MagazineHighCaliberExplosive # Goobstation - Burner Heavy Assault Rifle
+
 
 - type: entity
   parent: ClothingBackpackDuffelClown
@@ -159,7 +167,7 @@
   parent: ClothingBackpackDuffelSyndicateBundle
   id: ClothingBackpackDuffelSyndicatePyjamaBundle
   name: syndicate pyjama duffel bag
-  description: Contains 3 pairs of syndicate pyjamas and 3 plushies for the ultimate sleepover.
+  description: Contains 3 pairs of syndicate pyjamas and 4 plushies for the ultimate sleepover.
   components:
   - type: Storage
     grid:
@@ -191,6 +199,8 @@
       contents:
         - id: C4
           amount: 8
+        - id: RemoteSignaller # goobstation
+        - id: NetworkConfigurator # goobstation
 
 - type: entity
   parent: ClothingBackpackChameleon
@@ -302,13 +312,19 @@
   components:
   - type: StorageFill
     contents:
+      - id: DefibrillatorSyndicate
       - id: MedkitCombatFilled
-      - id: Defibrillator
+        amount: 4
+      - id: Tourniquet
+        amount: 4
       - id: CombatMedipen
-        amount: 3
-      - id: ClothingHandsGlovesNitrile
-      - id: SyringeTranexamicAcid
-      - id: SyringeHyronalin
+        amount: 4
+      - id: PunctAutoInjector
+        amount: 4
+      - id: PyraAutoInjector
+        amount: 4
+      - id: AirlossAutoInjector
+        amount: 4
 
 - type: entity
   parent: ClothingBackpackDuffelSyndicateBundle

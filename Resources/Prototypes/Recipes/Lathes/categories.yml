@@ -11,10 +11,6 @@
   name: lathe-category-lights
 
 - type: latheCategory
-  id: Mech
-  name: lathe-category-mechs
-
-- type: latheCategory
   id: Parts
   name: lathe-category-parts
 

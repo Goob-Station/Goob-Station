@@ -30,6 +30,10 @@
         path: /Audio/Machines/Nuke/general_beep.ogg
         params:
           volume: -2
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25
 
 - type: entity
   parent: TimerTrigger
@@ -72,3 +76,7 @@
   - type: PayloadTrigger
     components:
     - type: TriggerOnVoice
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25

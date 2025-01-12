@@ -19,7 +19,7 @@ entities:
       name: NT Evac Courser
     - type: Transform
       pos: 0.52083397,0.5416665
-      parent: invalid
+
     - type: MapGrid
       chunks:
         -1,-1:
@@ -3564,7 +3564,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 0.5,-2.5
       parent: 656
-- proto: Thruster
+- proto: ThrusterShuttleEvac # Goob edit
   entities:
   - uid: 474
     components:

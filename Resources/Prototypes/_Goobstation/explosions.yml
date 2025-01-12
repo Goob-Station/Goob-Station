@@ -13,3 +13,16 @@
   fireColor: Green
   texturePath: /Textures/Effects/fire_greyscale.rsi
   fireStates: 3
+
+- type: explosion
+  id: Methsplosion
+  damagePerIntensity: # yeah I want it less damaging than the default explosion, considering it's high intensity slope
+    types:
+      Heat: 3
+      Blunt: 5
+  tileBreakChance: [0, 0.5, 1]
+  tileBreakIntensity: [0, 10, 30]
+  tileBreakRerollReduction: 20
+  lightColor: Orange
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3

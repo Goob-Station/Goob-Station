@@ -9,7 +9,6 @@ using Content.Server.RoundEnd;
 using Content.Server.Shuttles.Events;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
-using Content.Server.Store.Components;
 using Content.Server.Store.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs;
@@ -28,14 +27,15 @@ using System.Linq;
 using Content.Shared.Store.Components;
 using Content.Server.Station.Systems;
 using Content.Server.Chat.Systems;
+using Robust.Server.Player;
 
 namespace Content.Server.GameTicking.Rules;
 
 public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 {
+    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly EmergencyShuttleSystem _emergency = default!;
     [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
-    [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
@@ -43,6 +43,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     // goob edit
     [Dependency] private readonly StationSystem _stationSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
+    [Dependency] private readonly IPlayerManager _playerManager = default!;
     // goob edit end
 
     [ValidatePrototypeId<CurrencyPrototype>]
@@ -50,6 +51,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     [ValidatePrototypeId<TagPrototype>]
     private const string NukeOpsUplinkTagPrototype = "NukeOpsUplink";
+
+    [ValidatePrototypeId<TagPrototype>]
+    private const string NukeOpsReinforcementUplinkTagPrototype = "NukeOpsReinforcementUplink"; // Goobstation
 
     public override void Initialize()
     {
@@ -63,6 +67,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SubscribeLocalEvent<NukeOperativeComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<NukeOperativeComponent, EntityZombifiedEvent>(OnOperativeZombified);
 
+        SubscribeLocalEvent<NukeopsRoleComponent, GetBriefingEvent>(OnGetBriefing);
+
         SubscribeLocalEvent<ConsoleFTLAttemptEvent>(OnShuttleFTLAttempt);
         SubscribeLocalEvent<WarDeclaredEvent>(OnWarDeclared);
         SubscribeLocalEvent<CommunicationConsoleCallShuttleAttemptEvent>(OnShuttleCallAttempt);
@@ -71,7 +77,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         SubscribeLocalEvent<NukeopsRuleComponent, RuleLoadedGridsEvent>(OnRuleLoadedGrids);
     }
 
-    protected override void Started(EntityUid uid, NukeopsRuleComponent component, GameRuleComponent gameRule,
+    protected override void Started(EntityUid uid,
+        NukeopsRuleComponent component,
+        GameRuleComponent gameRule,
         GameRuleStartedEvent args)
     {
         var eligible = new List<Entity<StationEventEligibleComponent, NpcFactionMemberComponent>>();
@@ -91,25 +99,27 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     }
 
     #region Event Handlers
-    protected override void AppendRoundEndText(EntityUid uid, NukeopsRuleComponent component, GameRuleComponent gameRule,
+    protected override void AppendRoundEndText(EntityUid uid,
+        NukeopsRuleComponent component,
+        GameRuleComponent gameRule,
         ref RoundEndTextAppendEvent args)
     {
-        var winText = Loc.GetString($"nukeops-{component.WinType.ToString().ToLower()}");
+        var winText = Loc.GetString($"{component.LocalePrefix}{component.WinType.ToString().ToLower()}");
         args.AddLine(winText);
 
         foreach (var cond in component.WinConditions)
         {
-            var text = Loc.GetString($"nukeops-cond-{cond.ToString().ToLower()}");
+            var text = Loc.GetString($"{component.LocalePrefix}cond-{cond.ToString().ToLower()}");
             args.AddLine(text);
         }
 
-        args.AddLine(Loc.GetString("nukeops-list-start"));
+        args.AddLine(Loc.GetString($"{component.LocalePrefix}list-start"));
 
         var antags =_antag.GetAntagIdentifiers(uid);
 
         foreach (var (_, sessionData, name) in antags)
         {
-            args.AddLine(Loc.GetString("nukeops-list-name-user", ("name", name), ("user", sessionData.UserName)));
+            args.AddLine(Loc.GetString($"{component.LocalePrefix}list-name-user", ("name", name), ("user", sessionData.UserName)));
         }
     }
 
@@ -233,7 +243,8 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
         // If the disk is currently at Central Command, the crew wins - just slightly.
         // This also implies that some nuclear operatives have died.
-        SetWinType(ent, diskAtCentCom
+        SetWinType(ent,
+            diskAtCentCom
             ? WinType.CrewMinor
             : WinType.OpsMinor);
         ent.Comp.WinConditions.Add(diskAtCentCom
@@ -314,31 +325,14 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             {
                 // Nukies must wait some time after declaration of war to get on the station
                 var warTime = Timing.CurTime.Subtract(nukeops.WarDeclaredTime.Value);
-                if (warTime < nukeops.WarNukieArriveDelay)
+                if (warTime < nukeops.WarEvacShuttleDisabled)
                 {
                     ev.Cancelled = true;
                     ev.Reason = Loc.GetString("war-ops-shuttle-call-unavailable");
                     return;
                 }
-
-                // goob edit - can't call evac while nukies are present on the station
-                if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
-                {
-                    ev.Cancelled = true;
-                    ev.Reason = Loc.GetString("shuttle-call-warops-nukies-present");
-                    return;
-                }
             }
 
-            // goob edit - can't call evac while nukies are present on the station
-            // during stealth ops this might become a problem
-            // but an error in the shuttle call must mean something bad is coming so it's probably a sign to go witch hunting
-            if (operatives.Any(op => _stationSystem.GetOwningStation(op.Item1.Owner) != null))
-            {
-                ev.Cancelled = true;
-                ev.Reason = Loc.GetString("shuttle-call-error");
-                return;
-            }
         }
     }
 
@@ -394,7 +388,7 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
         var enumerator = EntityQueryEnumerator<StoreComponent>();
         while (enumerator.MoveNext(out var uid, out var component))
         {
-            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype))
+            if (!_tag.HasTag(uid, NukeOpsUplinkTagPrototype) || _tag.HasTag(uid, NukeOpsReinforcementUplinkTagPrototype)) // Goob edit - no tc for reinforcements
                 continue;
 
             if (GetOutpost(nukieRule.Owner) is not { } outpost)
@@ -403,11 +397,25 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
             if (Transform(uid).MapID != Transform(outpost).MapID) // Will receive bonus TC only on their start outpost
                 continue;
 
-            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, nukieRule.Comp.WarTcAmountPerNukie } }, uid, component);
+            _store.TryAddCurrency(new() { { TelecrystalCurrencyPrototype, CalculateBonusTcPerNukie(nukieRule.Comp) } }, uid, component); // Goob edit
 
             var msg = Loc.GetString("store-currency-war-boost-given", ("target", uid));
             _popupSystem.PopupEntity(msg, uid);
         }
+    }
+
+    private int CalculateBonusTcPerNukie(NukeopsRuleComponent rule) // Goobstation
+    {
+        var nukiesCount = EntityQuery<NukeopsRoleComponent>().Count();
+        if (nukiesCount == 0)
+            return rule.WarTcAmountPerNukie;
+        var totalPlayersCount = _antag.GetTotalPlayerCount(_playerManager.Sessions);
+        var playersCount = Math.Max(0, totalPlayersCount - nukiesCount);
+        var maxNukies = totalPlayersCount / rule.WarNukiePlayerRatio;
+        var nukiesMissing = Math.Max(0, maxNukies - nukiesCount);
+        var totalBonus = playersCount * rule.WarTcPerPlayer;
+        totalBonus += nukiesMissing * rule.WarTcPerNukieMissing;
+        return Math.Max(rule.WarTcAmountPerNukie, totalBonus / nukiesCount);
     }
 
     private void SetWinType(Entity<NukeopsRuleComponent> ent, WinType type, bool endRound = true)
@@ -494,14 +502,20 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
 
     private void OnAfterAntagEntSelected(Entity<NukeopsRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        if (ent.Comp.TargetStation is not { } station)
-            return;
+        var target = (ent.Comp.TargetStation is not null) ? Name(ent.Comp.TargetStation.Value) : "the target";
 
-        _antag.SendBriefing(args.Session, Loc.GetString("nukeops-welcome",
-                ("station", station),
+        _antag.SendBriefing(args.Session,
+            Loc.GetString($"{ent.Comp.LocalePrefix}welcome",
+                ("station", target),
                 ("name", Name(ent))),
             Color.Red,
             ent.Comp.GreetSoundNotification);
+    }
+
+    private void OnGetBriefing(Entity<NukeopsRoleComponent> role, ref GetBriefingEvent args)
+    {
+        // TODO Different character screen briefing for the 3 nukie types
+        args.Append(Loc.GetString("nukeops-briefing")); // TODO: Goobstation: somehow pass the nukeopsrulecomponent here so we can change this based on LocalePrefix for Honkops.
     }
 
     /// <remarks>

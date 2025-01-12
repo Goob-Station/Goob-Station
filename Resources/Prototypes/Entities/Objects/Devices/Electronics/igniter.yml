@@ -23,3 +23,8 @@
   - type: Tag
     tags:
     - Igniter
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 75
+      Plastic: 25
+      Glass: 25

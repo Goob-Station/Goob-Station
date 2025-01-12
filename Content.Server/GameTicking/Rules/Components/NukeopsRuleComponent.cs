@@ -1,7 +1,5 @@
 using Content.Server.RoundEnd;
-using Content.Shared.Dataset;
 using Content.Shared.NPC.Prototypes;
-using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -65,6 +63,29 @@ public sealed partial class NukeopsRuleComponent : Component
     [DataField]
     public int WarTcAmountPerNukie = 200;
 
+    // Goobstation start
+    /// <summary>
+    /// The ratio of players per nuclear operative for war declaration scaling.
+    /// Example: A value of 10 means one operative per 10 players.
+    /// </summary>
+    [DataField]
+    public int WarNukiePlayerRatio = 12;
+
+    /// <summary>
+    /// Additional telecrystals granted per player on the server during war.
+    /// Total bonus is divided by number of operatives.
+    /// </summary>
+    [DataField]
+    public int WarTcPerPlayer = 20;
+
+    /// <summary>
+    /// Compensation telecrystals granted per missing nuclear operative.
+    /// Total bonus is divided by number of operatives.
+    /// </summary>
+    [DataField]
+    public int WarTcPerNukieMissing = 100;
+    // Goobstation end
+
     /// <summary>
     ///     Delay between war declaration and nuke ops arrival on station map. Gives crew time to prepare
     /// </summary>
@@ -72,10 +93,16 @@ public sealed partial class NukeopsRuleComponent : Component
     public TimeSpan WarNukieArriveDelay = TimeSpan.FromMinutes(15);
 
     /// <summary>
+    ///     Time crew can't call emergency shuttle after war declaration.
+    /// </summary>
+    [DataField]
+    public TimeSpan WarEvacShuttleDisabled = TimeSpan.FromMinutes(25);
+
+    /// <summary>
     ///     Minimal operatives count for war declaration
     /// </summary>
     [DataField]
-    public int WarDeclarationMinOps = 4;
+    public int WarDeclarationMinOps = 2;
 
     [DataField]
     public WinType WinType = WinType.Neutral;
@@ -94,6 +121,10 @@ public sealed partial class NukeopsRuleComponent : Component
     /// </summary>
     [DataField]
     public SoundSpecifier GreetSoundNotification = new SoundPathSpecifier("/Audio/Ambience/Antag/nukeops_start.ogg");
+
+    // Goobstation - Honkops
+    [DataField]
+    public string LocalePrefix = "nukeops-";
 }
 
 public enum WinType : byte

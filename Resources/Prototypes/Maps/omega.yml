@@ -1,7 +1,7 @@
 - type: gameMap
   id: Omega
   mapName: 'Omega'
-  mapPath: /Maps/omega.yml
+  mapPath: /Maps/_Goobstation/omega.yml # Goobstation
   minPlayers: 7
   maxPlayers: 35
   stations:
@@ -62,3 +62,10 @@
             #silicon
             StationAi: [ 1, 1 ]
             Borg: [ 2, 2 ]
+
+        # Goobstation blob-config-start SMALL+
+        - type: StationBlobConfig
+          stageBegin: 25
+          stageCritical: 350
+          stageTheEnd: 700
+        # Goobstation blob-config-end

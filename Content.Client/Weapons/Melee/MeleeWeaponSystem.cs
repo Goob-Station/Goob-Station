@@ -28,6 +28,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
+    [Dependency] private readonly MapSystem _map = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -109,11 +110,11 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
         if (MapManager.TryFindGridAt(mousePos, out var gridUid, out _))
         {
-            coordinates = EntityCoordinates.FromMap(gridUid, mousePos, TransformSystem, EntityManager);
+            coordinates = TransformSystem.ToCoordinates(gridUid, mousePos);
         }
         else
         {
-            coordinates = EntityCoordinates.FromMap(MapManager.GetMapEntityId(mousePos.MapId), mousePos, TransformSystem, EntityManager);
+            coordinates = TransformSystem.ToCoordinates(_map.GetMap(mousePos.MapId), mousePos);
         }
 
         // Heavy attack.
@@ -126,7 +127,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
                 if (_stateManager.CurrentState is GameplayStateBase screen)
                 {
-                    target = screen.GetClickedEntity(mousePos);
+                    target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
                 }
 
                 EntityManager.RaisePredictiveEvent(new DisarmAttackEvent(GetNetEntity(target), GetNetCoordinates(coordinates)));
@@ -152,7 +153,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
             if (_stateManager.CurrentState is GameplayStateBase screen)
             {
-                target = screen.GetClickedEntity(mousePos);
+                target = screen.GetDamageableClickedEntity(mousePos); // Goob edit
             }
 
             // Don't light-attack if interaction will be handling this instead

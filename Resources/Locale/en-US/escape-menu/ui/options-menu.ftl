@@ -125,6 +125,7 @@ ui-options-function-move-left = Move Left
 ui-options-function-move-down = Move Down
 ui-options-function-move-right = Move Right
 ui-options-function-walk = Walk
+ui-options-function-toggle-standing = Crawl/Stand
 
 ui-options-function-camera-rotate-left = Rotate left
 ui-options-function-camera-rotate-right = Rotate right
@@ -220,6 +221,17 @@ ui-options-function-hotbar7 = Hotbar slot 7
 ui-options-function-hotbar8 = Hotbar slot 8
 ui-options-function-hotbar9 = Hotbar slot 9
 ui-options-function-hotbar0 = Hotbar slot 0
+# Goobstation - Extra hotbar hotkeys
+ui-options-function-hotbarshift1 = Hotbar slot Shift+1
+ui-options-function-hotbarshift2 = Hotbar slot Shift+2
+ui-options-function-hotbarshift3 = Hotbar slot Shift+3
+ui-options-function-hotbarshift4 = Hotbar slot Shift+4
+ui-options-function-hotbarshift5 = Hotbar slot Shift+5
+ui-options-function-hotbarshift6 = Hotbar slot Shift+6
+ui-options-function-hotbarshift7 = Hotbar slot Shift+7
+ui-options-function-hotbarshift8 = Hotbar slot Shift+8
+ui-options-function-hotbarshift9 = Hotbar slot Shift+9
+ui-options-function-hotbarshift0 = Hotbar slot Shift+0
 ui-options-function-loadout1 = Hotbar Loadout 1
 ui-options-function-loadout2 = Hotbar Loadout 2
 ui-options-function-loadout3 = Hotbar Loadout 3
@@ -230,6 +242,17 @@ ui-options-function-loadout7 = Hotbar Loadout 7
 ui-options-function-loadout8 = Hotbar Loadout 8
 ui-options-function-loadout9 = Hotbar Loadout 9
 ui-options-function-loadout0 = Hotbar Loadout 0
+# Goobstation - Extra hotbar hotkeys
+ui-options-function-loadoutshift1 = Hotbar Loadout Shift+1
+ui-options-function-loadoutshift2 = Hotbar Loadout Shift+2
+ui-options-function-loadoutshift3 = Hotbar Loadout Shift+3
+ui-options-function-loadoutshift4 = Hotbar Loadout Shift+4
+ui-options-function-loadoutshift5 = Hotbar Loadout Shift+5
+ui-options-function-loadoutshift6 = Hotbar Loadout Shift+6
+ui-options-function-loadoutshift7 = Hotbar Loadout Shift+7
+ui-options-function-loadoutshift8 = Hotbar Loadout Shift+8
+ui-options-function-loadoutshift9 = Hotbar Loadout Shift+9
+ui-options-function-loadoutshift0 = Hotbar Loadout Shift+0
 
 ui-options-function-shuttle-strafe-up = Strafe up
 ui-options-function-shuttle-strafe-right = Strafe right
@@ -282,3 +305,12 @@ ui-options-colorblind-friendly = Colorblind friendly mode
 ui-options-reduced-motion = Reduce motion of visual effects
 ui-options-chat-window-opacity = Chat window opacity
 ui-options-screen-shake-intensity = Screen shake intensity
+
+## Shitmed Change
+ui-options-header-targeting = Targeting
+ui-options-function-target-head = Target head
+ui-options-function-target-torso = Target torso
+ui-options-function-target-left-arm = Target left arm
+ui-options-function-target-right-arm = Target right arm
+ui-options-function-target-left-leg = Target left leg
+ui-options-function-target-right-leg = Target right leg

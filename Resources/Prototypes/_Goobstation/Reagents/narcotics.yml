@@ -1,0 +1,151 @@
+- type: reagent
+  id: Fentanyl
+  name: reagent-name-fentanyl
+  group: Narcotics
+  desc: reagent-desc-fentanyl
+  flavor: fentanyl
+  physicalDesc: reagent-physical-desc-murky
+  color: "#6e697d"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        damage:
+          types:
+            Poison: 0.25
+      - !type:HealthChange # When overdosing
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 5
+        damage:
+          types:
+            Poison: 0.25 # effectively 10 poison/u
+            Asphyxiation: 0.75 # more damage, but easier to treat, will rapidly kill in crit probably?
+      - !type:HealthChange # More overdose damage
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 5
+        probability: 0.05
+        damage:
+          types:
+            Slash: 1 # clawing at your own skin
+    Narcotic:
+      metabolismRate: 0.05
+      effects:
+      - !type:PopupMessage # the usual hallucinations
+        type: Local
+        visualType: Medium
+        messages: ["fentanyl-effect-lostsomething","fentanyl-effect-skincrawl","fentanyl-effect-fakepresence","fentanyl-effect-rushing","fentanyl-effect-giddy"]
+        probability: 0.05
+      - !type:PopupMessage # when you're really tripping balls
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+        type: Local
+        visualType: Medium
+        messages: ["fentanyl-effect-skinworms","fentanyl-effect-breathingrazors","fentanyl-effect-lungstight","fentanyl-effect-observed"]
+        probability: 0.05
+      - !type:MovespeedModifier # you didn't think this would improve your abilities right?
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        walkSpeedModifier: 0.8
+        sprintSpeedModifier: 0.8
+      - !type:GenericStatusEffect
+        key: Stutter
+        component: StutteringAccent
+      - !type:Jitter
+      - !type:Paralyze # loss of muscle control
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        probability: 0.05
+        paralyzeTime: 2
+      - !type:Paralyze # more severe effects when you are overdosing
+        conditions:
+        - !type:OrganType
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 5
+        probability: 0.05
+        paralyzeTime: 4
+      - !type:GenericStatusEffect # tripping balls, duh
+        key: SeeingRainbows
+        component: SeeingRainbows
+        type: Add
+        time: 20
+        refresh: false
+      - !type:Drunk
+        boozePower: 10
+      - !type:Emote # Now a bunch of emotes
+        emote: Scream
+        probability: 0.05
+
+- type: reagent
+  id: Tirizene
+  name: reagent-name-tirizene
+  group: Narcotics
+  desc: reagent-desc-tirizene
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#6E2828"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:TakeStaminaDamage
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        amount: 15
+        immediate: false
+
+- type: reagent
+  id: BlindToxin
+  name: reagent-name-blind-toxin
+  group: Narcotics
+  desc: reagent-desc-blind-toxin
+  physicalDesc: reagent-physical-desc-syrupy
+  color: "#000000"
+  boilingPoint: 255.0
+  meltingPoint: 36.0
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        key: TemporaryBlindness
+        component: TemporaryBlindness
+        type: Add
+        time: 3
+        refresh: false

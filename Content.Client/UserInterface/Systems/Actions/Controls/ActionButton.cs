@@ -306,8 +306,9 @@ public sealed class ActionButton : Control, IEntityControl
 
     public void UpdateBackground()
     {
-        // goobstation
-        if (_action != null)
+        _controller ??= UserInterfaceManager.GetUIController<ActionUIController>();
+        if (_action != null ||
+            _controller.IsDragging && GetPositionInParent() == Parent?.ChildCount - 1)
         {
             Button.Texture = _buttonBackgroundTexture;
         }
@@ -350,6 +351,9 @@ public sealed class ActionButton : Control, IEntityControl
     {
         base.FrameUpdate(args);
 
+        UpdateBackground();
+
+        Cooldown.Visible = _action != null && _action.Cooldown != null;
         if (_action == null)
             return;
 

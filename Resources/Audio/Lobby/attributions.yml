@@ -118,3 +118,23 @@
   license: "CC-BY-NC-SA-4.0"
   copyright: "Bluecometdude"
   source: "https://soundcloud.com/bluecometdude/red-sun-in-the-sky-hq-and-extended"
+
+- files: ["chollima.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Pochonbo Electronic Ensemble"
+  source: "https://goobstation.com"
+
+- files: ["marhaba.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Marhaba by Ian Alex Mac. Converted from MP3 to OGG."
+  source: "https://freemusicarchive.org/music/Ian_Alex_Mac/Cues/Marhaba"
+
+- files: ["monument.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Monument by Six Umbrellas."
+  source: "https://sixumbrellas.bandcamp.com/album/the-psychedelic-and"
+
+- files: ["the_future_soon.ogg"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "The Future Soon by Jonathan Coulton"
+  source: "https://www.youtube.com/watch?v=l5PEz3kGbp4"

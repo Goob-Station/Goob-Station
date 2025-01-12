@@ -24,7 +24,7 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Plastic: 50
   - type: SpaceGarbage

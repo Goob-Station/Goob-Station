@@ -1,0 +1,12 @@
+# This file is moreso for any base parts from Shitmed that dont fall under any particular umbrella.
+- type: humanoidBaseSprite
+  id: MobPizzaLArm
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    state: "l_arm"
+
+- type: humanoidBaseSprite
+  id: MobPizzaRArm
+  baseSprite:
+    sprite: _Shitmed/Mobs/Species/Misc/Pizza/parts.rsi
+    state: "r_arm"

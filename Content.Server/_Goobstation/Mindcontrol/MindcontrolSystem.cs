@@ -10,6 +10,7 @@ using Content.Shared.Mind.Components;
 using Content.Shared.Mind;
 using Content.Server.Stunnable;
 using Content.Shared.Mindcontrol;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Mindcontrol;
 
@@ -21,6 +22,8 @@ public sealed class MindcontrolSystem : EntitySystem
     [Dependency] private readonly AntagSelectionSystem _antag = default!;
     [Dependency] private readonly StunSystem _stun = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+
+    [ValidatePrototypeId<EntityPrototype>] static EntProtoId mindRole = "MindRoleBrainwashed";
 
     public override void Initialize()
     {
@@ -54,8 +57,10 @@ public sealed class MindcontrolSystem : EntitySystem
         if (!_mindSystem.TryGetMind(uid, out var mindId, out var mind))   //no mind, how can you mindcontrol whit no mind?
             return;
 
-        if (!_roleSystem.MindHasRole<MindcontrolledRoleComponent>(mindId))
-            _roleSystem.MindAddRole(mindId, new MindcontrolledRoleComponent { PrototypeId = "Mindcontrolled", MasterUid = component.Master.Value }, mind, true);
+        _roleSystem.MindAddRole(mindId, mindRole.Id, silent: true);
+
+        if (_roleSystem.MindHasRole<MindcontrolledRoleComponent>(mindId, out var mr))
+            AddComp(mr.Value, new RoleBriefingComponent { Briefing = MakeBriefing(component.Master.Value) }, true);
 
         if (mind?.Session != null && !component.BriefingSent)
         {
@@ -79,14 +84,14 @@ public sealed class MindcontrolSystem : EntitySystem
         if (!TryComp<MindComponent>(target.Owner, out var mind) || mind.OwnedEntity == null)
             return;
 
-        args.Append(MakeBriefing(target));
+        args.Append(MakeBriefing(target.Comp.MasterUid));
     }
-    private string MakeBriefing(Entity<MindcontrolledRoleComponent> target)
+    private string MakeBriefing(EntityUid? masterId)
     {
         var briefing = Loc.GetString("mindcontrol-briefing-get");
-        if (target.Comp.MasterUid != null) // Returns null if Master is gibbed
+        if (masterId != null) // Returns null if Master is gibbed
         {
-            TryComp<MetaDataComponent>(target.Comp.MasterUid, out var metadata);
+            TryComp<MetaDataComponent>(masterId, out var metadata);
             if (metadata != null)
                 briefing += "\n " + Loc.GetString("mindcontrol-briefing-get-master", ("master", metadata.EntityName)) + "\n";
         }

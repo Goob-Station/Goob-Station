@@ -1,4 +1,3 @@
-using System.Threading;
 using Content.Server.Explosion.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Explosion;
@@ -182,5 +181,10 @@ namespace Content.Server.Nuke
         [ViewVariables(VVAccess.ReadWrite)]
         [DataField("requiredFloorRadius")]
         public float RequiredFloorRadius = 5;
+
+        // Goobstation start
+        [DataField("honkopsArmMusic")]
+        public SoundSpecifier HonkopsArmMusic = new SoundCollectionSpecifier("HonkopsNukeMusic");
+        // Goobstation end
     }
 }

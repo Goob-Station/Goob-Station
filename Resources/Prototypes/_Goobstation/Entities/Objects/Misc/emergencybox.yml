@@ -234,7 +234,7 @@
       flare:
       - Flare
       tank:
-      - EmergencyOxygenTankFilled
+      - ExtendedEmergencyOxygenTankFilled
       mask:
       - ClothingMaskGasSecurity
       emergencypen:

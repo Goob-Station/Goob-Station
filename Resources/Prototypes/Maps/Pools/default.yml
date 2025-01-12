@@ -2,12 +2,15 @@
   id: DefaultMapPool
   maps:
   - Atlas
+  #- Amber TODO: goob amber
   - Bagel
   - Box
   - Cluster
   #- Cog # Goobstation - cog is broken
   - Core
   - Fland
+  #- Gate TODO: goob gate
+  - Loop
   - Marathon
   - Meta
   - Oasis

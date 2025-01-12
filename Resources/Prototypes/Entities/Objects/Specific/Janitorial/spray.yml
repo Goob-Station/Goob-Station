@@ -64,7 +64,10 @@
     sprayDistance: 4.5
     spraySound:
       path: /Audio/Effects/spray2.ogg
-
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 62
+      
 - type: entity
   name: spray bottle
   id: SprayBottleWater

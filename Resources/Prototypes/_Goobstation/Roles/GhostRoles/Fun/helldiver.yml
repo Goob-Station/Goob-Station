@@ -2,7 +2,7 @@
   id: HelldiverGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitMercenary
-    back: WeaponRifleM90GrenadeLauncher
+    back: WeaponRifleM90
     belt: ClothingBeltMercWebbingHelldiverFilled
     mask: ClothingMaskGasMerc
     eyes: ClothingEyesGlassesMercenary # Night Vision when added

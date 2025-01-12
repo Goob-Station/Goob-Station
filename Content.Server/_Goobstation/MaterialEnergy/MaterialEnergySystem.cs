@@ -3,7 +3,6 @@ using Content.Shared.Materials;
 using Content.Shared.Stacks;
 using Content.Server.Stack;
 using Content.Server.Power.EntitySystems;
-using Content.Server.Power.Components;
 
 namespace Content.Server._Goobstation.MaterialEnergy
 {

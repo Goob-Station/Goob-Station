@@ -1,0 +1,113 @@
+- type: latheRecipe
+  id: SkibidiCube
+  result: SkibidiCube
+  completetime: 30
+  materials: 
+    Biomass: 25
+    Uranium: 200
+    Plasma: 200
+    Plastic: 500
+
+- type: latheRecipe
+  id: HumanCube
+  result: HumanCube
+  completetime: 30
+  materials: 
+    Biomass: 70 # Cloning needs that amount
+    Plasma: 250
+
+- type: latheRecipe
+  id: DionaCube
+  result: DionaCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: FelinidCube
+  result: FelinidCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: GingerbreadCube
+  result: GingerbreadCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: MothCube
+  result: MothCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: DwarfCube
+  result: DwarfCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: HarpyCube
+  result: HarpyCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: RodentiaCube
+  result: RodentiaCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: ReptilianCube
+  result: ReptilianCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: VulpkaninCube
+  result: VulpkaninCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: SlimePersonCube
+  result: SlimePersonCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: YowieCube
+  result: YowieCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250
+
+- type: latheRecipe
+  id: VoxCube
+  result: VoxCube
+  completetime: 30
+  materials: 
+    Biomass: 70
+    Plasma: 250

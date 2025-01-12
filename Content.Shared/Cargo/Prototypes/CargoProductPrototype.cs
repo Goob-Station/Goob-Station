@@ -1,5 +1,4 @@
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 using Robust.Shared.Utility;
 
@@ -82,6 +81,12 @@ namespace Content.Shared.Cargo.Prototypes
         /// </summary>
         [DataField]
         public int Cost { get; private set; }
+
+        /// <summary>
+        ///     GoobStation - The cooldown in seconds before this product can be bought again.
+        /// </summary>
+        [DataField]
+        public int Cooldown { get; private set; } = 0;
 
         /// <summary>
         ///     The prototype category of the product. (e.g. Engineering, Medical)

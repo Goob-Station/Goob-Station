@@ -1,0 +1,62 @@
+- type: entity
+  name: Chester
+  parent: [ BaseWeaponRifle, BaseGunWieldable ]
+  id: WeaponLeverChester
+  description: An improved lever-action rifle designed to fire specialized .45 caliber ammunition for rapid threat removal.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MagazineMagnumLeverRifle
+        insertSound: /Audio/Weapons/Guns/MagIn/rifle_load.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/sfrifle_magout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MagazineMagnumLeverRifle
+        whitelistFailPopup: gun-magazine-whitelist-fail
+      gun_chamber:
+        name: Chamber
+        priority: 1
+        whitelist:
+          tags:
+          - CartridgeMagnum
+  - type: Gun
+    fireRate: 0.55
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/batrifle.ogg
+  - type: ChamberMagazineAmmoProvider
+    autoCycle: false
+    autoEject: true
+    soundAutoEject:
+      path: /Audio/_Goobstation/Weapons/Guns/MagOut/garand_eject.ogg
+    soundRack:
+      path: /Audio/Weapons/Guns/Cock/batrifle_cock.ogg
+      params:
+        volume: -3
+    soundBoltClosed:
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_closed.ogg
+      params:
+        volume: -3  
+    soundBoltOpened:
+      path: /Audio/Weapons/Guns/Bolt/lever_bolt_opened.ogg
+      params:
+        volume: -3
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: UseDelay
+    delay: 0.2
+  - type: UseDelayBlockShoot

@@ -1,0 +1,14 @@
+<controls:FancyWindow
+        xmlns="https://spacestation14.io"
+        xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+        Title="{Loc 'autodoc-add-step'}">
+    <BoxContainer Orientation="Vertical">
+        <Button Name="SurgeryButton" Text="{Loc 'autodoc-add-step-surgery'}"/>
+        <Button Name="GrabItemButton" Text="{Loc 'autodoc-add-step-grab-item'}"/>
+        <Button Name="GrabOrganButton" Text="{Loc 'autodoc-add-step-grab-organ'}"/>
+        <Button Name="GrabPartButton" Text="{Loc 'autodoc-add-step-grab-part'}"/>
+        <Button Name="StoreItemButton" Text="{Loc 'autodoc-add-step-store-item'}"/>
+        <Button Name="SetLabelButton" Text="{Loc 'autodoc-add-step-set-label'}"/>
+        <Button Name="WaitButton" Text="{Loc 'autodoc-add-step-wait'}"/>
+    </BoxContainer>
+</controls:FancyWindow>

@@ -13,6 +13,9 @@
     - type: StepTrigger
       intersectRatio: 0.2
       requiredTriggeredSpeed: 2
+      triggerGroups: # Goobstation
+        types:
+        - Mousetrap
     - type: Mousetrap
     - type: TriggerOnStepTrigger
     - type: PreventableStepTrigger
@@ -54,6 +57,10 @@
           mask:
             - ItemMask
     - type: Rotatable
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 12
+        Wood: 25
 
 - type: entity
   name: mousetrap

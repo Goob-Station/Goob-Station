@@ -4,7 +4,6 @@ using Content.Shared.Maps;
 using Content.Shared.NPC;
 using Content.Shared.Procedural;
 using Content.Shared.Procedural.DungeonGenerators;
-using Robust.Shared.Collections;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 

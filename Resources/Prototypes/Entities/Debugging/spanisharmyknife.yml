@@ -23,6 +23,8 @@
   - type: ToolTileCompatible
   - type: Tool
   - type: Prying
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: MultipleTool
     statusShowBehavior: true
     entries:

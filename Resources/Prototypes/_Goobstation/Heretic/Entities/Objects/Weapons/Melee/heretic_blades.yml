@@ -21,6 +21,9 @@
     size: Normal
     sprite: _Goobstation/Heretic/Blades/blade_blade-inhand.rsi
   - type: ItemToggle
+  - type: RandomTeleport
+  - type: Scalpel # Shitmed
+    speed: 0.75
 
 - type: entity
   parent: HereticBladeBase

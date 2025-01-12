@@ -27,6 +27,8 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
   - type: Reactive
     groups:
       Flammable: [Touch]
@@ -99,7 +101,7 @@
     makeSentient: true
     name: ghost-role-information-xeno-name
     description: ghost-role-information-xeno-description
-    rules: ghost-role-information-rules-default-team-antagonist
+    rules: ghost-role-information-xeno-rules
     raffle:
       settings: default
   - type: GhostTakeoverAvailable
@@ -119,6 +121,11 @@
     molsPerSecondPerUnitMass: 0.0005
   - type: Speech
     speechVerb: LargeMob
+  - type: ThermalVision
+    lightRadius: 15
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   name: praetorian

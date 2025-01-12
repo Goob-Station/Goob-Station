@@ -15,3 +15,7 @@
     - type: GuideHelp
       guides:
       - ArtifactReports
+    - type: PhysicalComposition #Goobstation - Recycle update
+      materialComposition:
+        Steel: 25
+        Plastic: 12

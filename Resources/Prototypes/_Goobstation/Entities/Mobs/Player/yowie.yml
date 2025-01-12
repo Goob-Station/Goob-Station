@@ -1,0 +1,5 @@
+- type: entity
+  save: false
+  name: Urist McYow
+  parent: BaseMobYowie
+  id: MobYowie

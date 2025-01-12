@@ -1,4 +1,5 @@
 ﻿using Content.Shared.MedicalScanner;
+using Content.Shared._Shitmed.Targeting; // Shitmed Change
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 
@@ -19,9 +20,10 @@ namespace Content.Client.HealthAnalyzer.UI
             base.Open();
 
             _window = this.CreateWindow<HealthAnalyzerWindow>();
-
+            _window.OnBodyPartSelected += SendBodyPartMessage; // Shitmed Change
             _window.Title = EntMan.GetComponent<MetaDataComponent>(Owner).EntityName;
         }
+
 
         protected override void ReceiveMessage(BoundUserInterfaceMessage message)
         {
@@ -33,5 +35,21 @@ namespace Content.Client.HealthAnalyzer.UI
 
             _window.Populate(cast);
         }
+
+        // Shitmed Change Start
+        private void SendBodyPartMessage(TargetBodyPart? part, EntityUid target) => SendMessage(new HealthAnalyzerPartMessage(EntMan.GetNetEntity(target), part ?? null));
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+            if (!disposing)
+                return;
+
+            if (_window != null)
+                _window.OnBodyPartSelected -= SendBodyPartMessage;
+
+            _window?.Dispose();
+        }
+
+        // Shitmed Change End
     }
 }

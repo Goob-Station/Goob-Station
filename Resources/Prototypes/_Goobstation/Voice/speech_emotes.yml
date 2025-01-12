@@ -1,0 +1,148 @@
+- type: emote
+  id: Fart
+  name: chat-emote-name-fart
+  category: Farts
+  icon: _Goobstation/Interface/Emotes/fart.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - Silicon
+  chatMessages: ["chat-emote-msg-fart"]
+  chatTriggers:
+    - fart
+    - farts
+    - farting
+    - farted
+    - toot
+    - toots
+    - tooted
+    - tooting
+    - pass gas
+    - passes gas
+    - passing gas
+    - passed gas
+    - break wind
+    - breaks wind
+    - breaking wind
+    - broke wind
+    - flatulate
+    - flatulates
+    - flatulating
+    - flatulated
+    - let one rip
+    - lets one rip
+    - letting one rip
+    - cut cheese
+    - cuts cheese
+    - cutting cheese
+    - cut the cheese
+    - cuts the cheese
+    - cutting the cheese
+    - let out a stinker
+    - lets out a stinker
+    - letting out a stinker
+    - exhales anally
+    - burps from the rear
+    - burps from the butt
+    - bowel howl
+    - bowel howls
+    - bowel howling
+    - bowel howled
+    - accelerates climate change
+
+- type: emote
+  id: FartInhale
+  name: chat-emote-name-fart-inhale
+  category: Farts
+  icon: _Goobstation/Interface/Emotes/fart-in.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - Silicon
+  chatMessages: ["chat-emote-msg-fart-inhale"]
+  chatTriggers:
+    - inhale anally
+    - inhales anally
+    - inhaling anally
+    - inhaled anally
+    - anally inhale
+    - anally inhales
+    - anally inhaling
+    - anally inhaled
+    - farts backward
+    - fart backward
+    - fart in
+    - farts in
+    - farting in
+    - farted in
+    - inhales through the rear
+    - inhales through rear
+    - inhales through the butt
+    - inhales through butt
+    - inhales through the anus
+    - inhales through anus
+    - inhales through the rectum
+    - inhales through rectum
+    - inhales through the ass
+    - inhales through ass
+    - buttreathes in
+    - breathes in through butt
+
+- type: emote
+  id: FartSuper
+  name: chat-emote-name-fart-super
+  category: Farts
+  icon: _Goobstation/Interface/Emotes/fart-super.png
+  whitelist:
+    components:
+    - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+    - Silicon
+  chatMessages: ["chat-emote-msg-fart-super"]
+  chatTriggers:
+    - superfart
+    - superfarts
+    - superfarted
+    - superfarting
+    - super fart
+    - super farts
+    - super farted
+    - super farting
+    - ultrafart
+    - ultrafarts
+    - ultrafarted
+    - ultrafarting
+    - ultra fart
+    - ultra farts
+    - ultra farted
+    - ultra farting
+
+- type: emote 
+  id: Flap
+  name: chat-emote-name-flap
+  category: Vocal
+  available: false
+  icon: Interface/Emotes/chitter.png
+  whitelist:
+    components:
+      - Vocal
+  blacklist:
+    components:
+    - BorgChassis
+  chatMessages: ["chat-emote-msg-flap"]
+  chatTriggers:
+   - flaps
+   - flapped
+   - flaps his wings
+   - flaps her wings
+   - flaps their wings
+   - flaps its wings
+

@@ -31,7 +31,7 @@
     shoes: ClothingShoesBootsJackFilled
     outerClothing: ClothingOuterArmorBasic
     id: SecurityCadetPDA
-    ears: ClothingHeadsetSecurity
+    ears: ClothingHeadsetAltSecurityRegular # Goobstation
     belt: ClothingBeltSecurityFilled
     pocket1: WeaponDisabler
     pocket2: BookSecurity
@@ -39,3 +39,4 @@
     back:
     - Flash
     - Handcuffs
+    - SecHypo # Goobstation

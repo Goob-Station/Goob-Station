@@ -8,6 +8,15 @@
     sprite: _Goobstation/Clothing/Back/Satchels/nanorep.rsi
 
 - type: entity
+  parent: [ClothingBackpackSatchel, BaseCentcommContraband]
+  id: ClothingBackpackSatchelBlueshield
+  name: blueshield satchel
+  description: A very protective satchel, smells like energy gun.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Back/Satchels/blueshield.rsi
+
+- type: entity
   parent: ClothingBackpackSatchel
   id: ClothingSatchelSmuggler
   name: Satchel

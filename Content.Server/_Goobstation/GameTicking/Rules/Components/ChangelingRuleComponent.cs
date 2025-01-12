@@ -1,7 +1,4 @@
-using Content.Shared.NPC.Prototypes;
-using Content.Shared.Roles;
 using Content.Shared.Store;
-using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
 namespace Content.Server.GameTicking.Rules.Components;
@@ -16,12 +13,5 @@ public sealed partial class ChangelingRuleComponent : Component
         "ChangelingAbilityCombat",
         "ChangelingAbilitySting",
         "ChangelingAbilityUtility"
-    };
-
-    public readonly List<ProtoId<EntityPrototype>> Objectives = new()
-    {
-        "ChangelingSurviveObjective",
-        "ChangelingStealDNAObjective",
-        "EscapeIdentityObjective"
     };
 }

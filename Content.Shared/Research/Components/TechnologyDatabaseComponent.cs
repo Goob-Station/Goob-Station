@@ -2,6 +2,7 @@ using Content.Shared.Lathe;
 using Content.Shared.Research.Prototypes;
 using Content.Shared.Research.Systems;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
 
@@ -54,4 +55,12 @@ public sealed partial class TechnologyDatabaseComponent : Component
 /// server to all of it's clients.
 /// </remarks>
 [ByRefEvent]
-public readonly record struct TechnologyDatabaseModifiedEvent;
+public readonly record struct TechnologyDatabaseModifiedEvent // Goobstation - Lathe message on recipes update
+{
+    public readonly List<ProtoId<LatheRecipePrototype>> UnlockedRecipes;
+
+    public TechnologyDatabaseModifiedEvent(List<ProtoId<LatheRecipePrototype>>? unlockedRecipes = null)
+    {
+        UnlockedRecipes = unlockedRecipes ?? new();
+    }
+};

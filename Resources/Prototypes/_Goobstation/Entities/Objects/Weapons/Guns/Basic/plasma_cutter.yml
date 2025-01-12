@@ -26,6 +26,11 @@
   - type: Appearance
   - type: Multishot
     spreadMultiplier: 1.2
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 125
+      Glass: 75
+      Plasma: 75
 
 - type: entity
   parent: WeaponPlasmaCutter

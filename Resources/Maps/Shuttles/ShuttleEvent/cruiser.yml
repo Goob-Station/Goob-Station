@@ -21,7 +21,7 @@ entities:
       name: NT-Cruiser
     - type: Transform
       pos: 0.052083373,-0.6041667
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:

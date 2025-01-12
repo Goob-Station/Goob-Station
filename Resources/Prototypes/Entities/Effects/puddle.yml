@@ -151,6 +151,9 @@
   - type: EdgeSpreader
     id: Puddle
   - type: StepTrigger
+    triggerGroups: # Goobstation
+      types:
+      - SlipTile
   - type: Drink
     delay: 3
     transferAmount: 1
@@ -165,3 +168,4 @@
   - type: Tag
     tags:
     - DNASolutionScannable
+  - type: PuddleFootPrints # WD EDIT

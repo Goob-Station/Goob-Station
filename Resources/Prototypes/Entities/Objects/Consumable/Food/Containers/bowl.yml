@@ -21,6 +21,10 @@
       visible: false
   - type: MixableSolution
     solution: food
+  - type: Drink
+    solution: food
+    useSound:
+      path: /Audio/Items/drink.ogg
   - type: DamageOnLand
     damage:
       types:
@@ -59,6 +63,11 @@
   - type: Tag
     tags:
     - Trash
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 5
 
 - type: entity
   name: broken bowl
@@ -72,7 +81,7 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 50
   - type: SpaceGarbage

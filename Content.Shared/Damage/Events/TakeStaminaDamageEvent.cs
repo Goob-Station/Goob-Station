@@ -1,6 +1,5 @@
 using Content.Shared.Damage.Components;
 using Content.Shared.Inventory;
-using Robust.Shared.Collections;
 
 namespace Content.Shared.Damage.Events;
 

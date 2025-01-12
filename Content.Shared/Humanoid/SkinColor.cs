@@ -1,6 +1,3 @@
-using System.Security.Cryptography;
-using Microsoft.VisualBasic.CompilerServices;
-
 namespace Content.Shared.Humanoid;
 
 public static class SkinColor
@@ -257,4 +254,5 @@ public enum HumanoidSkinColor : byte
     Hues,
     VoxFeathers, // Vox feathers are limited to a specific color range
     TintedHues, //This gives a color tint to a humanoid's skin (10% saturation with full hue range).
+    NoColor, // Goob #1161
 }

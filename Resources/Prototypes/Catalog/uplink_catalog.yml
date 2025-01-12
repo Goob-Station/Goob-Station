@@ -1,16 +1,18 @@
 # TODO: make more categories
 # Guns
 
+# goob edit - FUCK NEWSTORE
+
 - type: listing
   id: UplinkPistolViper
   name: uplink-pistol-viper-name
   description: uplink-pistol-viper-desc
   productEntity: WeaponPistolViper
   cost:
-    Telecrystal: 14 # goob - this +1 mag = 20 TC
+    Telecrystal: 14 # goob - this +1 mag = 16 TC
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkRevolverPython
@@ -18,10 +20,10 @@
   description: uplink-revolver-python-desc
   productEntity: WeaponRevolverPythonAP
   cost:
-    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 40 TC.
+    Telecrystal: 24 # goob - Originally was 65 TC but was not used due to high cost. and the same happened at 40 TC. +2 mags = 34 TC.
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 # Inbuilt suppressor so it's sneaky + more expensive.
 - type: listing
@@ -30,10 +32,10 @@
   description: uplink-pistol-cobra-desc
   productEntity: WeaponPistolCobra
   cost:
-    Telecrystal: 17 # goob - this +1 mag = 25 TC
+    Telecrystal: 15 # goob - this +1 mag = 17 TC
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 # Poor accuracy, slow to fire, cheap option
 - type: listing
@@ -53,10 +55,11 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_sword.rsi, state: icon }
   productEntity: EnergySword
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 37 # goob - desword is 74
+  saleLimit: 2 # Goob - 2 eswords = desword
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEnergyDagger
@@ -68,7 +71,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkThrowingKnivesKit
@@ -80,7 +83,7 @@
     Telecrystal: 20 # goob - Pretty weak, but resusable ranged crit potential shouldn't be less.
   categories:
     - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGlovesNorthStar
@@ -91,7 +94,7 @@
     Telecrystal: 40 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkDisposableTurret
@@ -107,7 +110,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEshield
@@ -116,15 +119,10 @@
   icon: { sprite: /Textures/Objects/Weapons/Melee/e_shield.rsi, state: eshield-on }
   productEntity: EnergyShield
   cost:
-    Telecrystal: 40 # goob
+    Telecrystal: 15 # goob
   categories:
   - UplinkWeaponry
-  conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSniperBundle
@@ -136,31 +134,31 @@
     Telecrystal: 80 # goob - increase price by a lot when the thing has a scope
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
-  id: UplinkC20RBundle
-  name: uplink-c20r-bundle-name
-  description: uplink-c20r-bundle-desc
+  id: UplinkC20R #goob
+  name: uplink-c20r-name #goob
+  description: uplink-c20r-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/SMGs/c20r.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledSMG
+  productEntity: WeaponSubMachineGunC20r #Goob unbundle update
   cost:
-    Telecrystal: 85 # goob
+    Telecrystal: 50 # goob unbunde update
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
-  id: UplinkBulldogBundle
-  name: uplink-buldog-bundle-name
-  description: uplink-buldog-bundle-desc
+  id: UplinkBulldog #goob
+  name: uplink-buldog-name #goob
+  description: uplink-buldog-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/Shotguns/bulldog.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledShotgun
+  productEntity: WeaponShotgunBulldog
   cost:
-    Telecrystal: 100 # goob
+    Telecrystal: 60 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGrenadeLauncherBundle
@@ -172,19 +170,19 @@
     Telecrystal: 150 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
-  id: UplinkL6SawBundle
-  name: uplink-l6-saw-bundle-name
-  description: uplink-l6-saw-bundle-desc
+  id: UplinkL6Saw #goob
+  name: uplink-l6-saw-name #goob
+  description: uplink-l6-saw-desc #goob
   icon: { sprite: /Textures/Objects/Weapons/Guns/LMGs/l6.rsi, state: icon }
-  productEntity: ClothingBackpackDuffelSyndicateFilledLMG
+  productEntity: WeaponLightMachineGunL6
   cost:
-    Telecrystal: 150 # goob
+    Telecrystal: 100 # goob
   categories:
   - UplinkWeaponry
-  saleLimit: 1 # WD EDIT
+
 
 # Explosives
 
@@ -197,7 +195,7 @@
     Telecrystal: 12 # goob - Better than C4 combat wise, less utility elsewhere. Don't want crazy spam on ops however.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkExplosiveGrenadeFlash
@@ -208,7 +206,7 @@
     Telecrystal: 4 # goob - grenade balancing applies
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSmokeGrenade
@@ -219,7 +217,7 @@
     Telecrystal: 4 # goob - grenade balancing applies
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndieMiniBomb
@@ -230,7 +228,7 @@
     Telecrystal: 32 # goob
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSupermatterGrenade
@@ -241,7 +239,7 @@
     Telecrystal: 28 # goob
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkWhiteholeGrenade
@@ -252,7 +250,7 @@
     Telecrystal: 8 # goob - it's an emergency escape tool and distraction, not a real nade.
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGrenadePenguin
@@ -268,7 +266,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkC4
@@ -279,7 +277,7 @@
     Telecrystal: 8 # goob - We have a ten tens or 100 TC system, lets use the bastard. Better than 13's yet 10 TC's a pretty crappy price.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGrenadierRig
@@ -295,7 +293,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkC4Bundle
@@ -306,7 +304,7 @@
     Telecrystal: 60 # goob - you're buying bulk so its a 25% discount
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEmpGrenade
@@ -314,10 +312,10 @@
   description: uplink-emp-grenade-desc
   productEntity: EmpGrenade
   cost:
-    Telecrystal: 8 # goob - Pretty decent, but underused for a reason at 10 TC.
+    Telecrystal: 4 # goob - implanter is 10 and infintely better lmao
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkExplodingPen
@@ -329,7 +327,7 @@
     Telecrystal: 16 # goob
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateBomb
@@ -371,7 +369,7 @@
     Telecrystal: 28 # goob - Best grenade in the game currently, but very hard to predict how it explodes.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGrenadeShrapnel
@@ -382,7 +380,7 @@
     Telecrystal: 16 # goob - Better than the normal nade, but not by much.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkGrenadeIncendiary
@@ -393,7 +391,7 @@
     Telecrystal: 20 # goob - Better than the shrapnel nade by far.
   categories:
   - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEmpKit
@@ -404,7 +402,7 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkExplosives
-  saleLimit: 1 # WD EDIT
+
 
 # Ammo
 
@@ -415,7 +413,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistol
   cost:
-    Telecrystal: 6 # goob - Harder to spam mags, not that people really viper spam and they have more space.
+    Telecrystal: 2 # goob - Ammo should be cheap.
   categories:
   - UplinkAmmo
 
@@ -427,7 +425,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/Pistol/smg_mag.rsi, state: red-icon }
   productEntity: MagazinePistolSubMachineGun
   cost:
-    Telecrystal: 15 # goob - Bundle + Mag = 100 TC
+    Telecrystal: 5 # goob - Bundle + 3 Mags = 100 TC
   categories:
   - UplinkAmmo
 
@@ -439,7 +437,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/Magazine/CaselessRifle/caseless_pistol_mag.rsi, state: red-icon }
   productEntity: MagazinePistolCaselessRifle
   cost:
-    Telecrystal: 8 # goob - People actually spam these more than other ammo types
+    Telecrystal: 2 # goob - Same price as .35, more damage but less ammo in mag
   categories:
   - UplinkAmmo
 
@@ -451,7 +449,7 @@
   icon: { sprite: /Textures/Objects/Weapons/Guns/Ammunition/SpeedLoaders/Magnum/magnum_speed_loader.rsi, state: icon }
   productEntity: SpeedLoaderMagnumAP
   cost:
-    Telecrystal: 8 # goob - AP, improved level
+    Telecrystal: 5 # goob - AP, but only 6 bullets in speedloader
   categories:
   - UplinkAmmo
 
@@ -462,7 +460,7 @@
   description: uplink-mosin-ammo-desc
   productEntity: MagazineBoxLightRifle
   cost:
-    Telecrystal: 4 # goob
+    Telecrystal: 15 # goob - l6 exists
   categories:
   - UplinkAmmo
 
@@ -473,28 +471,28 @@
   description: uplink-sniper-ammo-desc
   productEntity: MagazineBoxAntiMateriel
   cost:
-    Telecrystal: 40 # goob - 2 ammo capacity worth
+    Telecrystal: 20 # goob - Calculated to have about the same amount/damage ratio as AP speedloader
   categories:
   - UplinkAmmo
 
-- type: listing
-  id: UplinkAmmoBundle
-  name: uplink-ammo-bundle-name
-  description: uplink-ammo-bundle-desc
-  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
-  cost:
-    Telecrystal: 75 # goob
-  categories:
-  - UplinkAmmo
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
+#- type: listing # Goob - why does it even exists?
+#  id: UplinkAmmoBundle
+#  name: uplink-ammo-bundle-name
+#  description: uplink-ammo-bundle-desc
+#  productEntity: ClothingBackpackDuffelSyndicateAmmoFilled
+#  cost:
+#    Telecrystal: 75 # goob
+#  categories:
+#  - UplinkAmmo
+#  conditions:
+#    - !type:StoreWhitelistCondition
+#      whitelist:
+#        tags:
+#          - NukeOpsUplink
+#    - !type:BuyerWhitelistCondition
+#      blacklist:
+#        components:
+#          - SurplusBundle
 
 #Chemicals
 
@@ -508,7 +506,7 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHypoDart
@@ -517,10 +515,10 @@
   icon: { sprite: /Textures/Objects/Fun/Darts/dart_red.rsi, state: icon }
   productEntity: HypoDartBox
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 5 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkChemistryKitBundle
@@ -532,7 +530,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkZombieBundle
@@ -563,7 +561,7 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCombatMedkit
@@ -574,7 +572,7 @@
     Telecrystal: 25 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCombatMedipen
@@ -585,7 +583,7 @@
     Telecrystal: 12 # Goobstation - Combat pen rebalance
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkStimpack
@@ -596,7 +594,7 @@
     Telecrystal: 10 # goob - 1 TC per 3 seconds.
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkStimkit
@@ -607,7 +605,7 @@
     Telecrystal: 30 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCigarettes
@@ -618,7 +616,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkChemicals
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkMedsBundle
@@ -638,7 +636,7 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 # Deception
 
@@ -651,7 +649,7 @@
     Telecrystal: 15 # goob
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkStealthBox
@@ -662,7 +660,7 @@
     Telecrystal: 20 # goob - 20 TC's a balance tier, and the stealth box's not good enough to lose a 20/40/80 TC item for.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkChameleonProjector
@@ -673,7 +671,7 @@
     Telecrystal: 30 # goob - Basically a meme item at 35 TC to be real.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHeadsetEncryptionKey
@@ -685,7 +683,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkBinaryTranslatorKey
@@ -727,7 +725,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkBribe
@@ -738,7 +736,7 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 # - type: listing
 #   id: UplinkGigacancerScanner
@@ -760,7 +758,7 @@
     Telecrystal: 20 # goob - total meme item.
   categories:
   - UplinkDeception
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateBombFake
@@ -783,7 +781,7 @@
     Telecrystal: 40 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkRadioJammer
@@ -794,7 +792,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateWeaponModule
@@ -805,7 +803,7 @@
     Telecrystal: 25 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateMartyrModule
@@ -817,7 +815,7 @@
     Telecrystal: 20 # goob
   categories:
     - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSoapSyndie
@@ -828,7 +826,7 @@
     Telecrystal: 5 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSlipocalypseClusterSoap
@@ -839,7 +837,7 @@
     Telecrystal: 12 # goob - Not a GREAT item but has some effects. Bomb Balance.
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkToolbox
@@ -850,7 +848,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateJawsOfLife
@@ -861,7 +859,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkDuffelSurgery
@@ -872,7 +870,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkPowerSink
@@ -888,7 +886,7 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkAntimovCircuitBoard
@@ -938,7 +936,6 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
 
 - type: listing
   id: UplinkSuperSurplusBundle
@@ -958,7 +955,6 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 0 # goob edit
 
 - type: listing
   id: UplinkSingarityBeacon
@@ -969,7 +965,7 @@
     Telecrystal: 60 # goob
   categories:
     - UplinkDisruption
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCameraBug
@@ -998,7 +994,7 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkReinforcementRadioSyndicate
@@ -1015,7 +1011,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 # Goobstation - Nukeop reinforcement
 - type: listing
@@ -1033,7 +1029,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateCyborgAssault
@@ -1050,7 +1046,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestor
@@ -1067,7 +1063,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkReinforcementRadioSyndicateAncestorNukeops # Version for Nukeops that spawns a syndicate monkey with the NukeOperative component.
@@ -1084,7 +1080,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCarpDehydrated
@@ -1100,7 +1096,7 @@
     blacklist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkMobCatMicrobomb
@@ -1112,7 +1108,7 @@
     Telecrystal: 30 # goob
   categories:
     - UplinkAllies
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicatePersonalAI
@@ -1127,7 +1123,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  saleLimit: 1 # WD EDIT
+
 
 # Implants
 
@@ -1146,7 +1142,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkFreedomImplanter
@@ -1158,7 +1154,7 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkScramImplanter
@@ -1170,7 +1166,7 @@
     Telecrystal: 20 # goob - it's a gamble that may kill you easily but can also save an agent. and that's why the 20 TC Balance tier makes sense.
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkDnaScramblerImplant
@@ -1182,7 +1178,7 @@
     Telecrystal: 25 # goob
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEmpImplanter
@@ -1194,7 +1190,6 @@
     Telecrystal: 10 # goob
   categories:
     - UplinkImplants
-  saleLimit: 1 # WD EDIT
 
 - type: listing
   id: UplinkMicroBombImplanter
@@ -1203,19 +1198,20 @@
   icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
   productEntity: MicroBombImplanter
   cost:
-    Telecrystal: 10 # goob
+    Telecrystal: 20 # goob
   categories:
   - UplinkImplants
   conditions:
-  - !type:StoreWhitelistCondition
-    whitelist:
-      tags:
-      - NukeOpsUplink
-  - !type:BuyerWhitelistCondition
-    blacklist:
-      components:
-      - SurplusBundle
-  saleLimit: 1 # WD EDIT
+  # goob - traitor suicide implants
+  #- !type:StoreWhitelistCondition
+  #  whitelist:
+  #    tags:
+  #    - NukeOpsUplink
+  #- !type:BuyerWhitelistCondition
+  #  blacklist:
+  #    components:
+  #    - SurplusBundle
+
 
 - type: listing
   id: UplinkMacroBombImplanter
@@ -1227,16 +1223,18 @@
     Telecrystal: 65 # goob
   categories:
     - UplinkImplants
+  restockTime: 1800
   conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-    - !type:BuyerWhitelistCondition
-      blacklist:
-        components:
-          - SurplusBundle
-  saleLimit: 1 # WD EDIT
+    # goob - traitor suicide implants
+    #- !type:StoreWhitelistCondition
+    #  whitelist:
+    #    tags:
+    #      - NukeOpsUplink
+    #- !type:BuyerWhitelistCondition
+    #  blacklist:
+    #    components:
+    #      - SurplusBundle
+
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1245,15 +1243,16 @@
   icon: { sprite: /Textures/Objects/Magic/magicactions.rsi, state: gib }
   productEntity: DeathAcidifierImplanter
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 20 # goob # goob - traitor suicide implants
   categories:
     - UplinkImplants
-  conditions:
-    - !type:StoreWhitelistCondition
-      whitelist:
-        tags:
-          - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+  # goob - traitor suicide implants
+  #conditions:
+  #  - !type:StoreWhitelistCondition
+  #    whitelist:
+  #      tags:
+  #        - NukeOpsUplink
+
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
@@ -1270,7 +1269,7 @@
       blacklist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkDeathRattle
@@ -1290,7 +1289,7 @@
       blacklist:
         components:
           - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 # Wearables
 
@@ -1303,7 +1302,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkVoiceMask
@@ -1314,7 +1313,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHolster
@@ -1325,7 +1324,7 @@
     Telecrystal: 2 # goob - Pointless and valid.
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkChestRig
@@ -1336,7 +1335,7 @@
     Telecrystal: 4 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkChameleon
@@ -1345,10 +1344,10 @@
   productEntity: ClothingBackpackChameleonFill
   icon: { sprite: /Textures/Clothing/Uniforms/Jumpsuit/rainbow.rsi, state: icon }
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 15 # goob
   categories:
     - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingNoSlipsShoes
@@ -1359,7 +1358,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkgClothingThievingGloves
@@ -1367,10 +1366,10 @@
   description: uplink-clothing-thieving-gloves-desc
   productEntity: ThievingGloves
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 30 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingOuterVestWeb
@@ -1378,10 +1377,10 @@
   description: uplink-clothing-outer-vest-web-desc
   productEntity: ClothingOuterVestWeb
   cost:
-    Telecrystal: 20 # goob - Locks out some stronger items. Also 20 TC Tier makes more sense.
+    Telecrystal: 15 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingShoesBootsMagSyndie
@@ -1392,7 +1391,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkEVASyndie
@@ -1404,7 +1403,7 @@
     Telecrystal: 20 # goob - Meh protection no slowdown. Can definitely take a hit or two extra however.
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHardsuitCarp
@@ -1416,7 +1415,7 @@
     Telecrystal: 20 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHardsuitSyndie
@@ -1428,7 +1427,7 @@
     Telecrystal: 50 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingOuterArmorRaid
@@ -1445,7 +1444,7 @@
     whitelist:
       tags:
       - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHardsuitSyndieElite
@@ -1457,7 +1456,7 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingOuterHardsuitJuggernaut
@@ -1469,7 +1468,7 @@
     Telecrystal: 75 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingEyesHudSyndicate
@@ -1485,7 +1484,7 @@
       whitelist:
         tags:
           - NukeOpsUplink
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClothingConductingGloves
@@ -1496,7 +1495,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkBackpackSyndicate
@@ -1507,7 +1506,7 @@
     Telecrystal: 4 # goob - Pointless valid item.
   categories:
     - UplinkWearables
-  saleLimit: 1 # WD EDIT
+
 
  # Pointless
 
@@ -1550,7 +1549,7 @@
     Telecrystal: 8 # goob - Has some gimmicky use, can't be 5 TC. Not on 10 TC level so it takes 8 TC.
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCatEars
@@ -1561,7 +1560,7 @@
     Telecrystal: 130 # goob
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkOutlawHat
@@ -1602,7 +1601,7 @@
     Telecrystal: 10 # goob
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCarpSuitBundle
@@ -1643,7 +1642,7 @@
     Telecrystal: 100 # goob
   categories:
   - UplinkPointless
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkScarfSyndieRed
@@ -1691,7 +1690,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Botanist
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkRiggedBoxingGlovesPassenger # Remove when contractor baton gets added- and yes, i'm working on that - Goobstation, Fenn :3
@@ -1706,7 +1705,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - Passenger
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkRiggedBoxingGlovesBoxer
@@ -1721,7 +1720,7 @@
     - !type:BuyerJobCondition
       whitelist:
         - Boxer
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkNecronomicon
@@ -1740,7 +1739,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkHolyHandGrenade
@@ -1755,7 +1754,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Chaplain
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkRevolverCapGunFake
@@ -1771,7 +1770,7 @@
     whitelist:
     - Mime
     - Clown
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkBananaPeelExplosive
@@ -1787,7 +1786,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkClusterBananaPeel
@@ -1802,7 +1801,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkHoloclownKit
@@ -1818,7 +1817,7 @@
   - !type:BuyerJobCondition
     whitelist:
     - Clown
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkHotPotato
@@ -1836,7 +1835,7 @@
     - Botanist
     - Clown
     - Mime
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkChimpUpgradeKit
@@ -1851,7 +1850,7 @@
     - !type:BuyerDepartmentCondition
       whitelist:
       - Science
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: uplinkProximityMine
@@ -1870,7 +1869,7 @@
     blacklist:
       components:
       - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkSyndicateSpongeBox
@@ -1889,7 +1888,7 @@
     - Scientist
     - ResearchDirector
     - Chef
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCaneBlade
@@ -1909,7 +1908,7 @@
   #  blacklist:
   #    components:
   #    - SurplusBundle
-  saleLimit: 1 # WD EDIT
+
 
 - type: listing
   id: UplinkCombatBakery
@@ -1926,4 +1925,38 @@
     whitelist:
     - Chef
     - Mime
-  saleLimit: 1 # WD EDIT
+
+
+- type: listing
+  id: uplinkBeeNades    #goob - bee update
+  name: uplink-beenades-name
+  description: uplink-beenades-desc
+  productEntity: BeeGrenade
+  cost:
+    Telecrystal: 16
+  categories:
+  - UplinkJob
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - Botanist
+    - Zookeeper
+
+- type: listing
+  id: UplinkDartSyringeGun
+  name: uplink-dart-syringe-gun-name
+  description: uplink-dart-syringe-gun-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Guns/Cannons/syringe_gun.rsi, state: dart-syringe-gun }
+  productEntity: DartSyringeGun
+  cost:
+    Telecrystal: 30 # goob
+  categories:
+  - UplinkChemicals
+  conditions:
+  - !type:BuyerJobCondition
+    whitelist:
+    - MedicalDoctor
+    - MedicalIntern
+    - Psychologist
+    - Chemist
+    - Paramedic

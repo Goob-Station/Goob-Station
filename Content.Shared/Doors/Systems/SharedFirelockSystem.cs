@@ -71,6 +71,12 @@ public abstract class SharedFirelockSystem : EntitySystem
 
     private void OnDoorGetPryTimeModifier(EntityUid uid, FirelockComponent component, ref GetPryTimeModifierEvent args)
     {
+        if (args.InstaPry) // Goobstation
+        {
+            args.PryTimeModifier = 0f;
+            return;
+        }
+
         WarnPlayer((uid, component), args.User);
 
         if (component.IsLocked)

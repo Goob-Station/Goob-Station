@@ -186,6 +186,7 @@
   suffix: Empty
   components:
     - type: Item
+      size: Normal # goobstation - MINI jetpack
       sprite: Objects/Tanks/Jetpacks/mini.rsi
     - type: Sprite
       sprite: Objects/Tanks/Jetpacks/mini.rsi

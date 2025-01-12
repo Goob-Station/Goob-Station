@@ -4,8 +4,9 @@
   text: "/ServerInfo/Guidebook/Antagonist/Antagonists.xml"
   children:
   - Traitors
-  - Changelings # goobstation - changelings
-  - Heretics # goob - heretics
+  - Changelings # Goobstation - changelings
+  - Heretics # Goobstation - heretics
+  - Blob # Goobstation - Blob
   - NuclearOperatives
   - Zombies
   - Revolutionaries

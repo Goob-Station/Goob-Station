@@ -24,3 +24,7 @@
     providerWhitelist:
       tags:
       - NozzleBackTank
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 375
+      Glass: 125

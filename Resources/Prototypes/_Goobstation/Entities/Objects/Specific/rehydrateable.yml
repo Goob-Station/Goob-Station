@@ -2,7 +2,125 @@
   parent: MonkeyCube
   id: SkibidiCube
   name: skibidi toilet cube
+  description: What a sigma?
   components:
   - type: Rehydratable
     possibleSpawns:
     - MobSkibidiToilet
+
+- type: entity
+  parent: MonkeyCube
+  id: HumanCube
+  name: human cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobHumanRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: DionaCube
+  name: diona cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobDionaRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: FelinidCube
+  name: felinid cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobFelinidRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: GingerbreadCube
+  name: gingerbread cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobGingerbreadRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: MothCube
+  name: moth person cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobMothRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: DwarfCube
+  name: dwarf cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobDwarfRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: HarpyCube
+  name: harpy cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobHarpyRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: RodentiaCube
+  name: rodentia cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobRodentiaRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: ReptilianCube
+  name: reptilian person cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobReptilianRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: VulpkaninCube
+  name: vulpkanin cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobVulpkaninRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: SlimePersonCube
+  name: slime person cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobSlimePersonRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: YowieCube
+  name: yowie cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobYowieRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: VoxCube
+  name: vox cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobVoxRandom

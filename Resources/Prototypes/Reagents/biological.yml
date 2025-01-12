@@ -150,10 +150,18 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 4
       - !type:ChemVomit
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         probability: 0.25
 
 - type: reagent

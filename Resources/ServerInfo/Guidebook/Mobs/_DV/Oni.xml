@@ -1,0 +1,22 @@
+<Document>
+  # Onis
+
+  <Box>
+    <GuideEntityEmbed Entity="MobOni" Caption=""/>
+  </Box>
+
+  Large, horned people that come in a variety of colors. Their accuracy with guns is terrible, but their physical strength brings them a lot of boons both in and out of combat.
+
+  ## Benefits
+  - Takes 15% less Blunt, Slash and Piercing damage.
+  - Does more damage in melee; 35% more Blunt and Asphyxiation, 20% more Slash and Piercing.
+  - Due to their big size, they can easily carry, shove and pull any other species.
+  - They are harder to shove.
+  - Slightly more stamina than Humans.
+  
+  ## Drawbacks
+  - Their accuracy with guns is terrible.
+  - They are harder to carry and pull.
+  - They are bigger than Humans, making them easier to hit.
+
+</Document>

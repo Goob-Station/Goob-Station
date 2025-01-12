@@ -42,10 +42,17 @@ public sealed partial class StaminaComponent : Component
     public float CritThreshold = 100f;
 
     /// <summary>
+    /// A dictionary of active stamina drains, with the key being the source of the drain,
+    /// DrainRate how much it changes per tick, and ModifiesSpeed if it should slow down the user.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Dictionary<EntityUid, (float DrainRate, bool ModifiesSpeed)> ActiveDrains = new();
+
+    /// <summary>
     /// How long will this mob be stunned for?
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite), DataField]
-    public TimeSpan StunTime = TimeSpan.FromSeconds(5); // goob edit
+    public TimeSpan StunTime = TimeSpan.FromSeconds(6);
 
     /// <summary>
     /// To avoid continuously updating our data we track the last time we updated so we can extrapolate our current stamina.

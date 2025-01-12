@@ -68,6 +68,10 @@ public sealed partial class EmotePrototype : IPrototype
     /// </summary>
     [DataField]
     public HashSet<string> ChatTriggers = new();
+
+    // goob edit - animations
+    [DataField]
+    public object? Event = null;
 }
 
 /// <summary>
@@ -81,5 +85,6 @@ public enum EmoteCategory : byte
     Invalid = 0,
     Vocal = 1 << 0,
     Hands = 1 << 1,
+    Farts = 1 << 2, // Goobstation - Fart Emotes
     General = byte.MaxValue
 }

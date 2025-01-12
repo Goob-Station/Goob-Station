@@ -37,6 +37,9 @@
 - files: ["nukieplanet.yml"]
   authors: DogZeroX, Emisse, metalgearsloth
 
+- files: ["nukieplanet-honkops.yml"]
+  authors: Piras314, DogZeroX, Emisse, metalgearsloth
+
 - files: ["omega.yml"]
   authors: Emisse
 
@@ -54,3 +57,6 @@
 
 - files: ["cog.yml"]
   authors: Spacemann
+
+- files: ["submarine.yml"]
+  authors: Piras314, UnicornOnLSD, IamVelcroboy, deltanedas, rosieposieeee, Peptide90, SimpleStation14, VMSolidus, DEATHB4DEFEAT

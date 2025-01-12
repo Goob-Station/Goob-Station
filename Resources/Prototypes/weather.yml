@@ -113,7 +113,7 @@
     path: /Audio/Effects/Weather/snowstorm_weak.ogg
     params:
       loop: true
-      volume: -6
+      volume: -20
 
 - type: weather
   id: SnowfallHeavy
@@ -124,7 +124,7 @@
     path: /Audio/Effects/Weather/snowstorm.ogg
     params:
       loop: true
-      volume: -6
+      volume: -20
 
 - type: weather
   id: Storm
@@ -135,4 +135,4 @@
     path: /Audio/Effects/Weather/rain_heavy.ogg
     params:
       loop: true
-      volume: -6
+      volume: -20

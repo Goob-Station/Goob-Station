@@ -52,6 +52,13 @@
     stealGroup: FireAxe
   - type: IgniteOnMeleeHit
     fireStacks: -4
+  - type: Scalpel # Shitmed
+    speed: 0.3
+  - type: BoneSaw # Shitmed
+    speed: 0.5
+  - type: SurgeryTool # Shitmed
+    startSound:
+      path: /Audio/_Shitmed/Medical/Surgery/saw.ogg
 
 - type: entity
   id: FireAxeFlaming
@@ -61,8 +68,10 @@
   components:
   - type: MeleeWeapon
     wideAnimationRotation: 90
+    heavyStaminaCost: 35 # goob edit
+    attackRate: 0.5  # goob edit
   - type: IgniteOnMeleeHit
-    fireStacks: 1
+    fireStacks: 5 #Goobchange
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon

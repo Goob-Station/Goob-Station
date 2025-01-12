@@ -62,6 +62,9 @@ knowledge-path-flesh-s8-desc =
 knowledge-path-flesh-s9-name = Priest’s Final Hymn
 knowledge-path-flesh-s9-desc =
     The ascension ritual of the Path of Flesh. Bring 4 corpses to a transmutation rune to complete the ritual.
-    When completed, you gain the ability to shed your human form and become the Lord of the Night, a supremely powerful creature.
+    When completed, you instantly shed your human form and become the Lord of the Night, a supremely powerful creature.
     Just the act of transforming causes nearby heathens great fear and trauma.
     While in the Lord of the Night form, you can consume the living to heal.
+    You will also become immune to flames, space, and similar environmental hazards.
+
+    WARNING - THIS RITUAL IS A POINT OF NO RETURN. YOU WILL BE UNABLE TO TRANSFORM BACK AFTER THE RITUAL IS PERFORMED!

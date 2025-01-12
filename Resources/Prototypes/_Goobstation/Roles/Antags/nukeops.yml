@@ -9,4 +9,4 @@
   id: SyndicateOperativeReinforcementGear
   parent: SyndicateOperativeGearFullNoUplink
   equipment:
-    pocket2: BaseUplinkRadio50TC
+    pocket2: BaseUplinkRadio50TCNukeOps

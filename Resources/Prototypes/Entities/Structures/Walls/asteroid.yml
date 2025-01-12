@@ -1,9 +1,9 @@
-#TODO: Someone should probably move the ore vein prototypes into their own file, or otherwise split this up in some way. This should not be 1.5k lines long.
+#TODO: Someone should probably move the ore vein prototypes into their own file, or otherwise split this up in some way. This should not be 2.5k lines long.
 
 # Anyway
 # See WallRock variants for the remappings.
 
-#Asteroid rock
+# Asteroid rock
 - type: entity
   id: AsteroidRock
   parent: BaseWall
@@ -31,11 +31,6 @@
         state: rock_asteroid_north
       - map: [ "enum.EdgeLayer.West" ]
         state: rock_asteroid_west
-  - type: SoundOnGather # Goobstation
-  - type: Gatherable    # Goobstation
-    toolWhitelist:
-      tags:
-        - Pickaxe
   - type: MiningScannerViewable
   - type: Damageable
     damageContainer: StructuralInorganic

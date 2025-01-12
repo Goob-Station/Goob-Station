@@ -37,6 +37,10 @@
         type: RadarConsoleBoundUserInterface
   - type: StaticPrice
     price: 150
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Steel: 200
+      Glass: 75
 
 - type: entity
   id: HandHeldMassScannerEmpty

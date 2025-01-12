@@ -15,6 +15,7 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
+    selectionTime: BeforeJobs # Goobstation
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
@@ -26,8 +27,7 @@
       startingGear: ThiefGear
       components:
       - type: Pacified
-      mindComponents:
-      - type: ThiefRole
-        prototype: Thief
+      mindRoles:
+      - MindRoleThief
       briefing:
         sound: "/Audio/Misc/thief_greeting.ogg"

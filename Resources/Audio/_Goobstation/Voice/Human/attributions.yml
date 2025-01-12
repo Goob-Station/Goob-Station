@@ -1,0 +1,14 @@
+- files: ["fart2.ogg", "fart3.ogg", "fart4.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Monkestation at commit 39c8a97b5067f903fc9486babb784a3e6f7a4ee5"
+  source: "https://github.com/Monkestation/Monkestation2.0/tree/39c8a97b5067f903fc9486babb784a3e6f7a4ee5/monkestation/sound/effects"
+
+- files: ["fart2-long.ogg", "fart3-long.ogg", "fart4-long.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Modified versions of fart2.ogg, fart3.ogg, and fart4.ogg froom Monkestation modified by Piras314"
+  source: "https://github.com/Piras314"
+
+- files: ["parp1-long.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Modified version of parp1.ogg from TV_LING modified by Piras314"
+  source: "https://github.com/Piras314"

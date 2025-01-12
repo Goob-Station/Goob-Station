@@ -2,7 +2,7 @@
   parent: BaseMedicalPatch
   id: MedicalPatchPrefilledBase
   name: prefilled medical patch
-  description: Medical patch filled whit chemicals
+  description: Medical patch filled with chemicals
   abstract: true
   components:
   - type: Sprite

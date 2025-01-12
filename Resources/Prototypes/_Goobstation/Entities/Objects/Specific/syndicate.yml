@@ -82,3 +82,16 @@
   - type: Tag
     tags:
     - NukeOpsUplink
+
+- type: entity
+  parent: BaseUplinkRadio
+  id: BaseUplinkRadio225TCMedic
+  suffix: 225 TC, NukeOps medic
+  components:
+  - type: Store
+    balance:
+      Telecrystal: 225
+  - type: Tag
+    tags:
+    - NukeOpsUplink
+    - NukeOpsMedicUplink

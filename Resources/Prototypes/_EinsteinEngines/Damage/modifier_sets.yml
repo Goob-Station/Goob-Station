@@ -1,0 +1,7 @@
+- type: damageModifierSet
+  id: IPC
+  coefficients:
+    Poison: 0
+    Cold: 0.2
+    Heat: 2
+    Shock: 2.5

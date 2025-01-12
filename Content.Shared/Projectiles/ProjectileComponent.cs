@@ -9,6 +9,12 @@ namespace Content.Shared.Projectiles;
 public sealed partial class ProjectileComponent : Component
 {
     /// <summary>
+    ///     The angle of the fired projectile.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle Angle;
+
+    /// <summary>
     ///     The effect that appears when a projectile collides with an entity.
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite)]
@@ -73,4 +79,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField]
     public bool DamagedEntity;
+
+    // Goobstation start
+    [DataField]
+    public bool Penetrate;
+
+    [NonSerialized]
+    public List<EntityUid> IgnoredEntities = new();
+    // Goobstation end
 }

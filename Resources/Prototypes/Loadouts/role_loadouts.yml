@@ -28,7 +28,7 @@
 # Silicons
 - type: roleLoadout
   id: JobStationAi
-  nameDataset: names_ai
+  nameDataset: NamesAI
 
 # Civilian
 - type: roleLoadout
@@ -352,6 +352,7 @@
   - WardenHead
   - WardenJumpsuit
   - SecurityBackpack
+  - SecurityNeck
   - SecurityBelt
   - WardenOuterClothing
   - SecurityShoes
@@ -368,6 +369,7 @@
   - SecurityBackpack
   - SecurityOuterClothing
   - SecurityShoes
+  - SecurityNeck
   - SecurityPDA
   - SecurityBelt
   - SurvivalSecurity
@@ -378,7 +380,6 @@
 - type: roleLoadout
   id: JobDetective
   groups:
-  - GroupTankHarness
   - DetectiveHead
   - DetectiveNeck
   - DetectiveJumpsuit
@@ -396,6 +397,7 @@
   - SecurityCadetJumpsuit
   - SecurityBackpack
   - SurvivalSecurity
+  - SecurityNeck
   - SecurityOuterClothing # Goobstation - Why not.
   - Trinkets
   - GroupSpeciesBreathToolSecurity

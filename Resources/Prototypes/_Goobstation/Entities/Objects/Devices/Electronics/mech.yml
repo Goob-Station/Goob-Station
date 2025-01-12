@@ -1,0 +1,139 @@
+# Clarke
+
+- type: entity
+  id: ClarkeCentralElectronics
+  parent: BaseElectronics
+  name: clarke central control module
+  description: The electrical control center for the clarke mech.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mainboard
+    - type: Tag
+      tags:
+      - ClarkeCentralControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: ClarkePeripheralsElectronics
+  parent: BaseElectronics
+  name: clarke peripherals control module
+  description: The electrical peripherals control for the clarke mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: id_mod
+    - type: Tag
+      tags:
+      - ClarkePeripheralsControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+# Gygax
+
+- type: entity
+  id: GygaxCentralElectronics
+  parent: BaseElectronics
+  name: gygax central control module
+  description: The electrical control center for the gygax mech.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mainboard
+    - type: Tag
+      tags:
+      - GygaxCentralControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: GygaxPeripheralsElectronics
+  parent: BaseElectronics
+  name: gygax peripherals control module
+  description: The electrical peripherals control for the gygax mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: id_mod
+    - type: Tag
+      tags:
+      - GygaxPeripheralsControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: GygaxTargetingElectronics
+  parent: BaseElectronics
+  name: gygax weapon control and targeting module
+  description: The electrical targeting control for the gygax mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mcontroller
+    - type: Tag
+      tags:
+      - GygaxTargetingControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+# Durand
+
+- type: entity
+  id: DurandCentralElectronics
+  parent: BaseElectronics
+  name: durand central control module
+  description: The electrical control center for the durand mech.
+  components:
+    - type: Item
+      storedRotation: 0
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mainboard
+    - type: Tag
+      tags:
+      - DurandCentralControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: DurandPeripheralsElectronics
+  parent: BaseElectronics
+  name: durand peripherals control module
+  description: The electrical peripherals control for the durand mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: id_mod
+    - type: Tag
+      tags:
+      - DurandPeripheralsControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics
+
+- type: entity
+  id: DurandTargetingElectronics
+  parent: BaseElectronics
+  name: durand weapon control and targeting module
+  description: The electrical targeting control for the durand mech.
+  components:
+    - type: Sprite
+      sprite: Objects/Misc/module.rsi
+      state: mcontroller
+    - type: Tag
+      tags:
+      - DurandTargetingControlModule
+    - type: GuideHelp
+      guides:
+      - Robotics

@@ -25,6 +25,7 @@
   - Salvage
   - Quartermaster
   - Maintenance
+  - External
   - Command
   - Brig
   - Cryogenics
@@ -40,9 +41,10 @@
   id: QuartermasterGear
   equipment:
     id: QuartermasterPDA
-    ears: ClothingHeadsetQM
+    ears: ClothingHeadsetAltCargo # Goobstation
     belt: BoxFolderClipboard
     pocket1: AppraisalTool
   storage:
     back:
     - Flash
+    - TelescopicBaton # Goobstation

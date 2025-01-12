@@ -97,6 +97,9 @@
                     <lobbyUi:LobbyCharacterPreviewPanel Name="CharacterPreview" Access="Public" />
                     <controls:HSpacer Spacing="5" />
                     <BoxContainer MinHeight="10" />
+                    <!-- Server Currency -->
+                    <Label Name="Balance" Access="Public" StyleClasses="LabelHeadingBigger" VAlign="Center"
+                            HorizontalExpand="True" HorizontalAlignment="Center" />
                     <!-- Gold line -->
                     <controls:HLine Color="{x:Static style:StyleNano.NanoGold}" Thickness="2" Access="Public" />
                     <controls:HSpacer Spacing="10" />

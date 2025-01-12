@@ -53,6 +53,13 @@ namespace Content.Shared.UserInterface
         public bool VerbOnly;
 
         /// <summary>
+        ///     Goobstation
+        ///     If true, UI can only be opened via alt verb.
+        /// </summary>
+        [DataField, ViewVariables(VVAccess.ReadWrite)]
+        public bool AltVerb;
+
+        /// <summary>
         ///     Whether spectators (non-admin ghosts) should be allowed to view this UI.
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]

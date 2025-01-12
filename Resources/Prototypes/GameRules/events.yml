@@ -10,6 +10,7 @@
     - id: ClericalError
     - id: CockroachMigration
     - id: GasLeak
+    - id: GreytideVirus
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
@@ -35,6 +36,9 @@
     - id: RevenantSpawn
     - id: SleeperAgents
     - id: ZombieOutbreak
+    - id: LoneOpsSpawn
+    - id: DerelictCyborgSpawn
+    - id: BlobSpawn # Goobstation - Blob
 
 - type: entity
   id: BaseStationEvent
@@ -155,10 +159,10 @@
   id: DragonSpawn
   components:
   - type: StationEvent
-    weight: 6.5
-    earliestStart: 40
+    weight: 2
+    earliestStart: 75
     reoccurrenceDelay: 20
-    minimumPlayers: 20
+    minimumPlayers: 60
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
@@ -176,9 +180,8 @@
       min: 1
       max: 1
       pickPlayer: false
-      mindComponents:
-      - type: DragonRole
-        prototype: Dragon
+      mindRoles:
+      - MindRoleDragon
 
 - type: entity
   parent: BaseGameRule
@@ -187,11 +190,15 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 30
+    earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule
   - type: AntagLoadProfileRule
+    # Goobstation start
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
+    # Goobstation end
   - type: AntagObjectives
     objectives:
     - StealResearchObjective
@@ -226,18 +233,17 @@
         nameSegments:
         - names_ninja_title
         - names_ninja
-      mindComponents:
-      - type: NinjaRole
-        prototype: SpaceNinja
+      mindRoles:
+      - MindRoleNinja
 
 - type: entity
   parent: BaseGameRule
   id: RevenantSpawn
   components:
   - type: StationEvent
-    weight: 7.5
+    weight: 3.5
     duration: 1
-    earliestStart: 45
+    earliestStart: 30
     minimumPlayers: 20
   - type: RandomSpawnRule
     prototype: MobRevenant
@@ -343,7 +349,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 0.5 # GoobStation: was 5, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -364,7 +370,7 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 2 # GoobStation: was 5, critters because bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -385,7 +391,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 5
+    weight: 1 # GoobStation: was 1, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -402,7 +408,7 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 20
-    weight: 1.5
+    weight: 0.5 # GoobStation: was 1.5, vent critters bad
     duration: 60
   - type: VentCrittersRule
     entries:
@@ -439,9 +445,8 @@
       - type: ZombifyOnDeath
       - type: IncurableZombie
       - type: InitialInfected
-      mindComponents:
-      - type: InitialInfectedRole
-        prototype: InitialInfected
+      mindRoles:
+      - MindRoleInitialInfected
 
 - type: entity
   parent: BaseNukeopsRule
@@ -454,29 +459,32 @@
     duration: 1
   - type: RuleGrids
   - type: LoadMapRule
-    preloadedGrid: ShuttleStriker
-  - type: NukeopsRule # goob edit
+    mapPath: /Maps/Shuttles/ShuttleEvent/striker.yml
+  - type: NukeopsRule
     roundEndBehavior: Nothing
   - type: AntagSelection
     definitions:
-    - spawnerPrototype: SpawnPointNukeopsCommander
+    - spawnerPrototype: SpawnPointLoneNukeOperative
       min: 1
       max: 1
       pickPlayer: false
       startingGear: SyndicateLoneOperativeGearFull
       roleLoadout:
       - RoleSurvivalNukie
-
       components:
       - type: NukeOperative
       - type: RandomMetadata
-        nameSegments: [names_death_commando] # goob edit
+        nameSegments:
+        - SyndicateNamesPrefix
+        - SyndicateNamesNormal
       - type: NpcFactionMember
         factions:
         - Syndicate
-      mindComponents:
-      - type: NukeopsRole
-        prototype: Nukeops
+      mindRoles:
+      - MindRoleNukeops
+  - type: AntagLoadProfileRule # Goobstation
+    speciesOverride: Human
+    alwaysUseSpeciesOverride: true
 
 - type: entity
   parent: BaseTraitorRule
@@ -503,9 +511,8 @@
       blacklist:
         components:
         - AntagImmune
-      mindComponents:
-      - type: TraitorRole
-        prototype: TraitorSleeper
+      mindRoles:
+      - MindRoleTraitorSleeper
 
 - type: entity
   id: MassHallucinations
@@ -543,3 +550,45 @@
     maxOccurrences: 1 # this event has diminishing returns on interesting-ness, so we cap it
     weight: 5
   - type: MobReplacementRule
+
+- type: entity
+  id: GreytideVirus
+  parent: BaseStationEventShortDelay
+  components:
+  - type: StationEvent
+    startAudio:
+      path: /Audio/Announcements/attention.ogg
+    weight: 5
+    minimumPlayers: 25
+    reoccurrenceDelay: 20
+  - type: GreytideVirusRule
+    accessGroups:
+    - Cargo
+    - Command
+    - Engineering
+    - Research
+    - Security
+    - Service
+    blacklist:
+    - External # don't space everything
+
+- type: entity
+  parent: BaseGameRule
+  id: DerelictCyborgSpawn
+  components:
+  - type: StationEvent
+    weight: 5
+    earliestStart: 15
+    reoccurrenceDelay: 20
+    minimumPlayers: 4
+    duration: null
+  - type: SpaceSpawnRule
+    spawnDistance: 0
+  - type: AntagSpawner
+    prototype: PlayerBorgDerelict
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: SpawnPointGhostDerelictCyborg
+      min: 1
+      max: 1
+      pickPlayer: false

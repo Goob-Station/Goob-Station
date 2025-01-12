@@ -1,10 +1,8 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Server.Atmos.Piping.Binary.Components;
 using Content.Server.Atmos.Piping.Unary.Components;
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
-using Content.Shared.Atmos.Piping.Unary.Components;
 using Content.Shared.Construction.Components;
 using JetBrains.Annotations;
 using Robust.Shared.Map;
@@ -44,11 +42,6 @@ namespace Content.Server.Atmos.Piping.Unary.EntitySystems
                 return;
 
             portableNode.ConnectionsEnabled = args.Anchored;
-
-            if (EntityManager.TryGetComponent(uid, out AppearanceComponent? appearance))
-            {
-                _appearance.SetData(uid, GasPortableVisuals.ConnectedState, args.Anchored, appearance);
-            }
         }
 
         public bool FindGasPortIn(EntityUid? gridId, EntityCoordinates coordinates, [NotNullWhen(true)] out GasPortComponent? port)

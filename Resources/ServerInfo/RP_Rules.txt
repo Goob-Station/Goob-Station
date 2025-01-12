@@ -1,10 +1,11 @@
-[color=#ff0000]YOU MUST BE AT LEAST 14 YEARS OF AGE TO PLAY ON THE GOOB STATION SERVER. ANY USERS SUSPECTED OF BEING UNDER 14 YEARS OF AGE WILL BE BANNED UNTIL THEY ARE OF AGE.[/color]
+[color=#ff0000]YOU MUST BE AT LEAST 16 YEARS OF AGE TO PLAY ON THE GOOB STATION SERVER. ANY USERS SUSPECTED OF BEING UNDER 16 YEARS OF AGE WILL BE BANNED UNTIL THEY ARE OF AGE.[/color]
 
 [color=#ff0000]DISCONNECTING FROM OR IGNORING/EVADING ADMIN-HELPS WILL RESULT IN AN APPEAL ONLY BAN.[/color]
 
 This is the "short" form of the rules, which has all the information any regular player should need. You can find the "long" form of the rules with more examples & clarifications of any ambiguity on the Space Station 14 wiki at [color=#a4885c]wiki.spacestation14.io[/color], should you need it.
 
 [color=#ff0000]Recent Changes[/color]
+    - Self-antagonism is temporarily allowed if you get a DEBUG or ADMEME weapon from a Christmas tree. A chinalake, a python, etc. doesn't count. A gibstick does, for example.
     - Removed Sandbox Rule 2.
 
 [color=#a4885c]01.[/color] [color=#a4885c]The[/color] [color=#ffd700]Golden[/color] [color=#a4885c]Rule.[/color] Admins may excercise discretion with rules as they see fit. If you rule lawyer or line skirt, you will get removed. Admins will answer for use of this privilege.
@@ -125,6 +126,3 @@ These rules also apply to any individual who is a silicon, including cyborgs and
     - You are to also guide the Station Heads, along with the Blueshield if needed. If you can't provide an answer, try ahelping for one.
     - Just cause you have all-access does not mean you can abuse it to take items from heads or other areas. Ask for permission.
     - Use common sense and remember that you are also held up to a high standard of play like command and the Blueshield Officer is. Failure to do so will lead to a roleban from command or gameban.
-
-[color=#ffffff]SANDBOX SPECIFIC RULES[/color]
-1. You are free to do as you wish, however, causing massive damage to both the station, the arrivals system, and other player’s builds is strictly prohibited. It is also strictly prohibited to spawn large amounts of entities, as too much entities can cause severe lag.

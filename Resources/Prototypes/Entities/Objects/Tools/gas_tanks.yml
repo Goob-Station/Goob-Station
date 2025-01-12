@@ -40,9 +40,9 @@
     damage:
       types:
         Blunt: 10
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 185
+      Steel: 75
   - type: StaticPrice
     price: 30
 

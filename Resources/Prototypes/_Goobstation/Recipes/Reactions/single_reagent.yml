@@ -1,0 +1,31 @@
+- type: reaction
+  id: MethExplosion
+  minTemp: 420 # in the latest ss13 code I could find, this was at 380, only 10k above the meth reaction, so this is lenient
+  impact: High
+  priority: 20
+  reactants:
+    Desoxyephedrine:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Methsplosion
+      maxIntensity: 50
+      intensityPerUnit: 0.7 # I don't want it too spicy as just a lab accident thing
+      intensitySlope: 6 # if you accidentally blew up your meth, it's your problem, not everybody else's
+      maxTotalIntensity: 50
+
+- type: reaction
+  id: BlackPowderExplosion # IF I WERE A BAD DEMOMAN, I WOULDN'T BE SITTIN HERE DISCUSSIN' IT WITH YA!
+  minTemp: 474
+  impact: High
+  priority: 20
+  reactants:
+    BlackPowder:
+      amount: 1
+  effects:
+    - !type:ExplosionReactionEffect
+      explosionType: Default
+      maxIntensity: 100
+      intensityPerUnit: 2 # this is scary
+      intensitySlope: 2 # spreads out a lot
+      maxTotalIntensity: 600 # Caps out at 300 black powder, can't have bluespace beakers take out a whole department

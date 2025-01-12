@@ -19,7 +19,7 @@ entities:
       name: NT Evac Pill
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+
     - type: MapGrid
       chunks:
         -1,0:
@@ -2066,7 +2066,7 @@ entities:
     - type: Transform
       pos: -5.5,12.5
       parent: 410
-- proto: Thruster
+- proto: ThrusterShuttleEvac # Goob edit
   entities:
   - uid: 2
     components:

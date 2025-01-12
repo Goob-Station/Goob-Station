@@ -1,5 +1,4 @@
 using System.Diagnostics.CodeAnalysis;
-using Content.Client.Lobby;
 using Content.Shared.CCVar;
 using Content.Shared.Players;
 using Content.Shared.Players.JobWhitelist;
@@ -51,15 +50,14 @@ public sealed class JobRequirementsManager : ISharedPlaytimeManager
         {
             // Reset on disconnect, just in case.
             _roles.Clear();
+            _jobWhitelists.Clear();
+            _roleBans.Clear();
         }
     }
 
     private void RxRoleBans(MsgRoleBans message)
     {
         _sawmill.Debug($"Received roleban info containing {message.Bans.Count} entries.");
-
-        if (_roleBans.Equals(message.Bans))
-            return;
 
         _roleBans.Clear();
         _roleBans.AddRange(message.Bans);

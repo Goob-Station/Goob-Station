@@ -47,6 +47,8 @@
     - WhitelistChameleon
     - SecurityBreathMask
   - type: Hailer # Goobstation - Hailer
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: [ClothingMaskGas, BaseSyndicateContraband]
@@ -72,6 +74,8 @@
     - PetWearable
     - WhitelistChameleon
     - SyndicateBreathMask
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGas
@@ -192,10 +196,10 @@
     - PetWearable
     - WhitelistChameleon
     - BreathMask # Goobstation - For survial boxes
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 50
-      Plastic: 100
+      Cloth: 25
+      Plastic: 25
   - type: StaticPrice
     price: 30 # increases in price after decomposed into raw materials
 
@@ -216,6 +220,7 @@
     tags:
     - ClownMask
     - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
     - Mask
   - type: HideLayerClothing
     slots:
@@ -280,6 +285,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -297,6 +305,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -316,9 +325,9 @@
     size: Tiny
   - type: IdentityBlocker
     coverage: MOUTH
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Plastic: 25
+      Cloth: 25
 
 - type: entity
   parent: ClothingMaskBase
@@ -400,9 +409,11 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
-  parent: [ ClothingMaskGas, BaseRestrictedContraband ]
+  parent: [ ClothingMaskGas, BaseSecurityCargoContraband ]
   id: ClothingMaskGasMerc
   name: mercenary gas mask
   description: Slightly outdated, but reliable military-style gas mask.
@@ -418,6 +429,8 @@
         Slash: 0.90
         Piercing: 0.95
         Heat: 0.95
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: [ ClothingMaskGas, BaseCentcommContraband ]
@@ -446,6 +459,8 @@
         Slash: 0.95
         Piercing: 0.95
         Heat: 0.95
+  - type: IngestionBlocker # Goobstation
+    blockSmokeIngestion: true
 
 - type: entity
   parent: ClothingMaskGasERT
@@ -480,6 +495,7 @@
     tags:
     - HamsterWearable
     - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
   - type: HideLayerClothing
     slots:
     - Snout
@@ -500,6 +516,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -516,6 +535,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -532,6 +554,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -548,6 +573,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -564,6 +592,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -580,6 +611,9 @@
   - type: HideLayerClothing
     slots:
     - Snout
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskBase
@@ -596,6 +630,7 @@
   - type: Tag
     tags:
     - WhitelistChameleon
+    - IPCMaskWearable # EE - IPCs
 
 - type: entity
   parent: ClothingMaskNeckGaiter
@@ -682,3 +717,6 @@
   - type: EyeProtection
   - type: BreathMask
   - type: IdentityBlocker
+  - type: Tag
+    tags:
+    - IPCMaskWearable # EE - IPCs

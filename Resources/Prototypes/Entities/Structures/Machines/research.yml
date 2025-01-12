@@ -57,6 +57,9 @@
   - type: GuideHelp
     guides:
     - Science
+  - type: ResearchPointSource # Goobstation
+    pointspersecond: 15
+    active: true
 
 - type: entity
   id: BaseResearchAndDevelopmentPointSource

@@ -1,4 +1,4 @@
-using Robust.Shared.Audio;
+using Content.Shared.Heretic;
 
 namespace Content.Server.Magic;
 
@@ -7,4 +7,5 @@ public sealed partial class ImmovableVoidRodComponent : Component
 {
     [DataField] public TimeSpan Lifetime = TimeSpan.FromSeconds(1f);
     public float Accumulator = 0f;
+    [NonSerialized] public Entity<HereticComponent>? User = null;
 }

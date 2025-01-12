@@ -3,7 +3,6 @@ using Content.Server.Administration.Logs;
 using Content.Server.Cloning.Components;
 using Content.Server.DeviceLinking.Systems;
 using Content.Server.Medical.Components;
-using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Shared.UserInterface;
 using Content.Shared.Cloning;
@@ -213,7 +212,7 @@ namespace Content.Server.Cloning
                 {
                     scanBodyInfo = MetaData(scanBody.Value).EntityName;
 
-                    if (!_mobStateSystem.IsDead(scanBody.Value))
+                    if (false) // GoobStation: Lets you clone living people
                     {
                         clonerStatus = ClonerStatus.ScannerOccupantAlive;
                     }

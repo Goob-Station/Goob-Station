@@ -26,6 +26,7 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Shared.Materials;
 
 namespace Content.Shared.Storage.EntitySystems;
 
@@ -344,6 +345,14 @@ public abstract class SharedEntityStorageSystem : EntitySystem
         return true;
     }
 
+    public bool IsOpen(EntityUid target, SharedEntityStorageComponent? component = null)
+    {
+        if (!ResolveStorage(target, ref component))
+            return false;
+
+        return component.Open;
+    }
+
     public bool CanOpen(EntityUid user, EntityUid target, bool silent = false, SharedEntityStorageComponent? component = null)
     {
         if (!ResolveStorage(target, ref component))
@@ -499,5 +508,14 @@ public abstract class SharedEntityStorageSystem : EntitySystem
     public virtual void ReleaseGas(EntityUid uid, SharedEntityStorageComponent component)
     {
 
+    }
+
+    // Goobstation - Recycle update - Empty container in recycle
+    protected void OnReclaimed(EntityUid uid, SharedEntityStorageComponent component, GotReclaimedEvent args)
+    {
+        if (component.DeleteContentsOnDestruction)
+            return;
+
+        _container.EmptyContainer(component.Contents, destination: args.ReclaimerCoordinates);
     }
 }

@@ -1,0 +1,11 @@
+- type: soundCollection
+  id: Fart
+  files:
+    - /Audio/_Goobstation/Voice/Human/fart2.ogg
+    - /Audio/_Goobstation/Voice/Human/fart3.ogg
+    - /Audio/_Goobstation/Voice/Human/fart4.ogg
+
+- type: soundCollection
+  id: Jump
+  files:
+    - /Audio/_Goobstation/Voice/sound_items_weapons_thudswoosh.ogg

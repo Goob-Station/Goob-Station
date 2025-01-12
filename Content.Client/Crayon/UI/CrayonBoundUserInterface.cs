@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared.Crayon;
 using Content.Shared.Decals;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 using Robust.Shared.Prototypes;
 
@@ -31,7 +30,7 @@ namespace Content.Client.Crayon.UI
         private void PopulateCrayons()
         {
             var crayonDecals = _protoManager.EnumeratePrototypes<DecalPrototype>().Where(x => x.Tags.Contains("crayon"));
-            _menu?.Populate(crayonDecals);
+            _menu?.Populate(crayonDecals.ToList());
         }
 
         public override void OnProtoReload(PrototypesReloadedEventArgs args)
@@ -42,6 +41,16 @@ namespace Content.Client.Crayon.UI
                 return;
 
             PopulateCrayons();
+        }
+
+        protected override void ReceiveMessage(BoundUserInterfaceMessage message)
+        {
+            base.ReceiveMessage(message);
+
+            if (_menu is null || message is not CrayonUsedMessage crayonMessage)
+                return;
+
+            _menu.AdvanceState(crayonMessage.DrawnDecal);
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

@@ -1,7 +1,5 @@
 using Content.Server.Antag;
-using Content.Server.Antag.Components;
 using Content.Server.GameTicking.Rules.Components;
-using Content.Shared.CCVar;
 using Content.Shared.Dataset;
 using Content.Shared.GameTicking.Components;
 using Robust.Server.Player;
@@ -9,12 +7,13 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Content.Shared._Goobstation.CCVar;
 
 namespace Content.Server.GameTicking.Rules;
 
-// btw this code is god awful.
-// a single look at it burns my retinas.
-// i do not wish to refactor it.
+// btw this code is god jolly.
+// a single look at it burns my sleigh.
+// i do not wish to gift it presents.
 // all that matters is that it works.
 // regards.
 
@@ -41,21 +40,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     }
 
     #region gamerule processing
-
-    /// <summary>
-    ///     Special TG sauce formula thing.
-    /// </summary>
-    public float LorentzToAmount(float centre = 0f, float scale = 1.8f, float maxThreat = 100f, float interval = 1f)
-    {
-        var location = _rand.NextFloat(-5, 5) * _rand.NextFloat();
-        var lorentzResult = 1 / Math.PI * MathHelper.DegreesToRadians(Math.Atan((centre - location) / scale)) + .5f;
-        var stdThreat = lorentzResult * maxThreat;
-
-        var lowerDeviation = Math.Max(stdThreat * (location - centre) / 5f, 0);
-        var upperDeviation = Math.Max((maxThreat - stdThreat) * (centre - location) / 5f, 0);
-
-        return (float) Math.Clamp(Math.Round((double) (stdThreat + upperDeviation - lowerDeviation), (int) interval), 0, 100);
-    }
 
     public List<SDynamicRuleset?> GetRulesets(ProtoId<DatasetPrototype> dataset)
     {
@@ -109,18 +93,27 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     {
         base.Started(uid, component, gameRule, args);
 
-        var players = _antag.GetAliveConnectedPlayers(_playerManager.Sessions);
+        var playersCount = _antag.GetAliveConnectedPlayers(_playerManager.Sessions).Count;
 
-        // check for lowpop and set max threat
-        var lowpopThreshold = (float) _cfg.GetCVar(CCVars.LowpopThreshold.Name);
-        var lowpopThreat = MathHelper.Lerp(component.LowpopMaxThreat, component.MaxThreat, players.Count / lowpopThreshold);
-        var maxThreat = players.Count < lowpopThreshold ? lowpopThreat : component.MaxThreat;
+        // lowpop processing
+        // test scenario: 100 players and 20 lowpop = 80 minimum threat
+        var lowpopThreshold = (float) _cfg.GetCVar(GoobCVars.LowpopThreshold.Name);
+        var minThreat = 0f + Math.Max(playersCount - lowpopThreshold, 0);
+
+        // highpop processing
+        // test scenario: 100 players and 70 highpop threshold = + 60 more max threat
+        var highpopThreshold = (float) _cfg.GetCVar(GoobCVars.HighpopThreshold.Name);
+        var maxThreat = playersCount < lowpopThreshold ? component.MaxThreat / 2 : component.MaxThreat;
+        if (playersCount >= highpopThreshold)
+            maxThreat += (playersCount - highpopThreshold) * 2;
+
+        var threat = _rand.NextFloat(minThreat, maxThreat);
 
         // generate a random amount of points
-        component.ThreatLevel = LorentzToAmount(0, 1.8f, maxThreat);
+        component.ThreatLevel = threat;
 
         // distribute budgets
-        component.RoundstartBudget = LorentzToAmount(1, 1.8f, component.ThreatLevel, 0.1f);
+        component.RoundstartBudget = _rand.NextFloat(threat / 2.5f, threat); // generally more roundstart threat
         component.MidroundBudget = component.ThreatLevel - component.RoundstartBudget;
 
         // get gamerules from dataset and add them to draftedRules
@@ -128,15 +121,12 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
         var roundstartRules = GetRulesets(component.RoundstartRulesPool);
         foreach (var rule in roundstartRules)
         {
-            if (rule == null
-            || !rule.Prototype.TryGetComponent<DynamicRulesetComponent>(out var drc, _compfact)
-            || !rule.Prototype.TryGetComponent<GameRuleComponent>(out var grc, _compfact))
-                continue;
+            if (rule == null) continue;
 
             // exclude gamerules if not enough overall budget or players
-            if (drc.Weight == 0
-            || component.RoundstartBudget < drc.Cost
-            || grc.MinPlayers > players.Count)
+            if (rule.DynamicRuleset.Weight == 0
+            || component.RoundstartBudget < rule.DynamicRuleset.Cost
+            || rule.GameRule.MinPlayers > playersCount)
                 continue;
 
             draftedRules.Add(rule);
@@ -171,63 +161,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
                         draftedRules[draftedRules.IndexOf(otherRule)] = null;
         }
 
-        // now, instead of starting a shit ton of gamemodes...
-        // we count how much of the each rule is there
-        var d = new Dictionary<string, List<SDynamicRuleset>>();
-        foreach (var rule in pickedRules)
-        {
-            var id = rule.Prototype.ID;
-
-            if (d.ContainsKey(id))
-                d[id].Add(rule);
-            else d.Add(rule.Prototype.ID, new() { rule });
-        }
-
-        // this will stay here as a big distraction
-        // until i think of a way of excluding rules from such selection, like Nukeops
-        var totalRules = new List<SDynamicRuleset>();
-        foreach (var rule in d.Values)
-        {
-            // it's supposed to have at least one item in it but we check just in case
-            if (rule.Count == 0)
-                continue;
-
-            var r = rule[0];
-            // get it's prototype and edit the maximum antag count there
-            if (r.Prototype.TryGetComponent<AntagSelectionComponent>(out var antag, _compfact))
-            {
-                for (int i = 0; i < antag.Definitions.Count; i++)
-                {
-                    // got forgive me
-                    // this is officially shitcode galore
-                    var def = antag.Definitions[i];
-                    antag.Definitions[i] = new AntagSelectionDefinition()
-                    {
-                        AllowNonHumans = def.AllowNonHumans,
-                        Blacklist = def.Blacklist,
-                        Briefing = def.Briefing,
-                        Components = def.Components,
-                        FallbackRoles = def.FallbackRoles,
-                        LateJoinAdditional = def.LateJoinAdditional,
-                        Max = rule.Count, // antag count = amount of times this rule got picked
-                        MaxRange = def.MaxRange,
-                        Min = def.Min,
-                        MindComponents = def.MindComponents,
-                        MinRange = def.MinRange,
-                        MultiAntagSetting = def.MultiAntagSetting,
-                        PickPlayer = def.PickPlayer,
-                        PlayerRatio = def.PlayerRatio,
-                        PrefRoles = def.PrefRoles,
-                        RoleLoadout = def.RoleLoadout,
-                        SpawnerPrototype = def.SpawnerPrototype,
-                        StartingGear = def.StartingGear,
-                        Whitelist = def.Whitelist,
-                    };
-                }
-            }
-            totalRules.Add(r);
-        }
-
         // spend budget and start the gamer rule
         // it will automatically get added using OnGameRuleAdded()
         foreach (var rule in pickedRules)
@@ -238,15 +171,6 @@ public sealed partial class DynamicRuleSystem : GameRuleSystem<DynamicRuleCompon
     }
 
     #endregion
-
-    protected override void Ended(EntityUid uid, DynamicRuleComponent component, GameRuleComponent gameRule, GameRuleEndedEvent args)
-    {
-        base.Ended(uid, component, gameRule, args);
-
-        // end all other game rules because i'm evil and because it's the parent gamemode
-        foreach (var rule in component.ExecutedRules)
-            if (rule.Item2 != null) _gameTicker.EndGameRule((EntityUid) rule.Item2);
-    }
 
     #region roundend text
 

@@ -1,4 +1,5 @@
 using Content.Shared.Actions;
+using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Inventory;
 using Robust.Shared.GameStates;
@@ -70,6 +71,8 @@ public sealed partial class CheckMagicItemEvent : HandledEntityEventArgs, IInven
 public sealed partial class EventHereticOpenStore : InstantActionEvent { }
 public sealed partial class EventHereticMansusGrasp : InstantActionEvent { }
 public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // opens ui
+
+// living heart
 [Serializable, NetSerializable] public sealed partial class EventHereticLivingHeartActivate : BoundUserInterfaceMessage // triggers the logic
 {
     public NetEntity? Target { get; set; }
@@ -79,25 +82,44 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
     Key
 }
 
-// for mobs
+// ghoul specific
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
-public sealed partial class EventHereticAshenShift : InstantActionEvent { }
+public sealed partial class EventHereticAshenShift : InstantActionEvent
+{
+    [DataField]
+    public DamageSpecifier? Damage;
+}
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
 public sealed partial class EventHereticCascade : InstantActionEvent { }
 
-
 // flesh
 public sealed partial class EventHereticFleshSurgery : EntityTargetActionEvent { }
-public sealed partial class EventHereticFleshAscend : InstantActionEvent { }
 
-// void (including upgrades)
+// void (+ upgrades)
 [Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAristocratWayEvent : EntityEventArgs { }
-[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
 public sealed partial class HereticVoidBlastEvent : InstantActionEvent { }
 public sealed partial class HereticVoidBlinkEvent : WorldTargetActionEvent { }
 public sealed partial class HereticVoidPullEvent : InstantActionEvent { }
+
+// blade (+ upgrades)
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticCuttingEdgeEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticDanceOfTheBrandEvent : EntityEventArgs { }
+public sealed partial class EventHereticRealignment : InstantActionEvent { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticChampionStanceEvent : EntityEventArgs { }
+public sealed partial class EventHereticFuriousSteel : InstantActionEvent { }
+
+// lock
+public sealed partial class EventHereticBulglarFinesse : InstantActionEvent { }
+public sealed partial class EventHereticLastRefugee : InstantActionEvent { }
+
+// ascensions
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionAshEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionVoidEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionFleshEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionLockEvent : EntityEventArgs { }
+[Serializable, NetSerializable, DataDefinition] public sealed partial class HereticAscensionBladeEvent : EntityEventArgs { }
 #endregion

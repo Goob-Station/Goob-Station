@@ -60,6 +60,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -123,6 +128,11 @@
     attributes:
       gender: male
   - type: Sharp
+  - type: NightVision # Goobstation - Nigthvision
+    toggleAction: null
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: entity
   id: MobRatKingBuff
@@ -241,6 +251,11 @@
   - type: Body
     prototype: Rat
     requiredLegs: 1 # TODO: More than 1 leg
+  - type: SurgeryTarget # Shitmed
+  - type: UserInterface # Shitmed
+    interfaces:
+      enum.SurgeryUIKey.Key:
+        type: SurgeryBui
   - type: Hunger # probably should be prototyped
     thresholds:
       Overfed: 200
@@ -297,6 +312,10 @@
   - type: Food
   - type: Item
     size: Tiny # Delta V - Make them edible and pickable.
+  - type: NightVision # Goobstation - Nigthvision
+    color: "#808080"
+    activateSound: null
+    deactivateSound: null
 
 - type: weightedRandomEntity
   id: RatKingLoot

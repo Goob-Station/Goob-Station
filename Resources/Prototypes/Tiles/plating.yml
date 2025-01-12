@@ -1,4 +1,4 @@
-﻿- type: tile
+- type: tile
   id: Plating
   name: tiles-plating
   sprite: /Textures/Tiles/plating.png
@@ -6,6 +6,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -24,6 +25,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -37,6 +39,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -50,6 +53,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -63,6 +67,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.3
@@ -76,6 +81,7 @@
   isSubfloor: true
   # Goobstation - Fireaxe plating prying
   deconstructTools: [ Axing ]
+  deconstructTimeMultiplier: 5 # Goobstation
   footstepSounds:
     collection: FootstepPlating
   friction: 0.15 #a little less then actual snow
@@ -88,6 +94,7 @@
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
+  deconstructTimeMultiplier: 1 # Goobstation
   weather: true
   footstepSounds:
     collection: FootstepPlating
@@ -103,6 +110,7 @@
   baseTurf: Space
   isSubfloor: true
   deconstructTools: [ Cutting ]
+  deconstructTimeMultiplier: 1 # Goobstation
   weather: true
   footstepSounds:
     collection: FootstepPlating

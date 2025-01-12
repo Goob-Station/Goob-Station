@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   abstract: true
   parent: ClothingHeadset
   id: ClothingHeadsetAlt
@@ -9,9 +9,10 @@
     state: icon_alt
   - type: Clothing
     equippedPrefix: alt
+  - type: FlashSoundSuppression # Goobstation
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
   id: ClothingHeadsetAltCargo
   name: quartermaster's over-ear headset
   components:
@@ -27,7 +28,7 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: ClothingHeadsetAlt
+  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
   id: ClothingHeadsetAltCentCom
   name: CentComm over-ear headset
   components:
@@ -155,3 +156,20 @@
       sprite: Clothing/Ears/Headsets/freelance.rsi
     - type: Clothing
       sprite: Clothing/Ears/Headsets/freelance.rsi
+
+# Goobstation start
+- type: entity
+  parent: [ClothingHeadsetAlt, BaseRestrictedContraband]
+  id: ClothingHeadsetAltSecurityRegular
+  name: security over-ear headset
+  components:
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - EncryptionKeySecurity
+      - EncryptionKeyCommon
+  - type: Sprite
+    sprite: Clothing/Ears/Headsets/security.rsi
+  - type: Clothing
+    sprite: Clothing/Ears/Headsets/security.rsi
+# Goobstation end

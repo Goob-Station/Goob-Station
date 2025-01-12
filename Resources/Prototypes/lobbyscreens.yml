@@ -65,8 +65,11 @@
 - type: lobbyBackground
   id: GoobNukie
   background: /Textures/LobbyScreens/GoobNukie.webp
-  
+
 - type: lobbyBackground
   id: GoobHeretic
   background: /Textures/LobbyScreens/heretic.webp
-  
+
+- type: lobbyBackground
+  id: amos
+  background: /Textures/LobbyScreens/amos.webp

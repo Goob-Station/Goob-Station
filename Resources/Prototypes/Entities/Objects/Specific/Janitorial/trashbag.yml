@@ -37,6 +37,9 @@
     sprite: Objects/Specific/Janitorial/trashbag.rsi
   - type: Item
     size: Normal
+  - type: PhysicalComposition #Goobstation - Recycle update
+    materialComposition:
+      Plastic: 25
 
 - type: entity
   name: trash bag

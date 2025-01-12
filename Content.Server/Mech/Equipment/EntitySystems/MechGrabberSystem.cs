@@ -10,7 +10,6 @@ using Content.Shared.Mech.Equipment.Components;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Wall;
 using Robust.Server.GameObjects;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -158,7 +157,8 @@ public sealed class MechGrabberSystem : EntitySystem
         component.AudioStream = _audio.PlayPvs(component.GrabSound, uid)?.Entity;
         var doAfterArgs = new DoAfterArgs(EntityManager, args.User, component.GrabDelay, new GrabberDoAfterEvent(), uid, target: target, used: uid)
         {
-            BreakOnMove = true
+            BreakOnMove = true,
+            MultiplyDelay = false, // Goobstation
         };
 
         _doAfter.TryStartDoAfter(doAfterArgs, out component.DoAfter);
