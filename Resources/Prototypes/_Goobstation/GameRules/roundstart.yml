@@ -190,3 +190,72 @@
     - SpawnPointGhostBlobRat
     playersPerCarrierBlob: 30
     maxCarrierBlob: 1
+
+- type: entity
+  parent: BaseNukeopsRule
+  id: Honkops
+  components:
+  - type: RandomMetadata # this generates the random operation name cuz it's cool.
+    nameSegments:
+    - operationPrefixHonkops
+    - operationSuffixHonkops
+  - type: NukeopsRule
+    localePrefix: "honkops-"
+  - type: LoadMapRule
+    mapPath: /Maps/_Goobstation/Nonstations/nukieplanet-honkops.yml
+  - type: AntagSelection
+    selectionTime: BeforeJobs
+    definitions:
+    - prefRoles: [ NukeopsCommander ]
+      fallbackRoles: [ Nukeops, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsCommander
+      startingGear: SyndicateCommanderGearFullHonkops
+      roleLoadout:
+      - RoleSurvivalNukieHonkops
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - HonkopsNamesPrefix
+        - HonkopsNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsCommander
+    - prefRoles: [ NukeopsMedic ]
+      fallbackRoles: [ Nukeops, NukeopsCommander ]
+      spawnerPrototype: SpawnPointNukeopsMedic
+      startingGear: SyndicateOperativeMedicFullHonkops
+      roleLoadout:
+      - RoleSurvivalNukieHonkops
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - HonkopsNamesPrefix
+        - HonkopsNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeopsMedic
+    - prefRoles: [ Nukeops ]
+      fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
+      spawnerPrototype: SpawnPointNukeopsOperative
+      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
+      playerRatio: 16 # Goobstation
+      startingGear: SyndicateOperativeGearFullHonkops
+      roleLoadout:
+      - RoleSurvivalNukieHonkops
+      components:
+      - type: NukeOperative
+      - type: RandomMetadata
+        nameSegments:
+        - HonkopsNamesPrefix
+        - HonkopsNamesElite
+      - type: NpcFactionMember
+        factions:
+        - Syndicate
+      mindRoles:
+      - MindRoleNukeops
