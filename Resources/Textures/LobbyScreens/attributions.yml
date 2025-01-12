@@ -1,11 +1,11 @@
-- files: ["janishootout.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Unknown"
-  source: "https://forums.goobstation.com"
+- files: ["amos.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "asardonicsailor"
+  source: "https://x.com/ASardonicSailor"
 
-- files: ["breakingchem.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Unknown"
+- files: ["cburn.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "PubliclyExecutedPig"
   source: "https://forums.goobstation.com"
 
 - files: ["clown.webp"]
@@ -13,20 +13,70 @@
   copyright: "Unknown"
   source: "https://forums.goobstation.com"
 
-- files: ["command.webp"]
+- files: ["clownassassin.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "ka2220"
+  source: "https://forums.goobstation.com"
+
+- files: ["clownhell.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "kA2220"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy, downscaled by Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm1.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy, downscaled by Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm2.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy, downscaled by Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["cqcm3.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "blooodyspy, downscaled by Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["foundinghonkers.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Unknown"
+  copyright: "Piras314"
   source: "https://forums.goobstation.com"
 
 - files: ["goob.webp"]
   license: "CC-BY-NC-SA-3.0"
-  copyright: "Unknown"
+  copyright: "Diebeck, downscaled by Piras314"
   source: "https://forums.goobstation.com"
 
-- files: ["gugel.webp"]
-  license: "CC-BY-NC-SA-3.0"
-  copyright: "Unknown"
+- files: ["GoobNukie.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
   source: "https://forums.goobstation.com"
+
+- files: ["grandtheftgoob.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["greytideworldwide.webp"]
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "Piras314"
+  source: "https://forums.goobstation.com"
+
+- files: ["heretic.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "@Cheeki - on discord"
+  source: "https://forums.goobstation.com"
+
+- files: ["janishootout.webp"]
+  license: "CC0-1.0"
+  copyright: "psychpsyo on Github/Twitter"
+  source: "https://github.com/space-wizards/space-station-14"
 
 - files: ["justaweekaway.webp"]
   license: "CC-BY-SA-3.0"
@@ -38,82 +88,7 @@
   copyright: "Unknown"
   source: "https://forums.goobstation.com"
 
-- files: ["courtjester.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Piras314"
-  source: "https://forums.goobstation.com"
-
-- files: ["donottouch.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Piras314"
-  source: "https://forums.goobstation.com"
-
-- files: ["foundinghonkers.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Piras314"
-  source: "https://forums.goobstation.com"
-
-- files: ["cburn.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "PubliclyExecutedPig"
-  source: "https://forums.goobstation.com"
-
-- files: ["clownhell.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "kA2220"
-  source: "https://forums.goobstation.com"
-
-- files: ["grandtheftgoob.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Piras314"
-  source: "https://forums.goobstation.com"
-
-- files: ["killsigned.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "icepick"
-  source: "https://forums.goobstation.com"
-
-- files: ["clownassassin.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "ka2220"
-  source: "https://forums.goobstation.com"
-
 - files: ["reclaimer-nuke.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "Unknown"
-  source: "https://forums.goobstation.com"
-
-- files: ["GoobNukie.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "@Cheeki - on discord"
-  source: "https://forums.goobstation.com"
-
-- files: ["heretic.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "@Cheeki - on discord"
-  source: "https://forums.goobstation.com"
-
-- files: ["cqcm.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "blooodyspy"
-  source: "https://forums.goobstation.com"
-
-- files: ["cqcm1.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "blooodyspy"
-  source: "https://forums.goobstation.com"
-
-- files: ["cqcm2.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "blooodyspy"
-  source: "https://forums.goobstation.com"
-
-- files: ["cqcm3.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "blooodyspy"
-  source: "https://forums.goobstation.com"
-
-- files: ["amos.webp"]
-  license: "CC-BY-SA-3.0"
-  copyright: "asardonicsailor"
-  source: "https://x.com/ASardonicSailor"
+  license: "CC-BY-NC-SA-3.0"
+  copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
+  source: "https://github.com/space-wizards/space-station-14"
