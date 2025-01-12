@@ -69,6 +69,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             if (!args.OurBody.LinearVelocity.IsLengthZero())
                 _sharedCameraRecoil.KickCamera(target, args.OurBody.LinearVelocity.Normalized());
         }
+
         // Goobstation start
         if (component.Penetrate)
             component.IgnoredEntities.Add(target);
