@@ -223,6 +223,7 @@ namespace Content.Client.Lobby
             }
         }
 
+        // Goobstation - heavily modified to add credits for lobby backgrounds
         private void UpdateLobbyBackground()
         {
             if (_gameTicker.LobbyBackground != null)
@@ -232,14 +233,14 @@ namespace Content.Client.Lobby
                 var lobbyBackground = _gameTicker.LobbyBackground;
 
                 var name = string.IsNullOrEmpty(lobbyBackground.Name)
-                    ? Loc.GetString("lobby-state-song-unknown-title")
+                    ? Loc.GetString("lobby-state-background-unknown-title")
                     : lobbyBackground.Name;
 
                 var artist = string.IsNullOrEmpty(lobbyBackground.Artist)
-                    ? Loc.GetString("lobby-state-song-unknown-artist")
+                    ? Loc.GetString("lobby-state-background-unknown-artist")
                     : lobbyBackground.Artist;
 
-                var markup = Loc.GetString("lobby-state-song-text",
+                var markup = Loc.GetString("lobby-state-background-text",
                     ("backgroundName", name),
                     ("backgroundArtist", artist));
 
@@ -250,7 +251,7 @@ namespace Content.Client.Lobby
 
             _sawmill.Warning("_gameTicker.LobbyBackground was null! No lobby background selected.");
             Lobby!.Background.Texture = null;
-            Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text")); // Goobstation
+            Lobby!.LobbyBackground.SetMarkup(Loc.GetString("lobby-state-background-no-background-text"));
         }
 
         private void SetReady(bool newReady)
