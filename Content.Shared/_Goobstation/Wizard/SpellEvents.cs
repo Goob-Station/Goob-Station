@@ -431,3 +431,9 @@ public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public int Amount = 4;
 }
+
+public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+}

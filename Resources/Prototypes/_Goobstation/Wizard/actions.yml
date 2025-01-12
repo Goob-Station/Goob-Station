@@ -489,6 +489,8 @@
       - MobState
     canTargetSelf: false
     interactOnMiss: false
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/exit_blood.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: scream_for_me
@@ -617,3 +619,21 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+
+- type: entity
+  id: ActionSanguineStrike
+  name: Sanguine Strike
+  description: Enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: exsanguinating_strike
+    event: !type:ExsanguinatingStrikeEvent
+      speech: action-speech-spell-sanguine-strike
+  - type: Magic
+    requiresSpeech: true

@@ -7,6 +7,7 @@ using Content.Shared._Goobstation.Wizard.InstantSummons;
 using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
+using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
@@ -23,6 +24,7 @@ using Content.Shared.Cluwne;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Eye.Blinding.Components;
+using Content.Shared.FixedPoint;
 using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
@@ -51,6 +53,7 @@ using Content.Shared.Speech.Muting;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
+using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
@@ -141,6 +144,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<TrapsSpellEvent>(OnTraps);
         SubscribeLocalEvent<LesserSummonBeesEvent>(OnBees);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
+        SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
     }
 
     #region Spells
@@ -869,11 +873,48 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnExsangunatingStrike(ExsanguinatingStrikeEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!TryComp(ev.Performer, out HandsComponent? hands))
+            return;
+
+        if (!HasComp<ItemComponent>(hands.ActiveHandEntity))
+        {
+            Popup(ev.Performer, "spell-fail-sanguine-strike-no-item");
+            return;
+        }
+
+        var item = hands.ActiveHandEntity.Value;
+
+        if (HasComp<VirtualItemComponent>(item))
+            return;
+
+        if (HasComp<SanguineStrikeComponent>(item))
+        {
+            Popup(ev.Performer, "spell-fail-sanguine-strike-already-empowered");
+            return;
+        }
+
+        if (!TryComp(item, out MeleeWeaponComponent? weapon) || weapon.Damage.GetTotal() == FixedPoint2.Zero)
+        {
+            PopupLoc(ev.Performer, Loc.GetString("spell-fail-sanguine-strike-not-weapon", ("item", item)));
+            return;
+        }
+
+        AddComp<SanguineStrikeComponent>(item);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
 
-    // Copied straight from SharedContainerSystem.
+    // Copied straight from SharedContainerSystem (and modified).
     private bool TryGetOuterNonMobContainer(EntityUid uid,
         TransformComponent xform,
         [NotNullWhen(true)] out BaseContainer? container)

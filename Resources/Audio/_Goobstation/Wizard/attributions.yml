@@ -87,3 +87,18 @@
   license: "CC-BY-SA-3.0"
   copyright: "Taken from tgstation."
   source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/music/antag/monkey.ogg"
+
+- files: ["charge.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/charge.ogg"
+
+- files: ["crackandbleed.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/wounds/crackandbleed.ogg"
+
+- files: ["exit_blood.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from tgstation."
+  source: "https://github.com/tgstation/tgstation/blob/80ab61c8c7741e1d95e5f168357a9e6e61b38f2c/sound/effects/magic/exit_blood.ogg"

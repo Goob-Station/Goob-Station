@@ -10,3 +10,6 @@ instant-summons-confirm-popup = This action will remove the current mark! Use it
 
 teleport-scroll-uses-left = Uses left: [color=yellow]{$uses}[/color].
 teleport-scroll-no-charges = The scroll runs out of uses and crumbles to dust!
+
+sanguine-strike-end = {CAPITALIZE($item)} seems to lose its red glow.
+sanguine-strike-examine = [color=#c41515]This weapon is empowered by sanguine magic.[/color]

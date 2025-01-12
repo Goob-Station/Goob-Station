@@ -211,6 +211,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSanguineStrike
+  name: spellbook-sanguine-strike-name
+  description: spellbook-sanguine-strike-desc
+  productAction: ActionSanguineStrike
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile

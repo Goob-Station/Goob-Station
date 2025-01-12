@@ -1,0 +1,87 @@
+using System.Linq;
+using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Damage;
+using Content.Shared.Examine;
+using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Weapons.Melee.Events;
+
+namespace Content.Shared._Goobstation.Wizard.SanguineStrike;
+
+public abstract class SharedSanguineStrikeSystem : EntitySystem
+{
+    [Dependency] private readonly DamageableSystem _damageable = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<SanguineStrikeComponent, MeleeHitEvent>(OnHit);
+        SubscribeLocalEvent<SanguineStrikeComponent, ExaminedEvent>(OnExamine);
+    }
+
+    private void OnExamine(Entity<SanguineStrikeComponent> ent, ref ExaminedEvent args)
+    {
+        args.PushMarkup(Loc.GetString("sanguine-strike-examine"));
+    }
+
+    private void OnHit(Entity<SanguineStrikeComponent> ent, ref MeleeHitEvent args)
+    {
+        if (!args.IsHit || args.HitEntities.Count == 0)
+            return;
+
+        var mobStateQuery = GetEntityQuery<MobStateComponent>();
+        var hitMobsCount = args.HitEntities.Where(mobStateQuery.HasComp).Count();
+        if (hitMobsCount == 0)
+            return;
+
+        var (uid, comp) = ent;
+
+        var damageWithoutStructural = args.BaseDamage;
+        damageWithoutStructural.DamageDict.Remove("Structural");
+        var damage = damageWithoutStructural * comp.DamageMultiplier;
+        var totalBaseDamage = damageWithoutStructural.GetTotal();
+        var totalDamage = totalBaseDamage * comp.DamageMultiplier;
+        if (totalDamage > 0f && totalDamage > comp.MaxDamageModifier)
+        {
+            damage *= comp.MaxDamageModifier / totalDamage;
+            damage += damageWithoutStructural;
+        }
+
+        var newTotalDamage = damage.GetTotal();
+        if (newTotalDamage > totalBaseDamage)
+            args.BonusDamage += damage - damageWithoutStructural;
+        args.HitSoundOverride = comp.HitSound;
+
+        if (TryComp(args.User, out DamageableComponent? damageable))
+        {
+            var totalUserDamage = damageable.TotalDamage;
+            if (totalUserDamage > FixedPoint2.Zero)
+            {
+                DamageSpecifier toHeal;
+                if (newTotalDamage < totalUserDamage)
+                    toHeal = damageable.Damage * newTotalDamage / totalUserDamage;
+                else
+                    toHeal = damageable.Damage;
+
+                _damageable.TryChangeDamage(args.User,
+                    -toHeal,
+                    true,
+                    false,
+                    damageable,
+                    null,
+                    false,
+                    targetPart: TargetBodyPart.All);
+            }
+        }
+
+        Hit(uid, comp, args.User, args.HitEntities);
+    }
+
+    protected virtual void Hit(EntityUid uid,
+        SanguineStrikeComponent component,
+        EntityUid user,
+        IReadOnlyList<EntityUid> hitEntities)
+    {
+    }
+}
