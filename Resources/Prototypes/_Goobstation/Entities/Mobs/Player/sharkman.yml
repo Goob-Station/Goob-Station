@@ -1,0 +1,6 @@
+- type: entity
+  save: false
+  name: Urist McShark
+  parent: MobSharkmanBase
+  id: MobSharkman
+

@@ -1,0 +1,9 @@
+- type: marking
+  id: Sharkman_Tail
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Sharkman]
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/sharkman_tail.rsi
+    state: sharktail
+

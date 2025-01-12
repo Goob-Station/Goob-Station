@@ -1,0 +1,152 @@
+- type: species
+  id: Sharkman
+  name: species-name-sharkman
+  roundStart: true
+  prototype: MobSharkman
+  sprites: MobSharkmanSprites
+  markingLimits: MobSharkmanMarkingLimits
+  dollPrototype: MobSharkmanDummy
+  skinColoration: Hues
+
+- type: speciesBaseSprites
+  id: MobSharkmanSprites
+  sprites:
+    Head: MobSharkmanHead
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobSharkmanTorso
+    Eyes: MobHumanoidEyes
+    LArm: MobSharkmanLArm
+    RArm: MobSharkmanRArm
+    LHand: MobSharkmanLHand
+    RHand: MobSharkmanRHand
+    LLeg: MobSharkmanLLeg
+    RLeg: MobSharkmanRLeg
+    LFoot: MobSharkmanLFoot
+    RFoot: MobSharkmanRFoot
+    Tail: MobHumanoidAnyMarking
+    HeadTop: MobHumanoidAnyMarking
+
+- type: markingPoints
+  id: MobSharkmanMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ Sharkman_Tail ]
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobSharkmanEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobSharkmanAnyMarking
+
+- type: humanoidBaseSprite
+  id: MobSharkmanMarkingMatchSkin
+  markingsMatchSkin: true
+
+- type: humanoidBaseSprite
+  id: MobSharkmanHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSharkmanHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobSharkmanHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobSharkmanTorso
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSharkmanTorsoMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobSharkmanTorsoFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobSharkmanLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobSharkmanLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobSharkmanLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobSharkmanLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobSharkmanRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobSharkmanRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobSharkmanRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobSharkmanRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Sharkman/parts.rsi
+    state: r_foot
