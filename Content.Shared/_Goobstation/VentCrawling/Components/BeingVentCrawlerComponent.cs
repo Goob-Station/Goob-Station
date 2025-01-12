@@ -1,10 +1,10 @@
-namespace Content.Shared.VentCraw.Components;
+namespace Content.Shared._Goobstation.VentCrawling.Components;
 
 /// <summary>
 /// A component indicating that the entity is in the process of moving through the venting process
 /// </summary>
 [RegisterComponent]
-public sealed partial class BeingVentCrawComponent : Component
+public sealed partial class BeingVentCrawlerComponent : Component
 {
     /// <summary>
     /// The entity that contains this object in the vent

@@ -3,4 +3,4 @@
   id: ClothingUniformJumpsuitAtmosSyndie
   name: Contortionist's Jumpsuit
   components:
-  - type: VentCrawClothing
+  - type: VentCrawlerClothing

@@ -1,11 +1,11 @@
-using Content.Shared.VentCraw.Components;
+using Content.Shared._Goobstation.VentCrawling.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Shared.VentCraw.Components;
+namespace Content.Shared._Goobstation.VentCrawling.Components;
 
 [RegisterComponent]
-public sealed partial class VentCrawHolderComponent : Component
+public sealed partial class VentCrawlerHolderComponent : Component
 {
     private Container? _container;
     public Container Container
@@ -55,7 +55,7 @@ public sealed partial class VentCrawHolderComponent : Component
 }
 
 [ByRefEvent]
-public record struct VentCrawExitEvent
+public record struct VentCrawlingExitEvent
 {
     public TransformComponent? holderTransform;
 }

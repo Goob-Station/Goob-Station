@@ -28,12 +28,12 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawTube  # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawEntry
+    - type: VentCrawlerTube  # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -104,12 +104,12 @@
       node: passivevent
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-    - type: VentCrawEntry # Goobstation - ventcrawl
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
+    - type: VentCrawlerEntry # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
     - type: Weldable  # Goobstation - ventcrawl
       time: 3
 
@@ -121,12 +121,12 @@
   placement:
     mode: SnapgridCenter
   components:
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawEntry  # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerEntry  # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
     - type: ApcPowerReceiver
     - type: ExtensionCableReceiver
     - type: DeviceNetwork
@@ -211,14 +211,14 @@
       - enum.LightLayers.Unshaded
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawJunction # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
       degrees:
         - 0
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: [ BaseMachinePowered, ConstructibleMachine ]

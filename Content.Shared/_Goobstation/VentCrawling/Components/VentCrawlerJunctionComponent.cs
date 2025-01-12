@@ -1,7 +1,7 @@
-namespace Content.Shared.VentCraw.Components;
+namespace Content.Shared._Goobstation.VentCrawling.Components;
 
 [RegisterComponent, Virtual]
-public partial class VentCrawJunctionComponent : Component
+public partial class VentCrawlerJunctionComponent : Component
 {
     /// <summary>
     ///     The angles to connect to.

@@ -1,11 +1,11 @@
 using Content.Client.SubFloor;
-using Content.Shared.VentCraw;
+using Content.Shared._Goobstation.VentCrawling;
 using Robust.Client.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Client.VentCraw;
+namespace Content.Client._Goobstation.VentCrawling;
 
-public sealed class VentCrawSystem : EntitySystem
+public sealed class VentCrawlingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPlayerManager _player = default!;

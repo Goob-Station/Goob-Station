@@ -3,9 +3,9 @@ using Content.Server.Body.Systems;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
-using Content.Shared.VentCraw.Components;
+using Content.Shared._Goobstation.VentCrawling.Components;
 
-namespace Content.Server.VentCraw;
+namespace Content.Server._Goobstation.VentCrawling;
 
 public sealed class BeingVentCrawSystem : EntitySystem
 {
@@ -15,14 +15,14 @@ public sealed class BeingVentCrawSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BeingVentCrawComponent, InhaleLocationEvent>(OnInhaleLocation);
-        SubscribeLocalEvent<BeingVentCrawComponent, ExhaleLocationEvent>(OnExhaleLocation);
-        SubscribeLocalEvent<BeingVentCrawComponent, AtmosExposedGetAirEvent>(OnGetAir);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, InhaleLocationEvent>(OnInhaleLocation);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, ExhaleLocationEvent>(OnExhaleLocation);
+        SubscribeLocalEvent<BeingVentCrawlerComponent, AtmosExposedGetAirEvent>(OnGetAir);
     }
 
-    private void OnGetAir(EntityUid uid, BeingVentCrawComponent component, ref AtmosExposedGetAirEvent args)
+    private void OnGetAir(EntityUid uid, BeingVentCrawlerComponent component, ref AtmosExposedGetAirEvent args)
     {
-        if (!TryComp<VentCrawHolderComponent>(component.Holder, out var holder))
+        if (!TryComp<VentCrawlerHolderComponent>(component.Holder, out var holder))
             return;
 
         if (holder.CurrentTube == null)
@@ -40,9 +40,9 @@ public sealed class BeingVentCrawSystem : EntitySystem
         }
     }
 
-    private void OnInhaleLocation(EntityUid uid, BeingVentCrawComponent component, InhaleLocationEvent args)
+    private void OnInhaleLocation(EntityUid uid, BeingVentCrawlerComponent component, InhaleLocationEvent args)
     {
-        if (!TryComp<VentCrawHolderComponent>(component.Holder, out var holder))
+        if (!TryComp<VentCrawlerHolderComponent>(component.Holder, out var holder))
             return;
 
         if (holder.CurrentTube == null)
@@ -59,9 +59,9 @@ public sealed class BeingVentCrawSystem : EntitySystem
         }
     }
 
-    private void OnExhaleLocation(EntityUid uid, BeingVentCrawComponent component, ExhaleLocationEvent args)
+    private void OnExhaleLocation(EntityUid uid, BeingVentCrawlerComponent component, ExhaleLocationEvent args)
     {
-        if (!TryComp<VentCrawHolderComponent>(component.Holder, out var holder))
+        if (!TryComp<VentCrawlerHolderComponent>(component.Holder, out var holder))
             return;
 
         if (holder.CurrentTube == null)

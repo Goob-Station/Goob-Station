@@ -1,12 +1,12 @@
 using System.Linq;
-using Content.Shared.VentCraw.Tube.Components;
-using Content.Shared.VentCraw.Components;
-using Content.Shared.VentCraw;
+using Content.Shared.VentCrawler.Tube.Components;
+using Content.Shared._Goobstation.VentCrawling.Components;
+using Content.Shared._Goobstation.VentCrawling;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Containers;
 
-namespace Content.Server.VentCraw;
+namespace Content.Server._Goobstation.VentCrawling;
 
 public sealed class VentCrawableSystem : EntitySystem
 {
@@ -18,16 +18,16 @@ public sealed class VentCrawableSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<VentCrawHolderComponent, VentCrawExitEvent>(OnVentCrawExitEvent);
+        SubscribeLocalEvent<VentCrawlerHolderComponent, VentCrawlingExitEvent>(OnVentCrawlingExitEvent);
     }
 
     /// <summary>
-    /// Exits the vent craws for the specified VentCrawHolderComponent, removing it and any contained entities from the craws.
+    /// Exits the vent craws for the specified VentCrawlerHolderComponent, removing it and any contained entities from the craws.
     /// </summary>
-    /// <param name="uid">The EntityUid of the VentCrawHolderComponent.</param>
-    /// <param name="holder">The VentCrawHolderComponent instance.</param>
-    /// <param name="holderTransform">The TransformComponent instance for the VentCrawHolderComponent.</param>
-    private void OnVentCrawExitEvent(EntityUid uid, VentCrawHolderComponent holder, ref VentCrawExitEvent args)
+    /// <param name="uid">The EntityUid of the VentCrawlerHolderComponent.</param>
+    /// <param name="holder">The VentCrawlerHolderComponent instance.</param>
+    /// <param name="holderTransform">The TransformComponent instance for the VentCrawlerHolderComponent.</param>
+    private void OnVentCrawlingExitEvent(EntityUid uid, VentCrawlerHolderComponent holder, ref VentCrawlingExitEvent args)
     {
         var holderTransform = args.holderTransform;
 
@@ -47,7 +47,7 @@ public sealed class VentCrawableSystem : EntitySystem
 
         foreach (var entity in holder.Container.ContainedEntities.ToArray())
         {
-            RemComp<BeingVentCrawComponent>(entity);
+            RemComp<BeingVentCrawlerComponent>(entity);
 
             var meta = MetaData(entity);
             _containerSystem.Remove(entity, holder.Container, reparent: false, force: true);

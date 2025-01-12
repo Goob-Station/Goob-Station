@@ -1,15 +1,15 @@
 using Robust.Shared.Containers;
 
-namespace Content.Shared.VentCraw.Tube.Components;
+namespace Content.Shared.VentCrawler.Tube.Components;
 
 /// <summary>
 /// A component representing a vent that you can crawl through
 /// </summary>
 [RegisterComponent]
-public sealed partial class VentCrawTubeComponent : Component
+public sealed partial class VentCrawlerTubeComponent : Component
 {
     [DataField("containerId")]
-    public string ContainerId { get; set; } = "VentCrawTube";
+    public string ContainerId { get; set; } = "VentCrawlerTube";
 
     [DataField("connected")]
     public bool Connected;
@@ -19,7 +19,7 @@ public sealed partial class VentCrawTubeComponent : Component
 }
 
 [ByRefEvent]
-public record struct GetVentCrawsConnectableDirectionsEvent
+public record struct GetVentCrawlingsConnectableDirectionsEvent
 {
     public Direction[] Connectable;
 }

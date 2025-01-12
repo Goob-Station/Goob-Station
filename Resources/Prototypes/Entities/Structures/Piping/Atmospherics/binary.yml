@@ -75,12 +75,12 @@
       path: /Audio/Ambience/Objects/gas_pump.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasFlowRegulator
-  - type: VentCrawTube # Goobstation - ventcrawl
-    containerId: VentCrawTube
-  - type: VentCrawTransit # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit # Goobstation - ventcrawl
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
-      VentCrawTube: !type:Container
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasBinaryBase
@@ -140,12 +140,12 @@
     - type: WiredNetworkConnection
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasFlowRegulator
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawTransit # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasBinaryBase
@@ -177,12 +177,12 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawTransit # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasBinaryBase
@@ -233,12 +233,12 @@
         path: /Audio/Ambience/Objects/gas_hiss.ogg
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasValve
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawTransit # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerTransit # Goobstation - ventcrawl
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasBinaryBase
@@ -300,12 +300,12 @@
       path: /Audio/Ambience/Objects/gas_hiss.ogg
   - type: AtmosMonitoringConsoleDevice
     navMapBlip: GasValve
-  - type: VentCrawTube # Goobstation - ventcrawl
-    containerId: VentCrawTube
-  - type: VentCrawTransit # Goobstation - ventcrawl
+  - type: VentCrawlerTube # Goobstation - ventcrawl
+    containerId: VentCrawlerTube
+  - type: VentCrawlerTransit # Goobstation - ventcrawl
   - type: ContainerContainer # Goobstation - ventcrawl
     containers:
-      VentCrawTube: !type:Container
+      VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasBinaryBase
@@ -337,14 +337,14 @@
       node: port
     - type: AtmosMonitoringConsoleDevice
       navMapBlip: GasVentOpening
-    - type: VentCrawTube # Goobstation - ventcrawl
-      containerId: VentCrawTube
-    - type: VentCrawJunction # Goobstation - ventcrawl
+    - type: VentCrawlerTube # Goobstation - ventcrawl
+      containerId: VentCrawlerTube
+    - type: VentCrawlerJunction # Goobstation - ventcrawl
       degrees:
         - 0
     - type: ContainerContainer # Goobstation - ventcrawl
       containers:
-        VentCrawTube: !type:Container
+        VentCrawlerTube: !type:Container
 
 - type: entity
   parent: GasVentPump
