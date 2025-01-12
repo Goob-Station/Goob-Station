@@ -4,6 +4,7 @@
   parent: BaseMobHuman
   id: MobSharkmanBase
   abstract: true
+  components:
   - type: HumanoidAppearance
     species: Sharkman
   - type: Body
