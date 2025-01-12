@@ -40,7 +40,6 @@ using Content.Shared.Damage.Systems;
 using Content.Shared.Mind;
 using Content.Server.Objectives.Components;
 using Content.Server.Light.EntitySystems;
-using Content.Shared.Eye.Blinding.Systems;
 using Content.Shared.StatusEffect;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Cuffs;
@@ -60,6 +59,8 @@ using System.Linq;
 using Content.Server.Flash.Components;
 using Content.Shared.Heretic;
 using Content.Shared._Goobstation.Actions;
+using Content.Shared._Goobstation.Weapons.AmmoSelector;
+using Content.Shared.Projectiles;
 using Content.Shared._White.Overlays;
 using Content.Shared.Eye.Blinding.Components;
 
@@ -98,8 +99,6 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
     [Dependency] private readonly StaminaSystem _stamina = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
-    [Dependency] private readonly BlindableSystem _blindable = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly PullingSystem _pull = default!;
     [Dependency] private readonly SharedCuffableSystem _cuffs = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
@@ -109,9 +108,13 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly RejuvenateSystem _rejuv = default!;
+    [Dependency] private readonly SelectableAmmoSystem _selectableAmmo = default!;
 
     public EntProtoId ArmbladePrototype = "ArmBladeChangeling";
     public EntProtoId FakeArmbladePrototype = "FakeArmBladeChangeling";
+    public EntProtoId HammerPrototype = "ArmHammerChangeling";
+    public EntProtoId ClawPrototype = "ArmClawChangeling";
+    public EntProtoId DartGunPrototype = "DartGunChangeling";
 
     public EntProtoId ShieldPrototype = "ChangelingShield";
     public EntProtoId BoneShardPrototype = "ThrowingStarChangeling";
@@ -133,9 +136,26 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         SubscribeLocalEvent<ChangelingComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshSpeed);
 
+        SubscribeLocalEvent<ChangelingDartComponent, ProjectileHitEvent>(OnDartHit);
+
         SubscribeLocalEvent<ChangelingComponent, AugmentedEyesightPurchasedEvent>(OnAugmentedEyesightPurchased);
 
         SubscribeAbilities();
+    }
+
+    private void OnDartHit(Entity<ChangelingDartComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (HasComp<ChangelingComponent>(args.Target))
+            return;
+
+        if (ent.Comp.ReagentDivisor <= 0)
+            return;
+
+        if (!_proto.TryIndex(ent.Comp.StingConfiguration, out var configuration))
+            return;
+
+        TryInjectReagents(args.Target,
+            configuration.Reagents.Select(x => (x.Key, x.Value / ent.Comp.ReagentDivisor)).ToDictionary());
     }
 
     protected override void UpdateFlashImmunity(EntityUid uid, bool active)
@@ -217,14 +237,17 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
     }
     private void UpdateBiomass(EntityUid uid, ChangelingComponent comp, float? amount = null)
     {
-        comp.Biomass += amount ?? -1;
+        float amt = amount ?? -1f;
+        comp.Biomass += amt;
         comp.Biomass = Math.Clamp(comp.Biomass, 0, comp.MaxBiomass);
         Dirty(uid, comp);
         _alerts.ShowAlert(uid, "ChangelingBiomass");
 
         var random = (int) _rand.Next(1, 3);
 
-        if (comp.Biomass <= 0)
+        bool doEffects = amt < 0; // no vomiting blood if you gained biomass
+
+        if (comp.Biomass <= 0 && doEffects)
             // game over, man
             _damage.TryChangeDamage(uid, new DamageSpecifier(_proto.Index(AbsorbedDamageGroup), 50), true);
 
@@ -232,13 +255,16 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         {
             // THE FUNNY ITCH IS REAL!!
             comp.BonusChemicalRegen = 3f;
-            _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
-            _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+            if (doEffects)
+            {
+                _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-high"), uid, uid, PopupType.LargeCaution);
+                _jitter.DoJitter(uid, TimeSpan.FromSeconds(comp.BiomassUpdateCooldown), true, amplitude: 5, frequency: 10);
+            }
         }
         else if (comp.Biomass <= comp.MaxBiomass / 3)
         {
             // vomit blood
-            if (random == 1)
+            if (random == 1 && doEffects)
             {
                 if (TryComp<StatusEffectsComponent>(uid, out var status))
                     _stun.TrySlowdown(uid, TimeSpan.FromSeconds(1.5f), true, 0.5f, 0.5f, status);
@@ -255,7 +281,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             }
 
             // the funny itch is not real
-            if (random == 3)
+            if (random == 3 && doEffects)
             {
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-medium"), uid, uid, PopupType.MediumCaution);
                 _jitter.DoJitter(uid, TimeSpan.FromSeconds(.5f), true, amplitude: 5, frequency: 10);
@@ -263,7 +289,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         }
         else if (comp.Biomass <= comp.MaxBiomass / 2 && random == 3)
         {
-            if (random == 1)
+            if (random == 1 && doEffects)
                 _popup.PopupEntity(Loc.GetString("popup-changeling-biomass-deficit-low"), uid, uid, PopupType.SmallCaution);
         }
         else comp.BonusChemicalRegen = 0f;
@@ -323,7 +349,15 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
         return false;
     }
 
-    public bool TryUseAbility(EntityUid uid, ChangelingComponent comp, BaseActionEvent action)
+    public float? GetEquipmentChemCostOverride(ChangelingComponent comp, EntProtoId proto)
+    {
+        return comp.Equipment.ContainsKey(proto) ? 0f : null;
+    }
+
+    public bool TryUseAbility(EntityUid uid,
+        ChangelingComponent comp,
+        BaseActionEvent action,
+        float? chemCostOverride = null)
     {
         if (action.Handled)
             return false;
@@ -343,7 +377,9 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        if (comp.Chemicals < lingAction.ChemicalCost)
+        var chemCost = chemCostOverride ?? lingAction.ChemicalCost;
+
+        if (comp.Chemicals < chemCost)
         {
             _popup.PopupEntity(Loc.GetString("changeling-chemicals-deficit"), uid, uid);
             return false;
@@ -356,7 +392,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             return false;
         }
 
-        UpdateChemicals(uid, comp, -lingAction.ChemicalCost);
+        UpdateChemicals(uid, comp, -chemCost);
         UpdateBiomass(uid, comp, -lingAction.BiomassCost);
 
         action.Handled = true;
@@ -388,11 +424,11 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
             _popup.PopupEntity(Loc.GetString("changeling-sting", ("target", Identity.Entity(target, EntityManager))), uid, uid);
         return true;
     }
-    public bool TryInjectReagents(EntityUid uid, List<(string, FixedPoint2)> reagents)
+    public bool TryInjectReagents(EntityUid uid, Dictionary<string, FixedPoint2> reagents)
     {
         var solution = new Solution();
         foreach (var reagent in reagents)
-            solution.AddReagent(reagent.Item1, reagent.Item2);
+            solution.AddReagent(reagent.Key, reagent.Value);
 
         if (!_solution.TryGetInjectableSolution(uid, out var targetSolution, out var _))
             return false;
@@ -402,19 +438,26 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
 
         return true;
     }
-    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action, List<(string, FixedPoint2)> reagents)
+    public bool TryReagentSting(EntityUid uid, ChangelingComponent comp, EntityTargetActionEvent action)
     {
         var target = action.Target;
         if (!TrySting(uid, comp, action))
             return false;
 
-        if (!TryInjectReagents(target, reagents))
+        if (!TryComp(action.Action, out ChangelingReagentStingComponent? reagentSting))
+            return false;
+
+        if (!_proto.TryIndex(reagentSting.Configuration, out var configuration))
+            return false;
+
+        if (!TryInjectReagents(target, configuration.Reagents))
             return false;
 
         return true;
     }
-    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp)
+    public bool TryToggleItem(EntityUid uid, EntProtoId proto, ChangelingComponent comp, out EntityUid? equipment)
     {
+        equipment = null;
         if (!comp.Equipment.TryGetValue(proto.Id, out var item))
         {
             item = Spawn(proto, Transform(uid).Coordinates);
@@ -425,6 +468,7 @@ public sealed partial class ChangelingSystem : SharedChangelingSystem
                 return false;
             }
             comp.Equipment.Add(proto.Id, item);
+            equipment = item;
             return true;
         }
 

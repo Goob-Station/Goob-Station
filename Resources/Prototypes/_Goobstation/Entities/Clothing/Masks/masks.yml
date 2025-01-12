@@ -32,6 +32,13 @@
     event: !type:HailerActionEvent
 
 - type: entity
+  parent: ClothingMaskClown
+  id: ClothingMaskClownUnremoveable
+  name: unremoveable banana clown wig and mask
+  components:
+  - type: Unremoveable
+
+- type: entity
   parent: [ClothingMaskBase, BaseMinorContraband]
   id: ClothingMaskGasVoiceCraftable
   suffix: Voice Mask, Craftable
