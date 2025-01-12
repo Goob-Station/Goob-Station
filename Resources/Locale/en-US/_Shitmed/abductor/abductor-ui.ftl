@@ -7,6 +7,9 @@ abductors-ui-complete-experiment = Complete the experiment
 
 abductors-ui-gizmo-transferred = Target information transferred
 
+abductors-title = Abductors
+abductors-description = Abductors have targeted the station. Avoid getting kidnapped by them!
+
 abductors-ghost-role-name = Lone Abductor
 abductors-ghost-role-desc = Kidnap people, and stuff them with experimental organs of dubious origin.
 abductors-ghost-role-rules = You are a [color=red][bold]Solo Abductor[/bold][/color].
