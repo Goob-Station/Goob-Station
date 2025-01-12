@@ -58,11 +58,9 @@ public sealed class EmagSystem : EntitySystem
             return false;
         }
 
-        Logger.Debug($"Emag check for {ToPrettyString(target)} with result {_whitelist.IsWhitelistFail(comp.ValidTargets, target)}");
         // Shitmed - Starlight Abductors: Check if the target has a whitelist, and check if it passes
         if (_whitelist.IsWhitelistFail(comp.ValidTargets, target))
         {
-            Logger.Debug($"Emag failed");
             _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", uid)), user, user);
             return false;
         }
