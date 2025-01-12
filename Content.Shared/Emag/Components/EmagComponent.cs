@@ -22,6 +22,6 @@ public sealed partial class EmagComponent : Component
     /// <summary>
     ///     Shitmed - Starlight Abductors: Entities that this EMAG works on.
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public EntityWhitelist? ValidTargets;
 }

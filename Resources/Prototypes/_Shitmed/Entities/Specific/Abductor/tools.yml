@@ -182,7 +182,7 @@
 
 - type: entity
   name: abductor's multitool
-  parent: BaseItem
+  parent: [BaseItem, BaseRestrictedContraband]
   id: MultitoolAbductor
   description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
   components:

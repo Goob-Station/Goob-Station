@@ -12,15 +12,11 @@
       - FootstepSound
       - DoorBumpOpener
 
-
 - type: entity
   name: lone abductor
   parent: MobAbductor
   id: MobLoneAbductor
   components:
-  - type: SurgeryIgnoreClothing
-  - type: SurgerySpeedModifier
-    speedModifier: 1.5
   - type: AntagObjectives
     objectives:
     - StealResearchObjective

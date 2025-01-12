@@ -30,6 +30,9 @@
       - type: Abductor
       - type: Muted
       - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
       - type: ActionGrant
         actions:
         - ActionReturnToShip
@@ -38,6 +41,8 @@
           - Abductor
           - AbductorScientist
           - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
       - type: NpcFactionMember
         factions:
         - SimpleHostile
