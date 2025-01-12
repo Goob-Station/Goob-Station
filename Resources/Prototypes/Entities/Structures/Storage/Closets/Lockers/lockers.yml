@@ -172,7 +172,7 @@
     stateDoorOpen: freezer_open
     stateDoorClosed: freezer_door
   - type: ExplosionResistance
-    damageCoefficient: 0.50
+    damageCoefficient: 0.01
   - type: AntiRottingContainer
   - type: Construction
     graph: ClosetFreezer
