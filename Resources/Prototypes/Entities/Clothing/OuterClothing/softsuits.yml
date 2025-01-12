@@ -14,6 +14,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #Syndicate EVA
 - type: entity
@@ -31,10 +32,11 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #Emergency EVA
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterSuitEmergency
   name: emergency EVA suit
   description: An emergency EVA suit with a built-in helmet. It's horribly slow and lacking in temperature protection, but enough to buy you time from the harsh vacuum of space.
@@ -50,12 +52,15 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.75
     coolingCoefficient: 0.5
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetEVALarge
-    slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes:
+      head: ClothingHeadHelmetEVALarge
 
 #Prisoner EVA
 - type: entity
@@ -73,6 +78,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
@@ -93,7 +99,7 @@
 #Paramedic Voidsuit
 #Despite having resistances and looking like a hardsuit, this parents off the EVA suit so it goes here.
 - type: entity
-  parent: ClothingOuterEVASuitBase
+  parent: [ ClothingOuterEVASuitBase, ClothingOuterBaseToggleable ]
   id: ClothingOuterHardsuitVoidParamed
   name: paramedic void suit
   description: A void suit made for paramedics.
@@ -121,9 +127,6 @@
   - type: GroupExamine
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitVoidParamed
-  - type: ToggleableClothing
-    clothingPrototype: ClothingHeadHelmetVoidParamed
-    slot: head
-  - type: ContainerContainer
-    containers:
-      toggleable-clothing: !type:ContainerSlot {}
+  - type: ToggleableClothing # Goobstation - Modsuits change
+    clothingPrototypes: 
+      head: ClothingHeadHelmetVoidParamed
