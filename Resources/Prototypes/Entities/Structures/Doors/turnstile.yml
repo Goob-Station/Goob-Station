@@ -1,0 +1,33 @@
+- type: entity
+  id: BaseTurnstile
+  abstract: true
+  parent: BaseStructure
+  name: turnstile
+  description: Allows movement one direction.
+  components:
+  - type: Sprite
+    sprite: Structures/Doors/turnstile.rsi
+    snapCardinals: true
+    layers:
+    - state: turnstile
+  - type: AnimationPlayer
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"  # don't want this colliding with walls or they won't close
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+        hard: false
+  - type: Turnstile
+
+- type: entity
+  id: Turnstile
+  parent: BaseTurnstile
+  components:
+  - type: StationAiWhitelist
+
