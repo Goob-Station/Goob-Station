@@ -39,6 +39,9 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Thief
+    - Heretic
+    - BlobGameMode
     # - KesslerSyndromeScheduler Goobstation - nuh uh
     - RampingStationEventScheduler
     - Changeling # Goobstation - changeling playtest
@@ -60,6 +63,9 @@
     - Traitor
     - Revolutionary
     - Zombie
+    - Thief
+    - Heretic
+    - BlobGameMode
     - BasicStationEventScheduler
     - KesslerSyndromeScheduler
     - MeteorSwarmMildScheduler
