@@ -48,14 +48,11 @@
     - ClothingMaskSterile
     - ClothingHandsGlovesNitrile
     # Implants
-    - LightImplanter
     - MindShieldImplanter
     - TrackingImplanter
     - FreedomImplanter
-    - ScramImplanter
-    - StorageImplanter
+    - BluespaceLifelineImplanter
     # Misc
-    - JetpackChrono
     - LightReplacerLEDAdmeme
     - PortableRecharger
     - PowerCellMicroreactor

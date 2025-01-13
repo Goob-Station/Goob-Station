@@ -40,7 +40,7 @@
       enum.SharedGasTankUiKey.Key:
         type: GasTankBoundUserInterface
   - type: GasTank
-    outputPressure: 21.3
+    outputPressure: 18
     air:
       # 31 minutes
       volume: 5
@@ -74,10 +74,10 @@
     slots:
       cell_slot:
         name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
+        startingItem: PowerCellMicroreactor
         whitelist:
           components:
-            - PowerCellMicroreactor
+            - PowerCell
   - type: ItemSlotsRequirePanel
     slots:
       cell_slot: true
