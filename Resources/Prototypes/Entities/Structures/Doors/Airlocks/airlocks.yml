@@ -166,18 +166,6 @@
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Standard/hatch_maint.rsi
 
-- type: entity # Goobstation - Sweet jani door recolour
-  parent: Airlock
-  id: AirlockJanitor
-  suffix: Janitor
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Standard/janitor.rsi
-  - type: PaintableAirlock
-    department: Civilian
-  - type: Wires
-    layoutId: AirlockService
-
 # Glass
 - type: entity
   parent: AirlockGlass
@@ -318,15 +306,3 @@
   components:
   - type: Sprite
     sprite: Structures/Doors/Airlocks/Glass/centcomm.rsi
-
-- type: entity
-  parent: AirlockGlass
-  id: AirlockJanitorGlass
-  suffix: Janitor
-  components:
-  - type: Sprite
-    sprite: _Goobstation/Structures/Doors/Airlocks/Glass/janitor.rsi
-  - type: PaintableAirlock
-    department: Civilian
-  - type: Wires
-    layoutId: AirlockService
