@@ -1,6 +1,35 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Vent spawns, safe and hostile, have been rolled into a single event each;
+      rather than separate events for each mob type. This should greatly reduce the
+      number of hostiles per shift, make it more manageable, and reduce the event
+      spam. Please give feedback about this change on the Discord!
+    type: Tweak
+  id: 112
+  time: '2025-01-13T14:11:38.661129'
+- author: AstroDogeDX
+  changes:
+  - message: The 'Breaker Flip' event has been temporarily disabled due to the confusion
+      it causes. It will be re-added when a custom voiced announcement is implemented.
+    type: Remove
+  id: 111
+  time: '2025-01-13T14:12:42.998425'
+- author: AstroDogeDX
+  changes:
+  - message: Jensen Coat now has working storage again. Thanks Modsuits!
+    type: Fix
+  id: 110
+  time: '2025-01-13T14:12:03.568147'
+- author: AstroDogeDX
+  changes:
+  - message: Incredibly overpowered experimental modsuit for admeme usage has been
+      added. Maybe you'll get lucky and get to play with it~
+    type: Add
+  id: 109
+  time: '2025-01-13T14:13:19.093524'
+- author: AstroDogeDX
+  changes:
   - message: The Station Announcer has had some of her lines trimmed to be less chatty.
     type: Tweak
   id: 108
