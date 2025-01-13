@@ -1,8 +1,8 @@
-using Content.Shared._Goobstation.VentCrawling.Components;
+using Content.Shared._Starlight.VentCrawling.Components;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
 
-namespace Content.Shared._Goobstation.VentCrawling.Components;
+namespace Content.Shared._Starlight.VentCrawling.Components;
 
 [RegisterComponent]
 public sealed partial class VentCrawlerHolderComponent : Component

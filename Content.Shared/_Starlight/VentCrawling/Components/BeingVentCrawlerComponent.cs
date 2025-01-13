@@ -1,4 +1,4 @@
-namespace Content.Shared._Goobstation.VentCrawling.Components;
+namespace Content.Shared._Starlight.VentCrawling.Components;
 
 /// <summary>
 /// A component indicating that the entity is in the process of moving through the venting process

@@ -3,7 +3,7 @@ using Content.Shared.VentCrawler.Tube.Components;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared._Goobstation.VentCrawling;
+namespace Content.Shared._Starlight.VentCrawling;
 
 public sealed class SharedVentTubeSystem : EntitySystem
 {

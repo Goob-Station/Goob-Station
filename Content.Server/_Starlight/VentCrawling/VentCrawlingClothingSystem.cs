@@ -1,8 +1,8 @@
 using Content.Shared.Clothing;
-using Content.Shared._Goobstation.VentCrawling.Components;
-using Content.Shared._Goobstation.VentCrawling;
+using Content.Shared._Starlight.VentCrawling.Components;
+using Content.Shared._Starlight.VentCrawling;
 
-namespace Content.Server._Goobstation.VentCrawling;
+namespace Content.Server._Starlight.VentCrawling;
 
 public sealed class VentCrawlerClothingSystem : EntitySystem
 {

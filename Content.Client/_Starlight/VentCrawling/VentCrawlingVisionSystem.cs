@@ -1,9 +1,9 @@
 using Content.Client.SubFloor;
-using Content.Shared._Goobstation.VentCrawling;
+using Content.Shared._Starlight.VentCrawling;
 using Robust.Client.Player;
 using Robust.Shared.Timing;
 
-namespace Content.Client._Goobstation.VentCrawling;
+namespace Content.Client._Starlight.VentCrawling;
 
 public sealed class VentCrawlingSystem : EntitySystem
 {

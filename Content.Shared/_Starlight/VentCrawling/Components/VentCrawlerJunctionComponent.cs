@@ -1,4 +1,4 @@
-namespace Content.Shared._Goobstation.VentCrawling.Components;
+namespace Content.Shared._Starlight.VentCrawling.Components;
 
 [RegisterComponent, Virtual]
 public partial class VentCrawlerJunctionComponent : Component

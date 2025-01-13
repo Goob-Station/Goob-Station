@@ -3,9 +3,9 @@ using Content.Server.Body.Systems;
 using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
-using Content.Shared._Goobstation.VentCrawling.Components;
+using Content.Shared._Starlight.VentCrawling.Components;
 
-namespace Content.Server._Goobstation.VentCrawling;
+namespace Content.Server._Starlight.VentCrawling;
 
 public sealed class BeingVentCrawSystem : EntitySystem
 {
