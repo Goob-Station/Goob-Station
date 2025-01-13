@@ -3,12 +3,15 @@ using Content.Server.Destructible;
 using Content.Server.Destructible.Thresholds;
 using Content.Server.Destructible.Thresholds.Behaviors;
 using Content.Server.Destructible.Thresholds.Triggers;
+using Content.Server.IdentityManagement;
 using Content.Server.Respawn;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
+using Robust.Shared.GameObjects.Components.Localization;
 
 namespace Content.Server._Goobstation.Wizard;
 
@@ -16,6 +19,7 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
 {
     [Dependency] private readonly SpecialRespawnSystem _respawn = default!;
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
     public override void Resurrect(EntityUid mind,
         EntityUid phylactery,
@@ -34,19 +38,28 @@ public sealed class BindSoulSystem : SharedBindSoulSystem
 
         SetOutfitCommand.SetOutfit(ent, LichGear, EntityManager);
 
+        if (soulBound.Name != string.Empty)
+            Meta.SetEntityName(ent, soulBound.Name);
+
         if (TryComp(ent, out HumanoidAppearanceComponent? humanoid))
         {
             if (soulBound.Age != null)
                 humanoid.Age = soulBound.Age.Value;
             if (soulBound.Gender != null)
+            {
                 humanoid.Gender = soulBound.Gender.Value;
+                if (TryComp(ent, out GrammarComponent? grammar))
+                    Grammar.SetGender((ent, grammar), soulBound.Gender);
+                var identity = Identity.Entity(ent, EntityManager);
+                if (TryComp(identity, out GrammarComponent? identityGrammar))
+                    Grammar.SetGender((identity, identityGrammar), soulBound.Gender);
+            }
             if (soulBound.Sex != null)
                 humanoid.Sex = soulBound.Sex.Value;
             Dirty(ent, humanoid);
         }
 
-        if (soulBound.Name != string.Empty)
-            Meta.SetEntityName(ent, soulBound.Name);
+        _identity.QueueIdentityUpdate(ent);
 
         Stun.TryKnockdown(ent, TimeSpan.FromSeconds(20) + TimeSpan.FromSeconds(5) * soulBound.ResurrectionsCount, true);
         soulBound.ResurrectionsCount++;

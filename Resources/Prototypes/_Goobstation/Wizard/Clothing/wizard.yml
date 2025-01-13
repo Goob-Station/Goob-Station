@@ -1,4 +1,31 @@
 - type: entity
+  parent: ClothingEyesBase
+  id: ClothingEyesEyepatchMedical
+  name: medical eyepatch
+  description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+    layers:
+    - state: icon
+      map: [ "flipped" ]
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi
+  - type: WizardClothes
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.FlippedVisuals.Flipped:
+        flipped:
+          True: { state: flipped-icon }
+          False: { state: icon }
+  - type: ChuuniEyepatch
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+
+- type: entity
   parent: ClothingHeadHatWizardBase
   id: ClothingHeadHatBlackwizard
   name: black wizard hat

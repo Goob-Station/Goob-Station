@@ -137,4 +137,11 @@ spellbook-simians-desc =
 spellbook-sanguine-strike-name = Exsanguinating Strike
 spellbook-sanguine-strike-desc =
     Sanguine spell that enchants your next weapon strike to deal more damage, heal you for damage dealt, and refill blood.
+    Damage dealt is either double damage, or +20 damage, whichever is less.
+    Doesn't require wizard's robe and hat to cast.
+
+spellbook-chuuni-name = Chuuni Invocations
+spellbook-chuuni-desc =
+    Replaces your wizard hat (if you have one) with an unremovable medical eyepatch, which still allows you to cast spells requiring a robe.
+    Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
     Doesn't require wizard's robe and hat to cast.

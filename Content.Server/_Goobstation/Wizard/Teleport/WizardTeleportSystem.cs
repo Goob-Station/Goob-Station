@@ -7,6 +7,7 @@ using Content.Server.Warps;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared.Actions;
+using Content.Shared.Magic.Components;
 using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.Physics;
@@ -31,6 +32,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
     [Dependency] private readonly WizardRuleSystem _wizard = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
+    [Dependency] private readonly SpellsSystem _spells = default!;
 
     private static readonly EntProtoId SmokeProto = "AdminInstantEffectSmoke10";
 
@@ -72,10 +74,10 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
         if (!HasComp<WizardTeleportLocationComponent>(location))
             return;
 
-        _chat.TrySendInGameICMessage(user,
+        _spells.SpeakSpell(user,
+            user,
             Loc.GetString("action-speech-spell-teleport", ("location", args.LocationName)),
-            InGameICChatType.Speak,
-            false);
+            MagicSchool.Translocation);
 
         _actions.StartUseDelay(action);
 

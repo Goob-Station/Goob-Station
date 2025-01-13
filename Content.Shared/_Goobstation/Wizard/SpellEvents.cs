@@ -437,3 +437,18 @@ public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent, ISpe
     [DataField]
     public string? Speech { get; private set; }
 }
+
+public sealed partial class ChuuniInvocationsEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public Dictionary<string, EntProtoId> Gear = new()
+    {
+        {"eyes", "ClothingEyesEyepatchMedical"},
+    };
+
+    [DataField]
+    public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
+}

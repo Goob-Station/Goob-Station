@@ -1,11 +1,15 @@
 using System.Numerics;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
+using Content.Shared.FixedPoint;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
@@ -62,6 +66,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
+    [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -158,9 +163,20 @@ public abstract class SharedMagicSystem : EntitySystem
         var comp = ent.Comp;
         var hasReqs = true;
 
+        // Goobstation start
+        var requiresSpeech = comp.RequiresSpeech;
+        var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
+        if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
+            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
+        {
+            requiresSpeech = true;
+            flags = SlotFlags.OUTERCLOTHING;
+        }
+        // Goobstation end
+
         if (comp.RequiresClothes)
         {
-            var enumerator = _inventory.GetSlotEnumerator(args.Performer, SlotFlags.OUTERCLOTHING | SlotFlags.HEAD);
+            var enumerator = _inventory.GetSlotEnumerator(args.Performer, flags); // Goob edit
             while (enumerator.MoveNext(out var containerSlot))
             {
                 if (containerSlot.ContainedEntity is { } item)
@@ -180,7 +196,7 @@ public abstract class SharedMagicSystem : EntitySystem
             return;
         }
 
-        if (comp.RequiresSpeech && HasComp<MutedComponent>(args.Performer))
+        if (requiresSpeech && HasComp<MutedComponent>(args.Performer)) // Goob edit
             hasReqs = false;
 
         if (hasReqs)
@@ -596,10 +612,34 @@ public abstract class SharedMagicSystem : EntitySystem
     // TODO: Temp until chat is in shared
     public void Speak(BaseActionEvent args) // Goob edit
     {
-        if (args is not ISpeakSpell speak || string.IsNullOrWhiteSpace(speak.Speech))
+        // Goob edit start
+        var speech = string.Empty;
+
+        if (args is ISpeakSpell speak && !string.IsNullOrWhiteSpace(speak.Speech))
+            speech = speak.Speech;
+
+        if (TryComp(args.Action, out MagicComponent? magic))
+        {
+            var invocationEv = new GetSpellInvocationEvent(magic.School, args.Performer);
+            RaiseLocalEvent(args.Performer, invocationEv);
+            if (invocationEv.Invocation.HasValue)
+                speech = invocationEv.Invocation;
+            if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+            {
+                _damageable.TryChangeDamage(args.Performer,
+                    -invocationEv.ToHeal,
+                    true,
+                    false,
+                    canSever: false,
+                    targetPart: TargetBodyPart.All);
+            }
+        }
+
+        if (string.IsNullOrEmpty(speech))
             return;
 
-        var ev = new SpeakSpellEvent(args.Performer, speak.Speech);
+        var ev = new SpeakSpellEvent(args.Performer, speech);
+        // Goob edit end
         RaiseLocalEvent(ref ev);
     }
 }

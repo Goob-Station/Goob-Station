@@ -3,6 +3,7 @@ using System.Linq;
 using System.Numerics;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.InstantSummons;
 using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
@@ -36,6 +37,7 @@ using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Item;
 using Content.Shared.Jittering;
 using Content.Shared.Magic;
+using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
@@ -91,6 +93,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedBodySystem Body = default!;
     [Dependency] protected readonly NpcFactionSystem Faction = default!;
     [Dependency] protected readonly SharedRoleSystem Role = default!;
+    [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] protected readonly GrammarSystem Grammar = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
@@ -100,7 +104,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedMagicSystem _magic = default!;
     [Dependency] private   readonly SharedPopupSystem _popup = default!;
     [Dependency] private   readonly SharedGunSystem _gunSystem = default!;
-    [Dependency] private   readonly DamageableSystem _damageable = default!;
     [Dependency] private   readonly MobStateSystem _mobState = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private   readonly SharedBindSoulSystem _bindSoul = default!;
@@ -145,6 +148,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<LesserSummonBeesEvent>(OnBees);
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
+        SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
     }
 
     #region Spells
@@ -347,7 +351,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             range = MathF.Max(1f, range);
 
-            _damageable.TryChangeDamage(target,
+            Damageable.TryChangeDamage(target,
                 ev.Damage / range,
                 damageable: damageable,
                 origin: ev.Performer,
@@ -662,7 +666,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             { "mask", maskEnt },
         };
 
-        SetGear(ev.Target, gear);
+        SetGear(ev.Target, gear, inventoryComponent: inventory);
 
         if (sound != null)
             _audio.PlayEntity(sound, Filter.Pvs(ev.Target), ev.Target, true);
@@ -915,6 +919,37 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnChuuniInvocations(ChuuniInvocationsEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!TryComp(ev.Performer, out InventoryComponent? inventory))
+            return;
+
+        if (!_inventory.HasSlot(ev.Performer, "eyes", inventory))
+        {
+            Popup(ev.Performer, "spell-fail-cant-wear-eyepatch");
+            return;
+        }
+
+        if (_inventory.TryGetSlotEntity(ev.Performer, "eyes", out var eyepatch, inventory) &&
+            HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
+        {
+            Popup(ev.Performer, "spell-fail-already-wear-eyepatch");
+            return;
+        }
+
+        SetGear(ev.Performer, ev.Gear, inventoryComponent: inventory);
+
+        if (_net.IsServer && _inventory.TryGetSlotEntity(ev.Performer, "head", out var hat, inventory) &&
+            _tag.HasTag(hat.Value, ev.WizardHatTag))
+            QueueDel(hat.Value);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -1059,12 +1094,13 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected void SetGear(EntityUid uid,
         Dictionary<string, EntProtoId> gear,
         bool force = true,
-        bool makeUnremoveable = true)
+        bool makeUnremoveable = true,
+        InventoryComponent? inventoryComponent = null)
     {
         if (_net.IsClient)
             return;
 
-        if (!TryComp(uid, out InventoryComponent? inventoryComponent))
+        if (!Resolve(uid, ref inventoryComponent, false))
             return;
 
         foreach (var (slot, item) in gear)
@@ -1091,6 +1127,10 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 
     #region ServerMethods
+
+    public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
+    {
+    }
 
     protected virtual void MakeMime(EntityUid uid)
     {

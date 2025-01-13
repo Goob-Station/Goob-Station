@@ -316,6 +316,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookChuuni
+  name: spellbook-chuuni-name
+  description: spellbook-chuuni-desc
+  productAction: ChuuniInvocations
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookInstantSummons

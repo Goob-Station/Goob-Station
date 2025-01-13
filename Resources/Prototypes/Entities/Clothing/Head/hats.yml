@@ -591,6 +591,11 @@
   id: ClothingHeadHatWizardBase
   components:
   - type: WizardClothes
+  - type: Tag # Goobstation
+    tags:
+    - WizardHat
+    - ClothMade
+    - WhitelistChameleon
 
 - type: entity
   parent: ClothingHeadHatWizardBase
@@ -604,6 +609,7 @@
     sprite: Clothing/Head/Hats/wizardhat.rsi
   - type: Tag
     tags:
+    - WizardHat # Goobstation
     - ClothMade
     - HamsterWearable
     - WhitelistChameleon

@@ -8,6 +8,7 @@ using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Fluids.EntitySystems;
+using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
 using Content.Server.Singularity.EntitySystems;
@@ -15,13 +16,18 @@ using Content.Server.Spreader;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
+using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
+using Content.Shared.FixedPoint;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Humanoid;
+using Content.Shared.IdentityManagement;
+using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
@@ -31,6 +37,7 @@ using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Enums;
+using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
@@ -54,6 +61,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly PolymorphSystem _polymorph = default!;
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+    [Dependency] private readonly IdentitySystem _identity = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -184,13 +192,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (Container.TryGetContainingContainer((ev.Performer, xform, meta), out var cont))
             Container.Insert(newEntity, cont);
 
-        _inventory.TransferEntityInventories(ev.Performer, newEntity);
-        foreach (var hand in Hands.EnumerateHeld(ev.Performer))
-        {
-            Hands.TryDrop(ev.Performer, hand, checkActionBlocker: false);
-            Hands.TryPickupAnyHand(newEntity, hand);
-        }
-
         var name = meta.EntityName;
 
         Meta.SetEntityName(newEntity, name);
@@ -209,14 +210,17 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 newHumanoid.Gender = gender.Value;
                 newHumanoid.Sex = sex.Value;
                 Dirty(newEntity, newHumanoid);
+                if (TryComp(newEntity, out GrammarComponent? grammar))
+                    Grammar.SetGender((newEntity, grammar), gender.Value);
+                var identity = Identity.Entity(newEntity, EntityManager);
+                if (TryComp(identity, out GrammarComponent? identityGrammar))
+                    Grammar.SetGender((identity, identityGrammar), gender.Value);
             }
         }
 
-        SetGear(newEntity, ev.Gear, false, false);
+        _identity.QueueIdentityUpdate(newEntity);
 
         Mind.TransferTo(mind, newEntity, mind: mindComponent);
-
-        Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
 
         Faction.ClearFactions(newEntity, false);
         Faction.AddFaction(newEntity, WizardRuleSystem.Faction);
@@ -234,8 +238,19 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        if (ev.Speech != null)
-            _chat.TrySendInGameICMessage(newEntity, Loc.GetString(ev.Speech), InGameICChatType.Speak, false);
+        var speech = ev.Speech == null ? string.Empty : Loc.GetString(ev.Speech);
+        SpeakSpell(newEntity, ev.Performer, speech, MagicSchool.Necromancy);
+
+        _inventory.TransferEntityInventories(ev.Performer, newEntity);
+        foreach (var hand in Hands.EnumerateHeld(ev.Performer))
+        {
+            Hands.TryDrop(ev.Performer, hand, checkActionBlocker: false);
+            Hands.TryPickupAnyHand(newEntity, hand);
+        }
+
+        SetGear(newEntity, ev.Gear, false, false);
+
+        Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
 
         if (mindComponent.Session == null)
             return;
@@ -256,8 +271,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
             EnsureComp<WizardComponent>(newEnt.Value);
 
-        if (ev.Speech != null)
-            _chat.TrySendInGameICMessage(newEnt.Value, Loc.GetString(ev.Speech), InGameICChatType.Speak, false);
+        var speech = ev.Speech == null ? string.Empty : Loc.GetString(ev.Speech);
+        SpeakSpell(newEnt.Value, ev.Performer, speech, MagicSchool.Transmutation);
 
         return true;
     }
@@ -426,5 +441,47 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 weaponDespawn.FadeOutTime = 4f;
             }
         }
+    }
+
+    public override void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
+    {
+        base.SpeakSpell(speakerUid, casterUid, speech, school);
+
+        var postfix = string.Empty;
+
+        var invocationEv = new GetSpellInvocationEvent(school, casterUid);
+        RaiseLocalEvent(casterUid, invocationEv);
+        if (invocationEv.Invocation != null)
+            speech = Loc.GetString(invocationEv.Invocation);
+        if (invocationEv.ToHeal.GetTotal() > FixedPoint2.Zero)
+        {
+            // Heal both caster and speaker
+            Damageable.TryChangeDamage(casterUid,
+                -invocationEv.ToHeal,
+                true,
+                false,
+                canSever: false,
+                targetPart: TargetBodyPart.All);
+
+            Damageable.TryChangeDamage(speakerUid,
+                -invocationEv.ToHeal,
+                true,
+                false,
+                canSever: false,
+                targetPart: TargetBodyPart.All);
+        }
+
+        if (speakerUid != casterUid)
+        {
+            var postfixEv = new GetMessagePostfixEvent();
+            RaiseLocalEvent(casterUid, postfixEv);
+            postfix = postfixEv.Postfix;
+        }
+
+        _chat.TrySendInGameICMessage(speakerUid,
+            speech,
+            InGameICChatType.Speak,
+            false,
+            wrappedMessagePostfix: postfix);
     }
 }

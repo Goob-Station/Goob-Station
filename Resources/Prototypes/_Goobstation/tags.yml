@@ -88,6 +88,9 @@
 - type: Tag
   id: CursedAnimalMask
 
+- type: Tag
+  id: WizardHat
+
 # Mechs
 
 - type: Tag
@@ -198,7 +201,7 @@
 
 - type: Tag
   id: MagazineMagnumLeverRifle
-  
+
 - type: Tag
   id: ModsuitPart
 
@@ -222,13 +225,13 @@
 
 - type: Tag
   id: ModsuitPlatingExternal
-  
+
 - type: Tag
   id: MagazineLightRifleSubsonic
 
 - type: Tag
   id: CartridgeLightRifleSubsonic
-  
+
 - type: Tag
   id: WeaponPistolDualetta
 

@@ -20,6 +20,7 @@
     event: !type:MimeMalaiseEvent
   - type: Magic
     requiresClothes: true
+    school: Mime
 
 - type: entity
   id: ActionCluwneCurse
@@ -47,6 +48,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionBananaTouch
@@ -73,6 +75,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionMagicMissile
@@ -94,6 +97,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionDisableTech
@@ -115,6 +119,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionSmoke
@@ -133,6 +138,7 @@
       state: smoke
     event: !type:SmokeSpellEvent
   - type: Magic
+    school: Conjuration
 
 - type: entity
   id: ActionRepulse
@@ -154,6 +160,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionStopTime
@@ -175,6 +182,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Forbidden
   - type: Tag
     tags:
       - FrozenIgnoreMindAction
@@ -207,6 +215,7 @@
           Brute: 100
   - type: Magic
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionBlindSpell
@@ -234,6 +243,7 @@
       speech: action-speech-spell-blind
   - type: Magic
     requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionBindSoul
@@ -269,6 +279,7 @@
         - EnchantedBoltActionRifle
   - type: Magic
     requiresSpeech: true
+    school: Necromancy
   - type: Tag
     tags:
       - BindSoulAction
@@ -293,6 +304,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionTeslaBlast
@@ -314,6 +326,7 @@
   - type: Magic
     requiresClothes: true
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionLightningBolt
@@ -338,6 +351,7 @@
       speech: action-speech-spell-lightning-bolt
   - type: Magic
     requiresSpeech: true
+    school: Evocation
 
 - type: entity
   id: ActionHomingToolbox
@@ -364,6 +378,7 @@
       speech: action-speech-spell-homing-toolbox
   - type: Magic
     requiresSpeech: true
+    school: Evocation
   - type: LockOnMarkAction
 
 - type: entity
@@ -392,6 +407,7 @@
       speech: action-speech-spell-spell-cards
   - type: Magic
     requiresSpeech: true
+    school: Evocation
   - type: SpellCardsAction
   - type: LockOnMarkAction
 
@@ -410,6 +426,7 @@
     event: !type:ArcaneBarrageEvent
   - type: Magic
     requiresClothes: true
+    school: Conjuration
   - type: Tag
     tags:
       - ArcaneBarrageAction
@@ -429,6 +446,7 @@
     event: !type:LesserSummonGunsEvent
   - type: Magic
     requiresClothes: true
+    school: Conjuration
   - type: Tag
     tags:
       - LesserSummonGunsAction
@@ -474,6 +492,7 @@
         ClothingMaskBat: null
   - type: Magic
     requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionScreamForMe
@@ -499,6 +518,7 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+    school: Sanguine
 
 - type: entity
   id: ActionInstantSummons
@@ -517,6 +537,8 @@
       summonSound:
         path: /Audio/_Goobstation/Wizard/summonitems_generic.ogg
   - type: Magic
+    requiresSpeech: true
+    school: Transmutation
   - type: InstantSummonsAction
   - type: ConfirmableAction
     popup: instant-summons-confirm-popup
@@ -538,6 +560,7 @@
     event: !type:WizardTeleportEvent
   - type: Magic
     requiresSpeech: true
+    school: Translocation
 
 - type: entity
   id: ActionTrapsSpell
@@ -559,6 +582,7 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+    school: Conjuration
 
 - type: entity
   id: ActionLesserSummonBees
@@ -596,6 +620,7 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+    school: Conjuration
 
 - type: entity
   id: ActionSummonSimians
@@ -619,6 +644,7 @@
   - type: Magic
     requiresSpeech: true
     requiresClothes: true
+    school: Conjuration
 
 - type: entity
   id: ActionSanguineStrike
@@ -627,7 +653,6 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    checkCanIteract: false
     useDelay: 60
     itemIconStyle: BigAction
     icon:
@@ -637,3 +662,25 @@
       speech: action-speech-spell-sanguine-strike
   - type: Magic
     requiresSpeech: true
+    school: Sanguine
+
+- type: entity
+  id: ChuuniInvocations
+  name: Chuuni Invocations
+  description: Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/bamf.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: chuuni
+    event: !type:ChuuniInvocationsEvent
+      speech: chuuni-invocation-chuuni
+  - type: Magic
+    requiresSpeech: true
+    school: Chuuni

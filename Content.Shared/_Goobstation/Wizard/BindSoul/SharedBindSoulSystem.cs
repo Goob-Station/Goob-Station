@@ -32,6 +32,7 @@ public abstract class SharedBindSoulSystem : EntitySystem
     [Dependency] protected readonly MetaDataSystem Meta = default!;
     [Dependency] protected readonly SharedContainerSystem Container = default!;
     [Dependency] protected readonly NpcFactionSystem Faction = default!;
+    [Dependency] protected readonly GrammarSystem Grammar = default!;
     [Dependency] private   readonly TagSystem _tag = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly SharedBodySystem _body = default!;
@@ -80,7 +81,8 @@ public abstract class SharedBindSoulSystem : EntitySystem
 
     private void OnMindGetRemoved(Entity<SoulBoundComponent> ent, ref MindGotRemovedEvent args)
     {
-        if (_net.IsClient || _tag.HasTag(args.Container, IgnoreBindSoulTag) || HasComp<GhostComponent>(args.Container))
+        if (_net.IsClient || _tag.HasTag(args.Container, IgnoreBindSoulTag) || HasComp<GhostComponent>(args.Container) ||
+            Terminating(args.Container))
             return;
 
         var xform = Transform(args.Container);

@@ -9,6 +9,7 @@ using Content.Server.Speech.Components;
 using Content.Server.Speech.EntitySystems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
+using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Administration;
 using Content.Shared.CCVar;
@@ -144,9 +145,11 @@ public sealed partial class ChatSystem : SharedChatSystem
         IConsoleShell? shell = null,
         ICommonSession? player = null, string? nameOverride = null,
         bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false)
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
+        )
     {
-        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker);
+        TrySendInGameICMessage(source, message, desiredType, hideChat ? ChatTransmitRange.HideChat : ChatTransmitRange.Normal, hideLog, shell, player, nameOverride, checkRadioPrefix, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
     }
 
     /// <summary>
@@ -170,7 +173,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         ICommonSession? player = null,
         string? nameOverride = null,
         bool checkRadioPrefix = true,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
         )
     {
         if (HasComp<GhostComponent>(source))
@@ -242,14 +246,21 @@ public sealed partial class ChatSystem : SharedChatSystem
             }
         }
 
+        // Goobstation start
+        var postfixEv = new GetMessagePostfixEvent();
+        RaiseLocalEvent(source, postfixEv);
+        if (!string.IsNullOrEmpty(postfixEv.Postfix))
+            wrappedMessagePostfix = postfixEv.Postfix;
+        // Goobstation end
+
         // Otherwise, send whatever type.
         switch (desiredType)
         {
             case InGameICChatType.Speak:
-                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker);
+                SendEntitySpeak(source, message, range, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
                 break;
             case InGameICChatType.Whisper:
-                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker);
+                SendEntityWhisper(source, message, range, null, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
                 break;
             case InGameICChatType.Emote:
                 SendEntityEmote(source, message, range, nameOverride, hideLog: hideLog, ignoreActionBlocker: ignoreActionBlocker);
@@ -413,7 +424,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         ChatTransmitRange range,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -444,7 +456,7 @@ public sealed partial class ChatSystem : SharedChatSystem
 
         name = FormattedMessage.EscapeText(name);
 
-        var wrappedMessage = Loc.GetString(speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message",
+        var wrappedMessage = Loc.GetString((speech.Bold ? "chat-manager-entity-say-bold-wrap-message" : "chat-manager-entity-say-wrap-message") + wrappedMessagePostfix, // Goob edit
             ("entityName", name),
             ("verb", Loc.GetString(_random.Pick(speech.SpeechVerbStrings))),
             ("fontType", speech.FontId),
@@ -486,7 +498,8 @@ public sealed partial class ChatSystem : SharedChatSystem
         RadioChannelPrototype? channel,
         string? nameOverride,
         bool hideLog = false,
-        bool ignoreActionBlocker = false
+        bool ignoreActionBlocker = false,
+        string wrappedMessagePostfix = "" // Goobstation
         )
     {
         if (!_actionBlocker.CanSpeak(source) && !ignoreActionBlocker)
@@ -514,13 +527,13 @@ public sealed partial class ChatSystem : SharedChatSystem
         }
         name = FormattedMessage.EscapeText(name);
 
-        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+        var wrappedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goob edit
             ("entityName", name), ("message", FormattedMessage.EscapeText(message)));
 
-        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message",
+        var wrappedobfuscatedMessage = Loc.GetString("chat-manager-entity-whisper-wrap-message" + wrappedMessagePostfix, // Goob edit
             ("entityName", nameIdentity), ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
-        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message",
+        var wrappedUnknownMessage = Loc.GetString("chat-manager-entity-whisper-unknown-wrap-message" + wrappedMessagePostfix, // Goob edit
             ("message", FormattedMessage.EscapeText(obfuscatedMessage)));
 
 

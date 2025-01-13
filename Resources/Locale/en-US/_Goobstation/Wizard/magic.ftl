@@ -19,6 +19,8 @@ spell-fail-target-cursed = Target is cursed already.
 spell-fail-sanguine-strike-no-item = You need to hold something to empower it!
 spell-fail-sanguine-strike-already-empowered = This weapon is already empowered!
 spell-fail-sanguine-strike-not-weapon = {CAPITALIZE($item)} is too weak to empower! Find something that'll hurt someone!
+spell-fail-cant-wear-eyepatch = Can't wear eyepatch!
+spell-fail-already-wear-eyepatch = You already have an eyepatch.
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
