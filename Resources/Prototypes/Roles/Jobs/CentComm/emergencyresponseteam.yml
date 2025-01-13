@@ -106,6 +106,7 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
   special:
@@ -190,6 +191,7 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
@@ -264,6 +266,7 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
@@ -356,6 +359,7 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
@@ -420,6 +424,7 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
   - NanotrasenRepresentative
   - BlueshieldOfficer
 
