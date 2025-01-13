@@ -98,3 +98,7 @@
   - type: Construction
     graph: Modsuit
     node: standard
+  - type: Tag
+    tags:
+    - GasTank
+    - WhitelistChameleon
