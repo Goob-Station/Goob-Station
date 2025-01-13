@@ -3,9 +3,9 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Database;
 using Content.Shared.DragDrop;
-using Content.Shared.DoAfter;
 using Content.Shared.Verbs;
 using Robust.Shared.Containers;
+using Content.Shared.DoAfter; //Goobstation
 
 namespace Content.Shared.Containers;
 
@@ -24,6 +24,7 @@ public sealed class DragInsertContainerSystem : EntitySystem
         SubscribeLocalEvent<DragInsertContainerComponent, DragDropTargetEvent>(OnDragDropOn, before: new []{ typeof(ClimbSystem)});
         SubscribeLocalEvent<DragInsertContainerComponent, CanDropTargetEvent>(OnCanDragDropOn);
         SubscribeLocalEvent<DragInsertContainerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAlternativeVerb);
+        SubscribeLocalEvent<DragInsertContainerComponent, InsertOnDragDoAfterEvent>(OnDragDoAfter);
     }
 
     private void OnDragDropOn(Entity<DragInsertContainerComponent> ent, ref DragDropTargetEvent args)
@@ -38,10 +39,7 @@ public sealed class DragInsertContainerSystem : EntitySystem
             var doAfterArgs = new DoAfterArgs(EntityManager, args.User, TimeSpan.FromSeconds(comp.Delay), new InsertOnDragDoAfterEvent(), uid, target: args.Dragged, uid)
             {
                 BreakOnMove = true,
-                DistanceThreshold = 2f,
-                CancelDuplicate = true,
-                BlockDuplicate = true,
-
+                DistanceThreshold = 2f
             };
 
             _doAfter.TryStartDoAfter(doAfterArgs);
@@ -54,7 +52,17 @@ public sealed class DragInsertContainerSystem : EntitySystem
 
         args.Handled = Insert(args.Dragged, args.User, ent, container);
     }
+    private void OnDragDoAfter(Entity<DragInsertContainerComponent> ent, ref InsertOnDragDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Args.Target == null)
+            return;
+        var (_, comp) = ent;
 
+        if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
+            return;
+
+        args.Handled = Insert(args.Args.Target.Value, args.User, ent, container);
+    }
     private void OnCanDragDropOn(Entity<DragInsertContainerComponent> ent, ref CanDropTargetEvent args)
     {
         var (_, comp) = ent;

@@ -20,11 +20,15 @@ public sealed partial class DragInsertContainerComponent : Component
     [DataField, ViewVariables(VVAccess.ReadWrite)]
     public bool UseVerbs = true;
 
-    [DataField]
-    public float Delay = 0f;
+    /// <summary>
+    /// How much time (in seconds) it takes to perform the DoAfter
+    /// </summary>
+    [DataField("delay")]
+    [ViewVariables]
+    public float Delay = 0f; //Goobstation
 }
 
-[Serializable, NetSerializable]
+[Serializable, NetSerializable, ByRefEvent]
 public sealed partial class InsertOnDragDoAfterEvent : SimpleDoAfterEvent
 {
 }
