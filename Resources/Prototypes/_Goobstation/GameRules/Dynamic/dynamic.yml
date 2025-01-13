@@ -4,38 +4,38 @@
 # - all the other major gamerules are cancelled out (roundstart)
 
 # add all roundstart antags here
-- type: dataset # Funky station unfucked dynamic
-  id: DynamicRoundstartGamerules
-  values:
-  - TraitorDynamic # traitors
-  - ThiefDynamic # thieves (spy wyci)
-  - ChangelingDynamic # changelings
-  - HereticDynamic # heretics
-  - RevolutionDynamic # revs (M)
-  - NukeopsDynamic # nukies (M)
-  # cult wyci (M)
-  # clock cult wyci (M)
-  # wizard wyci (M)
+# - type: dataset # Funky station unfucked dynamic
+#   id: DynamicRoundstartGamerules
+#   values:
+#   - TraitorDynamic # traitors
+#   - ThiefDynamic # thieves (spy wyci)
+#   - ChangelingDynamic # changelings
+#   - HereticDynamic # heretics
+#   - RevolutionDynamic # revs (M)
+#   - NukeopsDynamic # nukies (M)
+#   # cult wyci (M)
+#   # clock cult wyci (M)
+#   # wizard wyci (M)
 
-# add all antag related events here
-- type: dataset
-  id: DynamicMidroundGamerules
-  values:
-  - TraitorDynamicMidround # sleeper agents
-  - ChangelingDynamicMidround # sleeper lings
-  - HereticDynamicMidround # sleeper heretics
-  - SkeletonDynamicMidround # skeleton spawn
-  - RevolutionDynamicMidround # sleeper revs (M)
-  - NukeopsDynamicMidround # lone operative spawn (M)
-  - NinjaDynamicMidround # space ninja spawn (M)
-  - RatKingDynamicMidround # rat king spawn (M)
-  - DragonDynamicMidround # space dragon spawn (M)
-  - RevenantDynamicMidround # revenant spawn (M)
-  - ZombiesDynamicMidround # zombie outbreak (M)
-  - BlobDynamicMidround # blob mouse spawn(M)
-  # spider infestation todo (M)
-  # xenos todo (M)
-  # improved kudzu todo (M)
+# # add all antag related events here
+# - type: dataset
+#   id: DynamicMidroundGamerules
+#   values:
+#   - TraitorDynamicMidround # sleeper agents
+#   - ChangelingDynamicMidround # sleeper lings
+#   - HereticDynamicMidround # sleeper heretics
+#   - SkeletonDynamicMidround # skeleton spawn
+#   - RevolutionDynamicMidround # sleeper revs (M)
+#   - NukeopsDynamicMidround # lone operative spawn (M)
+#   - NinjaDynamicMidround # space ninja spawn (M)
+#   - RatKingDynamicMidround # rat king spawn (M)
+#   - DragonDynamicMidround # space dragon spawn (M)
+#   - RevenantDynamicMidround # revenant spawn (M)
+#   - ZombiesDynamicMidround # zombie outbreak (M)
+#   - BlobDynamicMidround # blob mouse spawn(M)
+#   # spider infestation todo (M)
+#   # xenos todo (M)
+#   # improved kudzu todo (M)
 
 - type: entity
   parent: BaseGameRule
