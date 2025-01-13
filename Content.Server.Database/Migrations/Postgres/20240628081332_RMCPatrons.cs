@@ -30,8 +30,6 @@ namespace Content.Server.Database.Migrations.Postgres
                     rmc_patron_tiers_id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     show_on_credits = table.Column<bool>(type: "boolean", nullable: false),
-                    named_items = table.Column<bool>(type: "boolean", nullable: false),
-                    figurines = table.Column<bool>(type: "boolean", nullable: false),
                     lobby_message = table.Column<bool>(type: "boolean", nullable: false),
                     round_end_shoutout = table.Column<bool>(type: "boolean", nullable: false)
                 },

@@ -30,8 +30,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     rmc_patron_tiers_id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     show_on_credits = table.Column<bool>(type: "INTEGER", nullable: false),
-                    named_items = table.Column<bool>(type: "INTEGER", nullable: false),
-                    figurines = table.Column<bool>(type: "INTEGER", nullable: false),
                     lobby_message = table.Column<bool>(type: "INTEGER", nullable: false),
                     round_end_shoutout = table.Column<bool>(type: "INTEGER", nullable: false)
                 },

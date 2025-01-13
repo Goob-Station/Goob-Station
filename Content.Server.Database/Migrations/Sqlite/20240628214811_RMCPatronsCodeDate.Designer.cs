@@ -980,10 +980,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("discord_role");
 
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("figurines");
-
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("INTEGER")
                         .HasColumnName("lobby_message");
@@ -992,10 +988,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("name");
-
-                    b.Property<bool>("NamedItems")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("named_items");
 
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER")
