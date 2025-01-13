@@ -1,5 +1,5 @@
 - type: entity
-  parent: ClothingShoesBase
+  parent: [ClothingShoesBase, BaseMinorContraband]
   id: ClothingShoesWizardSkates
   name: Wizard Skates
   description: "A pair of Wizard Federation Roller Skates, imbued with a protection spell against collision."
