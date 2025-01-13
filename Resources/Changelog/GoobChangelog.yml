@@ -4173,3 +4173,13 @@ Entries:
       message: The Chester rifle now correctly shows as CentComm contraband.
   id: 467
   time: '2025-01-13T16:12:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 60% -> 90%.
+    - type: Tweak
+      message: Hardlight bow x-ray arrows will no longer penetrate blob tiles.
+    - type: Fix
+      message: Emitter bolts now properly reflect as energy projectiles.
+  id: 468
+  time: '2025-01-13T16:18:39.0000000+00:00'
