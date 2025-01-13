@@ -1,5 +1,5 @@
 ﻿- type: soundCollection
-  id: VentClaw
+  id: VentCrawlingSounds
   files:
   - /Audio/_Starlight/VentCrawling/crawling1.ogg
   - /Audio/_Starlight/VentCrawling/crawling2.ogg

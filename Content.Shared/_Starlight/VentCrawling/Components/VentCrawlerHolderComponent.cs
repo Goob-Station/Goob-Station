@@ -48,7 +48,7 @@ public sealed partial class VentCrawlerHolderComponent : Component
     public TimeSpan LastCrawl;
 
     [DataField("crawlSound")]
-    public SoundCollectionSpecifier CrawlSound { get; set; } = new ("VentClaw", AudioParams.Default.WithVolume(5f));
+    public SoundCollectionSpecifier CrawlSound { get; set; } = new ("VentCrawlingSounds", AudioParams.Default.WithVolume(5f));
 
     [DataField("speed")]
     public float Speed = 0.15f;
