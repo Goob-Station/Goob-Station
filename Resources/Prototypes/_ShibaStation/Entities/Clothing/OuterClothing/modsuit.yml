@@ -1,0 +1,53 @@
+- type: entity
+  parent: ClothingOuterBase
+  id: ClothingModsuitChestplateExperimental
+  name: experimental modsuit chestplate
+  suffix: Admeme
+  description: An experimental modular suit spaceproof cover designed for compact folding inside modular suit control. It has been greatly reinforced with armour.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Appearance
+  - type: AllowSuitStorage
+  - type: Sprite
+    sprite: _Goobstation/Clothing/OuterClothing/Modsuits/standard.rsi
+    layers:
+    - state: chestplate
+    - state: chestplate-sealed
+      visible: false
+      map: [ "sealed" ]
+  - type: Clothing
+    equipSound: /Audio/Mecha/mechmove03.ogg
+    unequipSound: /Audio/Mecha/mechmove03.ogg
+    slots: [ outerClothing ]
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9
+  - type: SealableClothing
+    sealUpPopup: sealable-clothing-seal-up-chestplate
+    sealDownPopup: sealable-clothing-seal-down-chestplate
+  - type: SealableClothingVisuals
+    visualLayers:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING-sealed
+        shader: unshaded
+  - type: ExplosionResistance
+    damageCoefficient: 0.2
+  - type: FireProtection
+    reduction: 0.8
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.1 #best armor in the game
+        Slash: 0.1
+        Piercing: 0.1
+        Heat: 0.1
+        Radiation: 0.1
+        Caustic: 0.1
+  - type: ComponentToggler
+    components:
+    - type: PressureProtection
+      highPressureMultiplier: 0.3
+      lowPressureMultiplier: 1000
+    - type: TemperatureProtection
+      coolingCoefficient: 0.1
+      heatingCoefficient: 0.4
