@@ -1,6 +1,20 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Vent spawn probabilities for mobs has been reduced to 1/3rd their previous
+      values. Should get swarmed less when the events trigger now.
+    type: Tweak
+  id: 114
+  time: '2025-01-13T22:33:31.632209'
+- author: AstroDogeDX
+  changes:
+  - message: Removed Honk Ops and Dynamic from the game entirely. They're fucking
+      broken.
+    type: Fix
+  id: 113
+  time: '2025-01-13T22:32:51.940043'
+- author: AstroDogeDX
+  changes:
   - message: Vent spawns, safe and hostile, have been rolled into a single event each;
       rather than separate events for each mob type. This should greatly reduce the
       number of hostiles per shift, make it more manageable, and reduce the event
