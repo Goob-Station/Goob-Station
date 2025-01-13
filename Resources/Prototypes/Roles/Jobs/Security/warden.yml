@@ -32,7 +32,7 @@
   equipment:
     eyes: ClothingEyesGlassesSecurity
     id: WardenPDA
-    ears: ClothingHeadsetAltSecurityRegular # Goobstation
+    ears: ClothingHeadsetAltWarden # Goobstation
     pocket1: WeaponPistolMk58
   storage:
     back:

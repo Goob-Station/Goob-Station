@@ -79,7 +79,7 @@
     freezer: Civilian
     glass: Civilian
     hydroponics: Civilian
-    janitor: Civilian
+    janitor: Civilian # Goobstation - Sweet new jani door
     maintenance: Civilian
     medical: Medical
     science: Science
