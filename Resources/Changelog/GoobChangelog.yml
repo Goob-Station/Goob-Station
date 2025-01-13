@@ -4147,3 +4147,9 @@ Entries:
       message: Fixed some broken/missing attributions for lobby backgrounds.
   id: 463
   time: '2025-01-12T19:28:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Warden now spawns with their unique headset equipped.
+  id: 464
+  time: '2025-01-13T02:24:58.0000000+00:00'
