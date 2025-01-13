@@ -820,10 +820,15 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (tile.IsSpace())
                 return false;
 
+            var trapQuery = GetEntityQuery<WizardTrapComponent>();
             var flags = LookupFlags.Static | LookupFlags.Sundries | LookupFlags.Sensors;
-            foreach (var (_, fix) in Lookup.GetEntitiesInRange<FixturesComponent>(coords, 0.1f, flags))
+            foreach (var (entity, fix) in Lookup.GetEntitiesInRange<FixturesComponent>(coords, 0.1f, flags))
             {
-                if (fix.Fixtures.Any(x => (x.Value.CollisionLayer & (int) CollisionGroup.SlipLayer) != 0))
+                if (fix.Fixtures.Any(x =>
+                        x.Value.Hard && (x.Value.CollisionLayer & (int) CollisionGroup.LowImpassable) != 0))
+                    return false;
+
+                if (trapQuery.HasComp(entity))
                     return false;
             }
 

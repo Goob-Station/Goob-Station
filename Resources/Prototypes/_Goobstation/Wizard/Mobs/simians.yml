@@ -44,3 +44,4 @@
   - type: FadingTimedDespawn
     lifetime: 120
     fadeOutTime: 4
+  - type: DropItemsOnTimedDespawn

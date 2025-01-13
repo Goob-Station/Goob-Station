@@ -30,6 +30,9 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
         if (!args.IsHit || args.HitEntities.Count == 0)
             return;
 
+        if (args.HitEntities.Contains(args.User))
+            return;
+
         var mobStateQuery = GetEntityQuery<MobStateComponent>();
         var hitMobsCount = args.HitEntities.Where(mobStateQuery.HasComp).Count();
         if (hitMobsCount == 0)
