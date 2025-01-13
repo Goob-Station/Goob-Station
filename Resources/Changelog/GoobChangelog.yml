@@ -4127,3 +4127,67 @@ Entries:
         amazing nuke song, Opposing Nuke by mrjajkes!
   id: 462
   time: '2025-01-11T22:27:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Credits are now displayed for lobby backgrounds, similar and next to
+        credits for lobby music/songs.
+    - type: Add
+      message: Added a new lobby background, Greytide Worldwide by Piras314
+    - type: Remove
+      message: Removed a bunch of old low-quality lobby backgrounds.
+    - type: Fix
+      message: >-
+        Fixed some pixel art lobby backgrounds being 1080p with filter instead
+        of being downscaled without filter. They should look a lot better now.
+    - type: Fix
+      message: Fixed QCQM lobby backgrounds not showing up.
+    - type: Fix
+      message: Fixed some broken/missing attributions for lobby backgrounds.
+  id: 463
+  time: '2025-01-12T19:28:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Warden now spawns with their unique headset equipped.
+  id: 464
+  time: '2025-01-13T02:24:58.0000000+00:00'
+- author: Foralemes
+  changes:
+    - type: Tweak
+      message: >-
+        Adds a chemical payload and the timer trigger to the syndicate chemical
+        synthesis kit
+  id: 465
+  time: '2025-01-13T16:07:39.0000000+00:00'
+- author: Ichai
+  changes:
+    - type: Add
+      message: Added Lambda Station
+  id: 466
+  time: '2025-01-13T16:11:14.0000000+00:00'
+- author: MortalBaguette
+  changes:
+    - type: Fix
+      message: The Chester rifle now correctly shows as CentComm contraband.
+  id: 467
+  time: '2025-01-13T16:12:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 60% -> 90%.
+    - type: Tweak
+      message: Hardlight bow x-ray arrows will no longer penetrate blob tiles.
+    - type: Fix
+      message: Emitter bolts now properly reflect as energy projectiles.
+  id: 468
+  time: '2025-01-13T16:18:39.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: >-
+        Nigthwatcher's rebirth only engulfs people that are already ignited,
+        like intended.
+  id: 469
+  time: '2025-01-13T16:17:49.0000000+00:00'
