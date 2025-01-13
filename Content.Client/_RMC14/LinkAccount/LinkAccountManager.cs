@@ -58,7 +58,6 @@ public sealed class LinkAccountManager : IPostInjectInit
         _net.RegisterNetMessage<RMCClearGhostColorMsg>();
         _net.RegisterNetMessage<RMCChangeGhostColorMsg>();
         _net.RegisterNetMessage<RMCChangeLobbyMessageMsg>();
-        _net.RegisterNetMessage<RMCChangeMarineShoutoutMsg>();
-        _net.RegisterNetMessage<RMCChangeXenoShoutoutMsg>();
+        _net.RegisterNetMessage<RMCChangeNTShoutoutMsg>();
     }
 }

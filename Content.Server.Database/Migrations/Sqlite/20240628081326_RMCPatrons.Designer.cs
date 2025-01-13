@@ -953,17 +953,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("rmc_patron_tiers_id");
 
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("figurines");
-
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("INTEGER")
                         .HasColumnName("lobby_message");
-
-                    b.Property<bool>("NamedItems")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("named_items");
 
                     b.Property<bool>("RoundEndShoutout")
                         .HasColumnType("INTEGER")

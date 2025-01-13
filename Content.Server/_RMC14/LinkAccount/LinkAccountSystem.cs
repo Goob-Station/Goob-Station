@@ -28,8 +28,7 @@ public sealed class LinkAccountSystem : EntitySystem
     private TimeSpan _nextLobbyMessageTime;
     private TimeSpan _lobbyMessageInitialDelay;
     private (string Message, string User)? _nextLobbyMessage;
-    private string? _nextMarineShoutout;
-    private string? _nextXenoShoutout;
+    private string? _nextNTShoutout;
 
     public override void Initialize()
     {
@@ -74,16 +73,10 @@ public sealed class LinkAccountSystem : EntitySystem
 
     private void OnRoundEndTextAppend(RoundEndTextAppendEvent ev)
     {
-        if (_nextMarineShoutout != null)
+        if (_nextNTShoutout != null)
         {
             ev.AddLine("\n");
-            ev.AddLine(Loc.GetString("rmc-ui-shoutout-marine", ("name", _nextMarineShoutout)));
-        }
-
-        if (_nextXenoShoutout != null)
-        {
-            ev.AddLine("\n");
-            ev.AddLine(Loc.GetString("rmc-ui-shoutout-xeno", ("name", _nextXenoShoutout)));
+            ev.AddLine(Loc.GetString("rmc-ui-shoutout-nt", ("name", _nextNTShoutout)));
         }
     }
 
@@ -131,7 +124,7 @@ public sealed class LinkAccountSystem : EntitySystem
     {
         try
         {
-            (_nextMarineShoutout, _nextXenoShoutout) = await _db.GetRandomShoutout();
+            (_nextNTShoutout) = await _db.GetRandomShoutout();
         }
         catch (Exception e)
         {

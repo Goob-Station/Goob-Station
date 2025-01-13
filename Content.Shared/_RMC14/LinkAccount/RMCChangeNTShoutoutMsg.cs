@@ -4,7 +4,7 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.LinkAccount;
 
-public sealed class RMCChangeMarineShoutoutMsg : NetMessage
+public sealed class RMCChangeNTShoutoutMsg : NetMessage
 {
     public override MsgGroups MsgGroup => MsgGroups.Command;
 

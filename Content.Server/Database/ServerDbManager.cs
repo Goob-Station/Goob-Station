@@ -340,13 +340,11 @@ namespace Content.Server.Database
 
         Task SetLobbyMessage(Guid player, string message);
 
-        Task SetMarineShoutout(Guid player, string name);
-
-        Task SetXenoShoutout(Guid player, string name);
+        Task SetNTShoutout(Guid player, string name);
 
         Task<(string Message, string User)?> GetRandomLobbyMessage();
 
-        Task<(string? Marine, string? Xeno)> GetRandomShoutout();
+        Task<string?> GetRandomShoutout();
 
         #endregion
 
@@ -1075,16 +1073,10 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.SetLobbyMessage(player, message));
         }
 
-        public Task SetMarineShoutout(Guid player, string name)
+        public Task SetNTShoutout(Guid player, string name)
         {
             DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetMarineShoutout(player, name));
-        }
-
-        public Task SetXenoShoutout(Guid player, string name)
-        {
-            DbWriteOpsMetric.Inc();
-            return RunDbCommand(() => _db.SetXenoShoutout(player, name));
+            return RunDbCommand(() => _db.SetNTShoutout(player, name));
         }
 
         public Task<(string Message, string User)?> GetRandomLobbyMessage()
@@ -1093,7 +1085,7 @@ namespace Content.Server.Database
             return RunDbCommand(() => _db.GetRandomLobbyMessage());
         }
 
-        public Task<(string? Marine, string? Xeno)> GetRandomShoutout()
+        public Task<string?> GetRandomShoutout()
         {
             DbReadOpsMetric.Inc();
             return RunDbCommand(() => _db.GetRandomShoutout());

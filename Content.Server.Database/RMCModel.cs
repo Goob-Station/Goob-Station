@@ -66,8 +66,7 @@ public sealed class RMCPatron
     public RMCPatronTier Tier { get; set; } = default!;
     public int? GhostColor { get; set; } = default!;
     public RMCPatronLobbyMessage? LobbyMessage { get; set; } = default!;
-    public RMCPatronRoundEndMarineShoutout? RoundEndMarineShoutout { get; set; } = default!;
-    public RMCPatronRoundEndXenoShoutout? RoundEndXenoShoutout { get; set; } = default!;
+    public RMCPatronRoundEndNTShoutout? RoundEndNTShoutout { get; set; } = default!;
 }
 
 [Table("rmc_linking_codes")]
@@ -116,20 +115,8 @@ public sealed class RMCPatronLobbyMessage
     public string Message { get; set; } = default!;
 }
 
-[Table(("rmc_patron_round_end_marine_shoutouts"))]
-public sealed class RMCPatronRoundEndMarineShoutout
-{
-    [Key, ForeignKey("Patron")]
-    public Guid PatronId { get; set; }
-
-    public RMCPatron Patron { get; set; } = default!;
-
-    [StringLength(100), Required]
-    public string Name { get; set; } = default!;
-}
-
-[Table(("rmc_patron_round_end_xeno_shoutouts"))]
-public sealed class RMCPatronRoundEndXenoShoutout
+[Table(("rmc_patron_round_end_nt_shoutouts"))]
+public sealed class RMCPatronRoundEndNTShoutout
 {
     [Key, ForeignKey("Patron")]
     public Guid PatronId { get; set; }

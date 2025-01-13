@@ -125,17 +125,11 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
 
             SetTabTitle(_patronPerksWindow.ShoutoutTab, Loc.GetString("rmc-ui-shoutout"));
             SetTabVisible(_patronPerksWindow.ShoutoutTab, tier is { RoundEndShoutout: true });
-            _patronPerksWindow.MarineShoutout.OnTextEntered += ChangeMarineShoutout;
-            _patronPerksWindow.MarineShoutout.OnFocusExit += ChangeMarineShoutout;
+            _patronPerksWindow.NTShoutout.OnTextEntered += ChangeNTShoutout;
+            _patronPerksWindow.NTShoutout.OnFocusExit += ChangeNTShoutout;
 
-            if (_linkAccount.RoundEndShoutout?.Marine is { } marineShoutout)
-                _patronPerksWindow.MarineShoutout.Text = marineShoutout;
-
-            _patronPerksWindow.XenoShoutout.OnTextEntered += ChangeXenoShoutout;
-            _patronPerksWindow.XenoShoutout.OnFocusExit += ChangeXenoShoutout;
-
-            if (_linkAccount.RoundEndShoutout?.Xeno is { } xenoShoutout)
-                _patronPerksWindow.XenoShoutout.Text = xenoShoutout;
+            if (_linkAccount.RoundEndShoutout?.NT is { } ntShoutout)
+                _patronPerksWindow.NTShoutout.Text = ntShoutout;
 
             SetTabTitle(_patronPerksWindow.GhostColorTab, Loc.GetString("rmc-ui-ghost-color"));
             SetTabVisible(_patronPerksWindow.GhostColorTab, tier is { GhostColor: true });
@@ -176,7 +170,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         _net.ClientSendMessage(new RMCChangeLobbyMessageMsg { Text = text });
     }
 
-    private void ChangeMarineShoutout(LineEditEventArgs args)
+    private void ChangeNTShoutout(LineEditEventArgs args)
     {
         var text = args.Text;
         if (text.Length > SharedRMCRoundEndShoutouts.CharacterLimit)
@@ -185,20 +179,7 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
             _patronPerksWindow?.LobbyMessage.SetText(text, false);
         }
 
-        _net.ClientSendMessage(new RMCChangeMarineShoutoutMsg { Name = text });
-        UpdateExamples();
-    }
-
-    private void ChangeXenoShoutout(LineEditEventArgs args)
-    {
-        var text = args.Text;
-        if (text.Length > SharedRMCRoundEndShoutouts.CharacterLimit)
-        {
-            text = text[..SharedRMCRoundEndShoutouts.CharacterLimit];
-            _patronPerksWindow?.LobbyMessage.SetText(text, false);
-        }
-
-        _net.ClientSendMessage(new RMCChangeXenoShoutoutMsg { Name = text });
+        _net.ClientSendMessage(new RMCChangeNTShoutoutMsg { Name = text });
         UpdateExamples();
     }
 
@@ -232,15 +213,10 @@ public sealed class LinkAccountUIController : UIController, IOnSystemChanged<Lin
         if (_patronPerksWindow == null)
             return;
 
-        var marine = _patronPerksWindow.MarineShoutout.Text.Trim();
-        _patronPerksWindow.MarineShoutoutExample.SetMarkupPermissive(string.IsNullOrWhiteSpace(marine)
+        var nt = _patronPerksWindow.NTShoutout.Text.Trim();
+        _patronPerksWindow.NTShoutoutExample.SetMarkupPermissive(string.IsNullOrWhiteSpace(nt)
             ? " "
-            : $"{Loc.GetString("rmc-ui-shoutout-example")} {Loc.GetString("rmc-ui-shoutout-marine", ("name", marine))}");
-
-        var xeno = _patronPerksWindow.XenoShoutout.Text.Trim();
-        _patronPerksWindow.XenoShoutoutExample.SetMarkupPermissive(string.IsNullOrWhiteSpace(xeno)
-            ? " "
-            : $"{Loc.GetString("rmc-ui-shoutout-example")} {Loc.GetString("rmc-ui-shoutout-xeno", ("name", xeno))}");
+            : $"{Loc.GetString("rmc-ui-shoutout-example")} {Loc.GetString("rmc-ui-shoutout-nt", ("name", nt))}");
     }
 
     public void OnSystemLoaded(LinkAccountSystem system)

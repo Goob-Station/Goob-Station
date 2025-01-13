@@ -1014,10 +1014,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .HasColumnType("numeric(20,0)")
                         .HasColumnName("discord_role");
 
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("boolean")
-                        .HasColumnName("figurines");
-
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("boolean")
                         .HasColumnName("lobby_message");
@@ -1026,10 +1022,6 @@ namespace Content.Server.Database.Migrations.Postgres
                         .IsRequired()
                         .HasColumnType("text")
                         .HasColumnName("name");
-
-                    b.Property<bool>("NamedItems")
-                        .HasColumnType("boolean")
-                        .HasColumnName("named_items");
 
                     b.Property<int>("Priority")
                         .HasColumnType("integer")

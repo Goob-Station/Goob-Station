@@ -1784,8 +1784,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             var patron = await db.DbContext.RMCPatrons
                 .Include(p => p.Tier)
                 .Include(p => p.LobbyMessage)
-                .Include(p => p.RoundEndMarineShoutout)
-                .Include(p => p.RoundEndXenoShoutout)
+                .Include(p => p.RoundEndNTShoutout)
                 .FirstOrDefaultAsync(p => p.PlayerId == player, cancellationToken: cancel);
             return patron;
         }
@@ -1828,32 +1827,14 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await db.DbContext.SaveChangesAsync();
         }
 
-        public async Task SetMarineShoutout(Guid player, string name)
+        public async Task SetNTShoutout(Guid player, string name)
         {
             await using var db = await GetDb();
-            var msg = await db.DbContext.RMCPatronRoundEndMarineShoutouts
+            var msg = await db.DbContext.RMCPatronRoundEndNTShoutouts
                 .Include(s => s.Patron)
                 .FirstOrDefaultAsync(p => p.PatronId == player);
-            msg ??= db.DbContext.RMCPatronRoundEndMarineShoutouts
-                .Add(new RMCPatronRoundEndMarineShoutout()
-                {
-                    PatronId = player,
-                    Name = name,
-                })
-                .Entity;
-            msg.Name = name;
-
-            await db.DbContext.SaveChangesAsync();
-        }
-
-        public async Task SetXenoShoutout(Guid player, string name)
-        {
-            await using var db = await GetDb();
-            var msg = await db.DbContext.RMCPatronRoundEndXenoShoutouts
-                .Include(s => s.Patron)
-                .FirstOrDefaultAsync(p => p.PatronId == player);
-            msg ??= db.DbContext.RMCPatronRoundEndXenoShoutouts
-                .Add(new RMCPatronRoundEndXenoShoutout()
+            msg ??= db.DbContext.RMCPatronRoundEndNTShoutouts
+                .Add(new RMCPatronRoundEndNTShoutout()
                 {
                     PatronId = player,
                     Name = name,
@@ -1883,27 +1864,23 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             return (random.Message, random.LastSeenUserName);
         }
 
-        public async Task<(string? Marine, string? Xeno)> GetRandomShoutout()
+        public async Task<string?> GetRandomShoutout()
         {
             // TODO RMC14 the random row is evaluated outside the DB, if we have that many patrons I guess we have better problems!
             await using var db = await GetDb();
-            var marineNames = await db.DbContext.RMCPatronRoundEndMarineShoutouts
+            var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
                 .Include(p => p.Patron)
                 .Where(p => p.Patron.Tier.LobbyMessage)
                 .Where(p => !string.IsNullOrWhiteSpace(p.Name))
                 .Select(p => p.Name)
                 .ToListAsync();
 
-            var xenoNames = await db.DbContext.RMCPatronRoundEndXenoShoutouts
-                .Include(p => p.Patron)
-                .Where(p => p.Patron.Tier.LobbyMessage)
-                .Where(p => !string.IsNullOrWhiteSpace(p.Name))
-                .Select(p => p.Name)
-                .ToListAsync();
+            var ntName = ntNames.Count == 0 ? null : ntNames[Random.Shared.Next(ntNames.Count)];
 
-            var marineName = marineNames.Count == 0 ? null : marineNames[Random.Shared.Next(marineNames.Count)];
-            var xenoName = xenoNames.Count == 0 ? null : xenoNames[Random.Shared.Next(xenoNames.Count)];
-            return (marineName, xenoName);
+            if (ntName == null)
+                ntName = "John Nanotrasen";
+
+            return (ntName);
         }
 
         #endregion

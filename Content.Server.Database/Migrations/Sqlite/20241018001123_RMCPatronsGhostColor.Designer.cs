@@ -984,43 +984,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("rmc_linking_codes", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCNamedItems", b =>
-                {
-                    b.Property<int>("ProfileId")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("profile_id");
-
-                    b.Property<string>("ArmorName")
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("armor_name");
-
-                    b.Property<string>("HelmetName")
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("helmet_name");
-
-                    b.Property<string>("PrimaryGunName")
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("primary_gun_name");
-
-                    b.Property<string>("SentryName")
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("sentry_name");
-
-                    b.Property<string>("SidearmName")
-                        .HasMaxLength(20)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("sidearm_name");
-
-                    b.HasKey("ProfileId")
-                        .HasName("PK_rmc_named_items");
-
-                    b.ToTable("rmc_named_items", (string)null);
-                });
-
             modelBuilder.Entity("Content.Server.Database.RMCPatron", b =>
                 {
                     b.Property<Guid>("PlayerId")
@@ -1062,7 +1025,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.ToTable("rmc_patron_lobby_messages", (string)null);
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndMarineShoutout", b =>
+            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndNTShoutout", b =>
                 {
                     b.Property<Guid>("PatronId")
                         .HasColumnType("TEXT")
@@ -1075,27 +1038,9 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnName("name");
 
                     b.HasKey("PatronId")
-                        .HasName("PK_rmc_patron_round_end_marine_shoutouts");
+                        .HasName("PK_rmc_patron_round_end_nt_shoutouts");
 
-                    b.ToTable("rmc_patron_round_end_marine_shoutouts", (string)null);
-                });
-
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndXenoShoutout", b =>
-                {
-                    b.Property<Guid>("PatronId")
-                        .HasColumnType("TEXT")
-                        .HasColumnName("patron_id");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT")
-                        .HasColumnName("name");
-
-                    b.HasKey("PatronId")
-                        .HasName("PK_rmc_patron_round_end_xeno_shoutouts");
-
-                    b.ToTable("rmc_patron_round_end_xeno_shoutouts", (string)null);
+                    b.ToTable("rmc_patron_round_end_nt_shoutouts", (string)null);
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>
@@ -1109,10 +1054,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .HasColumnType("INTEGER")
                         .HasColumnName("discord_role");
 
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("figurines");
-
                     b.Property<bool>("GhostColor")
                         .HasColumnType("INTEGER")
                         .HasColumnName("ghost_color");
@@ -1125,10 +1066,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                         .IsRequired()
                         .HasColumnType("TEXT")
                         .HasColumnName("name");
-
-                    b.Property<bool>("NamedItems")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("named_items");
 
                     b.Property<int>("Priority")
                         .HasColumnType("INTEGER")
@@ -1957,18 +1894,6 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Player");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCNamedItems", b =>
-                {
-                    b.HasOne("Content.Server.Database.Profile", "Profile")
-                        .WithOne("NamedItems")
-                        .HasForeignKey("Content.Server.Database.RMCNamedItems", "ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_rmc_named_items_profile_profile_id");
-
-                    b.Navigation("Profile");
-                });
-
             modelBuilder.Entity("Content.Server.Database.RMCPatron", b =>
                 {
                     b.HasOne("Content.Server.Database.Player", "Player")
@@ -2003,26 +1928,14 @@ namespace Content.Server.Database.Migrations.Sqlite
                     b.Navigation("Patron");
                 });
 
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndMarineShoutout", b =>
+            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndNTShoutout", b =>
                 {
                     b.HasOne("Content.Server.Database.RMCPatron", "Patron")
-                        .WithOne("RoundEndMarineShoutout")
-                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndMarineShoutout", "PatronId")
+                        .WithOne("RoundEndNTShoutout")
+                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndNTShoutout", "PatronId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired()
-                        .HasConstraintName("FK_rmc_patron_round_end_marine_shoutouts_rmc_patrons_patron_id");
-
-                    b.Navigation("Patron");
-                });
-
-            modelBuilder.Entity("Content.Server.Database.RMCPatronRoundEndXenoShoutout", b =>
-                {
-                    b.HasOne("Content.Server.Database.RMCPatron", "Patron")
-                        .WithOne("RoundEndXenoShoutout")
-                        .HasForeignKey("Content.Server.Database.RMCPatronRoundEndXenoShoutout", "PatronId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired()
-                        .HasConstraintName("FK_rmc_patron_round_end_xeno_shoutouts_rmc_patrons_patron_id");
+                        .HasConstraintName("FK_rmc_patron_round_end_nt_shoutouts_rmc_patrons_patron_id");
 
                     b.Navigation("Patron");
                 });
@@ -2291,8 +2204,6 @@ namespace Content.Server.Database.Migrations.Sqlite
 
                     b.Navigation("Loadouts");
 
-                    b.Navigation("NamedItems");
-
                     b.Navigation("SquadPreference");
 
                     b.Navigation("Traits");
@@ -2320,9 +2231,7 @@ namespace Content.Server.Database.Migrations.Sqlite
                 {
                     b.Navigation("LobbyMessage");
 
-                    b.Navigation("RoundEndMarineShoutout");
-
-                    b.Navigation("RoundEndXenoShoutout");
+                    b.Navigation("RoundEndNTShoutout");
                 });
 
             modelBuilder.Entity("Content.Server.Database.RMCPatronTier", b =>

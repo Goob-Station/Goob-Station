@@ -1010,17 +1010,9 @@ namespace Content.Server.Database.Migrations.Postgres
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Figurines")
-                        .HasColumnType("boolean")
-                        .HasColumnName("figurines");
-
                     b.Property<bool>("LobbyMessage")
                         .HasColumnType("boolean")
                         .HasColumnName("lobby_message");
-
-                    b.Property<bool>("NamedItems")
-                        .HasColumnType("boolean")
-                        .HasColumnName("named_items");
 
                     b.Property<bool>("RoundEndShoutout")
                         .HasColumnType("boolean")
