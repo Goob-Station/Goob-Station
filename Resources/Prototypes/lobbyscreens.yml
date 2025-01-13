@@ -1,15 +1,23 @@
 - type: lobbyBackground
   id: Shiba1
   background: /Textures/_ShibaStation/LobbyScreens/shiba1.webp
+  name: AI Slop
+  artist: ChatGPT
 
 - type: lobbyBackground
   id: Shiba2
   background: /Textures/_ShibaStation/LobbyScreens/shiba2.webp
+  name: AI Slop
+  artist: ChatGPT
 
 - type: lobbyBackground
   id: Shiba3
   background: /Textures/_ShibaStation/LobbyScreens/shiba3.webp
+  name: AI Slop
+  artist: ChatGPT
 
 - type: lobbyBackground
   id: Shiba4
   background: /Textures/_ShibaStation/LobbyScreens/shiba4.webp
+  name: AI Slop
+  artist: ChatGPT

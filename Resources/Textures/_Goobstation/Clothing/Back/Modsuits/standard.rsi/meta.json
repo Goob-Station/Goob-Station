@@ -8,6 +8,12 @@
   },
   "states": [
     {
+      "name": "icon"
+    },
+    {
+      "name": "icon-on"
+    },
+    {
       "name": "control"
     },
 		{

@@ -5,25 +5,27 @@
     - id: AnomalySpawn
     - id: BluespaceArtifact
     - id: BluespaceLocker
-    - id: BreakerFlip
+    # - id: BreakerFlip # ShibaStation - Disabled until I make a custom announcement for it, because no one notices and wonders why power is out.
     - id: BureaucraticError
     - id: ClericalError
-    - id: CockroachMigration
+    # - id: CockroachMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
     - id: GasLeak
     # - id: GreytideVirus # ShibaStation - Disabled; tiders already have plenty of other ways to get into places.
     - id: IonStorm # its calm like 90% of the time smh
     - id: KudzuGrowth
     - id: MassHallucinations
     - id: MimicVendorRule
-    - id: MouseMigration
+    # - id: MouseMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
     - id: PowerGridCheck
     - id: RandomSentience
-    - id: SlimesSpawn
+    # - id: SlimesSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: SolarFlare
-    - id: SnakeSpawn
+    # - id: SnakeSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: SpiderClownSpawn
-    - id: SpiderSpawn
+    # - id: SpiderSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
     - id: VentClog
+    - id: Category1VentSpawn # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    - id: Category3VentSpawn # ShibaStation - Rolled into 'Category3VentSpawn' event.
 
 - type: entityTable
   id: BasicAntagEventsTable
@@ -346,7 +348,7 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/ventclog-start.ogg
     earliestStart: 15
-    minimumPlayers: 4 # ShibaStation - Reduced from 15 to 4
+    minimumPlayers: 6 # ShibaStation - Reduced from 15 to 6
     weight: 3 # ShibaStation - Reduced from 5 to 3
     duration: 60
     reoccurrenceDelay: 40 # ShibaStation - Vent clogs now can only happen after 40 minutes since the last one.
@@ -426,7 +428,7 @@
     minimumPlayers: 14 # ShibaStation - Reduced from 20 to 14
     weight: 0.5 # ShibaStation - Back to 0.5
     duration: 60
-    reoccurrenceDelay: 30 # ShibaStation - Vent critters now can only happen after 30 minutes since the last one.
+    reoccurrenceDelay: 60 # ShibaStation - Vent critters now can only happen after 60 minutes since the last one.
   - type: VentCrittersRule
     entries:
     - id: MobClownSpider

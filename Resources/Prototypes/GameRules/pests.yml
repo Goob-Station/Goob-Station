@@ -4,9 +4,10 @@
   id: CalmPestEventsTable
   table: !type:AllSelector # we need to pass a list of rules, since rules have further restrictions to consider via StationEventComp
     children:
-    - id: SnailMigrationLowPop
-    - id: CockroachMigration
-    - id: MouseMigration
+    # - id: SnailMigrationLowPop # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    # - id: CockroachMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    # - id: MouseMigration # ShibaStation - Rolled into 'Category1VentSpawn' event.
+    - id: Category1VentSpawn # ShibaStation - Rolled into 'Category1VentSpawn' event.
 
 - type: entityTable
   id: SpicyPestEventsTable
