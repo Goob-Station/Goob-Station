@@ -41,16 +41,10 @@ public sealed partial class PocketDimensionComponent : Component
     public ResPath PocketDimensionPath = new ResPath("/Maps/_Goobstation/Nonstations/pocket-dimension.yml");
 
     /// <summary>
-    /// The prototype to spawn for the portal spawned on the pot.
-    /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string EntryPortalPrototype = "PortalRed";
-
-    /// <summary>
     /// The prototype to spawn for the portal spawned in the pocket dimension.
     /// </summary>
-    [DataField(customTypeSerializer: typeof(PrototypeIdSerializer<EntityPrototype>))]
-    public string ExitPortalPrototype = "PortalBlue";
+    [DataField]
+    public EntProtoId ExitPortalPrototype = "PortalBlue";
 
     [DataField]
     public SoundSpecifier OpenPortalSound = new SoundPathSpecifier("/Audio/Machines/high_tech_confirm.ogg")

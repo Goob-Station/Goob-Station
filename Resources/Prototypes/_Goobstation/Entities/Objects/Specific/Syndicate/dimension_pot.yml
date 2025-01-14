@@ -11,6 +11,7 @@
   - type: CargoSellBlacklist
   - type: Portal
     canTeleportToOtherMaps: true
+    randomTeleport: false
   - type: Fixtures
     fixtures:
       fix1:

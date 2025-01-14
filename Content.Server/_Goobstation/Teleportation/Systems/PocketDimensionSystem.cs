@@ -1,4 +1,3 @@
-using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Teleportation.Systems;
@@ -72,17 +71,6 @@ public sealed class PocketDimensionSystem : EntitySystem
 
             comp.PocketDimensionMap = _mapMan.GetMapEntityId(map);
 
-            if (!TryComp<MapComponent>(comp.PocketDimensionMap, out var mapComp))
-            {
-                _sawmill.Error($"No map component on map {comp.PocketDimensionMap}");
-                return;
-            }
-
-            mapComp.LightingEnabled = false;
-
-            if (TryComp<GravityComponent>(comp.PocketDimensionMap, out var gravity))
-                gravity.Enabled = true;
-
             // find the pocket dimension's first grid and put the portal there
             bool foundGrid = false;
             foreach (var root in roots)
@@ -94,6 +82,8 @@ public sealed class PocketDimensionSystem : EntitySystem
                 var pos = Transform(root).Coordinates;
                 comp.ExitPortal = Spawn(comp.ExitPortalPrototype, pos);
                 EnsureComp<PortalComponent>(comp.ExitPortal!.Value, out var portal);
+                // the TryUnlink cleanup when first trying to create portal will fail without this
+                EnsureComp<LinkedEntityComponent>(uid);
                 portal.CanTeleportToOtherMaps = true;
 
                 _sawmill.Info($"Created pocket dimension on grid {root} of map {map}");
@@ -123,6 +113,8 @@ public sealed class PocketDimensionSystem : EntitySystem
         }
         else
         {
+            // cleanup
+            _link.TryUnlink(dimension, uid);
             // link us to the pocket dimension
             _link.TryLink(dimension, uid);
             comp.PortalEnabled = true;
