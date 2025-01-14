@@ -1,75 +1,113 @@
 - type: lobbyBackground
-  id: Goob
-  background: /Textures/LobbyScreens/goob.webp
+  id: amos
+  background: /Textures/LobbyScreens/amos.webp
+  name: Atmos
+  artist: asardonicsailor
 
 - type: lobbyBackground
-  id: gugel
-  background: /Textures/LobbyScreens/gugel.webp
-
-- type: lobbyBackground
-  id: mime
-  background: /Textures/LobbyScreens/mime.webp
-
-- type: lobbyBackground
-  id: breakingchem
-  background: /Textures/LobbyScreens/breakingchem.webp
+  id: cburn
+  background: /Textures/LobbyScreens/cburn.webp
+  name: Cburn
+  artist: PubliclyExecutedPig
 
 - type: lobbyBackground
   id: clown
   background: /Textures/LobbyScreens/clown.webp
+  name: Clown
+  artist: Unknown
 
 - type: lobbyBackground
-  id: command
-  background: /Textures/LobbyScreens/command.webp
-
-- type: lobbyBackground
-  id: JustAWeekAway
-  background: /Textures/LobbyScreens/justaweekaway.webp
-
-- type: lobbyBackground
-  id: JaniShootout
-  background: /Textures/LobbyScreens/janishootout.webp
-
-- type: lobbyBackground
-  id: ReclaimerNuke
-  background: /Textures/LobbyScreens/reclaimer-nuke.webp
-
-- type: lobbyBackground
-  id: CourtJester
-  background: /Textures/LobbyScreens/courtjester.webp
-
-- type: lobbyBackground
-  id: DoNotTouch
-  background: /Textures/LobbyScreens/donottouch.webp
-
-- type: lobbyBackground
-  id: Cburn
-  background: /Textures/LobbyScreens/cburn.webp
-
-- type: lobbyBackground
-  id: ClownHell
-  background: /Textures/LobbyScreens/clownhell.webp
-
-- type: lobbyBackground
-  id: ClownAssassin
+  id: clownassassin
   background: /Textures/LobbyScreens/clownassassin.webp
+  name: Clown Assassin
+  artist: ka2220
 
 - type: lobbyBackground
-  id: GrandTheftGoob
-  background: /Textures/LobbyScreens/grandtheftgoob.webp
+  id: clownhell
+  background: /Textures/LobbyScreens/clownhell.webp
+  name: Clown Hell
+  artist: kA2220
 
 - type: lobbyBackground
-  id: Killsigned
-  background: /Textures/LobbyScreens/killsigned.webp
+  id: cqcm
+  background: /Textures/LobbyScreens/cqcm.webp
+  name: CQCM
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: cqcm1
+  background: /Textures/LobbyScreens/cqcm1.webp
+  name: CQCM 1
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: cqcm2
+  background: /Textures/LobbyScreens/cqcm2.webp
+  name: CQCM 2
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: cqcm3
+  background: /Textures/LobbyScreens/cqcm3.webp
+  name: CQCM 3
+  artist: blooodyspy
+
+- type: lobbyBackground
+  id: foundinghonkers
+  background: /Textures/LobbyScreens/foundinghonkers.webp
+  name: Founding Honkers
+  artist: Piras314
+
+- type: lobbyBackground
+  id: goob
+  background: /Textures/LobbyScreens/goob.webp
+  name: Goob
+  artist: Diebeck
 
 - type: lobbyBackground
   id: GoobNukie
   background: /Textures/LobbyScreens/GoobNukie.webp
+  name: Goob Nukie
+  artist: Cheeki
 
 - type: lobbyBackground
-  id: GoobHeretic
+  id: grandtheftgoob
+  background: /Textures/LobbyScreens/grandtheftgoob.webp
+  name: Grand Theft Goob
+  artist: Piras314
+
+- type: lobbyBackground
+  id: greytideworldwide
+  background: /Textures/LobbyScreens/greytideworldwide.webp
+  name: Greytide Worldwide
+  artist: Piras314
+
+- type: lobbyBackground
+  id: heretic
   background: /Textures/LobbyScreens/heretic.webp
+  name: Heretic
+  artist: Cheeki
 
 - type: lobbyBackground
-  id: amos
-  background: /Textures/LobbyScreens/amos.webp
+  id: janishootout
+  background: /Textures/LobbyScreens/janishootout.webp
+  name: Jani Shootout
+  artist: Unknown
+
+- type: lobbyBackground
+  id: justaweekaway
+  background: /Textures/LobbyScreens/justaweekaway.webp
+  name: Just A Week Away
+  artist: plantyfern
+
+- type: lobbyBackground
+  id: mime
+  background: /Textures/LobbyScreens/mime.webp
+  name: Mime
+  artist: Unknown
+
+- type: lobbyBackground
+  id: reclaimer-nuke
+  background: /Textures/LobbyScreens/reclaimer-nuke.webp
+  name: Reclaimer Nuke
+  artist: GetOutMarutak

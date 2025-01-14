@@ -50,11 +50,16 @@
                     <!-- Vertical Padding-->
                     <Control VerticalExpand="True" />
                     <!-- Left Bot Panel -->
-                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom">
+                    <BoxContainer Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Bottom" SeparationOverride="4"> <!-- Goobstation - Lobby Background Credits -->
                         <info:DevInfoBanner Name="DevInfoBanner" VerticalExpand="false" Margin="3 3 3 3" />
                         <PanelContainer StyleClasses="AngleRect">
                             <RichTextLabel Name="LobbySong" Access="Public" HorizontalAlignment="Center" />
                         </PanelContainer>
+                        <!-- Goobstation start -->
+                        <PanelContainer StyleClasses="AngleRect">
+                            <RichTextLabel Name="LobbyBackground" Access="Public" HorizontalAlignment="Center" />
+                        </PanelContainer>
+                        <!-- Goobstation end -->
                     </BoxContainer>
                 </Control>
                 <!-- Character setup state -->
