@@ -1,4 +1,4 @@
-// indestructible and invisible occluder wall, makes it look like floor just fades into nothing
+# indestructible and invisible occluder wall, makes it look like floor just fades into nothing
 - type: entity
   parent: BaseStructure
   id: WallDimension
@@ -17,12 +17,13 @@
     bodyType: Static
   - type: Fixtures
     fixtures:
-    - shape:
-        !type:PhysShapeAabb
-        bounds: "-0.5,-0.5,0.5,0.5"
-      mask:
-      - FullTileMask
-      layer:
-      - WallLayer
-      density: 1000
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
   - type: Occluder

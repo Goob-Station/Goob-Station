@@ -1,8 +1,10 @@
 using Content.Shared.Gravity;
 using Content.Shared.Hands.Components;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Teleportation;
+using Content.Shared.Teleportation.Systems;
+using Content.Shared.Teleportation.Components;
 using Content.Shared.Verbs;
+using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
@@ -20,7 +22,6 @@ public sealed class PocketDimensionSystem : EntitySystem
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly IMapManager _mapMan = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPortalSystem _portal = default!;
 
     private ISawmill _sawmill = default!;
 
@@ -36,14 +37,8 @@ public sealed class PocketDimensionSystem : EntitySystem
 
     private void OnRemoved(EntityUid uid, PocketDimensionComponent comp, ComponentRemove args)
     {
-        if (comp.PocketDimensionMap != null)
-        {
-            // everything inside will be destroyed so this better be indestructible
+        if (!Deleted(comp.PocketDimensionMap))
             QueueDel(comp.PocketDimensionMap.Value);
-        }
-
-        if (comp.EntryPortal != null)
-            QueueDel(comp.EntryPortal.Value);
     }
 
     private void OnGetVerbs(EntityUid uid, PocketDimensionComponent comp, GetVerbsEvent<AlternativeVerb> args)
@@ -64,17 +59,27 @@ public sealed class PocketDimensionSystem : EntitySystem
     /// </summary>
     private void HandleActivation(EntityUid uid, PocketDimensionComponent comp, EntityUid user)
     {
-        if (comp.PocketDimensionMap == null)
+        if (Deleted(comp.PocketDimensionMap))
         {
             var map = _mapMan.CreateMap();
+
             if (!_mapLoader.TryLoad(map, comp.PocketDimensionPath.ToString(), out var roots))
             {
                 _sawmill.Error($"Failed to load pocket dimension map {comp.PocketDimensionPath}");
-                QueueDel(uid);
+                QueueDel(comp.PocketDimensionMap);
                 return;
             }
 
             comp.PocketDimensionMap = _mapMan.GetMapEntityId(map);
+
+            if (!TryComp<MapComponent>(comp.PocketDimensionMap, out var mapComp))
+            {
+                _sawmill.Error($"No map component on map {comp.PocketDimensionMap}");
+                return;
+            }
+
+            mapComp.LightingEnabled = false;
+
             if (TryComp<GravityComponent>(comp.PocketDimensionMap, out var gravity))
                 gravity.Enabled = true;
 
@@ -88,43 +93,40 @@ public sealed class PocketDimensionSystem : EntitySystem
                 // spawn the permanent portal into the pocket dimension, now ready to be used
                 var pos = Transform(root).Coordinates;
                 comp.ExitPortal = Spawn(comp.ExitPortalPrototype, pos);
+                EnsureComp<PortalComponent>(comp.ExitPortal!.Value, out var portal);
+                portal.CanTeleportToOtherMaps = true;
+
                 _sawmill.Info($"Created pocket dimension on grid {root} of map {map}");
 
                 // if someone closes your portal you can use the one inside to escape
-                _link.TryLink(uid, comp.ExitPortal.Value);
+                _link.OneWayLink(comp.ExitPortal.Value, uid);
                 foundGrid = true;
             }
             if (!foundGrid)
             {
                 _sawmill.Error($"Pocket dimension {comp.PocketDimensionPath} had no grids!");
-                QueueDel(uid);
+                QueueDel(comp.PocketDimensionMap);
                 return;
             }
         }
 
         var dimension = comp.ExitPortal!.Value;
-        if (comp.EntryPortal != null)
+        if (comp.PortalEnabled)
         {
-            // portal already exists so unlink and delete it
-            _link.TryUnlink(dimension, comp.EntryPortal.Value);
-            QueueDel(comp.EntryPortal.Value);
-            comp.EntryPortal = null;
+            // unlink us
+            _link.TryUnlink(dimension, uid);
+            comp.PortalEnabled = false;
             _audio.PlayPvs(comp.ClosePortalSound, uid);
 
             // if you are stuck inside the pocket dimension you can use the internal portal to escape
-            _link.TryLink(uid, dimension);
+            _link.OneWayLink(dimension, uid);
         }
         else
         {
-            // create a portal and link it to the pocket dimension
-            comp.EntryPortal = Spawn(comp.EntryPortalPrototype, Transform(uid).Coordinates);
-            _link.TryLink(dimension, comp.EntryPortal.Value);
-            _transform.SetParent(comp.EntryPortal.Value, uid);
-            // make sure the pot can't go through its own portal
-            _portal.AddBlacklist(comp.EntryPortal.Value, uid);
+            // link us to the pocket dimension
+            _link.TryLink(dimension, uid);
+            comp.PortalEnabled = true;
             _audio.PlayPvs(comp.OpenPortalSound, uid);
-
-            _link.TryUnlink(uid, dimension);
         }
     }
 }

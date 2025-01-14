@@ -1,4 +1,4 @@
-using Content.Server.Teleportation.Systems;
+using Content.Server.Teleportation;
 using Robust.Shared.Audio;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
@@ -6,7 +6,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Utility;
 
-namespace Content.Server.Teleportation.Components;
+namespace Content.Server.Teleportation;
 
 /// <summary>
 /// Creates a map for a pocket dimension on spawn.
@@ -14,13 +14,13 @@ namespace Content.Server.Teleportation.Components;
 /// </summary>
 [RegisterComponent]
 [Access(typeof(PocketDimensionSystem))]
-public sealed class PocketDimensionComponent : Component
+public sealed partial class PocketDimensionComponent : Component
 {
     /// <summary>
-    /// The portal to enter the dimension if open, or null if closed.
+    /// Whether this pocket dimension portal is enabled.
     /// </summary>
     [ViewVariables]
-    public EntityUid? EntryPortal;
+    public bool PortalEnabled = false;
 
     /// <summary>
     /// The portal in the pocket dimension. Created when the entry portal is first opened.
@@ -38,7 +38,7 @@ public sealed class PocketDimensionComponent : Component
     /// Path to the pocket dimension's map file
     /// </summary>
     [DataField]
-    public ResPath PocketDimensionPath = new ResPath("/Maps/Misc/pocket-dimension.yml");
+    public ResPath PocketDimensionPath = new ResPath("/Maps/_Goobstation/Nonstations/pocket-dimension.yml");
 
     /// <summary>
     /// The prototype to spawn for the portal spawned on the pot.

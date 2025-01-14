@@ -1,6 +1,6 @@
 - type: tile
   id: FloorDimension
-  name: tiles-dimension
+  name: Dimension Floor
   sprite: /Textures/Tiles/grass.png
   baseTurfs:
   - Plating
