@@ -1364,7 +1364,7 @@
   id: UplinkgClothingThievingGloves
   name: uplink-clothing-thieving-gloves-name
   description: uplink-clothing-thieving-gloves-desc
-  productEntity: ClothingHandsChameleonThief # Goobstation
+  productEntity: ThievingGloves
   cost:
     Telecrystal: 30 # goob
   categories:
