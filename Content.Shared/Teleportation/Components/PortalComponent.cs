@@ -53,11 +53,4 @@ public sealed partial class PortalComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField, ViewVariables(VVAccess.ReadWrite)]
     public bool RandomTeleport = true;
-
-    // Goobstation - Dimension pot
-    /// <summary>
-    /// Which entities to not let go through this portal.
-    /// </summary>
-    [ViewVariables]
-    public List<EntityUid> BlacklistedEntities = new();
 }
