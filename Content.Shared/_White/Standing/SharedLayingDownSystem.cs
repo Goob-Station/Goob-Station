@@ -1,7 +1,6 @@
 using Content.Shared._Shitmed.Body.Organ; // Shitmed Change
 using Content.Shared.Body.Components;
 using Content.Shared._Goobstation.CCVar; // Shitmed Change
-using System.Linq;
 using Content.Shared.DoAfter;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Systems;
@@ -10,7 +9,6 @@ using Content.Shared.Standing;
 using Content.Shared.Stunnable;
 using Robust.Shared.Configuration;
 using Robust.Shared.Input.Binding;
-using Robust.Shared.Map;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
@@ -22,7 +20,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly INetConfigurationManager _cfg = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
 
     public override void Initialize()
     {
@@ -157,17 +154,6 @@ public abstract class SharedLayingDownSystem : EntitySystem
     }
 
     public virtual void UpdateSpriteRotation(EntityUid uid) { }
-    
-    public void LieDownInRange(EntityUid uid, EntityCoordinates coords, float range = 0.4f)
-    {
-        var ents = new HashSet<Entity<LayingDownComponent>>();
-        _lookup.GetEntitiesInRange(coords, range, ents);
-
-        foreach (var ent in ents.Where(ent => ent.Owner != uid))
-        {
-            TryLieDown(ent, behavior:DropHeldItemsBehavior.DropIfStanding);
-        }
-    }
 }
 
 [Serializable, NetSerializable]

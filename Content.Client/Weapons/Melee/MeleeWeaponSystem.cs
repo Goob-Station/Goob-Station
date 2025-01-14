@@ -136,7 +136,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             }
 
             // WD EDIT START
-            if (HasComp<BlinkComponent>(weaponUid))
+            if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
             {
                 if (!_xformQuery.TryGetComponent(entity, out var userXform) || !Timing.IsFirstTimePredicted)
                 {

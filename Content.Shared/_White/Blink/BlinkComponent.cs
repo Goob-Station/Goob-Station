@@ -5,22 +5,23 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._White.Blink;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class BlinkComponent : Component
 {
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
+    [DataField]
     public float Distance = 5f;
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public float BlinkRate = 1f;
+    [DataField, AutoNetworkedField]
+    public bool IsActive = true;
 
-    public TimeSpan NextBlink;
+    [DataField]
+    public string BlinkDelay = "blink";
 
-    [DataField, ViewVariables(VVAccess.ReadWrite)]
-    public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg")
-    {
-        Params = AudioParams.Default.WithVolume(5f)
-    };
+    [DataField]
+    public TimeSpan KnockdownTime = TimeSpan.FromSeconds(0.1);
+
+    [DataField]
+    public SoundSpecifier BlinkSound = new SoundPathSpecifier("/Audio/Magic/blink.ogg");
 }
 
 [Serializable, NetSerializable]

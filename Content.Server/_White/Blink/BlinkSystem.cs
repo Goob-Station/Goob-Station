@@ -3,26 +3,26 @@ using System.Numerics;
 using Content.Shared._White.Blink;
 using Content.Shared._White.Standing;
 using Content.Shared.Physics;
+using Content.Shared.Timing;
 using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Physics;
-using Robust.Shared.Timing;
 
 namespace Content.Server._White.Blink;
 
-public sealed class BlinkSystem : EntitySystem
+public sealed class BlinkSystem : SharedBlinkSystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedLayingDownSystem _layingDown = default!;
+    [Dependency] private readonly TelefragSystem _telefrag = default!;
+    [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeAllEvent<BlinkEvent>(OnBlink);
+        SubscribeNetworkEvent<BlinkEvent>(OnBlink);
     }
 
     private void OnBlink(BlinkEvent msg, EntitySessionEventArgs args)
@@ -35,15 +35,11 @@ public sealed class BlinkSystem : EntitySystem
         if (!TryComp(user, out TransformComponent? xform))
             return;
 
-        if (!TryComp(GetEntity(msg.Weapon), out BlinkComponent? blink))
+        var weapon = GetEntity(msg.Weapon);
+
+        if (!TryComp(weapon, out BlinkComponent? blink) || !blink.IsActive ||
+            !TryComp(weapon, out UseDelayComponent? delay) || _useDelay.IsDelayed((weapon, delay), blink.BlinkDelay))
             return;
-
-        if (blink.NextBlink > _timing.CurTime)
-            return;
-
-        var blinkRate = TimeSpan.FromSeconds(1f / blink.BlinkRate);
-
-        blink.NextBlink = _timing.CurTime + blinkRate;
 
         var coords = _transform.GetWorldPosition(xform);
         var dir = msg.Direction.Normalized();
@@ -58,8 +54,9 @@ public sealed class BlinkSystem : EntitySystem
         else
             targetPos = coords + (msg.Direction.Length() > blink.Distance ? dir * blink.Distance : msg.Direction);
 
+        _useDelay.TryResetDelay((weapon, delay), id: blink.BlinkDelay);
         _transform.SetWorldPosition(user, targetPos);
-        _layingDown.LieDownInRange(user, xform.Coordinates);
+        _telefrag.DoTelefrag(user, xform.Coordinates, blink.KnockdownTime);
         _audio.PlayPvs(blink.BlinkSound, user);
     }
 }
