@@ -46,7 +46,7 @@ public sealed class BlinkSystem : SharedBlinkSystem
         var range = MathF.Min(blink.Distance, msg.Direction.Length());
 
         var ray = new CollisionRay(coords, dir, (int) (CollisionGroup.Impassable | CollisionGroup.InteractImpassable));
-        var rayResults = _physics.IntersectRayWithPredicate(xform.MapID, ray, range, x => x == user, false).ToList();
+        var rayResults = _physics.IntersectRay(xform.MapID, ray, range, user, false).ToList();
 
         Vector2 targetPos;
         if (rayResults.Count > 0)

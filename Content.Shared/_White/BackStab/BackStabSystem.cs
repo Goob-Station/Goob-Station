@@ -40,10 +40,11 @@ public sealed class BackStabSystem : EntitySystem
         if (!TryBackstab(target, args.User, ent.Comp.Tolerance))
             return;
 
-        var damage = args.BaseDamage.GetTotal() * ent.Comp.DamageMultiplier;
+        var total = args.BaseDamage.GetTotal();
 
-        args.BonusDamage = new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"),
-            damage - args.BaseDamage.GetTotal());
+        var damage = total * ent.Comp.DamageMultiplier;
+
+        args.BonusDamage += new DamageSpecifier(_prototypeManager.Index<DamageTypePrototype>("Slash"), damage - total);
     }
 
     public bool TryBackstab(EntityUid target,

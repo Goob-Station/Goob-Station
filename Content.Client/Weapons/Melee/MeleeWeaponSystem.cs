@@ -30,6 +30,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly MapSystem _map = default!;
+    [Dependency] private readonly TransformSystem _transform = default!;
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -139,11 +140,9 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
             {
                 if (!_xformQuery.TryGetComponent(entity, out var userXform) || !Timing.IsFirstTimePredicted)
-                {
                     return;
-                }
 
-                var targetMap = coordinates.ToMap(EntityManager, TransformSystem);
+                var targetMap = _transform.ToMapCoordinates(coordinates);
 
                 if (targetMap.MapId != userXform.MapID)
                     return;
