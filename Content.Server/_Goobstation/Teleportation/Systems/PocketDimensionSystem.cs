@@ -91,6 +91,7 @@ public sealed class PocketDimensionSystem : EntitySystem
                 // if someone closes your portal you can use the one inside to escape
                 _link.OneWayLink(comp.ExitPortal.Value, uid);
                 foundGrid = true;
+                break;
             }
             if (!foundGrid)
             {
