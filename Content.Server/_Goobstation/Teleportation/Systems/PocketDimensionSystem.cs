@@ -79,7 +79,7 @@ public sealed class PocketDimensionSystem : EntitySystem
                     continue;
 
                 // spawn the permanent portal into the pocket dimension, now ready to be used
-                var pos = Transform(root).Coordinates;
+                var pos = new EntityCoordinates(root, 0, 0);
                 comp.ExitPortal = Spawn(comp.ExitPortalPrototype, pos);
                 EnsureComp<PortalComponent>(comp.ExitPortal!.Value, out var portal);
                 // the TryUnlink cleanup when first trying to create portal will fail without this
