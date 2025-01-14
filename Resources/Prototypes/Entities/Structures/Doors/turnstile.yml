@@ -10,20 +10,28 @@
     snapCardinals: true
     layers:
     - state: turnstile
+    - state: deny
+      visible: false
+    - state: operate
+      visible: false
   - type: AnimationPlayer
   - type: Fixtures
     fixtures:
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.4,-0.4,0.4,0.4"  # don't want this colliding with walls or they won't close
+          bounds: "-0.35,-0.35,0.35,0.35"  # don't want this colliding with walls or they won't close
         density: 100
         mask:
         - FullTileMask
         layer:
         - AirlockLayer
-        hard: false
+        hard: true
   - type: Turnstile
+    accessSound:
+      path: /Audio/Machines/turnstile.ogg
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg
 
 - type: entity
   id: Turnstile

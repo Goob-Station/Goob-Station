@@ -1,3 +1,6 @@
+using System.Numerics;
+using Robust.Shared.Audio;
+
 namespace Content.Shared.Turnstile;
 
 /// <summary>
@@ -7,5 +10,16 @@ namespace Content.Shared.Turnstile;
 public sealed partial class TurnstileComponent : Component
 {
     [DataField("turnstileDirection")]
-    public CardinalDirection TurnstileDirection = CardinalDirection.South;
+
+    public Vector2 AllowedDirection = new Vector2(0, 1); // North
+
+    /// </summary>
+    [DataField("accessSound")]
+    public SoundSpecifier? AccessSound;
+
+    /// <summary>
+    /// Sound to play if the door is denied.
+    /// </summary>
+    [DataField("denySound")]
+    public SoundSpecifier? DenySound;
 }
