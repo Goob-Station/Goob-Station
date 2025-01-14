@@ -32,21 +32,23 @@ public sealed partial class FlockmindSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<FlockmindComponent, EventSummonRift>(OnRiftSummon);
-        SubscribeLocalEvent<FlockmindComponent, EventRadioStun>(OnRadioStun);
+        SubscribeLocalEvent<FlockmindComponent, SummonRiftEvent>(OnRiftSummon);
+        SubscribeLocalEvent<FlockmindComponent, RadioStunEvent>(OnRadioStun);
     }
 
     #region Flockmind abilities
 
-    private void OnRiftSummon(EntityUid uid, FlockmindComponent comp, ref EventSummonRift args)
+    private void OnRiftSummon(EntityUid uid, FlockmindComponent comp, ref SummonRiftEvent args)
     {
+        if (args.Handled)
+            return;
         var transform = Transform(uid);
         var rift = EntityManager.SpawnEntity("Rift", transform.Coordinates);
         var audioSystem = EntityManager.System<AudioSystem>();
-        audioSystem.PlayFromEntity("/Audio/Effects/teleport_activate.ogg", rift);
+        audioSystem.PlayPvs("/Audio/Effects/teleport_activate.ogg", rift);
     }
 
-    private void OnRadioStun(EntityUid uid, FlockmindComponent comp, ref EventRadioStun args)
+    private void OnRadioStun(EntityUid uid, FlockmindComponent comp, ref RadioStunEvent args)
     {
         var radius = 15.0f;
         var transform = Transform(uid);

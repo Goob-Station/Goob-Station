@@ -1,6 +1,85 @@
+#base actions for flockmind
 - type: entity
-  id: ActionControlDrone
+  id: SummonRift
+  name: Summon rift
+  description: Spawns a rift that acts as your starting point. Spawns 2 gnesis turrets and 3 eggs.
   components:
-    - type: Action
-      actionType: Instant
-      event: !ControlDroneEvent
+    - type: InstantAction
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: summon_rift
+      event: !type:SummonRiftEvent
+
+- type: entity
+  id: RadioStun
+  name: Radio stun burst
+  description: Blasts a terrible static into nearby headsets, stunning whoever wears them.
+  components:
+    - type: InstantAction
+      useDelay: 20
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: radio_stun
+      event: !type:RadioStunEvent
+    - type: FlockmindAction
+      resourceCost: 20
+
+- type: entity
+  id: RepairBurst
+  name: Concentrated repair burst
+  description: Repairs up to 4 nearby drones and all (nearby) gnesis structures.
+  components:
+    - type: InstantAction
+      useDelay: 30
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: repair_burst
+      event: !type:RepairBurstEvent
+    - type: FlockmindAction
+      resourceCost: 30
+
+- type: entity
+  id: Gatecrash
+  name: Gatecrash
+  description: Causes nearby powered and unbolted airlocks to bolt open.
+  components:
+    - type: InstantAction
+      useDelay: 10
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: gatecrash
+      event: !type:GatecrashEvent
+    - type: FlockmindAction
+      resourceCost: 50
+
+- type: entity
+  id: PartitionMind
+  name: Partition mind
+  description: Splits your mind into a seperate flocktrace, a player-controlled drone controller.
+  components:
+    - type: InstantAction
+      useDelay: 90
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: partition_mind
+      event: !type:PartitionMindEvent
+    - type: FlockmindAction
+      resourceCost: 20
+
+- type: entity
+  id: PlaceTealprint
+  name: Place tealprint
+  description: Places a tealprint, a holoprojection of a chosen gnesis structure.
+  components:
+    - type: EntityTargetAction
+      useDelay: 5
+      icon:
+        sprite: _Goobstation/Flockmind/actions.rsi
+        state: place_tealprint
+      event: !type:PlaceTealprintEvent
+
+#drone related actions
+- type: entity
+  id: LayEgg
+  name: Lay egg
+  description: Lays an egg which will hatch into a drone.

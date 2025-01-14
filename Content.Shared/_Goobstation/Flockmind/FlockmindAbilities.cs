@@ -13,14 +13,14 @@ public sealed partial class FlockmindActionComponent : Component
     [DataField] public float ComputeCost = 0;
 }
 
+public sealed partial class SummonRiftEvent : InstantActionEvent { }
+public sealed partial class PartitionMindEvent : InstantActionEvent { }
+public sealed partial class RadioStunEvent : InstantActionEvent { }
+public sealed partial class RepairBurstEvent : InstantActionEvent { }
+public sealed partial class GateCrashEvent : InstantActionEvent { }
+public sealed partial class DiffractDroneEvent : EntityTargetActionEvent { }
+public sealed partial class ControlDroneEvent : EntityTargetActionEvent { }
 
-public sealed partial class PartitionMind : InstantActionEvent { }
-public sealed partial class RadioStun : InstantActionEvent { }
-public sealed partial class RepairBurst : InstantActionEvent { }
-public sealed partial class GateCrash : InstantActionEvent { }
-public sealed partial class DiffractDrone : EntityTargetActionEvent { }
-public sealed partial class ControlDrone : EntityTargetActionEvent { }
 
-
-public sealed partial class DroneEject : InstantActionEvent { }
+public sealed partial class DroneEjectEvent : InstantActionEvent { }
 
