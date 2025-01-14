@@ -42,6 +42,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             subs.Event<CriminalRecordChangeStatus>(OnChangeStatus);
             subs.Event<CriminalRecordAddHistory>(OnAddHistory);
             subs.Event<CriminalRecordDeleteHistory>(OnDeleteHistory);
+            subs.Event<CriminalRecordPrintPrisonerId>(OnPrint);
         });
     }
 
@@ -261,5 +262,10 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             }
         }
         RemComp<CriminalRecordComponent>(uid);
+    }
+
+    private void OnPrint(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordPrintPrisonerId args)
+    {
+        Logger.Debug("Time: " + args.Time);
     }
 }

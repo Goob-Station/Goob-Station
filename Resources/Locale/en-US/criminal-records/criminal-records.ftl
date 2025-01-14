@@ -17,8 +17,11 @@ criminal-records-status-paroled = Paroled
 criminal-records-console-wanted-reason = [color=gray]Wanted Reason[/color]
 criminal-records-console-suspected-reason = [color=gray]Suspected Reason[/color]
 criminal-records-console-reason = Reason
+criminal-records-console-time = Brig Time
+criminal-records-console-time-title = Set Brig Time upon Entry
 criminal-records-console-reason-placeholder = For example: {$placeholder}
-
+criminal-records-console-time-placeholder = For example: 1:30
+criminal-records-console-print = Print Prisoner ID
 ## Crime History
 
 criminal-records-console-crime-history = Crime History

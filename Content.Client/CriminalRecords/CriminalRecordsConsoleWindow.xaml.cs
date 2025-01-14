@@ -13,6 +13,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Content.Client.CriminalRecords;
 
@@ -36,6 +37,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
+    public Action<string>? OnTimeConfirmed;
 
     private uint _maxLength;
     private bool _access;
@@ -111,6 +113,11 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         {
             if (_selectedRecord is {} record)
                 OnHistoryUpdated?.Invoke(record, _access, true);
+        };
+
+        PrintButton.OnPressed += _ =>
+        {
+                GetTime();
         };
     }
 
@@ -231,6 +238,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             message.AddText($": {reason}");
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;
+            PrintButton.Visible = true;
         }
         else
         {
@@ -284,6 +292,46 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
                 return;
 
             OnDialogConfirmed?.Invoke(status, reason);
+        };
+
+        _reasonDialog.OnClose += () => { _reasonDialog = null; };
+    }
+    public static class RegexHelper
+    {
+        private static readonly Regex MyRegex = new Regex(@"^[0-5]?\d:[0-5]\d$", RegexOptions.Compiled);
+
+        public static bool IsMatch(string input)
+        {
+            return MyRegex.IsMatch(input);
+        }
+    }
+    private void GetTime()
+    {
+        if (_reasonDialog != null)
+        {
+            _reasonDialog.MoveToFront();
+            return;
+        }
+
+        var field = "time";
+        var title = Loc.GetString("criminal-records-console-time-title");
+        var placeholder = Loc.GetString("criminal-records-console-time-placeholder");
+        var prompt = Loc.GetString("criminal-records-console-time");
+        var entry = new QuickDialogEntry(field, QuickDialogEntryType.LongText, prompt, placeholder);
+        var entries = new List<QuickDialogEntry>() { entry };
+        _reasonDialog = new DialogWindow(title, entries);
+
+        _reasonDialog.OnConfirmed += responses =>
+        {
+            var time = responses[field];
+            if (time.Length < 1 || time.Length > _maxLength)
+                return;
+
+            if(RegexHelper.IsMatch(time))
+            {
+                OnTimeConfirmed?.Invoke(time);
+            }
+
         };
 
         _reasonDialog.OnClose += () => { _reasonDialog = null; };

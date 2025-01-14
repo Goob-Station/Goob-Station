@@ -32,6 +32,8 @@
       path: /Audio/Machines/turnstile.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+  - type: AccessReader
+    access: [["Security"]]
 
 - type: entity
   id: Turnstile

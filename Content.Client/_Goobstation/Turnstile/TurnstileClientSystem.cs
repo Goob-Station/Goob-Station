@@ -1,8 +1,8 @@
-using Content.Shared.Turnstile;
+using Content.Shared._Goobstation.Turnstile;
 using Robust.Client.GameObjects;
 using Robust.Shared.Timing;
 
-namespace Content.Client.Turnstile;
+namespace Content.Client._Goobstation.Turnstile;
 
 /// <inheritdoc/>
 public sealed class TurnstileClientSystem : EntitySystem

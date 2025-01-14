@@ -1,7 +1,7 @@
 using System.Numerics;
 using Robust.Shared.Audio;
 
-namespace Content.Shared.Turnstile;
+namespace Content.Shared._Goobstation.Turnstile;
 
 /// <summary>
 /// This is used for...

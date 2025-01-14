@@ -73,6 +73,8 @@ public sealed class CriminalRecordChangeStatus : BoundUserInterfaceMessage
     }
 }
 
+
+
 /// <summary>
 /// Used to add a single line to the record's crime history.
 /// </summary>
@@ -99,4 +101,13 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
     {
         Index = index;
     }
+}
+
+/// <summary>
+/// Used to print prisoner ID
+/// </summary>
+[Serializable, NetSerializable]
+public sealed class CriminalRecordPrintPrisonerId(string? time) : BoundUserInterfaceMessage
+{
+    public readonly string? Time = time;
 }
