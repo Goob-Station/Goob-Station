@@ -1,6 +1,12 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Mothroaches are now non-targets to station pets. Viva la mothroach!
+    type: Fix
+  id: 115
+  time: '2025-01-14T17:13:44.450006'
+- author: AstroDogeDX
+  changes:
   - message: Vent spawn probabilities for mobs has been reduced to 1/3rd their previous
       values. Should get swarmed less when the events trigger now.
     type: Tweak

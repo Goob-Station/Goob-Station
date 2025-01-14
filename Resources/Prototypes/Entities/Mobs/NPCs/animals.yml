@@ -442,7 +442,7 @@
   name: mothroach
   parent: MobCockroach
   id: MobMothroach
-  description: This is the adorable by-product of multiple attempts at genetically mixing mothpeople with cockroaches.
+  description: This is the adorable by-product of multiple attempts at genetically mixing lepidopterans with cockroaches. # ShibaStation - moth people to lepidopterans
   components:
   - type: GhostRole
     makeSentient: true
@@ -549,7 +549,7 @@
   - type: CanEscapeInventory
   - type: NpcFactionMember
     factions:
-    - Mouse
+    - Passive # ShibaStation - makes the cute moffbugs non-targets to station pets. viva la mothroach!
   - type: Body
     prototype: Mothroach
   - type: SurgeryTarget # Shitmed
