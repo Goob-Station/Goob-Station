@@ -37,64 +37,64 @@
 #   # xenos todo (M)
 #   # improved kudzu todo (M)
 
-- type: entity
-  parent: BaseGameRule
-  id: Dynamic
-  components:
-  - type: GameRule
-  - type: DynamicRule
-    roundstartRulesPool: DynamicRoundstartGamerules
+# - type: entity
+#   parent: BaseGameRule
+#   id: Dynamic
+#   components:
+#   - type: GameRule
+#   - type: DynamicRule
+#     roundstartRulesPool: DynamicRoundstartGamerules
 
-- type: entity
-  parent: Dynamic
-  id: DynamicUnforgiving
-  components:
-  - type: DynamicRule
-    roundstartRulesPool: DynamicRoundstartGamerules
-    unforgiving: true
-    maxThreat: 1000 # god save us all
+# - type: entity
+#   parent: Dynamic
+#   id: DynamicUnforgiving
+#   components:
+#   - type: DynamicRule
+#     roundstartRulesPool: DynamicRoundstartGamerules
+#     unforgiving: true
+#     maxThreat: 1000 # god save us all
 
-- type: entity
-  parent: BaseGameRule
-  id: DynamicStationEventScheduler
-  components:
-  - type: DynamicStationEventScheduler
-    midroundRulesPool: DynamicMidroundGamerules
+# - type: entity
+#   parent: BaseGameRule
+#   id: DynamicStationEventScheduler
+#   components:
+#   - type: DynamicStationEventScheduler
+#     midroundRulesPool: DynamicMidroundGamerules
 
-# game preset here for various reasons
-# most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
-- type: gamePreset
-  id: Dynamic
-  alias:
-    - dynamic
-    - dyn
-    - secret2
-  name: gamemode-dynamic-title
-  description: gamemode-dynamic-description
-  showInVote: false # Shibastation - admeme only because it's broken at zero pop and I can't stop it from being voteable despite setting minPlayers to 15 ?????
-  rules:
-    - Dynamic
-    - BasicStationEventSchedulerNoAntag
-    - DynamicStationEventScheduler
-    #- MeteorSwarmScheduler # Goobstation - nuh uh
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
-    - BasicRoundstartVariation
+# # game preset here for various reasons
+# # most of them being myself striving for chaotic folder hierarchy that will collapse onto itself after 6 months
+# - type: gamePreset
+#   id: Dynamic
+#   alias:
+#     - dynamic
+#     - dyn
+#     - secret2
+#   name: gamemode-dynamic-title
+#   description: gamemode-dynamic-description
+#   showInVote: false # Shibastation - admeme only because it's broken at zero pop and I can't stop it from being voteable despite setting minPlayers to 15 ?????
+#   rules:
+#     - Dynamic
+#     - BasicStationEventSchedulerNoAntag
+#     - DynamicStationEventScheduler
+#     #- MeteorSwarmScheduler # Goobstation - nuh uh
+#     - SpaceTrafficControlEventScheduler
+#     - SpaceTrafficControlFriendlyEventScheduler
+#     - BasicRoundstartVariation
 
-- type: gamePreset
-  id: DynamicUnforgiving
-  alias:
-    - dynamic2
-    - aao2
-    - deathrollercoaster
-  name: gamemode-dynamic-u-title
-  description: gamemode-dynamic-u-description
-  showInVote: false # admeme only
-  rules:
-    - DynamicUnforgiving
-    - BasicStationEventSchedulerNoAntag
-    - DynamicStationEventScheduler
-    - MeteorSwarmScheduler
-    - SpaceTrafficControlEventScheduler
-    - SpaceTrafficControlFriendlyEventScheduler
-    - BasicRoundstartVariation
+# - type: gamePreset
+#   id: DynamicUnforgiving
+#   alias:
+#     - dynamic2
+#     - aao2
+#     - deathrollercoaster
+#   name: gamemode-dynamic-u-title
+#   description: gamemode-dynamic-u-description
+#   showInVote: false # admeme only
+#   rules:
+#     - DynamicUnforgiving
+#     - BasicStationEventSchedulerNoAntag
+#     - DynamicStationEventScheduler
+#     - MeteorSwarmScheduler
+#     - SpaceTrafficControlEventScheduler
+#     - SpaceTrafficControlFriendlyEventScheduler
+#     - BasicRoundstartVariation
