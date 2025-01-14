@@ -30,7 +30,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
     [Dependency] private readonly InputSystem _inputSystem = default!;
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly TransformSystem _transform = default!;
+    [Dependency] private readonly TransformSystem _transform = default!; // Goobstation
 
     private EntityQuery<TransformComponent> _xformQuery;
 
@@ -139,7 +139,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
             // WD EDIT START
             if (TryComp(weaponUid, out BlinkComponent? blink) && blink.IsActive)
             {
-                if (!_xformQuery.TryGetComponent(entity, out var userXform) || !Timing.IsFirstTimePredicted)
+                if (!_xformQuery.TryGetComponent(entity, out var userXform))
                     return;
 
                 var targetMap = _transform.ToMapCoordinates(coordinates);
@@ -150,7 +150,7 @@ public sealed partial class MeleeWeaponSystem : SharedMeleeWeaponSystem
                 var userPos = TransformSystem.GetWorldPosition(userXform);
                 var direction = targetMap.Position - userPos;
 
-                RaiseNetworkEvent(new BlinkEvent(GetNetEntity(weaponUid), direction));
+                RaisePredictiveEvent(new BlinkEvent(GetNetEntity(weaponUid), direction));
                 return;
             }
             // WD EDIT END

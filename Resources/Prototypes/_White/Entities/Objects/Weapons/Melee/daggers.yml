@@ -32,7 +32,8 @@
   - type: BackStab
   - type: Blink
   - type: UseDelay
-    delay: 0.5
+    delay: 0.8
     delays:
       blink:
         length: 3
+  - type: UseDelayBlockMelee
