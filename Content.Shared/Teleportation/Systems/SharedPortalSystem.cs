@@ -88,7 +88,7 @@ public abstract class SharedPortalSystem : EntitySystem
         var subject = args.OtherEntity;
 
         // best not.
-        if (Transform(subject).Anchored)
+        if (Transform(subject).Anchored || component.BlacklistedEntities.Contains(subject))
             return;
 
         // break pulls before portal enter so we dont break shit
@@ -239,5 +239,23 @@ public abstract class SharedPortalSystem : EntitySystem
     protected virtual void LogTeleport(EntityUid portal, EntityUid subject, EntityCoordinates source,
         EntityCoordinates target)
     {
+    }
+
+    // Goobstation - Dimension pot
+    public void AddBlacklist(EntityUid portal, EntityUid ent, PortalComponent? component = null)
+    {
+        if (!Resolve(portal, ref component))
+            return;
+
+        component.BlacklistedEntities.Add(ent);
+    }
+
+    // Goobstation - Dimension pot
+    public void RemoveBlacklist(EntityUid portal, EntityUid ent, PortalComponent? component = null)
+    {
+        if (!Resolve(portal, ref component))
+            return;
+
+        component.BlacklistedEntities.Remove(ent);
     }
 }

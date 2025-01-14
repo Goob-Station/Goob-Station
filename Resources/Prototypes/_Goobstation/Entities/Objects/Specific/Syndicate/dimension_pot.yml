@@ -1,0 +1,11 @@
+- type: entity
+  id: DimensionPot
+  parent: PottedPlant26
+  suffix: Dimension
+  components:
+  - type: DimensionPot
+  # no (easily) deleting items with it
+  - type: Destructible
+    thresholds: []
+  # nuh uh
+  - type: CargoSellBlacklist
