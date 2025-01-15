@@ -72,3 +72,12 @@
       uiWindowPos: 0,1
       strippingWindowPos: 1,1
       displayName: Mask
+    #Reserve-Start
+    - name: eyes
+      slotTexture: glasses
+      slotFlags: EYES
+      stripTime: 3
+      uiWindowPos: 0,3
+      strippingWindowPos: 0,0
+      displayName: Eyes
+    #Reserve-End

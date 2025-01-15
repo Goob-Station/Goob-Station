@@ -96,6 +96,10 @@
     prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: SupermatterImmune # Goobstation
+  # Reserve-Start
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 35
+  # Reserve-End
 
 - type: entity
   id: ActionAGhostShowSolar
