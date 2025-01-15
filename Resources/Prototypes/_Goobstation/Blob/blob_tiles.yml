@@ -327,7 +327,7 @@
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
     - type: Reflect
-      reflectProb: 0.6
+      reflectProb: 0.9
       spread: 20
       reflects:
         - Energy
