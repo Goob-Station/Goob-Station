@@ -24,3 +24,8 @@ spell-fail-already-wear-eyepatch = You already have an eyepatch.
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
+
+instant-summons-item-marked = Sucessfully marked {$item}.
+instant-summons-confirm-popup = This action will remove the current mark! Use it again to confirm.
+
+chuuni-invocation-confirm-popup = This action will force you to wear unremoveable eyepatch! Use it again to confirm.

@@ -653,7 +653,7 @@
   components:
   - type: InstantAction
     raiseOnUser: true
-    useDelay: 60
+    useDelay: 30
     itemIconStyle: BigAction
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
@@ -684,3 +684,5 @@
   - type: Magic
     requiresSpeech: true
     school: Chuuni
+  - type: ConfirmableAction
+    popup: chuuni-invocation-confirm-popup

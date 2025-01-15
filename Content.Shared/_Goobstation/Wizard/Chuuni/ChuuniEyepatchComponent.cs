@@ -9,7 +9,7 @@ namespace Content.Shared._Goobstation.Wizard.Chuuni;
 public sealed partial class ChuuniEyepatchComponent : Component
 {
     [DataField]
-    public FixedPoint2 HealAmount = 2;
+    public FixedPoint2 HealAmount = 6;
 
     [DataField]
     public string FlippedPrefix = "flipped";
@@ -47,8 +47,17 @@ public sealed partial class ChuuniEyepatchComponent : Component
         { MagicSchool.Chuuni, "chuuni-invocation-chuuni" },
     };
 
-    [ViewVariables(VVAccess.ReadOnly), AutoNetworkedField]
-    public LocId? SelectedBackstory = null;
+    [DataField, AutoNetworkedField]
+    public LocId? SelectedBackstory;
+
+    [DataField]
+    public float Delay = 5f;
+
+    [DataField, AutoNetworkedField]
+    public float Accumulator;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public bool CanHeal => Accumulator >= Delay;
 }
 
 [Serializable, NetSerializable]

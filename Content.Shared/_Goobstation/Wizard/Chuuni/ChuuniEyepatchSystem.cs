@@ -29,6 +29,26 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         SubscribeLocalEvent<ChuuniEyepatchComponent, InventoryRelayedEvent<GetMessagePostfixEvent>>(OnGetPostfix);
     }
 
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_net.IsClient)
+            return;
+
+        var query = EntityQueryEnumerator<ChuuniEyepatchComponent>();
+        while (query.MoveNext(out var uid, out var eyepatch))
+        {
+            if (eyepatch.Accumulator >= eyepatch.Delay)
+                continue;
+
+            eyepatch.Accumulator += frameTime;
+
+            if (eyepatch.Accumulator >= eyepatch.Delay)
+                Dirty(uid, eyepatch);
+        }
+    }
+
     private void OnGetPostfix(Entity<ChuuniEyepatchComponent> ent,
         ref InventoryRelayedEvent<GetMessagePostfixEvent> args)
     {
@@ -44,8 +64,11 @@ public sealed class ChuuniEyepatchSystem : EntitySystem
         if (!TryComp(performer, out DamageableComponent? damageable))
             return;
 
-        if (damageable.TotalDamage <= FixedPoint2.Zero)
+        if (!ent.Comp.CanHeal || damageable.TotalDamage <= FixedPoint2.Zero)
             return;
+
+        ent.Comp.Accumulator = 0f;
+        Dirty(ent);
 
         if (ent.Comp.HealAmount < damageable.TotalDamage)
             args.Args.ToHeal = damageable.Damage * ent.Comp.HealAmount / damageable.TotalDamage;

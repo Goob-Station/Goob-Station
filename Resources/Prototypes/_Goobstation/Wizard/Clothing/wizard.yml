@@ -3,6 +3,7 @@
   id: ClothingEyesEyepatchMedical
   name: medical eyepatch
   description: Used by space weeaboos to pretend their eye isn't there, and crewmembers who actually lost their eye to pretend their eye is there.
+  suffix: Do Not Map
   components:
   - type: Sprite
     sprite: _Goobstation/Wizard/Clothing/Eyes/eyepatch.rsi

@@ -143,5 +143,5 @@ spellbook-sanguine-strike-desc =
 spellbook-chuuni-name = Chuuni Invocations
 spellbook-chuuni-desc =
     Replaces your wizard hat (if you have one) with an unremovable medical eyepatch, which still allows you to cast spells requiring a robe.
-    Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
+    Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell with a delay of 5 seconds.
     Doesn't require wizard's robe and hat to cast.
