@@ -47,10 +47,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     [Dependency] private readonly RoundEndSystem _roundEndSystem = default!;
     [Dependency] private readonly StoreSystem _store = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-
-    // Goobstation start
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
+    // Goobstation start
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
