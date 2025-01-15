@@ -8,10 +8,10 @@
       connections:
       - legs
       organs:
-        lungs: OrganDragonLungs
+        lungs: OrganDragonLungs # Fire breathing
         stomach: OrganAnimalStomach
         liver: OrganAnimalLiver
-        heart: OrganSpaceAnimalHeart
+        heart: OrganSpaceAnimalHeart # Immunity to pressure
         kidneys: OrganAnimalKidneys
     legs:
       part: LegsAnimal
