@@ -34,6 +34,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Mind.Components;
 using Content.Server.Mind;
 using Content.Shared.Mind;
+using Content.Server.AlertLevel;
 
 namespace Content.Server.GameTicking.Rules;
 
@@ -50,12 +51,11 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
     // Goobstation start
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly IPlayerManager _playerManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
     [Dependency] private readonly MindSystem _mindSystem = default!;
+    [Dependency] private readonly AlertLevelSystem _alertLevelSystem = default!;
     // Goobstation end
 
     [ValidatePrototypeId<CurrencyPrototype>]
@@ -618,6 +618,9 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 if (_random.Prob(rule.ERTChance))
                 {
                     _gameTicker.StartGameRule("ERTSpawn");
+                    _chat.DispatchGlobalAnnouncement(Loc.GetString("nukeops-ert-called-announcement"));
+                    if (rule.TargetStation != null)
+                        _alertLevelSystem.SetLevel((EntityUid) rule.TargetStation, "gamma", true, true);
                     rule.ERTCalled = true;
                 }
             }
