@@ -15,7 +15,7 @@
 - type: entity
   id: ActionSendYourself
   name: Send yourself
-  description: send yourself.
+  description: You need to FTL to the same map as the station to use this ability!
   components:
   - type: WorldTargetAction
     useDelay: 10
