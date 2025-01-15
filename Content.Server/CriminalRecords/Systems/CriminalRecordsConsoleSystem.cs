@@ -280,14 +280,14 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             return;
 
         LocId nameLocId = "access-id-card-component-owner-name-job-title-text";
-        LocId fullNameLocId = "access-id-card-component-owner-full-name-job-title-text";
+        LocId fullNameLocId = "access-id-card-component-prisoner-full-name-job-title-text";
         var name = record?.Name!;
         var val = string.IsNullOrWhiteSpace(record?.Name)
             ? Loc.GetString(nameLocId,
-                ("jobSuffix", "Prisoner")) //someone can fix this i know this is terrible but like im lazy
+                ("jobSuffix", ""))
             :  Loc.GetString(fullNameLocId,
                 ("fullName", name),
-                ("jobSuffix", "Prisoner")); //someone can fix this i know this is terrible but like im lazy
+                ("jobSuffix", ""));
 
         var id = Spawn("PrisonerID",uid.ToCoordinates());
         _metaSystem.SetEntityName(id,val);
