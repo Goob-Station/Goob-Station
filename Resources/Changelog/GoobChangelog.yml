@@ -4197,3 +4197,23 @@ Entries:
       message: Putting mice on your head will no longer give you free night vision.
   id: 470
   time: '2025-01-14T15:15:23.0000000+00:00'
+- author: Mocho, Darkrell, Rinary1, Landosaur
+  changes:
+    - type: Add
+      message: >-
+        Voople xop narp gleeple xop verp narple xip "abductor sightings" gleeple
+        narple xip voop.
+    - type: Add
+      message: >-
+        Voople narp narp "superior organ" gleeple narple "side effects" glimp
+        xop voople narp.
+    - type: Add
+      message: >-
+        Voople glimple xop "mental crashout" verle gleep narple xoop vop "feral
+        tiders" glip verple xop narp.
+    - type: Tweak
+      message: >-
+        Advanced surgical tools now need to be toggled between one of two modes
+        at a time. The medical omnitool remains unchanged.
+  id: 471
+  time: '2025-01-15T01:55:17.0000000+00:00'
