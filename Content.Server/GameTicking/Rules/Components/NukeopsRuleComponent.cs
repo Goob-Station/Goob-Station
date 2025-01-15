@@ -134,6 +134,10 @@ public sealed partial class NukeopsRuleComponent : Component
 
     public bool ERTRolled = false;
     public bool ERTCalled = false;
+    
+    // Goobstation - Honkops
+    [DataField]
+    public string LocalePrefix = "nukeops-";
 }
 
 public enum WinType : byte

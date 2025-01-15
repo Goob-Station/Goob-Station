@@ -47,6 +47,9 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    // Goobstation start
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    // Goobstation end
 
     // Goobstation start
     [Dependency] private readonly IEntityManager _entityManager = default!;
@@ -478,19 +481,22 @@ public sealed class NukeSystem : EntitySystem
         _selectedNukeSong = _audio.GetSound(component.ArmMusic);
 
         // Goobstation start
-        // If there's an ERT spawned and the nuke is armed, we play the fancy song instead
+        // If it's honkops or ERT has been spawned, we use a different soundcollection!
         var activeRules = _gameTicker.GetActiveGameRules();
-        if (activeRules != null && activeRules.Any())
+
+        foreach (var rule in activeRules)
         {
-            foreach (var rule in activeRules)
+            if (TryComp<NukeopsRuleComponent>(rule, out var nukeopsComp))
             {
-                if (_entityManager.TryGetComponent<NukeopsRuleComponent>(rule, out var nukeopsComp))
+                if (nukeopsComp.ERTCalled)
                 {
-                    if (nukeopsComp.ERTCalled)
-                    {
-                        _selectedNukeSong = _audio.GetSound(component.ERTArmMusic);
-                        break;
-                    }
+                    _selectedNukeSong = _audio.GetSound(component.ERTArmMusic);
+                    break;
+                }
+                else if (nukeopsComp.LocalePrefix == "honkops-") // This is a silly way of doing it, but why make another bool when you can just hardcode this?
+                {
+                    _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
+                    break;
                 }
             }
         }
