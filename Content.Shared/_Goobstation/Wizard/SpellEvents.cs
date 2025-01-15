@@ -2,7 +2,9 @@ using System.Numerics;
 using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
+using Content.Shared.Damage.Prototypes;
 using Content.Shared.Explosion;
+using Content.Shared.FixedPoint;
 using Content.Shared.Magic;
 using Content.Shared.Polymorph;
 using Content.Shared.Random;
@@ -466,4 +468,19 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpel
 
     [DataField]
     public EntProtoId Effect = "AdminInstantEffectSmoke3";
+}
+
+public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public FixedPoint2 MaxHealthReduction = 20;
+
+    [DataField]
+    public ProtoId<DamageTypePrototype> KillDamage = "Cellular";
+
+    [DataField]
+    public ProtoId<TagPrototype> DeadTag = "SoulTapped";
 }

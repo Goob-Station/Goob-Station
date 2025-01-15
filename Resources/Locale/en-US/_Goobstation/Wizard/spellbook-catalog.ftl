@@ -151,3 +151,8 @@ spellbook-swap-desc =
     Switch places with any living target.
     Alt-click: Mark a secondary swap target, in which case you'll go to the position occupied by your primary target, they'll go to the one occupied by your secondary, and your secondary target will end up where you originally were. The secondary swap target will be discarded once you swap, cancel the action or alt-click yourself.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-soul-tap-name = Soul Tap
+spellbook-soul-tap-desc =
+    Taps your soul. Trades 20 max health for a refresh of all of your spells. Does not work if you have no soul, from formerly using Bind Soul.
+    Requires wizard's robe and hat to cast.

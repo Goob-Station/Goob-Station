@@ -31,6 +31,7 @@ using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory;
@@ -41,6 +42,7 @@ using Content.Shared.Magic;
 using Content.Shared.Magic.Components;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Pulling.Systems;
@@ -117,6 +119,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
+    [Dependency] private   readonly MobThresholdSystem _threshold = default!;
 
     #endregion
 
@@ -153,6 +156,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
+        SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
 
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
@@ -1016,6 +1020,88 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
     }
 
+    private void OnSoulTap(SoulTapEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (!Mind.TryGetMind(ev.Performer, out var mind, out _) || HasComp<SoulBoundComponent>(mind) ||
+            _tag.HasTag(ev.Performer, ev.DeadTag))
+        {
+            Popup(ev.Performer, "spell-fail-no-soul");
+            return;
+        }
+
+        if (!TryComp(mind, out ActionsContainerComponent? container))
+        {
+            Popup(ev.Performer, "spell-fail-no-spells");
+            return;
+        }
+
+        var magicQuery = GetEntityQuery<MagicComponent>();
+        var ents = container.Container.ContainedEntities.Where(x => x != ev.Action.Owner && magicQuery.HasComp(x))
+            .ToList();
+        if (ents.Count == 0)
+        {
+            Popup(ev.Performer, "spell-fail-no-spells");
+            return;
+        }
+
+        foreach (var ent in ents)
+        {
+            _actions.SetCooldown(ent, TimeSpan.Zero);
+        }
+
+        if (!TryComp(ev.Performer, out MobThresholdsComponent? thresholds))
+            return;
+
+        if (!_threshold.TryGetThresholdForState(ev.Performer, MobState.Dead, out var dead, thresholds))
+            return;
+
+        var targetHealth = dead.Value - ev.MaxHealthReduction;
+        var kill = false;
+        if (targetHealth < 1)
+        {
+            targetHealth = 1;
+            kill = true;
+        }
+
+        if (_threshold.TryGetThresholdForState(ev.Performer, MobState.Critical, out var crit, thresholds) &&
+            targetHealth <= crit)
+            _threshold.SetMobStateThreshold(ev.Performer, targetHealth - 0.01, MobState.Critical, thresholds);
+
+        _threshold.SetMobStateThreshold(ev.Performer, targetHealth, MobState.Dead, thresholds);
+
+        if (kill)
+        {
+            _tag.AddTag(ev.Performer, ev.DeadTag);
+
+            Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
+
+            var message = Loc.GetString("spell-soul-tap-dead-message-others",
+                ("uid", Identity.Entity(ev.Performer, EntityManager)));
+            _popup.PopupEntity(message, ev.Performer, Filter.PvsExcept(ev.Performer), true, PopupType.LargeCaution);
+
+            _magic.Speak(ev);
+            ev.Handled = true;
+
+            var dmg = Damageable.TryChangeDamage(ev.Performer,
+                new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
+                true);
+            if ((dmg == null || dmg.GetTotal() < 1) && _timing.IsFirstTimePredicted)
+                Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
+            return;
+        }
+
+        if (targetHealth - ev.MaxHealthReduction < 1)
+            Popup(ev.Performer, "spell-soul-tap-almost-dead-message", PopupType.LargeCaution);
+        else
+            Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
@@ -1095,14 +1181,14 @@ public abstract class SharedSpellsSystem : EntitySystem
         return TransformSystem.InRange(ev.Coords.Value, xform.Coordinates, lockOnMark.LockOnRadius + 1f);
     }
 
-    private void Popup(EntityUid uid, string message)
+    private void Popup(EntityUid uid, string message, PopupType type = PopupType.Small)
     {
-        _popup.PopupClient(Loc.GetString(message), uid, uid);
+        _popup.PopupClient(Loc.GetString(message), uid, uid, type);
     }
 
-    private void PopupLoc(EntityUid uid, string locMessage)
+    private void PopupLoc(EntityUid uid, string locMessage, PopupType type = PopupType.Small)
     {
-        _popup.PopupClient(locMessage, uid, uid);
+        _popup.PopupClient(locMessage, uid, uid, type);
     }
 
     private void SpawnHomingProjectile(EntProtoId proto,

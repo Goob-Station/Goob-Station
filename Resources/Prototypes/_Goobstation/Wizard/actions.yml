@@ -715,3 +715,23 @@
   - type: Magic
     school: Translocation
   - type: SwapSpell
+
+- type: entity
+  id: ActionSoulTap
+  name: Soul Tap
+  description: Fuel your spells using your own soul!
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: soultap
+    event: !type:SoulTapEvent
+      speech: action-speech-spell-soul-tap
+  - type: Magic
+    requiresSpeech: true
+    requiresClothes: true
+    school: Necromancy

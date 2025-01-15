@@ -368,3 +368,16 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+- type: listing
+  id: SpellbookSoulTap
+  name: spellbook-soul-tap-name
+  description: spellbook-soul-tap-desc
+  productAction: ActionSoulTap
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1

@@ -21,6 +21,7 @@ spell-fail-sanguine-strike-already-empowered = This weapon is already empowered!
 spell-fail-sanguine-strike-not-weapon = {CAPITALIZE($item)} is too weak to empower! Find something that'll hurt someone!
 spell-fail-cant-wear-eyepatch = Can't wear eyepatch!
 spell-fail-already-wear-eyepatch = You already have an eyepatch.
+spell-fail-no-spells = You haven't learned any spells!
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.
@@ -29,3 +30,8 @@ instant-summons-item-marked = Sucessfully marked {$item}.
 instant-summons-confirm-popup = This action will remove the current mark! Use it again to confirm.
 
 chuuni-invocation-confirm-popup = This action will force you to wear unremoveable eyepatch! Use it again to confirm.
+
+spell-soul-tap-dead-message-others = {CAPITALIZE($uid)} suddenly dies!
+spell-soul-tap-dead-message-user = Your weakened soul is completely consumed by the tap!
+spell-soul-tap-almost-dead-message = Your body feels incredibly drained, and the burning is hard to ignore!
+spell-soul-tap-message = Your body feels drained and there is a burning pain in your chest.

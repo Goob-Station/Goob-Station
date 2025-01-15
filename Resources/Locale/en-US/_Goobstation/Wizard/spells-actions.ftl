@@ -20,3 +20,4 @@ action-speech-spell-the-traps = CAVERE INSIDIAS
 action-speech-spell-bees = NOT THE BEES
 action-speech-spell-simians = OOGA OOGA OOGA!!!!
 action-speech-spell-sanguine-strike = SHAPSDAY
+action-speech-spell-soul-tap = AT ANY COST!
