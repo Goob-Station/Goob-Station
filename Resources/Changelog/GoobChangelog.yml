@@ -4161,3 +4161,59 @@ Entries:
         synthesis kit
   id: 465
   time: '2025-01-13T16:07:39.0000000+00:00'
+- author: Ichai
+  changes:
+    - type: Add
+      message: Added Lambda Station
+  id: 466
+  time: '2025-01-13T16:11:14.0000000+00:00'
+- author: MortalBaguette
+  changes:
+    - type: Fix
+      message: The Chester rifle now correctly shows as CentComm contraband.
+  id: 467
+  time: '2025-01-13T16:12:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 60% -> 90%.
+    - type: Tweak
+      message: Hardlight bow x-ray arrows will no longer penetrate blob tiles.
+    - type: Fix
+      message: Emitter bolts now properly reflect as energy projectiles.
+  id: 468
+  time: '2025-01-13T16:18:39.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: >-
+        Nigthwatcher's rebirth only engulfs people that are already ignited,
+        like intended.
+  id: 469
+  time: '2025-01-13T16:17:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Putting mice on your head will no longer give you free night vision.
+  id: 470
+  time: '2025-01-14T15:15:23.0000000+00:00'
+- author: Mocho, Darkrell, Rinary1, Landosaur
+  changes:
+    - type: Add
+      message: >-
+        Voople xop narp gleeple xop verp narple xip "abductor sightings" gleeple
+        narple xip voop.
+    - type: Add
+      message: >-
+        Voople narp narp "superior organ" gleeple narple "side effects" glimp
+        xop voople narp.
+    - type: Add
+      message: >-
+        Voople glimple xop "mental crashout" verle gleep narple xoop vop "feral
+        tiders" glip verple xop narp.
+    - type: Tweak
+      message: >-
+        Advanced surgical tools now need to be toggled between one of two modes
+        at a time. The medical omnitool remains unchanged.
+  id: 471
+  time: '2025-01-15T01:55:17.0000000+00:00'
