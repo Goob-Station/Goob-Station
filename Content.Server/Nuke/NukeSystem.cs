@@ -47,9 +47,6 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
-    // Goobstation start
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    // Goobstation end
 
     // Goobstation start
     [Dependency] private readonly IEntityManager _entityManager = default!;
