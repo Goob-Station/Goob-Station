@@ -37,7 +37,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
-    public Action<string>? OnTimeConfirmed;
+    public Action<string, uint>? OnTimeConfirmed;
 
     private uint _maxLength;
     private bool _access;
@@ -329,7 +329,8 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
             if(RegexHelper.IsMatch(time))
             {
-                OnTimeConfirmed?.Invoke(time);
+                uint selected = (uint)_selectedKey!;
+                OnTimeConfirmed?.Invoke(time, selected);
             }
 
         };

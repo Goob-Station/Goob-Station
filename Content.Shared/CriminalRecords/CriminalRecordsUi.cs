@@ -107,7 +107,8 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
 /// Used to print prisoner ID
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class CriminalRecordPrintPrisonerId(string? time) : BoundUserInterfaceMessage
+public sealed class CriminalRecordPrintPrisonerId(string? time, uint key) : BoundUserInterfaceMessage
 {
     public readonly string? Time = time;
+    public readonly uint Key = key;
 }

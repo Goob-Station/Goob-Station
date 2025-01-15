@@ -11,6 +11,7 @@ using Content.Shared.Security;
 using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared.Coordinates;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
 
@@ -28,6 +29,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    [Dependency] private readonly MetaDataSystem _metaSystem = default!;
 
     public override void Initialize()
     {
@@ -266,6 +268,28 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
 
     private void OnPrint(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordPrintPrisonerId args)
     {
-        Logger.Debug("Time: " + args.Time);
+        var uid = ent.Owner;
+        var owningStation = _station.GetOwningStation(uid);
+
+        if (!TryComp<StationRecordsComponent>(owningStation, out var stationRecords))
+            return;
+
+        var key = new StationRecordKey(args.Key, owningStation.Value);
+        _records.TryGetRecord<GeneralStationRecord>(key, out var record, stationRecords);
+        if (record?.Name == null)
+            return;
+
+        LocId nameLocId = "access-id-card-component-owner-name-job-title-text";
+        LocId fullNameLocId = "access-id-card-component-owner-full-name-job-title-text";
+        var name = record?.Name!;
+        var val = string.IsNullOrWhiteSpace(record?.Name)
+            ? Loc.GetString(nameLocId,
+                ("jobSuffix", "Prisoner")) //someone can fix this i know this is terrible but like im lazy
+            :  Loc.GetString(fullNameLocId,
+                ("fullName", name),
+                ("jobSuffix", "Prisoner")); //someone can fix this i know this is terrible but like im lazy
+
+        var id = Spawn("PrisonerID",uid.ToCoordinates());
+        _metaSystem.SetEntityName(id,val);
     }
 }

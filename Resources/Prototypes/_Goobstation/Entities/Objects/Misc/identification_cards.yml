@@ -65,11 +65,39 @@
     - state: centcom
     - state: idcentcom
   - type: Item
-    heldPrefix: 
-    
+    heldPrefix:
+
   - type: PresetIdCard
     job: BlueshieldOfficer
   - type: Access
     tags:
     - CentralCommand
     - BlueshieldOfficer
+
+# Prisoner
+- type: entity
+  parent: IDCardStandard
+  id: PrisonerID
+  name: prisoner ID card
+  components:
+  - type: Sprite
+    layers:
+    - state: prisoner_001
+      map: [ "base" ]
+  - type: Item
+    heldPrefix:
+  - type: RandomSprite
+    available:
+    - base:
+        prisoner_001: ""
+        prisoner_002: ""
+        prisoner_003: ""
+        prisoner_004: ""
+        prisoner_005: ""
+        prisoner_006: ""
+
+  - type: PresetIdCard
+    name: Prisoner ID
+  - type: Access
+    tags:
+    - PrisonerEntrance

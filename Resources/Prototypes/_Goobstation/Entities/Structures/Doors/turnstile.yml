@@ -32,8 +32,8 @@
       path: /Audio/Machines/turnstile.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
-  - type: AccessReader
-    access: [["Security"]]
+
+
 
 - type: entity
   id: Turnstile
@@ -41,3 +41,20 @@
   components:
   - type: StationAiWhitelist
 
+- type: entity
+  id: TurnstileEntrance
+  name: Turnstile [Entrance]
+  parent: BaseTurnstile
+  components:
+  - type: StationAiWhitelist
+  - type: AccessReader
+    access: [["Security"] ,["PrisonerEntrance"]]
+
+- type: entity
+  id: TurnstileExit
+  name: Turnstile [Exit]
+  parent: BaseTurnstile
+  components:
+  - type: StationAiWhitelist
+  - type: AccessReader
+    access: [["Security"], ["PrisonerRelease"]]

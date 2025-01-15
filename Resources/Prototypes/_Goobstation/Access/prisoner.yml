@@ -1,0 +1,7 @@
+- type: accessLevel
+  id: PrisonerEntry
+  name: id-card-access-level-prisoner
+
+- type: accessLevel
+  id: PrisonerRelease
+  name: id-card-access-level-prisoner
