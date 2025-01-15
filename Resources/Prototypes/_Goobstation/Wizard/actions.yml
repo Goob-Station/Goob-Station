@@ -665,7 +665,7 @@
     school: Sanguine
 
 - type: entity
-  id: ChuuniInvocations
+  id: ActionChuuniInvocations
   name: Chuuni Invocations
   description: Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell.
   components:
@@ -686,3 +686,32 @@
     school: Chuuni
   - type: ConfirmableAction
     popup: chuuni-invocation-confirm-popup
+
+- type: entity
+  id: ActionSwapSpell
+  name: Swap
+  description: Allows you to swap locations with any living being.
+  components:
+  - type: EntityTargetAction
+    checkCanAccess: false
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 15
+    itemIconStyle: BigAction
+    whitelist:
+      requireAll: true
+      components:
+      - Transform
+      - MobState
+    canTargetSelf: true # Required for secondary target deselecting
+    interactOnMiss: false
+    range: 15
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: swap
+    event: !type:SwapSpellEvent
+      sound:
+        path: /Audio/_Goobstation/Wizard/swap.ogg
+  - type: Magic
+    school: Translocation
+  - type: SwapSpell

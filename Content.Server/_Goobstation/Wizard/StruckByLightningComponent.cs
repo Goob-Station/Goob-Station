@@ -10,7 +10,7 @@ public sealed partial class StruckByLightningComponent : Component
     /// Indices of lightning beams that have struck this entity
     /// </summary>
     [ViewVariables(VVAccess.ReadOnly)]
-    public HashSet<ushort> BeamIndices = new();
+    public HashSet<uint> BeamIndices = new();
 
     /// <summary>
     /// This component is removed when it reaches zero.

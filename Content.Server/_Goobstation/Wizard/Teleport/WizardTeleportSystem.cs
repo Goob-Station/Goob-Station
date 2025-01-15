@@ -115,12 +115,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
 
     private void Teleport(EntityUid user, EntityUid location)
     {
-        if (TryComp<PullableComponent>(user, out var pullable) && _pullingSystem.IsPulled(user, pullable))
-            _pullingSystem.TryStopPull(user, pullable);
-
-        if (TryComp<PullerComponent>(user, out var puller) &&
-            TryComp(puller.Pulling, out PullableComponent? pullableEnt))
-            _pullingSystem.TryStopPull(puller.Pulling.Value, pullableEnt);
+        _pullingSystem.StopAllPulls(user);
 
         var userXform = Transform(user);
 

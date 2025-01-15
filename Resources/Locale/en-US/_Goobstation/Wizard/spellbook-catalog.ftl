@@ -145,3 +145,9 @@ spellbook-chuuni-desc =
     Replaces your wizard hat (if you have one) with an unremovable medical eyepatch, which still allows you to cast spells requiring a robe.
     Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell with a delay of 5 seconds.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-swap-name = Swap
+spellbook-swap-desc =
+    Switch places with any living target.
+    Alt-click: Mark a secondary swap target, in which case you'll go to the position occupied by your primary target, they'll go to the one occupied by your secondary, and your secondary target will end up where you originally were. The secondary swap target will be discarded once you swap, cancel the action or alt-click yourself.
+    Doesn't require wizard's robe and hat to cast.

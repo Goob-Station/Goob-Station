@@ -13,6 +13,7 @@ using Content.Client.UserInterface.Systems.Actions.Widgets;
 using Content.Client.UserInterface.Systems.Actions.Windows;
 using Content.Client.UserInterface.Systems.Gameplay;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goobstation.Wizard.Swap;
 using Content.Shared.Actions;
 using Content.Shared.Input;
 using Content.Shared.Mobs.Components;
@@ -154,6 +155,7 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
                 InputCmdHandler.FromDelegate(_ => ToggleWindow()))
             .BindBefore(EngineKeyFunctions.Use, new PointerInputCmdHandler(TargetingOnUse, outsidePrediction: true),
                     typeof(ConstructionSystem), typeof(DragDropSystem))
+                .BindBefore(ContentKeyFunctions.AltActivateItemInWorld, new PointerInputCmdHandler(AltTargeting, outsidePrediction: true)) // Goobstation
                 .BindBefore(EngineKeyFunctions.UIRightClick, new PointerInputCmdHandler(TargetingCancel, outsidePrediction: true))
             .Register<ActionUIController>();
     }
@@ -399,6 +401,57 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
     }
 
     // Goobstation start
+    private bool AltTargeting(in PointerInputCmdArgs args)
+    {
+        if (!_timing.IsFirstTimePredicted || _actionsSystem == null || SelectingTargetFor is not { } actionId)
+            return false;
+
+        if (_playerManager.LocalEntity is not { } user)
+            return false;
+
+        if (!EntityManager.TryGetComponent(user, out ActionsComponent? comp))
+            return false;
+
+        if (!_actionsSystem.TryGetActionData(actionId, out var baseAction) ||
+            baseAction is not BaseTargetActionComponent action)
+        {
+            return false;
+        }
+
+        // Is the action currently valid?
+        if (!action.Enabled
+            || action is { Charges: 0, RenewCharges: false }
+            || action.Cooldown.HasValue && action.Cooldown.Value.End > _timing.CurTime)
+        {
+            // The user is targeting with this action, but it is not valid. Maybe mark this click as
+            // handled and prevent further interactions.
+            return !action.InteractOnMiss;
+        }
+
+        if (action is not EntityTargetActionComponent entityTarget)
+            return false;
+
+        if (!_entMan.TryGetComponent(actionId, out SwapSpellComponent? swap))
+            return false;
+
+        if (_actionsSystem == null || _spells == null)
+            return false;
+
+        var entity = args.EntityUid;
+
+        if (!_actionsSystem.ValidateEntityTarget(user, entity, (actionId, entityTarget)))
+        {
+            if (entityTarget.DeselectOnMiss)
+                StopTargeting();
+
+            return false;
+        }
+
+        _spells.SetSwapSecondaryTarget(user, entity, actionId);
+
+        return true;
+    }
+
     private void OnActionsSaved(EntityUid entity)
     {
         if (entity == default)
@@ -981,6 +1034,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             SearchAndDisplay();
 
         // Goobstation start
+        if (_entMan.HasComponent<SwapSpellComponent>(SelectingTargetFor))
+            return;
 
         if (_mark == null)
             return;
@@ -1112,6 +1167,9 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         if (action is not EntityTargetActionComponent entityAction)
             return;
 
+        if (_entMan.HasComponent<SwapSpellComponent>(actionId) && _playerManager.LocalEntity != null) // Goobstation
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, actionId);
+
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = entityAction.AttachedEntity;
 
@@ -1140,6 +1198,10 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
             // TODO inform the server
             action.Toggled = false;
         }
+
+        // Goobstation
+        if (_entMan.HasComponent<SwapSpellComponent>(oldAction.Value) && _playerManager.LocalEntity != null)
+            _spells?.SetSwapSecondaryTarget(_playerManager.LocalEntity.Value, null, oldAction.Value);
 
         SelectingTargetFor = null;
 

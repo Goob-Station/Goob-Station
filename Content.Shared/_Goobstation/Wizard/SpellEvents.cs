@@ -452,3 +452,18 @@ public sealed partial class ChuuniInvocationsEvent : InstantActionEvent, ISpeakS
     [DataField]
     public ProtoId<TagPrototype> WizardHatTag = "WizardHat";
 }
+
+public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public SoundSpecifier? Sound;
+
+    [DataField]
+    public float Range = 15f;
+
+    [DataField]
+    public EntProtoId Effect = "AdminInstantEffectSmoke3";
+}

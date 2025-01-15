@@ -320,7 +320,7 @@
   id: SpellbookChuuni
   name: spellbook-chuuni-name
   description: spellbook-chuuni-desc
-  productAction: ChuuniInvocations
+  productAction: ActionChuuniInvocations
   cost:
     WizCoin: 2
   categories:
@@ -350,6 +350,19 @@
   productAction: ActionTeleportWizard
   cost:
     WizCoin: 2
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookSwap
+  name: spellbook-swap-name
+  description: spellbook-swap-desc
+  productAction: ActionSwapSpell
+  cost:
+    WizCoin: 1
   categories:
   - SpellbookUtility
   conditions:

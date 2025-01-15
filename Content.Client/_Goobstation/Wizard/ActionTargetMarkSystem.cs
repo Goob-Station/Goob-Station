@@ -1,3 +1,4 @@
+using Content.Shared.GameTicking;
 using Robust.Client.GameObjects;
 using Robust.Shared.Prototypes;
 
@@ -11,6 +12,19 @@ public sealed class ActionTargetMarkSystem : EntitySystem
 
     public EntityUid? Target;
     public EntityUid? Mark;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        Target = null;
+        Mark = null;
+    }
 
     public override void Shutdown()
     {

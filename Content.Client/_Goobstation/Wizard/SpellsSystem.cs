@@ -1,4 +1,5 @@
 using Content.Shared._Goobstation.Wizard;
+using Content.Shared._Goobstation.Wizard.Swap;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 
@@ -7,6 +8,7 @@ namespace Content.Client._Goobstation.Wizard;
 public sealed class SpellsSystem : SharedSpellsSystem
 {
     [Dependency] private readonly IPlayerManager _player = default!;
+    [Dependency] private readonly ActionTargetMarkSystem _mark = default!;
 
     public event Action? StopTargeting;
 
@@ -17,6 +19,19 @@ public sealed class SpellsSystem : SharedSpellsSystem
         SubscribeLocalEvent<WizardComponent, GetStatusIconsEvent>(GetWizardIcon);
 
         SubscribeNetworkEvent<StopTargetingEvent>(OnStopTargeting);
+    }
+
+    public void SetSwapSecondaryTarget(EntityUid user, EntityUid? target, EntityUid action)
+    {
+        if (target == null || user == target)
+        {
+            _mark.SetMark(null);
+            RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), null));
+            return;
+        }
+
+        _mark.SetMark(target);
+        RaisePredictiveEvent(new SetSwapSecondaryTarget(GetNetEntity(action), GetNetEntity(target.Value)));
     }
 
     private void OnStopTargeting(StopTargetingEvent msg, EntitySessionEventArgs args)

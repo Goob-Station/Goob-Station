@@ -10,6 +10,7 @@ using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Goobstation.Wizard.SpellCards;
+using Content.Shared._Goobstation.Wizard.Swap;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
@@ -42,6 +43,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
 using Content.Shared.Physics;
@@ -114,6 +116,7 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedAudioSystem _audio = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
+    [Dependency] private   readonly PullingSystem _pulling = default!;
 
     #endregion
 
@@ -149,6 +152,18 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SummonSimiansEvent>(OnSimians);
         SubscribeLocalEvent<ExsanguinatingStrikeEvent>(OnExsangunatingStrike);
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
+        SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
+
+        SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
+    }
+
+    private void OnSwapSecondaryTarget(SetSwapSecondaryTarget ev)
+    {
+        var action = GetEntity(ev.Action);
+        var target = GetEntity(ev.Target);
+
+        if (TryComp(action, out SwapSpellComponent? swap))
+            swap.SecondaryTarget = target;
     }
 
     #region Spells
@@ -950,6 +965,57 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnSwap(SwapSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (ev.Performer == ev.Target)
+            return;
+
+        if (!TryComp(ev.Action, out SwapSpellComponent? swap))
+            return;
+
+        var userCoords = TransformSystem.GetMapCoordinates(ev.Performer);
+        var targetCoords = TransformSystem.GetMapCoordinates(ev.Target);
+
+        Teleport(ev.Performer, targetCoords);
+
+        if (swap.SecondaryTarget == null ||
+            swap.SecondaryTarget.Value == ev.Target || swap.SecondaryTarget.Value == ev.Performer)
+            Teleport(ev.Target, userCoords);
+        else
+        {
+            var secondaryTarget = swap.SecondaryTarget.Value;
+            var secondaryTargetCoords = TransformSystem.GetMapCoordinates(secondaryTarget);
+
+            if (secondaryTargetCoords.MapId != userCoords.MapId || !secondaryTargetCoords.InRange(userCoords, ev.Range))
+                Teleport(ev.Target, userCoords);
+            else
+            {
+                Teleport(ev.Target, secondaryTargetCoords);
+                Teleport(secondaryTarget, userCoords);
+            }
+
+            swap.SecondaryTarget = null;
+            if (_net.IsServer)
+                RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+        return;
+
+        void Teleport(EntityUid uid, MapCoordinates coords)
+        {
+            _pulling.StopAllPulls(uid);
+            _audio.PlayPvs(ev.Sound, uid);
+            TransformSystem.SetMapCoordinates(uid, coords);
+            Spawn(ev.Effect, coords);
+            Physics.WakeBody(uid);
+        }
+    }
+
     #endregion
 
     #region Helpers
@@ -1167,3 +1233,11 @@ public abstract class SharedSpellsSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed class StopTargetingEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class SetSwapSecondaryTarget(NetEntity action, NetEntity? target) : EntityEventArgs
+{
+    public NetEntity Action = action;
+
+    public NetEntity? Target = target;
+}
