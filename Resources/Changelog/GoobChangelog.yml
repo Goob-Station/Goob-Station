@@ -4217,3 +4217,11 @@ Entries:
         at a time. The medical omnitool remains unchanged.
   id: 471
   time: '2025-01-15T01:55:17.0000000+00:00'
+- author: Piras314, deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked vent critters, now after a 30 second delay all the mobs spawn
+        from 1 vent from the announcement.
+  id: 472
+  time: '2025-01-15T14:49:59.0000000+00:00'
