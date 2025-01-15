@@ -4243,3 +4243,9 @@ Entries:
       message: All CentComm cards/roles now have NTR and BSO access aswell.
   id: 475
   time: '2025-01-15T14:53:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed some lobby screen credits
+  id: 476
+  time: '2025-01-15T20:13:21.0000000+00:00'
