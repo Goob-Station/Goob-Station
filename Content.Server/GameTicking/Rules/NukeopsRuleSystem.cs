@@ -481,7 +481,6 @@ public sealed class NukeopsRuleSystem : GameRuleSystem<NukeopsRuleComponent>
                 : null;
         }
 
-        // This is code duplication but it's literally faster this way since all the vars for checking ops are needed outside of that function.
         // Check if there are nuke operatives still alive on the same map as the shuttle,
         // or on the same map as the station.
         // If there are, the round can continue.
