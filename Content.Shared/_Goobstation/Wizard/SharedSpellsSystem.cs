@@ -1128,63 +1128,39 @@ public abstract class SharedSpellsSystem : EntitySystem
 
     #region ServerMethods
 
-    public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school)
-    {
-    }
+    public virtual void SpeakSpell(EntityUid speakerUid, EntityUid casterUid, string speech, MagicSchool school) { }
 
-    protected virtual void MakeMime(EntityUid uid)
-    {
-    }
+    protected virtual void MakeMime(EntityUid uid) { }
 
-    protected virtual void Emp(DisableTechEvent ev)
-    {
-    }
+    protected virtual void Emp(DisableTechEvent ev) { }
 
-    protected virtual void SpawnSmoke(SmokeSpellEvent ev)
-    {
-    }
+    protected virtual void SpawnSmoke(SmokeSpellEvent ev) { }
 
-    protected virtual void Repulse(RepulseEvent ev)
-    {
-    }
+    protected virtual void Repulse(RepulseEvent ev) { }
 
-    protected virtual void ExplodeCorpse(CorpseExplosionEvent ev)
-    {
-    }
+    protected virtual void ExplodeCorpse(CorpseExplosionEvent ev) { }
 
-    protected virtual void Emote(EntityUid uid, string emoteId)
-    {
-    }
+    protected virtual void Emote(EntityUid uid, string emoteId) { }
 
-    protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent)
-    {
-    }
+    protected virtual void BindSoul(BindSoulEvent ev, EntityUid item, EntityUid mind, MindComponent mindComponent) { }
 
     protected virtual bool Polymorph(PolymorphSpellEvent ev)
     {
         return true;
     }
 
-    protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
-    {
-    }
+    protected virtual void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto) { }
 
-    protected virtual void Speak(EntityUid uid, string message)
-    {
-    }
+    protected virtual void Speak(EntityUid uid, string message) { }
 
     protected virtual bool ScreamForMe(ScreamForMeEvent ev)
     {
         return true;
     }
 
-    protected virtual void SpawnBees(LesserSummonBeesEvent ev)
-    {
-    }
+    protected virtual void SpawnBees(LesserSummonBeesEvent ev) { }
 
-    protected virtual void SpawnMonkeys(SummonSimiansEvent ev)
-    {
-    }
+    protected virtual void SpawnMonkeys(SummonSimiansEvent ev) { }
 
     #endregion
 }
