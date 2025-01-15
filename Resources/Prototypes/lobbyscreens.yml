@@ -111,3 +111,9 @@
   background: /Textures/LobbyScreens/reclaimer-nuke.webp
   name: Reclaimer Nuke
   artist: GetOutMarutak
+
+- type: lobbyBackground
+  id: tideractivities
+  background: /Textures/LobbyScreens/tideractivities.webp
+  name: Tider Activities
+  artist: asardonicsailor
