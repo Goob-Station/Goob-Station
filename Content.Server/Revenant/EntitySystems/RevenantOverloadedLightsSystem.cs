@@ -27,11 +27,4 @@ public sealed class RevenantOverloadedLightsSystem : SharedRevenantOverloadedLig
 
         _beam.TryCreateBeam(lights, component.Target.Value, component.ZapBeamEntityId, accumulateIndex: false); // Goob edit
     }
-
-    protected override void AccumulateBeamIndex() // Goobstation
-    {
-        base.AccumulateBeamIndex();
-
-        BeamSystem.NextIndex++;
-    }
 }

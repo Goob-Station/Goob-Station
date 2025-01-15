@@ -1,4 +1,5 @@
-﻿using Content.Shared.Revenant.Components;
+﻿using Content.Shared.Beam;
+using Content.Shared.Revenant.Components;
 
 namespace Content.Shared.Revenant.EntitySystems;
 
@@ -7,6 +8,8 @@ namespace Content.Shared.Revenant.EntitySystems;
 /// </summary>
 public abstract class SharedRevenantOverloadedLightsSystem : EntitySystem
 {
+    [Dependency] private readonly SharedBeamSystem _beam = default!; // Goobstation
+
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
@@ -24,12 +27,8 @@ public abstract class SharedRevenantOverloadedLightsSystem : EntitySystem
             RemCompDeferred(uid, comp);
         }
 
-        AccumulateBeamIndex(); // Goobstation
+        _beam.AccumulateIndex(); // Goobstation
     }
 
     protected abstract void OnZap(Entity<RevenantOverloadedLightsComponent> component);
-
-    protected virtual void AccumulateBeamIndex() // Goobstation
-    {
-    }
 }

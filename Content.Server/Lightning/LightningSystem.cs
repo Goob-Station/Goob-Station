@@ -105,7 +105,7 @@ public sealed class LightningSystem : SharedLightningSystem
             shootedCount++;
         }
 
-        BeamSystem.NextIndex++; // Goobstation
+        _beam.AccumulateIndex(); // Goobstation
     }
 }
 

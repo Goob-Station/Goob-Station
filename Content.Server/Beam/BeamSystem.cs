@@ -2,6 +2,7 @@
 using Content.Server.Beam.Components;
 using Content.Shared.Beam;
 using Content.Shared.Beam.Components;
+using Content.Shared.GameTicking;
 using Content.Shared.Physics;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
@@ -21,14 +22,7 @@ public sealed class BeamSystem : SharedBeamSystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
 
-    public static ushort NextIndex; // Goobstation
-
-    public override void Shutdown() // Goobstation
-    {
-        base.Shutdown();
-
-        NextIndex = 0; // Goobstation
-    }
+    public uint NextIndex { get; private set; } // Goobstation
 
     public override void Initialize()
     {
@@ -39,8 +33,25 @@ public sealed class BeamSystem : SharedBeamSystem
         SubscribeLocalEvent<BeamComponent, BeamFiredEvent>(OnBeamFired);
         SubscribeLocalEvent<BeamComponent, ComponentRemove>(OnRemove);
 
-        NextIndex = 0; // Goobstation
+        // Goobstation start
+        SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestart);
+        NextIndex = 0;
+        // Goobstation end
     }
+
+    // Goobstation start
+    public override void AccumulateIndex()
+    {
+        base.AccumulateIndex();
+
+        NextIndex++;
+    }
+
+    private void OnRoundRestart(RoundRestartCleanupEvent ev)
+    {
+        NextIndex = 0;
+    }
+    // Goobstation end
 
     private void OnBeamCreationSuccess(EntityUid uid, BeamComponent component, CreateBeamSuccessEvent args)
     {
@@ -194,7 +205,7 @@ public sealed class BeamSystem : SharedBeamSystem
         CreateBeam(bodyPrototype, userAngle, calculatedDistance, beamStartPos, distanceCorrection, controller, bodyState, shader, beamAction);
 
         if (accumulateIndex) // Goobstation
-            NextIndex++;
+            AccumulateIndex();
 
         var ev = new CreateBeamSuccessEvent(user, target);
         RaiseLocalEvent(user, ev);
