@@ -16,6 +16,9 @@
   - AllAccess
   access:
   - CentralCommand
+  # Goobstation
+  - NanotrasenRepresentative
+  - BlueshieldOfficer
 
 - type: startingGear
   id: CentcomGear
