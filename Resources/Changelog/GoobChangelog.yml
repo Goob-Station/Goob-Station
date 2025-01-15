@@ -4231,3 +4231,9 @@ Entries:
       message: Fixed air alarms being bad.
   id: 473
   time: '2025-01-15T14:50:36.0000000+00:00'
+- author: Piras314, asardonicsailor
+  changes:
+    - type: Add
+      message: 'Added a new lobby background: Tider Activities by asardonicsailor'
+  id: 474
+  time: '2025-01-15T14:51:32.0000000+00:00'
