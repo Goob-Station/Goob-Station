@@ -4225,3 +4225,9 @@ Entries:
         from 1 vent from the announcement.
   id: 472
   time: '2025-01-15T14:49:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Fixed air alarms being bad.
+  id: 473
+  time: '2025-01-15T14:50:36.0000000+00:00'
