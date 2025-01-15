@@ -120,3 +120,39 @@
     singleUser: true
     key: enum.WizardTeleportUiKey.Key
   - type: TeleportScroll
+
+- type: entity
+  name: lightning bolt spell packet
+  description: Some birdseed wrapped in cloth that crackles with electricity.
+  parent: BaseItem
+  id: ThrownLightning
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/thrown_lightning.rsi
+    state: icon
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 5
+  - type: Trail
+    spawnTrailParticles: false
+    frequency: 0.06
+    lifetime: 0.8
+    colorLerpAmount: 0.05
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Effects/lightning.rsi
+      state: yellow_lightning
+  - type: ThrownLightning
+  - type: FadingTimedDespawn
+    lifetime: 0
+    fadeOutTime: 5
+  - type: ThrowingAngle
+    angle: 180
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+    offset: 0.0,-0.5

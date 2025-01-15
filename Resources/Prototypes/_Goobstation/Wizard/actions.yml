@@ -735,3 +735,21 @@
     requiresSpeech: true
     requiresClothes: true
     school: Necromancy
+
+- type: entity
+  id: ActionThrownLightning
+  name: Thrown Lightning
+  description: Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: thrown_lightning
+    event: !type:ThrownLightningEvent
+      sound:
+        path: /Audio/_Goobstation/Wizard/phasein.ogg
+  - type: Magic
+    school: Conjuration

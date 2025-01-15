@@ -9,6 +9,12 @@ namespace Content.Shared._Goobstation.Wizard.Projectiles;
 [RegisterComponent,NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class TrailComponent : Component
 {
+    /// <summary>
+    /// Whether the trail will emit new particles
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool SpawnTrailParticles = true;
+
     [DataField]
     public float Frequency = 0.2f;
 
@@ -27,7 +33,7 @@ public sealed partial class TrailComponent : Component
     /// <summary>
     /// If sprite is null, it will draw lines instead
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public SpriteSpecifier? Sprite;
 
     /// <summary>
@@ -51,7 +57,7 @@ public sealed partial class TrailComponent : Component
     public List<TrailData> TrailData = new();
 }
 
-public sealed class TrailData(Vector2 position, Angle angle, Color color, float thickness)
+public sealed class TrailData(Vector2 position, Angle angle, Color color, float thickness, TimeSpan spawnTime)
 {
     public Vector2 Position = position;
 
@@ -60,4 +66,6 @@ public sealed class TrailData(Vector2 position, Angle angle, Color color, float 
     public Color Color = color;
 
     public float Thickness = thickness;
+
+    public TimeSpan SpawnTime = spawnTime;
 }

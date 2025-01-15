@@ -484,3 +484,15 @@ public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public ProtoId<TagPrototype> DeadTag = "SoulTapped";
 }
+
+public sealed partial class ThrownLightningEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public EntProtoId Proto = "ThrownLightning";
+
+    [DataField]
+    public SoundSpecifier? Sound;
+}

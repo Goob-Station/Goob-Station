@@ -157,6 +157,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<ChuuniInvocationsEvent>(OnChuuniInvocations);
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
+        SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
 
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
@@ -985,7 +986,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         Teleport(ev.Performer, targetCoords);
 
-        if (swap.SecondaryTarget == null ||
+        if (swap.SecondaryTarget == null || !Exists(swap.SecondaryTarget) ||
             swap.SecondaryTarget.Value == ev.Target || swap.SecondaryTarget.Value == ev.Performer)
             Teleport(ev.Target, userCoords);
         else
@@ -1099,6 +1100,20 @@ public abstract class SharedSpellsSystem : EntitySystem
             Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
 
         _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
+    private void OnThrownLightning(ThrownLightningEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        var packet = SpawnItemInHands(ev.Performer, ev.Proto, ev.Action);
+        if (packet == null)
+            return;
+
+        _audio.PlayEntity(ev.Sound, Filter.Pvs(packet.Value), packet.Value, true);
+
         ev.Handled = true;
     }
 

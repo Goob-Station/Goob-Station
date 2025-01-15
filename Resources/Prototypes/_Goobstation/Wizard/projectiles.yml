@@ -34,7 +34,7 @@
     colorLerpAmount: 0.05
     shader: unshaded
     sprite:
-      sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
   - type: Fixtures
     fixtures:
@@ -71,7 +71,7 @@
     lifetime: 0.8
     colorLerpAmount: 0.05
     sprite:
-      sprite: Objects/Tools/Toolboxes/toolbox_blue.rsi
+      sprite: /Textures/Objects/Tools/Toolboxes/toolbox_blue.rsi
       state: icon
   - type: Fixtures
     fixtures:
@@ -177,7 +177,7 @@
     colorLerpAmount: 0.02
     shader: unshaded
     sprite:
-      sprite: _Goobstation/Wizard/Projectiles/lichparticle.rsi
+      sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
       state: icon
   - type: Physics
     bodyStatus: InAir

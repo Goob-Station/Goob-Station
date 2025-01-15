@@ -156,3 +156,8 @@ spellbook-soul-tap-name = Soul Tap
 spellbook-soul-tap-desc =
     Taps your soul. Trades 20 max health for a refresh of all of your spells. Does not work if you have no soul, from formerly using Bind Soul.
     Requires wizard's robe and hat to cast.
+
+spellbook-thrown-lightning-name = Thrown Lightning
+spellbook-thrown-lightning-desc =
+    Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
+    Doesn't require wizard's robe and hat to cast.

@@ -21,10 +21,10 @@ public sealed class SparksSystem : EntitySystem
     private static readonly SoundSpecifier Sound = new SoundCollectionSpecifier("sparks");
 
     public void DoSparks(EntityCoordinates coords,
-        int minSparks,
-        int maxSparks,
-        float minVelocity,
-        float maxVelocity,
+        int minSparks = 3,
+        int maxSparks = 6,
+        float minVelocity = 1f,
+        float maxVelocity = 4f,
         bool playSound = true)
     {
         if (_net.IsClient)

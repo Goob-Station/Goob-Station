@@ -4,19 +4,21 @@ using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Goobstation.Wizard;
 
 public sealed class TrailSystem : EntitySystem
 {
     [Dependency] private readonly IOverlayManager _overlay = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
 
     public override void Initialize()
     {
         base.Initialize();
-        _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan));
+        _overlay.AddOverlay(new TrailOverlay(EntityManager, _protoMan, _timing));
 
         SubscribeLocalEvent<TrailComponent, ComponentRemove>(OnRemove);
         SubscribeLocalEvent<TrailComponent, ComponentStartup>(OnStartup);
@@ -46,10 +48,8 @@ public sealed class TrailSystem : EntitySystem
         trail.LineThickness = comp.LineThickness;
         trail.TrailData = comp.TrailData;
         trail.Shader = comp.Shader;
-        if (comp.ColorLerpAmount > 0f)
-            trail.TrailData.Sort((x, y) => x.Color.A.CompareTo(y.Color.A));
-        else if (comp.ThicknessLerpAmount > 0f)
-            trail.TrailData.Sort((x, y) => x.Thickness.CompareTo(y.Thickness));
+        trail.SpawnTrailParticles = comp.SpawnTrailParticles;
+        trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
     }
 
     public override void Shutdown()
@@ -64,6 +64,8 @@ public sealed class TrailSystem : EntitySystem
 
         var xformQuery = GetEntityQuery<TransformComponent>();
         var frozenQuery = GetEntityQuery<FrozenComponent>();
+
+        var time = _timing.CurTime;
 
         var query = EntityQueryEnumerator<TrailComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var trail, out var xform))
@@ -87,16 +89,16 @@ public sealed class TrailSystem : EntitySystem
 
             trail.Accumulator += frameTime;
 
-            if (trail.Frequency <= 0f)
+            if (trail.Frequency <= 0f || !trail.SpawnTrailParticles)
             {
                 if (trail.Accumulator <= trail.Lifetime)
                     continue;
 
                 trail.Accumulator = 0f;
 
-                if (trail.TrailData.Count == 0f)
+                if (trail.TrailData.Count == 0)
                 {
-                    if (IsClientSide(uid))
+                    if (IsClientSide(uid) && trail.Frequency <= 0f)
                         QueueDel(uid);
                     continue;
                 }
@@ -114,7 +116,7 @@ public sealed class TrailSystem : EntitySystem
             var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
             if (trail.TrailData.Count < trail.Lifetime / trail.Frequency)
             {
-                trail.TrailData.Add(new TrailData(position, rotation, trail.Color, trail.LineThickness));
+                trail.TrailData.Add(new TrailData(position, rotation, trail.Color, trail.LineThickness, time));
             }
             else if (trail.TrailData.Count > 0)
             {
@@ -127,6 +129,7 @@ public sealed class TrailSystem : EntitySystem
                 data.Position = position;
                 data.Angle = rotation;
                 data.Thickness = trail.LineThickness;
+                data.SpawnTime = time;
 
                 if (trail.Sprite == null)
                 {

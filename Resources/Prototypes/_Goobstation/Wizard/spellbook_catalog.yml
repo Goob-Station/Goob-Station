@@ -329,6 +329,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookThrownLightning
+  name: spellbook-thrown-lightning-name
+  description: spellbook-thrown-lightning-desc
+  productAction: ActionThrownLightning
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookDefensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Utility
 - type: listing
   id: SpellbookInstantSummons

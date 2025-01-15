@@ -5,6 +5,7 @@ using Robust.Client.Graphics;
 using Robust.Shared.Enums;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
 
 namespace Content.Client._Goobstation.Wizard;
@@ -15,16 +16,18 @@ public sealed class TrailOverlay : Overlay
 
     private readonly IEntityManager _entManager;
     private readonly IPrototypeManager _protoMan;
+    private readonly IGameTiming _timing;
 
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;
 
-    public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan)
+    public TrailOverlay(IEntityManager entManager, IPrototypeManager protoMan, IGameTiming timing)
     {
         ZIndex = (int) DrawDepth.Effects;
 
         _entManager = entManager;
         _protoMan = protoMan;
+        _timing = timing;
         _sprite = _entManager.System<SpriteSystem>();
         _transform = _entManager.System<TransformSystem>();
     }
@@ -67,8 +70,8 @@ public sealed class TrailOverlay : Overlay
                 continue;
             }
 
-            var texture = _sprite.Frame0(trail.Sprite);
-            var pos = -(Vector2) texture.Size / 2f / EyeManager.PixelsPerMeter;
+            var textureSize = _sprite.Frame0(trail.Sprite).Size;
+            var pos = -(Vector2) textureSize / 2f / EyeManager.PixelsPerMeter;
             foreach (var data in trail.TrailData)
             {
                 if (data.Color.A <= 0.01f)
@@ -77,6 +80,9 @@ public sealed class TrailOverlay : Overlay
                 var worldPosition = data.Position;
                 if (!bounds.Contains(worldPosition))
                     continue;
+
+                var time = _timing.CurTime > data.SpawnTime ? _timing.CurTime - data.SpawnTime : TimeSpan.Zero;
+                var texture = _sprite.GetFrame(trail.Sprite, time);
 
                 handle.SetTransform(Matrix3Helpers.CreateTranslation(worldPosition));
                 handle.DrawTexture(texture, pos, data.Angle, data.Color);
