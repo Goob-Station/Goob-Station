@@ -19,7 +19,6 @@ using Content.Server.Administration.Systems; // Goobstation - Mime Enforcement
 using Content.Server.Explosion.EntitySystems; // Goobstation - Mime Enforcement
 using Content.Server.Polymorph.Systems; // Goobstation - Mime Enforcement
 using Content.Shared.Clothing.Components; // Goobstation - Mime Enforcement
-using Timer = Robust.Shared.Timing.Timer;
 using Content.Shared.Inventory; // Goobstation - Mime Enforcement
 using Content.Shared.Interaction.Components; // Goobstation - Mime Enforcement
 using Content.Server.Speech.Components; // Goobstation - Mime Enforcement
