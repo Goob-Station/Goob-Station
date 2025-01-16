@@ -20,14 +20,15 @@ public sealed class ClowncarSystem : SharedClowncarSystem
     }
 
     private void OnThankRider(EntityUid uid, ClowncarComponent component, ThankRiderActionEvent args)
-    {
+    {/*
         if (!TryComp<VehicleComponent>(uid, out var vehicle)
-            || vehicle.Driver is not {} driver)
+            || vehicle.Driver is not {} driver
+            || args.Handled )
             return;
 
         component.ThankCounter++;
         var message = Loc.GetString("clowncar-thankrider", ("rider", driver));
         _chatSystem.TrySendInGameICMessage(args.Performer, message, InGameICChatType.Speak, false);
-        args.Handled = true;
+        args.Handled = true;*/
     }
 }

@@ -15,6 +15,9 @@ public sealed partial class ClowncarComponent : Component
     [ViewVariables]
     public string ThankRiderAction = "ActionThankDriver";
 
+    [ViewVariables]
+    public string CanonModeAction = "ActionCanonmode";
+
     [DataField("thankCounter")]
     [ViewVariables(VVAccess.ReadWrite)]
     public int ThankCounter;

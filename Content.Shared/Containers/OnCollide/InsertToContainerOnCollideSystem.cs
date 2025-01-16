@@ -1,12 +1,14 @@
 using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Content.Shared.Whitelist;
+
 namespace Content.Shared.Containers.OnCollide;
 
 public sealed class InsertToContainerOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelistSystem = default!;
+
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -31,7 +33,6 @@ public sealed class InsertToContainerOnCollideSystem : EntitySystem
         if (component.InsertableEntities != null && !_whitelistSystem.IsValid(component.InsertableEntities, args.OtherEntity))
             return;
 
-        //container.Insert(args.OtherEntity, EntityManager, physics: args.OtherBody);
         _containerSystem.Insert(args.OtherEntity, container);
     }
 }

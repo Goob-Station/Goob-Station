@@ -12,6 +12,19 @@
     useDelay: 60
 
 - type: entity
+  id: ActionCanonmode
+  name: activate canon
+  description: FIRE THE URSA CLAWS!!
+  components:
+  - type: InstantAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: Objects/Fun/bikehorn.rsi
+      state: icon
+    event: !type:ClowncarFireModeActionEvent
+    useDelay: 2
+
+- type: entity
   parent: BaseVehicle
   id: TestlowncarBase
   name: testclowncar
@@ -32,12 +45,14 @@
       collection: BikeHorn
       params:
         variation: 0.125
+
   - type: MovementSpeedModifier
     weightlessModifier: 0
     acceleration: 1
     friction: 1
     baseWalkSpeed: 4.5
     baseSprintSpeed: 7
+
   - type: ItemSlots
     slots:
       key_slot:
@@ -51,6 +66,7 @@
           path: /Audio/Effects/Vehicle/vehiclestartup.ogg
           params:
             volume: -3
+
   - type: Strap
     maxBuckleDistance: 1
     unbuckleSound:
@@ -58,11 +74,11 @@
   #  whitelist:
   #    components:
   #    - Clumsy
+
   - type: UnpoweredFlashlight
   - type: PointLight
     enabled: false
     mask: /Textures/Effects/LightMasks/cone.png
-
     autoRot: true
     radius: 3.5
     softness: 2
@@ -102,12 +118,12 @@
         - Door
         - Strap
 
-  - type: Clowncar
-    cannonActivateSound:
-      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
-      params:
-        volume: 5
-    cannonDeactivateSound:
-      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
-      params:
-        volume: 5
+  #- type: Clowncar
+  #  cannonActivateSound:
+  #    path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
+  #    params:
+  #      volume: 5
+  #  cannonDeactivateSound:
+  #    path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
+  #    params:
+  #      volume: 5

@@ -12,7 +12,6 @@ namespace Content.Shared.Containers.OnCollide;
 public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!;
-
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly ThrowingSystem _throwingSystem = default!;
     [Dependency] private readonly SharedBuckleSystem _buckleSystem = default!;
@@ -57,6 +56,7 @@ public sealed class RemoveFromContainerOnCollideSystem : EntitySystem
         foreach (var removing in toRemove)
         {
             _containerSystem.Remove(removing, container);
+
             if (component.EjectAfterRemove)
             {
                 var randomOffset = _random.NextAngle(component.EjectRange.Min, component.EjectRange.Max).ToVec();

@@ -84,6 +84,9 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     /// </summary>
     private void OnGotEmagged(EntityUid uid, ClowncarComponent component, ref GotEmaggedEvent args)
     {
+        if (!TryComp<VehicleComponent>(uid, out var vehicle)
+            || vehicle.Driver == null)
+            return;
        /* component.CannonAction = new()// TODO Action sustem needs rework
         {
             Icon = new SpriteSpecifier.Texture(new ("Objects/Weapons/Guns/Launchers/pirate_cannon.rsi/icon.png")),
@@ -94,6 +97,8 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         };
 
         args.Handled = true;*/
+
+        //_actionsSystem.AddAction(vehicle.Driver.Value, component.CanonModeAction, uid);
     }
     /// <summary>
     /// Handles preventing collision with the rider and
