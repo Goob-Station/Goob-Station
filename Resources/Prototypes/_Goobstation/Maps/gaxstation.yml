@@ -2,8 +2,8 @@
   id: Gax
   mapName: 'NVS Gax'
   mapPath: /Maps/_Goobstation/gaxstation.yml
-  minPlayers: 10
-  maxPlayers: 45
+  minPlayers: 25
+  maxPlayers: 70
   stations:
     NCS Gax:
       stationProto: StandardNanotrasenStation
