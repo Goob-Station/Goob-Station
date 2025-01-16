@@ -1,11 +1,12 @@
 using Content.Shared.FixedPoint;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.PrisonerId;
 
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent,NetworkedComponent]
 public sealed partial class PrisonerIdComponent : Component
 {
 

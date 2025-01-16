@@ -95,6 +95,7 @@
         prisoner_004: ""
         prisoner_005: ""
         prisoner_006: ""
+  - type: PrisonerId
 
   - type: PresetIdCard
     name: Prisoner ID

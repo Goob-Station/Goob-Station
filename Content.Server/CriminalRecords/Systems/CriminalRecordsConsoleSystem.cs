@@ -12,6 +12,7 @@ using Content.Shared.StationRecords;
 using Robust.Server.GameObjects;
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._Goobstation.PrisonerId;
+using Content.Shared.Access.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
@@ -294,11 +295,15 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         var id = Spawn("PrisonerID",uid.ToCoordinates());
         var time = args.Time!;
         var fixedPointTime = FixedPoint2.New(int.Parse(time.Split(':')[0]) * 60 + int.Parse(time.Split(':')[1]));
-        TryComp<PrisonerIdComponent>(id, out var comp);
 
-        if (comp == null)
+
+        if (!TryComp<StationRecordKeyStorageComponent>(id, out var stationRecordKeyStorageComponent))
             return;
-        comp.SentenceTime = fixedPointTime;
+        if (!TryComp<PrisonerIdComponent>(id, out var prisonerIdComponent))
+            return;
+
+        // maybe handle in shared
         _metaSystem.SetEntityName(id,val);
+        RaiseNetworkEvent(new SpawnedPrisonerId(GetNetEntity(id), fixedPointTime, args.Key, GetNetEntity(owningStation.Value)));
     }
 }

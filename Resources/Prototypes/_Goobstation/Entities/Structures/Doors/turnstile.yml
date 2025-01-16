@@ -29,7 +29,7 @@
         hard: true
   - type: Turnstile
     accessSound:
-      path: /Audio/Machines/turnstile.ogg
+      path: /Audio/_Goobstation/Machines/turnstile.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
 

@@ -84,7 +84,7 @@ public sealed class TurnstileSystem : EntitySystem
 
         // Allowed passage
         _physicsSystem.SetCanCollide(uid, false);
-        Timer.Spawn(500,
+        Timer.Spawn(1000,
             () =>
             {
                 _physicsSystem.SetCanCollide(uid, true);
@@ -98,7 +98,7 @@ public sealed class TurnstileSystem : EntitySystem
         if (id == EntityUid.Invalid)
             return;
         // tell the id to start counting :)
-        //RaiseNetworkEvent();
+        //RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
     }
 
     private EntityUid FindId(EntityUid ent)
@@ -109,17 +109,14 @@ public sealed class TurnstileSystem : EntitySystem
         {
             var hand = handsEnumerator.Current;
             if (hand.Container == null)
-            {
                 return EntityUid.Invalid;
-            }
 
             var uid = hand.Container.ContainedEntity;
             if (!TryComp<MetaDataComponent>(uid, out var metaData))
                 return EntityUid.Invalid;
+
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-            {
                 return (EntityUid) uid!;
-            }
         }
 
         // lock lockers by stationrecordkey and security. :)
@@ -130,9 +127,7 @@ public sealed class TurnstileSystem : EntitySystem
             if (!TryComp<MetaDataComponent>(uid, out var metaData))
                 return EntityUid.Invalid;
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-            {
                 return (EntityUid) uid!;
-            }
         }
         return EntityUid.Invalid;
     }
@@ -151,10 +146,9 @@ public sealed class TurnstileSystem : EntitySystem
         if (Vector2.Dot(normalizedApproach, comp.AllowedDirection) > 0.5f)
         {
             AllowedPassage(uid, comp, args.OtherEntity);
+            return;
         }
-        else
-        {
-            DisallowedPassage(uid, comp, args.OtherEntity);
-        }
+
+        DisallowedPassage(uid, comp, args.OtherEntity);
     }
 }
