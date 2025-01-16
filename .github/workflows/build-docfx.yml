@@ -3,7 +3,7 @@ name: Build & Publish Docfx
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   actions: read
