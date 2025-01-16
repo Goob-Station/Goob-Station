@@ -15,5 +15,7 @@ pirate-roundend-append = The pirate crew plundered the station of it's valuables
 
 pirate-roundend-append-siphon = [color=green]The pirate crew managed to siphon[/color] [color=yellow]{$num}[/color] [color=green]credits from the station![/color]
 
+pirate-roundend-append-lose = [color=red]The pirate crew lost their data bank![/color]
+
 pirate-roundend-list =
     The pirates were:

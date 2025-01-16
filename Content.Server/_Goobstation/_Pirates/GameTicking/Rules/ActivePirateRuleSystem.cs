@@ -7,7 +7,6 @@ using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Systems;
-using Linguini.Bundle.Errors;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 
@@ -32,8 +31,8 @@ public sealed partial class ActivePirateRuleSystem : GameRuleSystem<ActivePirate
 
     private void OnAntagSelect(Entity<ActivePirateRuleComponent> ent, ref AfterAntagEntitySelectedEvent args)
     {
-        TryMakePirate(args.EntityUid);
-
+        if (TryMakePirate(args.EntityUid))
+            ent.Comp.Pirates.Add(args.EntityUid);
     }
 
     protected override void AppendRoundEndText(EntityUid uid, ActivePirateRuleComponent component, GameRuleComponent gameRule, ref RoundEndTextAppendEvent args)

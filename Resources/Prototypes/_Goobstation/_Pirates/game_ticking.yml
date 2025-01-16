@@ -26,18 +26,15 @@
     definitions:
     - spawnerPrototype: SpawnPointPirates
       pickPlayer: false
-      min: 4
-      max: 4
+      min: 5
+      max: 5
       mindRoles:
       - MindRolePirate
       startingGear: PirateGear
-    - spawnerPrototype: SpawnPointPirates
-      pickPlayer: false
-      min: 1
-      max: 1
-      startingGear: PirateCaptainGear
-      mindRoles:
-      - MindRolePirate
+      components:
+      - type: RandomMetadata
+        nameSegments:
+        - names_death_commando
 
 - type: entity
   parent: BikeHorn

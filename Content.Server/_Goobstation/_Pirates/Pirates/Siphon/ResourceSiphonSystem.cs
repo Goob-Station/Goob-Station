@@ -1,15 +1,19 @@
 using Content.Server._Goobstation._Pirates.GameTicking.Rules;
+using Content.Server._Goobstation._Pirates.Objectives;
 using Content.Server.Cargo.Components;
 using Content.Server.Cargo.Systems;
 using Content.Server.Chat.Systems;
+using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
+using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Stacks;
 using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 
@@ -24,6 +28,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     [Dependency] private readonly CargoSystem _cargo = default!;
     [Dependency] private readonly PricingSystem _pricing = default!;
     [Dependency] private readonly TransformSystem _xform = default!;
+    [Dependency] private readonly MindSystem _mind = default!;
 
     private float TickTimer = 1f;
 
@@ -35,6 +40,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         SubscribeLocalEvent<ResourceSiphonComponent, InteractHandEvent>(OnInteract);
         SubscribeLocalEvent<ResourceSiphonComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<ResourceSiphonComponent, ExaminedEvent>(OnExamine);
+        SubscribeLocalEvent<ResourceSiphonComponent, DestructionEventArgs>(OnDestruction);
     }
 
     public override void Update(float frameTime)
@@ -55,12 +61,18 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
             TickTimer = 1;
             eqe = EntityQueryEnumerator<ResourceSiphonComponent>(); // reset it ig
             while (eqe.MoveNext(out var uid, out var siphon))
-                if (siphon.Active)
-                    Tick((uid, siphon));
+                Tick((uid, siphon));
         }
     }
 
     private void Tick(Entity<ResourceSiphonComponent> ent)
+    {
+        if (ent.Comp.Active)
+            ActiveTick(ent);
+
+        SyncWithGamerule(ent);
+    }
+    private void ActiveTick(Entity<ResourceSiphonComponent> ent)
     {
         AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
         var station = _station.GetOwningStation(eqData);
@@ -87,10 +99,8 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     {
         if (ent.Comp.Active) return;
 
-        AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
-        var station = _station.GetOwningStation(eqData);
-        if (station == null
-        || Transform((EntityUid) station).MapID != Transform(ent).MapID)
+        AllEntityQuery<StationBankAccountComponent>().MoveNext(out var bank, out _);
+        if (Transform(bank).MapID != Transform(ent).MapID)
         {
             _popup.PopupEntity(Loc.GetString("pirate-siphon-activate-fail"), ent, args.User, Shared.Popups.PopupType.Medium);
             return;
@@ -122,6 +132,13 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     private void OnExamine(Entity<ResourceSiphonComponent> ent, ref ExaminedEvent args)
     {
         args.PushMarkup(Loc.GetString("pirate-siphon-examine", ("num", ent.Comp.Credits)));
+    }
+
+    private void OnDestruction(Entity<ResourceSiphonComponent> ent, ref DestructionEventArgs args)
+    {
+        var speso = Spawn("SpaceCash", Transform(ent).Coordinates);
+        if (TryComp<StackComponent>(speso, out var stack))
+            stack.Count = (int) ent.Comp.Credits;
     }
     #endregion
 
@@ -169,7 +186,16 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
 
         prule.Credits = ent.Comp.Credits;
 
+        foreach (var pirate in prule.Pirates)
+            UpdateObjective(pirate, ent);
+
         return true;
+    }
+    public void UpdateObjective(EntityUid pirate, Entity<ResourceSiphonComponent> siphon)
+    {
+        if (_mind.TryGetMind(pirate, out var mindId, out var mind))
+            if (_mind.TryGetObjectiveComp<ObjectivePlunderComponent>(mindId, out var objective, mind))
+                objective.Plundered = siphon.Comp.Credits;
     }
 
     public void UpdateCredits(Entity<ResourceSiphonComponent> ent, float amount)
