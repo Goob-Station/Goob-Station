@@ -4191,3 +4191,61 @@ Entries:
         like intended.
   id: 469
   time: '2025-01-13T16:17:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Putting mice on your head will no longer give you free night vision.
+  id: 470
+  time: '2025-01-14T15:15:23.0000000+00:00'
+- author: Mocho, Darkrell, Rinary1, Landosaur
+  changes:
+    - type: Add
+      message: >-
+        Voople xop narp gleeple xop verp narple xip "abductor sightings" gleeple
+        narple xip voop.
+    - type: Add
+      message: >-
+        Voople narp narp "superior organ" gleeple narple "side effects" glimp
+        xop voople narp.
+    - type: Add
+      message: >-
+        Voople glimple xop "mental crashout" verle gleep narple xoop vop "feral
+        tiders" glip verple xop narp.
+    - type: Tweak
+      message: >-
+        Advanced surgical tools now need to be toggled between one of two modes
+        at a time. The medical omnitool remains unchanged.
+  id: 471
+  time: '2025-01-15T01:55:17.0000000+00:00'
+- author: Piras314, deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked vent critters, now after a 30 second delay all the mobs spawn
+        from 1 vent from the announcement.
+  id: 472
+  time: '2025-01-15T14:49:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Fixed air alarms being bad.
+  id: 473
+  time: '2025-01-15T14:50:36.0000000+00:00'
+- author: Piras314, asardonicsailor
+  changes:
+    - type: Add
+      message: 'Added a new lobby background: Tider Activities by asardonicsailor'
+  id: 474
+  time: '2025-01-15T14:51:32.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: All CentComm cards/roles now have NTR and BSO access aswell.
+  id: 475
+  time: '2025-01-15T14:53:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed some lobby screen credits
+  id: 476
+  time: '2025-01-15T20:13:21.0000000+00:00'

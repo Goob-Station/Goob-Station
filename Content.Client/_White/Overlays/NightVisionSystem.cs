@@ -1,5 +1,6 @@
 using Content.Client.Overlays;
 using Content.Shared._White.Overlays;
+using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Robust.Client.Graphics;
 
@@ -19,6 +20,22 @@ public sealed class NightVisionSystem : EquipmentHudSystem<NightVisionComponent>
         SubscribeLocalEvent<NightVisionComponent, SwitchableOverlayToggledEvent>(OnToggle);
 
         _overlay = new BaseSwitchableOverlay<NightVisionComponent>();
+    }
+
+    protected override void OnRefreshComponentHud(EntityUid uid,
+        NightVisionComponent component,
+        RefreshEquipmentHudEvent<NightVisionComponent> args)
+    {
+        if (!component.IsEquipment)
+            base.OnRefreshComponentHud(uid, component, args);
+    }
+
+    protected override void OnRefreshEquipmentHud(EntityUid uid,
+        NightVisionComponent component,
+        InventoryRelayedEvent<RefreshEquipmentHudEvent<NightVisionComponent>> args)
+    {
+        if (component.IsEquipment)
+            base.OnRefreshEquipmentHud(uid, component, args);
     }
 
     private void OnToggle(Entity<NightVisionComponent> ent, ref SwitchableOverlayToggledEvent args)
