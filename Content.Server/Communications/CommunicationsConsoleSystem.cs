@@ -292,6 +292,9 @@ namespace Content.Server.Communications
 
         private void OnCallShuttleMessage(EntityUid uid, CommunicationsConsoleComponent comp, CommunicationsConsoleCallEmergencyShuttleMessage message)
         {
+            _popupSystem.PopupEntity(Loc.GetString("its a 24h shift, no lol."), uid, message.Actor);
+            return;
+
             if (!CanCallOrRecall(comp))
                 return;
 

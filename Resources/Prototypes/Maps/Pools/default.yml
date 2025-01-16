@@ -1,26 +1,26 @@
 - type: gameMapPool
   id: DefaultMapPool
   maps:
-  - Atlas
-  #- Amber TODO: goob amber
-  - Bagel
-  - Box
-  - Cluster
-  #- Cog # Goobstation - cog is broken
-  - Core
-  - Fland
-  #- Gate TODO: goob gate
-  - Loop
-  - Marathon
-  - Meta
-  - Oasis
-  - Omega
-  - Origin
-  - Saltern
-  - Packed
-  - Reach
-#  - Train # Goobstation - all my friends hate train
-  - FlandHighPop
-  - OasisHighPop
+#   - Atlas
+#   #- Amber TODO: goob amber
+#   - Bagel
+#   - Box
+#   - Cluster
+#   #- Cog # Goobstation - cog is broken
+#   - Core
+#   - Fland
+#   #- Gate TODO: goob gate
+#   - Loop
+#   - Marathon
+#   - Meta
+#   - Oasis
+#   - Omega
+#   - Origin
+#   - Saltern
+#   - Packed
+#   - Reach
+# #  - Train # Goobstation - all my friends hate train
+#   - FlandHighPop
+#   - OasisHighPop
   - Barratry # Goobstation - Re-add barratry
-  - Kettle # Goobstation - Re-add kettle (before it was gemini!)
+  # - Kettle # Goobstation - Re-add kettle (before it was gemini!)

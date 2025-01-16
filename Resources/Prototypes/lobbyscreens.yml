@@ -4,29 +4,29 @@
   name: Atmos
   artist: asardonicsailor
 
-- type: lobbyBackground
-  id: cburn
-  background: /Textures/LobbyScreens/cburn.webp
-  name: Cburn
-  artist: PubliclyExecutedPig
+# - type: lobbyBackground
+#   id: cburn
+#   background: /Textures/LobbyScreens/cburn.webp
+#   name: Cburn
+#   artist: PubliclyExecutedPig
 
-- type: lobbyBackground
-  id: clown
-  background: /Textures/LobbyScreens/clown.webp
-  name: Clown
-  artist: Unknown
+# - type: lobbyBackground
+#   id: clown
+#   background: /Textures/LobbyScreens/clown.webp
+#   name: Clown
+#   artist: Unknown
 
-- type: lobbyBackground
-  id: clownassassin
-  background: /Textures/LobbyScreens/clownassassin.webp
-  name: Clown Assassin
-  artist: ka2220
+# - type: lobbyBackground
+#   id: clownassassin
+#   background: /Textures/LobbyScreens/clownassassin.webp
+#   name: Clown Assassin
+#   artist: ka2220
 
-- type: lobbyBackground
-  id: clownhell
-  background: /Textures/LobbyScreens/clownhell.webp
-  name: Clown Hell
-  artist: kA2220
+# - type: lobbyBackground
+#   id: clownhell
+#   background: /Textures/LobbyScreens/clownhell.webp
+#   name: Clown Hell
+#   artist: kA2220
 
 - type: lobbyBackground
   id: cqcm
@@ -52,11 +52,11 @@
   name: CQCM 3
   artist: blooodyspy
 
-- type: lobbyBackground
-  id: foundinghonkers
-  background: /Textures/LobbyScreens/foundinghonkers.webp
-  name: Founding Honkers
-  artist: Piras314
+# - type: lobbyBackground
+#   id: foundinghonkers
+#   background: /Textures/LobbyScreens/foundinghonkers.webp
+#   name: Founding Honkers
+#   artist: Piras314
 
 - type: lobbyBackground
   id: goob
@@ -88,17 +88,17 @@
   name: Heretic
   artist: Cheeki
 
-- type: lobbyBackground
-  id: janishootout
-  background: /Textures/LobbyScreens/janishootout.webp
-  name: Jani Shootout
-  artist: Unknown
+# - type: lobbyBackground
+#   id: janishootout
+#   background: /Textures/LobbyScreens/janishootout.webp
+#   name: Jani Shootout
+#   artist: psychpsyo
 
-- type: lobbyBackground
-  id: justaweekaway
-  background: /Textures/LobbyScreens/justaweekaway.webp
-  name: Just A Week Away
-  artist: plantyfern
+# - type: lobbyBackground
+#   id: justaweekaway
+#   background: /Textures/LobbyScreens/justaweekaway.webp
+#   name: Just A Week Away
+#   artist: plantyfern
 
 - type: lobbyBackground
   id: mime
@@ -106,11 +106,11 @@
   name: Mime
   artist: Unknown
 
-- type: lobbyBackground
-  id: reclaimer-nuke
-  background: /Textures/LobbyScreens/reclaimer-nuke.webp
-  name: Reclaimer Nuke
-  artist: GetOutMarutak
+# - type: lobbyBackground
+#   id: reclaimer-nuke
+#   background: /Textures/LobbyScreens/reclaimer-nuke.webp
+#   name: Reclaimer Nuke
+#   artist: GetOutMarutak
 
 - type: lobbyBackground
   id: tideractivities
