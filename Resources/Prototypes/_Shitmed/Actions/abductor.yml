@@ -1,0 +1,43 @@
+# Actions
+- type: entity
+  id: ActionExitConsole
+  name: Exit console
+  description: Exit console.
+  components:
+  - type: InstantAction
+    priority: -20
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
+      state: exit
+    event: !type:ExitConsoleEvent
+
+- type: entity
+  id: ActionSendYourself
+  name: Send yourself
+  description: You need to FTL to the same map as the station to use this ability!
+  components:
+  - type: WorldTargetAction
+    useDelay: 10
+    priority: -19
+    range: -1
+    checkCanAccess: false
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
+      state: send-yourself
+    event: !type:SendYourselfEvent
+
+- type: entity
+  id: ActionReturnToShip
+  name: return
+  description: return to the ship.
+  components:
+  - type: InstantAction
+    useDelay: 30
+    icon:
+      sprite: _Shitmed/Interface/Actions/actions_abductor.rsi
+      state: take
+    priority: -12
+    event: !type:AbductorReturnToShipEvent
+

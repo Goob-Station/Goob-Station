@@ -63,3 +63,7 @@
 
 - file: ["gaxstation.yml"]
   authors: Ichai, Desprino
+  
+- files: ["lambda.yml"]
+  authors: Ichai, Dapnee, Oraclestation's players
+
