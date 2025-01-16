@@ -104,6 +104,7 @@
 // SPDX-License-Identifier: AGPL-3.0-or-later
 
 using System.Linq;
+using Content.Server._DV.Objectives.Events; // DeltaV
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
 using Content.Server.Station.Systems;
@@ -493,6 +494,7 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
                 SetLaws(lawset, stationAiHeldComp.CurrentConnectedEntity.Value, provider.LawUploadSound);
             }
             // Corvax-Next-AiRemoteControl-End
+            RaiseLocalEvent(new AILawUpdatedEvent(update, provider.Laws)); // DeltaV
         }
 
         ent.Comp.LastLawset = provider.Laws;
