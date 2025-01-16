@@ -10,8 +10,20 @@ using Robust.Shared.Containers;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 using Content.Shared.Speech.Muting;
-using Robust.Shared.Random; // Goobstation - Mime Enforcement
+using Robust.Shared.Random; // Goobstation - Mime Enforcement - half of these are probably not needed and just leftovers from testing but im too lazy to fix it.
 using Content.Server.Body.Systems; // Goobstation - Mime Enforcement
+using Content.Shared.Administration; // Goobstation - Mime Enforcement
+using Content.Shared.Administration.Components; // Goobstation - Mime Enforcement
+using Content.Server.Administration.Components; // Goobstation - Mime Enforcement
+using Content.Server.Administration.Systems; // Goobstation - Mime Enforcement
+using Content.Server.Explosion.EntitySystems; // Goobstation - Mime Enforcement
+using Content.Server.Polymorph.Systems; // Goobstation - Mime Enforcement
+using Content.Shared.Clothing.Components; // Goobstation - Mime Enforcement
+using Timer = Robust.Shared.Timing.Timer;
+using Content.Shared.Inventory; // Goobstation - Mime Enforcement
+using Content.Shared.Interaction.Components; // Goobstation - Mime Enforcement
+using Content.Server.Speech.Components; // Goobstation - Mime Enforcement
+using Content.Shared.Speech.Components; // Goobstation - Mime Enforcement
 
 namespace Content.Server.Abilities.Mime
 {
@@ -26,6 +38,10 @@ namespace Content.Server.Abilities.Mime
         [Dependency] private readonly IGameTiming _timing = default!;
         [Dependency] private readonly IRobustRandom _rand = default!; // Goobstation - Mime Enforcement
         [Dependency] private readonly BodySystem _body = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly ExplosionSystem _explosionSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly PolymorphSystem _polymorphSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly SharedTransformSystem _transformSystem = default!; // Goobstation - Mime Enforcement
+        [Dependency] private readonly InventorySystem _inventorySystem = default!; // Goobstation - Mime Enforcement
 
         public override void Initialize()
         {
@@ -130,12 +146,55 @@ namespace Content.Server.Abilities.Mime
             _alertsSystem.ClearAlert(uid, mimePowers.VowAlert);
             _alertsSystem.ShowAlert(uid, mimePowers.VowBrokenAlert);
             _actionsSystem.RemoveAction(uid, mimePowers.InvisibleWallActionEntity);
-            Gib(uid); // Goobstation - Mime Enforcement
+            if (_rand.Next(2) == 0) {Punish(uid);} // Goobstation - Mime Enforcement
         }
 
-        private void Gib(EntityUid ent) // Goobstation - Mime Enforcement
+        private void Punish(EntityUid ent) // Goobstation - Mime Enforcement
         {
-            if (_rand.Next(6) == 0) {_body.GibBody(ent);} // Goobstation - Mime Enforcement
+            switch(_rand.Next(8))
+            {
+                case 0:
+                    EnsureComp<KillSignComponent>(ent);
+                    break;
+                case 1:
+                    var coords = _transformSystem.GetMapCoordinates(ent);
+                    _explosionSystem.QueueExplosion(coords, ExplosionSystem.DefaultExplosionPrototypeId, 4, 1, 2, ent, maxTileBreak: 0);
+                    _body.GibBody(ent);
+                    break;
+                case 2:
+                    _polymorphSystem.PolymorphEntity(ent, "AdminBreadSmite");
+                    break;
+                case 3:
+                    if (TryComp<InventoryComponent>(ent, out var inventory))
+                    {
+                        var ears = Spawn("ClothingHeadHatCatEars", Transform(ent).Coordinates);
+                        EnsureComp<UnremoveableComponent>(ears);
+                        _inventorySystem.TryUnequip(ent, "head", true, true, false, inventory);
+                        _inventorySystem.TryEquip(ent, ears, "head", true, true, false, inventory);
+                    }
+                    break;
+                case 4:
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    EnsureComp<OhioAccentComponent>(ent);
+                    break;
+                case 5:
+                    EnsureComp<BackwardsAccentComponent>(ent);
+                    EnsureComp<DementiaAccentComponent>(ent);
+                    break;
+                case 6:
+                    EnsureComp<VulgarAccentComponent>(ent);
+                    EnsureComp<BoganAccentComponent>(ent);
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    break;
+                case 7:
+                    EnsureComp<VulgarAccentComponent>(ent);
+                    EnsureComp<RussianAccentComponent>(ent);
+                    EnsureComp<BackwardsAccentComponent>(ent);
+                    EnsureComp<OhioAccentComponent>(ent);
+                    EnsureComp<DementiaAccentComponent>(ent);
+                    EnsureComp<MaoistAccentComponent>(ent);
+                    break;
+            }
         }
 
         /// <summary>
