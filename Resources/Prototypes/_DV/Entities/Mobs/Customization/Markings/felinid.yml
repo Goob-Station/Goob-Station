@@ -13,10 +13,8 @@
     layers:
       felinid_fluffy_tail_rings:
         type:
-          !type:CategoryColoring
-          category: Hair
-          negative: true
-        fallbackColor: "#FFFFFF"
+          !type:SimpleColoring
+          color: "#FFFFFF"
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full

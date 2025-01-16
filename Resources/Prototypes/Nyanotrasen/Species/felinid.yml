@@ -15,7 +15,7 @@
     Special:
       points: 1
       required: true
-      defaultMarkings: [ CatEars ]
+      defaultMarkings: [ FelinidEarsBasic ]
     # Reserve-End
     Hair:
       points: 1
