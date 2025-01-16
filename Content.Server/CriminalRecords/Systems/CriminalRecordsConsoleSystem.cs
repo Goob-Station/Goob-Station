@@ -302,8 +302,14 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         if (!TryComp<PrisonerIdComponent>(id, out var prisonerIdComponent))
             return;
 
-        // maybe handle in shared
+
+        stationRecordKeyStorageComponent.Key = key;
+        prisonerIdComponent.SentenceTime = fixedPointTime;
+
+        Dirty(id, stationRecordKeyStorageComponent);
+        Dirty(id, prisonerIdComponent);
+
         _metaSystem.SetEntityName(id,val);
-        RaiseNetworkEvent(new SpawnedPrisonerId(GetNetEntity(id), fixedPointTime, args.Key, GetNetEntity(owningStation.Value)));
+        //RaiseNetworkEvent(new SpawnedPrisonerId(GetNetEntity(id), fixedPointTime, args.Key, GetNetEntity(owningStation.Value)));
     }
 }

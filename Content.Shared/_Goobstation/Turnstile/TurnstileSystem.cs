@@ -26,6 +26,7 @@ public sealed class TurnstileSystem : EntitySystem
     [Dependency] protected readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] protected readonly InventorySystem _inventorySystem = default!;
     [Dependency] protected readonly SharedHandsSystem _handsSystem = default!;
+    private bool _isEventBlocked = false;
 
 
 
@@ -87,18 +88,31 @@ public sealed class TurnstileSystem : EntitySystem
         Timer.Spawn(1000,
             () =>
             {
-                _physicsSystem.SetCanCollide(uid, true);
                 StartPrisonerTime(otherEntity);
+                _physicsSystem.SetCanCollide(uid, true);
             });
     }
 
     private void StartPrisonerTime(EntityUid ent)
     {
+        if (_isEventBlocked)
+            return;
+
+        _isEventBlocked = true;
+
+        Logger.Debug("firing event");
         var id = FindId(ent);
         if (id == EntityUid.Invalid)
+        {
+            Logger.Debug("Didnt find prisoner ID");
             return;
+
+        }
+
         // tell the id to start counting :)
-        //RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
+        RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
+        _isEventBlocked = false;
+
     }
 
     private EntityUid FindId(EntityUid ent)

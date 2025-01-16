@@ -91,11 +91,12 @@
     - base:
         prisoner_001: ""
         prisoner_002: ""
-        prisoner_003: ""
+        prisoner_003: ""  
         prisoner_004: ""
         prisoner_005: ""
         prisoner_006: ""
   - type: PrisonerId
+    access: [["PrisonerExit"]]
 
   - type: PresetIdCard
     name: Prisoner ID
