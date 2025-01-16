@@ -108,11 +108,11 @@
         Heat: 3
   - type: Trail
     color: "#FF0033DD"
-    lineThickness: 0.08
+    scale: 0.08
     frequency: 0.02
     lifetime: 0.3
     colorLerpAmount: 0.06
-    thicknessLerpAmount: 0.03
+    scaleLerpAmount: 0.03
     shader: unshaded
   - type: Fixtures
     fixtures:
@@ -213,11 +213,11 @@
         Heat: 20
   - type: Trail
     color: "#FF0BC255"
-    lineThickness: 0.08
+    scale: 0.08
     frequency: 0.05
     lifetime: 0.3
     colorLerpAmount: 0.06
-    thicknessLerpAmount: 0.03
+    scaleLerpAmount: 0.03
     shader: unshaded
   - type: Fixtures
     fixtures:

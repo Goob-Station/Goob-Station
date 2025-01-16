@@ -1040,14 +1040,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         var magicQuery = GetEntityQuery<MagicComponent>();
-        var ents = container.Container.ContainedEntities.Where(x => x != ev.Action.Owner && magicQuery.HasComp(x))
-            .ToList();
-        if (ents.Count == 0)
-        {
-            Popup(ev.Performer, "spell-fail-no-spells");
-            return;
-        }
-
+        var ents = container.Container.ContainedEntities.Where(x => x != ev.Action.Owner && magicQuery.HasComp(x));
         foreach (var ent in ents)
         {
             _actions.SetCooldown(ent, TimeSpan.Zero);

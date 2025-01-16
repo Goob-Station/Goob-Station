@@ -24,11 +24,8 @@ public sealed partial class TrailComponent : Component
     [DataField]
     public float ColorLerpAmount = 0.3f;
 
-    /// <summary>
-    /// Does nothing if sprite is not null
-    /// </summary>
     [DataField]
-    public float ThicknessLerpAmount;
+    public float ScaleLerpAmount;
 
     /// <summary>
     /// If sprite is null, it will draw lines instead
@@ -36,11 +33,8 @@ public sealed partial class TrailComponent : Component
     [DataField, AutoNetworkedField]
     public SpriteSpecifier? Sprite;
 
-    /// <summary>
-    /// If sprite is null, this determines the thickness of the line
-    /// </summary>
     [DataField]
-    public float LineThickness = 0.1f;
+    public float Scale = 1f;
 
     [DataField]
     public string? Shader;
@@ -57,7 +51,7 @@ public sealed partial class TrailComponent : Component
     public List<TrailData> TrailData = new();
 }
 
-public sealed class TrailData(Vector2 position, Angle angle, Color color, float thickness, TimeSpan spawnTime)
+public sealed class TrailData(Vector2 position, Angle angle, Color color, float scale, TimeSpan spawnTime)
 {
     public Vector2 Position = position;
 
@@ -65,7 +59,7 @@ public sealed class TrailData(Vector2 position, Angle angle, Color color, float 
 
     public Color Color = color;
 
-    public float Thickness = thickness;
+    public float Scale = scale;
 
     public TimeSpan SpawnTime = spawnTime;
 }

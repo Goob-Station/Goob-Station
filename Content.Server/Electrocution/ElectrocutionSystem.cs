@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Wizard;
+using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Logs;
 using Content.Server.Beam.Components;
 using Content.Server.Light.Components;

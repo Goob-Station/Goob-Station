@@ -50,6 +50,9 @@ public sealed partial class HulkComponent : Component
     public float FistDamageMultiplier = 7f;
 
     [DataField]
+    public float MaxBonusFistDamage = 50f;
+
+    [DataField]
     public DamageSpecifier? StructuralDamage;
 
     [DataField]

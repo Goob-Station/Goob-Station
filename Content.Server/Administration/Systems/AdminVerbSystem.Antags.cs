@@ -1,4 +1,4 @@
-using Content.Server._Goobstation.Wizard;
+using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Administration.Commands;
 using Content.Server.Antag;
 using Content.Server.GameTicking.Rules.Components;

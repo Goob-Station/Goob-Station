@@ -86,7 +86,7 @@ public sealed class SlipperySystem : EntitySystem
     private bool CanSlip(EntityUid uid, EntityUid toSlip)
     {
         return !_container.IsEntityInContainer(uid)
-                && _statusEffects.CanApplyEffect(toSlip, "Stun"); //Should be KnockedDown instead?
+                && _statusEffects.CanApplyEffect(toSlip, "KnockedDown", raiseEvent: false); // Goob edit
     }
 
     public void TrySlip(EntityUid uid, SlipperyComponent component, EntityUid other, bool requiresContact = true)

@@ -139,8 +139,9 @@
   - type: LightFade
     duration: 5
   - type: Trail
+    scale: 0.8
     spawnTrailParticles: false
-    frequency: 0.06
+    frequency: 0.045
     lifetime: 0.8
     colorLerpAmount: 0.05
     shader: unshaded

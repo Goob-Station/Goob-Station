@@ -32,6 +32,10 @@ public abstract class SharedHulkSystem : EntitySystem
     private void OnMeleeHit(Entity<HulkComponent> ent, ref MeleeHitEvent args)
     {
         args.BonusDamage += args.BaseDamage * ent.Comp.FistDamageMultiplier;
+        var total = args.BonusDamage.GetTotal();
+        if (total > 0 && total > ent.Comp.MaxBonusFistDamage)
+            args.BonusDamage *= ent.Comp.MaxBonusFistDamage / total;
+
         if (ent.Comp.StructuralDamage != null)
             args.BonusDamage += ent.Comp.StructuralDamage;
 
