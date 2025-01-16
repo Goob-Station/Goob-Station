@@ -1,8 +1,8 @@
 - type: species
   id: Felinid
   name: species-name-felinid
-  roundStart: true
-  prototype: MobFelinid
+  roundStart: false
+  prototype: MobFelinid # Reserve
   sprites: MobHumanSprites
   markingLimits: MobFelinidMarkingLimits
   dollPrototype: MobFelinidDummy
