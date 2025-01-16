@@ -30,7 +30,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
         var pid = prot.ID;
         var parents = prot!.Parents?.ToList() ?? new List<string>();
 
-        if ((pid != CrusherPrototype || parents.Contains(CrusherPrototype)))
+        if ((pid != CrusherPrototype || !parents.Contains(CrusherPrototype)))
             comp.CrusherOnly = false; // it's over...
     }
 
@@ -45,5 +45,7 @@ public sealed partial class MegafaunaSystem : EntitySystem
 
         if (comp.CrusherOnly && comp.CrusherLoot != null)
             Spawn(comp.CrusherLoot, coords);
+
+        RaiseLocalEvent(uid, new MegafaunaKilledEvent());
     }
 }

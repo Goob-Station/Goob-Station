@@ -120,16 +120,24 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
     {
         ent.Comp.Aggressive = true;
 
-        // add ambient
         if (TryComp<AmbientSoundComponent>(ent, out var ambient))
+        {
+            // Sneaky hack to start the music from 0 position
+            _ambient.SetSound(ent, ambient.Sound, ambient);
             _ambient.SetAmbience(ent, true, ambient);
+        }
     }
+
     private void DeinitBoss(Entity<HierophantBossComponent> ent)
     {
         ent.Comp.Aggressive = false;
 
         if (TryComp<AmbientSoundComponent>(ent, out var ambient))
+        {
             _ambient.SetAmbience(ent, false, ambient);
+            _ambient.
+            // TODO epic hierophant death sound
+        }
 
         ent.Comp.CancelToken.Cancel(); // cancel all stuff
     }

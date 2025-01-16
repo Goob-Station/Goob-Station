@@ -20,8 +20,10 @@ public sealed partial class AggressorsSystem : EntitySystem
     {
         var aggro = args.Origin;
 
-        if (aggro != null && HasComp<ActorComponent>(aggro))
-            AddAggressor(ent, (EntityUid) aggro);
+        if (aggro == null || !HasComp<ActorComponent>(aggro))
+            return;
+
+        AddAggressor(ent, (EntityUid) aggro);
     }
 
     private void OnMobStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
@@ -60,8 +62,10 @@ public sealed partial class AggressorsSystem : EntitySystem
             return;
 
         foreach (var aggrod in aggcomp.Aggressives)
+        {
             if (TryComp<AggressiveComponent>(aggrod, out var aggressors))
                 RemoveAggressor((aggrod, aggressors), aggressor);
+        }
 
         RemComp(aggressor, aggcomp);
     }
