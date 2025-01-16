@@ -2,7 +2,14 @@
   id: FelinidTailFoxtail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Felinid, Human]
+  coloring:
+    default:
+      type:
+        !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SkinColoring
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Felinid/foxtail.rsi
     state: base_fox_tail
