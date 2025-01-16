@@ -11,6 +11,12 @@
 - type: markingPoints
   id: MobFelinidMarkingLimits
   points:
+    # Reserve-Start
+    Special:
+      points: 1
+      required: true
+      defaultMarkings: [ CatEars ]
+    # Reserve-End
     Hair:
       points: 1
       required: false
@@ -21,10 +27,12 @@
       points: 1
       required: true
       defaultMarkings: [ FelinidTailBasic ]
-    HeadTop:
-      points: 1
-      required: true
-      defaultMarkings: [ FelinidEarsBasic ]
+    # Reserve-Start
+    #HeadTop:
+    #  points: 1
+    #  required: true
+    #  defaultMarkings: [ FelinidEarsBasic ]
+    # Reserve-End
     Chest:
       points: 1
       required: false
