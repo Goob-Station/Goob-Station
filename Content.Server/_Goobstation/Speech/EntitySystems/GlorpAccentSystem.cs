@@ -34,6 +34,8 @@ public sealed class GlorpAccentSystem : EntitySystem
     {
         if (allCaps)
             return word.ToUpper();
+        if (string.IsNullOrEmpty(word))
+            return word;
         return char.ToUpper(word[0]) + word.Substring(1).ToLower();
     }
 
