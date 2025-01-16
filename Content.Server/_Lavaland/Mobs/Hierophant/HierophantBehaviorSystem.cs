@@ -135,7 +135,6 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         if (TryComp<AmbientSoundComponent>(ent, out var ambient))
         {
             _ambient.SetAmbience(ent, false, ambient);
-            _ambient.
             // TODO epic hierophant death sound
         }
 
