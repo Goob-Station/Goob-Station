@@ -609,7 +609,7 @@
 
 # Reserve-replace-word
 - type: accent
-  id: chatsanitize
+  id: chatsanitizereserve
   wordReplacements:
     reserve-chatsan-word-1: reserve-chatsan-replacement-1
     reserve-chatsan-word-2: reserve-chatsan-replacement-2
