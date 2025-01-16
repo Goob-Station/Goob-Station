@@ -212,8 +212,8 @@ public sealed partial class BindSoulEvent : InstantActionEvent, ISpeakSpell
     [DataField]
     public Dictionary<string, EntProtoId> Gear = new()
     {
-        {"head", "ClothingHeadHatBlackwizard"},
-        {"outerClothing", "ClothingOuterWizardBlack"},
+        {"head", "ClothingHeadHatBlackwizardReal"},
+        {"outerClothing", "ClothingOuterWizardBlackReal"},
     };
 }
 

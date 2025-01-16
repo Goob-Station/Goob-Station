@@ -2,8 +2,8 @@
   id: WizardGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorDarkBlue
-    head: ClothingHeadHatWizard
-    outerClothing: ClothingOuterWizard
+    head: ClothingHeadHatWizardReal
+    outerClothing: ClothingOuterWizardReal
     shoes: ClothingShoesWizard
     back: ClothingBackpack
     belt: ScrollTeleport
@@ -13,7 +13,16 @@
   id: LichGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitColorBlack
-    head: ClothingHeadHatBlackwizard
-    outerClothing: ClothingOuterWizardBlack
+    head: ClothingHeadHatBlackwizardReal
+    outerClothing: ClothingOuterWizardBlackReal
     shoes: ClothingShoesWizard
+    back: ClothingBackpack
+
+- type: startingGear
+  id: OblivionEnforcerGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitColorWhite
+    outerClothing: ClothingOuterOblivionEnforcer
+    mask: ClothingMaskGasOblivionEnforcer
+    shoes: ClothingShoesColorWhite
     back: ClothingBackpack

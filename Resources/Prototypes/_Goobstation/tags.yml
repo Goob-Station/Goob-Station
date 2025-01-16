@@ -94,6 +94,9 @@
 - type: Tag
   id: SoulTapped
 
+- type: Tag
+  id: SyringeArmor
+
 # Mechs
 
 - type: Tag
