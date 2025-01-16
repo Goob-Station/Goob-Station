@@ -104,7 +104,7 @@
   id: mime
   background: /Textures/LobbyScreens/mime.webp
   name: Mime
-  artist: Unknown
+  artist: Diebeck
 
 # - type: lobbyBackground
 #   id: reclaimer-nuke
