@@ -50,8 +50,11 @@ public sealed partial class HierophantChaserSystem : EntitySystem
     ///     Replicate itself and the prototype designated.
     ///     Delete itself afterwards.
     /// </summary>
-    private void Cycle(Entity<HierophantChaserComponent> ent)
+    private void Cycle(Entity<HierophantChaserComponent, TransformComponent?> ent)
     {
+        if (!Resolve<TransformComponent>(ent, ref ent.Comp2, false))
+            return;
+
         var xform = Transform(ent);
 
         if (!TryComp<MapGridComponent>(xform.GridUid, out var grid))
@@ -60,7 +63,7 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         var gridEnt = ((EntityUid) xform.GridUid!, grid);
 
         // get it's own map position
-        var pos = _xform.GetWorldPosition(ent);
+        var pos = _xform.GetWorldPosition(ent.Owner);
         var confines = new Box2(pos - Vector2.One, pos + Vector2.One);
 
         // get random position tiles pool
@@ -68,9 +71,9 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         var deltaPos = Vector2.Zero;
 
         // if there is a target get it's position delta instead
-        if (ent.Comp.Target != null)
+        if (ent.Comp1.Target != null)
         {
-            deltaPos = _xform.GetWorldPosition((EntityUid) ent.Comp.Target) - pos;
+            deltaPos = _xform.GetWorldPosition((EntityUid) ent.Comp1.Target) - pos;
         }
 
         // if the target is still missing we'll just pick a random tile
@@ -81,12 +84,12 @@ public sealed partial class HierophantChaserSystem : EntitySystem
         deltaPos = TranslateDelta(deltaPos);
 
         // spawn damaging square and set new position
-        Spawn(ent.Comp.SpawnPrototype, xform.Coordinates);
-        _xform.SetWorldPosition(ent, pos + deltaPos);
+        Spawn(ent.Comp1.SpawnPrototype, xform.Coordinates);
+        _xform.SetWorldPosition(ent.Owner, pos + deltaPos);
 
         // handle steps
-        ent.Comp.Steps += 1;
-        if (ent.Comp.Steps >= ent.Comp.MaxSteps)
+        ent.Comp1.Steps += 1;
+        if (ent.Comp1.Steps >= ent.Comp1.MaxSteps)
             QueueDel(ent);
     }
 
