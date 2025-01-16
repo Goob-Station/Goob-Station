@@ -1,8 +1,15 @@
 using System.Numerics;
+using Content.Shared._Goobstation.PrisonerId;
+using Content.Shared.Access;
 using Content.Shared.Access.Systems;
+using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Inventory;
+using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Turnstile;
@@ -15,7 +22,10 @@ public sealed class TurnstileSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] protected readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] protected readonly AccessReaderSystem _accessSystem = default!;
+    [Dependency] protected readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] protected readonly SharedAccessSystem _accessSystem = default!;
+    [Dependency] protected readonly InventorySystem _inventorySystem = default!;
+    [Dependency] protected readonly SharedHandsSystem _handsSystem = default!;
 
 
 
@@ -23,11 +33,11 @@ public sealed class TurnstileSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<_Goobstation.Turnstile.TurnstileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<_Goobstation.Turnstile.TurnstileComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnStartup);
     }
 
-    private void OnStartup(EntityUid uid, _Goobstation.Turnstile.TurnstileComponent component, ref ComponentStartup args)
+    private void OnStartup(EntityUid uid, TurnstileComponent component, ref ComponentStartup args)
     {
         var dir = GetStructureDirection(uid);
         component.AllowedDirection = dir;
@@ -59,13 +69,13 @@ public sealed class TurnstileSystem : EntitySystem
         return new Vector2(0,1);
     }
 
-    private void DisallowedPassage(EntityUid uid, _Goobstation.Turnstile.TurnstileComponent comp, EntityUid otherEntity)
+    private void DisallowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         _audioSystem.PlayPredicted(comp.DenySound,uid, otherEntity);
         RaiseNetworkEvent(new BadTurnstileEvent(GetNetEntity(uid)));
     }
 
-    private void AllowedPassage(EntityUid uid, _Goobstation.Turnstile.TurnstileComponent comp, EntityUid otherEntity)
+    private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         // Check access here.
 
@@ -78,12 +88,58 @@ public sealed class TurnstileSystem : EntitySystem
             () =>
             {
                 _physicsSystem.SetCanCollide(uid, true);
+                StartPrisonerTime(otherEntity);
             });
     }
 
-    private void OnStartCollide(EntityUid uid, _Goobstation.Turnstile.TurnstileComponent comp, StartCollideEvent args)
+    private void StartPrisonerTime(EntityUid ent)
     {
-        if (!_accessSystem.IsAllowed(args.OtherEntity, uid))
+        var id = FindId(ent);
+        if (id == EntityUid.Invalid)
+            return;
+        // tell the id to start counting :)
+        //RaiseNetworkEvent();
+    }
+
+    private EntityUid FindId(EntityUid ent)
+    {
+        var slotEnumerator = _inventorySystem.GetSlotEnumerator(ent);
+        using var handsEnumerator = _handsSystem.EnumerateHands(ent).GetEnumerator();
+        while (handsEnumerator.MoveNext())
+        {
+            var hand = handsEnumerator.Current;
+            if (hand.Container == null)
+            {
+                return EntityUid.Invalid;
+            }
+
+            var uid = hand.Container.ContainedEntity;
+            if (!TryComp<MetaDataComponent>(uid, out var metaData))
+                return EntityUid.Invalid;
+            if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+            {
+                return (EntityUid) uid!;
+            }
+        }
+
+        // lock lockers by stationrecordkey and security. :)
+
+        while (slotEnumerator.MoveNext(out var slot))
+        {
+            var uid = slot.ContainedEntity;
+            if (!TryComp<MetaDataComponent>(uid, out var metaData))
+                return EntityUid.Invalid;
+            if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+            {
+                return (EntityUid) uid!;
+            }
+        }
+        return EntityUid.Invalid;
+    }
+
+    private void OnStartCollide(EntityUid uid, TurnstileComponent comp, StartCollideEvent args)
+    {
+        if (!_accessReaderSystem.IsAllowed(args.OtherEntity, uid))
         {
             DisallowedPassage(uid, comp, args.OtherEntity);
             return;
@@ -102,5 +158,3 @@ public sealed class TurnstileSystem : EntitySystem
         }
     }
 }
-
-

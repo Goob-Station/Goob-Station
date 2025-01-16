@@ -15,4 +15,9 @@ public sealed class PrisonerIdSystem : EntitySystem
     {
         throw new NotImplementedException();
     }
+
+    public void StartTimer(EntityUid uid, PrisonerIdComponent component)
+    {
+        throw new NotImplementedException();
+    }
 }

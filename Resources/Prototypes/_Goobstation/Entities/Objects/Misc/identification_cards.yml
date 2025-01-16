@@ -100,4 +100,4 @@
     name: Prisoner ID
   - type: Access
     tags:
-    - PrisonerEntrance
+    - PrisonerEntry
