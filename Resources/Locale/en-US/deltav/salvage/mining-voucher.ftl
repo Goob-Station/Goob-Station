@@ -12,7 +12,7 @@ mining-voucher-extraction-name = Extraction and Rescue Kit
 mining-voucher-extraction-description =
     Contains a fulton beacon and 20 fultons, which allows you to send minerals,
     items and dead bodies back home without having to use the mining shuttle.
-#And as a bonus, you get 30 marker beacons to help you better mark your path.
+    As a bonus, you get 30 marker beacons to help you better mark your path.
 
 mining-voucher-resonator-name = Resonator Kit
 mining-voucher-resonator-description =
