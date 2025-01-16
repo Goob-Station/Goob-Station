@@ -95,3 +95,5 @@
   color: "#f6ce64"
   # long range since otherwise it'd defeat the point of a handheld radio independent of telecomms
   longRange: true
+
+#Reserve-Localization-Goob

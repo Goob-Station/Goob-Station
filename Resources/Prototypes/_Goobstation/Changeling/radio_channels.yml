@@ -1,7 +1,7 @@
 - type: radioChannel
   id: Hivemind
   name: chat-radio-hivemind
-  keycode: 'g'
+  keycode: 'ч'
   frequency: 19840
   color: "#e36b00"
   longRange: true
