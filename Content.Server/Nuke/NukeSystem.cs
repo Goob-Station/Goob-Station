@@ -1,7 +1,10 @@
+using System.Linq;
 using Content.Server.AlertLevel;
 using Content.Server.Audio;
 using Content.Server.Chat.Systems;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.GameTicking;
+using Content.Server.GameTicking.Rules.Components;
 using Content.Server.Pinpointer;
 using Content.Server.Popups;
 using Content.Server.Station.Systems;
@@ -44,6 +47,9 @@ public sealed class NukeSystem : EntitySystem
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
+    // Goobstation start
+    [Dependency] private readonly GameTicker _gameTicker = default!;
+    // Goobstation end
 
     /// <summary>
     ///     Used to calculate when the nuke song should start playing for maximum kino with the nuke sfx
@@ -468,6 +474,23 @@ public sealed class NukeSystem : EntitySystem
 
         // We are collapsing the randomness here, otherwise we would get separate random song picks for checking duration and when actually playing the song afterwards
         _selectedNukeSong = _audio.GetSound(component.ArmMusic);
+
+        // Goobstation start
+        // If it's honkops, we use a different soundcollection!
+        var activeRules = _gameTicker.GetActiveGameRules();
+
+        foreach (var rule in activeRules)
+        {
+            if (TryComp<NukeopsRuleComponent>(rule, out var nukeopsComp))
+            {
+                if (nukeopsComp.LocalePrefix == "honkops-") // This is a silly way of doing it, but why make another bool when you can just hardcode this?
+                {
+                    _selectedNukeSong = _audio.GetSound(component.HonkopsArmMusic);
+                    break;
+                }
+            }
+        }
+        // Goobstation end
 
         // warn a crew
         var announcement = Loc.GetString("nuke-component-announcement-armed",

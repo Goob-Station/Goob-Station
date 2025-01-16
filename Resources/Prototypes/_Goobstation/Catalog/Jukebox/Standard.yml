@@ -65,10 +65,10 @@
     path: /Audio/Lobby/chollima.ogg
 
 - type: jukebox
-  id: clearly_nuclear
-  name: Mrjajkes - Clearly Nuclear
+  id: blatantly_nuclear
+  name: mrjajkes - Blatantly Nuclear
   path:
-    path: /Audio/StationEvents/clearly_nuclear.ogg
+    path: /Audio/StationEvents/blatantly_nuclear.ogg
 
 - type: jukebox
   id: countdown

@@ -367,7 +367,7 @@
 
 - type: listing
   id: UplinkSmugglerSatchel
-  name: uplink-smugglers-satchel-name
+  name: smuggler's satchel
   description: uplink-smugglers-satchel-desc
   icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
   productEntity: ClothingSatchelSmuggler
