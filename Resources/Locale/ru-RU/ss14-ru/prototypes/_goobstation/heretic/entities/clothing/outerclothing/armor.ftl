@@ -1,2 +1,2 @@
-ent-ClothingOuterArmorHeretic = ominous armor
-    .desc = A ragged, dusty set of robes. Strange eyes line the inside.
+ent-ClothingOuterArmorHeretic = зловещая броня
+    .desc = Рваная, пыльная мантия. Странные глаза выстроились внутри.

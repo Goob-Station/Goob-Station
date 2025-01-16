@@ -1,2 +1,2 @@
-ent-SurveillanceWirelessCameraBodySecurity = security bodycam
-    .desc = A body mounted camera. It's watching you.
+ent-SurveillanceWirelessCameraBodySecurity = нагрудная камера СБ
+    .desc = Камера, крепящаяся на теле. Оно наблюдает за тобой.

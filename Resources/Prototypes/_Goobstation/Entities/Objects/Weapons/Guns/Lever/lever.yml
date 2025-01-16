@@ -2,7 +2,7 @@
   name: Chester
   parent: [ BaseWeaponRifle, BaseGunWieldable, BaseCentcommContraband ]
   id: WeaponLeverChester
-  description: An improved lever-action rifle designed to fire specialized .45 caliber ammunition for rapid threat removal.
+  description: Усовершенствованная винтовка с рычажным затвором, предназначенная для стрельбы специальными боеприпасами калибра .45 для быстрого устранения угроз.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Guns/Lever/chester.rsi

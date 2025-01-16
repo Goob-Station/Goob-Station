@@ -3,5 +3,5 @@ alerts-stasis-desc = Вы помещены во временный стазис.
 alerts-knocked-down-name = [color=yellow]Сбит с ног[/color]
 alerts-knocked-down-desc = [color=yellow]Сбит с ног[/color]! Вы не можете подняться.
 
-alerts-modsuit-power-name = [color=yellow]Сила костюма[/color]
+alerts-modsuit-power-name = [color=yellow]Заряд костюма[/color]
 alerts-modsuit-power-desc = Отображает текущий уровень мощности вашего модсьюита. Низкий уровень энергии может повлиять на его функциональность.

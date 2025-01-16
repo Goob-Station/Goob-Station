@@ -1,5 +1,5 @@
-ent-ClothingShoesBootsChrono = futuristic boots
-    .desc = An advanced futuristic shoe that guarantees wearer comfort and full traction on any surface
+ent-ClothingShoesBootsChrono = футуристические ботинки
+    .desc = Усовершенствованная футуристическая обувь, гарантирующая комфорт и полное сцепление с любой поверхностью.
 ent-ClothingShoesBootsChronoUnremoveable = { ent-ClothingShoesBootsChrono }
     .suffix = Unremoveable
     .desc = { ent-ClothingShoesBootsChrono.desc }

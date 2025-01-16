@@ -1,4 +1,4 @@
-ent-MindcontrolImplanter = mind control implanter
+ent-MindcontrolImplanter = имплантер контроля разума
     .desc = { ent-BaseImplantOnlyImplanterSyndi.desc }
-ent-MindcontrolImplant = mind control implant
-    .desc = commit menticide
+ent-MindcontrolImplant = имплант контроля разума
+    .desc = соверши ментицид

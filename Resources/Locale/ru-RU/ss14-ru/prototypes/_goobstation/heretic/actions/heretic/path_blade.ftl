@@ -1,4 +1,4 @@
-ent-ActionHereticRealignment = Realignment
-    .desc = Recover from all stuns and knockdowns, gaining short term pacifism.
-ent-ActionHereticFuriousSteel = Furious steel
-    .desc = Summon three orbiting protecting blades around you.
+ent-ActionHereticRealignment = Перестройка
+    .desc = Востановить выносливость, но получить временный пацифизм.
+ent-ActionHereticFuriousSteel = Яростная сталь
+    .desc = Призвать 3 защитных лезвия кружащих вокруг тебя.

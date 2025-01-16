@@ -1,3 +1,3 @@
-ent-ChangelingClothingHeadHelmet = chitinous helmet
-    .desc = An all-consuming chitinous mass of armor.
+ent-ChangelingClothingHeadHelmet = Хитиновый шлем
+    .desc = Всепоглощающая хитиновая масса в виде доспехов.
     .suffix = Unremoveable

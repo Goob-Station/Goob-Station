@@ -1,6 +1,6 @@
-ent-CrateCybersunDarkGygaxBundle = Cybersun gygax bundle
-    .desc = Contains a set of Cybersan light armored mechs.
+ent-CrateCybersunDarkGygaxBundle = набор Cybersun Гигакс
+    .desc = Содержит набор лёгкого бронированого меха Cybersun Гигакс.
     .suffix = Filled
-ent-CrateCybersunMaulerBundle = Cybersun mauler bundle
-    .desc = Contains a set of Cybersan heavy armored mechs.
+ent-CrateCybersunMaulerBundle = набор Cybersun Маулер
+    .desc = Содержит набор тяжелого бронированного меха Cybersun Маулер.
     .suffix = Filled

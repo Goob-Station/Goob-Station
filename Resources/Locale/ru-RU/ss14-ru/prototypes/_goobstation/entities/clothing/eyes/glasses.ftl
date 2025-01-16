@@ -1,2 +1,2 @@
-ent-ClothingEyesGlassesMedSec = medical security glasses
-    .desc = Sunglasses with a medical and security hud
+ent-ClothingEyesGlassesMedSec = медицинские очки охраны
+    .desc = Солнечные очки с медицинским визором и визором СБ.

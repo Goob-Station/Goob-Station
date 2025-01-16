@@ -1,2 +1,2 @@
-ent-ActionHereticFleshSurgery = flesh surgery
-    .desc = Remove a random organ from someone, or heal your teammates.
+ent-ActionHereticFleshSurgery = Кровавая хирургия
+    .desc = Уничтожить случайный орган у цели, или вылечить союзников.

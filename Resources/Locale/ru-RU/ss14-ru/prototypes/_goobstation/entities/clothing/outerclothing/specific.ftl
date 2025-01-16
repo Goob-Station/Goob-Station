@@ -1,4 +1,4 @@
-ent-ClothingOuterSuitHEV = H.E.V suit
-    .desc = Full-body hazardous suit designed to protect wearer from radiation, energy discarges, blunt-force trauma during the handling of hazardous material.
-ent-SurveillanceWirelessCameraBodyEntertainment = nopro camera
-    .desc = A body mounted camera. It's watching you.
+ent-ClothingOuterSuitHEV = H.E.V костюм
+    .desc = Костюм, закрывающий все тело, предназначенный для защиты пользователя от радиации, энергетических разрядов, травм тупым предметом при работе с опасными материалами.
+ent-SurveillanceWirelessCameraBodyEntertainment = nopro камера
+    .desc = Камера, крепящаяся на теле. Оно наблюдает за тобой.

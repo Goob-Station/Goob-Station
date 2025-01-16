@@ -1,2 +1,2 @@
-ent-Footstep = footstep
-    .desc = Trace of liquid
+ent-Footstep = след
+    .desc = След жидкости

@@ -1,3 +1,3 @@
-ent-ClothingBeltMilitaryWebbingCMOFilled = chief medical officer's chest rig
-    .desc = A medical chest rig with deep pockets, for use by paramedics and health professionals.
+ent-ClothingBeltMilitaryWebbingCMOFilled = медицинская РПС главного врача
+    .desc = медицинская РПС с глубокими карманами для использования парамедиками и медицинскими работниками.
     .suffix = Filled

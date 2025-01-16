@@ -1,6 +1,6 @@
-ent-ClothingHeadHatBeretNavy = navy blue officer beret
-    .desc = A navy blue beret with the silver shield of the Nanotrasen security forces.
-ent-ClothingHeadHatBeretOfficer = officers beret
-    .desc = A black beret with the silver shield of the Nanotrasen security forces.
-ent-ClothingHeadMailCarrier = mail carrier's hat
-    .desc = Smells like a good pension.
+ent-ClothingHeadHatBeretNavy = берет офицера синего щита
+    .desc = Синий берет с серебряным щитом силовиков НаноТразен.
+ent-ClothingHeadHatBeretOfficer = берет офицера
+    .desc = Черный берет с серебряным щитом силовиков НаноТразен.
+ent-ClothingHeadMailCarrier = кепка почтальона
+    .desc = Пахнет хорошей пенсией.

@@ -1,2 +1,2 @@
-ent-WeaponPistolDualetta = Dualetta
-    .desc = The coolest pistol in the sector. It is said that nobody is strong enough of will to tarnish this weapon's reputation by daring to fire it without another paired pistol. Though, some people have mustered the will to simply use a different gun in the other hand.
+ent-WeaponPistolDualetta = Дуалетта
+    .desc = Самый крутой пистолет в секторе. Говорят, что ни у кого не хватит воли, чтобы испортить репутацию этого оружия, осмелившись выстрелить из него без другого спаренного пистолета. Хотя некоторые люди собрались с желанием просто использовать другое оружие в другой руке..

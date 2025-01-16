@@ -1,5 +1,5 @@
-ent-ClothingBackpackStasisBattery = stasis storage
-    .desc = Stores energy to freeze time flow, warping the space inside for more capacity.
+ent-ClothingBackpackStasisBattery = Стазис хранилище
+    .desc = Хранит энергию, чтобы заморозить течение времени, искажая пространство внутри для увеличения емкости.
 ent-ClothingBackpackStasisBatteryUnremoveable = { ent-ClothingBackpackStasisBattery }
     .suffix = Unremoveable
     .desc = { ent-ClothingBackpackStasisBattery.desc }

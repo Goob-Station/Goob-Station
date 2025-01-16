@@ -1,22 +1,22 @@
 dynamic-roundend-totalthreat = Общее количество очков угрозы: { $points }.
 dynamic-roundend-points-roundstart = Бюджет на начало раунда: { $points }.
-dynamic-roundend-points-midround = Бюджет среднего раунда: { $points }.
+dynamic-roundend-points-midround = Бюджет середины раунда: { $points }.
 dynamic-roundend-gamerules-title = Выполненные геймерулы:
-dynamic-gamerule-unknown-title = Неизвестный игровой модуль
+dynamic-gamerule-unknown-title = Неизвестный режим
 dynamic-gamerule-traitor-title = [color=crimson]Предатели[/color]
-dynamic-gamerule-changeling-title = [color=yellow]Изменники[/color]
+dynamic-gamerule-changeling-title = [color=yellow]Генокрады[/color]
 dynamic-gamerule-heretic-title = [color=purple]Еретики[/color]
 dynamic-gamerule-thief-title = [color=gray]Воры[/color]
 dynamic-gamerule-revolutionary-title = [color=cyan]Революционеры[/color]
-dynamic-gamerule-zombies-title = [color=pink]Первоначальное заражение[/color]
-dynamic-gamerule-nukeops-title = [color=red]Ядерная чрезвычайная ситуация[/color]
+dynamic-gamerule-zombies-title = [color=pink]Нулевой зараженный[/color]
+dynamic-gamerule-nukeops-title = [color=red]Ядерные оперативники[/color]
 dynamic-gamerule-threat-perrule = { $num } угроза.
 dynamic-gamerule-skeleton-title = Скелет из шкафа
-dynamic-gamerule-ninja-title = Космический ниндзя-спаун
+dynamic-gamerule-ninja-title = Космический ниндзя
 dynamic-gamerule-loneop-title = Спаун одинокого оперативника
 dynamic-gamerule-dragon-title = Спаун космического дракона
 dynamic-gamerule-spiders-title = Нашествие пауков
-dynamic-gamerule-xenos-title = Вспышка ксенобиологии
+dynamic-gamerule-xenos-title = Нашествие Ксеноморфов
 dynamic-gamerule-revenant-title = Спаун ревенантов
 dynamic-gamerule-ratking-title = Миграция крыс
 dynamic-gamerule-midround-traitor-title = Спящие агенты (предатели)
@@ -26,7 +26,7 @@ dynamic-gamerule-midround-revolutionary-title = Провокаторы (рево
 dynamic-gamerule-midround-zombies-title = Вспышка ромерола (зомби)
 dynamic-gamerule-midround-blob-title = Появление блоба (блоб)
 dynamic-fax-threat-none =
-    Ваша станция вращается в надежном и безопасном пространстве.
+    Ваша станция находится в надежном и безопасном пространстве.
     Хотя NanoTrasen крепко держит под контролем безопасность в вашем регионе, ценные ресурсы и стратегическое положение станции делают её потенциальной целью для проникновения.
     Следите за экипажем на предмет нелояльного поведения, но ожидайте относительно спокойной смены без масштабных разрушений.
     Мы ожидаем от вашей станции великих свершений.
@@ -35,7 +35,7 @@ dynamic-fax-threat-low =
     курс её орбиты привел к тому, что она пересеклась необычно близко к экзогеологическим объектам с аномальными показателями.
     Хотя эти объекты открывают возможности для нашего исследовательского отдела,
     известно, что эти малопонятные показания часто коррелируют с повышенной активностью конкурирующих межзвездных организаций и личностей,
-    среди которых Федерация Волшебников и Культ Геометра Крови - все известные конкуренты за места аномалий типа B.
+    среди которых Федерация Волшебников и Культ Крови - все известные конкуренты за места аномалий типа B.
     Проявляйте повышенную осторожность.
 dynamic-fax-threat-mid =
     Поздравляем и благодарим вас за участие в космической программе NT 'Frontier'!

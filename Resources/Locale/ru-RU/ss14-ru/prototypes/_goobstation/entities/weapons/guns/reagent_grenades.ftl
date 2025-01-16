@@ -1,6 +1,6 @@
-ent-LubeGrenade = Lube Grenade
-    .desc = A grenade that releases Space Lube foam.
-ent-GlueGrenade = Glue Grenade
-    .desc = A grenade that releases Space Glue foam.
-ent-BoxReagentGrenades = Box of lube & glue grenades
-    .desc = A box full of lube & glue grenades.
+ent-LubeGrenade = скользкая граната
+    .desc = Граната которая выпускает пену из космической смазки.
+ent-GlueGrenade = клейкая граната
+    .desc = Граната которая выпускает пену из космического клея.
+ent-BoxReagentGrenades = коробка скользких и клейких гранат
+    .desc = Коробка гранат которые помогут вам сделать грязные делишки.

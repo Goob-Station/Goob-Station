@@ -1,6 +1,6 @@
-ent-HereticRuneRitual = transmutation rune
-    .desc = An ancient drawing used by sinister individuals for sacrifices.
+ent-HereticRuneRitual = трансмутационная руна
+    .desc = Древний рисунок, используемый зловещими индивидами для жертвоприношений.
 ent-HereticRuneRitualDrawAnimation = unfinished transmutation rune
-    .desc = An unfinished ancient drawing used by sinister individuals for sacrifices.
+    .desc = Незаконченный древний рисунок, используемый зловещими индивидами для жертвоприношений.
 ent-HereticRuneRitualAnimation = transmutation rune
     .desc = you shouldn't be seeing this description

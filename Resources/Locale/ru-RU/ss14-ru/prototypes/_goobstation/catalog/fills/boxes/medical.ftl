@@ -1,2 +1,2 @@
-ent-BoxSyringePax = pax syringe box
-    .desc = A box full of tranquilizer syringes.
+ent-BoxSyringePax = коробкас транквилизаторами
+    .desc = Коробка, полная шприцев с транквилизатором..

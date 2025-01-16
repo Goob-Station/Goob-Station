@@ -1,7 +1,7 @@
-ent-PlushieLouie = louie plushie
-    .desc = A cute stuffed toy that resembles a rat. You feel a strange compulsion to say hi to the rat.
-ent-FoamThrongler = Foam Throngler
-    .desc = Not the Throngler you wanted, But the Throngler you deserve.
+ent-PlushieLouie = плюшевый Луи
+    .desc = Милая мягкая игрушка, напоминающая крысу. Вы чувствуете странное желание поздороваться с крысой.
+ent-FoamThrongler = Нагибатор
+    .desc = Не тот Нагибатор, которого вы хотели, а тот Нагибатор, которого вы заслуживаете.
 ent-PlushieDurk = Durk plushie
     .desc = A cute stuffed toy that resembles a certain atmospheric technician. You feel like a great breaking of the universe approaches while holding this
 ent-PlushieBlackburn = Blackburn plushie

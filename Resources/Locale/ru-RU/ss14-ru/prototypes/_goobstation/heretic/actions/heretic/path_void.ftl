@@ -1,6 +1,6 @@
-ent-ActionHereticVoidBlast = Void Blast
-    .desc = Fire off a cone of ice in front of you.
-ent-ActionHereticVoidPhase = Void Phase
-    .desc = Shift through the void, knocking down everyone around you.
-ent-ActionHereticVoidPull = Void Pull
-    .desc = Pull and damage nearby heathens.
+ent-ActionHereticVoidBlast = Пустотный взрыв
+    .desc = Выстрелить конусом льда.
+ent-ActionHereticVoidPhase = Пустотный проход
+    .desc = Продвигайтесь сквозь пустоту, сбивая с ног всех вокруг себя..
+ent-ActionHereticVoidPull = Притяжение пустоты
+    .desc = Притяните и нанесите урон вашим врагам.

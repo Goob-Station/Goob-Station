@@ -1,9 +1,9 @@
-loadout-group-ntr-head = Голова представителя NanoTrasen
+loadout-group-ntr-head = Головной убор представителя NanoTrasen
 loadout-group-ntr-backpack = Рюкзак представителя NanoTrasen
 loadout-group-ntr-jumpsuit = Комбинезон представителя NanoTrasen
 loadout-group-ntr-belt = Пояс представителя Nanotrasen
-loadout-group-ntr-shoes = Представительская обувь Nanotrasen
-loadout-group-bso-head = Голова офицера с синим щитом
+loadout-group-ntr-shoes = Обувь Представителя Nanotrasen
+loadout-group-bso-head = Головной убор офицера синего щита
 loadout-group-bso-backpack = Рюкзак офицера синего щита
 loadout-group-bso-jumpsuit = Комбинезон офицера синего щита
 loadout-group-bso-outer = Броня офицера синего щита

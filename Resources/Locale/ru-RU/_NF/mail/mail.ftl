@@ -1,7 +1,7 @@
-mail-large-item-name-unaddressed = пакет
-mail-large-item-name-addressed = пакет ({ $recipient })
-mail-large-desc-far = Большой пакет.
-mail-large-desc-close = Большой пакет, адресованный { CAPITALIZE($name) }, { $job }.
+mail-large-item-name-unaddressed = посылка
+mail-large-item-name-addressed = посылка ({ $recipient })
+mail-large-desc-far = Большая посылка.
+mail-large-desc-close = Большая посылка, адресованная { CAPITALIZE($name) }, { $job }.
 
 ### Frontier: mailtestbulk
 

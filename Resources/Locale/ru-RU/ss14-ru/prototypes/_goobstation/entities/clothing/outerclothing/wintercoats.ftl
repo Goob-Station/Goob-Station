@@ -1,2 +1,2 @@
-ent-ClothingOuterWinterCoatMail = mail carrier's winter coat
-    .desc = It'll keep away the cold but not the dogs.
+ent-ClothingOuterWinterCoatMail = зимнее пальто почтальона
+    .desc = Оно защитит от холода, но не от собак.
