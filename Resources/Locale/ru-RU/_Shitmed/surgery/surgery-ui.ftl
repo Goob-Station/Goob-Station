@@ -1,5 +1,5 @@
 surgery-verb-text = Начать операцию
-surgery-verb-message = Начать операцию на этом субъекте.
+surgery-verb-message = Начать операцию на этом существе.
 surgery-ui-window-title = Хирургия
 surgery-ui-window-require = Требуется
 surgery-ui-window-parts = < Части
