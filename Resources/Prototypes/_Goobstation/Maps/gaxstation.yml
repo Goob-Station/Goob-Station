@@ -31,8 +31,8 @@
             Librarian: [ 1, 1 ]
             #Engineering
             ChiefEngineer: [ 1, 1 ]
-            AtmosphericTechnician: [ 4, 4 ]
-            StationEngineer: [ 4, 4 ]
+            AtmosphericTechnician: [ 2, 4 ]
+            StationEngineer: [ 2, 4 ]
             TechnicalAssistant: [ 2, 2 ]
             #Medical
             ChiefMedicalOfficer: [ 1, 1 ]
@@ -47,8 +47,8 @@
             #Security
             HeadOfSecurity: [ 1, 1 ]
             Warden: [ 1, 1 ]
-            SecurityOfficer: [ 4, 4 ]
-            SecurityCadet: [ 4, 4 ]
+            SecurityOfficer: [ 2, 4 ]
+            SecurityCadet: [ 2, 4 ]
             Detective: [ 1, 1 ]
             Lawyer: [ 1, 1 ]
             #Supply
