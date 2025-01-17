@@ -2,7 +2,7 @@
   parent: BaseItem
   id: ArmHammerChangeling
   name: arm hammer
-  description: A hammer made out of flesh and bone, heavy enough to smash through structures and knock people people around.
+  description: A hammer made out of flesh and bone, heavy enough to smash through structures and knock people around.
   suffix: Unremoveable
   components:
   - type: Sprite
