@@ -14,10 +14,13 @@ public sealed class IlleismAccentSystem : EntitySystem
 
     // Updated regex patterns to better handle verb conjugation and contractions
     private static readonly Regex FirstPersonPronounRegex = new(@"\b(I|me|my|mine|myself)\b", RegexOptions.IgnoreCase);
-    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+(?:n't)?(?:\s+\w+)?)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+(?:\s+\w+)?)\b", RegexOptions.IgnoreCase);
     private static readonly Regex ICommaPattern = new(@"\bI\s*,", RegexOptions.IgnoreCase);
     private static readonly Regex ImPattern = new(@"\bI'm\b", RegexOptions.IgnoreCase);
+    private static readonly Regex IDontPattern = new(@"\bI don't\b", RegexOptions.IgnoreCase);
+    private static readonly Regex IWithContractionPattern = new(@"\bI\s+(\w+'t)\b", RegexOptions.IgnoreCase);
     private static readonly Regex SentenceSplitRegex = new(@"(?<=[.!?])\s+");
+    private static readonly Regex PrepositionPattern = new(@"\b(?:to|for|with|by|at|from|in|on|under|over|of)\s+(me)\b", RegexOptions.IgnoreCase);
 
     // Helper dictionary for special verb cases
     private static readonly Dictionary<string, string> SpecialVerbConjugations = new(StringComparer.OrdinalIgnoreCase)
@@ -35,11 +38,8 @@ public sealed class IlleismAccentSystem : EntitySystem
         {"should", "should"},
         // Special conjugations
         {"do", "does"},
-        {"don't", "doesn't"},
         {"have", "has"},
-        {"haven't", "hasn't"},
         {"was", "was"},
-        {"wasn't", "wasn't"},
         // Common verb phrases
         {"want to", "wants to"},
         {"need to", "needs to"},
@@ -63,7 +63,8 @@ public sealed class IlleismAccentSystem : EntitySystem
     {
         // Get the character's name and pronouns
         string name = "Unknown";
-        string pronoun = "they";
+        string subjectPronoun = "they";    // for "I" cases
+        string objectPronoun = "them";      // for "me" cases after prepositions
         string possessivePronoun = "their";
         string reflexivePronoun = "themselves";
 
@@ -78,23 +79,27 @@ public sealed class IlleismAccentSystem : EntitySystem
             switch (humanoid.Gender)
             {
                 case Gender.Male:
-                    pronoun = "he";
+                    subjectPronoun = "he";
+                    objectPronoun = "him";
                     possessivePronoun = "his";
                     reflexivePronoun = "himself";
                     break;
                 case Gender.Female:
-                    pronoun = "she";
+                    subjectPronoun = "she";
+                    objectPronoun = "her";
                     possessivePronoun = "her";
                     reflexivePronoun = "herself";
                     break;
                 case Gender.Neuter:
-                    pronoun = "it";
+                    subjectPronoun = "it";
+                    objectPronoun = "it";
                     possessivePronoun = "its";
                     reflexivePronoun = "itself";
                     break;
                 case Gender.Epicene:
                 default:
-                    pronoun = "they";
+                    subjectPronoun = "they";
+                    objectPronoun = "them";
                     possessivePronoun = "their";
                     reflexivePronoun = "themselves";
                     break;
@@ -110,32 +115,63 @@ public sealed class IlleismAccentSystem : EntitySystem
             if (string.IsNullOrWhiteSpace(sentence))
                 continue;
 
-            var processedSentence = ProcessSentence(sentence, name, pronoun, possessivePronoun, reflexivePronoun);
+            var processedSentence = ProcessSentence(sentence, name, subjectPronoun, objectPronoun, possessivePronoun, reflexivePronoun);
             processedSentences.Add(processedSentence);
         }
 
         return string.Join(" ", processedSentences);
     }
 
-    private string ProcessSentence(string sentence, string name, string pronoun, string possessivePronoun, string reflexivePronoun)
+    private string ProcessSentence(string sentence, string name, string subjectPronoun, string objectPronoun, string possessivePronoun, string reflexivePronoun)
     {
         bool hasReplacedFirstPronoun = false;
 
-        // Handle "I'm" cases first
+        // Handle preposition + "me" cases first
+        sentence = PrepositionPattern.Replace(sentence, match =>
+        {
+            var preposition = match.Value.Substring(0, match.Value.Length - 2).TrimEnd(); // Remove "me" and get preposition
+            return $"{preposition} {(hasReplacedFirstPronoun ? objectPronoun : name)}";
+        });
+
+        // Handle common contractions
         sentence = ImPattern.Replace(sentence, match =>
         {
             if (hasReplacedFirstPronoun)
-                return $"{pronoun} is";
+                return $"{subjectPronoun} is";
 
             hasReplacedFirstPronoun = true;
             return $"{name} is";
+        });
+
+        // Handle "don't" as a special case
+        sentence = IDontPattern.Replace(sentence, match =>
+        {
+            if (hasReplacedFirstPronoun)
+                return $"{subjectPronoun} doesn't";
+
+            hasReplacedFirstPronoun = true;
+            return $"{name} doesn't";
+        });
+
+        // Handle all other "'t" contractions (won't, can't, etc.) - these don't change form
+        sentence = IWithContractionPattern.Replace(sentence, match =>
+        {
+            // Skip if it's "don't" since we handled it above
+            if (match.Groups[1].Value.ToLower() == "don't")
+                return match.Value;
+
+            if (hasReplacedFirstPronoun)
+                return $"{subjectPronoun} {match.Groups[1].Value}";
+
+            hasReplacedFirstPronoun = true;
+            return $"{name} {match.Groups[1].Value}";
         });
 
         // Handle "I, ..." cases
         sentence = ICommaPattern.Replace(sentence, match =>
         {
             if (hasReplacedFirstPronoun)
-                return $"{pronoun},";
+                return $"{subjectPronoun},";
 
             hasReplacedFirstPronoun = true;
             return $"{name},";
@@ -145,7 +181,7 @@ public sealed class IlleismAccentSystem : EntitySystem
         sentence = IVerbPattern.Replace(sentence, match =>
         {
             if (hasReplacedFirstPronoun)
-                return $"{pronoun} {match.Groups[1].Value}";
+                return $"{subjectPronoun} {match.Groups[1].Value}";
 
             hasReplacedFirstPronoun = true;
             var verbPhrase = match.Groups[1].Value.ToLower();
@@ -153,15 +189,6 @@ public sealed class IlleismAccentSystem : EntitySystem
             // Check for special verb conjugations first
             if (SpecialVerbConjugations.TryGetValue(verbPhrase, out var specialConjugation))
                 return $"{name} {specialConjugation}";
-
-            // Handle negations and special endings
-            if (verbPhrase.EndsWith("n't"))
-            {
-                var baseVerb = verbPhrase[..^3];
-                if (SpecialVerbConjugations.TryGetValue(baseVerb, out var baseConjugation))
-                    return $"{name} {baseConjugation}n't";
-                return $"{name} {baseVerb}sn't";
-            }
 
             // Regular verb conjugation - add 's' unless it's a special case
             if (verbPhrase.EndsWith("s") || verbPhrase.EndsWith("sh") || verbPhrase.EndsWith("ch") || verbPhrase.EndsWith("x") || verbPhrase.EndsWith("z"))
@@ -182,14 +209,15 @@ public sealed class IlleismAccentSystem : EntitySystem
                 {
                     "my" => name + "'s",
                     "mine" => name + "'s",
+                    "me" => name,
                     _ => name
                 };
             }
 
             return match.Value.ToLower() switch
             {
-                "i" => pronoun,
-                "me" => pronoun,
+                "i" => subjectPronoun,
+                "me" => objectPronoun,
                 "my" => possessivePronoun,
                 "mine" => possessivePronoun,
                 "myself" => reflexivePronoun,
