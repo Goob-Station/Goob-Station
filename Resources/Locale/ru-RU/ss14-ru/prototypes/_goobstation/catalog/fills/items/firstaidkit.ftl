@@ -1,3 +1,3 @@
-ent-MedkitCombatStasiziumFilled = futuristic medkit
-    .desc = Medkit filled with medicines of the future
+ent-MedkitCombatStasiziumFilled = футуристичная аптечка
+    .desc = Аптечка с медициной будущего.
     .suffix = Stazisium

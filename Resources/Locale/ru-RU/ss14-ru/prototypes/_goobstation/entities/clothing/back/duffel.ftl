@@ -1,2 +1,2 @@
-ent-ClothingBackpackDuffelBlueshield = blueshield duffel bag
-    .desc = A very protective duffel bag, smells like energy gun.
+ent-ClothingBackpackDuffelBlueshield = вещмешок офицера синего щита
+    .desc = Очень прочный вещмешок, пахнет энергетическим пистолетом.

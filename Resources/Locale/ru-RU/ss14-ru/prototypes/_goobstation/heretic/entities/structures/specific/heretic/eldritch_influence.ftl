@@ -1,6 +1,6 @@
-ent-EldritchInfluence = reality shift
-    .desc = Your eyes start to burn just from a single look. Should you delve deeper?
+ent-EldritchInfluence = сдвиг реальности
+    .desc = Глаза начинают гореть от одного только взгляда. Стоит ли всматриваться глубже?
 ent-EldritchInfluenceIntermediate = { "" }
     .desc = { "" }
-ent-EldritchInfluenceSpent = reality fracture
-    .desc = A reality fracture. Something keeps leaking out of it, should you really be near this thing?
+ent-EldritchInfluenceSpent = разлом реальности
+    .desc = Разлом реальности. Из нее что-то вытекает, стоит ли тебе действительно находиться рядом с этой штукой?

@@ -1,2 +1,2 @@
-ent-TimelineDisruptorFlatpack = timeline disruptor flatpack
-    .desc = A flatpack used for constructing a solar assembly.
+ent-TimelineDisruptorFlatpack = упаковка временного шредера
+    .desc = Универсально-сборная упаковка, используемая для сборки временного шредера.

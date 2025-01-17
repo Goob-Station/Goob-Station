@@ -1,8 +1,8 @@
-ent-ActionHereticOpenStore = Open Knowledge Store
-    .desc = Open the Knowledge Store.
-ent-ActionHereticMansusGrasp = Mansus Grasp
-    .desc = Channel the power of the Old Gods through your grip.
-ent-ActionHereticLivingHeart = Living Heart
-    .desc = Use your heart to get your sacrifice targets location.
-ent-ActionHereticMansusLink = Manse Link
-    .desc = Pierce through reality and connect minds to one another. Default radio key is :z
+ent-ActionHereticOpenStore = Открыть каталог знаний.
+    .desc = Открыть каталог знаний.
+ent-ActionHereticMansusGrasp = Хватка Мансуса
+    .desc = Перенаправь силы старых богов в свои руки.
+ent-ActionHereticLivingHeart = Живое сердце
+    .desc = Используй свое сердце дабы узнать местоположение целей для жертвоприношения.
+ent-ActionHereticMansusLink = Связь Мансуса
+    .desc = Проткни реальность, соедини разумы. Стандартный ключ для общения :z

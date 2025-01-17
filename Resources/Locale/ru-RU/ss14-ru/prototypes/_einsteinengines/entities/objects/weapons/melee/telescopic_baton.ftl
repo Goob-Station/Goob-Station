@@ -1,2 +1,2 @@
-ent-TelescopicBaton = telescopic baton
-    .desc = A compact and harmless personal defense weapon. Sturdy enough to knock the feet out from under attackers. If you hit a person immediately after extending the baton, it will force them drop held items as well.
+ent-TelescopicBaton = телескопическая дубинка
+    .desc = Компактное и безвредное оружие индивидуальной защиты. Достаточно крепкая, чтобы выбить из-под ног нападающих. Если вы ударите человека сразу после того, как увеличили дубинку, она также заставит его выронить удерживаемые предметы.

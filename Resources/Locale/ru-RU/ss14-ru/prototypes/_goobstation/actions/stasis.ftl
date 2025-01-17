@@ -1,2 +1,2 @@
-ent-ActionChronoBlink = Temporary shift
-    .desc = Changes your coordinates, allowing you to teleport to nearby locations
+ent-ActionChronoBlink = Телепорт
+    .desc = Изменяет ваши координаты, позволяя вам телепортироваться в ближайшие локации.

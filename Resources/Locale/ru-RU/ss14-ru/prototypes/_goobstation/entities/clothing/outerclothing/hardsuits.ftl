@@ -1,10 +1,10 @@
-ent-ClothingOuterHardsuitChronolegioneer = futuristic hardsuit
-    .desc = A hardsuit covered in an unknown material that protects against most material and temporal damage
+ent-ClothingOuterHardsuitChronolegioneer = футуристичный скафандр
+    .desc = Скафандр покрытый неизвестным материалом, который защищает от большинства материальных и временных повреждений.
 ent-ClothingOuterHardsuitChronolegioneerUnremoveable = { ent-ClothingOuterHardsuitChronolegioneer }
     .suffix = Unremoveable
     .desc = { ent-ClothingOuterHardsuitChronolegioneer.desc }
-ent-ClothingOuterHardsuitBlueshield = blueshield hardsuit
-    .desc = A hardsuit for the captains personal bodyguard.
-ent-ClothingOuterHardsuitCybersunStealth = cybersun stealth hardsuit
-    .desc = A hardsuit with stealth plating for operations, the shielding doesn't work while you're moving though! Needs the helmet on to finish the stealth field.
+ent-ClothingOuterHardsuitBlueshield = скафандр офицера синего щита
+    .desc = Скафандр синего щита.
+ent-ClothingOuterHardsuitCybersunStealth = стелс-костюм cybersun
+    .desc = Скафандр с специальным покрытием для стелс-операций. Не работает без шлема!
     .suffix = stealth

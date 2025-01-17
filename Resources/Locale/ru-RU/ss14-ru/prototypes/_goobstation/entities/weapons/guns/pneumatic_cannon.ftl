@@ -1,3 +1,3 @@
-ent-LauncherCreamPieRegenerating = regenerating pie cannon
-    .desc = A self-regenerating pie cannon.
+ent-LauncherCreamPieRegenerating = пирогомёт
+    .desc = Регенирирующий пирогомёт.
     .suffix = Regenerating

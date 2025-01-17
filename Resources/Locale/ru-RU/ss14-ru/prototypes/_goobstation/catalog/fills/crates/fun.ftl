@@ -1,4 +1,4 @@
-ent-CrateFunATV = ATV crate
-    .desc = An Absolutely Taxable Vehicle to help cargo with hauling.
-ent-CrateFunSyndicateSegway = Syndicate segway crate
-    .desc = A crate containing a two-wheeler that will help you escape from the security officers. Or not.
+ent-CrateFunATV = ящик с квадрациклом
+    .desc = Четырёх колёсный квадрацикл белого цвета.
+ent-CrateFunSyndicateSegway = Ящик с Сегвеем синдиката
+    .desc = Ящик с двухколесным транспортным средством, который поможет вам скрыться от сотрудников службы безопасности. Или нет.

@@ -1,2 +1,2 @@
-ent-SwitchNightVision = Switches Night Vision
-    .desc = Switches Night Vision
+ent-SwitchNightVision = Ночное видение
+    .desc = Читай название идиот

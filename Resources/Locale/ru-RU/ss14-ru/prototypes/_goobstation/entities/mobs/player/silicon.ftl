@@ -1,2 +1,2 @@
-ent-JermovCircuitBoard = law board (Jermov)
-    .desc = An electronics board containing the Jermov lawset.
+ent-JermovCircuitBoard = плата законов (Твитч)
+    .desc = Электронная плата, хранящая набор законов ИИ 'Твитч'.

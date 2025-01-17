@@ -1,8 +1,8 @@
 ent-CodexCicatrix = codex cicatrix
-    .desc = An ominous book you've never seen before. The letters seem to be contantly rearranging themselves.
+    .desc = Зловещая книга которую вы никогда не видели. Кажется, что буквы постоянно перестраиваются.
 ent-HereticEldritchFlask = eldritch flask
-    .desc = A flask filled with an unknown substance. Who knows what will happen when you take a sip from it.
+    .desc = Фляжка полная неизвестной субстанции. Кто знает что произойдет если вы глотнёте из неё.
 ent-HereticProtectiveBlade = eldritch blade
-    .desc = Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+    .desc = Водоворот лезвий, сверкающий прямо перед вашими глазами. Почему ты отворачиваешься!?
 ent-HereticProtectiveBladeProjectile = eldritch blade
-    .desc = Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+    .desc = Водоворот лезвий, сверкающий прямо перед вашими глазами. Почему ты отворачиваешься!?

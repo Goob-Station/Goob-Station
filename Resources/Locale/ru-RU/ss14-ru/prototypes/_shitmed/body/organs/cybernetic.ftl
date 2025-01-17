@@ -1,8 +1,8 @@
 ent-BaseCyberneticEyes = { ent-OrganHumanEyes }
     .desc = { ent-OrganHumanEyes.desc }
-ent-BasicCyberneticEyes = cybernetic eyes
-    .desc = A pair of cybernetic eyes that enhance your vision, and protect you from eye damage.
-ent-SecurityCyberneticEyes = cybernetic security eyes
-    .desc = A pair of cybernetic eyes that enhance your vision, featuring an integrated SecHUD.
-ent-MedicalCyberneticEyes = cybernetic diagnostic eyes
-    .desc = A pair of cybernetic eyes that enhance your vision, featuring an integrated MedHUD.
+ent-BasicCyberneticEyes = кибернетические глаза
+    .desc = Пара кибернетических глаз, которые улучшают ваше зрение и защищают вас от повреждений глаз.
+ent-SecurityCyberneticEyes = кибернетические глаза СБ
+    .desc =Пара кибернетических глаз, улучшающих ваше зрение, со встроенным визором СБ.
+ent-MedicalCyberneticEyes = кибернетические диагностические глаза
+    .desc = Пара кибернетических глаз, улучшающих ваше зрение, со встроенным медицинским визором.

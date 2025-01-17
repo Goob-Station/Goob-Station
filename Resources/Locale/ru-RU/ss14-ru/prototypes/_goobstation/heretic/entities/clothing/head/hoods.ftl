@@ -1,2 +1,2 @@
-ent-ClothingHeadHatHoodHeretic = ominous hood
-    .desc = A torn, dust-caked hood. Strange eyes line the inside.
+ent-ClothingHeadHatHoodHeretic = Зловещий капюшон
+    .desc = Порванный, запыленный капюшон. Странные глаза выстроились внутри.

@@ -1,6 +1,6 @@
-ent-BaseMagazineBoxHighCaliber = ammunition box (.50 anti-materiel)
+ent-BaseMagazineBoxHighCaliber = коробка с патронами (.50 крупнокалиберные)
     .desc = { ent-BaseItem.desc }
 ent-MagazineBoxHighCaliber = { ent-BaseMagazineBoxHighCaliber }
     .desc = { ent-BaseMagazineBoxHighCaliber.desc }
-ent-MagazineBoxHighCaliberExplosive = ammunition box (.50 high-explosive)
+ent-MagazineBoxHighCaliberExplosive = коробка с патронами (.50 взрывные)
     .desc = { ent-BaseMagazineBoxHighCaliber.desc }

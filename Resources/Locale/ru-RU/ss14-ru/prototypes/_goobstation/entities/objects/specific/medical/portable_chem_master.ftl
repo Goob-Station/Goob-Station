@@ -1,4 +1,4 @@
-ent-portableChemicalMixer = portable chemical mixer
-    .desc = A "Tider" grade chemical manipulator
-ent-portableChemicalMixerIncomplete = Incomplete portable chemical mixer
-    .desc = A incompleted "Tider" grade chemical manipulator
+ent-portableChemicalMixer = портативный ХимМастер
+    .desc = ХимМастер для бедных, не может делать таблетки.
+ent-portableChemicalMixerIncomplete = незаконченный портативный ХиМастер
+    .desc = Незаконченный ХимМастер для бедных.

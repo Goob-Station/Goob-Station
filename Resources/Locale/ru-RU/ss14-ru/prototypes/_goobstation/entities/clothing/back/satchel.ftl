@@ -1,6 +1,6 @@
-ent-ClothingBackpackSatchelNanorep = Nanotrasen Representative Satchel
-    .desc = An expensive dark green backpack. Smells like fax machines.
-ent-ClothingBackpackSatchelBlueshield = blueshield satchel
-    .desc = A very protective satchel, smells like energy gun.
-ent-ClothingSatchelSmuggler = Satchel
-    .desc = A satchel you can hide under floor tiles
+ent-ClothingBackpackSatchelNanorep = сумка представителя нанотразен
+    .desc = Дорогой темно-зеленый рюкзак. Пахнет факсом.
+ent-ClothingBackpackSatchelBlueshield = сумка офицера синего щита
+    .desc = Очень прочная сумка, пахнет энергетическим пистолетом.
+ent-ClothingSatchelSmuggler = Сумка
+    .desc = Сумка которую можно прятать под полом.
