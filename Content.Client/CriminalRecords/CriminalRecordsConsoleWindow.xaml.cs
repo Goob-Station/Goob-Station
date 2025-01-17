@@ -37,9 +37,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
-    // Goobstation start
-    public Action<string, uint>? OnTimeConfirmed;
-    // Goobstation end
+    public Action<string, uint>? OnTimeConfirmed; // Goobstation
     private uint _maxLength;
     private bool _access;
     private uint? _selectedKey;
@@ -240,9 +238,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             message.AddText($": {reason}");
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;
-            // Goobstation start
-            PrintButton.Visible = true;
-            // Goobstation end
+            PrintButton.Visible = true; // Goobstation
         }
         else
         {
@@ -301,15 +297,6 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
         _reasonDialog.OnClose += () => { _reasonDialog = null; };
     }
     // Goobstation start
-    public static class RegexHelper
-    {
-        private static readonly Regex MyRegex = new Regex(@"^[0-5]?\d:[0-5]\d$", RegexOptions.Compiled);
-
-        public static bool IsMatch(string input)
-        {
-            return MyRegex.IsMatch(input);
-        }
-    }
     private void GetTime()
     {
         if (_reasonDialog != null)
@@ -332,11 +319,13 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             if (time.Length < 1 || time.Length > _maxLength)
                 return;
 
-            if(RegexHelper.IsMatch(time))
-            {
-                uint selected = (uint)_selectedKey!;
-                OnTimeConfirmed?.Invoke(time, selected);
-            }
+            if (!new Regex(@"^[0-5]?\d:[0-5]\d$", RegexOptions.Compiled).IsMatch(time))
+                return;
+
+            if (_selectedKey is not { } selectedKey)
+                return;
+
+            OnTimeConfirmed?.Invoke(time, selectedKey);
 
         };
 

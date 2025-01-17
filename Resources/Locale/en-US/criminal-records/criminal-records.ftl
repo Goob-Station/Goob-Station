@@ -20,8 +20,6 @@ criminal-records-console-reason = Reason
 criminal-records-console-time = Brig Time
 criminal-records-console-time-title = Set Brig Time upon Entry
 criminal-records-console-reason-placeholder = For example: {$placeholder}
-criminal-records-console-time-placeholder = For example: 1:30
-criminal-records-console-print = Print Prisoner ID
 ## Crime History
 
 criminal-records-console-crime-history = Crime History
