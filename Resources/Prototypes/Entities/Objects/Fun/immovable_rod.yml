@@ -11,6 +11,8 @@
     state: icon
     noRot: false
   - type: ImmovableRod
+    minSpeed: 6 # Goobstation
+    maxSpeed: 13 # Goobstation
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -22,9 +24,9 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.5
-        density: 1
+          !type:PhysShapeAabb # Goob edit
+          bounds: "-0.05,-0.5,0.05,0.5"
+        density: 10
         hard: false
         layer:
         - Impassable
@@ -58,9 +60,9 @@
     fixtures:
       fix1:
         shape:
-          !type:PhysShapeCircle
-          radius: 0.5
-        density: 1
+          !type:PhysShapeAabb # Goob edit
+          bounds: "-0.05,-0.5,0.05,0.5"
+        density: 10
         hard: false
         layer:
         - Impassable
@@ -99,16 +101,16 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
-    minSpeed: 35
+    maxSpeed: 6 # Goob edit
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false
     damage:
       types:
-        Blunt: 200
+        Blunt: 70 # Goob edit
   - type: MovementIgnoreGravity
     gravityState: true
-  - type: InputMover
+  # - type: InputMover # Goob edit
   - type: MovementSpeedModifier
     weightlessAcceleration: 5
     weightlessModifier: 2
@@ -118,6 +120,13 @@
   - type: CanMoveInAir
   - type: MovementAlwaysTouching
   - type: NoSlip
+  - type: Trail # Goobstation
+    frequency: 0.1
+    lifetime: 0.8
+    colorLerpAmount: 0.03
+    sprite:
+      sprite: /Textures/Objects/Fun/immovable_rod.rsi
+      state: icon
 
 - type: entity
   parent: ImmovableRodKeepTiles

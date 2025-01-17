@@ -33,6 +33,7 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
@@ -45,6 +46,7 @@ using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
@@ -239,8 +241,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
         soulBound.Sex = sex;
         AddComp(mind, soulBound, true);
 
-        var speech = ev.Speech == null ? string.Empty : Loc.GetString(ev.Speech);
-        SpeakSpell(newEntity, ev.Performer, speech, MagicSchool.Necromancy);
+        DelayedSpeech(ev.Speech, newEntity, ev.Performer, MagicSchool.Necromancy);
 
         _inventory.TransferEntityInventories(ev.Performer, newEntity);
         foreach (var hand in Hands.EnumerateHeld(ev.Performer))
@@ -272,10 +273,19 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
             EnsureComp<WizardComponent>(newEnt.Value);
 
-        var speech = ev.Speech == null ? string.Empty : Loc.GetString(ev.Speech);
-        SpeakSpell(newEnt.Value, ev.Performer, speech, MagicSchool.Transmutation);
+        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, MagicSchool.Transmutation);
 
         return true;
+    }
+
+    private void DelayedSpeech(string? speech, EntityUid speaker, EntityUid caster, MagicSchool school)
+    {
+        Timer.Spawn(200,
+            () =>
+        {
+            var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
+            SpeakSpell(speaker, caster, toSpeak, school);
+        });
     }
 
     protected override void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)

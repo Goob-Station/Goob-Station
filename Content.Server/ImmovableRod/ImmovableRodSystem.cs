@@ -83,6 +83,9 @@ public sealed class ImmovableRodSystem : EntitySystem
     {
         var ent = args.OtherEntity;
 
+        if (component.DamagedEntities.Contains(ent)) // Goobstation
+            return;
+
         if (_random.Prob(component.HitSoundProbability))
         {
             _audio.PlayPvs(component.Sound, uid);
@@ -119,7 +122,8 @@ public sealed class ImmovableRodSystem : EntitySystem
                 if (component.Damage == null)
                     return;
 
-                _damageable.TryChangeDamage(ent, component.Damage, ignoreResistances: true);
+                component.DamagedEntities.Add(ent); // Goobstation
+                _damageable.TryChangeDamage(ent, component.Damage, component.IgnoreResistances, origin: uid, partMultiplier: component.PartDamageMultiplier); // Goob edit
                 return;
             }
 

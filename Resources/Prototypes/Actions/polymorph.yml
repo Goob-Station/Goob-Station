@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: ActionRevertPolymorph
   name: Revert
   description: Revert back into your original form.
@@ -30,16 +30,23 @@
 - type: entity
   id: ActionPolymorphWizardRod
   name: Rod Form
-  description: CLANG!
+  description: Take on the form of an immovable rod, destroying all in your path.
   components:
   - type: InstantAction
-    useDelay: 60
-    event: !type:PolymorphActionEvent
+    raiseOnUser: true # Goobstation
+    checkCanInteract: false # Goobstation
+    useDelay: 25 # Goob edit
+    event: !type:PolymorphSpellEvent # Goob edit
+      speech: action-speech-spell-rod-form # Goobstation
       protoId: WizardRod
     itemIconStyle: NoItem
     icon:
-      sprite: Objects/Fun/immovable_rod.rsi
-      state: icon
+      sprite: _Goobstation/Wizard/actions.rsi # Goob edit
+      state: immrod # Goob edit
+  - type: Magic # Goobstation
+    requiresClothes: true
+    requiresSpeech: true
+    school: Transmutation
 
 - type: entity
   id: ActionPolymorphJaunt

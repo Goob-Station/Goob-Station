@@ -22,3 +22,4 @@ action-speech-spell-simians = OOGA OOGA OOGA!!!!
 action-speech-spell-sanguine-strike = SHAPSDAY
 action-speech-spell-soul-tap = AT ANY COST!
 action-speech-spell-thrown-lightning = LIGHTNINGBOLT!!
+action-speech-spell-rod-form = CLANG!

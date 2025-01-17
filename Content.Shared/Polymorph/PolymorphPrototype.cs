@@ -128,6 +128,13 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public SoundSpecifier? ExitPolymorphSound;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether polymorphed entity should be able to move.
+    /// </summary>
+    [DataField]
+    public bool AllowMovement = true;
 }
 
 public enum PolymorphInventoryChange : byte

@@ -1,6 +1,6 @@
 # Spells
 spellbook-fireball-name = Fireball
-spellbook-fireball-desc = Get most crew exploding with rage when they see this fireball heading toward them!
+spellbook-fireball-desc = Fires an explosive fireball at a target. Considered a classic among all wizards.
 
 spellbook-blink-name = Blink
 spellbook-blink-desc = Don't blink or you'll miss yourself teleporting away.
@@ -11,8 +11,8 @@ spellbook-force-wall-desc = Make three walls of pure force that you can pass thr
 spellbook-polymoprh-spider-name = Spider Polymoprh
 spellbook-polymorph-spider-desc = Transforms you into a spider, man!
 
-spellbook-polymorph-rod-name = Rod Polymorph
-spellbook-polymorph-rod-desc = Change into an Immovable Rod with limited movement.
+spellbook-polymorph-rod-name = Rod Form
+spellbook-polymorph-rod-desc = Take on the form of an immovable rod, destroying all in your path. Upgrading this spell will also increase the rod's damage and travel range.
 
 spellbook-charge-name = Charge
 spellbook-charge-desc = Adds a charge back to your wand!

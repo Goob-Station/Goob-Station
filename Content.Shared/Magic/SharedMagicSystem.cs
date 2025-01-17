@@ -358,15 +358,21 @@ public abstract class SharedMagicSystem : EntitySystem
     #region Projectile Spells
     private void OnProjectileSpell(ProjectileSpellEvent ev)
     {
-        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer) || !_net.IsServer)
+        if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer)) // Goob edit
+            return;
+
+        if (ev.Coords == null) // Goob edit
             return;
 
         ev.Handled = true;
         Speak(ev);
 
+        if (_net.IsClient) // Goobstation
+            return;
+
         var xform = Transform(ev.Performer);
         var fromCoords = xform.Coordinates;
-        var toCoords = ev.Target;
+        var toCoords = ev.Coords.Value; // Goob edit
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromMap = fromCoords.ToMap(EntityManager, _transform);
@@ -380,6 +386,9 @@ public abstract class SharedMagicSystem : EntitySystem
         var direction = toCoords.ToMapPos(EntityManager, _transform) -
                         spawnCoords.ToMapPos(EntityManager, _transform);
         _gunSystem.ShootProjectile(ent, direction, userVelocity, ev.Performer, ev.Performer);
+
+        if (ev.Entity != null) // Goobstation
+            _gunSystem.SetTarget(ent, ev.Entity.Value, out _);
     }
     // End Projectile Spells
     #endregion

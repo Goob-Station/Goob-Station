@@ -21,8 +21,8 @@
   - type: Explosive
     explosionType: Default
     maxIntensity: 40
-    intensitySlope: 6
-    totalIntensity: 200
+    intensitySlope: 4 # Goob edit
+    totalIntensity: 100 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400

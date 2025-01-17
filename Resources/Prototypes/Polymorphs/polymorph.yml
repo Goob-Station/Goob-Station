@@ -182,7 +182,8 @@
     transferName: true
     transferDamage: false
     inventory: None
-    duration: 1
+    duration: 2 # Goob edit
+    allowMovement: false # Goobstation
     forced: true
     revertOnCrit: false
     revertOnDeath: false

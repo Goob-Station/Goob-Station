@@ -8,6 +8,12 @@
   },
   "states": [
     {
+      "name": "fireball"
+    },
+    {
+      "name": "immrod"
+    },
+    {
       "name": "thrown_lightning"
     },
     {
