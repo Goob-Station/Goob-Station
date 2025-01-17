@@ -4,6 +4,7 @@ using Content.Server.Speech;
 using Content.Shared.Humanoid;
 using Robust.Shared.GameObjects;
 using Robust.Shared.IoC;
+using Robust.Shared.Enums;
 
 namespace Content.Server._ShibaStation.Speech.EntitySystems;
 
@@ -11,9 +12,33 @@ public sealed class IlleismAccentSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
+    // Updated regex patterns to better handle verb conjugation
     private static readonly Regex FirstPersonPronounRegex = new(@"\b(I|me|my|mine|myself)\b", RegexOptions.IgnoreCase);
-    private static readonly Regex FirstPersonVerbRegex = new(@"\b(am|'m|have|'ve|was)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex ICommaPattern = new(@"\bI\s*,", RegexOptions.IgnoreCase);
     private static readonly Regex SentenceSplitRegex = new(@"(?<=[.!?])\s+");
+
+    // Helper dictionary for special verb cases
+    private static readonly Dictionary<string, string> SpecialVerbConjugations = new(StringComparer.OrdinalIgnoreCase)
+    {
+        // Modal verbs and auxiliaries (no change)
+        {"am", "is"},
+        {"can", "can"},
+        {"will", "will"},
+        {"shall", "shall"},
+        {"may", "may"},
+        {"might", "might"},
+        {"must", "must"},
+        {"would", "would"},
+        {"could", "could"},
+        {"should", "should"},
+        // Special conjugations
+        {"do", "does"},
+        {"have", "has"},
+        {"was", "was"},
+        {"'m", "is"},
+        {"'ve", "has"}
+    };
 
     public override void Initialize()
     {
@@ -28,43 +53,42 @@ public sealed class IlleismAccentSystem : EntitySystem
 
     public string Accentuate(EntityUid uid, string message)
     {
-        // Get the character's name and gender
+        // Get the character's name and pronouns
         string name = "Unknown";
         string pronoun = "they";
         string possessivePronoun = "their";
         string reflexivePronoun = "themselves";
-        string verbSuffix = "";
 
         if (_entityManager.TryGetComponent<HumanoidAppearanceComponent>(uid, out var humanoid))
         {
-            name = _entityManager.GetComponent<MetaDataComponent>(uid).EntityName;
+            var fullName = _entityManager.GetComponent<MetaDataComponent>(uid).EntityName;
 
-            // Get only the first part of hyphenated names
-            if (name.Contains('-'))
-            {
-                name = name.Split('-')[0];
-            }
+            // Get the first part of the name, whether it's hyphenated or space-separated
+            name = fullName.Split(new[] { '-', ' ' }, 2)[0];
 
-            // Set pronouns based on gender
-            switch (humanoid.Sex)
+            // Set pronouns based on chosen pronouns (Gender)
+            switch (humanoid.Gender)
             {
-                case Sex.Male:
+                case Gender.Male:
                     pronoun = "he";
                     possessivePronoun = "his";
                     reflexivePronoun = "himself";
-                    verbSuffix = "s";
                     break;
-                case Sex.Female:
+                case Gender.Female:
                     pronoun = "she";
                     possessivePronoun = "her";
                     reflexivePronoun = "herself";
-                    verbSuffix = "s";
                     break;
+                case Gender.Neuter:
+                    pronoun = "it";
+                    possessivePronoun = "its";
+                    reflexivePronoun = "itself";
+                    break;
+                case Gender.Epicene:
                 default:
                     pronoun = "they";
                     possessivePronoun = "their";
                     reflexivePronoun = "themselves";
-                    verbSuffix = "";
                     break;
             }
         }
@@ -78,46 +102,63 @@ public sealed class IlleismAccentSystem : EntitySystem
             if (string.IsNullOrWhiteSpace(sentence))
                 continue;
 
-            var processedSentence = ProcessSentence(sentence, name, pronoun, possessivePronoun, reflexivePronoun, verbSuffix);
+            var processedSentence = ProcessSentence(sentence, name, pronoun, possessivePronoun, reflexivePronoun);
             processedSentences.Add(processedSentence);
         }
 
         return string.Join(" ", processedSentences);
     }
 
-    private string ProcessSentence(string sentence, string name, string pronoun, string possessivePronoun, string reflexivePronoun, string verbSuffix)
+    private string ProcessSentence(string sentence, string name, string pronoun, string possessivePronoun, string reflexivePronoun)
     {
-        bool hasUsedName = false;
+        bool hasReplacedFirstPronoun = false;
 
-        // Replace first person pronouns
+        // Handle "I, ..." cases first
+        sentence = ICommaPattern.Replace(sentence, $"{name},");
+
+        // Handle "I verb" patterns
+        sentence = IVerbPattern.Replace(sentence, match =>
+        {
+            if (hasReplacedFirstPronoun)
+                return $"{pronoun} {match.Groups[1].Value}";
+
+            hasReplacedFirstPronoun = true;
+            var verb = match.Groups[1].Value.ToLower();
+
+            // Check for special verb conjugations
+            if (SpecialVerbConjugations.TryGetValue(verb, out var specialConjugation))
+                return $"{name} {specialConjugation}";
+
+            // Regular verb conjugation - add 's' unless it's a special case
+            if (verb.EndsWith("s") || verb.EndsWith("sh") || verb.EndsWith("ch") || verb.EndsWith("x") || verb.EndsWith("z"))
+                return $"{name} {verb}es";
+            if (verb.EndsWith("y") && !verb.EndsWith("ay") && !verb.EndsWith("ey") && !verb.EndsWith("oy") && !verb.EndsWith("uy"))
+                return $"{name} {verb[..^1]}ies";
+
+            return $"{name} {verb}s";
+        });
+
+        // Handle remaining pronouns
         sentence = FirstPersonPronounRegex.Replace(sentence, match =>
         {
-            var replacement = match.Value.ToLower() switch
+            if (!hasReplacedFirstPronoun)
             {
-                "i" => hasUsedName ? pronoun : name,
+                hasReplacedFirstPronoun = true;
+                return match.Value.ToLower() switch
+                {
+                    "my" => name + "'s",
+                    "mine" => name + "'s",
+                    _ => name
+                };
+            }
+
+            return match.Value.ToLower() switch
+            {
+                "i" => pronoun,
                 "me" => pronoun,
                 "my" => possessivePronoun,
                 "mine" => possessivePronoun,
                 "myself" => reflexivePronoun,
-                _ => match.Value
-            };
-
-            if (replacement == name)
-                hasUsedName = true;
-
-            return replacement;
-        });
-
-        // Replace first person verbs, ensuring proper spacing
-        sentence = FirstPersonVerbRegex.Replace(sentence, match =>
-        {
-            return match.Value.ToLower() switch
-            {
-                "am" => " is",
-                "'m" => " is",
-                "have" => $" ha{verbSuffix}",
-                "'ve" => $" ha{verbSuffix}",
-                "was" => " was",
                 _ => match.Value
             };
         });
