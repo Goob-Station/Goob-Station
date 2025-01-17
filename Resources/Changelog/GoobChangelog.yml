@@ -4249,3 +4249,9 @@ Entries:
       message: Fixed some lobby screen credits
   id: 476
   time: '2025-01-15T20:13:21.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: HoS and Warden armored coat palletes updated.
+  id: 477
+  time: '2025-01-17T21:29:38.0000000+00:00'
