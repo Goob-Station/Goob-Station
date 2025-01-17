@@ -6,7 +6,7 @@
   description: Allows movement one direction.
   components:
   - type: Sprite
-    sprite: Structures/Doors/turnstile.rsi
+    sprite: _Goobstation/Structures/Doors/turnstile.rsi
     snapCardinals: true
     layers:
     - state: turnstile
