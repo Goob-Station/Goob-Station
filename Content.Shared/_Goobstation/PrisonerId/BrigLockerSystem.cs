@@ -1,6 +1,5 @@
 using Content.Shared.Access.Components;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.StationRecords;
 using Content.Shared.Verbs;

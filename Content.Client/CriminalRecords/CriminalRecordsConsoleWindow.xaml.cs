@@ -37,8 +37,9 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
     public Action<CriminalRecord, bool, bool>? OnHistoryUpdated;
     public Action? OnHistoryClosed;
     public Action<SecurityStatus, string>? OnDialogConfirmed;
+    // Goobstation start
     public Action<string, uint>? OnTimeConfirmed;
-
+    // Goobstation end
     private uint _maxLength;
     private bool _access;
     private uint? _selectedKey;
@@ -114,11 +115,12 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             if (_selectedRecord is {} record)
                 OnHistoryUpdated?.Invoke(record, _access, true);
         };
-
+        // Goobstation start
         PrintButton.OnPressed += _ =>
         {
                 GetTime();
         };
+        // Goobstation end
     }
 
     public void UpdateState(CriminalRecordsConsoleState state)
@@ -238,7 +240,9 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
             message.AddText($": {reason}");
             WantedReason.SetMessage(message);
             WantedReason.Visible = true;
+            // Goobstation start
             PrintButton.Visible = true;
+            // Goobstation end
         }
         else
         {
@@ -296,6 +300,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         _reasonDialog.OnClose += () => { _reasonDialog = null; };
     }
+    // Goobstation start
     public static class RegexHelper
     {
         private static readonly Regex MyRegex = new Regex(@"^[0-5]?\d:[0-5]\d$", RegexOptions.Compiled);
@@ -337,6 +342,7 @@ public sealed partial class CriminalRecordsConsoleWindow : FancyWindow
 
         _reasonDialog.OnClose += () => { _reasonDialog = null; };
     }
+    // Goobstation end
 
     private string GetTypeFilterLocals(StationRecordFilterType type)
     {

@@ -32,8 +32,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
     [Dependency] private readonly StationRecordsSystem _records = default!;
     [Dependency] private readonly StationSystem _station = default!;
     [Dependency] private readonly UserInterfaceSystem _ui = default!;
+    // Goobstation start
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
-
+    // Goobstation end
     public override void Initialize()
     {
         SubscribeLocalEvent<CriminalRecordsConsoleComponent, RecordModifiedEvent>(UpdateUserInterface);
@@ -47,7 +48,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
             subs.Event<CriminalRecordChangeStatus>(OnChangeStatus);
             subs.Event<CriminalRecordAddHistory>(OnAddHistory);
             subs.Event<CriminalRecordDeleteHistory>(OnDeleteHistory);
+            // Goobstation start
             subs.Event<CriminalRecordPrintPrisonerId>(OnPrint);
+            // Goobstation end
         });
     }
 
@@ -268,6 +271,7 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         }
         RemComp<CriminalRecordComponent>(uid);
     }
+    // Goobstation start
 
     private void OnPrint(Entity<CriminalRecordsConsoleComponent> ent, ref CriminalRecordPrintPrisonerId args)
     {
@@ -312,4 +316,5 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         _metaSystem.SetEntityName(id,val);
         //RaiseNetworkEvent(new SpawnedPrisonerId(GetNetEntity(id), fixedPointTime, args.Key, GetNetEntity(owningStation.Value)));
     }
+    // Goobstation end
 }

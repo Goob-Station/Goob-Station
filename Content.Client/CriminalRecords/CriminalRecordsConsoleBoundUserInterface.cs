@@ -38,8 +38,10 @@ public sealed class CriminalRecordsConsoleBoundUserInterface : BoundUserInterfac
             SendMessage(new CriminalRecordChangeStatus(status, null));
         _window.OnDialogConfirmed += (status, reason) =>
             SendMessage(new CriminalRecordChangeStatus(status, reason));
+        // Goobstation start
         _window.OnTimeConfirmed += (time, key) =>
             SendMessage(new CriminalRecordPrintPrisonerId(time, key));
+        // Goobstation end
         _window.OnHistoryUpdated += UpdateHistory;
         _window.OnHistoryClosed += () => _historyWindow?.Close();
         _window.OnClose += Close;

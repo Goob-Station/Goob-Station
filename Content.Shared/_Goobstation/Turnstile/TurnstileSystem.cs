@@ -1,15 +1,12 @@
 using System.Numerics;
 using Content.Shared._Goobstation.PrisonerId;
-using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Containers;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Turnstile;
@@ -96,7 +93,7 @@ public sealed class TurnstileSystem : EntitySystem
     {
         Logger.Debug("firing event");
         var id = FindId(ent);
-        if (id == EntityUid.Invalid)
+        if (id == default)
         {
             Logger.Debug("Didnt find prisoner ID");
             return;
@@ -110,6 +107,7 @@ public sealed class TurnstileSystem : EntitySystem
     {
         var slotEnumerator = _inventorySystem.GetSlotEnumerator(ent);
         using var handsEnumerator = _handsSystem.EnumerateHands(ent).GetEnumerator();
+
         while (handsEnumerator.MoveNext())
         {
             var hand = handsEnumerator.Current;
@@ -120,8 +118,11 @@ public sealed class TurnstileSystem : EntitySystem
             if (!TryComp<MetaDataComponent>(uid, out var metaData))
                 continue;
 
+            if (uid is not { } handId)
+                continue;
+
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-                return (EntityUid) uid!;
+                return handId;
         }
 
         while (slotEnumerator.MoveNext(out var slot))
@@ -136,10 +137,10 @@ public sealed class TurnstileSystem : EntitySystem
                 continue;
 
             if (pdaIdMetaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-                return (EntityUid) pdaComponent.ContainedId!;
+                return pdaComponent.ContainedId ?? default;
         }
 
-        return EntityUid.Invalid;
+        return default;
     }
 
     private void OnStartCollide(EntityUid uid, TurnstileComponent comp, StartCollideEvent args)
