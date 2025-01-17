@@ -55,6 +55,18 @@
 #   - UplinkWeaponry
 
 - type: listing
+  id: UplinkHeavyEsword
+  name: uplink-heavyesword-name
+  description: uplink-heavyesword-desc
+  icon: { sprite: /Textures/_Goobstation/Objects/Weapons/Melee/heavy_e_sword.rsi, state: icon }
+  productEntity: EnergySwordHeavy
+  cost:
+    Telecrystal: 80
+  saleLimit: 1
+  categories:
+  - UplinkWeaponry
+
+- type: listing
   id: UplinkContractorBaton
   name: uplink-contractor-baton-name
   description: uplink-contractor-baton-desc

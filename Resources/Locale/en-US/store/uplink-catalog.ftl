@@ -11,6 +11,9 @@ uplink-pistol-cobra-desc = A rugged, robust operator handgun with inbuilt silenc
 uplink-rifle-mosin-name = Surplus Rifle
 uplink-rifle-mosin-desc = A bolt action service rifle that has seen many wars. Not modern by any standard, hand loaded, and terrible recoil, but it is cheap.
 
+uplink-heavyesword-name = Heavy Energy Sword
+uplink-heavyesword-desc = A heavy energy sword often given to Starkovskies; it has been repainted to reflect Gorlax's colour scheme.
+
 uplink-esword-name = Energy Sword
 uplink-esword-desc = A very dangerous energy sword that can reflect energy shots. Can be stored in pockets when turned off. Makes a lot of noise when used or turned on.
 

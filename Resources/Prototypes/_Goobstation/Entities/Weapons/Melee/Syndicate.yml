@@ -1,0 +1,39 @@
+- type: entity
+  name: Blackburnian heavy energy sword
+  parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
+  id: EnergySwordHeavy
+  description: A heavy energy sword often given to Starkovskies; it has been repainted to reflect Gorlax's colour scheme.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Melee/heavy_e_sword.rsi
+    layers:
+    - state: e_sword
+    - state: e_sword_blade
+      color: "#682222"
+      visible: false
+      shader: unshaded
+      map: [ "blade" ]
+  - type: Item
+    size: Gigantic
+    sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+    activatedDamage:
+      types:
+        Blunt: 5
+        Slash: 20
+        Heat: 20
+        Structural: 15
+  - type: MeleeWeapon
+    heavyStaminaCost: 5
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    damage:
+      types:
+        Blunt: 10
+    clickPartDamageMultiplier: 4 #goob content
+  - type: ThrowableBlocker # Goobstation
+    blockSound:
+      path: /Audio/Weapons/eblade1.ogg
+      params:
+        variation: 0.250
+        volume: -2
+
