@@ -139,7 +139,7 @@ public sealed class TurnstileSystem : EntitySystem
             if (pdaIdMetaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
                 return (EntityUid) pdaComponent.ContainedId!;
         }
-        
+
         return EntityUid.Invalid;
     }
 

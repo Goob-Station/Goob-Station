@@ -1,10 +1,14 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._Goobstation.PrisonerId;
 
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent]
+[RegisterComponent,NetworkedComponent]
+[AutoGenerateComponentState]
 public sealed partial class BrigLockerComponent : Component
 {
-    
+    [DataField,AutoNetworkedField]
+    public bool Assigned = false;
 }

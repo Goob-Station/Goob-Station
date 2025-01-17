@@ -27,3 +27,15 @@
     stateBaseClosed: ntr
     stateDoorOpen: ntr_open
     stateDoorClosed: ntr_door
+
+
+- type: entity
+  id: LockerBrig
+  name: brig locker
+  parent: LockerSteel
+  components:
+  - type: Appearance
+  - type: Sprite
+  - type: AccessReader
+    access: [["Security"]]
+  - type: BrigLocker
