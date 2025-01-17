@@ -26,10 +26,36 @@ public sealed class BrigLockerSystem : EntitySystem
 
     private void OnInteract(EntityUid uid, BrigLockerComponent comp, EntityUid user)
     {
-        using var handsEnumerator = _handsSystem.EnumerateHands(user).GetEnumerator();
-        EntityUid prisonerId = default;
         if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
             return;
+        EntityUid prisonerId = default;
+        prisonerId = GetPrisonerId(uid, user);
+        // use comp.Accessed now
+        if (prisonerId == default && comp.Assigned == false)
+        {
+            _popupSystem.PopupClient("Make sure your holding a prisoner ID.", user); // localize
+             return;
+        }
+        if (prisonerId == default)
+
+        {
+            _popupSystem.PopupClient("Unassigned the locker", user); // localize
+            accessReaderComponent.AccessKeys.Clear();
+            return;
+        }
+
+        if (!TryComp<StationRecordKeyStorageComponent>(prisonerId, out var stationRecordKeyStorageComponent))
+            return;
+
+        accessReaderComponent.AccessKeys.Add((StationRecordKey) stationRecordKeyStorageComponent.Key!);
+        _popupSystem.PopupClient("Assigned the locker", user); // localize
+        comp.Assigned = true;
+    }
+
+    private EntityUid GetPrisonerId(EntityUid uid, EntityUid user)
+    {
+        using var handsEnumerator = _handsSystem.EnumerateHands(user).GetEnumerator();
+
         while (handsEnumerator.MoveNext())
         {
             var hand = handsEnumerator.Current;
@@ -41,30 +67,10 @@ public sealed class BrigLockerSystem : EntitySystem
                 continue;
 
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-                prisonerId = (EntityUid) handsUid!;
+                return (EntityUid) handsUid!;
         }
 
-        // use comp.Accessed now
-
-        if (prisonerId == default)
-        {
-            _popupSystem.PopupClient("Make sure your holding a prisoner ID.", user); // localize
-            return;
-        }
-
-        if (!TryComp<StationRecordKeyStorageComponent>(prisonerId, out var stationRecordKeyStorageComponent))
-            return;
-
-        if (accessReaderComponent.AccessKeys.Count > 0)
-        {
-            _popupSystem.PopupClient("Unassigned the locker", user); // localize
-            accessReaderComponent.AccessKeys.Clear();
-            return;
-        }
-
-        accessReaderComponent.AccessKeys.Add((StationRecordKey) stationRecordKeyStorageComponent.Key!);
-        _popupSystem.PopupClient("Assigned the locker", user); // localize
-
+        return default;
     }
 
     private void OnGetVerbs(EntityUid uid, BrigLockerComponent component, GetVerbsEvent<InteractionVerb> args)
