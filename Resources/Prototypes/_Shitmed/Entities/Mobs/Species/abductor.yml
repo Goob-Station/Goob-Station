@@ -47,6 +47,8 @@
         Brute: -0.14
   - type: Targeting
   - type: SurgeryTarget
+  - type: Bloodstream
+    bloodReagent: AlienBlood
 
 - type: entity
   parent: BaseSpeciesDummy
