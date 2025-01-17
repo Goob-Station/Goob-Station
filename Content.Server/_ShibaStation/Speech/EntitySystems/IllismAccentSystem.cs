@@ -12,10 +12,11 @@ public sealed class IlleismAccentSystem : EntitySystem
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
-    // Updated regex patterns to better handle verb conjugation
+    // Updated regex patterns to better handle verb conjugation and contractions
     private static readonly Regex FirstPersonPronounRegex = new(@"\b(I|me|my|mine|myself)\b", RegexOptions.IgnoreCase);
-    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+(?:n't)?(?:\s+\w+)?)\b", RegexOptions.IgnoreCase);
     private static readonly Regex ICommaPattern = new(@"\bI\s*,", RegexOptions.IgnoreCase);
+    private static readonly Regex ImPattern = new(@"\bI'm\b", RegexOptions.IgnoreCase);
     private static readonly Regex SentenceSplitRegex = new(@"(?<=[.!?])\s+");
 
     // Helper dictionary for special verb cases
@@ -34,10 +35,17 @@ public sealed class IlleismAccentSystem : EntitySystem
         {"should", "should"},
         // Special conjugations
         {"do", "does"},
+        {"don't", "doesn't"},
         {"have", "has"},
+        {"haven't", "hasn't"},
         {"was", "was"},
-        {"'m", "is"},
-        {"'ve", "has"}
+        {"wasn't", "wasn't"},
+        // Common verb phrases
+        {"want to", "wants to"},
+        {"need to", "needs to"},
+        {"have to", "has to"},
+        {"got to", "got to"},
+        {"going to", "going to"}
     };
 
     public override void Initialize()
@@ -113,8 +121,25 @@ public sealed class IlleismAccentSystem : EntitySystem
     {
         bool hasReplacedFirstPronoun = false;
 
-        // Handle "I, ..." cases first
-        sentence = ICommaPattern.Replace(sentence, $"{name},");
+        // Handle "I'm" cases first
+        sentence = ImPattern.Replace(sentence, match =>
+        {
+            if (hasReplacedFirstPronoun)
+                return $"{pronoun} is";
+
+            hasReplacedFirstPronoun = true;
+            return $"{name} is";
+        });
+
+        // Handle "I, ..." cases
+        sentence = ICommaPattern.Replace(sentence, match =>
+        {
+            if (hasReplacedFirstPronoun)
+                return $"{pronoun},";
+
+            hasReplacedFirstPronoun = true;
+            return $"{name},";
+        });
 
         // Handle "I verb" patterns
         sentence = IVerbPattern.Replace(sentence, match =>
@@ -123,19 +148,28 @@ public sealed class IlleismAccentSystem : EntitySystem
                 return $"{pronoun} {match.Groups[1].Value}";
 
             hasReplacedFirstPronoun = true;
-            var verb = match.Groups[1].Value.ToLower();
+            var verbPhrase = match.Groups[1].Value.ToLower();
 
-            // Check for special verb conjugations
-            if (SpecialVerbConjugations.TryGetValue(verb, out var specialConjugation))
+            // Check for special verb conjugations first
+            if (SpecialVerbConjugations.TryGetValue(verbPhrase, out var specialConjugation))
                 return $"{name} {specialConjugation}";
 
-            // Regular verb conjugation - add 's' unless it's a special case
-            if (verb.EndsWith("s") || verb.EndsWith("sh") || verb.EndsWith("ch") || verb.EndsWith("x") || verb.EndsWith("z"))
-                return $"{name} {verb}es";
-            if (verb.EndsWith("y") && !verb.EndsWith("ay") && !verb.EndsWith("ey") && !verb.EndsWith("oy") && !verb.EndsWith("uy"))
-                return $"{name} {verb[..^1]}ies";
+            // Handle negations and special endings
+            if (verbPhrase.EndsWith("n't"))
+            {
+                var baseVerb = verbPhrase[..^3];
+                if (SpecialVerbConjugations.TryGetValue(baseVerb, out var baseConjugation))
+                    return $"{name} {baseConjugation}n't";
+                return $"{name} {baseVerb}sn't";
+            }
 
-            return $"{name} {verb}s";
+            // Regular verb conjugation - add 's' unless it's a special case
+            if (verbPhrase.EndsWith("s") || verbPhrase.EndsWith("sh") || verbPhrase.EndsWith("ch") || verbPhrase.EndsWith("x") || verbPhrase.EndsWith("z"))
+                return $"{name} {verbPhrase}es";
+            if (verbPhrase.EndsWith("y") && !verbPhrase.EndsWith("ay") && !verbPhrase.EndsWith("ey") && !verbPhrase.EndsWith("oy") && !verbPhrase.EndsWith("uy"))
+                return $"{name} {verbPhrase[..^1]}ies";
+
+            return $"{name} {verbPhrase}s";
         });
 
         // Handle remaining pronouns
