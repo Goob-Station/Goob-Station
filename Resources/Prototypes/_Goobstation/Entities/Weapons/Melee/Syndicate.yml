@@ -16,6 +16,7 @@
   - type: Item
     size: Large
     sprite: Objects/Weapons/Melee/e_sword-inhands.rsi
+  - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
         Blunt: 5
