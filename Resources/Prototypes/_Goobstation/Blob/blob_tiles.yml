@@ -32,11 +32,6 @@
         Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
-  - type: Flammable
-    fireSpread: true
-    damage:
-      types:
-        Heat: 1
   - type: Destructible
     thresholds:
     - trigger:
@@ -111,11 +106,6 @@
         Heat: 5
     coldDamage: {}
     coldDamageThreshold: 0
-  - type: Flammable
-    fireSpread: true
-    damage:
-      types:
-        Heat: 1
   - type: BlobTile
     blobTileType: Normal
   - type: Destructible
@@ -175,11 +165,6 @@
           Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
-    - type: Flammable
-      fireSpread: true
-      damage:
-        types:
-          Heat: 1
     - type: BlobTile
       blobTileType: Factory
     - type: Destructible
@@ -213,11 +198,6 @@
           Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
-    - type: Flammable
-      fireSpread: true
-      damage:
-        types:
-          Heat: 1
     - type: BlobTile
       blobTileType: Resource
     - type: Destructible
@@ -253,11 +233,6 @@
           Heat: 5
       coldDamage: {}
       coldDamageThreshold: 0
-    - type: Flammable
-      fireSpread: true
-      damage:
-        types:
-          Heat: 1
     - type: BlobTile
       blobTileType: Node
     - type: Destructible
@@ -298,6 +273,11 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Flammable
+      fireSpread: true
+      damage:
+        types:
+          Heat: 1
     - type: Sprite
       sprite: _Goobstation/Blob/Mobs/blob.rsi
       drawdepth: BlobTiles
@@ -326,6 +306,11 @@
           behaviors:
             - !type:DoActsBehavior
               acts: [ "Destruction" ]
+    - type: Flammable
+      fireSpread: true
+      damage:
+        types:
+          Heat: 1
     - type: Reflect
       reflectProb: 0.9
       spread: 20
