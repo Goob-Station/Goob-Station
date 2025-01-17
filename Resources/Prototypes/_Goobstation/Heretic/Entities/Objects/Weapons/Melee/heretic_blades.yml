@@ -56,6 +56,9 @@
   components:
   - type: HereticBlade
     path: Blade
+  - type: MeleeWeapon
+    clickPartDamageMultiplier: 2
+    heavyPartDamageMultiplier: 1.5
 
 - type: entity
   parent: HereticBladeBase
