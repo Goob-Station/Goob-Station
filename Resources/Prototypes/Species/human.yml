@@ -40,7 +40,7 @@
   id: MobHumanMarkingLimits
   points:
     Special: # the cat ear joke
-      points: 0
+      points: 1 # Reserve
       required: false
     Hair:
       points: 1
@@ -52,7 +52,7 @@
       points: 1
       required: false
     Tail: # the cat tail joke
-      points: 0
+      points: 1 # Reserve
       required: false
     HeadTop:
       points: 1
