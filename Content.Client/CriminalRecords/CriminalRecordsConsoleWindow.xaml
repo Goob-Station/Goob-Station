@@ -30,7 +30,7 @@
                     <OptionButton Name="StatusOptionButton"/> <!-- Populated in constructor -->
                 </BoxContainer>
                 <RichTextLabel Name="WantedReason" Visible="False"/>
-                <Button Name="PrintButton" Text="{Loc 'criminal-records-console-print'}" Visible="False"/>
+                <Button Name="PrintButton" Text="{Loc 'criminal-records-console-print'}" Visible="False"/> <!-- Goobstation -->
                 <Button Name="HistoryButton" Text="{Loc 'criminal-records-console-crime-history'}"/>
             </BoxContainer>
         </BoxContainer>
