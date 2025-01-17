@@ -1,6 +1,5 @@
 using Content.Shared.FixedPoint;
 using Content.Shared.StationRecords;
-using Robust.Client.Input;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.PrisonerId;
