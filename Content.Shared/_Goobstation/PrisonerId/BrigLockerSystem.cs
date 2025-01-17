@@ -47,7 +47,11 @@ public sealed class BrigLockerSystem : EntitySystem
         if (!TryComp<StationRecordKeyStorageComponent>(prisonerId, out var stationRecordKeyStorageComponent))
             return;
 
-        accessReaderComponent.AccessKeys.Add((StationRecordKey) stationRecordKeyStorageComponent.Key!);
+        if (stationRecordKeyStorageComponent.Key is not { } stationRecordKey)
+            return;
+
+        accessReaderComponent.AccessKeys.Add(stationRecordKey);
+
         _popupSystem.PopupClient("Assigned the locker", user); // localize
         comp.Assigned = true;
     }

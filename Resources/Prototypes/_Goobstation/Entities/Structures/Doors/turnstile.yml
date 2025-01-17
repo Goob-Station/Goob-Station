@@ -16,7 +16,7 @@
       visible: false
   - type: AnimationPlayer
   - type: Fixtures
-    fixtures:
+    fixturesno 
       fix1:
         shape:
           !type:PhysShapeAabb
