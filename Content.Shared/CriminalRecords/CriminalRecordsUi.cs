@@ -104,8 +104,7 @@ public sealed class CriminalRecordDeleteHistory : BoundUserInterfaceMessage
 }
 
 /// <summary>
-/// - Goobstation
-/// Used to print prisoner ID
+///  Goobstation - Used to print prisoner ID
 /// </summary>
 [Serializable, NetSerializable]
 public sealed class CriminalRecordPrintPrisonerId(string? time, uint key) : BoundUserInterfaceMessage

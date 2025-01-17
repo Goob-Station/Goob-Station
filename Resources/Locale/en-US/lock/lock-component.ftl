@@ -9,3 +9,4 @@ lock-comp-generic-fail = {CAPITALIZE(SUBJECT($target))} {CONJUGATE-BE($target)} 
 
 toggle-lock-verb-unlock = Unlock
 toggle-lock-verb-lock = Lock
+ok
