@@ -556,7 +556,7 @@
   - type: StationEvent
     weight: 8
     reoccurrenceDelay: 20
-    minimumPlayers: 10 # ShibaStation - Ion storms tend to give out free shitter tickets, and at low pop it's cringe. This better meshes with escalating danger in line with population.
+    minimumPlayers: 20 # ShibaStation - Ion storms tend to give out free shitter tickets, and at low pop it's cringe. This better meshes with escalating danger in line with population.
     duration: 1
   - type: IonStormRule
 
@@ -600,7 +600,7 @@
     weight: 5
     earliestStart: 15
     reoccurrenceDelay: 20
-    minimumPlayers: 8 # ShibaStation - Increased from 4 to 8
+    minimumPlayers: 15 # ShibaStation - Increased from 4 to 15
     duration: null
   - type: SpaceSpawnRule
     spawnDistance: 0
