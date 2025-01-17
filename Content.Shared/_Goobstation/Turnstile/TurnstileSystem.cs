@@ -4,6 +4,7 @@ using Content.Shared.Access;
 using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
+using Content.Shared.PDA;
 using Robust.Client.UserInterface;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
@@ -26,7 +27,6 @@ public sealed class TurnstileSystem : EntitySystem
     [Dependency] protected readonly SharedAccessSystem _accessSystem = default!;
     [Dependency] protected readonly InventorySystem _inventorySystem = default!;
     [Dependency] protected readonly SharedHandsSystem _handsSystem = default!;
-    private bool _isEventBlocked = false;
 
 
 
@@ -85,7 +85,7 @@ public sealed class TurnstileSystem : EntitySystem
 
         // Allowed passage
         _physicsSystem.SetCanCollide(uid, false);
-        Timer.Spawn(1000,
+        Timer.Spawn(500,
             () =>
             {
                 StartPrisonerTime(otherEntity);
@@ -95,24 +95,16 @@ public sealed class TurnstileSystem : EntitySystem
 
     private void StartPrisonerTime(EntityUid ent)
     {
-        if (_isEventBlocked)
-            return;
-
-        _isEventBlocked = true;
-
         Logger.Debug("firing event");
         var id = FindId(ent);
         if (id == EntityUid.Invalid)
         {
             Logger.Debug("Didnt find prisoner ID");
             return;
-
         }
 
         // tell the id to start counting :)
         RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
-        _isEventBlocked = false;
-
     }
 
     private EntityUid FindId(EntityUid ent)
@@ -123,26 +115,33 @@ public sealed class TurnstileSystem : EntitySystem
         {
             var hand = handsEnumerator.Current;
             if (hand.Container == null)
-                return EntityUid.Invalid;
+                continue;
 
             var uid = hand.Container.ContainedEntity;
             if (!TryComp<MetaDataComponent>(uid, out var metaData))
-                return EntityUid.Invalid;
+                continue;
 
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
                 return (EntityUid) uid!;
         }
-
-        // lock lockers by stationrecordkey and security. :)
 
         while (slotEnumerator.MoveNext(out var slot))
         {
-            var uid = slot.ContainedEntity;
-            if (!TryComp<MetaDataComponent>(uid, out var metaData))
-                return EntityUid.Invalid;
-            if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-                return (EntityUid) uid!;
+            var slotEntity = slot.ContainedEntity;
+            if (!TryComp<PdaComponent>(slotEntity, out var pdaComponent))
+            {
+                continue;
+            }
+
+            if (!TryComp<MetaDataComponent>(slotEntity, out var pdaIdMetaData))
+                continue;
+
+            if (pdaIdMetaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+                return (EntityUid) pdaComponent.ContainedId!;
         }
+
+
+
         return EntityUid.Invalid;
     }
 
