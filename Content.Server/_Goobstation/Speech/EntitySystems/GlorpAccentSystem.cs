@@ -12,7 +12,8 @@ public sealed class GlorpAccentSystem : EntitySystem
     private static readonly HashSet<string> WhitelistedWords = new(StringComparer.OrdinalIgnoreCase)
     {
         "discrimination", "inferior", "surgery", "probing", "neanderthal", "animal",
-        "tool", "heart", "zoo", "subject", "organ", "skill", "issue"
+        "tool", "heart", "zoo", "subject", "organ", "skill", "issue", "extract", "remove", "eyes",
+        "sleep", "bruh", "skibidi", "ohio", "brazil", "shitsec"
     };
     private static readonly Regex WordRegex = new(@"\b\w+\b", RegexOptions.IgnoreCase);
 
