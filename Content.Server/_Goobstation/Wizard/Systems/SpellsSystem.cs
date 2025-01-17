@@ -12,8 +12,11 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.IdentityManagement;
 using Content.Server.Inventory;
 using Content.Server.Polymorph.Systems;
+using Content.Server.Power.Components;
+using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
+using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
@@ -33,7 +36,6 @@ using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mind.Components;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Movement.Components;
 using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Speech.Components;
@@ -65,6 +67,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
     [Dependency] private readonly IdentitySystem _identity = default!;
+    [Dependency] private readonly BatterySystem _battery = default!;
+    [Dependency] private readonly TeleportSystem _teleport = default!;
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -282,10 +286,10 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         Timer.Spawn(200,
             () =>
-        {
-            var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
-            SpeakSpell(speaker, caster, toSpeak, school);
-        });
+            {
+                var toSpeak = speech == null ? string.Empty : Loc.GetString(speech);
+                SpeakSpell(speaker, caster, toSpeak, school);
+            });
     }
 
     protected override void ShootSpellCards(SpellCardsEvent ev, EntProtoId proto)
@@ -497,5 +501,26 @@ public sealed class SpellsSystem : SharedSpellsSystem
             InGameICChatType.Speak,
             false,
             wrappedMessagePostfix: postfix);
+    }
+
+    protected override bool ChargeItem(EntityUid uid, EntityUid performer)
+    {
+        if (!TryComp(uid, out BatteryComponent? battery) || battery.CurrentCharge >= battery.MaxCharge)
+            return false;
+
+        _battery.SetCharge(uid, battery.MaxCharge, battery);
+        PopupCharged(uid, performer, false);
+        return true;
+    }
+
+    protected override void Blink(BlinkSpellEvent ev)
+    {
+        base.Blink(ev);
+
+        var xform = Transform(ev.Performer);
+
+        Spawn(ev.Effect, xform.Coordinates);
+        _teleport.RandomTeleport(ev.Performer, ev.Radius);
+        Spawn(ev.Effect, xform.Coordinates);
     }
 }

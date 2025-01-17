@@ -8,6 +8,21 @@
   },
   "states": [
     {
+      "name": "gib"
+    },
+    {
+      "name": "blink"
+    },
+    {
+      "name": "charge"
+    },
+    {
+      "name": "knock"
+    },
+    {
+      "name": "shield_greater"
+    },
+    {
       "name": "fireball"
     },
     {

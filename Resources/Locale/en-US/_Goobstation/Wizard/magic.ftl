@@ -35,3 +35,7 @@ spell-soul-tap-dead-message-others = {CAPITALIZE($uid)} suddenly dies!
 spell-soul-tap-dead-message-user = Your weakened soul is completely consumed by the tap!
 spell-soul-tap-almost-dead-message = Your body feels incredibly drained, and the burning is hard to ignore!
 spell-soul-tap-message = Your body feels drained and there is a burning pain in your chest.
+
+spell-charge-spells-charged-pulled = You feel raw magic flowing through you. It feels good!
+spell-charge-no-spells-to-charge-pulled = You feel very strange for a moment, but then it passes.
+spell-charge-spells-charged-entity = {CAPITALIZE($entity)} suddenly feels very warm!

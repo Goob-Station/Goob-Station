@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
@@ -45,6 +46,7 @@ using Content.Shared.Mind;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Movement.Pulling.Components;
 using Content.Shared.Movement.Pulling.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.PDA;
@@ -158,6 +160,8 @@ public abstract class SharedSpellsSystem : EntitySystem
         SubscribeLocalEvent<SwapSpellEvent>(OnSwap);
         SubscribeLocalEvent<SoulTapEvent>(OnSoulTap);
         SubscribeLocalEvent<ThrownLightningEvent>(OnThrownLightning);
+        SubscribeLocalEvent<ChargeMagicEvent>(OnCharge);
+        SubscribeLocalEvent<BlinkSpellEvent>(OnBlink);
 
         SubscribeAllEvent<SetSwapSecondaryTarget>(OnSwapSecondaryTarget);
     }
@@ -167,8 +171,11 @@ public abstract class SharedSpellsSystem : EntitySystem
         var action = GetEntity(ev.Action);
         var target = GetEntity(ev.Target);
 
-        if (TryComp(action, out SwapSpellComponent? swap))
-            swap.SecondaryTarget = target;
+        if (!TryComp(action, out SwapSpellComponent? swap))
+            return;
+
+        swap.SecondaryTarget = target;
+        Dirty(action, swap);
     }
 
     #region Spells
@@ -1003,6 +1010,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             }
 
             swap.SecondaryTarget = null;
+            Dirty(ev.Action, swap);
             if (_net.IsServer)
                 RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
         }
@@ -1033,17 +1041,10 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
-        if (!TryComp(mind, out ActionsContainerComponent? container))
+        if (!TryComp(mind, out ActionsContainerComponent? container) || !RechargeAllSpells(container, ev.Action.Owner))
         {
             Popup(ev.Performer, "spell-fail-no-spells");
             return;
-        }
-
-        var magicQuery = GetEntityQuery<MagicComponent>();
-        var ents = container.Container.ContainedEntities.Where(x => x != ev.Action.Owner && magicQuery.HasComp(x));
-        foreach (var ent in ents)
-        {
-            _actions.SetCooldown(ent, TimeSpan.Zero);
         }
 
         if (!TryComp(ev.Performer, out MobThresholdsComponent? thresholds))
@@ -1110,9 +1111,97 @@ public abstract class SharedSpellsSystem : EntitySystem
         ev.Handled = true;
     }
 
+    private void OnCharge(ChargeMagicEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        if (TryComp<PullerComponent>(ev.Performer, out var puller) && HasComp<PullableComponent>(puller.Pulling) &&
+            RechargePerson(puller.Pulling.Value))
+            return;
+
+        if (TryComp(ev.Performer, out CarryingComponent? carrying) && RechargePerson(carrying.Carried))
+            return;
+
+        if (TryComp(ev.Performer, out HandsComponent? hands))
+        {
+            foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
+            {
+                if (_tag.HasTag(item, ev.WandTag) &&
+                    TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
+                    basicAmmoComp is { Count: not null, Capacity: not null } &&
+                    basicAmmoComp.Count < basicAmmoComp.Capacity)
+                {
+                    _gunSystem.UpdateBasicEntityAmmoCount(item, basicAmmoComp.Capacity.Value, basicAmmoComp);
+                    PopupCharged(item, ev.Performer);
+                    break;
+                }
+
+                if (ChargeItem(item, ev.Performer))
+                    break;
+            }
+        }
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+        return;
+
+        bool RechargePerson(EntityUid uid)
+        {
+            if (Mind.TryGetMind(uid, out var mind, out _) &&
+                TryComp(mind, out ActionsContainerComponent? container) && RechargeAllSpells(container))
+            {
+                PopupCharged(uid, ev.Performer);
+                Popup(uid, "spell-charge-spells-charged-pulled", PopupType.Medium);
+                _magic.Speak(ev);
+                ev.Handled = true;
+                return true;
+            }
+            Popup(uid, "spell-charge-no-spells-to-charge-pulled", PopupType.Medium);
+            return false;
+        }
+    }
+
+    private void OnBlink(BlinkSpellEvent ev)
+    {
+        if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
+            return;
+
+        Blink(ev);
+
+        _magic.Speak(ev);
+        ev.Handled = true;
+    }
+
     #endregion
 
     #region Helpers
+
+    protected void PopupCharged(EntityUid uid, EntityUid performer, bool client = true)
+    {
+        var message = Loc.GetString("spell-charge-spells-charged-entity",
+            ("entity", Identity.Entity(uid, EntityManager)));
+        if (client)
+            PopupLoc(performer, message, PopupType.Medium);
+        else
+            _popup.PopupEntity(message, performer, performer, PopupType.Medium);
+    }
+
+    private bool RechargeAllSpells(ActionsContainerComponent container, EntityUid? except = null)
+    {
+        var magicQuery = GetEntityQuery<MagicComponent>();
+        var ents = except != null
+            ? container.Container.ContainedEntities.Where(x => x != except.Value && magicQuery.HasComp(x))
+            : container.Container.ContainedEntities.Where(magicQuery.HasComp);
+        var hasSpells = false;
+        foreach (var ent in ents)
+        {
+            hasSpells = true;
+            _actions.SetCooldown(ent, TimeSpan.Zero);
+        }
+
+        return hasSpells;
+    }
 
     // Copied straight from SharedContainerSystem (and modified).
     private bool TryGetOuterNonMobContainer(EntityUid uid,
@@ -1321,6 +1410,13 @@ public abstract class SharedSpellsSystem : EntitySystem
     protected virtual void SpawnBees(LesserSummonBeesEvent ev) { }
 
     protected virtual void SpawnMonkeys(SummonSimiansEvent ev) { }
+
+    protected virtual bool ChargeItem(EntityUid uid, EntityUid performer)
+    {
+        return true;
+    }
+
+    protected virtual void Blink(BlinkSpellEvent ev) { }
 
     #endregion
 }

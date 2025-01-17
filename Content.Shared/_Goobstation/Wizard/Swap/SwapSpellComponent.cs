@@ -2,9 +2,9 @@ using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.Wizard.Swap;
 
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class SwapSpellComponent : Component
 {
-    [ViewVariables(VVAccess.ReadOnly)]
+    [DataField, AutoNetworkedField]
     public EntityUid? SecondaryTarget;
 }

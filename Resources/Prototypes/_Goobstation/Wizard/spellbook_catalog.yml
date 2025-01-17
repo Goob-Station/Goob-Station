@@ -224,6 +224,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookSmite
+  name: spellbook-smite-name
+  description: spellbook-smite-desc
+  productAction: ActionSmite
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
@@ -387,6 +400,19 @@
   name: spellbook-soul-tap-name
   description: spellbook-soul-tap-desc
   productAction: ActionSoulTap
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookUtility
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookKnock
+  name: spellbook-knock-name
+  description: spellbook-knock-desc
+  productAction: ActionKnock
   cost:
     WizCoin: 1
   categories:

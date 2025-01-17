@@ -753,3 +753,23 @@
         path: /Audio/_Goobstation/Wizard/phasein.ogg
   - type: Magic
     school: Conjuration
+
+- type: entity
+  id: ActionBlinkSpell
+  name: Blink
+  description: Randomly teleport a short distance.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanInteract: false
+    useDelay: 2
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/Magic/blink.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: blink
+    event: !type:BlinkSpellEvent
+  - type: Magic
+    requiresClothes: true
+    school: Translocation

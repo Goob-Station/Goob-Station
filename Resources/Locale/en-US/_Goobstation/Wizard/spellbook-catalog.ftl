@@ -161,3 +161,13 @@ spellbook-thrown-lightning-name = Thrown Lightning
 spellbook-thrown-lightning-desc =
     Forged from eldritch energies, a packet of pure power, known as a spell packet will appear in your hand, that when thrown will deal a lot of stamina damage to your target.
     Doesn't require wizard's robe and hat to cast.
+
+spellbook-knock-name = Knock
+spellbook-knock-desc =
+    This spell opens nearby doors and lockers.
+    Doesn't require wizard's robe and hat to cast.
+
+spellbook-smite-name = Smite
+spellbook-smite-desc =
+    This spell charges your hand with an unholy energy that can be used to cause a touched victim to violently explode.
+    Requires wizard's robe and hat to cast.

@@ -1,21 +1,31 @@
 # Spells
 spellbook-fireball-name = Fireball
-spellbook-fireball-desc = Fires an explosive fireball at a target. Considered a classic among all wizards.
+spellbook-fireball-desc =
+    Fires an explosive fireball at a target. Considered a classic among all wizards.
+    Doesn't require wizard's robe and hat to cast.
 
 spellbook-blink-name = Blink
-spellbook-blink-desc = Don't blink or you'll miss yourself teleporting away.
+spellbook-blink-desc =
+    This spell randomly teleports you a short distance.
+    Requires wizard's robe and hat to cast.
 
 spellbook-force-wall-name = Force Wall
-spellbook-force-wall-desc = Make three walls of pure force that you can pass through, but other's can't.
+spellbook-force-wall-desc =
+    Make three walls of pure force that you can pass through, but others can't.
+    Doesn't require wizard's robe and hat to cast.
 
 spellbook-polymoprh-spider-name = Spider Polymoprh
 spellbook-polymorph-spider-desc = Transforms you into a spider, man!
 
 spellbook-polymorph-rod-name = Rod Form
-spellbook-polymorph-rod-desc = Take on the form of an immovable rod, destroying all in your path. Upgrading this spell will also increase the rod's damage and travel range.
+spellbook-polymorph-rod-desc =
+    Take on the form of an immovable rod, destroying all in your path. Upgrading this spell will also increase the rod's damage and travel range.
+    Requires wizard's robe and hat to cast.
 
 spellbook-charge-name = Charge
-spellbook-charge-desc = Adds a charge back to your wand!
+spellbook-charge-desc =
+    This spell can be used to recharge a variety of things in your hands, from magical artifacts to electrical components. A creative wizard can even use it to grant magical power to a fellow magic user.
+    Doesn't require wizard's robe and hat to cast.
 
 spellbook-ethereal-jaunt-name = Ethereal Jaunt
 spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!

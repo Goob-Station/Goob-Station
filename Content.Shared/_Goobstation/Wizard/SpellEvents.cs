@@ -3,6 +3,7 @@ using Content.Shared.Actions;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
+using Content.Shared.Destructible.Thresholds;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
 using Content.Shared.Magic;
@@ -495,4 +496,25 @@ public sealed partial class ThrownLightningEvent : InstantActionEvent, ISpeakSpe
 
     [DataField]
     public SoundSpecifier? Sound;
+}
+
+public sealed partial class ChargeMagicEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public ProtoId<TagPrototype> WandTag = "WizardWand";
+}
+
+public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell
+{
+    [DataField]
+    public string? Speech { get; private set; }
+
+    [DataField]
+    public MinMax Radius = new(0, 6);
+
+    [DataField]
+    public EntProtoId Effect = "AdminInstantEffectSmoke3";
 }
