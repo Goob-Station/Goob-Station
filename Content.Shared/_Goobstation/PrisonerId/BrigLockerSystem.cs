@@ -1,8 +1,11 @@
 using Content.Shared.Access.Components;
+using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.StationRecords;
 using Content.Shared.Verbs;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.PrisonerId;
 
@@ -15,7 +18,8 @@ public sealed class BrigLockerSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly EntityManager _entityManager = default!;
-    [Dependency] private readonly EntityManager _audioSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -32,13 +36,23 @@ public sealed class BrigLockerSystem : EntitySystem
         // use comp.Accessed now
         if (prisonerId == default && comp.Assigned == false)
         {
-            _popupSystem.PopupClient("Make sure your holding a prisoner ID.", user); // localize
+            _popupSystem.PopupClient("Make sure your holding a prisoner ID.", uid, user); // localize
+            // error noise
              return;
         }
+
+        if (!_accessReaderSystem.IsAllowed(user, uid))
+        {
+            _popupSystem.PopupClient("Non security personnel can not assign lockers.", uid, user); // localize
+            // error noise
+            return;
+        }
+
         if (prisonerId == default)
 
         {
-            _popupSystem.PopupClient("Unassigned the locker", user); // localize
+            _popupSystem.PopupClient("Unassigned the locker", uid, user); // localize
+            // add error noise
             accessReaderComponent.AccessKeys.Clear();
             return;
         }
@@ -51,7 +65,7 @@ public sealed class BrigLockerSystem : EntitySystem
 
         accessReaderComponent.AccessKeys.Add(stationRecordKey);
 
-        _popupSystem.PopupClient("Assigned the locker", user); // localize
+        _popupSystem.PopupClient("Assigned the locker", uid, user); // localize
         comp.Assigned = true;
     }
 
@@ -69,8 +83,11 @@ public sealed class BrigLockerSystem : EntitySystem
             if (!TryComp<MetaDataComponent>(handsUid, out var metaData))
                 continue;
 
+            if (handsUid is not {} entityUid)
+                continue;
+
             if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
-                return (EntityUid) handsUid!;
+                return entityUid;
         }
 
         return default;
@@ -83,7 +100,8 @@ public sealed class BrigLockerSystem : EntitySystem
 
         args.Verbs.Add(new InteractionVerb()
         {
-            Text = "Assign", //Loc.GetString("loc-name"),Text = Loc.GetString(component.Locked ? "toggle-lock-verb-unlock" : "toggle-lock-verb-lock"),
+            Text = Loc.GetString(component.Assigned ? "toggle-assign-verb-unassign" : "toggle-assign-verb-assign"),
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/character.svg.192dpi.png")),//Loc.GetString("loc-name"),Text =
             Act = () =>
             {
                 OnInteract(uid, component, args.User);
