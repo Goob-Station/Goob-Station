@@ -1,6 +1,26 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: ACTUALLY fixed the Jensen Coat's storage this time. Sorry!
+    type: Fix
+  id: 118
+  time: '2025-01-17T16:19:02.312405'
+- author: AstroDogeDX
+  changes:
+  - message: Derelict borg and ion storm events have had their min pop requirements
+      adjusted.
+    type: Tweak
+  id: 117
+  time: '2025-01-17T16:25:55.893069'
+- author: AstroDogeDX
+  changes:
+  - message: Various tweaks and fixes to the illeism speech trait. It should be more
+      consistent and grammatically correct now!
+    type: Tweak
+  id: 116
+  time: '2025-01-17T16:19:25.892048'
+- author: AstroDogeDX
+  changes:
   - message: Mothroaches are now non-targets to station pets. Viva la mothroach!
     type: Fix
   id: 115
