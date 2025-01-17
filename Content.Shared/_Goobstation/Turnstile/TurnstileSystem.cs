@@ -133,15 +133,13 @@ public sealed class TurnstileSystem : EntitySystem
                 continue;
             }
 
-            if (!TryComp<MetaDataComponent>(slotEntity, out var pdaIdMetaData))
+            if (!TryComp<MetaDataComponent>(pdaComponent.ContainedId, out var pdaIdMetaData))
                 continue;
 
             if (pdaIdMetaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
                 return (EntityUid) pdaComponent.ContainedId!;
         }
-
-
-
+        
         return EntityUid.Invalid;
     }
 
