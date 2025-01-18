@@ -41,7 +41,7 @@
 
 - type: entity
   id: TurnstileEntrance
-  name: Turnstile [Entrance]
+  name: turnstile [Entrance]
   parent: BaseTurnstile
   components:
   - type: StationAiWhitelist
@@ -50,7 +50,7 @@
 
 - type: entity
   id: TurnstileExit
-  name: Turnstile [Exit]
+  name: turnstile [Exit]
   parent: BaseTurnstile
   components:
   - type: StationAiWhitelist
