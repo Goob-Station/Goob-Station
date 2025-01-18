@@ -4255,3 +4255,9 @@ Entries:
       message: HoS and Warden armored coat palletes updated.
   id: 477
   time: '2025-01-17T21:29:38.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Blob is now Gloob
+  id: 478
+  time: '2025-01-18T02:28:15.0000000+00:00'
