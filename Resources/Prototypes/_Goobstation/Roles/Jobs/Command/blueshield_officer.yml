@@ -24,6 +24,11 @@
   canBeAntag: false
   access:
   - Security
+  - Hydroponics
+  - Cargo
+  - Salvage
+  - Kitchen
+  - Atmospherics
   - Brig
   - External
   - Cryogenics
@@ -48,7 +53,7 @@
     gloves: ClothingHandsGlovesCombat
     id: BlueshieldPDA
     ears: ClothingHeadsetAltCommand
-    belt: ClothingBeltSecurityFilled
+    belt: ClothingBeltAssaultFilled
     pocket1: UniqueBlueshieldOfficerLockerTeleporter
     pocket2: PinpointerNuclear
     suitstorage: WeaponLeverChester
