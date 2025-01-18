@@ -18,11 +18,10 @@ public sealed class TurnstileSystem : EntitySystem
 {
     [Dependency] private readonly SharedPhysicsSystem _physicsSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
-    [Dependency] protected readonly SharedAudioSystem _audioSystem = default!;
-    [Dependency] protected readonly AccessReaderSystem _accessReaderSystem = default!;
-    [Dependency] protected readonly SharedAccessSystem _accessSystem = default!;
-    [Dependency] protected readonly InventorySystem _inventorySystem = default!;
-    [Dependency] protected readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
+    [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
+    [Dependency] private readonly InventorySystem _inventorySystem = default!;
+    [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
 
 
 
@@ -84,26 +83,22 @@ public sealed class TurnstileSystem : EntitySystem
         Timer.Spawn(500,
             () =>
             {
-                StartPrisonerTime(otherEntity);
+                StartPrisonerTime(otherEntity, comp);
                 _physicsSystem.SetCanCollide(uid, true);
             });
     }
 
-    private void StartPrisonerTime(EntityUid ent)
+    private void StartPrisonerTime(EntityUid ent, TurnstileComponent comp)
     {
-        Logger.Debug("firing event");
-        var id = FindId(ent);
+        var id = FindId(ent, comp);
         if (id == default)
-        {
-            Logger.Debug("Didnt find prisoner ID");
             return;
-        }
 
         // tell the id to start counting :)
         RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
     }
 
-    private EntityUid FindId(EntityUid ent)
+    private EntityUid FindId(EntityUid ent, TurnstileComponent comp)
     {
         var slotEnumerator = _inventorySystem.GetSlotEnumerator(ent);
         using var handsEnumerator = _handsSystem.EnumerateHands(ent).GetEnumerator();
@@ -121,7 +116,7 @@ public sealed class TurnstileSystem : EntitySystem
             if (uid is not { } handId)
                 continue;
 
-            if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+            if (metaData?.EntityPrototype?.ID == comp.Check)
                 return handId;
         }
 
@@ -136,7 +131,7 @@ public sealed class TurnstileSystem : EntitySystem
             if (!TryComp<MetaDataComponent>(pdaComponent.ContainedId, out var pdaIdMetaData))
                 continue;
 
-            if (pdaIdMetaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+            if (pdaIdMetaData?.EntityPrototype?.ID == comp.Check)
                 return pdaComponent.ContainedId ?? default;
         }
 

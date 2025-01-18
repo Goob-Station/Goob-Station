@@ -31,18 +31,18 @@ public sealed class BrigLockerSystem : EntitySystem
         if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
             return;
         EntityUid prisonerId = default;
-        prisonerId = GetPrisonerId(uid, user);
+        prisonerId = GetPrisonerId(uid, comp, user);
         // use comp.Accessed now
         if (prisonerId == default && comp.Assigned == false)
         {
-            _popupSystem.PopupClient("Make sure your holding a prisoner ID.", uid, user); // localize
+            _popupSystem.PopupClient(Loc.GetString("brig-locker-id-popup"), uid, user); // localize
             _audioSystem.PlayPredicted(comp.DenySound, uid, user);
              return;
         }
 
         if (!_accessReaderSystem.IsAllowed(user, uid))
         {
-            _popupSystem.PopupClient("Non security personnel can not assign lockers.", uid, user); // localize
+            _popupSystem.PopupClient(Loc.GetString("brig-locker-personnel-popup"), uid, user); // localize
             _audioSystem.PlayPredicted(comp.DenySound, uid, user);
             return;
         }
@@ -50,7 +50,7 @@ public sealed class BrigLockerSystem : EntitySystem
         if (prisonerId == default)
 
         {
-            _popupSystem.PopupClient("Unassigned the locker", uid, user); // localize
+            _popupSystem.PopupClient(Loc.GetString("brig-locker-unassign-popup"), uid, user); // localize
             // add error noise
             accessReaderComponent.AccessKeys.Clear();
             return;
@@ -64,11 +64,11 @@ public sealed class BrigLockerSystem : EntitySystem
 
         accessReaderComponent.AccessKeys.Add(stationRecordKey);
 
-        _popupSystem.PopupClient("Assigned the locker", uid, user); // localize
+        _popupSystem.PopupClient(Loc.GetString("brig-locker-assign-popup"), uid, user); // localize
         comp.Assigned = true;
     }
 
-    private EntityUid GetPrisonerId(EntityUid uid, EntityUid user)
+    private EntityUid GetPrisonerId(EntityUid uid, BrigLockerComponent comp, EntityUid user)
     {
         using var handsEnumerator = _handsSystem.EnumerateHands(user).GetEnumerator();
 
@@ -85,7 +85,7 @@ public sealed class BrigLockerSystem : EntitySystem
             if (handsUid is not {} entityUid)
                 continue;
 
-            if (metaData?.EntityPrototype?.ID == "PrisonerID") // unhardcode
+            if (metaData?.EntityPrototype?.ID == comp.Check)
                 return entityUid;
         }
 

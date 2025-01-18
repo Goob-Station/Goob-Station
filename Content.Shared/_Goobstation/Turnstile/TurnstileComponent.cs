@@ -13,13 +13,21 @@ public sealed partial class TurnstileComponent : Component
 
     public Vector2 AllowedDirection = new Vector2(0, 1); // North
 
+    /// <summary>
+    /// Sound to play if the turnstile access is accepted.
     /// </summary>
     [DataField("accessSound")]
     public SoundSpecifier? AccessSound;
 
     /// <summary>
-    /// Sound to play if the door is denied.
+    /// Sound to play if the turnstile access is denied.
     /// </summary>
     [DataField("denySound")]
     public SoundSpecifier? DenySound;
+
+    /// <summary>
+    /// Prototype name to search for.
+    /// </summary>
+    [DataField("check")]
+    public string Check;
 }

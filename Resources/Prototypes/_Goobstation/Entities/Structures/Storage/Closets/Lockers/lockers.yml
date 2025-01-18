@@ -40,3 +40,4 @@
   - type: BrigLocker
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+    check: PrisonerID

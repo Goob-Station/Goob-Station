@@ -15,4 +15,7 @@ public sealed partial class BrigLockerComponent : Component
 
     [DataField("denySound")]
     public SoundSpecifier? DenySound;
+
+    [DataField("check")]
+    public string Check;
 }

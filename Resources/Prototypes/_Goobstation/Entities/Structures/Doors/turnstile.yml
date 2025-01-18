@@ -28,6 +28,7 @@
         - AirlockLayer
         hard: true
   - type: Turnstile
+    check: PrisonerID
     accessSound:
       path: /Audio/_Goobstation/Machines/turnstile.ogg
     denySound:
