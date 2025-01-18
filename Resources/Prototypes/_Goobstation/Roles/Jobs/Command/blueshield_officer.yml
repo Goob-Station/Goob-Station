@@ -24,11 +24,6 @@
   canBeAntag: false
   access:
   - Security
-  - Hydroponics
-  - Cargo
-  - Salvage
-  - Kitchen
-  - Atmospherics
   - Brig
   - External
   - Cryogenics
