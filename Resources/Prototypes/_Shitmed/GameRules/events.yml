@@ -1,0 +1,69 @@
+- type: entity
+  parent: BaseGameRule
+  id: LoneAbductorSpawn
+  components:
+  - type: StationEvent
+    earliestStart: 15
+    weight: 7.5
+    minimumPlayers: 10
+    duration: 1
+  - type: RuleGrids
+  - type: LoadMapRule
+    mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
+  - type: AntagObjectives
+    objectives:
+    - AbductObjective
+  - type: AntagLoadProfileRule
+    speciesHardOverride: Abductor
+  - type: AntagSelection
+    definitions:
+    - spawnerPrototype: LoneAbductorSpawner
+      min: 1
+      max: 1
+      pickPlayer: false
+      startingGear: LoneAbductorGear
+      briefing:
+        text: abductor-role-greeting
+        color: Green
+        sound: /Audio/_Shitmed/Misc/abductor.ogg
+      components:
+      - type: Abductor
+      - type: Muted
+      - type: AbductorScientist
+      - type: SurgeryIgnoreClothing
+      - type: SurgerySpeedModifier
+        speedModifier: 1.5
+      - type: ActionGrant
+        actions:
+        - ActionReturnToShip
+      - type: Tag
+        tags:
+          - Abductor
+          - AbductorScientist
+          - CanPilot
+          - FootstepSound
+          - DoorBumpOpener
+      - type: NpcFactionMember
+        factions:
+        - SimpleHostile
+      mindRoles:
+      - MindRoleLoneAbductor
+
+- type: entity
+  parent: BaseGameRule
+  id: AbductorVictim
+  components:
+  - type: AbductorVictimRule
+  - type: AntagSelection
+    definitions:
+    - mindRoles:
+      - MindRoleAbductorVictim
+      briefing:
+        text: abductor-victim-role-greeting
+        color: Red
+        sound: /Audio/_Shitmed/Misc/abducted.ogg
+  - type: AntagRandomObjectives
+    maxDifficulty: 1
+    sets:
+    - maxPicks: 1
+      groups: AbductorVictimObjectiveGroups
