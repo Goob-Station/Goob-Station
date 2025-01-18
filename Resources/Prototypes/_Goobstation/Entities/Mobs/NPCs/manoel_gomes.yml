@@ -1,0 +1,23 @@
+- type: entity
+  name: Manoel Gomes
+  description: The blue pen.
+  id: MobBluePen
+  parent: BaseMusic
+  components:
+  - type: Sprite
+    scale: 0.256, 0.256
+    drawdepth: Mobs
+    sprite: bluepen.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: alive
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    enabled: true
+    sound:
+      path: /Audio/_Goobstation/GodSounds/god.ogg
+  - type: Grammar
+    attributes:
+      gender: la-ele
+  - type: BluePen
