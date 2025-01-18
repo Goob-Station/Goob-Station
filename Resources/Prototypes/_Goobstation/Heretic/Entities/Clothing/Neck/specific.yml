@@ -25,6 +25,7 @@
     - type: Clothing
       sprite: _Goobstation/Heretic/eldritch_medalion.rsi
     - type: ThermalVision
+      isEquipment: true
       isActive: true
       color: white
       drawOverlay: false
