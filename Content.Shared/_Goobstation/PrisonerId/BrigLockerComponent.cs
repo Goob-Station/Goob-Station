@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._Goobstation.PrisonerId;
@@ -11,4 +12,7 @@ public sealed partial class BrigLockerComponent : Component
 {
     [DataField,AutoNetworkedField]
     public bool Assigned = false;
+
+    [DataField("denySound")]
+    public SoundSpecifier? DenySound;
 }

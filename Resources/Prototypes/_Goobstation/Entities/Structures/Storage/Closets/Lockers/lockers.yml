@@ -28,7 +28,6 @@
     stateDoorOpen: ntr_open
     stateDoorClosed: ntr_door
 
-
 - type: entity
   id: LockerBrig
   name: brig locker
@@ -39,3 +38,5 @@
   - type: AccessReader
     access: [["Security"]]
   - type: BrigLocker
+    denySound:
+      path: /Audio/Machines/airlock_deny.ogg

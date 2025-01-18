@@ -17,7 +17,6 @@ public sealed class BrigLockerSystem : EntitySystem
 
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
-    [Dependency] private readonly EntityManager _entityManager = default!;
     [Dependency] private readonly SharedAudioSystem _audioSystem = default!;
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
 
@@ -37,14 +36,14 @@ public sealed class BrigLockerSystem : EntitySystem
         if (prisonerId == default && comp.Assigned == false)
         {
             _popupSystem.PopupClient("Make sure your holding a prisoner ID.", uid, user); // localize
-            // error noise
+            _audioSystem.PlayPredicted(comp.DenySound, uid, user);
              return;
         }
 
         if (!_accessReaderSystem.IsAllowed(user, uid))
         {
             _popupSystem.PopupClient("Non security personnel can not assign lockers.", uid, user); // localize
-            // error noise
+            _audioSystem.PlayPredicted(comp.DenySound, uid, user);
             return;
         }
 
@@ -101,7 +100,7 @@ public sealed class BrigLockerSystem : EntitySystem
         args.Verbs.Add(new InteractionVerb()
         {
             Text = Loc.GetString(component.Assigned ? "toggle-assign-verb-unassign" : "toggle-assign-verb-assign"),
-            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/character.svg.192dpi.png")),//Loc.GetString("loc-name"),Text =
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/character.svg.192dpi.png")),//Loc.GetString("loc-name"),Text =
             Act = () =>
             {
                 OnInteract(uid, component, args.User);
