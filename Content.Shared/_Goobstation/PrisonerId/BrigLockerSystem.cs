@@ -30,8 +30,8 @@ public sealed class BrigLockerSystem : EntitySystem
     {
         if (!TryComp<AccessReaderComponent>(uid, out var accessReaderComponent))
             return;
-        EntityUid prisonerId = default;
-        prisonerId = GetPrisonerId(uid, comp, user);
+        
+        var prisonerId = GetPrisonerId(uid, comp, user);
         // use comp.Accessed now
         if (prisonerId == default && comp.Assigned == false)
         {
