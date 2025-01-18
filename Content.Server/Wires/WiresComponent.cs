@@ -67,4 +67,8 @@ public sealed partial class WiresComponent : Component
 
     [DataField]
     public SoundSpecifier PulseSound = new SoundPathSpecifier("/Audio/Effects/multitool_pulse.ogg");
+
+    // Shitmed Change
+    [ViewVariables]
+    public bool viewWires = false;
 }
