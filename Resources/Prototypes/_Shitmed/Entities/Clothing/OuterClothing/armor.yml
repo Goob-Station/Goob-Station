@@ -16,7 +16,7 @@
     states:
       stealth: !type:ItemSwitchState
         verb: stealth
-        hiden: true
+        hidden: true
         sprite:
           sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
           state: icon
@@ -36,7 +36,7 @@
 
       combat: !type:ItemSwitchState
         verb: combat
-        hiden: true
+        hidden: true
         sprite:
           sprite: _Shitmed/Clothing/OuterClothing/Armor/abductor.rsi
           state: combat-icon
