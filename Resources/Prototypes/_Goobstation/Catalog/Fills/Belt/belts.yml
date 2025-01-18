@@ -18,3 +18,19 @@
       - id: BurnAutoInjector
       - id: EmergencyMedipen
         amount: 3
+
+- type: entity
+  id: ClothingBeltAssaultFilled
+  parent: ClothingBeltAssault
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: Zipties
+        amount: 4
+      - id: TearGasGrenade
+      # - id: PepperSpray
+      # Pepperspray can't spawn in this belt until the other PR is merged.
+      - id: GrenadeFlashBang
+      - id: Stunbaton
+      - id: HoloprojectorSecurity
