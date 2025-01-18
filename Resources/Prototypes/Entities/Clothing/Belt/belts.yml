@@ -161,10 +161,10 @@
   - type: Appearance
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: [ClothingBeltStorageBase, ContentsExplosionResistanceBase, BaseCentcommContraband ] # Goobstation
   id: ClothingBeltAssault
   name: assault belt
-  description: A tactical assault belt.
+  description: A robust and durable belt, utilized by Central Commands operatives. # Goobstation
   components:
   - type: Sprite
     sprite: Clothing/Belt/assault.rsi
@@ -174,13 +174,12 @@
     whitelist:
       tags:
         - CigPack
-        - Taser
       components:
         - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
-        - Handcuff
+        - Zipties # Goobstation
         - BallisticAmmoProvider
         - Ammo
   - type: ItemMapper
