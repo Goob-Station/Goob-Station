@@ -29,9 +29,10 @@
   - type: TimedDespawn
     lifetime: 2
   - type: Trail
+    lerpTime: 0.05
     frequency: 0.1
-    lifetime: 0.8
-    colorLerpAmount: 0.05
+    lifetime: 1
+    colorLerpAmount: 0.4
     shader: unshaded
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -46,6 +47,8 @@
         mask:
         - Impassable
         - BulletImpassable
+  - type: HomingProjectile
+    homingSpeed: 540
 
 - type: entity
   id: ProjectileToolboxHoming
@@ -67,9 +70,10 @@
       types:
         Blunt: 30
   - type: Trail
+    lerpTime: 0.05
     frequency: 0.02
-    lifetime: 0.8
-    colorLerpAmount: 0.05
+    lifetime: 1
+    colorLerpAmount: 0.4
     sprite:
       sprite: /Textures/Objects/Tools/Toolboxes/toolbox_blue.rsi
       state: icon
@@ -84,6 +88,7 @@
         - Impassable
         - BulletImpassable
   - type: HomingProjectile
+    homingSpeed: 1080
   - type: KnockdownOnCollide
     behavior: DropIfStanding
 
@@ -111,6 +116,7 @@
     scale: 0.08
     frequency: 0.02
     lifetime: 0.3
+    lerpTime: 0.005
     colorLerpAmount: 0.06
     scaleLerpAmount: 0.03
     shader: unshaded
@@ -125,9 +131,11 @@
         - Impassable
         - BulletImpassable
   - type: SpellCard
+    rotateTime: 0.2
     flippedTrailColor: "#AA00FFDD"
   - type: HomingProjectile
-    homingSpeed: 450
+    homingTime: 0.2
+    homingSpeed: 2160
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -172,9 +180,10 @@
     - state: icon
   - type: TimedDespawn
   - type: Trail
-    frequency: 0.2
-    lifetime: 2
-    colorLerpAmount: 0.02
+    frequency: 0.3
+    lifetime: 4
+    lerpTime: 0,1
+    colorLerpAmount: 0.6
     shader: unshaded
     sprite:
       sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
@@ -214,8 +223,9 @@
   - type: Trail
     color: "#FF0BC255"
     scale: 0.08
-    frequency: 0.05
+    frequency: 0.02
     lifetime: 0.3
+    lerpTime: 0.0001
     colorLerpAmount: 0.06
     scaleLerpAmount: 0.03
     shader: unshaded

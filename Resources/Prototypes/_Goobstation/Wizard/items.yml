@@ -141,9 +141,10 @@
   - type: Trail
     scale: 0.8
     spawnTrailParticles: false
-    frequency: 0.045
-    lifetime: 0.8
-    colorLerpAmount: 0.05
+    frequency: 0.046
+    lifetime: 1
+    lerpTime: 0.03
+    colorLerpAmount: 0.2
     shader: unshaded
     sprite:
       sprite: /Textures/Effects/lightning.rsi

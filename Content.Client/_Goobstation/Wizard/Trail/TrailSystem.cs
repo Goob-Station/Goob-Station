@@ -28,6 +28,7 @@ public sealed class TrailSystem : EntitySystem
     private void OnStartup(Entity<TrailComponent> ent, ref ComponentStartup args)
     {
         ent.Comp.Accumulator = ent.Comp.Frequency;
+        ent.Comp.LerpAccumulator = ent.Comp.LerpTime;
     }
 
     private void OnRemove(Entity<TrailComponent> ent, ref ComponentRemove args)
@@ -50,6 +51,8 @@ public sealed class TrailSystem : EntitySystem
         trail.TrailData = comp.TrailData;
         trail.Shader = comp.Shader;
         trail.SpawnTrailParticles = comp.SpawnTrailParticles;
+        trail.LerpTime = comp.LerpTime;
+        trail.LerpAccumulator = comp.LerpAccumulator;
         trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
     }
 
@@ -77,16 +80,7 @@ public sealed class TrailSystem : EntitySystem
             if (frozenQuery.HasComp(uid))
                 continue;
 
-            if (trail.ColorLerpAmount > 0f || trail.ScaleLerpAmount > 0f)
-            {
-                foreach (var data in trail.TrailData.Where(data => data.Color.A > 0.01f && data.Scale > 0.01f))
-                {
-                    if (trail.ColorLerpAmount > 0f)
-                        data.Color = data.Color.WithAlpha(float.Lerp(data.Color.A, 0f, trail.ColorLerpAmount));
-                    if (trail.ScaleLerpAmount > 0f)
-                        data.Scale = float.Lerp(data.Scale, 0f, trail.ScaleLerpAmount);
-                }
-            }
+            Lerp(trail, frameTime);
 
             trail.Accumulator += frameTime;
 
@@ -143,6 +137,27 @@ public sealed class TrailSystem : EntitySystem
                 else
                     trail.CurIndex++;
             }
+        }
+    }
+
+    private void Lerp(TrailComponent trail, float frameTime)
+    {
+        if (trail is { ColorLerpAmount: <= 0f, ScaleLerpAmount: <= 0f })
+            return;
+
+        trail.LerpAccumulator += frameTime;
+
+        if (trail.LerpAccumulator <= trail.LerpTime)
+            return;
+
+        trail.LerpAccumulator = 0;
+
+        foreach (var data in trail.TrailData.Where(data => data.Color.A > 0.01f && data.Scale > 0.01f))
+        {
+            if (trail.ColorLerpAmount > 0f)
+                data.Color.A = float.Lerp(data.Color.A, 0f, trail.ColorLerpAmount);
+            if (trail.ScaleLerpAmount > 0f)
+                data.Scale = float.Lerp(data.Scale, 0f, trail.ScaleLerpAmount);
         }
     }
 }

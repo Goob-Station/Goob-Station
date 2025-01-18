@@ -126,8 +126,9 @@
   - type: NoSlip
   - type: Trail # Goobstation
     frequency: 0.1
-    lifetime: 0.8
-    colorLerpAmount: 0.03
+    lifetime: 1
+    lerpTime: 0.1
+    colorLerpAmount: 0.4
     sprite:
       sprite: /Textures/Objects/Fun/immovable_rod.rsi
       state: icon

@@ -1,6 +1,5 @@
 using System.Numerics;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._Goobstation.Wizard.Projectiles;
@@ -20,6 +19,9 @@ public sealed partial class TrailComponent : Component
 
     [DataField]
     public float Lifetime = 1f;
+
+    [DataField]
+    public float LerpTime = 0.05f;
 
     [DataField]
     public float ColorLerpAmount = 0.3f;
@@ -43,7 +45,10 @@ public sealed partial class TrailComponent : Component
     public Color Color = Color.White;
 
     [ViewVariables(VVAccess.ReadOnly)]
-    public float Accumulator = 0f;
+    public float Accumulator;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float LerpAccumulator;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public int CurIndex;

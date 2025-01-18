@@ -29,6 +29,12 @@ public sealed partial class SpellCardComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float FlipAccumulator;
+
+    [DataField]
+    public float RotateTime = 0.1f;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public float RotateAccumulator;
 }
 
 [Serializable, NetSerializable]
