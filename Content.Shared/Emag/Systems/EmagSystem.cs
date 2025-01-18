@@ -7,6 +7,7 @@ using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tag;
+using Content.Shared.Whitelist; // Shitmed - Starlight Abductors
 
 namespace Content.Shared.Emag.Systems;
 
@@ -22,6 +23,7 @@ public sealed class EmagSystem : EntitySystem
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!; // DeltaV - Add a whitelist/blacklist to the Emag
 
     public override void Initialize()
     {
@@ -53,6 +55,13 @@ public sealed class EmagSystem : EntitySystem
         if (_charges.IsEmpty(uid, charges))
         {
             _popup.PopupClient(Loc.GetString("emag-no-charges"), user, user);
+            return false;
+        }
+
+        // Shitmed - Starlight Abductors: Check if the target has a whitelist, and check if it passes
+        if (_whitelist.IsWhitelistFail(comp.ValidTargets, target))
+        {
+            _popup.PopupClient(Loc.GetString("emag-attempt-failed", ("tool", uid)), user, user);
             return false;
         }
 
