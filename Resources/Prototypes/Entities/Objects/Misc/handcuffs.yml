@@ -98,7 +98,7 @@
     sprite: Objects/Misc/zipties.rsi
     state: cuff
   - type: UseDelay # Goobstation
-    delay: 2
+    delay: 1
 
 - type: entity
   id: BaseHandcuffsBroken
