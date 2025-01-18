@@ -174,14 +174,26 @@
     whitelist:
       tags:
         - CigPack
+        - Taser
+        - SecBeltEquip
+        - Radio
+        - Sidearm
+        - MagazinePistol
+        - MagazineMagnum
+        - CombatKnife
+        - Truncheon
+        - BolaEnergy # Goobstation
       components:
         - Stunbaton
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
-        - Handcuffs
+        - Handcuff
         - BallisticAmmoProvider
-        - Ammo
+        - CartridgeAmmo
+        - DoorRemote
+        - Whistle
+        - BalloonPopper
   - type: ItemMapper
     mapLayers:
       flashbang:
