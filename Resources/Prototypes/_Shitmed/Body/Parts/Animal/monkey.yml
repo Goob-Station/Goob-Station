@@ -1,11 +1,12 @@
 # TODO: Add descriptions (many)
 
 - type: entity
-  id: PartMonkey
-  parent: [BaseItem, BasePart]
-  name: "monkey body part"
   abstract: true
+  parent: BasePart
+  id: PartMonkey
   components:
+  - type: Sprite
+    sprite: Mobs/Animals/monkey.rsi
   - type: Extractable
     juiceSolution:
       reagents:
@@ -15,12 +16,11 @@
         Quantity: 10
 
 - type: entity
+  parent: [PartMonkey, BaseTorso]
   id: TorsoMonkey
   name: "monkey torso"
-  parent: [PartMonkey, BaseTorso]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "torso_m"
   - type: Extractable
     juiceSolution:
@@ -31,12 +31,11 @@
         Quantity: 20
 
 - type: entity
+  parent: [PartMonkey, BaseHead]
   id: HeadMonkey
   name: "monkey head"
-  parent: [PartMonkey, BaseHead]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "head_m"
   - type: Extractable
     juiceSolution:
@@ -47,73 +46,65 @@
         Quantity: 10
 
 - type: entity
+  parent: [PartMonkey, BaseLeftArm]
   id: LeftArmMonkey
   name: "left monkey arm"
-  parent: [PartMonkey, BaseLeftArm]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "l_arm"
 
 - type: entity
+  parent: [PartMonkey, BaseRightArm]
   id: RightArmMonkey
   name: "right monkey arm"
-  parent: [PartMonkey, BaseRightArm]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "r_arm"
 
 - type: entity
+  parent: [PartMonkey, BaseLeftHand]
   id: LeftHandMonkey
   name: "left monkey hand"
-  parent: [PartMonkey, BaseLeftHand]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "l_hand"
 
 - type: entity
+  parent: [PartMonkey, BaseRightHand]
   id: RightHandMonkey
   name: "right monkey hand"
-  parent: [PartMonkey, BaseRightHand]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "r_hand"
 
 - type: entity
+  parent: [PartMonkey, BaseLeftLeg]
   id: LeftLegMonkey
   name: "left monkey leg"
-  parent: [PartMonkey, BaseLeftLeg]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "l_leg"
 
 - type: entity
+  parent: [PartMonkey, BaseRightLeg]
   id: RightLegMonkey
   name: "right monkey leg"
-  parent: [PartMonkey, BaseRightLeg]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "r_leg"
 
 - type: entity
+  parent: [PartMonkey, BaseLeftFoot]
   id: LeftFootMonkey
   name: "left monkey foot"
-  parent: [PartMonkey, BaseLeftFoot]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "l_foot"
 
 - type: entity
+  parent: [PartMonkey, BaseRightFoot]
   id: RightFootMonkey
   name: "right monkey foot"
-  parent: [PartMonkey, BaseRightFoot]
   components:
   - type: Sprite
-    sprite: Mobs/Animals/monkey.rsi
     state: "r_foot"
