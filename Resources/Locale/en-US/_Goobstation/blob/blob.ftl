@@ -1,4 +1,4 @@
-ent-SpawnPointGhostBlob = Blob spawner
+ent-SpawnPointGhostBlob = Gloob spawner
     .suffix = DEBUG, Ghost Role Spawner
     .desc = { ent-MarkerBase.desc }
 ent-MobBlobPod = Gloob Drop
@@ -22,11 +22,11 @@ ent-StrongBlobTile = Strong Gloob Tile
 ent-ReflectiveBlobTile = Gloob Reflective Tiles
     .desc = It reflects lasers, but does not protect against brute damage as well.
     .desc = { "" }
-objective-issuer-bglob = Gloob
+objective-issuer-blob = Gloob
 
 
-ghost-role-information-Gloobbernaut-name = Gloobbernaut
-ghost-role-information-Gloobbernaut-description = You are a Gloobbernaut. You must defend the Gloob core.
+ghost-role-information-blobbernaut-name = Gloobbernaut
+ghost-role-information-blobbernaut-description = You are a Gloobbernaut. You must defend the Gloob core.
 
 ghost-role-information-blob-name = Gloob
 ghost-role-information-blob-description = You are the Gloob Infection. Consume the station.
@@ -34,7 +34,7 @@ ghost-role-information-blob-description = You are the Gloob Infection. Consume t
 roles-antag-blob-name = Gloob
 roles-antag-blob-objective = Reach critical mass.
 
-guide-entry-Gloob = Gloob
+guide-entry-blob = Gloob
 
 # Popups
 blob-target-normal-blob-invalid = Wrong Gloob type, select a normal Gloob.
@@ -43,16 +43,16 @@ blob-target-node-blob-invalid = Wrong Gloob type, select a node Gloob.
 blob-target-close-to-resource = Too close to another resource Gloob.
 blob-target-nearby-not-node = No node or resource Gloob nearby.
 blob-target-close-to-node = Too close to another node.
-blob-target-already-produce-Gloobbernaut = This factory has already produced a Gloobbernaut.
+blob-target-already-produce-blobbernaut = This factory has already produced a Gloobbernaut.
 blob-cant-split = You can not split the Gloob core.
 blob-not-have-nodes = You have no nodes.
 blob-not-enough-resources = Not enough resources.
 blob-help = Only God can help you.
 blob-swap-chem = In development.
-blob-mob-attack-Gloob = You can not attack a Gloob.
+blob-mob-attack-blob = You can not attack a Gloob.
 blob-get-resource = +{ $point }
 blob-spent-resource = -{ $point }
-Gloobberaut-not-on-blob-tile = You are dying while not on Gloob tiles.
+blobberaut-not-on-blob-tile = You are dying while not on Gloob tiles.
 carrier-blob-alert = You have { $second } seconds left before transformation.
 
 blob-mob-zombify-second-start = { $pod } starts turning you into a zombie.
@@ -61,7 +61,7 @@ blob-mob-zombify-third-start = { $pod } starts turning { $target } into a zombie
 blob-mob-zombify-second-end = { $pod } turns you into a zombie.
 blob-mob-zombify-third-end = { $pod } turns { $target } into a zombie.
 
-Gloobberaut-factory-destroy = factory destroy
+blobberaut-factory-destroy = factory destroy
 blob-target-already-connected = already connected
 
 
@@ -101,8 +101,8 @@ blob-create-resource-action-desc = Turns selected normal Gloob into a resource G
 blob-create-node-action-name = Place Node Gloob (50)
 blob-create-node-action-desc = Turns selected normal Gloob into a node Gloob.
                                 A node Gloob will activate effects of factory and resource Gloobs, heal other Gloobs and slowly expand, destroying walls and creating normal Gloobs.
-blob-produce-Gloobbernaut-action-name = Produce a Gloobbernaut (60)
-blob-produce-Gloobbernaut-action-desc = Creates a Gloobbernaut on the selected factory. Each factory can only do this once. The Gloobbernaut will take damage outside of Gloob tiles and heal when close to nodes.
+blob-produce-blobbernaut-action-name = Produce a Gloobbernaut (60)
+blob-produce-blobbernaut-action-desc = Creates a Gloobbernaut on the selected factory. Each factory can only do this once. The Gloobbernaut will take damage outside of Gloob tiles and heal when close to nodes.
 blob-split-core-action-name = Split Core (400)
 blob-split-core-action-desc = You can only do this once. Turns selected node into an independent core that will act on its own.
 blob-swap-core-action-name = Relocate Core (200)
@@ -151,16 +151,16 @@ blob-zombie-greeting = You were infected and raised by a Gloob spore. Now you mu
 
 # End round
 blob-round-end-result =
-    { $GloobCount ->
+    { $blobCount ->
         [one] There was one Gloob infection.
-        *[other] There were {$GloobCount} Gloobs.
+        *[other] There were {$blobCount} Gloobs.
     }
 
-blob-user-was-a-Gloob = [color=gray]{$user}[/color] was a Gloob.
+blob-user-was-a-blob = [color=gray]{$user}[/color] was a Gloob.
 blob-user-was-a-blob-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a Gloob.
 blob-was-a-blob-named = [color=White]{$name}[/color] was a Gloob.
 
-preset-blob-objective-issuer-Gloob = [color=#33cc00]Gloob[/color]
+preset-blob-objective-issuer-blob = [color=#33cc00]Gloob[/color]
 
 blob-user-was-a-blob-with-objectives = [color=gray]{$user}[/color] was a Gloob who had the following objectives:
 blob-user-was-a-blob-with-objectives-named = [color=White]{$name}[/color] ([color=gray]{$user}[/color]) was a Gloob who had the following objectives:
