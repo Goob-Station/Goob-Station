@@ -71,7 +71,7 @@
 
 - type: entity
   name: zipties
-  description: Tough single-use plastic zipties, ideal for restraining rowdy prisoners.
+  description: Tough single-use plastic zipties. Ideal for restraining people temporarily, not making arrests. # Goobstation
   id: Zipties
   parent: Handcuffs
   components:
@@ -97,6 +97,8 @@
   - type: Sprite
     sprite: Objects/Misc/zipties.rsi
     state: cuff
+  - type: UseDelay # Goobstation
+    delay: 2
 
 - type: entity
   id: BaseHandcuffsBroken
