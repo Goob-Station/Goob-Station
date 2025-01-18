@@ -395,6 +395,11 @@ public sealed class AccessReaderSystem : EntitySystem
         if (IsPaused(ent) || ent.Comp.LoggingDisabled)
             return;
 
+        // Check if the accessor has a Universal ID and skip logging if they do
+        var accessTags = FindAccessTags(accessor);
+        if (accessTags.Any(tag => tag == "CentralCommand"))
+            return;
+
         string? name = null;
         if (TryComp<NameIdentifierComponent>(accessor, out var nameIdentifier))
             name = nameIdentifier.FullIdentifier;
