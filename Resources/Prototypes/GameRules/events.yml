@@ -351,8 +351,8 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 0.5 # GoobStation: was 5, vent critters bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -372,8 +372,8 @@
       path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 2 # GoobStation: was 5, critters because bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -393,8 +393,8 @@
       path: /Audio/Announcements/aliens.ogg
     earliestStart: 20
     minimumPlayers: 15
-    weight: 1 # GoobStation: was 1, vent critters bad
-    duration: 60
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -407,12 +407,13 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/Announcements/aliens.ogg
-    earliestStart: 20
-    minimumPlayers: 20
-    weight: 0.5 # GoobStation: was 1.5, vent critters bad
-    duration: 60
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05
