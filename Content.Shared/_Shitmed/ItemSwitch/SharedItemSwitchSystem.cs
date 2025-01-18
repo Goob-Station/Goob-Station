@@ -72,7 +72,6 @@ public abstract class SharedItemSwitchSystem : EntitySystem
 
         var user = args.User;
         int addedVerbs = 0;
-        args.ExtraCategories.Add(VerbCategory.Switch);
 
         foreach (var state in ent.Comp.States)
         {
