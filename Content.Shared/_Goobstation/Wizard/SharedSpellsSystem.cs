@@ -1116,6 +1116,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        _magic.Speak(ev);
+        ev.Handled = true;
+
         if (TryComp<PullerComponent>(ev.Performer, out var puller) && HasComp<PullableComponent>(puller.Pulling) &&
             RechargePerson(puller.Pulling.Value))
             return;
@@ -1123,27 +1126,25 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (TryComp(ev.Performer, out CarryingComponent? carrying) && RechargePerson(carrying.Carried))
             return;
 
-        if (TryComp(ev.Performer, out HandsComponent? hands))
-        {
-            foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
-            {
-                if (_tag.HasTag(item, ev.WandTag) &&
-                    TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
-                    basicAmmoComp is { Count: not null, Capacity: not null } &&
-                    basicAmmoComp.Count < basicAmmoComp.Capacity)
-                {
-                    _gunSystem.UpdateBasicEntityAmmoCount(item, basicAmmoComp.Capacity.Value, basicAmmoComp);
-                    PopupCharged(item, ev.Performer);
-                    break;
-                }
+        if (!TryComp(ev.Performer, out HandsComponent? hands))
+            return;
 
-                if (ChargeItem(item, ev.Performer))
-                    break;
+        foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
+        {
+            if (_tag.HasTag(item, ev.WandTag) &&
+                TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
+                basicAmmoComp is { Count: not null, Capacity: not null } &&
+                basicAmmoComp.Count < basicAmmoComp.Capacity)
+            {
+                _gunSystem.UpdateBasicEntityAmmoCount(item, basicAmmoComp.Capacity.Value, basicAmmoComp);
+                PopupCharged(item, ev.Performer);
+                break;
             }
+
+            if (ChargeItem(item, ev.Performer))
+                break;
         }
 
-        _magic.Speak(ev);
-        ev.Handled = true;
         return;
 
         bool RechargePerson(EntityUid uid)
@@ -1151,13 +1152,14 @@ public abstract class SharedSpellsSystem : EntitySystem
             if (Mind.TryGetMind(uid, out var mind, out _) &&
                 TryComp(mind, out ActionsContainerComponent? container) && RechargeAllSpells(container))
             {
-                PopupCharged(uid, ev.Performer);
-                Popup(uid, "spell-charge-spells-charged-pulled", PopupType.Medium);
+                PopupCharged(uid, ev.Performer, false);
+                _popup.PopupEntity(Loc.GetString("spell-charge-spells-charged-pulled"), uid, uid, PopupType.Medium);
                 _magic.Speak(ev);
                 ev.Handled = true;
                 return true;
             }
-            Popup(uid, "spell-charge-no-spells-to-charge-pulled", PopupType.Medium);
+
+            _popup.PopupEntity(Loc.GetString("spell-charge-no-spells-to-charge-pulled"), uid, uid, PopupType.Medium);
             return false;
         }
     }

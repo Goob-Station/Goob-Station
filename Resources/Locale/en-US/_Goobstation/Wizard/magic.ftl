@@ -22,6 +22,11 @@ spell-fail-sanguine-strike-not-weapon = {CAPITALIZE($item)} is too weak to empow
 spell-fail-cant-wear-eyepatch = Can't wear eyepatch!
 spell-fail-already-wear-eyepatch = You already have an eyepatch.
 spell-fail-no-spells = You haven't learned any spells!
+spell-fail-mindswap-changeling = You can't mindswap with the changeling!
+spell-fail-mindswap-heretic = You can't mindswap with the heretic!
+spell-fail-mindswap-ghoul = You can't mindswap with the ghoul!
+spell-fail-mindswap-ghost = You can't mindswap with the ghost!
+spell-fail-mindswap-dead = You don't particularly want to be dead!
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.
 spell-requirements-failed-speech = Missing requirements to cast this spell! You can't speak.

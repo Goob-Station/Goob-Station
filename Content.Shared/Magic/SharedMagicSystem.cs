@@ -1,18 +1,23 @@
+using System.Linq;
 using System.Numerics;
+using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
+using Content.Shared.Changeling;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Doors.Components;
 using Content.Shared.Doors.Systems;
 using Content.Shared.FixedPoint;
+using Content.Shared.Ghost;
 using Content.Shared.Gibbing.Events;
 using Content.Shared.Hands.Components;
 using Content.Shared.Hands.EntitySystems;
+using Content.Shared.Heretic;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Lock;
@@ -21,19 +26,25 @@ using Content.Shared.Magic.Events;
 using Content.Shared.Maps;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NPC.Components;
+using Content.Shared.NPC.Prototypes;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Revolutionary.Components;
 using Content.Shared.Speech.Muting;
 using Content.Shared.Storage;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
+using Content.Shared.Zombies;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Spawners;
@@ -70,6 +81,7 @@ public abstract class SharedMagicSystem : EntitySystem
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!; // Goobstation
+    [Dependency] private readonly NpcFactionSystem _faction = default!; // Goobstation
 
     public override void Initialize()
     {
@@ -589,6 +601,29 @@ public abstract class SharedMagicSystem : EntitySystem
         if (ev.Handled || !PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
+        // Goobstation start
+        if (_mobState.IsIncapacitated(ev.Target) || HasComp<ZombieComponent>(ev.Target))
+        {
+            _popup.PopupClient(Loc.GetString("spell-fail-mindswap-dead"), ev.Performer, ev.Performer);
+            return;
+        }
+
+        List<(Type, string)> blockers = new()
+        {
+            (typeof(ChangelingComponent), "changeling"),
+            // You should be able to mindswap with heretics,
+            // but all of their data and abilities are not tied to their mind, I'm not making this work.
+            (typeof(HereticComponent), "heretic"),
+            (typeof(GhoulComponent), "ghoul"),
+            // Mindswapping with aghost real.
+            (typeof(GhostComponent), "ghost"),
+            (typeof(SpectralComponent), "ghost"),
+        };
+
+        if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))
+            return;
+        // Goobstation end
+
         ev.Handled = true;
         Speak(ev);
 
@@ -611,11 +646,123 @@ public abstract class SharedMagicSystem : EntitySystem
             _mind.TransferTo(tarMind, ev.Performer);
         }
 
+        // Goobstation start
+        List<Type> components = new()
+        {
+            typeof(RevolutionaryComponent),
+            typeof(HeadRevolutionaryComponent),
+            typeof(WizardComponent),
+        };
+
+        foreach (var component in components)
+        {
+            TransferComponent(component, ev.Performer, ev.Target);
+        }
+
+        TransferFactions();
+
+        if (_net.IsServer)
+        {
+            _audio.PlayEntity(ev.Sound, ev.Target, ev.Target);
+            _audio.PlayEntity(ev.Sound, ev.Performer, ev.Performer);
+        }
+        // Goobstation end
+
         _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
         _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
-        _stun.TryParalyze(ev.Target, ev.TargetStunDuration, true);
-        _stun.TryParalyze(ev.Performer, ev.PerformerStunDuration, true);
+        _stun.TryKnockdown(ev.Target, ev.TargetStunDuration, true); // Goob edit
+        _stun.TryKnockdown(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
+
+        // Goobstation start
+        return;
+
+        void TransferFactions()
+        {
+            TryComp(ev.Performer, out NpcFactionMemberComponent? performerFaction);
+            TryComp(ev.Target, out NpcFactionMemberComponent? targetFaction);
+
+            if (performerFaction == null && targetFaction == null)
+                return;
+
+            var performerHadFaction = true;
+            var targetHadFaction = true;
+
+            if (performerFaction == null)
+            {
+                performerFaction = AddComp<NpcFactionMemberComponent>(ev.Performer);
+                performerHadFaction = false;
+            }
+
+            if (targetFaction == null)
+            {
+                targetFaction = AddComp<NpcFactionMemberComponent>(ev.Target);
+                targetHadFaction = false;
+            }
+
+            var performerFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
+            var targetFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
+
+            foreach (var faction in performerFaction.Factions)
+            {
+                performerFactions.Add(faction);
+            }
+
+            foreach (var faction in targetFaction.Factions)
+            {
+                targetFactions.Add(faction);
+            }
+
+            if (performerHadFaction)
+            {
+                Entity<NpcFactionMemberComponent?> targetFactionEnt = (ev.Target, targetFaction);
+                _faction.ClearFactions(targetFactionEnt, false);
+                _faction.AddFactions(targetFactionEnt, performerFactions);
+            }
+            else
+                RemCompDeferred(ev.Target, targetFaction);
+
+            if (targetHadFaction)
+            {
+                Entity<NpcFactionMemberComponent?> performerFactionEnt = (ev.Performer, performerFaction);
+                _faction.ClearFactions(performerFactionEnt, false);
+                _faction.AddFactions(performerFactionEnt, targetFactions);
+            }
+            else
+                RemCompDeferred(ev.Performer, performerFaction);
+
+        }
+
+        bool CheckMindswapBlocker(Type type, string message)
+        {
+            if (!HasComp(ev.Target, type))
+                return false;
+
+            _popup.PopupClient(Loc.GetString($"spell-fail-mindswap-{message}"), ev.Performer, ev.Performer);
+            return true;
+        }
+        // Goobstation end
+    }
+
+    private void TransferComponent(Type type, EntityUid a, EntityUid b)
+    {
+        var aHasComp = HasComp(a, type);
+        var bHasComp = HasComp(b, type);
+
+        if (aHasComp && bHasComp)
+            return;
+
+        var comp = _compFact.GetComponent(type);
+        if (aHasComp)
+        {
+            AddComp(b, comp);
+            RemCompDeferred(a, type);
+        }
+        else if (bHasComp)
+        {
+            AddComp(a, comp);
+            RemCompDeferred(b, type);
+        }
     }
 
     #endregion

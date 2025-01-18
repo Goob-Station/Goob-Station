@@ -31,7 +31,10 @@ spellbook-ethereal-jaunt-name = Ethereal Jaunt
 spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!
 
 spellbook-mind-swap-name = Mind Swap
-spellbook-mind-swap-description = Exchange bodies with another person!
+spellbook-mind-swap-description =
+    Allows you to switch bodies with a target next to you. You will both be knocked down when this happens, and it will be quite obvious that you are the target's body if someone watches you do it.
+    Doesn't work on changelings, heretics, ghouls and ghosts.
+    Doesn't require wizard's robe and hat to cast.
 
 # Equipment
 
