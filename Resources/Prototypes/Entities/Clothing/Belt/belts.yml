@@ -179,7 +179,7 @@
         - FlashOnTrigger
         - SmokeOnTrigger
         - Flash
-        - Zipties # Goobstation
+        - Handcuffs
         - BallisticAmmoProvider
         - Ammo
   - type: ItemMapper
