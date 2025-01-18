@@ -7,6 +7,8 @@
     raiseOnUser: true # Goobstation
     useDelay: 60 # Goob edit
     itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier # Goobstation
+      path: /Audio/_Goobstation/Wizard/charge.ogg
     icon:
       sprite: _Goobstation/Wizard/actions.rsi # Goob edit
       state: charge # Goob edit

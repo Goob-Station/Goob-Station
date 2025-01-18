@@ -514,7 +514,4 @@ public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public MinMax Radius = new(0, 6);
-
-    [DataField]
-    public EntProtoId Effect = "AdminInstantEffectSmoke3";
 }

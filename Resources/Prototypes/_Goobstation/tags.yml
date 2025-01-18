@@ -97,6 +97,9 @@
 - type: Tag
   id: SyringeArmor
 
+- type: Tag
+  id: IgnoreImmovableRod
+
 # Mechs
 
 - type: Tag

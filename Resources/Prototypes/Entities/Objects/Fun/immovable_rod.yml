@@ -11,8 +11,8 @@
     state: icon
     noRot: false
   - type: ImmovableRod
-    minSpeed: 6 # Goobstation
-    maxSpeed: 13 # Goobstation
+    minSpeed: 18 # Goobstation
+    maxSpeed: 18 # Goobstation
   - type: Physics
     bodyType: Dynamic
     linearDamping: 0
@@ -25,12 +25,14 @@
       fix1:
         shape:
           !type:PhysShapeAabb # Goob edit
-          bounds: "-0.05,-0.5,0.05,0.5"
-        density: 10
+          bounds: "-0.1,-0.5,0.1,0.5"
+        density: 5
         hard: false
-        layer:
+        mask: # Goob edit
         - Impassable
         - Opaque
+        layer: # Goobstation
+        - MidImpassable
   - type: WarpPoint
     follow: true
     location: immovable rod
@@ -61,8 +63,8 @@
       fix1:
         shape:
           !type:PhysShapeAabb # Goob edit
-          bounds: "-0.05,-0.5,0.05,0.5"
-        density: 10
+          bounds: "-0.1,-0.5,0.1,0.5"
+        density: 5
         hard: false
         layer:
         - Impassable
@@ -101,7 +103,9 @@
   suffix: Wizard
   components:
   - type: ImmovableRod
+    minSpeed: 6 # Goob edit
     maxSpeed: 6 # Goob edit
+    hitSoundProbability: 1 # Goob edit
     destroyTiles: false
     randomizeVelocity: false
     shouldGib: false

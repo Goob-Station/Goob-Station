@@ -517,10 +517,6 @@ public sealed class SpellsSystem : SharedSpellsSystem
     {
         base.Blink(ev);
 
-        var xform = Transform(ev.Performer);
-
-        Spawn(ev.Effect, xform.Coordinates);
         _teleport.RandomTeleport(ev.Performer, ev.Radius);
-        Spawn(ev.Effect, xform.Coordinates);
     }
 }
