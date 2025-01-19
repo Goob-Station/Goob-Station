@@ -430,6 +430,12 @@
         Отсутствие умысла 
       </Box>
     </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Наказание предыдущей степени тяжести 
+      </Box>
+    </ColorBox>
+    <ColorBox> 
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Пособничество 
@@ -445,7 +451,6 @@
         Отказ от сотрудничества 
       </Box>
     </ColorBox>
-  </Table>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Увеличение наказания на 50%  
@@ -471,5 +476,5 @@
         Увеличение наказания на 50% 
       </Box>
     </ColorBox>
-
+  </Table>
 </Document>
