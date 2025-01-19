@@ -138,7 +138,8 @@
   - ShibaRuleR2
   - ShibaRuleR3
   - ShibaRuleR4
-  - ShibaRuleR5
+  - ShibaRuleR5-0
+  - ShibaRuleR5-1
   - ShibaRuleR6
   - ShibaRuleR7
   - ShibaRuleR8
@@ -178,11 +179,18 @@
   text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR4ReasonablePerson.xml"
 
 - type: guideEntry
-  id: ShibaRuleR5
+  id: ShibaRuleR5-0
   name: "Roleplay Rule 5"
   ruleEntry: true
   priority: 5
-  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5SelfAntag.xml"
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5-0SelfAntag.xml"
+
+- type: guideEntry
+  id: ShibaRuleR5-1
+  name: "Roleplay Rule 5-1"
+  ruleEntry: true
+  priority: 5
+  text: "/ServerInfo/_ShibaStation/Guidebook/ServerRules/RoleplayRules/ShibaRuleR5-1AcceptableCollateral.xml"
 
 - type: guideEntry
   id: ShibaRuleR6
