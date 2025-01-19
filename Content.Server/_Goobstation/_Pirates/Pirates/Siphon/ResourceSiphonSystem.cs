@@ -7,14 +7,12 @@ using Content.Server.Mind;
 using Content.Server.Popups;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
-using Content.Server.Station.Components;
 using Content.Server.Station.Systems;
 using Content.Shared.Cargo.Components;
 using Content.Shared.Destructible;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Stacks;
-using Content.Shared.Station.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._Goobstation._Pirates.Pirates.Siphon;
@@ -52,7 +50,10 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
         {
             siphon.ActivationRewindClock -= frameTime;
             if (siphon.ActivationRewindClock <= 0)
+            {
+                siphon.ActivationRewindClock = siphon.ActivationRewindTime;
                 siphon.ActivationPhase = 0; // reset
+            }
         }
 
         TickTimer -= frameTime;
@@ -74,17 +75,15 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     }
     private void ActiveTick(Entity<ResourceSiphonComponent> ent)
     {
-        AllEntityQuery<BecomesStationComponent, StationMemberComponent>().MoveNext(out var eqData, out _, out _);
-        var station = _station.GetOwningStation(eqData);
-        if (station == null) return;
-
-        if (!TryComp<StationBankAccountComponent>(station, out var bank))
+        if (!GetBank(ent, out var nbank))
             return;
 
-        var funds = bank.Balance - ent.Comp.DrainRate;
+        var bank = nbank!.Value;
+
+        var funds = bank.Comp.Balance - ent.Comp.DrainRate;
         if (funds > 0)
         {
-            _cargo.DeductFunds(bank, (int) ent.Comp.DrainRate);
+            _cargo.DeductFunds(bank.Comp, (int) ent.Comp.DrainRate);
             UpdateCredits(ent, ent.Comp.DrainRate);
         }
     }
@@ -99,8 +98,7 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
     {
         if (ent.Comp.Active) return;
 
-        AllEntityQuery<StationBankAccountComponent>().MoveNext(out var bank, out _);
-        if (Transform(bank).MapID != Transform(ent).MapID)
+        if (!GetBank(ent, out _))
         {
             _popup.PopupEntity(Loc.GetString("pirate-siphon-activate-fail"), ent, args.User, Shared.Popups.PopupType.Medium);
             return;
@@ -208,5 +206,20 @@ public sealed partial class ResourceSiphonSystem : EntitySystem
             if (ent.Comp.Active)
                 ent.Comp.Active = false; // stop siphoning
         }
+    }
+
+    private bool GetBank(Entity<ResourceSiphonComponent> ent, out Entity<StationBankAccountComponent>? bank)
+    {
+        bank = null;
+        var stationent = _station.GetStationInMap(Transform(ent).MapID);
+
+        if (stationent == null)
+            return false;
+
+        if (!TryComp<StationBankAccountComponent>(stationent, out var bankaccount))
+            return false;
+
+        bank = ((EntityUid) stationent!, (StationBankAccountComponent) bankaccount!);
+        return true;
     }
 }

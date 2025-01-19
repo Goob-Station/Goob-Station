@@ -11,6 +11,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Station.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using System.Collections.Generic;
 
 namespace Content.Server._Goobstation._Pirates.GameTicking.Rules;
 
@@ -39,6 +40,7 @@ public sealed partial class PendingPirateRuleSystem : GameRuleSystem<PendingPira
                 SendAnnouncement((uid, pending), AnnouncementType.Arrival);
                 _gt.StartGameRule(_PirateSpawnRule);
                 _gt.EndGameRule(uid, gamerule);
+                break;
             }
         }
     }
