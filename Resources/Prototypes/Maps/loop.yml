@@ -1,7 +1,7 @@
 - type: gameMap
   id: Loop
   mapName: 'Loop Station'
-  mapPath: /Maps/loop.yml
+  mapPath: /Maps/_Goobstation/loop.yml # Goobstation
   minPlayers: 30
   maxPlayers: 70
   stations:
@@ -19,6 +19,8 @@
           availableJobs:
             #command
             Captain: [ 1, 1 ]
+            NanotrasenRepresentative: [ 1, 1 ]
+            BlueshieldOfficer: [ 1, 1 ]
             #service
             HeadOfPersonnel: [ 1, 1 ]
             Bartender: [ 2, 2 ]
