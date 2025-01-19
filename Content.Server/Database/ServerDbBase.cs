@@ -1870,7 +1870,7 @@ INSERT INTO player_round (players_id, rounds_id) VALUES ({players[player]}, {id}
             await using var db = await GetDb();
             var ntNames = await db.DbContext.RMCPatronRoundEndNTShoutouts
                 .Include(p => p.Patron)
-                .Where(p => p.Patron.Tier.LobbyMessage)
+                .Where(p => p.Patron.Tier.RoundEndShoutout)
                 .Where(p => !string.IsNullOrWhiteSpace(p.Name))
                 .Select(p => p.Name)
                 .ToListAsync();
