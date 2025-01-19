@@ -976,6 +976,8 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
+  - ArmorVest
+  - ArmorVestSlim
 
 - type: loadoutGroup
   id: WardenHead
