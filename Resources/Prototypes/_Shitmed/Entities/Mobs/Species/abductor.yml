@@ -11,6 +11,7 @@
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
   - type: Muted
   - type: Telepathy # Ayy lmao
+  - type: GlorpAccent # GoobStation - Glorpshit
   - type: HumanoidAppearance
     species: Abductor
   - type: Icon

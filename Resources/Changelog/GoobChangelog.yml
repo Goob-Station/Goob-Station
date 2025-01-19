@@ -4261,3 +4261,12 @@ Entries:
       message: Blob is now Gloob
   id: 478
   time: '2025-01-18T02:28:15.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Tweak
+      message: >-
+        The Abductor now speaks in a near-incomprehensible Glorp accent! But it
+        appears he has picked up on a few colloquial words... Xarple Voople Zip
+        Gnarp!
+  id: 479
+  time: '2025-01-19T15:59:02.0000000+00:00'
