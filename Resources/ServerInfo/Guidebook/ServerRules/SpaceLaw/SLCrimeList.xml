@@ -7,6 +7,7 @@
       <Box>
         1XX
         Лёгкое нарушение
+
         (До 5 минут)
       </Box>
     </ColorBox>
@@ -14,6 +15,7 @@
       <Box>
         2XX
         Среднее
+
         (5–10 минут)
       </Box>
     </ColorBox>
@@ -21,6 +23,7 @@
       <Box>
         3XX
         Тяжкое
+
         (10–15 минут)
       </Box>
     </ColorBox>
@@ -28,6 +31,7 @@
       <Box>
         4XX
         Сверхтяжкое
+
         (От 40 минут до пермабрига либо изгнание)
       </Box>
     </ColorBox>
@@ -35,6 +39,7 @@
       <Box>
         5XX
         Критическое
+
         (Пермабриг или изгнание)
       </Box>
     </ColorBox>
@@ -82,7 +87,7 @@
         Помеха работе службы безопасности
       </Box>
     </ColorBox>
-    <ColorBox Color="#2f3832">
+    <ColorBox Color="#ffba4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -169,7 +174,7 @@
         Владение боевым снаряжением
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -197,7 +202,7 @@
         Демонстрация
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -239,7 +244,7 @@
         06
       </Box>
     </ColorBox>
-    <ColorBox Color="#65b36c">
+    <ColorBox Color="#ed8a63">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Мелкая кража
       </Box>
