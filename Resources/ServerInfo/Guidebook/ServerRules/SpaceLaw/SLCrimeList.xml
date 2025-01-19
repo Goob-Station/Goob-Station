@@ -377,12 +377,12 @@
   <Table Columns="2">
     <ColorBox Color="#2c4c7b">
       <Box>
-        Ситуация 
+        Ситуация
       </Box>
     </ColorBox>
     <ColorBox Color="#2c4c7b">
       <Box>
-        Описание 
+        Описание
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -402,7 +402,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Снятие обвинений 
+        Снятие обвинений
       </Box>
     </ColorBox>
     <ColorBox Color="#ffba4c">
@@ -422,58 +422,57 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Сокращение наказания на 50% 
+        Сокращение наказания на 50%
       </Box>
     </ColorBox>
     <ColorBox Color="#ffba4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Отсутствие умысла 
+        Отсутствие умысла
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Наказание предыдущей степени тяжести 
-      </Box>
-    </ColorBox>
-    <ColorBox> 
-    <ColorBox Color="#bf4c4c">
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Пособничество 
-      </Box>
-    </ColorBox>
-    <ColorBox>
-      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Наказание за статьи, в нарушении которых оказывалась помощь 
+        Наказание предыдущей степени тяжести
       </Box>
     </ColorBox>
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Отказ от сотрудничества 
+        Пособничество
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Увеличение наказания на 50%  
+        Наказание за статьи, в нарушении которых оказывалась помощь
       </Box>
     </ColorBox>
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Рецидив 
+        Отказ от сотрудничества
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        +5 минут к наказанию за каждый случай рецидива 
+        Увеличение наказания на 50%
       </Box>
     </ColorBox>
     <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Должностное преступление 
+        Рецидив
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Увеличение наказания на 50% 
+        +5 минут к наказанию за каждый случай рецидива
+      </Box>
+    </ColorBox>
+    <ColorBox Color="#bf4c4c">
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Должностное преступление
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Увеличение наказания на 50%
       </Box>
     </ColorBox>
   </Table>
