@@ -40,7 +40,7 @@
     </ColorBox>
     <ColorBox>
       <Box>
-        Код
+         Код
       </Box>
     </ColorBox>
     <ColorBox Color="#65b36c">
@@ -310,7 +310,7 @@
   - Возвращение на станцию приговорённого к изгнанию приравнивается к побегу из пермабрига.
 
   <Table Columns="4">
-    <ColorBox Color="#bf2626">
+    <ColorBox Color="#7f7f7f">
       <Box>
         Способ содержания заключённого
       </Box>
