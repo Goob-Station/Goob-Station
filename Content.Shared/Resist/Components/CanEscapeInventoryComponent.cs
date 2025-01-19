@@ -1,8 +1,9 @@
 using Content.Shared.DoAfter;
+using Robust.Shared.GameStates;
 
-namespace Content.Server.Resist;
+namespace Content.Shared.Resist;
 
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CanEscapeInventoryComponent : Component
 {
     /// <summary>
