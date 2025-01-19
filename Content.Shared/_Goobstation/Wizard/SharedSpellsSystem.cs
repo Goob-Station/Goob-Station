@@ -728,9 +728,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (ev.Handled || !_magic.PassesSpellPrerequisites(ev.Action, ev.Performer))
             return;
 
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         if (!TryComp(ev.Action, out InstantSummonsActionComponent? summons))
             return;
 
@@ -805,7 +802,8 @@ public abstract class SharedSpellsSystem : EntitySystem
             Dirty(item, embeddable);
         }
 
-        Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
+        if (_net.IsServer) // Idk, it therew a debug assert on client once
+            Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
 
         _magic.Speak(ev);
         ev.Handled = true;

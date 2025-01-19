@@ -144,7 +144,7 @@
     frequency: 0.046
     lifetime: 1
     lerpTime: 0.03
-    colorLerpAmount: 0.2
+    particleAmount: 0
     shader: unshaded
     sprite:
       sprite: /Textures/Effects/lightning.rsi

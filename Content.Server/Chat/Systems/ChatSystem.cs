@@ -236,22 +236,22 @@ public sealed partial class ChatSystem : SharedChatSystem
         if (string.IsNullOrEmpty(message))
             return;
 
-        // This message may have a radio prefix, and should then be whispered to the resolved radio channel
-        if (checkRadioPrefix)
-        {
-            if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
-            {
-                SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker);
-                return;
-            }
-        }
-
         // Goobstation start
         var postfixEv = new GetMessagePostfixEvent();
         RaiseLocalEvent(source, postfixEv);
         if (!string.IsNullOrEmpty(postfixEv.Postfix))
             wrappedMessagePostfix = postfixEv.Postfix;
         // Goobstation end
+
+        // This message may have a radio prefix, and should then be whispered to the resolved radio channel
+        if (checkRadioPrefix)
+        {
+            if (TryProccessRadioMessage(source, message, out var modMessage, out var channel))
+            {
+                SendEntityWhisper(source, modMessage, range, channel, nameOverride, hideLog, ignoreActionBlocker, wrappedMessagePostfix); // Goob edit
+                return;
+            }
+        }
 
         // Otherwise, send whatever type.
         switch (desiredType)

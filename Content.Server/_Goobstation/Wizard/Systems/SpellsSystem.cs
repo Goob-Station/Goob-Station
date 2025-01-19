@@ -277,7 +277,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
             EnsureComp<WizardComponent>(newEnt.Value);
 
-        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, MagicSchool.Transmutation);
+        var school = MagicSchool.Transmutation;
+        if (TryComp(ev.Action.Owner, out MagicComponent? magic))
+            school = magic.School;
+
+        DelayedSpeech(ev.Speech, newEnt.Value, ev.Performer, school);
 
         return true;
     }
