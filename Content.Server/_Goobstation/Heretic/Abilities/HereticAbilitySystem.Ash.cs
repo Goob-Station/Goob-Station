@@ -97,7 +97,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 2.5f;
+        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
         var lookup = _lookup.GetEntitiesInRange(ent, power);
 
         foreach (var look in lookup)
@@ -120,7 +120,7 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
                 }
 
-                if (!flam.OnFire)
+                if (flam.OnFire)
                     _flammable.AdjustFireStacks(look, power, flam, true);
 
                 if (TryComp<MobStateComponent>(look, out var mobstat))
