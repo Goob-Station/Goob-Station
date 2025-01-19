@@ -113,11 +113,13 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                     // heals everything by base + power for each burning target
                     _stam.TryTakeStamina(ent, -(10 + power));
                     var dmgdict = dmgc.Damage.DamageDict;
+                    DamageSpecifier healSpecifier = new();
                     foreach (var key in dmgdict.Keys)
-                        dmgdict[key] -= 10f + power;
+                    {
+                        healSpecifier.DamageDict[key] = -10f - power;
+                    }
 
-                    var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    _dmg.TryChangeDamage(ent, healSpecifier, true, false, dmgc);
                 }
 
                 if (flam.OnFire)
