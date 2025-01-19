@@ -63,7 +63,7 @@
         Грандиозный саботаж
       </Box>
     </ColorBox>
-    <ColorBox Color="#65b36c">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -86,7 +86,7 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -141,11 +141,11 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#453a59">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -226,11 +226,11 @@
         Владение контрабандой
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox Color="#4d2e2e">
+    <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -239,7 +239,7 @@
         06
       </Box>
     </ColorBox>
-    <ColorBox Color="#ed8a63">
+    <ColorBox Color="#65b36c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Мелкая кража
       </Box>
@@ -249,7 +249,7 @@
         Ограбление
       </Box>
     </ColorBox>
-    <ColorBox Color="#3b4354">
+    <ColorBox Color="#ffba4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Кража
       </Box>
@@ -273,7 +273,7 @@
         Проникновение
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#ffba4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -282,7 +282,7 @@
         Вторжение
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#bf4c4c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -315,17 +315,17 @@
         Способ содержания заключённого
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#ffba4c">
       <Box>
         Вандализм
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#ed8a63">
       <Box>
         Попытка побега
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#bf4c4c">
       <Box>
         Побег
       </Box>
