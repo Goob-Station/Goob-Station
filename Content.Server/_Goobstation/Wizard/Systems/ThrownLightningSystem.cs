@@ -33,7 +33,7 @@ public sealed class ThrownLightningSystem : EntitySystem
         if (!TryComp(ent, out TrailComponent? trail))
             return;
 
-        trail.SpawnTrailParticles = false;
+        trail.ParticleAmount = 0;
         Dirty(ent.Owner, trail);
     }
 
@@ -41,7 +41,7 @@ public sealed class ThrownLightningSystem : EntitySystem
     {
         if (TryComp(ent, out TrailComponent? trail))
         {
-            trail.SpawnTrailParticles = true;
+            trail.ParticleAmount = 1;
             Dirty(ent.Owner, trail);
         }
 

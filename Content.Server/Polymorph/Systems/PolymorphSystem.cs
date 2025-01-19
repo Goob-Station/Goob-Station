@@ -272,6 +272,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         _tag.RemoveTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
+        RaiseLocalEvent(child, new PolymorphedIntoEvent(uid)); // Goobstation
+
         //Ensures a map to banish the entity to
         EnsurePausedMap();
         if (PausedMap != null)
@@ -362,10 +364,15 @@ public sealed partial class PolymorphSystem : EntitySystem
         // if an item polymorph was picked up, put it back down after reverting
         _transform.AttachToGridOrMap(parent, parentXform);
 
-        _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
-                ("parent", Identity.Entity(uid, EntityManager)),
-                ("child", Identity.Entity(parent, EntityManager))),
-            parent);
+        RaiseLocalEvent(uid, new PolymorphedIntoEvent(parent, true)); // Goobstation
+
+        if (component.Configuration.ShowPopup) // Goob edit
+        {
+            _popup.PopupEntity(Loc.GetString("polymorph-revert-popup-generic",
+                    ("parent", Identity.Entity(uid, EntityManager)),
+                    ("child", Identity.Entity(parent, EntityManager))),
+                parent);
+        }
         QueueDel(uid);
 
         // goob edit
@@ -422,4 +429,17 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (target.Comp.PolymorphActions.TryGetValue(id, out var val))
             _actions.RemoveAction(target, val);
     }
+}
+
+/// <summary>
+/// Goobstation.
+/// Raised on polymorphed entity after polymorph.
+/// </summary>
+/// <param name="parent">Entity before polymorph.</param>
+/// <param name="reverted">Wheter entity polymorphed or reverted.</param>
+public sealed class PolymorphedIntoEvent(EntityUid parent, bool reverted = false) : EntityEventArgs
+{
+    public EntityUid Parent = parent;
+
+    public bool Reverted = reverted;
 }

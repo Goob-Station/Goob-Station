@@ -14,10 +14,9 @@ public sealed partial class HomingProjectileComponent : Component
     [DataField]
     public Angle Tolerance = Angle.FromDegrees(1);
 
-
     /// <summary>
-    ///     The less this value is, the smoother homing will be, but also more laggy.
-    ///     Chaning this also changes homing speed, so you need to tweak HomingSpeed datafield.
+    /// The less this value is, the smoother homing will be, but also more laggy.
+    /// Changing this also changes homing speed, so you need to tweak <see cref="HomingSpeed"/> datafield.
     /// </summary>
     [DataField]
     public float HomingTime = 0.1f;

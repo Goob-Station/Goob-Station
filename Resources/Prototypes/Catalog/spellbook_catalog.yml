@@ -217,7 +217,7 @@
   name: spellbook-upgrade-jaunt-name
   description: spellbook-upgrade-jaunt-description
   icon:
-    sprite: Objects/Magic/magicactions.rsi
+    sprite: _Goobstation/Wizard/actions.rsi # Goob edit
     state: jaunt
   cost:
     WizCoin: 2

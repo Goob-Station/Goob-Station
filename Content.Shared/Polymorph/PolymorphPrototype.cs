@@ -135,6 +135,13 @@ public sealed partial record PolymorphConfiguration
     /// </summary>
     [DataField]
     public bool AllowMovement = true;
+
+    /// <summary>
+    ///     Goobstation
+    ///     Whether to show popup on polymorph.
+    /// </summary>
+    [DataField]
+    public bool ShowPopup = true;
 }
 
 public enum PolymorphInventoryChange : byte

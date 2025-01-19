@@ -3,7 +3,6 @@ using Content.Shared._Goobstation.Wizard.Projectiles;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using DrawDepth = Content.Shared.DrawDepth.DrawDepth;
@@ -34,10 +33,17 @@ public sealed class TrailOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
+        var eye = args.Viewport.Eye;
+
+        if (eye == null)
+            return;
+
+        var eyeRot = eye.Rotation;
         var handle = args.WorldHandle;
-        var bounds = args.WorldAABB.Enlarged(5f);
+        var bounds = args.WorldAABB;
 
         var xformQuery = _entManager.GetEntityQuery<TransformComponent>();
+        var spriteQuery = _entManager.GetEntityQuery<SpriteComponent>();
 
         var query = _entManager.EntityQueryEnumerator<TrailComponent, TransformComponent>();
         while (query.MoveNext(out _, out var trail, out var xform))
@@ -50,10 +56,41 @@ public sealed class TrailOverlay : Overlay
             else
                 handle.UseShader(null);
 
+            if (trail.RenderedEntity != null)
+            {
+                var rotation = _transform.GetWorldRotation(xform, xformQuery);
+                var dirRot = rotation + eyeRot;
+                var direction = dirRot.GetCardinalDir();
+
+                if (spriteQuery.TryComp(trail.RenderedEntity.Value, out var sprite))
+                {
+                    handle.SetTransform(Matrix3x2.Identity);
+                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+                    foreach (var data in trail.TrailData)
+                    {
+                        if (data.Color.A <= 0.01f || data.Scale <= 0.01f || data.MapId != args.MapId)
+                            continue;
+
+                        var worldPosition = data.Position;
+                        if (!bounds.Contains(worldPosition))
+                            continue;
+
+                        var originalColor = sprite.Color;
+                        var originalScale = sprite.Scale;
+                        sprite.Color = data.Color;
+                        sprite.Scale *= data.Scale;
+                        sprite.Render(handle, eyeRot, rotation, direction, worldPosition);
+                        sprite.Color = originalColor;
+                        sprite.Scale = originalScale;
+                    }
+                }
+                continue;
+            }
+
             if (trail.Sprite == null)
             {
                 handle.SetTransform(Matrix3x2.Identity);
-                if (xform.MapID != MapId.Nullspace)
+                if (xform.MapID == args.MapId)
                 {
                     var end = _transform.GetWorldPosition(xform, xformQuery);
                     var start = trail.TrailData[^1].Position;
@@ -65,7 +102,8 @@ public sealed class TrailOverlay : Overlay
                     var data = trail.TrailData[i];
                     var prevData = trail.TrailData[i - 1];
 
-                    DrawTrailLine(prevData.Position, data.Position, data.Color, data.Scale, bounds, handle);
+                    if (data.MapId == args.MapId && prevData.MapId == args.MapId)
+                        DrawTrailLine(prevData.Position, data.Position, data.Color, data.Scale, bounds, handle);
                 }
 
                 continue;
@@ -75,18 +113,18 @@ public sealed class TrailOverlay : Overlay
             var pos = -(Vector2) textureSize / 2f / EyeManager.PixelsPerMeter;
             foreach (var data in trail.TrailData)
             {
-                if (data.Color.A <= 0.01f || data.Scale <= 0.01f)
+                if (data.Color.A <= 0.01f || data.Scale <= 0.01f || data.MapId != args.MapId)
                     continue;
 
                 var worldPosition = data.Position;
                 if (!bounds.Contains(worldPosition))
                     continue;
 
-                var time = _timing.CurTime > data.SpawnTime ? _timing.CurTime - data.SpawnTime : TimeSpan.Zero;
-                var texture = _sprite.GetFrame(trail.Sprite, time);
-
                 var scaleMatrix = Matrix3x2.CreateScale(new Vector2(data.Scale, data.Scale));
                 var worldMatrix = Matrix3Helpers.CreateTranslation(worldPosition);
+
+                var time = _timing.CurTime > data.SpawnTime ? _timing.CurTime - data.SpawnTime : TimeSpan.Zero;
+                var texture = _sprite.GetFrame(trail.Sprite, time);
 
                 handle.SetTransform(Matrix3x2.Multiply(scaleMatrix, worldMatrix));
                 handle.DrawTexture(texture, pos, data.Angle, data.Color);

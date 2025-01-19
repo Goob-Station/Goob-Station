@@ -29,6 +29,9 @@
   - type: TimedDespawn
     lifetime: 2
   - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    velocity: 0.1
     lerpTime: 0.05
     frequency: 0.1
     lifetime: 1

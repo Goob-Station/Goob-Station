@@ -28,7 +28,9 @@ spellbook-charge-desc =
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-ethereal-jaunt-name = Ethereal Jaunt
-spellbook-ethereal-jaunt-description = Slip into the ethereal plane to slip away from your enemies!
+spellbook-ethereal-jaunt-description =
+    This spell turns your form ethereal, temporarily making you invisible and able to pass through walls.
+    Requires wizard's robe and hat to cast.
 
 spellbook-mind-swap-name = Mind Swap
 spellbook-mind-swap-description =
