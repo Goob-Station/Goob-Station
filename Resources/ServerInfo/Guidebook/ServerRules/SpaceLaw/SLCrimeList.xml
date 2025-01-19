@@ -87,7 +87,7 @@
         Помеха работе службы безопасности
       </Box>
     </ColorBox>
-    <ColorBox Color="#ffba4c">
+    <ColorBox Color="#ed8a63">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
@@ -244,7 +244,7 @@
         06
       </Box>
     </ColorBox>
-    <ColorBox Color="#ed8a63">
+    <ColorBox Color="#65b36c">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Мелкая кража
       </Box>
@@ -254,7 +254,7 @@
         Ограбление
       </Box>
     </ColorBox>
-    <ColorBox Color="#ffba4c">
+    <ColorBox Color="#ed8a63">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Кража
       </Box>
