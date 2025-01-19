@@ -196,22 +196,15 @@ public sealed class CarryingSystem : EntitySystem
 
     private void OnDrop<TEvent>(Entity<BeingCarriedComponent> ent, ref TEvent args) // Augh
     {
-        // If this is an escape attempt, make sure we can actually escape
+        // If this is an escape attempt, let the escape system handle it
         if (args is EscapeInventoryEvent escapeEvent)
         {
-            if (escapeEvent.Cancelled || escapeEvent.Handled)
-                return;
-
-            // If they have CanEscapeInventory, they should be able to escape
-            if (TryComp<CanEscapeInventoryComponent>(ent, out var escapeComp))
+            if (escapeEvent.Handled)
             {
-                if (escapeComp.IsEscaping)
-                    return;
-
-                escapeEvent.Handled = true;
+                // Only drop if the escape was successful
                 DropCarried(ent.Comp.Carrier, ent);
-                return;
             }
+            return;
         }
 
         DropCarried(ent.Comp.Carrier, ent);

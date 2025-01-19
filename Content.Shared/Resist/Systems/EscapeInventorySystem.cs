@@ -84,6 +84,13 @@ public abstract class SharedEscapeInventorySystem : EntitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        // Clean up the cancel action if it exists
+        if (component.EscapeCancelAction != null)
+        {
+            _actions.RemoveAction(uid, component.EscapeCancelAction);
+            component.EscapeCancelAction = null;
+        }
+
         _containerSystem.AttachParentToContainerOrGrid((uid, Transform(uid)));
         args.Handled = true;
     }
