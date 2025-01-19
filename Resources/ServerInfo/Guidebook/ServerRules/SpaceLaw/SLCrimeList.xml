@@ -315,7 +315,7 @@
   - Возвращение на станцию приговорённого к изгнанию приравнивается к побегу из пермабрига.
 
   <Table Columns="4">
-    <ColorBox>
+    <ColorBox Color="#bf2626">
       <Box>
         Способ содержания заключённого
       </Box>
@@ -347,7 +347,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Перезапуск таймера или перевод в карцер¹ на весь срок заключения
+        Перезапуск таймера или перевод в карцер на весь срок заключения
       </Box>
     </ColorBox>
     <ColorBox>
@@ -362,12 +362,12 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Перевод в карцер¹ на 10 минут
+        Перевод в карцер на 10 минут
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Перевод в карцер¹ на 10 минут. Попытка побега из карцера может караться казнью
+        Перевод в карцер на 10 минут. Попытка побега из карцера может караться казнью
       </Box>
     </ColorBox>
     <ColorBox>
