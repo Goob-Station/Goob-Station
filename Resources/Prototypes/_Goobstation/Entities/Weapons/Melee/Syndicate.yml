@@ -2,7 +2,7 @@
   name: Blackburnian heavy energy sword
   parent: [BaseMeleeWeaponEnergy, BaseSyndicateContraband]
   id: EnergySwordHeavy
-  description: A heavy energy sword often given to Starkovskies; it has been repainted to reflect Gorlex's colour scheme.
+  description: A heavy energy sword often given to Starkovskies; it has been repainted to reflect Gorlx's colour scheme.
   components:
   - type: Sprite
     sprite: _Goobstation/Objects/Weapons/Melee/heavy_e_sword.rsi
