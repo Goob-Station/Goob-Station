@@ -303,8 +303,6 @@
         types:
             Slash: 10
             Heat: 12
-    clickPartDamageMultiplier: 5 #Goob
-    heavyPartDamageMultiplier: 4 #Goob
     deactivatedSecret: true
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi
