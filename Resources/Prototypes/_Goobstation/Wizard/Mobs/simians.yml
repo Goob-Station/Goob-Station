@@ -17,6 +17,31 @@
     fadeOutTime: 4
 
 - type: entity
+  parent: MobGorillaAngry
+  id: MobGorillaWizard
+  suffix: Wizard
+  components:
+  - type: NpcFactionMember
+    factions:
+    - SimpleHostile
+    - Wizard
+  - type: Speech
+    speechVerb: LargeMob
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      250: Critical
+      350: Dead
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 50
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      210: 0.7
+      230: 0.5
+
+- type: entity
   name: monkey
   id: MobMonkeyAngry
   parent: MobBaseAncestor

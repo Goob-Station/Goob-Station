@@ -1,5 +1,5 @@
 - type: weightedRandomEntity
   id: SummonSimiansMobTable
   weights:
-    MobMonkeyAngryTemp: 5
+    MobMonkeyAngryTemp: 4
     MobGorillaAngryTemp: 1

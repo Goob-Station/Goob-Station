@@ -24,3 +24,4 @@ action-speech-spell-soul-tap = AT ANY COST!
 action-speech-spell-thrown-lightning = LIGHTNINGBOLT!!
 action-speech-spell-rod-form = CLANG!
 action-speech-spell-charge = DI'RI CEL
+action-speech-spell-gorilla-form = B'NA NAH-SLEMA!

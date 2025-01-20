@@ -322,6 +322,27 @@
   - !type:ListingLimitedStockCondition
     stock: 2
 
+- type: listing
+  id: SpellbookSummonSimiansUpgrade
+  productUpgradeId: SpellbookSummonSimiansUpgrade
+  name: spellbook-upgrade-simians-name
+  description: spellbook-upgrade-simians-desc
+  productEvent: !type:SummonSimiansMaxedOutEvent
+  raiseProductEventOnUser: true
+  icon:
+    sprite: _Goobstation/Wizard/actions.rsi
+    state: monkey
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookOffensive
+  conditions:
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSummonSimians
+  - !type:ListingLimitedStockCondition
+    stock: 4
+
 # Defensive
 - type: listing
   id: SpellbookMagicMissileUpgrade

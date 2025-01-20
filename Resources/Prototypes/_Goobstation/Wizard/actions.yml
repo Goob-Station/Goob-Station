@@ -742,6 +742,33 @@
     requiresSpeech: true
     requiresClothes: true
     school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSummonSimiansII
+      3: ActionSummonSimiansIII
+      4: ActionSummonSimiansIV
+      5: ActionSummonSimiansV
+
+- type: entity
+  id: ActionGorillaForm
+  name: Gorilla Form
+  description: Take on the shape of a powerful gorilla.
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 1
+    itemIconStyle: BigAction
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: return_to_monkey
+    event: !type:PolymorphSpellEvent
+      speech: action-speech-spell-gorilla-form
+      protoId: WizardGorilla
+      sound: !type:SoundPathSpecifier
+        path: /Audio/_Goobstation/Wizard/gorilla.ogg
+  - type: Magic
+    requiresSpeech: true
 
 - type: entity
   id: ActionSanguineStrike

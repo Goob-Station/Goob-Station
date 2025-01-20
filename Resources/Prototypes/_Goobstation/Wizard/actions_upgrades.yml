@@ -759,3 +759,97 @@
     icon:
       sprite: _Goobstation/Wizard/actions.rsi
       state: immrod
+
+# Summon Simians
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansII
+  name: Summon Simians II
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 80
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableII
+      amount: 4
+      range: 1.5
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansIII
+  name: Summon Simians III
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 70
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableIII
+      amount: 5
+      range: 2
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansIV
+  name: Summon Simians IV
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 60
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableIV
+      amount: 5
+      range: 2.5
+
+- type: entity
+  parent: ActionSummonSimians
+  id: ActionSummonSimiansV
+  name: Summon Simians V
+  components:
+  - type: InstantAction
+    raiseOnUser: true
+    checkCanIteract: false
+    useDelay: 50
+    itemIconStyle: BigAction
+    sound: !type:SoundPathSpecifier
+      path: /Audio/_Goobstation/Wizard/monkey.ogg
+    icon:
+      sprite: _Goobstation/Wizard/actions.rsi
+      state: monkey
+    event: !type:SummonSimiansEvent
+      speech: action-speech-spell-simians
+      mobs: SummonSimiansMobTable
+      weapons: SummonSimiansWeaponTableV
+      amount: 6
+      range: 3
+  - type: Magic
+    requiresClothes: false
+  - type: Tag
+    tags:
+      - SummonSimiansMaxLevelAction

@@ -97,6 +97,9 @@
 - type: Tag
   id: BlockLightning
 
+- type: Tag
+  id: SummonSimiansMaxLevelAction
+
 # Mechs
 
 - type: Tag

@@ -5,6 +5,7 @@ using Content.Server.Abilities.Mime;
 using Content.Server.Antag;
 using Content.Server.Body.Components;
 using Content.Server.Body.Systems;
+using Content.Server.Chat.Managers;
 using Content.Server.Chat.Systems;
 using Content.Server.Emp;
 using Content.Server.Explosion.EntitySystems;
@@ -24,6 +25,8 @@ using Content.Shared._Goobstation.Wizard.Chuuni;
 using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Goobstation.Wizard.SpellCards;
 using Content.Shared._Shitmed.Targeting;
+using Content.Shared.Actions;
+using Content.Shared.Chat;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.FixedPoint;
@@ -45,6 +48,7 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
@@ -55,6 +59,7 @@ namespace Content.Server._Goobstation.Wizard.Systems;
 
 public sealed class SpellsSystem : SharedSpellsSystem
 {
+    [Dependency] private readonly IChatManager _chatManager = default!;
     [Dependency] private readonly EmpSystem _emp = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly SpreaderSystem _spreader = default!;
@@ -69,6 +74,41 @@ public sealed class SpellsSystem : SharedSpellsSystem
     [Dependency] private readonly IdentitySystem _identity = default!;
     [Dependency] private readonly BatterySystem _battery = default!;
     [Dependency] private readonly TeleportSystem _teleport = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        SubscribeLocalEvent<MindContainerComponent, SummonSimiansMaxedOutEvent>(OnMonkeyAscension);
+    }
+
+    private void OnMonkeyAscension(Entity<MindContainerComponent> ent, ref SummonSimiansMaxedOutEvent args)
+    {
+        var (_, comp) = ent;
+        if (!TryComp(comp.Mind, out MindComponent? mindComp) ||
+            !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
+            return;
+
+        var tag = args.MaxLevelTag;
+
+        if (!container.Container.ContainedEntities.Any(x => Tag.HasTag(x, tag)))
+            return;
+
+        ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
+
+        if (mindComp.Session == null)
+            return;
+
+        var message = Loc.GetString("spell-summon-simians-maxed-out-message");
+        var wrappedMessage = Loc.GetString("chat-manager-server-wrap-message", ("message", message));
+        _chatManager.ChatMessageToOne(ChatChannel.Server,
+            message,
+            wrappedMessage,
+            default,
+            false,
+            mindComp.Session.Channel,
+            Color.SaddleBrown);
+    }
 
     protected override void MakeMime(EntityUid uid)
     {
@@ -276,6 +316,8 @@ public sealed class SpellsSystem : SharedSpellsSystem
 
         if (ev.MakeWizard && HasComp<WizardComponent>(ev.Performer))
             EnsureComp<WizardComponent>(newEnt.Value);
+
+        Audio.PlayPvs(ev.Sound, newEnt.Value);
 
         var school = MagicSchool.Transmutation;
         if (TryComp(ev.Action.Owner, out MagicComponent? magic))

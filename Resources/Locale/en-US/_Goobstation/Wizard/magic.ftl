@@ -44,3 +44,5 @@ spell-soul-tap-message = Your body feels drained and there is a burning pain in 
 spell-charge-spells-charged-pulled = You feel raw magic flowing through you. It feels good!
 spell-charge-no-spells-to-charge-pulled = You feel very strange for a moment, but then it passes.
 spell-charge-spells-charged-entity = {CAPITALIZE($entity)} suddenly feels very warm!
+
+spell-summon-simians-maxed-out-message = Your simian power has reached maximum capacity! You can now cast this spell naked, and have additionally been granted a gorilla transformation spell!

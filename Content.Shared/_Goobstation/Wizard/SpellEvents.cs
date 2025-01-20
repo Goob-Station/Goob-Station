@@ -228,6 +228,9 @@ public sealed partial class PolymorphSpellEvent : InstantActionEvent, ISpeakSpel
 
     [DataField]
     public bool MakeWizard = true;
+
+    [DataField]
+    public SoundSpecifier? Sound;
 }
 
 public sealed partial class MutateSpellEvent : InstantActionEvent, ISpeakSpell
@@ -511,4 +514,14 @@ public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public MinMax Radius = new(0, 6);
+}
+
+[DataDefinition]
+public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
+{
+    [DataField]
+    public EntProtoId Action = "ActionGorillaForm";
+
+    [DataField]
+    public ProtoId<TagPrototype> MaxLevelTag = "SummonSimiansMaxLevelAction";
 }

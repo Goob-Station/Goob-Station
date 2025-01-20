@@ -101,6 +101,9 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly SharedRoleSystem Role = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
     [Dependency] protected readonly GrammarSystem Grammar = default!;
+    [Dependency] protected readonly SharedAudioSystem Audio = default!;
+    [Dependency] protected readonly ActionContainerSystem ActionContainer = default!;
+    [Dependency] protected readonly TagSystem Tag = default!;
     [Dependency] private   readonly INetManager _net = default!;
     [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
@@ -116,8 +119,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] private   readonly SharedTeslaBlastSystem _teslaBlast = default!;
     [Dependency] private   readonly SharedActionsSystem _actions = default!;
     [Dependency] private   readonly ExamineSystemShared _examine = default!;
-    [Dependency] private   readonly TagSystem _tag = default!;
-    [Dependency] private   readonly SharedAudioSystem _audio = default!;
     [Dependency] private   readonly ConfirmableActionSystem _confirmableAction = default!;
     [Dependency] private   readonly SharedWizardTeleportSystem _teleport = default!;
     [Dependency] private   readonly PullingSystem _pulling = default!;
@@ -677,7 +678,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         }
 
         if (_inventory.TryGetSlotEntity(ev.Target, "mask", out var ent, inventory) &&
-            HasComp<UnremoveableComponent>(ent) && _tag.HasTag(ent.Value, ev.CursedMaskTag))
+            HasComp<UnremoveableComponent>(ent) && Tag.HasTag(ent.Value, ev.CursedMaskTag))
         {
             Popup(ev.Performer, "spell-fail-target-cursed");
             return;
@@ -696,7 +697,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SetGear(ev.Target, gear, inventoryComponent: inventory);
 
         if (sound != null)
-            _audio.PlayEntity(sound, Filter.Pvs(ev.Target), ev.Target, true);
+            Audio.PlayEntity(sound, Filter.Pvs(ev.Target), ev.Target, true);
 
         // This should transform into animal noise
         Speak(ev.Target, "!");
@@ -790,7 +791,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             item = container.Owner;
 
         if (_net.IsServer)
-            _audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
+            Audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
 
         TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
         TransformSystem.AttachToGridOrMap(item);
@@ -968,7 +969,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         SetGear(ev.Performer, ev.Gear, inventoryComponent: inventory);
 
         if (_net.IsServer && _inventory.TryGetSlotEntity(ev.Performer, "head", out var hat, inventory) &&
-            _tag.HasTag(hat.Value, ev.WizardHatTag))
+            Tag.HasTag(hat.Value, ev.WizardHatTag))
             QueueDel(hat.Value);
 
         _magic.Speak(ev);
@@ -1020,7 +1021,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         void Teleport(EntityUid uid, MapCoordinates coords)
         {
             _pulling.StopAllPulls(uid);
-            _audio.PlayPvs(ev.Sound, uid);
+            Audio.PlayPvs(ev.Sound, uid);
             TransformSystem.SetMapCoordinates(uid, coords);
             Spawn(ev.Effect, coords);
             Physics.WakeBody(uid);
@@ -1033,7 +1034,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
 
         if (!Mind.TryGetMind(ev.Performer, out var mind, out _) || HasComp<SoulBoundComponent>(mind) ||
-            _tag.HasTag(ev.Performer, ev.DeadTag))
+            Tag.HasTag(ev.Performer, ev.DeadTag))
         {
             Popup(ev.Performer, "spell-fail-no-soul");
             return;
@@ -1067,7 +1068,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         if (kill)
         {
-            _tag.AddTag(ev.Performer, ev.DeadTag);
+            Tag.AddTag(ev.Performer, ev.DeadTag);
 
             Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
 
@@ -1104,7 +1105,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (packet == null)
             return;
 
-        _audio.PlayEntity(ev.Sound, Filter.Pvs(packet.Value), packet.Value, true);
+        Audio.PlayEntity(ev.Sound, Filter.Pvs(packet.Value), packet.Value, true);
 
         ev.Handled = true;
     }
@@ -1129,7 +1130,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
         {
-            if (_tag.HasTag(item, ev.WandTag) &&
+            if (Tag.HasTag(item, ev.WandTag) &&
                 TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
                 basicAmmoComp is { Count: not null, Capacity: not null } &&
                 basicAmmoComp.Count < basicAmmoComp.Capacity)

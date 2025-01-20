@@ -216,6 +216,7 @@
 
 - type: listing
   id: SpellbookSummonSimians
+  productUpgradeId: SpellbookSummonSimiansUpgrade
   name: spellbook-simians-name
   description: spellbook-simians-desc
   productAction: ActionSummonSimians

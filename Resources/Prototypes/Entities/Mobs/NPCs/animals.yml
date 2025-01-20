@@ -1148,6 +1148,10 @@
       0: Alive
       120: Critical
       220: Dead
+  - type: SlowOnDamage # Goobstation
+    speedModifierThresholds:
+      80: 0.7
+      100: 0.5
 
 - type: entity
   name: kangaroo

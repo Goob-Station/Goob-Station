@@ -87,3 +87,6 @@ spellbook-upgrade-spell-cards-desc = Upgrades Spell Cards to a maximum of level 
 
 spellbook-upgrade-force-wall-name = Force Wall Upgrade
 spellbook-upgrade-force-wall-desc = Upgrades Force Wall to a maximum of level 5!
+
+spellbook-upgrade-simians-name = Summon Simians Upgrade
+spellbook-upgrade-simians-desc = Upgrades Summon Simians to a maximum of level 5!

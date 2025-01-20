@@ -49,3 +49,13 @@
     forced: true
     revertOnCrit: false
     revertOnDeath: false
+
+- type: polymorph
+  id: WizardGorilla
+  configuration:
+    entity: MobGorillaWizard
+    transferName: true
+    transferDamage: true
+    inventory: None
+    revertOnCrit: true
+    revertOnDeath: true
