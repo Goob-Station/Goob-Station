@@ -17,6 +17,8 @@
     damage:
       types:
         Slash: 10
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Sprite

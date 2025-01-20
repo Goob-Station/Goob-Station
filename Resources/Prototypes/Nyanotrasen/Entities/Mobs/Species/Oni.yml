@@ -17,6 +17,15 @@
         Slash: 1.2
         Piercing: 1.2
         Asphyxiation: 1.35
+  - type: Clumsy
+    gunShootFailDamage:
+      types:
+        Blunt: 5
+        Piercing: 5
+      groups:
+        Burn: 5
+    clumsySound:
+      path: /Audio/_Goobstation/Voice/OniScream.ogg
   - type: Damageable
     damageModifierSet: Oni
   - type: Body

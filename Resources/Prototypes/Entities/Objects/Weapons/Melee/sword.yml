@@ -33,6 +33,8 @@
     damage:
       types:
         Slash: 19 #cmon, it has to be at least BETTER than the rest. # Goob edit
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -62,6 +64,8 @@
     damage:
       types:
         Slash: 15
+    clickPartDamageMultiplier: 12 #Goob
+    heavyPartDamageMultiplier: 8 #Goob
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -81,6 +85,8 @@
     damage:
       types:
         Slash: 30
+    clickPartDamageMultiplier: 8 #Goob
+    heavyPartDamageMultiplier: 6 #Goob
   - type: Item
     sprite: Objects/Weapons/Melee/energykatana.rsi
   - type: EnergyKatana
@@ -114,6 +120,8 @@
     damage:
       types:
         Slash: 15
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -133,6 +141,8 @@
     damage:
       types:
         Slash: 20
+    clickPartDamageMultiplier: 8 #Goob
+    heavyPartDamageMultiplier: 6 #Goob
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -157,6 +167,8 @@
     damage:
       types:
         Slash: 16
+    clickPartDamageMultiplier: 8 #Goob
+    heavyPartDamageMultiplier: 6 #Goob
     soundHit:
         path: /Audio/Weapons/bladeslice.ogg
   - type: Item
@@ -181,6 +193,8 @@
           Heat: 20
           Piercing: 20
           Radiation: 10
+      clickPartDamageMultiplier: 2000 #Goob
+      heavyPartDamageMultiplier: 2000 #Goob
       soundHit:
         path: /Audio/Effects/explosion_small1.ogg
     - type: Reflect # Goob edit

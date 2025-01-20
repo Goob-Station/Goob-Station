@@ -65,6 +65,8 @@
     damage:
       types:
         Slash: 10
+    clickPartDamageMultiplier: 6
+    heavyPartDamageMultiplier: 4
   - type: Item
     size: Normal
   - type: Clothing
@@ -94,6 +96,8 @@
       types:
         Slash: 8
         Piercing: 2
+    clickPartDamageMultiplier: 6
+    heavyPartDamageMultiplier: 4
   - type: Item
     sprite: Objects/Tools/Hydroponics/hatchet.rsi
   - type: BoneSaw # Shitmed

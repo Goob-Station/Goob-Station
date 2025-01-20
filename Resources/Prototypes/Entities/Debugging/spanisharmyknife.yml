@@ -20,6 +20,8 @@
     damage:
       types:
         Slash: 10
+    clickPartDamageMultiplier: 6
+    heavyPartDamageMultiplier: 4
   - type: ToolTileCompatible
   - type: Tool
   - type: Prying

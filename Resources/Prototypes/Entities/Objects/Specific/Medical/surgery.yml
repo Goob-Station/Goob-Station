@@ -101,6 +101,8 @@
     damage:
       types:
         Slash: 8
+    clickPartDamageMultiplier: 5
+    heavyPartDamageMultiplier: 4
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   # Shitmed Change
@@ -142,6 +144,8 @@
     damage:
       types:
         Slash: 12
+    clickPartDamageMultiplier: 5
+    heavyPartDamageMultiplier: 4
   - type: Scalpel # Shitmed
     speed: 1.25
 
@@ -417,6 +421,8 @@
       types:
         Slash: 10
         Heat: 1
+    clickPartDamageMultiplier: 5
+    heavyPartDamageMultiplier: 4
   - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Steel: 150

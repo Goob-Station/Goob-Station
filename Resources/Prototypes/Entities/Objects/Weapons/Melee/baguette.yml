@@ -8,6 +8,8 @@
     damage:
       types:
         Slash: 16
+    clickPartDamageMultiplier: 6 #Goob content
+    heavyPartDamageMultiplier: 4 #Goob content
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: Reflect

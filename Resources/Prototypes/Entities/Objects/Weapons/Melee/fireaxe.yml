@@ -24,6 +24,8 @@
         Blunt: 5
         Slash: 10
         Structural: 10
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     soundHit:
       collection: MetalThud
   - type: Wieldable
@@ -71,7 +73,7 @@
     heavyStaminaCost: 35 # goob edit
     attackRate: 0.5  # goob edit
   - type: IgniteOnMeleeHit
-    fireStacks: 5 #Goobchange
+    fireStacks: 3 #Goobchange
   - type: Sprite
     sprite: Objects/Weapons/Melee/fireaxeflaming.rsi
     state: icon

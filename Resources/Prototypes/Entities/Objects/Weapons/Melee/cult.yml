@@ -14,6 +14,8 @@
     damage:
       types:
         Slash: 12
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
   - type: Item
     size: Normal
   - type: Clothing
@@ -38,6 +40,8 @@
     damage:
       types:
         Slash: 16
+    clickPartDamageMultiplier: 6
+    heavyPartDamageMultiplier: 4
   - type: Item
     size: Normal
   - type: Clothing
@@ -67,6 +71,8 @@
         Blunt: 10
         Slash: 10
         Structural: 5
+    clickPartDamageMultiplier: 6 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     soundHit:
       collection: MetalThud
   - type: Wieldable

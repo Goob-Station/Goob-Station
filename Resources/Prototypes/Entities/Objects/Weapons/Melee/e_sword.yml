@@ -66,7 +66,8 @@
     damage:
       types:
         Blunt: 4.5
-    clickPartDamageMultiplier: 4 #goob content
+    clickPartDamageMultiplier: 6
+    heavyPartDamageMultiplier: 4
   - type: Item
     size: Small
   - type: UseDelay
@@ -226,6 +227,8 @@
       types:
         Slash: 10
         Heat: 10
+    clickPartDamageMultiplier: 5 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
   - type: ComponentToggler
     components:
     - type: Sharp
@@ -302,6 +305,8 @@
         types:
             Slash: 10
             Heat: 12
+    clickPartDamageMultiplier: 5 #Goob
+    heavyPartDamageMultiplier: 4 #Goob
     deactivatedSecret: true
   - type: Sprite
     sprite: Objects/Weapons/Melee/e_cutlass.rsi

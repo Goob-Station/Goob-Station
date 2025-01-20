@@ -449,12 +449,12 @@ public partial class SharedBodySystem
     {
         return partType switch
         {
-            BodyPartType.Head => 0.5f, // 50% damage
-            BodyPartType.Torso => 1.0f, // 100% damage
-            BodyPartType.Arm => 1.0f, // 100% damage
-            BodyPartType.Hand => 2.0f, // 200% damage
-            BodyPartType.Leg => 0.6f, // 60% damage
-            BodyPartType.Foot => 2.5f, // 250% damage
+            BodyPartType.Head => 0.12f, // 12% damage
+            BodyPartType.Torso => 0.25f, // 25% damage
+            BodyPartType.Arm => 0.25f, // 25% damage
+            BodyPartType.Hand => 0.25f, // 25% damage
+            BodyPartType.Leg => 0.25f, // 25% damage
+            BodyPartType.Foot => 0.25f, // 25% damage
             _ => 0.5f
         };
     }
@@ -487,11 +487,11 @@ public partial class SharedBodySystem
     {
         return partType switch
         {
-            BodyPartType.Head => 0.70f,  // 70% chance to evade
-            BodyPartType.Arm => 0.25f,   // 25% chance to evade
-            BodyPartType.Hand => 0.25f, // 25% chance to evade
-            BodyPartType.Leg => 0.50f,   // 50% chance to evade
-            BodyPartType.Foot => 0.25f, // 25% chance to evade
+            BodyPartType.Head => 0.75f,  // 75% chance to evade
+            BodyPartType.Arm => 0.20f,   // 20% chance to evade
+            BodyPartType.Hand => 0.20f, // 20% chance to evade
+            BodyPartType.Leg => 0.40f,   // 40% chance to evade
+            BodyPartType.Foot => 0.40f, // 40% chance to evade
             BodyPartType.Torso => 0f, // 0% chance to evade
             _ => 0f
         };
