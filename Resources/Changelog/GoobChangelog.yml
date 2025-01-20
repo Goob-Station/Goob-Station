@@ -4284,3 +4284,11 @@ Entries:
         including hardsuits.
   id: 481
   time: '2025-01-20T16:34:56.0000000+00:00'
+- author: MJ Sailor
+  changes:
+    - type: Fix
+      message: Nightwatcher's rebirth now won't delimb or gib you.
+    - type: Fix
+      message: Fixed ritual of knowledge stealing your clothes and organs.
+  id: 482
+  time: '2025-01-20T17:12:41.0000000+00:00'
