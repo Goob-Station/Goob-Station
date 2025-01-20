@@ -236,6 +236,7 @@ namespace Content.Server.GameTicking
 
             _roles.MindAddJobRole(newMind, silent: silent, jobPrototype:jobId);
             var jobName = _jobs.MindTryGetJobName(newMind);
+            _admin.UpdatePlayerList(player);
 
             if (lateJoin && !silent)
             {
