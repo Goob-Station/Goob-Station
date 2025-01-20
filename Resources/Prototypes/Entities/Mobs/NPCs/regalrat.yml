@@ -421,21 +421,3 @@
       !type:RatKingOrderActionEvent
       type: Loose
     priority: 8
-
-- type: entity
-  id: ActionRatKingOrderLoose
-  name: Loose
-  description: Command your army to act at their own will.
-  components:
-  - type: InstantAction
-    useDelay: 1
-    icon:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: looseOff
-    iconOn:
-      sprite: Interface/Actions/actions_rat_king.rsi
-      state: loose
-    event:
-      !type:RatKingOrderActionEvent
-      type: Loose
-    priority: 8
