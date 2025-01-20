@@ -35,7 +35,7 @@
     lerpTime: 0.05
     frequency: 0.1
     lifetime: 1
-    colorLerpAmount: 0.4
+    alphaLerpAmount: 0.4
     shader: unshaded
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
@@ -76,7 +76,7 @@
     lerpTime: 0.05
     frequency: 0.02
     lifetime: 1
-    colorLerpAmount: 0.4
+    alphaLerpAmount: 0.4
     sprite:
       sprite: /Textures/Objects/Tools/Toolboxes/toolbox_blue.rsi
       state: icon
@@ -120,8 +120,8 @@
     frequency: 0.02
     lifetime: 0.3
     lerpTime: 0.005
-    colorLerpAmount: 0.06
-    scaleLerpAmount: 0.03
+    alphaLerpAmount: 0.1
+    scaleLerpAmount: 0.08
     shader: unshaded
   - type: Fixtures
     fixtures:
@@ -186,7 +186,7 @@
     frequency: 0.3
     lifetime: 4
     lerpTime: 0,1
-    colorLerpAmount: 0.6
+    alphaLerpAmount: 0.6
     shader: unshaded
     sprite:
       sprite: /Textures/_Goobstation/Wizard/Projectiles/lichparticle.rsi
@@ -229,8 +229,8 @@
     frequency: 0.02
     lifetime: 0.3
     lerpTime: 0.0001
-    colorLerpAmount: 0.06
-    scaleLerpAmount: 0.03
+    alphaLerpAmount: 0.2
+    scaleLerpAmount: 0.08
     shader: unshaded
   - type: Fixtures
     fixtures:

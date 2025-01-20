@@ -35,6 +35,8 @@ public sealed class TrailSystem : EntitySystem
         _xformQuery = GetEntityQuery<TransformComponent>();
         _frozenQuery = GetEntityQuery<FrozenComponent>();
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+
+        UpdatesOutsidePrediction = true;
     }
 
     private void OnStartup(Entity<TrailComponent> ent, ref ComponentStartup args)
@@ -62,11 +64,11 @@ public sealed class TrailSystem : EntitySystem
         trail.SpawnRemainingTrail = false;
         trail.Frequency = 0f;
         trail.Lifetime = comp.Lifetime;
-        trail.ColorLerpAmount = comp.ColorLerpAmount;
+        trail.AlphaLerpAmount = comp.AlphaLerpAmount;
         trail.ScaleLerpAmount = comp.ScaleLerpAmount;
         trail.VelocityLerpAmount = comp.VelocityLerpAmount;
         trail.PositionLerpAmount = comp.PositionLerpAmount;
-        trail.ColorLerpTarget = comp.ColorLerpTarget;
+        trail.AlphaLerpTarget = comp.AlphaLerpTarget;
         trail.ScaleLerpTarget = comp.ScaleLerpTarget;
         trail.Sprite = comp.Sprite;
         trail.Color = comp.Color;
@@ -90,9 +92,12 @@ public sealed class TrailSystem : EntitySystem
         _overlay.RemoveOverlay<TrailOverlay>();
     }
 
-    public override void FrameUpdate(float frameTime)
+    public override void Update(float frameTime)
     {
-        base.FrameUpdate(frameTime);
+        base.Update(frameTime);
+
+        if (!_timing.IsFirstTimePredicted)
+            return;
 
         var query = EntityQueryEnumerator<TrailComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var trail, out var xform))
@@ -215,7 +220,7 @@ public sealed class TrailSystem : EntitySystem
             {
                 if (trail is
                     {
-                        ColorLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, VelocityLerpAmount: <= 0f, Velocity: 0f,
+                        AlphaLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, VelocityLerpAmount: <= 0f, Velocity: 0f,
                         PositionLerpAmount: <= 0f,
                     })
                     return;
@@ -232,7 +237,7 @@ public sealed class TrailSystem : EntitySystem
     {
         if (trail is
             {
-                ColorLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, Velocity: 0f, VelocityLerpAmount: <= 0f,
+                AlphaLerpAmount: <= 0f, ScaleLerpAmount: <= 0f, Velocity: 0f, VelocityLerpAmount: <= 0f,
                 PositionLerpAmount: <= 0f,
             })
             return;
@@ -246,12 +251,15 @@ public sealed class TrailSystem : EntitySystem
 
         foreach (var data in trail.TrailData)
         {
-            if (trail.ColorLerpAmount > 0f)
-                data.Color = Color.InterpolateBetween(data.Color, trail.ColorLerpTarget, trail.ColorLerpAmount);
+            if (trail.AlphaLerpAmount > 0f)
+            {
+                var alphaTarget = trail.AlphaLerpTarget is >= 0f and <= 1f ? trail.AlphaLerpTarget : 0f;
+                data.Color.A = float.Lerp(data.Color.A, alphaTarget, trail.AlphaLerpAmount);
+            }
 
             if (trail.ScaleLerpAmount > 0f)
             {
-                var scaleTarget = trail.ScaleLerpTarget >= 0 ? trail.ScaleLerpTarget : 0f;
+                var scaleTarget = trail.ScaleLerpTarget >= 0f ? trail.ScaleLerpTarget : 0f;
                 data.Scale = float.Lerp(data.Scale, scaleTarget, trail.ScaleLerpAmount);
             }
 

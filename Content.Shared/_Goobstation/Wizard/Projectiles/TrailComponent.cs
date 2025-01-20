@@ -68,16 +68,16 @@ public sealed partial class TrailComponent : Component
 
     /// <summary>
     /// Less value for smoother lerps and more lag. You can get away with much less value, really.
-    /// Affects <see cref="ColorLerpAmount"/>, <see cref="ScaleLerpAmount"/> and <see cref="Velocity"/>
+    /// Affects <see cref="AlphaLerpAmount"/>, <see cref="ScaleLerpAmount"/> and <see cref="Velocity"/>
     /// </summary>
     [DataField]
     public float LerpTime = 0.05f;
 
     /// <summary>
-    /// Color lerps to <see cref="ColorLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
+    /// Color alpga lerps to <see cref="AlphaLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
     /// </summary>
     [DataField]
-    public float ColorLerpAmount = 0.3f;
+    public float AlphaLerpAmount = 0.3f;
 
     /// <summary>
     /// Scale lerps to <see cref="ScaleLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
@@ -98,10 +98,10 @@ public sealed partial class TrailComponent : Component
     public float PositionLerpAmount;
 
     /// <summary>
-    /// Color lerps to this value every <see cref="LerpTime"/> seconds.
+    /// Color alpha lerps to this value every <see cref="LerpTime"/> seconds.
     /// </summary>
     [DataField]
-    public Color ColorLerpTarget = Color.FromHex("#FFFFFF00");
+    public float AlphaLerpTarget;
 
     /// <summary>
     /// Scale lerps to this value every <see cref="LerpTime"/> seconds.

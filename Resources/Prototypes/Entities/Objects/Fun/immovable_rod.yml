@@ -128,7 +128,7 @@
     frequency: 0.1
     lifetime: 1
     lerpTime: 0.1
-    colorLerpAmount: 0.4
+    alphaLerpAmount: 0.4
     sprite:
       sprite: /Textures/Objects/Fun/immovable_rod.rsi
       state: icon

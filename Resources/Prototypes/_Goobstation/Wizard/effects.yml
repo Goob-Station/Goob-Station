@@ -209,14 +209,14 @@
   - type: Trail
     endAngle: 320
     particleAmount: 0 # WizardJauntComponent handles that
-    velocity: -0.3
-    lerpTime: 0.05
+    velocity: -0.4
+    lerpTime: 0.02
     frequency: 10
     lifetime: 3
-    colorLerpAmount: 0.1
-    velocityLerpAmount: 0.1
+    alphaLerpAmount: 0.05
+    velocityLerpAmount: 0.07
     velocityLerpTarget: 0.3
-    colorLerpTarget: "#0000FF00"
+    alphaLerpTarget: 0
     color: "#0000FFFF"
     shader: Stealth
     spawnRemainingTrail: false
@@ -237,9 +237,9 @@
     lerpTime: 0.01
     frequency: 10
     lifetime: 2.2
-    colorLerpAmount: 0.005
-    colorLerpTarget: "#0000FFFF"
-    positionLerpAmount: 0.05
+    alphaLerpAmount: 0.01
+    alphaLerpTarget: 1
+    positionLerpAmount: 0.08
     radius: 12
     color: "#0000FF00"
     shader: Stealth
