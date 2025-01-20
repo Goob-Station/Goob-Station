@@ -172,10 +172,10 @@ public sealed class BeamSystem : SharedBeamSystem
     /// <param name="controller"></param>
     /// <param name="beamAction">Goobstation. Action that is called on each beam entity.</param>
     /// <param name="accumulateIndex">Goobstation. Whether to accumulate NextIndex.</param>
-    public void TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goob edit
+    public bool TryCreateBeam(EntityUid user, EntityUid target, string bodyPrototype, string? bodyState = null, string shader = "unshaded", EntityUid? controller = null, Action<EntityUid>? beamAction = null, bool accumulateIndex = true) // Goob edit
     {
         if (Deleted(user) || Deleted(target))
-            return;
+            return false; // Goob edit
 
         var userMapPos = _transform.GetMapCoordinates(user);
         var targetMapPos = _transform.GetMapCoordinates(target);
@@ -185,14 +185,14 @@ public sealed class BeamSystem : SharedBeamSystem
         var userAngle = calculatedDistance.ToWorldAngle();
 
         if (userMapPos.MapId != targetMapPos.MapId)
-            return;
+            return false; // Goob edit
 
         //Where the start of the beam will spawn
         var beamStartPos = userMapPos.Offset(calculatedDistance.Normalized());
 
         //Don't divide by zero
         if (calculatedDistance.Length() == 0)
-            return;
+            return false; // Goob edit
 
         if (controller != null && TryComp<BeamComponent>(controller, out var controllerBeamComp))
         {
@@ -209,5 +209,7 @@ public sealed class BeamSystem : SharedBeamSystem
 
         var ev = new CreateBeamSuccessEvent(user, target);
         RaiseLocalEvent(user, ev);
+
+        return true; // Goobstation
     }
 }

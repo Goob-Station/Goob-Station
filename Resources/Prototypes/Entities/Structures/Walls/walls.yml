@@ -1354,10 +1354,23 @@
     - type: Airtight
     - type: Sprite
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      layers:
+      - state: forcewall
+        map: [ "base" ]
     - type: Icon
       sprite: Structures/Magic/forcewall.rsi
-      state: forcewall
+      state: forcewallspawn
+    # Goobstation start
+    - type: SpawnAnimation
+      animationLength: 1
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.SpawnAnimationVisuals.Spawned:
+          base:
+            True: { state: forcewall }
+            False: { state: forcewallspawn }
+    # Goobstation end
 
 - type: entity
   parent: BaseWall

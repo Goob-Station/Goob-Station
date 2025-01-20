@@ -67,7 +67,7 @@ public sealed class LightningSystem : SharedLightningSystem
 
         var direction = targetMapPos.Position - userMapPos.Position;
         var length = direction.Length();
-        if (length < 0.01f)
+        if (length == 0f)
             return false;
 
         var ray = new CollisionRay(userMapPos.Position,
@@ -87,7 +87,8 @@ public sealed class LightningSystem : SharedLightningSystem
         // Goobstation end
 
         var spriteState = LightningRandomizer();
-        _beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction, accumulateIndex: accumulateIndex); // Goob edit
+        if (!_beam.TryCreateBeam(user, target, lightningPrototype, spriteState, beamAction: beamAction, accumulateIndex: accumulateIndex)) // Goob edit
+            return false;
 
         if (triggerLightningEvents) // we don't want certain prototypes to trigger lightning level events
         {
