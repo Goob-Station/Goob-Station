@@ -6,7 +6,7 @@ namespace Content.DiscordBot.Modules;
 public sealed class AccountLinkingModule : ModuleBase<SocketCommandContext>
 {
     [Command("create")]
-    [RequireOwner]
+    [RequireUserPermission(GuildPermission.Administrator)]
     public Task CreateAsync()
     {
         var component = new ComponentBuilder()

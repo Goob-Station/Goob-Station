@@ -12,11 +12,13 @@ client.Log += Logger.Log;
 
 string? token = null;
 string? connectionString = null;
+string? guildId = null;
 if (File.Exists("config.json"))
 {
     var config = await JsonSerializer.DeserializeAsync<Config>(File.OpenRead("config.json")) ?? new Config();
     token = config.Token;
     connectionString = config.DatabaseString;
+    guildId = config.GuildID;
 }
 
 #if DEBUG
@@ -25,6 +27,9 @@ if (Environment.GetEnvironmentVariable("DISCORD_TOKEN") is { } envToken)
 
 if (Environment.GetEnvironmentVariable("DATABASE_STRING") is { } dbString)
     connectionString = dbString;
+
+if (Environment.GetEnvironmentVariable("GUILD_ID") is { } guildID)
+    guildId = guildID;
 #endif
 
 if (string.IsNullOrWhiteSpace(token))
@@ -32,6 +37,9 @@ if (string.IsNullOrWhiteSpace(token))
 
 if (string.IsNullOrWhiteSpace(connectionString))
     throw new ArgumentException("No database connection string found.");
+
+if (string.IsNullOrWhiteSpace(guildId))
+    throw new ArgumentException("No guild id string found.");
 
 await client.LoginAsync(TokenType.Bot, token);
 await client.StartAsync();
@@ -42,7 +50,7 @@ var db = new PostgresServerDbContext(builder.Options);
 // await db.Database.MigrateAsync();
 
 var interaction = new InteractionService(client);
-var handler = new CommandHandler(client, new CommandService(), interaction, db);
+var handler = new CommandHandler(client, new CommandService(), interaction, db, Convert.ToUInt64(guildId));
 
 AppDomain.CurrentDomain.ProcessExit += (_, _) => Interlocked.Decrement(ref handler.Running);
 

@@ -10,10 +10,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Content.DiscordBot;
 
-public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, PostgresServerDbContext db)
+public sealed class CommandHandler(DiscordSocketClient client, CommandService commands, InteractionService interaction, PostgresServerDbContext db, ulong Guild)
 {
-    private const ulong Guild = 1319131093970190520;
-
     private ImmutableDictionary<ulong, RMCPatronTier>? _patronTiers;
     private ImmutableArray<RMCPatronTier> _tierPriority;
     private Task? _refreshPatronsTask;
