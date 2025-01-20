@@ -36,6 +36,7 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
+    maxReagents: 6
 
 - type: entity
   id: OrganYowieLungs
