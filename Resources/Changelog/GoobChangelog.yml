@@ -4270,3 +4270,9 @@ Entries:
         Gnarp!
   id: 479
   time: '2025-01-19T15:59:02.0000000+00:00'
+- author: Durk, Piras314
+  changes:
+    - type: Add
+      message: Added Patreon Perks!
+  id: 480
+  time: '2025-01-20T02:50:59.0000000+00:00'
