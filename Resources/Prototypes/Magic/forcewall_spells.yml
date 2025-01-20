@@ -20,3 +20,9 @@
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionForceWallII
+      3: ActionForceWallIII
+      4: ActionForceWallIV
+      5: ActionForceWallV

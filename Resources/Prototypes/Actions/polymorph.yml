@@ -30,7 +30,7 @@
 - type: entity
   id: ActionPolymorphWizardRod
   name: Rod Form
-  description: Take on the form of an immovable rod, destroying all in your path.
+  description: Take on the form of an immovable rod, destroying everything in your path.
   components:
   - type: InstantAction
     raiseOnUser: true # Goobstation
@@ -47,6 +47,12 @@
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionPolymorphWizardRodII
+      3: ActionPolymorphWizardRodIII
+      4: ActionPolymorphWizardRodIV
+      5: ActionPolymorphWizardRodV
 
 - type: entity
   id: ActionPolymorphJaunt
@@ -57,7 +63,7 @@
     requiresClothes: true # Goobstation
     school: Translocation # Goobstation
   - type: InstantAction
-    useDelay: 36 # Goob edit
+    useDelay: 30
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
     event: !type:PolymorphSpellEvent # Goob edit
@@ -80,7 +86,7 @@
   description: Melt into the Ethereal Plane for an even quicker getaway!
   components:
   - type: InstantAction
-    useDelay: 28 # Goob edit
+    useDelay: 22 # Goob edit
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
     event: !type:PolymorphSpellEvent # Goob edit
@@ -98,7 +104,7 @@
   description: Are you even tangible anymore?
   components:
   - type: InstantAction
-    useDelay: 20 # Goob edit
+    useDelay: 14 # Goob edit
     raiseOnUser: true # Goobstation
     checkCanInteract: false # Goobstation
     event: !type:PolymorphSpellEvent # Goob edit

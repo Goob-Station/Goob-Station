@@ -23,3 +23,7 @@
     requiresClothes: true
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSmiteII
+      3: ActionSmiteIII

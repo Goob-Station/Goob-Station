@@ -321,9 +321,6 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpe
 
     [DataField]
     public Vector2 MinMaxLinearDamping = new (3f, 7f);
-
-    [DataField]
-    public TimeSpan UseDelay = TimeSpan.FromSeconds(6f);
 }
 
 public sealed partial class ArcaneBarrageEvent : InstantActionEvent, ISpeakSpell

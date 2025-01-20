@@ -17,3 +17,9 @@
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionChargeII
+      3: ActionChargeIII
+      4: ActionChargeIV
+      5: ActionChargeV

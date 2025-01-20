@@ -17,7 +17,7 @@ spellbook-cluwne-curse-desc =
 
 spellbook-magic-missile-name = Magic Missile
 spellbook-magic-missile-desc =
-    This spell fires several stunning, slow moving, magic projectiles at nearby targets.
+    This spell fires several stunning, slow moving, homing magic projectiles at nearby targets.
     Requires wizard's robe and hat to cast.
 
 spellbook-disable-tech-name = Disable Technology

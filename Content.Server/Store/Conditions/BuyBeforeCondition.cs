@@ -11,12 +11,13 @@ public sealed partial class BuyBeforeCondition : ListingCondition
     /// <summary>
     ///     Required listing(s) needed to purchase before this listing is available
     /// </summary>
-    [DataField(required: true)]
-    public HashSet<ProtoId<ListingPrototype>> Whitelist;
+    [DataField] // Goob edit
+    public HashSet<ProtoId<ListingPrototype>>? Whitelist; // Goob edit
 
     /// <summary>
     ///     Listing(s) that if bought, block this purchase, if any.
     /// </summary>
+    [DataField] // Goobstation
     public HashSet<ProtoId<ListingPrototype>>? Blacklist;
 
     public override bool Condition(ListingConditionArgs args)
@@ -39,6 +40,9 @@ public sealed partial class BuyBeforeCondition : ListingCondition
                 }
             }
         }
+
+        if (Whitelist == null) // Goobstation
+            return true;
 
         foreach (var requiredListing in Whitelist)
         {

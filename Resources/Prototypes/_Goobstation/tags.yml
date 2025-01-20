@@ -80,12 +80,6 @@
   id: CartridgeMagicBullet
 
 - type: Tag
-  id: ArcaneBarrageAction
-
-- type: Tag
-  id: LesserSummonGunsAction
-
-- type: Tag
   id: CursedAnimalMask
 
 - type: Tag

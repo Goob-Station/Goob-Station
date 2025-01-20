@@ -1,6 +1,7 @@
 # Offensive
 - type: listing
   id: SpellbookMimeMalaise
+  productUpgradeId: SpellbookMimeMalaiseUpgrade
   name: spellbook-mime-malaise-name
   description: spellbook-mime-malaise-desc
   productAction: ActionMimeMalaise
@@ -14,6 +15,7 @@
 
 - type: listing
   id: SpellbookBananaTouch
+  productUpgradeId: SpellbookBananaTouchUpgrade
   name: spellbook-banana-touch-name
   description: spellbook-banana-touch-desc
   productAction: ActionBananaTouch
@@ -27,6 +29,7 @@
 
 - type: listing
   id: SpellbookCluwneCurse
+  productUpgradeId: SpellbookCluwneCurseUpgrade
   name: spellbook-cluwne-curse-name
   description: spellbook-cluwne-curse-desc
   productAction: ActionCluwneCurse
@@ -53,6 +56,7 @@
 
 - type: listing
   id: SpellbookBlind
+  productUpgradeId: SpellbookBlindUpgrade
   name: spellbook-blind-name
   description: spellbook-blind-desc
   productAction: ActionBlindSpell
@@ -66,6 +70,7 @@
 
 - type: listing
   id: SpellbookMutate
+  productUpgradeId: SpellbookMutateUpgrade
   name: spellbook-mutate-name
   description: spellbook-mutate-desc
   productAction: ActionMutateSpell
@@ -79,6 +84,7 @@
 
 - type: listing
   id: SpellbookTeslaBlast
+  productUpgradeId: SpellbookTeslaBlastUpgrade
   name: spellbook-tesla-blast-name
   description: spellbook-tesla-blast-desc
   productAction: ActionTeslaBlast
@@ -92,6 +98,7 @@
 
 - type: listing
   id: SpellbookLightningBolt
+  productUpgradeId: SpellbookLightningBoltUpgrade
   name: spellbook-lightning-bolt-name
   description: spellbook-lightning-bolt-desc
   productAction: ActionLightningBolt
@@ -105,6 +112,7 @@
 
 - type: listing
   id: SpellbookHomingToolbox
+  productUpgradeId: SpellbookHomingToolboxUpgrade
   name: spellbook-homing-toolbox-name
   description: spellbook-homing-toolbox-desc
   productAction: ActionHomingToolbox
@@ -118,6 +126,7 @@
 
 - type: listing
   id: SpellbookSpellCards
+  productUpgradeId: SpellbookSpellCardsUpgrade
   name: spellbook-spell-cards-name
   description: spellbook-spell-cards-desc
   productAction: ActionSpellCards
@@ -131,6 +140,7 @@
 
 - type: listing
   id: SpellbookArcaneBarrage
+  productUpgradeId: SpellbookArcaneBarrageUpgrade
   name: spellbook-arcane-barrage-name
   description: spellbook-arcane-barrage-desc
   productAction: ActionArcaneBarrage
@@ -141,11 +151,13 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:BuyerActionsDontHaveTagCondition
-    tag: LesserSummonGunsAction
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookLesserSummonGuns
 
 - type: listing
   id: SpellbookLesserSummonGuns
+  productUpgradeId: SpellbookLesserSummonGunsUpgrade
   name: spellbook-lesser-summon-guns-name
   description: spellbook-lesser-summon-guns-desc
   productAction: ActionLesserSummonGuns
@@ -156,11 +168,13 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
-  - !type:BuyerActionsDontHaveTagCondition
-    tag: ArcaneBarrageAction
+  - !type:BuyBeforeCondition
+    blacklist:
+    - SpellbookArcaneBarrage
 
 - type: listing
   id: SpellbookBarnyardCurse
+  productUpgradeId: SpellbookBarnyardCurseUpgrade
   name: spellbook-barnyard-name
   description: spellbook-barnyard-desc
   productAction: ActionBarnyardCurse
@@ -174,6 +188,7 @@
 
 - type: listing
   id: SpellbookScreamForMe
+  productUpgradeId: SpellbookScreamForMeUpgrade
   name: spellbook-scream-for-me-name
   description: spellbook-scream-for-me-desc
   productAction: ActionScreamForMe
@@ -187,6 +202,7 @@
 
 - type: listing
   id: SpellbookLesserSummonBees
+  productUpgradeId: SpellbookLesserSummonBeesUpgrade
   name: spellbook-bees-name
   description: spellbook-bees-desc
   productAction: ActionLesserSummonBees
@@ -213,6 +229,7 @@
 
 - type: listing
   id: SpellbookSanguineStrike
+  productUpgradeId: SpellbookSanguineStrikeUpgrade
   name: spellbook-sanguine-strike-name
   description: spellbook-sanguine-strike-desc
   productAction: ActionSanguineStrike
@@ -226,6 +243,7 @@
 
 - type: listing
   id: SpellbookSmite
+  productUpgradeId: SpellbookSmiteUpgrade
   name: spellbook-smite-name
   description: spellbook-smite-desc
   productAction: ActionSmite
@@ -240,6 +258,7 @@
 # Defensive
 - type: listing
   id: SpellbookMagicMissile
+  productUpgradeId: SpellbookMagicMissileUpgrade
   name: spellbook-magic-missile-name
   description: spellbook-magic-missile-desc
   productAction: ActionMagicMissile
@@ -253,6 +272,7 @@
 
 - type: listing
   id: SpellbookDisableTech
+  productUpgradeId: SpellbookDisableTechUpgrade
   name: spellbook-disable-tech-name
   description: spellbook-disable-tech-desc
   productAction: ActionDisableTech
@@ -266,6 +286,7 @@
 
 - type: listing
   id: SpellbookSmoke
+  productUpgradeId: SpellbookSmokeUpgrade
   name: spellbook-smoke-name
   description: spellbook-smoke-desc
   productAction: ActionSmoke
@@ -279,6 +300,7 @@
 
 - type: listing
   id: SpellbookRepulse
+  productUpgradeId: SpellbookRepulseUpgrade
   name: spellbook-repulse-name
   description: spellbook-repulse-desc
   productAction: ActionRepulse
@@ -292,6 +314,7 @@
 
 - type: listing
   id: SpellbookStopTime
+  productUpgradeId: SpellbookStopTimeUpgrade
   name: spellbook-stop-time-name
   description: spellbook-stop-time-desc
   productAction: ActionStopTime
@@ -318,6 +341,7 @@
 
 - type: listing
   id: SpellbookTraps
+  productUpgradeId: SpellbookTrapsUpgrade
   name: spellbook-the-traps-name
   description: spellbook-the-traps-desc
   productAction: ActionTrapsSpell
@@ -371,6 +395,7 @@
 
 - type: listing
   id: SpellbookTeleport
+  productUpgradeId: SpellbookTeleportUpgrade
   name: spellbook-teleport-name
   description: spellbook-teleport-desc
   productAction: ActionTeleportWizard
@@ -384,6 +409,7 @@
 
 - type: listing
   id: SpellbookSwap
+  productUpgradeId: SpellbookSwapUpgrade
   name: spellbook-swap-name
   description: spellbook-swap-desc
   productAction: ActionSwapSpell
@@ -410,6 +436,7 @@
 
 - type: listing
   id: SpellbookKnock
+  productUpgradeId: SpellbookKnockUpgrade
   name: spellbook-knock-name
   description: spellbook-knock-desc
   productAction: ActionKnock

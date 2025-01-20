@@ -21,6 +21,12 @@
   - type: Magic
     requiresClothes: true
     school: Mime
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMimeMalaiseII
+      3: ActionMimeMalaiseIII
+      4: ActionMimeMalaiseIV
+      5: ActionMimeMalaiseV
 
 - type: entity
   id: ActionCluwneCurse
@@ -49,6 +55,10 @@
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionCluwneCurseII
+      3: ActionCluwneCurseIII
 
 - type: entity
   id: ActionBananaTouch
@@ -76,11 +86,17 @@
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBananaTouchII
+      3: ActionBananaTouchIII
+      4: ActionBananaTouchIV
+      5: ActionBananaTouchV
 
 - type: entity
   id: ActionMagicMissile
   name: Magic Missile
-  description: Fires several stunning, slow moving, magic projectiles at nearby targets.
+  description: Fires several stunning, slow moving, homing magic projectiles at nearby targets.
   components:
   - type: InstantAction
     raiseOnUser: true
@@ -98,6 +114,10 @@
     requiresClothes: true
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMagicMissileII
+      3: ActionMagicMissileIII
 
 - type: entity
   id: ActionDisableTech
@@ -120,6 +140,12 @@
     requiresClothes: true
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionDisableTechII
+      3: ActionDisableTechIII
+      4: ActionDisableTechIV
+      5: ActionDisableTechV
 
 - type: entity
   id: ActionSmoke
@@ -139,6 +165,10 @@
     event: !type:SmokeSpellEvent
   - type: Magic
     school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSmokeII
+      3: ActionSmokeIII
 
 - type: entity
   id: ActionRepulse
@@ -161,6 +191,12 @@
     requiresClothes: true
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionRepulseII
+      3: ActionRepulseIII
+      4: ActionRepulseIV
+      5: ActionRepulseV
 
 - type: entity
   id: ActionStopTime
@@ -186,6 +222,10 @@
   - type: Tag
     tags:
       - FrozenIgnoreMindAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionStopTimeII
+      3: ActionStopTimeIII
 
 - type: entity
   id: ActionCorpseExplosion
@@ -244,6 +284,12 @@
   - type: Magic
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBlindII
+      3: ActionBlindIII
+      4: ActionBlindIV
+      5: ActionBlindV
 
 - type: entity
   id: ActionBindSoul
@@ -305,6 +351,9 @@
     requiresClothes: true
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMutateII
 
 - type: entity
   id: ActionTeslaBlast
@@ -327,6 +376,12 @@
     requiresClothes: true
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTeslaBlastII
+      3: ActionTeslaBlastIII
+      4: ActionTeslaBlastIV
+      5: ActionTeslaBlastV
 
 - type: entity
   id: ActionLightningBolt
@@ -352,6 +407,12 @@
   - type: Magic
     requiresSpeech: true
     school: Evocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLightningBoltII
+      3: ActionLightningBoltIII
+      4: ActionLightningBoltIV
+      5: ActionLightningBoltV
 
 - type: entity
   id: ActionHomingToolbox
@@ -361,7 +422,7 @@
   - type: EntityWorldTargetAction
     checkCanAccess: false
     raiseOnUser: true
-    useDelay: 4
+    useDelay: 6
     itemIconStyle: BigAction
     whitelist:
       components:
@@ -380,6 +441,12 @@
     requiresSpeech: true
     school: Evocation
   - type: LockOnMarkAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionHomingToolboxII
+      3: ActionHomingToolboxIII
+      4: ActionHomingToolboxIV
+      5: ActionHomingToolboxV
 
 - type: entity
   id: ActionSpellCards
@@ -410,6 +477,10 @@
     school: Evocation
   - type: SpellCardsAction
   - type: LockOnMarkAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSpellCardsII
+      3: ActionSpellCardsIII
 
 - type: entity
   id: ActionArcaneBarrage
@@ -427,9 +498,10 @@
   - type: Magic
     requiresClothes: true
     school: Conjuration
-  - type: Tag
-    tags:
-      - ArcaneBarrageAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionArcaneBarrageII
+      3: ActionArcaneBarrageIII
 
 - type: entity
   id: ActionLesserSummonGuns
@@ -447,9 +519,10 @@
   - type: Magic
     requiresClothes: true
     school: Conjuration
-  - type: Tag
-    tags:
-      - LesserSummonGunsAction
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLesserSummonGunsII
+      3: ActionLesserSummonGunsIII
 
 - type: entity
   id: ActionBarnyardCurse
@@ -493,6 +566,10 @@
   - type: Magic
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBarnyardCurseII
+      3: ActionBarnyardCurseIII
 
 - type: entity
   id: ActionScreamForMe
@@ -519,6 +596,12 @@
     requiresSpeech: true
     requiresClothes: true
     school: Sanguine
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionScreamForMeII
+      3: ActionScreamForMeIII
+      4: ActionScreamForMeIV
+      5: ActionScreamForMeV
 
 - type: entity
   id: ActionInstantSummons
@@ -561,6 +644,10 @@
   - type: Magic
     requiresSpeech: true
     school: Translocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTeleportII
+      3: ActionTeleportIII
 
 - type: entity
   id: ActionTrapsSpell
@@ -583,6 +670,12 @@
     requiresSpeech: true
     requiresClothes: true
     school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionTrapsII
+      3: ActionTrapsIII
+      4: ActionTrapsIV
+      5: ActionTrapsV
 
 - type: entity
   id: ActionLesserSummonBees
@@ -621,6 +714,10 @@
     requiresSpeech: true
     requiresClothes: true
     school: Conjuration
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionLesserSummonBeesII
+      3: ActionLesserSummonBeesIII
 
 - type: entity
   id: ActionSummonSimians
@@ -663,6 +760,10 @@
   - type: Magic
     requiresSpeech: true
     school: Sanguine
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSanguineStrikeII
+      3: ActionSanguineStrikeIII
 
 - type: entity
   id: ActionChuuniInvocations
@@ -696,7 +797,7 @@
     checkCanAccess: false
     raiseOnUser: true
     checkCanInteract: false
-    useDelay: 15
+    useDelay: 25
     itemIconStyle: BigAction
     whitelist:
       requireAll: true
@@ -715,6 +816,10 @@
   - type: Magic
     school: Translocation
   - type: SwapSpell
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionSwapII
+      3: ActionSwapIII
 
 - type: entity
   id: ActionSoulTap
@@ -773,3 +878,9 @@
   - type: Magic
     requiresClothes: true
     school: Translocation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionBlinkII
+      3: ActionBlinkIII
+      4: ActionBlinkIV
+      5: ActionBlinkV

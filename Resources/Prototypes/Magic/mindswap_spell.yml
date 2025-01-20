@@ -26,3 +26,7 @@
   - type: Magic # Goobstation
     requiresSpeech: true
     school: Transmutation
+  - type: ActionUpgrade
+    effectedLevels:
+      2: ActionMindSwapII
+      3: ActionMindSwapIII

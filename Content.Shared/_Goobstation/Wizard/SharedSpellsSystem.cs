@@ -624,7 +624,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             _actions.SetUseDelay(ev.Action, TimeSpan.FromSeconds(0.5));
         else
         {
-            _actions.SetUseDelay(ev.Action, ev.UseDelay);
+            _actions.SetUseDelay(ev.Action, spellCardsAction.UseDelay);
             spellCardsAction.UsesLeft = spellCardsAction.CastAmount;
             RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer);
         }

@@ -19,7 +19,7 @@ spellbook-polymorph-spider-desc = Transforms you into a spider, man!
 
 spellbook-polymorph-rod-name = Rod Form
 spellbook-polymorph-rod-desc =
-    Take on the form of an immovable rod, destroying all in your path. Upgrading this spell will also increase the rod's damage and travel range.
+    Take on the form of an immovable rod, destroying everything in your path. Upgrading this spell will also increase the rod's damage and travel range.
     Requires wizard's robe and hat to cast.
 
 spellbook-charge-name = Charge
@@ -61,8 +61,8 @@ spellbook-event-summon-magic-name = Summon Magic
 spellbook-event-summon-magic-description = Places a random magical item in front of everybody. Nothing could go wrong! Disables refunds when bought!
 
 # Upgrades
-spellbook-upgrade-fireball-name = Upgrade Fireball
+spellbook-upgrade-fireball-name = Fireball Upgrade
 spellbook-upgrade-fireball-description = Upgrades Fireball to a maximum of level 3!
 
-spellbook-upgrade-jaunt-name = Upgrade Ethereal Jaunt
+spellbook-upgrade-jaunt-name = Ethereal Jaunt Upgrade
 spellbook-upgrade-jaunt-description = Upgrades Jaunt to a maximum of level 3!

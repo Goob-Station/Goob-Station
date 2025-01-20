@@ -15,6 +15,7 @@
 
 - type: listing
   id: SpellbookRodForm
+  productUpgradeId: SpellbookRodFormUpgrade # Goobstation
   name: spellbook-polymorph-rod-name
   description: spellbook-polymorph-rod-desc
   productAction: ActionPolymorphWizardRod
@@ -29,6 +30,7 @@
 # Defensive
 - type: listing
   id: SpellbookForceWall
+  productUpgradeId: SpellbookForceWallUpgrade # Goobstation
   name: spellbook-force-wall-name
   description: spellbook-force-wall-desc
   productAction: ActionForceWall
@@ -57,6 +59,7 @@
 
 - type: listing
   id: SpellbookBlink
+  productUpgradeId: SpellbookBlinkUpgrade # Goobstation
   name: spellbook-blink-name
   description: spellbook-blink-desc
   productAction: ActionBlinkSpell # Goob edit
@@ -70,6 +73,7 @@
 
 - type: listing
   id: SpellbookCharge
+  productUpgradeId: SpellbookChargeUpgrade # Goobstation
   name: spellbook-charge-name
   description: spellbook-charge-desc
   productAction: ActionChargeSpell
@@ -97,6 +101,7 @@
 
 - type: listing
   id: SpellbookMindSwap
+  productUpgradeId: SpellbookMindSwapUpgrade # Goobstation
   name: spellbook-mind-swap-name
   description: spellbook-mind-swap-description
   productAction: ActionMindSwap

@@ -18,6 +18,12 @@ public sealed partial class SpellCardsActionComponent : Component
     public int CastAmount = 5;
 
     /// <summary>
+    /// This determines spell use delay, not action component
+    /// </summary>
+    [DataField]
+    public TimeSpan UseDelay = TimeSpan.FromSeconds(6f);
+
+    /// <summary>
     /// Whether the next spell card burst will be purple or red
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
