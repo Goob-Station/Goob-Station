@@ -1,0 +1,39 @@
+{
+    "version": 1,
+    "copyright": "https://github.com/ParadiseSS13/Paradise",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "facial_goatee_faded",
+            "directions": 4
+        },
+        {
+            "name": "facial_goatee_s",
+            "directions": 4
+        },
+        {
+            "name": "facial_moustache_s",
+            "directions": 4
+        },
+        {
+            "name": "facial_mutton_s",
+            "directions": 4
+        },
+        {
+            "name": "facial_pencilstache_s",
+            "directions": 4
+        },
+        {
+            "name": "facial_sideburns_s",
+            "directions": 4
+        },
+        {
+            "name": "facial_smallstache_s",
+            "directions": 4
+        }
+    ]
+}

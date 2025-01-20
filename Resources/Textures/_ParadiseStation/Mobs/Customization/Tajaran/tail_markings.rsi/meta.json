@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "copyright": "https://github.com/ParadiseSS13/Paradise",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "belly_s",
+            "directions": 4
+        },
+        {
+            "name": "crest_s",
+            "directions": 4
+        },
+        {
+            "name": "fullbelly_s",
+            "directions": 4
+        },
+        {
+            "name": "patch_s",
+            "directions": 4
+        },
+        {
+            "name": "point_s",
+            "directions": 4
+        }
+    ]
+}
