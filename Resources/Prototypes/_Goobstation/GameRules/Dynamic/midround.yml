@@ -212,6 +212,7 @@
     - IPC
     - Diona
     - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
@@ -356,6 +357,7 @@
     - IPC
     - Diona
     - Abductor
+    - Harpy
     # Goobstation end
 
 # Rat King Spawn

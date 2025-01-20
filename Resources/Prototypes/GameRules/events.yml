@@ -203,6 +203,7 @@
     - IPC
     - Diona
     - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
