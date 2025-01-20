@@ -1,0 +1,89 @@
+# Tajaran Ears
+
+- type: marking
+  id: TajaranEarsBasic
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
+    state: ears_plain
+
+- type: marking
+  id: TajaranEarsAlt
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
+    state: ears_plain_s
+
+# Tajaran Torso
+
+- type: marking
+  id: TajaranTorsoBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+    state: belly_s
+
+- type: marking
+  id: TajaranTorsoCrest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+    state: crest_s
+
+    
+- type: marking
+  id: TajaranTorsoFullBelly
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+    state: fullbelly_s
+
+    
+- type: marking
+  id: TajaranTorsoPatch
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+    state: patch_s
+
+    
+- type: marking
+  id: TajaranTorsoPoints
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+    state: points_s
+
+# Alt Head
+
+- type: marking
+  id: TajaranHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: head_m_s
+
+- type: marking
+  id: TajaranTailBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
+    state: tajtail_s

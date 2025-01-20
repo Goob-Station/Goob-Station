@@ -8,23 +8,49 @@
     },
     "states": [
         {
-            "name": "belly_s",
-            "directions": 4
+            "name": "default_wringlerw_s",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
         },
         {
-            "name": "crest_s",
-            "directions": 4
-        },
-        {
-            "name": "fullbelly_s",
-            "directions": 4
-        },
-        {
-            "name": "patch_s",
-            "directions": 4
-        },
-        {
-            "name": "point_s",
+            "name": "default_wringler_s",
             "directions": 4
         }
     ]
