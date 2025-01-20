@@ -28,6 +28,19 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
+    groups: # Liver processes part of chems in tandem with heart to make gland replacements less of a hindrance
+    - id: Medicine
+      rateModifier: 0.5 # Not 100% in order to ensure we don't have invincible people with yowie hearts and human livers
+      scaleModifier: 0.5
+    - id: Poison
+      rateModifier: 0.5
+      scaleModifier: 0.5
+    - id: Narcotic
+      rateModifier: 0.5
+      scaleModifier: 0.5
+    - id: Alcohol # Same as parent
+      rateModifier: 0.1
+    maxReagents: 2 # For proper processing of chems together with heart
 
 - type: entity
   id: OrganYowieHeart
@@ -36,6 +49,16 @@
   components:
   - type: Metabolizer
     metabolizerTypes: [Yowie]
+    groups:
+    - id: Medicine
+      rateModifier: 0.5
+      scaleModifier: 0.5
+    - id: Poison
+      rateModifier: 0.5
+      scaleModifier: 0.5
+    - id: Narcotic
+      rateModifier: 0.5
+      scaleModifier: 0.5
 
 - type: entity
   id: OrganYowieLungs

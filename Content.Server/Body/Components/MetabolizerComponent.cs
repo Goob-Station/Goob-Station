@@ -81,5 +81,10 @@ namespace Content.Server.Body.Components
 
         [DataField("rateModifier")]
         public FixedPoint2 MetabolismRateModifier = 1.0;
+
+        // Preserves original behaviour, while allowing for optional scaling
+        // that's not tied to metabolization rate
+        [DataField("scaleModifier")]
+        public FixedPoint2 MetabolismScaleModifier = 1.0;
     }
 }
