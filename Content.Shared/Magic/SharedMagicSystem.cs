@@ -700,37 +700,53 @@ public abstract class SharedMagicSystem : EntitySystem
                 targetHadFaction = false;
             }
 
+            List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
+            {
+                "Wizard",
+                "Syndicate",
+                "NanoTrasen",
+            };
+
             var performerFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
             var targetFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
 
-            foreach (var faction in performerFaction.Factions)
+            foreach (var faction in FilterFactions(performerFactions))
             {
                 performerFactions.Add(faction);
             }
 
-            foreach (var faction in targetFaction.Factions)
+            foreach (var faction in FilterFactions(targetFactions))
             {
                 targetFactions.Add(faction);
             }
 
-            if (performerHadFaction)
+            Entity<NpcFactionMemberComponent?> targetFactionEnt = (ev.Target, targetFaction);
+            foreach (var faction in targetFactions)
             {
-                Entity<NpcFactionMemberComponent?> targetFactionEnt = (ev.Target, targetFaction);
-                _faction.ClearFactions(targetFactionEnt, false);
-                _faction.AddFactions(targetFactionEnt, performerFactions);
+                _faction.RemoveFaction(targetFactionEnt, faction, false);
             }
-            else
+
+            Entity<NpcFactionMemberComponent?> performerFactionEnt = (ev.Performer, performerFaction);
+            foreach (var faction in performerFactions)
+            {
+                _faction.RemoveFaction(performerFactionEnt, faction, false);
+            }
+
+            if (performerHadFaction)
+                _faction.AddFactions(targetFactionEnt, performerFactions);
+            else if (targetFaction.Factions.Count == 0)
                 RemCompDeferred(ev.Target, targetFaction);
 
             if (targetHadFaction)
-            {
-                Entity<NpcFactionMemberComponent?> performerFactionEnt = (ev.Performer, performerFaction);
-                _faction.ClearFactions(performerFactionEnt, false);
                 _faction.AddFactions(performerFactionEnt, targetFactions);
-            }
-            else
+            else if (performerFaction.Factions.Count == 0)
                 RemCompDeferred(ev.Performer, performerFaction);
+            return;
 
+            IEnumerable<ProtoId<NpcFactionPrototype>> FilterFactions(HashSet<ProtoId<NpcFactionPrototype>> factions)
+            {
+                return factions.Where(x => factionsToTransfer.Contains(x));
+            }
         }
 
         bool CheckMindswapBlocker(Type type, string message)
