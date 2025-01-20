@@ -35,8 +35,6 @@
       types:
         Slash: 4
         Structural: 4
-    clickPartDamageMultiplier: 8 #Goob
-    heavyPartDamageMultiplier: 6 #Goob
   - type: Item
     size: Normal
     sprite: Objects/Weapons/Melee/chainsaw.rsi

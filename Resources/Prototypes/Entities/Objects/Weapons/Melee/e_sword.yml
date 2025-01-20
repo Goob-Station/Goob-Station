@@ -227,8 +227,6 @@
       types:
         Slash: 10
         Heat: 10
-    clickPartDamageMultiplier: 5 #Goob
-    heavyPartDamageMultiplier: 4 #Goob
   - type: ComponentToggler
     components:
     - type: Sharp
