@@ -129,10 +129,10 @@
       gender: male
   - type: Sharp
   - type: NightVision # Goobstation - Nigthvision
-    toggleAction: null
-    color: "#808080"
+    color: "#d14343"
     activateSound: null
     deactivateSound: null
+  - type: Insulated # Goobstation
 
 - type: entity
   id: MobRatKingBuff
@@ -210,6 +210,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
+  - type: Insulated # Goobstation
 
   - type: SpriteMovement
     movementLayers:
@@ -402,6 +403,24 @@
       !type:RatKingOrderActionEvent
       type: CheeseEm
     priority: 7
+
+- type: entity
+  id: ActionRatKingOrderLoose
+  name: Loose
+  description: Command your army to act at their own will.
+  components:
+  - type: InstantAction
+    useDelay: 1
+    icon:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: looseOff
+    iconOn:
+      sprite: Interface/Actions/actions_rat_king.rsi
+      state: loose
+    event:
+      !type:RatKingOrderActionEvent
+      type: Loose
+    priority: 8
 
 - type: entity
   id: ActionRatKingOrderLoose
