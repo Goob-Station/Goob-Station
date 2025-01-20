@@ -1334,10 +1334,11 @@
   name: force wall
   components:
     - type: TimedDespawn
-      lifetime: 30 # Goob eddit
+      lifetime: 30 # Goob edit
     - type: Tag
       tags:
         - Wall
+        - BlockLightning # Goobstation
     - type: Physics
       bodyType: Static
     - type: Fixtures

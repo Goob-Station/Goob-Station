@@ -703,19 +703,19 @@ public abstract class SharedMagicSystem : EntitySystem
             List<ProtoId<NpcFactionPrototype>> factionsToTransfer = new()
             {
                 "Wizard",
-                "Syndicate",
-                "NanoTrasen",
             };
+
+            ProtoId<NpcFactionPrototype> fallbackFaction = "NanoTrasen";
 
             var performerFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
             var targetFactions = new HashSet<ProtoId<NpcFactionPrototype>>();
 
-            foreach (var faction in FilterFactions(performerFactions))
+            foreach (var faction in FilterFactions(performerFaction.Factions))
             {
                 performerFactions.Add(faction);
             }
 
-            foreach (var faction in FilterFactions(targetFactions))
+            foreach (var faction in FilterFactions(targetFaction.Factions))
             {
                 targetFactions.Add(faction);
             }
@@ -734,13 +734,15 @@ public abstract class SharedMagicSystem : EntitySystem
 
             if (performerHadFaction)
                 _faction.AddFactions(targetFactionEnt, performerFactions);
-            else if (targetFaction.Factions.Count == 0)
-                RemCompDeferred(ev.Target, targetFaction);
 
             if (targetHadFaction)
                 _faction.AddFactions(performerFactionEnt, targetFactions);
-            else if (performerFaction.Factions.Count == 0)
-                RemCompDeferred(ev.Performer, performerFaction);
+
+            if (targetFaction.Factions.Count == 0)
+                _faction.AddFaction(targetFactionEnt, fallbackFaction);
+
+            if (performerFaction.Factions.Count == 0)
+                _faction.AddFaction(performerFactionEnt, fallbackFaction);
             return;
 
             IEnumerable<ProtoId<NpcFactionPrototype>> FilterFactions(HashSet<ProtoId<NpcFactionPrototype>> factions)

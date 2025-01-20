@@ -94,6 +94,9 @@
 - type: Tag
   id: IgnoreImmovableRod
 
+- type: Tag
+  id: BlockLightning
+
 # Mechs
 
 - type: Tag
