@@ -63,17 +63,6 @@
     state: inears
 
 - type: marking
-  id: TajaranEarsPatches
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
-    state: ears_plain
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
-    state: patch
-
-- type: marking
   id: TajaranEarsBasicNear
   bodyPart: HeadTop
   markingCategory: HeadTop
@@ -92,17 +81,6 @@
     state: outears_near
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
     state: inears_near
-
-- type: marking
-  id: TajaranEarsPatchesNear
-  bodyPart: HeadTop
-  markingCategory: HeadTop
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
-    state: ears_plain_near
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
-    state: patch_near
 
 # Tajaran Head/Face
 
