@@ -22,6 +22,22 @@
         {
             "name": "patch_s1",
             "directions": 4
+        },
+        {
+            "name": "ears_plain_near",
+            "directions": 4
+        },
+        {
+            "name": "inears_s_near",
+            "directions": 4
+        },
+        {
+            "name": "outears_s_near",
+            "directions": 4
+        },
+        {
+            "name": "patch_s1_near",
+            "directions": 4
         }
     ]
 }
