@@ -326,80 +326,153 @@
 - type: marking
   id: TajaranOverlayPatchLArm
   bodyPart: LArm
-  markingCategory: Overlay
+  markingCategory: LArm
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: LArm
+    state: l_arm
 
 - type: marking
   id: TajaranOverlayPatchRArm
   bodyPart: RArm
-  markingCategory: Overlay
+  markingCategory: RArm
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: RArm
+    state: r_arm
 
 - type: marking
   id: TajaranOverlayPatchLHand
   bodyPart: LHand
-  markingCategory: Overlay
+  markingCategory: LHand
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: LHand
+    state: l_hand
 
 - type: marking
   id: TajaranOverlayPatchRHand
   bodyPart: RHand
-  markingCategory: Overlay
+  markingCategory: RHand
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: RHand
+    state: r_hand
 
 - type: marking
   id: TajaranOverlayPatchLLeg
   bodyPart: LLeg
-  markingCategory: Overlay
+  markingCategory: LLeg
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: LLeg
+    state: l_leg
 
 - type: marking
   id: TajaranOverlayPatchRLeg
   bodyPart: RLeg
-  markingCategory: Overlay
+  markingCategory: RLeg
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: RLeg
+    state: r_leg
 
 - type: marking
   id: TajaranOverlayPatchTorso
   bodyPart: Torso
-  markingCategory: Overlay
+  markingCategory: Torso
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: Torso
+    state: torso
 
 - type: marking
   id: TajaranOverlayPatchLFoor
   bodyPart: LFoot
-  markingCategory: Overlay
+  markingCategory: LFoot
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: LFoot
+    state: l_foot
 
 - type: marking
   id: TajaranOverlayPatchRFoot
   bodyPart: RFoot
-  markingCategory: Overlay
+  markingCategory: RFoot
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
-    state: RFoot
+    state: r_foot
+
+
+- type: marking
+  id: TajaranOverlayPointsLArm
+  bodyPart: LArm
+  markingCategory: LArm
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: l_arm
+
+- type: marking
+  id: TajaranOverlayPointsRArm
+  bodyPart: RArm
+  markingCategory: RArm
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: r_arm
+
+- type: marking
+  id: TajaranOverlayPointsLHand
+  bodyPart: LHand
+  markingCategory: LHand
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: l_hand
+
+- type: marking
+  id: TajaranOverlayPointsRHand
+  bodyPart: RHand
+  markingCategory: RHand
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: r_hand
+
+- type: marking
+  id: TajaranOverlayPointsLLeg
+  bodyPart: LLeg
+  markingCategory: LLeg
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: l_leg
+
+- type: marking
+  id: TajaranOverlayPointsRLeg
+  bodyPart: RLeg
+  markingCategory: RLeg
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: r_leg
+
+- type: marking
+  id: TajaranOverlayPointsLFoor
+  bodyPart: LFoot
+  markingCategory: LFoot
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: l_foot
+
+- type: marking
+  id: TajaranOverlayPointsRFoot
+  bodyPart: RFoot
+  markingCategory: RFoot
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/points.rsi
+    state: r_foot
