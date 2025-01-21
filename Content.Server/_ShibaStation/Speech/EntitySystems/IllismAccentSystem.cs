@@ -13,14 +13,16 @@ public sealed class IlleismAccentSystem : EntitySystem
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
     // Updated regex patterns to better handle verb conjugation and contractions
-    private static readonly Regex FirstPersonPronounRegex = new(@"\b(I|me|my|mine|myself)\b", RegexOptions.IgnoreCase);
-    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+(?:\s+\w+)?)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex FirstPersonPronounRegex = new(@"\b(I|me|my|myself)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex PossessiveMineRegex = new(@"\b(mine)\b(?!\s+(?:for|some|into|through|out|up|down|diamond|diamonds|ore|ores|minerals|resources|bluespace|steel|gold|silver|crystal|crystals))", RegexOptions.IgnoreCase);
+    private static readonly Regex IVerbPattern = new(@"\bI\s+(\w+)(?:\s+(.*))?", RegexOptions.IgnoreCase);
     private static readonly Regex ICommaPattern = new(@"\bI\s*,", RegexOptions.IgnoreCase);
     private static readonly Regex ImPattern = new(@"\bI'm\b", RegexOptions.IgnoreCase);
     private static readonly Regex IDontPattern = new(@"\bI don't\b", RegexOptions.IgnoreCase);
     private static readonly Regex IWithContractionPattern = new(@"\bI\s+(\w+'t)\b", RegexOptions.IgnoreCase);
     private static readonly Regex SentenceSplitRegex = new(@"(?<=[.!?])\s+");
     private static readonly Regex PrepositionPattern = new(@"\b(?:to|for|with|by|at|from|in|on|under|over|of)\s+(me)\b", RegexOptions.IgnoreCase);
+    private static readonly Regex VerbMinePattern = new(@"\b(?:can|will|shall|may|might|must|would|could|should|to)\s+(mine)\b", RegexOptions.IgnoreCase);
 
     // Helper dictionary for special verb cases
     private static readonly Dictionary<string, string> SpecialVerbConjugations = new(StringComparer.OrdinalIgnoreCase)
@@ -45,8 +47,24 @@ public sealed class IlleismAccentSystem : EntitySystem
         {"need to", "needs to"},
         {"have to", "has to"},
         {"got to", "got to"},
-        {"going to", "going to"}
+        {"going to", "going to"},
+        // Past tense and participles (no change needed)
+        {"got", "got"},
+        {"had", "had"},
+        {"said", "said"},
+        {"made", "made"},
+        {"went", "went"},
+        {"took", "took"},
+        {"came", "came"},
+        {"saw", "saw"},
+        {"knew", "knew"},
+        {"got bitten", "got bitten"},
+        {"got hit", "got hit"},
+        {"got hurt", "got hurt"}
     };
+
+    // Add regex for identifying past tense and participles
+    private static readonly Regex PastTenseRegex = new(@"\b\w+(?:ed|en|t)\b", RegexOptions.IgnoreCase);
 
     public override void Initialize()
     {
@@ -181,22 +199,27 @@ public sealed class IlleismAccentSystem : EntitySystem
         sentence = IVerbPattern.Replace(sentence, match =>
         {
             if (hasReplacedFirstPronoun)
-                return $"{subjectPronoun} {match.Groups[1].Value}";
+                return $"{subjectPronoun} {match.Value.Substring(2)}"; // Skip the "I "
 
             hasReplacedFirstPronoun = true;
-            var verbPhrase = match.Groups[1].Value.ToLower();
+            var verb = match.Groups[1].Value.ToLower();
+            var rest = match.Groups[2].Success ? " " + match.Groups[2].Value : "";
 
             // Check for special verb conjugations first
-            if (SpecialVerbConjugations.TryGetValue(verbPhrase, out var specialConjugation))
-                return $"{name} {specialConjugation}";
+            if (SpecialVerbConjugations.TryGetValue(verb, out var specialConjugation))
+                return $"{name} {specialConjugation}{rest}";
+
+            // Check if it's a past tense or participle
+            if (PastTenseRegex.IsMatch(verb))
+                return $"{name} {verb}{rest}";
 
             // Regular verb conjugation - add 's' unless it's a special case
-            if (verbPhrase.EndsWith("s") || verbPhrase.EndsWith("sh") || verbPhrase.EndsWith("ch") || verbPhrase.EndsWith("x") || verbPhrase.EndsWith("z"))
-                return $"{name} {verbPhrase}es";
-            if (verbPhrase.EndsWith("y") && !verbPhrase.EndsWith("ay") && !verbPhrase.EndsWith("ey") && !verbPhrase.EndsWith("oy") && !verbPhrase.EndsWith("uy"))
-                return $"{name} {verbPhrase[..^1]}ies";
+            if (verb.EndsWith("s") || verb.EndsWith("sh") || verb.EndsWith("ch") || verb.EndsWith("x") || verb.EndsWith("z"))
+                return $"{name} {verb}es{rest}";
+            if (verb.EndsWith("y") && !verb.EndsWith("ay") && !verb.EndsWith("ey") && !verb.EndsWith("oy") && !verb.EndsWith("uy"))
+                return $"{name} {verb[..^1]}ies{rest}";
 
-            return $"{name} {verbPhrase}s";
+            return $"{name} {verb}s{rest}";
         });
 
         // Handle remaining pronouns
@@ -208,7 +231,6 @@ public sealed class IlleismAccentSystem : EntitySystem
                 return match.Value.ToLower() switch
                 {
                     "my" => name + "'s",
-                    "mine" => name + "'s",
                     "me" => name,
                     _ => name
                 };
@@ -219,11 +241,24 @@ public sealed class IlleismAccentSystem : EntitySystem
                 "i" => subjectPronoun,
                 "me" => objectPronoun,
                 "my" => possessivePronoun,
-                "mine" => possessivePronoun,
                 "myself" => reflexivePronoun,
                 _ => match.Value
             };
         });
+
+        // Handle possessive 'mine' separately from verb 'mine'
+        sentence = PossessiveMineRegex.Replace(sentence, match =>
+        {
+            if (!hasReplacedFirstPronoun)
+            {
+                hasReplacedFirstPronoun = true;
+                return name + "'s";
+            }
+            return possessivePronoun;
+        });
+
+        // Preserve verb form of 'mine'
+        sentence = VerbMinePattern.Replace(sentence, "$1 mine");
 
         // Clean up any double spaces that might have been created
         sentence = Regex.Replace(sentence, @"\s+", " ").Trim();
