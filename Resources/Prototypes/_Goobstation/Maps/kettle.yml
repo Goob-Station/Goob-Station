@@ -46,12 +46,6 @@
             Scientist: [ 4, 6 ]
             ResearchAssistant: [ 8, 8 ]
             Borg: [ 2, 2 ]
-            #security
-            HeadOfSecurity: [ 1, 1 ]
-            Warden: [ 1, 1 ]
-            Detective: [ 1, 1 ]
-            SecurityOfficer: [ 4, 6 ]
-            SecurityCadet: [ 8, 8 ]
             #supply
             Quartermaster: [ 1, 1 ]
             SalvageSpecialist: [ 3, 4 ]
