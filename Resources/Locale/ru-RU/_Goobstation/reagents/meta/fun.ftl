@@ -7,5 +7,6 @@ reagent-popup-tranquility = Вы чувствуете странное спок�
 # SEE README.MD AND LICENSE.TXT IN THE ROOT OF THIS REPOSITORY FOR MORE INFORMATION
 reagent-name-profanol = профанол
 reagent-desc-profanol = Химическое соединение, известное тем, что заставляет людей навязчиво материться. Портит бесчисленные семейные встречи и похороны.
+
 # END OF MIT-LICENSED CODE
 

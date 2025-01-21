@@ -1,2 +1,2 @@
 ent-ClothingNeckMantleBlueshield = blueshield officer mantle
-    .desc = A comfortable and protective mantle for qualify bodyguards.
+    .desc = A well-balanced, protective mantle, designed for optimal bodyguarding efficiency.

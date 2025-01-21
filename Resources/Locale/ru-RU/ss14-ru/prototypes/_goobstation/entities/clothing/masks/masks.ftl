@@ -5,3 +5,5 @@ ent-ClothingMaskGasChronoUnremoveable = { ent-ClothingMaskGasChrono }
     .desc = { ent-ClothingMaskGasChrono.desc }
 ent-ActionHailer = Оклик
     .desc = Громко окликните ближайших сотрудников станции, что полезно для отдачи быстрых приказов..
+ent-ClothingMaskClownUnremoveable = unremoveable banana clown wig and mask
+    .desc = { ent-ClothingMaskClown.desc }

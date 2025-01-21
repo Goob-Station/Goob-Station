@@ -1,0 +1,12 @@
+ent-CrowbarAbductor = abductor's crowbar
+    .desc = A multipurpose tool to pry open doors and fight interdimensional invaders.
+ent-WirecutterAbductor = abductor's wirecutter
+    .desc = { ent-BaseItem.desc }
+ent-ScrewdriverAbductor = abductor's screwdriver
+    .desc = { ent-BaseItem.desc }
+ent-WrenchAbductor = abductor's wrench
+    .desc = { ent-Wrench.desc }
+ent-WelderAbductor = abductor's welding tool
+    .desc = An experimental welder capable of self-fuel generation and less harmful to the eyes.
+ent-MultitoolAbductor = abductor's multitool
+    .desc = An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.

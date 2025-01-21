@@ -83,10 +83,10 @@ reagent-effect-guidebook-status-effect =
             { $chance ->
                 [1] Вызывает
                *[other] вызывают
-                } {LOC($key)} по крайней мере {NATURALFIXED($time, 3)} {MANY("second", $time)} { $refresh ->
-                                                                                                [false] с
-                                                                                                *[true] без
-                                                                                            } накопление
+            } { LOC($key) } по крайней мере { NATURALFIXED($time, 3) } { MANY("second", $time) } { $refresh ->
+                [false] с
+               *[true] без
+            } накопление
        *[set]
             { $chance ->
                 [1] Вызывает
@@ -377,3 +377,19 @@ reagent-effect-guidebook-plant-seeds-remove =
         [1] Убирает
        *[other] убирают
     } семена из растения
+reagent-effect-guidebook-add-to-chemicals =
+    { $chance ->
+        [1]
+            { $deltasign ->
+                [1] Добавляет
+               *[-1] Удаляет
+            }
+       *[other]
+            { $deltasign ->
+                [1] добавить
+               *[-1] удалить
+            }
+    } { NATURALFIXED($amount, 2) }u of { $reagent } { $deltasign ->
+        [1] to
+       *[-1] от
+    } решение

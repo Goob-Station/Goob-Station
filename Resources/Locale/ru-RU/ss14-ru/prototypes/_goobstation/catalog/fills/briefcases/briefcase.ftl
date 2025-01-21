@@ -1,3 +1,3 @@
 ent-BriefcaseSyndieDualettaBundleFilled = { ent-BriefcaseSyndie }
-    .suffix = Syndicate, Dualetta Bundle
+    .suffix = Синдикат, Комплект Дуалетты
     .desc = { ent-BriefcaseSyndie.desc }

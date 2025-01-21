@@ -176,7 +176,8 @@ ghost-role-information-syndicate-kobold-reinforcement-name = Агент Синд
 ghost-role-information-syndicate-kobold-reinforcement-description = Кому-то нужно подкрепление. Вы, специально обученный кобольд, поможете им.
 ghost-role-information-syndicate-kobold-reinforcement-rules = Вы [color=red][bold]Командный антагонист[/bold][/color], в команде с агентом, который вас призвал.
 ghost-role-information-syndicate-cyborg-assault-name = Штурмовой киборг Синдиката
-ghost-role-information-syndicate-cyborg-saboteur-name = Саботажный киборг Синдиката
+ghost-role-information-derelict-cyborg-name = Покинутый киборг
+ghost-role-information-derelict-cyborg-description = Вы - обычный киборг, затерявшийся в космосе. После долгих лет воздействия ионных бурь вы оказались рядом с космической станцией.ghost-role-information-syndicate-cyborg-saboteur-name = Саботажный киборг Синдиката
 ghost-role-information-syndicate-cyborg-description = Синдикату нужно подкрепление. Вы, холодная кремниевая машина для убийства, поможете им.
 ghost-role-information-security-name = Служба безопасности
 ghost-role-information-security-description = Вы входите в состав оперативной группы службы безопасности, но, похоже, попали в странную ситуацию...

@@ -2,7 +2,20 @@
 store-ling-category-combat = Бой
 store-ling-category-sting = Укусы
 store-ling-category-utility = Утилита# бой
-
+evolutionmenu-combat-armhammer-name = Арм Хаммер
+evolutionmenu-combat-armhammer-desc =
+    Преобразуйте одну из своих рук в гротескный молот, состоящий из костей и плоти, способный сокрушать противников, сбивая их с ног и отправляя в полет. Сбивает с ног только при легкой атаке.
+    Затрачивает 15 химикатов.
+evolutionmenu-combat-armclaw-name = Коготь для рук
+evolutionmenu-combat-armclaw-desc =
+    Превращает одну из ваших рук в гротескную клешню, состоящую из костей и плоти, способную хватать противников, обездвиживая их.
+    Затрачивает 15 химикатов.
+evolutionmenu-combat-dartgun-name = Дротиковая пушка
+evolutionmenu-combat-dartgun-desc =
+    Преобразуйте одну из ваших рук в жалящее оружие, способное стрелять дротиками, применяя половину эффекта от одного из ваших эволюционировавших жал с реагентами.
+    Доступные режимы: слепое жало, немое жало, криогенное жало, летаргическое жало.
+    Затрачивает 15 химикатов.
+    Каждый выстрел стоит примерно 1/3 стоимости химиката выбранного жала.
 evolutionmenu-combat-armblade-name = Мяснорй клинок
 evolutionmenu-combat-armblade-desc =
     Преобразуйте одну из своих рук в гротескный клинок, состоящий из костей и плоти, способный открывать шлюзы и разрезать врагов как масло.
@@ -89,9 +102,33 @@ evolutionmenu-utility-biodegrade-desc =
     Выплевывает едкое вещество на все сковывающие вас предметы, позволяя освободиться.
     При использовании этой способности, когда вас схватили, вы плюнете кислотой в лицо нападающим.
     Затрачивает 30 химикатов.
+evolutionmenu-utility-stims-name = Ephedrine Overdose
+evolutionmenu-utility-stims-desc =
+    Inject a cocktail of stimulants into yourself, quickly removing any stuns and giving yourself a speed boost.
+    Continuous injection is poisonous.
+    Costs 30 chemicals.
+evolutionmenu-utility-fleshmend-name = Fleshmend
+evolutionmenu-utility-fleshmend-desc =
+    Rapidly heal yourself of all bruises and burns.
+    Costs 35 chemicals.
 evolutionmenu-utility-chameleon-name = Кожа хамелеона
-evolutionmenu-utility-chameleon-desc =
-    Изменяет пигмент вашей кожи в соответствии с окружающей обстановкой,
+evolutionmenu-utility-chameleon-desc = Изменяет пигмент вашей кожи в соответствии с окружающей обстановкой,
+evolutionmenu-utility-lesserform-name = Lesser Form
+evolutionmenu-utility-lesserform-desc =
+    Abandon your current form and turn into a sentient monkey.
+    Costs 20 chemicals.
+evolutionmenu-utility-spacesuit-name = Space Adaptation
+evolutionmenu-utility-spacesuit-desc =
+    Get rid of useless tissue in order to facilitate space travel. A source of oxygen is still required for space walking.
+    Costs 20 chemicals.
+evolutionmenu-utility-hivemindaccess-name = Hivemind Access
+evolutionmenu-utility-hivemindaccess-desc =
+    Tunes our chemical receptors for hivemind communication, allowing us to recognize and communicate with other changelings who have also evolved this ability.
+    Default radio key is :g
+evolutionmenu-utility-absorbbiomatter-name = Absorb Biomatter
+evolutionmenu-utility-absorbbiomatter-desc =
+    Absorbs an organic food item, letting you regain chemicals depending on its contents.
+    Can absorb nutriment, cooked and uncooked proteins, and fat.
 evolutionmenu-utility-lastresort-name = Крайняя мера
 evolutionmenu-utility-lastresort-desc =
     Откажитесь от своего текущего тела и сбегите в форме слизняка.

@@ -2,7 +2,6 @@
 
 uplink-hardsuit-syndiemedic-name = Скафандр агента Горлекса
 uplink-hardsuit-syndiemedic-desc = Набор с боевым комбинезоном медика, от Мародеров Горлекса.
-
 uplink-hardsuit-syndiecommander-name = Костюм командира Горлекса
 uplink-hardsuit-syndiecommander-desc = Лишний командирский комбинезон, от Мародеров Горлекса. Слишком громоздкий, чтобы поместить его в набор, поэтому баллонов в комплекте нет!
 
@@ -46,6 +45,8 @@ uplink-dualetta-kit-name = Набор Дуалетты
 uplink-dualetta-kit-desc = Два пистолета дуалета по дешевой цене.
 uplink-contractor-baton-name = Дубинка контрактора
 uplink-contractor-baton-desc = Компактная, специализированная дубинка, которая выдается контракторам Синдиката. Применяет легкие электрические разряды к целям. Эти разряды способны воздействовать и на внутренние схемы большинства роботов, вызывая кратковременное оглушение.
+uplink-WSPR-name = WSPR Bundle
+uplink-WSPR-desc = PPPSSSSHhhhh.
 uplink-weapon-burner-name = Тяжелая винтовка Burner
 uplink-weapon-burner-desc = Тяжелая винтовка Burner, превосходное оружие для прорыва и подавления.
 uplink-c20r-name = C-20r
@@ -65,7 +66,9 @@ uplink-blast-grenade-name = Взрывная граната
 uplink-blast-grenade-desc = Повышенный урон, меньший радиус. Совместимо с China-Lake.
 uplink-frag-grenade-name = Осколочная граната
 uplink-frag-grenade-desc = Меньший урон, больший радиус. Совместимо с China-Lake.
-uplink-l6-box-name = Магазин L6 SAW 
+uplink-rifle-subsonic-mag-name = Магазин для дозвуковых пуль .30 Rifle
+uplink-rifle-subsonic-mag-desc = Магазин на 35 патронов с дозвуковыми пулями для винтовки калибра .30. Поддерживает WSPR и любые другие винтовки калибра .30.
+uplink-l6-box-name = Магазин L6 SAW
 uplink-l6-box-desc = Магазин со 100 патронами. Совместим с L6 SAW.
 uplink-shotgun-magazine-name = Барабан для дробовика (.50 дробь)
 uplink-shotgun-magazine-desc = Барабан для дробовика с 8 патронами. Совместим с Bulldog.

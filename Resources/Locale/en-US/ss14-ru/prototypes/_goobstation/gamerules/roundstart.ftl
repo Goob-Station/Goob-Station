@@ -14,3 +14,5 @@ ent-BlobGameMode = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
 ent-BlobSpawn = { ent-BaseGameRule }
     .desc = { ent-BaseGameRule.desc }
+ent-Honkops = { ent-BaseNukeopsRule }
+    .desc = { ent-BaseNukeopsRule.desc }

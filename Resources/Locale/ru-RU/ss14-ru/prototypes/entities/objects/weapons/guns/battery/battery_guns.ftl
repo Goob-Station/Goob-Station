@@ -65,3 +65,5 @@ ent-WeaponBehonkerLaser = око бехонкера
     .desc = Глаз бехонкера, при сжатии выстреливает лазером.
 ent-WeaponEnergyShotgun = энергетический дробовик
     .desc = Единственный в своём роде прототип энергетического оружия, использующий различные конфигурации дробовика. Оно позволяет совершать как смертельные, так и несмертельные выстрелы, что делает его универсальным оружием.
+ent-WeaponEnergyGunMultiphase = X-01 Multiphase
+    .desc = This is an expensive, modern recreation of the antique laser gun. This gun has several unique firemodes, but lacks the ability to recharge over time.

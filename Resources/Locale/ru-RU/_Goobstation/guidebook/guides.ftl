@@ -1,5 +1,6 @@
 guide-entry-space-law = Космо-закон
 guide-entry-medpatches = Медицинские пластыри
+guide-entry-rules-nrp = НРП правила
 # Goob SOP
 # - Основные справочники
 guide-entry-sop = СРП
@@ -27,6 +28,7 @@ guide-entry-sop-gammaalert = Код гамма
 guide-entry-sop-violetalert = Фиолетовый код
 # - Стандартные процедуры
 guide-entry-sop-demoting = Увольнение/понижение
+guide-entry-sop-evacuation = Ранняя эвакуация
 guide-entry-sop-hiring = Наем/Перевод
 guide-entry-sop-succession = Иерархия  командования
 # - Чрезвычайные ситуации
@@ -58,10 +60,12 @@ guide-entry-sop-ce = СИ
 guide-entry-sop-qm = КМ
 # - Инженерный
 guide-entry-sop-atmostech = Атмос
-guide-entry-sop-stationengineer = Инженер 
+guide-entry-sop-stationengineer = Инженер
 # - Медицина
 guide-entry-sop-chemist = химик
 guide-entry-sop-doctorintern = Доктор/Интерн
+# - Science
+guide-entry-sop-roboticist = Роботехник
 # - Наука
 guide-entry-sop-robotocist = Робототехник
 guide-entry-sop-scientist = Ученый

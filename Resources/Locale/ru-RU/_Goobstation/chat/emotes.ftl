@@ -16,6 +16,5 @@ emote-fart-out-of-farts = У вас закончился потенциал пе
 emote-fart-super-fart = Вы (буквально) пердите во всю задницу!
 emote-fart-inhale-notice = Вы вдыхаете воздух, чтобы получить пердеж.
 emote-fart-inhale-disarm-notice = Вы обезвреживаете свой пердеж.
-
 chat-emote-name-boop = Буп
 chat-emote-name-whirr = Шумит

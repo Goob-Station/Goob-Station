@@ -3,7 +3,7 @@ objective-issuer-hivemind = [color=orange]Улей[/color]
 roundend-prepend-changeling-absorbed-named = [color=white]{ $name }[/color] поглотил в общей сложности [color=red]{ $number }[/color] органики.
 roundend-prepend-changeling-stolen-named = [color=white]{ $name }[/color] добыл в общей сложности [color=orange]{ $number }[/color] образцов ДНК.
 roundend-prepend-changeling-absorbed = Кто-то поглотил в общей сложности [color=red]{ $number }[/color] органики.
-roundend-prepend-changeling-stolen = Кто-то добыл в общей сложности [color=orange]{$number }[/color] образцов ДНК.
+roundend-prepend-changeling-stolen = Кто-то добыл в общей сложности [color=orange]{ $number }[/color] образцов ДНК.
 changeling-gamemode-title = Генокрады
 changeling-gamemode-description = Улей генокрадов высадился на станцию, готовый забрать все, что пожелает, - оборудование, лица или жизни!
 changeling-role-greeting =

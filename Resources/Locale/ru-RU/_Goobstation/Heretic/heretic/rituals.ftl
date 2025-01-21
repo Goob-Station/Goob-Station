@@ -38,6 +38,7 @@ heretic-ritual-ash-blade = Секрет ночного дозорного
 heretic-ritual-ash-grasp = Хватка пепла
 heretic-ritual-ash-mask = Маска безумия
 heretic-ritual-ash-ascend = Ритуал повелителя пепла
+
 ## flesh path
 
 heretic-ritual-flesh-blade = Принцип голода
