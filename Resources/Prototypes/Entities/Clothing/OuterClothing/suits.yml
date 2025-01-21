@@ -236,7 +236,7 @@
     sprite: Clothing/OuterClothing/Suits/monkey.rsi
   - type: ContainerContainer
     containers:
-      toggleable-clothing: !type:Container {} #Goobstation - Modsuits
+      toggleable-clothing: !type:Container {}
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
