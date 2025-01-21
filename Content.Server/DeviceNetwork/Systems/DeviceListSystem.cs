@@ -56,7 +56,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
             DebugTools.Assert(conf_comp.ActiveDeviceList == listUid);
         }
 
-        /*
+        /* Seems like DeviceLists in DeviceNetwork component in all maps are empty. This makes tests always fail.
         var device_query = GetEntityQuery<DeviceNetworkComponent>();
         foreach (var dev_enty in listComp.Devices)
         {
