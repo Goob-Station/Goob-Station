@@ -10,11 +10,20 @@
 - type: entity
   parent: MobGorillaAngry
   id: MobGorillaAngryTemp
-  suffix: Angry, temporary
+  suffix: Angry, Lesser, Temporary
   components:
   - type: FadingTimedDespawn
     lifetime: 120
     fadeOutTime: 4
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      80: Critical
+      100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      60: 0.7
+      70: 0.5
 
 - type: entity
   parent: MobGorillaAngry
@@ -64,9 +73,18 @@
 - type: entity
   parent: MobMonkeyAngry
   id: MobMonkeyAngryTemp
-  suffix: Angry, temporary
+  suffix: Angry, Lesser, Temporary
   components:
   - type: FadingTimedDespawn
     lifetime: 120
     fadeOutTime: 4
   - type: DropItemsOnTimedDespawn
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: SlowOnDamage
+    speedModifierThresholds:
+      30: 0.7
+      40: 0.5

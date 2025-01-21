@@ -780,8 +780,6 @@
       speech: action-speech-spell-simians
       mobs: SummonSimiansMobTable
       weapons: SummonSimiansWeaponTableII
-      amount: 4
-      range: 1.5
 
 - type: entity
   parent: ActionSummonSimians
@@ -803,7 +801,8 @@
       mobs: SummonSimiansMobTable
       weapons: SummonSimiansWeaponTableIII
       amount: 5
-      range: 2
+      range: 1.25
+      spawnAngle: 50
 
 - type: entity
   parent: ActionSummonSimians
@@ -825,7 +824,8 @@
       mobs: SummonSimiansMobTable
       weapons: SummonSimiansWeaponTableIV
       amount: 5
-      range: 2.5
+      range: 1.25
+      spawnAngle: 50
 
 - type: entity
   parent: ActionSummonSimians
@@ -847,7 +847,8 @@
       mobs: SummonSimiansMobTable
       weapons: SummonSimiansWeaponTableV
       amount: 6
-      range: 3
+      range: 1.5
+      spawnAngle: 60
   - type: Magic
     requiresClothes: false
   - type: Tag

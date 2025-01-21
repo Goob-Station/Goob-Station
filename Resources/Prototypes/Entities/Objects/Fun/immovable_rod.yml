@@ -132,6 +132,8 @@
     sprite:
       sprite: /Textures/Objects/Fun/immovable_rod.rsi
       state: icon
+  - type: StatusIcon # Goobstation
+    bounds: -0.5,-0.5,0.5,0.5
 
 - type: entity
   parent: ImmovableRodKeepTiles

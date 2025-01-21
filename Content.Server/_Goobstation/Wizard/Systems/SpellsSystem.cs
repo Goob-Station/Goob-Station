@@ -48,7 +48,6 @@ using Robust.Shared.GameObjects.Components.Localization;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Spawners;
@@ -89,9 +88,19 @@ public sealed class SpellsSystem : SharedSpellsSystem
             !TryComp(comp.Mind.Value, out ActionsContainerComponent? container))
             return;
 
-        var tag = args.MaxLevelTag;
+        var hasMaxLevelSimians = false;
+        foreach (var action in container.Container.ContainedEntities)
+        {
+            if (Tag.HasTag(action, args.GorillaFormTag))
+                return;
 
-        if (!container.Container.ContainedEntities.Any(x => Tag.HasTag(x, tag)))
+            if (hasMaxLevelSimians || !Tag.HasTag(action, args.MaxLevelTag))
+                continue;
+
+            hasMaxLevelSimians = true;
+        }
+
+        if (!hasMaxLevelSimians)
             return;
 
         ActionContainer.AddAction(comp.Mind.Value, args.Action, container);
@@ -107,7 +116,7 @@ public sealed class SpellsSystem : SharedSpellsSystem
             default,
             false,
             mindComp.Session.Channel,
-            Color.SaddleBrown);
+            args.MessageColor);
     }
 
     protected override void MakeMime(EntityUid uid)
@@ -420,12 +429,16 @@ public sealed class SpellsSystem : SharedSpellsSystem
     private IEnumerable<MapCoordinates> GetSpawnCoordinatesAroundPerformer(EntityUid performer,
         float range,
         int amount,
+        Angle angle,
         int collisionMask)
     {
-        var coords = TransformSystem.GetMapCoordinates(performer);
+        var xform = Transform(performer);
+        var coords = TransformSystem.GetMapCoordinates(xform);
 
-        var positions = _gun.LinearSpread(Angle.Zero, MathHelper.TwoPi, amount)
-            .Select(x => new MapCoordinates(coords.Position + x.ToVec() * range, coords.MapId));
+        var performerAngle = xform.LocalRotation;
+
+        var positions = _gun.LinearSpread(performerAngle - angle, performerAngle + angle, amount)
+            .Select(x => new MapCoordinates(coords.Position + x.ToWorldVec() * range, coords.MapId));
 
         foreach (var position in positions)
         {
@@ -449,8 +462,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         if (ev.Mobs.Count == 0)
             return;
 
-        var positions =
-            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, (int) CollisionGroup.FlyingMobMask);
+        var positions = GetSpawnCoordinatesAroundPerformer(ev.Performer,
+            ev.Range,
+            ev.Amount,
+            ev.SpawnAngle,
+            (int) CollisionGroup.FlyingMobMask);
         foreach (var pos in positions)
         {
             Spawn(Random.Pick(ev.Mobs), pos);
@@ -471,8 +487,11 @@ public sealed class SpellsSystem : SharedSpellsSystem
         var despawnQuery = GetEntityQuery<TimedDespawnComponent>();
         var fadingQuery = GetEntityQuery<FadingTimedDespawnComponent>();
 
-        var positions =
-            GetSpawnCoordinatesAroundPerformer(ev.Performer, ev.Range, ev.Amount, (int) CollisionGroup.MobMask);
+        var positions = GetSpawnCoordinatesAroundPerformer(ev.Performer,
+            ev.Range,
+            ev.Amount,
+            ev.SpawnAngle,
+            (int) CollisionGroup.MobMask);
         foreach (var pos in positions)
         {
             var mob = Spawn(mobs.Pick(Random), pos);

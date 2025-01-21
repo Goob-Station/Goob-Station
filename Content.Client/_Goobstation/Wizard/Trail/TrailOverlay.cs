@@ -51,14 +51,31 @@ public sealed class TrailOverlay : Overlay
             if (trail.TrailData.Count == 0)
                 continue;
 
-            if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shader))
-                handle.UseShader(shader.Instance());
+            var (position, rotation) = _transform.GetWorldPositionRotation(xform, xformQuery);
+
+            if (trail.Shader != null && _protoMan.TryIndex<ShaderPrototype>(trail.Shader, out var shaderProto))
+            {
+                var shader = shaderProto.InstanceUnique();
+                foreach (var (key, data) in trail.ShaderData)
+                {
+                    switch (data)
+                    {
+                        case GetShaderLocalPositionData:
+                            shader.SetParameter(key, args.Viewport.WorldToLocal(position));
+                            break;
+                        case GetShaderFloatParam f:
+                            if (float.TryParse(f.Param, out var fValue))
+                                shader.SetParameter(key, fValue);
+                            break;
+                    }
+                }
+                handle.UseShader(shader);
+            }
             else
                 handle.UseShader(null);
 
             if (trail.RenderedEntity != null)
             {
-                var rotation = _transform.GetWorldRotation(xform, xformQuery);
                 var dirRot = rotation + eyeRot;
                 var direction = dirRot.GetCardinalDir();
 
@@ -92,9 +109,8 @@ public sealed class TrailOverlay : Overlay
                 handle.SetTransform(Matrix3x2.Identity);
                 if (xform.MapID == args.MapId)
                 {
-                    var end = _transform.GetWorldPosition(xform, xformQuery);
                     var start = trail.TrailData[^1].Position;
-                    DrawTrailLine(start, end, trail.Color, trail.Scale, bounds, handle);
+                    DrawTrailLine(start, position, trail.Color, trail.Scale, bounds, handle);
                 }
 
                 for (var i = 1; i < trail.TrailData.Count; i++)

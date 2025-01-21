@@ -131,7 +131,7 @@ spellbook-bees-desc =
 
 spellbook-simians-name = Summon Simians
 spellbook-simians-desc =
-    This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons primal monkeys and gorillas that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
+    This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
     Upgrading this spell also increases summonned monkey amount, and their gear gets stronger as well!
     Requires wizard's robe and hat to cast.
 

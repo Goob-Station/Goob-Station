@@ -191,16 +191,21 @@ public abstract class SharedMagicSystem : EntitySystem
 
         if (comp.RequiresClothes)
         {
-            var enumerator = _inventory.GetSlotEnumerator(args.Performer, flags); // Goob edit
-            while (enumerator.MoveNext(out var containerSlot))
+            if (!TryComp(args.Performer, out InventoryComponent? inventory)) // Goob edit
+                hasReqs = false;
+            else
             {
-                if (containerSlot.ContainedEntity is { } item)
-                    hasReqs = HasComp<WizardClothesComponent>(item);
-                else
-                    hasReqs = false;
+                var enumerator = _inventory.GetSlotEnumerator((args.Performer, inventory), flags); // Goob edit
+                while (enumerator.MoveNext(out var containerSlot))
+                {
+                    if (containerSlot.ContainedEntity is { } item)
+                        hasReqs = HasComp<WizardClothesComponent>(item);
+                    else
+                        hasReqs = false;
 
-                if (!hasReqs)
-                    break;
+                    if (!hasReqs)
+                        break;
+                }
             }
         }
 

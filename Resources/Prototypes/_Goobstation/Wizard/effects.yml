@@ -218,7 +218,9 @@
     velocityLerpTarget: 0.3
     alphaLerpTarget: 0
     color: "#0000FFFF"
-    shader: Stealth
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
     spawnRemainingTrail: false
   - type: Transform
   - type: Tag
@@ -242,7 +244,9 @@
     positionLerpAmount: 0.08
     radius: 12
     color: "#0000FF00"
-    shader: Stealth
+    shader: EtherealJaunt
+    shaderData:
+      reference: !type:GetShaderLocalPositionData
     spawnRemainingTrail: false
   - type: Transform
   - type: Tag

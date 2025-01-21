@@ -12,6 +12,7 @@ using Content.Shared.Random;
 using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
+using Robust.Shared.Maths;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Wizard;
@@ -281,7 +282,7 @@ public sealed partial class LightningBoltEvent : EntityTargetActionEvent, ISpeak
     public string? Speech { get; private set; }
 
     [DataField]
-    public float Damage = 50f;
+    public float Damage = 40f;
 
     [DataField]
     public EntProtoId Proto = "ChargedLightning";
@@ -323,7 +324,7 @@ public sealed partial class SpellCardsEvent : EntityWorldTargetActionEvent, ISpe
     public float MaxAngularVelocity = MathF.PI / 3f;
 
     [DataField]
-    public Vector2 MinMaxLinearDamping = new (3f, 7f);
+    public Vector2 MinMaxLinearDamping = new(3f, 7f);
 }
 
 public sealed partial class ArcaneBarrageEvent : InstantActionEvent, ISpeakSpell
@@ -415,6 +416,9 @@ public sealed partial class LesserSummonBeesEvent : InstantActionEvent, ISpeakSp
 
     [DataField]
     public int Amount = 9;
+
+    [DataField]
+    public Angle SpawnAngle = Angle.FromDegrees(160);
 }
 
 public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
@@ -433,6 +437,9 @@ public sealed partial class SummonSimiansEvent : InstantActionEvent, ISpeakSpell
 
     [DataField]
     public int Amount = 4;
+
+    [DataField]
+    public Angle SpawnAngle = Angle.FromDegrees(40);
 }
 
 public sealed partial class ExsanguinatingStrikeEvent : InstantActionEvent, ISpeakSpell
@@ -524,4 +531,10 @@ public sealed partial class SummonSimiansMaxedOutEvent : EntityEventArgs
 
     [DataField]
     public ProtoId<TagPrototype> MaxLevelTag = "SummonSimiansMaxLevelAction";
+
+    [DataField]
+    public ProtoId<TagPrototype> GorillaFormTag = "GorillaFormAction";
+
+    [DataField]
+    public Color MessageColor = Color.FromHex("#EDC349");
 }

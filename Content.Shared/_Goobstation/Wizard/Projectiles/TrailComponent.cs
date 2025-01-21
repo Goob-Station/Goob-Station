@@ -127,6 +127,9 @@ public sealed partial class TrailComponent : Component
     [DataField]
     public string? Shader;
 
+    [DataField]
+    public Dictionary<string, IGetShaderData> ShaderData = new();
+
     [DataField, AutoNetworkedField]
     public Color Color = Color.White;
 
@@ -171,3 +174,18 @@ public sealed class TrailData(
 
     public TimeSpan SpawnTime = spawnTime;
 }
+
+[ImplicitDataDefinitionForInheritors]
+public partial interface IGetShaderData;
+
+public abstract partial class GetShaderParam : IGetShaderData
+{
+    [DataField(required: true)]
+    public string Param = string.Empty;
+}
+
+// Add more data if needed
+
+public sealed partial class GetShaderLocalPositionData : IGetShaderData;
+
+public sealed partial class GetShaderFloatParam : GetShaderParam;
