@@ -34,11 +34,16 @@
     Arms:
       points: 2
       required: false
+    Overlay:
+      points: 1
+      required: false
 
 - type: speciesBaseSprites
   id: MobTajaranSprites
   sprites:
     Head: MobTajaranHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
     Hair: MobHumanoidAnyMarking
     FacialHair: MobHumanoidAnyMarking
     Snout: MobHumanoidAnyMarking
@@ -50,11 +55,9 @@
     RHand: MobTajaranRHand
     LLeg: MobTajaranLLeg
     RLeg: MobTajaranRLeg
+    Tail: MobHumanoidAnyMarking
     LFoot: MobTajaranLFoot
     RFoot: MobTajaranRFoot
-    Tail: MobHumanoidAnyMarking
-    HeadTop: MobHumanoidAnyMarking
-    HeadSide: MobHumanoidAnyMarking
 
 - type: humanoidBaseSprite
   id: MobTajaranEyes

@@ -1,0 +1,19 @@
+{
+    "version": 1,
+    "copyright": "https://github.com/ParadiseSS13/Paradise",
+    "license": "CC-BY-SA-3.0",
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "patch",
+            "directions": 4
+        },
+        {
+            "name": "points",
+            "directions": 4
+        }
+    ]
+}
