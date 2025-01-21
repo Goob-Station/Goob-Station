@@ -184,11 +184,6 @@ namespace Content.Server.Body.Systems
 
                     float scale = (float) mostToRemove / (float) rate;
 
-                    // Usually does nothing, but allows certain organs to have bigger/smaller effects
-                    // independently of processing rate, whilst not messing with alcohol processing capabilities
-                    // of livers based on human one
-                    scale *= group.MetabolismScaleModifier.Float();
-
                     // if it's possible for them to be dead, and they are,
                     // then we shouldn't process any effects, but should probably
                     // still remove reagents
