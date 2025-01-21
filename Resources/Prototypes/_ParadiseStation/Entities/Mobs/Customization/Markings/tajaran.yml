@@ -244,15 +244,6 @@
     state: bedhead_s
 
 - type: marking
-  id: TajaranHairBob
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: bob_s
-
-- type: marking
   id: TajaranHairBraid
   bodyPart: Hair
   markingCategory: Hair
@@ -415,15 +406,6 @@
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
     state: metal_s
-
-- type: marking
-  id: TajaranHairMohawk
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: mohawk_s
 
 - type: marking
   id: TajaranHairOvereye
