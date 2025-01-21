@@ -1,6 +1,40 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Roleplay Rule 5.1 has been added that clarifies acceptable collateral
+      and mass sabotage for antagonists. Most important for traitors, so be sure to
+      read it!
+    type: Add
+  id: 123
+  time: '2025-01-21T08:28:05.665518'
+- author: AstroDogeDX
+  changes:
+  - message: More tweaks to illeism speech trait to be even more accurate.
+    type: Fix
+  id: 122
+  time: '2025-01-21T08:29:40.954113'
+- author: AstroDogeDX
+  changes:
+  - message: Harpies no longer choke on their own CO2.
+    type: Tweak
+  id: 121
+  time: '2025-01-21T08:28:39.013299'
+- author: AstroDogeDX
+  changes:
+  - message: A really rough attempt to fix carrying, escaping and throwing has been
+      made. Report any issues you find!
+    type: Fix
+  id: 120
+  time: '2025-01-21T08:29:09.031055'
+- author: AstroDogeDX
+  changes:
+  - message: Admin ghosts no longer leave logs on doors and computers, confusing drunk
+      detectives.
+    type: Fix
+  id: 119
+  time: '2025-01-21T08:27:21.702824'
+- author: AstroDogeDX
+  changes:
   - message: ACTUALLY fixed the Jensen Coat's storage this time. Sorry!
     type: Fix
   id: 118
