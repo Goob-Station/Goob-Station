@@ -263,36 +263,9 @@
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: braid_s
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
     state: braid_beads_s
-
-- type: marking
-  id: TajaranHairClean
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: clean_s
-
-- type: marking
-  id: TajaranHairCombedback
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: combedback_s
-
-- type: marking
-  id: TajaranHairCurly
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: curly_s
+    state: braid_s
 
 - type: marking
   id: TajaranHairDreadlocks
@@ -313,15 +286,6 @@
     state: earrings_s
 
 - type: marking
-  id: TajaranHairFingerwave
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: fingerwave_s
-
-- type: marking
   id: TajaranHairHairribbons
   bodyPart: Hair
   markingCategory: Hair
@@ -329,24 +293,6 @@
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
     state: hairribbons_s
-
-- type: marking
-  id: TajaranHairLadiesretro
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: ladiesretro_s
-
-- type: marking
-  id: TajaranHairLong
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: long_s
 
 - type: marking
   id: TajaranHairLynx
@@ -358,42 +304,6 @@
     state: lynx_s
 
 - type: marking
-  id: TajaranHairMarmalade
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: marmalade_s
-
-- type: marking
-  id: TajaranHairMessylong
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: messylong_s
-
-- type: marking
-  id: TajaranHairMetal
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: metal_s
-
-- type: marking
-  id: TajaranHairOvereye
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: overeye_s
-
-- type: marking
   id: TajaranHairPlait
   bodyPart: Hair
   markingCategory: Hair
@@ -403,24 +313,6 @@
     state: plait_s
 
 - type: marking
-  id: TajaranHairPunk
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: punk_s
-
-- type: marking
-  id: TajaranHairRattail
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: rattail_s
-
-- type: marking
   id: TajaranHairShaggy
   bodyPart: Hair
   markingCategory: Hair
@@ -428,57 +320,3 @@
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
     state: shaggy_s
-
-- type: marking
-  id: TajaranHairShy
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: shy_s
-
-- type: marking
-  id: TajaranHairSidebraid
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: sidebraid_s
-
-- type: marking
-  id: TajaranHairSpikey
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: spikey_s
-
-- type: marking
-  id: TajaranHairTailedbangs
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: tailedbangs_s
-
-- type: marking
-  id: TajaranHairTough
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: tough_s
-
-- type: marking
-  id: TajaranHairVictory
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: victory_s

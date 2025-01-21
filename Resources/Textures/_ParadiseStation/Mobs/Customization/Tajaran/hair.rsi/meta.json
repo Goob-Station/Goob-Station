@@ -16,18 +16,6 @@
             "directions": 4
         },
         {
-            "name": "clean_s",
-            "directions": 4
-        },
-        {
-            "name": "combedback_s",
-            "directions": 4
-        },
-        {
-            "name": "curly_s",
-            "directions": 4
-        },
-        {
             "name": "dreadlocks_s",
             "directions": 4
         },
@@ -36,19 +24,7 @@
             "directions": 4
         },
         {
-            "name": "fingerwave_s",
-            "directions": 4
-        },
-        {
             "name": "hairribbons_s",
-            "directions": 4
-        },
-        {
-            "name": "ladiesretro_s",
-            "directions": 4
-        },
-        {
-            "name": "long_s",
             "directions": 4
         },
         {
@@ -56,59 +32,11 @@
             "directions": 4
         },
         {
-            "name": "marmalade_s",
-            "directions": 4
-        },
-        {
-            "name": "messylong_s",
-            "directions": 4
-        },
-        {
-            "name": "metal_s",
-            "directions": 4
-        },
-        {
-            "name": "overeye_s",
-            "directions": 4
-        },
-        {
             "name": "plait_s",
             "directions": 4
         },
         {
-            "name": "punk_s",
-            "directions": 4
-        },
-        {
-            "name": "rattail_s",
-            "directions": 4
-        },
-        {
             "name": "shaggy_s",
-            "directions": 4
-        },
-        {
-            "name": "shy_s",
-            "directions": 4
-        },
-        {
-            "name": "sidebraid_s",
-            "directions": 4
-        },
-        {
-            "name": "spikey_s",
-            "directions": 4
-        },
-        {
-            "name": "tailedbangs_s",
-            "directions": 4
-        },
-        {
-            "name": "tough_s",
-            "directions": 4
-        },
-        {
-            "name": "victory_s",
             "directions": 4
         }
     ]
