@@ -320,3 +320,86 @@
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
     state: shaggy
+
+# "Overlays"
+
+- type: marking
+  id: TajaranOverlayPatchLArm
+  bodyPart: LArm
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: LArm
+
+- type: marking
+  id: TajaranOverlayPatchRArm
+  bodyPart: RArm
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: RArm
+
+- type: marking
+  id: TajaranOverlayPatchLHand
+  bodyPart: LHand
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: LHand
+
+- type: marking
+  id: TajaranOverlayPatchRHand
+  bodyPart: RHand
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: RHand
+
+- type: marking
+  id: TajaranOverlayPatchLLeg
+  bodyPart: LLeg
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: LLeg
+
+- type: marking
+  id: TajaranOverlayPatchRLeg
+  bodyPart: RLeg
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: RLeg
+
+- type: marking
+  id: TajaranOverlayPatchTorso
+  bodyPart: Torso
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: Torso
+
+- type: marking
+  id: TajaranOverlayPatchLFoor
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: LFoot
+
+- type: marking
+  id: TajaranOverlayPatchRFoot
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/Overlays/patch.rsi
+    state: RFoot

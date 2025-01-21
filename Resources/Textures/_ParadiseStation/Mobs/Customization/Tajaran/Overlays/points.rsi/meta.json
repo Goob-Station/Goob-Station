@@ -8,15 +8,7 @@
     },
     "states": [
         {
-            "name": "belly",
-            "directions": 4
-        },
-        {
-            "name": "crest",
-            "directions": 4
-        },
-        {
-            "name": "fullbelly",
+            "name": "points",
             "directions": 4
         }
     ]
