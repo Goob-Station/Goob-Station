@@ -20,6 +20,8 @@
     tags:
     - CentralCommand
     - SyndicateAgent
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Helldiver
 - type: entity
@@ -53,6 +55,8 @@
     - AllAccess
     tags:
     - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Blueshield
 - type: entity
