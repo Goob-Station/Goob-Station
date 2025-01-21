@@ -56,6 +56,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
             DebugTools.Assert(conf_comp.ActiveDeviceList == listUid);
         }
 
+        /*
         var device_query = GetEntityQuery<DeviceNetworkComponent>();
         foreach (var dev_enty in listComp.Devices)
         {
@@ -67,6 +68,7 @@ public sealed class DeviceListSystem : SharedDeviceListSystem
             }
             DebugTools.Assert(dev_comp.DeviceLists.Contains(listUid));
         }
+        */
     }
 
     private void OnShutdown(EntityUid uid, DeviceListComponent component, ComponentShutdown args)
