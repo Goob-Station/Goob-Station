@@ -1,5 +1,6 @@
 guide-entry-space-law = Space Law
 guide-entry-medpatches = Medical Patches
+guide-entry-rules-nrp = NRP Ruleset
 
 # Goob SOP
 # - Main Directories
