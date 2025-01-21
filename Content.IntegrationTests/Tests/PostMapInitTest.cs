@@ -73,7 +73,7 @@ namespace Content.IntegrationTests.Tests
             "Kettle", // Goobstation - add Kettle
             "Submarine", // Goobstation - add Submarine
             "Amber",
-            "Gate",
+            "Gate", // Goobstation - goob changes
             "Loop"
         };
 
