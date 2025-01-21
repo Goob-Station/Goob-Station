@@ -6,7 +6,7 @@
   icon: _Goobstation/Interface/Emotes/hiss.png
   whitelist:
     tags:
-    - FelinidEmotes
+    - TajaranEmotes
     - HarpyEmotes
   blacklist:
     components:
@@ -25,7 +25,7 @@
   icon: _Goobstation/Interface/Emotes/meow.png
   whitelist:
     tags:
-    - FelinidEmotes
+    - TajaranEmotes
     - HarpyEmotes
   blacklist:
     components:
@@ -50,7 +50,7 @@
   icon: _Goobstation/Interface/Emotes/mew.png
   whitelist:
     tags:
-    - FelinidEmotes
+    - TajaranEmotes
     - HarpyEmotes
   blacklist:
     components:
@@ -69,7 +69,7 @@
   icon: _Goobstation/Interface/Emotes/growl.png
   whitelist:
     tags:
-    - FelinidEmotes
+    - TajaranEmotes
     - HarpyEmotes
   blacklist:
     components:
@@ -88,7 +88,7 @@
   icon: _Goobstation/Interface/Emotes/purr.png
   whitelist:
     tags:
-    - FelinidEmotes
+    - TajaranEmotes
     - HarpyEmotes
   blacklist:
     components:

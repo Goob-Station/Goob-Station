@@ -1,11 +1,11 @@
 - type: species
-  id: Felinid
-  name: species-name-felinid
+  id: Tajaran
+  name: species-name-tajaran
   roundStart: true
-  prototype: MobFelinid
+  prototype: MobTajaran
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits
-  dollPrototype: MobFelinidDummy
+  dollPrototype: MobTajaranDummy
   skinColoration: Hues
 
 - type: markingPoints

@@ -5,7 +5,7 @@
     Slash: 0.85
     Piercing: 0.85
 - type: damageModifierSet
-  id: Felinid
+  id: Tajaran
   coefficients:
     Blunt: 1.15
     Slash: 1.15

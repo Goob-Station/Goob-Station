@@ -1,10 +1,10 @@
-# Felinid Ears
+# Felinid Ears, adapted for tajaran
 
 - type: marking
-  id: FelinidEarsBasic
+  id: TajaranEarsBasic
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: basic_outer
@@ -12,10 +12,10 @@
     state: basic_inner
 
 - type: marking
-  id: FelinidEarsCurled
+  id: TajaranEarsCurled
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: curled_outer
@@ -23,10 +23,10 @@
     state: curled_inner
 
 - type: marking
-  id: FelinidEarsDroopy
+  id: TajaranEarsDroopy
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: droopy_outer
@@ -34,10 +34,10 @@
     state: droopy_inner
 
 - type: marking
-  id: FelinidEarsFuzzy
+  id: TajaranEarsFuzzy
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: basic_outer
@@ -45,10 +45,10 @@
     state: fuzzy_inner
 
 - type: marking
-  id: FelinidEarsStubby
+  id: TajaranEarsStubby
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: stubby_outer
@@ -56,10 +56,10 @@
     state: stubby_inner
 
 - type: marking
-  id: FelinidEarsTall
+  id: TajaranEarsTall
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: tall_outer
@@ -69,10 +69,10 @@
     state: tall_fuzz
 
 - type: marking
-  id: FelinidEarsTorn
+  id: TajaranEarsTorn
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: torn_outer
@@ -80,23 +80,23 @@
     state: torn_inner
 
 - type: marking
-  id: FelinidEarsWide
+  id: TajaranEarsWide
   bodyPart: HeadTop
   markingCategory: HeadTop
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: wide_outer
   - sprite: Nyanotrasen/Mobs/Customization/felinid_ears.rsi
     state: wide_inner
 
-# Felinid Tails
+# Felinid Tails, also adapted
 
 - type: marking
-  id: FelinidTailBasic
+  id: TajaranTailBasic
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -106,10 +106,10 @@
     state: basic_tail_stripes_odd
 
 - type: marking
-  id: FelinidTailBasicWithBow
+  id: TajaranTailBasicWithBow
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -121,10 +121,10 @@
     state: basic_bow
 
 - type: marking
-  id: FelinidTailBasicWithBell
+  id: TajaranTailBasicWithBell
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip
@@ -136,10 +136,10 @@
     state: basic_bell
 
 - type: marking
-  id: FelinidTailBasicWithBowAndBell
+  id: TajaranTailBasicWithBowAndBell
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: Nyanotrasen/Mobs/Customization/felinid_tails.rsi
     state: basic_tail_tip

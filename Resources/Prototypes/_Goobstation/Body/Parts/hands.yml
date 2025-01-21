@@ -17,8 +17,8 @@
     state: "r_hand"
 
 - type: entity
-  id: LeftHandFelinid
-  name: "left felinid hand"
+  id: LeftHandTajaran
+  name: "left tajaran hand"
   parent: [PartHuman, BaseLeftHand]
   components:
   - type: Sprite
@@ -26,8 +26,8 @@
     state: "l_hand"
 
 - type: entity
-  id: RightHandFelinid
-  name: "right felinid hand"
+  id: RightHandTajaran
+  name: "right tajaran hand"
   parent: [PartHuman, BaseRightHand]
   components:
   - type: Sprite

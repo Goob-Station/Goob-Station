@@ -2,7 +2,7 @@
   parent: BaseItem
   id: Hairball
   name: hairball
-  description: Felinids, man...
+  description: Tajarans, man...
   components:
   - type: Sprite
     sprite: Nyanotrasen/Objects/Specific/Species/felinid.rsi

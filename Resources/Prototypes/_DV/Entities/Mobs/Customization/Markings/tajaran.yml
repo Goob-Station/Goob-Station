@@ -1,8 +1,8 @@
 - type: marking
-  id: FelinidFluffyTailRings
+  id: TajaranFluffyTailRings
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
@@ -10,19 +10,19 @@
     state: felinid_fluffy_tail_rings
 
 - type: marking
-  id: FelinidFluffyTail
+  id: TajaranFluffyTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
   - sprite: _DV/Mobs/Customization/Felinid/felinid_tails.rsi
     state: Felinid_fluffy_tail_full
 
 - type: marking
-  id: FelinidAlternativeTail
+  id: TajaranAlternativeTail
   bodyPart: Tail
   markingCategory: Tail
-  speciesRestriction: [Felinid]
+  speciesRestriction: [Tajaran]
   sprites:
     - sprite: _DV/Mobs/Customization/Felinid/alternative_tail.rsi
       state: m_waggingtail_cat_FRONT

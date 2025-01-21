@@ -1,8 +1,8 @@
 - type: entity
   save: false
-  name: Urist McFelinid
-  parent: MobFelinidBase
-  id: MobFelinid
+  name: Urist McTajaran
+  parent: MobTajaranBase
+  id: MobTajaran
   components:
   - type: CombatMode
   - type: InteractionPopup
@@ -15,7 +15,7 @@
   - type: Input
     context: "human"
   - type: Speech
-    speechVerb: Felinid
+    speechVerb: Tajaran
   - type: MobMover
   - type: InputMover
   - type: Reactive
@@ -50,3 +50,10 @@
     factions:
     - NanoTrasen
 
+# Alias for backwards compatibility
+- type: entity
+  save: false
+  name: Urist McFelinid
+  suffix: Legacy Alias
+  parent: MobTajaran
+  id: MobFelinid

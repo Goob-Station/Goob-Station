@@ -1,11 +1,11 @@
 # species
 - type: emoteSounds
-  id: MaleFelinid
+  id: MaleTajaran
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: FelinidScreams
+      collection: TajaranScreams
     Laugh:
       collection: MaleLaugh
     Sneeze:
@@ -27,27 +27,27 @@
     Weh:
       collection: Weh
     Hiss:
-      collection: FelinidHisses
+      collection: TajaranHisses
     Meow:
-      collection: FelinidMeows
+      collection: TajaranMeows
     Mew:
-      collection: FelinidMews
+      collection: TajaranMews
     Growl:
-      collection: FelinidGrowls
+      collection: TajaranGrowls
     Purr:
-      collection: FelinidPurrs
+      collection: TajaranPurrs
     Gasp:
       collection: MaleGasp
     DefaultDeathgasp:
       collection: MaleDeathGasp
 
 - type: emoteSounds
-  id: FemaleFelinid
+  id: FemaleTajaran
   params:
     variation: 0.125
   sounds:
     Scream:
-      collection: FelinidScreams
+      collection: TajaranScreams
     Laugh:
       collection: FemaleLaugh
     Sneeze:
@@ -69,15 +69,15 @@
     Weh:
       collection: Weh
     Hiss:
-      collection: FelinidHisses
+      collection: TajaranHisses
     Meow:
-      collection: FelinidMeows
+      collection: TajaranMeows
     Mew:
-      collection: FelinidMews
+      collection: TajaranMews
     Growl:
-      collection: FelinidGrowls
+      collection: TajaranGrowls
     Purr:
-      collection: FelinidPurrs
+      collection: TajaranPurrs
     Gasp:
       collection: FemaleGasp
     DefaultDeathgasp:

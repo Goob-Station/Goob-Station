@@ -11,7 +11,7 @@
     - Reptilian
     - SlimePerson
     # Goobstation
-    - Felinid
+    - Tajaran
     - Gingerbread
     - Harpy
     - Vox
@@ -59,9 +59,9 @@
 
 # Goobstation
 - type: guideEntry
-  id: Felinid
-  name: species-name-felinid
-  text: "/ServerInfo/Guidebook/Mobs/Felinid.xml"
+  id: Tajaran
+  name: species-name-tajaran
+  text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
 
 - type: guideEntry
   id: Gingerbread

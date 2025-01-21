@@ -1,14 +1,14 @@
 - type: entity
   save: false
-  name: Urist McFelinid
+  name: Urist McTajaran
   parent: BaseMobHuman
-  id: MobFelinidBase
+  id: MobTajaranBase
   abstract: true
   components:
   - type: Sprite
     scale: 0.8, 0.8
   - type: HumanoidAppearance
-    species: Felinid
+    species: Tajaran
   - type: Fixtures
     fixtures: # TODO: This needs a second fixture just for mob collisions.
       fix1:
@@ -22,10 +22,10 @@
         layer:
         - MobLayer
   - type: Body
-    prototype: Felinid
+    prototype: Tajaran
   - type: Damageable
-    damageModifierSet: Felinid
-  # Goobstation - Siouxcide, felinids have standard slow on damage numbers
+    damageModifierSet: Tajaran
+  # Goobstation - Siouxcide, tajarans have standard slow on damage numbers
 # - type: SlowOnDamage
 #   speedModifierThresholds:
 #     60: 0.85  # 0.7 is base speed.
@@ -48,9 +48,9 @@
       types:
         Blunt: 1
   - type: Stamina
-    critThreshold: 75 # Goobstation - Siouxcide, felinids take 3 disabler shots to down
+    critThreshold: 75 # Goobstation - Siouxcide, tajarans take 3 disabler shots to down
   - type: TypingIndicator
-    proto: felinid
+    proto: tajaran
   - type: PseudoItem
     storedOffset: 0,17
     shape:
@@ -60,27 +60,34 @@
   - type: Vocal
     wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
     sounds:
-      Male: MaleFelinid
-      Female: FemaleFelinid
-      Unsexed: MaleFelinid
+      Male: MaleTajaran
+      Female: FemaleTajaran
+      Unsexed: MaleTajaran
   #- type: OwOAccent this is just like that book by jorjorwell... 1984
-  - type: Felinid
+  - type: Felinid # refers to the felinid component that allows coughing up hairballs
   - type: NoShoesSilentFootsteps
   - type: Tag
     tags:
     - CanPilot
     - FootstepSound
     - DoorBumpOpener
-    - FelinidEmotes
+    - TajaranEmotes
   - type: FootPrints # WD EDIT
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobHumanDummy
-  id: MobFelinidDummy
+  id: MobTajaranDummy
   categories: [ HideSpawnMenu ]
-  description: A dummy felinid meant to be used in character setup.
+  description: A dummy tajaran meant to be used in character setup.
   components:
   - type: HumanoidAppearance
-    species: Felinid
+    species: Tajaran
+
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobTajaranDummy
+  id: MobFelinidDummy

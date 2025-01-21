@@ -28,12 +28,17 @@
 
 - type: entity
   parent: MonkeyCube
-  id: FelinidCube
-  name: felinid cube
+  id: TajaranCube
+  name: tajaran cube
   components:
   - type: Rehydratable
     possibleSpawns:
-    - MobFelinidRandom
+    - MobTajaranRandom
+
+# Alias
+- type: entity
+  parent: TajaranCube
+  id: FelinidCube
 
 - type: entity
   parent: MonkeyCube

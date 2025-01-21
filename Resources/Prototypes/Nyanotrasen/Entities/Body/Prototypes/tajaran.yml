@@ -1,6 +1,6 @@
 - type: body
-  id: Felinid
-  name: "felinid"
+  id: Tajaran
+  name: "tajaran"
   root: torso
   slots:
     head:
@@ -33,9 +33,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandFelinid # Goob edit
+      part: RightHandTajaran # Goob edit
     left hand:
-      part: LeftHandFelinid # Goob edit
+      part: LeftHandTajaran # Goob edit
     right leg:
       part: RightLegHuman
       connections:

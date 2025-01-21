@@ -62,9 +62,9 @@
     - DionaLast
 
 - type: entity
-  parent: MobFelinid
-  id: MobFelinidRandom
-  name: Urist McFelinid
+  parent: MobTajaran
+  id: MobTajaranRandom
+  name: Urist McTajaran
   suffix: Random Appearance
   components:
   - type: RandomHumanoidAppearance
@@ -72,6 +72,12 @@
     nameSegments:
     - names_first
     - names_last
+
+# Alias to felinids
+
+- type: entity
+  parent: MobTajaranRandom
+  id: MobFelinidRandom
 
 - type: entity
   parent: MobGingerbread

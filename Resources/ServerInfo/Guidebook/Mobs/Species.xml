@@ -7,7 +7,7 @@
   <GuideEntityEmbed Entity="MobArachnid" Caption="Arachnid"/>
   <GuideEntityEmbed Entity="MobDiona" Caption="Diona"/>
   <GuideEntityEmbed Entity="MobDwarf" Caption="Dwarf"/>
-  <GuideEntityEmbed Entity="MobFelinid" Caption="Felinid"/>
+  <GuideEntityEmbed Entity="MobTajaran" Caption="Tajaran"/>
   <GuideEntityEmbed Entity="MobGingerbread" Caption="Gingerbread"/>
   </Box>
   <Box>

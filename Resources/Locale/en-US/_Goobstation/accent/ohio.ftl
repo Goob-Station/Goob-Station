@@ -230,7 +230,7 @@ accent-ohio-words-replace-69 = bussy
 accent-ohio-words-70 = kill yourself
 accent-ohio-words-replace-70 = send yourself to Brazil you stupid rizzless citizen of Ohio
 
-accent-ohio-words-71 = felinid
+accent-ohio-words-71 = tajaran
 accent-ohio-words-replace-71 = hecking chonker
 
 accent-ohio-words-72 = cat
