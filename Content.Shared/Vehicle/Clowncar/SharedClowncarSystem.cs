@@ -17,6 +17,7 @@ using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.DragDrop;
+using Content.Shared.Emag.Components;
 
 namespace Content.Shared.Vehicle.Clowncar;
 
@@ -51,9 +52,9 @@ public abstract partial class SharedClowncarSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ClowncarComponent, GotEmaggedEvent>(OnGotEmagged);
-        SubscribeLocalEvent<ClowncarComponent, EntGotInsertedIntoContainerMessage>(OnEntInserted);
-        SubscribeLocalEvent<ClowncarComponent, BuckledEvent>(OnBuckle);
-        SubscribeLocalEvent<ClowncarComponent, UnbuckledEvent>(OnUnBuckle);
+        SubscribeLocalEvent<ClowncarComponent, EntInsertedIntoContainerMessage>(OnEntInserted);
+        SubscribeLocalEvent<ClowncarComponent, StrappedEvent>(OnBuckle);
+        SubscribeLocalEvent<ClowncarComponent, UnstrappedEvent>(OnUnBuckle);
         SubscribeLocalEvent<ClowncarComponent, ClowncarFireModeActionEvent>(OnClowncarFireModeAction);
         SubscribeLocalEvent<ClowncarComponent, EntRemovedFromContainerMessage>(OnEntRemoved);
     }
@@ -61,11 +62,15 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     /// <summary>
     /// Handles adding the "thank rider" action to passengers
     /// </summary>
-    private void OnEntInserted(EntityUid uid, ClowncarComponent component, EntGotInsertedIntoContainerMessage args)
+    private void OnEntInserted(EntityUid uid, ClowncarComponent component, EntInsertedIntoContainerMessage args)
     {
-        if (!TryComp<VehicleComponent>(uid, out var vehicle)
-            || vehicle.Driver == null)
+        if (args.Container.ID != "clowncar_container")
             return;
+
+        if (!TryComp<VehicleComponent>(uid, out var vehicle))
+           // || vehicle.Driver == null)
+            return;
+
         /*
         component.ThankRiderAction = new()// TODO Action sustem needs rework
         {
@@ -84,9 +89,15 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     /// </summary>
     private void OnGotEmagged(EntityUid uid, ClowncarComponent component, ref GotEmaggedEvent args)
     {
+        //if (HasComp<EmaggedComponent>(uid))
+          //  return;
+
+        EnsureComp<EmaggedComponent>(uid);
+
         if (!TryComp<VehicleComponent>(uid, out var vehicle)
             || vehicle.Driver == null)
             return;
+
        /* component.CannonAction = new()// TODO Action sustem needs rework
         {
             Icon = new SpriteSpecifier.Texture(new ("Objects/Weapons/Guns/Launchers/pirate_cannon.rsi/icon.png")),
@@ -94,20 +105,20 @@ public abstract partial class SharedClowncarSystem : EntitySystem
             Description = Loc.GetString("clowncar-action-desc-firemode"),
             UseDelay = component.CannonSetupDelay,
             Event = new ClowncarFireModeActionEvent(),
-        };
+        };*/
 
-        args.Handled = true;*/
-
-        //_actionsSystem.AddAction(vehicle.Driver.Value, component.CanonModeAction, uid);
+        _actionsSystem.AddAction(vehicle.Driver.Value, component.CanonModeAction, uid);
+        args.Handled = true;
+        args.Repeatable = false;
     }
     /// <summary>
     /// Handles preventing collision with the rider and
     /// adding/removing the "toggle cannon" action from the rider when available,
     /// also deactivates the cannon when the rider unbuckles
     /// </summary>
-    private void OnBuckle(EntityUid uid, ClowncarComponent component, ref BuckledEvent args)
+    private void OnBuckle(EntityUid uid, ClowncarComponent component, ref StrappedEvent args)
     {/*
-        var user = args.BuckledEntity;
+        var user = args.Buckle.Owner;
         if (args.Buckling)
             EnsureComp<PreventCollideComponent>(uid).Uid = user;
         switch (args.Buckling)
@@ -124,8 +135,10 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                 break;
             }
         }*/
+        if (HasComp<EmaggedComponent>(uid))
+            _actionsSystem.AddAction(args.Buckle.Owner, component.CanonModeAction, uid);
     }
-    private void OnUnBuckle(EntityUid uid, ClowncarComponent component, ref UnbuckledEvent args)
+    private void OnUnBuckle(EntityUid uid, ClowncarComponent component, ref UnstrappedEvent args)
     {/*
         var user = args.BuckledEntity;
         if (args.Buckling)
@@ -144,18 +157,26 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                 break;
             }
         }*/
+        if (HasComp<EmaggedComponent>(uid)){
+            foreach (var action in _actionsSystem.GetActions(args.Buckle.Owner))
+                if (Name(action.Id) == component.CanonModeAction)
+                    _actionsSystem.RemoveAction(action.Id);
+        }
+        if (component.CannonEntity != null)
+            ToggleCannon(uid, component, args.Buckle.Owner, true);
     }
 
     /// <summary>
     /// Handles activating/deactivating the cannon when requested
     /// </summary>
     private void OnClowncarFireModeAction(EntityUid uid, ClowncarComponent component, ClowncarFireModeActionEvent args)
-    {/*
-        ToggleCannon(uid, component, args.Performer, component.CannonEntity == null);
-        args.Handled = true;
-        */
-    }
+    {
+        if (args.Handled)
+            return;
 
+        ToggleCannon(uid, component, args.Performer, true);//component.CannonEntity == null);
+        args.Handled = true;
+    }
     /// <summary>
     /// Handles making people knock down each other when fired
     /// </summary>
@@ -176,7 +197,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
     }
 
     private void ToggleCannon(EntityUid uid, ClowncarComponent component, EntityUid user, bool activated)
-    {/*
+    {
         var ourTransform = Transform(uid);
         var sound = activated ? component.CannonActivateSound : component.CannonDeactivateSound;
         _audioSystem.PlayPredicted(sound, ourTransform.Coordinates, uid);
@@ -207,7 +228,7 @@ public abstract partial class SharedClowncarSystem : EntitySystem
                     _transformSystem.Unanchor(uid, ourTransform);
                 _combatSystem.SetInCombatMode(user, false);
                 break;
-        }*/
+        }
     }
 }
 

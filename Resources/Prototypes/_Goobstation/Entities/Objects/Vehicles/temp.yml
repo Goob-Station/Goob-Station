@@ -86,15 +86,25 @@
 
   - type: ContainerContainer
     containers:
-      entity_storage: !type:Container
+      clowncar_container: !type:Container
+
+  - type: ExtendedContainer
+    containerName: clowncar_container
+    capacity: 6
+    insertSound:
+      collection: ClowncarLoad
+      params:
+        volume: 4
+    removeSound:
+      collection: ClowncarCrash
 
   - type: DragInsertContainer
-    containerId: entity_storage
+    containerId: clowncar_container
     delay: 2
     useVerbs: false
 
   - type: InsertToContainerOnCollide
-    container: entity_storage
+    container: clowncar_container
     requiredVelocity: 3
     insertableEntities:
       components:
@@ -104,7 +114,7 @@
         - KnockedDown
 
   - type: RemoveFromContainerOnCollide
-    container: entity_storage
+    container: clowncar_container
     requiredVelocity: 3
     removeEverything: true
     collidableEntities:
@@ -117,13 +127,42 @@
         - Airlock
         - Door
         - Strap
+        - Body
 
-  #- type: Clowncar
-  #  cannonActivateSound:
-  #    path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
-  #    params:
-  #      volume: 5
-  #  cannonDeactivateSound:
-  #    path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
-  #    params:
-  #      volume: 5
+  - type: Clowncar
+    cannonActivateSound:
+      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_activate_cannon.ogg"
+      params:
+        volume: 5
+    cannonDeactivateSound:
+      path: "/Audio/Effects/Vehicle/Clowncar/clowncar_deactivate_cannon.ogg"
+      params:
+        volume: 5
+
+
+- type: entity
+  id: ClowncarCannon
+  noSpawn: true
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Launchers/pirate_cannon.rsi
+    layers:
+      - state: icon
+  - type: Physics
+    bodyType: Dynamic
+  - type: Item
+  - type: Gun
+    fireRate: 1
+    selectedMode: SemiAuto
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    soundGunshot:
+      collection: ClowncarCannonFire
+    soundEmpty:
+      path: /Audio/Items/hiss.ogg
+  - type: ContainerAmmoProvider
+    container: clowncar_container
+  - type: Unremoveable
+  - type: ClowncarCannon

@@ -56,7 +56,8 @@ public sealed class DragInsertContainerSystem : EntitySystem
     {
         if (args.Handled || args.Cancelled || args.Args.Target == null)
             return;
-        var (_, comp) = ent;
+
+        var (uid, comp) = ent;
 
         if (!_container.TryGetContainer(ent, comp.ContainerId, out var container))
             return;
