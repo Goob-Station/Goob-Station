@@ -327,6 +327,9 @@ public sealed class BlobCoreSystem : EntitySystem
             case BlobChemType.BlazingOil:
                 _damageable.SetDamageModifierSetId(uid, "BlazingOilBlob");
                 break;
+            case BlobChemType.RegenerativeMateria:
+                _damageable.SetDamageModifierSetId(uid, "RegenerativeMateriaBlob");
+                break;
             default:
                 _damageable.SetDamageModifierSetId(uid, "BaseBlob");
                 break;
