@@ -74,7 +74,7 @@
   - type: ThermalVision
     flashDurationMultiplier: 2
     isEquipment: true
-    type: ToggleThermalVisionEvent {}
+    event: ToggleThermalVisionEvent {}
   - type: IdentityBlocker
     coverage: EYES
 
