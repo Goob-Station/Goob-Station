@@ -433,23 +433,21 @@ public sealed class SpellsSystem : SharedSpellsSystem
         int collisionMask)
     {
         var xform = Transform(performer);
-        var coords = TransformSystem.GetMapCoordinates(xform);
+        var (pos, rot) = TransformSystem.GetWorldPositionRotation(xform);
 
-        var performerAngle = xform.LocalRotation;
-
-        var positions = _gun.LinearSpread(performerAngle - angle, performerAngle + angle, amount)
-            .Select(x => new MapCoordinates(coords.Position + x.ToWorldVec() * range, coords.MapId));
+        var positions = _gun.LinearSpread(rot - angle, rot + angle, amount)
+            .Select(x => new MapCoordinates(pos + x.ToWorldVec() * range, xform.MapID));
 
         foreach (var position in positions)
         {
-            var dir = (position.Position - coords.Position).Normalized();
+            var dir = (position.Position - pos).Normalized();
 
-            var ray = new CollisionRay(coords.Position, dir, collisionMask);
+            var ray = new CollisionRay(pos, dir, collisionMask);
 
-            var result = Physics.IntersectRay(coords.MapId, ray, range, performer).FirstOrNull();
+            var result = Physics.IntersectRay(xform.MapID, ray, range, performer).FirstOrNull();
 
             if (result != null)
-                yield return new MapCoordinates(result.Value.HitPos, coords.MapId);
+                yield return new MapCoordinates(result.Value.HitPos, xform.MapID);
             else
                 yield return position;
         }

@@ -6,7 +6,7 @@ uniform mediump vec2 reference;
 
 const lowp float visibility = 0.1;
 const lowp float time_scale = 1.0;
-const lowp float blink_rate = 10.0;
+const lowp float blink_rate = 2.0;
 const mediump float distance_scale = 0.008;
 
 mediump mat2 rotate(mediump float t)
@@ -25,8 +25,6 @@ void fragment() {
     highp vec2 coords = (FRAGCOORD.xy + reference) * distance_scale;
     coords *= rotate(length(reference - FRAGCOORD.xy) * distance_scale);
     highp float w = sin(TIME + (coords.x + coords.y + 2.0*sin(TIME*time_scale) * sin(TIME*time_scale + coords.x - coords.y)) );
-
-    w *= (3.0 + visibility * 2.0);
 
     w = mix(w, sin(TIME * blink_rate), 0.5);
 
