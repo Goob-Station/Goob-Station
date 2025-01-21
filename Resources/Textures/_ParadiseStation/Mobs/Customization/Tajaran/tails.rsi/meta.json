@@ -8,11 +8,11 @@
     },
     "states": [
         {
-            "name": "tajtail_s",
+            "name": "tail",
             "directions": 4
         },
         {
-            "name": "tajtailw_s",
+            "name": "tail_anim",
             "directions": 4,
             "delays": [
                 [

@@ -8,35 +8,35 @@
     },
     "states": [
         {
-            "name": "braid_beads_s",
+            "name": "braid_beads",
             "directions": 4
         },
         {
-            "name": "braid_s",
+            "name": "braid",
             "directions": 4
         },
         {
-            "name": "dreadlocks_s",
+            "name": "dreadlocks",
             "directions": 4
         },
         {
-            "name": "earrings_s",
+            "name": "earrings",
             "directions": 4
         },
         {
-            "name": "hairribbons_s",
+            "name": "hairribbons",
             "directions": 4
         },
         {
-            "name": "lynx_s",
+            "name": "lynx",
             "directions": 4
         },
         {
-            "name": "plait_s",
+            "name": "plait",
             "directions": 4
         },
         {
-            "name": "shaggy_s",
+            "name": "shaggy",
             "directions": 4
         }
     ]

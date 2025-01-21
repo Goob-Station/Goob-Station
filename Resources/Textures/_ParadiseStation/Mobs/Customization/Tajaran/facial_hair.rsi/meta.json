@@ -8,31 +8,31 @@
     },
     "states": [
         {
-            "name": "facial_goatee_faded_s",
+            "name": "goatee_faded",
             "directions": 4
         },
         {
-            "name": "facial_goatee_s",
+            "name": "goatee",
             "directions": 4
         },
         {
-            "name": "facial_moustache_s",
+            "name": "moustache",
             "directions": 4
         },
         {
-            "name": "facial_mutton_s",
+            "name": "mutton",
             "directions": 4
         },
         {
-            "name": "facial_pencilstache_s",
+            "name": "pencilstache",
             "directions": 4
         },
         {
-            "name": "facial_sideburns_s",
+            "name": "sideburns",
             "directions": 4
         },
         {
-            "name": "facial_smallstache_s",
+            "name": "smallstache",
             "directions": 4
         }
     ]

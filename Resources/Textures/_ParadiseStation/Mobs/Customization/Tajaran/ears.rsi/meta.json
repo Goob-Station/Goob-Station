@@ -8,35 +8,35 @@
     },
     "states": [
         {
-            "name": "ears_plain",
+            "name": "ears",
             "directions": 4
         },
         {
-            "name": "inears_s",
+            "name": "inears",
             "directions": 4
         },
         {
-            "name": "outears_s",
+            "name": "outears",
             "directions": 4
         },
         {
-            "name": "patch_s1",
+            "name": "patch",
             "directions": 4
         },
         {
-            "name": "ears_plain_near",
+            "name": "ears_near",
             "directions": 4
         },
         {
-            "name": "inears_s_near",
+            "name": "inears_near",
             "directions": 4
         },
         {
-            "name": "outears_s_near",
+            "name": "outears_near",
             "directions": 4
         },
         {
-            "name": "patch_s1_near",
+            "name": "patch_near",
             "directions": 4
         }
     ]

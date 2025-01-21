@@ -8,23 +8,23 @@
     },
     "states": [
         {
-            "name": "belly_s",
+            "name": "belly",
             "directions": 4
         },
         {
-            "name": "crest_s",
+            "name": "crest",
             "directions": 4
         },
         {
-            "name": "fullbelly_s",
+            "name": "fullbelly",
             "directions": 4
         },
         {
-            "name": "patch_s",
+            "name": "patch",
             "directions": 4
         },
         {
-            "name": "points_s",
+            "name": "points",
             "directions": 4
         }
     ]
