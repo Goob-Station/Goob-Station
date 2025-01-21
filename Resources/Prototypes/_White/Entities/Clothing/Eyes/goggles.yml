@@ -31,6 +31,8 @@
   - type: IdentityBlocker
     coverage: EYES
   - type: ShowHealthBars
+    damageContainers:
+    - Biological
 
 - type: entity
   parent: ClothingEyesNightVisionGogglesSyndie
@@ -72,11 +74,9 @@
   - type: ThermalVision
     flashDurationMultiplier: 2
     isEquipment: true
-    event: !type:ToggleThermalVisionEvent {}
+    type: ToggleThermalVisionEvent {}
   - type: IdentityBlocker
     coverage: EYES
-
-
 
 - type: entity
   parent: ClothingEyesThermalVisionGogglesSyndie
