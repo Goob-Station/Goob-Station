@@ -24,9 +24,9 @@
         Piercing: 5
       groups:
         Burn: 5
-    ClumsyHypo: false
-    ClumsyDefib: false
-    ClumsyVaulting: false
+    clumsyHypo: false
+    clumsyDefib: false
+    clumsyVaulting: false
     clumsySound:
       path: /Audio/_Goobstation/Voice/OniScream.ogg
   - type: Damageable
