@@ -8,14 +8,6 @@
     },
     "states": [
         {
-            "name": "bangs_s",
-            "directions": 4
-        },
-        {
-            "name": "bedhead_s",
-            "directions": 4
-        },
-        {
             "name": "braid_beads_s",
             "directions": 4
         },
@@ -36,10 +28,6 @@
             "directions": 4
         },
         {
-            "name": "cuttail_s",
-            "directions": 4
-        },
-        {
             "name": "dreadlocks_s",
             "directions": 4
         },
@@ -52,19 +40,11 @@
             "directions": 4
         },
         {
-            "name": "hairbun_s",
-            "directions": 4
-        },
-        {
             "name": "hairribbons_s",
             "directions": 4
         },
         {
             "name": "ladiesretro_s",
-            "directions": 4
-        },
-        {
-            "name": "longtail_s",
             "directions": 4
         },
         {
@@ -84,10 +64,6 @@
             "directions": 4
         },
         {
-            "name": "messy_s",
-            "directions": 4
-        },
-        {
             "name": "metal_s",
             "directions": 4
         },
@@ -97,10 +73,6 @@
         },
         {
             "name": "plait_s",
-            "directions": 4
-        },
-        {
-            "name": "ponytail_s",
             "directions": 4
         },
         {
@@ -128,15 +100,7 @@
             "directions": 4
         },
         {
-            "name": "straight_s",
-            "directions": 4
-        },
-        {
             "name": "tailedbangs_s",
-            "directions": 4
-        },
-        {
-            "name": "tail_s",
             "directions": 4
         },
         {
