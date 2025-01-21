@@ -161,7 +161,7 @@
   components:
   - type: StationEvent
     weight: 2
-    earliestStart: 50
+    earliestStart: 75
     reoccurrenceDelay: 20
     minimumPlayers: 60
     duration: null
@@ -191,7 +191,7 @@
   - type: StationEvent
     weight: 6
     duration: null
-    earliestStart: 40
+    earliestStart: 45
     reoccurrenceDelay: 20
     minimumPlayers: 30
   - type: SpaceSpawnRule
@@ -422,7 +422,7 @@
   parent: BaseGameRule
   components:
   - type: StationEvent
-    earliestStart: 75
+    earliestStart: 90
     minimumPlayers: 40
     weight: 1 # Zombies was happening basically every single survival round, so now it's super rare
     duration: 1
