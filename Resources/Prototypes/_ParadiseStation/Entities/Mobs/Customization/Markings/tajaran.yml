@@ -1,3 +1,45 @@
+# Tajaran Tails
+
+- type: marking
+  id: TajaranTailBasic
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
+    state: tajtail_s
+
+- type: marking
+  id: TajaranTailAnim
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
+    state: tajtailw_s
+
+- type: marking
+  id: TajaranTailBasicRings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
+    state: tajtail_s
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tail_markings.rsi
+    state: default_wringler_s
+
+- type: marking
+  id: TajaranTailAnimRings
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
+    state: tajtailw_s
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tail_markings.rsi
+    state: default_wringlerw_s
+
 # Tajaran Ears
 
 - type: marking
@@ -10,13 +52,91 @@
     state: ears_plain
 
 - type: marking
-  id: TajaranEarsAlt
+  id: TajaranEarsSeperate
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Felinid]
   sprites:
   - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
-    state: ears_plain_s
+    state: outears_s
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
+    state: inears_s
+
+- type: marking
+  id: TajaranEarsPatches
+  bodyPart: HeadTop
+  markingCategory: HeadTop
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
+    state: ears_plain
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/ears.rsi
+    state: patch_s1
+
+# Tajaran Head/Face
+
+- type: marking
+  id: TajaranHeadNose
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: nose_s
+
+- type: marking
+  id: TajaranHeadMuzzleSmall
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: muzzle_s
+
+- type: marking
+  id: TajaranHeadMuzzleLarge
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: muzzle2_s
+
+- type: marking
+  id: TajaranHeadPoints
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: points_s1
+
+- type: marking
+  id: TajaranHeadTiger
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: tiger_face_s
+
+- type: marking
+  id: TajaranHeadTigerAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: tiger_head_s
+
+- type: marking
+  id: TajaranHeadPatches
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
+    state: patch_s1
 
 # Tajaran Torso
 
@@ -26,7 +146,7 @@
   markingCategory: Chest
   speciesRestriction: [Felinid]
   sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/torso.rsi
     state: belly_s
 
 - type: marking
@@ -35,9 +155,8 @@
   markingCategory: Chest
   speciesRestriction: [Felinid]
   sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/torso.rsi
     state: crest_s
-
     
 - type: marking
   id: TajaranTorsoFullBelly
@@ -45,45 +164,61 @@
   markingCategory: Chest
   speciesRestriction: [Felinid]
   sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/torso.rsi
     state: fullbelly_s
 
-    
-- type: marking
-  id: TajaranTorsoPatch
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
-    state: patch_s
-
-    
-- type: marking
-  id: TajaranTorsoPoints
-  bodyPart: Chest
-  markingCategory: Chest
-  speciesRestriction: [Felinid]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/body_markings.rsi
-    state: points_s
-
-# Alt Head
+# Facial Hair (some human ones look bad, but most are ok)
 
 - type: marking
-  id: TajaranHeadAlt
-  bodyPart: Head
-  markingCategory: Head
+  id: TajaranFacialHairGoatee
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [Felinid]
   sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/head.rsi
-    state: head_m_s
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_goatee_s
+  
+- type: marking
+  id: TajaranFacialHairGoateeFaded
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_goatee_faded_s
 
 - type: marking
-  id: TajaranTailBasic
-  bodyPart: Tail
-  markingCategory: Tail
+  id: TajaranFacialHairMoustache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
   speciesRestriction: [Felinid]
   sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/tails.rsi
-    state: tajtail_s
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_moustache_s
+ 
+- type: marking
+  id: TajaranFacialHairPencilstache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_pencilstache_s
+
+- type: marking
+  id: TajaranFacialHairSideburns
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_sideburns_s
+
+- type: marking
+  id: TajaranFacialHairSmallstache
+  bodyPart: FacialHair
+  markingCategory: FacialHair
+  speciesRestriction: [Felinid]
+  sprites:
+  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/facial_hair.rsi
+    state: facial_smallstache_s

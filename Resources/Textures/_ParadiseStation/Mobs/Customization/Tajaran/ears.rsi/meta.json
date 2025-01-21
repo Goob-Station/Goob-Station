@@ -12,7 +12,15 @@
             "directions": 4
         },
         {
-            "name": "ears_plain_s",
+            "name": "inears_s",
+            "directions": 4
+        },
+        {
+            "name": "outears_s",
+            "directions": 4
+        },
+        {
+            "name": "patch_s1",
             "directions": 4
         }
     ]

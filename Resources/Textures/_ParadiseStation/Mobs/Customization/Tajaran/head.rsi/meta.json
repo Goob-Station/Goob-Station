@@ -8,7 +8,31 @@
     },
     "states": [
         {
-            "name": "head_m_s",
+            "name": "muzzle_s",
+            "directions": 4
+        },
+        {
+            "name": "muzzle2_s",
+            "directions": 4
+        },
+        {
+            "name": "nose_s",
+            "directions": 4
+        },
+        {
+            "name": "patch_s1",
+            "directions": 4
+        },
+        {
+            "name": "points_s1",
+            "directions": 4
+        },
+        {
+            "name": "tiger_face_s",
+            "directions": 4
+        },
+        {
+            "name": "tiger_head_s",
             "directions": 4
         }
     ]
