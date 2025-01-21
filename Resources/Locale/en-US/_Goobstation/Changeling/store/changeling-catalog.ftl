@@ -8,7 +8,7 @@ evolutionmenu-combat-armblade-desc =
 
 evolutionmenu-combat-armhammer-name = Arm Hammer
 evolutionmenu-combat-armhammer-desc =
-    Reform one of your arms into a grotesque hammer, composed of bone and flesh, able to smash your opponents, knocking them down and sending them flying. Will only knock down on light attack.
+    Reform one of your arms into a grotesque hammer, composed of bone and flesh, able to smash your opponents, knocking them down and sending them flying, but is not great at killing alone. Will only knock down on light attack.
     Costs 15 chemicals.
 
 evolutionmenu-combat-armclaw-name = Arm Claw

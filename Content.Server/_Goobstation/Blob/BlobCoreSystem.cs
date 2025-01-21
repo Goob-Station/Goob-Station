@@ -324,6 +324,9 @@ public sealed class BlobCoreSystem : EntitySystem
             case BlobChemType.ElectromagneticWeb:
                 _damageable.SetDamageModifierSetId(uid, "ElectromagneticWebBlob");
                 break;
+            case BlobChemType.BlazingOil:
+                _damageable.SetDamageModifierSetId(uid, "BlazingOilBlob");
+                break;
             default:
                 _damageable.SetDamageModifierSetId(uid, "BaseBlob");
                 break;
