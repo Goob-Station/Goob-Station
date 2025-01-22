@@ -52,7 +52,7 @@
     state: ears
 
 - type: marking
-  id: TajaranEarsSeperate
+  id: TajaranEarsSeparate
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Tajaran]
@@ -72,7 +72,7 @@
     state: ears_near
 
 - type: marking
-  id: TajaranEarsSeperateNear
+  id: TajaranEarsSeparateNear
   bodyPart: HeadTop
   markingCategory: HeadTop
   speciesRestriction: [Tajaran]
