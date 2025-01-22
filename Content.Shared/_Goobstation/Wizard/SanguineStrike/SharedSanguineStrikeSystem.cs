@@ -3,6 +3,7 @@ using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee.Events;
 
@@ -34,8 +35,10 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
             return;
 
         var mobStateQuery = GetEntityQuery<MobStateComponent>();
-        var hitMobsCount = args.HitEntities.Where(mobStateQuery.HasComp).Count();
-        if (hitMobsCount == 0)
+        var hitMobs = args.HitEntities
+            .Where(x => mobStateQuery.TryComp(x, out var mobState) && mobState.CurrentState != MobState.Dead)
+            .ToList();
+        if (hitMobs.Count == 0)
             return;
 
         var (uid, comp) = ent;
@@ -78,7 +81,7 @@ public abstract class SharedSanguineStrikeSystem : EntitySystem
             }
         }
 
-        Hit(uid, comp, args.User, args.HitEntities);
+        Hit(uid, comp, args.User, hitMobs);
     }
 
     protected virtual void Hit(EntityUid uid,

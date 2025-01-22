@@ -42,12 +42,10 @@ public sealed class EnchantedBoltActionRifleSystem : EntitySystem
 
     private void OnGunShot(Entity<EnchantedBoltActionRifleComponent> ent, ref GunShotEvent args)
     {
-        if (!_timing.IsFirstTimePredicted)
-            return;
-
         var (uid, comp) = ent;
 
-        comp.Shots--;
+        if (_timing.IsFirstTimePredicted)
+            comp.Shots--;
 
         var user = args.User;
 
