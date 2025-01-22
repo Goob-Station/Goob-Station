@@ -28,7 +28,9 @@
 - type: entity
   id: OrganFelinidEars
   parent: OrganTajaranEars
+  suffix: Legacy Alias, DONT USE
 
 - type: entity
   id: OrganFelinidTail
   parent: OrganTajaranTail
+  suffix: Legacy Alias, DONT USE
