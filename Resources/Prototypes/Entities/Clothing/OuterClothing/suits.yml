@@ -158,6 +158,7 @@
     components:
     # Goobstation - Proper invisibility
     - type: Stealth
+      maxVisibility: 0.1
       hadOutline: true
     - type: StealthOnMove
       invisibilityPenalty: 3
