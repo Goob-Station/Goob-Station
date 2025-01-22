@@ -30,6 +30,7 @@
   parent: MonkeyCube
   id: FelinidCube
   name: felinid cube
+  abstract: true # No more
   components:
   - type: Rehydratable
     possibleSpawns:
@@ -106,6 +107,15 @@
   - type: Rehydratable
     possibleSpawns:
     - MobSlimePersonRandom
+
+- type: entity
+  parent: MonkeyCube
+  id: TajaranCube
+  name: tajaran cube
+  components:
+  - type: Rehydratable
+    possibleSpawns:
+    - MobTajaranRandom
 
 - type: entity
   parent: MonkeyCube

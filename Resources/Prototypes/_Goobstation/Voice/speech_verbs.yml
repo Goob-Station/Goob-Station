@@ -36,3 +36,12 @@
   - chat-speech-verb-dead-7
   - chat-speech-verb-dead-8
   - chat-speech-verb-dead-9
+
+- type: speechVerb
+  id: Tajaran
+  name: chat-speech-verb-name-tajaran
+  speechVerbStrings:
+  - chat-speech-verb-felinid-1
+  - chat-speech-verb-felinid-2
+  - chat-speech-verb-felinid-3
+  - chat-speech-verb-felinid-4

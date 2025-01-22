@@ -8,6 +8,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - TajaranEmotes # Goobstation - Tajaran
   blacklist:
     components:
     - BorgChassis
@@ -27,6 +28,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - TajaranEmotes # Goobstation - Tajaran
   blacklist:
     components:
     - BorgChassis
@@ -52,6 +54,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - TajaranEmotes # Goobstation - Tajaran
   blacklist:
     components:
     - BorgChassis
@@ -71,6 +74,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - TajaranEmotes # Goobstation - Tajaran
   blacklist:
     components:
     - BorgChassis
@@ -90,6 +94,7 @@
     tags:
     - FelinidEmotes
     - HarpyEmotes
+    - TajaranEmotes # Goobstation - Tajaran
   blacklist:
     components:
     - BorgChassis

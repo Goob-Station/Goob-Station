@@ -1,0 +1,24 @@
+# Just steal from felinids, no reason not to
+- type: soundCollection
+  id: TajaranScreams
+  parent: FelinidScreams
+
+- type: soundCollection
+  id: TajaranHisses
+  parent: FelinidHisses
+
+- type: soundCollection
+  id: TajaranMeows
+  parent: FelinidMeows
+
+- type: soundCollection
+  id: TajaranMews
+  parent: FelinidMews
+
+- type: soundCollection
+  id: TajaranGrowls
+  parent: FelinidGrowls
+
+- type: soundCollection
+  id: TajaranPurrs
+  parent: FelinidPurrs

@@ -32,6 +32,13 @@
     Poison: 0.0 # Yea, heroin is heaps good for ya
     Radiation : 0.7 # Engie yowies need some help against anti-rads
 
+- type: damageModifierSet 
+  id: Tajaran
+  coefficients: # Literally the same as felinids, but seperate cuz there's no parenting?
+    Blunt: 1.15
+    Slash: 1.15
+    Piercing: 1.15
+
 # Mech armor
 - type: damageModifierSet
   id: ThinArmor

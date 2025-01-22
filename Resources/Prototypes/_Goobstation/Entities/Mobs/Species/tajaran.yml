@@ -1,0 +1,237 @@
+- type: species
+  id: Tajaran
+  name: species-name-tajaran
+  roundStart: true
+  prototype: MobTajaran
+  sprites: MobTajaranSprites
+  markingLimits: MobTajaranMarkingLimits
+  dollPrototype: MobTajaranDummy
+  skinColoration: Hues
+
+- type: markingPoints
+  id: MobTajaranMarkingLimits
+  points:
+    Hair:
+      points: 1
+      required: false
+    FacialHair:
+      points: 1
+      required: false
+    Tail:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranTailRetro ]
+    HeadTop:
+      points: 1
+      required: true
+      defaultMarkings: [ TajaranEarsBasic ]
+    Chest:
+      points: 1
+      required: false
+    Legs:
+      points: 2
+      required: false
+    Arms:
+      points: 2
+      required: false
+    Overlay:
+      points: 1
+      required: false
+
+- type: speciesBaseSprites
+  id: MobTajaranSprites
+  sprites:
+    Head: MobTajaranHead
+    HeadTop: MobHumanoidAnyMarking
+    HeadSide: MobHumanoidAnyMarking
+    Hair: MobHumanoidAnyMarking
+    FacialHair: MobHumanoidAnyMarking
+    Snout: MobHumanoidAnyMarking
+    Chest: MobTajaranTorso
+    Eyes: MobTajaranEyes
+    LArm: MobTajaranLArm
+    RArm: MobTajaranRArm
+    LHand: MobTajaranLHand
+    RHand: MobTajaranRHand
+    LLeg: MobTajaranLLeg
+    RLeg: MobTajaranRLeg
+    Tail: MobHumanoidAnyMarking
+    LFoot: MobTajaranLFoot
+    RFoot: MobTajaranRFoot
+
+- type: humanoidBaseSprite
+  id: MobTajaranEyes
+  baseSprite:
+    sprite: Mobs/Customization/eyes.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobTajaranHead
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobTajaranHeadMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobTajaranHeadFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobTajaranTorso
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobTajaranTorsoMale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobTajaranTorsoFemale
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobTajaranLLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobTajaranLArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobTajaranLHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobTajaranLFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobTajaranRLeg
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobTajaranRArm
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobTajaranRHand
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobTajaranRFoot
+  baseSprite:
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: r_foot
+
+- type: entity
+  save: false
+  name: Urist McTajaran
+  parent: BaseMobHuman
+  id: MobTajaranBase
+  abstract: true
+  components:
+  - type: Sprite
+    scale: 0.8, 0.8
+  - type: HumanoidAppearance
+    species: Tajaran
+  - type: Fixtures
+    fixtures: # TODO: This needs a second fixture just for mob collisions.
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.28
+        density: 140
+        restitution: 0.0
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Body
+    prototype: Tajaran
+  - type: Damageable
+    damageModifierSet: Tajaran
+  # Goobstation - Siouxcide, tajarans have standard slow on damage numbers
+# - type: SlowOnDamage
+#   speedModifierThresholds:
+#     60: 0.85  # 0.7 is base speed.
+#     80: 0.75  # 0.5 is base speed.
+  - type: MeleeWeapon
+    soundHit:
+      collection: Punch
+    animation: WeaponArcClaw
+    damage:
+      types:
+        Slash: 4
+        Piercing: 1
+#  - type: DiseaseCarrier
+#    naturalImmunities:
+#    - OwOnavirus
+  - type: Speech
+    speechSounds: Alto
+  - type: DamageOnHighSpeedImpact # Landing on all fours!
+    damage:
+      types:
+        Blunt: 1
+  - type: Stamina
+    critThreshold: 75 # Goobstation - Siouxcide, tajarans take 3 disabler shots to down
+  - type: TypingIndicator
+    proto: tajaran
+  - type: PseudoItem
+    storedOffset: 0,17
+    shape:
+      - 0,0,1,4
+      - 0,2,3,4
+      - 4,0,5,4
+  - type: Vocal
+    wilhelm: "/Audio/Nyanotrasen/Voice/Felinid/cat_wilhelm.ogg"
+    sounds:
+      Male: MaleTajaran
+      Female: FemaleTajaran
+      Unsexed: MaleTajaran
+  #- type: OwOAccent this is just like that book by jorjorwell... 1984
+  - type: Felinid # refers to the felinid component that allows coughing up hairballs
+  - type: NoShoesSilentFootsteps
+  - type: Tag
+    tags:
+    - CanPilot
+    - FootstepSound
+    - DoorBumpOpener
+    - TajaranEmotes
+  - type: FootPrints # WD EDIT
+
+- type: entity
+  save: false
+  name: Urist McHands
+  parent: MobHumanDummy
+  id: MobTajaranDummy
+  categories: [ HideSpawnMenu ]
+  description: A dummy tajaran meant to be used in character setup.
+  components:
+  - type: HumanoidAppearance
+    species: Tajaran

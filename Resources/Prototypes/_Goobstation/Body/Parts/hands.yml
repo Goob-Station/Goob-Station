@@ -35,6 +35,16 @@
     state: "r_hand"
 
 - type: entity
+  id: LeftHandTajaran
+  name: "left tajaran hand"
+  parent: LeftHandFelinid
+
+- type: entity
+  id: RightHandTajaran
+  name: "right tajaran hand"
+  parent: RightHandFelinid
+
+- type: entity
   id: LeftHandYowie
   name: "left yowie hand"
   parent: [PartHuman, BaseLeftHand]
