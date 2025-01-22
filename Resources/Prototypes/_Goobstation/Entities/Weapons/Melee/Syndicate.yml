@@ -15,7 +15,7 @@
       map: [ "blade" ]
   - type: Item
     size: Large
-    sprite: _Goobstation/Objects/Weapons/Melee/heavy_e_sword-inhands.rsi
+    sprite: _Goobstation\Objects\Weapons\Melee\heavy_e_sword-inhands.rsi
   - type: ItemToggleMeleeWeapon
     activatedDamage:
       types:
