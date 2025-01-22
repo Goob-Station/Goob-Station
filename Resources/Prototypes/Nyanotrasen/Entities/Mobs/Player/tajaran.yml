@@ -7,9 +7,9 @@
   - type: CombatMode
   - type: InteractionPopup
     successChance: 1
-    interactSuccessString: hugging-success-generic
+    interactSuccessString: petting-success-soft-floofy
     interactSuccessSound: /Audio/Effects/thudswoosh.ogg
-    messagePerceivedByOthers: petting-success-soft-floofy
+    messagePerceivedByOthers: hugging-success-generic-others
   - type: MindContainer
     showExamineInfo: true
   - type: Input
