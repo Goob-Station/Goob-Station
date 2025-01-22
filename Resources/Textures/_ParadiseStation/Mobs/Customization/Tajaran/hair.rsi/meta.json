@@ -8,18 +8,6 @@
     },
     "states": [
         {
-            "name": "braid_beads",
-            "directions": 4
-        },
-        {
-            "name": "braid",
-            "directions": 4
-        },
-        {
-            "name": "dreadlocks",
-            "directions": 4
-        },
-        {
             "name": "earrings",
             "directions": 4
         },

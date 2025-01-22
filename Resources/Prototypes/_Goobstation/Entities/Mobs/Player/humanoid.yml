@@ -78,6 +78,7 @@
 - type: entity
   parent: MobTajaranRandom
   id: MobFelinidRandom
+  suffix: Random Appearance, DONT USE
 
 - type: entity
   parent: MobGingerbread

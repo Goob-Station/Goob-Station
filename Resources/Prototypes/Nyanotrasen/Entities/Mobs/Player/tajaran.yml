@@ -53,7 +53,7 @@
 # Alias for backwards compatibility
 - type: entity
   save: false
-  name: Urist McFelinid
-  suffix: Legacy Alias
+  name: Urist McTajaran
+  suffix: Legacy Alias, DONT USE
   parent: MobTajaran
   id: MobFelinid

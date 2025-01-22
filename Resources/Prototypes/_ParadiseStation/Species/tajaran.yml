@@ -20,7 +20,7 @@
     Tail:
       points: 1
       required: true
-      defaultMarkings: [ TajaranTailBasic ]
+      defaultMarkings: [ TajaranTailRetro ]
     HeadTop:
       points: 1
       required: true

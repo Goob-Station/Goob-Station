@@ -39,6 +39,7 @@
 - type: entity
   parent: TajaranCube
   id: FelinidCube
+  suffix: Legacy Alias, DONT USE
 
 - type: entity
   parent: MonkeyCube

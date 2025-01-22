@@ -235,26 +235,6 @@
 # Hair
 
 - type: marking
-  id: TajaranHairBraid
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: braid
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: braid_beads
-
-- type: marking
-  id: TajaranHairDreadlocks
-  bodyPart: Hair
-  markingCategory: Hair
-  speciesRestriction: [Tajaran]
-  sprites:
-  - sprite: _ParadiseStation/Mobs/Customization/Tajaran/hair.rsi
-    state: dreadlocks
-
-- type: marking
   id: TajaranHairEarrings
   bodyPart: Hair
   markingCategory: Hair
