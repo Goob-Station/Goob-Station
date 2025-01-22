@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: BaseSpellbook
   name: spellbook
   parent: BaseItem
@@ -41,6 +41,8 @@
       interfaces:
         enum.StoreUiKey.Key:
           type: StoreBoundUserInterface
+        enum.RefundUiKey.Key:
+          type: StoreRefundBoundUserInterface
     - type: ActivatableUI
       key: enum.StoreUiKey.Key
     - type: Store

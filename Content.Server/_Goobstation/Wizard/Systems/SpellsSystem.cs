@@ -17,6 +17,8 @@ using Content.Server.Power.Components;
 using Content.Server.Power.EntitySystems;
 using Content.Server.Singularity.EntitySystems;
 using Content.Server.Spreader;
+using Content.Server.Store.Components;
+using Content.Server.Store.Systems;
 using Content.Server.Teleportation;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._Goobstation.Wizard;
@@ -89,18 +91,22 @@ public sealed class SpellsSystem : SharedSpellsSystem
             return;
 
         var hasMaxLevelSimians = false;
+        var hasGorillaForm = false;
         foreach (var action in container.Container.ContainedEntities)
         {
-            if (Tag.HasTag(action, args.GorillaFormTag))
-                return;
+            if (!hasGorillaForm && Tag.HasTag(action, args.GorillaFormTag))
+                hasGorillaForm = true;
 
-            if (hasMaxLevelSimians || !Tag.HasTag(action, args.MaxLevelTag))
+            if (!Tag.HasTag(action, args.MaxLevelTag))
                 continue;
+
+            if (TryComp(action, out StoreRefundComponent? refund))
+                StoreSystem.DisableListingRefund(refund.Data);
 
             hasMaxLevelSimians = true;
         }
 
-        if (!hasMaxLevelSimians)
+        if (hasGorillaForm || !hasMaxLevelSimians)
             return;
 
         ActionContainer.AddAction(comp.Mind.Value, args.Action, container);

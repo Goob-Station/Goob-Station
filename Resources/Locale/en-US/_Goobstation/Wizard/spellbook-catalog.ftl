@@ -55,6 +55,7 @@ spellbook-bind-soul-desc =
     A spell that binds your soul to an item in your hands. Binding your soul to an item will turn you into an immortal Lich. So long as the item remains intact and is on the same plane as your dead body, you will revive from death, no matter the circumstances.
     If the item is on another grid or in space when you die, it itself or it's containing container (if any) will reappear somewhere on your dead body's grid or on the station if your body is not on any grid.
     You can't bind soul while in silicon form.
+    Cannot be refunded.
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-mutate-name = Mutate
@@ -133,6 +134,7 @@ spellbook-simians-name = Summon Simians
 spellbook-simians-desc =
     This spell reaches deep into the elemental plane of bananas (the monkey one, not the clown one), and summons lesser monkeys and gorillas in front of you that will promptly flip out and attack everything in sight. Fun! The monkeys are not friendly to anyone except wizards.
     Upgrading this spell also increases summonned monkey amount, and their gear gets stronger as well!
+    Cannot be refunded once fully upgraded.
     Requires wizard's robe and hat to cast.
 
 spellbook-sanguine-strike-name = Exsanguinating Strike
@@ -145,6 +147,7 @@ spellbook-chuuni-name = Chuuni Invocations
 spellbook-chuuni-desc =
     Replaces your wizard hat (if you have one) with an unremovable medical eyepatch, which still allows you to cast spells requiring a robe.
     Makes all your spells shout invocations, and the invocations become... stupid. You heal slightly after casting a spell with a delay of 5 seconds.
+    Cannot be refunded.
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-swap-name = Swap

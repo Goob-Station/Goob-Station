@@ -769,6 +769,7 @@
         path: /Audio/_Goobstation/Wizard/gorilla.ogg
   - type: Magic
     requiresSpeech: true
+    school: Transmutation
   - type: Tag
     tags:
       - GorillaFormAction

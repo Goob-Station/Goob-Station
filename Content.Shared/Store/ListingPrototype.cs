@@ -141,6 +141,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
 
     /// <summary>
     /// Whether or not to disable refunding for the store when the listing is purchased from it.
+    /// Goob edit: This won't disable refund, but instead you won't be able to refund this listing.
     /// </summary>
     [DataField]
     public bool DisableRefund = false;
@@ -157,6 +158,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductEntity != listing.ProductEntity ||
             ProductAction != listing.ProductAction ||
             RaiseProductEventOnUser != listing.RaiseProductEventOnUser || // Goobstation
+            DisableRefund != listing.DisableRefund || // Goobstation
             RestockTime != listing.RestockTime)
             return false;
 
@@ -205,6 +207,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             ProductEvent = ProductEvent,
             RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
+            DisableRefund = DisableRefund, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START

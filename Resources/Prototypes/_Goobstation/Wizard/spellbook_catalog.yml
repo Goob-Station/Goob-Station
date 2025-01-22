@@ -339,6 +339,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  disableRefund: true
 
 - type: listing
   id: SpellbookTraps
@@ -366,6 +367,7 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+  disableRefund: true
 
 - type: listing
   id: SpellbookThrownLightning
