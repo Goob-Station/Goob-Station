@@ -20,5 +20,19 @@ namespace Content.Shared.Stealth.Components
         /// </summary>
         [DataField("movementVisibilityRate")]
         public float MovementVisibilityRate = 0.2f;
+
+        // <Goobstation> Goobstation - Proper invisibility
+        /// <summary>
+        /// How much to penalize minimum visibility depending on velocity.
+        /// </summary>
+        [DataField]
+        public float InvisibilityPenalty = 1f;
+
+        /// <summary>
+        /// Don't penalize minimum visibility beyond this amount.
+        /// </summary>
+        [DataField]
+        public float MaxInvisibilityPenalty = 0.5f;
+        // </Goobstation>
     }
 }

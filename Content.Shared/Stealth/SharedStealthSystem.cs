@@ -1,6 +1,7 @@
 using Content.Shared.Examine;
 using Content.Shared.Mobs;
 using Content.Shared.Stealth.Components;
+using Robust.Shared.Physics.Components; // Goobstation
 using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
@@ -127,10 +128,18 @@ public abstract class SharedStealthSystem : EntitySystem
         ModifyVisibility(uid, delta);
     }
 
+    // Goobstation - Proper invisibility
     private void OnGetVisibilityModifiers(EntityUid uid, StealthOnMoveComponent component, GetVisibilityModifiersEvent args)
     {
-        var mod = args.SecondsSinceUpdate * component.PassiveVisibilityRate;
-        args.FlatModifier += mod;
+        var limit = args.Stealth.MinVisibility;
+        if (TryComp<PhysicsComponent>(uid, out var phys))
+        {
+            limit += Math.Min(component.MaxInvisibilityPenalty, phys.LinearVelocity.Length() * component.InvisibilityPenalty);
+        }
+        if (args.Stealth.LastVisibility > limit) {
+            var mod = args.SecondsSinceUpdate * component.PassiveVisibilityRate;
+            args.FlatModifier += mod;
+        }
     }
 
     /// <summary>

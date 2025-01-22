@@ -44,7 +44,7 @@ public sealed partial class StealthComponent : Component
     public float ExamineThreshold = 0.5f;
 
     /// <summary>
-    /// Last set level of visibility. The visual effect ranges from 1 (fully visible) and -1 (fully hidden). Values
+    /// Last set level of visibility. The visual effect ranges from 1 (fully visible) and -1.5 (fully hidden). Values // Goobstation - Proper invisibility
     /// outside of this range simply act as a buffer for the visual effect (i.e., a delay before turning invisible). To
     /// get the actual current visibility, use <see cref="SharedStealthSystem.GetVisibility(EntityUid, StealthComponent?)"/>
     /// If you don't have anything else updating the stealth, this will just stay at a constant value, which can be useful.
@@ -61,11 +61,12 @@ public sealed partial class StealthComponent : Component
     [DataField("lastUpdate", customTypeSerializer:typeof(TimeOffsetSerializer))]
     public TimeSpan? LastUpdated;
 
+    // Goobstation - Proper invisibility
     /// <summary>
-    /// Minimum visibility. Note that the visual effect caps out at -1, but this value is allowed to be larger or smaller.
+    /// Minimum visibility. Note that the visual effect caps out at -1.5, but this value is allowed to be larger or smaller.
     /// </summary>
     [DataField("minVisibility")]
-    public float MinVisibility = -1f;
+    public float MinVisibility = -1.5f;
 
     /// <summary>
     /// Maximum visibility. Note that the visual effect caps out at +1, but this value is allowed to be larger or smaller.
