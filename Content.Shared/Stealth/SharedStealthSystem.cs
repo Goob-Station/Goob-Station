@@ -15,8 +15,6 @@ public abstract class SharedStealthSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<StealthComponent, ComponentGetState>(OnStealthGetState);
-        SubscribeLocalEvent<StealthComponent, ComponentHandleState>(OnStealthHandleState);
         SubscribeLocalEvent<StealthOnMoveComponent, MoveEvent>(OnMove);
         SubscribeLocalEvent<StealthOnMoveComponent, GetVisibilityModifiersEvent>(OnGetVisibilityModifiers);
         SubscribeLocalEvent<StealthComponent, EntityPausedEvent>(OnPaused);
@@ -98,22 +96,6 @@ public abstract class SharedStealthSystem : EntitySystem
             return;
 
         component.LastUpdated = _timing.CurTime;
-    }
-
-    private void OnStealthGetState(EntityUid uid, StealthComponent component, ref ComponentGetState args)
-    {
-        args.State = new StealthComponentState(component.LastVisibility, component.LastUpdated, component.MaxVisibility, component.Enabled); // Shitmed Change
-    }
-
-    private void OnStealthHandleState(EntityUid uid, StealthComponent component, ref ComponentHandleState args)
-    {
-        if (args.Current is not StealthComponentState cast)
-            return;
-
-        SetEnabled(uid, cast.Enabled, component);
-        component.LastVisibility = cast.Visibility;
-        component.LastUpdated = cast.LastUpdated;
-        component.MaxVisibility = cast.MaxVisibility; // Shitmed Change
     }
 
     private void OnMove(EntityUid uid, StealthOnMoveComponent component, ref MoveEvent args)

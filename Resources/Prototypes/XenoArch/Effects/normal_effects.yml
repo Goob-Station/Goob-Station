@@ -297,6 +297,7 @@
   - type: StealthOnMove
     passiveVisibilityRate: -0.10
     movementVisibilityRate: 0.10
+    minVisibility: -1 # Goobstation - Proper invisibility
 
 - type: artifactEffect
   id: EffectExplosionScary
