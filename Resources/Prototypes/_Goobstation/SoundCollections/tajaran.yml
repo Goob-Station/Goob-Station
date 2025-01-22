@@ -1,24 +1,36 @@
 # Just steal from felinids, no reason not to
 - type: soundCollection
   id: TajaranScreams
-  parent: FelinidScreams
+  files:
+  #- /Audio/Nyanotrasen/Voice/Felinid/cat_scream1.ogg - Goobstation - Remove mute sound from felinid + harpy screams
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_scream3.ogg
 
 - type: soundCollection
   id: TajaranHisses
-  parent: FelinidHisses
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_hiss2.ogg
 
 - type: soundCollection
   id: TajaranMeows
-  parent: FelinidMeows
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow2.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_meow3.ogg
 
 - type: soundCollection
   id: TajaranMews
-  parent: FelinidMews
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_mew1.ogg
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_mew2.ogg
 
 - type: soundCollection
   id: TajaranGrowls
-  parent: FelinidGrowls
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_growl1.ogg
 
 - type: soundCollection
   id: TajaranPurrs
-  parent: FelinidPurrs
+  files:
+  - /Audio/Nyanotrasen/Voice/Felinid/cat_purr1.ogg
