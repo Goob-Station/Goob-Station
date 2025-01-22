@@ -294,6 +294,7 @@
   - type: ItemBorgModule
     items:
     - RCDRecharging
+    - RPDRecharging
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: rcd-module }
 
