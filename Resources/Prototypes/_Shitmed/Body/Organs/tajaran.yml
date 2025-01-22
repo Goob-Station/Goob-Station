@@ -24,13 +24,14 @@
   - type: Tail
 
 # Aliases
+# TODO: Remove this alias when all references have been updated
 
 - type: entity
   id: OrganFelinidEars
   parent: OrganTajaranEars
-  suffix: Legacy Alias, DONT USE
+  suffix: Deprecated - Use OrganTajaranEars Instead
 
 - type: entity
   id: OrganFelinidTail
   parent: OrganTajaranTail
-  suffix: Legacy Alias, DONT USE
+  suffix: Deprecated - Use OrganTajaranTail Instead

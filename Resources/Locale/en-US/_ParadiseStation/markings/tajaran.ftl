@@ -24,10 +24,10 @@ marking-TajaranEarsRetro = Classic Ears
 marking-TajaranEarsRetro-ears = Ears
 marking-TajaranEarsRetroNear = Classic Ears (Alternative)
 marking-TajaranEarsRetroNear-ears_near = Ears
-marking-TajaranEarsSeperate = Classic Ears (Seperated)
+marking-TajaranEarsSeperate = Classic Ears (Separated)
 marking-TajaranEarsSeperate-outears = Outer
 marking-TajaranEarsSeperate-inears = Inner
-marking-TajaranEarsSeperateNear = Classic Ears (Alternative, Seperated)
+marking-TajaranEarsSeperateNear = Classic Ears (Alternative, Separated)
 marking-TajaranEarsSeperateNear-outears_near = Outer
 marking-TajaranEarsSeperateNear-inears_near = Inner
 

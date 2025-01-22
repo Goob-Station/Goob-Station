@@ -36,10 +36,12 @@
     - MobTajaranRandom
 
 # Alias
+# TODO: Remove this alias when all references have been updated
+
 - type: entity
   parent: TajaranCube
   id: FelinidCube
-  suffix: Legacy Alias, DONT USE
+  suffix: Deprecated - Use TajaranCube Instead
 
 - type: entity
   parent: MonkeyCube

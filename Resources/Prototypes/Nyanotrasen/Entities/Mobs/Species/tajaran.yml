@@ -85,10 +85,12 @@
   - type: HumanoidAppearance
     species: Tajaran
 
+# Aliases
+# TODO: Remove this alias when all references have been updated
 
 - type: entity
   save: false
   name: Urist McHands
   parent: MobTajaranDummy
   id: MobFelinidDummy
-  suffix: Legacy Alias, DONT USE
+  suffix: Deprecated - Use MobTajaranDummy Instead
