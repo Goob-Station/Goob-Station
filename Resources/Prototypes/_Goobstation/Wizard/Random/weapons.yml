@@ -27,9 +27,9 @@
     FireAxe: 2
     Sledgehammer: 2
     Chainsaw: 1
-    WeaponMeleeToolboxRobust: 2
     ToolboxSyndicate: 2
     ToolboxGolden: 2
+    WeaponMeleeToolboxRobust: 1
     WeaponShotgunBlunderbuss: 1
     WeaponSniperMosin: 1
     WeaponRevolverPirate: 1
@@ -64,9 +64,9 @@
     FireAxe: 3
     Sledgehammer: 3
     Chainsaw: 2
-    WeaponMeleeToolboxRobust: 3
     ToolboxSyndicate: 3
     ToolboxGolden: 1
+    WeaponMeleeToolboxRobust: 2
     WeaponShotgunBlunderbuss: 2
     WeaponSniperMosin: 2
     WeaponRevolverPirate: 2
@@ -110,9 +110,9 @@
     FireAxe: 4
     Sledgehammer: 4
     Chainsaw: 5
-    WeaponMeleeToolboxRobust: 4
     ToolboxSyndicate: 4
     ToolboxGolden: 1
+    WeaponMeleeToolboxRobust: 3
     WeaponShotgunBlunderbuss: 3
     WeaponSniperMosin: 3
     WeaponRevolverPirate: 3
@@ -151,8 +151,8 @@
     FireAxe: 4
     Sledgehammer: 4
     Chainsaw: 5
-    WeaponMeleeToolboxRobust: 4
     ToolboxSyndicate: 4
+    WeaponMeleeToolboxRobust: 5
     WeaponShotgunBlunderbuss: 4
     WeaponSniperMosin: 4
     WeaponRevolverPirate: 4
@@ -194,8 +194,8 @@
     FireAxe: 5
     Sledgehammer: 5
     Chainsaw: 6
-    WeaponMeleeToolboxRobust: 5
     ToolboxSyndicate: 5
+    WeaponMeleeToolboxRobust: 6
     WeaponShotgunBlunderbuss: 5
     WeaponSniperMosin: 5
     WeaponRevolverPirate: 5
