@@ -166,7 +166,7 @@
   sprites:
   - sprite: _Goobstation/Mobs/Customization/Tajaran/torso.rsi
     state: crest
-    
+
 - type: marking
   id: TajaranTorsoFullBelly
   bodyPart: Chest
