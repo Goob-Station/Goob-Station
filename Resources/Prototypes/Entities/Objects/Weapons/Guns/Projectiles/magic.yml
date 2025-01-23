@@ -20,9 +20,9 @@
       shader: unshaded
   - type: Explosive
     explosionType: Default
-    maxIntensity: 40
-    intensitySlope: 4 # Goob edit
-    totalIntensity: 100 # Gobo edit
+    maxIntensity: 6 # Goob edit
+    intensitySlope: 5 # Goob edit
+    totalIntensity: 50 # Gobo edit
     maxTileBreak: 0
   - type: IgnitionSource
     temperature: 400

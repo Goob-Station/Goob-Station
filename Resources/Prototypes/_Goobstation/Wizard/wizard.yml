@@ -45,6 +45,10 @@
     - Changeling
     - Heretic
     - Blob
+  friendly:
+    - Dragon
+    - SimpleHostile
+    - Xeno
 
 - type: factionIcon
   id: WizardFaction

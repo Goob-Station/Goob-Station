@@ -9,6 +9,8 @@
     - Revolutionary
     - Heretic # goob edit - heretics
     - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: NanoTrasen
@@ -51,6 +53,8 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: SimpleNeutral
@@ -79,6 +83,8 @@
   - Revolutionary
   - Heretic # goob edit - heretics
   - Blob # Goobstation - Blob
+  friendly: # Goobstation
+    - Wizard
 
 - type: npcFaction
   id: Zombie
