@@ -43,7 +43,7 @@
   id: ClothingMaskGasVoiceCraftable
   suffix: Voice Mask, Craftable
   name: Voice Modulator Mask
-  description: a shoddy combined gasmask and voice trigger, makes your voice change.
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
   components:
     - type: Sprite
       sprite: Clothing/Mask/gas.rsi

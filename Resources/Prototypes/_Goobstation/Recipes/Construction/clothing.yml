@@ -10,7 +10,7 @@
   objectType: Item
 
 - type: construction
-  name: voice changer
+  name: voice modulator
   id: makeshiftvoicechanger
   graph: VoiceMaskCraftable
   startNode: start

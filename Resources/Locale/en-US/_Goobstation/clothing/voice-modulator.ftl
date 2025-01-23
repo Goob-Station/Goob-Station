@@ -1,1 +1,1 @@
-voice-Modulator-name-change-window = Voce Modulator Name Change
+voice-Modulator-name-change-window = Voice Modulator Name Change
