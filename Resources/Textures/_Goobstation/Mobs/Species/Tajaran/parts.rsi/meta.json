@@ -1,7 +1,7 @@
 {
     "version": 1,
     "license": "CC-BY-SA-3.0",
-    "copyright": "Creator was not supplied, oldest reference tracked to Cael Aislinn in commit https://github.com/ParadiseSS13/Paradise/commit/9e4539fdce01f00ed7e47ca1174a1470ac5fe77c. Small changes made by SX-7",
+    "copyright": "Creator was not supplied, oldest reference tracked to Cael Aislinn in commit https://github.com/ParadiseSS13/Paradise/commit/9e4539fdce01f00ed7e47ca1174a1470ac5fe77c. Small changes made by SX-7. Names are as provided, sans torso_f front which is a combined version of modified torso_m front, and modified torso_f",
     "size": {
         "x": 32,
         "y": 32
