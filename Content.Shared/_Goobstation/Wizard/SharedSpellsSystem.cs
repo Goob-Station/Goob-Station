@@ -1018,11 +1018,13 @@ public abstract class SharedSpellsSystem : EntitySystem
             bool spawnSecondaryEffects = true)
         {
             _pulling.StopAllPulls(uid);
+            _pulling.StopAllPulls(otherUid);
             SpawnEffects(uid, xform);
             if (spawnSecondaryEffects)
                 SpawnEffects(otherUid, otherXform);
             TransformSystem.SwapPositions((uid, xform), (otherUid, otherXform));
             Physics.WakeBody(uid);
+            Physics.WakeBody(otherUid);
             return;
 
             void SpawnEffects(EntityUid ent, TransformComponent transform)
