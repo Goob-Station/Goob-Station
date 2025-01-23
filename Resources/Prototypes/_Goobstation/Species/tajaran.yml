@@ -7,8 +7,8 @@
   markingLimits: MobTajaranMarkingLimits
   dollPrototype: MobTajaranDummy
   skinColoration: Hues
-  maleFirstNames: names_tajaran_first_male
-  femaleFirstNames: names_tajaran_first_female
+  maleFirstNames: names_tajaran_first
+  femaleFirstNames: names_tajaran_first
   lastNames: names_tajaran_last
 
 - type: markingPoints
