@@ -1,6 +1,9 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Containers;
 using Robust.Shared.GameStates;
+using Content.Shared.Actions;
+using Robust.Shared.Audio;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Bingle;
 
@@ -32,9 +35,19 @@ public sealed partial class BinglePitComponent : Component
     /// </summary>
     [DataField]
     public float Level = 0f;
-
     /// <summary>
     /// Where the entities go when it falls into the pit, empties when it is destroyed.
     /// </summary>
     public Container Pit = default!;
+    [DataField]
+    public float MaxSize = 3f;
+    [DataField]
+    public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
+}
+
+[Serializable, NetSerializable]
+public sealed class BinglePitGrowEvent(NetEntity uid, float level) : EntityEventArgs
+{
+    public NetEntity Uid = uid;
+    public float Level = level;
 }

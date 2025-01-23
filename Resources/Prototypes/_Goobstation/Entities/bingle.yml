@@ -1,4 +1,5 @@
 # Bingle
+# need to be spread out
 
 - type: entity
   name: bingle
@@ -75,7 +76,7 @@
   - type: Speech
     speechVerb: Bingle
     speechSounds: Slime
-  - type: ReplacementAccent
+  - type: ReplacementAccent # prevent talking
     accent: bingle
   - type: PassiveDamage #passive Healing
     allowedStates:
@@ -91,6 +92,17 @@
     activateSound: null
     deactivateSound: null
 
+- type: entity
+  id: MobBinglePrime
+  parent: MobBingle
+  suffix: Prime
+  components:
+  - type: Bingle
+    prime: true
+    upgradeDamage:
+      types:
+        Blunt: 14
+        Structural: 100
 
 - type: damageModifierSet
   id: Bingle
@@ -121,8 +133,17 @@
     sprite: Markers/jobs.rsi
     layers:
       - state: green
-      - sprite:  _Goobstation/Mobs/Bingle/bingle.rsi
+      - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
         state: icon
+
+- type: entity
+  id: SpawnPointGhostBinglePrime
+  parent: SpawnPointGhostBingle
+  suffix: Prime
+  components:
+  - type: GhostTakeoverAvailable
+  - type: GhostRoleMobSpawner
+    prototype: MobBinglePrime
 
 - type: entity
   id: BinglePit
@@ -138,13 +159,13 @@
     blacklist:
       tags:
       - Catwalk
-    triggerGroups: # Goobstation
+    triggerGroups:
       types:
       - Chasm
   - type: Transform
     anchored: true
   - type: Physics
-    bodyType: Static
+    bodyType: Dynamic
   - type: Fixtures
     fixtures:
       fix1:
@@ -158,6 +179,7 @@
         density: 1000
         hard: false
   - type: Sprite
+    drawdepth: FloorTiles
     layers:
     - sprite: _Goobstation/Mobs/Bingle/bingle.rsi
       state: pit
@@ -190,13 +212,19 @@
 - type: accent
   id: bingle
   fullReplacements:
+  - "Bingle"  # for makign the odds
+  - "Bingle"
+  - "Bingle"
+  - "Bingle"
+  - "Bingle"
+  - "Bingle"
   - "Bingle"
   - "Bing"
   - "Bongle"
   - "Bong"
-  - "B"
   - "BINGLE"
   - "I need it"
+  - "The Pit must grow"
 
 - type: entity
   id: BingleSpawn
@@ -211,4 +239,4 @@
     duration: 50
     minimumPlayers: 15
   - type: RandomSpawnRule
-    prototype: BinglePit
+    prototype: SpawnPointGhostBinglePrime

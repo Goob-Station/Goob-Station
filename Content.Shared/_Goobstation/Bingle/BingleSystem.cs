@@ -1,4 +1,6 @@
-using  Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee;
+using Content.Shared.Weapons.Melee.Events;
+using Content.Shared.Interaction.Events;
 
 namespace Content.Shared._Goobstation.Bingle;
 
@@ -7,13 +9,15 @@ public sealed class BingleSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<BingleComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<BingleComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<BingleComponent, AttackAttemptEvent>(OnAttackAttempt);
     }
-    private void OnStartup(EntityUid uid, BingleComponent comp, ComponentStartup args)
-    {
-        //on mapint. check pit if this bingle shud be upgraded
-        // this shud only afect bingles that spawn after pit evolves
-        //if(pit==evolved) Upgrade(ent.Owner, ent.Comp)
+    private void OnMapInit(EntityUid uid, BingleComponent component, MapInitEvent args){
+        if (component.Prime){
+            var cords = Transform(uid).Coordinates;
+            if (!(cords.X == 0 && cords.Y == 0)) //this whole looks a little clunky. have problems making sure it happesn only happens on spawn.
+                Spawn("BinglePit", cords);
+        }
     }
     public void UpgradeBingle(EntityUid uid, BingleComponent component)
     {
@@ -25,4 +29,15 @@ public sealed class BingleSystem : EntitySystem
         weponComp.Damage = component.UpgradeDamage;
         component.Upgraded = true;
     }
+    //Prevent Friendly Bingle fire
+    private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
+    {
+        if (args.Cancelled)
+           return;
+        if (!(TryComp<BinglePitComponent>(args.Target, out var _) || TryComp<BingleComponent>(args.Target, out var _)))
+            return;
+
+        args.Cancel();
+    }
+
 }

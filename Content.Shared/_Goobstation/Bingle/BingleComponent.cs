@@ -8,4 +8,6 @@ public sealed partial class BingleComponent : Component
     public bool Upgraded = false;
     [DataField]
     public DamageSpecifier UpgradeDamage = default!;
+    [DataField]
+    public bool Prime = false;
 }
