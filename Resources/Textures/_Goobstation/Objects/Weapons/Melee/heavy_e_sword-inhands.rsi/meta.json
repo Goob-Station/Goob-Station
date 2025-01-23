@@ -8,20 +8,16 @@
     },
     "states": [
         {
-            "name": "inhand-left",
-            "directions": 4
+            "name": "inhand-left"
         },
         {
-            "name": "inhand-left-blade",
-            "directions": 4
+            "name": "inhand-left-blade"
         },
         {
-            "name": "inhand-right",
-            "directions": 4
+            "name": "inhand-right"
         },
         {
-            "name": "inhand-right-blade",
-            "directions": 4
+            "name": "inhand-right-blade"
         }
     ]
 }
