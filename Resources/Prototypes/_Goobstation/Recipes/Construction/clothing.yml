@@ -16,6 +16,6 @@
   startNode: start
   targetNode: end
   category: construction-category-clothing
-  description: a mask for making your voice sond like somone else.
+  description: A poorly constructed voice modulator made of a gasmask and voice trigger.
   icon: { sprite: Clothing/Mask/gas.rsi, state: icon }
   objectType: Item
