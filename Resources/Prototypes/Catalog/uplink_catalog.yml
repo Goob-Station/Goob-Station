@@ -867,7 +867,7 @@
   description: uplink-duffel-surgery-desc
   productEntity: ClothingBackpackDuffelSyndicateFilledMedical
   cost:
-    Telecrystal: 20 # goob
+    Telecrystal: 10 # goob
   categories:
   - UplinkDisruption
 

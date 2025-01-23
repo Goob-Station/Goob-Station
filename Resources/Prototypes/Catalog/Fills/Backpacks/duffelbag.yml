@@ -24,9 +24,8 @@
     contents:
       - id: Hemostat
       - id: SawAdvanced
-      - id: Drill
-      - id: Cautery
-      - id: Retractor
+      - id: EnergyCautery
+      - id: AdvancedRetractor
       - id: ScalpelAdvanced
       - id: ClothingHandsGlovesNitrile
       - id: EmergencyRollerBedSpawnFolded
