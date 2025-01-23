@@ -1,0 +1,9 @@
+- type: entity
+  id: HandPlaceholder
+  name: BORG HAND REPLACEMENT - YOU SHOULD NOT SEE THIS
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Item
+    size: Ginormous # no storage insertion visuals
+  - type: Unremoveable
+  - type: HandPlaceholder

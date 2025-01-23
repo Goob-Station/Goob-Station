@@ -4,6 +4,7 @@ using Content.Shared.Interaction.Components;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
+using Content.Shared._NF.Interaction.Components; // Frontier
 
 namespace Content.Server.Silicons.Borgs;
 
@@ -225,6 +226,51 @@ public sealed partial class BorgSystem
             component.ProvidedItems.Add(handId, item);
         }
 
+        // Frontier: droppable cyborg items
+        foreach (var itemProto in component.DroppableItems)
+        {
+            EntityUid item;
+
+            if (!component.ItemsCreated)
+            {
+                item = Spawn(itemProto.ID, xform.Coordinates);
+                var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(item);
+                placeComp.Whitelist = itemProto.Whitelist;
+            }
+            else
+            {
+                item = component.ProvidedContainer.ContainedEntities
+                    .FirstOrDefault(ent => _whitelistSystem.IsWhitelistPassOrNull(itemProto.Whitelist, ent) || TryComp<HandPlaceholderComponent>(ent, out var placeholder));
+                if (!item.IsValid())
+                {
+                    Log.Debug($"no items found: {component.ProvidedContainer.ContainedEntities.Count}");
+                    continue;
+                }
+
+                // Just in case, make sure the borg can't drop the placeholder.
+                if (HasComp<HandPlaceholderComponent>(item))
+                    EnsureComp<UnremoveableComponent>(item);
+                else
+                {
+                    var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(item);
+                    placeComp.Whitelist = itemProto.Whitelist;
+                }
+            }
+
+            if (!item.IsValid())
+            {
+                Log.Debug("no valid item");
+                continue;
+            }
+
+            var handId = $"{uid}-item{component.HandCounter}";
+            component.HandCounter++;
+            _hands.AddHand(chassis, handId, HandLocation.Middle, hands);
+            _hands.DoPickup(chassis, hands.Hands[handId], item, hands);
+            component.DroppableProvidedItems.Add(handId, (item, itemProto));
+        }
+        // End Frontier: droppable cyborg items
+
         component.ItemsCreated = true;
     }
 
@@ -244,6 +290,14 @@ public sealed partial class BorgSystem
                 _hands.RemoveHand(chassis, hand, hands);
             }
             component.ProvidedItems.Clear();
+            // Frontier: droppable items
+            foreach (var (hand, item) in component.DroppableProvidedItems)
+            {
+                QueueDel(item.Item1);
+                _hands.RemoveHand(chassis, hand, hands);
+            }
+            component.DroppableProvidedItems.Clear();
+            // End Frontier: droppable items
             return;
         }
 
@@ -257,6 +311,20 @@ public sealed partial class BorgSystem
             _hands.RemoveHand(chassis, handId, hands);
         }
         component.ProvidedItems.Clear();
+        // Frontier: remove all items from borg hands directly, not from the provided items set
+        foreach (var (handId, _) in component.DroppableProvidedItems)
+        {
+            _hands.TryGetHand(chassis, handId, out var hand, hands);
+            if (hand?.HeldEntity != null)
+            {
+                RemComp<UnremoveableComponent>(hand.HeldEntity.Value);
+                _container.Insert(hand.HeldEntity.Value, component.ProvidedContainer);
+            }
+
+            _hands.RemoveHand(chassis, handId, hands);
+        }
+        component.DroppableProvidedItems.Clear();
+        // End Frontier
     }
 
     /// <summary>
