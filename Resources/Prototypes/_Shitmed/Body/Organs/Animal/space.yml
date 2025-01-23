@@ -23,6 +23,7 @@
   components:
   - type: Organ
     onAdd:
+    - type: PressureImmunity
     - type: GoliathTentacle
   - type: Sprite
     sprite: _Shitmed/Mobs/Species/Space/Goliath/organs.rsi
@@ -35,6 +36,7 @@
   components:
   - type: Organ
     onAdd:
+    - type: BreathingImmunity
     - type: ActionGun
       action: ActionDragonsBreath
       gunProto: DragonsBreathGun
