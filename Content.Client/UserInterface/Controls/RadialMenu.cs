@@ -1,11 +1,3 @@
-// SPDX-FileCopyrightText: 2024 chromiumboy <50505512+chromiumboy@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Aiden <28298836+Aidenkrz@users.noreply.github.com>
-// SPDX-FileCopyrightText: 2025 Eoin Mcloughlin <helloworld@eoinrul.es>
-// SPDX-FileCopyrightText: 2025 Fildrance <fildrance@gmail.com>
-// SPDX-FileCopyrightText: 2025 pa.pecherskij <pa.pecherskij@interfax.ru>
-//
-// SPDX-License-Identifier: AGPL-3.0-or-later
-
 using System.Linq;
 using System.Numerics;
 using Content.Shared.Input;
@@ -314,8 +306,6 @@ public sealed class RadialMenuOuterAreaButton : RadialMenuButtonBase
     /// <inheritdoc />
     protected override bool HasPoint(Vector2 point)
     {
-        return false; // Goobstation edit
-
         if (ParentCenter == null)
         {
             return base.HasPoint(point);
