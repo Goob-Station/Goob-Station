@@ -1,4 +1,4 @@
-using Robust.Shared.Audio;
+using Content.Server.AbstractAnalyzer;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Medical.Components;
