@@ -47,19 +47,6 @@ marking-TajaranOverlayPatch-patch = Patches
 marking-TajaranOverlayPoints = Points
 marking-TajaranOverlayPoints-points = Points
 
-marking-TajaranHairEarrings = Earrings
-marking-TajaranHairLynx = Lynx
-marking-TajaranHairPlait = Plait
-marking-TajaranHairShaggy = Shaggy
-marking-TajaranHairHairribbons = Hairribbons
-
-marking-TajaranFacialHairGoatee = Beard (Tajaran Goatee)
-marking-TajaranFacialHairGoateeFaded = Beard (Tajaran Faded Goatee)
-marking-TajaranFacialHairMoustache = Moustache (Tajaran)
-marking-TajaranFacialHairPencilstache = Moustache (Tajaran Pencilstache)
-marking-TajaranFacialHairSideburns = Sideburns (Tajaran)
-marking-TajaranFacialHairSmallstache = Moustache (Tajaran Smallstache)
-
 marking-TajaranEarsBasic = Basic Ears
 marking-TajaranEarsBasic-basic_outer = Outer ear
 marking-TajaranEarsBasic-basic_inner = Inner ear
@@ -92,3 +79,27 @@ marking-TajaranEarsTorn-torn_inner = Inner ear
 marking-TajaranEarsWide = Wide Ears
 marking-TajaranEarsWide-wide_outer = Outer ear
 marking-TajaranEarsWide-wide_inner = Inner ear
+
+marking-TajaranTailBasic = Basic Cat Tail
+marking-TajaranTailBasic-basic_tail_tip = Tail tip
+marking-TajaranTailBasic-basic_tail_stripes_even = Tail stripes, even
+marking-TajaranTailBasic-basic_tail_stripes_odd = Tail stripes, odd
+
+marking-TajaranTailBasicWithBow = Basic Cat Tail with Bow
+marking-TajaranTailBasicWithBow-basic_tail_tip = Tail tip
+marking-TajaranTailBasicWithBow-basic_tail_stripes_even = Tail stripes, even
+marking-TajaranTailBasicWithBow-basic_tail_stripes_odd = Tail stripes, odd
+marking-TajaranTailBasicWithBow-basic_bow = Bow
+
+marking-TajaranTailBasicWithBell = Basic Cat Tail with Bell
+marking-TajaranTailBasicWithBell-basic_tail_tip = Tail tip
+marking-TajaranTailBasicWithBell-basic_tail_stripes_even = Tail stripes, even
+marking-TajaranTailBasicWithBell-basic_tail_stripes_odd = Tail stripes, odd
+marking-TajaranTailBasicWithBell-basic_bell = Bell
+
+marking-TajaranTailBasicWithBowAndBell = Basic Cat Tail with Bow & Bell
+marking-TajaranTailBasicWithBowAndBell-basic_tail_tip = Tail tip
+marking-TajaranTailBasicWithBowAndBell-basic_tail_stripes_even = Tail stripes, even
+marking-TajaranTailBasicWithBowAndBell-basic_tail_stripes_odd = Tail stripes, odd
+marking-TajaranTailBasicWithBowAndBell-basic_bow = Bow
+marking-TajaranTailBasicWithBowAndBell-basic_bell = Bell
