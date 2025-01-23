@@ -16,7 +16,7 @@
     definitions:
     - prefRoles: [ Heretic ]
       max: 5
-      playerRatio: 15
+      playerRatio: 10 # ShibaStation - attempt to fix heretic from FAILING due to lower player averages. Goob, we don't all pull 85 players max at all.
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
