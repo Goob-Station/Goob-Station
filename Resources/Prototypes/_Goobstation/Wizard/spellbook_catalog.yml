@@ -451,6 +451,20 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+# Equipment
+- type: listing
+  id: SpellbookSmHalberd
+  name: spellbook-sm-halberd-name
+  description: spellbook-sm-halberd-description
+  productEntity: SupermatterHalberd
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Special
 - type: listing
   id: SpellMimeBundle
@@ -492,3 +506,22 @@
   blockRefundListings:
     - SpellbookBananaTouch
     - SpellbookCluwneCurse
+
+- type: listing
+  id: SpellOblivionEnforcerBundle
+  name: spellbook-oblivion-enforcer-name
+  description: spellbook-oblivion-enforcer-desc
+  productEntity: ClothingBackpackOblivionEnforcerBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookSmHalberd
+  disableRefund: true
+  blockRefundListings:
+    - SpellbookSmHalberd

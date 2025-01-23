@@ -266,6 +266,7 @@
   - type: ClothingGrantComponent
     component:
     - type: SupermatterImmune
+  - type: SupermatterImmune
   - type: Armor
     modifiers:
       coefficients:
@@ -301,6 +302,7 @@
   - type: Tag
     tags:
     - IPCMaskWearable # EE - IPCs
+  - type: SupermatterImmune
 
 # Blue
 - type: entity

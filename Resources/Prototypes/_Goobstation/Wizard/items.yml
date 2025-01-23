@@ -120,6 +120,8 @@
     singleUser: true
     key: enum.WizardTeleportUiKey.Key
   - type: TeleportScroll
+  - type: StaticPrice
+    price: 5000
 
 - type: entity
   name: lightning bolt spell packet
@@ -158,3 +160,59 @@
   - type: EmbeddableProjectile
     deleteOnRemove: true
     offset: 0.0,-0.5
+
+- type: entity
+  name: supermatter halberd
+  parent: [BaseItem, BaseMagicContraband]
+  id: SupermatterHalberd
+  description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
+  components:
+  - type: Tag
+    tags:
+    - FireAxe
+  - type: Sharp
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.75
+    damage:
+      types:
+        Slash: 2
+        Piercing: 2
+        Radiation: 5
+        Structural: 5
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+  - type: Wieldable
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        Slash: 8
+        Piercing: 8
+        Radiation: 15
+        Structural: 10
+  - type: Item
+    size: Huge
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
+    quickEquip: false
+    slots:
+    - back
+    - suitStorage
+  - type: UseDelay
+    delay: 1
+    delays:
+      knockdown:
+        length: 4
+  - type: KnockdownOnHit
+    duration: 4
+    dropHeldItemsBehavior: DropIfStanding
+    knockdownOnHeavyAttack: false
+  - type: UseDelayBlockKnockdown
+    delay: knockdown
+  - type: SupermatterHalberd
+  - type: SupermatterImmune
+  - type: StaticPrice
+    price: 50000
