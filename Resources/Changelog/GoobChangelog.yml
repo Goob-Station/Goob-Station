@@ -4249,3 +4249,62 @@ Entries:
       message: Fixed some lobby screen credits
   id: 476
   time: '2025-01-15T20:13:21.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: HoS and Warden armored coat palletes updated.
+  id: 477
+  time: '2025-01-17T21:29:38.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Blob is now Gloob
+  id: 478
+  time: '2025-01-18T02:28:15.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Tweak
+      message: >-
+        The Abductor now speaks in a near-incomprehensible Glorp accent! But it
+        appears he has picked up on a few colloquial words... Xarple Voople Zip
+        Gnarp!
+  id: 479
+  time: '2025-01-19T15:59:02.0000000+00:00'
+- author: Durk, Piras314
+  changes:
+    - type: Add
+      message: Added Patreon Perks!
+  id: 480
+  time: '2025-01-20T02:50:59.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Fixed harpy arms (not the wings) showing through any piece of clothing,
+        including hardsuits.
+  id: 481
+  time: '2025-01-20T16:34:56.0000000+00:00'
+- author: MJ Sailor
+  changes:
+    - type: Fix
+      message: Nightwatcher's rebirth now won't delimb or gib you.
+    - type: Fix
+      message: Fixed ritual of knowledge stealing your clothes and organs.
+  id: 482
+  time: '2025-01-20T17:12:41.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Ratking has Nightvision
+    - type: Tweak
+      message: >-
+        Ratking's and their servants' thick fur are now (mostly) insulated
+        against electricity
+  id: 483
+  time: '2025-01-23T03:50:45.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: SM no longer removes gases for no reason during normal operation
+  id: 484
+  time: '2025-01-23T04:09:44.0000000+00:00'

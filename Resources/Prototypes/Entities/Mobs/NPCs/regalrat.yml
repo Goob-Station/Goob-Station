@@ -211,6 +211,7 @@
     - map: [ "enum.DamageStateVisualLayers.BaseUnshaded"]
       state: eyes
       shader: unshaded
+  - type: Insulated # Goobstation
 
   - type: SpriteMovement
     movementLayers:
