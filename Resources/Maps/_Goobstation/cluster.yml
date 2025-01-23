@@ -4630,11 +4630,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4660,6 +4668,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -4675,9 +4687,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -4705,11 +4725,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -8456,6 +8484,10 @@ entities:
         immutable: False
         temperature: 75.31249
         moles:
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -27603,6 +27635,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: ClosetL3JanitorFilled
   entities:
   - uid: 4195
@@ -27618,6 +27654,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -27826,6 +27866,10 @@ entities:
         moles:
         - 1.8856695
         - 7.0937095
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -28203,6 +28247,16 @@ entities:
     components:
     - type: Transform
       parent: 4287
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -28212,6 +28266,16 @@ entities:
     components:
     - type: Transform
       parent: 4289
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -28221,6 +28285,16 @@ entities:
     components:
     - type: Transform
       parent: 4274
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
@@ -28831,6 +28905,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -28952,11 +29030,11 @@ entities:
             - -0.4,0.29
           mask:
           - Impassable
-          - TableLayer
+          - MidImpassable
           - HighImpassable
           - LowImpassable
           layer:
-          - TableLayer
+          - MidImpassable
           - HighImpassable
           - LowImpassable
           - BulletImpassable
@@ -33170,16 +33248,6 @@ entities:
     - type: Transform
       pos: -28.412727,-7.5278454
       parent: 2
-- proto: DungeonMasterCircuitBoard
-  entities:
-  - uid: 5112
-    components:
-    - type: Transform
-      pos: -4.5524483,48.60244
-      parent: 2
-    - type: Physics
-      angularDamping: 0
-      linearDamping: 0
 - proto: ElectricGuitarInstrument
   entities:
   - uid: 5113
@@ -36788,6 +36856,16 @@ entities:
     - type: Transform
       pos: 1.2974858,10.5533285
       parent: 2
+- proto: GameMasterCircuitBoard
+  entities:
+  - uid: 5112
+    components:
+    - type: Transform
+      pos: -4.5524483,48.60244
+      parent: 2
+    - type: Physics
+      angularDamping: 0
+      linearDamping: 0
 - proto: GasAnalyzer
   entities:
   - uid: 5628
@@ -56557,6 +56635,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerBoozeFilled
   entities:
   - uid: 8472
@@ -56591,6 +56673,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56651,6 +56737,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -56677,6 +56767,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56794,6 +56888,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: LockerHeadOfPersonnelFilled
   entities:
   - uid: 4274
@@ -56809,6 +56907,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -56935,6 +57037,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -57531,10 +57637,10 @@ entities:
       parent: 2
 - proto: MaterialSilo
   entities:
-  - uid: 12949
+  - uid: 12741
     components:
     - type: Transform
-      pos: 1.5,49.5
+      pos: 4.5,-15.5
       parent: 2
 - proto: MaterialWoodPlank
   entities:

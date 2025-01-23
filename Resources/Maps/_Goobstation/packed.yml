@@ -1878,9 +1878,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           immutable: True
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1908,6 +1916,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1923,9 +1935,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1953,11 +1973,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -37401,6 +37429,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -37422,6 +37454,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -39181,6 +39217,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -39428,6 +39468,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -43198,13 +43242,6 @@ entities:
     - type: Transform
       pos: 57.63163,-13.7188425
       parent: 2
-- proto: DungeonMasterCircuitBoard
-  entities:
-  - uid: 14279
-    components:
-    - type: Transform
-      pos: 84.42593,28.556656
-      parent: 2
 - proto: ElectricGuitarInstrument
   entities:
   - uid: 14550
@@ -43613,13 +43650,6 @@ entities:
       parent: 2
     - type: FaxMachine
       name: Law Office
-  - uid: 8080
-    components:
-    - type: Transform
-      pos: 9.5,18.5
-      parent: 2
-    - type: FaxMachine
-      name: Quartermaster
   - uid: 8320
     components:
     - type: Transform
@@ -46183,6 +46213,13 @@ entities:
     components:
     - type: Transform
       pos: 33.59406,-4.5126047
+      parent: 2
+- proto: GameMasterCircuitBoard
+  entities:
+  - uid: 14279
+    components:
+    - type: Transform
+      pos: 84.42593,28.556656
       parent: 2
 - proto: GasFilterFlipped
   entities:
@@ -66602,6 +66639,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
     - type: ContainerContainer
       containers:
         entity_storage: !type:Container
@@ -66698,6 +66739,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -66960,7 +67005,7 @@ entities:
   - uid: 662
     components:
     - type: Transform
-      pos: 12.5,-18.5
+      pos: 9.5,18.5
       parent: 2
 - proto: MaterialWoodPlank
   entities:
@@ -81485,12 +81530,6 @@ entities:
     - type: Transform
       pos: 43.5,20.5
       parent: 2
-  - uid: 12727
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 9.5,18.5
-      parent: 2
 - proto: TargetClown
   entities:
   - uid: 9607
@@ -93702,6 +93741,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 13063
     components:
     - type: Transform
@@ -93715,6 +93758,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0

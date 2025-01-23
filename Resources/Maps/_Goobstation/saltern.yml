@@ -1448,11 +1448,19 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 235
           moles:
           - 21.824879
           - 82.10312
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1478,6 +1486,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1493,9 +1505,17 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -1523,6 +1543,10 @@ entities:
           - 0
           - 0
           - 0
+          - 0
+          - 0
+          - 0
+          - 0
         - volume: 2500
           temperature: 293.15
           moles:
@@ -1530,6 +1554,10 @@ entities:
           - 0
           - 0
           - 6666.982
+          - 0
+          - 0
+          - 0
+          - 0
           - 0
           - 0
           - 0
@@ -27524,6 +27552,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
   - uid: 7058
     components:
     - type: Transform
@@ -27621,7 +27653,7 @@ entities:
             - -0.25,0.48
           mask:
           - Impassable
-          - TableLayer
+          - MidImpassable
           - LowImpassable
           layer:
           - BulletImpassable
@@ -27677,6 +27709,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -28303,6 +28339,16 @@ entities:
     - type: Transform
       pos: 10.618964,23.658073
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterCE
   entities:
   - uid: 9035
@@ -28310,6 +28356,16 @@ entities:
     - type: Transform
       pos: 38.383812,-0.3536343
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterCentcom
   entities:
   - uid: 9036
@@ -28317,6 +28373,16 @@ entities:
     - type: Transform
       pos: 49.408,-22.48963
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterCMO
   entities:
   - uid: 7088
@@ -28325,6 +28391,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 25.358017,-10.661482
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterCoat
   entities:
   - uid: 7644
@@ -28345,6 +28421,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 10.3903475,16.346748
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterHoS
   entities:
   - uid: 9031
@@ -28352,6 +28438,16 @@ entities:
     - type: Transform
       pos: -7.499014,20.716234
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterQM
   entities:
   - uid: 9925
@@ -28360,6 +28456,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 29.360077,8.344849
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingOuterWinterRD
   entities:
   - uid: 9116
@@ -28368,6 +28474,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -3.6681519,-23.621525
       parent: 31
+    - type: ContainerContainer
+      containers:
+        storagebase: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
+        toggleable-clothing: !type:Container
+          showEnts: False
+          occludes: True
+          ents: []
 - proto: ClothingShoesBootsJack
   entities:
   - uid: 10692
@@ -28749,12 +28865,6 @@ entities:
       parent: 31
 - proto: ComputerCargoOrders
   entities:
-  - uid: 3602
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 26.5,8.5
-      parent: 31
   - uid: 4309
     components:
     - type: Transform
@@ -29227,6 +29337,10 @@ entities:
         - 0
         - 0
         - 0
+        - 0
+        - 0
+        - 0
+        - 0
 - proto: CrateEmptySpawner
   entities:
   - uid: 3135
@@ -29395,6 +29509,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
@@ -32896,13 +33014,6 @@ entities:
     - type: Transform
       pos: -15.830059,-39.34384
       parent: 31
-- proto: DungeonMasterCircuitBoard
-  entities:
-  - uid: 11944
-    components:
-    - type: Transform
-      pos: -21.351568,42.7541
-      parent: 31
 - proto: ElectricGuitarInstrument
   entities:
   - uid: 9275
@@ -34842,21 +34953,19 @@ entities:
     - type: Transform
       pos: 27.598589,-5.5317454
       parent: 31
-- proto: FloraRockSolid01
+- proto: FloraRockSolid
   entities:
   - uid: 8569
     components:
     - type: Transform
       pos: 0.88375235,-33.48718
       parent: 31
-- proto: FloraRockSolid02
-  entities:
   - uid: 10815
     components:
     - type: Transform
       pos: 4.1304145,-33.0152
       parent: 31
-- proto: FloraTreeLarge05
+- proto: FloraTreeLarge
   entities:
   - uid: 7374
     components:
@@ -35118,6 +35227,13 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 31.5,-5.5
+      parent: 31
+- proto: GameMasterCircuitBoard
+  entities:
+  - uid: 11944
+    components:
+    - type: Transform
+      pos: -21.351568,42.7541
       parent: 31
 - proto: GasAnalyzer
   entities:
@@ -51262,10 +51378,10 @@ entities:
       parent: 31
 - proto: MaterialSilo
   entities:
-  - uid: 10902
+  - uid: 3602
     components:
     - type: Transform
-      pos: 55.5,-11.5
+      pos: 26.5,8.5
       parent: 31
 - proto: MaterialWoodPlank1
   entities:
@@ -72494,6 +72610,10 @@ entities:
         moles:
         - 1.7459903
         - 6.568249
+        - 0
+        - 0
+        - 0
+        - 0
         - 0
         - 0
         - 0
