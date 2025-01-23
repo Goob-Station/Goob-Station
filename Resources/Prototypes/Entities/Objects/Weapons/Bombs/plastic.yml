@@ -72,7 +72,7 @@
     speechVerb: Robotic
     speechSounds: Pai
   - type: GhostRole
-    # prob: 0.1 # uncomment if all c4 being sentient becomes too evil
+    prob: 0.05 
     name: ghost-role-information-c4-name
     description: ghost-role-information-c4-description
     rules: ghost-role-information-familiar-rules
