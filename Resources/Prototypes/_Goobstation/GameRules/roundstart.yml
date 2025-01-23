@@ -16,7 +16,7 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 4
-      playerRatio: 12
+      playerRatio: 10 # ShibaStation - attempt to fix changeling from FAILING due to lower player averages. Goob, we don't all pull 85 players max at all.
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
