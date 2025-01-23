@@ -1,5 +1,4 @@
 using Content.Shared._Goobstation.Wizard;
-using Content.Shared._Goobstation.Wizard.Swap;
 using Content.Shared.StatusIcon.Components;
 using Robust.Client.Player;
 

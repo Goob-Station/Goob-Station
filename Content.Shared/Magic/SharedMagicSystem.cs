@@ -3,6 +3,7 @@ using System.Numerics;
 using Content.Shared._Goobstation.Wizard;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
+using Content.Shared._Goobstation.Wizard.FadingTimedDespawn;
 using Content.Shared._Shitmed.Targeting;
 using Content.Shared.Actions;
 using Content.Shared.Body.Components;
@@ -181,12 +182,16 @@ public abstract class SharedMagicSystem : EntitySystem
         // Goobstation start
         var requiresSpeech = comp.RequiresSpeech;
         var flags = SlotFlags.OUTERCLOTHING | SlotFlags.HEAD;
+        var requiredSlots = 2;
         if (_inventory.TryGetSlotEntity(args.Performer, "eyes", out var eyepatch) &&
             HasComp<ChuuniEyepatchComponent>(eyepatch.Value))
         {
             requiresSpeech = true;
             flags = SlotFlags.OUTERCLOTHING;
+            requiredSlots = 1;
         }
+
+        var slots = 0;
         // Goobstation end
 
         if (comp.RequiresClothes)
@@ -198,6 +203,8 @@ public abstract class SharedMagicSystem : EntitySystem
                 var enumerator = _inventory.GetSlotEnumerator((args.Performer, inventory), flags); // Goob edit
                 while (enumerator.MoveNext(out var containerSlot))
                 {
+                    slots++; // Goobstation
+
                     if (containerSlot.ContainedEntity is { } item)
                         hasReqs = HasComp<WizardClothesComponent>(item);
                     else
@@ -207,6 +214,9 @@ public abstract class SharedMagicSystem : EntitySystem
                         break;
                 }
             }
+
+            if (slots < requiredSlots) // Goobstation
+                hasReqs = false;
         }
 
         if (!hasReqs) // Goobstation
@@ -623,6 +633,8 @@ public abstract class SharedMagicSystem : EntitySystem
             // Mindswapping with aghost real.
             (typeof(GhostComponent), "ghost"),
             (typeof(SpectralComponent), "ghost"),
+            (typeof(TimedDespawnComponent), "temporary"),
+            (typeof(FadingTimedDespawnComponent), "temporary"),
         };
 
         if (blockers.Any(x => CheckMindswapBlocker(x.Item1, x.Item2)))

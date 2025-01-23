@@ -18,6 +18,18 @@ public sealed partial class TrailComponent : Component
     public int ParticleAmount = 1;
 
     /// <summary>
+    /// Limits the total amount of particles that the trail can spawn, if above zero
+    /// </summary>
+    [DataField]
+    public int MaxParticleAmount;
+
+    /// <summary>
+    /// If not null, determines spawn position of the particles.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Vector2? SpawnPosition;
+
+    /// <summary>
     /// Particles are spawned in a radius around the origin.
     /// </summary>
     [DataField]
@@ -28,6 +40,12 @@ public sealed partial class TrailComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public EntityUid? RenderedEntity;
+
+    /// <summary>
+    /// Whether to use <see cref="RenderedEntity"/> rotation (if it is not null), or trail entity rotation
+    /// </summary>
+    [DataField]
+    public bool UseRenderedEntityRotation;
 
     /// <summary>
     /// Whether the trail should slowly fade out even when the entity was deleted.
@@ -141,6 +159,9 @@ public sealed partial class TrailComponent : Component
 
     [ViewVariables(VVAccess.ReadOnly)]
     public int CurIndex;
+
+    [ViewVariables(VVAccess.ReadOnly)]
+    public int ParticleCount;
 
     [ViewVariables(VVAccess.ReadOnly)]
     public MapCoordinates LastCoords = MapCoordinates.Nullspace;

@@ -208,7 +208,8 @@
   components:
   - type: Trail
     endAngle: 320
-    particleAmount: 0 # WizardJauntComponent handles that
+    particleAmount: 9
+    maxParticleAmount: 9
     velocity: -0.4
     lerpTime: 0.02
     frequency: 10
@@ -235,7 +236,8 @@
   components:
   - type: Trail
     endAngle: 320
-    particleAmount: 0 # WizardJauntComponent handles that
+    particleAmount: 9
+    maxParticleAmount: 9
     lerpTime: 0.01
     frequency: 10
     lifetime: 2.2
@@ -249,6 +251,29 @@
       reference: !type:GetShaderLocalPositionData
     spawnRemainingTrail: false
   - type: Transform
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3
+
+- type: entity
+  id: SwapSpellEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    lerpTime: 0.01
+    frequency: 0.01
+    maxParticleAmount: 10
+    lifetime: 2
+    positionLerpAmount: 0.3
+    alphaLerpAmount: 0.15
+    color: "#000000FF"
+    shader: unshaded
+    spawnRemainingTrail: false
+    useRenderedEntityRotation: true
+  - type: Transform
+    noRot: true
   - type: Tag
     tags:
       - HideContextMenu

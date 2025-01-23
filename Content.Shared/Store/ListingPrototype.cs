@@ -146,6 +146,13 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
     [DataField]
     public bool DisableRefund = false;
 
+    /// <summary>
+    /// Goobstation.
+    /// When purchased, it will block refunds of these listings.
+    /// </summary>
+    [DataField]
+    public HashSet<ProtoId<ListingPrototype>> BlockRefundListings = new();
+
     public bool Equals(ListingData? listing)
     {
         if (listing == null)
@@ -166,6 +173,10 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             return false;
 
         if (Icon != null && !Icon.Equals(listing.Icon))
+            return false;
+
+        // Goobstation
+        if (!BlockRefundListings.OrderBy(x => x).SequenceEqual(listing.BlockRefundListings.OrderBy(x => x)))
             return false;
 
         // more complicated conditions that eat perf. these don't really matter
@@ -208,6 +219,7 @@ public partial class ListingData : IEquatable<ListingData>, ICloneable
             RaiseProductEventOnUser = RaiseProductEventOnUser, // goob edit
             ProductHereticKnowledge = ProductHereticKnowledge, // goob edit
             DisableRefund = DisableRefund, // goob edit
+            BlockRefundListings = BlockRefundListings, // goob edit
             PurchaseAmount = PurchaseAmount,
             RestockTime = RestockTime,
             // WD START

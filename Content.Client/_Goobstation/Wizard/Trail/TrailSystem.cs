@@ -83,6 +83,9 @@ public sealed class TrailSystem : EntitySystem
         trail.RenderedEntity = comp.RenderedEntity;
         trail.Velocity = comp.Velocity;
         trail.Radius = comp.Radius;
+        trail.MaxParticleAmount = comp.MaxParticleAmount;
+        trail.ParticleCount = comp.ParticleCount;
+        trail.SpawnPosition = comp.SpawnPosition;
         trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
     }
 
@@ -115,7 +118,12 @@ public sealed class TrailSystem : EntitySystem
 
             trail.Accumulator += frameTime;
 
-            if (trail.Frequency <= 0f || trail.ParticleAmount < 1)
+            // Assuming that lifetime and frequency don't change
+            if (trail.Accumulator > trail.Lifetime && trail.Lifetime < trail.Frequency && trail.TrailData.Count > 0)
+                trail.TrailData.Clear();
+
+            if (trail.Frequency <= 0f || trail.ParticleAmount < 1 ||
+                trail.MaxParticleAmount > 0 && trail.ParticleCount >= trail.MaxParticleAmount)
             {
                 if (trail.Accumulator <= trail.Lifetime)
                     continue;
@@ -133,10 +141,6 @@ public sealed class TrailSystem : EntitySystem
 
                 continue;
             }
-
-            // Assuming that lifetime and frequency don't change
-            if (trail.Accumulator > trail.Lifetime && trail.Lifetime < trail.Frequency && trail.TrailData.Count > 0)
-                trail.TrailData.Clear();
 
             if (trail.Accumulator <= trail.Frequency)
                 continue;
@@ -167,6 +171,8 @@ public sealed class TrailSystem : EntitySystem
             for (var i = 0; i < trail.ParticleAmount; i++)
             {
                 SpawnParticle(trail, position, rotation, angles[i].ToVec(), xform.MapID);
+                if (trail.MaxParticleAmount > 0 && trail.ParticleCount >= trail.MaxParticleAmount)
+                    break;
             }
         }
     }
@@ -187,7 +193,9 @@ public sealed class TrailSystem : EntitySystem
     private void SpawnParticle(TrailComponent trail, Vector2 position, Angle rotation, Vector2 direction, MapId mapId)
     {
         DebugTools.Assert(trail is { ParticleAmount: > 0, Frequency: > 0f });
-        var targetPos = position + direction * trail.Radius;
+        trail.ParticleCount++;
+        var pos = trail.SpawnPosition ?? position;
+        var targetPos = pos + direction * trail.Radius;
         if (trail.TrailData.Count <
             MathF.Max(trail.ParticleAmount, trail.ParticleAmount * trail.Lifetime / trail.Frequency))
         {

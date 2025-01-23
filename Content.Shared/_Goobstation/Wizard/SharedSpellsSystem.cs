@@ -5,13 +5,12 @@ using Content.Shared._DV.Carrying;
 using Content.Shared._EinsteinEngines.Silicon.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared._Goobstation.Wizard.Chuuni;
-using Content.Shared._Goobstation.Wizard.InstantSummons;
+using Content.Shared._Goobstation.Wizard.Components;
 using Content.Shared._Goobstation.Wizard.LesserSummonGuns;
 using Content.Shared._Goobstation.Wizard.Mutate;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.SanguineStrike;
 using Content.Shared._Goobstation.Wizard.SpellCards;
-using Content.Shared._Goobstation.Wizard.Swap;
 using Content.Shared._Goobstation.Wizard.Teleport;
 using Content.Shared._Goobstation.Wizard.TeslaBlast;
 using Content.Shared._Goobstation.Wizard.Traps;
@@ -987,44 +986,60 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!TryComp(ev.Action, out SwapSpellComponent? swap))
             return;
 
-        var userCoords = TransformSystem.GetMapCoordinates(ev.Performer);
-        var targetCoords = TransformSystem.GetMapCoordinates(ev.Target);
+        var userXform = Transform(ev.Performer);
+        var targetXform = Transform(ev.Target);
 
-        Teleport(ev.Performer, targetCoords);
+        Swap(ev.Performer, userXform, ev.Target, targetXform);
 
-        if (swap.SecondaryTarget == null || !Exists(swap.SecondaryTarget) ||
-            swap.SecondaryTarget.Value == ev.Target || swap.SecondaryTarget.Value == ev.Performer)
-            Teleport(ev.Target, userCoords);
-        else
+        if (swap.SecondaryTarget != null && Exists(swap.SecondaryTarget) &&
+            swap.SecondaryTarget.Value != ev.Target && swap.SecondaryTarget.Value != ev.Performer)
         {
             var secondaryTarget = swap.SecondaryTarget.Value;
-            var secondaryTargetCoords = TransformSystem.GetMapCoordinates(secondaryTarget);
+            var secondaryTargetXform = Transform(secondaryTarget);
 
-            if (secondaryTargetCoords.MapId != userCoords.MapId || !secondaryTargetCoords.InRange(userCoords, ev.Range))
-                Teleport(ev.Target, userCoords);
-            else
-            {
-                Teleport(ev.Target, secondaryTargetCoords);
-                Teleport(secondaryTarget, userCoords);
-            }
-
-            swap.SecondaryTarget = null;
-            Dirty(ev.Action, swap);
-            if (_net.IsServer)
-                RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
+            if (secondaryTargetXform.MapID == userXform.MapID &&
+                TransformSystem.InRange((ev.Performer, userXform), (secondaryTarget, secondaryTargetXform), ev.Range))
+                Swap(secondaryTarget, secondaryTargetXform, ev.Target, targetXform, false);
         }
+
+        swap.SecondaryTarget = null;
+        Dirty(ev.Action, swap);
+        if (_net.IsServer)
+            RaiseNetworkEvent(new StopTargetingEvent(), ev.Performer); // Just in case
 
         _magic.Speak(ev);
         ev.Handled = true;
         return;
 
-        void Teleport(EntityUid uid, MapCoordinates coords)
+        void Swap(EntityUid uid,
+            TransformComponent xform,
+            EntityUid otherUid,
+            TransformComponent otherXform,
+            bool spawnSecondaryEffects = true)
         {
             _pulling.StopAllPulls(uid);
-            Audio.PlayPvs(ev.Sound, uid);
-            TransformSystem.SetMapCoordinates(uid, coords);
-            Spawn(ev.Effect, coords);
+            SpawnEffects(uid, xform);
+            if (spawnSecondaryEffects)
+                SpawnEffects(otherUid, otherXform);
+            TransformSystem.SwapPositions((uid, xform), (otherUid, otherXform));
             Physics.WakeBody(uid);
+            return;
+
+            void SpawnEffects(EntityUid ent, TransformComponent transform)
+            {
+                if (_net.IsClient)
+                    return;
+
+                Audio.PlayPvs(ev.Sound, transform.Coordinates);
+                var effect = Spawn(ev.Effect, transform.Coordinates);
+                if (TryComp(effect, out TrailComponent? trail))
+                {
+                    trail.SpawnPosition = TransformSystem.GetWorldPosition(transform);
+                    trail.RenderedEntity = ent;
+                    Dirty(effect, trail);
+                }
+                TransformSystem.SetParent(effect, Transform(effect), ent, transform);
+            }
         }
     }
 
@@ -1052,6 +1067,9 @@ public abstract class SharedSpellsSystem : EntitySystem
         if (!_threshold.TryGetThresholdForState(ev.Performer, MobState.Dead, out var dead, thresholds))
             return;
 
+        _magic.Speak(ev);
+        ev.Handled = true;
+
         var targetHealth = dead.Value - ev.MaxHealthReduction;
         var kill = false;
         if (targetHealth < 1)
@@ -1072,28 +1090,28 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             Popup(ev.Performer, "spell-soul-tap-dead-message-user", PopupType.LargeCaution);
 
-            var message = Loc.GetString("spell-soul-tap-dead-message-others",
-                ("uid", Identity.Entity(ev.Performer, EntityManager)));
-            _popup.PopupEntity(message, ev.Performer, Filter.PvsExcept(ev.Performer), true, PopupType.LargeCaution);
-
-            _magic.Speak(ev);
-            ev.Handled = true;
-
             var dmg = Damageable.TryChangeDamage(ev.Performer,
                 new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
                 true);
             if ((dmg == null || dmg.GetTotal() < 1) && _timing.IsFirstTimePredicted)
                 Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
+        }
+
+        if (_mobState.IsDead(ev.Performer))
+        {
+            var message = Loc.GetString("spell-soul-tap-dead-message-others",
+                ("uid", Identity.Entity(ev.Performer, EntityManager)));
+            _popup.PopupEntity(message, ev.Performer, Filter.PvsExcept(ev.Performer), true, PopupType.LargeCaution);
             return;
         }
+
+        if (TerminatingOrDeleted(ev.Performer) || EntityManager.IsQueuedForDeletion(ev.Performer))
+            return;
 
         if (targetHealth - ev.MaxHealthReduction < 1)
             Popup(ev.Performer, "spell-soul-tap-almost-dead-message", PopupType.LargeCaution);
         else
             Popup(ev.Performer, "spell-soul-tap-message", PopupType.MediumCaution);
-
-        _magic.Speak(ev);
-        ev.Handled = true;
     }
 
     private void OnThrownLightning(ThrownLightningEvent ev)

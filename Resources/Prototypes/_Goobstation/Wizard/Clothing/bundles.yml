@@ -1,0 +1,53 @@
+- type: entity
+  parent: ClothingBackpackClown
+  id: ClothingBackpackWizardClownBundle
+  suffix: Wizard Clown Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterWizardClownReal
+      - id: ClothingHeadHatClownReal
+      - id: ClownPDA
+      - id: ClothingMaskClown
+      - id: ClothingShoesClown
+      - id: ClothingUniformJumpsuitClown
+      - id: ClothingMaskClownBanana
+      - id: ClothingShoesClownBanana
+      - id: ClothingShoesBling
+
+- type: entity
+  parent: ClothingBackpackMime
+  id: ClothingBackpackWizardMimeBundle
+  suffix: Wizard Mime Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterWizardMimeReal
+      - id: ClothingHeadHatMimeReal
+      - id: MimePDA
+      - id: ClothingBeltSuspendersBlack
+      - id: ClothingBeltSuspendersRed
+      - id: ClothingUniformJumpsuitMime
+      - id: ClothingMaskMime
+      - id: ClothingMaskSadMime
+      - id: ClothingMaskScaredMime
+      - id: ClothingMaskSexyMime
+
+- type: entity
+  parent: ClothingBackpack
+  id: ClothingBackpackOblivionEnforcerBundle
+  suffix: Wizard Oblivion Enforcer Bundle
+  components:
+  - type: Tag
+    tags: [] # ignore "WhitelistChameleon" tag
+  - type: StorageFill
+    contents:
+      - id: ClothingOuterOblivionEnforcer
+      - id: ClothingMaskGasOblivionEnforcer
+      - id: ClothingUniformJumpsuitColorWhite
+      - id: ClothingShoesColorWhite
+      - id: ClothingHandsGlovesColorYellow

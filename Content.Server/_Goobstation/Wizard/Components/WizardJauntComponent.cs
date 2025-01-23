@@ -7,9 +7,6 @@ namespace Content.Server._Goobstation.Wizard.Components;
 public sealed partial class WizardJauntComponent : Component
 {
     [DataField]
-    public int ParticleAmount = 9;
-
-    [DataField]
     public EntProtoId JauntStartEffect = "EtherealJauntStartEffect";
 
     [DataField]

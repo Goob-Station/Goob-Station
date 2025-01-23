@@ -47,7 +47,6 @@ public sealed class WizardJauntSystem : EntitySystem
             if (!trailQuery.TryComp(ent, out var trail))
                 continue;
 
-            trail.ParticleAmount = jaunt.ParticleAmount;
             trail.RenderedEntity = polymorphed.Parent;
             Dirty(ent, trail);
         }
@@ -71,7 +70,6 @@ public sealed class WizardJauntSystem : EntitySystem
         if (!TryComp(startEffect, out TrailComponent? trail))
             return;
 
-        trail.ParticleAmount = comp.ParticleAmount;
         trail.RenderedEntity = args.Parent;
         Dirty(startEffect, trail);
     }

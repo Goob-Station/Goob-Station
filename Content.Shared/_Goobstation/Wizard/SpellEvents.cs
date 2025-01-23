@@ -475,7 +475,7 @@ public sealed partial class SwapSpellEvent : EntityTargetActionEvent, ISpeakSpel
     public float Range = 15f;
 
     [DataField]
-    public EntProtoId Effect = "AdminInstantEffectSmoke3";
+    public EntProtoId Effect = "SwapSpellEffect";
 }
 
 public sealed partial class SoulTapEvent : InstantActionEvent, ISpeakSpell

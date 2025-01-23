@@ -33,6 +33,12 @@
   name: store-caregory-spellbook-events
   priority: 4
 
+# Goobstation
+- type: storeCategory
+  id: SpellbookSpecial
+  name: store-caregory-spellbook-special
+  priority: 5
+
 #uplink categoires
 - type: storeCategory
   id: UplinkWeaponry

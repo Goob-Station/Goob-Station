@@ -76,8 +76,15 @@ public sealed class TrailOverlay : Overlay
 
             if (trail.RenderedEntity != null)
             {
-                var dirRot = rotation + eyeRot;
-                var direction = dirRot.GetCardinalDir();
+                Direction? direction = null;
+                var rot = rotation;
+                if (!trail.UseRenderedEntityRotation)
+                {
+                    var dirRot = rotation + eyeRot;
+                    direction = dirRot.GetCardinalDir();
+                }
+                else
+                    rot = _transform.GetWorldRotation(trail.RenderedEntity.Value);
 
                 if (spriteQuery.TryComp(trail.RenderedEntity.Value, out var sprite))
                 {
@@ -96,7 +103,7 @@ public sealed class TrailOverlay : Overlay
                         var originalScale = sprite.Scale;
                         sprite.Color = data.Color;
                         sprite.Scale *= data.Scale;
-                        sprite.Render(handle, eyeRot, rotation, direction, worldPosition);
+                        sprite.Render(handle, eyeRot, rot, direction, worldPosition);
                         sprite.Color = originalColor;
                         sprite.Scale = originalScale;
                     }

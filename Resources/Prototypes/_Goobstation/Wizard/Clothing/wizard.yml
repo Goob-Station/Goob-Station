@@ -132,7 +132,7 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardTapeReal
-  name: tape robe
+  name: tape robes
   description: A fine robe made from magically attuned duct tape.
   components:
   - type: Sprite
@@ -156,7 +156,7 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardPaperReal
-  name: papier-mache robe
+  name: papier-mache robes
   description: A robe held together by various bits of clear-tape and paste.
   components:
   - type: Sprite
@@ -180,7 +180,7 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardMimeReal
-  name: mime robe
+  name: mime robes
   description: Red, black, and white robes. There is not much else to say about them.
   components:
   - type: Sprite
@@ -203,7 +203,7 @@
 - type: entity
   parent: [ClothingOuterWizardBase, ClothingOuterWizardBaseArmor]
   id: ClothingOuterWizardClownReal
-  name: clown robe
+  name: clown robes
   description: A set of armoured robes that seem to radiate a dark power. That, and bad fashion decisions.
   components:
   - type: Sprite

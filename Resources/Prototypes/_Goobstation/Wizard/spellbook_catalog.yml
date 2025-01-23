@@ -450,3 +450,45 @@
   conditions:
   - !type:ListingLimitedStockCondition
     stock: 1
+
+# Special
+- type: listing
+  id: SpellMimeBundle
+  name: spellbook-mime-bundle-name
+  description: spellbook-mime-bundle-desc
+  productEntity: ClothingBackpackWizardMimeBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookMimeMalaise
+  disableRefund: true
+  blockRefundListings:
+    - SpellbookMimeMalaise
+
+- type: listing
+  id: SpellClownBundle
+  name: spellbook-clown-bundle-name
+  description: spellbook-clown-bundle-desc
+  productEntity: ClothingBackpackWizardClownBundle
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelistRequireAll: false
+    whitelist:
+    - SpellbookBananaTouch
+    - SpellbookCluwneCurse
+  disableRefund: true
+  blockRefundListings:
+    - SpellbookBananaTouch
+    - SpellbookCluwneCurse

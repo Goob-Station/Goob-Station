@@ -15,6 +15,14 @@ public sealed partial class BuyBeforeCondition : ListingCondition
     public HashSet<ProtoId<ListingPrototype>>? Whitelist; // Goob edit
 
     /// <summary>
+    ///     Goobstation.
+    ///     If false, only one of the listings needs to be purchased to pass the whitelist.
+    ///     If true, all of the listings need to be purchased.
+    /// </summary>
+    [DataField]
+    public bool WhitelistRequireAll = true;
+
+    /// <summary>
     ///     Listing(s) that if bought, block this purchase, if any.
     /// </summary>
     [DataField] // Goobstation
@@ -51,6 +59,10 @@ public sealed partial class BuyBeforeCondition : ListingCondition
                 if (listing.ID == requiredListing.Id)
                 {
                     purchasesFound = listing.PurchaseAmount > 0;
+
+                    if (purchasesFound && !WhitelistRequireAll) // Goobstation
+                        return true;
+
                     break;
                 }
             }

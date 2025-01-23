@@ -26,6 +26,7 @@ spell-fail-mindswap-changeling = You can't mindswap with the changeling!
 spell-fail-mindswap-heretic = You can't mindswap with the heretic!
 spell-fail-mindswap-ghoul = You can't mindswap with the ghoul!
 spell-fail-mindswap-ghost = You can't mindswap with the ghost!
+spell-fail-mindswap-temporary = You can't mindswap with temporary creatures!
 spell-fail-mindswap-dead = You don't particularly want to be dead!
 
 spell-requirements-failed-clothes = Missing requirements to cast this spell! You need to wear wizard robes and hat.

@@ -288,10 +288,19 @@ public sealed partial class StoreSystem
                 RaiseLocalEvent(buyer, listing.ProductEvent);
         }
 
-        /* if (listing.DisableRefund) // Goob edit
+        // Goob edit start
+        /* if (listing.DisableRefund)
         {
             component.RefundAllowed = false;
         } */
+        if (listing.BlockRefundListings.Count > 0)
+        {
+            foreach (var listingData in component.Listings.Where(x => listing.BlockRefundListings.Contains(x.ID)))
+            {
+                listingData.DisableRefund = true;
+            }
+        }
+        // Goob edit end
 
         //log dat shit.
         _admin.Add(LogType.StorePurchase,
