@@ -4302,3 +4302,9 @@ Entries:
         against electricity
   id: 483
   time: '2025-01-23T03:50:45.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: SM no longer removes gases for no reason during normal operation
+  id: 484
+  time: '2025-01-23T04:09:44.0000000+00:00'
