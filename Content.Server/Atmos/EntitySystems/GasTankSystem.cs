@@ -343,7 +343,7 @@ namespace Content.Server.Atmos.EntitySystems
 
                 // Let's cap the explosion, yeah?
                 // !1984
-                range = Math.Min(Math.Min(range, component.MaxExplosionRange ?? 1f/0f), _maxExplosionRange); // Goobstation - Fix tank explosion cap shitcode
+                range = Math.Min(range, component.MaxExplosionRange ?? _maxExplosionRange); // Goobstation - Fix tank explosion cap shitcode
 
                 _explosions.TriggerExplosive(owner, radius: range);
 
