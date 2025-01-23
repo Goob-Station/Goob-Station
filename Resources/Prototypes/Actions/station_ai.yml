@@ -51,3 +51,18 @@
       state: state_laws
     event: !type:ToggleLawsScreenEvent
     useDelay: 0.5
+
+# Goobstation - better silicon communication
+- type: entity
+  id: ActionAISiliconAnnounce
+  name: silicon Announce
+  description: Do a announce to all allowed silicons
+  components:
+  - type: InstantAction
+    priority: -2
+    itemIconStyle: NoItem
+    icon:
+      sprite: Interface/Actions/actions_ai.rsi
+      state: state_laws
+    event: !type:SiliconAnnounceEvent
+    useDelay: 0.5
