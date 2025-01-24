@@ -144,8 +144,7 @@ public sealed class ImmovableRodSystem : EntitySystem
             return;
         }
 
-        if (TryComp(ent, out EntityStorageComponent? storage)) // Goobstation
-            _entityStorage.EmptyContents(ent, storage);
+        _entityStorage.EmptyContents(ent); // Goobstation
 
         QueueDel(ent);
     }

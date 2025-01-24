@@ -155,6 +155,7 @@ public abstract class SharedWizardTrapsSystem : EntitySystem
         var fading = EnsureComp<FadingTimedDespawnComponent>(uid);
         fading.Lifetime = 0.5f;
         fading.FadeOutTime = 2f;
+        Dirty(uid, fading);
     }
 
     private void OnExamineAttempt(Entity<WizardTrapComponent> ent, ref ExamineAttemptEvent args)

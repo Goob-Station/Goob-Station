@@ -511,7 +511,11 @@ public sealed partial class ChargeMagicEvent : InstantActionEvent, ISpeakSpell
     public string? Speech { get; private set; }
 
     [DataField]
-    public ProtoId<TagPrototype> WandTag = "WizardWand";
+    public List<ProtoId<TagPrototype>> RechargeTags = new()
+    {
+        "WizardWand",
+        "WizardStaff",
+    };
 }
 
 public sealed partial class BlinkSpellEvent : InstantActionEvent, ISpeakSpell

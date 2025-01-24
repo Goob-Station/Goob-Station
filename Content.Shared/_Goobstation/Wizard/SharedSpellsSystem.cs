@@ -1151,7 +1151,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         foreach (var item in Hands.EnumerateHeld(ev.Performer, hands))
         {
-            if (Tag.HasTag(item, ev.WandTag) &&
+            if (Tag.HasAnyTag(item, ev.RechargeTags) &&
                 TryComp<BasicEntityAmmoProviderComponent>(item, out var basicAmmoComp) &&
                 basicAmmoComp is { Count: not null, Capacity: not null } &&
                 basicAmmoComp.Count < basicAmmoComp.Capacity)

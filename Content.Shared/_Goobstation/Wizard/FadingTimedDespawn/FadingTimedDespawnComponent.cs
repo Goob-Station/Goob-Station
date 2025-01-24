@@ -14,7 +14,7 @@ public sealed partial class FadingTimedDespawnComponent : Component
     /// <summary>
     /// If it is above zero, entity will fade out slowly when despawning
     /// </summary>
-    [DataField]
+    [DataField, AutoNetworkedField]
     public float FadeOutTime = 1f;
 
     /// <summary>

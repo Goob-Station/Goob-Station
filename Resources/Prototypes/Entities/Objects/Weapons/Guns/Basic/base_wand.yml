@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: WeaponWandBase
   abstract: true
   parent: BaseItem
@@ -9,6 +9,9 @@
     heldPrefix: wand
     size: Normal
   - type: Gun
+    soundEmpty: null # Goobstation
+    soundMode: null # Goobstation
+    clumsyProof: true # Goobstation
     fireRate: 0.5
     selectedMode: SemiAuto
     availableModes:

@@ -1,4 +1,4 @@
-﻿- type: entity
+- type: entity
   id: WeaponStaffBase
   abstract: true
   parent: BaseItem
@@ -7,8 +7,11 @@
     sprite: Objects/Weapons/Guns/Basic/staves.rsi
   - type: Item
     heldPrefix: staff
-    size: Normal
+    size: Huge # Goob edit
   - type: Gun
+    soundEmpty: null # Goobstation
+    soundMode: null # Goobstation
+    clumsyProof: true # Goobstation
     fireRate: 1
     selectedMode: SemiAuto
     availableModes:
@@ -20,4 +23,13 @@
   - type: Tag
     tags:
     - WizardStaff
-
+  - type: Clothing # Goobstation
+    quickEquip: false
+    slots:
+      - Back
+      - suitStorage
+    clothingVisuals:
+      back:
+      - state: equipped-BACKPACK
+      suitstorage:
+      - state: equipped-BACKPACK

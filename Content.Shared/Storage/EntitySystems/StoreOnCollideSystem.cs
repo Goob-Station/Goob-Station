@@ -1,8 +1,9 @@
-﻿using Content.Shared.Lock;
+using Content.Shared.Lock;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
+using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Storage.EntitySystems;
@@ -21,11 +22,21 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         SubscribeLocalEvent<StoreOnCollideComponent, StartCollideEvent>(OnCollide);
         SubscribeLocalEvent<StoreOnCollideComponent, StorageAfterOpenEvent>(AfterOpen);
         // TODO: Add support to stop colliding after throw, wands will need a WandComp
+
+        SubscribeLocalEvent<StoreOnCollideComponent, TimedDespawnEvent>(OnTimedDespawn); // Goobstation
+    }
+
+    private void OnTimedDespawn(Entity<StoreOnCollideComponent> ent, ref TimedDespawnEvent args) // Goobstation
+    {
+        _storage.EmptyContents(ent);
     }
 
     // We use Collide instead of Projectile to support different types of interactions
     private void OnCollide(Entity<StoreOnCollideComponent> ent, ref StartCollideEvent args)
     {
+        if (!_lock.IsLocked(ent.Owner) && ent.Comp.DisableWhenFirstOpened) // Goobstation
+            ent.Comp.Disabled = true;
+
         TryStoreTarget(ent, args.OtherEntity);
 
         TryLockStorage(ent);

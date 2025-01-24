@@ -108,6 +108,7 @@ public sealed class WizardTeleportSystem : SharedWizardTeleportSystem
             var fading = EnsureComp<FadingTimedDespawnComponent>(ent.Owner);
             fading.Lifetime = 0f;
             fading.FadeOutTime = 2f;
+            Dirty(ent.Owner, fading);
         }
 
         Dirty(ent);

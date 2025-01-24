@@ -127,18 +127,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
-- type: listing
-  id: SpellbookWandPolymorphCarp
-  name: spellbook-wand-polymorph-carp-name
-  description: spellbook-wand-polymorph-carp-description
-  productEntity: WeaponWandPolymorphCarp
-  cost:
-    WizCoin: 3
-  categories:
-  - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+# Goob edit
+#- type: listing
+#  id: SpellbookWandPolymorphCarp
+#  name: spellbook-wand-polymorph-carp-name
+#  description: spellbook-wand-polymorph-carp-description
+#  productEntity: WeaponWandPolymorphCarp
+#  cost:
+#    WizCoin: 3
+#  categories:
+#  - SpellbookEquipment
+#  conditions:
+#  - !type:ListingLimitedStockCondition
+#    stock: 1
 
 - type: listing
   id: SpellbookWandLocker
@@ -146,7 +147,7 @@
   description: spellbook-wand-locker-description
   productEntity: WeaponWandLocker
   cost:
-    WizCoin: 3
+    WizCoin: 2 # Goob edit
   categories:
   - SpellbookEquipment
   conditions:

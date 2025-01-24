@@ -87,7 +87,12 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: ResistLocker
-    resistTime: 30
+    resistTime: 60 # Goob edit
+  - type: Ammo # Goobstation
+    muzzleFlash: null
+  - type: FadingTimedDespawn # Goobstation
+    lifetime: 120
+    fadeOutTime: 5
   - type: StoreOnCollide
     lockOnCollide: true
     disableWhenFirstOpened: true

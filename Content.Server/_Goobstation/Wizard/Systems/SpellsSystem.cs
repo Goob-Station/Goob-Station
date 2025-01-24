@@ -517,12 +517,14 @@ public sealed class SpellsSystem : SharedSpellsSystem
                 weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
                 weaponDespawn.Lifetime = despawn.Lifetime + 30f;
                 weaponDespawn.FadeOutTime = 4f;
+                Dirty(weapon, weaponDespawn);
             }
             else if (fadingQuery.TryComp(mob, out var fading))
             {
                 weaponDespawn = EnsureComp<FadingTimedDespawnComponent>(weapon);
                 weaponDespawn.Lifetime = fading.Lifetime + 30f;
                 weaponDespawn.FadeOutTime = 4f;
+                Dirty(weapon, weaponDespawn);
             }
         }
     }
