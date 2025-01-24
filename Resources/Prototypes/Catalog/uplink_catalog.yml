@@ -1453,7 +1453,7 @@
   icon: { sprite: /Textures/Clothing/OuterClothing/Hardsuits/syndieelite.rsi, state: icon }
   productEntity: ClothingBackpackDuffelSyndicateEliteHardsuitBundle
   cost:
-    Telecrystal: 75 # goob
+    Telecrystal: 60 # goob
   categories:
   - UplinkWearables
 
