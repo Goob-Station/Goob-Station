@@ -14,6 +14,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #Syndicate EVA
 - type: entity
@@ -31,6 +32,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #Emergency EVA
 - type: entity
@@ -50,6 +52,12 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.75
     coolingCoefficient: 0.5
+  - type: Tag
+    tags:
+    - SuitEVA
+    - MonkeyWearable
+    - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetEVALarge
@@ -70,6 +78,7 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
+    - Softsuit # OuterSlotClothingPenalty
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity

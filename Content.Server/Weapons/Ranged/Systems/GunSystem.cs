@@ -102,6 +102,7 @@ public sealed partial class GunSystem : SharedGunSystem
             if (throwItems && ent != null)
             {
                 ShootOrThrow(ent.Value, mapDirection, gunVelocity, gun, gunUid, user);
+                shotProjectiles.Add(ent.Value); // Goobstation
                 continue;
             }
 

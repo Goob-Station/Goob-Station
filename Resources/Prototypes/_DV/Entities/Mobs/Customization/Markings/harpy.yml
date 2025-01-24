@@ -1,0 +1,113 @@
+# All the Harpy customization
+
+- type: marking
+  id: HarpyEarsDefault
+  bodyPart: Head
+  markingCategory: HeadTop
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964b00"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_ears.rsi
+    state: harpy_ears_default
+
+- type: marking
+  id: HarpyTailPhoenix
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964b00"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_tails.rsi
+    state: phoenix_tail
+
+- type: marking
+  id: HarpyTailRooster
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_tails.rsi
+    state: rooster_tail
+
+- type: marking
+  id: HarpyTailFinch
+  bodyPart: Tail
+  markingCategory: Tail
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_tails36x32.rsi
+    state: finch_tail
+
+- type: marking
+  id: HarpyChestDefault
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964b00"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_chest.rsi
+    state: upper
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_chest.rsi
+    state: lower
+
+- type: marking
+  id: HarpyLegsDefault
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      type: !type:CategoryColoring
+        category: Hair
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964b00"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_legs.rsi
+    state: thighs
+
+- type: marking
+  id: HarpyFeetDefault
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [Harpy]
+  coloring:
+    default:
+      fallbackTypes:
+      - !type:SimpleColoring
+        color: "#964b00"
+  sprites:
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_legs.rsi
+    state: feet
+  - sprite: _DV/Mobs/Customization/Harpy/harpy_legs.rsi
+    state: talons
