@@ -353,39 +353,6 @@
   packetPrototype: PineappleSeeds
   productPrototypes:
     - FoodPineapple
-  mutationPrototypes:
-    - plasmapple
-  harvestRepeat: Repeat
-  lifespan: 55
-  maturation: 6
-  production: 6
-  yield: 3
-  potency: 10
-  idealLight: 8
-  growthStages: 3
-  chemicals:
-    Nutriment:
-      Min: 1
-      Max: 20
-      PotencyDivisor: 20
-    Water:
-      Min: 1
-      Max: 4
-      PotencyDivisor: 25
-    Vitamin:
-      Min: 1
-      Max: 2
-      PotencyDivisor: 50
-
-- type: seed
-  id: plasmapple
-  name: seeds-plasmapple-name
-  noun: seeds-noun-seeds
-  displayName: seeds-plasmapple-display-name
-  plantRsi: Objects/Specific/Hydroponics/plasmapple.rsi
-  packetPrototype: PlasmappleSeeds
-  productPrototypes:
-    - FoodPlasmapple
   harvestRepeat: Repeat
   lifespan: 55
   maturation: 6

@@ -804,35 +804,6 @@
     tags:
     - Fruit
 
-- type: entity
-  name: plasmapple
-  parent: FoodProduceBase
-  id: FoodPlasmapple
-  description: Mmm, plasma.
-  components:
-  - type: FlavorProfile
-    flavors:
-      - pineapple
-  - type: SolutionContainerManager
-    solutions:
-      food:
-        maxVol: 16
-        reagents:
-        - ReagentId: Plasma
-          Quantity: 10
-        - ReagentId: Vitamin
-          Quantity: 2
-        - ReagentId: Water
-          Quantity: 4
-  - type: Sprite
-    sprite: Objects/Specific/Hydroponics/plasmapple.rsi
-  - type: Produce
-    seedId: plasmapple
-  - type: Extractable
-    juiceSolution:
-      reagents:
-      - ReagentId: Plasma
-        Quantity: 10
 
 - type: entity
   name: potato
