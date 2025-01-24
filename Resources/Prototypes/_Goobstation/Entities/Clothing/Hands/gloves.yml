@@ -31,6 +31,7 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
   - type: ClothingGrantComponent
     component:
+    - type: BodyPart
     onAdd:
     - type: Prying
       speedModifier: 1.5
