@@ -31,8 +31,10 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
   - type: ClothingGrantComponent
     component:
+    onAdd:
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
-    - type: UseDelay
+    - type: UseDelay # For insta prying
       delay: 1
+
