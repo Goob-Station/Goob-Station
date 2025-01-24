@@ -58,6 +58,7 @@
             Welded: { state: vent_welded }
             Lockout: { state: vent_lockout }
     - type: GasVentPump
+      underPressureLockoutThreshold: 30 # DeltaV - lower threshold
     - type: Construction
       graph: GasUnary
       node: ventpump

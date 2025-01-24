@@ -97,8 +97,9 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
-        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 2.5f;
+        var power = ent.Comp.CurrentPath == "Ash" ? ent.Comp.PathStage : 4f;
         var lookup = _lookup.GetEntitiesInRange(ent, power);
+        var healAmount = -10f - power;
 
         foreach (var look in lookup)
         {
@@ -111,16 +112,19 @@ public sealed partial class HereticAbilitySystem : EntitySystem
                 if (flam.OnFire && TryComp<DamageableComponent>(ent, out var dmgc))
                 {
                     // heals everything by base + power for each burning target
-                    _stam.TryTakeStamina(ent, -(10 + power));
+                    _stam.TryTakeStamina(ent, healAmount);
                     var dmgdict = dmgc.Damage.DamageDict;
-                    foreach (var key in dmgdict.Keys)
-                        dmgdict[key] -= 10f + power;
+                    DamageSpecifier healSpecifier = new();
 
-                    var dmgspec = new DamageSpecifier() { DamageDict = dmgdict };
-                    _dmg.TryChangeDamage(ent, dmgspec, true, false, dmgc);
+                    foreach (var key in dmgdict.Keys)
+                    {
+                        healSpecifier.DamageDict[key] = -dmgdict[key] < healAmount ? healAmount : -dmgdict[key];
+                    }
+
+                    _dmg.TryChangeDamage(ent, healSpecifier, true, false, dmgc);
                 }
 
-                if (!flam.OnFire)
+                if (flam.OnFire)
                     _flammable.AdjustFireStacks(look, power, flam, true);
 
                 if (TryComp<MobStateComponent>(look, out var mobstat))

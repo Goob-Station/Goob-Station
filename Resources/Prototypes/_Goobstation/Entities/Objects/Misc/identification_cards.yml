@@ -20,6 +20,8 @@
     tags:
     - CentralCommand
     - SyndicateAgent
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Helldiver
 - type: entity
@@ -53,6 +55,8 @@
     - AllAccess
     tags:
     - CentralCommand
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
 
 # Blueshield
 - type: entity
@@ -65,8 +69,8 @@
     - state: centcom
     - state: idcentcom
   - type: Item
-    heldPrefix: 
-    
+    heldPrefix:
+
   - type: PresetIdCard
     job: BlueshieldOfficer
   - type: Access

@@ -1,0 +1,226 @@
+- type: entity
+  id: OrganDubiousBase
+  parent: OrganHumanHeart
+  name: mysterious gland
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  description: Suspicious alien gland, replaces the heart.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Misc/Dubious/organs.rsi
+    state: gland
+  - type: AbductorOrgan
+
+- type: entity
+  id: OrganDubiousHealth
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: health
+  - type: Organ
+    onAdd:
+    - type: PassiveDamage
+      allowedStates:
+      - Alive
+      - Critical
+      damageCap: 150
+      damage:
+        groups:
+          Brute: -0.14
+          Burn: -0.14
+          Airloss: -0.14
+          Toxin: -0.14
+          Genetic: -0.14
+
+- type: entity
+  id: OrganDubiousAA
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: Access
+      enabled: true
+      groups:
+      - AllAccess
+    - type: AccessReader
+      access: [["Command"], ["Research"]]
+
+- type: entity
+  id: OrganDubiousShock
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: Insulated
+    - type: LightningArcShooter
+      arcDepth: 1
+      maxLightningArc: 3
+      shootMinInterval: 90
+      shootMaxInterval: 300
+      shootRange: 5
+      lightningPrototype: Lightning
+
+- type: entity
+  id: OrganDubiousInvisible
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: Stealth
+      enabledOnDeath: false
+      maxVisibility: 1.2
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.25
+      movementVisibilityRate: 0.25
+
+- type: entity
+  id: OrganDubiousGoliath
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: GoliathTentacle
+
+- type: entity
+  id: OrganDubiousSpaceAdaptation
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity
+    - type: BreathingImmunity
+
+- type: entity
+  id: OrganDubiousArtifact
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: mindshock
+  - type: Organ
+    onAdd:
+    - type: Artifact
+    - type: RandomStatusActivation
+      statusEffects:
+        ActivateArtifactEffect: ActivateArtifactEffect
+
+- type: entity
+  id: OrganDubiousScrambleDna
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: species
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        ScrambleDnaEffect: ScrambleDnaEffect
+
+- type: entity
+  id: OrganDubiousScrambleLocation
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: vent
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        ScrambleLocationEffect: ScrambleLocationEffect
+
+- type: entity
+  id: OrganDubiousSpiderEggs
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: spider
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 120
+      maxActivationTime: 360
+      statusEffects:
+        SpawnSpiderEggs: SpawnSpiderEggs
+
+- type: entity
+  id: OrganDubiousSlimeEggs
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: slime
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      minActivationTime: 120
+      maxActivationTime: 360
+      statusEffects:
+        SpawnSlimes: SpawnSlimes
+
+- type: entity
+  id: OrganDubiousEMP
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnEmp: SpawnEmp
+
+- type: entity
+  id: OrganDubiousGravityWell
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnGravityWell: SpawnGravityWell
+
+- type: entity
+  id: OrganDubiousFlash
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnFlash: SpawnFlash
+
+- type: entity
+  id: OrganDubiousSmoke
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: emp
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        SpawnSmoke: SpawnSmoke
+
+- type: entity
+  id: OrganDubiousGas
+  parent: OrganDubiousBase
+  components:
+  - type: Sprite
+    state: viral
+  - type: Organ
+    onAdd:
+    - type: RandomStatusActivation
+      statusEffects:
+        ExpelGas: ExpelGas
