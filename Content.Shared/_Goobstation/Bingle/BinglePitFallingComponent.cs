@@ -32,4 +32,6 @@ public sealed partial class BinglePitFallingComponent : Component
     ///     Scale that the animation should bring entities to.
     /// </summary>
     public Vector2 AnimationScale = new Vector2(0.01f, 0.01f);
+
+    public BinglePitComponent Pit = new BinglePitComponent();
 }

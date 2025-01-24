@@ -7,20 +7,22 @@ using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Stunnable;
 using Content.Server.Stunnable;
 using Content.Shared.Humanoid;
-using Robust.Shared.Physics;
-using Robust.Shared.Physics.Systems;
 using Robust.Shared.Audio.Systems;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
+using Content.Shared.Movement.Events;
+
 namespace Content.Server._Goobstation.Bingle;
 
 public sealed class BinglePitSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
     [Dependency] private readonly BingleSystem _bingleSystem = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly FixtureSystem _fixtures = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly StunSystem _stun = default!;
+    [Dependency] private readonly IGameTiming _timing = default!;
+
     public override void Initialize()
     {
         base.Initialize();
@@ -29,6 +31,25 @@ public sealed class BinglePitSystem : EntitySystem
         SubscribeLocalEvent<BinglePitComponent, MapInitEvent>(OnInit);
         SubscribeLocalEvent<BinglePitComponent, DestructionEventArgs>(OnDestruction);
         SubscribeLocalEvent<BinglePitComponent, AttackedEvent>(OnAttacked);
+        SubscribeLocalEvent<BinglePitFallingComponent, UpdateCanMoveEvent>(OnUpdateCanMove);
+    }
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        var query = EntityQueryEnumerator<BinglePitFallingComponent>();
+        while (query.MoveNext(out var uid, out var falling))
+        {
+            if (_timing.CurTime < falling.NextDeletionTime)
+                continue;
+
+            //QueueDel(uid);
+
+            _containerSystem.Insert(uid, falling.Pit.Pit);
+            EnsureComp<StunnedComponent>(uid); // used stuned to prevent any funny being done inside the pit
+            RemComp<BinglePitFallingComponent>(uid);
+
+        }
     }
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
     {
@@ -39,8 +60,10 @@ public sealed class BinglePitSystem : EntitySystem
         // dont swallow bingles
         if (HasComp<BingleComponent>(args.Tripper))
             return;
-        // need to be at levl 1 or above to swallo anything alive
+        // need to be at levl 1 or above to swallow anything alive
         if (HasComp<MobStateComponent>(args.Tripper) && component.Level == 0)
+            return;
+        if (HasComp<BinglePitFallingComponent>(args.Tripper))
             return;
 
         StartFalling(uid, component, args.Tripper);
@@ -62,8 +85,10 @@ public sealed class BinglePitSystem : EntitySystem
         else
             component.BinglePoints++;
 
-        _containerSystem.Insert(tripper, component.Pit);
-        EnsureComp<StunnedComponent>(tripper); // used stuned to prevent any funny being done inside the pit
+        var fall= EnsureComp<BinglePitFallingComponent>(tripper);
+        fall.Pit= component;
+        fall.NextDeletionTime = _timing.CurTime + fall.DeletionTime;
+        _stun.TryKnockdown(tripper, fall.DeletionTime, false);
 
         if (playSound)
             _audio.PlayPredicted(component.FallingSound, uid, tripper);
@@ -103,7 +128,6 @@ public sealed class BinglePitSystem : EntitySystem
 
             foreach (var pitUid in list)
             {
-                //todo:add knock down
                 RemComp<StunnedComponent>(pitUid);
                 _stun.TryKnockdown(pitUid, TimeSpan.FromSeconds(2), false);
             }
@@ -116,14 +140,18 @@ public sealed class BinglePitSystem : EntitySystem
 
         while (query.MoveNext(out var queryGRMSUid, out var queryGRMScomp))
         {
-            //TODO: add a range check
             if (queryGRMScomp.Prototype == "MobBingle")
-                QueueDel(queryGRMSUid);
+                if (Transform(uid).Coordinates == Transform(queryGRMSUid).Coordinates)
+                    QueueDel(queryGRMSUid); // remove any unspawned bingle when pit is destroyed
         }
     }
     private void OnAttacked(EntityUid uid, BinglePitComponent component, AttackedEvent args)
     {
         if (_containerSystem.ContainsEntity(uid, args.User))
             EnsureComp<StunnedComponent>(args.User);
+    }
+       private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
+    {
+        args.Cancel();
     }
 }

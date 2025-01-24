@@ -1,5 +1,4 @@
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Interaction.Events;
 
 namespace Content.Shared._Goobstation.Bingle;
@@ -19,6 +18,7 @@ public sealed class BingleSystem : EntitySystem
                 Spawn("BinglePit", cords);
         }
     }
+    //ran by the pit to upgrade bingle damage
     public void UpgradeBingle(EntityUid uid, BingleComponent component)
     {
         if (component.Upgraded)
@@ -33,7 +33,7 @@ public sealed class BingleSystem : EntitySystem
     private void OnAttackAttempt(EntityUid uid, BingleComponent component, AttackAttemptEvent args)
     {
         if (args.Cancelled)
-           return;
+            return;
         if (!(TryComp<BinglePitComponent>(args.Target, out var _) || TryComp<BingleComponent>(args.Target, out var _)))
             return;
 

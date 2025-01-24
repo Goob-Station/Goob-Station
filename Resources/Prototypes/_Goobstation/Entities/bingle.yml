@@ -47,7 +47,7 @@
     soundHit:
         path: /Audio/Weapons/Xeno/alien_claw_flesh3.ogg
     angle: 0
-    wideAnimationRotation: -135
+    wideAnimationRotation: 0
     animation: WeaponArcSlash
     damage:
       types:
@@ -141,7 +141,6 @@
   parent: SpawnPointGhostBingle
   suffix: Prime
   components:
-  - type: GhostTakeoverAvailable
   - type: GhostRoleMobSpawner
     prototype: MobBinglePrime
 
@@ -192,7 +191,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 10
+        damage: 500
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
@@ -231,9 +230,9 @@
   parent: BaseStationEventShortDelay
   components:
   - type: StationEvent
-    startAnnouncement: "Bingle Bingle Bingle"
-    startAudio:
-      path: /Audio/Announcements/attention.ogg
+   # startAnnouncement: "Bingle Bingle Bingle"
+   # startAudio:
+   #   path: /Audio/Announcements/attention.ogg
     earliestStart: 20
     weight: 6
     duration: 50
