@@ -1,17 +1,16 @@
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Containers;
+using Robust.Shared.Timing;
+using Content.Server.Stunnable;
 using Content.Shared.Ghost.Roles.Components;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Mobs.Components;
-using Robust.Shared.Containers;
 using Content.Shared.Destructible;
-using Content.Shared._Goobstation.Bingle;
 using Content.Shared.Stunnable;
-using Content.Server.Stunnable;
 using Content.Shared.Humanoid;
-using Robust.Shared.Audio.Systems;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Network;
-using Robust.Shared.Timing;
 using Content.Shared.Movement.Events;
+using Content.Shared._Goobstation.Bingle;
 
 namespace Content.Server._Goobstation.Bingle;
 
@@ -43,12 +42,9 @@ public sealed class BinglePitSystem : EntitySystem
             if (_timing.CurTime < falling.NextDeletionTime)
                 continue;
 
-            //QueueDel(uid);
-
             _containerSystem.Insert(uid, falling.Pit.Pit);
             EnsureComp<StunnedComponent>(uid); // used stuned to prevent any funny being done inside the pit
             RemComp<BinglePitFallingComponent>(uid);
-
         }
     }
     private void OnInit(EntityUid uid, BinglePitComponent component, MapInitEvent args)
@@ -132,7 +128,15 @@ public sealed class BinglePitSystem : EntitySystem
                 _stun.TryKnockdown(pitUid, TimeSpan.FromSeconds(2), false);
             }
         }
-        RemoveAllBingleGhosroles(uid, component);
+
+        RemoveAllBingleGhosroles(uid, component);//remove all unclaimed ghostroles when pit is destroyed
+
+        //Remove all falling when pit is destroyed, in the small chance somone is inbetween start and insert
+        var query = EntityQueryEnumerator<BinglePitFallingComponent>();
+        while (query.MoveNext(out var fallingUid, out var _))
+        {
+            RemComp<BinglePitFallingComponent>(fallingUid);
+        }
     }
     public void RemoveAllBingleGhosroles(EntityUid uid, BinglePitComponent component)
     {
@@ -150,7 +154,7 @@ public sealed class BinglePitSystem : EntitySystem
         if (_containerSystem.ContainsEntity(uid, args.User))
             EnsureComp<StunnedComponent>(args.User);
     }
-       private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
+    private void OnUpdateCanMove(EntityUid uid, BinglePitFallingComponent component, UpdateCanMoveEvent args)
     {
         args.Cancel();
     }

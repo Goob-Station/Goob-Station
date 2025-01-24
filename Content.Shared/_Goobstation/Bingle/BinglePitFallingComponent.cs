@@ -7,7 +7,7 @@ namespace Content.Shared._Goobstation.Bingle;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class BinglePitFallingComponent : Component
 {
-        /// <summary>
+    /// <summary>
     ///     Time it should take for the falling animation (scaling down) to complete.
     /// </summary>
     [DataField("animationTime")]
@@ -33,5 +33,8 @@ public sealed partial class BinglePitFallingComponent : Component
     /// </summary>
     public Vector2 AnimationScale = new Vector2(0.01f, 0.01f);
 
+    /// <summary>
+    ///     the pit your about to fall into
+    /// </summary>
     public BinglePitComponent Pit = new BinglePitComponent();
 }
