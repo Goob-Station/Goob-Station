@@ -1,0 +1,47 @@
+- type: entity
+  parent: BaseItem
+  id: ProduceBase
+  abstract: true
+  components:
+  - type: SolutionContainerManager
+  - type: Sprite
+    state: produce
+  # let cows eat raw produce like wheat and oats
+  - type: Food
+    requiredStomachs: 2
+  - type: Produce
+  - type: PotencyVisuals
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: food
+
+- type: entity
+  name: plasmapple
+  parent: FoodProduceBase
+  id: FoodPlasmapple
+  description: Mmm, plasma.
+  components:
+  - type: FlavorProfile
+    flavors:
+      - pineapple
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 16
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 10
+        - ReagentId: Vitamin
+          Quantity: 2
+        - ReagentId: Water
+          Quantity: 4
+  - type: Sprite
+    sprite: _Goobstation/Objects/Specific/Hydroponics/plasmapple.rsi
+  - type: Produce
+    seedId: plasmapple
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 10
+
