@@ -34,4 +34,11 @@
     - type: Prying
       pryPowered: true
       force: true
+  - type: MeleeWeapon
+    attackRate: 0.6
+    damage:
+      types:
+        Blunt: 12
+        Structural: 20
+    mustBeEquippedToUse: true
 
