@@ -28,8 +28,8 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
   - type: Clothing
     sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
-  - type: Clothing
-    onAdd:
+  - type: ClothingGrantComponent
+    component:
     - type: Prying
       speedModifier: 1.5
       pryPowered: true
