@@ -37,6 +37,8 @@
     speedModifier: 1.5
     useSound:
       path: /Audio/Items/crowbar.ogg
-  - type: UseDelay # Goobstation - For insta prying
-    delay: 1
+  - type: ClothingGrantComponent # I love ClothingGrantComponent shitcode
+    component:
+    - type: UseDelay # Goobstation - For insta prying
+      delay: 1
 
