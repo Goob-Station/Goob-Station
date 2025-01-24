@@ -22,7 +22,7 @@
   components:
   - type: StorageFill
     contents:
-      - id: Hemostat
+      - id: DefibrillatorSyndicate
       - id: SawAdvanced
       - id: EnergyCautery
       - id: AdvancedRetractor
