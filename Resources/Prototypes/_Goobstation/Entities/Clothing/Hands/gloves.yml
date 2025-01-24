@@ -22,6 +22,7 @@
 - type: entity
   parent: ClothingHandsGlovesCombat
   id: ClothingHandsGlovesChiefEngineer
+  name: chief engineer's power gauntlets
   description: A pair of highly-advanced gauntlets, powered via bluespace technology. Allows for prying open doors, and easier transportation of objects.
   components:
   - type: Sprite
