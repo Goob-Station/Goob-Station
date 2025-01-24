@@ -784,16 +784,18 @@ public abstract class SharedSpellsSystem : EntitySystem
             return;
         }
 
+        _magic.Speak(ev);
+        ev.Handled = true;
+
+        if (_net.IsClient)
+            return;
+
         var item = summons.Entity.Value;
 
         if (TryGetOuterNonMobContainer(item, xform, out var container))
             item = container.Owner;
 
-        if (_net.IsServer)
-            Audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
-
-        TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
-        TransformSystem.AttachToGridOrMap(item);
+        Audio.PlayEntity(ev.SummonSound, Filter.Pvs(item).Merge(Filter.Pvs(ev.Performer)), item, true);
 
         if (TryComp(item, out EmbeddableProjectileComponent? embeddable) && embeddable.EmbeddedIntoUid != null)
         {
@@ -802,11 +804,10 @@ public abstract class SharedSpellsSystem : EntitySystem
             Dirty(item, embeddable);
         }
 
-        if (_net.IsServer) // Idk, it therew a debug assert on client once
-            Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
+        TransformSystem.SetMapCoordinates(item, TransformSystem.GetMapCoordinates(ev.Performer));
+        TransformSystem.AttachToGridOrMap(item);
 
-        _magic.Speak(ev);
-        ev.Handled = true;
+        Hands.TryForcePickupAnyHand(ev.Performer, item, handsComp: hands);
     }
 
     private void OnTeleport(WizardTeleportEvent ev)

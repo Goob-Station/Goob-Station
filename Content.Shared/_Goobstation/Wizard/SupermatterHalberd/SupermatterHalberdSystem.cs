@@ -1,4 +1,6 @@
 using System.Numerics;
+using Content.Shared.Administration.Logs;
+using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -17,6 +19,7 @@ namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
 public sealed class SupermatterHalberdSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly ISharedAdminLogManager _admin = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -63,6 +66,10 @@ public sealed class SupermatterHalberdSystem : EntitySystem
 
         if (_net.IsClient)
             return;
+
+        _admin.Add(HasComp<MobStateComponent>(args.Target.Value) ? LogType.Gib : LogType.InteractUsing,
+            LogImpact.Extreme,
+            $"{ToPrettyString(args.User):user} ashed {ToPrettyString(args.Target.Value):target} using {ToPrettyString(uid):used}");
 
         var xform = Transform(args.Target.Value);
         _popup.PopupCoordinates(Loc.GetString("supermatter-halberd-execution-end-other",
