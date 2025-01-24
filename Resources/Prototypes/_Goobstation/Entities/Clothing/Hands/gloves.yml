@@ -31,11 +31,12 @@
     sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
   - type: ClothingGrantComponent
     component:
-    - type: Clothing
-    onAdd:
     - type: Prying
-      speedModifier: 1.5
-      pryPowered: true
-    - type: UseDelay # For insta prying
-      delay: 1
+    pryPowered: true
+    force: true
+    speedModifier: 1.5
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: UseDelay # Goobstation - For insta prying
+    delay: 1
 
