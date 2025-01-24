@@ -14,9 +14,3 @@ chat-speech-verb-dead-6 = whines
 chat-speech-verb-dead-7 = moans
 chat-speech-verb-dead-8 = cries
 chat-speech-verb-dead-9 = wails
-
-chat-speech-verb-name-tajaran = Tajaran
-chat-speech-verb-tajaran-1 = mraows
-chat-speech-verb-tajaran-2 = mews
-chat-speech-verb-tajaran-3 = meows
-chat-speech-verb-tajaran-4 = purrs out

@@ -34,10 +34,12 @@
 
 - type: damageModifierSet 
   id: Tajaran
-  coefficients: # Literally the same as felinids, but seperate cuz there's no parenting?
+  coefficients: # Literally the same as felinids, but heat and cold cuz fur
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
+    Heat: 1.15
+    Cold: 0.85
 
 # Mech armor
 - type: damageModifierSet

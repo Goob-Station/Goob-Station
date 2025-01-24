@@ -66,7 +66,7 @@
   id: MobFelinidRandom
   name: Urist McFelinid
   suffix: Random Appearance
-  abstract: true # No more felinids
+  abstract: true # No more felinids, even through admemes
   components:
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
@@ -83,8 +83,8 @@
   - type: RandomHumanoidAppearance
   - type: RandomMetadata
     nameSegments:
-    - names_first
-    - names_last
+    - names_tajaran_first
+    - names_tajaran_last
 
 
 - type: entity

@@ -23,9 +23,6 @@
   id: FelinidEmotes
 
 - type: Tag
-  id: TajaranEmotes
-
-- type: Tag
   id: HarpyEmotes
 
 - type: Tag

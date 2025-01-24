@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist McTajaran
-  parent: MobTajaranBase
+  parent: MobTajaranBase # Can't be parented from felinids, as some things are changed at species level
   id: MobTajaran
   components:
   - type: CombatMode
@@ -15,7 +15,7 @@
   - type: Input
     context: "human"
   - type: Speech
-    speechVerb: Tajaran
+    speechVerb: Felinid
   - type: MobMover
   - type: InputMover
   - type: Reactive
