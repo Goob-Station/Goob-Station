@@ -32,8 +32,8 @@
   - type: ClothingGrantComponent
     component:
     - type: Prying
-    pryPowered: true
-    force: true
-    speedModifier: 1.5
-    useSound:
+      pryPowered: true
+      force: true
+      speedModifier: 1.5
+      useSound:
       path: /Audio/Items/crowbar.ogg
