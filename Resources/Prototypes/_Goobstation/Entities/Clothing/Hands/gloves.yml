@@ -17,3 +17,21 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+
+- type: entity
+  parent: ClothingHandsGlovesCombat
+  id: ClothingHandsGlovesChiefEngineer
+  description: A pair of highly-advanced gauntlets, powered via bluespace technology. Allows for prying open doors, and easier transportation of objects.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/chiefengineer.rsi
+  - type: Clothing
+    onAdd:
+    - type: Prying
+      speedModifier: 1.5
+      pryPowered: true
+    - type: UseDelay
+      delay: 1
