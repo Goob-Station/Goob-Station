@@ -6,7 +6,7 @@
   sprites: MobTajaranSprites
   markingLimits: MobTajaranMarkingLimits
   dollPrototype: MobTajaranDummy
-  skinColoration: Hues
+  skinColoration: AnimalFur
   maleFirstNames: names_tajaran_first
   femaleFirstNames: names_tajaran_first
   lastNames: names_tajaran_last
