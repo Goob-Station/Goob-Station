@@ -1,3 +1,4 @@
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -18,4 +19,7 @@ public sealed partial class SupermatterHalberdComponent : Component
 
     [DataField]
     public EntProtoId ExecuteEffect = "SupermatterFlashEffect";
+
+    [DataField]
+    public EntityWhitelist ObliterateWhitelist;
 }

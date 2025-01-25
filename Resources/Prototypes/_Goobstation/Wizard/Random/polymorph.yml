@@ -1,0 +1,10 @@
+- type: weightedRandomEntity
+  id: WizardWallDoor
+  weights:
+    MetalDoor: 1
+    WoodDoor: 1
+    PlasmaDoor: 1
+    GoldDoor: 1
+    SilverDoor: 1
+    PaperDoor: 1
+    BananiumDoor: 1

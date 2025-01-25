@@ -57,13 +57,14 @@
 - type: polymorph
   id: WizardWallDoor
   configuration:
-    entity: WoodDoor
+    entities: WizardWallDoor # Goob edit
     forced: true
     inventory: None
     transferName: false
     transferDamage: false
     revertOnCrit: false
     revertOnDeath: false
+    allowMovement: false # Goobstation
 
 - type: polymorph
   id: WizardForcedCluwne

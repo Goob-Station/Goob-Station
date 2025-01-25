@@ -7,7 +7,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
-using Content.Shared.Tag;
+using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -25,7 +25,7 @@ public sealed class SupermatterHalberdSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly RaysSystem _rays = default!;
-    [Dependency] private readonly TagSystem _tag = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -96,7 +96,7 @@ public sealed class SupermatterHalberdSystem : EntitySystem
         if (args.Target == null)
             return;
 
-        if (!_tag.HasAnyTag(args.Target.Value, "Airlock", "GlassAirlock", "Window", "Wall") &&
+        if (!_whitelist.IsValid(comp.ObliterateWhitelist, args.Target.Value) &&
             (!TryComp(args.Target.Value, out MobStateComponent? mobState) || mobState.CurrentState != MobState.Dead))
             return;
 
@@ -117,6 +117,7 @@ public sealed class SupermatterHalberdSystem : EntitySystem
             BreakOnDropItem = true,
             BreakOnHandChange = true,
             BreakOnMove = true,
+            BreakOnDamage = true,
             BreakOnWeightlessMove = false,
             MultiplyDelay = false,
         };

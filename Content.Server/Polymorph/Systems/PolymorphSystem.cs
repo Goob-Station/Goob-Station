@@ -6,6 +6,7 @@ using Content.Server.Polymorph.Components;
 using Content.Shared._Goobstation.Wizard.BindSoul;
 using Content.Shared.Actions;
 using Content.Shared.Buckle;
+using Content.Shared.Buckle.Components;
 using Content.Shared.Damage;
 using Content.Shared.Destructible;
 using Content.Shared.Follower;
@@ -18,12 +19,14 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
+using Content.Shared.Random.Helpers;
 using Content.Shared.Tag;
 using Robust.Server.Audio;
 using Robust.Server.Containers;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -31,6 +34,7 @@ namespace Content.Server.Polymorph.Systems;
 
 public sealed partial class PolymorphSystem : EntitySystem
 {
+    [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -201,16 +205,27 @@ public sealed partial class PolymorphSystem : EntitySystem
             return null;
 
         // mostly just for vehicles
-        _buckle.TryUnbuckle(uid, uid, true);
+        if (TryComp(uid, out BuckleComponent? buckle)) // Goob edit
+            _buckle.TryUnbuckle((uid, buckle), uid, true);
 
         var targetTransformComp = Transform(uid);
 
         if (configuration.PolymorphSound != null)
             _audio.PlayPvs(configuration.PolymorphSound, targetTransformComp.Coordinates);
 
-        var child = Spawn(configuration.Entity, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+        // Goob edit start
+        var proto = configuration.Entity;
+        if (proto == null)
+        {
+            if (!_proto.TryIndex(configuration.Entities, out var entities) || entities.Weights.Count == 0)
+                return null;
 
-        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement); // Goob edit
+            proto = entities.Pick(_random);
+        }
+        var child = Spawn(proto, _transform.GetMapCoordinates(uid, targetTransformComp), rotation: _transform.GetWorldRotation(uid));
+
+        MakeSentientCommand.MakeSentient(child, EntityManager, configuration.AllowMovement);
+        // Goob edit end
 
         var polymorphedComp = _compFact.GetComponent<PolymorphedEntityComponent>();
         polymorphedComp.Parent = uid;
@@ -401,7 +416,12 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_proto.TryIndex(id, out var polyProto))
             return;
 
-        var entProto = _proto.Index(polyProto.Configuration.Entity);
+        // Goob edit start
+        if (polyProto.Configuration.Entity == null)
+            return;
+
+        var entProto = _proto.Index(polyProto.Configuration.Entity.Value);
+        // Goob edit end
 
         EntityUid? actionId = default!;
         if (!_actions.AddAction(target, ref actionId, RevertPolymorphId, target))
@@ -416,7 +436,7 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (!_actions.TryGetActionData(actionId, out var baseAction))
             return;
 
-        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity);
+        baseAction.Icon = new SpriteSpecifier.EntityPrototype(polyProto.Configuration.Entity.Value); // Goob edit
         if (baseAction is InstantActionComponent action)
             action.Event = new PolymorphActionEvent(id);
     }

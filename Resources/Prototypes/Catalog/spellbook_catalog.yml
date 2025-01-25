@@ -118,9 +118,9 @@
   id: SpellbookWandDoor
   name: spellbook-wand-polymorph-door-name
   description: spellbook-wand-polymorph-door-description
-  productEntity: WeaponWandPolymorphDoor
+  productEntity: WeaponStaffPolymorphDoor # Goob edit
   cost:
-    WizCoin: 3
+    WizCoin: 1 # Goob edit
   categories:
   - SpellbookEquipment
   conditions:

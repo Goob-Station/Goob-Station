@@ -1,3 +1,4 @@
+using Content.Shared.Random;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
@@ -37,8 +38,8 @@ public sealed partial record PolymorphConfiguration
     /// What entity the polymorph will turn the target into
     /// must be in here because it makes no sense if it isn't
     /// </summary>
-    [DataField(required: true, serverOnly: true)]
-    public EntProtoId Entity;
+    [DataField(serverOnly: true)] // Goob edit
+    public EntProtoId? Entity;
 
     /// <summary>
     /// The delay between the polymorph's uses in seconds
@@ -130,6 +131,14 @@ public sealed partial record PolymorphConfiguration
     public SoundSpecifier? ExitPolymorphSound;
 
     /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> is null, entity will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ProtoId<WeightedRandomEntityPrototype>? Entities;
+
+    /// <summary>
     ///     Goobstation
     ///     Whether polymorphed entity should be able to move.
     /// </summary>
@@ -138,7 +147,7 @@ public sealed partial record PolymorphConfiguration
 
     /// <summary>
     ///     Goobstation
-    ///     Whether to show popup on polymorph.
+    ///     Whether to show popup on polymorph revert.
     /// </summary>
     [DataField]
     public bool ShowPopup = true;

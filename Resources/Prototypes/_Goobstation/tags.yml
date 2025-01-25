@@ -103,6 +103,9 @@
 - type: Tag
   id: GorillaFormAction
 
+- type: Tag
+  id: Undead
+
 # Mechs
 
 - type: Tag

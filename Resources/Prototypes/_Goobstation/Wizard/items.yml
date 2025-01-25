@@ -167,9 +167,6 @@
   id: SupermatterHalberd
   description: The revered weapon of Oblivion Enforcers, used to enforce the Order's will.
   components:
-  - type: Tag
-    tags:
-    - FireAxe
   - type: Sharp
   - type: Sprite
     sprite: _Goobstation/Wizard/Objects/Weapons/smhalberd.rsi
@@ -213,6 +210,16 @@
   - type: UseDelayBlockKnockdown
     delay: knockdown
   - type: SupermatterHalberd
+    obliterateWhitelist:
+      components:
+      - Airlock
+      - Firelock
+      - Door
+      tags:
+      - Wall
+      - Window
+      - Airlock
+      - GlassAirlock
   - type: SupermatterImmune
   - type: StaticPrice
     price: 50000

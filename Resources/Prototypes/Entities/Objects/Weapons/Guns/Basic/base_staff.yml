@@ -33,3 +33,5 @@
       - state: equipped-BACKPACK
       suitstorage:
       - state: equipped-BACKPACK
+  - type: StaticPrice # Goobstation
+    price: 30000

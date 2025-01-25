@@ -40,8 +40,10 @@ spellbook-mind-swap-description =
 
 # Equipment
 
-spellbook-wand-polymorph-door-name = Wand of Entrance
-spellbook-wand-polymorph-door-description = For when you need a get-away route.
+spellbook-wand-polymorph-door-name = Staff of Door Creation
+spellbook-wand-polymorph-door-description =
+    A particular staff that can mold solid walls into ornate doors. Useful for getting around in the absence of other transportation. Does not work on glass.
+    Automatically recharges once every 2 seconds.
 
 spellbook-wand-polymorph-carp-name = Wand of Carp Polymorph
 spellbook-wand-polymorph-carp-description = For when you need a carp filet quick and the clown is looking juicy.

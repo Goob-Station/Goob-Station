@@ -455,10 +455,23 @@
 - type: listing
   id: SpellbookSmHalberd
   name: spellbook-sm-halberd-name
-  description: spellbook-sm-halberd-description
+  description: spellbook-sm-halberd-desc
   productEntity: SupermatterHalberd
   cost:
     WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
+- type: listing
+  id: SpellbookStaffHealing
+  name: spellbook-staff-healing-name
+  description: spellbook-staff-healing-desc
+  productEntity: WeaponStaffHealing
+  cost:
+    WizCoin: 1
   categories:
   - SpellbookEquipment
   conditions:
