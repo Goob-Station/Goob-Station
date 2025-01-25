@@ -720,7 +720,13 @@
     - Security
     - Antagonists
   - type: PacifismAllowedGun
-
+  # Goobstation start
+  - type: Tag
+    tags:
+    - Taser
+    - Sidearm
+    - WeaponDisabler
+  # Goobstation end
 
 - type: entity
   name: disabler SMG

@@ -1,0 +1,12 @@
+- type: htnCompound
+  id: BatonbotCompound
+  branches:
+    - tasks:
+        - !type:HTNPrimitiveTask
+          operator: !type:UtilityOperator
+            proto: NearbyMeleeTargets
+        - !type:HTNCompoundTask
+          task: MeleeAttackTargetCompound
+    - tasks:
+        - !type:HTNCompoundTask
+          task: IdleCompound

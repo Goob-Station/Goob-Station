@@ -489,6 +489,9 @@
   id: WaterTank
 
 - type: Tag
+  id: WeaponDisabler
+
+- type: Tag
   id: WeaponPistolDualetta
 
 - type: Tag
