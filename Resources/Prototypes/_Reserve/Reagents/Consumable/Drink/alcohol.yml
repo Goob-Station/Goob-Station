@@ -1,0 +1,19 @@
+- type: reagent
+  id: BacchusBlessing
+  name: reagent-name-bacchus-blessing
+  parent: BaseAlcohol
+  desc: reagent-desc-bacchus-blessing
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: BacchusDrinkFlavour
+  color: "#FAFAFA"
+  metamorphicSprite:
+    sprite: _Reserve/Objects/Consumable/Drinks/bacchus.rsi
+    state: icon
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 3
+      - !type:AdjustReagent
+        reagent: Ethanol
+        amount: 0.5
