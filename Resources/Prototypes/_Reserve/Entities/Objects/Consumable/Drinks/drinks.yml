@@ -1,0 +1,15 @@
+- type: entity
+  parent: DrinkGlass
+  id: DrinkBacchusBlessing
+  suffix: Благословение Бахуса
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 30
+        reagents:
+        - ReagentId: BacchusBlessing
+          Quantity: 30
+  - type: Icon
+    sprite: _Reserve/Objects/Consumable/Drinks/bacchus.rsi
+    state: icon
