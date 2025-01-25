@@ -159,6 +159,7 @@
   - type: BlobRule
   - type: GameRule
     minPlayers: 15
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
