@@ -4,7 +4,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 15
+    minPlayers: 10 # ShibaStation - maybe make lings a bit more frequent on low player counts.
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -16,7 +16,7 @@
     definitions:
     - prefRoles: [ Changeling ]
       max: 4
-      playerRatio: 10 # ShibaStation - attempt to fix changeling from FAILING due to lower player averages. Goob, we don't all pull 85 players max at all.
+      playerRatio: 10 # ShibaStation
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
