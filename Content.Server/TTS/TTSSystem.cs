@@ -59,7 +59,8 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        _ttsManager.ClearCache();
+        if (!_cfg.GetCVar(CCVars.TTSCacheRoundPersistence))
+            _ttsManager.ClearCache();
     }
 
     private async void OnRequestPreviewTTS(RequestPreviewTTSEvent ev, EntitySessionEventArgs args)
