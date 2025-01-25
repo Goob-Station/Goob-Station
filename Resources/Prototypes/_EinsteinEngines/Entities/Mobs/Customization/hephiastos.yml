@@ -1,0 +1,128 @@
+- type: marking
+  id: CyberLimbsMarkingHesphiastosHead
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_monitor.rsi
+    state: head-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_monitor.rsi
+    state: head-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosHeadAlt
+  bodyPart: Head
+  markingCategory: Head
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_alt1.rsi
+    state: head-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_alt1.rsi
+    state: head-2
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_alt1.rsi
+    state: head-3
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosChest
+  bodyPart: Chest
+  markingCategory: Chest
+  speciesRestriction: [IPC]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: torso-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: torso-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosLArm
+  bodyPart: LArm
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_arm-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_arm-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosLHand
+  bodyPart: LHand
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_hand-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_hand-2
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosLLeg
+  bodyPart: LLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_leg-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_leg-2
+
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosLFoot
+  bodyPart: LFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_foot-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: l_foot-2
+
+
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosRArm
+  bodyPart: RArm
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_arm-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_arm-2
+
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosRHand
+  bodyPart: RHand
+  markingCategory: Arms
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_hand-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_hand-2
+
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosRLeg
+  bodyPart: RLeg
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_leg-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_leg-2
+
+
+- type: marking
+  id: CyberLimbsMarkingHesphiastosRFoot
+  bodyPart: RFoot
+  markingCategory: Legs
+  speciesRestriction: [IPC, Moth, Dwarf, Human, Arachnid, Felinid, Oni, Vulpkanin, HumanoidFoxes, Reptilian]
+  sprites:
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_foot-1
+  - sprite: _EinsteinEngines/Mobs/Species/Cybernetics/hesphiastos/hesphiastos_main.rsi
+    state: r_foot-2

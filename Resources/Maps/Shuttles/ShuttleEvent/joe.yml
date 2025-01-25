@@ -19,7 +19,7 @@ entities:
       name: SRV-Joe
     - type: Transform
       pos: -0.47916666,-0.46875
-      parent: invalid
+
     - type: MapGrid
       chunks:
         0,0:

@@ -1,0 +1,14 @@
+- type: entity
+  name: pax syringe box
+  parent: BoxCardboard
+  id: BoxSyringePax
+  description: A box full of tranquilizer syringes.
+  components:
+  - type: StorageFill
+    contents:
+      - id: SyringePax
+        amount: 6
+  - type: Sprite
+    layers:
+      - state: box
+      - state: syringe

@@ -162,6 +162,11 @@
     price: 0
   - type: Stack
     stackType: ArtifactFragment
+  # Goobstation - Custom stack splitting dialog
+  - type: UserInterface
+    interfaces:
+      enum.StackCustomSplitUiKey.Key:
+        type: StackCustomSplitBoundUserInterface
   - type: GuideHelp
     guides:
     - Xenoarchaeology

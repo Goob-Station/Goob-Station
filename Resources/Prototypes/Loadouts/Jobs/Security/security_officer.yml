@@ -29,6 +29,11 @@
   equipment:
     head: ClothingHeadHelmetBasic
 
+- type: loadout # Goobstation
+  id: SecurityHelmetAlt
+  equipment:
+    head: ClothingHeadHelmetBasicAlt
+
 - type: loadout
   id: SecurityHat
   equipment:
@@ -67,7 +72,7 @@
 
 - type: loadout
   id: TrooperUniform
-  equipment: 
+  equipment:
     jumpsuit: ClothingUniformSecurityTrooper
 
 - type: loadout

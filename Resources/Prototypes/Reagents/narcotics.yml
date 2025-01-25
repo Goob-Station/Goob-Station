@@ -12,11 +12,30 @@
     Poison:
       effects:
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 0.75
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 30
         damage:
@@ -50,10 +69,6 @@
         type: Remove
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
-        component: StamcritResist
-        time: 5
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
     Medicine:
@@ -76,11 +91,26 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:MovespeedModifier
         walkSpeedModifier: 1.25
         sprintSpeedModifier: 1.25
       - !type:HealthChange
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           min: 20
         damage:
@@ -111,10 +141,6 @@
         probability: 0.05
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
-        component: StamcritResist
-        time: 5
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
         component: IgnoreSlowOnDamage
         time: 5
     Medicine:
@@ -138,13 +164,28 @@
     Narcotic:
       metabolismRate: 1.0
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:MovespeedModifier
         walkSpeedModifier: 1.3
         sprintSpeedModifier: 1.3
       - !type:HealthChange
         conditions:
-          - !type:ReagentThreshold
-            min: 80 #please wait 3 minutes before using another stimpack
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
+        - !type:ReagentThreshold
+          min: 80 #please wait 3 minutes before using another stimpack
         damage:
           types:
             Poison: 1
@@ -180,10 +221,6 @@
         key: Drowsiness
         time: 10
         type: Remove
-      - !type:GenericStatusEffect # goob edit
-        key: Adrenaline
-        component: StamcritResist
-        time: 5
       - !type:GenericStatusEffect # goob edit
         key: Adrenaline
         component: IgnoreSlowOnDamage
@@ -222,6 +259,18 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -240,6 +289,21 @@
   plantMetabolism:
   - !type:PlantAdjustHealth
     amount: -5
+  metabolisms:
+    Narcotic:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -0.2
+          types:
+            Heat: -0.1
+            Shock: -0.1
+            Cold: -0.1
+            Radiation: -0.1
 
 # TODO: Replace these nonstandardized effects with generic brain damage
 - type: reagent
@@ -253,10 +317,26 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:MovespeedModifier
         walkSpeedModifier: 0.65
         sprintSpeedModifier: 0.65
       - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         damage:
           types:
             Poison: 2
@@ -282,6 +362,18 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -300,6 +392,18 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:GenericStatusEffect
         key: SeeingRainbows
         component: SeeingRainbows
@@ -322,6 +426,9 @@
       effects:
       - !type:GenericStatusEffect
         conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         - !type:ReagentThreshold
           reagent: Nocturine
           min: 8
@@ -343,8 +450,15 @@
     Narcotic:
       effects:
       - !type:GenericStatusEffect
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+          shouldHave: false
         key: Muted
         component: Muted
+        type: Add
+        time: 10
+        refresh: false
 
 - type: reagent
   id: NorepinephricAcid
@@ -425,7 +539,7 @@
         - norepinephricacid-effect-blindness
         conditions:
         - !type:ReagentThreshold
-          min: 15
+          min: 5
       - !type:Emote
         emote: Scream
         probability: 0.08
@@ -434,7 +548,7 @@
         component: TemporaryBlindness
         conditions:
         - !type:ReagentThreshold
-          min: 20
+          min: 5
 
 - type: reagent
   id: Happiness
@@ -447,6 +561,18 @@
   metabolisms:
     Narcotic:
       effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType # Goobstation - Yowie
+          type: Yowie
+        damage:
+          groups:
+            Brute: -1
+          types:
+            Heat: -0.5
+            Shock: -0.5
+            Cold: -0.5
+            Radiation: -0.5
       - !type:Emote
         emote: Laugh
         showInChat: true
@@ -485,3 +611,46 @@
         type: Add
         time: 5
         refresh: false
+
+- type: reagent # Assmos - /tg/ gases
+  id: NitrosylPlasmide
+  name: reagent-name-nitrosyl-plasmide
+  group: Narcotics
+  desc: reagent-desc-nitrosyl-plasmide
+  physicalDesc: reagent-physical-desc-translucent
+  flavor: sour
+  color: "#e1a116"
+  metabolisms:
+    Gas:
+      effects:
+      - !type:Jitter
+    Narcotic:
+      effects:
+      - !type:Jitter
+      - !type:GenericStatusEffect
+        key: Stun
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: KnockedDown
+        time: 3
+        type: Remove
+      - !type:GenericStatusEffect
+        key: Drowsiness
+        time: 10
+        type: Remove
+      - !type:GenericStatusEffect
+        conditions:
+        key: ForcedSleep
+        type: Remove
+        time: 10
+      - !type:HealthChange
+        damage:
+          types:
+            Poison: 0.1
+    Medicine:
+      effects:
+      - !type:ResetNarcolepsy
+        conditions:
+        - !type:ReagentThreshold
+          min: 1

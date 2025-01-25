@@ -1,0 +1,46 @@
+# This is the only way I could get it to work, but its still broken
+# The right foot always takes priority over the left foot no matter what I do so I'm just leaving it like this
+# The players can make weird monstrosities with their feet if they really want to
+# Feel free to fix this if you really want to, but I'm going to end up scrapping this if I don't just move on from this
+
+- type: marking
+  id: YowieFur
+  bodyPart: Chest, LArm, RArm, LHand, RHand
+  markingCategory: Overlay
+  speciesRestriction: [Yowie] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur
+    
+- type: marking
+  id: YowieFurFeetRight
+  bodyPart: RFoot
+  markingCategory: Overlay
+  speciesRestriction: [Yowie] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_feet_right
+    
+- type: marking
+  id: YowieFurFeetLeft
+  bodyPart: LFoot
+  markingCategory: Overlay
+  speciesRestriction: [Yowie] 
+  coloring:
+    default:
+      type:
+        !type:SimpleColoring
+          color: "#FFFFFF"
+  sprites:
+  - sprite: _Goobstation/Mobs/Customization/yowie_fur.rsi
+    state: yowie_fur_feet_left

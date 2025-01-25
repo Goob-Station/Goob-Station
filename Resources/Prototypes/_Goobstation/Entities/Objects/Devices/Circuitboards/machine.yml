@@ -1,0 +1,15 @@
+- type: entity
+  id: MaterialSiloCircuitboard
+  parent: BaseMachineCircuitboard
+  name: material silo machine board
+  description: A machine printed circuit board for a material silo.
+  components:
+    - type: Sprite
+      state: supply
+    - type: MachineBoard
+      prototype: MaterialSilo
+      stackRequirements:
+        MatterBin: 10
+        Steel: 5
+        Gold: 5
+        BSCrystal: 5

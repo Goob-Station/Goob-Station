@@ -516,9 +516,9 @@
   - type: Tag
     tags:
     - Trash
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update - Changed trash to plastic
     materialComposition:
-      Steel: 100
+      Plastic: 50
   - type: SpaceGarbage
   - type: StaticPrice
     price: 0
@@ -683,7 +683,7 @@
   - type: SolutionContainerManager
     solutions:
       food:
-        maxVol: 30
+        maxVol: 45
         reagents:
         - ReagentId: Fiber
           Quantity: 40

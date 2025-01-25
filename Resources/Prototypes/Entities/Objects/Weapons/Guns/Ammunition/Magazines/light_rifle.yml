@@ -54,6 +54,14 @@
     zeroVisible: false
   - type: Appearance
 
+- type: entity # Goobstation
+  id: MagazineLightRifleBoxEmpty
+  name: "L6 SAW magazine box (.30 rifle any)"
+  parent: MagazineLightRifleBox
+  components:
+  - type: BallisticAmmoProvider
+    proto: null
+
 - type: entity
   id: MagazineLightRifle
   name: "magazine (.30 rifle)"

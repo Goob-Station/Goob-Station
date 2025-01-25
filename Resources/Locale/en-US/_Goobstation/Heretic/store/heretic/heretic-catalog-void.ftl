@@ -63,4 +63,4 @@ knowledge-path-void-s9-desc =
     Bring 3 corpses to a transmutation rune in sub-zero temperatures to complete the ritual.
     When completed, grants you Aristocrat's Blessing.
     Everything around you will be turned into snow and the air will constantly be frozen. Those nearby will be silenced and frozen even quicker.
-    Additionally, you will become immune to the effects of space.
+    You will also become immune to flames, space, and similar environmental hazards.

@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading;
 using System.Threading.Tasks;
-using Content.Shared.CCVar;
+using Content.Shared._Goobstation.CCVar;
 using Prometheus;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
@@ -59,22 +59,22 @@ public sealed class TTSManager
         _sawmill = Logger.GetSawmill("tts");
 
         _sawmill.Log(LogLevel.Info, _modelPath);
-        UpdateModelPath(_cfg.GetCVar(CCVars.TTSModelPath));
-        _cfg.OnValueChanged(CCVars.TTSModelPath, UpdateModelPath);
+        UpdateModelPath(_cfg.GetCVar(GoobCvars.TTSModelPath));
+        _cfg.OnValueChanged(GoobCvars.TTSModelPath, UpdateModelPath);
 
-        // _cfg.OnValueChanged(CCCVars.TTSMaxCache, val =>
+        // _cfg.OnValueChanged(CGoobCvars.TTSMaxCache, val =>
         // {
         //     _maxCachedCount = val;
         //     ResetCache();
         // }, true);
-        // _cfg.OnValueChanged(CCCVars.TTSApiUrl, v => _apiUrl = v, true);
-        // _cfg.OnValueChanged(CCCVars.TTSApiToken, v => _apiToken = v, true);
+        // _cfg.OnValueChanged(CGoobCvars.TTSApiUrl, v => _apiUrl = v, true);
+        // _cfg.OnValueChanged(CGoobCvars.TTSApiToken, v => _apiToken = v, true);
 
         return;
 
         void UpdateModelPath(string path)
         {
-            if (string.IsNullOrEmpty(path) && _cfg.GetCVar(CCVars.TTSEnabled))
+            if (string.IsNullOrEmpty(path) && _cfg.GetCVar(GoobCvars.TTSEnabled))
             {
                 DebugTools.Assert(false, "CVar TTSModelPath is unset but TTS is enabled.");
                 return;
@@ -112,7 +112,7 @@ public sealed class TTSManager
             }
         };
 
-        if (_cfg.GetCVar(CCVars.HostWindows))
+        if (_cfg.GetCVar(GoobCvars.HostWindows))
         {
             strCmdText = $"echo '{text}' | piper --model {_modelPath}\\{model}.onnx --output_file {fileName} --speaker {speaker}";
 
@@ -170,7 +170,7 @@ public sealed class TTSManager
         try
         {
             var timeout = 0.25;
-            // var timeout = _cfg.GetCVar(CCCVars.TTSApiTimeout);
+            // var timeout = _cfg.GetCVar(CGoobCvars.TTSApiTimeout);
             var cts = new CancellationTokenSource(TimeSpan.FromSeconds(timeout));
             var response = await _httpClient.PostAsJsonAsync(_apiUrl, body, cts.Token);
             if (!response.IsSuccessStatusCode)

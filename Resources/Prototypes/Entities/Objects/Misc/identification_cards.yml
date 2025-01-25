@@ -24,6 +24,7 @@
     - WhitelistChameleon
   - type: StealTarget
     stealGroup: IDCard
+  - type: NanoChatCard # DeltaV
 
 #IDs with layers
 
@@ -810,3 +811,9 @@
     - CentralCommand
     - NuclearOperative
     - SyndicateAgent
+    - Wizard
+    # Goobstation
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
+  - type: NanoChatCard # DeltaV
+    notificationsMuted: true

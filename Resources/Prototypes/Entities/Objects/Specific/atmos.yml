@@ -28,7 +28,7 @@
             False: { state: icon }
   - type: StaticPrice
     price: 80
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 400
-      Glass: 100
+      Steel: 200
+      Glass: 75

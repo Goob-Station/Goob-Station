@@ -409,8 +409,8 @@
 - type: holiday
   id: Christmas
   name: holiday-name-christmas
-  beginDay: 24
-  endDay: 26
+  beginDay: 1 # Edited for Goob Station so that christmas holdiay RSIs are used for the duration of December.
+  endDay: 31
   beginMonth: December
   greet:
     !type:Custom

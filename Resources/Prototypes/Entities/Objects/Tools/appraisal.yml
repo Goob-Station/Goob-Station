@@ -17,9 +17,9 @@
     quickEquip: false
     slots:
     - Belt
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 250
+      Steel: 125
   - type: Tag
     tags:
     - AppraisalTool

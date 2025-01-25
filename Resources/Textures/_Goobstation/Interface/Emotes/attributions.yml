@@ -5,7 +5,7 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS)"
   source: "https://github.com/BombasterDS"
-  
+
 - files: ["scream.png"]
   license: "CC-BY-SA-3.0"
   copyright: "Modified standart laught.png icon by BombasterDS)"
@@ -80,3 +80,8 @@
   license: "CC-BY-SA-3.0"
   copyright: "Made by BombasterDS"
   source: "https://github.com/BombasterDS"
+
+- files: ["fart.png"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Made by Piras314"
+  source: "https://github.com/Piras314"

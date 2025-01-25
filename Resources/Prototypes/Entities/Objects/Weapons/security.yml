@@ -86,10 +86,10 @@
     explosionType: Default
     intensitySlope: 1.5
     maxIntensity: 200
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
-      Steel: 100
-      Plastic: 100
+      Steel: 75
+      Plastic: 75
   - type: GuideHelp
     guides:
     - Security

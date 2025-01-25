@@ -1,6 +1,7 @@
 - type: roleLoadout
   id: JobNanotrasenRepresentative
   groups:
+  - GroupTankHarness
   - NanotrasenRepresentativeHead
   - NanotrasenRepresentativeJumpsuit
   - NanotrasenRepresentativeBackpack
@@ -16,8 +17,17 @@
   groups:
   - BlueshieldOfficerHead
   - BlueshieldOfficerJumpsuit
+  - BlueshieldOfficerBackpack
   - BlueshieldOfficerOuter
   - BlueshieldOfficerNeck
+  - BlueshieldOfficerShoes
   - Trinkets
   - GroupSpeciesBreathTool
-  - Survival
+  - SurvivalSecurity
+
+- type: roleLoadout
+  id: RoleSurvivalNukieHonkops
+  groups:
+  - SurvivalSyndicate
+  - GroupHonkopsMask
+  - GroupPocketTankDouble

@@ -1,44 +1,62 @@
 knowledge-path-blade-s1-name = The Cutting Edge
-knowledge-path-blade-s1-desc = Follow the path of blades. Transmute a knife with two bars of silver into a sundered blade.
+knowledge-path-blade-s1-desc =
+    Our great ancestors forged swords and practiced sparring on the eve of great battles.
+
+    Follow the path of blades.
+    Being unable to use any ranged weapons, transmute 4 knives into a sundered blade.
 
 knowledge-path-blade-s2-name = Grasp of the Blade
-knowledge-path-blade-s2-desc = Your Mansus Grasp deals additional damage and stuns your victim if they are lying down or facing away from you.
+knowledge-path-blade-s2-desc =
+    The story of the footsoldier has been told since antiquity. It is one of blood and valor, and is championed by sword, steel and silver.
+
+    Your Mansus Grasp will cause a short stun when used on someone lying down or facing away from you.
 
 knowledge-path-blade-s3-name = Dance of the Brand
 knowledge-path-blade-s3-desc =
-    Being attacked while wielding an Eldritch Blade in either hand will deliver a free, instant counterattack to the attacker.
-    This effect can only trigger once every 20 seconds.
+    The footsoldier was known to be a fearsome duelist. Their general quickly appointed them as their personal Champion.
+
+    Being attacked while wielding any melee weapon in either hand will deliver a riposte towards your attacker. This effect can only trigger once every 20 seconds.
 
 knowledge-path-blade-s4-name = Mark of the Blade
 knowledge-path-blade-s4-desc =
-    Your Grasp applies a blade mark on hit.
-    Blade marked victims will be trapped in the room the mark was applied in for the duration of the mark.
-    Attacking a marked victim with your blade will remove this, but grant you an orbiting knife for one minute that will protect you from all attacks.
+    His general wished to end the war, but the Champion knew there could be no life without death. He would slay the coward himself, and anyone who tried to run.
 
-knowledge-path-blade-s6-name = Realignment
-knowledge-path-blade-s6-desc = 
-    Grants "Realignment", a spell which will rapidly regenerate stamina and remove stuns from you, but force you into pacifism until it expires.
-    Has a short base cooldown, but consecutive uses will increase it.
+    Your Mansus Grasp now applies the Mark of the Blade.
+    Triggering the mark will summon a knife that will orbit you for a short time.
+    The knife will block any attack directed towards you, but is consumed on use.
 
-knowledge-path-blade-s7-name = Stance of the Torn Champion
+knowledge-path-blade-s5-name = Realignment
+knowledge-path-blade-s5-desc =
+    In the flurry of death, he found peace within himself. Despite insurmountable odds, he forged on.
+
+    Grants you Realignment a spell that wil realign your body rapidly for a short period.
+    During this process, you will rapidly regenerate stamina and quickly recover from stuns, however, you will be unable to attack.
+
+knowledge-path-blade-s6-name = Stance of the Torn Champion
+knowledge-path-blade-s6-desc =
+    In time, it was he who stood alone among the bodies of his former comrades, awash in blood, none of it his own. He was without rival, equal, or purpose.
+
+    Grants immunity to having your limbs dismembered.
+    Additionally, when damaged below 50% of your maximum health, you gain increased resistance to gaining wounds and resistance to batons.
+
+knowledge-path-blade-s7-name = Empowered Blades
 knowledge-path-blade-s7-desc =
-    You gain increased resistance to blood loss from wounds and complete immunity to being gibbed.
-    Additionally, when you fall below 50% of your maximum health, you gained increased resistance to receiving any wounds, and resistance to baton knockdown.
+    I found him cleaved in twain, halves locked in a duel without end; a flurry of blades, neither hitting their mark, for the Champion was indomitable.
 
-knowledge-path-blade-s8-name = Swift Blades
+    You are able to infuse your mansus grasp directly into your blades, doubling their damage and stunning whoever picks them up.
+
+knowledge-path-blade-s8-name = Furious Steel
 knowledge-path-blade-s8-desc =
-    Attacking someone with eldritch blades in both hands will now attack with both at once, delivering two attacks in rapid succession.
-    The second attack will be slightly less damaging.
+    Without thinking, I took the knife of a fallen soldier and threw with all my might. My aim was true! The Torn Champion smiled at their first taste of agony, and with a nod, their blades became my own.
 
-knowledge-path-blade-s9-name = Furious Steel
+    Grants you Furious Steel, a targeted spell. Using it will summon three orbiting blades around you. These blades will protect you from all attacks, but are consumed on use.
+    Additionally, you can click to fire the blades at a nearest target, dealing heavy damage.
+
+knowledge-path-blade-s9-name = Maelstrom of Silver
 knowledge-path-blade-s9-desc =
-    Grants "Furious Steel", a spell that summons three orbiting knives around you.
-    These knives will protect you from all attacks, but are consumed on use.
-    Additionally, you can click to fire the knives, consuming them but dealing damage and causing bleeding.
-
-knowledge-path-blade-s10-name = Maelstrom of Silver
-knowledge-path-blade-s10-desc =
-    Transmute 3 gibbed corpses to Ascend.
-    You have a constantly regenerating ring of knives which will protect you but are consumed on use.
-    Your Eldritch Blades will also deal much more damage, and gain slight lifesteal.
-    Additionally, you will also gain full stun immunity, and your Furious Steel spell will have a reduced cooldown.
+    The ascension ritual of the Path of Blades.
+    Bring 3 headless corpses to a transmutation rune to complete the ritual.
+    When completed, you will be surrounded in a constant, regenerating orbit of blades.
+    These blades will protect you from all attacks, but are consumed on use.
+    Additionally, you become a master of combat, gaining the ability to waltz over slippery surfaces and shrug off stuns.
+    Every weapon you hold will deal bonus damage and heal you on attack for a portion of the damage dealt.

@@ -1,0 +1,5 @@
+- type: sourcePort
+  id: MaterialSilo
+  name: signal-port-name-material-silo
+  description: signal-port-description-material-silo
+  defaultLinks: [ MaterialSiloUtilizer ]

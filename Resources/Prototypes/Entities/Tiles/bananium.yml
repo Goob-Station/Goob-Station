@@ -46,6 +46,9 @@
   - type: Slippery
   - type: StepTrigger
     intersectRatio: 0.2
+    triggerGroups: # Goobstation
+      types:
+      - SlipTile
   - type: Physics
     bodyType: Static
   - type: Fixtures

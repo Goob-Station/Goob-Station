@@ -1,0 +1,41 @@
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeHighCaliber
+  name: cartridge (.50 anti-materiel)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeHighCaliber
+  - type: CartridgeAmmo
+    proto: BulletHighCaliber
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20
+
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeHighCaliberExplosive
+  name: cartridge (.50 high-explosive)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeHighCaliber
+  - type: CartridgeAmmo
+    proto: BulletHighCaliberExplosive
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

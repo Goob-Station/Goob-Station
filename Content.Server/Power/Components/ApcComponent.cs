@@ -1,7 +1,6 @@
 using Content.Server.Power.NodeGroups;
 using Content.Shared.APC;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.Power.Components;
 
@@ -25,9 +24,6 @@ public sealed partial class ApcComponent : BaseApcNetComponent
 
     [DataField("enabled")]
     public bool MainBreakerEnabled = true;
-    // TODO: remove this since it probably breaks when 2 people use it
-    [DataField("hasAccess")]
-    public bool HasAccess = false;
 
     /// <summary>
     /// APC state needs to always be updated after first processing tick.

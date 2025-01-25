@@ -1,6 +1,7 @@
 using Content.Server.Atmos.Components;
 using Content.Server.Body.Components;
-using Content.Server.Heretic.Components;
+using Content.Server.Heretic.Components.PathSpecific;
+using Content.Server.Magic;
 using Content.Server.Temperature.Components;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
@@ -42,6 +43,8 @@ public sealed partial class HereticAbilitySystem : EntitySystem
             return;
 
         var rod = Spawn("ImmovableVoidRod", Transform(ent).Coordinates);
+        if (TryComp<ImmovableVoidRodComponent>(rod, out var vrod))
+            vrod.User = ent;
 
         if (TryComp(rod, out PhysicsComponent? phys))
         {
@@ -64,18 +67,22 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         if (!TryUseAbility(ent, args))
             return;
 
+        var condition = ent.Comp.CurrentPath == "Void";
+
+        var power = condition ? 1.5f + ent.Comp.PathStage / 5f : 1.5f;
+
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+        foreach (var pookie in GetNearbyPeople(ent, power))
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(power), true);
 
         _transform.SetCoordinates(ent, args.Target);
 
         // repeating for both sides
         _aud.PlayPvs(new SoundPathSpecifier("/Audio/Effects/tesla_consume.ogg"), ent);
 
-        foreach (var pookie in GetNearbyPeople(ent, 2f))
-            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(2.5f), true);
+        foreach (var pookie in GetNearbyPeople(ent, power))
+            _stun.TryKnockdown(pookie, TimeSpan.FromSeconds(power), true);
 
         args.Handled = true;
     }
@@ -89,14 +96,16 @@ public sealed partial class HereticAbilitySystem : EntitySystem
         var midPriority = GetNearbyPeople(ent, 2.5f);
         var farPriority = GetNearbyPeople(ent, 5f);
 
+        var power = ent.Comp.CurrentPath == "Void" ? 10f + ent.Comp.PathStage * 2 : 10f;
+
         // damage closest ones
         foreach (var pookie in topPriority)
         {
             if (!TryComp<DamageableComponent>(pookie, out var dmgComp))
                 continue;
 
-            // total damage + 20 divided by all damage types.
-            var damage = (dmgComp.TotalDamage + 20f) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
+            // total damage + power divided by all damage types.
+            var damage = (dmgComp.TotalDamage + power) / _prot.EnumeratePrototypes<DamageTypePrototype>().Count();
 
             // apply gaming.
             _dmg.SetAllDamage(pookie, dmgComp, damage);

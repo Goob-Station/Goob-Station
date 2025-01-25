@@ -25,7 +25,7 @@
     radius: 2
     energy: 1
     color: "#6e7500"
-    netsync: true
+    netsync: false
   - type: Appearance
   - type: ItemToggle
     predictable: false
@@ -54,10 +54,49 @@
       drink:
         # it's a cryostasis flash filled with healing goodies what could possibly go wrong?
         # i will certainly not abuse it as a heretic chemist
-        maxVol: 100
+        maxVol: 30
         canReact: false
         reagents:
-        - ReagentId: Omnizine
-          Quantity: 80
-        - ReagentId: TranexamicAcid
-          Quantity: 20
+        - ReagentId: Ichor
+          Quantity: 30
+
+- type: entity
+  id: HereticProtectiveBlade
+  name: eldritch blade
+  description: Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    noRot: true
+    sprite: _Goobstation/Heretic/items.rsi
+    state: protective_blade
+  - type: Clickable
+  - type: InteractionOutline
+  - type: ProtectiveBlade
+    lifetime: 60
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+    angularDamping: 0
+    linearDamping: 0
+    canCollide: False
+
+- type: entity
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  id: HereticProtectiveBladeProjectile
+  name: eldritch blade
+  description: Maelstrom of razors flashing right before your eyes. Why are you stopping to look at it!?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Heretic/items.rsi
+    state: protective_blade
+  - type: Projectile
+    impactEffect: BulletImpactEffectKinetic
+    damage:
+      types:
+        Slash: 15
+        Piercing: 15
+        Structural: 100
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg

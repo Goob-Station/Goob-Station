@@ -1,6 +1,6 @@
 using System.Linq;
+using Content.Server._Goobstation.PendingAntag;
 using Content.Server.Administration.Managers;
-using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Components;
 using Content.Server.Station.Events;
 using Content.Shared.Preferences;
@@ -17,6 +17,7 @@ public sealed partial class StationJobsSystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IBanManager _banManager = default!;
+    [Dependency] private readonly PendingAntagSystem _pendingAntag = default!; // Goobstation
 
     private Dictionary<int, HashSet<string>> _jobsByWeight = default!;
     private List<int> _orderedWeights = default!;
@@ -290,7 +291,8 @@ public sealed partial class StationJobsSystem
             }
 
             var profile = profiles[player];
-            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow)
+            if (profile.PreferenceUnavailable != PreferenceUnavailableMode.SpawnAsOverflow &&
+                !_pendingAntag.PendingAntags.ContainsKey(player)) // Goob edit - spawn as overflow if rolled antag
             {
                 assignedJobs.Add(player, (null, EntityUid.Invalid));
                 continue;
@@ -351,6 +353,8 @@ public sealed partial class StationJobsSystem
 
             List<string>? availableJobs = null;
 
+            var pendingAntag = _pendingAntag.PendingAntags.ContainsKey(player); // Goobstation
+
             foreach (var jobId in profileJobs)
             {
                 var priority = profile.JobPriorities[jobId];
@@ -359,6 +363,9 @@ public sealed partial class StationJobsSystem
                     continue;
 
                 if (!_prototypeManager.TryIndex(jobId, out var job))
+                    continue;
+
+                if (!job.CanBeAntag && pendingAntag) // Goobstation
                     continue;
 
                 if (weight is not null && job.Weight != weight.Value)

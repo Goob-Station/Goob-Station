@@ -72,7 +72,7 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public bool ResistanceBypass = false;
-    
+
     /// <summary>
     /// Base damage for this weapon. Can be modified via heavy damage or other means.
     /// </summary>
@@ -161,6 +161,26 @@ public sealed partial class MeleeWeaponComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public bool MustBeEquippedToUse = false;
+
+    // Shitmed Change Start
+
+    /// <summary>
+    ///     Shitmed Change: Part damage is multiplied by this amount for single-target attacks
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float ClickPartDamageMultiplier = 1.00f;
+
+    /// <summary>
+    ///     Shitmed Change: Part damage is multiplied by this amount for heavy swings
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public float HeavyPartDamageMultiplier = 0.5f;
+
+    // Shitmed Change End
+
+    // Goobstation
+    [DataField, AutoNetworkedField]
+    public bool CanWideSwing = true;
 }
 
 /// <summary>

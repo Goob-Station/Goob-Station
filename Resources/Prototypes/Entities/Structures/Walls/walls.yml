@@ -823,8 +823,6 @@
     damageModifierSet: StructuralMetallic
   - type: Physics
     bodyType: Static
-  - type: Reflect
-    reflectProb: 1
   - type: Pullable
   - type: Airtight
     noAirWhenFullyAirBlocked: false
@@ -928,8 +926,6 @@
           3: { state: shuttle_construct-3, visible: true}
           4: { state: shuttle_construct-4, visible: true}
           5: { state: shuttle_construct-5, visible: true}
-  - type: Reflect
-    reflectProb: 1
 
 - type: entity
   parent: BaseWall
@@ -973,8 +969,6 @@
   - type: IconSmooth
     key: walls
     base: state
-  - type: Reflect
-    reflectProb: 1
 
 - type: entity
   parent: BaseWall
@@ -1385,7 +1379,7 @@
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 20 # Goobstation
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]

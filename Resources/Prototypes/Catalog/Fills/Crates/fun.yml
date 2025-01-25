@@ -16,6 +16,8 @@
         weight: 9
       - id: PlushieSpaceLizard
         weight: 1
+      - id: PlushieLizardInversed
+        weight: 0.5
     - !type:GroupSelector
       children:
       - id: PlushieCarp
@@ -39,6 +41,16 @@
     - id: PlushieMoth
     - id: PlushieArachind
     - id: PlushiePenguin
+    - !type:GroupSelector
+      children:
+      - id: PlushieBlackburn
+        weight: 0.35
+      - id: PlushieBlackburnKobliska
+        weight: 0.25
+      - id: PlushieBlackburnMatryoskya
+        weight: 0.25
+      - id: PlushieDesislavaBlackburn
+        weight: 0.15
 
 - type: entity
   id: CrateFunPlushie
@@ -378,4 +390,3 @@
       - id: BoxDarts
         amount: 1
         prob: 0.05
-

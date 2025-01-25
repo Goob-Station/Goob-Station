@@ -17,6 +17,7 @@
       - left arm
       - right leg
       - left leg
+      - head # Shitmed Change
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
@@ -32,9 +33,9 @@
       connections:
       - left hand
     right hand:
-      part: RightHandHuman
+      part: RightHandFelinid # Goob edit
     left hand:
-      part: LeftHandHuman
+      part: LeftHandFelinid # Goob edit
     right leg:
       part: RightLegHuman
       connections:

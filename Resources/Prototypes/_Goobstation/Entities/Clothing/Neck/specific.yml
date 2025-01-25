@@ -1,0 +1,32 @@
+- type: entity
+  parent: ClothingNeckBase
+  id: SurveillanceWirelessCameraBodySecurity
+  name: security bodycam
+  description: A body mounted camera. It's watching you.
+  components:
+  - type: DeviceNetwork
+    deviceNetId: Wired # :clueless:
+    receiveFrequencyId: SurveillanceCameraSecurity
+    transmitFrequencyId: SurveillanceCamera
+  - type: SurveillanceCamera
+    networkSet: true
+    nameSet: True
+    id: Bodycam
+  - type: Eye
+  - type: WirelessNetworkConnection
+    range: 200
+  - type: SurveillanceCameraMicrophone
+    blacklist:
+      components:
+      - SurveillanceCamera
+      - SurveillanceCameraMonitor
+      - RadioSpeaker
+  - type: ActiveListener
+    range: 10
+  - type: StationAiVision
+    range: 4
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Neck/Misc/nopro.rsi
+    quickEquip: true

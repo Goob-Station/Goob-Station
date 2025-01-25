@@ -8,3 +8,47 @@
     whitelist:
       tags:
       - MedicalPatch
+
+- type: cargoBounty
+  id: BountyClarke
+  reward: 20000
+  description: goobstation-clarke-bounty-desc
+  entries:
+  - name: goobstation-clarke-bounty-name
+    amount: 1
+    whitelist:
+      tags:
+      - Clarke
+
+- type: cargoBounty
+  id: BountyRipleyMkII
+  reward: 15000
+  description: goobstation-ripley-bounty-desc
+  entries:
+  - name: goobstation-ripley-bounty-name
+    amount: 1
+    whitelist:
+      tags:
+      - RipleyMkII
+
+- type: cargoBounty
+  id: BountyGygax
+  reward: 30000
+  description: goobstation-gygax-bounty-desc
+  entries:
+  - name: goobstation-gygax-bounty-name
+    amount: 1
+    whitelist:
+      tags:
+      - Gygax
+
+- type: cargoBounty
+  id: BountyDurand
+  reward: 60000
+  description: goobstation-durand-bounty-desc
+  entries:
+  - name: goobstation-durand-bounty-name
+    amount: 1
+    whitelist:
+      tags:
+      - Durand

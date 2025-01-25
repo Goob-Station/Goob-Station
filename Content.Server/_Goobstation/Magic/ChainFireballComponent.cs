@@ -6,7 +6,7 @@ public sealed partial class ChainFireballComponent : Component
     /// <summary>
     ///     The chance of the ball disappearing (in %)
     /// </summary>
-    [DataField] public float DisappearChance = 0.05f;
+    [DataField] public float DisappearChance = 0.025f;
 
     public List<EntityUid> IgnoredTargets = new();
 }

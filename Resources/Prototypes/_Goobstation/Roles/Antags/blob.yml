@@ -1,0 +1,10 @@
+- type: antag
+  id: Blob
+  name: roles-antag-blob-name
+  antagonist: true
+  setPreference: true
+  objective: roles-antag-blob-objective
+  guides: [ Blob ]
+  requirements:
+  - !type:OverallPlaytimeRequirement
+    time: 18000 # 5h # Goobstation-RoleTime

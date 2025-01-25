@@ -9,6 +9,8 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Store.Ui;
 
+// goob edit - fuck newstore
+// do not touch unless you want to shoot yourself in the leg
 [GenerateTypedNameReferences]
 public sealed partial class StoreListingControl : Control
 {

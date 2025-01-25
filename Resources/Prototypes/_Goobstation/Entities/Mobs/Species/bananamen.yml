@@ -1,0 +1,55 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobBananaMen
+  name: Urist McPotassium
+  abstract: true
+  components:
+  - type: Hunger
+  - type: Icon
+    sprite: _Goobstation/Mobs/Species/BananaMen/parts.rsi
+    state: full
+  - type: Thirst
+  - type: SlipperyOnLayingDown
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: FoodBanana
+      amount: 5
+  - type: Body
+    prototype: BananaMen
+    requiredLegs: 2
+  - type: HumanoidAppearance
+    species: BananaMen
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: Bloodstream
+    bloodReagent: Potassium
+  - type: DamageVisuals
+    thresholds: [ 10, 20, 30, 50, 70, 100 ]
+    targetLayers:
+    - "enum.HumanoidVisualLayers.Chest"
+    - "enum.HumanoidVisualLayers.Head"
+    - "enum.HumanoidVisualLayers.LArm"
+    - "enum.HumanoidVisualLayers.LLeg"
+    - "enum.HumanoidVisualLayers.RArm"
+    - "enum.HumanoidVisualLayers.RLeg"
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#fffbc9"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: Inventory
+    templateId: human 
+  - type: FootPrints # WD EDIT
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobBananaMenDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: BananaMen
+  - type: Inventory
+    templateId: human

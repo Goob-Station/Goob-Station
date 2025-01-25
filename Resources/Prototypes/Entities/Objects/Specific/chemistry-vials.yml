@@ -10,7 +10,7 @@
     tags:
     - Trash
     - CentrifugeCompatible
-  - type: PhysicalComposition
+  - type: PhysicalComposition #Goobstation - Recycle update
     materialComposition:
       Glass: 25
   - type: FitsInDispenser
@@ -102,6 +102,11 @@
   - type: Spillable
     solution: beaker
   - type: DnaSubstanceTrace
+  - type: ThrowableBlocked # Goobstation
+    behavior: Damage
+    damage:
+      types:
+        Blunt: 15
 
 - type: entity
   id: VestineChemistryVial

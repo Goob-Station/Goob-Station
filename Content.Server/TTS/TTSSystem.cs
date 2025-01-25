@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using Content.Server.Chat.Systems;
-using Content.Shared.CCVar;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.TTS;
 using Robust.Shared.Configuration;
@@ -40,7 +40,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(CCVars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(GoobCvars.TTSEnabled, v => _isEnabled = v, true);
 
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);

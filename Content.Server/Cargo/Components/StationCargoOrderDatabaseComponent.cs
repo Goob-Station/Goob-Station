@@ -1,9 +1,7 @@
 using Content.Server.Station.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Cargo.Components;
-using Content.Shared.Cargo.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 
 namespace Content.Server.Cargo.Components;
 
@@ -26,6 +24,12 @@ public sealed partial class StationCargoOrderDatabaseComponent : Component
     /// Used to determine unique order IDs
     /// </summary>
     public int NumOrdersCreated;
+
+    /// <summary>
+    ///     GoobStation - Tracks next time that a product on cooldown can be ordered.
+    /// </summary>
+    [ViewVariables(VVAccess.ReadOnly), DataField]
+    public Dictionary<string, TimeSpan> ProductCooldownTime = new Dictionary<string, TimeSpan>();
 
     // TODO: Can probably dump this
     /// <summary>

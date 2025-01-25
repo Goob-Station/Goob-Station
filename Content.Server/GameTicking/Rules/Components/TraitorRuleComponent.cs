@@ -1,6 +1,5 @@
 using Content.Shared.Dataset;
-﻿using Content.Shared.NPC.Prototypes;
-using Content.Shared.Random;
+using Content.Shared.NPC.Prototypes;
 using Content.Shared.Roles;
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
@@ -30,6 +29,24 @@ public sealed partial class TraitorRuleComponent : Component
 
     [DataField]
     public ProtoId<DatasetPrototype> ObjectiveIssuers = "TraitorFlavor"; // goob edit
+
+    /// <summary>
+    /// Give this traitor an Uplink on spawn.
+    /// </summary>
+    [DataField]
+    public bool GiveUplink = true;
+
+    /// <summary>
+    /// Give this traitor the codewords.
+    /// </summary>
+    [DataField]
+    public bool GiveCodewords = true;
+
+    /// <summary>
+    /// Give this traitor a briefing in chat.
+    /// </summary>
+    [DataField]
+    public bool GiveBriefing = true;
 
     public int TotalTraitors => TraitorMinds.Count;
     public string[] Codewords = new string[3];

@@ -36,6 +36,8 @@ public sealed partial class ActivatableUISystem : EntitySystem
         SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<ActivationVerb>>(GetActivationVerb);
         SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<Verb>>(GetVerb);
 
+        SubscribeLocalEvent<ActivatableUIComponent, GetVerbsEvent<AlternativeVerb>>(GetAltVerb); // Goobstation
+
         SubscribeLocalEvent<UserInterfaceComponent, OpenUiActionEvent>(OnActionPerform);
 
         InitializePower();
@@ -67,7 +69,7 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void GetActivationVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<ActivationVerb> args)
     {
-        if (component.VerbOnly || !ShouldAddVerb(uid, component, args))
+        if (component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goobstation
             return;
 
         args.Verbs.Add(new ActivationVerb
@@ -81,10 +83,24 @@ public sealed partial class ActivatableUISystem : EntitySystem
 
     private void GetVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<Verb> args)
     {
-        if (!component.VerbOnly || !ShouldAddVerb(uid, component, args))
+        if (!component.VerbOnly || component.AltVerb || !ShouldAddVerb(uid, component, args)) // Goobstation
             return;
 
         args.Verbs.Add(new Verb
+        {
+            Act = () => InteractUI(args.User, uid, component),
+            Text = Loc.GetString(component.VerbText),
+            // TODO VERB ICON find a better icon
+            Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+        });
+    }
+
+    private void GetAltVerb(EntityUid uid, ActivatableUIComponent component, GetVerbsEvent<AlternativeVerb> args) // Goobstation
+    {
+        if (!component.AltVerb || !ShouldAddVerb(uid, component, args))
+            return;
+
+        args.Verbs.Add(new AlternativeVerb
         {
             Act = () => InteractUI(args.User, uid, component),
             Text = Loc.GetString(component.VerbText),

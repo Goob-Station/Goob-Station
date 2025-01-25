@@ -1,0 +1,81 @@
+- type: entity
+  parent: OrganAnimalLungs
+  id: OrganSpaceAnimalLungs
+  name: space animal lungs
+  components:
+  - type: Organ
+    onAdd:
+    - type: BreathingImmunity
+
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganSpaceAnimalHeart
+  name: space animal heart
+  components:
+  - type: Organ
+    onAdd:
+    - type: PressureImmunity
+
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganGoliathHeart
+  name: goliath heart
+  components:
+  - type: Organ
+    onAdd:
+    - type: GoliathTentacle
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Space/Goliath/organs.rsi
+    state: heart-on
+
+- type: entity
+  parent: OrganAnimalLungs
+  id: OrganDragonLungs
+  name: dragon lungs
+  components:
+  - type: Organ
+    onAdd:
+    - type: ActionGun
+      action: ActionDragonsBreath
+      gunProto: DragonsBreathGun
+
+- type: entity
+  parent: OrganHumanEyes
+  id: OrganLaserEyes
+  name: laser raptor eyes
+  components:
+  - type: Organ
+    onAdd:
+    - type: HitscanBatteryAmmoProvider
+      proto: RedLightLaser
+      fireCost: 50
+    - type: BatterySelfRecharger
+      autoRecharge: true
+      autoRechargeRate: 25
+    - type: Battery
+      maxCharge: 100
+      startingCharge: 0
+    - type: Gun
+      fireRate: 1
+      useKey: false
+      selectedMode: SemiAuto
+      availableModes:
+        - SemiAuto
+      soundGunshot: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
+
+- type: entity
+  parent: OrganAnimalHeart
+  id: OrganCobraHeart
+  name: cobra gland
+  components:
+  - type: Organ
+    onAdd:
+    - type: Stealth
+      enabledOnDeath: false
+      maxVisibility: 1.2
+    - type: StealthOnMove
+      passiveVisibilityRate: -0.25
+      movementVisibilityRate: 0.25
+  - type: Sprite
+    sprite: _Shitmed/Mobs/Species/Space/Cobra/organs.rsi
+    state: heart-on

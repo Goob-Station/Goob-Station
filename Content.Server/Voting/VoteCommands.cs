@@ -8,7 +8,6 @@ using Content.Shared.Administration;
 using Content.Shared.CCVar;
 using Content.Shared.Database;
 using Content.Shared.Voting;
-using Robust.Server;
 using Robust.Shared.Configuration;
 using Robust.Shared.Console;
 using Robust.Shared.Utility;
@@ -79,7 +78,7 @@ namespace Content.Server.Voting
 
         private ISawmill _sawmill = default!;
 
-        private const int MaxArgCount = 10;
+        private const int MaxArgCount = 31;
 
         public override string Command => "customvote";
 
@@ -87,9 +86,9 @@ namespace Content.Server.Voting
         {
             _sawmill = Logger.GetSawmill("vote");
 
-            if (args.Length < 3 || args.Length > MaxArgCount)
+            if (args.Length < 2 || args.Length > MaxArgCount)
             {
-                shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 3), ("upper", 10)));
+                shell.WriteError(Loc.GetString("shell-need-between-arguments",("lower", 2), ("upper", 31)));
                 return;
             }
 

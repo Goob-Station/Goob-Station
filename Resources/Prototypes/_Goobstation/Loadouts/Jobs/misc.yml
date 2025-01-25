@@ -1,9 +1,17 @@
 - type: loadout
   id: Bodycam
   equipment:
-    outerClothing: SurveillanceWirelessCameraBodySecurity
+    neck: SurveillanceWirelessCameraBodySecurity
 
 - type: loadout
   id: NoPro
   equipment:
     outerClothing: SurveillanceWirelessCameraBodyEntertainment
+
+- type: loadout
+  id: LoadoutHonkopsMask
+  effects:
+  - !type:GroupLoadoutEffect
+    proto: EffectSpeciesVox
+  equipment:
+    mask: ClothingMaskClownUnremoveable

@@ -1,3 +1,5 @@
+Name: Gooblog
+Order: -1
 Entries:
 - author: Piras314
   changes:
@@ -752,7 +754,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling can't be butchered on meat spike. (you can still put it in
-        biomass reclaimer or burn it in crematorium)  
+        biomass reclaimer or burn it in crematorium)
     - type: Fix
       message: Changeling in lesser form can't use most abilities.
     - type: Fix
@@ -1501,7 +1503,7 @@ Entries:
         added station AI to train, mail drobe/teleporter to train cargo, and a
         singular pickaxe to train engi, more cameras for AI, edited atmos so the
         salv shuttle can fit (you have been compensated with a fireaxe and
-        combat gloves atmosians...), 
+        combat gloves atmosians...),
     - type: Tweak
       message: put train back in the map pool (min pop 30, max pop 60)
   id: 184
@@ -1742,3 +1744,2573 @@ Entries:
       message: Added new emotes. Check them in the emote menu
   id: 211
   time: '2024-11-07T22:34:07.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: TTS
+  id: 212
+  time: '2024-11-08T08:28:30.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: Fixed some errors with text/strings and options menu.
+  id: 213
+  time: '2024-11-09T01:56:22.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: All mobs can now flip, not just ones with hands
+    - type: Tweak
+      message: You can now also use *flips to access the flip emote.
+  id: 214
+  time: '2024-11-09T01:57:17.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added Bloodstains, Body Dragging Marks, and Bloody Footprints to the
+        game. Characters that walk through puddles of blood will now leave
+        behind bloody footprints. Dragging a corpse leaves a trail of blood
+        wherever the corpse was moved.
+  id: 215
+  time: '2024-11-09T02:58:50.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Added missing datasets for ATS and Salvage Shuttle names, now they look
+        normal on the Mass Scanner!
+  id: 216
+  time: '2024-11-11T01:36:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: >-
+        NTrep and BSO are separate access now (currently only affects their
+        lockers)
+  id: 217
+  time: '2024-11-11T01:45:10.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Autodespawn Footsteps/Dragging
+    - type: Fix
+      message: Footsteps are actually footsteps now.
+  id: 218
+  time: '2024-11-11T02:29:14.0000000+00:00'
+- author: TwoDucksOnnaPlane
+  changes:
+    - type: Tweak
+      message: Buffed .30 and .20 caliber damages.
+  id: 219
+  time: '2024-11-12T05:37:52.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Replaced moth roaches with moth maggots.
+  id: 220
+  time: '2024-11-12T06:50:04.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed mining drills stunlocking you.
+  id: 221
+  time: '2024-11-12T20:30:06.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: gass prices
+  id: 222
+  time: '2024-11-14T13:44:37.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: What's a week? Anyway surgery is here.
+  id: 223
+  time: '2024-11-16T22:10:27.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Fix
+      message: Fixed borg UI not be able to eject anything from borg.
+  id: 224
+  time: '2024-11-16T22:12:04.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Added the Cybersun Stealth Hardsuit to the syndicate uplink for 75 TC
+  id: 225
+  time: '2024-11-16T22:18:52.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added EE build/run scripts
+  id: 226
+  time: '2024-11-17T12:58:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now operate on a bunch of animals like mice, spiders and
+        monkeys.
+    - type: Add
+      message: >-
+        You can now remove and install stomachs, including special diets like
+        moths or lizards!
+    - type: Fix
+      message: Fixed not being able to reinstall some species organs.
+    - type: Fix
+      message: Fixed harpies being immune to the scalpel.
+  id: 227
+  time: '2024-11-17T13:36:48.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added sink to Chemistry on Kettle.
+    - type: Fix
+      message: >-
+        Kettle's lockdown button no longer opens/closes the door, only the blast
+        doors.
+  id: 228
+  time: '2024-11-18T00:19:11.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: Ghetto surgery is now possible, read the TG wiki!
+  id: 229
+  time: '2024-11-18T00:23:43.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        You can now become immune to pressure and breathing by harvesting carp
+        hearts and lungs respectively.
+  id: 230
+  time: '2024-11-18T01:27:13.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: >-
+        Eliminated a catastrophic breach of GDPR so severe it might've summoned
+        Europol.
+  id: 231
+  time: '2024-11-18T01:33:10.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Cryosleep Beacon to Barratry.
+  id: 232
+  time: '2024-11-18T01:36:39.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        The scram implant will no longer teleport you into open space or very
+        close to your original position.
+  id: 233
+  time: '2024-11-18T21:30:57.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: Cyborg arms/legs can now be used as suplementary body parts.
+    - type: Tweak
+      message: Entities now properly take asphyxiation damage after losing their brain.
+    - type: Tweak
+      message: Entities now perish after 60 seconds of losing their heart and/or brain.
+    - type: Fix
+      message: >-
+        Items not being removed from their respective slots if the parts were
+        gibbed rather than dropped.
+    - type: Fix
+      message: TORSOS NO LONGER DISAPPEAR, PRAISE BE THE LORD.
+    - type: Fix
+      message: Ghetto surgical tools are no longer faster than the advanced ones.
+    - type: Fix
+      message: Fixed Cavity Insertions not working due to shitcode.
+    - type: Fix
+      message: >-
+        You can no longer reuse your organs over and over to abuse transplant
+        healing.
+    - type: Fix
+      message: >-
+        Organs are now properly "spent" once they've been used in a transplant
+        surgery.
+  id: 234
+  time: '2024-11-18T21:38:06.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added Yowie as a new roundstart species with the Bogan accent
+  id: 235
+  time: '2024-11-18T21:40:20.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: EMAG no longer works as Syndicate lawboard for AI upload.
+  id: 236
+  time: '2024-11-19T22:08:11.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: >-
+        higher grade power cells now deal more damage when used in the svallin
+        pistol and machine gun.
+  id: 237
+  time: '2024-11-19T22:10:11.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Yowie's spawn with survival boxes now
+    - type: Fix
+      message: Fixed some bogan accent annoyances
+    - type: Add
+      message: Yowie's are now more rad proof
+  id: 238
+  time: '2024-11-20T05:16:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: Discount buttons are red now
+    - type: Tweak
+      message: Everything can discount much lower
+    - type: Fix
+      message: Briefing show up correctly now
+  id: 239
+  time: '2024-11-20T21:45:19.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Tweak
+      message: Increased applicable medication heal values.
+    - type: Tweak
+      message: Increased stack size of applicable medications.
+    - type: Tweak
+      message: Slightly increased dylovene, burn, and brute chemicals heal values.
+    - type: Tweak
+      message: Decreased Medical item application time from 3s to 2s
+  id: 240
+  time: '2024-11-20T21:46:28.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed Harpies/Vulps/Rodentia/Felinids not gasping when crit and
+        deathgasping when dying.
+  id: 241
+  time: '2024-11-20T22:08:44.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Hijack shuttle objective for traitors is back.
+    - type: Add
+      message: >-
+        It is now once again possible to EMAG emergency shuttle console for
+        early launch.
+  id: 242
+  time: '2024-11-20T22:12:11.0000000+00:00'
+- author: CMDR-JohnAlex
+  changes:
+    - type: Add
+      message: Gave borgs a station map by default.
+  id: 243
+  time: '2024-11-20T22:12:59.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Add
+      message: Added...uhh, what was it? Oh right, Dementia
+  id: 244
+  time: '2024-11-20T22:15:26.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the arbitrary nukie limit, high-pop nukies should have a chance
+        now.
+  id: 245
+  time: '2024-11-20T21:45:58.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Vox NanoTrasen Representatives now spawn with a tank harness. Accounting
+        found enough in the budget to outfit them.
+  id: 246
+  time: '2024-11-21T19:35:38.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed missing locale strings for Limb Targeting keybinds. Did you know
+        you could bind those to keys? I didn't.
+  id: 247
+  time: '2024-11-21T19:37:41.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Add
+      message: >-
+        Surgery step descriptions (like making an incision, removing/attaching
+        limbs and organs) are now shown as popups to everyone in range upon the
+        start of the step. This makes it clear which surgical procedure is being
+        done and to which body part. No more stealthy brain-stealing in front of
+        everyone!
+  id: 248
+  time: '2024-11-21T19:38:09.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added farting!
+  id: 249
+  time: '2024-11-21T20:35:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Superfarts from an entire station away don't cause screen shake anymore.
+  id: 250
+  time: '2024-11-22T01:41:47.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Organ transplants now properly heal their values when used in surgeries
+        again.
+  id: 251
+  time: '2024-11-22T14:07:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: made shop great again.
+    - type: Fix
+      message: heretics work properly.
+    - type: Tweak
+      message: Flesh ascension now permanently transforms you into meatball man.
+    - type: Fix
+      message: Fixed heretic ash path not being fully fire immune.
+  id: 252
+  time: '2024-11-22T15:24:58.0000000+00:00'
+- author: Skubman
+  changes:
+    - type: Fix
+      message: >-
+        Piercing damage can now dismember body parts, just like Blunt and Slash
+        damage.
+  id: 253
+  time: '2024-11-22T15:34:32.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: c4 bundle gets remote signaller and network configurator now
+    - type: Add
+      message: advanced signaller in uplink 8 tc
+    - type: Tweak
+      message: >-
+        remote signaller range is now 40m and advanced one is practically
+        infinite range now
+    - type: Fix
+      message: >-
+        universal access configurator has NTrep and BSO in it now (this means
+        nothing to not-shitmins/mappers)
+  id: 254
+  time: '2024-11-22T17:39:32.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: You can't super fart without reverse farting anymore.
+  id: 255
+  time: '2024-11-23T09:34:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: You can now clone living people.
+  id: 256
+  time: '2024-11-23T09:35:56.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to install hands onto cyborg arms.
+    - type: Tweak
+      message: Cyborg legs make you 25% faster.
+  id: 257
+  time: '2024-11-23T17:28:39.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Goob coin! Super simple setup right now, you can't buy anything with
+        goob coin yet, but you can earn it :-)
+  id: 258
+  time: '2024-11-23T18:31:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Violet by mrjajkes now plays when the shuttle is automatically called
+        during Zombies!
+    - type: Fix
+      message: The SFX for the zombie outbreak warning actually work now
+  id: 259
+  time: '2024-11-23T18:35:00.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Add
+      message: Biogenerator to Botany
+    - type: Add
+      message: Recycler to Salvage
+  id: 260
+  time: '2024-11-23T18:36:33.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Remove
+      message: Vents contain less slimes, spiders and snakes.
+  id: 261
+  time: '2024-11-23T18:40:17.0000000+00:00'
+- author: Tryded
+  changes:
+    - type: Tweak
+      message: >-
+        Changed the Double Bladed Energy Sword's price to 80 TC, decreased
+        attack speed to 1, and increased damage to 17 slash and 17 heat.
+  id: 262
+  time: '2024-11-23T18:40:41.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Remove
+      message: Nuclear Operative evacuation lockdown
+  id: 263
+  time: '2024-11-23T23:41:42.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: The M-90 rifle has been added to the Syndicate uplink for 85 TC
+    - type: Tweak
+      message: .20 rifle mags are now available in the Syndicate uplink for 15 TC
+  id: 264
+  time: '2024-11-24T21:41:38.0000000+00:00'
+- author: Tmanzxd
+  changes:
+    - type: Fix
+      message: >-
+        Fixed a bug where applicable medication stacks would revert back to 10
+        after 1 use from fullstack.
+  id: 265
+  time: '2024-11-24T23:28:28.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: Added different step durations to each surgery step.
+    - type: Add
+      message: Added a T2 research for advanced surgical tools
+    - type: Add
+      message: Added a T3 research for an omnitool for surgery.
+    - type: Add
+      message: Added Surgical and Advanced Surgical modules for Mediborgs
+    - type: Add
+      message: Mediborgs can now perform surgery!
+    - type: Add
+      message: Added lobotomies as an operation. Godspeed you psychopaths.
+    - type: Add
+      message: Added cybernetic arms, legs and eyes.
+    - type: Add
+      message: >-
+        Added EMP weaknesses to all cybernetic parts (the day of reckoning will
+        come for IPCs soon)
+    - type: Add
+      message: Losing your eyes now blinds you.
+    - type: Fix
+      message: >-
+        Fixed a few species that did not inherit from BasePart's, thus taking
+        damage types they shouldn't on their limbs.
+    - type: Fix
+      message: 'Fixed harpy lungs not being usable in surgeries. '
+    - type: Fix
+      message: Fixed fire being able to destroy your chest.
+    - type: Fix
+      message: >-
+        Fixed entities being able to take over your body by just inserting a
+        brain or another head on top of you.
+    - type: Fix
+      message: Fixed some shitcode that didnt let rejuvenate or godmode work properly.
+    - type: Fix
+      message: >-
+        Fixed bionic arm, and cybernetic eyes traits not working properly due to
+        shitty networking.
+    - type: Fix
+      message: Fixed cybernetic limbs being a free hand/feet generator due to shitcode.
+    - type: Tweak
+      message: >-
+        Increased tend wounds's speed by double, and bumped up the values on its
+        calculations. DEATH TO TOPICALS, LEAVE THOSE TO TIDERS.
+    - type: Tweak
+      message: >-
+        Beheading an entity now doesnt let it move, speak, and forces it to the
+        ground immediately (literally 1984!!11!!)
+    - type: Tweak
+      message: Changed sprites on most surgical tools to now use /tg/ sprites.
+  id: 266
+  time: '2024-11-25T01:02:23.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Various station event / lobby songs have been added to the jukebox!
+  id: 267
+  time: '2024-11-25T01:46:27.0000000+00:00'
+- author: BeeRobynn
+  changes:
+    - type: Fix
+      message: Fixed Sawn-off Shotguns not being correctly marked as contraband
+  id: 268
+  time: '2024-11-25T13:26:40.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now survive objective is marked as failed if a person is in ghost bar.
+    - type: Fix
+      message: >-
+        Now kill objectives are marked as completed if the targeted person is in
+        ghost bar.
+  id: 269
+  time: '2024-11-25T22:22:04.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Re-added vehicles.
+    - type: Add
+      message: >-
+        Wheelchairs and the wheelchair bound trait have been re-added (and
+        re-worked to work with surgery).
+    - type: Add
+      message: Added Secways & Syndicate Segways, ATVs & Janicarts
+    - type: Add
+      message: >-
+        Mapped ATVs, Janicarts & Secways on Atlas, Bagel, Barratry, Cluster,
+        Fland, Kettle, Oasis, Origin and Saltern
+    - type: Add
+      message: The Syndicate Segway has been added to the Syndicate Uplink for 25tc!
+    - type: Tweak
+      message: The medivend now has 3 folded wheelchairs included in it
+    - type: Tweak
+      message: You can now print wheelchairs in the medlathe
+  id: 270
+  time: '2024-11-25T23:20:59.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Vehicle spawners now spawn with keys
+  id: 271
+  time: '2024-11-26T00:45:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Add
+      message: >-
+        Added 3 different flavors of syringe guns, 2 obtainable by crew, 1 by
+        traitors
+    - type: Add
+      message: >-
+        CMOs lockers now contain a Rapid Syringe Gun and a box filled with 6 pax
+        syringes. Don't validhunt too much with them will you?
+    - type: Tweak
+      message: >-
+        The CMO now spawns with a webbing filled with advanced surgical
+        instruments along with their usual gear.
+    - type: Tweak
+      message: >-
+        Syringes shot from a syringe gun do not pierce armor unless they are
+        shot from a gun with the necessary components.
+    - type: Tweak
+      message: >-
+        Throwing syringes now embeds them on entities, and transfers 2u of the
+        contents. Doesn't pierce armor.
+  id: 272
+  time: '2024-11-26T01:56:11.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Add
+      message: Added heretic blade path.
+    - type: Tweak
+      message: >-
+        Heretic abilities power scale with their path stage. Side knowledge
+        paths are weaker and do not scale.
+    - type: Tweak
+      message: Nerfed fire damage to not kill a fellow urist in 5 seconds.
+    - type: Fix
+      message: Heretics and changelings are now properly hunted by turrets.
+  id: 273
+  time: '2024-11-26T13:31:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: New traitor item hardlight bow.
+    - type: Tweak
+      message: Bows are now automatically unwielded after firing.
+  id: 274
+  time: '2024-11-26T13:53:10.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        Secure Intercoms no longer destroy encryption keys when the secure panel
+        is removed.
+  id: 275
+  time: '2024-11-26T13:58:30.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Borgs have a new law that makes them obey the AI.
+    - type: Tweak
+      message: The emag law now makes borgs obey any orders from the emagger.
+    - type: Tweak
+      message: >-
+        AI's default lawset is now NTDefault. This should make it more
+        station-oriented.
+    - type: Tweak
+      message: AI is now ion-stormable.
+  id: 276
+  time: '2024-11-26T14:03:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Flashbangs now stun and knockdown people. Wear over-ear headset or
+        combat hardsuit helmet to reduce flashbang effective range.
+    - type: Add
+      message: All sec and command members received over-ear headsets.
+    - type: Add
+      message: Energy bola was added for security.
+    - type: Add
+      message: Flashbangs and e-bolas now printable on secfab.
+    - type: Add
+      message: Epinephrine autoinjector was added for security.
+    - type: Tweak
+      message: Epinephrine now speeds up by 10%.
+    - type: Add
+      message: >-
+        Jackboots, combat and mercenary boots now reduce all stun and knockdown
+        times by 20%.
+    - type: Add
+      message: Combat hardsuit helmets now protect from flashes.
+    - type: Add
+      message: Security survival box now contains extended emergency tank.
+    - type: Tweak
+      message: Tear gas is now stronger.
+    - type: Add
+      message: >-
+        Wearing security, ert, syndie or deathsquad gas mask blocks smoke
+        inhalation even if internals are off.
+    - type: Tweak
+      message: Disabler bolts now pierce through glass but deal no heat damage.
+    - type: Tweak
+      message: Stamcrit stun time is once again 6 seconds.
+    - type: Tweak
+      message: Security hardsuits now have heat resistance.
+    - type: Tweak
+      message: Sec belt and webbing now have 50% explosion resistance to contents.
+    - type: Fix
+      message: Now you won't get stunned no matter what after baton knockdown.
+  id: 277
+  time: '2024-11-26T14:30:49.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Box, Core, Meta, Omega, and Packed now have vehicles.
+    - type: Add
+      message: >-
+        Most stations now have wheelchairs in Security and Medical in compliance
+        with Nanotrasen accessibility regulations. Not Barratry.
+    - type: Tweak
+      message: The Jukebox doesn't make your ears bleed anymore
+    - type: Tweak
+      message: >-
+        The Bar and Medical are now connected on Kettle, making it significantly
+        easier to get to Medical.
+    - type: Fix
+      message: Fixed keys spawning instead of vehicles, oopsie dasies.
+  id: 278
+  time: '2024-11-26T17:37:24.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: 'Fixed borg legs not letting you move properly. '
+    - type: Fix
+      message: Fixed medical cyborgs poisoning people.
+    - type: Fix
+      message: Fixed cybernetic legs being weak to stepping on glass
+    - type: Fix
+      message: Fixed biosynthetic legs for real this time (lol)
+  id: 279
+  time: '2024-11-26T14:02:25.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix round end summary not showing up.
+  id: 280
+  time: '2024-11-26T18:24:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Now you have to aim directly at the vehicle to hit it with projectiles.
+    - type: Tweak
+      message: Vehicles are now slightly slower.
+  id: 281
+  time: '2024-11-26T18:57:52.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Add
+      message: cooldown implementation for cargo orders
+    - type: Add
+      message: cooldown on grand lottery
+  id: 282
+  time: '2024-11-27T15:08:00.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Heretic ritual items amount shows properly
+  id: 283
+  time: '2024-11-27T15:09:40.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        Removed the timeout from ordering grand lottery crates. LET'S GO
+        GAMBLING!!!
+  id: 284
+  time: '2024-11-27T15:34:10.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Any sharp object can now be used as a ghetto scalpel or bone saw.
+  id: 285
+  time: '2024-11-27T20:46:37.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Nukie reinforcement has nukeops uplink.
+    - type: Tweak
+      message: >-
+        Only nukie commander has commander hardsuit for sale in has uplink and
+        it has limited stock of 1. Same thing with medic.
+    - type: Tweak
+      message: Minimum number of operatives for war declaration is reduced to 2.
+    - type: Add
+      message: >-
+        Now the amount of tc for war declaration scales with amount of players
+        on server and missing nukies.
+  id: 286
+  time: '2024-11-29T16:42:23.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix hardlight bow arrows behaving weirdly.
+  id: 287
+  time: '2024-11-29T16:53:32.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: aghosts now have pockets to hide all their admeme tools in.
+  id: 288
+  time: '2024-11-29T16:58:14.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix absurd amount of midround antags spawning every shift.
+  id: 289
+  time: '2024-11-29T19:21:38.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Now you can't get stunlocked while in critical state.
+  id: 290
+  time: '2024-11-29T19:21:52.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Improved action bar.
+  id: 291
+  time: '2024-11-29T19:37:13.0000000+00:00'
+- author: sleepyyapril
+  changes:
+    - type: Add
+      message: Added the ability to reply to AHelps while exclusively on discord.
+  id: 292
+  time: '2024-11-29T20:00:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Add
+      message: >-
+        Added the Autodoc Mk. XIV with the Automated Surgery tier 2 civ tech.
+        AUTOMATED ORGAN HARVESTING!!!
+    - type: Tweak
+      message: You can now hear people doing surgeries.
+  id: 293
+  time: '2024-11-29T20:03:20.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now antags are rolled roundstart and before jobs except for initial
+        infected.
+    - type: Add
+      message: Intern roles can be antags except for cadet obviously.
+  id: 294
+  time: '2024-11-29T20:06:37.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: new paramed voidsuit helmet sprite and it has light now
+  id: 295
+  time: '2024-11-29T21:12:05.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Tweak
+      message: Security bodycam is now wearable on the neck slot.
+  id: 296
+  time: '2024-11-29T21:13:10.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Mini energy crossbow now deals no stamina damage. Instead it knocks down
+        target, forces them to drop items they are holding and blurs vision for
+        5 seconds. It is now much quieter.
+    - type: Add
+      message: >-
+        Mini energy crossbow projectiles now pierce through glass, they also can
+        be reflected by energy reflectors. Damage increased: 10 -> 15.
+    - type: Remove
+      message: Removed mini ebow from nukie uplink.
+  id: 297
+  time: '2024-11-29T21:16:39.0000000+00:00'
+- author: LevitatingTree
+  changes:
+    - type: Add
+      message: Added several new posters!
+  id: 298
+  time: '2024-11-29T21:18:51.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed ascensions not giving out items properly.
+  id: 299
+  time: '2024-11-30T08:20:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: Now there will be much more nukies.
+  id: 300
+  time: '2024-11-30T21:41:48.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Pirasmas is here!!!
+  id: 301
+  time: '2024-12-01T02:45:10.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added the Burner heavy assault rifle to the synicate and nuclear
+        operative uplinks for 150 TC
+    - type: Tweak
+      message: Ammo bundles now contain ammunition for the Burner heavy assault rifle
+  id: 302
+  time: '2024-12-01T19:05:52.0000000+00:00'
+- author: DarkenedSynergy
+  changes:
+    - type: Add
+      message: >-
+        Blueshield Officers can now choose between a backpack, duffelbag or
+        satchel.
+  id: 303
+  time: '2024-12-01T19:07:50.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: >-
+        Added new cartridges for the Autoinjector: Bicaridine, Dermaline,
+        Ephedrine, and Ichor (Ephedrine and Ichor are Syndicate only).
+    - type: Tweak
+      message: >-
+        You can now print Bicaridine and Dermaline cartridges in the Security
+        Autolathe.
+    - type: Tweak
+      message: >-
+        Using an Emag on a Security Autolathe now unlocks hidden Autoinjector
+        cartridge recipes: Ephedrine and Ichor.
+    - type: Tweak
+      message: >-
+        The cooldown for using the Autoinjector is now 40 seconds instead of 5
+        minutes.
+  id: 304
+  time: '2024-12-01T19:55:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Bolas now knock people down, items are not dropped from their hands.
+    - type: Remove
+      message: Bolas no longer deal stamina damage.
+  id: 305
+  time: '2024-12-01T20:04:32.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: Fixed an error caused by walking through puddles as they were deleted.
+  id: 306
+  time: '2024-12-01T20:14:08.0000000+00:00'
+- author: procdox
+  changes:
+    - type: Fix
+      message: >-
+        server side serialization bug caused by opening multiple network
+        configuration menus
+  id: 307
+  time: '2024-12-01T23:42:40.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: Fixed touching light bulbs damaging your torso instead of your hands
+    - type: Fix
+      message: >-
+        Fixed clumsy clowns damaging their torsos instead of their head when
+        hitting a table.
+    - type: Fix
+      message: Fixed borgs being unable to wear hats
+    - type: Fix
+      message: Fixed diona nymphs imploding as soon as they appear (lol)
+    - type: Fix
+      message: Fixed slime stomachs being unable to metabolize chemicals.
+    - type: Fix
+      message: >-
+        Fixed part damage code not caring about whether or not damage should
+        ignore resistances.
+    - type: Fix
+      message: Fixed monkeys not having hands.
+    - type: Fix
+      message: Fixed some simple mobs being unable to equip apparel or gear.
+    - type: Fix
+      message: Fixed mannequins not working.
+    - type: Fix
+      message: Fixed hands being added out of order on surgical reattachment.
+    - type: Fix
+      message: >-
+        Fixed fire gibbing not removing your organs properly, in turn allowing
+        you to continue living as a nugget.
+    - type: Tweak
+      message: Added a circuit board and crafting recipe for Operating Tables.
+  id: 308
+  time: '2024-12-02T00:17:10.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Add
+      message: Christmas baddies for nukie suits
+  id: 309
+  time: '2024-12-02T00:58:20.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Tweak
+      message: Research servers now generate 15 research points per second passively.
+  id: 310
+  time: '2024-12-02T00:59:02.0000000+00:00'
+- author: CBozo
+  changes:
+    - type: Add
+      message: >-
+        Barozine can now be made with potassium, chlorine, plasma and
+        bicaridine!
+  id: 311
+  time: '2024-12-02T01:09:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix heretic ashen jaunt messing up the action bar.
+  id: 312
+  time: '2024-12-02T01:12:11.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        You can't pull the Supermatter around with a (non-admeme) tether/force
+        gun anymore.
+  id: 313
+  time: '2024-12-02T16:09:53.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: >-
+        The H.O.N.K. has received an airtight cabin for honk operations in outer
+        space.
+    - type: Add
+      message: >-
+        Added the Ripley MK-II, a heavy, slow all-purpose mech, featuring a
+        pressurized cabin for space operations.
+    - type: Add
+      message: >-
+        Added the Clarke, A fast moving mech for space travel, with built in
+        thrusters (not certain if they work properly though :trollface:)
+    - type: Add
+      message: >-
+        Added the Gygax, a lightly armored and highly mobile mech with enough
+        force to rip walls, or someone's head off.
+    - type: Add
+      message: >-
+        Added the Durand, a slow but beefy combat suit that you dont want to
+        fight in close quarters.
+    - type: Add
+      message: Added the Marauder, a specialized mech issued to ERT operatives.
+    - type: Add
+      message: Added the Seraph, a specialized combat suit issued to ??? operatives.
+    - type: Add
+      message: >-
+        The syndicate has started issuing units under the codenames "Dark Gygax"
+        and "Mauler" to syndicate agents at an introductory price.
+    - type: Add
+      message: The exosuit fabricator can now be emagged to reveal new recipes.
+    - type: Add
+      message: >-
+        There are 4 new bounties cargo can fulfill for mechs. Feedback on the
+        cost/reward is welcome!
+  id: 314
+  time: '2024-12-02T16:15:10.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Tweak
+      message: >-
+        Dynamic gamemode threat and balance now scales with the amount of
+        players.
+    - type: Add
+      message: Brought back traitor flavor character text.
+    - type: Add
+      message: On polymorph ghosts will start properly following the person.
+    - type: Tweak
+      message: Ling got better... in a way
+    - type: Remove
+      message: Removed transform sting until polymorph gets good.
+    - type: Tweak
+      message: Made midround antags rarer on secret.
+  id: 315
+  time: '2024-12-02T21:30:03.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: >-
+        If you break a christmas tree, you will now be killsigned and valid for
+        gibbing, lobotomising, and whatnot.
+  id: 316
+  time: '2024-12-02T21:31:27.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Lowered snowfall ambience
+  id: 317
+  time: '2024-12-03T14:17:06.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: >-
+        The burner rifle is now nukeops whitelisted instead of nukeops
+        blacklisted
+  id: 318
+  time: '2024-12-03T15:40:48.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Added the materials silo, a machine that connects all lathes on the
+        station together so that they share resources. You can find it in the
+        comms room on every map.
+  id: 319
+  time: '2024-12-03T16:04:28.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Tweak
+      message: Changeling limbs cannot be severed now. Definitely not-permanent.
+  id: 320
+  time: '2024-12-04T02:53:27.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: sodium now explodes in water, just like potassium
+  id: 321
+  time: '2024-12-04T04:49:18.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: Lathes now tells you when they unlock new recipes
+  id: 322
+  time: '2024-12-04T04:52:47.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Add
+      message: 'All species humanoid cubes can be crafted on biocube fabricator '
+    - type: Tweak
+      message: All protolathe and autolathe items now can be recycled
+    - type: Tweak
+      message: All organs except brains can be recycled to biomass
+    - type: Tweak
+      message: Crates and lockers now can be recycled with all containment in it.
+    - type: Fix
+      message: Recycler now respects stacks
+    - type: Fix
+      message: Fixed recycler was able to process one item several times
+  id: 323
+  time: '2024-12-04T04:53:45.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Harpy wings (currently on their right arm lol) now give you the ability
+        to fly.
+    - type: Add
+      message: >-
+        Severing wings from a harpy will render it unable to fly, and
+        conversely, reattaching them to yourself will grant you that ability
+        instead.
+    - type: Tweak
+      message: Harpies can no longer wear shoes. Have fun with space wind.
+    - type: Tweak
+      message: Harpies can now imitate pianos, church organs and violins.
+    - type: Tweak
+      message: >-
+        Harpies are now immune to mice traps, landmines and glass
+        shards/caltrops.
+    - type: Tweak
+      message: Harpies now have acceleration when theres no gravity, akin to moths.
+  id: 324
+  time: '2024-12-04T04:55:25.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: cmo chest rig gets better topical stuff now
+    - type: Fix
+      message: cmo chest rig is medical restricted contra now
+  id: 325
+  time: '2024-12-04T05:20:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fixed changeling transform shuffling the action bar.
+    - type: Fix
+      message: Now items in pda and pocket slots won't drop on ling transform.
+  id: 326
+  time: '2024-12-04T05:21:18.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: >-
+        The HEV Suit now has immunity to the supermatter, this allows the HEV
+        suit to touch the SM without being ashed. Be warned: This starts the SM.
+  id: 327
+  time: '2024-12-04T05:22:12.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix silo being out of range.
+  id: 328
+  time: '2024-12-04T14:32:24.0000000+00:00'
+- author: Lyacs
+  changes:
+    - type: Remove
+      message: Removed Wizden ore nerf
+    - type: Tweak
+      message: >-
+        Ore procedural generation on asteroïds and vg roid. Increased ore
+        composition
+  id: 329
+  time: '2024-12-04T19:53:08.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed Felinids from command.
+    - type: Tweak
+      message: Felinids resprited to look more realistic.
+    - type: Tweak
+      message: Felinids renamed to their true name, Gremlins.
+  id: 330
+  time: '2024-12-05T18:03:21.0000000+00:00'
+- author: ray-boop and Tonk
+  changes:
+    - type: Add
+      message: >-
+        Added a set of new drinks for bartenders to mix: Gin and Sonic, Golden
+        Cat, Pineapple Blast, Torpedo Juice and the Bee's Knees.
+  id: 331
+  time: '2024-12-06T15:34:46.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix weird wheelchair bound behavior on cryo spawn.
+  id: 332
+  time: '2024-12-06T15:39:52.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Desoxyephedrine, aka METH, now explodes at 420K, 50K above the
+        temperature it is made at.
+  id: 333
+  time: '2024-12-09T14:13:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: The ore bag magnetism is now toggleable.
+  id: 334
+  time: '2024-12-09T14:15:50.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        The SecDrobe now has 5 bodycams, so you can film your clown abuse in
+        crystal clear 360p!
+  id: 335
+  time: '2024-12-09T14:17:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix dual wielded gun projectiles not hitting laying targets.
+    - type: Fix
+      message: Fix borgs being able to lie down in some conditions.
+    - type: Fix
+      message: Fix auto get up setting not working properly.
+    - type: Add
+      message: >-
+        Cluster grenade projectiles, reflected projectiles and heretic volcano
+        fireballs will always hit laying targets.
+    - type: Fix
+      message: >-
+        Heretic volcano projectiles won't hit ignored targets, it can now be
+        used safely.
+    - type: Add
+      message: >-
+        It is now possible to crawl while weightless, but not while flying on
+        jetpack.
+    - type: Add
+      message: Bullets will hit laying targets if they are moving fast enough.
+    - type: Fix
+      message: People will now always drop items when paralyzed or critted.
+  id: 336
+  time: '2024-12-09T14:30:39.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Add
+      message: Added a medical cartridge autoinjector.
+    - type: Tweak
+      message: Cartridge autoinjectors now have a 30 second cooldown.
+    - type: Tweak
+      message: EMT belts now contain a tourniquet and medical cartridge autoinjector.
+    - type: Tweak
+      message: >-
+        Medical vendors now contain six tourniquets and two medical cartridge
+        autoinjectors.
+    - type: Tweak
+      message: >-
+        Ichor is no longer printable at an emagged autolathe, in its place is
+        puncturase cartridges.
+    - type: Fix
+      message: Tourniquets can now go inside medical belts.
+  id: 337
+  time: '2024-12-09T14:33:17.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Changeling headslugs can now crawl under tables and doors
+  id: 338
+  time: '2024-12-09T14:36:57.0000000+00:00'
+- author: soup123
+  changes:
+    - type: Tweak
+      message: You can now get the Gentle and Jensen coats from your local Winterdrobe.
+    - type: Tweak
+      message: >-
+        Winterdrobes can now dispense the ultimate Space Asshole coat whenever
+        it's emagged.
+  id: 339
+  time: '2024-12-09T14:40:37.0000000+00:00'
+- author: BombasterDS
+  changes:
+    - type: Remove
+      message: Removed bluespace crystal craft from protolathe.
+  id: 340
+  time: '2024-12-09T16:45:46.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: Added IPCs as a playable species.
+    - type: Fix
+      message: >-
+        Not a bugfix, but a warning, Surgery hasn't had anything coded in for
+        silicons, so you'll still have to "clamp bleeders" and use normal
+        surgical tools on them, will fix in around 2 weeks, have fun :trollface:
+  id: 341
+  time: '2024-12-09T19:10:32.0000000+00:00'
+- author: router
+  changes:
+    - type: Fix
+      message: Unfucked ALL IPC and some Harpy/Moth emotes
+  id: 342
+  time: '2024-12-10T17:57:26.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: IPCs can no longer be changelings and initial infected.
+    - type: Add
+      message: IPCs can be flashed now.
+    - type: Fix
+      message: IPCs can now enter cryostorage.
+    - type: Fix
+      message: IPCs can now heal ion damage using cables.
+    - type: Fix
+      message: You can now see IPC status icons.
+  id: 343
+  time: '2024-12-10T23:30:01.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cave expeditions having no ore or enemies.
+  id: 344
+  time: '2024-12-11T02:25:04.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: >-
+        Pacifists can now throw things with liquids in them, shoot syringe guns
+        and disablers
+  id: 345
+  time: '2024-12-11T22:04:11.0000000+00:00'
+- author: Tonk
+  changes:
+    - type: Add
+      message: Chemvend now contains two bottles of lead when emagged.
+    - type: Tweak
+      message: Steel now gives "7u Iron, 2u carbon, 1u Lead" when grinded.
+  id: 346
+  time: '2024-12-11T22:12:20.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Add BZ
+    - type: Add
+      message: Add Healium
+    - type: Add
+      message: Add Nitrium
+  id: 347
+  time: '2024-12-11T22:41:29.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a few more features to organs from Goliaths, Space Cobras, Laser
+        Raptors and Space Dragons.
+    - type: Add
+      message: Nukie doctors now start with an EVIL medical omnitool.
+    - type: Add
+      message: >-
+        The lobotomy procedure makes the target clumsy like the clown. This
+        makes them bonk when climbing tables and makes guns they're shooting
+        blow up on their face.
+    - type: Fix
+      message: >-
+        Enabled the "Mend brain tissue" surgical procedure on a lobotomized
+        target.
+    - type: Fix
+      message: >-
+        The lobotomized effect is now stored in the brain instead of the body.
+        The same brain stays lobotomized throughout brain transplants, and
+        transferring a normal brain to a body where a lobotomy occurred no
+        longer applies the lobotomized effect.
+    - type: Fix
+      message: >-
+        The lobotomy procedure now shows the proper popup during the
+        lobotomization step.
+    - type: Fix
+      message: Removed the ability to perform lobotomies on bodies without a brain.
+    - type: Fix
+      message: >-
+        The "Remove organ" surgery step on the UI now properly shows the
+        retractor sprite instead of the hemostat.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds now have full body parts and can take damage from
+        them. Naturally they are also valid for surgery.
+    - type: Tweak
+      message: >-
+        Monkeys and kobolds can now wear backpacks, glasses, gloves, and have
+        pockets! (if someone fixes their displacement maps/sprites im happy to
+        make em a playable species)
+  id: 348
+  time: '2024-12-11T22:46:28.0000000+00:00'
+- author: TheNeonViking
+  changes:
+    - type: Add
+      message: >-
+        Added Max Sentencing time column to the Crime list in guidebook. Added
+        preface sections about Accessory, Attempting, and Intention as well as
+        Stackable Crimes to Crime list page.
+  id: 349
+  time: '2024-12-11T22:47:01.0000000+00:00'
+- author: Tonk-GCR
+  changes:
+    - type: Add
+      message: >-
+        Added the Maxim Hardsuit, Mining Hardsuit, Clarke Mech, Retro Laser,
+        Medtek Cartridges, drills, plasteel and plasma glass to the vgroid.
+    - type: Tweak
+      message: >-
+        Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
+        increased piercing resistance to 70%, and added a 25% movement debuff.
+  id: 350
+  time: '2024-12-11T22:48:03.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Tweak
+      message: >-
+        Phlogiston now has a priority of 20, which makes it's reaction take
+        place before foams and smokes :feelsgood:
+  id: 351
+  time: '2024-12-11T22:51:12.0000000+00:00'
+- author: a-person5660
+  changes:
+    - type: Tweak
+      message: The Burner assault rifle now has 45 damage as god intended.
+    - type: Tweak
+      message: >-
+        The Burner assualt rifle now has 15 round mags and you can buy more in
+        the uplink.
+  id: 352
+  time: '2024-12-11T22:55:29.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Add
+      message: The little salv roundstart asteroids in space are back.
+  id: 353
+  time: '2024-12-12T21:03:28.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        A lot of uplink changes, prices for ammo and some items reduced, some
+        items added, some items tweaked.
+    - type: Add
+      message: >-
+        Now mags and ammo for most syndicate guns are printable at emagged
+        lathes.
+  id: 354
+  time: '2024-12-12T21:08:04.0000000+00:00'
+- author: Yakub
+  changes:
+    - type: Tweak
+      message: Engineering goggles are renamed to meson goggles.
+    - type: Tweak
+      message: >-
+        Combat gloves, combat boots, jackboots, and mesons are no longer
+        contraband.
+    - type: Tweak
+      message: Spears fit in backpacks now.
+    - type: Tweak
+      message: Mini jetpacks are actually smaller than jetpacks in inventory now.
+  id: 355
+  time: '2024-12-13T19:59:33.0000000+00:00'
+- author: President
+  changes:
+    - type: Add
+      message: >-
+        Felinids Being Jolly and Eating a Nice Christmas Dinner with the
+        Gingerbread People
+  id: 356
+  time: '2024-12-13T20:11:07.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: Tiders now have a intrinsic hivemind radio channel. Access it with ":i"
+  id: 357
+  time: '2024-12-13T21:51:31.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Eshield now doesn't break. Instead, it discharges. Hp reduced: 100 ->
+        20. Recharges 2 hp per second. When it is fully discharged, it is
+        unusable until it recharges. It takes 15 seconds to recharge after it is
+        fully discharged. Shield gets damaged when it reflects lasers though,
+        but has 50% heat resistance. Can be EMPd now. Can now be purchased from
+        traitor uplink, cost reduced: 40 -> 15.
+    - type: Fix
+      message: Toggleable shields can't block damage while toggled off.
+  id: 358
+  time: '2024-12-13T21:53:49.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: BS crystals are now way easier to obtain.
+  id: 359
+  time: '2024-12-13T21:57:19.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Tweak
+      message: You can no longer unanchor flaps.
+  id: 360
+  time: '2024-12-13T22:44:00.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Ipcs heal faster now.
+  id: 361
+  time: '2024-12-14T18:42:35.0000000+00:00'
+- author: fishbait
+  changes:
+    - type: Tweak
+      message: IPC no longer sounds like a empty c20
+  id: 362
+  time: '2024-12-14T18:46:16.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: Tiders are now clumsy.
+    - type: Add
+      message: Tiders now randomly gib during the round.
+    - type: Remove
+      message: Remove maints access from tiders.
+  id: 363
+  time: '2024-12-14T18:50:11.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Remove
+      message: Removed fun.
+  id: 364
+  time: '2024-12-14T20:29:49.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Add
+      message: >-
+        NEW NUKIE SHUTTLE!!! NEW NUKIE SHUTTLE!!!! ITS OVER FOR YOU SALVBROS!!!
+        NO LONGER WILL YOU STEAL THE SHUTTLE WITH A SINGLE SEISMIC CHARGE!!
+  id: 365
+  time: '2024-12-16T18:20:34.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Fix
+      message: Fixed rules.
+  id: 366
+  time: '2024-12-17T15:39:20.0000000+00:00'
+- author: Speebr0
+  changes:
+    - type: Add
+      message: >-
+        Fentanyl, a new drug for chemists to create! If you do drugs, you go to
+        hell before you die!
+  id: 367
+  time: '2024-12-17T22:01:10.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: You may now choose how many items to split from a stack.
+  id: 368
+  time: '2024-12-17T22:07:29.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Added evasion to part targeting
+    - type: Add
+      message: New fleshmend and panacea chems for lings
+    - type: Add
+      message: BSC can be made again
+    - type: Fix
+      message: fix implant misinformation
+    - type: Fix
+      message: >-
+        Fixed mech battery drain from being EMP'd not being visible in the
+        status menu
+    - type: Tweak
+      message: Adjusted most mech weapons' fire rates and energy consumption.
+    - type: Tweak
+      message: Infused blades hardstun on grab
+    - type: Tweak
+      message: Goliaths stun for 3 seconds less
+    - type: Tweak
+      message: Removed most bundles from uplink and replaced them with individual guns
+    - type: Tweak
+      message: Energy swords now easily delimb
+    - type: Tweak
+      message: change a few minor uplink prices
+    - type: Tweak
+      message: reduce northstar stam cost
+    - type: Tweak
+      message: funny toy sword sprite
+    - type: Tweak
+      message: edagger more quiet
+    - type: Tweak
+      message: Fireaxe hits harder, slower, costs more stam, and does more firestacks.
+    - type: Tweak
+      message: disposable turret fires faster, has less ammo, and more HP
+    - type: Tweak
+      message: Many heretic and ling abilities can be done while cuffed
+    - type: Tweak
+      message: less ling armor slowdown
+    - type: Tweak
+      message: armblade does VERY little damage and is now a delimbing based weapon
+    - type: Tweak
+      message: plasma rifle blows up less
+    - type: Tweak
+      message: plasma cutter deals stam damage
+    - type: Tweak
+      message: buff priest ritual
+  id: 369
+  time: '2024-12-17T22:09:24.0000000+00:00'
+- author: BIGZi0348
+  changes:
+    - type: Tweak
+      message: Reflective vest now reflects lasers only while equipped.
+    - type: Tweak
+      message: Energy katana now reflects lasers and projectiles only while in hands.
+  id: 370
+  time: '2024-12-17T22:14:24.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Steathsuit stops working when in crit
+    - type: Tweak
+      message: Nuclear Oprative icon is visable when in stealth
+  id: 371
+  time: '2024-12-17T22:41:17.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed IPC glasses slot being in the wrong place. Glasses go on your
+        face, silly.
+  id: 372
+  time: '2024-12-17T22:42:47.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Now tiles, firelocks and unpowered doors are pried instantly using a
+        tool.
+  id: 373
+  time: '2024-12-17T22:46:12.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Nitrosyl Plasmide
+    - type: Tweak
+      message: Modified Nitrium, Healium, N2O and BZ effects
+  id: 374
+  time: '2024-12-17T22:49:07.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added Rapid Piping Device
+  id: 375
+  time: '2024-12-17T22:56:29.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Fix
+      message: fixed some stuff i forgor on new nukeops shuttle
+  id: 376
+  time: '2024-12-18T01:48:56.0000000+00:00'
+- author: lanse12
+  changes:
+    - type: Tweak
+      message: Hacked youtool now contains toolbelts.
+  id: 377
+  time: '2024-12-18T01:54:11.0000000+00:00'
+- author: VigersRay Roudenn Rxup
+  changes:
+    - type: Add
+      message: Blob added
+  id: 378
+  time: '2024-12-18T02:00:19.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: Telebaton for command.
+    - type: Add
+      message: Contractor baton for traitors.
+    - type: Add
+      message: Captain now has n1984 pistol.
+    - type: Tweak
+      message: N1984 accuracy buffed.
+    - type: Add
+      message: Bso now has atreides.
+    - type: Tweak
+      message: Atreides accuracy nerfed.
+    - type: Tweak
+      message: 'Mateba firerate increased: 3 -> 5.'
+  id: 379
+  time: '2024-12-18T02:01:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed blob never spawning.
+  id: 380
+  time: '2024-12-19T15:27:44.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: All playable species can now wriggle free from being carried.
+  id: 381
+  time: '2024-12-19T15:29:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed ERP, once and for all.
+  id: 382
+  time: '2024-12-20T01:15:21.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: Enabled blob gamemode.
+  id: 383
+  time: '2024-12-20T01:49:31.0000000+00:00'
+- author: AW-FulCode
+  changes:
+    - type: Fix
+      message: Yowies can now breathe easy. Literally.
+  id: 384
+  time: '2024-12-20T14:38:03.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Add
+      message: IPC thiefs have a new objective to collect power cells
+  id: 385
+  time: '2024-12-20T14:42:44.0000000+00:00'
+- author: Gubu zhan quwei yufang xiaozu
+  changes:
+    - type: Remove
+      message: Lequ, 1984 weiquan zhuyi hao wu quwei Admin is Pig taoyan lequ
+  id: 386
+  time: '2024-12-21T21:01:42.0000000+00:00'
+- author: whateverusername0
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+    - type: Add
+      message: Added borders to changeling's abilities.
+  id: 387
+  time: '2024-12-21T22:14:18.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Tweak
+      message: Every time shooting a plasma rifle you will roll 1d20.
+  id: 388
+  time: '2024-12-23T14:15:10.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed not being able to throw felenids...
+  id: 389
+  time: '2024-12-23T14:17:49.0000000+00:00'
+- author: gluesniffler
+  changes:
+    - type: Add
+      message: >-
+        Added a CVAR that lets server operators decide if players should be able
+        to use mech guns without them being inside of a mech. Set to true by
+        default.
+    - type: Tweak
+      message: Reworked IPC fire mechanics to not round remove them from a tiny fire.
+    - type: Tweak
+      message: IPCs cannot be picked as impersonation objectives for Changelings
+    - type: Tweak
+      message: IPCs cannot be cloned now.
+    - type: Tweak
+      message: Entity hands get blocked when they are inside of a mech now.
+    - type: Tweak
+      message: 'Mech punches or mech drills cannot be wideswung. '
+    - type: Tweak
+      message: The mech PKA now consumes basically no energy.
+    - type: Fix
+      message: IPCs are finally not 3x more flammable than a plasmaman.
+    - type: Fix
+      message: >-
+        Fixed scram implants breaking your character if you use them inside of a
+        mech.
+    - type: Fix
+      message: Fixed EMPs completely bricking mech weapons.
+    - type: Fix
+      message: >-
+        Fixed IPC welding heals not checking if the targeted part is also
+        damaged.
+  id: 390
+  time: '2024-12-23T14:19:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        EMP implanter energy drain heavily reduced, but it still disables energy
+        weapons for 10 seconds.
+    - type: Add
+      message: IPCs and borgs are now stunned when affected by EMP.
+    - type: Add
+      message: Eswords can be EMPd now.
+    - type: Tweak
+      message: Removed atreides from bso, replaced it with mk58.
+    - type: Tweak
+      message: Bso now has security survival box.
+    - type: Tweak
+      message: Energy pen is not as good at delimbing anymore.
+  id: 391
+  time: '2024-12-23T14:28:56.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Wheelchair bound people can no longer stand up.
+    - type: Tweak
+      message: Only head can evade now.
+    - type: Tweak
+      message: People with at least 1 broken leg can't stand up.
+    - type: Fix
+      message: Fix evasion popups appearing when they shouldn't.
+    - type: Fix
+      message: >-
+        Mobs always target torso now, so the person being hit by them can't
+        evade.
+  id: 392
+  time: '2024-12-23T14:27:41.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: You now get 5 presents instead of just one. Rejoice.
+  id: 393
+  time: '2024-12-24T15:55:13.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Add
+      message: Added sprites for /tg/ gases
+  id: 394
+  time: '2024-12-24T16:08:33.0000000+00:00'
+- author: goob lord dynamic fixer shi john stun
+  changes:
+    - type: Fix
+      message: Fixed dynamic.
+  id: 395
+  time: '2024-12-24T16:11:16.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix absurd amount of roundstart antags being selected.
+  id: 396
+  time: '2024-12-25T20:42:35.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Remove
+      message: Removed pirasmas, it's so over.
+  id: 397
+  time: '2024-12-27T01:10:25.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Tweak
+      message: Incendiary rounds now ignite twice as much, but do less direct damage.
+  id: 398
+  time: '2024-12-27T18:22:54.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: Medical pathes can be stored in medical belts.
+  id: 399
+  time: '2024-12-27T18:23:30.0000000+00:00'
+- author: Archylle
+  changes:
+    - type: Add
+      message: Added mining hardsuits to salvage roundstart
+    - type: Add
+      message: Added the spationaut suits to the salvage vendor
+    - type: Add
+      message: 'Added Leviathings and Founders to the VGRoid '
+    - type: Add
+      message: Added a new craftable cloak, the goliath cloak
+    - type: Remove
+      message: Removed spationaut suits from salvage round start
+    - type: Tweak
+      message: Increased the PKA's fire-rate and cooldown
+    - type: Tweak
+      message: maxim has been nerfed in pierce and buffed in blunt.
+    - type: Tweak
+      message: mining hardsuit has been nerfed.
+  id: 400
+  time: '2024-12-27T18:25:10.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Add
+      message: LootBugs.
+  id: 401
+  time: '2024-12-27T18:28:34.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Fix
+      message: Fixed Gingerbread not taking damage from being splashed with water
+  id: 402
+  time: '2024-12-27T18:37:22.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix goob coins not being saved on server shutdown.
+  id: 403
+  time: '2024-12-28T16:31:27.0000000+00:00'
+- author: marc-pelletier
+  changes:
+    - type: Tweak
+      message: Added poison damage to nitrosyl plasmide
+    - type: Fix
+      message: Fixed BZ rainbow effects
+  id: 404
+  time: '2024-12-28T16:38:05.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Tweak
+      message: >-
+        Reduced nukie amount. Nukies still get a lot of tc for war declaration
+        on high pop.
+  id: 405
+  time: '2024-12-28T16:58:16.0000000+00:00'
+- author: Lumminal
+  changes:
+    - type: Add
+      message: Ore Bags can now be printed in the autolathe.
+  id: 406
+  time: '2024-12-28T18:00:18.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Literally nothing.
+  id: 407
+  time: '2024-12-29T16:39:45.0000000+00:00'
+- author: RadsammyT
+  changes:
+    - type: Add
+      message: >-
+        Added Playing Cards. You may get them from the Games Vendor or as a
+        trinket in your loadout.
+  id: 408
+  time: '2024-12-29T18:40:06.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: The maximum ling count has been decreased from 7 to 4.
+  id: 409
+  time: '2024-12-30T01:02:04.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Now emagging evac shuttle console has a 10 second do-after.
+    - type: Tweak
+      message: You can't unanchor evac shuttle thrusters anymore.
+  id: 410
+  time: '2024-12-30T14:12:24.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Possible fix for nuke ops rule spawning a lot of nukie ghost roles.
+  id: 411
+  time: '2024-12-30T18:19:55.0000000+00:00'
+- author: MilonPL
+  changes:
+    - type: Add
+      message: Added PDA messaging!
+  id: 412
+  time: '2024-12-31T00:33:20.0000000+00:00'
+- author: ScyronX
+  changes:
+    - type: Add
+      message: >-
+        Added dualetta, a weapon that can only be fired when dual wielded with
+        another dualetta.
+  id: 413
+  time: '2024-12-31T03:08:57.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed borgs not being able to target limbs.
+  id: 414
+  time: '2024-12-31T03:09:59.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Standard Operating Procedure is here!
+  id: 415
+  time: '2024-12-31T22:58:50.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: >-
+        Added 'FullAdmin' Permissions to give 'Self' and 'Entities' permissions
+        to Game Admins and higher.
+  id: 416
+  time: '2024-12-31T23:02:55.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the Maoist accent.
+    - type: Tweak
+      message: >-
+        The Autodoc is now in Chinese. From now on it's known as the Glorious
+        People's Revolutionary Automated Surgery Machine.
+  id: 417
+  time: '2025-01-02T22:57:46.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Medical jobs are now much faster at surgery.
+  id: 418
+  time: '2025-01-02T22:59:39.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Mousetraps now damage the feet specifically.
+  id: 419
+  time: '2025-01-02T23:43:37.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added new song "The Future Soon" by Jonathan Coulton to the lobby music
+        and jukebox
+  id: 420
+  time: '2025-01-03T03:54:40.0000000+00:00'
+- author: Aidenkrz
+  changes:
+    - type: Add
+      message: >-
+        Added the Annie, a stronger variant of the AKMS for ERT, its pretty
+        strong and goes THOCK.
+    - type: Add
+      message: >-
+        Added the WSPR, a stronger variant of the AKMS for the Syndicate,
+        intended as an in-between for the M90 and Burner.
+    - type: Add
+      message: >-
+        Subsonic .30 bullets, they do less damage than their traditional
+        counterpart but are cheaper and have a slightly larger magazine size.
+  id: 421
+  time: '2025-01-03T15:44:29.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Remove
+      message: Eswords can no longer be EMPd.
+    - type: Add
+      message: Eswords will block bolas, spears, syringes, pies and similar stuff.
+  id: 422
+  time: '2025-01-03T15:55:47.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Add
+      message: >-
+        Modsuits can be reseached as T1 experimental technology. Modules not
+        implemented yet.
+  id: 423
+  time: '2025-01-05T01:41:36.0000000+00:00'
+- author: yglop
+  changes:
+    - type: Fix
+      message: Heretic who chose path of blade will not be able to shoot.
+    - type: Fix
+      message: >-
+        Heretic blade path Realignment spell will apply pacified effect on the
+        user.
+  id: 424
+  time: '2025-01-05T01:42:50.0000000+00:00'
+- author: BombasterDS2
+  changes:
+    - type: Tweak
+      message: Updated BSO equipment and loadout
+  id: 425
+  time: '2025-01-05T01:46:32.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ghost roles such as ninja, lone operative, ert and deathsquad can only
+        be human.
+    - type: Add
+      message: Blob antag rolls before jobs now.
+    - type: Fix
+      message: Blob doesn't die to flashes anymore.
+    - type: Fix
+      message: Slime and gingerbread people now die to ling absorbing.
+  id: 426
+  time: '2025-01-05T01:50:06.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Tweak
+      message: The nuke and nuke disk are now immune to Supermatter.
+  id: 427
+  time: '2025-01-05T01:59:42.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: >-
+        Guidebook reagent entries now properly tell you if their effects
+        accumulate or not
+  id: 428
+  time: '2025-01-05T02:07:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix syringe guns not working.
+  id: 429
+  time: '2025-01-06T21:31:04.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: 'Added a Brigging Guideline: DON''T REMOVE IPC BATTERIES YOU NUMBNUTS!'
+  id: 430
+  time: '2025-01-06T21:42:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Closet freezers now have 99% explosive resistance, which lets them
+        survive nukes.
+  id: 431
+  time: '2025-01-06T22:03:52.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Dwarfs now need less alcohol to start healing, but will heal slower.
+  id: 432
+  time: '2025-01-06T22:08:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: The server now notifies everyone if you had rage quit the game.
+  id: 433
+  time: '2025-01-06T22:13:18.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Nothing ever happens. I'm betting all in.
+  id: 434
+  time: '2025-01-06T22:17:38.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Increased the default threshold for a ragequit to 30 seconds from 5.
+  id: 435
+  time: '2025-01-06T22:51:37.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the map Submarine from Einstein Engines!
+  id: 436
+  time: '2025-01-07T02:28:19.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Yowies can now wear softsuits at a massive penalty. Yow(ch)!
+  id: 437
+  time: '2025-01-07T14:47:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new lawset, Zooimov. It can randomly occur via ion storm, or can
+        be bought by syndicate zookeepers.
+  id: 438
+  time: '2025-01-07T14:48:43.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Tweaked SOP on executions
+  id: 439
+  time: '2025-01-07T14:49:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed all sharp objects not being usable for ghetto surgery.
+  id: 440
+  time: '2025-01-07T15:44:13.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: New species, Resomi!
+    - type: Tweak
+      message: >-
+        Resomi can tolerate much colder temperatures before taking damage, but
+        can't tolerate much heat as a consequence.
+    - type: Tweak
+      message: Resomi can move faster in Zero-G, on account of their wings.
+    - type: Tweak
+      message: >-
+        Like the other animal-type species, Resomi can digest uncooked animal
+        proteins, but get poisoned by theobromine. No coffee for you.
+  id: 441
+  time: '2025-01-07T15:53:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added Warden's Headset.
+    - type: Tweak
+      message: Warden's locker now starts with a multitool.
+  id: 442
+  time: '2025-01-08T14:42:13.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Severed harpy limbs are no longer invisible. Wings are still weird
+        sadly.
+  id: 443
+  time: '2025-01-08T14:46:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Making bluespace crystals doubles the value of the materials instead of
+        50xing the value
+  id: 444
+  time: '2025-01-08T14:47:08.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed all the Winter Coats storage being inaccessible. Now you can take
+        things back out that you stored inside.
+  id: 445
+  time: '2025-01-08T14:49:00.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Early Evacuation Procedures to SOP.
+    - type: Add
+      message: Added clarification for how Alert Levels are treated in SOP.
+  id: 446
+  time: '2025-01-08T16:41:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Changeling ability to recover chemicals from food items.
+  id: 447
+  time: '2025-01-09T17:38:36.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Repalleted the HoS and HoP cloaks to fit in better with their jumpsuits.
+  id: 448
+  time: '2025-01-09T17:40:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cloning not transferring you to the new body when you accept it.
+  id: 449
+  time: '2025-01-09T18:00:58.0000000+00:00'
+- author: Piras314 & mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added two songs to blob, one plays when the blob is announced/detected
+        and the other plays when the blob is critical!
+  id: 450
+  time: '2025-01-09T19:22:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 451
+  time: '2025-01-09T20:14:36.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Fix
+      message: Fixed the changelog bot messing up the changelog order and ID
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 452
+  time: '2025-01-09T20:22:48.0000000+00:00'
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added more markings for Lizards / Reptilians
+    - type: Remove
+      message: Removed Lizards / Reptilians only being able to eat fruit / meat
+    - type: Tweak
+      message: >-
+        Lizard / Reptilian horn markings can now be any colour instead of just
+        black
+    - type: Tweak
+      message: >-
+        Changed the appearance of Lizards / Reptilians. They now have funky
+        legs.
+  id: 453
+  time: '2025-01-09T21:18:19.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: ragequit messages can now be sent to a discord webhook
+  id: 454
+  time: '2025-01-10T14:28:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ashen passage now deals heat damage to the user on activation. Ashen
+        path heretics receive less damage from this, the higher their path stage
+        is, the lower the damage will be. Flesh stalkers and raw prophets will
+        not take damage when jaunting 
+  id: 455
+  time: '2025-01-11T14:09:57.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Ashen Jaunt won't let you use it if it would crit you.
+  id: 456
+  time: '2025-01-11T16:40:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added 2 new ling melee weapons: arm hammer and arm claw.'
+    - type: Add
+      message: Added ling dart gun, able to sting at range.
+    - type: Add
+      message: People without legs can't break out of grabs anymore.
+    - type: Tweak
+      message: Armblade damage is now 15 slash, it delimbs roughly the same as before.
+    - type: Tweak
+      message: Ling stings are now cheaper but inject less reagents.
+    - type: Tweak
+      message: Cryo sting doesn't inject chloral hydrate anymore.
+    - type: Tweak
+      message: >-
+        Lethargic sting doesn't inject mute toxin but slowly drains victim's
+        stamina. 
+    - type: Tweak
+      message: Toggling of ling equipment doesn't cost any chemicals anymore.
+  id: 457
+  time: '2025-01-11T17:14:38.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: Replaced "Clearly Nuclear" with the new version, "Blatantly Nuclear"!
+  id: 458
+  time: '2025-01-11T17:21:57.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: >-
+        Fix resomi and bananamen receiving do-after modifier buff from their
+        hands.
+    - type: Tweak
+      message: >-
+        Dwarves no longer have faster do-afters like humans but instead they are
+        not poisoned by ethanol and heal twice as much by metabolizing it.
+  id: 459
+  time: '2025-01-11T20:02:43.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: >-
+        Janitors now have unique airlocks to help them find their closet; and
+        tiders to find their galoshes.
+  id: 460
+  time: '2025-01-11T20:03:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 461
+  time: '2025-01-11T20:11:55.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added Honkops, nukeops, but HONK! They even have their own HONKing
+        amazing nuke song, Opposing Nuke by mrjajkes!
+  id: 462
+  time: '2025-01-11T22:27:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Credits are now displayed for lobby backgrounds, similar and next to
+        credits for lobby music/songs.
+    - type: Add
+      message: Added a new lobby background, Greytide Worldwide by Piras314
+    - type: Remove
+      message: Removed a bunch of old low-quality lobby backgrounds.
+    - type: Fix
+      message: >-
+        Fixed some pixel art lobby backgrounds being 1080p with filter instead
+        of being downscaled without filter. They should look a lot better now.
+    - type: Fix
+      message: Fixed QCQM lobby backgrounds not showing up.
+    - type: Fix
+      message: Fixed some broken/missing attributions for lobby backgrounds.
+  id: 463
+  time: '2025-01-12T19:28:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Warden now spawns with their unique headset equipped.
+  id: 464
+  time: '2025-01-13T02:24:58.0000000+00:00'
+- author: Foralemes
+  changes:
+    - type: Tweak
+      message: >-
+        Adds a chemical payload and the timer trigger to the syndicate chemical
+        synthesis kit
+  id: 465
+  time: '2025-01-13T16:07:39.0000000+00:00'
+- author: Ichai
+  changes:
+    - type: Add
+      message: Added Lambda Station
+  id: 466
+  time: '2025-01-13T16:11:14.0000000+00:00'
+- author: MortalBaguette
+  changes:
+    - type: Fix
+      message: The Chester rifle now correctly shows as CentComm contraband.
+  id: 467
+  time: '2025-01-13T16:12:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 60% -> 90%.
+    - type: Tweak
+      message: Hardlight bow x-ray arrows will no longer penetrate blob tiles.
+    - type: Fix
+      message: Emitter bolts now properly reflect as energy projectiles.
+  id: 468
+  time: '2025-01-13T16:18:39.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: >-
+        Nigthwatcher's rebirth only engulfs people that are already ignited,
+        like intended.
+  id: 469
+  time: '2025-01-13T16:17:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Putting mice on your head will no longer give you free night vision.
+  id: 470
+  time: '2025-01-14T15:15:23.0000000+00:00'
+- author: Mocho, Darkrell, Rinary1, Landosaur
+  changes:
+    - type: Add
+      message: >-
+        Voople xop narp gleeple xop verp narple xip "abductor sightings" gleeple
+        narple xip voop.
+    - type: Add
+      message: >-
+        Voople narp narp "superior organ" gleeple narple "side effects" glimp
+        xop voople narp.
+    - type: Add
+      message: >-
+        Voople glimple xop "mental crashout" verle gleep narple xoop vop "feral
+        tiders" glip verple xop narp.
+    - type: Tweak
+      message: >-
+        Advanced surgical tools now need to be toggled between one of two modes
+        at a time. The medical omnitool remains unchanged.
+  id: 471
+  time: '2025-01-15T01:55:17.0000000+00:00'
+- author: Piras314, deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked vent critters, now after a 30 second delay all the mobs spawn
+        from 1 vent from the announcement.
+  id: 472
+  time: '2025-01-15T14:49:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Fixed air alarms being bad.
+  id: 473
+  time: '2025-01-15T14:50:36.0000000+00:00'
+- author: Piras314, asardonicsailor
+  changes:
+    - type: Add
+      message: 'Added a new lobby background: Tider Activities by asardonicsailor'
+  id: 474
+  time: '2025-01-15T14:51:32.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: All CentComm cards/roles now have NTR and BSO access aswell.
+  id: 475
+  time: '2025-01-15T14:53:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed some lobby screen credits
+  id: 476
+  time: '2025-01-15T20:13:21.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: HoS and Warden armored coat palletes updated.
+  id: 477
+  time: '2025-01-17T21:29:38.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Blob is now Gloob
+  id: 478
+  time: '2025-01-18T02:28:15.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Tweak
+      message: >-
+        The Abductor now speaks in a near-incomprehensible Glorp accent! But it
+        appears he has picked up on a few colloquial words... Xarple Voople Zip
+        Gnarp!
+  id: 479
+  time: '2025-01-19T15:59:02.0000000+00:00'
+- author: Durk, Piras314
+  changes:
+    - type: Add
+      message: Added Patreon Perks!
+  id: 480
+  time: '2025-01-20T02:50:59.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Fixed harpy arms (not the wings) showing through any piece of clothing,
+        including hardsuits.
+  id: 481
+  time: '2025-01-20T16:34:56.0000000+00:00'
+- author: MJ Sailor
+  changes:
+    - type: Fix
+      message: Nightwatcher's rebirth now won't delimb or gib you.
+    - type: Fix
+      message: Fixed ritual of knowledge stealing your clothes and organs.
+  id: 482
+  time: '2025-01-20T17:12:41.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Ratking has Nightvision
+    - type: Tweak
+      message: >-
+        Ratking's and their servants' thick fur are now (mostly) insulated
+        against electricity
+  id: 483
+  time: '2025-01-23T03:50:45.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: SM no longer removes gases for no reason during normal operation
+  id: 484
+  time: '2025-01-23T04:09:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Increased speed of elite syndicate suit by 11%
+  id: 485
+  time: '2025-01-25T12:14:18.0000000+00:00'

@@ -27,7 +27,7 @@ entities:
       name: NT Evac Lox
     - type: Transform
       pos: 2.2710133,-2.4148211
-      parent: invalid
+
     - type: MapGrid
       chunks:
         -1,0:
@@ -3922,7 +3922,7 @@ entities:
     - type: Transform
       pos: -0.5,15.5
       parent: 670
-- proto: Thruster
+- proto: ThrusterShuttleEvac # Goob edit
   entities:
   - uid: 61
     components:

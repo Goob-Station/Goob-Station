@@ -7,9 +7,9 @@ using Content.Shared.Light.Components;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using JetBrains.Annotations;
-using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Content.Shared.Materials;
 
 namespace Content.Server.Light.EntitySystems;
 
@@ -30,6 +30,7 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         SubscribeLocalEvent<LightReplacerComponent, ComponentInit>(OnInit);
         SubscribeLocalEvent<LightReplacerComponent, InteractUsingEvent>(HandleInteract);
         SubscribeLocalEvent<LightReplacerComponent, AfterInteractEvent>(HandleAfterInteract);
+        SubscribeLocalEvent<LightReplacerComponent, GotReclaimedEvent>(OnReclaim); // Goobstation - Reclaimer update
     }
 
     private void OnExamined(EntityUid uid, LightReplacerComponent component, ExaminedEvent args)
@@ -238,5 +239,11 @@ public sealed class LightReplacerSystem : SharedLightReplacerSystem
         }
 
         return insertedBulbs > 0;
+    }
+
+    // Goobstation - Reclaimer Update
+    public void OnReclaim(Entity<LightReplacerComponent> replacer, ref GotReclaimedEvent args)
+    {
+        _container.EmptyContainer(replacer.Comp.InsertedBulbs, destination: args.ReclaimerCoordinates);
     }
 }

@@ -15,7 +15,7 @@ entities:
     - type: MetaData
       name: NT Escape Pod
     - type: Transform
-      parent: invalid
+
     - type: ProtectedGrid
     - type: EscapePod
     - type: MapGrid

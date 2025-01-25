@@ -1,0 +1,162 @@
+﻿- type: alert
+  id: BlobResource
+  icons:
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point0
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point1
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point2
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point3
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point4
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point5
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point6
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point7
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point8
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point9
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point10
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point11
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point12
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point13
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point14
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point15
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point16
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point17
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point18
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point19
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point20
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point21
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point22
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point23
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point24
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point25
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point26
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point27
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point28
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point29
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point30
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point31
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point32
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point33
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point34
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point35
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point36
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point37
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point38
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point39
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point40
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point41
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point42
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point43
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point44
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point45
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point46
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point47
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point48
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point49
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point50
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_resource.rsi
+    state: point51
+  name: blob-resource-alert-name
+  description: blob-resource-alert-desc
+  minSeverity: 0
+  maxSeverity: 51
+
+- type: alert
+  id: BlobHealth
+  category: Health
+  icons:
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point0
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point1
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point2
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point3
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point4
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point5
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point6
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point7
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point8
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point9
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point10
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point11
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point12
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point13
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point14
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point15
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point16
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point17
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point18
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point19
+  - sprite: /Textures/_Goobstation/Blob/Interface/Alerts/blob_health.rsi
+    state: point20
+  name: blob-health-alert-name
+  description: blob-health-alert-desc
+  minSeverity: 0
+  maxSeverity: 20

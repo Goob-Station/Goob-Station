@@ -1,7 +1,7 @@
-﻿using Content.Client.Power.APC.UI;
+using Content.Client.Power.APC.UI;
+using Content.Shared.Access.Systems;
 using Content.Shared.APC;
 using JetBrains.Annotations;
-using Robust.Client.GameObjects;
 using Robust.Client.UserInterface;
 
 namespace Content.Client.Power.APC
@@ -22,6 +22,14 @@ namespace Content.Client.Power.APC
             _menu = this.CreateWindow<ApcMenu>();
             _menu.SetEntity(Owner);
             _menu.OnBreaker += BreakerPressed;
+
+            var hasAccess = false;
+            if (PlayerManager.LocalEntity != null)
+            {
+                var accessReader = EntMan.System<AccessReaderSystem>();
+                hasAccess = accessReader.IsAllowed((EntityUid)PlayerManager.LocalEntity, Owner);
+            }
+            _menu?.SetAccessEnabled(hasAccess);
         }
 
         protected override void UpdateState(BoundUserInterfaceState state)

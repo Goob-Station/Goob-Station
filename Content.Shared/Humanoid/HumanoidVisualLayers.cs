@@ -1,5 +1,4 @@
-﻿using Content.Shared.Humanoid.Markings;
-using Robust.Shared.Serialization;
+﻿using Robust.Shared.Serialization;
 
 namespace Content.Shared.Humanoid
 {
@@ -8,6 +7,7 @@ namespace Content.Shared.Humanoid
     {
         Special, // for the cat ears
         Tail,
+        Wings, // For IPC wings porting from SimpleStation
         Hair,
         FacialHair,
         Chest,

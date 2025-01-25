@@ -1,0 +1,85 @@
+- type: npcFaction
+  id: Blob
+  hostile:
+    - NanoTrasen
+    - Syndicate
+    - Xeno
+    - PetsNT
+    - Zombie
+    - Dragon
+    - Revolutionary
+    - Changeling
+    - Heretic
+
+- type: explosion
+  id: Blob
+  damagePerIntensity:
+    groups:
+      Brute: 10
+  tileBreakChance: [0]
+  tileBreakIntensity: [0]
+  lightColor: Red
+  texturePath: /Textures/Effects/fire.rsi
+  fireStates: 3
+
+- type: Tag
+  id: BlobMob
+
+- type: entity
+  parent: MobMouse
+  id: MobMouseBlob
+  suffix: Blob
+  components:
+  - type: BlobCarrier
+
+- type: entity
+  id: SpawnPointGhostBlobRat
+  name: Mouse Blob Spawn Point
+  suffix: Blob Ghost Role
+  parent: BaseAntagSpawner
+  components:
+    - type: GhostRoleMobSpawner
+      prototype: MobMouseBlob
+    - type: GhostRole
+      makeSentient: true
+      name: blob-carrier-role-name
+      description: blob-carrier-role-desc
+      rules: blob-carrier-role-rules
+      raffle:
+        settings: default
+    - type: Sprite
+      sprite: Markers/jobs.rsi
+      layers:
+        - state: green
+        - sprite: Mobs/Animals/bat.rsi
+          state: bat
+
+# Blob
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleBlob
+  name: Blob Role
+#  description: mind-role-blob-description
+  components:
+  - type: MindRole
+    antagPrototype: Blob
+    exclusiveAntag: true
+  - type: BlobRole
+
+- type: factionIcon
+  id: BlobFaction
+  priority: 10
+  showTo:
+    components:
+    - BlobCarrier
+    - BlobObserver
+    - ZombieBlob
+    - Blobbernaut
+  icon:
+    sprite: /Textures/_Goobstation/Blob/Interface/Misc/antag_icon.rsi
+    state: blob
+
+- type: currency
+  id: BlobPoint
+  displayName: store-currency-display-blob-points
+  canWithdraw: false

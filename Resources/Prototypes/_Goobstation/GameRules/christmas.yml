@@ -1,0 +1,5 @@
+- type: entity
+  id: ChristmasEventScheduler
+  parent: BaseGameRule
+  components:
+  - type: ChristmasEventScheduler

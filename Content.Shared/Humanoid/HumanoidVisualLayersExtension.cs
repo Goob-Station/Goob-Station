@@ -1,4 +1,3 @@
-using Content.Shared.Body.Components;
 using Content.Shared.Body.Part;
 
 namespace Content.Shared.Humanoid
@@ -61,8 +60,23 @@ namespace Content.Shared.Humanoid
                     break;
                 case HumanoidVisualLayers.Chest:
                     yield return HumanoidVisualLayers.Chest;
+                    yield return HumanoidVisualLayers.Wings; // for IPC wings port from SimpleStation
                     yield return HumanoidVisualLayers.Tail;
                     break;
+                // Shitmed Change Start
+                case HumanoidVisualLayers.LHand:
+                    yield return HumanoidVisualLayers.LHand;
+                    break;
+                case HumanoidVisualLayers.RHand:
+                    yield return HumanoidVisualLayers.RHand;
+                    break;
+                case HumanoidVisualLayers.LFoot:
+                    yield return HumanoidVisualLayers.LFoot;
+                    break;
+                case HumanoidVisualLayers.RFoot:
+                    yield return HumanoidVisualLayers.RFoot;
+                    break;
+                // Shitmed Change End
                 default:
                     yield break;
             }

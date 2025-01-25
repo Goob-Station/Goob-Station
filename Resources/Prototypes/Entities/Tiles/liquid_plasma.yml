@@ -13,6 +13,9 @@
     blacklist:
       tags:
       - Catwalk
+    triggerGroups: # Goobstation
+      types:
+      - Lava
   - type: TileEntityEffect
     effects:
     - !type:FlammableReaction

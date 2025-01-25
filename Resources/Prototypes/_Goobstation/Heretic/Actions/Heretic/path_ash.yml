@@ -11,6 +11,10 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashen_shift
     event: !type:EventHereticAshenShift
+      damage:
+        types:
+          Heat: 25
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-jaunt
@@ -28,6 +32,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: volcano_blast
     event: !type:EventHereticVolcanoBlast
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-volcano
@@ -45,6 +50,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: nightwatcher_rebirth
     event: !type:EventHereticNightwatcherRebirth
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-rebirth
@@ -62,6 +68,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashlord_rite1
     event: !type:EventHereticFlames
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-flame
@@ -79,6 +86,7 @@
       sprite: _Goobstation/Heretic/abilities_heretic.rsi
       state: ashlord_rite2
     event: !type:EventHereticCascade
+    checkCanInteract: false
   - type: HereticAction
     requireMagicItem: true
     messageLoc: heretic-speech-ash-cascade

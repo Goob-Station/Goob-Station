@@ -250,6 +250,8 @@
     whitelist:
       components:
       - BorgChassis
+      - Silicon # EE IPCs
+      - Inventory #Goobstation - Modsuits
   - type: Construction
     containers:
     - machine_parts

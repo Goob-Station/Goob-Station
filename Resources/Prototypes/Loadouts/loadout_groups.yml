@@ -7,6 +7,7 @@
   loadouts:
   - FlowerWreath
   - Hairflower
+  - Headphones
   - PlushieLizard
   - PlushieSpaceLizard
   - Lighter
@@ -27,6 +28,24 @@
   - ClothingNeckPansexualPin
   - ClothingNeckTransPin
   - ClothingNeckAutismPin
+  - CardBoxBlack # GoobStation
+  - CardBoxNanotrasen # GoobStation
+  - TowelColorBlack
+  - TowelColorDarkBlue
+  - TowelColorDarkGreen
+  - TowelColorGold
+  - TowelColorGray
+  - TowelColorGreen
+  - TowelColorLightBlue
+  - TowelColorLightBrown
+  - TowelColorMaroon
+  - TowelColorMime
+  - TowelColorOrange
+  - TowelColorPurple
+  - TowelColorRed
+  - TowelColorSilver
+  - TowelColorWhite
+  - TowelColorYellow
 
 - type: loadoutGroup
   id: Glasses
@@ -949,6 +968,7 @@
   loadouts:
   - HeadofSecurityCloak
   - HeadofSecurityMantle
+  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: HeadofSecurityOuterClothing
@@ -956,7 +976,6 @@
   loadouts:
   - HeadofSecurityCoat
   - HeadofSecurityWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: WardenHead
@@ -979,7 +998,6 @@
   loadouts:
   - WardenCoat
   - WardenArmoredWinterCoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityHead
@@ -987,6 +1005,7 @@
   minLimit: 0
   loadouts:
   - SecurityHelmet
+  - SecurityHelmetAlt # Goobstation
   - SecurityBeret
   - SecurityHat
   - TrooperHat
@@ -1025,7 +1044,6 @@
   - ArmorVest
   - ArmorVestSlim
   - SecurityOfficerWintercoat
-  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: SecurityShoes
@@ -1055,6 +1073,7 @@
   minLimit: 0
   loadouts:
   - DetectiveTie
+  - Bodycam # Goobstation - Body cameras
 
 - type: loadoutGroup
   id: DetectiveJumpsuit
@@ -1068,11 +1087,9 @@
 - type: loadoutGroup
   id: DetectiveOuterClothing
   name: loadout-group-detective-outerclothing
-  minLimit: 0
   loadouts:
   - DetectiveArmorVest
   - DetectiveCoat
-  - Bodycam # Goobstation - Body cameras
   - DetectiveCoatGrey
 
 - type: loadoutGroup

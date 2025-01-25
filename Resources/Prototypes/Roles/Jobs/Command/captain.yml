@@ -19,7 +19,6 @@
   weight: 20
   startingGear: CaptainGear
   icon: "JobIconCaptain"
-  requireAdminNotify: true
   joinNotifyCrew: true
   supervisors: job-supervisors-centcom
   canBeAntag: false
@@ -40,7 +39,10 @@
     gloves: ClothingHandsGlovesCaptain
     id: CaptainPDA
     ears: ClothingHeadsetAltCommand
+    pocket1: WeaponPistolN1984
   storage:
     back:
+    - MagazineMagnum
     - Flash
+    - TelescopicBaton # Goobstation
     # - StationCharter

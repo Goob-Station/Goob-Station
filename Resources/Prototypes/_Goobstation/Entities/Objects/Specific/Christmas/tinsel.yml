@@ -1,0 +1,343 @@
+# I couldn't figure out how randomsprite works so this mess was created!!!
+# Also pointlight masks were probably created by yakub or some shit to fuck with people holy god
+# Pointlight masks were coded in hell and sent up to us ong
+- type: entity
+  id: SpawnerChristmasTinselWhite
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+        state: base1
+  - type: RandomSpawner
+    offset: 0.0
+    prototypes:
+    - ChristmasTinselWhite1
+    - ChristmasTinselWhite2
+    - ChristmasTinselWhite3
+    - ChristmasTinselWhite4
+    - ChristmasTinselWhite5
+    - ChristmasTinselWhite6
+
+- type: entity
+  id: SpawnerChristmasTinselRed
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+        state: base1
+        color: "#ff7878"
+  - type: RandomSpawner
+    offset: 0.0
+    prototypes:
+    - ChristmasTinselRed1
+    - ChristmasTinselRed2
+    - ChristmasTinselRed3
+    - ChristmasTinselRed4
+    - ChristmasTinselRed5
+    - ChristmasTinselRed6
+
+- type: entity
+  id: SpawnerChristmasTinselBlue
+  parent: MarkerBase
+  components:
+  - type: Sprite
+    layers:
+      - state: green
+      - sprite: _Goobstation/Objects/Specific/Christmas/tinsel.rsi
+        state: base1
+        color: "#2A8FBD"
+  - type: RandomSpawner
+    offset: 0.0
+    prototypes:
+    - ChristmasTinselBlue1
+    - ChristmasTinselBlue2
+    - ChristmasTinselBlue3
+    - ChristmasTinselBlue4
+    - ChristmasTinselBlue5
+    - ChristmasTinselBlue6
+
+- type: entity
+  id: ChristmasTinselWhite1
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base1
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselWhite2
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base2
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselWhite3
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base3
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselWhite4
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base4
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselWhite5
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base5
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselWhite6
+  description: Some white tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base6
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed1
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base1
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed2
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base2
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed3
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base3
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed4
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base4
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed5
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base5
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselRed6
+  description: Some red tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base6
+        color: "#ff7878"
+      - state: sparkles
+  - type: PointLight
+    color: "#f9f375"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue1
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base1
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue2
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base2
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue3
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base3
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue4
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base4
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue5
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base5
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png
+
+- type: entity
+  id: ChristmasTinselBlue6
+  description: Some blue tinsel. It's a bit sparkly.
+  components:
+  - type: Sprite
+    sprite: "/Textures/_Goobstation/Objects/Specific/Christmas/tinsel.rsi"
+    layers:
+      - state: base6
+        color: "#2A8FBD"
+      - state: sparkles
+  - type: PointLight
+    color: "#61accf"
+    radius: 3
+    energy: 4
+    mask: /Textures/Effects/LightMasks/sparklemask.png

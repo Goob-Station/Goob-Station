@@ -9,13 +9,14 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-traitor-title
-    weight: 5
-    cost: 8
-    scalingCost: 9
+    weight: 7
+    cost: 4
+    scalingCost: 4
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ Traitor ]
-      max: 2
+      max: 1
       playerRatio: 10
       blacklist:
         components:
@@ -24,16 +25,16 @@
       mindRoles:
       - MindRoleTraitor
 
-# Thief (Spy wyci)
+# Thief (spy wyci)
 - type: entity
   parent: BaseGameRuleDynamic
   id: ThiefDynamic
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-thief-title
-    weight: 5
-    cost: 8
-    scalingCost: 9
+    weight: 4
+    cost: 4
+    scalingCost: 5
   - type: ThiefRule
   - type: AntagObjectives
     objectives:
@@ -47,11 +48,12 @@
       maxPicks: 10
     maxDifficulty: 2.5
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: thief-round-end-agent-name
     definitions:
     - prefRoles: [ Thief ]
-      max: 2
-      playerRatio: 15
+      max: 1
+      playerRatio: 25
       lateJoinAdditional: true
       allowNonHumans: true
       multiAntagSetting: NotExclusive
@@ -68,9 +70,9 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-changeling-title
-    weight: 3
-    cost: 16
-    scalingCost: 10
+    weight: 5
+    cost: 6
+    scalingCost: 6
   - type: ChangelingRule
   - type: GameRule
     minPlayers: 15
@@ -80,16 +82,15 @@
     - EscapeIdentityObjective
     - ChangelingSurviveObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: changeling-roundend-name
     definitions:
     - prefRoles: [ Changeling ]
-      max: 2
+      max: 1
       playerRatio: 10
       blacklist:
         components:
         - AntagImmune
-        - Traitor
-        - Heretic
       lateJoinAdditional: true
       mindRoles:
       - MindRoleChangeling
@@ -101,17 +102,23 @@
   components:
   - type: DynamicRuleset
     nameLoc: dynamic-gamerule-heretic-title
-    weight: 3
-    cost: 10
-    scalingCost: 9
+    weight: 5
+    cost: 6
+    scalingCost: 6
   - type: HereticRule
   - type: GameRule
     minPlayers: 20
+  - type: AntagObjectives
+    objectives:
+    - HereticKnowledgeObjective
+    - HereticSacrificeObjective
+    - HereticSacrificeHeadObjective
   - type: AntagSelection
+    selectionTime: BeforeJobs
     agentName: heretic-roundend-name
     definitions:
     - prefRoles: [ Heretic ]
-      max: 2
+      max: 1
       playerRatio: 15
       blacklist:
         components:
@@ -119,11 +126,7 @@
       lateJoinAdditional: true
       mindRoles:
       - MindRoleHeretic
-  - type: AntagObjectives
-    objectives:
-    - HereticKnowledgeObjective
-    - HereticSacrificeObjective
-    - HereticSacrificeHeadObjective
+      startingGear: HereticGear # see Roles/Antags/heretic.yml
 
 # Revolution
 - type: entity
@@ -139,6 +142,7 @@
   - type: GameRule
     minPlayers: 20
   - type: AntagSelection
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ HeadRev ]
       max: 3
@@ -173,7 +177,7 @@
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
-    #selectionTime: PrePlayerSpawn
+    selectionTime: BeforeJobs
     definitions:
     - prefRoles: [ NukeopsCommander ]
       fallbackRoles: [ Nukeops, NukeopsMedic ]
@@ -208,8 +212,8 @@
     - prefRoles: [ Nukeops ]
       fallbackRoles: [ NukeopsCommander, NukeopsMedic ]
       spawnerPrototype: SpawnPointNukeopsOperative
-      max: 3
-      playerRatio: 10
+      max: 10 # Goobstation / 古布空间站 - 没有限制的核特工
+      playerRatio: 16
       startingGear: SyndicateOperativeGearFull
       roleLoadout:
       - RoleSurvivalSyndicate

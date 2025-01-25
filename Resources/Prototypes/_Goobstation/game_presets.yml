@@ -11,7 +11,6 @@
     - Changeling
     - SubGamemodesRule
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
@@ -27,7 +26,6 @@
     - CalmLing
     - CalmTraitor
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
@@ -44,7 +42,6 @@
     - Calmops
     - CalmTraitor
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
@@ -60,7 +57,6 @@
     - Calmops
     - CalmLing
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
 
@@ -77,7 +73,6 @@
     - CalmRevs
     - CalmTraitor
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
 
 - type: gamePreset
@@ -92,7 +87,49 @@
     - CalmRevs
     - CalmLing
     - BasicStationEventScheduler
-    - AntagStationEventScheduler
     #- MeteorSwarmScheduler Goobstation - nuh uh
     - BasicRoundstartVariation
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Blob
+  alias:
+  - blab
+  name: blob-title
+  description: blob-description
+  showInVote: false
+  rules:
+  - BlobGameMode
+  - BasicStationEventScheduler
+  - AntagStationEventScheduler
+  - BasicRoundstartVariation
+  - SubGamemodesRule
+
+- type: gamePreset
+  id: Honkops
+  alias:
+    - honkops
+  name: honkops-title
+  description: honkops-description
+  showInVote: false
+  rules:
+    - Honkops
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+  #  - MeteorSwarmScheduler Goobstation - nuh uh
+    - SpaceTrafficControlEventScheduler
+    - BasicRoundstartVariation
+
+- type: gamePreset
+  id: Abductor
+  alias:
+    - abductor
+  name: abductor-title
+  description: abductor-description
+  showInVote: false
+  rules:
+    - LoneAbductorSpawn
+    - SubGamemodesRule
+    - BasicStationEventScheduler
+    - SpaceTrafficControlEventScheduler
     - BasicRoundstartVariation

@@ -1,4 +1,4 @@
-using Content.Shared.CCVar;
+using Content.Shared._Goobstation.CCVar;
 using Content.Shared.TTS;
 using Robust.Client.Audio;
 using Robust.Client.ResourceManagement;
@@ -34,21 +34,21 @@ public sealed class TTSSystem : EntitySystem
     /// </summary>
     private const float MinimalVolume = -10f;
 
-    private float _volume = CCVars.TTSVolume.DefaultValue;
+    private float _volume = GoobCvars.TTSVolume.DefaultValue;
     private int _fileIdx = 0;
 
     public override void Initialize()
     {
         _sawmill = Logger.GetSawmill("tts");
         _res.AddRoot(Prefix, _contentRoot);
-        _cfg.OnValueChanged(CCVars.TTSVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(GoobCvars.TTSVolume, OnTtsVolumeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(CCVars.TTSVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(GoobCvars.TTSVolume, OnTtsVolumeChanged);
         _contentRoot.Dispose();
     }
 

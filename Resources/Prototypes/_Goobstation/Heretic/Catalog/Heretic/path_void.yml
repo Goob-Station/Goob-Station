@@ -19,7 +19,6 @@
     - Blade
     - Flesh
     - Lock
-    - Rust
     - Void
 
 - type: listing
@@ -60,7 +59,7 @@
   id: HereticVoidPath4
   name: knowledge-path-void-s4-name
   description: knowledge-path-void-s4-desc
-  icon: { sprite: _Goobstation/Heretic/Blades/blade_void.rsi, state: icon }
+  icon: { sprite: _Goobstation/Heretic/mansus_grasp.rsi, state: icon }
   productHereticKnowledge: MarkOfVoid
   cost:
     KnowledgePoint: 1

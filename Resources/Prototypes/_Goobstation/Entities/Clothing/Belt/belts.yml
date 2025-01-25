@@ -1,0 +1,16 @@
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltMilitaryWebbingCMO
+  name: chief medical officer's chest rig
+  description: A medical chest rig with deep pockets, for use by paramedics and health professionals.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Belt/cmowebbing.rsi
+  - type: Item
+    size: Large
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+      - 0,0,6,2

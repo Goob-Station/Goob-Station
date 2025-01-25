@@ -16,6 +16,7 @@ knowledge-path-ash-s3-desc =
     He knew how to walk between the planes.
 
     Grants you Ashen Passage, a spell that lets you phase out of reality and traverse a short distance, passing though any walls.
+    Warning: Using this ability will deal moderate heat damage to you.
 
 knowledge-path-ash-s4-name = Mark of Ash
 knowledge-path-ash-s4-desc =
@@ -31,7 +32,8 @@ knowledge-path-ash-s5-desc =
     No fire was hot enough to rekindle them. No fire was bright enough to save them. No fire is eternal.
 
     Grants you Volcanic Blast, a spell that fires a ball of flames to the nearest Heathen.
-    On successful hit, the fireball divides into multiple smaller fireballs targeting other nearby targets.
+    On successful hit, the fireball continues it's way to another heathen.
+    Be careful, as fire still hurts. Make sure to carry an extinguisher on yourself.
 
 knowledge-path-ash-s6-name = Mask of Madness
 knowledge-path-ash-s6-desc =
@@ -39,7 +41,7 @@ knowledge-path-ash-s6-desc =
 
     Allows you to transmute any mask, four candles, a stun baton, and a liver to create a Mask of Madness.
     The mask instills fear into heathens who witness it, causing stamina damage, hallucinations, and insanity.
-    It can also be forced onto a heathen, to make them unable to take it off...
+    Once worn you are unable to take it off by yourself...
 
 knowledge-path-ash-s7-name = Fiery Blade
 knowledge-path-ash-s7-desc =
@@ -52,7 +54,7 @@ knowledge-path-ash-s8-name = Nightwatcher's Rebirth
 knowledge-path-ash-s8-desc =
     The fire was inescapable, and yet, life remained in his charred body. The Nightwatcher was a particular man, always watching.
 
-    Grants you Nightwatcher's Rebirth, a spell that extinguishes you and burns all nearby heathens who are currently on fire, healing you for every victim afflicted.
+    Grants you Nightwatcher's Rebirth, a spell that burns all nearby heathens who are currently on fire, healing you for every victim afflicted.
     If any victims afflicted are in critical condition, they will instantly die.
 
 knowledge-path-ash-s9-name = Ashlord's Rite

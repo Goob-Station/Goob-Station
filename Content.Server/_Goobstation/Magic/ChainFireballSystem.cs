@@ -1,9 +1,11 @@
 using Content.Server.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.StatusEffect;
+using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Server.GameObjects;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Events;
 using Robust.Shared.Random;
 
 namespace Content.Server.Magic;
@@ -23,6 +25,13 @@ public sealed partial class ChainFireballSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<ChainFireballComponent, ProjectileHitEvent>(OnHit);
+        SubscribeLocalEvent<ChainFireballComponent, PreventCollideEvent>(OnPreventCollide);
+    }
+
+    private void OnPreventCollide(Entity<ChainFireballComponent> ent, ref PreventCollideEvent args)
+    {
+        if (ent.Comp.IgnoredTargets.Contains(args.OtherEntity))
+            args.Cancelled = true;
     }
 
     private void OnHit(Entity<ChainFireballComponent> ent, ref ProjectileHitEvent args)
@@ -85,6 +94,7 @@ public sealed partial class ChainFireballSystem : EntitySystem
                         spawnCoords.ToMapPos(EntityManager, _transform);
 
         _gun.ShootProjectile(ball, direction, userVelocity, uid, uid);
+        EnsureComp<TargetedProjectileComponent>(ball); // Hit lying targets
 
         return true;
     }
