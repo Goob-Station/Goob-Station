@@ -97,6 +97,7 @@
   components:
   - type: GameRule
     minPlayers: 20
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml # goob edit
   - type: AntagSelection
@@ -251,6 +252,7 @@
     delay:
       min: 600
       max: 900
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: ZombieRule
   - type: AntagSelection
     definitions:
