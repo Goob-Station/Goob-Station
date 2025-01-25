@@ -126,7 +126,6 @@ namespace Content.Client.Administration.UI
             }
 
             var title = string.IsNullOrWhiteSpace(popup.TitleEdit.Text) ? null : popup.TitleEdit.Text;
-            var suspended = popup.SuspendedCheckbox.Pressed;
 
             if (popup.SourceData is { } src)
             {
@@ -136,8 +135,7 @@ namespace Content.Client.Administration.UI
                     Title = title,
                     PosFlags = pos,
                     NegFlags = neg,
-                    RankId = rank,
-                    Suspended = suspended,
+                    RankId = rank
                 });
             }
             else
@@ -150,8 +148,7 @@ namespace Content.Client.Administration.UI
                     Title = title,
                     PosFlags = pos,
                     NegFlags = neg,
-                    RankId = rank,
-                    Suspended = suspended,
+                    RankId = rank
                 });
             }
 
@@ -170,7 +167,7 @@ namespace Content.Client.Administration.UI
                 {
                     Id = src,
                     Flags = flags,
-                    Name = name,
+                    Name = name
                 });
             }
             else
@@ -350,7 +347,6 @@ namespace Content.Client.Administration.UI
             public readonly OptionButton RankButton;
             public readonly Button SaveButton;
             public readonly Button? RemoveButton;
-            public readonly CheckBox SuspendedCheckbox;
 
             public readonly Dictionary<AdminFlags, (Button inherit, Button sub, Button plus)> FlagButtons
                 = new();
@@ -380,12 +376,6 @@ namespace Content.Client.Administration.UI
                 TitleEdit = new LineEdit { PlaceHolder = Loc.GetString("permissions-eui-edit-admin-window-title-edit-placeholder") };
                 RankButton = new OptionButton();
                 SaveButton = new Button { Text = Loc.GetString("permissions-eui-edit-admin-window-save-button"), HorizontalAlignment = HAlignment.Right };
-
-                SuspendedCheckbox = new CheckBox
-                {
-                    Text = Loc.GetString("permissions-eui-edit-admin-window-suspended"),
-                    Pressed = data?.Suspended ?? false,
-                };
 
                 RankButton.AddItem(Loc.GetString("permissions-eui-edit-admin-window-no-rank-button"), NoRank);
                 foreach (var (rId, rank) in ui._ranks)
@@ -494,8 +484,7 @@ namespace Content.Client.Administration.UI
                                     {
                                         nameControl,
                                         TitleEdit,
-                                        RankButton,
-                                        SuspendedCheckbox,
+                                        RankButton
                                     }
                                 },
                                 permGrid
