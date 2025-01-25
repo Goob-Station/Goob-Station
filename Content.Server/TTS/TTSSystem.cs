@@ -40,7 +40,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     public override void Initialize()
     {
-        _cfg.OnValueChanged(GoobCvars.TTSEnabled, v => _isEnabled = v, true);
+        _cfg.OnValueChanged(GoobCVars.TTSEnabled, v => _isEnabled = v, true);
 
         SubscribeLocalEvent<TransformSpeechEvent>(OnTransformSpeech);
         SubscribeLocalEvent<TTSComponent, EntitySpokeEvent>(OnEntitySpoke);
@@ -59,7 +59,7 @@ public sealed partial class TTSSystem : EntitySystem
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
-        if (!_cfg.GetCVar(CCVars.TTSCacheRoundPersistence))
+        if (!_cfg.GetCVar(GoobCVars.TTSCacheRoundPersistence))
             _ttsManager.ClearCache();
     }
 

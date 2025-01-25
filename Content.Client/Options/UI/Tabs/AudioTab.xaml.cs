@@ -53,7 +53,7 @@ public sealed partial class AudioTab : Control
             scale: ContentAudioSystem.InterfaceMultiplier);
 
         Control.AddOptionPercentSlider( // Goobstation - TTS
-            GoobCvars.TTSVolume,
+            GoobCVars.TTSVolume,
             SliderVolumeTTS,
             scale: ContentAudioSystem.TtsMultiplier
         );

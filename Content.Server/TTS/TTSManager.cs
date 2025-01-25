@@ -54,10 +54,10 @@ public sealed class TTSManager
         IoCManager.InjectDependencies(this);
         _sawmill = Logger.GetSawmill("tts");
 
-        _cachePath = MakeDataPath(_cfg.GetCVar(GoobCvars.TTSCachePath));
-        _cfg.OnValueChanged(GoobCvars.TTSCachePath, OnCachePathChanged);
-        _modelPath = MakeDataPath(_cfg.GetCVar(GoobCvars.TTSModelPath));
-        _cfg.OnValueChanged(GoobCvars.TTSModelPath, OnModelPathChanged);
+        _cachePath = MakeDataPath(_cfg.GetCVar(GoobCVars.TTSCachePath));
+        _cfg.OnValueChanged(GoobCVars.TTSCachePath, OnCachePathChanged);
+        _modelPath = MakeDataPath(_cfg.GetCVar(GoobCVars.TTSModelPath));
+        _cfg.OnValueChanged(GoobCVars.TTSModelPath, OnModelPathChanged);
 
         // Make the needed directories if they don't exist
         new Process
@@ -152,17 +152,17 @@ public sealed class TTSManager
     private bool TryCache(int key, byte[] file)
     {
         // Delete extra files
-        if (_cfg.GetCVar(CCVars.TTSCacheType) != "memory")
+        if (_cfg.GetCVar(GoobCVars.TTSCacheType) != "memory")
         {
             var files = Directory.GetFiles(_cachePath + ResPath.SystemSeparatorStr).ToList()
                 .OrderBy(f => File.GetLastWriteTimeUtc(f).Ticks);
             var count = files.Count();
-            var toDelete = count - _cfg.GetCVar(CCVars.TTSMaxCached);
+            var toDelete = count - _cfg.GetCVar(GoobCVars.TTSMaxCached);
             for (var i = toDelete; i > 0; i--)
                 File.Delete(files.ElementAt(i));
             return false;
         }
-        while (_memoryCache.Count > _cfg.GetCVar(CCVars.TTSMaxCached))
+        while (_memoryCache.Count > _cfg.GetCVar(GoobCVars.TTSMaxCached))
             _memoryCache.Remove(_memoryCache.First().Key);
 
         // Cache to memory
@@ -173,7 +173,7 @@ public sealed class TTSManager
     /// Tries to find an existing audio file so we don't have to make another
     private async Task<byte[]?> TryGetCached(int key)
     {
-        var type = _cfg.GetCVar(CCVars.TTSCacheType);
+        var type = _cfg.GetCVar(GoobCVars.TTSCacheType);
         switch (type)
         {
             case "file":

@@ -34,21 +34,21 @@ public sealed class TTSSystem : EntitySystem
     /// </summary>
     private const float MinimalVolume = -10f;
 
-    private float _volume = GoobCvars.TTSVolume.DefaultValue;
+    private float _volume = GoobCVars.TTSVolume.DefaultValue;
     private int _fileIdx = 0;
 
     public override void Initialize()
     {
         _sawmill = Logger.GetSawmill("tts");
         _res.AddRoot(Prefix, _contentRoot);
-        _cfg.OnValueChanged(GoobCvars.TTSVolume, OnTtsVolumeChanged, true);
+        _cfg.OnValueChanged(GoobCVars.TTSVolume, OnTtsVolumeChanged, true);
         SubscribeNetworkEvent<PlayTTSEvent>(OnPlayTTS);
     }
 
     public override void Shutdown()
     {
         base.Shutdown();
-        _cfg.UnsubValueChanged(GoobCvars.TTSVolume, OnTtsVolumeChanged);
+        _cfg.UnsubValueChanged(GoobCVars.TTSVolume, OnTtsVolumeChanged);
         _contentRoot.Dispose();
     }
 
