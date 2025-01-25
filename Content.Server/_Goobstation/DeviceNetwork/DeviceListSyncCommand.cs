@@ -14,11 +14,18 @@ namespace Content.Server._Goobstation.DeviceNetwork;
 public sealed class DeviceListSyncCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntityManager _entityManager = default!;
-    public override string Command => "syncDevicesLists";
+    public override string Command => "synchornizedevicelists";
 
     public override async void Execute(IConsoleShell shell, string argStr, string[] args)
     {
+        if (args.Length > 0)
+        {
+            shell.WriteError("This command takes no arguments!");
+            return;
+       }
+
         var deviceListQuery = _entityManager.AllEntityQueryEnumerator<DeviceListComponent>();
+        var updatedDevices = 0;
 
         while (deviceListQuery.MoveNext(out var listEnt, out var listComp))
         {
@@ -28,8 +35,10 @@ public sealed class DeviceListSyncCommand : LocalizedCommands
                     continue;
 
                 networkComp.DeviceLists.Add(listEnt);
+                updatedDevices++;
             }
         }
 
+        shell.WriteLine($"Successfully synchronized {updatedDevices} devices.");
     }
 }
