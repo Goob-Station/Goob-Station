@@ -1,0 +1,841 @@
+
+- type: entity
+  parent: MobHumanERT
+  id: MobHumanLeader
+  name: Полковник Эхо
+  suffix: reserve, без роли
+  components:
+    - type: Loadout
+      prototypes: [ERTLeaderEchoGear]
+      hair: HairBald
+    - type: CommandStaff
+
+- type: entity
+  parent: MobHuman
+  id: MobHumanERT
+  name: Полковник Эхо
+  noSpawn: true
+  components:
+    - type: Stamina
+      decay: 6
+      cooldown: 2
+      critThreshold: 200
+    - type: IgnoreKudzu
+    - type: AutoImplant
+      implants:
+      - MindShieldImplant
+      - TrackingImplanter
+
+
+
+# Офицер ОБР.
+
+- type: entity
+  parent: MobHumanERT
+  id: MobHumanOfficer
+  name: офицер ОБР
+  suffix: reserve
+  components:
+    - type: Loadout
+      prototypes: [ERTOfficerEchoGear]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Security
+          time: 50000
+      makeSentient: true
+      name: офицер безопасности ОБР
+      description: Выполните поставленную задачу и защитите активы НТ.
+      rules: Слушайте приказы вашего лидера, исполняйте их максимально ответственно и эффективно.
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+
+# Медик ОБР.
+
+- type: entity
+  parent: MobHumanERT
+  id: MobHumanMedical
+  name: медик ОБР
+  suffix: reserve
+  components:
+    - type: Loadout
+      prototypes: [ERTMedicalEchoGear]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Medical
+          time: 50000
+      makeSentient: true
+      name: медик ОБР
+      description: Выполните поставленную задачу, лечите отряд и защитите активы НТ.
+      rules: Слушайте приказы вашего лидера, исполняйте их максимально ответственно и эффективно.
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+
+# Инженер ОБР.
+- type: entity
+  parent: MobHumanERT
+  id: MobHumanEngi
+  name: инженер ОБР
+  suffix: reserve
+  components:
+    - type: Loadout
+      prototypes: [ERTEngiEchoGear]
+    - type: RandomMetadata
+      nameSegments:
+      - NamesFirstMilitary
+      - NamesLastMilitary
+    - type: GhostRole
+      requirements:
+        - !type:DepartmentTimeRequirement
+          department: Engineering
+          time: 50000
+      makeSentient: true
+      name: инженер ОБР
+      description: Выполните поставленную задачу и защитите активы НТ.
+      rules: Слушайте приказы вашего лидера, исполняйте их максимально ответственно и эффективно.
+      raffle:
+        settings: default
+    - type: GhostTakeoverAvailable
+
+
+
+# Пресет Лидера ОБР.
+
+- type: startingGear
+  id: ERTLeaderEchoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTLeaderFilled
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesERT
+    neck: KatanaERTLeader # Corvax-Clothing
+    gloves: ClothingHandsGlovesPowergloveERT
+    outerClothing: ClothingOuterHardsuitERTLeaderPrototypeEcho
+    id: ERTLeaderPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltErtFilled
+    pocket1: Handcuffs
+    pocket2: FlashERT
+    suitstorage: WeaponPulseCarbineERT
+
+# Пресет офицера ОБР.
+
+- type: startingGear
+  id: ERTOfficerEchoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTSecurity
+    back: ClothingBackpackERTOfficerFilled
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesERT
+    gloves: ClothingHandsGlovesPowergloveERT
+    outerClothing: ClothingOuterHardsuitERTOfficerPrototypeEcho
+    id: ERTSecurityPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltErtFilled
+    pocket1: Handcuffs
+    pocket2: FlashERT
+    suitstorage: WeaponPulseCarbineERT
+
+# Пресет медика ОБР.
+
+- type: startingGear
+  id: ERTMedicalEchoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTLeader
+    back: ClothingBackpackERTMedicalFilled
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesERT
+    gloves: ClothingHandsGlovesPowergloveERT
+    outerClothing: ClothingOuterHardsuitERTMedicalPrototypeEcho
+    id: ERTMedicPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltMedicalERTFilled
+    pocket1: Handcuffs
+    pocket2: FlashERT
+    suitstorage: WeaponPulseCarbineERT
+
+# Пресет инженера ОБР.
+- type: startingGear
+  id: ERTEngiEchoGear
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitERTEngineer
+    back: ClothingBackpackERTEngiFilled
+    shoes: ClothingShoesBootsMagAdv
+    mask: ClothingMaskGasERT
+    eyes: ClothingEyesGlassesERT
+    gloves: ClothingHandsGlovesPowergloveERT
+    outerClothing: ClothingOuterHardsuitERTEngineerPrototypeEcho
+    id: ERTEngineerPDA
+    ears: ClothingHeadsetAltCentCom
+    belt: ClothingBeltERTSatchel
+    pocket1: Handcuffs
+    pocket2: FlashERT
+    suitstorage: WeaponPulseCarbineERT
+
+
+# Скафандр Лидера ОБР.
+
+- type: entity
+  parent: ClothingOuterHardsuitERTLeader
+  id: ClothingOuterHardsuitERTLeaderPrototypeEcho
+  name: скафандр лидера ОБР
+  description: Защитный скафандр, используемый лидерами отряда быстрого реагирования.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: InputMover
+    toParent: true
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: CanMoveInAir
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: Jetpack
+    moleUsage: 0.00045
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 25
+      temperature: 293.15
+      moles:
+        - 5.15
+        - 5.15
+
+# Скафандр офицера ОБР.
+
+- type: entity
+  parent: ClothingOuterHardsuitERTSecurity
+  id: ClothingOuterHardsuitERTOfficerPrototypeEcho
+  name: скафандр офицера безопасности ОБР
+  description: Защитный скафандр, используемый офицерами отряда быстрого реагирования.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: InputMover
+    toParent: true
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: CanMoveInAir
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: Jetpack
+    moleUsage: 0.00045
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 25
+      temperature: 293.15
+      moles:
+        - 5.15
+        - 5.15
+
+# Скафандр медика ОБР.
+
+- type: entity
+  parent: ClothingOuterHardsuitERTMedical
+  id: ClothingOuterHardsuitERTMedicalPrototypeEcho
+  name: скафандр медика ОБР
+  description: Защитный скафандр, используемый медиками отряда быстрого реагирования.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: InputMover
+    toParent: true
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: CanMoveInAir
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: Jetpack
+    moleUsage: 0.00045
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 25
+      temperature: 293.15
+      moles:
+        - 5.15
+        - 5.15
+
+
+# Силовые перчатки (from S423).
+
+- type: entity
+  parent: ClothingHandsBase
+  id: ClothingHandsGlovesPowergloveERT
+  name: силовые перчатки
+  description: Активированные силовые перчатки с непереключаемым режимом "удержание порядка", благодаря которым боец даже без дубинки способен арестовать любого неугомонного гуманоида.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/powerglove.rsi
+  - type: Fiber
+    fiberMaterial: fibers-nanomachines
+  - type: FingerprintMask
+  - type: Insulated
+  - type: StaminaDamageOnHit
+    damage: 35
+  - type: MeleeWeapon
+    hidden: false
+    altDisarm: false
+    animation: WeaponArcSparks
+    soundHit:
+      path: /Audio/Effects/metal_break2.ogg
+    damage:
+      types:
+        Blunt: 0
+        Shock: 0
+        Structural: 0
+
+# Вспышка перчаток (from S423).
+
+- type: entity
+  id: WeaponArcSparks
+  parent: WeaponArcStatic
+  noSpawn: true
+  components:
+    - type: WeaponArcVisuals
+      fadeOut: false
+    - type: Sprite
+      sprite: Effects/sparks.rsi
+      state: sparks
+    - type: TimedDespawn
+      lifetime: 0.499
+
+# Очки (from S423).
+
+- type: entity
+  parent: ClothingEyesHudSecurity
+  id: ClothingEyesGlassesERT
+  name: специальные очки
+  description: Специальные очки отряда быстрого реагирования с множеством различных сенсоров.
+  components:
+  - type: Sprite
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: Clothing
+    sprite: Clothing/Eyes/Glasses/sunglasses.rsi
+  - type: SolutionScanner
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
+    - Inorganic
+    - Silicon
+  - type: ShowHealthIcons
+    damageContainers:
+    - Biological
+
+# Челюсти жизни ОБР.
+
+- type: entity
+  name: челюсти жизни ОБР
+  parent: BaseItem
+  id: JawsOfLifeERT
+  description: Набор челюстей жизни, скомпонованных при продвинутой помощи магии науки.
+  components:
+  - type: Tag
+    tags:
+    - JawsOfLife
+  - type: Sprite
+    sprite: Objects/Tools/jaws_of_life.rsi
+    state: jaws_pry
+  - type: Item
+    size: Normal
+  - type: Clothing
+    sprite: Objects/Tools/jaws_of_life.rsi
+    quickEquip: false
+    slots:
+      - Belt
+  - type: ToolTileCompatible
+    delay: 0.5
+  - type: Tool
+    qualities:
+      - Prying
+    useSound: /Audio/Items/jaws_pry.ogg
+  - type: Prying
+    speedModifier: 3.0
+    pryPowered: true
+    useSound: /Audio/Items/jaws_pry.ogg
+  - type: MultipleTool
+    statusShowBehavior: true
+    entries:
+      - behavior: Prying
+        sprite:
+          sprite: Objects/Tools/jaws_of_life.rsi
+          state: jaws_pry
+        useSound: /Audio/Items/jaws_pry.ogg
+        changeSound: /Audio/Items/change_jaws.ogg
+      - behavior: Cutting
+        sprite:
+          sprite: Objects/Tools/jaws_of_life.rsi
+          state: jaws_cutter
+        useSound: /Audio/Items/jaws_cut.ogg
+        changeSound: /Audio/Items/change_jaws.ogg
+  - type: MeleeWeapon
+    wideAnimationRotation: 90
+    damage:
+      types:
+        Blunt: 20
+    soundHit:
+      collection: MetalThud
+
+# Коробка бюрократии для Лидера ОБР.
+
+- type: entity
+  name: набор бюрократии
+  parent: BoxCardboard
+  id: BoxBurokratERT
+  description: Коробка бюрократии для лидера отряда быстрого реагирования.
+  components:
+  - type: StorageFill
+    contents:
+      - id: Paper
+      - id: RubberStampCentcom
+      - id: DoorRemoteAll
+      - id: Cautery
+      - id: FireExtinguisherMini
+  - type: Sprite
+    layers:
+      - state: box_olive
+      - state: writing
+
+# Импульска ОБР (from S423).
+
+- type: entity
+  name: импульсная винтовка ОБР
+  parent: BaseWeaponBattery
+  id: WeaponPulseCarbineERT
+  description: Фирменное оружие отряда быстрого реагирования, но чуть хуже, чем у своих коллег. На удивление, такое же удобное и легкое, автоматически восстанавливет заряд.
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-unshaded-4
+      map: ["enum.GunVisualLayers.MagUnshaded"]
+      shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/pulse_carbine.rsi
+  - type: Gun
+    fireRate: 2
+    availableModes:
+      - SemiAuto
+      - FullAuto
+    selectedMode: FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser3.ogg
+  - type: HitscanBatteryAmmoProvider
+    proto: PulseERT
+    fireCost: 100
+  - type: Battery
+    maxCharge: 7500
+    startingCharge: 4500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 75
+
+# Фикс пульса (ОБР).
+
+- type: hitscan
+  id: PulseERT
+  damage:
+    types:
+      Heat: 35
+  muzzleFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: muzzle_blue
+  travelFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: beam_blue
+  impactFlash:
+    sprite: Objects/Weapons/Guns/Projectiles/projectiles.rsi
+    state: impact_blue
+
+# Станнер ОБР.
+
+- type: entity
+  name: станнер
+  parent: [ WeaponDisablerPractice, BaseSecurityCommandContraband ]
+  id: WeaponDisablerPracticeERT
+  description: "Оружие для сдерживания беспорядков, обеспечивающее полную автономность благодаря науке: самозаряжающийся, компактный, большое количество зарядов."
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    layers:
+      - state: base
+        map: ["enum.GunVisualLayers.Base"]
+      - state: mag-unshaded-0
+        map: ["enum.GunVisualLayers.MagUnshaded"]
+        shader: unshaded
+  - type: Clothing
+    sprite: Objects/Weapons/Guns/Battery/disabler.rsi
+    quickEquip: false
+    slots:
+      - suitStorage
+      - Belt
+  - type: ProjectileBatteryAmmoProvider
+    proto: BulletDisabler
+    fireCost: 100
+  - type: GuideHelp
+    guides:
+    - Security
+    - Antagonists
+  - type: Battery
+    maxCharge: 2500
+    startingCharge: 2500
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 75
+
+# Пояс ОБР.
+
+- type: entity
+  id: ClothingBeltErtFilled
+  parent: ClothingBeltSecurity
+  suffix: Filled
+  components:
+  - type: EntityTableContainerFill
+  - type: StorageFill
+    contents:
+    - id: WeaponDisablerPracticeERT
+    - id: WeaponAdvancedLaser
+    - id: GrenadeFlashBang
+    - id: GrenadeFlashBang
+    - id: Handcuffs
+    - id: Handcuffs
+    - id: Handcuffs
+
+# Рюкзак лидера ОБР.
+
+- type: entity
+  parent: ClothingBackpackERTLeader
+  id: ClothingBackpackERTLeaderFilled
+  name: рюкзак командира ОБР
+  description: Вместительный рюкзак с множеством карманов, который носит командир отряда быстрого реагирования.
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxMRE
+    - id: JawsOfLifeERT
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: BoxZiptie
+    - id: BoxBurokratERT
+    - id: WeaponLightMachineGunL6ERT
+    - id: SpaceMedipen
+    - id: EmergencyMedipen
+
+# Рюкзак офицера ОБР.
+
+- type: entity
+  parent: ClothingBackpackERTSecurity
+  id: ClothingBackpackERTOfficerFilled
+  name: рюкзак офицера безопасности ОБР
+  description: "Вместительный рюкзак с множеством карманов, который носят офицеры безопасности отряда быстрого реагирования."
+  components:
+  - type: StorageFill
+    contents:
+    - id: CombatKnife
+    - id: BoxMRE
+    - id: JawsOfLifeERT
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: BoxZiptie
+    - id: Cautery
+    - id: WeaponLightMachineGunL6ERT
+    - id: SpaceMedipen
+    - id: EmergencyMedipen
+
+# Рюкзак медика ОБР.
+
+- type: entity
+  parent: ClothingBackpackERTMedical
+  id: ClothingBackpackERTMedicalFilled
+  name: рюкзак медика ОБР
+  description: "Вместительный рюкзак с множеством карманов, который носят медики безопасности отряда быстрого реагирования."
+  components:
+  - type: StorageFill
+    contents:
+    - id: BoxMRE
+    - id: MedkitAdvancedFilled
+    - id: CombatKnife
+    - id: Hypospray
+    - id: CrowbarRed
+    - id: OmnizineChemistryBottle
+    - id: EpinephrineChemistryBottle
+    - id: EpinephrineChemistryBottle
+    - id: Cautery
+    - id: WeaponLightMachineGunL6ERT
+    - id: SpaceMedipen
+    - id: EmergencyMedipen
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: WeaponDisablerPracticeERT
+
+# Рюкзак инженера ОБР.
+- type: entity
+  parent: ClothingBackpackERTEngineer
+  id: ClothingBackpackERTEngiFilled
+  name: рюкзак инженера безопасности ОБР
+  description: "Вместительный рюкзак с множеством карманов, который носят инженеры безопасности отряда быстрого реагирования."
+  components:
+  - type: StorageFill
+    contents:
+    - id: CombatKnife
+    - id: BoxMRE
+    - id: JawsOfLifeERT
+    - id: MedicatedSuture
+    - id: RegenerativeMesh
+    - id: BoxZiptie
+    - id: Cautery
+    - id: WeaponLightMachineGunL6ERT
+    - id: SpaceMedipen
+    - id: EmergencyMedipen
+
+# Вспышка с большим запасом.
+
+- type: entity
+  name: вспышка
+  parent: [BaseItem, BaseSecurityScienceCommandContraband]
+  id: FlashERT
+  description: "Сверхъяркая лампочка с кнопкой включения, вызывает оцепенение и кратковременную потерю зрения. Бесполезна, когда перегорает."
+  components:
+    - type: Sprite
+      sprite: Objects/Weapons/Melee/flash.rsi
+      layers:
+      - state: flash
+        map: [ "enum.FlashVisuals.BaseLayer" ]
+      - state: flashing
+        map: [ "enum.FlashVisuals.LightLayer" ]
+        visible: false
+        shader: unshaded
+    - type: Flash
+    - type: LimitedCharges
+      maxCharges: 20
+      charges: 20
+    - type: MeleeWeapon
+      wideAnimationRotation: 180
+      damage:
+        types:
+          Blunt: 0 # melee weapon to allow flashing individual targets
+      angle: 10
+    - type: Item
+      size: Small
+      sprite: Objects/Weapons/Melee/flash.rsi
+    - type: UseDelay
+    - type: StaticPrice
+      price: 40
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+        enum.FlashVisuals.Burnt:
+          enum.FlashVisuals.BaseLayer:
+            True: {state: burnt}
+        enum.FlashVisuals.Flashing:
+          enum.FlashVisuals.LightLayer:
+            True: {visible: true}
+            False: {visible: false}
+    - type: GuideHelp
+      guides:
+      - Security
+      - Antagonists
+
+
+# Пояс медика ОБР.
+
+- type: entity
+  name: пояс медика ОБР
+  id: ClothingBeltMedicalERTFilled
+  parent: ClothingBeltMedicalEMT
+  suffix: ERT,Filled
+  components:
+  - type: StorageFill
+    contents:
+      - id: MedicatedSuture
+      - id: MedicatedSuture
+      - id: RegenerativeMesh
+      - id: RegenerativeMesh
+      - id: Bloodpack
+      - id: Gauze
+      - id: SpaceMedipen
+      - id: EmergencyMedipen #You never know what people are going to latejoin into
+        amount: 3
+
+# Скафандр инженера ОБР.
+
+- type: entity
+  parent: ClothingOuterHardsuitERTEngineer
+  id: ClothingOuterHardsuitERTEngineerPrototypeEcho
+  name: скафандр инженера ОБР
+  description: Защитный скафандр, используемый инженерами отряда быстрого реагирования.
+  components:
+  - type: ClothingSpeedModifier
+    walkModifier: 1.1
+    sprintModifier: 1.1
+  - type: InputMover
+    toParent: true
+  - type: MovementSpeedModifier
+    weightlessAcceleration: 1
+    weightlessFriction: 0.3
+    weightlessModifier: 1.2
+  - type: CanMoveInAir
+  - type: UserInterface
+    interfaces:
+      enum.SharedGasTankUiKey.Key:
+        type: GasTankBoundUserInterface
+  - type: Jetpack
+    moleUsage: 0.00045
+  - type: GasTank
+    outputPressure: 42.6
+    air:
+      volume: 25
+      temperature: 293.15
+      moles:
+        - 5.15
+        - 5.15
+
+# Катана лидера ОБР.
+
+- type: entity
+  name: катана лидера ОБР
+  parent: [ BaseSword, BaseMajorContraband, ClothingBeltBase ]
+  id: KatanaERTLeader
+  description: Улучшенная катана лидера ОБР, считающаяся его антиквариатом. Только почему она оказалась в его вооружении...
+  components:
+  - type: Tag
+    tags:
+    - Katana
+  - type: Sprite
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: MeleeWeapon
+    damage:
+      types:
+        Slash: 25
+    soundHit:
+        path: /Audio/Weapons/bladeslice.ogg
+  - type: Item
+    sprite: Objects/Weapons/Melee/katana.rsi
+  - type: DisarmMalus
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - neck
+
+# Блюспейс сумка инженера ОБР.
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: ClothingBeltERTSatchel
+  name: бездонная сумка для материалов
+  description: Продвинутая версия сумки для материалов, используемая инженерами ОБР.
+  components:
+  - type: Sprite
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+  - type: Clothing
+    sprite: Objects/Specific/Mining/ore_bag_holding.rsi
+  - type: Storage
+    grid:
+    - 0,0,19,9
+  - type: StorageFill
+    contents:
+    - id: PowerDrill
+    - id: Multitool
+    - id: WelderExperimental
+    - id: HolofanProjector
+    - id: GasAnalyzer 
+    - id: trayScanner
+    - id: RCDExperimental
+    - id: CableMVStack
+    - id: CableHVStack
+    - id: CableApcStack
+    - id: SheetPlasteel
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlasteel
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlasteel
+    - id: SheetSteel
+    - id: SheetGlass
+    - id: SheetPlasteel
+    - id: SheetSteel
+    - id: SheetGlass
+
+
+# Продвинутый L6ERT ROW.
+
+- type: entity
+  name: L6ERT ROW
+  id: WeaponLightMachineGunL6ERT
+  parent: BaseItem
+  description: Продвинутый пулемёт на основе L6C ROW, модифицированный на сверхбыструю самозарядку и на возможность держать любому гуманоиду в одной руке. Стоит на вооружении у элитных Отрядов Быстрого Реагирования, но иногда может попадать в руки разведчиков.
+  components:
+  - type: Gun
+    minAngle: 4
+    maxAngle: 25
+    angleIncrease: 4
+    angleDecay: 16
+    fireRate: 8
+    selectedMode: FullAuto
+    availableModes:
+      - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/lmg.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/lmg_empty.ogg
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/LMGs/l6.rsi
+    layers:
+      - state: base
+        map: [ "enum.GunVisualLayers.Base" ]
+      - state: mag-3
+        map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Item
+    size: Normal
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+  - type: ProjectileBatteryAmmoProvider
+    proto: CartridgeLightRifle
+    fireCost: 100
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 300
+  - type: AmmoCounter
+  - type: Clothing
+    slots:
+    - Back
+    - suitStorage
