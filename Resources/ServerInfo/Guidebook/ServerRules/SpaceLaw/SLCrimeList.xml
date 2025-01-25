@@ -238,8 +238,9 @@
         Disturbance (R)
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#3b4354">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Disruption of Justice (R)
       </Box>
     </ColorBox>
     <ColorBox Color="#3b4354">
@@ -251,8 +252,9 @@
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
       </Box>
     </ColorBox>
-    <ColorBox>
+    <ColorBox Color="#4d2e2e">
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Assassination (V)
       </Box>
     </ColorBox>
     <ColorBox>
@@ -260,6 +262,9 @@
         07
       </Box>
     </ColorBox>
+    
+
+    
   </Table>
 
   ## Accessory, Attempting, And Intention:
@@ -588,6 +593,31 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         2-05
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Disruption of Justice
+      </Box>
+    </ColorBox><ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        5:00
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To interfere directly with security work.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Includes anything done with clear intent of preventing security from doing their jobs.
+        Ranges from slipping officers during pursuits to directly tampering with evidence.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        2-06
       </Box>
     </ColorBox>
   </Table>
@@ -1063,6 +1093,27 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         5-06
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Assassination
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        To intentionally kill a command member, CentComm member, or head of staff.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Applies if the victim was a direct target of the killer.
+        Specifically targeting a command member is assassination, whereas a command member being a casualty by coincidence isn't.
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        5-07
       </Box>
     </ColorBox>
   </Table>
