@@ -42,12 +42,8 @@
     loot: BikeHorn
     crusherLoot: GoldenBikeHorn
   - type: Aggressive # also required component for aggro checking
-  - type: AmbientSound
-    enabled: false
-    range: 20
-    volume: 1
-    sound:
-      path: /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
+  - type: BossMusic
+    soundId: Hierophant
 
 # hierophant damaging thing
 - type: entity

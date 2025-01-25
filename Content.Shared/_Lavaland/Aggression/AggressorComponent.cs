@@ -1,7 +1,8 @@
-namespace Content.Server._Lavaland.Aggression;
+namespace Content.Shared._Lavaland.Aggression;
 
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class AggressorComponent : Component
 {
+    [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadOnly)] public List<EntityUid> Aggressives = new();
 }

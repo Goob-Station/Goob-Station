@@ -9,11 +9,6 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Remove="_Lavaland\Mobs\**" />
-    <EmbeddedResource Remove="_Lavaland\Mobs\**" />
-    <None Remove="_Lavaland\Mobs\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup>
@@ -30,10 +25,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Goobstation\Changeling\Changeling.Actions.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DeltaV\" />
-    <Folder Include="_Lavaland\" />
   </ItemGroup>
   <Import Project="..\RobustToolbox\MSBuild\Robust.Properties.targets" />
   <Import Project="..\RobustToolbox\MSBuild\Robust.CompNetworkGenerator.targets" />

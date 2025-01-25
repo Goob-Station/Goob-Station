@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace Content.Server._Lavaland.Mobs;
 
-public sealed partial class MegafaunaSystem : EntitySystem
+public sealed class MegafaunaSystem : EntitySystem
 {
     public override void Initialize()
     {
@@ -28,9 +28,9 @@ public sealed partial class MegafaunaSystem : EntitySystem
         // to account for crusher glaive, dagger and other stuff that you will not see :trollface:
         // generally makes it foolproof
         var pid = prot.ID;
-        var parents = prot!.Parents?.ToList() ?? new List<string>();
+        var parents = prot.Parents?.ToList() ?? new List<string>();
 
-        if ((pid != CrusherPrototype || !parents.Contains(CrusherPrototype)))
+        if (pid != CrusherPrototype || !parents.Contains(CrusherPrototype))
             comp.CrusherOnly = false; // it's over...
     }
 
@@ -46,6 +46,6 @@ public sealed partial class MegafaunaSystem : EntitySystem
         if (comp.CrusherOnly && comp.CrusherLoot != null)
             Spawn(comp.CrusherLoot, coords);
 
-        RaiseLocalEvent(uid, new MegafaunaKilledEvent());
+        RaiseLocalEvent(uid, new MegafaunaShutdownEvent());
     }
 }

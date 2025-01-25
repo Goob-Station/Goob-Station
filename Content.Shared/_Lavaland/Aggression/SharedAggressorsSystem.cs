@@ -1,10 +1,11 @@
-using Content.Shared.Damage;
+﻿using Content.Shared.Damage;
+using Content.Shared.Destructible;
 using Content.Shared.Mobs;
 using Robust.Shared.Player;
 
-namespace Content.Server._Lavaland.Aggression.Systems;
+namespace Content.Shared._Lavaland.Aggression;
 
-public sealed partial class AggressorsSystem : EntitySystem
+public abstract class SharedAggressorsSystem : EntitySystem
 {
     // TODO: make cooldowns for all individual aggressors that fall out of vision range
 
@@ -13,6 +14,9 @@ public sealed partial class AggressorsSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<AggressiveComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<AggressiveComponent, EntityTerminatingEvent>(OnDeleted);
+        SubscribeLocalEvent<AggressiveComponent, DestructionEventArgs>(OnDestroyed);
+
         SubscribeLocalEvent<AggressorComponent, MobStateChangedEvent>(OnMobStateChange);
     }
 
@@ -23,13 +27,29 @@ public sealed partial class AggressorsSystem : EntitySystem
         if (aggro == null || !HasComp<ActorComponent>(aggro))
             return;
 
-        AddAggressor(ent, (EntityUid) aggro);
+        AddAggressor(ent, aggro.Value);
     }
 
     private void OnMobStateChange(Entity<AggressorComponent> ent, ref MobStateChangedEvent args)
     {
         if (args.NewMobState == MobState.Dead)
             CleanAggressions(ent);
+    }
+
+    private void OnDeleted(Entity<AggressiveComponent> ent, ref EntityTerminatingEvent args)
+    {
+        foreach (var agressor in ent.Comp.Aggressors)
+        {
+            RemoveAggressor(ent, agressor);
+        }
+    }
+
+    private void OnDestroyed(Entity<AggressiveComponent> ent, ref DestructionEventArgs args)
+    {
+        foreach (var agressor in ent.Comp.Aggressors)
+        {
+            RemoveAggressor(ent, agressor);
+        }
     }
 
     #region api
@@ -42,8 +62,8 @@ public sealed partial class AggressorsSystem : EntitySystem
 
     public void RemoveAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
     {
-        if (ent.Comp.Aggressors.Contains(aggressor))
-            ent.Comp.Aggressors.RemoveAll(p => p.Id == aggressor.Id);
+        ent.Comp.Aggressors.Remove(aggressor);
+        RaiseLocalEvent(ent, new AggressorRemovedEvent(GetNetEntity(aggressor)));
     }
 
     public void AddAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
@@ -51,6 +71,7 @@ public sealed partial class AggressorsSystem : EntitySystem
         ent.Comp.Aggressors.Add(aggressor);
 
         var aggcomp = EnsureComp<AggressorComponent>(aggressor);
+        RaiseLocalEvent(ent, new AggressorAddedEvent(GetNetEntity(aggressor)));
 
         if (!aggcomp.Aggressives.Contains(ent))
             aggcomp.Aggressives.Add(ent);

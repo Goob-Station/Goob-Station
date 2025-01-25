@@ -1,14 +1,17 @@
-namespace Content.Server._Lavaland.Aggression;
+namespace Content.Shared._Lavaland.Aggression;
 
 /// <summary>
 ///     Keeps track of whoever attacked our mob, so that it could prioritize or randomize targets.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, AutoGenerateComponentState]
 public sealed partial class AggressiveComponent : Component
 {
+    [AutoNetworkedField]
     [ViewVariables(VVAccess.ReadOnly)] public List<EntityUid> Aggressors = new();
 
+    [AutoNetworkedField]
     [DataField] public float ForgiveTime = 10f;
 
+    [AutoNetworkedField]
     [DataField] public float ForgiveRange = 10f;
 }
