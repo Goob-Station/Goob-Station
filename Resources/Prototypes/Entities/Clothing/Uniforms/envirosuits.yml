@@ -1,0 +1,3091 @@
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuit
+  name: plasma envirosuit
+  description: A special containment suit that allows plasma-based lifeforms to exist safely in an oxygenated environment.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/plain.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/plain.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitAtmos
+  name: atmospherics envirosuit
+  description: An air-tight suit designed to be used by Plasmamen employed as atmos technicians.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/atmos.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/atmos.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCargo
+  name: cargo tech envirosuit
+  description: An envirosuit used by Plasmamen cargo technicians.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/cargo.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/cargo.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCaptain
+  name: captain's envirosuit
+  description: It's a blue envirosuit with some gold markings denoting the rank of "Captain".
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/captain.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/captain.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitChiefEngineer
+  name: chief engineer's envirosuit
+  description: An air-tight suit designed to be used by Plasmamen insane enough to achieve the rank of "Chief Engineer".
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/ce.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/ce.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitChaplain
+  name: chaplain's envirosuit
+  description: An envirosuit specially designed for only the most pious of Plasmamen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/chaplain.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/chaplain.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitChef
+  name: chef's envirosuit
+  description: A white Plasmaman envirosuit designed for cullinary practices. One might question why a member of a species that doesn't need to eat would become a chef.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/chef.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/chef.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitChemist
+  name: chemistry envirosuit
+  description: A Plasmaman envirosuit designed for chemists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/chemist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/chemist.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitClown
+  name: clown envirosuit
+  description: HONK!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/clown.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/clown.rsi
+  - type: Tag
+    tags:
+    - ClownSuit
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCMO
+  name: chief medical officer's envirosuit
+  description: It's an envirosuit worn by those with the experience to be "Chief Medical Officer".
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/cmo.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/cmo.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitEngineering
+  name: engineering envirosuit
+  description: An air-tight suit designed to be used by Plasmamen employed as engineers, the usual purple stripes being replaced by engineering's orange.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/engineering.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/engineering.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitEnviroslacksColorOrange
+  id: ClothingUniformEnvirosuitDetective
+  name: detective envirosuit
+  description: The pet project of a particularly posh Plasmaman, this custom suit was modified by Nanotrasen for its detectives.
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitHoP
+  name: head of personnel's envirosuit
+  description: It's an envirosuit worn by someone who works in the position of "Head of Personnel".
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/hop.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/hop.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitHoS
+  name: head of security's envirosuit
+  description: A Plasmaman containment suit decorated for those few with the dedication to achieve the position of Head of Security.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/hos.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/hos.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitHydroponics
+  name: hydroponics envirosuit
+  description: A green and blue envirosuit designed to protect Plasmamen from minor plant-related injuries.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/hydroponics.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/hydroponics.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitJanitor
+  name: janitor envirosuit
+  description: A grey and purple envirosuit designated for Plasmamen janitors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/janitor.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/janitor.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitAncientVoid
+  name: NTSRA envirosuit
+  description: Made out of a modified NTSRA vacsuit, this non-spaceworthy suit was NanoTrasen's first designed envirosuit for Plasmamen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/ancientvoid.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/ancientvoid.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitMedicalDoctor
+  name: medical doctor's envirosuit
+  description: A suit designed for the station's more plasma-based doctors.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/medical.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/medical.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitGenetics
+  name: genetics envirosuit
+  description: A Plasmaman envirosuit designed for geneticists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/genetics.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/genetics.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitMime
+  name: mime envirosuit
+  description: It's not very colourful.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/mime.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/mime.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitParamedic
+  name: paramedic envirosuit
+  description: A suit designed for the station's Plasmaman paramedics.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/paramedic.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/paramedic.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitPrisoner
+  name: prisoner envirosuit
+  description: An orange envirosuit identifying and protecting a criminal Plasmaman.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8300"
+    - state: plaintop-icon
+      color: "#ff8300"
+    - state: accentprisoner-icon
+      color: "#404040"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8300"
+      - state: plaintop-inhand-left
+        color: "#ff8300"
+      - state: accentprisoner-inhand-left
+        color: "#404040"
+      right:
+      - state: inhand-right
+        color: "#ff8300"
+      - state: plaintop-inhand-right
+        color: "#ff8300"
+      - state: accentprisoner-inhand-right
+        color: "#404040"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ff8300"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ff8300"
+      - state: accentprisoner-equipped-INNERCLOTHING
+        color: "#404040"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#404040"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+  - type: SuitSensor
+    controlsLocked: true
+    randomMode: false
+    mode: SensorCords
+  - type: Tag
+    tags:
+    - ClothMade
+    - WhitelistChameleon
+    - PlasmamanSafe
+    - PrisonUniform
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitResearchDirector
+  name: mystagogue's envirosuit
+  description: It's an envirosuit worn by those with the know-how to achieve the position of "Mystagogue".
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/rd.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/rd.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitRoboticist
+  name: roboticist envirosuit
+  description: A Plasmaman envirosuit designed for roboticists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/roboticist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/roboticist.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitSalvage
+  name: salvage envirosuit
+  description: An air-tight khaki suit designed for salvage operations by Plasmamen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/salvage.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/salvage.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitScientist
+  name: science envirosuit
+  description: A Plasmaman envirosuit designed for scientists.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/scientist.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/scientist.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitSec
+  name: security envirosuit
+  description: A Plasmaman containment suit designed for security officers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#8f3132"
+    - state: accent2-icon
+      color: "#2e2e2e"
+    - state: accenthighlight-icon
+      color: "#313e5a"
+    - state: clip-icon
+      color: "#730000"
+    - state: clip_right-icon
+      color: "#313e5a"
+    - state: pants-icon
+      color: "#2e2e2e"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#8f3132"
+      - state: accent2-inhand-left
+        color: "#2e2e2e"
+      - state: accenthighlight-inhand-left
+        color: "#313e5a"
+      - state: clip-inhand-left
+        color: "#730000"
+      - state: clip_right-inhand-left
+        color: "#313e5a"
+      - state: pants-inhand-left
+        color: "#2e2e2e"
+      right:
+      - state: inhand-right
+        color: "#8f3132"
+      - state: accent2-inhand-right
+        color: "#2e2e2e"
+      - state: accenthighlight-inhand-right
+        color: "#313e5a"
+      - state: clip-inhand-right
+        color: "#730000"
+      - state: clip_right-inhand-right
+        color: "#313e5a"
+      - state: pants-inhand-right
+        color: "#2e2e2e"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#8f3132"
+      - state: accent2-equipped-INNERCLOTHING
+        color: "#2e2e2e"
+      - state: accenthighlight-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#730000"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#2e2e2e"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#732829"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#2e2e2e"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#7a7a7a"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitSecBlue
+  name: blue security envirosuit
+  description: A cool blue enviroshirt over charcoal trousers, for the calm and collected Plasmaman officer.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#b9c1d9"
+    - state: accent-icon
+      color: "#2e2e2e"
+    - state: accent3_chestonly-icon
+      color: "#36476b"
+    - state: accenthighlight-icon
+      color: "#313e5a"
+    - state: clip-icon
+      color: "#860000"
+    - state: clip_right-icon
+      color: "#313e5a"
+    - state: pants-icon
+      color: "#232938"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#b9c1d9"
+      - state: accent-inhand-left
+        color: "#2e2e2e"
+      - state: accent3_chestonly-inhand-left
+        color: "#36476b"
+      - state: accenthighlight-inhand-left
+        color: "#313e5a"
+      - state: clip-inhand-left
+        color: "#860000"
+      - state: clip_right-inhand-left
+        color: "#313e5a"
+      - state: pants-inhand-left
+        color: "#232938"
+      right:
+      - state: inhand-right
+        color: "#b9c1d9"
+      - state: accent-inhand-right
+        color: "#2e2e2e"
+      - state: accent3_chestonly-inhand-right
+        color: "#36476b"
+      - state: accenthighlight-inhand-right
+        color: "#313e5a"
+      - state: clip-inhand-right
+        color: "#860000"
+      - state: clip_right-inhand-right
+        color: "#313e5a"
+      - state: pants-inhand-right
+        color: "#232938"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#b9c1d9"
+      - state: accentalt_noback-equipped-INNERCLOTHING
+        color: "#2e2e2e"
+      - state: accent3_chestonly-equipped-INNERCLOTHING
+        color: "#36476b"
+      - state: accenthighlight-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#860000"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#232938"
+      - state: backaccent-equipped-INNERCLOTHING
+        color: "#36476b"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#36476b"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#2e2e2e"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#7a7a7a"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitSecGrey
+  name: grey security envirosuit
+  description: Light grey enviroslacks with bright red highlights, for dedicated and responsive security officers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#7e7e7e"
+    - state: plaintop-icon
+      color: "#7e7e7e"
+    - state: accent-icon
+      color: "#333333"
+    - state: accenthighlight-icon
+      color: "#313e5a"
+    - state: tie-icon
+      color: "#a61d1d"
+    - state: clip-icon
+      color: "#860000"
+    - state: clip_right-icon
+      color: "#313e5a"
+    - state: pants-icon
+      color: "#333333"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#7e7e7e"
+      - state: plaintop-inhand-left
+        color: "#7e7e7e"
+      - state: accent-inhand-left
+        color: "#333333"
+      - state: accenthighlight-inhand-left
+        color: "#313e5a"
+      - state: tie-inhand-left
+        color: "#a61d1d"
+      - state: clip-inhand-left
+        color: "#860000"
+      - state: clip_right-inhand-left
+        color: "#313e5a"
+      - state: pants-inhand-left
+        color: "#333333"
+      right:
+      - state: inhand-right
+        color: "#7e7e7e"
+      - state: plaintop-inhand-right
+        color: "#7e7e7e"
+      - state: accent-inhand-right
+        color: "#333333"
+      - state: accenthighlight-inhand-right
+        color: "#313e5a"
+      - state: tie-inhand-right
+        color: "#a61d1d"
+      - state: clip-inhand-right
+        color: "#860000"
+      - state: clip_right-inhand-right
+        color: "#313e5a"
+      - state: pants-inhand-right
+        color: "#333333"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#7e7e7e"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#7e7e7e"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#333333"
+      - state: accenthighlight-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#a61d1d"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#860000"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#a11a1a"
+      - state: cuffs_upper-equipped-INNERCLOTHING
+        color: "#c92323"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#333333"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a61d1d"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#333333"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#7a7a7a"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitVirology
+  name: virology envirosuit
+  description: The suit worn by the safest people on the station, those who are completely immune to the monstrosities they create.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/virology.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/virology.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitWarden
+  name: warden's envirosuit
+  description: A Plasmaman containment suit designed for the warden, white stripes being added to differentiate them from other members of security.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/warden.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/warden.rsi
+
+- type: entity
+  parent: UnsensoredClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitOperative
+  name: operative envirosuit
+  description: A sinister looking envirosuit, for the most elite of bony operatives.
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Envirosuits/tacticool.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Envirosuits/tacticool.rsi
+    - type: LimitedCharges
+      maxCharges: 6
+      charges: 6
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitTacticool
+  name: tacticool envirosuit
+  description: A sinister looking envirosuit, for the boniest of operatives.
+  components:
+    - type: Sprite
+      sprite: Clothing/Uniforms/Envirosuits/tacticool.rsi
+    - type: Clothing
+      sprite: Clothing/Uniforms/Envirosuits/tacticool.rsi
+    # Too cool for sensors to be on
+    - type: SuitSensor
+      randomMode: false
+      mode: SensorOff
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCentcomAgent
+  name: CentCom agent's envirosuit
+  description: An envirosuit tailored for CentCom's legal team. Smells of burnt coffee.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/centcom_agent.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/centcom_agent.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCentcomOfficial
+  name: CentCom official's envirosuit
+  description: It's an envirosuit worn by CentCom's officials.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/centcom_official.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/centcom_official.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitCentcomOfficer
+  name: CentCom officer's envirosuit
+  description: It's an envirosuit worn by CentCom Officers.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/centcom_officer.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/centcom_officer.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitBlueshield
+  name: blueshield's envirosuit
+  description: An envirosuit designed for Plasmamen employed as the Blueshield.
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/blueshield_officer.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/blueshield_officer.rsi
+  - type: Armor
+    modifiers:
+      coefficients:
+        Blunt: 0.95
+        Heat: 0.95
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitCourier
+  name: courier's envirosuit
+  description: An envirosuit tailored for the courier.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#4a281f"
+    - state: accent2-icon
+      color: "#c2911e"
+    - state: clip-icon
+      color: "#c2911e"
+    - state: clip_right-icon
+      color: "#c2911e"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#4a281f"
+      - state: accent2-inhand-left
+        color: "#c2911e"
+      - state: clip-inhand-left
+        color: "#c2911e"
+      - state: clip_right-inhand-left
+        color: "#c2911e"
+      right:
+      - state: inhand-right
+        color: "#4a281f"
+      - state: accent2-inhand-right
+        color: "#c2911e"
+      - state: clip-inhand-right
+        color: "#c2911e"
+      - state: clip_right-inhand-right
+        color: "#c2911e"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#4a281f"
+      - state: accent2-equipped-INNERCLOTHING
+        color: "#c2911e"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#c2911e"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#c2911e"
+      - state: loweraccent2-equipped-INNERCLOTHING
+        color: "#c2911e"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#c2911e"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitMailCarrier
+  name: mail carrier's envirosuit
+  description: An envirosuit tailored for the mail carrier. The color pattern makes pitbulls go wild.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#394dc6"
+    - state: accent-icon
+      color: "#d82927"
+    - state: accent2_chestonly-icon
+      color: "#dcdcdc"
+    - state: clip-icon
+      color: "#dcdcdc"
+    - state: clip_right-icon
+      color: "#c2c2c2"
+    - state: belt-icon
+      color: "#cfcfcf"
+    - state: beltbuckle_small-icon
+      color: "#f0990c"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#394dc6"
+      - state: accent-inhand-left
+        color: "#d82927"
+      - state: accent2_chestonly-inhand-left
+        color: "#dcdcdc"
+      - state: clip-inhand-left
+        color: "#dcdcdc"
+      - state: clip_right-inhand-left
+        color: "#c2c2c2"
+      - state: belt-inhand-left
+        color: "#cfcfcf"
+      - state: beltbuckle_small-inhand-left
+        color: "#f0990c"
+      right:
+      - state: inhand-right
+        color: "#394dc6"
+      - state: accent-inhand-right
+        color: "#d82927"
+      - state: accent2_chestonly-inhand-right
+        color: "#dcdcdc"
+      - state: clip-inhand-right
+        color: "#dcdcdc"
+      - state: clip_right-inhand-right
+        color: "#c2c2c2"
+      - state: belt-inhand-right
+        color: "#cfcfcf"
+      - state: beltbuckle_small-inhand-right
+        color: "#f0990c"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#394dc6"
+      - state: accentalt_noback-equipped-INNERCLOTHING
+        color: "#d82927"
+      - state: accent2_chestonly-equipped-INNERCLOTHING
+        color: "#dcdcdc"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#dcdcdc"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#c2c2c2"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#cfcfcf"
+      - state: beltbuckle_small-equipped-INNERCLOTHING
+        color: "#f0990c"
+      - state: backaccent-equipped-INNERCLOTHING
+        color: "#dcdcdc"
+      - state: loweraccent2-equipped-INNERCLOTHING
+        color: "#dcdcdc"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#dcdcdc"
+  - type: ClothingAddFaction
+    faction: Mailman
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitMusician
+  name: musician's envirosuit
+  description: An envirosuit to play music with.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3c335b"
+    - state: plaintop-icon
+      color: "#3c335b"
+    - state: accent2-icon
+      color: "#f3f5f4"
+    - state: pin-icon
+      color: "#db2525"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3c335b"
+      - state: accent2-inhand-left
+        color: "#f3f5f4"
+      - state: pin-inhand-left
+        color: "#db2525"
+      right:
+      - state: inhand-right
+        color: "#3c335b"
+      - state: accent2-inhand-right
+        color: "#f3f5f4"
+      - state: pin-inhand-right
+        color: "#db2525"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#3c335b"
+      - state: accent2-equipped-INNERCLOTHING
+        color: "#f3f5f4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#f3f5f4"
+      - state: pin-equipped-INNERCLOTHING
+        color: "#db2525"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitReporter
+  name: reporter envirosuit
+  description: An envirosuit for the news-oriented Plasmamen.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#112334"
+    - state: accent2-icon
+      color: "#79121b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#112334"
+      - state: accent2-inhand-left
+        color: "#79121b"
+      right:
+      - state: inhand-right
+        color: "#112334"
+      - state: accent2-inhand-right
+        color: "#79121b"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#112334"
+      - state: accent2-equipped-INNERCLOTHING
+        color: "#79121b"
+      - state: loweraccent2-equipped-INNERCLOTHING
+        color: "#79121b"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitGladiator
+  name: gladiator envirosuit
+  description: Made for bloodthirsty Plasmamen.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#dab13b"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#dab13b"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#dab13b"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#dab13b"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent2-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#a349a4"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitMantis
+  name: mantis' envirosuit
+  description: Hunting down psionics in the safety of this envirosuit.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#46566d"
+    - state: pants-icon
+      color: "#7d2322"
+    - state: belt-icon
+      color: "#51321a"
+    - state: beltbuckle-icon
+      color: "#dcbb60"
+    - state: accent-icon
+      color: "#d4af48"
+    - state: buttons-icon
+      color: "#997d30"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#46566d"
+      - state: pants-inhand-left
+        color: "#7d2322"
+      - state: belt-inhand-left
+        color: "#51321a"
+      - state: beltbuckle-inhand-left
+        color: "#dcbb60"
+      - state: accent-inhand-left
+        color: "#d4af48"
+      - state: buttons-inhand-left
+        color: "#997d30"
+      right:
+      - state: inhand-right
+        color: "#46566d"
+      - state: pants-inhand-right
+        color: "#7d2322"
+      - state: belt-inhand-right
+        color: "#51321a"
+      - state: beltbuckle-inhand-right
+        color: "#dcbb60"
+      - state: accent-inhand-right
+        color: "#d4af48"
+      - state: buttons-inhand-right
+        color: "#997d30"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#46566d"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#7d2322"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#51321a"
+      - state: beltbuckle-equipped-INNERCLOTHING
+        color: "#dcbb60"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#d4af48"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#d4af48"
+      - state: buttons-equipped-INNERCLOTHING
+        color: "#997d30"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#d4af48"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitSafari
+  name: safari envirosuit
+  description: Perfect for a jungle excursion.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d3b986"
+    - state: accent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d3b986"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#d3b986"
+      - state: accent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#d3b986"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitMartialGi
+  name: gi envirosuit
+  description: A flowy envirosuit tailor-made for martial arts that doesn't restrict your mobility.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#3b3b3b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#3b3b3b"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#3b3b3b"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitQM
+  name: logistics officer's envirosuit
+  description: An air-tight suit designed to be used by Plasmamen insane enough to achieve the rank of "Logistics Officer".
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#bb934b"
+    - state: accent-icon
+      color: "#ffc000"
+    - state: accent3_chestonly-icon
+      color: "#d08200"
+    - state: clip-icon
+      color: "#c0c0c0"
+    - state: clip_right-icon
+      color: "#a7a7a7"
+    - state: pants-icon
+      color: "#8a8a8a"
+    - state: belt-icon
+      color: "#6f6f6f"
+    - state: beltbuckle-icon
+      color: "#bfbfbf"
+    - state: buttons-icon
+      color: "#535353"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#bb934b"
+      - state: accent-inhand-left
+        color: "#ffc000"
+      - state: accent3_chestonly-inhand-left
+        color: "#d08200"
+      - state: clip-inhand-left
+        color: "#c0c0c0"
+      - state: clip_right-inhand-left
+        color: "#a7a7a7"
+      - state: pants-inhand-left
+        color: "#8a8a8a"
+      - state: belt-inhand-left
+        color: "#6f6f6f"
+      - state: beltbuckle-inhand-left
+        color: "#bfbfbf"
+      - state: buttons-inhand-left
+        color: "#535353"
+      right:
+      - state: inhand-right
+        color: "#bb934b"
+      - state: accent-inhand-right
+        color: "#ffc000"
+      - state: accent3_chestonly-inhand-right
+        color: "#d08200"
+      - state: clip-inhand-right
+        color: "#c0c0c0"
+      - state: clip_right-inhand-right
+        color: "#a7a7a7"
+      - state: pants-inhand-right
+        color: "#8a8a8a"
+      - state: belt-inhand-right
+        color: "#6f6f6f"
+      - state: beltbuckle-inhand-right
+        color: "#bfbfbf"
+      - state: buttons-inhand-right
+        color: "#535353"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#bb934b"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#ffc000"
+      - state: accent3_chestonly-equipped-INNERCLOTHING
+        color: "#d08200"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#c0c0c0"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#a7a7a7"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#d08200"
+      - state: cuffs_upper-equipped-INNERCLOTHING
+        color: "#6e6e6e"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#8a8a8a"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#6f6f6f"
+      - state: beltbuckle-equipped-INNERCLOTHING
+        color: "#bfbfbf"
+      - state: buttons-equipped-INNERCLOTHING
+        color: "#535353"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#ffc000"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#828282"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#ffc000"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitBoxing
+  name: boxing envirosuit
+  description: Used by Plasmamen boxers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#eeeeee"
+    - state: accent3-icon
+      color: "#a81818"
+    - state: pants-icon
+      color: "#a81818"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#eeeeee"
+      - state: accent3-inhand-left
+        color: "#a81818"
+      - state: pants-inhand-left
+        color: "#a81818"
+      right:
+      - state: inhand-right
+        color: "#eeeeee"
+      - state: accent3-inhand-right
+        color: "#a81818"
+      - state: pants-inhand-right
+        color: "#a81818"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#eeeeee"
+      - state: accent3-equipped-INNERCLOTHING
+        color: "#a81818"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#a81818"
+      - state: loweraccent2-equipped-INNERCLOTHING
+        color: "#eeeeee"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#eeeeee"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitAdminAssistant
+  name: administrative assistant's envirosuit
+  description: An envirosuit worn by the Administrative Assistant. Smells of burnt coffee.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: pants-icon
+      color: "#313131"
+    - state: belt-icon
+      color: "#4d4d4d"
+    - state: accent-icon
+      color: "#315266"
+    - state: tie-icon
+      color: "#315266"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: pants-inhand-left
+        color: "#313131"
+      - state: belt-inhand-left
+        color: "#4d4d4d"
+      - state: accent-inhand-left
+        color: "#315266"
+      - state: tie-inhand-left
+        color: "#315266"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: pants-inhand-right
+        color: "#313131"
+      - state: belt-inhand-right
+        color: "#4d4d4d"
+      - state: accent-inhand-right
+        color: "#315266"
+      - state: tie-inhand-right
+        color: "#315266"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#313131"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#4d4d4d"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#315266"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#315266"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#315266"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitBlackPink
+  name: black pink envirosuit
+  description: Black pink envirosuit in your area!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#292929"
+    - state: plaintop-icon
+      color: "#292929"
+    - state: accent-icon
+      color: "#f4a1b7"
+    - state: heart-icon
+      color: "#f4a1b7"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#292929"
+      - state: plaintop-inhand-left
+        color: "#292929"
+      - state: accent-inhand-left
+        color: "#f4a1b7"
+      - state: heart-inhand-left
+        color: "#f4a1b7"
+      right:
+      - state: inhand-right
+        color: "#292929"
+      - state: plaintop-inhand-right
+        color: "#292929"
+      - state: accent-inhand-right
+        color: "#f4a1b7"
+      - state: heart-inhand-right
+        color: "#f4a1b7"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#292929"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#f4a1b7"
+      - state: heart-equipped-INNERCLOTHING
+        color: "#f4a1b7"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#f4a1b7"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#f4a1b7"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitBlackPinkAlt
+  name: black pink envirosuit
+  suffix: Alternative
+  description: Black pink envirosuit in your area!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#f4a1b7"
+    - state: plaintop-icon
+      color: "#f4a1b7"
+    - state: accent-icon
+      color: "#292929"
+    - state: heart-icon
+      color: "#292929"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#f4a1b7"
+      - state: plaintop-inhand-left
+        color: "#f4a1b7"
+      - state: accent-inhand-left
+        color: "#292929"
+      - state: heart-inhand-left
+        color: "#292929"
+      right:
+      - state: inhand-right
+        color: "#f4a1b7"
+      - state: plaintop-inhand-right
+        color: "#f4a1b7"
+      - state: accent-inhand-right
+        color: "#292929"
+      - state: heart-inhand-right
+        color: "#292929"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#f4a1b7"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#f4a1b7"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: heart-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#292929"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitTrans
+  name: trans envirosuit
+  description: The signature envirosuit of Transylvanian Plasmamen.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#5dd2ff"
+    - state: heart-icon
+      color: "#ffb0c0"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#5dd2ff"
+      - state: heart-inhand-left
+        color: "#ffb0c0"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#5dd2ff"
+      - state: heart-inhand-right
+        color: "#ffb0c0"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#5dd2ff"
+      - state: heart-equipped-INNERCLOTHING
+        color: "#ffb0c0"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#ffb0c0"
+      - state: loweraccent2_top-equipped-INNERCLOTHING
+        color: "#5dd2ff"
+      - state: loweraccent2_bottom-equipped-INNERCLOTHING
+        color: "#ffb0c0"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#5dd2ff"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitPrisonGuard
+  name: prison guard's envirosuit
+  description: A comfortable, durable, envirosuit made to keep Plasmamen prison staff comfortable and safe.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d76b00"
+    - state: accent3-icon
+      color: "#363636"
+    - state: accenthighlight-icon
+      color: "#313e5a"
+    - state: clip-icon
+      color: "#860000"
+    - state: clip_right-icon
+      color: "#313e5a"
+    - state: pants-icon
+      color: "#363636"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d76b00"
+      - state: accent3-inhand-left
+        color: "#363636"
+      - state: accenthighlight-inhand-left
+        color: "#313e5a"
+      - state: clip-inhand-left
+        color: "#860000"
+      - state: clip_right-inhand-left
+        color: "#313e5a"
+      - state: pants-inhand-left
+        color: "#363636"
+      right:
+      - state: inhand-right
+        color: "#d76b00"
+      - state: accent3-inhand-right
+        color: "#363636"
+      - state: accenthighlight-inhand-right
+        color: "#313e5a"
+      - state: clip-inhand-right
+        color: "#860000"
+      - state: clip_right-inhand-right
+        color: "#313e5a"
+      - state: pants-inhand-right
+        color: "#363636"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#d76b00"
+      - state: accent3-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: accenthighlight-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#860000"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#d76b00"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitBrigmedic
+  name: corpsman envirosuit
+  description: An envirosuit assigned to corpsmen Plasmamen.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#486782"
+    - state: accent-icon
+      color: "#333333"
+    - state: accent2_chestonly-icon
+      color: "#3b3b3b"
+    - state: accenthighlight-icon
+      color: "#2f74b8"
+    - state: buttons-icon
+      color: "#b0bdca"
+    - state: clip-icon
+      color: "#860000"
+    - state: clip_right-icon
+      color: "#313e5a"
+    - state: pants-icon
+      color: "#3b3b3b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#486782"
+      - state: accent-inhand-left
+        color: "#333333"
+      - state: accent2_chestonly-inhand-left
+        color: "#3b3b3b"
+      - state: accenthighlight-inhand-left
+        color: "#2f74b8"
+      - state: buttons-inhand-left
+        color: "#b0bdca"
+      - state: clip-inhand-left
+        color: "#860000"
+      - state: clip_right-inhand-left
+        color: "#313e5a"
+      - state: pants-inhand-left
+        color: "#3b3b3b"
+      right:
+      - state: inhand-right
+        color: "#486782"
+      - state: accent-inhand-right
+        color: "#333333"
+      - state: accent2_chestonly-inhand-right
+        color: "#3b3b3b"
+      - state: accenthighlight-inhand-right
+        color: "#2f74b8"
+      - state: buttons-inhand-right
+        color: "#b0bdca"
+      - state: clip-inhand-right
+        color: "#860000"
+      - state: clip_right-inhand-right
+        color: "#313e5a"
+      - state: pants-inhand-right
+        color: "#3b3b3b"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#486782"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#333333"
+      - state: accent2_chestonly-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: accenthighlight-equipped-INNERCLOTHING
+        color: "#2f74b8"
+      - state: buttons-equipped-INNERCLOTHING
+        color: "#b0bdca"
+      - state: clip-equipped-INNERCLOTHING
+        color: "#860000"
+      - state: clip_right-equipped-INNERCLOTHING
+        color: "#313e5a"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#bfcddb"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#9ca7b3"
+      - state: shoesdark-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bfcddb"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitNanotrasenRepresentative
+  name: nanotrasen representative envirosuit
+  description: A black envirosuit worn by officials.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#292929"
+    - state: accent3_chestonly-icon
+      color: "#266199"
+    - state: accent2-icon
+      color: "#ffce5b"
+    - state: buttons-icon
+      color: "#f3f5f4"
+    - state: belt-icon
+      color: "#87511b"
+    - state: beltbuckle-icon
+      color: "#969696"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#292929"
+      - state: accent3_chestonly-inhand-left
+        color: "#266199"
+      - state: accent2-inhand-left
+        color: "#ffce5b"
+      - state: buttons-inhand-left
+        color: "#f3f5f4"
+      - state: belt-inhand-left
+        color: "#87511b"
+      - state: beltbuckle-inhand-left
+        color: "#969696"
+      right:
+      - state: inhand-right
+        color: "#292929"
+      - state: accent3_chestonly-inhand-right
+        color: "#266199"
+      - state: accent2-inhand-right
+        color: "#ffce5b"
+      - state: buttons-inhand-right
+        color: "#f3f5f4"
+      - state: belt-inhand-right
+        color: "#87511b"
+      - state: beltbuckle-inhand-right
+        color: "#969696"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#292929"
+      - state: accent3_chestonly-equipped-INNERCLOTHING
+        color: "#266199"
+      - state: accent2-equipped-INNERCLOTHING
+        color: "#ffce5b"
+      - state: buttons-equipped-INNERCLOTHING
+        color: "#f3f5f4"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#ffce5b"
+      - state: cuffs_upper-equipped-INNERCLOTHING
+        color: "#0057a8"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#87511b"
+      - state: beltbuckle-equipped-INNERCLOTHING
+        color: "#969696"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#266199"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#ffce5b"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitMagistrate
+  name: magistrate envirosuit
+  description: The envirosuit that doles out justice.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ebebeb"
+    - state: plaintop-icon
+      color: "#ebebeb"
+    - state: tie-icon
+      color: "#333333"
+    - state: tieclip-icon
+      color: "#e6b952"
+    - state: accent-icon
+      color: "#ffce5b"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#634737"
+    - state: beltbuckle-icon
+      color: "#ffce5b"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ebebeb"
+      - state: plaintop-inhand-left
+        color: "#ebebeb"
+      - state: tie-inhand-left
+        color: "#333333"
+      - state: tieclip-inhand-left
+        color: "#e6b952"
+      - state: accent-inhand-left
+        color: "#ffce5b"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#634737"
+      - state: beltbuckle-inhand-left
+        color: "#ffce5b"
+      right:
+      - state: inhand-right
+        color: "#ebebeb"
+      - state: plaintop-inhand-right
+        color: "#ebebeb"
+      - state: tie-inhand-right
+        color: "#333333"
+      - state: tieclip-inhand-right
+        color: "#e6b952"
+      - state: accent-inhand-right
+        color: "#ffce5b"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#634737"
+      - state: beltbuckle-inhand-right
+        color: "#ffce5b"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ebebeb"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ebebeb"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#333333"
+      - state: tieclip-equipped-INNERCLOTHING
+        color: "#e6b952"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#ffce5b"
+      - state: cuffs-equipped-INNERCLOTHING
+        color: "#634737"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#634737"
+      - state: beltbuckle-equipped-INNERCLOTHING
+        color: "#ffce5b"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#ffce5b"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#634737"
+
+
+# The Tortured Enviroslacks Department (Skubman's Version)
+- type: entity
+  parent: ClothingUniformEnvirosuitBase
+  id: ClothingUniformEnvirosuitEnviroslacks
+  name: enviroslacks
+  description: The pet project of a particularly posh Plasmaman. Professional!
+  components:
+  - type: Sprite
+    sprite: Clothing/Uniforms/Envirosuits/enviroslacks.rsi
+  - type: Clothing
+    sprite: Clothing/Uniforms/Envirosuits/enviroslacks.rsi
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksNegative
+  name: negative enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant has inverted colors. Dapper!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3f3f3f"
+    - state: plaintop-icon
+      color: "#3f3f3f"
+    - state: tie-icon
+      color: "#a349a4"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: pants-icon
+      color: "#f2f2f2"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3f3f3f"
+      - state: plaintop-inhand-left
+        color: "#3f3f3f"
+      - state: tie-inhand-left
+        color: "#a349a4"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: pants-inhand-left
+        color: "#f2f2f2"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#3f3f3f"
+      - state: plaintop-inhand-right
+        color: "#3f3f3f"
+      - state: tie-inhand-right
+        color: "#a349a4"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: pants-inhand-right
+        color: "#f2f2f2"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#3f3f3f"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#3f3f3f"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#f2f2f2"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksColorRed
+  name: red enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with red accents. Fancy!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#99211f"
+    - state: accent-icon
+      color: "#99211f"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#99211f"
+      - state: accent-inhand-left
+        color: "#99211f"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#99211f"
+      - state: accent-inhand-right
+        color: "#99211f"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#99211f"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#99211f"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#99211f"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksColorOrange
+  name: orange enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with orange accents. Zesty!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#c2680f"
+    - state: accent-icon
+      color: "#c2680f"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#c2680f"
+      - state: accent-inhand-left
+        color: "#c2680f"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#c2680f"
+      - state: accent-inhand-right
+        color: "#c2680f"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#c2680f"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#c2680f"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#c2680f"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksColorGreen
+  name: green enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with green accents. Leafy!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#5b991f"
+    - state: accent-icon
+      color: "#5b991f"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#5b991f"
+      - state: accent-inhand-left
+        color: "#5b991f"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#5b991f"
+      - state: accent-inhand-right
+        color: "#5b991f"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#5b991f"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#5b991f"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#5b991f"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksColorBlue
+  name: blue enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant comes with blue accents. Cool!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#2b5c99"
+    - state: accent-icon
+      color: "#2b5c99"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#2b5c99"
+      - state: accent-inhand-left
+        color: "#2b5c99"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#2b5c99"
+      - state: accent-inhand-right
+        color: "#2b5c99"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#2b5c99"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#2b5c99"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#2b5c99"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksColorBrown
+  name: brown enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant has brown pants. Reminds you of dusty offices.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#a349a4"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: pants-icon
+      color: "#583f20"
+    - state: belt-icon
+      color: "#363636"
+    - state: beltbuckle_small-icon
+      color: "#3e3e3e"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#a349a4"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: pants-inhand-left
+        color: "#583f20"
+      - state: belt-inhand-left
+        color: "#363636"
+      - state: beltbuckle_small-inhand-left
+        color: "#3e3e3e"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#a349a4"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: pants-inhand-right
+        color: "#583f20"
+      - state: belt-inhand-right
+        color: "#363636"
+      - state: beltbuckle_small-inhand-right
+        color: "#3e3e3e"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#583f20"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: beltbuckle_small-equipped-INNERCLOTHING
+        color: "#3e3e3e"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksMNK
+  name: MNK enviroslacks
+  description: The iconic enviroslacks, with MNK's signature monochrome aesthetic. Classic!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#363636"
+    - state: accent-icon
+      color: "#363636"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#363636"
+      - state: accent-inhand-left
+        color: "#363636"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#363636"
+      - state: accent-inhand-right
+        color: "#363636"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#363636"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#d6d6d6"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksMNKAlt
+  name: MNK enviroslacks
+  description: The iconic enviroslacks, with MNK's signature monochrome aesthetic. Noir!
+  suffix: Alternative
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3b3b3b"
+    - state: plaintop-icon
+      color: "#3b3b3b"
+    - state: tie-icon
+      color: "#d6d6d6"
+    - state: accent-icon
+      color: "#d6d6d6"
+    - state: pants-icon
+      color: "#f2f2f2"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3b3b3b"
+      - state: plaintop-inhand-left
+        color: "#3b3b3b"
+      - state: tie-inhand-left
+        color: "#d6d6d6"
+      - state: accent-inhand-left
+        color: "#d6d6d6"
+      - state: pants-inhand-left
+        color: "#f2f2f2"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#3b3b3b"
+      - state: plaintop-inhand-right
+        color: "#3b3b3b"
+      - state: tie-inhand-right
+        color: "#d6d6d6"
+      - state: accent-inhand-right
+        color: "#d6d6d6"
+      - state: pants-inhand-right
+        color: "#f2f2f2"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#3b3b3b"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#d6d6d6"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#d6d6d6"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#f2f2f2"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#424242"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitEnviroslacksPsychologist
+  name: psychologist enviroslacks
+  description: The pet project of a particularly posh Plasmaman, this variant was made for the psychologist. Mind-boggling!
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: plaintop-icon
+      color: "#ffffff"
+    - state: tie-icon
+      color: "#5ba0cf"
+    - state: accent-icon
+      color: "#5ba0cf"
+    - state: pants-icon
+      color: "#292929"
+    - state: belt-icon
+      color: "#737373"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: plaintop-inhand-left
+        color: "#ffffff"
+      - state: tie-inhand-left
+        color: "#5ba0cf"
+      - state: accent-inhand-left
+        color: "#5ba0cf"
+      - state: pants-inhand-left
+        color: "#292929"
+      - state: belt-inhand-left
+        color: "#737373"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: plaintop-inhand-right
+        color: "#ffffff"
+      - state: tie-inhand-right
+        color: "#5ba0cf"
+      - state: accent-inhand-right
+        color: "#5ba0cf"
+      - state: pants-inhand-right
+        color: "#292929"
+      - state: belt-inhand-right
+        color: "#737373"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: plaintop-equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: tie-equipped-INNERCLOTHING
+        color: "#5ba0cf"
+      - state: accentalt-equipped-INNERCLOTHING
+        color: "#5ba0cf"
+      - state: pants-equipped-INNERCLOTHING
+        color: "#292929"
+      - state: belt-equipped-INNERCLOTHING
+        color: "#737373"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#5ba0cf"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+# Color envirosuits
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorWhite
+  name: white envirosuit
+  description: A generic white jumpsuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffffff"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffffff"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorGrey
+  name: grey envirosuit
+  description: A tasteful grey envirosuit that reminds you of the good old days.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#b3b3b3"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#b3b3b3"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#b3b3b3"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#b3b3b3"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorBlack
+  name: black envirosuit
+  description: A generic black envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3f3f3f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3f3f3f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#3f3f3f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#3f3f3f"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorRed
+  name: red envirosuit
+  description: A dark green envirosuit.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#d1423f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d1423f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#d1423f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#d1423f"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorGreen
+  name: green envirosuit
+  description: A generic green envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#9ed63a"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#9ed63a"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#9ed63a"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#9ed63a"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorDarkGreen
+  name: dark green envirosuit
+  description: A generic dark green envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#79CC26"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#79CC26"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#79CC26"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#79CC26"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorBlue
+  name: blue envirosuit
+  description: A generic blue envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#52aecc"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#52aecc"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#52aecc"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#52aecc"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorDarkBlue
+  name: dark blue envirosuit
+  description: A generic dark blue envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#3285ba"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3285ba"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#3285ba"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#3285ba"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorTeal
+  name: teal envirosuit
+  description: A generic teal envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#77f3b7"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#77f3b7"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#77f3b7"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#77f3b7"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorMaroon
+  name: maroon envirosuit
+  description: A generic maroon envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#cc295f"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#cc295f"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#cc295f"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#cc295f"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorPink
+  name: pink envirosuit
+  description: >-
+    "Plasmamen can't slay" and other jokes you can tell yourself.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8cff"
+    - state: accent-icon
+      color: "#8b3e8c"
+    - state: corneraccent-icon
+      color: "#8b3e8c"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8cff"
+      - state: accent-inhand-left
+        color: "#8b3e8c"
+      - state: corneraccent-inhand-left
+        color: "#8b3e8c"
+      right:
+      - state: inhand-right
+        color: "#ff8cff"
+      - state: accent-inhand-right
+        color: "#8b3e8c"
+      - state: corneraccent-inhand-right
+        color: "#8b3e8c"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ff8cff"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#8b3e8c"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#8b3e8c"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#8b3e8c"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorYellow
+  name: yellow envirosuit
+  description: A generic yellow envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ffe14d"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffe14d"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#ffe14d"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ffe14d"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorPurple
+  name: purple envirosuit
+  description: A generic purple envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#9f70cc"
+    - state: accent-icon
+      color: "#843b85"
+    - state: corneraccent-icon
+      color: "#843b85"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#9f70cc"
+      - state: accent-inhand-left
+        color: "#843b85"
+      - state: corneraccent-inhand-left
+        color: "#843b85"
+      right:
+      - state: inhand-right
+        color: "#9f70cc"
+      - state: accent-inhand-right
+        color: "#843b85"
+      - state: corneraccent-inhand-right
+        color: "#843b85"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#9f70cc"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#843b85"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#843b85"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#843b85"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorOrange
+  name: orange envirosuit
+  description: Don't wear this near paranoid security officers.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#ff8c19"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff8c19"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#ff8c19"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#ff8c19"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorLightBrown
+  name: light brown envirosuit
+  description: A generic light brown envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#a17229"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#a17229"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#a17229"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#a17229"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"
+
+- type: entity
+  parent: ClothingUniformEnvirosuitCustomBase
+  id: ClothingUniformEnvirosuitColorBrown
+  name: brown envirosuit
+  description: A generic brown envirosuit with no rank markings.
+  components:
+  - type: Sprite
+    layers:
+    - state: icon
+      color: "#543e1b"
+    - state: accent-icon
+      color: "#a349a4"
+    - state: corneraccent-icon
+      color: "#a349a4"
+  - type: Item
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#543e1b"
+      - state: accent-inhand-left
+        color: "#a349a4"
+      - state: corneraccent-inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#543e1b"
+      - state: accent-inhand-right
+        color: "#a349a4"
+      - state: corneraccent-inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    clothingVisuals:
+      jumpsuit:
+      - state: equipped-INNERCLOTHING
+        color: "#543e1b"
+      - state: accent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: loweraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: corneraccent-equipped-INNERCLOTHING
+        color: "#a349a4"
+      - state: soles-equipped-INNERCLOTHING
+        color: "#bababa"

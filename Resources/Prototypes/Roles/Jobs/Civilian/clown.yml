@@ -159,3 +159,12 @@
     back:
     - RubberStampClown
     - CrayonRainbow
+
+- type: startingGear
+  id: ClownPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitClown
+    head: ClothingHeadEnvirohelmClown
+    gloves: ClothingHandsGlovesEnviroglovesClown
+    mask: ClothingMaskClown # Parent sets mask to breath mask so set it again here

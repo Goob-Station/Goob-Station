@@ -1,0 +1,150 @@
+- type: entity
+  id: BasePlasmamanOrgan
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: Mobs/Species/Plasmaman/organs.rsi
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5 # Not very nutritious
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+  - type: Extractable
+    grindableSolutionName: food
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 5
+  - type: FlavorProfile
+    flavors:
+      - plasma
+
+- type: entity
+  id: OrganPlasmamanLungs
+  parent: [ BasePlasmamanOrgan, OrganHumanLungs ]
+  name: plasmaman lungs
+  description: The lungs yearn for the plasma. Only plasma gas can satiate these lungs, and oxygen is lethally toxic.
+  components:
+  - type: Sprite
+    layers:
+    - state: lungs
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+  - type: Lung
+    alert: LowPlasma
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      Lung:
+        maxVol: 100.0
+        canReact: false
+      food:
+        maxVol: 5
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 5
+
+- type: entity
+  id: OrganPlasmamanStomach
+  parent: [ BasePlasmamanOrgan, OrganHumanStomach ]
+  name: plasmaman stomach
+  description: Why do plasmamen have stomachs if they don't need to eat?
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 8
+        - ReagentId: Plasma
+          Quantity: 4
+      stomach:
+        maxVol: 50
+      food:
+        maxVol: 8
+        reagents:
+        - ReagentId: Plasma
+          Quantity: 8
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Plasma
+        Quantity: 8
+
+- type: entity
+  id: OrganPlasmamanEyes
+  parent: [ BasePlasmamanOrgan, OrganHumanEyes ]
+  name: plasmaman eyes
+  components:
+  - type: Sprite
+    layers:
+    - state: eyes
+
+- type: entity
+  id: OrganPlasmamanLiver
+  parent: [ BasePlasmamanOrgan, OrganHumanLiver ]
+  name: plasmaman liver
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanTongue
+  parent: [ BasePlasmamanOrgan, OrganHumanTongue ]
+  name: plasmaman tongue
+
+- type: entity
+  id: OrganPlasmamanKidneys
+  parent: [ BasePlasmamanOrgan, OrganHumanKidneys ]
+  name: plasmaman kidneys
+  components:
+  - type: Sprite
+    layers:
+    - state: kidneys
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanHeart
+  parent: [ BasePlasmamanOrgan, OrganHumanHeart ]
+  name: plasmaman heart
+  description: It pulses with plasma even outside the body.
+  components:
+  - type: Metabolizer
+    metabolizerTypes: [ Plasmaman ]
+
+- type: entity
+  id: OrganPlasmamanBrain
+  parent: [ BasePlasmamanOrgan, OrganHumanBrain ]
+  name: plasmaman brain
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      organ:
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 2.5
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: GreyMatter
+          Quantity: 5
+        - ReagentId: Plasma
+          Quantity: 5

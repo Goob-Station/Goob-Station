@@ -1488,3 +1488,8 @@
   id: bacchusblessing
   flavorType: Complex
   description: flavor-complex-bacchus-blessing
+
+- type: flavor
+  id: plasma
+  flavorType: Complex
+  description: flavor-complex-plasma

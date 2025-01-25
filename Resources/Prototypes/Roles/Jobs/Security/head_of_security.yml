@@ -193,3 +193,11 @@
     - Flash
     - MagazinePistol
     - ClothingMaskGasSecurity # Goobstation
+
+- type: startingGear
+  id: HoSPlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitHoS
+    head: ClothingHeadEnvirohelmHoS
+    gloves: ClothingHandsGlovesEnviroglovesBlack

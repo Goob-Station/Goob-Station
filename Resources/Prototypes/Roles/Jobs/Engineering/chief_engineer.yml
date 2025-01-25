@@ -176,3 +176,11 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: startingGear
+  id: ChiefEngineerPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChiefEngineer
+    head: ClothingHeadEnvirohelmChiefEngineer
+    gloves: ClothingHandsGlovesEnviroglovesChiefEngineer

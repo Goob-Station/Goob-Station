@@ -1,0 +1,156 @@
+- type: entity
+  parent: BaseMobSpeciesOrganic
+  id: BaseMobPlasmaman
+  name: Urist McPlasma
+  abstract: true
+  components:
+  - type: Icon
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: full
+  - type: Sprite
+    layers:
+    - map: [ "enum.HumanoidVisualLayers.Chest" ]
+    - map: [ "enum.HumanoidVisualLayers.Head" ]
+    - map: [ "enum.HumanoidVisualLayers.Snout" ]
+    - map: [ "enum.HumanoidVisualLayers.Eyes" ]
+    - map: [ "enum.HumanoidVisualLayers.Face" ]
+    - map: [ "enum.HumanoidVisualLayers.RArm" ]
+    - map: [ "enum.HumanoidVisualLayers.LArm" ]
+    - map: [ "enum.HumanoidVisualLayers.RLeg" ]
+    - map: [ "enum.HumanoidVisualLayers.LLeg" ]
+    - shader: StencilClear
+      sprite: Mobs/Species/Human/parts.rsi
+      state: l_leg
+    - shader: StencilMask
+      map: ["enum.HumanoidVisualLayers.StencilMask"]
+      sprite: Mobs/Customization/masking_helpers.rsi
+      state: unisex_full
+      visible: false
+    - map: ["enum.HumanoidVisualLayers.LFoot"]
+    - map: ["enum.HumanoidVisualLayers.RFoot"]
+    - map: ["jumpsuit"] # jumpsuit after foot to show envirosuit shoes
+    - map: ["enum.HumanoidVisualLayers.LHand"]
+    - map: ["enum.HumanoidVisualLayers.RHand"]
+    - map: [ "gloves" ]
+    - map: [ "shoes" ]
+    - map: [ "ears" ]
+    - map: [ "innerBelt" ]
+    - map: [ "innerNeck" ]
+    - map: [ "outerClothing" ]
+    - map: [ "eyes" ]
+    - map: [ "belt" ]
+    - map: [ "id" ]
+    - map: [ "neck" ]
+    - map: [ "back" ]
+    - map: [ "enum.HumanoidVisualLayers.FacialHair" ]
+    - map: [ "enum.HumanoidVisualLayers.Hair" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadSide" ]
+    - map: [ "enum.HumanoidVisualLayers.HeadTop" ]
+    - map: [ "enum.HumanoidVisualLayers.Tail" ]
+    - map: [ "mask" ]
+    - map: [ "head" ]
+    - map: [ "pocket1" ]
+    - map: [ "pocket2" ]
+    - map: ["enum.HumanoidVisualLayers.Handcuffs"]
+      color: "#ffffff"
+      sprite: Objects/Misc/handcuffs.rsi
+      state: body-overlay-2
+      visible: false
+    - map: [ "clownedon" ] # Dynamically generated
+      sprite: "Effects/creampie.rsi"
+      state: "creampie_human"
+      visible: false
+  - type: Carriable
+  - type: Body
+    prototype: Plasmaman
+    requiredLegs: 2
+    gibSound: /Audio/Effects/bone_rattle.ogg
+  - type: Bloodstream
+    bloodlossThreshold: 0
+    bleedReductionAmount: 0
+    maxBleedAmount: 0
+    bloodlossDamage:
+      types:
+        Blunt: 0
+    bloodlossHealDamage:
+      types:
+        Blunt: 0
+    bloodRefreshAmount: 0
+    bloodRegenerationHunger: 0
+    bloodRegenerationThirst: 0
+    bloodMaxVolume: 0
+  - type: Damageable
+    damageModifierSet: Plasmaman
+  - type: DamageVisuals
+    damageOverlayGroups:
+      Brute:
+        sprite: Mobs/Effects/brute_damage.rsi
+        color: "#555555AA"
+      Burn:
+        sprite: Mobs/Effects/burn_damage.rsi
+  - type: MeleeWeapon
+    soundHit:
+      collection: FirePunch
+    animation: WeaponArcPurplePunch
+    damage:
+      types: # oooh scarier extra damage~
+        Heat: 5
+        Blunt: 2.25
+  - type: DamageOnHit
+    damage:
+      types:
+        Heat: 1
+    targetParts: [ RightHand, LeftHand ]
+  - type: Speech
+    speechVerb: Skeleton
+  - type: Vocal
+    sounds:
+      Male: UnisexPlasmaman
+      Female: UnisexPlasmaman
+      Unsexed: UnisexPlasmaman
+  - type: Butcherable
+    butcheringType: Spike
+    spawned:
+    - id: SheetPlasma1
+      amount: 8
+  - type: Inventory
+    templateId: plasmaman
+  - type: Temperature
+    heatDamageThreshold: 313    # 40 celsius, -12 from base heat damage threshold
+    currentTemperature: 270.15  # -3 celsius
+    specificHeat: 46
+    coldDamage:
+      types:
+        Cold: 0
+    heatDamage:
+      types:
+        Heat: 3
+  - type: ThermalRegulator
+    normalBodyTemperature: 270.15
+  - type: Flammable
+    firestackFade: -0.05
+  - type: HumanoidAppearance
+    species: Plasmaman
+    hideLayersOnEquip:
+    - Hair
+    - Snout
+  - type: TypingIndicator
+    proto: plasmaman
+  - type: LanguageKnowledge
+    speaks:
+    - TauCetiBasic
+    - Calcic
+    understands:
+    - TauCetiBasic
+    - Calcic
+  - type: FootPrints
+
+- type: entity
+  parent: BaseSpeciesDummy
+  id: MobPlasmamanDummy
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: HumanoidAppearance
+    species: Plasmaman
+  - type: Inventory
+    templateId: plasmaman

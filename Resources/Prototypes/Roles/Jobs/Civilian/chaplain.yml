@@ -97,3 +97,11 @@
     - ChaplainUndeterminedBible
     - RubberStampChaplain
     - Nullrod
+
+- type: startingGear
+  id: ChaplainPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitChaplain
+    head: ClothingHeadEnvirohelmChaplain
+    gloves: ClothingHandsGlovesEnviroglovesBlack

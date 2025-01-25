@@ -260,6 +260,20 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01
     coolingCoefficient: 0.01
+  - type: FireProtection
+    reduction: 0.75 # almost perfectly sealed, atmos firesuit is better
+  - type: IgniteFromGasImmunity
+    parts:
+    - Torso
+    - Groin
+    - LeftArm
+    - LeftHand
+    - RightArm
+    - RightHand
+    - LeftLeg
+    - LeftFoot
+    - RightLeg
+    - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.4
     sprintModifier: 0.6
@@ -302,6 +316,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - PlasmamanSafe
   - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
   - type: DamageOnInteractProtection
@@ -325,6 +340,18 @@
   - type: TemperatureProtection
     heatingCoefficient: 0.01 # Not complete protection from fire
     coolingCoefficient: 0.01
+  - type: IgniteFromGasImmunity
+    parts:
+    - Torso
+    - Groin
+    - LeftArm
+    - LeftHand
+    - RightArm
+    - RightHand
+    - LeftLeg
+    - LeftFoot
+    - RightLeg
+    - RightFoot
   - type: ClothingSpeedModifier
     walkModifier: 0.8
     sprintModifier: 0.8
@@ -341,6 +368,9 @@
   - type: HideClothingLayerClothing # Goobstation
     hiddenSlots:
     - jumpsuit
+  - type: Tag
+    tags:
+    - PlasmamanSafe
 
 - type: entity
   parent: ClothingOuterBase

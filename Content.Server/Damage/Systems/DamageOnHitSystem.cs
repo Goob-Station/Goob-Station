@@ -14,17 +14,22 @@ namespace Content.Server.Damage.Systems;
 public sealed class DamageOnHitSystem : EntitySystem
 {
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
+    private readonly Random _random = new Random();
 
     public override void Initialize()
     {
         base.Initialize();
-        SubscribeLocalEvent<DamageOnHitComponent, MeleeHitEvent>(DamageItem);
+        SubscribeLocalEvent<DamageOnHitComponent, MeleeHitEvent>(DamageSelf);
     }
-    // Looks for a hit, then damages the held item an appropriate amount.
-    private void DamageItem(EntityUid uid, DamageOnHitComponent component, MeleeHitEvent args)
+
+    // Looks for a hit, then damages the entity an appropriate amount.
+    private void DamageSelf(EntityUid uid, DamageOnHitComponent component, MeleeHitEvent args)
     {
         if (args.HitEntities.Any()) {
-            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances);
+            _damageableSystem.TryChangeDamage(uid, component.Damage, component.IgnoreResistances,
+                targetPart: component.TargetParts is not null
+                            ? component.TargetParts[_random.Next(component.TargetParts.Count)]
+                            : null);
         }
     }
 }

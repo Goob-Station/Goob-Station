@@ -122,6 +122,13 @@ namespace Content.Server.Atmos.Components
         public bool CanExtinguish = true;
 
         /// <summary>
+        ///     Should the component ignore fire protection when on fire?
+        /// </summary>
+        [ViewVariables(VVAccess.ReadWrite)]
+        [DataField]
+        public bool IgnoreFireProtection = false;
+
+        /// <summary>
         ///     How many firestacks should be applied to component when being set on fire?
         /// </summary>
         [ViewVariables(VVAccess.ReadWrite)]

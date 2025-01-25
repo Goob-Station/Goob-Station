@@ -1,0 +1,655 @@
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnvirogloves
+  name: plasma envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#913b00"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#913b00"
+      right:
+      - state: inhand-right
+        color: "#913b00"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#913b00"
+  - type: Fiber
+    fiberColor: fibers-orange
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesBlack
+  name: black envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#2f2e31"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#2f2e31"
+      right:
+      - state: inhand-right
+        color: "#2f2e31"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#2f2e31"
+  - type: Fiber
+    fiberColor: fibers-black
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesNitrile
+  name: nitrile envirogloves
+  description: Pricy nitrile gloves made for Plasmamen.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#234f60"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#234f60"
+      right:
+      - state: inhand-right
+        color: "#234f60"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#234f60"
+  - type: Fiber
+    fiberMaterial: fibers-nitrile
+  - type: FingerprintMask
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesWhite
+  name: white envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#ffffff"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ffffff"
+      right:
+      - state: inhand-right
+        color: "#ffffff"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#ffffff"
+  - type: Fiber
+    fiberColor: fibers-white
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesWhite
+  id: ClothingHandsGlovesEnviroglovesColor
+  name: envirogloves
+  description: Covers up those scandalous boney hands.
+  suffix: Loadouts, Colorable
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesEvening
+  name: evening envirogloves
+  description: Who said Plasmamen can't serve elegance and looks?
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/evening_gloves.rsi
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/evening_gloves.rsi
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesRoboticist
+  name: roboticist envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#932500"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#932500"
+      right:
+      - state: inhand-right
+        color: "#932500"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#932500"
+  - type: Fiber
+    fiberColor: fibers-orange
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesJanitor
+  name: janitor envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#883391"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#883391"
+      right:
+      - state: inhand-right
+        color: "#883391"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#883391"
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesCargo
+  name: logistics envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#bb9042"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#bb9042"
+      right:
+      - state: inhand-right
+        color: "#bb9042"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#bb9042"
+  - type: Fiber
+    fiberColor: fibers-orange
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesEngineering
+  name: engineering envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#d75600"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#d75600"
+      right:
+      - state: inhand-right
+        color: "#d75600"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#d75600"
+  - type: Fiber
+    fiberColor: fibers-orange
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesAtmos
+  name: atmos envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#00a5ff"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#00a5ff"
+      right:
+      - state: inhand-right
+        color: "#00a5ff"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#00a5ff"
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesSalvage
+  name: salvage envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#47453d"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#47453d"
+      right:
+      - state: inhand-right
+        color: "#47453d"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#47453d"
+  - type: Fiber
+    fiberColor: fibers-olive
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesLeather
+  name: hydroponics envirogloves
+  description: These leather gloves protect your boney hands against thorns, barbs, prickles, and spikes.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#3164ff"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#3164ff"
+      right:
+      - state: inhand-right
+        color: "#3164ff"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#3164ff"
+  - type: GloveHeatResistance
+    heatResistance: 1400
+  - type: Fiber
+    fiberMaterial: fibers-leather
+    fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesPrototype
+  name: prototype envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#911801"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#911801"
+      right:
+      - state: inhand-right
+        color: "#911801"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#911801"
+  - type: Fiber
+    fiberColor: fibers-red
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesClown
+  name: clown envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#ff0000"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#ff0000"
+      right:
+      - state: inhand-right
+        color: "#ff0000"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#ff0000"
+  - type: Fiber
+    fiberColor: fibers-red
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesHoP
+  name: head of personnel's envirogloves
+  description: Covers up those scandalous, bony hands. Appears to be an attempt at making a replica of the captain's gloves.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Envirogloves/hop.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Envirogloves/hop.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+      right:
+      - state: inhand-right
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Envirogloves/hop.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesChiefEngineer
+  name: chief engineer's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#45ff00"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#45ff00"
+      right:
+      - state: inhand-right
+        color: "#45ff00"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#45ff00"
+  - type: Fiber
+    fiberColor: fibers-green
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesResearchDirector
+  name: research director's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#64008a"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#64008a"
+      right:
+      - state: inhand-right
+        color: "#64008a"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#64008a"
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesPurple
+  name: purple envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#a349a4"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#a349a4"
+      right:
+      - state: inhand-right
+        color: "#a349a4"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#a349a4"
+  - type: Fiber
+    fiberColor: fibers-purple
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesAdminAssistant
+  name: administrative assistant's envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#315266"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#315266"
+      right:
+      - state: inhand-right
+        color: "#315266"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#315266"
+  - type: Fiber
+    fiberColor: fibers-blue
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesColorDarkGreen
+  name: dark green envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#79CC26"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#79CC26"
+      right:
+      - state: inhand-right
+        color: "#79CC26"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#79CC26"
+  - type: Fiber
+    fiberColor: fibers-green
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesColorDarkGrey
+  name: dark grey envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#616161"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#616161"
+      right:
+      - state: inhand-right
+        color: "#616161"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#616161"
+  - type: Fiber
+    fiberColor: fibers-grey
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesGladiator
+  name: gladiator envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#dab13b"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#dab13b"
+      right:
+      - state: inhand-right
+        color: "#dab13b"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#dab13b"
+  - type: Fiber
+    fiberColor: fibers-yellow
+
+- type: entity
+  parent: ClothingHandsGlovesEnviroglovesBase
+  id: ClothingHandsGlovesEnviroglovesReporter
+  name: reporter envirogloves
+  description: Covers up those scandalous boney hands.
+  components:
+  - type: Sprite
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    layers:
+    - state: icon
+      color: "#79121b"
+  - type: Item
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    inhandVisuals:
+      left:
+      - state: inhand-left
+        color: "#79121b"
+      right:
+      - state: inhand-right
+        color: "#79121b"
+  - type: Clothing
+    sprite: Clothing/Hands/Gloves/Color/color.rsi
+    clothingVisuals:
+      gloves:
+      - state: equipped-HAND
+        color: "#79121b"
+  - type: Fiber
+    fiberColor: fibers-red

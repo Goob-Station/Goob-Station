@@ -59,3 +59,10 @@
     - /Audio/Voice/Human/femalescream_3.ogg
     - /Audio/Voice/Human/femalescream_4.ogg
     - /Audio/Voice/Human/femalescream_5.ogg
+
+- type: soundCollection
+  id: PlasmamanUnisexScreams
+  files:
+    - /Audio/Voice/Plasmaman/plasmaman_scream_1.ogg
+    - /Audio/Voice/Plasmaman/plasmaman_scream_2.ogg
+    - /Audio/Voice/Plasmaman/plasmaman_scream_3.ogg

@@ -83,3 +83,11 @@
   storage:
     back:
     - BookRandom
+
+- type: startingGear
+  id: LibrarianPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitAncientVoid
+    head: ClothingHeadEnvirohelmAncientVoid
+    gloves: ClothingHandsGlovesEnviroglovesPrototype

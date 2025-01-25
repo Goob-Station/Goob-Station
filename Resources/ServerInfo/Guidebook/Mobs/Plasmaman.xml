@@ -1,0 +1,73 @@
+<Document>
+  # Plasmamen
+
+  <Box>
+    <GuideEntityEmbed Entity="MobPlasmaman" Caption=""/>
+  </Box>
+
+  They breathe plasma, and oxygen is highly toxic to them when inhaled.
+  Being exposed to oxygen sets them on fire.
+
+  To prevent ignition, they wear sealed suits made up of an envirosuit (in the jumpsuit slot) and a [bold]spaceworthy[/bold] envirosuit helmet.
+  Other suits like EVA suits, vacsuits, tacsuits and hardsuits will also seal them from oxygen exposure.
+
+  They don't experience hunger nor thirst.
+  They don't have blood and cannot bleed out.
+
+  Due to their skeleton body, they can consume Milk to gain a positive moodlet and slowly heal Brute, Heat, Shock, and Caustic damage.
+  They can also consume Plasma to gain a bigger positive moodlet and heal every damage type faster, except for Cellular damage.
+
+  <Box>
+    <GuideEntityEmbed Entity="DrinkCartonMilk" />
+    <GuideEntityEmbed Entity="SheetPlasma1" />
+  </Box>
+
+  They infuse their fists with plasma dust that combusts when they punch, dealing [color=orange]5 Heat[/color] and [color=red]2.25 Blunt[/color] damage. However, each successful punch deals [color=orange]1 Heat[/color] damage to their hands.
+
+  Plasmamen with the traits [bold]Claws[/bold], [bold]Talons[/bold] or [bold]Natural Weapons Removal[/bold] have less unarmed damage but don't take self-damage from unarmed attacks.
+
+  They take [color=#1e90ff]25% less Piercing, 20% less Poison, and 15% less Slash damage[/color],
+  and are [color=#8658fc]immune to Radiation and Cold damage[/color],
+  but take [color=#ffa500]50% more Blunt and 50% more Heat damage[/color].
+
+  Due to their [color=#8658fc]Cold immunity[/color], they can live in cold environments such as Glacier Station without the need of a winter coat.
+
+  ## Equipment
+  <Box>
+    <GuideEntityEmbed Entity="ClothingUniformEnvirosuit" Caption="envirosuit"/>
+    <GuideEntityEmbed Entity="ClothingHeadEnvirohelm" Caption="envirosuit helmet"/>
+    <GuideEntityEmbed Entity="DoubleEmergencyPlasmaTankFilled" />
+  </Box>
+
+  All Plasmamen start with an envirosuit, an envirosuit helmet, and a plasma internals tank.
+
+  Their envirosuits contain a [color=#1e90ff]self-extinguisher[/color] with limited charges, which they can activate when they are on fire
+  and wearing their envirosuit helmet. The self-extinguisher needs to recharge between uses.
+
+  <Box HorizontalAlignment="Stretch">
+    Cartridge refills of the envirosuit's self-extinguisher can be bought in [bold]Loadouts[/bold], or printed at the medical techfab after research.
+    A refill makes a recharging self-extinguisher immediately usable again.
+    <GuideEntityEmbed Entity="EnvirosuitExtinguisherRefill" />
+  </Box>
+
+  Their envirosuit helmets are [bold]spaceworthy[/bold] and provide welding protection. The helmet's visor can be lit up like a flashlight, using the inserted power cell as a battery.
+  They cannot eat nor drink without taking off their envirosuit helmet.
+
+  The plasma internals tank lasts roughly an hour before needing to be replaced or refilled.
+
+  ## Medical Treatment
+  <Box>
+    <GuideEntityEmbed Entity="StasisBed" />
+  </Box>
+
+  Before performing surgery on a Plasmaman, their envirosuit needs to be unequipped first, which is disastrous in an oxygenated environment.
+
+  To get around this, the Plasmaman can be buckled to a [bold]stasis bed[/bold] before removing their envirosuit
+  to prevent them from self-igniting throughout the surgical procedure.
+
+  <Box HorizontalAlignment="Stretch">
+    Their envirosuit helmets prevents them from eating pills, but their envirosuits allow chemicals to be injected through them.
+    <GuideEntityEmbed Entity="Syringe" Caption=""/>
+  </Box>
+
+</Document>

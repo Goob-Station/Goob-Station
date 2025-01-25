@@ -69,6 +69,9 @@
         - !type:OrganType
           type: Vox
           shouldHave: false
+        - !type:OrganType
+          type: Plasmaman
+          shouldHave: false
         ratios:
           CarbonDioxide: 1.0
           Oxygen: -1.0
@@ -83,12 +86,31 @@
             Poison:
               7
       - !type:AdjustAlert
-        alertType: Toxins
+        alertType: HighOxygen
         conditions:
           - !type:ReagentThreshold
             min: 0.5
           - !type:OrganType
             type: Vox
+        clear: true
+        time: 5
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        scaleByQuantity: true
+        ignoreResistances: true
+        damage:
+          types:
+            Poison:
+              7
+      - !type:AdjustAlert
+        alertType: HighOxygen
+        conditions:
+          - !type:ReagentThreshold
+            min: 0.5
+          - !type:OrganType
+            type: Plasmaman
         clear: true
         time: 5
 
@@ -113,10 +135,17 @@
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
           shouldHave: false
+        - !type:OrganType
+          type: Plasmaman
+          shouldHave: false
         damage:
           types:
             Poison: 3
       - !type:AdjustReagent
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+          shouldHave: false
         reagent: Inaprovaline
         amount: -2.0
     Gas:
@@ -125,6 +154,9 @@
         conditions:
         - !type:OrganType # Goobstation - Yowie
           type: Yowie
+          shouldHave: false
+        - !type:OrganType
+          type: Plasmaman
           shouldHave: false
         scaleByQuantity: true
         ignoreResistances: true
@@ -136,10 +168,48 @@
       - !type:AdjustAlert
         alertType: Toxins
         conditions:
+          - !type:OrganType
+            type: Plasmaman
+            shouldHave: false
           - !type:ReagentThreshold
             min: 1.5
         clear: True
         time: 5
+      - !type:Oxygenate
+        factor: 4
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+      - !type:ModifyLungGas
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        ratios:
+          Nitrogen: 1.0 # Interesting exhale for plasmamen
+          Plasma: -1.0
+    Medicine:
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        damage:
+          groups:
+            Brute: -2
+          types:
+            Heat: -0.66
+            Shock: -0.66
+            Caustic: -0.66
+            Asphyxiation: -0.66
+            Poison: -0.66
+      - !type:ChemAddMoodlet
+        conditions:
+        - !type:OrganType
+          type: Plasmaman
+        - !type:ReagentThreshold
+          reagent: Plasma
+          min: 4
+        moodPrototype: PlasmamanIngestPlasma
   reactiveEffects:
     Flammable:
       methods: [ Touch ]

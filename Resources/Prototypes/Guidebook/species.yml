@@ -40,6 +40,7 @@
     - Resomi
     - Oni
     - Tajaran
+    - Plasmaman
 
 - type: guideEntry
   id: Arachnid
@@ -121,3 +122,8 @@
   id: Tajaran
   name: species-name-tajaran
   text: "/ServerInfo/Guidebook/Mobs/Tajaran.xml"
+
+- type: guideEntry
+  id: Plasmaman
+  name: species-name-plasmaman
+  text: "/ServerInfo/Guidebook/Mobs/Plasmaman.xml"

@@ -124,6 +124,8 @@
 
 - type: startingGear
   id: SecurityCadetGear
+  subGear:
+  - SecurityOfficerPlasmamanGear
   equipment:
     eyes: ClothingEyesGlassesSecurity #Goobstation
     shoes: ClothingShoesBootsJackFilled

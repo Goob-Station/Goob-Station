@@ -1,0 +1,171 @@
+- type: species
+  id: Plasmaman
+  name: species-name-plasmaman
+  roundStart: true
+  prototype: MobPlasmaman
+  sprites: MobPlasmamanSprites
+  defaultSkinTone: "#a349a4"
+  markingLimits: MobPlasmamanMarkingLimits
+  dollPrototype: MobPlasmamanDummy
+  skinColoration: Hues
+  youngAge: 60
+  oldAge: 120
+  maxAge: 180
+  maleFirstNames: names_plasmaman
+  femaleFirstNames: names_plasmaman
+  naming: FirstRoman
+  sexes:
+  - Unsexed
+
+- type: speciesBaseSprites
+  id: MobPlasmamanSprites
+  sprites:
+    Head: MobPlasmamanHead
+    Face: MobHumanoidAnyMarking
+    Chest: MobPlasmamanTorso
+    Eyes: MobPlasmamanEyes
+    LArm: MobPlasmamanLArm
+    RArm: MobPlasmamanRArm
+    LHand: MobPlasmamanLHand
+    RHand: MobPlasmamanRHand
+    LLeg: MobPlasmamanLLeg
+    RLeg: MobPlasmamanRLeg
+    LFoot: MobPlasmamanLFoot
+    RFoot: MobPlasmamanRFoot
+
+- type: markingPoints
+  id: MobPlasmamanMarkingLimits
+  onlyWhitelisted: true # Hides the hair and facial hair options
+  points:
+    Hair:
+      points: 0
+      required: false
+    FacialHair:
+      points: 0
+      required: false
+    Snout:
+      points: 0
+      required: false
+    Tail:
+      points: 0
+      required: false
+    HeadTop:
+      points: 1
+      required: false
+    Chest:
+      points: 1
+      required: false
+    RightLeg:
+      points: 2
+      required: false
+    RightFoot:
+      points: 2
+      required: false
+    LeftLeg:
+      points: 2
+      required: false
+    LeftFoot:
+      points: 2
+      required: false
+    RightArm:
+      points: 2
+      required: false
+    RightHand:
+      points: 2
+      required: false
+    LeftArm:
+      points: 2
+      required: false
+    LeftHand:
+      points: 2
+      required: false
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHead
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHeadMale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: head_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanHeadFemale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: head_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanEyes
+  baseSprite:
+    sprite: Mobs/Customization/plasmaman.rsi
+    state: eyes
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanTorso
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanTorsoMale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: torso_m
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanTorsoFemale
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: torso_f
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLLeg
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: l_leg
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLArm
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: l_arm
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLHand
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: l_hand
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanLFoot
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: l_foot
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRLeg
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: r_leg
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRArm
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: r_arm
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRHand
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: r_hand
+
+- type: humanoidBaseSprite
+  id: MobPlasmamanRFoot
+  baseSprite:
+    sprite: Mobs/Species/Plasmaman/parts.rsi
+    state: r_foot

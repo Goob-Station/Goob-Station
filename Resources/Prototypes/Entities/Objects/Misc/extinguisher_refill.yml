@@ -1,0 +1,34 @@
+- type: entity
+  parent: BaseItem
+  id: EnvirosuitExtinguisherRefill
+  name: envirosuit extinguisher refill
+  description: A cartridge loaded with a compressed extinguisher mix, used to refill the self-extinguisher on plasma envirosuits.
+  components:
+  - type: Sprite
+    sprite: Objects/Misc/extinguisher_refill.rsi
+    layers:
+    - state: icon
+  - type: Item
+    sprite: Objects/Misc/extinguisher_refill.rsi
+    size: Small
+  - type: SelfExtinguisherRefill
+    refillAmount: 10
+  - type: GuideHelp
+    guides: [ Plasmaman ]
+  - type: MeleeWeapon # Same values as double emergency tank
+    attackRate: 0.9
+    wideAnimationRotation: 45
+    range: 1.75
+    damage:
+      types:
+        Blunt: 7.5
+    bluntStaminaDamageFactor: 2.5
+    heavyRateModifier: 1.25
+    heavyDamageBaseModifier: 1.5
+    heavyStaminaCost: 10
+    maxTargets: 3
+    angle: 100
+    soundHit:
+      path: /Audio/Weapons/smash.ogg
+  - type: DamageOtherOnHit
+    staminaCost: 5

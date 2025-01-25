@@ -121,6 +121,8 @@
 # Syndicate Operative Outfit - Barratry
 - type: startingGear
   id: SyndicateOperativeGearExtremelyBasic
+  subGear:
+  - SyndicatePlasmamanGear
   equipment:
     jumpsuit: ClothingUniformJumpsuitOperative
     back: ClothingBackpackSyndicate

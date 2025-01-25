@@ -10,3 +10,11 @@
     - /Audio/Weapons/punch2.ogg
     - /Audio/Weapons/punch3.ogg
     - /Audio/Weapons/punch4.ogg
+
+- type: soundCollection
+  id: FirePunch
+  files:
+    - /Audio/Weapons/firepunch1.ogg
+    - /Audio/Weapons/firepunch2.ogg
+    - /Audio/Weapons/firepunch3.ogg
+    - /Audio/Weapons/firepunch4.ogg

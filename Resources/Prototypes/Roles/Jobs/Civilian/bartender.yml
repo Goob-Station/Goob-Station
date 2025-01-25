@@ -96,3 +96,11 @@
   #storage:
     #back:
     #- Stuff
+
+- type: startingGear
+  id: BartenderPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitEnviroslacks
+    head: ClothingHeadEnvirohelmColorWhite
+    gloves: ClothingHandsGlovesEnviroglovesWhite

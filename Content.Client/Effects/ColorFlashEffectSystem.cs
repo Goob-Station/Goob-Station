@@ -49,6 +49,7 @@ using Robust.Shared.Collections;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
+using Content.Client.Graphics; // Goobstation Change
 
 namespace Content.Client.Effects;
 
@@ -56,7 +57,8 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
-
+    [Dependency] private readonly IComponentFactory _factory = default!; // Goobstation Change
+    [Dependency] private readonly SpriteSystem _sprite = default!; // Goobstation Change
     /// <summary>
     /// It's a little on the long side but given we use multiple colours denoting what happened it makes it easier to register.
     /// </summary>
@@ -72,12 +74,12 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         SubscribeLocalEvent<ColorFlashEffectComponent, AnimationCompletedEvent>(OnEffectAnimationCompleted);
     }
 
-    public override void RaiseEffect(Color color, List<EntityUid> entities, Filter filter)
+    public override void RaiseEffect(Color color, List<EntityUid> entities, Filter filter, float? animationLength = null)
     {
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities)));
+        OnColorFlashEffect(new ColorFlashEffectEvent(color, GetNetEntityList(entities), animationLength));
     }
 
     private void OnEffectAnimationCompleted(EntityUid uid, ColorFlashEffectComponent component, AnimationCompletedEvent args)
@@ -85,10 +87,8 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         if (args.Key != AnimationKey)
             return;
 
-        if (TryComp<SpriteComponent>(uid, out var sprite))
-        {
-            sprite.Color = component.Color;
-        }
+        if (HasComp<SpriteComponent>(uid)) // Goobstation Change
+            _sprite.SetColor(uid, component.Color);
     }
 
     public override void Update(float frameTime)
@@ -113,7 +113,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         }
     }
 
-    private Animation? GetDamageAnimation(EntityUid uid, Color color, SpriteComponent? sprite = null)
+    private Animation? GetDamageAnimation(EntityUid uid, Color color, SpriteComponent? sprite = null, float? animationLength = null)
     {
         if (!Resolve(uid, ref sprite, false))
             return null;
@@ -121,7 +121,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
         // 90% of them are going to be this so why allocate a new class.
         return new Animation
         {
-            Length = TimeSpan.FromSeconds(AnimationLength),
+            Length = TimeSpan.FromSeconds(animationLength ?? AnimationLength),
             AnimationTracks =
             {
                 new AnimationTrackComponentProperty
@@ -132,7 +132,7 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                     KeyFrames =
                     {
                         new AnimationTrackProperty.KeyFrame(color, 0f),
-                        new AnimationTrackProperty.KeyFrame(sprite.Color, AnimationLength)
+                        new AnimationTrackProperty.KeyFrame(sprite.Color, animationLength ?? AnimationLength)
                     }
                 }
             }
@@ -152,6 +152,29 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
                 continue;
             }
 
+            // <Goobstation Change>
+            if (!TryComp(ent, out AnimationPlayerComponent? player))
+            {
+                player = (AnimationPlayerComponent) _factory.GetComponent(typeof(AnimationPlayerComponent));
+                player.Owner = ent;
+                player.NetSyncEnabled = false;
+                AddComp(ent, player);
+            }
+
+            // Need to stop the existing animation first to ensure the sprite color is fixed.
+            // Otherwise we might lerp to a red colour instead.
+            if (_animation.HasRunningAnimation(ent, player, AnimationKey))
+                _animation.Stop(ent, player, AnimationKey);
+
+            if (TryComp<ColorFlashEffectComponent>(ent, out var effect))
+                _sprite.SetColor(ent, effect.Color);
+
+            var animation = GetDamageAnimation(ent, color, sprite, ev.AnimationLength);
+
+            if (animation == null)
+                continue;
+            // </Goobstation Change>
+
             if (!TryComp(ent, out ColorFlashEffectComponent? comp))
             {
 #if DEBUG
@@ -160,7 +183,6 @@ public sealed class ColorFlashEffectSystem : SharedColorFlashEffectSystem
             }
 
             _animation.Stop(ent, AnimationKey);
-            var animation = GetDamageAnimation(ent, color, sprite);
 
             if (animation == null)
             {

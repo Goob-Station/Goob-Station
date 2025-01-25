@@ -37,6 +37,7 @@
       - id: ClothingHandsGlovesCombat
       - id: DoubleEmergencyOxygenTankFilled
       - id: DoubleEmergencyNitrogenTankFilled
+      - id: DoubleEmergencyPlasmaTankFilled
 
 - type: entity
   id: CrateSyndicateSuperSurplusBundle

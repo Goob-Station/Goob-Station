@@ -721,6 +721,9 @@
   id: EmitterBolt
 
 - type: Tag
+  id: Envirohelm
+
+- type: Tag
   id: Enzyme
 
 - type: Tag
@@ -1218,6 +1221,9 @@
 
 - type: Tag
   id: PlasmaGlassShard
+
+- type: Tag
+  id: PlasmamanSafe
 
 - type: Tag
   id: Plastic

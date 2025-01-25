@@ -30,6 +30,12 @@ public sealed partial class HideLayerClothingComponent : Component
     public Dictionary<HumanoidVisualLayers, SlotFlags> Layers = new();
 
     /// <summary>
+    /// The clothing layers to hide.
+    /// </summary>
+    [DataField]
+    public HashSet<string>? ClothingSlots = new();
+
+    /// <summary>
     /// If true, the layer will only hide when the item is in a toggled state (e.g. masks)
     /// </summary>
     [DataField]

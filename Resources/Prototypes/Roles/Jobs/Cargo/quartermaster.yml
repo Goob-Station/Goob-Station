@@ -159,6 +159,9 @@
   - !type:AddComponentSpecial
     components:
       - type: CommandStaff
+  afterLoadoutSpecial:
+  - !type:ModifyEnvirosuitSpecial
+    charges: 8
 
 - type: startingGear
   id: QuartermasterGear
@@ -171,3 +174,11 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: startingGear
+  id: QuartermasterPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitQM
+    head: ClothingHeadEnvirohelmQM
+    gloves: ClothingHandsGlovesEnviroglovesCargo

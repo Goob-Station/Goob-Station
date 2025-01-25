@@ -198,6 +198,11 @@
   sprite:
     sprite: Objects/Tools/spy_device.rsi
     state: icon
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      inverted: true
+      species:
+      - Plasmaman
   content:
   - EncryptionKeyStationMaster
   - CyberPen

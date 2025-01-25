@@ -95,3 +95,11 @@
   #storage:
     #back:
     #- Stuff
+
+- type: startingGear
+  id: AtmosphericTechnicianPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitAtmos
+    head: ClothingHeadEnvirohelmAtmos
+    gloves: ClothingHandsGlovesEnviroglovesAtmos

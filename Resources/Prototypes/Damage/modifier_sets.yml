@@ -373,6 +373,18 @@
     Caustic: 0.0
   ignoreArmorPierceFlags: All # Goobstation
 
+- type: damageModifierSet
+  id: Plasmaman
+  coefficients:
+    Blunt: 1.5
+    Slash: 0.85
+    Piercing: 0.75
+    Cold: 0
+    Heat: 1.5
+    Poison: 0.8
+    Radiation: 0
+    Bloodloss: 0.0 # Immune to weapons that directly deal bloodloss damage
+
 # protects against radiation
 - type: damageModifierSet
   id: PotassiumIodide

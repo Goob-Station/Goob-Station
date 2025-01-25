@@ -161,6 +161,8 @@
 
 - type: startingGear
   id: ResearchDirectorGear
+  subGear:
+  - ResearchDirectorPlasmamanGear
   equipment:
     id: RnDPDA
     ears: ClothingHeadsetAltScience # Goobstation
@@ -168,3 +170,11 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: startingGear
+  id: ResearchDirectorPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitResearchDirector
+    head: ClothingHeadEnvirohelmResearchDirector
+    gloves: ClothingHandsGlovesEnviroglovesResearchDirector

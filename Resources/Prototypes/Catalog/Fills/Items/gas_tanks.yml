@@ -85,6 +85,22 @@
         - 0.270782035 # nitrogen
       temperature: 293.15
 
+- type: entity
+  id: EmergencyPlasmaTankFilled
+  parent: EmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 16 minutes with Plasmaman lungs
+      volume: 0.66
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 0.270782035 # nitrogen
+      temperature: 293.15
 
 - type: entity
   id: ExtendedEmergencyOxygenTankFilled
@@ -115,6 +131,22 @@
         - 0.615413715 # nitrogen
       temperature: 293.15
 
+- type: entity
+  id: ExtendedEmergencyPlasmaTankFilled
+  parent: ExtendedEmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 36 minutes with Plasmaman lungs
+      volume: 1.5
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 0.615413715 # plasma
+      temperature: 293.15
 
 - type: entity
   id: DoubleEmergencyOxygenTankFilled
@@ -146,6 +178,23 @@
       temperature: 293.15
 
 - type: entity
+  id: DoubleEmergencyPlasmaTankFilled
+  parent: DoubleEmergencyPlasmaTank
+  suffix: Filled
+  components:
+  - type: GasTank
+    outputPressure: 5.325
+    air:
+      # 60 minutes with Plasmaman lungs
+      volume: 1.5
+      moles:
+        - 0           # oxygen
+        - 0           # nitrogen
+        - 0           # CO2
+        - 1.025689525 # plasma
+      temperature: 293.15
+
+- type: entity
   id: EmergencyFunnyOxygenTankFilled
   parent: EmergencyFunnyOxygenTank
   suffix: Filled
@@ -164,7 +213,7 @@
         - 0 # water vapor
         - 0 # ammonia
         - 0.014251686 # 5% N2O
-        # 0.285033721       total 
+        # 0.285033721       total
       temperature: 293.15
 
 - type: entity
@@ -233,7 +282,7 @@
   suffix: Filled
   components:
   - type: GasTank
-    outputPressure: 101.3
+    outputPressure: 21.3
     air:
       # 6 minutes of agony
       volume: 5
@@ -243,3 +292,13 @@
         - 0           # CO2
         - 2.051379050 # plasma
       temperature: 293.15
+
+- type: entity
+  id: PlasmaTankFilledInternals
+  parent: PlasmaTankFilled
+  name: plasma tank
+  suffix: Filled, Plasmaman Internals
+  components:
+  - type: GasTank
+    # 120 minutes with Plasmaman lungs
+    outputPressure: 5.325

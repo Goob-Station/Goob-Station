@@ -101,8 +101,13 @@
   license: "CC0-1.0"
   copyright: "Taken from ScreamStudio on freesound.org"
   source: "https://freesound.org/people/ScreamStudio/sounds/392617/"
-  
+
 - files: ["pop.ogg"]
   license: "CC0-1.0"
   copyright: "Taken from 0ne_one111yt on freesound.org"
   source: "https://freesound.org/people/0ne_one111yt/sounds/478213/"
+
+- files: ["firepunch1.ogg", "firepunch2.ogg", "firepunch3.ogg", "firepunch4.ogg"]
+  license: "CC-BY-SA-3.0"
+  copyright: "Taken from Citadel Station 13. Remixed to mono where it was stereo by metalgearsloth then added punch sound effects by Skubman"
+  source: "https://github.com/Citadel-Station-13/Citadel-Station-13-RP/tree/cc701aedb633d83eae8339a8b3712ad8ad99cca0/sound"

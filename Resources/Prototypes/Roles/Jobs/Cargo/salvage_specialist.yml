@@ -98,3 +98,12 @@
   storage: # DeltaV: Add mining voucher
     back:
     - MiningVoucher
+
+- type: startingGear
+  id: SalvageSpecialistPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitSalvage
+    head: ClothingHeadEnvirohelmSalvage
+    gloves: ClothingHandsGlovesEnviroglovesSalvage
+    mask: ClothingMaskGasExplorer

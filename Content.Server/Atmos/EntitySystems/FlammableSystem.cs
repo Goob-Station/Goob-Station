@@ -441,6 +441,7 @@ namespace Content.Server.Atmos.EntitySystems
             _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):entity} stopped being on fire damage");
             flammable.OnFire = false;
             flammable.FireStacks = 0;
+            flammable.IgnoreFireProtection = false;
 
             _ignitionSourceSystem.SetIgnited(uid, false);
 
@@ -448,7 +449,7 @@ namespace Content.Server.Atmos.EntitySystems
         }
 
         public void Ignite(EntityUid uid, EntityUid ignitionSource, FlammableComponent? flammable = null,
-            EntityUid? ignitionSourceUser = null)
+            EntityUid? ignitionSourceUser = null, bool ignoreFireProtection = false)
         {
             if (!Resolve(uid, ref flammable, false)) // Lavaland Change: SHUT THE FUCK UP FLAMMABLE
                 return;
@@ -466,6 +467,9 @@ namespace Content.Server.Atmos.EntitySystems
                     _adminLogger.Add(LogType.Flammable, $"{ToPrettyString(uid):target} set on fire by {ToPrettyString(ignitionSource):actor}");
                 flammable.OnFire = true;
             }
+
+            if (ignoreFireProtection)
+                flammable.IgnoreFireProtection = ignoreFireProtection;
 
             UpdateAppearance(uid, flammable);
         }
@@ -514,7 +518,7 @@ namespace Content.Server.Atmos.EntitySystems
             uid.SpawnTimer(2000, () =>
             {
                 flammable.Resisting = false;
-                flammable.FireStacks -= 1f;
+                flammable.FireStacks -= flammable.FirestackFade * 10f;
                 UpdateAppearance(uid, flammable);
             });
         }
@@ -578,15 +582,21 @@ namespace Content.Server.Atmos.EntitySystems
                     if (TryComp(uid, out TemperatureComponent? temp))
                         _temperatureSystem.ChangeHeat(uid, _addHeatFirestack * flammable.FireStacks, false, temp); // goob edit: 12500 -> 1500
 
-                    var ev = new GetFireProtectionEvent(uid); // Goobstation
-                    // let the thing on fire handle it
-                    RaiseLocalEvent(uid, ref ev);
-                    // and whatever it's wearing
-                    if (_inventoryQuery.TryComp(uid, out var inv))
-                        _inventory.RelayEvent((uid, inv), ref ev);
+                    var multiplier = 1f;
+                    if (!flammable.IgnoreFireProtection)
+                    {
+                        var ev = new GetFireProtectionEvent(uid);
+                        // let the thing on fire handle it
+                        RaiseLocalEvent(uid, ref ev);
+                        // and whatever it's wearing
+                        if (_inventoryQuery.TryComp(uid, out var inv))
+                            _inventory.RelayEvent((uid, inv), ref ev);
 
-                    if (ev.Multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
-                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * ev.Multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
+                        multiplier = ev.Multiplier;
+                    }
+
+                    if (multiplier > 0f && !_spellblade.IsHoldingItemWithComponent<FireSpellbladeEnchantmentComponent>(uid)) // Goob edit
+                        _damageableSystem.TryChangeDamage(uid, flammable.Damage * flammable.FireStacks * multiplier, interruptsDoAfters: false, partMultiplier: 2f); // Lavaland: Nerf fire delimbing
 
                     AdjustFireStacks(uid, flammable.FirestackFade * (flammable.Resisting ? 10f : 1f), flammable, flammable.OnFire);
                 }

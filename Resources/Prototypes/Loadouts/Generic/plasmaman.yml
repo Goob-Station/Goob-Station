@@ -1,0 +1,723 @@
+# Equipment
+
+- type: loadout
+  id: LoadoutSpeciesEnvirosuitExtinguisherRefill
+  category: Species
+  cost: 5
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+  items:
+    - EnvirosuitExtinguisherRefill
+
+- type: loadout
+  id: LoadoutSpeciesDoubleEmergencyPlasmaTank
+  category: Species
+  cost: 6
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+  items:
+    - DoubleEmergencyPlasmaTankFilled
+
+- type: loadout
+  id: LoadoutSpeciesDrinkMilkCartonAndSyringe
+  category: Species
+  cost: 3
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+  items:
+    - DrinkMilkCarton
+    - Syringe
+
+# Envirogloves
+
+- type: loadout
+  id: LoadoutHandsGlovesEnviroglovesColor
+  category: Hands
+  cost: 0
+  exclusive: true
+  customColorTint: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutGloves
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+  items:
+    - ClothingHandsGlovesEnviroglovesColor
+
+- type: loadout
+  id: LoadoutHandsGlovesEnviroglovesEvening
+  category: Hands
+  cost: 0
+  exclusive: true
+  customColorTint: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutGloves
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+  items:
+    - ClothingHandsGlovesEnviroglovesEvening
+
+# Envirosuits with paired envirohelms
+
+- type: loadout
+  id: LoadoutUniformEnvirosuit
+  category: Uniform
+  cost: 0
+  exclusive: true
+  canBeHeirloom: true
+  guideEntry: Plasmaman
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuit
+    - ClothingHeadEnvirohelm
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitBlackPink
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitBlackPink
+    - ClothingHeadEnvirohelmBlackPink
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitBlackPinkAlt
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitBlackPinkAlt
+    - ClothingHeadEnvirohelmBlackPinkAlt
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitMartialGi
+  category: Uniform
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitMartialGi
+    - ClothingHeadEnvirohelmMartialGi
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitSafari
+  category: Uniform
+  cost: 1
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitSafari
+    - ClothingHeadEnvirohelmSafari
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitTrans
+  category: Uniform
+  cost: 0
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitTrans
+    - ClothingHeadEnvirohelmTrans
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitAncientVoid
+  category: Uniform
+  cost: 2
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+    - !type:CharacterJobRequirement
+      inverted: true
+      jobs:
+        - Librarian # Librarian already starts with this envirosuit
+  items:
+    - ClothingUniformEnvirosuitAncientVoid
+    - ClothingHeadEnvirohelmAncientVoid
+
+# Colored envirosuits
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorWhite
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorWhite
+    - ClothingHeadEnvirohelmColorWhite
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorGrey
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorGrey
+    - ClothingHeadEnvirohelmColorGrey
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorBlack
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorBlack
+    - ClothingHeadEnvirohelmColorBlack
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorRed
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorRed
+    - ClothingHeadEnvirohelmColorRed
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorGreen
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorGreen
+    - ClothingHeadEnvirohelmColorGreen
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorDarkGreen
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorDarkGreen
+    - ClothingHeadEnvirohelmColorDarkGreen
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorBlue
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorBlue
+    - ClothingHeadEnvirohelmColorBlue
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorDarkBlue
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorDarkBlue
+    - ClothingHeadEnvirohelmColorDarkBlue
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorTeal
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorTeal
+    - ClothingHeadEnvirohelmColorTeal
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorMaroon
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorMaroon
+    - ClothingHeadEnvirohelmColorMaroon
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorPink
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorPink
+    - ClothingHeadEnvirohelmColorPink
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorYellow
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorYellow
+    - ClothingHeadEnvirohelmColorYellow
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorPurple
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorPurple
+    - ClothingHeadEnvirohelmColorPurple
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorOrange
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorOrange
+    - ClothingHeadEnvirohelmColorOrange
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorLightBrown
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorLightBrown
+    - ClothingHeadEnvirohelmColorLightBrown
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitColorBrown
+  category: Uniform
+  cost: 0
+  exclusive: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitColorBrown
+    - ClothingHeadEnvirohelmColorBrown
+
+# Enviroslacks
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacks
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacks
+    - ClothingHeadEnvirohelmColorWhite
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksNegative
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksNegative
+    - ClothingHeadEnvirohelmColorBlack
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksColorRed
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksColorRed
+    - ClothingHeadEnvirohelmEnviroslacksColorRed
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksColorOrange
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksColorOrange
+    - ClothingHeadEnvirohelmEnviroslacksColorOrange
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksColorGreen
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Security
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksColorGreen
+    - ClothingHeadEnvirohelmEnviroslacksColorGreen
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksColorBlue
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksColorBlue
+    - ClothingHeadEnvirohelmEnviroslacksColorBlue
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksColorBrown
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksColorBrown
+    - ClothingHeadEnvirohelmColorWhite
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksMNK
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksMNK
+    - ClothingHeadEnvirohelmEnviroslacksMNK
+
+- type: loadout
+  id: LoadoutUniformEnvirosuitEnviroslacksMNKAlt
+  category: Uniform
+  cost: 1
+  exclusive: true
+  canBeHeirloom: true
+  requirements:
+    - !type:CharacterItemGroupRequirement
+      group: LoadoutUniformsCivilian
+    - !type:CharacterSpeciesRequirement
+      species:
+        - Plasmaman
+    - !type:CharacterDepartmentRequirement
+      inverted: true
+      departments:
+        - Command
+  items:
+    - ClothingUniformEnvirosuitEnviroslacksMNKAlt
+    - ClothingHeadEnvirohelmEnviroslacksMNKAlt

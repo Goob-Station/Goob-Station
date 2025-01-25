@@ -210,6 +210,12 @@ namespace Content.Shared.Roles
         public ProtoId<StartingGearPrototype>? StartingGear { get; private set; }
 
         /// <summary>
+        ///   A list of requirements that when satisfied, add or replace from the base starting gear.
+        /// </summary>
+        [DataField("conditionalStartingGear")]
+        public List<ConditionalStartingGear>? ConditionalStartingGears { get; private set; }
+
+        /// <summary>
         /// Use this to spawn in as a non-humanoid (borg, test subject, etc.)
         /// Starting gear will be ignored.
         /// If you want to just add special attributes to a humanoid, use AddComponentSpecial instead.
@@ -229,6 +235,9 @@ namespace Content.Shared.Roles
 
         [DataField("special", serverOnly: true)]
         public JobSpecial[] Special { get; private set; } = Array.Empty<JobSpecial>();
+
+        [DataField("afterLoadoutSpecial", serverOnly: true)]
+        public JobSpecial[] AfterLoadoutSpecial { get; private set; } = [];
 
         [DataField("access")]
         public IReadOnlyCollection<ProtoId<AccessLevelPrototype>> Access { get; private set; } = Array.Empty<ProtoId<AccessLevelPrototype>>();
@@ -257,6 +266,25 @@ namespace Content.Shared.Roles
         /// </summary>
         [DataField]
         public int Goobcoins { get; private set; } = 1;
+    }
+
+    /// <summary>
+    ///   Starting gear that will only be applied upon satisfying requirements.
+    /// </summary>
+    [DataDefinition]
+    public sealed partial class ConditionalStartingGear
+    {
+        /// <summary>
+        ///   The requirements to check.
+        /// </summary>
+        [DataField(required: true)]
+        public List<CharacterRequirement> Requirements;
+
+        /// <summary>
+        ///   The starting gear to apply, replacing the equivalent slots.
+        /// </summary>
+        [DataField(required: true)]
+        public ProtoId<StartingGearPrototype> Id { get; private set; }
     }
 
     /// <summary>

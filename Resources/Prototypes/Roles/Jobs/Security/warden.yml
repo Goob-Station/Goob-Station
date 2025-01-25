@@ -172,3 +172,11 @@
     - Flash
     - MagazinePistol
     - ClothingMaskGasSecurity # Goobstation
+
+- type: startingGear
+  id: WardenPlasmamanGear
+  parent: BasePlasmamanSecurityGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitWarden
+    head: ClothingHeadEnvirohelmWarden
+    gloves: ClothingHandsGlovesEnviroglovesBlack

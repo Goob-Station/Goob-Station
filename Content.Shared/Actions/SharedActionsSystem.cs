@@ -502,6 +502,17 @@ public abstract class SharedActionsSystem : EntitySystem
             Dirty(actionId.Value, action);
     }
 
+    public void SetMaxCharges(EntityUid? actionId, int? maxCharges)
+    {
+        if (!TryGetActionData(actionId, out var action) ||
+            action.MaxCharges == maxCharges)
+            return;
+
+        action.MaxCharges = maxCharges;
+        UpdateAction(actionId, action);
+        Dirty(actionId.Value, action);
+    }
+
     private void OnActionsGetState(EntityUid uid, ActionsComponent component, ref ComponentGetState args)
     {
         args.State = new ActionsComponentState(GetNetEntitySet(component.Actions));

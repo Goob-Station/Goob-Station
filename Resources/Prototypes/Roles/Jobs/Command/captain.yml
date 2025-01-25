@@ -185,3 +185,11 @@
     - Flash
     - TelescopicBaton # Goobstation
     # - StationCharter
+
+- type: startingGear
+  id: CaptainPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCaptain
+    head: ClothingHeadEnvirohelmCaptain
+    gloves: ClothingHandsGlovesCaptain

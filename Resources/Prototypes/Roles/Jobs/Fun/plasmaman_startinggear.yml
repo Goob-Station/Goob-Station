@@ -1,0 +1,109 @@
+# Base Plasmaman starting gear that all plasmaman starting gears should inherit from
+- type: startingGear
+  abstract: true
+  id: BasePlasmamanGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+  equipment:
+    mask: ClothingMaskBreath
+    pocket2: DoubleEmergencyPlasmaTankFilled
+
+- type: startingGear
+  abstract: true
+  parent: BasePlasmamanGear
+  id: BasePlasmamanSecurityGear
+  equipment:
+    mask: ClothingMaskGasSecurity
+
+# Syndicate Operative Plasmaman outfit
+- type: startingGear
+  abstract: true
+  id: BaseSyndicatePlasmamanGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitOperative
+    head: ClothingHeadEnvirohelmOperative
+    mask: ClothingMaskGasSyndicate
+    # No envirogloves, some starting gear might have combat gloves
+
+- type: startingGear
+  id: SyndicatePlasmamanGear
+  parent: BaseSyndicatePlasmamanGear
+  equipment:
+    pocket2: DoubleEmergencyPlasmaTankFilled
+
+- type: startingGear
+  id: SyndicateOperativePlasmamanGear
+  parent: BaseSyndicatePlasmamanGear
+  equipment:
+    pocket1: DoubleEmergencyPlasmaTankFilled
+
+- type: startingGear
+  id: SpaceNinjaPlasmamanGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorBlack # TODO: actual ninja envirosuit
+    suitstorage: PlasmaTankFilledInternals
+
+# ERT starting gear
+- type: startingGear
+  id: ERTPlasmamanGearNoTank
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorBlack # TODO: ERT envirosuit
+    head: ClothingHeadEnvirohelmColorBlack # TODO: ERT envirohelm
+    mask: ClothingMaskGasERT
+
+- type: startingGear
+  id: ERTPlasmamanGear
+  parent: ERTPlasmamanGearNoTank
+  equipment:
+    suitstorage: PlasmaTankFilledInternals
+
+- type: startingGear
+  id: CBURNPlasmamanGear
+  parent: ERTPlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorLightBrown
+    head: ClothingHeadEnvirohelmColorLightBrown
+
+- type: startingGear
+  id: InhandTankGear
+  subGear:
+  - InhandOxygenTankGear
+  - InhandPlasmaTankGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+
+- type: startingGear
+  id: InhandOxygenTankGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    inverted: true
+    species: [ Plasmaman ]
+  inhand:
+    - AirTankFilled
+
+- type: startingGear
+  id: InhandPlasmaTankGear
+  requirements:
+  - !type:CharacterSpeciesRequirement
+    species: [ Plasmaman ]
+  inhand:
+    - PlasmaTankFilledInternals
+
+- type: startingGear
+  id: DeathMatchPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitColorWhite
+    head: ClothingHeadEnvirohelmColorWhite
+    gloves: ClothingHandsGlovesEnviroglovesWhite

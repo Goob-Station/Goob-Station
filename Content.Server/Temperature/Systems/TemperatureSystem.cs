@@ -358,11 +358,18 @@ public sealed class TemperatureSystem : EntitySystem
 
         if (args.CurrentTemperature <= idealTemp)
         {
+            // If there's no risk to being cold there's no reason to show a Cold alert
+            if (!temperature.ColdDamage.AnyPositive())
+                return;
+
             type = temperature.ColdAlert;
             threshold = temperature.ColdDamageThreshold;
         }
         else
         {
+            if (!temperature.HeatDamage.AnyPositive())
+                return;
+
             type = temperature.HotAlert;
             threshold = temperature.HeatDamageThreshold;
         }

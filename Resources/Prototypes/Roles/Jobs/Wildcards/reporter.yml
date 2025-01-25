@@ -79,3 +79,10 @@
     - CassetteTape
     - MicrophoneInstrument # Goobstation
 
+- type: startingGear
+  id: ReporterPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitReporter
+    head: ClothingHeadEnvirohelmReporter
+    gloves: ClothingHandsGlovesEnviroglovesReporter

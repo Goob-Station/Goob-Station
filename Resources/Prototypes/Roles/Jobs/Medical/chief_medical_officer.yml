@@ -176,6 +176,8 @@
 
 - type: startingGear
   id: CMOGear
+  subGear:
+  - CMOPlasmamanGear
   equipment:
     id: CMOPDA
     ears: ClothingHeadsetAltMedical # Goobstation
@@ -185,3 +187,11 @@
     back:
     - Flash
     - TelescopicBaton # Goobstation
+
+- type: startingGear
+  id: CMOPlasmamanGear
+  parent: BasePlasmamanGear
+  equipment:
+    jumpsuit: ClothingUniformEnvirosuitCMO
+    head: ClothingHeadEnvirohelmCMO
+    gloves: ClothingHandsGlovesEnviroglovesWhite

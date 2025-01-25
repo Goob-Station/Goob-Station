@@ -95,6 +95,23 @@ public abstract class SharedChargesSystem : EntitySystem
     }
 
     /// <summary>
+    ///   Sets the charges and max charges.
+    /// </summary>
+    public void SetCharges(Entity<LimitedChargesComponent?> ent, int? charges, int? maxCharges)
+    {
+        if (!Query.Resolve(ent, ref ent.Comp, false))
+            return;
+
+        if (charges != null)
+            ent.Comp.Charges = charges.Value;
+
+        if (maxCharges != null)
+            ent.Comp.MaxCharges = maxCharges.Value;
+
+        Dirty(ent, ent.Comp);
+    }
+
+    /// <summary>
     /// Gets the limited charges component and returns true if the number of charges remaining is less than the specified value.
     /// Will return false if there is no limited charges component.
     /// </summary>
