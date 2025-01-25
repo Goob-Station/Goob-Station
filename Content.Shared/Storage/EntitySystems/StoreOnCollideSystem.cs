@@ -1,4 +1,5 @@
 using Content.Shared.Lock;
+using Content.Shared.Projectiles;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
@@ -24,22 +25,43 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         // TODO: Add support to stop colliding after throw, wands will need a WandComp
 
         SubscribeLocalEvent<StoreOnCollideComponent, TimedDespawnEvent>(OnTimedDespawn); // Goobstation
+        SubscribeLocalEvent<StoreOnCollideComponent, LockToggledEvent>(OnLockToggle); // Goobstation
     }
 
-    private void OnTimedDespawn(Entity<StoreOnCollideComponent> ent, ref TimedDespawnEvent args) // Goobstation
+    // Goobstation start
+    private void OnLockToggle(Entity<StoreOnCollideComponent> ent, ref LockToggledEvent args)
+    {
+        if (args.Locked)
+            return;
+
+        var comp = ent.Comp;
+
+        if (comp is { DisableWhenFirstOpened: true, Disabled: false })
+            comp.Disabled = true;
+    }
+
+    private void OnTimedDespawn(Entity<StoreOnCollideComponent> ent, ref TimedDespawnEvent args)
     {
         _storage.EmptyContents(ent);
     }
+    // Goobstation end
 
     // We use Collide instead of Projectile to support different types of interactions
     private void OnCollide(Entity<StoreOnCollideComponent> ent, ref StartCollideEvent args)
     {
-        if (!_lock.IsLocked(ent.Owner) && ent.Comp.DisableWhenFirstOpened) // Goobstation
-            ent.Comp.Disabled = true;
-
         TryStoreTarget(ent, args.OtherEntity);
 
         TryLockStorage(ent);
+
+        // Goobstation start
+        if (!TryComp(ent.Owner, out ProjectileComponent? projectile))
+            return;
+
+        ent.Comp.IgnoredEntity = projectile.Shooter;
+        projectile.IgnoreShooter = false;
+        Entity<ProjectileComponent, StoreOnCollideComponent> toDirty = (ent.Owner, projectile, ent.Comp);
+        Dirty(toDirty);
+        // Goobstation end
     }
 
     private void AfterOpen(Entity<StoreOnCollideComponent> ent, ref StorageAfterOpenEvent args)
@@ -56,6 +78,9 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         var comp = ent.Comp;
 
         if (_netMan.IsClient || _gameTiming.ApplyingState)
+            return;
+
+        if (target == comp.IgnoredEntity) // Goobstation
             return;
 
         if (ent.Comp.Disabled || storageEnt == target || Transform(target).Anchored || _storage.IsOpen(storageEnt) || _whitelist.IsWhitelistFail(comp.Whitelist, target))
