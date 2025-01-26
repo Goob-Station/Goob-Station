@@ -38,8 +38,8 @@
     Blunt: 1.15
     Slash: 1.15
     Piercing: 1.15
-    Heat: 1.15
-    Cold: 0.85
+    Heat: 1.20
+    Cold: 0.80
 
 # Mech armor
 - type: damageModifierSet

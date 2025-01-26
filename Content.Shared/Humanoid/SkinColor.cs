@@ -16,7 +16,7 @@ public static class SkinColor
 
     // Goobstation Section Start - Tajaran
     public const float MinAnimalFurHue = 20f / 360;
-    public const float MaxAnimalFurHue = 60f / 360;
+    public const float MaxAnimalFurHue = 45f / 360;
     public const float MinAnimalFurSaturation = 0f / 100;
     public const float MaxAnimalFurSaturation = 100f / 100;
     public const float MinAnimalFurValue = 0f / 100;
