@@ -4338,3 +4338,9 @@ Entries:
       message: 'Frezon sell price has been reverted to its old value: 0.3->3$/mol.'
   id: 489
   time: '2025-01-26T19:39:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Yowie livers now perform chem processing instead of hearts.
+  id: 490
+  time: '2025-01-26T19:42:46.0000000+00:00'
