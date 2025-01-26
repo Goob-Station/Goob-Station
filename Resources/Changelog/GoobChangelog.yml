@@ -4358,3 +4358,9 @@ Entries:
       message: Fixed Glorp Accent not being applied to event Abductor. Varple Zip!
   id: 492
   time: '2025-01-26T20:05:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All stealth items are now capable of full stealth while stationary.
+  id: 493
+  time: '2025-01-26T20:14:31.0000000+00:00'
