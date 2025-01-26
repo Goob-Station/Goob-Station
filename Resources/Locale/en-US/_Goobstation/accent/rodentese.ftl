@@ -83,7 +83,7 @@ accent-rodentese-words-28 = cap
 accent-rodentese-words-replace-28 = big rat
 
 accent-rodentese-words-29 = say
-accent-rodentese-words-replace-28 = squeak
+accent-rodentese-words-replace-29 = squeak
 
 accent-rodentese-words-30 = saying
 accent-rodentese-words-replace-28 = squeaking
