@@ -141,8 +141,8 @@
   - type: Machine
     board: SMESAdvancedMachineCircuitboard
   - type: Battery
-    maxCharge: 16000000
-    startingCharge: 16000000
+    maxCharge: 24000000 # Goobstation
+    startingCharge: 24000000 # Goobstation
   - type: PowerMonitoringDevice
     group: SMES
     sourceNode: input
