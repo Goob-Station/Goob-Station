@@ -1,6 +1,18 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Lobby music got a refresh! Try not to hang around jamming for too long.
+    type: Add
+  id: 125
+  time: '2025-01-26T04:37:03.326879'
+- author: AstroDogeDX
+  changes:
+  - message: Communism has been removed from the jukebox and democracy has been restored.
+    type: Remove
+  id: 124
+  time: '2025-01-26T04:37:27.611666'
+- author: AstroDogeDX
+  changes:
   - message: Roleplay Rule 5.1 has been added that clarifies acceptable collateral
       and mass sabotage for antagonists. Most important for traitors, so be sure to
       read it!
