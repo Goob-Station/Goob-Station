@@ -19,12 +19,12 @@
   - type: Temperature
     coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     currentTemperature: 311.76  # Body temperature of cat
-    heatDamage:
-      types:
-        Heat: 0.080 # in line with cold resist
     coldDamage:
       types:
-        Cold: 1.65 # in line with heat dmg received up
+        Cold: 0.080 # in line with cold resist
+    heatDamage:
+      types:
+        Heat: 1.65 # in line with heat dmg received up
   - type: ThermalRegulator
     normalBodyTemperature: 311.76
 
