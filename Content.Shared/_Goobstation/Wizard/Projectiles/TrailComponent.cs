@@ -42,10 +42,11 @@ public sealed partial class TrailComponent : Component
     public EntityUid? RenderedEntity;
 
     /// <summary>
-    /// Whether to use <see cref="RenderedEntity"/> rotation (if it is not null), or trail entity rotation
+    /// Whether to use <see cref="RenderedEntity"/> rotation (if it is not null), trail entity rotation,
+    /// or particle rotation.
     /// </summary>
     [DataField]
-    public bool UseRenderedEntityRotation;
+    public RenderedEntityRotationStrategy RenderedEntityRotationStrategy;
 
     /// <summary>
     /// Whether the trail should slowly fade out even when the entity was deleted.
@@ -194,6 +195,13 @@ public sealed class TrailData(
     public float Scale = scale;
 
     public TimeSpan SpawnTime = spawnTime;
+}
+
+public enum RenderedEntityRotationStrategy : byte
+{
+    RenderedEntity = 0,
+    Trail,
+    Particle
 }
 
 [ImplicitDataDefinitionForInheritors]

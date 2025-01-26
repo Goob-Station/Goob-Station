@@ -78,18 +78,17 @@ public sealed class TrailOverlay : Overlay
             {
                 Direction? direction = null;
                 var rot = rotation;
-                if (!trail.UseRenderedEntityRotation)
+                if (trail.RenderedEntityRotationStrategy == RenderedEntityRotationStrategy.Trail)
                 {
                     var dirRot = rotation + eyeRot;
                     direction = dirRot.GetCardinalDir();
                 }
-                else
+                else if (trail.RenderedEntityRotationStrategy == RenderedEntityRotationStrategy.RenderedEntity)
                     rot = _transform.GetWorldRotation(trail.RenderedEntity.Value);
 
                 if (spriteQuery.TryComp(trail.RenderedEntity.Value, out var sprite))
                 {
                     handle.SetTransform(Matrix3x2.Identity);
-                    // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
                     foreach (var data in trail.TrailData)
                     {
                         if (data.Color.A <= 0.01f || data.Scale <= 0.01f || data.MapId != args.MapId)
@@ -98,6 +97,12 @@ public sealed class TrailOverlay : Overlay
                         var worldPosition = data.Position;
                         if (!bounds.Contains(worldPosition))
                             continue;
+
+                        if (trail.RenderedEntityRotationStrategy == RenderedEntityRotationStrategy.Particle)
+                        {
+                            rot = data.Angle;
+                            direction = (rot + eyeRot).GetCardinalDir();
+                        }
 
                         var originalColor = sprite.Color;
                         var originalScale = sprite.Scale;

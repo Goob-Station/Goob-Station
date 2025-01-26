@@ -86,6 +86,7 @@ public sealed class TrailSystem : EntitySystem
         trail.MaxParticleAmount = comp.MaxParticleAmount;
         trail.ParticleCount = comp.ParticleCount;
         trail.SpawnPosition = comp.SpawnPosition;
+        trail.RenderedEntityRotationStrategy = comp.RenderedEntityRotationStrategy;
         trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
     }
 

@@ -227,6 +227,7 @@
     velocityLerpTarget: 0.3
     alphaLerpTarget: 0
     color: "#0000FFFF"
+    renderedEntityRotationStrategy: Trail
     shader: EtherealJaunt
     shaderData:
       reference: !type:GetShaderLocalPositionData
@@ -254,6 +255,7 @@
     positionLerpAmount: 0.08
     radius: 12
     color: "#0000FF00"
+    renderedEntityRotationStrategy: Trail
     shader: EtherealJaunt
     shaderData:
       reference: !type:GetShaderLocalPositionData
@@ -279,7 +281,6 @@
     color: "#000000FF"
     shader: unshaded
     spawnRemainingTrail: false
-    useRenderedEntityRotation: true
   - type: Transform
     noRot: true
   - type: Tag
