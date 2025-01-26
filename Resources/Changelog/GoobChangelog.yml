@@ -4370,3 +4370,13 @@ Entries:
       message: Fixed macrobomb implant needing a restock time in nukie uplinks.
   id: 494
   time: '2025-01-26T20:15:42.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Add
+      message: >-
+        Added Wizard Skates: a rare alternative to Skates that doesn't harm the
+        user! Can be found rarely playing the lottery or searching maints.
+    - type: Tweak
+      message: Adjusted normal Skates to spawn more frequently in maints lockers.
+  id: 495
+  time: '2025-01-26T20:46:41.0000000+00:00'
