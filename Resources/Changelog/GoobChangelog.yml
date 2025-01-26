@@ -4326,3 +4326,9 @@ Entries:
       message: Preferred borg name is now applied to Station AIs.
   id: 487
   time: '2025-01-26T19:33:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Spacelaw finally updated to reflect the docs in game
+  id: 488
+  time: '2025-01-26T19:36:18.0000000+00:00'
