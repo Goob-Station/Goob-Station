@@ -238,8 +238,14 @@ public sealed partial class GoobCVars
     /// <summary>
     /// Number of TTS generations that can be done simultaneously
     /// </summary>
-    public static readonly CVarDef<int> TTSRateLimit =
-        CVarDef.Create("tts.rate_limit", 4, CVar.SERVERONLY);
+    public static readonly CVarDef<int> TTSSimultaneousGenerations =
+        CVarDef.Create("tts.simultaneous_generations", 1, CVar.SERVERONLY);
+
+    /// <summary>
+    /// Number of TTS generations that can be queued, anything new TTS generations will be ignored.
+    /// </summary>
+    public static readonly CVarDef<int> TTSQueueMax =
+        CVarDef.Create("tts.queue_max", 20, CVar.SERVERONLY);
 
     /// Can be "file" to store in the cache_path, or "memory" to store it in memory.
     /// Memory is way faster, but servers are usually more limited by memory than storage, pick your poison.

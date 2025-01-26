@@ -39,7 +39,9 @@ public sealed class TTSManager
     private ResPath _cachePath = new();
     private ResPath _modelPath = new();
 
-    private SemaphoreSlim _rateLimitSemaphore = new SemaphoreSlim(1);
+    private SemaphoreSlim _generationSemaphore = new SemaphoreSlim(1);
+    private int _queuedGenerations = 0;
+    private int _maxQueuedGenerations = 20;
 
     public TTSManager()
     {
@@ -55,8 +57,10 @@ public sealed class TTSManager
         _cfg.OnValueChanged(GoobCVars.TTSCachePath, OnCachePathChanged);
         _modelPath = MakeDataPath(_cfg.GetCVar(GoobCVars.TTSModelPath));
         _cfg.OnValueChanged(GoobCVars.TTSModelPath, OnModelPathChanged);
-        _rateLimitSemaphore = new SemaphoreSlim(_cfg.GetCVar(GoobCVars.TTSRateLimit));
-        _cfg.OnValueChanged(GoobCVars.TTSRateLimit, OnRateLimitChanged);
+        _generationSemaphore = new SemaphoreSlim(_cfg.GetCVar(GoobCVars.TTSSimultaneousGenerations));
+        _cfg.OnValueChanged(GoobCVars.TTSSimultaneousGenerations, OnRateLimitChanged);
+        _maxQueuedGenerations = _cfg.GetCVar(GoobCVars.TTSQueueMax);
+        _cfg.OnValueChanged(GoobCVars.TTSQueueMax, OnQueueMaxChanged);
 
         // Make the needed directories if they don't exist
         new Process
@@ -83,16 +87,18 @@ public sealed class TTSManager
         => _modelPath = MakeDataPath(path);
     private void OnRateLimitChanged(int limit)
     {
-        int currentCount = _rateLimitSemaphore.CurrentCount;
+        int currentCount = _generationSemaphore.CurrentCount;
 
         if (limit > currentCount)
-            _rateLimitSemaphore.Release(limit - currentCount);
+            _generationSemaphore.Release(limit - currentCount);
         else if (limit < currentCount)
         {
             for (int i = 0; i < (currentCount - limit); i++)
-                _rateLimitSemaphore.Wait();
+                _generationSemaphore.Wait();
         }
     }
+    private void OnQueueMaxChanged(int maxQueue)
+        => _maxQueuedGenerations = maxQueue;
 
     private ResPath MakeDataPath(string path)
     {
@@ -122,61 +128,74 @@ public sealed class TTSManager
             return cachedData;
         }
 
-        await _rateLimitSemaphore.WaitAsync();
+        if (Interlocked.Increment(ref _queuedGenerations) > _maxQueuedGenerations)
+        {
+            Interlocked.Decrement(ref _queuedGenerations);
+            _sawmill.Warning($"Queue limit exceeded for TTS generation: {text}");
+            return null;
+        }
 
         try
         {
-            var strCmdText = $"echo '{text}' | piper --model {_modelPath + ResPath.SystemSeparatorStr + model}.onnx --speaker {speaker} --output_raw";
+            await _generationSemaphore.WaitAsync();
 
-            var proc = new Process
-            {
-                StartInfo = new ProcessStartInfo
-                {
-                    #if WINDOWS
-                    FileName = "cmd.exe",
-                    Arguments = $"/C \"{strCmdText}\"",
-                    #else
-                    FileName = "/bin/sh",
-                    Arguments = $"-c \"{strCmdText}\"",
-                    #endif
-                    UseShellExecute = false,
-                    RedirectStandardOutput = true, // Capture raw audio data
-                    CreateNoWindow = true,
-                },
-            };
-
-            var reqTime = DateTime.UtcNow;
             try
             {
-                proc.Start();
+                var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_raw";
 
-                // Read the raw audio data directly from the process
-                using var memoryStream = new MemoryStream();
-                await proc.StandardOutput.BaseStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+                var proc = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        #if WINDOWS
+                        FileName = "cmd.exe",
+                        Arguments = $"/C \"{strCmdText}\"",
+                        #else
+                        FileName = "/bin/sh",
+                        Arguments = $"-c \"{strCmdText}\"",
+                        #endif
+                        UseShellExecute = false,
+                        RedirectStandardOutput = true,
+                        CreateNoWindow = true,
+                    },
+                };
 
-                await proc.WaitForExitAsync().ConfigureAwait(false);
+                var reqTime = DateTime.UtcNow;
+                try
+                {
+                    proc.Start();
 
-                if (proc.ExitCode != 0)
+                    using var memoryStream = new MemoryStream();
+                    await proc.StandardOutput.BaseStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+
+                    await proc.WaitForExitAsync().ConfigureAwait(false);
+
+                    if (proc.ExitCode != 0)
+                    {
+                        RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                        _sawmill.Error($"Piper process failed for '{text}' speech by '{speaker}' speaker.");
+                        return null;
+                    }
+
+                    var rawData = memoryStream.ToArray();
+                    TryCache(key, rawData);
+                    return rawData;
+                }
+                catch (Exception e)
                 {
                     RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-                    _sawmill.Error($"Piper process failed for '{text}' speech by '{speaker}' speaker.");
+                    _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
                     return null;
                 }
-
-                var rawData = memoryStream.ToArray();
-                TryCache(key, rawData);
-                return rawData;
             }
-            catch (Exception e)
+            finally
             {
-                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-                _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
-                return null;
+                _generationSemaphore.Release();
             }
         }
         finally
         {
-            _rateLimitSemaphore.Release();
+            Interlocked.Decrement(ref _queuedGenerations);
         }
     }
 
