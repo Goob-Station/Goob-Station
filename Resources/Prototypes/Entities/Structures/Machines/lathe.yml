@@ -1141,7 +1141,7 @@
       - ClothingUniformJumpskirtCaptain
       - ClothingUniformJumpsuitCapFormal
       - ClothingUniformJumpskirtCapFormalDress
-      - ClothingUniformJumpsuitCasualCommand
+      - ClothingUniformJumpsuitCasualCommand # Goobstation
       - ClothingUniformJumpsuitCargo
       - ClothingUniformJumpskirtCargo
       - ClothingUniformJumpsuitSalvageSpecialist
@@ -1168,7 +1168,7 @@
       - ClothingUniformJumpskirtEngineering
       - ClothingUniformJumpsuitSeniorEngineer
       - ClothingUniformJumpskirtSeniorEngineer
-      - ClothingUniformJumpsuitCasualEngineer
+      - ClothingUniformJumpsuitCasualEngineer # Goobstation
       - ClothingHeadHatHopcap
       - ClothingUniformJumpsuitHoP
       - ClothingUniformJumpskirtHoP
@@ -1291,14 +1291,14 @@
       - ClothingUniformJumpskirtCentcomFormalDress
       - ClothingUniformJumpsuitCentcomOfficer
       - ClothingUniformJumpsuitCentcomOfficial
-      - ClothingUniformJumpsuitCasualCentcom
+      - ClothingUniformJumpsuitCasualCentcom # Goobstation
       - ClothingHeadHatSyndieMAA
       - ClothingHeadHatSyndie
       - ClothingUniformJumpsuitOperative
       - ClothingUniformJumpskirtOperative
       - ClothingUniformJumpsuitSyndieFormal
       - ClothingUniformJumpskirtSyndieFormalDress
-      - ClothingUniformJumpsuitCasualSyndicate
+      - ClothingUniformJumpsuitCasualSyndicate # Goobstation
       - ClothingHeadPyjamaSyndicateBlack
       - ClothingUniformJumpsuitPyjamaSyndicateBlack
       - ClothingHeadPyjamaSyndicatePink
