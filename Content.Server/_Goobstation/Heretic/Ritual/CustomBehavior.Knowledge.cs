@@ -6,6 +6,7 @@ using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using System.Text;
+using Robust.Server.Containers;
 
 namespace Content.Server.Heretic.Ritual;
 
@@ -21,6 +22,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
     private EntityLookupSystem _lookup = default!;
     private HereticSystem _heretic = default!;
     private TagSystem _tag = default!;
+    private ContainerSystem _container = default!;
 
     [ValidatePrototypeId<DatasetPrototype>]
     public const string EligibleTagsDataset = "EligibleTags";
@@ -33,6 +35,7 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         _lookup = args.EntityManager.System<EntityLookupSystem>();
         _heretic = args.EntityManager.System<HereticSystem>();
         _tag = args.EntityManager.System<TagSystem>();
+        _container = args.EntityManager.System<ContainerSystem>();
 
         outstr = null;
 
@@ -50,6 +53,9 @@ public sealed partial class RitualKnowledgeBehavior : RitualCustomBehavior
         foreach (var look in lookup)
         {
             if (!args.EntityManager.TryGetComponent<TagComponent>(look, out var tags))
+                continue;
+
+            if (_container.IsEntityInContainer(look))
                 continue;
 
             _missingTags.RemoveWhere(tag =>
