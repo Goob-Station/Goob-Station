@@ -11,6 +11,7 @@
     - state: bluespace
       shader: unshaded
   - type: Ammo
+    muzzleFlash: null
   - type: Projectile
     damage:
       types:

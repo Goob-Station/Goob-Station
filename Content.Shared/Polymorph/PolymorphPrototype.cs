@@ -153,7 +153,7 @@ public sealed partial record PolymorphConfiguration
     /// Does nothing on revert.
     /// </summary>
     [DataField(serverOnly: true)]
-    public HashSet<string> ComponentsToTransfer;
+    public HashSet<string> ComponentsToTransfer = new();
 
     /// <summary>
     ///     Goobstation

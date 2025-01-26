@@ -29,6 +29,8 @@
     ignited: true
   - type: IgniteOnCollide
     fireStacks: 0.35
+  - type: Ammo # Goobstation
+    muzzleFlash: null
 
 - type: entity
   categories: [ HideSpawnMenu ]
@@ -173,6 +175,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
     - state: magicm_green # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -186,6 +189,7 @@
     frequency: 0.02
     lifetime: 1
     alphaLerpAmount: 0.4
+    shader: unshaded
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm_green
@@ -248,6 +252,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
     - state: magicm_yellow # Goob edit
+      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -270,6 +275,7 @@
     frequency: 0.02
     lifetime: 1
     alphaLerpAmount: 0.4
+    shader: unshaded
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm_yellow

@@ -19,3 +19,25 @@
     count: 6
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 8
+
+- type: entity
+  name: staff of chaos
+  parent: WeaponStaffBase
+  id: WeaponStaffChaos
+  description: An artefact that spits bolts of chaotic magic that can potentially do anything.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/chaos.rsi
+    layers:
+    - state: chaos
+  - type: Item
+    heldPrefix: chaos
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_chaos.ogg
+  - type: BasicEntityAmmoProvider
+    prototypes: ChaosProjectiles
+    capacity: 10
+    count: 10
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 2

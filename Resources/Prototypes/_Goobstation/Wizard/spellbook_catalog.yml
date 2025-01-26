@@ -491,6 +491,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookStaffChaos
+  name: spellbook-staff-chaos-name
+  description: spellbook-staff-chaos-desc
+  productEntity: WeaponStaffChaos
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Special
 - type: listing
   id: SpellMimeBundle

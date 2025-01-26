@@ -12,7 +12,7 @@
     soundEmpty: null # Goobstation
     soundMode: null # Goobstation
     clumsyProof: true # Goobstation
-    fireRate: 1
+    fireRate: 1.5 # Goob edit
     selectedMode: SemiAuto
     availableModes:
     - SemiAuto

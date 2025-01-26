@@ -13,3 +13,8 @@ spellbook-staff-change-name = Staff of Change
 spellbook-staff-change-desc =
     An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself.
     Automatically recharges once every 8 seconds.
+
+spellbook-staff-chaos-name = Staff of Chaos
+spellbook-staff-chaos-desc =
+    A caprious tool that can fire all sorts of magic without any rhyme or reason. Using it on people you care about is not recommended.
+    Automatically recharges once every 2 seconds.

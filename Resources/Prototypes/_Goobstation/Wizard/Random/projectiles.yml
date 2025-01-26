@@ -1,0 +1,19 @@
+- type: weightedRandomEntity
+  id: ChaosProjectiles
+  weights:
+    ProjectileMagicMissile: 1
+    ProjectileToolboxHoming: 1
+    ProjectileArcaneBarrage: 1
+    BulletMagic: 1
+    ProjectileWabbajack: 1
+    ProjectileFireball: 1
+    ProjectileLocker: 1
+    ProjectilePolyboltDoor: 1
+    ProjectileHealingBolt: 1
+    ProjectileSpellCardRedSpread: 0.5
+    ProjectileSpellCardPurpleSpread: 0.5
+    BulletStasis: 1
+    # TODO: change these
+    BulletInstakillMagic: 1
+    ProjectileIcicle: 1
+    # TODO: add more projectiles
