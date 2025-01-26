@@ -104,15 +104,14 @@ public sealed class TTSManager
         WantedCount.Inc();
 
         var key = $"{model}/{speaker}/{text}".GetHashCode();
-        var file = await TryGetCached(key);
-        if (file != null)
+        var cachedData = await TryGetCached(key);
+        if (cachedData != null)
         {
             ReusedCount.Inc();
-            return file;
+            return cachedData;
         }
 
-        var fileName = _cachePath + ResPath.SystemSeparatorStr + key + ".wav";
-        var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_file {fileName}";
+        var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_raw";
 
         var proc = new Process
         {
@@ -126,7 +125,7 @@ public sealed class TTSManager
                 Arguments = $"-c \"{strCmdText}\"",
                 #endif
                 UseShellExecute = false,
-                RedirectStandardOutput = true,
+                RedirectStandardOutput = true, // Capture raw audio data
                 CreateNoWindow = true,
             },
         };
@@ -135,40 +134,62 @@ public sealed class TTSManager
         try
         {
             proc.Start();
+
+            // Read the raw audio data directly from the process
+            using var memoryStream = new MemoryStream();
+            await proc.StandardOutput.BaseStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+
             await proc.WaitForExitAsync().ConfigureAwait(false);
+
+            if (proc.ExitCode != 0)
+            {
+                RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                _sawmill.Error($"Piper process failed for '{text}' speech by '{speaker}' speaker.");
+                return null;
+            }
+
+            var rawData = memoryStream.ToArray();
+            TryCache(key, rawData);
+            return rawData;
         }
         catch (Exception e)
         {
             RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Failed of request generation new sound for '{text}' speech by '{speaker}' speaker\n{e}");
+            _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
             return null;
         }
-
-        file = await File.ReadAllBytesAsync(fileName);
-        TryCache(key, file);
-        return file;
     }
 
     private bool TryCache(int key, byte[] file)
     {
-        // Delete extra files
         if (_cfg.GetCVar(GoobCVars.TTSCacheType) != "memory")
         {
             var files = Directory.GetFiles(_cachePath + ResPath.SystemSeparatorStr).ToList()
                 .OrderBy(f => File.GetLastWriteTimeUtc(f).Ticks);
             var count = files.Count();
             var toDelete = count - _cfg.GetCVar(GoobCVars.TTSMaxCached);
+
             for (var i = toDelete; i > 0; i--)
+            {
                 File.Delete(files.ElementAt(i));
-            return false;
+            }
+
+            var filePath = _cachePath + ResPath.SystemSeparatorStr + key + ".raw";
+            File.WriteAllBytes(filePath, file);
+
+            return true;
         }
+
+        // Handle memory caching
         while (_memoryCache.Count > _cfg.GetCVar(GoobCVars.TTSMaxCached))
+        {
             _memoryCache.Remove(_memoryCache.First().Key);
+        }
 
         // Cache to memory
-        File.Delete(_cachePath + ResPath.SystemSeparatorStr + key + ".wav");
         return _memoryCache.TryAdd(key, file);
     }
+
 
     /// Tries to find an existing audio file so we don't have to make another
     private async Task<byte[]?> TryGetCached(int key)
@@ -177,7 +198,7 @@ public sealed class TTSManager
         switch (type)
         {
             case "file":
-                var path = _cachePath + ResPath.SystemSeparatorStr + key + ".wav";
+                var path = _cachePath + ResPath.SystemSeparatorStr + key + ".raw";
                 return !File.Exists(path) ? null : await File.ReadAllBytesAsync(path);
             case "memory":
                 return _memoryCache.GetValueOrDefault(key);
@@ -187,7 +208,7 @@ public sealed class TTSManager
         }
     }
 
-    /// Deletes every file with the .wav extension in the _cachePath and clears the memory cache
+    /// Deletes every file with the .raw extension in the _cachePath and clears the memory cache
     public void ClearCache()
     {
         new Process
@@ -196,10 +217,10 @@ public sealed class TTSManager
             {
                 #if WINDOWS
                 FileName = "cmd.exe",
-                Arguments = $"/C \"del /q {_cachePath}\\*.wav\"",
+                Arguments = $"/C \"del /q {_cachePath}\\*.raw\"",
                 #else
                 FileName = "/bin/sh",
-                Arguments = $"-c \"rm {_cachePath}/*.wav\"",
+                Arguments = $"-c \"rm {_cachePath}/*.raw\"",
                 #endif
                 UseShellExecute = false,
                 RedirectStandardOutput = true,
