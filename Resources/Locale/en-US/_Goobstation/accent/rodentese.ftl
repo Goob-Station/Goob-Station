@@ -90,3 +90,12 @@ accent-rodentese-words-replace-30 = squeaking
 
 accent-rodentese-words-31 = says
 accent-rodentese-words-replace-31 = squeaks
+
+accent-rodentese-words-32 = yes
+accent-rodentese-words-replace-32 = squeakfirmative
+
+accent-rodentese-words-32 = correct
+accent-rodentese-words-replace-32 = squeakfirmative
+
+accent-rodentese-words-32 = affirmative
+accent-rodentese-words-replace-32 = squeakfirmative
