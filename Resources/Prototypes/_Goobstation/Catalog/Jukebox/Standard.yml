@@ -52,17 +52,17 @@
   path:
     path: /Audio/_Goobstation/Announcements/violet.ogg
 
-- type: jukebox
-  id: redsun
-  name: Red Sun in the Sky
-  path:
-    path: /Audio/Lobby/redsun.ogg
+# - type: jukebox
+#   id: redsun
+#   name: Red Sun in the Sky
+#   path:
+#     path: /Audio/Lobby/redsun.ogg
 
-- type: jukebox
-  id: chollima
-  name: Pochonbo Electronic Ensemble - Chollima on the Wing
-  path:
-    path: /Audio/Lobby/chollima.ogg
+# - type: jukebox
+#   id: chollima
+#   name: Pochonbo Electronic Ensemble - Chollima on the Wing
+#   path:
+#     path: /Audio/Lobby/chollima.ogg
 
 - type: jukebox
   id: blatantly_nuclear
