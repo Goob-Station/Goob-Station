@@ -13,4 +13,7 @@
     penetrate: true
     losesDamageOnPenetration: true
     deleteOnCollide: false
-    damageLossOnPenetrationScaler: 0.2 # exactly 0.2 is bad cuz it hits a few thresholds
+    damageLossOnPenetrationBase:
+      types:
+        Piercing: 0.05
+        Structural: 0.3

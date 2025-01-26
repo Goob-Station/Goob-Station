@@ -11,6 +11,7 @@ using Content.Shared.Database;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
+using System.Linq;
 
 namespace Content.Server.Projectiles;
 
@@ -83,7 +84,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
             {
                 // Retrieve health of piercee, how much less potent the bullet should be now?
                 // We're using the least "healthy" trigger, so we go from up
-                var penetrationLoss = float.PositiveInfinity;
+                var destructibleHealth = float.PositiveInfinity;
                 if (TryComp<DestructibleComponent>(target, out var comp))
                 {
                     // LINQ here would go hard. We're trying to find (perceived) health value of an object
@@ -93,17 +94,18 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     // destroy behaviour
                     foreach (var threshold in comp.Thresholds)
                         if (threshold.Trigger is DamageTrigger damageTrigger &&
-                            damageTrigger.Damage < penetrationLoss)
+                            damageTrigger.Damage < destructibleHealth)
                             foreach (var behavior in threshold.Behaviors)
                                 if (behavior is DoActsBehavior doActsBehavior &&
                                     doActsBehavior.HasAct(ThresholdActs.Destruction))
-                                    penetrationLoss = damageTrigger.Damage;
+                                    destructibleHealth = damageTrigger.Damage;
                 }
-                if (float.IsInfinity(penetrationLoss))
-                    penetrationLoss = 0;
+                if (float.IsInfinity(destructibleHealth))
+                    destructibleHealth = 0;
                 // If bullets can't deal structural, they shouldn't be able to pierce, simple as
-                component.Damage -= component.DamageLossOnPenetrationBase * penetrationLoss;
-                if (component.Damage)
+                component.Damage.TrimZeros();
+                component.Damage -= component.DamageLossOnPenetrationBase * destructibleHealth;
+                if (component.Damage.DamageDict.Values.Min() < 0.01f)
                 {
                     component.DamagedEntity = true;
                     QueueDel(uid);
