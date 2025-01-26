@@ -4352,3 +4352,9 @@ Entries:
       message: Increased sell price of filled SMES
   id: 491
   time: '2025-01-26T20:04:51.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Fix
+      message: Fixed Glorp Accent not being applied to event Abductor. Varple Zip!
+  id: 492
+  time: '2025-01-26T20:05:46.0000000+00:00'
