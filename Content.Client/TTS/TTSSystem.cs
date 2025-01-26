@@ -1,7 +1,6 @@
 using Content.Shared._Goobstation.CCVar;
 using Content.Shared.TTS;
 using Robust.Client.Audio;
-using Robust.Client.ResourceManagement;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -19,6 +18,7 @@ public sealed class TTSSystem : EntitySystem
     [Dependency] private readonly IConfigurationManager _cfg = default!;
     [Dependency] private readonly IResourceManager _res = default!;
     [Dependency] private readonly AudioSystem _audio = default!;
+    [Dependency] private readonly IAudioManager _audioInt = default!;
 
     private ISawmill _sawmill = default!;
     private readonly MemoryContentRoot _contentRoot = new();
@@ -66,23 +66,28 @@ public sealed class TTSSystem : EntitySystem
     {
         _sawmill.Verbose($"Play TTS audio {ev.Data.Length} bytes from {ev.SourceUid} entity");
 
-        var filePath = new ResPath($"{_fileIdx++}.wav");
-        _contentRoot.AddOrUpdateFile(filePath, ev.Data);
+        // Ensure that the data is not empty or invalid
+        if (ev.Data.Length == 0)
+        {
+            _sawmill.Error("Received empty TTS audio data");
+            return;
+        }
 
-        var audioResource = new AudioResource();
-        audioResource.Load(IoCManager.Instance!, Prefix / filePath);
+        // Convert the byte data into a ReadOnlySpan<short>
+        var shortArray = new short[ev.Data.Length / 2]; // 2 bytes per short
+        Buffer.BlockCopy(ev.Data, 0, shortArray, 0, ev.Data.Length);
+
+        // Create an AudioStream directly from raw data
+        var audioStream = _audioInt.LoadAudioRaw(shortArray, 1, 22050);
 
         var audioParams = AudioParams.Default
             .WithVolume(AdjustVolume(ev.IsWhisper))
             .WithMaxDistance(AdjustDistance(ev.IsWhisper));
 
         if (ev.SourceUid != null)
-            _audio.PlayEntity(audioResource.AudioStream, GetEntity(ev.SourceUid.Value), audioParams);
+            _audio.PlayEntity(audioStream, GetEntity(ev.SourceUid.Value), audioParams);
         else
-            _audio.PlayGlobal(audioResource.AudioStream, audioParams);
-
-
-        _contentRoot.RemoveFile(filePath);
+            _audio.PlayGlobal(audioStream, audioParams);
     }
 
     private float AdjustVolume(bool isWhisper)
