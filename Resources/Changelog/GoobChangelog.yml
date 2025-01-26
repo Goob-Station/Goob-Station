@@ -4332,3 +4332,9 @@ Entries:
       message: Spacelaw finally updated to reflect the docs in game
   id: 488
   time: '2025-01-26T19:36:18.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Frezon sell price has been reverted to its old value: 0.3->3$/mol.'
+  id: 489
+  time: '2025-01-26T19:39:44.0000000+00:00'
