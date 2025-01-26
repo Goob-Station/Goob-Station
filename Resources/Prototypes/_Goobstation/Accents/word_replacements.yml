@@ -401,3 +401,39 @@
     accent-scottish-words-146: accent-scottish-words-replace-146
     accent-scottish-words-147: accent-scottish-words-replace-147
     accent-scottish-words-148: accent-scottish-words-replace-148
+
+- type: accent
+  id: rodentese
+  wordReplacements:
+    accent-rodentese-words-1: accent-rodentese-words-replace-1
+    accent-rodentese-words-2: accent-rodentese-words-replace-2
+    accent-rodentese-words-3: accent-rodentese-words-replace-3
+    accent-rodentese-words-4: accent-rodentese-words-replace-4
+    accent-rodentese-words-5: accent-rodentese-words-replace-5
+    accent-rodentese-words-6: accent-rodentese-words-replace-6
+    accent-rodentese-words-7: accent-rodentese-words-replace-7
+    accent-rodentese-words-8: accent-rodentese-words-replace-8
+    accent-rodentese-words-9: accent-rodentese-words-replace-9
+    accent-rodentese-words-10: accent-rodentese-words-replace-10
+    accent-rodentese-words-11: accent-rodentese-words-replace-11
+    accent-rodentese-words-12: accent-rodentese-words-replace-12
+    accent-rodentese-words-13: accent-rodentese-words-replace-13
+    accent-rodentese-words-14: accent-rodentese-words-replace-14
+    accent-rodentese-words-15: accent-rodentese-words-replace-15
+    accent-rodentese-words-16: accent-rodentese-words-replace-16
+    accent-rodentese-words-17: accent-rodentese-words-replace-17
+    accent-rodentese-words-18: accent-rodentese-words-replace-18
+    accent-rodentese-words-19: accent-rodentese-words-replace-19
+    accent-rodentese-words-20: accent-rodentese-words-replace-20
+    accent-rodentese-words-21: accent-rodentese-words-replace-21
+    accent-rodentese-words-22: accent-rodentese-words-replace-22
+    accent-rodentese-words-23: accent-rodentese-words-replace-23
+    accent-rodentese-words-24: accent-rodentese-words-replace-24
+    accent-rodentese-words-25: accent-rodentese-words-replace-25
+    accent-rodentese-words-26: accent-rodentese-words-replace-26
+    accent-rodentese-words-27: accent-rodentese-words-replace-27
+    accent-rodentese-words-28: accent-rodentese-words-replace-28
+    accent-rodentese-words-29: accent-rodentese-words-replace-29
+    accent-rodentese-words-30: accent-rodentese-words-replace-30
+    accent-rodentese-words-31: accent-rodentese-words-replace-31
+    

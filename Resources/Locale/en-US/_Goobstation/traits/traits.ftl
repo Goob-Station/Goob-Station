@@ -9,3 +9,6 @@ trait-bogan-desc = You learned this from a mythical creature.
 
 trait-maoist-accent-name = Maoist accent
 trait-maoist-accent-desc = SShit$$eKKK mu$$t be de$$troyed. Death to KKKommand.
+
+trait-rodentese-name = Rodentese accent
+trait-rodentese-desc = It's on the mouse!

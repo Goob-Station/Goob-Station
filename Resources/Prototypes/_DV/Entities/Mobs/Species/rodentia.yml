@@ -112,6 +112,7 @@
   - type: CrawlUnderObjects
     actionProto: ActionToggleSneakMode
   - type: FootPrints # WD EDIT
+  - type: RodenteseAccent # Goobstation - Rodentese
 
 - type: entity
   save: false
