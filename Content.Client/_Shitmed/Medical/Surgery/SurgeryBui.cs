@@ -1,4 +1,4 @@
-using Content.Client._Shitmed.Xenonids.UI;
+using Content.Client._Shitmed.Choice.UI;
 using Content.Client.Administration.UI.CustomControls;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.Body.Components;
@@ -146,7 +146,7 @@ public sealed class SurgeryBui : BoundUserInterface
         {
             //var netPart = _entities.GetNetEntity(part.Owner);
             var surgeries = state.Choices[netEntity];
-            var partButton = new XenoChoiceControl();
+            var partButton = new ChoiceControl();
 
             partButton.Set(partName, null);
             partButton.Button.OnPressed += _ => OnPartPressed(netEntity, surgeries);
@@ -200,7 +200,7 @@ public sealed class SurgeryBui : BoundUserInterface
         // This apparently does not consider if theres multiple surgery requirements in one surgery. Maybe thats fine.
         if (surgery.Comp.Requirement is { } requirementId && _system.GetSingleton(requirementId) is { } requirement)
         {
-            var label = new XenoChoiceControl();
+            var label = new ChoiceControl();
             label.Button.OnPressed += _ =>
             {
                 _previousSurgeries.Add(surgeryId);
@@ -257,7 +257,7 @@ public sealed class SurgeryBui : BoundUserInterface
 
         foreach (var surgery in surgeries)
         {
-            var surgeryButton = new XenoChoiceControl();
+            var surgeryButton = new ChoiceControl();
             surgeryButton.Set(surgery.Name, null);
 
             surgeryButton.Button.OnPressed += _ => OnSurgeryPressed(surgery.Ent, netPart, surgery.Id);
