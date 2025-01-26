@@ -3,7 +3,7 @@
   mapName: 'Amber'
   mapPath: /Maps/_ShibaStation/amber.yml # ShibaStation - Shiba edit with mail department and some fixes!
   minPlayers: 0 # ShibaStation - More LOW POP LET'S GO
-  maxPlayers: 50
+  maxPlayers: 30
   stations:
     Amber:
       stationProto: StandardNanotrasenStation

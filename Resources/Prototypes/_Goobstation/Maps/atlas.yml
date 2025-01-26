@@ -3,7 +3,7 @@
   mapName: Atlas
   mapPath: /Maps/_ShibaStation/atlas.yml
   minPlayers: 0
-  maxPlayers: 20
+  maxPlayers: 15
   stations:
     Atlas:
       stationProto: StandardNanotrasenStation

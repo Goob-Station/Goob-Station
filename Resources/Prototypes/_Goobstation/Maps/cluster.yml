@@ -3,7 +3,7 @@
   mapName: 'Cluster'
   mapPath: /Maps/_ShibaStation/cluster.yml
   minPlayers: 0
-  maxPlayers: 35
+  maxPlayers: 15
   stations:
     Cluster:
       stationProto: StandardNanotrasenStation
