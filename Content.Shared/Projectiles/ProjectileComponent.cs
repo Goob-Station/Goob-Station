@@ -4,6 +4,7 @@ using Robust.Shared.GameStates;
 using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using System.ComponentModel.DataAnnotations;
 
 namespace Content.Shared.Projectiles;
 
@@ -91,6 +92,12 @@ public sealed partial class ProjectileComponent : Component
     /// </summary>
     [DataField(customTypeSerializer: typeof(FlagSerializer<CollisionMask>))]
     public int NoPenetrateMask = 0;
+
+    [DataField]
+    public bool LosesDamageOnPenetration = false;
+
+    [DataField]
+    public DamageSpecifier DamageLossOnPenetrationBase = new();
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();

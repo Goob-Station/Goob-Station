@@ -1,4 +1,8 @@
 using Content.Server.Administration.Logs;
+using Content.Server.Destructible;
+using Content.Server.Destructible.Thresholds;
+using Content.Server.Destructible.Thresholds.Behaviors;
+using Content.Server.Destructible.Thresholds.Triggers;
 using Content.Server.Effects;
 using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
@@ -72,7 +76,40 @@ public sealed class ProjectileSystem : SharedProjectileSystem
 
         // Goobstation start
         if (component.Penetrate)
+        {
             component.IgnoredEntities.Add(target);
+            // Partial penetration weapons, like Hristov 
+            if (component.LosesDamageOnPenetration && modifiedDamage is not null)
+            {
+                // Retrieve health of piercee, how much less potent the bullet should be now?
+                // We're using the least "healthy" trigger, so we go from up
+                var penetrationLoss = float.PositiveInfinity;
+                if (TryComp<DestructibleComponent>(target, out var comp))
+                {
+                    // LINQ here would go hard. We're trying to find (perceived) health value of an object
+                    // Sadly most have duplicates with extra large values, for nuke I presume, and also
+                    // there's a danger of low-damage behaviour being thrown in here, that doesn't have
+                    // destruction behaviour attached. So we just sift thru it until we get lowest health
+                    // destroy behaviour
+                    foreach (var threshold in comp.Thresholds)
+                        if (threshold.Trigger is DamageTrigger damageTrigger &&
+                            damageTrigger.Damage < penetrationLoss)
+                            foreach (var behavior in threshold.Behaviors)
+                                if (behavior is DoActsBehavior doActsBehavior &&
+                                    doActsBehavior.HasAct(ThresholdActs.Destruction))
+                                    penetrationLoss = damageTrigger.Damage;
+                }
+                if (float.IsInfinity(penetrationLoss))
+                    penetrationLoss = 0;
+                // If bullets can't deal structural, they shouldn't be able to pierce, simple as
+                component.Damage -= component.DamageLossOnPenetrationBase * penetrationLoss;
+                if (component.Damage)
+                {
+                    component.DamagedEntity = true;
+                    QueueDel(uid);
+                }
+            }
+        }
         else
             component.DamagedEntity = true;
         // Goobstation end

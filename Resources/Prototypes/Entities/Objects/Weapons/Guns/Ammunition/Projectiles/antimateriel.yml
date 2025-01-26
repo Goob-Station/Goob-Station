@@ -10,3 +10,7 @@
         Piercing: 60
         Structural: 90
     ignoreResistances: true
+    penetrate: true
+    losesDamageOnPenetration: true
+    deleteOnCollide: false
+    damageLossOnPenetrationScaler: 0.2 # exactly 0.2 is bad cuz it hits a few thresholds
