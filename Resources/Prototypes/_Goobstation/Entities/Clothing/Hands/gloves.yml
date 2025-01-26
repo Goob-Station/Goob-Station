@@ -17,3 +17,19 @@
   suffix: Unremoveable
   components:
   - type: Unremoveable
+
+- type: entity
+  parent: [ClothingHandsBase, BaseCentcommContraband]
+  id: ClothingHandsGlovesCentComm
+  name: gold-trimmed gloves
+  description: A pair of durathread white gloves with a gold trim. It's so heavy, the gold trim might be real.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Clothing
+    sprite: _Goobstation/Clothing/Hands/Gloves/goldtrim.rsi
+  - type: Insulated
+  - type: Fiber
+    fiberMaterial: fibers-durathread
+    fiberColor: fibers-gold-trimmed
+  - type: FingerprintMask
