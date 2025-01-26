@@ -24,7 +24,7 @@
         Cold: 0.080 # in line with cold resist
     heatDamage:
       types:
-        Heat: 1.65 # in line with heat dmg received up
+        Heat: 1.80 # in line with heat dmg received up
   - type: ThermalRegulator
     normalBodyTemperature: 311.76
 
