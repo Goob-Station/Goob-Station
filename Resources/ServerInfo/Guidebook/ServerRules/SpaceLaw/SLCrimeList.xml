@@ -1132,13 +1132,13 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To intentionally kill a command member, CentComm member, or head of staff.
+        To intentionally kill a command member or CentComm official.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        Applies if the victim was a direct target of the killer.
-        Specifically targeting a command member is assassination, whereas a command member being a casualty by coincidence isn't.
+        Applies if a command member was a direct victim.
+        Any intentional killing of a command member is considered assassination. 
       </Box>
     </ColorBox>
     <ColorBox>
