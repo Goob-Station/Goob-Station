@@ -7,6 +7,7 @@ using Prometheus;
 using Robust.Shared.Configuration;
 using Robust.Shared.ContentPack;
 using Robust.Shared.Utility;
+using System.Threading;
 
 namespace Content.Server.TTS;
 
@@ -37,10 +38,8 @@ public sealed class TTSManager
     private readonly Dictionary<int, byte[]> _memoryCache = new();
     private ResPath _cachePath = new();
     private ResPath _modelPath = new();
-    private readonly object _rateLimitLock = new object();
-    private readonly Queue<DateTime> _rateLimitQueue = new Queue<DateTime>();
-    private readonly TimeSpan _rateLimitWindow = TimeSpan.FromSeconds(1);
-    private int _maxGenerationsPerSecond = 4;
+
+    private SemaphoreSlim _rateLimitSemaphore = new SemaphoreSlim(1);
 
     public TTSManager()
     {
@@ -56,7 +55,7 @@ public sealed class TTSManager
         _cfg.OnValueChanged(GoobCVars.TTSCachePath, OnCachePathChanged);
         _modelPath = MakeDataPath(_cfg.GetCVar(GoobCVars.TTSModelPath));
         _cfg.OnValueChanged(GoobCVars.TTSModelPath, OnModelPathChanged);
-        _maxGenerationsPerSecond = _cfg.GetCVar(GoobCVars.TTSRateLimit);
+        _rateLimitSemaphore = new SemaphoreSlim(_cfg.GetCVar(GoobCVars.TTSRateLimit));
         _cfg.OnValueChanged(GoobCVars.TTSRateLimit, OnRateLimitChanged);
 
         // Make the needed directories if they don't exist
@@ -82,9 +81,18 @@ public sealed class TTSManager
         => _cachePath = MakeDataPath(path);
     private void OnModelPathChanged(string path)
         => _modelPath = MakeDataPath(path);
-
     private void OnRateLimitChanged(int limit)
-        => _maxGenerationsPerSecond = limit;
+    {
+        int currentCount = _rateLimitSemaphore.CurrentCount;
+
+        if (limit > currentCount)
+            _rateLimitSemaphore.Release(limit - currentCount);
+        else if (limit < currentCount)
+        {
+            for (int i = 0; i < (currentCount - limit); i++)
+                _rateLimitSemaphore.Wait();
+        }
+    }
 
     private ResPath MakeDataPath(string path)
     {
@@ -114,74 +122,61 @@ public sealed class TTSManager
             return cachedData;
         }
 
-        await RateLimitAsync();
+        await _rateLimitSemaphore.WaitAsync();
 
-        var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_raw";
-
-        var proc = new Process
-        {
-            StartInfo = new ProcessStartInfo
-            {
-                #if WINDOWS
-                FileName = "cmd.exe",
-                Arguments = $"/C \"{strCmdText}\"",
-                #else
-                FileName = "/bin/sh",
-                Arguments = $"-c \"{strCmdText}\"",
-                #endif
-                UseShellExecute = false,
-                RedirectStandardOutput = true, // Capture raw audio data
-                CreateNoWindow = true,
-            },
-        };
-
-        var reqTime = DateTime.UtcNow;
         try
         {
-            proc.Start();
+            var strCmdText = $"echo '{text}' | piper --model {_modelPath + ResPath.SystemSeparatorStr + model}.onnx --speaker {speaker} --output_raw";
 
-            // Read the raw audio data directly from the process
-            using var memoryStream = new MemoryStream();
-            await proc.StandardOutput.BaseStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+            var proc = new Process
+            {
+                StartInfo = new ProcessStartInfo
+                {
+                    #if WINDOWS
+                    FileName = "cmd.exe",
+                    Arguments = $"/C \"{strCmdText}\"",
+                    #else
+                    FileName = "/bin/sh",
+                    Arguments = $"-c \"{strCmdText}\"",
+                    #endif
+                    UseShellExecute = false,
+                    RedirectStandardOutput = true, // Capture raw audio data
+                    CreateNoWindow = true,
+                },
+            };
 
-            await proc.WaitForExitAsync().ConfigureAwait(false);
+            var reqTime = DateTime.UtcNow;
+            try
+            {
+                proc.Start();
 
-            if (proc.ExitCode != 0)
+                // Read the raw audio data directly from the process
+                using var memoryStream = new MemoryStream();
+                await proc.StandardOutput.BaseStream.CopyToAsync(memoryStream).ConfigureAwait(false);
+
+                await proc.WaitForExitAsync().ConfigureAwait(false);
+
+                if (proc.ExitCode != 0)
+                {
+                    RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
+                    _sawmill.Error($"Piper process failed for '{text}' speech by '{speaker}' speaker.");
+                    return null;
+                }
+
+                var rawData = memoryStream.ToArray();
+                TryCache(key, rawData);
+                return rawData;
+            }
+            catch (Exception e)
             {
                 RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-                _sawmill.Error($"Piper process failed for '{text}' speech by '{speaker}' speaker.");
+                _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
                 return null;
             }
-
-            var rawData = memoryStream.ToArray();
-            TryCache(key, rawData);
-            return rawData;
         }
-        catch (Exception e)
+        finally
         {
-            RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
-            _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
-            return null;
-        }
-    }
-
-    private async Task RateLimitAsync()
-    {
-        while (true)
-        {
-            lock (_rateLimitLock)
-            {
-                while (_rateLimitQueue.Count > 0 && _rateLimitQueue.Peek() < DateTime.UtcNow - _rateLimitWindow)
-                    _rateLimitQueue.Dequeue();
-
-                if (_rateLimitQueue.Count < _maxGenerationsPerSecond)
-                {
-                    _rateLimitQueue.Enqueue(DateTime.UtcNow);
-                    return;
-                }
-            }
-
-            await Task.Delay(_rateLimitQueue.Peek() + _rateLimitWindow - DateTime.UtcNow);
+            _rateLimitSemaphore.Release();
         }
     }
 

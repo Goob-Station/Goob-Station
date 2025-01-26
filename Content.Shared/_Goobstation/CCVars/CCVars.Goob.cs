@@ -236,7 +236,7 @@ public sealed partial class GoobCVars
         CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
 
     /// <summary>
-    /// Number of TTS generations that can be done per second
+    /// Number of TTS generations that can be done simultaneously
     /// </summary>
     public static readonly CVarDef<int> TTSRateLimit =
         CVarDef.Create("tts.rate_limit", 4, CVar.SERVERONLY);
