@@ -994,10 +994,15 @@
 
   ## Capital Crimes
   - Capital crimes should usually lead to a death sentence or shift lasting detainment.
-  <Table Columns="4">
+  <Table Columns="5">
     <ColorBox>
       <Box>
         Offense
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box>
+        Max Punishment
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1022,6 +1027,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Death
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To refuse to comply with a reasonable Mind Shielding procedure.
       </Box>
     </ColorBox>
@@ -1038,6 +1048,11 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Terrorism
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Death
       </Box>
     </ColorBox>
     <ColorBox>
@@ -1062,6 +1077,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Permanent Confinement
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To render a body unresurrectable.
       </Box>
     </ColorBox>
@@ -1082,6 +1102,11 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Death
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         To kill three or more sapient beings with malicious intent.
       </Box>
     </ColorBox>
@@ -1098,6 +1123,11 @@
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
         Assassination
+      </Box>
+    </ColorBox>
+    <ColorBox>
+      <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
+        Permanent Confinement
       </Box>
     </ColorBox>
     <ColorBox>
