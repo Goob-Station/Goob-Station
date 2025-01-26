@@ -19,7 +19,7 @@ public sealed partial class PressureBuffedSystem : EntitySystem
     public void OnExamined(Entity<PressureBuffedComponent> ent, ref ExaminedEvent args)
     {
         var min = ent.Comp.RequiredPressure.X;
-        var max = ent.Comp.RequiredPressure.Y;
+        var max = Math.Round(ent.Comp.RequiredPressure.Y, MidpointRounding.ToZero);
         var modifier = ent.Comp.AppliedModifier;
 
         var markup = Loc.GetString("lavaland-examine-pressure-buff", ("min", min), ("max", max), ("buff", modifier));
