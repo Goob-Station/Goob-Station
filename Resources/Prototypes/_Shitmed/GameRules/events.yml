@@ -28,7 +28,7 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: Muted
+      - type: GlorpAccent #Gloob - Glorpfix
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: SurgerySpeedModifier
