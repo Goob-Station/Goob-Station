@@ -4320,3 +4320,9 @@ Entries:
       message: Abductors now have a unique bloodtype.
   id: 486
   time: '2025-01-26T19:30:52.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Preferred borg name is now applied to Station AIs.
+  id: 487
+  time: '2025-01-26T19:33:23.0000000+00:00'
