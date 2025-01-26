@@ -4344,3 +4344,11 @@ Entries:
       message: Yowie livers now perform chem processing instead of hearts.
   id: 490
   time: '2025-01-26T19:42:46.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Increased sell price of filled SMES
+  id: 491
+  time: '2025-01-26T20:04:51.0000000+00:00'
