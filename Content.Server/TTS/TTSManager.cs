@@ -128,6 +128,12 @@ public sealed class TTSManager
             return cachedData;
         }
 
+        // TODO:
+        // Instead of just incrementing a integer, we should really keep track of what text + voice is in queue to be generated
+        // This would stop the issue of Urist McHands saying "godo" 30 times before the first "godo" can even be generated and added to the cache
+        // Which would cause it to try to generate the same message 30 times, and would instead just waiting for the first one to generate and then
+        // just reuse the cached version of it.
+
         if (Interlocked.Increment(ref _queuedGenerations) > _maxQueuedGenerations)
         {
             Interlocked.Decrement(ref _queuedGenerations);
