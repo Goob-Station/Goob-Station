@@ -20,7 +20,7 @@
 
 - type: entity
   parent: [ClothingHandsBase, BaseCentcommContraband]
-  id: ClothingHandsGlovesCentComm
+  id: ClothingHandsGlovesGoldTrim
   name: gold-trimmed gloves
   description: A pair of durathread white gloves with a gold trim. It's so heavy, the gold trim might be real.
   components:
@@ -31,5 +31,5 @@
   - type: Insulated
   - type: Fiber
     fiberMaterial: fibers-durathread
-    fiberColor: fibers-gold-trimmed
+    fiberColor: fibers-white
   - type: FingerprintMask

@@ -39,6 +39,7 @@
   equipment:
     id: CentcomPDA
     ears: ClothingHeadsetAltCentCom
+    gloves: ClothingHandsGlovesGoldTrim
     pocket1: UniqueNanorepLockerTeleporter
   storage:
     back:
