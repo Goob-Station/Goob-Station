@@ -21,10 +21,10 @@
     currentTemperature: 311.76  # Body temperature of cat
     heatDamage:
       types:
-        Cold: 0.80 # in line with cold resist
+        Heat: 0.80 # in line with cold resist
     coldDamage:
       types:
-        Heat: 1.65 # in line with heat dmg received up
+        Cold: 1.65 # in line with heat dmg received up
   - type: ThermalRegulator
     normalBodyTemperature: 311.76
 
