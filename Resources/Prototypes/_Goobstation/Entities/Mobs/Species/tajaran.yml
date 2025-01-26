@@ -12,16 +12,16 @@
   - type: Damageable
     damageModifierSet: Tajaran
   - type: TemperatureProtection # fur is a good insulator, actually
-    HeatingCoefficient: 0.1
-    CoolingCoefficient: 0.1
+    heatingCoefficient: 0.1
+    coolingCoefficient: 0.1
   - type: Flammable
-    FirestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
+    firestackFade: -0.08 # until you light it up, cuz it's oily too. 20% lower than default
   - type: Temperature
     coldDamageThreshold: 248.15 # -25 degrees centigrade, like 12 degrees below normal "takes cold damage"
     currentTemperature: 311.76  # Body temperature of cat
     heatDamage:
       types:
-        Heat: 0.80 # in line with cold resist
+        Heat: 0.080 # in line with cold resist
     coldDamage:
       types:
         Cold: 1.65 # in line with heat dmg received up
