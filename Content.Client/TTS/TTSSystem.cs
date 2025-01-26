@@ -73,9 +73,13 @@ public sealed class TTSSystem : EntitySystem
             return;
         }
 
-        // Convert the byte data into a ReadOnlySpan<short>
-        var shortArray = new short[ev.Data.Length / 2]; // 2 bytes per short
-        Buffer.BlockCopy(ev.Data, 0, shortArray, 0, ev.Data.Length);
+        // Convert the byte array to short[] (2 bytes per short)
+        var shortArray = new short[ev.Data.Length / 2];
+        for (int i = 0; i < shortArray.Length; i++)
+        {
+            // Combine two bytes into one short (little-endian)
+            shortArray[i] = (short)((ev.Data[i * 2 + 1] << 8) | (ev.Data[i * 2] & 0xFF));
+        }
 
         // Create an AudioStream directly from raw data
         var audioStream = _audioInt.LoadAudioRaw(shortArray, 1, 22050);
