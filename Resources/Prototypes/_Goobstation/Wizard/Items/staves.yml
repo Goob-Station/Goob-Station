@@ -1,0 +1,21 @@
+- type: entity
+  name: staff of change
+  parent: WeaponStaffBase
+  id: WeaponStaffChange
+  description: An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself.
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/change.rsi
+    layers:
+    - state: change
+  - type: Item
+    heldPrefix: change
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/Magic/staff_change.ogg
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileWabbajack
+    capacity: 6
+    count: 6
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 8

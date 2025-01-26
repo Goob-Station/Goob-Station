@@ -8,3 +8,8 @@ spellbook-staff-healing-desc =
     An altruistic staff that can heal the lame and raise the dead.
     Effects are reversed on the undead, the staff would instantly kill them instead.
     Automatically recharges once every 8 seconds.
+
+spellbook-staff-change-name = Staff of Change
+spellbook-staff-change-desc =
+    An artefact that spits bolts of coruscating energy which cause the target's very form to reshape itself.
+    Automatically recharges once every 8 seconds.

@@ -139,6 +139,23 @@ public sealed partial record PolymorphConfiguration
     public ProtoId<WeightedRandomEntityPrototype>? Entities;
 
     /// <summary>
+    /// Goobstation.
+    /// If <see cref="Entity"/> and <see cref="Entities"/>> is null,
+    /// weighted entity random will be picked from this weighted random.
+    /// Doesn't support polymorph actions.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public ProtoId<WeightedRandomPrototype>? Groups;
+
+    /// <summary>
+    /// Goobstation.
+    /// Copies these components on polymorph.
+    /// Does nothing on revert.
+    /// </summary>
+    [DataField(serverOnly: true)]
+    public HashSet<string> ComponentsToTransfer;
+
+    /// <summary>
     ///     Goobstation
     ///     Whether polymorphed entity should be able to move.
     /// </summary>

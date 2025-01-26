@@ -13,9 +13,11 @@ using Content.Shared.Follower;
 using Content.Shared.Follower.Components;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
+using Content.Shared.Inventory;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.NameModifier.Components;
 using Content.Shared.Nutrition;
 using Content.Shared.Polymorph;
 using Content.Shared.Popups;
@@ -27,6 +29,7 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -35,6 +38,7 @@ namespace Content.Server.Polymorph.Systems;
 public sealed partial class PolymorphSystem : EntitySystem
 {
     [Dependency] private readonly IRobustRandom _random = default!; // Goobstation
+    [Dependency] private readonly ISerializationManager _serialization = default!; // Goobstation
     [Dependency] private readonly IComponentFactory _compFact = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
@@ -56,6 +60,8 @@ public sealed partial class PolymorphSystem : EntitySystem
     [Dependency] private readonly FollowerSystem _follow = default!; // goob edit
     [Dependency] private readonly TagSystem _tag = default!; // goob edit
 
+    private ISawmill _sawMill = default!; // Goobstation
+
     private const string RevertPolymorphId = "ActionRevertPolymorph";
 
     public override void Initialize()
@@ -72,6 +78,8 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         InitializeCollide();
         InitializeMap();
+
+        _sawMill = Logger.GetSawmill("polymorph"); // Goobstation
     }
 
     public override void Update(float frameTime)
@@ -218,7 +226,14 @@ public sealed partial class PolymorphSystem : EntitySystem
         if (proto == null)
         {
             if (!_proto.TryIndex(configuration.Entities, out var entities) || entities.Weights.Count == 0)
-                return null;
+            {
+                if (!_proto.TryIndex(configuration.Groups, out var groups) || groups.Weights.Count == 0)
+                    return null;
+
+                var weightedEntityRandom = groups.Pick(_random);
+                if (!_proto.TryIndex(weightedEntityRandom, out entities) || entities.Weights.Count == 0)
+                    return null;
+            }
 
             proto = entities.Pick(_random);
         }
@@ -249,12 +264,35 @@ public sealed partial class PolymorphSystem : EntitySystem
 
         if (configuration.Inventory == PolymorphInventoryChange.Transfer)
         {
-            _inventory.TransferEntityInventories(uid, child);
-            foreach (var hand in _hands.EnumerateHeld(uid))
+            // Goob edit start
+            if (TryComp(uid, out InventoryComponent? inventory1))
             {
-                _hands.TryDrop(uid, hand, checkActionBlocker: false);
-                _hands.TryPickupAnyHand(child, hand);
+                if (TryComp(child, out InventoryComponent? inventory2))
+                {
+                    _inventory.TransferEntityInventories((uid, inventory1), (child, inventory2), false);
+                    foreach (var hand in _hands.EnumerateHeld(uid))
+                    {
+                        _hands.TryDrop(uid, hand, checkActionBlocker: false);
+                        _hands.TryPickupAnyHand(child, hand);
+                    }
+                }
+                else
+                {
+                    if (_inventory.TryGetContainerSlotEnumerator((uid, inventory1), out var enumerator))
+                    {
+                        while (enumerator.MoveNext(out var slot))
+                        {
+                            _inventory.TryUnequip(uid, slot.ID, true, true);
+                        }
+                    }
+
+                    foreach (var held in _hands.EnumerateHeld(uid))
+                    {
+                        _hands.TryDrop(uid, held);
+                    }
+                }
             }
+            // Goob edit end
         }
         else if (configuration.Inventory == PolymorphInventoryChange.Drop)
         {
@@ -273,11 +311,41 @@ public sealed partial class PolymorphSystem : EntitySystem
         }
 
         if (configuration.TransferName && TryComp(uid, out MetaDataComponent? targetMeta))
-            _metaData.SetEntityName(child, targetMeta.EntityName);
+        {
+            // Goob edit start
+            _metaData.SetEntityName(child,
+                TryComp(uid, out NameModifierComponent? modifier) ? modifier.BaseName : targetMeta.EntityName);
+            // Goob edit end
+        }
 
         if (configuration.TransferHumanoidAppearance)
         {
             _humanoid.CloneAppearance(uid, child);
+        }
+
+        if (configuration.ComponentsToTransfer.Count > 0) // Goobstation
+        {
+            foreach (var comp in configuration.ComponentsToTransfer)
+            {
+                Type type;
+                try
+                {
+                    type = _compFact.GetRegistration(comp).Type;
+                }
+                catch (UnknownComponentException e)
+                {
+                    _sawMill.Error(e.Message);
+                    continue;
+                }
+
+                if (!EntityManager.TryGetComponent(uid, type, out var component))
+                    continue;
+
+                var newComp = (Component) _compFact.GetComponent(type);
+                object? temp = newComp;
+                _serialization.CopyTo(component, ref temp, notNullableOverride: true);
+                EntityManager.AddComponent(child, (Component) temp!, true);
+            }
         }
 
         _tag.AddTag(uid, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation

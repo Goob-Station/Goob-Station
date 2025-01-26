@@ -1524,8 +1524,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      60: Critical
-      125: Dead
+      100: Critical # Goob edit
+      200: Dead # Goob edit
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5
@@ -1583,7 +1583,7 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      75: Critical
+      100: Critical # Goob edit
       200: Dead
   - type: NpcFactionMember
     factions:

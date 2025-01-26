@@ -59,3 +59,19 @@
     inventory: None
     revertOnCrit: true
     revertOnDeath: true
+
+- type: polymorph
+  id: WizardWabbajack
+  configuration:
+    groups: WabbajackGroups
+    transferName: true
+    transferDamage: true
+    inventory: Transfer
+    forced: true
+    revertOnCrit: false
+    revertOnDeath: false
+    allowRepeatedMorphs: true
+    componentsToTransfer:
+    - Wizard
+    - TimedDespawn
+    - FadingTimedDespawn

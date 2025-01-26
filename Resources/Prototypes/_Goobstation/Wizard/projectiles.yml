@@ -261,3 +261,36 @@
         Piercing: 20
   - type: StaminaDamageOnCollide
     damage: 80
+
+- type: entity
+  id: ProjectileWabbajack
+  name: bolt of change
+  description: Wabbajack, Wabbajack!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_cyan
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: PolymorphOnCollide
+    polymorph: WizardWabbajack
+    whitelist:
+      components:
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_cyan

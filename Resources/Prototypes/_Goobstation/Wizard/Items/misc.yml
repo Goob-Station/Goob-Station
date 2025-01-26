@@ -1,0 +1,83 @@
+- type: entity
+  id: CartridgeMagicBullet
+  name: magic bullet cartridge
+  parent: [ BaseCartridge, BaseRestrictedContraband ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeMagicBullet
+  - type: CartridgeAmmo
+    proto: BulletMagic
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/ammo_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+
+- type: entity
+  name: scroll of teleportation
+  description: This scroll can teleport you anywhere on the station.
+  parent: BaseItem
+  id: ScrollTeleport
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    state: scroll
+  - type: Clothing
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+    slots:
+      - Belt
+  - type: Item
+    sprite: _Goobstation/Wizard/Objects/scroll.rsi
+  - type: UserInterface
+    interfaces:
+      enum.WizardTeleportUiKey.Key:
+        type: WizardTeleportBoundUserInterface
+  - type: ActivatableUI
+    inHandsOnly: true
+    singleUser: true
+    key: enum.WizardTeleportUiKey.Key
+  - type: TeleportScroll
+  - type: StaticPrice
+    price: 5000
+
+- type: entity
+  name: lightning bolt spell packet
+  description: Some birdseed wrapped in cloth that crackles with electricity.
+  parent: BaseItem
+  id: ThrownLightning
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/thrown_lightning.rsi
+    state: icon
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 4
+    color: "#FAA019"
+    netsync: false
+  - type: LightFade
+    duration: 5
+  - type: Trail
+    scale: 0.8
+    spawnTrailParticles: false
+    frequency: 0.046
+    lifetime: 1
+    lerpTime: 0.03
+    particleAmount: 0
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Effects/lightning.rsi
+      state: yellow_lightning
+  - type: ThrownLightning
+  - type: FadingTimedDespawn
+    lifetime: 0
+    fadeOutTime: 5
+  - type: ThrowingAngle
+    angle: 180
+  - type: EmbeddableProjectile
+    deleteOnRemove: true
+    offset: 0.0,-0.5
