@@ -13,7 +13,10 @@
     penetrate: true
     losesDamageOnPenetration: true
     deleteOnCollide: false
-    damageLossOnPenetrationBase:
+    damageLossOnStructurePenetration:
       types:
         Piercing: 0.05
         Structural: 0.3
+    damageLossOnMobPenetration:
+      types:
+        Piercing: 0.05

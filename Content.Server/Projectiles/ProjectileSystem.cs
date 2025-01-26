@@ -8,6 +8,8 @@ using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared.Camera;
 using Content.Shared.Damage;
 using Content.Shared.Database;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -85,20 +87,35 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 // Retrieve health of piercee, how much less potent the bullet should be now?
                 // We're using the least "healthy" trigger, so we go from up
                 var destructibleHealth = float.PositiveInfinity;
-                if (TryComp<DestructibleComponent>(target, out var comp))
+                if (TryComp<MobThresholdsComponent>(target, out var mob_comp))
+                {
+                    foreach (var treshold in mob_comp.Thresholds)
+                    {
+                        if (treshold.Value == MobState.Dead)
+                            destructibleHealth = treshold.Key.Float();
+                    }
+
+                }
+                else if (TryComp<DestructibleComponent>(target, out var destr_comp))
                 {
                     // LINQ here would go hard. We're trying to find (perceived) health value of an object
                     // Sadly most have duplicates with extra large values, for nuke I presume, and also
                     // there's a danger of low-damage behaviour being thrown in here, that doesn't have
                     // destruction behaviour attached. So we just sift thru it until we get lowest health
                     // destroy behaviour
-                    foreach (var threshold in comp.Thresholds)
+                    foreach (var threshold in destr_comp.Thresholds)
+                    {
                         if (threshold.Trigger is DamageTrigger damageTrigger &&
                             damageTrigger.Damage < destructibleHealth)
                             foreach (var behavior in threshold.Behaviors)
+                            {
                                 if (behavior is DoActsBehavior doActsBehavior &&
                                     doActsBehavior.HasAct(ThresholdActs.Destruction))
                                     destructibleHealth = damageTrigger.Damage;
+                            }
+
+                    }
+
                 }
                 if (float.IsInfinity(destructibleHealth))
                     destructibleHealth = 0;
