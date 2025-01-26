@@ -1,6 +1,21 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Population requirements (min and max) have been adjusted for nearly all
+      maps. Now we should see more than the same six maps on the server at 15+ players!
+    type: Tweak
+  id: 127
+  time: '2025-01-26T19:35:11.377254'
+- author: AstroDogeDX
+  changes:
+  - message: More antag adjustments have been made; hopefully less overwhelming odds
+      against the station with blob + nukies. Either way, though, pick Sec and get
+      more robust.
+    type: Tweak
+  id: 126
+  time: '2025-01-26T19:35:52.239577'
+- author: AstroDogeDX
+  changes:
   - message: Lobby music got a refresh! Try not to hang around jamming for too long.
     type: Add
   id: 125
