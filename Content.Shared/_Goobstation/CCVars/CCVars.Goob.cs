@@ -235,6 +235,12 @@ public sealed partial class GoobCVars
     public static readonly CVarDef<bool> TTSEnabled =
         CVarDef.Create("tts.enabled", false, CVar.SERVERONLY);
 
+    /// <summary>
+    /// Number of TTS generations that can be done per second
+    /// </summary>
+    public static readonly CVarDef<int> TTSRateLimit =
+        CVarDef.Create("tts.rate_limit", 4, CVar.SERVERONLY);
+
     /// Can be "file" to store in the cache_path, or "memory" to store it in memory.
     /// Memory is way faster, but servers are usually more limited by memory than storage, pick your poison.
     public static readonly CVarDef<string> TTSCacheType =

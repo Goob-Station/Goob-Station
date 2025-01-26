@@ -1,12 +1,6 @@
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Net.Http.Json;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading;
 using System.Threading.Tasks;
 using Content.Shared._Goobstation.CCVar;
 using Prometheus;
@@ -43,6 +37,10 @@ public sealed class TTSManager
     private readonly Dictionary<int, byte[]> _memoryCache = new();
     private ResPath _cachePath = new();
     private ResPath _modelPath = new();
+    private readonly object _rateLimitLock = new object();
+    private readonly Queue<DateTime> _rateLimitQueue = new Queue<DateTime>();
+    private readonly TimeSpan _rateLimitWindow = TimeSpan.FromSeconds(1);
+    private int _maxGenerationsPerSecond = 4;
 
     public TTSManager()
     {
@@ -58,6 +56,8 @@ public sealed class TTSManager
         _cfg.OnValueChanged(GoobCVars.TTSCachePath, OnCachePathChanged);
         _modelPath = MakeDataPath(_cfg.GetCVar(GoobCVars.TTSModelPath));
         _cfg.OnValueChanged(GoobCVars.TTSModelPath, OnModelPathChanged);
+        _maxGenerationsPerSecond = _cfg.GetCVar(GoobCVars.TTSRateLimit);
+        _cfg.OnValueChanged(GoobCVars.TTSRateLimit, OnRateLimitChanged);
 
         // Make the needed directories if they don't exist
         new Process
@@ -82,6 +82,9 @@ public sealed class TTSManager
         => _cachePath = MakeDataPath(path);
     private void OnModelPathChanged(string path)
         => _modelPath = MakeDataPath(path);
+
+    private void OnRateLimitChanged(int limit)
+        => _maxGenerationsPerSecond = limit;
 
     private ResPath MakeDataPath(string path)
     {
@@ -110,6 +113,8 @@ public sealed class TTSManager
             ReusedCount.Inc();
             return cachedData;
         }
+
+        await RateLimitAsync();
 
         var strCmdText = $"echo '{text}' | piper --model {(_modelPath + ResPath.SystemSeparatorStr + model)}.onnx --speaker {speaker} --output_raw";
 
@@ -157,6 +162,26 @@ public sealed class TTSManager
             RequestTimings.WithLabels("Error").Observe((DateTime.UtcNow - reqTime).TotalSeconds);
             _sawmill.Error($"Failed to generate new sound for '{text}' speech by '{speaker}' speaker\n{e}");
             return null;
+        }
+    }
+
+    private async Task RateLimitAsync()
+    {
+        while (true)
+        {
+            lock (_rateLimitLock)
+            {
+                while (_rateLimitQueue.Count > 0 && _rateLimitQueue.Peek() < DateTime.UtcNow - _rateLimitWindow)
+                    _rateLimitQueue.Dequeue();
+
+                if (_rateLimitQueue.Count < _maxGenerationsPerSecond)
+                {
+                    _rateLimitQueue.Enqueue(DateTime.UtcNow);
+                    return;
+                }
+            }
+
+            await Task.Delay(_rateLimitQueue.Peek() + _rateLimitWindow - DateTime.UtcNow);
         }
     }
 
