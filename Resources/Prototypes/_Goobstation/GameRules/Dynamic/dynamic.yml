@@ -71,7 +71,7 @@
     - secret2
   name: gamemode-dynamic-title
   description: gamemode-dynamic-description
-  showInVote: true
+  showInVote: false #currently broken, and hasn't been fixed for over a month, and people LOVE voting for it
   rules:
     - Dynamic
     - BasicStationEventSchedulerNoAntag
