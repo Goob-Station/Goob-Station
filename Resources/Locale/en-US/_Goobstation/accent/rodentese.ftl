@@ -86,7 +86,7 @@ accent-rodentese-words-29 = say
 accent-rodentese-words-replace-29 = squeak
 
 accent-rodentese-words-30 = saying
-accent-rodentese-words-replace-28 = squeaking
+accent-rodentese-words-replace-30 = squeaking
 
 accent-rodentese-words-31 = says
-accent-rodentese-words-replace-28 = squeaks
+accent-rodentese-words-replace-31 = squeaks
