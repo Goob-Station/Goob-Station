@@ -317,6 +317,20 @@ public sealed class SiliconLawSystem : SharedSiliconLawSystem
             SetLaws(lawset, update, provider.LawUploadSound);
         }
     }
+
+    // Goobstation - borg order
+    /// <summary>
+    /// Return if a law list have a law with this locale.
+    /// </summary>
+    public bool HasLawLocale(List<SiliconLaw> laws, string lawString)
+    {
+        foreach (SiliconLaw law in laws)
+        {
+            if (law.LawString == lawString)
+                return true;
+        }
+        return false;
+    }
 }
 
 [ToolshedCommand, AdminCommand(AdminFlags.Admin)]

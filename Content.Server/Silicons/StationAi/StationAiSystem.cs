@@ -10,6 +10,12 @@ using Robust.Shared.Audio;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Player;
 using static Content.Server.Chat.Systems.ChatSystem;
+using Content.Server.Administration; // Goobstation - borg order start
+using Content.Shared.Silicons.Borgs.Components;
+using Content.Shared.Mind.Components;
+using Content.Shared.Silicons.Laws.Components;
+using Content.Server.Silicons.Laws;
+using Content.Shared.Popups; // Goobstation - end
 
 namespace Content.Server.Silicons.StationAi;
 
@@ -20,6 +26,9 @@ public sealed class StationAiSystem : SharedStationAiSystem
     [Dependency] private readonly SharedTransformSystem _xforms = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly SharedRoleSystem _roles = default!;
+    [Dependency] private readonly QuickDialogSystem _quickDialog = default!; // Goobstation - Borg announce start
+    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly SiliconLawSystem _law = default!; // Goobstation - end
 
     private readonly HashSet<Entity<StationAiCoreComponent>> _ais = new();
 
@@ -28,6 +37,7 @@ public sealed class StationAiSystem : SharedStationAiSystem
         base.Initialize();
 
         SubscribeLocalEvent<ExpandICChatRecipientsEvent>(OnExpandICChatRecipients);
+        SubscribeLocalEvent<StationAiHeldComponent, SiliconAnnounceEvent>(OnBorgAnnounce); // Goobstation - Borg announce
     }
 
     private void OnExpandICChatRecipients(ExpandICChatRecipientsEvent ev)
@@ -129,5 +139,44 @@ public sealed class StationAiSystem : SharedStationAiSystem
 
         _chats.ChatMessageToMany(ChatChannel.Notifications, msg, msg, entity, false, true, filter.Recipients.Select(o => o.Channel));
         // Apparently there's no sound for this.
+    }
+
+    // Goobstation - Borg announce
+    private void OnBorgAnnounce(Entity<StationAiHeldComponent> ent, ref SiliconAnnounceEvent args)
+    {
+        if (!TryComp<ActorComponent>(ent.Owner, out var actor))
+            return;
+
+        _quickDialog.OpenDialog(actor.PlayerSession, Loc.GetString("ai-borg-order-prompt-tittle"), "", (string result) =>
+        {
+            if (result.Length <= 0)
+                return;
+            if (result.Length >= 155)
+                result = result.Substring(0, 155) + "...";
+
+            SendBorgOrder(result);
+        });
+    }
+
+    /// <summary>
+    /// Send a order popup to all borgs that have ai law
+    /// </summary>
+    public void SendBorgOrder(string order, PopupType popupType = PopupType.Small)
+    {
+        var message = Loc.GetString("ai-borg-order-popup-text", ("message", order));
+        var borg = AllEntityQuery<BorgChassisComponent, SiliconLawBoundComponent, MindContainerComponent>();
+        while (borg.MoveNext(out var uid, out _, out var slb, out var mc))
+        {
+            if (HasComp<BorgChassisComponent>(uid) ||
+                HasComp<MindContainerComponent>(uid) ||
+                HasComp<SiliconLawBoundComponent>(uid))
+                continue;
+
+            var laws = _law.GetLaws(uid, slb).Laws;
+            if (_law.HasLawLocale(laws, "law-obeyai"))
+                continue; // theres no way to verify a law prototype in this shit
+
+            _popup.PopupEntity(message, uid, popupType);
+        }
     }
 }

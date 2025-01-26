@@ -574,6 +574,11 @@ public sealed partial class JumpToCoreEvent : InstantActionEvent
 
 }
 
+// Goobstation - Borg announce
+public sealed partial class SiliconAnnounceEvent : InstantActionEvent
+{
+
+}
 [Serializable, NetSerializable]
 public sealed partial class IntellicardDoAfterEvent : SimpleDoAfterEvent;
 
