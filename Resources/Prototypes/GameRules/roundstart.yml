@@ -213,6 +213,7 @@
   components:
   - type: GameRule
     minPlayers: 15
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs # Goobstation

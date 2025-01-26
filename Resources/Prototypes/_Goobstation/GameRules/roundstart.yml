@@ -4,7 +4,7 @@
   components:
   - type: ChangelingRule
   - type: GameRule
-    minPlayers: 10 # ShibaStation - maybe make lings a bit more frequent on low player counts.
+    minPlayers: 15 # ShibaStation - maybe make lings a bit more frequent on low player counts.
   - type: AntagObjectives
     objectives:
     - ChangelingStealDNAObjective
@@ -27,6 +27,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: AntagSelection
     selectionTime: BeforeJobs
     definitions:
@@ -47,6 +48,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: AntagSelection
     selectionTime: BeforeJobs
     agentName: changeling-roundend-name
@@ -64,6 +66,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: LoadMapRule
     mapPath: /Maps/_Goobstation/Nonstations/nukieplanet.yml
   - type: AntagSelection
@@ -125,6 +128,7 @@
   components:
   - type: GameRule
     minPlayers: 30
+    cancelPresetOnTooFewPlayers: true # ShibaStation
   - type: RevolutionaryRule
   - type: AntagSelection
     selectionTime: BeforeJobs
@@ -181,10 +185,10 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: StationEvent
-    weight: 15
+    weight: 7 # ShibaStation - reduce the weight of blob spawns to ideally make them less frequent. In theory.
     duration: 1
     earliestStart: 50
-    minimumPlayers: 20
+    minimumPlayers: 25 # ShibaStation - up the min player requirement too, so less chance for nukies x blob simultaneously (but honestly that's just shitsec's problem)
     maxOccurrences: 2
   - type: BlobSpawnRule
     carrierBlobProtos:
