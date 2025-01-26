@@ -189,7 +189,7 @@
     duration: 1
     earliestStart: 50
     minimumPlayers: 25 # ShibaStation - up the min player requirement too, so less chance for nukies x blob simultaneously (but honestly that's just shitsec's problem)
-    maxOccurrences: 2
+    maxOccurrences: 1
   - type: BlobSpawnRule
     carrierBlobProtos:
     - SpawnPointGhostBlobRat
