@@ -1,0 +1,120 @@
+# TODO: Add descriptions (many)
+# TODO BODY: Part damage
+- type: entity
+  id: PartTajaran
+  parent: [BaseItem, BasePart]
+  name: "Tajaran body part"
+  abstract: true
+  components:
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 3
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: TorsoTajaran
+  name: "Tajaran torso"
+  parent: [PartTajaran, BaseTorso]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "torso_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 10
+      - ReagentId: Blood
+        Quantity: 20
+
+
+- type: entity
+  id: HeadTajaran
+  name: "Tajaran head"
+  parent: [PartTajaran, BaseHead]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "head_m"
+  - type: Extractable
+    juiceSolution:
+      reagents:
+      - ReagentId: Fat
+        Quantity: 5
+      - ReagentId: Blood
+        Quantity: 10
+
+- type: entity
+  id: LeftArmTajaran
+  name: "left tajaran arm"
+  parent: [PartTajaran, BaseLeftArm]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "l_arm"
+
+- type: entity
+  id: RightArmTajaran
+  name: "right tajaran arm"
+  parent: [PartTajaran, BaseRightArm]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "r_arm"
+
+- type: entity
+  id: LeftHandTajaran
+  name: "left tajaran hand"
+  parent: [PartTajaran, BaseLeftHand]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "l_hand"
+
+- type: entity
+  id: RightHandTajaran
+  name: "right tajaran hand"
+  parent: [PartTajaran, BaseRightHand]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "r_hand"
+
+- type: entity
+  id: LeftLegTajaran
+  name: "left tajaran leg"
+  parent: [PartTajaran, BaseLeftLeg]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "l_leg"
+
+- type: entity
+  id: RightLegTajaran
+  name: "right tajaran leg"
+  parent: [PartTajaran, BaseRightLeg]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "r_leg"
+
+- type: entity
+  id: LeftFootTajaran
+  name: "left tajaran foot"
+  parent: [PartTajaran, BaseLeftFoot]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "l_foot"
+
+- type: entity
+  id: RightFootTajaran
+  name: "right tajaran foot"
+  parent: [PartTajaran, BaseRightFoot]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Mobs/Species/Tajaran/parts.rsi
+    state: "r_foot"

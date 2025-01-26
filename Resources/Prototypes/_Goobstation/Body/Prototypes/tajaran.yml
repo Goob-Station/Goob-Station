@@ -4,14 +4,14 @@
   root: torso
   slots:
     head:
-      part: HeadHuman
+      part: HeadTajaran
       connections:
       - torso
       organs:
         brain: OrganHumanBrain
         eyes: OrganHumanEyes
     torso:
-      part: TorsoHuman
+      part: TorsoTajaran
       connections:
       - right arm
       - left arm
@@ -21,15 +21,15 @@
       organs:
         heart: OrganAnimalHeart
         lungs: OrganHumanLungs
-        stomach: OrganVulpkaninStomach
+        stomach: OrganAnimalStomach
         liver:  OrganAnimalLiver
         kidneys: OrganHumanKidneys
     right arm:
-      part: RightArmHuman
+      part: RightArmTajaran
       connections:
       - right hand
     left arm:
-      part: LeftArmHuman
+      part: LeftArmTajaran
       connections:
       - left hand
     right hand:
@@ -37,14 +37,14 @@
     left hand:
       part: LeftHandTajaran
     right leg:
-      part: RightLegHuman
+      part: RightLegTajaran
       connections:
       - right foot
     left leg:
-      part: LeftLegHuman
+      part: LeftLegTajaran
       connections:
       - left foot
     right foot:
-      part: RightFootHuman
+      part: RightFootTajaran
     left foot:
-      part: LeftFootHuman
+      part: LeftFootTajaran
