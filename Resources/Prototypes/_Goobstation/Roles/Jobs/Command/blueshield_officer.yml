@@ -22,6 +22,8 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
+  accessGroups:
+  - HeadOffices
   access:
   - Security
   - Brig
@@ -32,6 +34,11 @@
   - Medical
   - Research
   - Command
+  - Cargo
+  - Hydroponics
+  - Bar
+  - Janitor
+  - Atmospherics
   - CentralCommand
   - BlueshieldOfficer
   special:
