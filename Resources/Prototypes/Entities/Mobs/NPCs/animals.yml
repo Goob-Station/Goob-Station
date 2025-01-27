@@ -1398,6 +1398,7 @@
       methods: [ Touch ]
       effects:
       - !type:WashCreamPieReaction
+  - type: LayingDown # Goobstation
 
 
 

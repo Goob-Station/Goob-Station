@@ -688,8 +688,8 @@ public abstract class SharedMagicSystem : EntitySystem
         _tag.RemoveTag(ev.Performer, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
         _tag.RemoveTag(ev.Target, SharedBindSoulSystem.IgnoreBindSoulTag); // Goobstation
 
-        _stun.TryKnockdown(ev.Target, ev.TargetStunDuration, true); // Goob edit
-        _stun.TryKnockdown(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
+        _stun.KnockdownOrStun(ev.Target, ev.TargetStunDuration, true); // Goob edit
+        _stun.KnockdownOrStun(ev.Performer, ev.PerformerStunDuration, true); // Goob edit
 
         // Goobstation start
         return;

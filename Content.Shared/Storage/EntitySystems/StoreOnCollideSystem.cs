@@ -3,6 +3,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Storage.Components;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
@@ -26,9 +27,19 @@ internal sealed class StoreOnCollideSystem : EntitySystem
 
         SubscribeLocalEvent<StoreOnCollideComponent, TimedDespawnEvent>(OnTimedDespawn); // Goobstation
         SubscribeLocalEvent<StoreOnCollideComponent, LockToggledEvent>(OnLockToggle); // Goobstation
+        SubscribeLocalEvent<StoreOnCollideComponent, PhysicsSleepEvent>(OnSleep); // Goobstation
     }
 
     // Goobstation start
+
+    private void OnSleep(Entity<StoreOnCollideComponent> ent, ref PhysicsSleepEvent args)
+    {
+        var comp = ent.Comp;
+
+        if (comp is { DisableOnSleep: true, Disabled: false })
+            Disable(ent);
+    }
+
     private void OnLockToggle(Entity<StoreOnCollideComponent> ent, ref LockToggledEvent args)
     {
         if (args.Locked)
@@ -37,12 +48,18 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         var comp = ent.Comp;
 
         if (comp is { DisableWhenFirstOpened: true, Disabled: false })
-            comp.Disabled = true;
+            Disable(ent);
     }
 
     private void OnTimedDespawn(Entity<StoreOnCollideComponent> ent, ref TimedDespawnEvent args)
     {
         _storage.EmptyContents(ent);
+    }
+
+    private void Disable(Entity<StoreOnCollideComponent> ent)
+    {
+        ent.Comp.Disabled = true;
+        Dirty(ent);
     }
     // Goobstation end
 
@@ -69,7 +86,7 @@ internal sealed class StoreOnCollideSystem : EntitySystem
         var comp = ent.Comp;
 
         if (comp is { DisableWhenFirstOpened: true, Disabled: false })
-            comp.Disabled = true;
+            Disable(ent); // Goob edit
     }
 
     private void TryStoreTarget(Entity<StoreOnCollideComponent> ent, EntityUid target)

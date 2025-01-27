@@ -343,3 +343,61 @@
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm_cyan
+
+- type: entity
+  id: ProjectileBananaPeel
+  parent: BaseItem
+  name: magical banana peel
+  description: Step on me.
+  components:
+  - type: InteractionOutline
+  - type: MovedByPressure
+  - type: Clickable
+  - type: Pullable
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: TimedDespawn
+    lifetime: 10
+  - type: Sprite
+    drawdepth: Items
+    noRot: true
+    sprite: _Goobstation/Wizard/Projectiles/banana.rsi
+    layers:
+    - state: icon
+  - type: SlipOnCollide
+  - type: Slippery
+    slipOnStep: false
+    paralyzeTime: 10
+    launchForwardsMultiplier: 0
+  - type: ProjectileHitShooterAfterDelay
+    delay: 0.5
+  - type: TileFrictionModifier
+    modifier: 0.9
+  - type: Projectile
+    deleteOnCollide: false
+    soundHit: null
+    damage:
+      types:
+        Heat: 0
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.5
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.2,-0.2,0.2,0.2"
+        hard: false
+        layer:
+        - SlipLayer
+  - type: Ammo
+    muzzleFlash: null

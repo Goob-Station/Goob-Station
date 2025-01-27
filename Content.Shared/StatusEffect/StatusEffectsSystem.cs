@@ -140,12 +140,9 @@ namespace Content.Shared.StatusEffect
                 || !TryAddStatusEffect(uid, key, time, refresh, status))
                 return false;
 
-            // If they already have the comp, we just won't bother updating anything.
-            if (!EntityManager.HasComponent(uid, component.GetType()))
-            {
-                EntityManager.AddComponent(uid, component);
-                status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
-            }
+            // If we already have this component, overwrite it, since new component could have diffrent data
+            EntityManager.AddComponent(uid, component, true);
+            status.ActiveEffects[key].RelevantComponent = _componentFactory.GetComponentName(component.GetType());
 
             return true;
         }

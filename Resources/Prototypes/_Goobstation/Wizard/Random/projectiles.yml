@@ -13,6 +13,8 @@
     ProjectileSpellCardRedSpread: 0.5
     ProjectileSpellCardPurpleSpread: 0.5
     BulletStasis: 1
+    ProjectileBananaPeel: 1
+    TeslaGunBullet: 1
     # TODO: change these
     BulletInstakillMagic: 1
     ProjectileIcicle: 1

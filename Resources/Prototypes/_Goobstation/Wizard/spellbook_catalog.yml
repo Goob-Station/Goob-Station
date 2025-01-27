@@ -504,6 +504,19 @@
   - !type:ListingLimitedStockCondition
     stock: 1
 
+- type: listing
+  id: SpellbookStaffSlipping
+  name: spellbook-staff-slipping-name
+  description: spellbook-staff-slipping-desc
+  productEntity: WeaponStaffSlipping
+  cost:
+    WizCoin: 1
+  categories:
+  - SpellbookEquipment
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+
 # Special
 - type: listing
   id: SpellMimeBundle

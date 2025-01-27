@@ -35,9 +35,35 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/Magic/staff_chaos.ogg
+      params:
+        variation: 0.250
   - type: BasicEntityAmmoProvider
     prototypes: ChaosProjectiles
     capacity: 10
     count: 10
   - type: RechargeBasicEntityAmmo
     rechargeCooldown: 2
+
+- type: entity
+  name: staff of slipping
+  parent: WeaponStaffBase
+  id: WeaponStaffSlipping
+  description: An artefact that spits... bananas?
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Objects/Weapons/Staves/slipping.rsi
+    layers:
+    - state: slipping
+  - type: Item
+    heldPrefix: slipping
+  - type: Gun
+    soundGunshot:
+      collection: BikeHorn
+      params:
+        variation: 0.250
+  - type: BasicEntityAmmoProvider
+    proto: ProjectileBananaPeel
+    capacity: 6
+    count: 6
+  - type: RechargeBasicEntityAmmo
+    rechargeCooldown: 4

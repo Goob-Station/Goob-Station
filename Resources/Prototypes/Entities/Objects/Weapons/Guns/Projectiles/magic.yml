@@ -98,6 +98,7 @@
   - type: StoreOnCollide
     lockOnCollide: true
     disableWhenFirstOpened: true
+    disableOnSleep: true # Goobstation
     whitelist:
       components:
         - Body
