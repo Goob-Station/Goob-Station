@@ -8,4 +8,4 @@
     damage: # basically anti-materiel but no pierce
       types:
         Piercing: 60
-        Structural: 30
+        Structural: 90 # As such they get original AM structural damage
