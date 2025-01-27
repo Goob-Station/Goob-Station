@@ -28,9 +28,9 @@
     sprite: Clothing/Ears/Headsets/cargo.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband] # Goobstation
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband] # Goobstation
   id: ClothingHeadsetAltCentCom
-  name: CentComm over-ear headset
+  name: centcomm over-ear headset
   components:
   - type: ContainerFill
     containers:
@@ -57,9 +57,9 @@
     sprite: Clothing/Ears/Headsets/command.rsi
 
 - type: entity
-  parent: [ClothingHeadsetAlt, BaseCommandContraband]
+  parent: [ClothingHeadsetAlt, BaseCentcommContraband]
   id: ClothingHeadsetAltBSO
-  name: BlueShield over-ear headset
+  name: blueshield officer's over-ear headset
   components:
   - type: ContainerFill
     containers:
