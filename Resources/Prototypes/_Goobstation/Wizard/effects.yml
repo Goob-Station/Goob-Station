@@ -319,3 +319,18 @@
       minValue: 0
       maxValue: 16
       enabled: true
+
+- type: entity
+  parent: EffectRay
+  id: EffectRayCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: LightBehaviour
+    behaviours:
+    - !type:PulseBehaviour
+      id: pulse
+      property: Energy
+      maxDuration: 1
+      minValue: 0
+      maxValue: 16
+      enabled: true

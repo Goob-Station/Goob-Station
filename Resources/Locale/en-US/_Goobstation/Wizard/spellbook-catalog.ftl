@@ -82,6 +82,7 @@ spellbook-lightning-bolt-desc =
 spellbook-homing-toolbox-name = Homing Toolbox
 spellbook-homing-toolbox-desc =
     This spell summons and throws a magical homing toolbox at your opponent that knocks down on hit.
+    Learning this spell allows you to get a tider wizard bundle for free!
     Doesn't require wizard's robe and hat to cast.
 
 spellbook-spell-cards-name = Spell Cards

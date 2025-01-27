@@ -51,3 +51,29 @@
       - id: ClothingUniformJumpsuitColorWhite
       - id: ClothingShoesColorWhite
       - id: ClothingHandsGlovesColorYellow
+
+- type: entity
+  parent: ToolboxMechanical
+  id: ToolboxTider
+  description: Are you ready for the new tide order?
+  suffix: Tider
+  components:
+  - type: MeleeWeapon
+    damage:
+      types:
+        Blunt: 20
+
+- type: entity
+  parent: ToolboxTider
+  id: ToolboxTiderFilled
+  suffix: Wizard Tider Bundle
+  components:
+  - type: StorageFill
+    contents:
+      - id: ClothingUniformJumpsuitAncient
+      - id: ClothingMaskGas
+      - id: ClothingHandsGlovesColorYellow
+      - id: ClothingNeckMantle
+      - id: ClothingOuterWinterColorGray
+      - id: ClothingShoesColorBlack
+      - id: PassengerPDA

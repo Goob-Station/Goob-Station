@@ -83,6 +83,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 {
     #region Dependencies
 
+    [Dependency] protected readonly IGameTiming Timing = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly IMapManager MapManager = default!;
     [Dependency] protected readonly IPrototypeManager ProtoMan = default!;
@@ -104,7 +105,6 @@ public abstract class SharedSpellsSystem : EntitySystem
     [Dependency] protected readonly ActionContainerSystem ActionContainer = default!;
     [Dependency] protected readonly TagSystem Tag = default!;
     [Dependency] private   readonly INetManager _net = default!;
-    [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private   readonly InventorySystem _inventory = default!;
     [Dependency] private   readonly SharedJitteringSystem _jitter = default!;
@@ -356,7 +356,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         var coords = TransformSystem.GetMapCoordinates(ev.Target);
 
-        if (_timing.IsFirstTimePredicted)
+        if (Timing.IsFirstTimePredicted)
             Body.GibBody(ev.Target, contents: GibContentsOption.Gib);
 
         ExplodeCorpse(ev);
@@ -773,7 +773,7 @@ public abstract class SharedSpellsSystem : EntitySystem
                 }
 
                 // primed but the delay isnt over, cancel the action
-                if (_timing.CurTime < confirm)
+                if (Timing.CurTime < confirm)
                     return;
 
                 // primed and delay has passed, let the action go through
@@ -1096,7 +1096,7 @@ public abstract class SharedSpellsSystem : EntitySystem
             var dmg = Damageable.TryChangeDamage(ev.Performer,
                 new DamageSpecifier(ProtoMan.Index(ev.KillDamage), 666),
                 true);
-            if ((dmg == null || dmg.GetTotal() < 1) && _timing.IsFirstTimePredicted)
+            if ((dmg == null || dmg.GetTotal() < 1) && Timing.IsFirstTimePredicted)
                 Body.GibBody(ev.Performer, contents: GibContentsOption.Gib);
         }
 
@@ -1138,6 +1138,9 @@ public abstract class SharedSpellsSystem : EntitySystem
 
         _magic.Speak(ev);
         ev.Handled = true;
+
+        var raysEv = new ChargeSpellRaysEffectEvent(GetNetEntity(ev.Performer));
+        CreateChargeEffect(ev.Performer, raysEv);
 
         if (TryComp<PullerComponent>(ev.Performer, out var puller) && HasComp<PullableComponent>(puller.Pulling) &&
             RechargePerson(puller.Pulling.Value))
@@ -1198,6 +1201,8 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    protected abstract void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev);
 
     protected void PopupCharged(EntityUid uid, EntityUid performer, bool client = true)
     {
@@ -1445,6 +1450,12 @@ public abstract class SharedSpellsSystem : EntitySystem
 
 [Serializable, NetSerializable]
 public sealed class StopTargetingEvent : EntityEventArgs;
+
+[Serializable, NetSerializable]
+public sealed class ChargeSpellRaysEffectEvent(NetEntity uid) : EntityEventArgs
+{
+    public NetEntity Uid = uid;
+}
 
 [Serializable, NetSerializable]
 public sealed class SetSwapSecondaryTarget(NetEntity action, NetEntity? target) : EntityEventArgs

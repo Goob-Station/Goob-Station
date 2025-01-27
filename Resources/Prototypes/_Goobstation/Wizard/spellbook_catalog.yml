@@ -535,7 +535,7 @@
     - SpellbookMimeMalaise
   disableRefund: true
   blockRefundListings:
-    - SpellbookMimeMalaise
+  - SpellbookMimeMalaise
 
 - type: listing
   id: SpellClownBundle
@@ -556,8 +556,8 @@
     - SpellbookCluwneCurse
   disableRefund: true
   blockRefundListings:
-    - SpellbookBananaTouch
-    - SpellbookCluwneCurse
+  - SpellbookBananaTouch
+  - SpellbookCluwneCurse
 
 - type: listing
   id: SpellOblivionEnforcerBundle
@@ -576,4 +576,23 @@
     - SpellbookSmHalberd
   disableRefund: true
   blockRefundListings:
-    - SpellbookSmHalberd
+  - SpellbookSmHalberd
+
+- type: listing
+  id: SpellTiderBundle
+  name: spellbook-tider-bundle-name
+  description: spellbook-tider-bundle-desc
+  productEntity: ToolboxTiderFilled
+  cost:
+    WizCoin: 0
+  categories:
+  - SpellbookSpecial
+  conditions:
+  - !type:ListingLimitedStockCondition
+    stock: 1
+  - !type:BuyBeforeCondition
+    whitelist:
+    - SpellbookHomingToolbox
+  disableRefund: true
+  blockRefundListings:
+  - SpellbookHomingToolbox

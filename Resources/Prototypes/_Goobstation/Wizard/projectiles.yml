@@ -370,7 +370,7 @@
   - type: Slippery
     slipOnStep: false
     paralyzeTime: 10
-    launchForwardsMultiplier: 0
+    launchForwardsMultiplier: 1
   - type: ProjectileHitShooterAfterDelay
     delay: 0.5
   - type: TileFrictionModifier

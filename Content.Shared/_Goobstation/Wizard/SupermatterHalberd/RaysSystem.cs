@@ -1,7 +1,6 @@
 using System.Numerics;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared._Goobstation.Wizard.SupermatterHalberd;
@@ -20,9 +19,10 @@ public sealed class RaysSystem : EntitySystem
         int max = 10,
         Vector2? minMaxRadius = null,
         Vector2? minMaxEnergy = null,
-        string proto = "EffectRay")
+        string proto = "EffectRay",
+        bool server = true)
     {
-        if (_net.IsClient || min > max)
+        if (server && _net.IsClient || !server && _net.IsServer || min > max)
             return null;
 
         var amount = _random.Next(min, max + 1);
@@ -43,7 +43,8 @@ public sealed class RaysSystem : EntitySystem
 
         void RandomizeLight(EntityUid ray)
         {
-            _pointLight.SetColor(ray, Color.InterpolateBetween(colorA, colorB, _random.NextFloat()));
+            var hsv = Robust.Shared.Maths.Vector4.Lerp(Color.ToHsv(colorA), Color.ToHsv(colorB), _random.NextFloat());
+            _pointLight.SetColor(ray, Color.FromHsv(hsv));
             if (minMaxRadius != null && minMaxRadius.Value.X < minMaxRadius.Value.Y && minMaxRadius.Value.X >= 0)
                 _pointLight.SetRadius(ray, _random.NextFloat(minMaxRadius.Value.X, minMaxRadius.Value.Y));
             if (minMaxEnergy != null && minMaxEnergy.Value.X < minMaxEnergy.Value.Y && minMaxEnergy.Value.X >= 0)
