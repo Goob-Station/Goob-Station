@@ -28,6 +28,7 @@
     - abductors-weapon-restricted-2
     - abductors-weapon-restricted-3
     - abductors-weapon-restricted-4
+  - type: DisarmMalus
   - type: ItemSwitch
     state: stun
     showLabel: true
