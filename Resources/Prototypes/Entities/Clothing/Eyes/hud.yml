@@ -29,6 +29,7 @@
     damageContainers:
     - Inorganic
     - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation
 
 - type: entity
   parent: [ClothingEyesBase, ShowMedicalIcons]
