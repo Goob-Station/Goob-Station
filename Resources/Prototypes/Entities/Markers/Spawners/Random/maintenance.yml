@@ -88,6 +88,7 @@
       - id: ClothingShoesTourist
       - id: ClothingUniformJumpsuitLoungewear
       - id: ClothingHeadHatCowboyRed
+      - id: ClothingShoesSkates #GoobStation
     # Uncommon Group
     - !type:GroupSelector
       weight: 23
@@ -158,12 +159,12 @@
       - id: Skub
       - id: PonderingOrb
       - id: CluwneHorn
-      - id: ClothingShoesSkates
       - id: DrinkMugDog
       - id: CigarGold
       - id: ClothingUniformJumpsuitFamilyGuy
       - id: WristwatchGold
       - id: RubberStampGreytide
+      - id: ClothingShoesWizardSkates #GoobStation - Wizard Skates
 
 - type: entity
   name: Maint Loot Spawner

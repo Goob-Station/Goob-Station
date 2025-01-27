@@ -1,0 +1,18 @@
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleLoneAbductor
+  name: Lone Abductor Role
+  components:
+  - type: MindRole
+    exclusiveAntag: true
+    antagPrototype: LoneAbductorAntag
+  - type: Abductor
+
+- type: entity
+  parent: BaseMindRoleAntag
+  id: MindRoleAbductorVictim
+  name: Abductee Role
+  components:
+  - type: MindRole
+    antagPrototype: AbductorVictimAntag
+  - type: AbductorVictim

@@ -813,5 +813,8 @@
     - NuclearOperative
     - SyndicateAgent
     - Wizard
+    # Goobstation
+    - NanotrasenRepresentative
+    - BlueshieldOfficer
   - type: NanoChatCard # DeltaV
     notificationsMuted: true

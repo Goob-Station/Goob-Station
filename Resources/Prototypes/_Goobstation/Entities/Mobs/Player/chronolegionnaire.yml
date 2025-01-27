@@ -11,7 +11,12 @@
       settings: ChronoLegionnaire
 
 - type: randomHumanoidSettings
+  parent: EventHumanoidMindShielded
   id: ChronoLegionnaire
   components:
     - type: Loadout
       prototypes: [ ChronoLegionnaireGear ]
+    - type: RandomMetadata
+      nameSegments:
+        - NamesFirstMilitaryLeader
+        - NamesLastMilitary

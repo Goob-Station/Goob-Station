@@ -588,7 +588,7 @@
     size: Huge
   - type: ClothingSpeedModifier # goobstation - duke nukies
     walkModifier: 1.0
-    sprintModifier: 0.9
+    sprintModifier: 1.0
   - type: HeldSpeedModifier
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
