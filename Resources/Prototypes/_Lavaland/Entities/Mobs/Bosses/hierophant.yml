@@ -16,14 +16,6 @@
     thresholds:
       0: Alive
       2500: Dead
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 2500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: Tag
     tags:
     - CannotSuicide

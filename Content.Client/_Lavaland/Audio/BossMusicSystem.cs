@@ -2,6 +2,7 @@
 using Content.Shared._Lavaland.Aggression;
 using Content.Shared._Lavaland.Audio;
 using Content.Shared.CCVar;
+using Content.Shared.Mobs;
 using Robust.Client.Audio;
 using Robust.Client.Player;
 using Robust.Shared.Audio;
@@ -24,7 +25,7 @@ public sealed class BossMusicSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private static float _volumeSlider;
-    private EntityUid? _bossMusicStream;
+    private Entity<AudioComponent?>? _bossMusicStream;
     private Entity<BossMusicComponent>? _bossMusicOrigin;
     private BossMusicPrototype? _musicProto;
 
@@ -45,7 +46,7 @@ public sealed class BossMusicSystem : EntitySystem
 
         Subs.CVar(_configManager, CCVars.LobbyMusicVolume, BossVolumeCVarChanged, true);
         SubscribeLocalEvent<BossMusicComponent, AggressorAddedEvent>(StartBossMusic);
-        SubscribeLocalEvent<BossMusicComponent, AggressorRemovedEvent>(EndBossMusic);
+        SubscribeLocalEvent<BossMusicComponent, MobStateChangedEvent>(EndBossMusic);
     }
 
     public override void Shutdown()
@@ -93,26 +94,22 @@ public sealed class BossMusicSystem : EntitySystem
             false,
             AudioParams.Default.WithVolume(sound.Sound.Params.Volume + _volumeSlider).WithLoop(true));
 
-        _bossMusicStream = strim?.Entity;
 
         if (_musicProto.FadeIn && strim != null)
         {
+            _bossMusicStream = (strim.Value.Entity, strim.Value.Component);
             FadeIn(_bossMusicStream, strim.Value.Component, sound.FadeInTime);
         }
 
         _bossMusicOrigin = ent;
     }
 
-    private void EndBossMusic(Entity<BossMusicComponent> ent, ref AggressorRemovedEvent args)
+    private void EndBossMusic(Entity<BossMusicComponent> ent, ref MobStateChangedEvent args)
     {
         var player = _player.LocalSession?.AttachedEntity;
-        var agressor = GetEntity(args.Aggressor);
 
-        if (agressor != player || _bossMusicOrigin != ent || _musicProto == null || _bossMusicStream == null)
+        if (args.NewMobState == MobState.Alive || player == null || _bossMusicOrigin != ent || _musicProto == null || _bossMusicStream == null)
             return;
-
-        if (_musicProto.PositionOnEnd != null)
-            _audio.SetPlaybackPosition(_bossMusicStream, _musicProto.PositionOnEnd.Value);
 
         if (_musicProto.FadeIn)
         {

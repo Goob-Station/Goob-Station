@@ -1,4 +1,4 @@
-using Content.Server.Destructible;
+using Content.Shared.Mobs;
 using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Server._Lavaland.Mobs;
@@ -10,7 +10,7 @@ public sealed class MegafaunaSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<MegafaunaComponent, AttackedEvent>(OnAttacked);
-        SubscribeLocalEvent<MegafaunaComponent, DamageThresholdReached>(OnDeath);
+        SubscribeLocalEvent<MegafaunaComponent, MobStateChangedEvent>(OnDeath);
     }
 
     public void OnAttacked<T>(EntityUid uid, T comp, ref AttackedEvent args) where T : MegafaunaComponent
@@ -19,7 +19,7 @@ public sealed class MegafaunaSystem : EntitySystem
             comp.CrusherOnly = false; // it's over...
     }
 
-    public void OnDeath<T>(EntityUid uid, T comp, ref DamageThresholdReached args) where T : MegafaunaComponent
+    public void OnDeath<T>(EntityUid uid, T comp, ref MobStateChangedEvent args) where T : MegafaunaComponent
     {
         var coords = Transform(uid).Coordinates;
 
@@ -34,5 +34,7 @@ public sealed class MegafaunaSystem : EntitySystem
         {
             Spawn(comp.Loot, coords);
         }
+
+        Del(uid);
     }
 }

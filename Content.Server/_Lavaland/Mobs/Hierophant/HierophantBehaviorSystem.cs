@@ -14,6 +14,7 @@ using System.Numerics;
 using System.Threading.Tasks;
 using Content.Server._Lavaland.Mobs.Hierophant.Components;
 using Content.Shared._Lavaland.Aggression;
+using Content.Shared.Mobs;
 
 #pragma warning disable CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
 
@@ -39,7 +40,7 @@ public sealed partial class HierophantBehaviorSystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<HierophantBossComponent, AttackedEvent>(OnAttacked);
-        SubscribeLocalEvent<HierophantBossComponent, DamageThresholdReached>(_megafauna.OnDeath);
+        SubscribeLocalEvent<HierophantBossComponent, MobStateChangedEvent>(_megafauna.OnDeath);
     }
 
     private void OnAttacked(Entity<HierophantBossComponent> ent, ref AttackedEvent args)
