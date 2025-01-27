@@ -25,9 +25,8 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
-  - type: ProtectedFromStepTriggers
     - HidesHarpyWings
-  - type: ClothingRequiredStepTriggerImmune
+  - type: ProtectedFromStepTriggers
     slots: WITHOUT_POCKET
 
 - type: entity
@@ -74,7 +73,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - HidesHarpyWings
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing]
@@ -109,7 +108,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - HidesHarpyWings
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 - type: entity
   parent: [ ClothingOuterBaseLarge, GeigerCounterClothing, AllowSuitStorageClothing, ClothingOuterBaseToggleable ]
@@ -134,7 +133,7 @@
     slots: WITHOUT_POCKET
   - type: Tag
     tags:
-      - HidesHarpyWings
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 - type: entity
   parent: [ClothingOuterBaseLarge, AllowSuitStorageClothing, BaseToggleClothing, BaseMajorContraband]
