@@ -1,8 +1,10 @@
 using Content.Shared.Damage;
+using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 
-namespace Content.Shared._Goobstation.Wizard.RejuvenateOnProjectileHit;
+namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
 [RegisterComponent, NetworkedComponent]
 public sealed partial class RejuvenateOnProjectileHitComponent : Component
@@ -11,5 +13,11 @@ public sealed partial class RejuvenateOnProjectileHitComponent : Component
     public EntityWhitelist UndeadList = new();
 
     [DataField]
-    public DamageSpecifier UndeadDamage = new();
+    public DamageSpecifier Damage = new();
+
+    [DataField]
+    public bool ReverseEffects;
+
+    [DataField]
+    public ProtoId<TagPrototype> SoulTappedTag = "SoulTapped";
 }

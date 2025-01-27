@@ -1,14 +1,18 @@
+using Content.Server._Goobstation.Wizard.Components;
 using Content.Server.Temperature.Components;
 using Content.Server.Temperature.Systems;
 using Content.Shared._Goobstation.Wizard.Traps;
 using Content.Shared.Damage;
+using Content.Shared.Projectiles;
 using Content.Shared.Temperature;
+using Content.Shared.Whitelist;
 
 namespace Content.Server._Goobstation.Wizard.Systems;
 
 public sealed class IceCubeSystem : SharedIceCubeSystem
 {
     [Dependency] private readonly TemperatureSystem _temperature = default!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
 
     public override void Initialize()
     {
@@ -16,6 +20,13 @@ public sealed class IceCubeSystem : SharedIceCubeSystem
 
         SubscribeLocalEvent<IceCubeComponent, OnTemperatureChangeEvent>(OnTemperatureChange);
         SubscribeLocalEvent<IceCubeComponent, DamageChangedEvent>(OnDamageChanged);
+        SubscribeLocalEvent<IceCubeOnProjectileHitComponent, ProjectileHitEvent>(OnHit);
+    }
+
+    private void OnHit(Entity<IceCubeOnProjectileHitComponent> ent, ref ProjectileHitEvent args)
+    {
+        if (_whitelist.IsValid(ent.Comp.Whitelist, args.Target))
+            EnsureComp<IceCubeComponent>(args.Target);
     }
 
     private void OnDamageChanged(Entity<IceCubeComponent> ent, ref DamageChangedEvent args)

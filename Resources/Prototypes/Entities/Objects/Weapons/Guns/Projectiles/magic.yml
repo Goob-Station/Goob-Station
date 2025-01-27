@@ -264,7 +264,7 @@
       - Zombie
       tags:
       - Undead
-    undeadDamage:
+    damage:
       types:
         Heat: 600
   - type: Reflective # Goobstation

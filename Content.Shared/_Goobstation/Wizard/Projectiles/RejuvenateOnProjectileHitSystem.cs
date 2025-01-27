@@ -3,15 +3,17 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
+using Content.Shared.Tag;
 using Content.Shared.Whitelist;
 
-namespace Content.Shared._Goobstation.Wizard.RejuvenateOnProjectileHit;
+namespace Content.Shared._Goobstation.Wizard.Projectiles;
 
 public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
 {
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -26,17 +28,29 @@ public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
 
         if (_whitelist.IsValid(comp.UndeadList, args.Target))
         {
-            if (!_mobState.IsDead(args.Target))
-            {
-                _damageable.TryChangeDamage(args.Target,
-                    comp.UndeadDamage,
-                    true,
-                    canSever: false,
-                    targetPart: TargetBodyPart.Torso);
-            }
+            ApplyEffects(comp, args.Target, comp.ReverseEffects);
             return;
         }
 
-        RaiseLocalEvent(args.Target, new RejuvenateEvent());
+        ApplyEffects(comp, args.Target, !comp.ReverseEffects);
+    }
+
+    private void ApplyEffects(RejuvenateOnProjectileHitComponent comp, EntityUid target, bool rejuvenate)
+    {
+        if (rejuvenate)
+        {
+            if (!_tag.HasTag(target, comp.SoulTappedTag))
+                RaiseLocalEvent(target, new RejuvenateEvent());
+            return;
+        }
+
+        if (!_mobState.IsDead(target))
+        {
+            _damageable.TryChangeDamage(target,
+                comp.Damage,
+                true,
+                canSever: false,
+                targetPart: TargetBodyPart.Torso);
+        }
     }
 }

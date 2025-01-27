@@ -310,6 +310,14 @@
     damage: 80
 
 - type: entity
+  parent: BulletMagic
+  id: BulletMagicNoMuzzleFlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
   id: ProjectileWabbajack
   name: bolt of change
   description: Wabbajack, Wabbajack!
@@ -343,6 +351,283 @@
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm_cyan
+
+- type: entity
+  id: ProjectileDeathBolt
+  name: bolt of death
+  description: You are already dead, you just don't know it yet.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm_red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RejuvenateOnProjectileHit
+    reverseEffects: true
+    undeadList:
+      components:
+      - Zombie
+      tags:
+      - Undead
+    damage:
+      types:
+        Heat: 600
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm_red
+
+- type: entity
+  id: ProjectileTeleBolt
+  name: bolt of teleportation
+  description: Don't blink or you'll miss yourself teleporting away.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: bluespace
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: RandomTeleportOnProjectileHit
+    whitelist:
+      components:
+      - Body
+  - type: RandomTeleport
+    radius:
+      min: 0
+      max: 6
+    teleportAttempts: 1
+    forceSafeTeleport: false
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileFieryBolt
+  name: fiery bolt
+  description: Stop drop and roll... though it won't save you.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: blastwave
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 25
+  - type: IgniteOnCollide
+    fireStacks: 10
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: PointLight
+    color: "#F8B068"
+    radius: 2.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileIceCubeBolt
+  name: ice bolt
+  description: It will let you slide.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Structures/Specific/Anomalies/ice_anom.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Cold: 20
+  - type: IceCubeOnProjectileHit
+    whitelist:
+      requireAll: true
+      components:
+      - Temperature
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileSwapBolt
+  name: swapping bolt
+  description: Let us dance.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: chronobolt
+      color: black
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: SwapOnProjectileHit
+    whitelist:
+      requireAll: true
+      components:
+      - Transform
+      - Body
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.01
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    color: black
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: chronobolt
+
+- type: entity
+  id: ProjectileBeeBolt
+  name: bee bolt
+  description: NOT THE BEES!
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Objects/Weapons/Grenades/beenades.rsi
+    layers:
+    - state: icon
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SpawnEntitiesOnHit
+    spawnOnlyIfHitMob: false
+    proto: MobAngryBeeWeak
+    amount: 8
+    collideIgnoreEntities:
+    - MobBee
+    - MobAngryBee
+    - MobSyndieAngryBee
+    - MobAngryBeeWeak
+
+- type: entity
+  id: ProjectileXRayBolt
+  name: x-ray bolt
+  description: Walls are not an obstacle.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: declone
+      shader: unshaded
+  - type: Projectile
+    deleteOnCollide: false
+    penetrate: true
+    damage:
+      types:
+        Radiation: 20
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+
+- type: entity
+  id: ProjectileEmpBolt
+  name: electromagnetic bolt
+  description: Energy low!!!
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: ice
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Ion: 30
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: EmpOnTrigger
+    range: 3
+    energyConsumption: 50000
+    disableDuration: 15
+
+- type: entity
+  id: ProjectileSmokeBolt
+  name: smoke bolt
+  description: Don't inhale it.
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Effects/chemsmoke.rsi
+    layers:
+    - state: chemsmoke
+      color: "#28005B"
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SmokeOnTrigger
+    duration: 5
+    spreadAmount: 15
+    solution:
+      reagents:
+      - ReagentId: ThickSmoke
+        Quantity: 25
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.05
+    lifetime: 5
+    alphaLerpAmount: 0
+    color: "#28005B"
+    sprite:
+      sprite: /Textures/Effects/chemsmoke.rsi
+      state: chemsmoke
 
 - type: entity
   id: ProjectileBananaPeel

@@ -64,6 +64,7 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Systems;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
@@ -990,7 +991,7 @@ public abstract class SharedSpellsSystem : EntitySystem
         var userXform = Transform(ev.Performer);
         var targetXform = Transform(ev.Target);
 
-        Swap(ev.Performer, userXform, ev.Target, targetXform);
+        Swap(ev.Performer, userXform, ev.Target, targetXform, ev.Sound, ev.Effect);
 
         if (swap.SecondaryTarget != null && Exists(swap.SecondaryTarget) &&
             swap.SecondaryTarget.Value != ev.Target && swap.SecondaryTarget.Value != ev.Performer)
@@ -1000,7 +1001,7 @@ public abstract class SharedSpellsSystem : EntitySystem
 
             if (secondaryTargetXform.MapID == userXform.MapID &&
                 TransformSystem.InRange((ev.Performer, userXform), (secondaryTarget, secondaryTargetXform), ev.Range))
-                Swap(secondaryTarget, secondaryTargetXform, ev.Target, targetXform, false);
+                Swap(secondaryTarget, secondaryTargetXform, ev.Target, targetXform, ev.Sound, ev.Effect, false);
         }
 
         swap.SecondaryTarget = null;
@@ -1011,39 +1012,6 @@ public abstract class SharedSpellsSystem : EntitySystem
         _magic.Speak(ev);
         ev.Handled = true;
         return;
-
-        void Swap(EntityUid uid,
-            TransformComponent xform,
-            EntityUid otherUid,
-            TransformComponent otherXform,
-            bool spawnSecondaryEffects = true)
-        {
-            _pulling.StopAllPulls(uid);
-            _pulling.StopAllPulls(otherUid);
-            SpawnEffects(uid, xform);
-            if (spawnSecondaryEffects)
-                SpawnEffects(otherUid, otherXform);
-            TransformSystem.SwapPositions((uid, xform), (otherUid, otherXform));
-            Physics.WakeBody(uid);
-            Physics.WakeBody(otherUid);
-            return;
-
-            void SpawnEffects(EntityUid ent, TransformComponent transform)
-            {
-                if (_net.IsClient)
-                    return;
-
-                Audio.PlayPvs(ev.Sound, transform.Coordinates);
-                var effect = Spawn(ev.Effect, transform.Coordinates);
-                if (TryComp(effect, out TrailComponent? trail))
-                {
-                    trail.SpawnPosition = TransformSystem.GetWorldPosition(transform);
-                    trail.RenderedEntity = ent;
-                    Dirty(effect, trail);
-                }
-                TransformSystem.SetParent(effect, Transform(effect), ent, transform);
-            }
-        }
     }
 
     private void OnSoulTap(SoulTapEvent ev)
@@ -1201,6 +1169,42 @@ public abstract class SharedSpellsSystem : EntitySystem
     #endregion
 
     #region Helpers
+
+    public void Swap(EntityUid uid,
+        TransformComponent xform,
+        EntityUid otherUid,
+        TransformComponent otherXform,
+        SoundSpecifier? swapSound,
+        EntProtoId swapEffect,
+        bool spawnSecondaryEffects = true)
+    {
+        _pulling.StopAllPulls(uid);
+        _pulling.StopAllPulls(otherUid);
+        SpawnEffects(uid, xform);
+        if (spawnSecondaryEffects)
+            SpawnEffects(otherUid, otherXform);
+        TransformSystem.SwapPositions((uid, xform), (otherUid, otherXform));
+        Physics.WakeBody(uid);
+        Physics.WakeBody(otherUid);
+        return;
+
+        void SpawnEffects(EntityUid ent, TransformComponent transform)
+        {
+            if (_net.IsClient)
+                return;
+
+            Audio.PlayPvs(swapSound, transform.Coordinates);
+            var effect = Spawn(swapEffect, transform.Coordinates);
+            if (TryComp(effect, out TrailComponent? trail))
+            {
+                trail.SpawnPosition = TransformSystem.GetWorldPosition(transform);
+                trail.RenderedEntity = ent;
+                Dirty(effect, trail);
+            }
+
+            TransformSystem.SetParent(effect, Transform(effect), ent, transform);
+        }
+    }
 
     protected abstract void CreateChargeEffect(EntityUid uid, ChargeSpellRaysEffectEvent ev);
 

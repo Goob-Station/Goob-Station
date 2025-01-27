@@ -4,7 +4,7 @@
     ProjectileMagicMissile: 1
     ProjectileToolboxHoming: 1
     ProjectileArcaneBarrage: 1
-    BulletMagic: 1
+    BulletMagicNoMuzzleFlash: 1
     ProjectileWabbajack: 1
     ProjectileFireball: 1
     ProjectileLocker: 1
@@ -15,7 +15,12 @@
     BulletStasis: 1
     ProjectileBananaPeel: 1
     TeslaGunBullet: 1
-    # TODO: change these
-    BulletInstakillMagic: 1
-    ProjectileIcicle: 1
-    # TODO: add more projectiles
+    ProjectileTeleBolt: 1
+    ProjectileFieryBolt: 1
+    ProjectileDeathBolt: 1
+    ProjectileIceCubeBolt: 1
+    ProjectileSwapBolt: 1
+    ProjectileBeeBolt: 1
+    ProjectileXRayBolt: 1
+    ProjectileEmpBolt: 1
+    ProjectileSmokeBolt: 1
