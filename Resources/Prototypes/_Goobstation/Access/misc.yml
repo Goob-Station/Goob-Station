@@ -1,0 +1,11 @@
+- type: accessGroup
+  id: HeadOffices
+  tags:
+  - Captain
+  - HeadOfPersonnel
+  - ChiefEngineer
+  - ChiefMedicalOfficer
+  - HeadOfSecurity
+  - ResearchDirector
+  - Quartermaster
+  - Command
