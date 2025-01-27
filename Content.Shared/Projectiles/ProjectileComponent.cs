@@ -97,7 +97,10 @@ public sealed partial class ProjectileComponent : Component
     public bool LosesDamageOnPenetration = false;
 
     [DataField]
-    public DamageSpecifier DamageLossOnPenetrationBase = new();
+    public DamageSpecifier DamageLossOnStructurePenetration = new();
+
+    [DataField]
+    public DamageSpecifier DamageLossOnMobPenetration = new();
 
     [NonSerialized]
     public List<EntityUid> IgnoredEntities = new();

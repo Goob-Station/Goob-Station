@@ -87,6 +87,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                 // Retrieve health of piercee, how much less potent the bullet should be now?
                 // We're using the least "healthy" trigger, so we go from up
                 var destructibleHealth = float.PositiveInfinity;
+                var chosenModifier = component.DamageLossOnMobPenetration;
                 if (TryComp<MobThresholdsComponent>(target, out var mob_comp))
                 {
                     foreach (var treshold in mob_comp.Thresholds)
@@ -94,7 +95,6 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                         if (treshold.Value == MobState.Dead)
                             destructibleHealth = treshold.Key.Float();
                     }
-
                 }
                 else if (TryComp<DestructibleComponent>(target, out var destr_comp))
                 {
@@ -103,6 +103,7 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                     // there's a danger of low-damage behaviour being thrown in here, that doesn't have
                     // destruction behaviour attached. So we just sift thru it until we get lowest health
                     // destroy behaviour
+                    chosenModifier = component.DamageLossOnStructurePenetration;
                     foreach (var threshold in destr_comp.Thresholds)
                     {
                         if (threshold.Trigger is DamageTrigger damageTrigger &&
@@ -113,15 +114,13 @@ public sealed class ProjectileSystem : SharedProjectileSystem
                                     doActsBehavior.HasAct(ThresholdActs.Destruction))
                                     destructibleHealth = damageTrigger.Damage;
                             }
-
                     }
-
                 }
                 if (float.IsInfinity(destructibleHealth))
                     destructibleHealth = 0;
                 // If bullets can't deal structural, they shouldn't be able to pierce, simple as
                 component.Damage.TrimZeros();
-                component.Damage -= component.DamageLossOnPenetrationBase * destructibleHealth;
+                component.Damage -= chosenModifier * destructibleHealth;
                 if (component.Damage.DamageDict.Values.Min() < 0.01f)
                 {
                     component.DamagedEntity = true;

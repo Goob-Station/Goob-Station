@@ -8,15 +8,15 @@
     damage: # Goobstation
       types:
         Piercing: 60
-        Structural: 90
+        Structural: 30 # so that you can do 2 shots without risk of revealing yourself (but no more)
     ignoreResistances: true
     penetrate: true
     losesDamageOnPenetration: true
     deleteOnCollide: false
     damageLossOnStructurePenetration:
       types:
-        Piercing: 0.05
-        Structural: 0.3
+        Piercing: 0.025 # still 2 shots after 2 reg walls
+        Structural: 0.05 # pierces 2 reg walls (like angles)
     damageLossOnMobPenetration:
       types:
-        Piercing: 0.05
+        Piercing: 0.05 # that's *some* limiter on amount of mobs pierced, 3rd target will survive second shot
