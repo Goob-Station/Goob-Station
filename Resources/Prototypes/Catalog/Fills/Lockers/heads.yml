@@ -3,6 +3,7 @@
   table: !type:AllSelector
     children:
     - id: BoxEncryptionKeyCargo
+    - id: ClothingOuterHardsuitSalvage
     - id: BoxFolderQmClipboard
     - id: CargoBountyComputerCircuitboard
     - id: CargoRequestComputerCircuitboard
