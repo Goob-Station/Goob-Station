@@ -31,11 +31,19 @@
     cost: 600
   - id: LavalandEquipmentExplorerSuit
     cost: 650
-  # TODO: salvage 5g, 3 implants and a locator for 600
-  # TODO: wormhole jaunter for 750
+  - id: LavalandJaunter
+    cost: 700
   - id: PKAUpgradeFireRate
     cost: 700
   - id: WeaponCrusher
+    cost: 750
+  - id: LavalandWeaponKineticHammer
+    cost: 750
+  - id: LavalandWeaponKineticMachete
+    cost: 750
+  - id: LavalandWeaponKineticSpear
+    cost: 750
+  - id: LavalandWeaponKineticClaws
     cost: 750
   - id: WeaponProtoKineticAccelerator
     cost: 750
@@ -59,5 +67,4 @@
     cost: 3000
   # TODO: luxury shelter capsule for 3k
   # TODO: luxury elite bar capsule for 10k
-  # TODO: pka mods
   # TODO: mining drone stuff
