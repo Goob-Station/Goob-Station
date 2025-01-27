@@ -457,6 +457,7 @@
     tags:
     - WhitelistChameleon
     - HighRiskItem
+    - HidesHarpyWings
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitRd
@@ -464,9 +465,6 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
-  - type: Tag
-    tags:
-      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Head of Security's Hardsuit
 - type: entity
