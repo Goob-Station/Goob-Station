@@ -27,6 +27,7 @@
     count: 1
   - type: DisarmMalus
   - type: PressureBuffed
+  - type: MegafaunaWeaponLooter
 
 - type: entity
   parent: [LavalandWeaponKineticBase, BaseSecurityCargoContraband]
