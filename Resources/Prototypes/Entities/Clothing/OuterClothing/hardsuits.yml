@@ -319,6 +319,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCap
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Chief Engineer's Hardsuit
 - type: entity
