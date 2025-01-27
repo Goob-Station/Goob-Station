@@ -6,7 +6,7 @@ using Content.Shared._Goobstation.Bingle;
 namespace Content.Client._Goobstation.Bingle;
 
 /// <summary>
-///     Handles the falling animation for entities that fall into a Binglepit. shamlessly copied from chasm
+///     Handles the falling animation for entities that fall into a Binglepit. shamlesly copied from chasm
 /// </summary>
 public sealed class BingleFallingVisualsSystem : EntitySystem
 {
@@ -41,10 +41,13 @@ public sealed class BingleFallingVisualsSystem : EntitySystem
 
     private void OnComponentRemove(EntityUid uid, BinglePitFallingComponent component, ComponentRemove args)
     {
-        if (!TryComp<SpriteComponent>(uid, out var sprite))
+        if (!TryComp<SpriteComponent>(uid, out var sprite) || TerminatingOrDeleted(uid))
             return;
 
-        var player = EnsureComp<AnimationPlayerComponent>(uid);
+        if (!TryComp<AnimationPlayerComponent>(uid, out var player))
+            return;
+
+        //var player = EnsureComp<AnimationPlayerComponent>(uid);
         if (_anim.HasRunningAnimation(player, _chasmFallAnimationKey))
             _anim.Stop(player, _chasmFallAnimationKey);
 

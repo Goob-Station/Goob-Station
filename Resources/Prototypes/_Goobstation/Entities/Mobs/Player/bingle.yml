@@ -8,7 +8,7 @@
     upgradeDamage:
       types:
         Blunt: 14
-        Structural: 100
+        Structural: 28
   - type: GhostTakeoverAvailable
   - type: GhostRole
     name: ghost-role-information-bingle-name
@@ -49,7 +49,7 @@
     damage:
       types:
         Blunt: 7
-        Structural: 50 # breaks down the walls and airlocks in 10 hits
+        Structural: 14 # breaks down the walls and airlocks in 10 hits
     bluntStaminaDamageFactor: 2.0
   - type: MovementSpeedModifier
     baseWalkSpeed : 2 # same as slime
@@ -96,7 +96,3 @@
   components:
   - type: Bingle
     prime: true
-    upgradeDamage:
-      types:
-        Blunt: 14
-        Structural: 100

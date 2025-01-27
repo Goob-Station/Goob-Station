@@ -10,4 +10,6 @@ public sealed partial class BingleComponent : Component
     public DamageSpecifier UpgradeDamage = default!;
     [DataField]
     public bool Prime = false;
+
+    public EntityUid? MyPit;
 }

@@ -1,6 +1,6 @@
 using Robust.Shared.Containers;
 using Robust.Shared.Audio;
-using Robust.Shared.Serialization;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._Goobstation.Bingle;
 
@@ -12,6 +12,8 @@ public sealed partial class BinglePitComponent : Component
     /// </summary>
     [DataField]
     public float BinglePoints = 0f;
+    public float PointsForAlive = 5f;
+    public float AdditionalPointsForHuman = 5f;
     /// <summary>
     /// amount of Bingle Points needed for a new bingle
     /// </summary>
@@ -28,23 +30,16 @@ public sealed partial class BinglePitComponent : Component
     public float UpgradeMinionsAfter = 12f;
 
     /// <summary>
-    /// if the Bingle pit level
+    /// the Bingle pit's level
     /// </summary>
     [DataField]
-    public float Level = 0f;
+    public float Level = 1f;
     /// <summary>
     /// Where the entities go when it falls into the pit, empties when it is destroyed.
     /// </summary>
     public Container Pit = default!;
     [DataField]
     public float MaxSize = 3f;
-    [DataField]
     public SoundSpecifier FallingSound = new SoundPathSpecifier("/Audio/Effects/falling.ogg");
-}
-
-[Serializable, NetSerializable]
-public sealed class BinglePitGrowEvent(NetEntity uid, float level) : EntityEventArgs
-{
-    public NetEntity Uid = uid;
-    public float Level = level;
+    public EntProtoId GhostRoleToSpawn = "SpawnPointGhostBingle";
 }
