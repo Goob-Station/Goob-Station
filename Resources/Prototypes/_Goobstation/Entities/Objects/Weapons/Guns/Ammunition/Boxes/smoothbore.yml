@@ -48,7 +48,7 @@
 - type: entity
   parent: BaseMagazineBoxSmoothbore
   id: MagazineBoxSmoothbore
-  name: ammunition box (.60 anti-materiel)
+  name: ammunition box (.60 smoothbore)
   components:
   - type: BallisticAmmoProvider
     proto: CartridgeSmoothbore
