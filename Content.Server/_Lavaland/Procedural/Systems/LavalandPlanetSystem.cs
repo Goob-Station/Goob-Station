@@ -12,7 +12,6 @@ using Content.Shared.Atmos;
 using Content.Shared.CCVar;
 using Content.Shared.GameTicking;
 using Content.Shared.Gravity;
-using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Salvage;
 using Content.Shared.Shuttles.Components;
@@ -43,12 +42,10 @@ public sealed class LavalandPlanetSystem : EntitySystem
     [Dependency] private readonly INetConfigurationManager _config = default!;
     [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly IPrototypeManager _proto = default!;
-    [Dependency] private readonly ITileDefinitionManager _tileDefinitionManager = default!; // used on debug
     [Dependency] private readonly AtmosphereSystem _atmos = default!;
     [Dependency] private readonly BiomeSystem _biome = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly TileSystem _tileSystem = default!; // used on debug
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly ShuttleSystem _shuttle = default!; // used on NOT debug
 
@@ -468,22 +465,6 @@ public sealed class LavalandPlanetSystem : EntitySystem
             Log.Error("Failed to re-parent the grid from dummy map to Lavaland!");
             return false;
         }
-
-#if DEBUG
-        // Markup da area for debug purposes.
-        var grid = Comp<MapGridComponent>(lavaland);
-        var tiles = (from bound in bounds select _map.GetTilesIntersecting(lavaland, grid, bound, false));
-        var sand = (ContentTileDefinition) _tileDefinitionManager["FloorAsteroidCoarseSand0"];
-
-        // im sorry for making those programming war crimes
-        foreach (var tile in tiles)
-        {
-            foreach (var til in tile)
-            {
-                _tileSystem.ReplaceTile(til, sand);
-            }
-        }
-#endif
 
         usedSpace = usedSpace.Concat(bounds).ToHashSet();
         coords.Remove(coord);

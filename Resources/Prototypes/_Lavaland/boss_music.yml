@@ -7,4 +7,3 @@
   sound:
     path: /Audio/_Lavaland/Mobs/Bosses/hiero_bgm.ogg
     volume: 6
-    loop: true

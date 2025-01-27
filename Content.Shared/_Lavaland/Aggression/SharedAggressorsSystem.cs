@@ -38,18 +38,12 @@ public abstract class SharedAggressorsSystem : EntitySystem
 
     private void OnDeleted(Entity<AggressiveComponent> ent, ref EntityTerminatingEvent args)
     {
-        foreach (var agressor in ent.Comp.Aggressors)
-        {
-            RemoveAggressor(ent, agressor);
-        }
+        RemoveAllAggressors(ent);
     }
 
     private void OnDestroyed(Entity<AggressiveComponent> ent, ref DestructionEventArgs args)
     {
-        foreach (var agressor in ent.Comp.Aggressors)
-        {
-            RemoveAggressor(ent, agressor);
-        }
+        RemoveAllAggressors(ent);
     }
 
     #region api
@@ -64,6 +58,16 @@ public abstract class SharedAggressorsSystem : EntitySystem
     {
         ent.Comp.Aggressors.Remove(aggressor);
         RaiseLocalEvent(ent, new AggressorRemovedEvent(GetNetEntity(aggressor)));
+    }
+
+    public void RemoveAllAggressors(Entity<AggressiveComponent> ent)
+    {
+        var aggressors = ent.Comp.Aggressors;
+        ent.Comp.Aggressors.Clear();
+        foreach (var aggressor in aggressors)
+        {
+            RaiseLocalEvent(ent, new AggressorRemovedEvent(GetNetEntity(aggressor)));
+        }
     }
 
     public void AddAggressor(Entity<AggressiveComponent> ent, EntityUid aggressor)
