@@ -28,6 +28,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitBasic
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Atmospherics Hardsuit
 - type: entity
@@ -65,6 +68,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitAtmos
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Engineering Hardsuit
 - type: entity
@@ -98,6 +104,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitEngineering
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Spationaut Hardsuit
 - type: entity
@@ -128,6 +137,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes:
       head: ClothingHeadHelmetHardsuitSpatio
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Salvage Hardsuit
 - type: entity
@@ -160,6 +172,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSalvage
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 - type: entity
   parent: [ClothingOuterHardsuitBase, BaseCargoContraband]
@@ -193,6 +208,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMaxim
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Security Hardsuit
 - type: entity
@@ -225,6 +243,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSecurity
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Brigmedic Hardsuit
 - type: entity
@@ -254,6 +275,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitBrigmedic
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Warden's Hardsuit
 - type: entity
@@ -286,6 +310,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitWarden
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Captain's Hardsuit
 - type: entity
@@ -360,6 +387,9 @@
   - type: ClothingGrantComponent # Goobstation - Make sure the CE doesn't get cooked by supermatter
     component:
     - type: SupermatterImmune
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Chief Medical Officer's Hardsuit
 - type: entity
@@ -386,6 +416,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMedical
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Research Director's Hardsuit
 - type: entity
@@ -431,6 +464,9 @@
     price: 750
   - type: StealTarget
     stealGroup: ClothingOuterHardsuitRd
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Head of Security's Hardsuit
 - type: entity
@@ -464,6 +500,9 @@
   - type: ToggleableClothing
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSecurityRed
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Luxury Mining Hardsuit
 - type: entity
@@ -496,6 +535,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitLuxury
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #ANTAG HARDSUITS
 #Blood-red Hardsuit
@@ -598,6 +640,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieElite
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Syndicate Commander Hardsuit
 - type: entity
@@ -631,6 +676,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSyndieCommander
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Cybersun Juggernaut Hardsuit
 - type: entity
@@ -664,6 +712,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitCybersun
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Wizard Hardsuit
 - type: entity
@@ -697,6 +748,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitWizard
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Ling Space Suit
 - type: entity
@@ -728,6 +782,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitLing
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Pirate EVA Suit (Deep Space EVA Suit)
 #Despite visually appearing like a softsuit, it functions exactly like a hardsuit would (parents off of base hardsuit, has resistances and toggleable clothing, etc.) so it goes here.
@@ -761,6 +818,9 @@
       head: ClothingHeadHelmetHardsuitPirateEVA
   - type: StaticPrice
     price: 0
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Pirate Captain Hardsuit
 - type: entity
@@ -795,6 +855,9 @@
       head: ClothingHeadHelmetHardsuitPirateCap
   - type: StaticPrice
     price: 0
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #CENTCOMM / ERT HARDSUITS
 #ERT Leader Hardsuit
@@ -811,6 +874,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTLeader
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #ERT Chaplain Hardsuit
 - type: entity
@@ -826,6 +892,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTChaplain
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #ERT Engineer Hardsuit
 - type: entity
@@ -841,6 +910,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTEngineer
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #ERT Medic Hardsuit
 - type: entity
@@ -856,6 +928,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTMedical
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #ERT Security Hardsuit
 - type: entity
@@ -875,6 +950,7 @@
     tags:
     - Hardsuit
     - WhitelistChameleon
+    - HidesHarpyWings # Goobstation - DV Harpy Textures Port  
 
 #ERT Janitor Hardsuit
 - type: entity
@@ -890,6 +966,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitERTJanitor
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Deathsquad
 - type: entity
@@ -928,6 +1007,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitDeathsquad
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #CBURN Hardsuit
 - type: entity
@@ -966,6 +1048,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetCBURN
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #MISC. HARDSUITS
 #Clown Hardsuit
@@ -1001,6 +1086,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitClown
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Mime Hardsuit
 - type: entity
@@ -1019,6 +1107,9 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitMime
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
 
 #Santa's Hardsuit
 - type: entity
@@ -1050,3 +1141,6 @@
   - type: ToggleableClothing # Goobstation - Modsuits change
     clothingPrototypes: 
       head: ClothingHeadHelmetHardsuitSanta
+  - type: Tag
+    tags:
+      - HidesHarpyWings # Goobstation - DV Harpy Textures Port
