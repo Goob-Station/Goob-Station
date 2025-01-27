@@ -22,10 +22,8 @@
   joinNotifyCrew: true
   supervisors: job-supervisors-ntr-centcom
   canBeAntag: false
-  accessGroups:
-  - HeadOffices
   access:
-  - CentralCommand
+  - Security
   - Brig
   - External
   - Cryogenics
@@ -34,11 +32,7 @@
   - Medical
   - Research
   - Command
-  - Cargo
-  - Hydroponics
-  - Chapel
-  - Atmospherics
-  - NanotrasenRepresentative
+  - CentralCommand
   - BlueshieldOfficer
   special:
   - !type:AddImplantSpecial
