@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
   "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/760f0be7af33a31f5a08a3291864e91539d0ebb7. Vox state made by Flareguy for Space Station 14, harpy edit by VMSolidus, equipped-OUTERCLOTHING-resomi made by Pofitlo, reptilian made by kuro(388673708753027083)",
-=======
-  "copyright": "Taken from cev-eris at commit https://github.com/discordia-space/CEV-Eris/commit/760f0be7af33a31f5a08a3291864e91539d0ebb7. Vox state made by Flareguy for Space Station 14, harpy edit by VMSolidus",
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
   "size": {
     "x": 32,
     "y": 32
@@ -20,10 +16,6 @@
     },
     {
       "name": "equipped-OUTERCLOTHING-vox",
-      "directions": 4
-	},
-	{
-      "name": "equipped-OUTERCLOTHING-harpy",
       "directions": 4
     },
     {

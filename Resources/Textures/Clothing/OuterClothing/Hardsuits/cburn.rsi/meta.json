@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
   "copyright": "Made by 𝘽𝙚𝙡𝙖𝙮#7441, reptilian made by kuro(388673708753027083). Vox state made by Flareguy for SS14, harpy by VMSolidus, reptilian made by kuro(388673708753027083)",
-=======
-  "copyright": "Made by EmoGarbage404. Vox state made by Flareguy for SS14, harpy by VMSolidus",
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
   "size": {
     "x": 32,
     "y": 32
@@ -22,13 +18,8 @@
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
 	},
-<<<<<<< HEAD
     {
       "name": "equipped-OUTERCLOTHING-reptilian",
-=======
-	{
-      "name": "equipped-OUTERCLOTHING-harpy",
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
       "directions": 4
     },
     {

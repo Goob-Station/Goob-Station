@@ -1,11 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-<<<<<<< HEAD
   "copyright": "Taken from tg at commit https://github.com/tgstation/tgstation/commit/3b364b1cea497ccf414539719b6b79f39d42cb1b. Vox state made by Flareguy for SS14, color tweaked by InfinityRedPanda. Grinch by SarahON, harpy by VMSolidus, equipped-OUTERCLOTHING-resomi made by svarshiksatanist (Discord), reptilian made by kuro(388673708753027083)",
-=======
-  "copyright": "Taken from vg at commit https://github.com/vgstation-coders/vgstation13/commit/a16e41020a93479e9a7e2af343b1b74f7f2a61bd. Vox state made by Flareguy for SS14, harpy by VMSolidus",
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
   "size": {
     "x": 32,
     "y": 32
@@ -21,10 +17,6 @@
     {
       "name": "equipped-OUTERCLOTHING-vox",
       "directions": 4
-    },
-	{
-        "name": "equipped-OUTERCLOTHING-harpy",
-        "directions": 4
     },
     {
       "name": "equipped-OUTERCLOTHING-reptilian",

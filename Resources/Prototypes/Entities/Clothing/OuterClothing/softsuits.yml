@@ -14,11 +14,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-<<<<<<< HEAD
-    - Softsuit # OuterSlotClothingPenalty
-=======
     - HidesHarpyWings
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
+    - Softsuit # OuterSlotClothingPenalty
 
 #Syndicate EVA
 - type: entity
@@ -36,11 +33,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-<<<<<<< HEAD
-    - Softsuit # OuterSlotClothingPenalty
-=======
     - HidesHarpyWings
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
+    - Softsuit # OuterSlotClothingPenalty
 
 #Emergency EVA
 - type: entity
@@ -86,11 +80,8 @@
     - SuitEVA
     - MonkeyWearable
     - WhitelistChameleon
-<<<<<<< HEAD
-    - Softsuit # OuterSlotClothingPenalty
-=======
     - HidesHarpyWings
->>>>>>> 5e7b191d6d (Cherry-pick Harpy Updates (#1641))
+    - Softsuit # OuterSlotClothingPenalty
 
 #NTSRA Voidsuit / Ancient Voidsuit
 - type: entity
