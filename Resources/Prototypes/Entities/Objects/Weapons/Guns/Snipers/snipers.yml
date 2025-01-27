@@ -68,7 +68,7 @@
   name: musket
   parent: [ BaseWeaponSniper, BaseGunWieldable, BaseMinorContraband ]
   id: Musket
-  description: This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
+  description: This should've been in a museum long before you were born. Uses .60 smoothbore ammo.
   components:
   - type: Sharp
   - type: Item
@@ -88,9 +88,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - CartridgeAntiMateriel
+      - CartridgeSmoothbore # Goobstation
     capacity: 1
-    proto: CartridgeAntiMateriel
+    proto: CartridgeSmoothbore
   - type: MeleeWeapon
     wideAnimationRotation: -135
     damage:
@@ -106,7 +106,7 @@
   name: flintlock pistol
   parent: [BaseWeaponSniper, BaseMinorContraband]
   id: WeaponPistolFlintlock
-  description: A pirate's companion. Yarrr! Uses .60 anti-materiel ammo.
+  description: A pirate's companion. Yarrr! Uses .60 smoothbore ammo.
   components:
   - type: Gun
     minAngle: 0
@@ -124,9 +124,9 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-        - CartridgeAntiMateriel
+        - CartridgeSmoothbore # Goobstation
     capacity: 1
-    proto: CartridgeAntiMateriel
+    proto: CartridgeSmoothbore
   - type: StaticPrice
     price: 0
 

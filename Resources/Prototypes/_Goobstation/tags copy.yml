@@ -5,6 +5,9 @@
   id: BreathMask
 
 - type: Tag
+  id: CartridgeSmoothbore
+
+- type: Tag
   id: ClownEmergencyOxygenTank
 
 - type: Tag
@@ -51,4 +54,3 @@
 
 - type: Tag
   id: VulpEmotes
-  

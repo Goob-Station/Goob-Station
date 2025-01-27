@@ -1,0 +1,20 @@
+- type: entity
+  parent: [ BaseCartridge, BaseMajorContraband ]
+  id: CartridgeSmoothbore
+  name: cartridge (.60 smoothbore)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - CartridgeSmoothbore
+  - type: CartridgeAmmo
+    proto: BulletSmoothbore
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi # doesn't matter since it's mostly for admemed stuff
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Appearance
+  - type: SpentAmmoVisuals
+  - type: StaticPrice
+    price: 20

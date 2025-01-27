@@ -3060,7 +3060,7 @@ entities:
       parent: 1
     - type: Physics
       canCollide: False
-- proto: MagazineBoxAntiMateriel
+- proto: MagazineBoxSmoothbore # Goobstation - muskets use smoothbore
   entities:
   - uid: 464
     components:

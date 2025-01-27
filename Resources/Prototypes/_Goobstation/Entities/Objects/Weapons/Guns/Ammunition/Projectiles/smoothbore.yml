@@ -1,0 +1,11 @@
+- type: entity
+  categories: [ HideSpawnMenu ]
+  parent: BaseBullet
+  id: BulletSmoothbore
+  name: bullet (.60 smoothbore)
+  components:
+  - type: Projectile
+    damage: # basically anti-materiel but no pierce
+      types:
+        Piercing: 60
+        Structural: 30
