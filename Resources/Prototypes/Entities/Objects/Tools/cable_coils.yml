@@ -40,10 +40,12 @@
     delay: 0.6
     damageContainers:
     - Silicon
+    - SiliconRadiation # Goobstation - Make IPCs take radiation
     damage:
       types: # these are all split across multiple types
         Heat: -3.0
         Shock: -3.0
+        Radiation: -1.5 # Goobstation - Make IPCs take radiation, shouldn't be easy to heal
         Ion: -3.0 # Goobstation
   # EE Change End
   # FIXME: Used isnt actually implemented so its still unlimited.
