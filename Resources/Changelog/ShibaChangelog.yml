@@ -1,6 +1,32 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Subtle emotes have been added (ported from Floofstation)
+    type: Add
+  id: 131
+  time: '2025-01-28T10:00:12.830686'
+- author: AstroDogeDX
+  changes:
+  - message: Pressing the minus "-" key now focuses the chat to the Subtle channel.
+    type: Fix
+  id: 130
+  time: '2025-01-28T10:00:41.055894'
+- author: AstroDogeDX
+  changes:
+  - message: Roleplay Rule 5.1 has been amended slightly. Be sure to go over it again
+      if you're an antag roller.
+    type: Tweak
+  id: 129
+  time: '2025-01-28T10:01:47.543660'
+- author: AstroDogeDX
+  changes:
+  - message: Plasma Glass and Uranium Glass Solar Panels have been added (cherry picked
+      from WizDen). New sprites also!
+    type: Add
+  id: 128
+  time: '2025-01-28T10:01:15.604253'
+- author: AstroDogeDX
+  changes:
   - message: Population requirements (min and max) have been adjusted for nearly all
       maps. Now we should see more than the same six maps on the server at 15+ players!
     type: Tweak
