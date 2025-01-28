@@ -46,6 +46,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     public IAHelpUIHandler? UIHelper;
     private bool _discordRelayActive;
     private bool _hasUnreadAHelp;
+    private string? _oldAHelpSound;
     private string? _aHelpSound;
 
     public override void Initialize()
@@ -57,6 +58,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
 
         _adminManager.AdminStatusUpdated += OnAdminStatusUpdated;
         _config.OnValueChanged(CCVars.AHelpSound, v => _aHelpSound = v, true);
+        _config.OnValueChanged(CCVars.OldAHelpSound, v => _oldAHelpSound = v, true);
     }
 
     public void UnloadButton()
@@ -136,8 +138,17 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         }
         if (message.PlaySound && localPlayer.UserId != message.TrueSender)
         {
-            if (_aHelpSound != null)
-                _audio.PlayGlobal(_aHelpSound, Filter.Local(), false, new AudioParams().AddVolume(0));
+            Random random = new Random();
+            if (random.Next(1, 100) > 98)
+            {
+                if (_oldAHelpSound != null)
+                    _audio.PlayGlobal(_oldAHelpSound, Filter.Local(), false);
+            }
+            else
+            {
+                if (_aHelpSound != null)
+                    _audio.PlayGlobal(_aHelpSound, Filter.Local(), false, new AudioParams().AddVolume(0));
+            }
             _clyde.RequestWindowAttention();
         }
 
