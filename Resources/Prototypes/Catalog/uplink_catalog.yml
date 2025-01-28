@@ -1225,16 +1225,27 @@
     - UplinkImplants
   restockTime: 1800
   conditions:
-    # goob - traitor suicide implants
-    #- !type:StoreWhitelistCondition
-    #  whitelist:
-    #    tags:
-    #      - NukeOpsUplink
-    #- !type:BuyerWhitelistCondition
-    #  blacklist:
-    #    components:
-    #      - SurplusBundle
+  - !type:StoreWhitelistCondition
+    blacklist:
+      tags:
+        - NukeOpsUplink
 
+# Goobstation - Fix nukeops macrobomb restock
+- type: listing
+  id: UplinkMacroBombImplanterNukeops
+  name: uplink-macro-bomb-implanter-name
+  description: uplink-macro-bomb-implanter-desc
+  icon: { sprite: /Textures/Actions/Implants/implants.rsi, state: explosive }
+  productEntity: MacroBombImplanter
+  cost:
+    Telecrystal: 65
+  categories:
+    - UplinkImplants
+  conditions:
+  - !type:StoreWhitelistCondition
+    whitelist:
+      tags:
+        - NukeOpsUplink
 
 - type: listing
   id: UplinkDeathAcidifierImplanter
@@ -1252,7 +1263,6 @@
   #    whitelist:
   #      tags:
   #        - NukeOpsUplink
-
 
 - type: listing
   id: UplinkUplinkImplanter # uplink uplink real
