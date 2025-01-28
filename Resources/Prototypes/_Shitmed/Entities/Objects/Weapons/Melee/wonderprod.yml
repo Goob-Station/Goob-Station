@@ -90,7 +90,8 @@
           reagents:
           - ReagentId: Nocturine
             Quantity: 5
-          limit: 10
+          limit: 20
+          needsRestrain: true
 
       damage: !type:ItemSwitchState
         verb: damage
