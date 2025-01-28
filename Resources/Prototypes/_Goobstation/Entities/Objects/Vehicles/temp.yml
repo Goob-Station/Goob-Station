@@ -166,3 +166,16 @@
     container: clowncar_container
   - type: Unremoveable
   - type: ClowncarCannon
+
+  - type: TriggerOnSolutionInsert
+    solutionName: "DrinkIrishCarBomb"
+    minAmount: 30
+
+  - type: Explosive # Powerful explosion in a very small radius. Doesn't break underplating.
+    explosionType: DemolitionCharge
+    totalIntensity: 60
+    intensitySlope: 5
+    maxIntensity: 30
+    canCreateVacuum: false
+
+  - type: ExplodeOnTrigger
