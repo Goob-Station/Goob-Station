@@ -50,6 +50,9 @@ ghost-role-information-giant-spider-rules = You are a [color=red][bold]Team Anta
 
 ghost-role-information-cognizine-description = Made conscious with the magic of cognizine.
 
+ghost-role-information-emancizine-description = Made conscious with the magic of emancizine; you have free will!
+ghost-role-information-emancizine-converted-description = Given free will with the magic of emancizine.
+
 ghost-role-information-hamster-name = Hamster
 ghost-role-information-hamster-description = A grumpy little ball of fluff.
 

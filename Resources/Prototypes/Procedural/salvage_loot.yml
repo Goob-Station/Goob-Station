@@ -27,6 +27,8 @@
         - proto: CloningPodMachineCircuitboard
           cost: 2
         - proto: CognizineChemistryBottle
+        - proto: EmancizineChemistryBottle
+          prob: 0.7
         - proto: FoodBoxDonkpocketCarp
           prob: 0.5
         - proto: CrateSalvageEquipment

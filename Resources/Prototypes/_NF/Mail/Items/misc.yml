@@ -53,6 +53,19 @@
           Quantity: 15 # Surely three friends is enough.
 
 - type: entity
+  id: SyringeEmancizine
+  parent: Syringe
+  name: emancizine syringe
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 15
+        reagents:
+        - ReagentId: Emancizine
+          Quantity: 15 # Surely three evil-ish friends(?) is enough.
+
+- type: entity
   id: SyringeOpporozidone
   parent: Syringe
   name: opporozidone syringe

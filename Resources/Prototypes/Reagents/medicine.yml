@@ -948,6 +948,22 @@
           min: 5
 
 - type: reagent
+  id: Emancizine
+  name: reagent-name-emancizine
+  desc: reagent-desc-emancizine
+  group: Medicine
+  physicalDesc: reagent-physical-desc-enigmatic
+  flavor: magical
+  color: "#d6094a"
+  metabolisms:
+    Medicine:
+      effects:
+      - !type:MakeSentientFreeAgent
+        conditions:
+        - !type:ReagentThreshold
+          min: 5
+
+- type: reagent
   id: Ethyloxyephedrine
   name: reagent-name-ethyloxyephedrine
   desc: reagent-desc-ethyloxyephedrine
