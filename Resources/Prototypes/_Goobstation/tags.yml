@@ -213,10 +213,10 @@
   id: Poppy
 
 - type: Tag
-  id: RipleyMKIIUpgradeKit
+  id: RipleyMKII
 
 - type: Tag
-  id: RipleyMkII
+  id: RipleyMkIIUpgradeKit
 
 - type: Tag
   id: SecurityBreathMask
