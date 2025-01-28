@@ -90,8 +90,6 @@ public sealed class TurnstileSystem : EntitySystem
     {
         _audioSystem.PlayPredicted(comp.DenySound, uid, otherEntity);
         _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Deny);
-        //Dirty(uid,comp);
-        //RaiseNetworkEvent(new BadTurnstileEvent(GetNetEntity(uid)));
     }
 
     private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
@@ -99,8 +97,6 @@ public sealed class TurnstileSystem : EntitySystem
         // Check access here.
         _audioSystem.PlayPredicted(comp.AccessSound, uid, otherEntity);
         _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Allow);
-        //Dirty(uid, comp);
-        //RaiseNetworkEvent(new StartTurnstileEvent(GetNetEntity(uid)));
 
         // Allowed passage
         _physicsSystem.SetCanCollide(uid, false);

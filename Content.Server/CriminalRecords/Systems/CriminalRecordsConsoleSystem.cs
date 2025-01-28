@@ -322,7 +322,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
         Dirty(id, prisonerIdComponent);
 
         _metaSystem.SetEntityName(id,val);
-        //RaiseNetworkEvent(new SpawnedPrisonerId(GetNetEntity(id), fixedPointTime, args.Key, GetNetEntity(owningStation.Value)));
     }
     // Goobstation end
 }
