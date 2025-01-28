@@ -46,6 +46,7 @@ guide-entry-sop-execution = Executions
 guide-entry-sop-permabrig = Permanent Brig
 guide-entry-sop-punishments = Punishments
 guide-entry-sop-searches = Searches
+guide-entry-sop-contraband = Contraband
 # - Cargo
 guide-entry-sop-cargotech = Cargo Tech
 guide-entry-sop-salvage = Salvage Specialist
