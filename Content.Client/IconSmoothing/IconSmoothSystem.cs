@@ -67,6 +67,13 @@ namespace Content.Client.IconSmoothing
                 sprite.LayerSetShader(CornerLayers.NW, component.Shader);
                 sprite.LayerSetShader(CornerLayers.SW, component.Shader);
             }
+
+            // Lavaland Change start
+            if (component.SyncAnimation)
+            {
+                FixSpriteAnimations(sprite);
+            }
+            // Lavaland Change end
         }
 
         public void SetStateBase(EntityUid uid, IconSmoothComponent component, string newState)
@@ -94,6 +101,13 @@ namespace Content.Client.IconSmoothing
             sprite.LayerSetDirOffset(CornerLayers.NW, DirectionOffset.Flip);
             sprite.LayerMapSet(CornerLayers.SW, sprite.AddLayerState(state0));
             sprite.LayerSetDirOffset(CornerLayers.SW, DirectionOffset.Clockwise);
+
+            // Lavaland Change start
+            if (component.SyncAnimation)
+            {
+                FixSpriteAnimations(sprite);
+            }
+            // Lavaland Change end
         }
 
         private void OnShutdown(EntityUid uid, IconSmoothComponent component, ComponentShutdown args)
@@ -292,6 +306,13 @@ namespace Content.Client.IconSmoothing
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+
+            // Lavaland Change start
+            if (smooth.SyncAnimation)
+            {
+                FixSpriteAnimations(sprite);
+            }
+            // Lavaland Change end
         }
 
         private void CalculateNewSpriteDiagonal(Entity<MapGridComponent>? gridEntity, IconSmoothComponent smooth,
@@ -419,13 +440,6 @@ namespace Content.Client.IconSmoothing
                 directions |= DirectionFlag.West;
 
             CalculateEdge(spriteEnt, directions, sprite);
-
-            // Lavaland Change start
-            if (smooth.SyncAnimation)
-            {
-                FixSpriteAnimations(sprite);
-            }
-            // Lavaland Change end
         }
 
         private (CornerFill ne, CornerFill nw, CornerFill sw, CornerFill se) CalculateCornerFill(Entity<MapGridComponent> gridEntity, IconSmoothComponent smooth, TransformComponent xform, EntityQuery<IconSmoothComponent> smoothQuery)
