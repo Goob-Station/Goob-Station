@@ -63,10 +63,10 @@
   components:
   - type: StorageFill
     contents:
-      - id: BoxMagazinePistolSubMachineGun
-      - id: MindShieldImplanter
+      - id: WeaponSubMachineGunDrozd
       - id: Zipties
       - id: Zipties
       - id: MedkitAdvancedFilled
       - id: WeaponPistolEchis
       - id: Flash
+      - id: ClothingOuterVestWeb

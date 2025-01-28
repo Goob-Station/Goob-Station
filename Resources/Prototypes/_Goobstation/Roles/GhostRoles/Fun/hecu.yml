@@ -21,15 +21,21 @@
     jumpsuit: ClothingUniformHecu
     back: ClothingBackpackMercFilledHECU
     mask: ClothingMaskGasExplorer
+    head: ClothingHeadHelmetEVA
     eyes: ClothingEyesGlassesMedSec
     ears: ClothingHeadsetAltCentCom
     gloves: ClothingHandsGlovesCombat
-    outerClothing: ClothingOuterVestWeb
+    outerClothing: ClothingOuterHardsuitEVA
     shoes: ClothingShoesBootsCombatFilled
-    head: ClothingHeadHelmetMerc
     id: HecuPDA
     belt: ClothingBeltMercWebbing
-    pocket1: MagazinePistolSubMachineGun
-    pocket2: MagazinePistolSubMachineGun
-  inhand:
-  - WeaponSubMachineGunDrozd
+    pocket2: PinpointerStation
+    suitstorage: JetpackMiniFilled
+  storage:
+    belt:
+    - ClothingHeadHelmetMerc
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
+    - MagazinePistolSubMachineGun
