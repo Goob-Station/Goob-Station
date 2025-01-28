@@ -751,7 +751,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="2">
-        To enter a secured area without permission
+        To enter a secured area without permission.
       </Box>
     </ColorBox>
     <ColorBox>
