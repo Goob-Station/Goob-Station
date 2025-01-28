@@ -6,16 +6,15 @@ namespace Content.Shared._Goobstation.PrisonerId;
 /// <summary>
 /// This is used for...
 /// </summary>
-[RegisterComponent,NetworkedComponent]
-[AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class BrigLockerComponent : Component
 {
-    [DataField,AutoNetworkedField]
+    [DataField]
     public bool Assigned = false;
 
-    [DataField("denySound")]
+    [DataField]
     public SoundSpecifier? DenySound;
 
-    [DataField("check")]
+    [DataField]
     public string Check = string.Empty;
 }

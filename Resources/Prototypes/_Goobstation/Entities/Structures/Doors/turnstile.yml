@@ -28,7 +28,6 @@
         - AirlockLayer
         hard: true
   - type: Turnstile
-    check: PrisonerID
     accessSound:
       path: /Audio/_Goobstation/Machines/turnstile.ogg
     denySound:
@@ -42,7 +41,8 @@
 
 - type: entity
   id: TurnstileEntrance
-  name: turnstile [Entrance]
+  name: turnstile
+  suffix: Entrance
   parent: BaseTurnstile
   components:
   - type: StationAiWhitelist
@@ -51,7 +51,8 @@
 
 - type: entity
   id: TurnstileExit
-  name: turnstile [Exit]
+  name: turnstile
+  suffix: Exit
   parent: BaseTurnstile
   components:
   - type: StationAiWhitelist

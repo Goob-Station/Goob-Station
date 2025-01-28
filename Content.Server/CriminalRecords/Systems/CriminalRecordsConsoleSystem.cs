@@ -297,8 +297,16 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 ("jobSuffix", ""));
 
         var id = Spawn("PrisonerID",uid.ToCoordinates());
-        var time = args.Time!;
-        var fixedPointTime = FixedPoint2.New(int.Parse(time.Split(':')[0]) * 60 + int.Parse(time.Split(':')[1]));
+        if (args.Time is not {})
+            return;
+        int.TryParse(args.Time.Split(' ')[0], out var minutes);
+        int.TryParse(args.Time.Split(':')[1], out var seconds);
+        if (minutes == 0 || seconds == 0)
+        {
+            return;
+        }
+        var fixedPointTime = FixedPoint2.New(minutes * 60 + seconds);
+
 
 
         if (!TryComp<StationRecordKeyStorageComponent>(id, out var stationRecordKeyStorageComponent))

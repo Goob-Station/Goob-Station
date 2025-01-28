@@ -4,15 +4,17 @@ using Content.Shared.Access.Systems;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._Goobstation.Turnstile;
 
 /// <summary>
-/// This handles...
+///     This handles the turnstiles logic.
 /// </summary>
 public sealed class TurnstileSystem : EntitySystem
 {
@@ -22,60 +24,69 @@ public sealed class TurnstileSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _accessReaderSystem = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
+    [Dependency] private readonly TagSystem _tagSystem = default!;
 
 
-
-    /// <inheritdoc/>
+    /// <inheritdoc />
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
+        SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnStartup);
+    }
+
+    private void OnPreventCollide(EntityUid uid, TurnstileComponent component, ref PreventCollideEvent args)
+    {
+        var user = args.OtherEntity;
+
     }
 
     private void OnStartup(EntityUid uid, TurnstileComponent component, ref ComponentStartup args)
     {
-        var dir = GetStructureDirection(uid);
-        component.AllowedDirection = dir;
+        var directionVector = GetStructureDirectionVector2(uid);
+        component.AllowedDirection = directionVector;
     }
 
 
-    public Vector2 GetStructureDirection(EntityUid entityUid)
+    public Vector2 GetStructureDirectionVector2(EntityUid entityUid)
     {
         // Get the world rotation of the entity
         var worldRotation = _transformSystem.GetWorldRotation(entityUid);
 
         // Convert the rotation to one of the four cardinal directions
-        return GetDirectionFromRotation(worldRotation);
+        return GetDirectionVectorFromRotation(worldRotation);
     }
 
-    private Vector2 GetDirectionFromRotation(Angle rotation)
+    private Vector2 GetDirectionVectorFromRotation(Angle rotation)
     {
-        var degrees = rotation.Degrees % 360; // Ensure the angle is within 0-360
-        if (degrees < 0)
-            degrees += 360;
-
-        if (degrees >= 45 && degrees < 135)
-            return new Vector2(-1,0); // West
-        if (degrees >= 135 && degrees < 225)
-            return new Vector2(0,-1); // East
-        if (degrees >= 225 && degrees < 315)
-            return new Vector2(1,0);
-
-        return new Vector2(0,1);
+        var cardinal = rotation.GetCardinalDir();
+        switch (cardinal)
+        {
+            case Direction.North:
+                return new Vector2(0, 1);
+            case Direction.East:
+                return new Vector2(0, -1);
+            case Direction.South:
+                return new Vector2(1, 0);
+            case Direction.West:
+                return new Vector2(-1, 0);
+            default:
+                return new Vector2(0, 1); // North
+        }
     }
 
     private void DisallowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
-        _audioSystem.PlayPredicted(comp.DenySound,uid, otherEntity);
+        _audioSystem.PlayPredicted(comp.DenySound, uid, otherEntity);
         RaiseNetworkEvent(new BadTurnstileEvent(GetNetEntity(uid)));
     }
 
     private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         // Check access here.
-
-        _audioSystem.PlayPredicted(comp.AccessSound,uid, otherEntity);
+        _audioSystem.PlayPredicted(comp.AccessSound, uid, otherEntity);
         RaiseNetworkEvent(new StartTurnstileEvent(GetNetEntity(uid)));
 
         // Allowed passage
@@ -116,7 +127,8 @@ public sealed class TurnstileSystem : EntitySystem
             if (uid is not { } handId)
                 continue;
 
-            if (metaData?.EntityPrototype?.ID == comp.Check)
+            // refactor to tag checking
+            if (_tagSystem.HasTag(ent, "prisonerIdCard"))
                 return handId;
         }
 
@@ -124,14 +136,13 @@ public sealed class TurnstileSystem : EntitySystem
         {
             var slotEntity = slot.ContainedEntity;
             if (!TryComp<PdaComponent>(slotEntity, out var pdaComponent))
-            {
                 continue;
-            }
 
             if (!TryComp<MetaDataComponent>(pdaComponent.ContainedId, out var pdaIdMetaData))
                 continue;
 
-            if (pdaIdMetaData?.EntityPrototype?.ID == comp.Check)
+            // tag checking
+            if (_tagSystem.HasTag(ent, "prisonerIdCard"))
                 return pdaComponent.ContainedId ?? default;
         }
 
@@ -146,7 +157,8 @@ public sealed class TurnstileSystem : EntitySystem
             return;
         }
 
-        var approachVector =  _transformSystem.GetWorldPosition(args.OtherEntity) - _transformSystem.GetWorldPosition(uid);
+        var approachVector = _transformSystem.GetWorldPosition(args.OtherEntity) -
+                             _transformSystem.GetWorldPosition(uid);
         var normalizedApproach = approachVector.Normalized();
 
         if (Vector2.Dot(normalizedApproach, comp.AllowedDirection) > 0.5f)

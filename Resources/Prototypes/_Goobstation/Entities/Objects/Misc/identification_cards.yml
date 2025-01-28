@@ -101,6 +101,9 @@
         prisoner_006: ""
   - type: PrisonerId
     access: [["PrisonerRelease"]]
+  - type: Tag
+    tags:
+    - PrisonerIdCard
 
   - type: PresetIdCard
     name: Prisoner ID
