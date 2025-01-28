@@ -44,3 +44,12 @@ abductor-victim-role-name = Abductee
 abductor-victim-role-desc = You have seen things you shouldn't have. The world must know the truth.
 
 objective-issuer-voices = [color=#FD0098]The Voices[/color]
+abductor-ui-pad-found = pad: [color=green]connected[/color]
+abductor-ui-pad-not-found = pad: [color=red]not found[/color]
+abductor-ui-target-none = target: [color=red]NONE[/color]
+abductor-ui-target-found = target: [color=green]{$target}[/color]
+abductor-ui-experimentator-connected = experimentator: [color=green]connected[/color]
+abductor-ui-experimentator-not-found = experimentator: [color=red]not found[/color]
+abductor-ui-victim-none = victim: [color=red]NONE[/color]
+abductor-ui-victim-found = victim: [color=green]{$victim}[/color]
+abductor-ui-armor-plug-in = [color=red][font size=16]You need to plug in abductor armor![/font][/color]

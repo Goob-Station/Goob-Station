@@ -34,42 +34,19 @@ public sealed partial class TelepathicChatSystem : EntitySystem
     }
 
     // Butchered the Psychognomist functions since at some point we MIGHT port psionics.
-    private (IEnumerable<INetChannel> normal, IEnumerable<INetChannel> psychog) GetPsionicChatClients()
+    private IEnumerable<INetChannel> GetPsionicChatClients()
     {
         var psions = Filter.Empty()
             .AddWhereAttachedEntity(IsEligibleForTelepathy)
             .Recipients;
 
-        var normalSessions = psions.Select(p => p.Channel);
-        var psychogSessions = psions.Select(p => p.Channel);
-
-        return (normalSessions, psychogSessions);
+        return psions.Select(p => p.Channel);
     }
 
     private IEnumerable<INetChannel> GetAdminClients()
     {
         return _adminManager.ActiveAdmins
             .Select(p => p.Channel);
-    }
-
-    private List<INetChannel> GetDreamers(IEnumerable<INetChannel> removeList)
-    {
-        var filteredList = new List<INetChannel>();
-        var filtered = Filter.Empty()
-            .AddWhereAttachedEntity(entity =>
-                !HasComp<TelepathyComponent>(entity)
-                || HasComp<SleepingComponent>(entity)
-                || HasComp<SeeingRainbowsComponent>(entity))
-            .Recipients
-            .Select(p => p.Channel);
-
-        if (filtered.ToList() != null)
-            filteredList = filtered.ToList();
-
-        foreach (var entity in removeList)
-            filteredList.Remove(entity);
-
-        return filteredList;
     }
 
     private bool IsEligibleForTelepathy(EntityUid entity)
@@ -96,28 +73,8 @@ public sealed partial class TelepathicChatSystem : EntitySystem
 
         _adminLogger.Add(LogType.Chat, LogImpact.Low, $"Telepathic chat from {ToPrettyString(source):Player}: {message}");
 
-        _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.normal.ToList(), Color.PaleVioletRed);
+        _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, messageWrap, source, hideChat, true, clients.ToList(), Color.PaleVioletRed);
 
         _chatManager.ChatMessageToMany(ChatChannel.Telepathic, message, adminMessageWrap, source, hideChat, true, admins, Color.PaleVioletRed);
-    }
-
-    private string ObfuscateMessageReadability(string message, float chance)
-    {
-        var modifiedMessage = new StringBuilder(message);
-
-        for (var i = 0; i < message.Length; i++)
-        {
-            if (char.IsWhiteSpace(modifiedMessage[i]))
-            {
-                continue;
-            }
-
-            if (_random.Prob(1 - chance))
-            {
-                modifiedMessage[i] = '~';
-            }
-        }
-
-        return modifiedMessage.ToString();
     }
 }

@@ -17,10 +17,14 @@ public sealed class AbductorConsoleBui : BoundUserInterface
     private AbductorConsoleWindow? _window;
 
     [ViewVariables]
-    private bool armorDisabled = false;
+    private bool _armorDisabled = false;
 
     [ViewVariables]
-    private bool armorLocked = false;
+    private bool _armorLocked = false;
+
+    [ViewVariables]
+    private AbductorArmorModeType _armorMode = AbductorArmorModeType.Stealth;
+
     public AbductorConsoleBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
 
@@ -50,7 +54,6 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         _window = new AbductorConsoleWindow();
         _window.OnClose += Close;
         _window.Title = "console";
-        _window.StealthModeButton.Disabled = true;
 
         _window.TeleportTabButton.OnPressed += _ => View(ViewType.Teleport);
 
@@ -62,21 +65,40 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         {
             _window.StealthModeButton.Disabled = false;
             _window.CombatModeButton.Disabled = true;
+            SendMessage(new AbductorVestModeChangeBuiMsg()
+            {
+                Mode = AbductorArmorModeType.Combat,
+            });
         };
 
         _window.StealthModeButton.OnPressed += _ =>
         {
             _window.StealthModeButton.Disabled = true;
             _window.CombatModeButton.Disabled = false;
+            SendMessage(new AbductorVestModeChangeBuiMsg()
+            {
+                Mode = AbductorArmorModeType.Stealth,
+            });
         };
+
+        if (_armorMode == AbductorArmorModeType.Combat)
+        {
+            _window.CombatModeButton.Disabled = true;
+            _window.StealthModeButton.Disabled = false;
+        }
+        else
+        {
+            _window.CombatModeButton.Disabled = false;
+            _window.StealthModeButton.Disabled = true;
+        }
 
         _window.LockArmorButton.OnPressed += _ =>
         {
             SendMessage(new AbductorLockBuiMsg());
 
-            armorLocked = !armorLocked;
+            _armorLocked = !_armorLocked;
 
-            if (!armorLocked)
+            if (!_armorLocked)
                 _window.LockArmorButton.Text = Loc.GetString("abductors-ui-lock-armor");
             else
                 _window.LockArmorButton.Text = Loc.GetString("abductors-ui-unlock-armor");
@@ -92,11 +114,11 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         _window.TargetLabel.Children.Clear();
 
         var padMsg = new FormattedMessage();
-        padMsg.AddMarkupOrThrow(state.AlienPadFound ? "pad: [color=green]connected[/color]" : "pad: [color=red]not found[/color]");
+        padMsg.AddMarkupOrThrow(state.AlienPadFound ? Loc.GetString("abductor-ui-pad-found") : Loc.GetString("abductor-ui-pad-not-found"));
         _window.PadLabel.SetMessage(padMsg);
 
         var msg = new FormattedMessage();
-        msg.AddMarkupOrThrow(state.Target == null ? "target: [color=red]NONE[/color]" : $"target: [color=green]{state.TargetName}[/color]");
+        msg.AddMarkupOrThrow(state.Target == null ? Loc.GetString("abductor-ui-target-none") : Loc.GetString("abductor-ui-target-found", ("target", state.TargetName ?? "")));
         _window.TeleportButton.Disabled = state.Target == null || !state.AlienPadFound;
         _window.TeleportButton.OnPressed += _ =>
         {
@@ -108,11 +130,11 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         // experiment tab
 
         var experimentatorMsg = new FormattedMessage();
-        experimentatorMsg.AddMarkupOrThrow(state.AlienPadFound ? "experimentator: [color=green]connected[/color]" : "experimentator: [color=red]not found[/color]");
+        experimentatorMsg.AddMarkupOrThrow(state.AlienPadFound ? Loc.GetString("abductor-ui-experimentator-connected") : Loc.GetString("abductor-ui-experimentator-not-found"));
         _window.ExperimentatorLabel.SetMessage(experimentatorMsg);
 
         var victimMsg = new FormattedMessage();
-        victimMsg.AddMarkupOrThrow(state.VictimName == null ? "victim: [color=red]NONE[/color]" : $"victim: [color=green]{state.VictimName}[/color]");
+        victimMsg.AddMarkupOrThrow(state.VictimName == null ? Loc.GetString("abductor-ui-victim-none") : Loc.GetString("abductor-ui-victim-found", ("victim", state.VictimName ?? "")));
         _window.VictimLabel.SetMessage(victimMsg);
 
         _window.CompleteExperimentButton.Disabled = state.VictimName == null;
@@ -123,32 +145,27 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         };
 
         // armor tab
-        armorLocked = state.ArmorLocked;
+        _armorLocked = state.ArmorLocked;
 
-        if (!armorLocked)
+        if (!_armorLocked)
             _window.LockArmorButton.Text = Loc.GetString("abductors-ui-lock-armor");
         else
             _window.LockArmorButton.Text = Loc.GetString("abductors-ui-unlock-armor");
 
-        _window.CombatModeButton.OnPressed += _ =>
+        _armorDisabled = state.ArmorFound;
+        _armorMode = state.CurrentArmorMode;
+
+        if (_armorMode == AbductorArmorModeType.Combat)
         {
-            SendMessage(new AbductorVestModeChangeBuiMsg()
-            {
-                Mode = "combat",
-            });
-        };
-
-        _window.StealthModeButton.OnPressed += _ =>
+            _window.CombatModeButton.Disabled = true;
+            _window.StealthModeButton.Disabled = false;
+        }
+        else
         {
-            SendMessage(new AbductorVestModeChangeBuiMsg()
-            {
-                Mode = "stealth",
-            });
-        };
-
-        armorDisabled = state.ArmorFound;
-
-        UpdateDisabledPanel(armorDisabled);
+            _window.CombatModeButton.Disabled = false;
+            _window.StealthModeButton.Disabled = true;
+        }
+        UpdateDisabledPanel(_armorDisabled);
     }
 
     private void UpdateDisabledPanel(bool disable)
@@ -167,7 +184,7 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         if (_window.DisabledLabel.GetMessage() is null)
         {
             var text = new FormattedMessage();
-            text.AddMarkupOrThrow("[color=red][font size=16]You need to plug in abductor armor![/font][/color]");
+            text.AddMarkupOrThrow(Loc.GetString("abductor-ui-armor-plug-in"));
             _window.DisabledLabel.SetMessage(text);
         }
 
@@ -188,7 +205,7 @@ public sealed class AbductorConsoleBui : BoundUserInterface
         _window.ExperimentTab.Visible = type == ViewType.Experiment;
         _window.ArmorControlTab.Visible = type == ViewType.ArmorControl;
 
-        UpdateDisabledPanel(armorDisabled);
+        UpdateDisabledPanel(_armorDisabled);
     }
 
     private enum ViewType

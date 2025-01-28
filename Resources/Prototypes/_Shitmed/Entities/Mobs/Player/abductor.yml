@@ -91,7 +91,7 @@
     gloves: ClothingHandsGlovesCombat
     shoes: ClothingShoesBootsCombat
     pocket1: AbductorGizmo
-    pocket2: WeaponDecloner
+    pocket2: WeaponAlien
     belt: ClothingAbductorBeltFilled
     back: Wonderprod
 

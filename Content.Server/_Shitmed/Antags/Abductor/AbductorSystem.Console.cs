@@ -1,5 +1,6 @@
 using Content.Shared._Shitmed.Antags.Abductor;
 using Content.Shared._Shitmed.ItemSwitch;
+using Content.Shared._Shitmed.ItemSwitch.Components;
 using Content.Shared._Shitmed.Medical.Surgery;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Components;
@@ -38,7 +39,7 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
     private void OnVestModeChangeBuiMsg(EntityUid uid, AbductorConsoleComponent component, AbductorVestModeChangeBuiMsg args)
     {
         if (component.Armor != null)
-            _itemSwitch.Switch(GetEntity(component.Armor.Value), args.Mode);
+            _itemSwitch.Switch(GetEntity(component.Armor.Value), args.Mode.ToString());
     }
 
     private void OnVestLockBuiMsg(Entity<AbductorConsoleComponent> ent, ref AbductorLockBuiMsg args)
@@ -139,9 +140,15 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             targetName = metadata?.EntityName;
 
         var armorLock = false;
+        var armorMode = AbductorArmorModeType.Stealth;
 
-        if (computer.Comp.Armor != null && HasComp<UnremoveableComponent>(GetEntity(computer.Comp.Armor.Value)))
-            armorLock = true;
+        if (computer.Comp.Armor != null)
+        {
+            if (HasComp<UnremoveableComponent>(GetEntity(computer.Comp.Armor.Value)))
+                armorLock = true;
+            if (TryComp<ItemSwitchComponent>(GetEntity(computer.Comp.Armor.Value), out var switchVest) && Enum.TryParse<AbductorArmorModeType>(switchVest.State, ignoreCase: true, out var State))
+                armorMode = State;
+        }
 
         if (computer.Comp.AlienPod == null)
         {
@@ -179,7 +186,8 @@ public sealed partial class AbductorSystem : SharedAbductorSystem
             AlienPadFound = computer.Comp.AlienPod != default,
             ExperimentatorFound = computer.Comp.Experimentator != default,
             ArmorFound = computer.Comp.Armor != default,
-            ArmorLocked = armorLock
+            ArmorLocked = armorLock,
+            CurrentArmorMode = armorMode
         });
     }
 }

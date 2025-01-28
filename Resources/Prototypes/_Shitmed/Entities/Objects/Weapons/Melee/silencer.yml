@@ -31,3 +31,4 @@
     reagents:
     - ReagentId: MuteToxin
       Quantity: 5
+    limit: 10

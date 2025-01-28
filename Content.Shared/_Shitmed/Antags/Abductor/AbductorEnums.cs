@@ -19,3 +19,10 @@ public enum AbductorConsoleUIKey
 {
     Key
 }
+
+[Serializable, NetSerializable]
+public enum AbductorArmorModeType : byte
+{
+    Combat,
+    Stealth
+}

@@ -108,7 +108,7 @@ public sealed partial class AbductorsAbilitiesComponent : Component
 public sealed partial class AbductorVestComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public string CurrentState = "stealth";
+    public AbductorArmorModeType CurrentState = AbductorArmorModeType.Stealth;
 }
 [RegisterComponent, Access(typeof(SharedAbductorSystem))]
 public sealed partial class AbductConditionComponent : Component

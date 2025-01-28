@@ -1,5 +1,6 @@
 using Robust.Shared.Audio;
 using Robust.Shared.Prototypes;
+using Content.Shared.Tag; // Shitmed Change - Starlight Abductors
 
 namespace Content.Server.Wires;
 
@@ -68,7 +69,11 @@ public sealed partial class WiresComponent : Component
     [DataField]
     public SoundSpecifier PulseSound = new SoundPathSpecifier("/Audio/Effects/multitool_pulse.ogg");
 
-    // Shitmed Change
+    // Shitmed Change - Starlight Abductors
     [ViewVariables]
-    public bool viewWires = false;
+    public bool ViewWires = false;
+
+    [DataField]
+    public ProtoId<TagPrototype> ShowWiresTag = "ShowWires";
+    // Shitmed Change End
 }

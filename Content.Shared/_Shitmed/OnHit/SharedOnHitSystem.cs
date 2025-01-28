@@ -6,6 +6,7 @@ using Content.Shared.Cuffs;
 using Content.Shared.Cuffs.Components;
 using Content.Shared.DoAfter;
 using Content.Shared.Effects;
+using Content.Shared.FixedPoint2;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
@@ -76,6 +77,9 @@ public abstract class SharedOnHitSystem : EntitySystem
             if (_solutionContainers.TryGetInjectableSolution(target, out var targetSoln, out var targetSolution))
             {
                 var solution = new Solution(ent.Comp.Reagents);
+                foreach (var reagent in ent.Comp.Reagents)
+                    if (ent.Comp.ReagentLimit != null && _solutionContainers.GetTotalPrototypeQuantity(target, reagent.Reagent.ToString()) >= FixedPoint2.New(ent.Comp.ReagentLimit.Value))
+                        return;
                 _reactiveSystem.DoEntityReaction(target, solution, ReactionMethod.Injection);
                 _solutionContainers.TryAddSolution(targetSoln.Value, solution);
                 _color.RaiseEffect(Color.FromHex("#0000FF"), new List<EntityUid>(1) { target }, Filter.Pvs(target, entityManager: EntityManager));
