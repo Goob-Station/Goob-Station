@@ -3,10 +3,11 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 15
+    earliestStart: 25
     weight: 7.5
     minimumPlayers: 10
     duration: 1
+    maxOccurrences: 1 # can only happen once per round
   - type: RuleGrids
   - type: LoadMapRule
     mapPath: /Maps/_Shitmed/Shuttles/ShuttleEvent/abductor_shuttle.yml
