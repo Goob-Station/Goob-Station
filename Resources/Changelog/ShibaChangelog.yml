@@ -1,6 +1,13 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Aliens aren't real but if they were they're less buggy and frequent now.
+      (Wonderprod cuffs disabled until fixed and one aliem per round)
+    type: Tweak
+  id: 132
+  time: '2025-01-28T12:28:28.497487'
+- author: AstroDogeDX
+  changes:
   - message: Subtle emotes have been added (ported from Floofstation)
     type: Add
   id: 131
