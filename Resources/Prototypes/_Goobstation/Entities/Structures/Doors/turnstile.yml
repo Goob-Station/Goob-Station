@@ -10,6 +10,7 @@
     snapCardinals: true
     layers:
     - state: turnstile
+      map: [ "enum.TurnstileVisuals.State" ]
     - state: deny
       visible: false
     - state: operate
@@ -32,6 +33,8 @@
       path: /Audio/_Goobstation/Machines/turnstile.ogg
     denySound:
       path: /Audio/Machines/airlock_deny.ogg
+  - type: Appearance
+
 
 - type: entity
   id: Turnstile

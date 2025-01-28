@@ -1,6 +1,9 @@
 using System.Numerics;
+using Robust.Client.Animations;
 using Robust.Shared.Audio;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Turnstile;
 
@@ -27,9 +30,28 @@ public sealed partial class TurnstileComponent : Component
     [DataField]
     public SoundSpecifier? DenySound;
 
-    /// <summary>
-    /// Prototype name to search for.
-    /// </summary>
     [DataField]
-    public bool PassthroughAllowed;
+    public TurnstileVisualState State = TurnstileVisualState.Base;
+
+    [DataField]
+    public string OpeningSpriteState = "operate";
+
+    [DataField]
+    public string DenySpriteState = "deny";
+
+    [DataField]
+    public float AnimationTime = 1f;
+}
+
+[Serializable,NetSerializable]
+public enum TurnstileVisuals : byte
+{
+    State,
+}
+[Serializable,NetSerializable]
+public enum TurnstileVisualState : byte
+{
+    Base,
+    Allow,
+    Deny,
 }

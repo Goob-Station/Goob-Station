@@ -33,8 +33,9 @@ public sealed class TurnstileSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
-        SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
-        SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnStartup);
+        //SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnComponentStartup);
+
     }
 
     private void OnPreventCollide(EntityUid uid, TurnstileComponent component, ref PreventCollideEvent args)
@@ -43,19 +44,18 @@ public sealed class TurnstileSystem : EntitySystem
 
     }
 
-    private void OnStartup(EntityUid uid, TurnstileComponent component, ref ComponentStartup args)
+    private void OnComponentStartup(EntityUid uid, TurnstileComponent component, ref ComponentStartup args)
     {
-        var directionVector = GetStructureDirectionVector2(uid);
+        var directionVector = GetStructureDirectionVector(uid);
         component.AllowedDirection = directionVector;
     }
 
 
-    public Vector2 GetStructureDirectionVector2(EntityUid entityUid)
+    public Vector2 GetStructureDirectionVector(EntityUid entityUid)
     {
-        // Get the world rotation of the entity
         var worldRotation = _transformSystem.GetWorldRotation(entityUid);
 
-        // Convert the rotation to one of the four cardinal directions
+        Logger.Debug(GetDirectionVectorFromRotation(worldRotation).ToString());
         return GetDirectionVectorFromRotation(worldRotation);
     }
 
@@ -67,11 +67,20 @@ public sealed class TurnstileSystem : EntitySystem
             case Direction.North:
                 return new Vector2(0, 1);
             case Direction.East:
-                return new Vector2(0, -1);
-            case Direction.South:
                 return new Vector2(1, 0);
+            case Direction.South:
+                return new Vector2(0, -1);
             case Direction.West:
                 return new Vector2(-1, 0);
+            case Direction.NorthEast:
+                return new Vector2(0.707f, 0.707f);
+            case Direction.SouthEast:
+                return new Vector2(0.707f, 0.707f);
+            case Direction.NorthWest:
+                return new Vector2(-0.707f, 0.707f);
+            case Direction.SouthWest:
+                return new Vector2(-0.707f, -0.707f);
+
             default:
                 return new Vector2(0, 1); // North
         }
@@ -80,14 +89,18 @@ public sealed class TurnstileSystem : EntitySystem
     private void DisallowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         _audioSystem.PlayPredicted(comp.DenySound, uid, otherEntity);
-        RaiseNetworkEvent(new BadTurnstileEvent(GetNetEntity(uid)));
+        _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Deny);
+        //Dirty(uid,comp);
+        //RaiseNetworkEvent(new BadTurnstileEvent(GetNetEntity(uid)));
     }
 
     private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         // Check access here.
         _audioSystem.PlayPredicted(comp.AccessSound, uid, otherEntity);
-        RaiseNetworkEvent(new StartTurnstileEvent(GetNetEntity(uid)));
+        _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Allow);
+        //Dirty(uid, comp);
+        //RaiseNetworkEvent(new StartTurnstileEvent(GetNetEntity(uid)));
 
         // Allowed passage
         _physicsSystem.SetCanCollide(uid, false);
@@ -128,7 +141,7 @@ public sealed class TurnstileSystem : EntitySystem
                 continue;
 
             // refactor to tag checking
-            if (_tagSystem.HasTag(ent, "prisonerIdCard"))
+            if (_tagSystem.HasTag(ent, "PrisonerIdCard"))
                 return handId;
         }
 
@@ -142,7 +155,7 @@ public sealed class TurnstileSystem : EntitySystem
                 continue;
 
             // tag checking
-            if (_tagSystem.HasTag(ent, "prisonerIdCard"))
+            if (_tagSystem.HasTag(ent, "PrisonerIdCard"))
                 return pdaComponent.ContainedId ?? default;
         }
 
@@ -151,6 +164,7 @@ public sealed class TurnstileSystem : EntitySystem
 
     private void OnStartCollide(EntityUid uid, TurnstileComponent comp, StartCollideEvent args)
     {
+        Logger.Debug("COLLIDE");
         if (!_accessReaderSystem.IsAllowed(args.OtherEntity, uid))
         {
             DisallowedPassage(uid, comp, args.OtherEntity);
@@ -161,6 +175,8 @@ public sealed class TurnstileSystem : EntitySystem
                              _transformSystem.GetWorldPosition(uid);
         var normalizedApproach = approachVector.Normalized();
 
+        Logger.Debug(normalizedApproach.ToString());
+        Logger.Debug(comp.AllowedDirection.ToString());
         if (Vector2.Dot(normalizedApproach, comp.AllowedDirection) > 0.5f)
         {
             AllowedPassage(uid, comp, args.OtherEntity);
