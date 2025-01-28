@@ -42,6 +42,19 @@ namespace Content.IntegrationTests.Tests
             "/Maps/Shuttles/infiltrator.yml"
         };
 
+        private static readonly string[] DoNotMapWhitelist =
+        {
+            "/Maps/centcomm.yml",
+            "/Maps/bagel.yml", // Contains mime's rubber stamp --> Either fix this, remove the category, or remove this comment if intentional.
+            "/Maps/gate.yml", // Contains positronic brain and LSE-1200c "Perforator"
+            "/Maps/meta.yml", // Contains warden's rubber stamp
+            "/Maps/reach.yml", // Contains handheld crew monitor
+            "/Maps/Shuttles/ShuttleEvent/cruiser.yml", // Contains LSE-1200c "Perforator"
+            "/Maps/Shuttles/ShuttleEvent/honki.yml", // Contains golden honker, clown's rubber stamp
+            "/Maps/Shuttles/ShuttleEvent/instigator.yml", // Contains EXP-320g "Friendship"
+            "/Maps/Shuttles/ShuttleEvent/syndie_evacpod.yml", // Contains syndicate rubber stamp
+        };
+
         private static readonly string[] GameMaps =
         {
             "Dev",
@@ -131,6 +144,7 @@ namespace Content.IntegrationTests.Tests
             var server = pair.Server;
 
             var resourceManager = server.ResolveDependency<IResourceManager>();
+            var protoManager = server.ResolveDependency<IPrototypeManager>();
             var mapFolder = new ResPath("/Maps");
             var maps = resourceManager
                 .ContentFindFiles(mapFolder)
@@ -162,6 +176,23 @@ namespace Content.IntegrationTests.Tests
                 var postMapInit = meta["postmapinit"].AsBool();
 
                 Assert.That(postMapInit, Is.False, $"Map {map.Filename} was saved postmapinit");
+
+                // testing that maps have nothing with the DoNotMap entity category
+                // I do it here because it's basically copy-paste code for the most part
+                var yamlEntities = root["entities"];
+                if (!protoManager.TryIndex<EntityCategoryPrototype>("DoNotMap", out var dnmCategory))
+                    return;
+                foreach (var yamlEntity in (YamlSequenceNode)yamlEntities)
+                {
+                    var protoId = yamlEntity["proto"].AsString();
+                    protoManager.TryIndex(protoId, out var proto, false);
+                    if (proto is null || proto.EditorSuffix is null)
+                        continue;
+                    if (proto.Categories.Contains(dnmCategory) && !DoNotMapWhitelist.Contains(map.ToString()))
+                    {
+                        Assert.Fail($"\nMap {map} has the DO NOT MAP category in prototype {proto.Name}");
+                    }
+                }
             }
             await pair.CleanReturnAsync();
         }
