@@ -45,6 +45,12 @@ namespace Content.Client.IconSmoothing
         ///     Used by <see cref="IconSmoothSystem"/> to reduce redundant updates.
         /// </summary>
         internal int UpdateGeneration { get; set; }
+
+        /// <summary>
+        /// Lavaland change: when true, sprite animation timings will be synchronised between all sprites and their layers.
+        /// </summary>
+        [DataField("sync")]
+        public bool SyncAnimation;
     }
 
     /// <summary>

@@ -1,0 +1,17 @@
+- type: entity
+  parent: BaseWall
+  id: WallHierophantArena
+  name: hierophant wall
+  components:
+  - type: Tag
+    tags:
+      - Wall
+  - type: Sprite
+    sprite: _Lavaland/Structures/Walls/hierophant.rsi
+  - type: Icon
+    sprite: _Lavaland/Structures/Walls/hierophant.rsi
+  - type: Destructible
+  - type: IconSmooth
+    key: walls
+    base: hierophant
+    sync: true

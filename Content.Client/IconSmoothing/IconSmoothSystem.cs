@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Numerics;
 using Content.Shared.IconSmoothing;
 using JetBrains.Annotations;
@@ -418,6 +419,13 @@ namespace Content.Client.IconSmoothing
                 directions |= DirectionFlag.West;
 
             CalculateEdge(spriteEnt, directions, sprite);
+
+            // Lavaland Change start
+            if (smooth.SyncAnimation)
+            {
+                FixSpriteAnimations(sprite);
+            }
+            // Lavaland Change end
         }
 
         private (CornerFill ne, CornerFill nw, CornerFill sw, CornerFill se) CalculateCornerFill(Entity<MapGridComponent> gridEntity, IconSmoothComponent smooth, TransformComponent xform, EntityQuery<IconSmoothComponent> smoothQuery)
