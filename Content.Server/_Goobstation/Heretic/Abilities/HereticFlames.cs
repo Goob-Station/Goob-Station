@@ -14,13 +14,14 @@ public sealed partial class HereticFlamesComponent : Component
 
 public sealed partial class HereticFlamesSystem : EntitySystem
 {
-    [Dependency] private readonly AtmosphereSystem _atmos = default!;
+    [Dependency] private readonly HereticAbilitySystem _has = default!;
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        foreach (var hfc in EntityQuery<HereticFlamesComponent>())
+        var eqe = EntityQueryEnumerator<HereticFlamesComponent>();
+        while (eqe.MoveNext(out var uid, out var hfc))
         {
             hfc.Timer += frameTime;
             if (hfc.Timer < hfc.UpdateDuration)
@@ -30,15 +31,9 @@ public sealed partial class HereticFlamesSystem : EntitySystem
             hfc.TimerSeconds += 1f;
 
             if (hfc.TimerSeconds >= hfc.Duration)
-                RemComp(hfc.Owner, hfc);
+                RemComp(uid, hfc);
 
-            var gasmix = _atmos.GetTileMixture((hfc.Owner, Transform(hfc.Owner)));
-
-            if (gasmix == null)
-                continue;
-
-            gasmix.AdjustMoles(Gas.Plasma, 2f);
-            gasmix.Temperature = Atmospherics.T0C + 125f;
+            _has.SpawnDamageBox(uid, 1, false);
         }
     }
 }

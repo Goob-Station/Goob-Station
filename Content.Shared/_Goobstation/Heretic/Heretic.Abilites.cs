@@ -86,11 +86,7 @@ public sealed partial class EventHereticLivingHeart : InstantActionEvent { } // 
 public sealed partial class EventHereticMansusLink : EntityTargetActionEvent { }
 
 // ash
-public sealed partial class EventHereticAshenShift : InstantActionEvent
-{
-    [DataField]
-    public DamageSpecifier? Damage;
-}
+public sealed partial class EventHereticAshenShift : InstantActionEvent { }
 public sealed partial class EventHereticVolcanoBlast : InstantActionEvent { }
 public sealed partial class EventHereticNightwatcherRebirth : InstantActionEvent { }
 public sealed partial class EventHereticFlames : InstantActionEvent { }
