@@ -347,6 +347,9 @@ public sealed class SupermatterSystem : SharedSupermatterSystem
         }
 
         sm.Damage = Math.Min(sm.DamageArchived + sm.DamageHardcap * sm.DelaminationPoint, totalDamage);
+
+        // Return the manipulated gas back to the mix 
+        _atmosphere.Merge(mix, absorbedGas);
     }
 
     /// <summary>

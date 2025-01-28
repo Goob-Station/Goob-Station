@@ -41,6 +41,7 @@
     - id: LoneOpsSpawn
     - id: DerelictCyborgSpawn
     - id: BlobSpawn # Goobstation - Blob
+    - id: LoneAbductorSpawn # Shitmed - Starlight Abductors
 
 - type: entity
   id: BaseStationEvent
@@ -203,7 +204,12 @@
   - type: AntagLoadProfileRule
     # Goobstation start
     speciesOverride: Human
-    alwaysUseSpeciesOverride: true
+    speciesOverrideBlacklist:
+    - Yowie
+    - IPC
+    - Diona
+    - Abductor
+    - Harpy
     # Goobstation end
   - type: AntagObjectives
     objectives:
@@ -363,10 +369,9 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
-    minimumPlayers: 12 # ShibaStation - Reduced from 15 to 12
-    weight: 1 # GoobStation: was 5, vent critters bad
-    duration: 60
-    reoccurrenceDelay: 30 # ShibaStation - Vent critters now can only happen after 30 minutes since the last one.
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobAdultSlimesBlueAngry
@@ -385,10 +390,9 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
-    minimumPlayers: 10 # ShibaStation - Reduced from 15 to 10
-    weight: 1 # GoobStation: was 5, critters because bad
-    duration: 60
-    reoccurrenceDelay: 30 # ShibaStation - Vent critters now can only happen after 30 minutes since the last one.
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobPurpleSnake
@@ -407,10 +411,9 @@
     startAudio:
       path: /Audio/_ShibaStation/Announcements/vent-3-hostile.ogg
     earliestStart: 20
-    minimumPlayers: 8 # ShibaStation - Reduced from 15 to 8
-    weight: 1 # GoobStation: was 1, vent critters bad
-    duration: 60
-    reoccurrenceDelay: 30 # ShibaStation - Vent critters now can only happen after 30 minutes since the last one.
+    minimumPlayers: 15
+    weight: 5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
     entries:
     - id: MobGiantSpiderAngry
@@ -423,13 +426,13 @@
   - type: StationEvent
     startAnnouncement: station-event-vent-creatures-start-announcement
     startAudio:
-      path: /Audio/_ShibaStation/Announcements/vent-5-danger.ogg
-    earliestStart: 20
-    minimumPlayers: 14 # ShibaStation - Reduced from 20 to 14
-    weight: 0.5 # ShibaStation - Back to 0.5
-    duration: 60
-    reoccurrenceDelay: 60 # ShibaStation - Vent critters now can only happen after 60 minutes since the last one.
+      path: /Audio/Announcements/attention.ogg
+    earliestStart: 45 # DeltaV - was 20
+    minimumPlayers: 30 # DeltaV - was 20
+    weight: 1 # DeltaV - was 1.5
+    duration: 30 # DeltaV: was 60, used as a delay now
   - type: VentCrittersRule
+    playerRatio: 35 # DeltaV: Clown spiders are very robust
     entries:
     - id: MobClownSpider
       prob: 0.05

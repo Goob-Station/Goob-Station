@@ -85,10 +85,15 @@
 
 - files: ["mime.webp"]
   license: "CC-BY-SA-3.0"
-  copyright: "Unknown"
+  copyright: "Diebeck"
   source: "https://forums.goobstation.com"
 
 - files: ["reclaimer-nuke.webp"]
   license: "CC-BY-NC-SA-3.0"
   copyright: "GetOutMarutak,aka.Snicket on Discord/github/Cara/Ko-fi"
   source: "https://github.com/space-wizards/space-station-14"
+
+- files: ["tideractivities.webp"]
+  license: "CC-BY-SA-3.0"
+  copyright: "asardonicsailor"
+  source: "https://x.com/ASardonicSailor"

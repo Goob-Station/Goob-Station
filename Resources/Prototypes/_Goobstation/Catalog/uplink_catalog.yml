@@ -367,7 +367,7 @@
 
 - type: listing
   id: UplinkSmugglerSatchel
-  name: uplink-smugglers-satchel-name
+  name: smuggler's satchel
   description: uplink-smugglers-satchel-desc
   icon: { sprite: Clothing/Back/Satchels/satchel.rsi, state: icon }
   productEntity: ClothingSatchelSmuggler
@@ -544,3 +544,15 @@
     whitelist:
       tags:
       - NukeOpsUplink
+
+# Misc
+
+- type: listing
+  id: UplinkDimensionPot
+  name: uplink-dimension-pot-name
+  description: uplink-dimension-pot-desc
+  productEntity: DimensionPot
+  cost:
+    Telecrystal: 70
+  categories:
+  - UplinkDeception

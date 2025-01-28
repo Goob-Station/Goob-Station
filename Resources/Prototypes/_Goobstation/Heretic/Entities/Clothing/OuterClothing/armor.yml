@@ -4,7 +4,6 @@
   name: ominous armor
   description: A ragged, dusty set of robes. Strange eyes line the inside.
   components:
-  - type: HereticClothing
   - type: Sprite
     sprite: _Goobstation/Heretic/eldritch_armor.rsi
     state: icon
