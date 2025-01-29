@@ -9,6 +9,4 @@ namespace Content.Shared._Goobstation.Wizard.Projectiles;
 [RegisterComponent, NetworkedComponent]
 public sealed partial class EntityTrailComponent : Component
 {
-    [DataField]
-    public int ParticleAmount = 1;
 }

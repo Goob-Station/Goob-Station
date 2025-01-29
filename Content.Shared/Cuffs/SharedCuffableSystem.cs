@@ -152,6 +152,8 @@ namespace Content.Shared.Cuffs
 
         private void OnRejuvenate(EntityUid uid, CuffableComponent component, RejuvenateEvent args)
         {
+            if (!args.Uncuff) // Goobstation
+                return;
             _container.EmptyContainer(component.Container, true);
         }
 

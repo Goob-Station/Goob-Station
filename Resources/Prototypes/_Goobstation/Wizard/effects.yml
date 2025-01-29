@@ -334,3 +334,38 @@
       minValue: 0
       maxValue: 16
       enabled: true
+
+- type: entity
+  id: SanguineBloodEffect
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Trail
+    endAngle: 320
+    particleAmount: 9
+    maxParticleAmount: 45
+    velocity: 0.5
+    lerpTime: 0.001
+    frequency: 0.01
+    lifetime: 0.5
+    scaleLerpAmount: 0.05
+    scaleLerpTarget: 0.5
+    alphaLerpAmount: 0.15
+    velocityLerpAmount: 0.08
+    velocityLerpTarget: 0
+    spawnRemainingTrail: false
+    additionalLerpData:
+    - property: PositionLerpAmount
+      lerpTarget: 1
+      lerpAmount: 0.015
+      value: 0
+    shader: unshaded
+    sprite:
+      sprite: /Textures/_Goobstation/Wizard/Effects/blood.rsi
+      state: blood
+  - type: Transform
+    noRot: true
+  - type: Tag
+    tags:
+      - HideContextMenu
+  - type: TimedDespawn
+    lifetime: 3

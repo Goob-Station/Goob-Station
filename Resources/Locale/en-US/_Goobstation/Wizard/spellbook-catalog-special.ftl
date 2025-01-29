@@ -15,6 +15,7 @@ spellbook-oblivion-enforcer-desc =
     Contains Oblivion Enforcer robes, a pair of insulated gloves and Oblivion Enforcer mask with integrated voice changer.
     The Oblivion Order is an isolated clique of monks that revere supermatter. Oblivion Enforcers are how the Order imposes their will on the universe as a whole. By taking this bundle, you give up your identity and become a faceless hand of the Order.
     Cannot be refunded.
+    You can get this bundle as many times as you have purchased Supermatter Halberd.
     Warning: Purchasing this blocks the refund of Supermatter Halberd!
 
 spellbook-tider-bundle-name = Tider Wizard Bundle

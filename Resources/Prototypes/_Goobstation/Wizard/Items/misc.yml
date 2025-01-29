@@ -20,7 +20,7 @@
 - type: entity
   name: scroll of teleportation
   description: This scroll can teleport you anywhere on the station.
-  parent: BaseItem
+  parent: [BaseItem, BaseMagicContraband]
   id: ScrollTeleport
   components:
   - type: Sprite

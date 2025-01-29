@@ -33,6 +33,9 @@ public sealed partial class SanguineStrikeComponent : Component
     public FixedPoint2 BloodSuckAmount = 50;
 
     [DataField]
+    public EntProtoId BloodEffect = "SanguineBloodEffect";
+
+    [DataField]
     public SoundSpecifier HitSound = new SoundPathSpecifier("/Audio/_Goobstation/Wizard/crackandbleed.ogg");
 
     [DataField]

@@ -454,22 +454,22 @@ public sealed partial class StoreSystem
         }
     }
 
-    private bool RefundListing(EntityUid uid, StoreComponent component, EntityUid listing, EntityUid buyer, bool log)
+    private bool RefundListing(EntityUid uid, StoreComponent component, EntityUid boughtEntity, EntityUid buyer, bool log)
     {
-        if (!IsOnStartingMap(uid, component) || !Exists(listing) ||
-            !TryComp(listing, out StoreRefundComponent? refundComp) || refundComp.Data == null ||
+        if (!IsOnStartingMap(uid, component) || !Exists(boughtEntity) ||
+            !TryComp(boughtEntity, out StoreRefundComponent? refundComp) || refundComp.Data == null ||
             refundComp.StoreEntity != uid || refundComp.Data.DisableRefund)
             return false;
 
         if (log)
-            _admin.Add(LogType.StoreRefund, LogImpact.Low, $"{ToPrettyString(buyer):player} has refunded {ToPrettyString(listing):purchase} from {ToPrettyString(uid):store}");
+            _admin.Add(LogType.StoreRefund, LogImpact.Low, $"{ToPrettyString(buyer):player} has refunded {ToPrettyString(boughtEntity):purchase} from {ToPrettyString(uid):store}");
 
         foreach (var (currency, value) in refundComp.BalanceSpent)
         {
             component.Balance.TryAdd(currency, FixedPoint2.Zero);
             component.Balance[currency] += value;
 
-            if (component.BalanceSpent.Keys.Contains(currency))
+            if (component.BalanceSpent.ContainsKey(currency))
                 component.BalanceSpent[currency] -= value;
         }
 
@@ -483,16 +483,14 @@ public sealed partial class StoreSystem
             }
         }
 
-        component.BoughtEntities.Remove(listing);
+        component.BoughtEntities.Remove(boughtEntity);
 
-        if (_actions.TryGetActionData(listing, out var actionComponent, logError: false))
-        {
-            _actionContainer.RemoveAction(listing, actionComponent);
-        }
+        if (_actions.TryGetActionData(boughtEntity, out var actionComponent, logError: false))
+            _actionContainer.RemoveAction(boughtEntity, actionComponent);
 
-        refundComp.Data.PurchaseAmount = 0;
+        refundComp.Data.PurchaseAmount = Math.Max(0, refundComp.Data.PurchaseAmount - 1);
 
-        EntityManager.DeleteEntity(listing);
+        Del(boughtEntity);
 
         return true;
     }

@@ -16,4 +16,7 @@ public sealed partial class SwapOnProjectileHitComponent : Component
 
     [DataField]
     public EntityWhitelist Whitelist;
+
+    [DataField]
+    public bool DeleteProjectileOnSwap;
 }

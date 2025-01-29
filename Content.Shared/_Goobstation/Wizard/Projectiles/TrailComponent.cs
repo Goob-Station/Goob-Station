@@ -1,4 +1,5 @@
 using System.Numerics;
+using Robust.Shared.Animations;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 using Robust.Shared.Utility;
@@ -13,6 +14,7 @@ public sealed partial class TrailComponent : Component
     /// <summary>
     /// How many particles to spawn each cycle. If it is less than one, no particles will spawn.
     /// Values above one wouldn't work with line trails currently.
+    /// Changing this during runtime may break things.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int ParticleAmount = 1;
@@ -25,15 +27,22 @@ public sealed partial class TrailComponent : Component
 
     /// <summary>
     /// If not null, determines spawn position of the particles.
+    /// If <see cref="SpawnEntityPosition"/> is not null, it will spawn at coordinates relative to that entity.
     /// </summary>
     [DataField, AutoNetworkedField]
     public Vector2? SpawnPosition;
 
     /// <summary>
+    /// If not null, particles will spawn at this entity coordinates.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntityUid? SpawnEntityPosition;
+
+    /// <summary>
     /// Particles are spawned in a radius around the origin.
     /// </summary>
-    [DataField]
-    public float Radius;
+    [DataField, Animatable]
+    public float Radius { get; set; }
 
     /// <summary>
     /// If this is not null, trail particles will render this entity instead of sprite/lines
@@ -95,44 +104,44 @@ public sealed partial class TrailComponent : Component
     /// <summary>
     /// Color alpga lerps to <see cref="AlphaLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float AlphaLerpAmount = 0.3f;
+    [DataField, Animatable]
+    public float AlphaLerpAmount { get; set; } = 0.3f;
 
     /// <summary>
     /// Scale lerps to <see cref="ScaleLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float ScaleLerpAmount;
+    [DataField, Animatable]
+    public float ScaleLerpAmount { get; set; }
 
     /// <summary>
     /// Velocity lerps to <see cref="VelocityLerpTarget"/> by this amount every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float VelocityLerpAmount;
+    [DataField, Animatable]
+    public float VelocityLerpAmount { get; set; }
 
     /// <summary>
     /// Particle position lerps to the origin entity position by this amount every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float PositionLerpAmount;
+    [DataField, Animatable]
+    public float PositionLerpAmount { get; set; }
 
     /// <summary>
     /// Color alpha lerps to this value every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float AlphaLerpTarget;
+    [DataField, Animatable]
+    public float AlphaLerpTarget { get; set; }
 
     /// <summary>
     /// Scale lerps to this value every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float ScaleLerpTarget;
+    [DataField, Animatable]
+    public float ScaleLerpTarget { get; set; }
 
     /// <summary>
     /// Velocity lerps to this value every <see cref="LerpTime"/> seconds.
     /// </summary>
-    [DataField]
-    public float VelocityLerpTarget;
+    [DataField, Animatable]
+    public float VelocityLerpTarget { get; set; }
 
     /// <summary>
     /// If sprite is null, it will draw lines instead.
@@ -151,6 +160,9 @@ public sealed partial class TrailComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color Color = Color.White;
+
+    [DataField]
+    public List<LerpPropertyData> AdditionalLerpData = new();
 
     [ViewVariables(VVAccess.ReadOnly)]
     public float Accumulator;
@@ -195,6 +207,22 @@ public sealed class TrailData(
     public float Scale = scale;
 
     public TimeSpan SpawnTime = spawnTime;
+}
+
+[DataDefinition]
+public sealed partial class LerpPropertyData
+{
+    [DataField(required: true)]
+    public string Property;
+
+    [DataField(required: true)]
+    public float LerpAmount;
+
+    [DataField(required: true)]
+    public float Value;
+
+    [DataField(required: true)]
+    public float LerpTarget;
 }
 
 public enum RenderedEntityRotationStrategy : byte

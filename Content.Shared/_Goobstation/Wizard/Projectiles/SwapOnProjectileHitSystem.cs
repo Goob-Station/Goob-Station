@@ -17,10 +17,10 @@ public sealed class SwapOnProjectileHitSystem : EntitySystem
 
     private void OnHit(Entity<SwapOnProjectileHitComponent> ent, ref ProjectileHitEvent args)
     {
-        if (args.Shooter == null || args.Shooter.Value == args.Target)
-            return;
+        var (uid, comp) = ent;
 
-        var comp = ent.Comp;
+        if (args.Shooter == null || args.Shooter.Value == args.Target || TerminatingOrDeleted(uid))
+            return;
 
         if (!_whitelist.IsValid(comp.Whitelist, args.Target))
             return;
@@ -31,5 +31,8 @@ public sealed class SwapOnProjectileHitSystem : EntitySystem
             Transform(args.Target),
             comp.Sound,
             comp.Effect);
+
+        if (comp.DeleteProjectileOnSwap)
+            Del(uid);
     }
 }

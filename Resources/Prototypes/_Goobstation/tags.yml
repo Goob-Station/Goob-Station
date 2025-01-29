@@ -106,6 +106,9 @@
 - type: Tag
   id: Undead
 
+- type: Tag
+  id: GunCanAimShooter
+
 # Mechs
 
 - type: Tag

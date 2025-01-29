@@ -1,8 +1,10 @@
+using System.Linq;
 using System.Numerics;
 using Content.Shared._Goobstation.Wizard.Projectiles;
 using Content.Shared._Goobstation.Wizard.TimeStop;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
+using Robust.Shared.Animations;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Prototypes;
@@ -86,7 +88,9 @@ public sealed class TrailSystem : EntitySystem
         trail.MaxParticleAmount = comp.MaxParticleAmount;
         trail.ParticleCount = comp.ParticleCount;
         trail.SpawnPosition = comp.SpawnPosition;
+        trail.SpawnEntityPosition = comp.SpawnEntityPosition;
         trail.RenderedEntityRotationStrategy = comp.RenderedEntityRotationStrategy;
+        trail.AdditionalLerpData = comp.AdditionalLerpData;
         trail.TrailData.Sort((x, y) => x.SpawnTime.CompareTo(y.SpawnTime));
     }
 
@@ -131,14 +135,17 @@ public sealed class TrailSystem : EntitySystem
 
                 trail.Accumulator = 0f;
 
-                if (trail.TrailData.Count == 0)
+                for (var i = 0; i < Math.Max(1, trail.ParticleAmount); i++)
                 {
-                    if (IsClientSide(uid) && trail.Frequency <= 0f)
-                        QueueDel(uid);
-                    continue;
-                }
+                    if (trail.TrailData.Count == 0)
+                    {
+                        if (IsClientSide(uid) && trail.Frequency <= 0f)
+                            QueueDel(uid);
+                        break;
+                    }
 
-                trail.TrailData.RemoveAt(0);
+                    trail.TrailData.RemoveAt(0);
+                }
 
                 continue;
             }
@@ -147,6 +154,9 @@ public sealed class TrailSystem : EntitySystem
                 continue;
 
             trail.Accumulator = 0f;
+
+            if (trail.SpawnEntityPosition != null && !Exists(trail.SpawnEntityPosition.Value))
+                continue;
 
             Angle angle;
             if (_physicsQuery.TryComp(uid, out var physics) && physics.LinearVelocity.LengthSquared() > 0)
@@ -195,8 +205,17 @@ public sealed class TrailSystem : EntitySystem
     {
         DebugTools.Assert(trail is { ParticleAmount: > 0, Frequency: > 0f });
         trail.ParticleCount++;
-        var pos = trail.SpawnPosition ?? position;
-        var targetPos = pos + direction * trail.Radius;
+
+        if (trail.SpawnEntityPosition != null && Exists(trail.SpawnEntityPosition.Value))
+        {
+            position = _transform.GetWorldPosition(trail.SpawnEntityPosition.Value, _xformQuery);
+            if (trail.SpawnPosition != null)
+                position += trail.SpawnPosition.Value;
+        }
+        else if (trail.SpawnPosition != null)
+            position = trail.SpawnPosition.Value;
+
+        var targetPos = position + direction * trail.Radius;
         if (trail.TrailData.Count <
             MathF.Max(trail.ParticleAmount, trail.ParticleAmount * trail.Lifetime / trail.Frequency))
         {
@@ -279,6 +298,13 @@ public sealed class TrailSystem : EntitySystem
 
             if (trail.VelocityLerpAmount > 0f)
                 data.Velocity = float.Lerp(data.Velocity, trail.VelocityLerpTarget, trail.VelocityLerpAmount);
+        }
+
+        foreach (var lerpData in trail.AdditionalLerpData.Where(x => x.LerpAmount > 0f))
+        {
+            lerpData.Value = float.Lerp(lerpData.Value, lerpData.LerpTarget, lerpData.LerpAmount);
+
+            AnimationHelper.SetAnimatableProperty(trail, lerpData.Property, lerpData.Value);
         }
     }
 }

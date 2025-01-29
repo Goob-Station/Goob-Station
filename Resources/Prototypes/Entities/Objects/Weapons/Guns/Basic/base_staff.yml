@@ -1,7 +1,7 @@
 - type: entity
   id: WeaponStaffBase
   abstract: true
-  parent: BaseItem
+  parent: [BaseItem, BaseMagicContraband] # Goob edit
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Basic/staves.rsi

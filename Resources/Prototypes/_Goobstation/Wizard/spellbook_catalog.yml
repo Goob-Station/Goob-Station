@@ -461,9 +461,6 @@
     WizCoin: 2
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: SpellbookStaffHealing
@@ -474,9 +471,6 @@
     WizCoin: 1
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: SpellbookStaffChange
@@ -487,9 +481,6 @@
     WizCoin: 2
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: SpellbookStaffChaos
@@ -500,9 +491,6 @@
     WizCoin: 2
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 - type: listing
   id: SpellbookStaffSlipping
@@ -513,9 +501,19 @@
     WizCoin: 1
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
+
+- type: listing
+  id: SpellbookMagicWand
+  name: spellbook-wand-name
+  description: spellbook-wand-desc
+  productEntity: MultiWandWizard
+  icon:
+    sprite: _Goobstation/Wizard/Objects/Weapons/Wands/wand.rsi
+    state: icon
+  cost:
+    WizCoin: 2
+  categories:
+  - SpellbookEquipment
 
 # Special
 - type: listing
@@ -569,11 +567,8 @@
   categories:
   - SpellbookSpecial
   conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
-  - !type:BuyBeforeCondition
-    whitelist:
-    - SpellbookSmHalberd
+  - !type:ListingRelativeLimitedStockCondition
+    relativeListing: SpellbookSmHalberd
   disableRefund: true
   blockRefundListings:
   - SpellbookSmHalberd

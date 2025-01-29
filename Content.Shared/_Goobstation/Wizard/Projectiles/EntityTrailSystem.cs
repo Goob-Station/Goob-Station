@@ -15,7 +15,6 @@ public sealed class EntityTrailSystem : EntitySystem
         if (!TryComp(uid, out TrailComponent? trail))
             return;
 
-        trail.ParticleAmount = comp.ParticleAmount;
         trail.RenderedEntity = uid;
         Dirty(uid, trail);
     }

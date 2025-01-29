@@ -8,6 +8,7 @@
     sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
     layers:
     - state: magicm
+      shader: unshaded
   - type: StunOnCollide
     stunAmount: 6
     knockdownAmount: 6
@@ -40,16 +41,6 @@
     sprite:
       sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
       state: magicm
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape:
-          !type:PhysShapeCircle
-          radius: 0.1
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
   - type: HomingProjectile
     homingSpeed: 540
   - type: Ammo
@@ -426,7 +417,7 @@
 - type: entity
   id: ProjectileFieryBolt
   name: fiery bolt
-  description: Stop drop and roll... though it won't save you.
+  description: Stop drop and roll.
   parent: BaseBullet
   categories: [ HideSpawnMenu ]
   components:
@@ -491,10 +482,15 @@
       color: black
       shader: unshaded
   - type: Projectile
+    deleteOnCollide: false
+    penetrate: true
     damage:
       types:
         Heat: 0
   - type: SwapOnProjectileHit
+    deleteProjectileOnSwap: true
+    sound:
+      path: /Audio/_Goobstation/Wizard/swap.ogg
     whitelist:
       requireAll: true
       components:
@@ -628,6 +624,118 @@
     sprite:
       sprite: /Textures/Effects/chemsmoke.rsi
       state: chemsmoke
+
+- type: entity
+  id: ProjectileBlindingBolt
+  name: blinding bolt
+  description: Just follow the smells.
+  parent: BaseBulletTrigger
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    layers:
+    - state: solarflare
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Heat: 0
+  - type: Reflective
+    reflective: None
+  - type: Ammo
+    muzzleFlash: null
+  - type: SpawnOnTrigger
+    proto: BlindingTrapFlashEffect
+  - type: BlurOnCollide
+    blurTime: 15
+    blindTime: 10
+  - type: PointLight
+    color: white
+    radius: 2.0
+    energy: 5.0
+
+- type: entity
+  id: ProjectileVampiricBolt
+  name: bolt of vampirism
+  description: Looks like it's going to be a long night.
+  parent: BaseBullet
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _Goobstation/Wizard/Projectiles/magic.rsi
+    layers:
+    - state: soulslash
+      shader: unshaded
+  - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/crackandbleed.ogg
+    forceSound: true
+    ignoreResistances: true
+    damage:
+      types:
+        Slash: 20
+  - type: Reflective
+    reflective: None
+  - type: LifeStealOnProjectileHit
+    whitelist:
+      requireAll: true
+      components:
+      - Body
+      - MobState
+      - Damageable
+  - type: Ammo
+    muzzleFlash: null
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.3,-0.3,0.3,0.3"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+
+- type: entity
+  id: ProjectileMagicMissileLesser
+  parent: BaseBullet
+  name: lesser magic missile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/magic.rsi
+    layers:
+    - state: magicm
+      shader: unshaded
+  - type: Reflective
+    reflective: None
+  - type: PointLight
+    enabled: true
+    color: "#FF87FF"
+    radius: 1.5
+    energy: 5.0
+  - type: Projectile
+    soundHit:
+      path: /Audio/_Goobstation/Wizard/mm_hit.ogg
+      params:
+        volume: -3
+    damage:
+      types:
+        Heat: 0
+  - type: StaminaDamageOnCollide
+    damage: 60
+  - type: Trail
+    lerpTime: 0.05
+    frequency: 0.02
+    lifetime: 1
+    alphaLerpAmount: 0.4
+    shader: unshaded
+    sprite:
+      sprite: /Textures/Objects/Weapons/Guns/Projectiles/magic.rsi
+      state: magicm
+  - type: Ammo
+    muzzleFlash: null
 
 - type: entity
   id: ProjectileBananaPeel

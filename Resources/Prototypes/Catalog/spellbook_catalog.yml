@@ -123,9 +123,6 @@
     WizCoin: 1 # Goob edit
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 # Goob edit
 #- type: listing
@@ -150,9 +147,6 @@
     WizCoin: 2 # Goob edit
   categories:
   - SpellbookEquipment
-  conditions:
-  - !type:ListingLimitedStockCondition
-    stock: 1
 
 # Event
 - type: listing

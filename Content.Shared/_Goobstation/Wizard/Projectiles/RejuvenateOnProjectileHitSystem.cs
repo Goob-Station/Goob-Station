@@ -40,7 +40,7 @@ public sealed class RejuvenateOnProjectileHitSystem : EntitySystem
         if (rejuvenate)
         {
             if (!_tag.HasTag(target, comp.SoulTappedTag))
-                RaiseLocalEvent(target, new RejuvenateEvent());
+                RaiseLocalEvent(target, new RejuvenateEvent(false, false));
             return;
         }
 

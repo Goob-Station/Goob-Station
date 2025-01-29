@@ -277,6 +277,9 @@ public abstract class SharedActionsSystem : EntitySystem
 
     private void OnRejuventate(EntityUid uid, ActionsComponent component, RejuvenateEvent args)
     {
+        if (!args.ResetActions) // Goobstation
+            return;
+
         foreach (var act in component.Actions)
         {
             ClearCooldown(act);

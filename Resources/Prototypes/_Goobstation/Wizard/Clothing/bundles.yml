@@ -14,7 +14,7 @@
       - id: ClothingShoesClown
       - id: ClothingMaskSexyClown
       - id: ClothingMaskClownBanana
-      - id: ClothingShoesClownBanana
+      - id: ClothingUniformJumpsuitClown
       - id: ClothingShoesBling
 
 - type: entity
