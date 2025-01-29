@@ -1,6 +1,33 @@
 Entries:
 - author: AstroDogeDX
   changes:
+  - message: Alien sightings should be less frequent due to the administration of
+      lobotomies on the panicked crew.
+    type: Tweak
+  id: 136
+  time: '2025-01-29T22:42:11.917673'
+- author: AstroDogeDX
+  changes:
+  - message: If aliens existed, they'd have names.
+    type: Add
+  id: 135
+  time: '2025-01-29T22:42:24.566497'
+- author: AstroDogeDX
+  changes:
+  - message: If aliens existed, they wouldn't sound like humans, and instead sound
+      like aliens.
+    type: Add
+  id: 134
+  time: '2025-01-29T22:42:39.833921'
+- author: AstroDogeDX
+  changes:
+  - message: If aliens existed, they'd probably speak a real language and not in a
+      forced meme.
+    type: Add
+  id: 133
+  time: '2025-01-29T22:42:55.523940'
+- author: AstroDogeDX
+  changes:
   - message: Aliens aren't real but if they were they're less buggy and frequent now.
       (Wonderprod cuffs disabled until fixed and one aliem per round)
     type: Tweak
