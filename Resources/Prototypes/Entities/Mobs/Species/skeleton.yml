@@ -31,8 +31,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      80: Critical # Goobstation - Skeleton Mald PR
-      130: Dead # Goobstation - Skeleton Mald PR
+      80: Critical # Goobstation - Skeleton Stat Nerfs
+      130: Dead # Goobstation - Skeleton Stat Nerfs
   - type: TransferMindOnGib
   - type: Destructible
     thresholds:
@@ -86,8 +86,8 @@
         scaleByQuantity: true
         damage:
           groups:
-            Burn: -1.5 # Goobstation - Skeleton Mald PR
-            Brute: -1 # Goobstation - Skeleton Mald PR
+            Burn: -1.5 # Goobstation - Skeleton Stat Nerfs
+            Brute: -1 # Goobstation - Skeleton Stat Nerfs
       - !type:PopupMessage
         type: Local
         visualType: Large
