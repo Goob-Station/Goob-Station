@@ -3,8 +3,13 @@
 The following alert levels are the publicly defined levels on this station and what they entail.
 Below are the listed pop-ups for each alert and the color associated with them.
 
-There are individual entries for each alert level and what they entail for station personnel.
+<ColorBox>
+  <Box>
+    For the purposes of Alert Escalation: Treat higher alerts as if they are still on the previous alert level. (Yellow Alert is Blue Alert if it was Blue Alert prior.) Furthermore, treat Delta, Gamma, Epsilon, and Violet Alert as Red Alert.
+  </Box>
+</ColorBox>
 
+There are individual entries for each alert level and what they entail for station personnel.
 
 <Table Columns="1">
   <ColorBox Color="#388c34">

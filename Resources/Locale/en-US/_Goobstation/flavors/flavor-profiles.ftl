@@ -3,3 +3,4 @@ flavor-base-offensive = offensive
 flavor-base-sigma = sigma
 flavor-base-gnesis = children's modeling clay
 flavor-complex-fentanyl = burning tar
+flavor-base-alienblood = alien

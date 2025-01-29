@@ -22,8 +22,12 @@
   id: fentanyl
   flavorType: Complex
   description: flavor-complex-fentanyl
+- type: flavor
+  id: alienblood
+  flavorType: Base
+  description: flavor-base-alienblood
 
 - type: flavor
   id: gnesis
-  flavorType: Complex
+  flavorType: Base
   description: flavor-base-gnesis

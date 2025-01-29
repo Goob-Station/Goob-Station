@@ -1,3 +1,5 @@
+Name: Gooblog
+Order: -1
 Entries:
 - author: Piras314
   changes:
@@ -752,7 +754,7 @@ Entries:
     - type: Tweak
       message: >-
         Changeling can't be butchered on meat spike. (you can still put it in
-        biomass reclaimer or burn it in crematorium)  
+        biomass reclaimer or burn it in crematorium)
     - type: Fix
       message: Changeling in lesser form can't use most abilities.
     - type: Fix
@@ -1501,7 +1503,7 @@ Entries:
         added station AI to train, mail drobe/teleporter to train cargo, and a
         singular pickaxe to train engi, more cameras for AI, edited atmos so the
         salv shuttle can fit (you have been compensated with a fireaxe and
-        combat gloves atmosians...), 
+        combat gloves atmosians...),
     - type: Tweak
       message: put train back in the map pool (min pop 30, max pop 60)
   id: 184
@@ -2852,7 +2854,7 @@ Entries:
     - type: Add
       message: >-
         Harpy wings (currently on their right arm lol) now give you the ability
-        to fly. 
+        to fly.
     - type: Add
       message: >-
         Severing wings from a harpy will render it unable to fly, and
@@ -3149,7 +3151,7 @@ Entries:
     - type: Tweak
       message: >-
         Buffed the Maxim Hardsuit to have 10% more blunt and slash resistance,
-        increased piercing resistance to 70%, and added a 25% movement debuff. 
+        increased piercing resistance to 70%, and added a 25% movement debuff.
   id: 350
   time: '2024-12-11T22:48:03.0000000+00:00'
 - author: Speebr0
@@ -3835,3 +3837,570 @@ Entries:
         accumulate or not
   id: 428
   time: '2025-01-05T02:07:53.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Fix syringe guns not working.
+  id: 429
+  time: '2025-01-06T21:31:04.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: 'Added a Brigging Guideline: DON''T REMOVE IPC BATTERIES YOU NUMBNUTS!'
+  id: 430
+  time: '2025-01-06T21:42:53.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: >-
+        Closet freezers now have 99% explosive resistance, which lets them
+        survive nukes.
+  id: 431
+  time: '2025-01-06T22:03:52.0000000+00:00'
+- author: jorgun
+  changes:
+    - type: Tweak
+      message: Dwarfs now need less alcohol to start healing, but will heal slower.
+  id: 432
+  time: '2025-01-06T22:08:34.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Add
+      message: The server now notifies everyone if you had rage quit the game.
+  id: 433
+  time: '2025-01-06T22:13:18.0000000+00:00'
+- author: starch70
+  changes:
+    - type: Tweak
+      message: Nothing ever happens. I'm betting all in.
+  id: 434
+  time: '2025-01-06T22:17:38.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Increased the default threshold for a ragequit to 30 seconds from 5.
+  id: 435
+  time: '2025-01-06T22:51:37.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: Added the map Submarine from Einstein Engines!
+  id: 436
+  time: '2025-01-07T02:28:19.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Add
+      message: Yowies can now wear softsuits at a massive penalty. Yow(ch)!
+  id: 437
+  time: '2025-01-07T14:47:01.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: >-
+        Added a new lawset, Zooimov. It can randomly occur via ion storm, or can
+        be bought by syndicate zookeepers.
+  id: 438
+  time: '2025-01-07T14:48:43.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Tweaked SOP on executions
+  id: 439
+  time: '2025-01-07T14:49:49.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed all sharp objects not being usable for ghetto surgery.
+  id: 440
+  time: '2025-01-07T15:44:13.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: New species, Resomi!
+    - type: Tweak
+      message: >-
+        Resomi can tolerate much colder temperatures before taking damage, but
+        can't tolerate much heat as a consequence.
+    - type: Tweak
+      message: Resomi can move faster in Zero-G, on account of their wings.
+    - type: Tweak
+      message: >-
+        Like the other animal-type species, Resomi can digest uncooked animal
+        proteins, but get poisoned by theobromine. No coffee for you.
+  id: 441
+  time: '2025-01-07T15:53:11.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Added Warden's Headset.
+    - type: Tweak
+      message: Warden's locker now starts with a multitool.
+  id: 442
+  time: '2025-01-08T14:42:13.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Severed harpy limbs are no longer invisible. Wings are still weird
+        sadly.
+  id: 443
+  time: '2025-01-08T14:46:17.0000000+00:00'
+- author: RatherUncreative
+  changes:
+    - type: Tweak
+      message: >-
+        Making bluespace crystals doubles the value of the materials instead of
+        50xing the value
+  id: 444
+  time: '2025-01-08T14:47:08.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Fix
+      message: >-
+        Fixed all the Winter Coats storage being inaccessible. Now you can take
+        things back out that you stored inside.
+  id: 445
+  time: '2025-01-08T14:49:00.0000000+00:00'
+- author: CerberusWolfie
+  changes:
+    - type: Add
+      message: Added Early Evacuation Procedures to SOP.
+    - type: Add
+      message: Added clarification for how Alert Levels are treated in SOP.
+  id: 446
+  time: '2025-01-08T16:41:29.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Changeling ability to recover chemicals from food items.
+  id: 447
+  time: '2025-01-09T17:38:36.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: Repalleted the HoS and HoP cloaks to fit in better with their jumpsuits.
+  id: 448
+  time: '2025-01-09T17:40:22.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Fix
+      message: Fixed cloning not transferring you to the new body when you accept it.
+  id: 449
+  time: '2025-01-09T18:00:58.0000000+00:00'
+- author: Piras314 & mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added two songs to blob, one plays when the blob is announced/detected
+        and the other plays when the blob is critical!
+  id: 450
+  time: '2025-01-09T19:22:07.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 451
+  time: '2025-01-09T20:14:36.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed the changelog never appearing as 'New!' & turning red
+    - type: Fix
+      message: Fixed the changelog bot messing up the changelog order and ID
+    - type: Tweak
+      message: >-
+        The goob changelog now appears before the wizden changelog instead of
+        after
+    - type: Tweak
+      message: >-
+        The 'gooblog' is now just 'Goob' and the wizden changelog is now called
+        'Wizden' instead of just 'Changelog'
+  id: 452
+  time: '2025-01-09T20:22:48.0000000+00:00'
+- author: PuroSlavKing
+  changes:
+    - type: Add
+      message: Added more markings for Lizards / Reptilians
+    - type: Remove
+      message: Removed Lizards / Reptilians only being able to eat fruit / meat
+    - type: Tweak
+      message: >-
+        Lizard / Reptilian horn markings can now be any colour instead of just
+        black
+    - type: Tweak
+      message: >-
+        Changed the appearance of Lizards / Reptilians. They now have funky
+        legs.
+  id: 453
+  time: '2025-01-09T21:18:19.0000000+00:00'
+- author: misandrie
+  changes:
+    - type: Tweak
+      message: ragequit messages can now be sent to a discord webhook
+  id: 454
+  time: '2025-01-10T14:28:33.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: >-
+        Ashen passage now deals heat damage to the user on activation. Ashen
+        path heretics receive less damage from this, the higher their path stage
+        is, the lower the damage will be. Flesh stalkers and raw prophets will
+        not take damage when jaunting 
+  id: 455
+  time: '2025-01-11T14:09:57.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Tweak
+      message: Ashen Jaunt won't let you use it if it would crit you.
+  id: 456
+  time: '2025-01-11T16:40:43.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Add
+      message: 'Added 2 new ling melee weapons: arm hammer and arm claw.'
+    - type: Add
+      message: Added ling dart gun, able to sting at range.
+    - type: Add
+      message: People without legs can't break out of grabs anymore.
+    - type: Tweak
+      message: Armblade damage is now 15 slash, it delimbs roughly the same as before.
+    - type: Tweak
+      message: Ling stings are now cheaper but inject less reagents.
+    - type: Tweak
+      message: Cryo sting doesn't inject chloral hydrate anymore.
+    - type: Tweak
+      message: >-
+        Lethargic sting doesn't inject mute toxin but slowly drains victim's
+        stamina. 
+    - type: Tweak
+      message: Toggling of ling equipment doesn't cost any chemicals anymore.
+  id: 457
+  time: '2025-01-11T17:14:38.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: Replaced "Clearly Nuclear" with the new version, "Blatantly Nuclear"!
+  id: 458
+  time: '2025-01-11T17:21:57.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: >-
+        Fix resomi and bananamen receiving do-after modifier buff from their
+        hands.
+    - type: Tweak
+      message: >-
+        Dwarves no longer have faster do-afters like humans but instead they are
+        not poisoned by ethanol and heal twice as much by metabolizing it.
+  id: 459
+  time: '2025-01-11T20:02:43.0000000+00:00'
+- author: AstroDogeDX
+  changes:
+    - type: Add
+      message: >-
+        Janitors now have unique airlocks to help them find their closet; and
+        tiders to find their galoshes.
+  id: 460
+  time: '2025-01-11T20:03:42.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Losing a limb makes you bleed profusely instead of dealing bloodloss
+        damage.
+  id: 461
+  time: '2025-01-11T20:11:55.0000000+00:00'
+- author: Piras314, mrjajkes
+  changes:
+    - type: Add
+      message: >-
+        Added Honkops, nukeops, but HONK! They even have their own HONKing
+        amazing nuke song, Opposing Nuke by mrjajkes!
+  id: 462
+  time: '2025-01-11T22:27:31.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Add
+      message: >-
+        Credits are now displayed for lobby backgrounds, similar and next to
+        credits for lobby music/songs.
+    - type: Add
+      message: Added a new lobby background, Greytide Worldwide by Piras314
+    - type: Remove
+      message: Removed a bunch of old low-quality lobby backgrounds.
+    - type: Fix
+      message: >-
+        Fixed some pixel art lobby backgrounds being 1080p with filter instead
+        of being downscaled without filter. They should look a lot better now.
+    - type: Fix
+      message: Fixed QCQM lobby backgrounds not showing up.
+    - type: Fix
+      message: Fixed some broken/missing attributions for lobby backgrounds.
+  id: 463
+  time: '2025-01-12T19:28:39.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Tweak
+      message: Warden now spawns with their unique headset equipped.
+  id: 464
+  time: '2025-01-13T02:24:58.0000000+00:00'
+- author: Foralemes
+  changes:
+    - type: Tweak
+      message: >-
+        Adds a chemical payload and the timer trigger to the syndicate chemical
+        synthesis kit
+  id: 465
+  time: '2025-01-13T16:07:39.0000000+00:00'
+- author: Ichai
+  changes:
+    - type: Add
+      message: Added Lambda Station
+  id: 466
+  time: '2025-01-13T16:11:14.0000000+00:00'
+- author: MortalBaguette
+  changes:
+    - type: Fix
+      message: The Chester rifle now correctly shows as CentComm contraband.
+  id: 467
+  time: '2025-01-13T16:12:03.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Blob reflective tile reflect 60% -> 90%.
+    - type: Tweak
+      message: Hardlight bow x-ray arrows will no longer penetrate blob tiles.
+    - type: Fix
+      message: Emitter bolts now properly reflect as energy projectiles.
+  id: 468
+  time: '2025-01-13T16:18:39.0000000+00:00'
+- author: shibechef
+  changes:
+    - type: Fix
+      message: >-
+        Nigthwatcher's rebirth only engulfs people that are already ignited,
+        like intended.
+  id: 469
+  time: '2025-01-13T16:17:49.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Putting mice on your head will no longer give you free night vision.
+  id: 470
+  time: '2025-01-14T15:15:23.0000000+00:00'
+- author: Mocho, Darkrell, Rinary1, Landosaur
+  changes:
+    - type: Add
+      message: >-
+        Voople xop narp gleeple xop verp narple xip "abductor sightings" gleeple
+        narple xip voop.
+    - type: Add
+      message: >-
+        Voople narp narp "superior organ" gleeple narple "side effects" glimp
+        xop voople narp.
+    - type: Add
+      message: >-
+        Voople glimple xop "mental crashout" verle gleep narple xoop vop "feral
+        tiders" glip verple xop narp.
+    - type: Tweak
+      message: >-
+        Advanced surgical tools now need to be toggled between one of two modes
+        at a time. The medical omnitool remains unchanged.
+  id: 471
+  time: '2025-01-15T01:55:17.0000000+00:00'
+- author: Piras314, deltanedas
+  changes:
+    - type: Tweak
+      message: >-
+        Reworked vent critters, now after a 30 second delay all the mobs spawn
+        from 1 vent from the announcement.
+  id: 472
+  time: '2025-01-15T14:49:59.0000000+00:00'
+- author: deltanedas
+  changes:
+    - type: Tweak
+      message: Fixed air alarms being bad.
+  id: 473
+  time: '2025-01-15T14:50:36.0000000+00:00'
+- author: Piras314, asardonicsailor
+  changes:
+    - type: Add
+      message: 'Added a new lobby background: Tider Activities by asardonicsailor'
+  id: 474
+  time: '2025-01-15T14:51:32.0000000+00:00'
+- author: Blobadoodle
+  changes:
+    - type: Fix
+      message: All CentComm cards/roles now have NTR and BSO access aswell.
+  id: 475
+  time: '2025-01-15T14:53:45.0000000+00:00'
+- author: Piras314
+  changes:
+    - type: Fix
+      message: Fixed some lobby screen credits
+  id: 476
+  time: '2025-01-15T20:13:21.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Tweak
+      message: HoS and Warden armored coat palletes updated.
+  id: 477
+  time: '2025-01-17T21:29:38.0000000+00:00'
+- author: AgentePanela
+  changes:
+    - type: Tweak
+      message: Blob is now Gloob
+  id: 478
+  time: '2025-01-18T02:28:15.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Tweak
+      message: >-
+        The Abductor now speaks in a near-incomprehensible Glorp accent! But it
+        appears he has picked up on a few colloquial words... Xarple Voople Zip
+        Gnarp!
+  id: 479
+  time: '2025-01-19T15:59:02.0000000+00:00'
+- author: Durk, Piras314
+  changes:
+    - type: Add
+      message: Added Patreon Perks!
+  id: 480
+  time: '2025-01-20T02:50:59.0000000+00:00'
+- author: Mocho
+  changes:
+    - type: Fix
+      message: >-
+        Fixed harpy arms (not the wings) showing through any piece of clothing,
+        including hardsuits.
+  id: 481
+  time: '2025-01-20T16:34:56.0000000+00:00'
+- author: MJ Sailor
+  changes:
+    - type: Fix
+      message: Nightwatcher's rebirth now won't delimb or gib you.
+    - type: Fix
+      message: Fixed ritual of knowledge stealing your clothes and organs.
+  id: 482
+  time: '2025-01-20T17:12:41.0000000+00:00'
+- author: ARMOKS
+  changes:
+    - type: Add
+      message: Ratking has Nightvision
+    - type: Tweak
+      message: >-
+        Ratking's and their servants' thick fur are now (mostly) insulated
+        against electricity
+  id: 483
+  time: '2025-01-23T03:50:45.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Fix
+      message: SM no longer removes gases for no reason during normal operation
+  id: 484
+  time: '2025-01-23T04:09:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Increased speed of elite syndicate suit by 11%
+  id: 485
+  time: '2025-01-25T12:14:18.0000000+00:00'
+- author: SolsticeOfTheWinter
+  changes:
+    - type: Add
+      message: Abductors now have a unique bloodtype.
+  id: 486
+  time: '2025-01-26T19:30:52.0000000+00:00'
+- author: JORJ949
+  changes:
+    - type: Add
+      message: Preferred borg name is now applied to Station AIs.
+  id: 487
+  time: '2025-01-26T19:33:23.0000000+00:00'
+- author: Sarahon
+  changes:
+    - type: Tweak
+      message: Spacelaw finally updated to reflect the docs in game
+  id: 488
+  time: '2025-01-26T19:36:18.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: 'Frezon sell price has been reverted to its old value: 0.3->3$/mol.'
+  id: 489
+  time: '2025-01-26T19:39:44.0000000+00:00'
+- author: SX-7
+  changes:
+    - type: Tweak
+      message: Yowie livers now perform chem processing instead of hearts.
+  id: 490
+  time: '2025-01-26T19:42:46.0000000+00:00'
+- author: McBosserson
+  changes:
+    - type: Fix
+      message: Adv. SMES capacity buffed (2x)
+    - type: Tweak
+      message: Increased sell price of filled SMES
+  id: 491
+  time: '2025-01-26T20:04:51.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Fix
+      message: Fixed Glorp Accent not being applied to event Abductor. Varple Zip!
+  id: 492
+  time: '2025-01-26T20:05:46.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: All stealth items are now capable of full stealth while stationary.
+  id: 493
+  time: '2025-01-26T20:14:31.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Fix
+      message: Fixed macrobomb implant needing a restock time in nukie uplinks.
+  id: 494
+  time: '2025-01-26T20:15:42.0000000+00:00'
+- author: Koi
+  changes:
+    - type: Add
+      message: >-
+        Added Wizard Skates: a rare alternative to Skates that doesn't harm the
+        user! Can be found rarely playing the lottery or searching maints.
+    - type: Tweak
+      message: Adjusted normal Skates to spawn more frequently in maints lockers.
+  id: 495
+  time: '2025-01-26T20:46:41.0000000+00:00'
+- author: Aviu
+  changes:
+    - type: Fix
+      message: Ghouls can wear heretic medallion.
+    - type: Tweak
+      message: >-
+        Everyone can wear heretic gear once again with an exception of eldritch
+        medallion.
+  id: 496
+  time: '2025-01-27T10:21:11.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Tweak
+      message: Wonderprod can no longer be disarmed.
+  id: 497
+  time: '2025-01-27T10:21:43.0000000+00:00'
+- author: Ilya246
+  changes:
+    - type: Add
+      message: Added fun!
+    - type: Add
+      message: Syndicate pocket dimension pot.
+  id: 498
+  time: '2025-01-27T13:06:13.0000000+00:00'
