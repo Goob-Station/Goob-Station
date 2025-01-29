@@ -5,6 +5,7 @@ using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.PDA;
 using Content.Shared.Tag;
+using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -35,7 +36,6 @@ public sealed class TurnstileSystem : EntitySystem
         SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
         SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnComponentStartup);
-
     }
 
     //really need to think about this
@@ -64,7 +64,6 @@ public sealed class TurnstileSystem : EntitySystem
     {
         var worldRotation = _transformSystem.GetWorldRotation(entityUid);
 
-        Logger.Debug(GetDirectionVectorFromRotation(worldRotation).ToString());
         return GetDirectionVectorFromRotation(worldRotation);
     }
 
@@ -104,7 +103,9 @@ public sealed class TurnstileSystem : EntitySystem
     private void AllowedPassage(EntityUid uid, TurnstileComponent comp, EntityUid otherEntity)
     {
         // Check access here.
-        _audioSystem.PlayPredicted(comp.AccessSound, uid, otherEntity);
+        _audioSystem.PlayPredicted(new SoundPathSpecifier("/Audio/_Goobstation/Machines/turnstile.ogg"),
+            uid,
+            otherEntity); // this audio ain't playing
         _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Allow);
 
         // Allowed passage
@@ -129,40 +130,28 @@ public sealed class TurnstileSystem : EntitySystem
         RaiseNetworkEvent(new StartPrisonerSentence(GetNetEntity(id)));
     }
 
+
     private EntityUid FindId(EntityUid ent, TurnstileComponent comp)
     {
-        var slotEnumerator = _inventorySystem.GetSlotEnumerator(ent);
-        using var handsEnumerator = _handsSystem.EnumerateHands(ent).GetEnumerator();
+        if (!TryComp<InventoryComponent>(ent, out var inventoryComponent))
+            return default;
 
-        while (handsEnumerator.MoveNext())
+        var inventoryEntities = _inventorySystem.GetHandOrInventoryEntities(ent);
+        var heldEntities = _handsSystem.EnumerateHeld(ent);
+
+        foreach (var held in heldEntities)
         {
-            var hand = handsEnumerator.Current;
-            if (hand.Container == null)
-                continue;
-
-            var uid = hand.Container.ContainedEntity;
-            if (!TryComp<MetaDataComponent>(uid, out var metaData))
-                continue;
-
-            if (uid is not { } handId)
-                continue;
-
-            // refactor to tag checking
-            if (_tagSystem.HasTag(ent, "PrisonerIdCard"))
-                return handId;
+            if (_tagSystem.HasTag(held, "PrisonerIdCard"))
+                return held;
         }
 
-        while (slotEnumerator.MoveNext(out var slot))
+        foreach (var inventoryEntity in inventoryEntities)
         {
-            var slotEntity = slot.ContainedEntity;
-            if (!TryComp<PdaComponent>(slotEntity, out var pdaComponent))
-                continue;
-
-            if (!TryComp<MetaDataComponent>(pdaComponent.ContainedId, out var pdaIdMetaData))
+            if (!TryComp<PdaComponent>(inventoryEntity, out var pdaComponent))
                 continue;
 
             // tag checking
-            if (_tagSystem.HasTag(ent, "PrisonerIdCard"))
+            if (_tagSystem.HasTag(pdaComponent.ContainedId ?? default, "PrisonerIdCard"))
                 return pdaComponent.ContainedId ?? default;
         }
 
@@ -171,7 +160,6 @@ public sealed class TurnstileSystem : EntitySystem
 
     private void OnStartCollide(EntityUid uid, TurnstileComponent comp, StartCollideEvent args)
     {
-        Logger.Debug("COLLIDE");
         if (!_accessReaderSystem.IsAllowed(args.OtherEntity, uid))
         {
             DisallowedPassage(uid, comp, args.OtherEntity);
@@ -182,8 +170,6 @@ public sealed class TurnstileSystem : EntitySystem
                              _transformSystem.GetWorldPosition(uid);
         var normalizedApproach = approachVector.Normalized();
 
-        Logger.Debug(normalizedApproach.ToString());
-        Logger.Debug(comp.AllowedDirection.ToString());
         if (Vector2.Dot(normalizedApproach, comp.AllowedDirection) > 0.5f)
         {
             AllowedPassage(uid, comp, args.OtherEntity);

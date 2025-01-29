@@ -21,12 +21,12 @@
       fix1:
         shape:
           !type:PhysShapeAabb
-          bounds: "-0.35,-0.35,0.35,0.35"  # don't want this colliding with walls or they won't close
+          bounds: "-0.35,-0.35,0.35,0.35"
         density: 100
         mask:
         - FullTileMask
         layer:
-        - AirlockLayer
+        - GlassAirlockLayer
         hard: true
   - type: Turnstile
     accessSound:

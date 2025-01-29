@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._Goobstation.Turnstile;
 
 /// <summary>
-/// This is used for...
+/// This is used for managing turnstile data.
 /// </summary>
 [RegisterComponent]
 public sealed partial class TurnstileComponent : Component

@@ -45,7 +45,7 @@ public sealed class TurnstileVisualizer : EntitySystem
                                     KeyFrames =
                                     {
                                         new AnimationTrackSpriteFlick.KeyFrame(component.OpeningSpriteState, 0f),
-                                        new AnimationTrackSpriteFlick.KeyFrame("turnstile", 2.4f),
+                                        new AnimationTrackSpriteFlick.KeyFrame("turnstile", 1.0f),
 
                                     },
                                 },
@@ -68,7 +68,7 @@ public sealed class TurnstileVisualizer : EntitySystem
                                     KeyFrames =
                                     {
                                         new AnimationTrackSpriteFlick.KeyFrame(component.DenySpriteState, 0f),
-                                        new AnimationTrackSpriteFlick.KeyFrame("turnstile", 2.4f),
+                                        new AnimationTrackSpriteFlick.KeyFrame("turnstile", 1.0f),
                                     },
                                 },
                             },

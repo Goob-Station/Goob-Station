@@ -298,7 +298,6 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 ("jobSuffix", ""));
 
         EntProtoId prisonerId = "PrisonerID";
-
         var id = Spawn(prisonerId,Transform(uid).Coordinates);
         if (args.Time is not {})
             return;
