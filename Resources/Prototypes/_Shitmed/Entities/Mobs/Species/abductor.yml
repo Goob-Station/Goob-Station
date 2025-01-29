@@ -9,7 +9,7 @@
   abstract: true
   components:
   - type: Absorbable # BLOOD FOR THE BLOOD GOD
-  - type: GlorpAccent # GoobStation - Glorpshit
+  - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
   - type: HumanoidAppearance
     species: Abductor
   - type: Icon
@@ -49,6 +49,15 @@
   - type: SurgeryTarget
   - type: Bloodstream
     bloodReagent: AlienBlood
+  - type: Speech
+    speechSounds: Abductor
+    speechVerb: Abductor
+    allowedEmotes: ['Laugh', 'Scream']
+  - type: Vocal
+    sounds:
+      Male: AbductorSounds
+      Female: AbductorSounds
+      Unsexed: AbductorSounds
 
 - type: entity
   parent: BaseSpeciesDummy

@@ -1,0 +1,9 @@
+- type: emoteSounds
+  id: AbductorSounds
+  params:
+    variation: 0.125
+  sounds:
+    Laugh:
+      collection: AbductorLaugh
+    Scream:
+      collection: AbductorScream

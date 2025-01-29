@@ -3,9 +3,9 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 25
-    weight: 7.5
-    minimumPlayers: 10
+    earliestStart: 35
+    weight: 1.5 # ShibaStation - make them way less common
+    minimumPlayers: 20 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
     maxOccurrences: 1 # can only happen once per round
   - type: RuleGrids
@@ -29,9 +29,13 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent #Gloob - Glorpfix
+      - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
+      - type: RandomMetadata
+        nameSegments:
+        - names_abductor
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
+      - type: Sanitized # ShibaStation - Abductors are sterile creatures
       - type: SurgerySpeedModifier
         speedModifier: 1.5
       - type: ActionGrant
