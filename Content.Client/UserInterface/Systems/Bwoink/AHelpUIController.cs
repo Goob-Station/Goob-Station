@@ -40,6 +40,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
     [Dependency] private readonly IUserInterfaceManager _uiManager = default!;
     [UISystemDependency] private readonly AudioSystem _audio = default!;
 
+    private Random _random = new Random();
     private BwoinkSystem? _bwoinkSystem;
     private MenuButton? GameAHelpButton => UIManager.GetActiveUIWidgetOrNull<GameTopMenuBar>()?.AHelpButton;
     private Button? LobbyAHelpButton => (UIManager.ActiveScreen as LobbyGui)?.AHelpButton;
@@ -138,8 +139,7 @@ public sealed class AHelpUIController: UIController, IOnSystemChanged<BwoinkSyst
         }
         if (message.PlaySound && localPlayer.UserId != message.TrueSender)
         {
-            Random random = new Random();
-            if (random.Next(1, 100) > 98)
+            if (_random.Next(1, 100) > 98)
             {
                 if (_oldAHelpSound != null)
                     _audio.PlayGlobal(_oldAHelpSound, Filter.Local(), false);
