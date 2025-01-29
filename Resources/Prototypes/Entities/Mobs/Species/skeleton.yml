@@ -86,8 +86,8 @@
         scaleByQuantity: true
         damage:
           groups:
-            Burn: -2 # healing obviously up to discussion
-            Brute: -1.5 # these groups are the only 2 possible ways to damage a skeleton
+            Burn: -1.5 # healing obviously up to discussion
+            Brute: -1 # these groups are the only 2 possible ways to damage a skeleton
       - !type:PopupMessage
         type: Local
         visualType: Large
