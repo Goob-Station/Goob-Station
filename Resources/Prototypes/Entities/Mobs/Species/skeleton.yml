@@ -31,8 +31,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      100: Critical
-      150: Dead
+      80: Critical # Goobstation - Skeleton Mald PR
+      130: Dead # Goobstation - Skeleton Mald PR
   - type: TransferMindOnGib
   - type: Destructible
     thresholds:
@@ -86,8 +86,8 @@
         scaleByQuantity: true
         damage:
           groups:
-            Burn: -1.5 # healing obviously up to discussion
-            Brute: -1 # these groups are the only 2 possible ways to damage a skeleton
+            Burn: -1.5 # Goobstation - Skeleton Mald PR
+            Brute: -1 # Goobstation - Skeleton Mald PR
       - !type:PopupMessage
         type: Local
         visualType: Large
