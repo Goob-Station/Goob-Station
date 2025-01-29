@@ -1,0 +1,61 @@
+- type: startingGear
+  id: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    jumpsuit: ClothingUniformJumpsuitClown
+    back: ClothingBackpackDuffelSyndicate
+    mask: ClothingMaskClownUnremoveable
+    eyes: ClothingEyesHudSyndicate
+    ears: ClothingHeadsetAltSyndicate
+    gloves: ClothingHandsGlovesCombat
+    #outerClothing: ClothingOuterHardsuitSyndie # goobstation - duke nukies
+    shoes: ClothingShoesClownLarge
+    id: SyndiPDA
+    pocket1: BikeHorn
+    belt: ClothingBeltMilitaryWebbing
+  storage:
+    back:
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - DeathAcidifierImplanter
+
+#Nuclear Operative Gear
+- type: startingGear
+  id: SyndicateOperativeGearFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    pocket2: BaseUplinkRadio225TC # Goobstation - Telecrystal rework
+
+#Nuclear Operative Commander Gear
+- type: startingGear
+  id: SyndicateCommanderGearFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    neck: SyndicateWhistle
+    pocket2: BaseUplinkRadio350TC # goobstation - im rich :fire::fire:
+    #outerClothing: ClothingOuterHardsuitSyndieCommander # goobstation - duke nukies
+  inhand:
+  - NukeOpsDeclarationOfWar
+
+#Nuclear Operative Medic Gear
+- type: startingGear
+  id: SyndicateOperativeMedicFullHonkops
+  parent: SyndicateOperativeGearFullNoUplinkHonkops
+  equipment:
+    eyes: ClothingEyesHudSyndicateAgent
+    #outerClothing: ClothingOuterHardsuitSyndieMedic # goobstation - duke nukies
+    # shoes: ClothingShoesBootsMagSyndie
+    id: SyndiAgentPDA
+    belt: ClothingBeltMilitaryWebbingMedFilled
+    pocket2: BaseUplinkRadio225TCMedic
+  storage:
+    back:
+    - SyndiHypo
+    - SawAdvanced
+    - Cautery
+    - CombatKnife
+    - WeaponPistolViper
+    - PinpointerSyndicateNuclear
+    - HandheldHealthAnalyzer
+    - CombatMedipen
+    - DeathAcidifierImplanter
+    - OmnimedToolSyndie # Shitmed

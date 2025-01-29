@@ -1,0 +1,263 @@
+# Abductor's Crowbar
+- type: entity
+  parent: BaseCrowbar
+  id: CrowbarAbductor
+  name: abductor's crowbar
+  description: A multipurpose tool to pry open doors and fight interdimensional invaders.
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/crowbar.rsi
+    state: abductor
+  - type: Tool
+    speedModifier: 2
+    qualities:
+      - Prying
+    useSound:
+      path: /Audio/Items/crowbar.ogg
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: abductor's wirecutter
+  parent: BaseItem
+  id: WirecutterAbductor
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
+    state: abductor
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/wirecutter_drop.ogg
+  - type: Tag
+    tags:
+    - PlantSampleTaker
+    - Wirecutter
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    damage:
+      types:
+        Piercing: 2
+    attackRate: 2
+    soundHit:
+      path: "/Audio/Items/wirecutter.ogg"
+  - type: Tool
+    qualities:
+      - Cutting
+    useSound:
+      path: /Audio/Items/wirecutter.ogg
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Abductor/wirecutters.rsi
+    storedRotation: -90
+  - type: ToolTileCompatible
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 30
+  - type: Retractor
+    speed: 0.35
+  - type: Hemostat
+    speed: 0.6
+  - type: SurgeryTool
+    startSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
+    endSound:
+      path: /Audio/Items/wirecutter.ogg
+      params:
+        variation: 0.125
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: abductor's screwdriver
+  parent: BaseItem
+  id: ScrewdriverAbductor
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
+    state: abductor
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/screwdriver_drop.ogg
+  - type: Tag
+    tags:
+    - Screwdriver
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Abductor/screwdriver.rsi
+    storedRotation: -90
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 1
+    damage:
+      types:
+        Piercing: 6
+    soundHit:
+      path: "/Audio/Weapons/bladeslice.ogg"
+  - type: Tool
+    qualities:
+      - Screwing
+    useSound:
+      collection: Screwdriver
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+  - type: StaticPrice
+    price: 30
+  - type: Retractor
+    speed: 0.45
+  - type: Tending
+    speed: 0.65
+  - type: SurgeryTool
+    startSound:
+      collection: Screwdriver
+    endSound:
+      path: /Audio/_Shitmed/Medical/Surgery/retractor2.ogg
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: abductor's wrench
+  parent: Wrench
+  id: WrenchAbductor
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
+    state: abductor
+  - type: Item
+    sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
+    storedRotation: 45
+    heldPrefix: abductor
+    storedSprite:
+      sprite: _Shitmed/Objects/Specific/Abductor/wrench.rsi
+      state: abductor
+  - type: Tool
+    speedModifier: 2
+    qualities:
+      - Anchoring
+    useSound:
+      path: /Audio/Items/ratchet.ogg
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: abductor's welding tool
+  parent: Welder
+  id: WelderAbductor
+  description: "An experimental welder capable of self-fuel generation and less harmful to the eyes."
+  components:
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/welder.rsi
+    state: abductor
+  - type: SolutionContainerManager
+    solutions:
+      Welder:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+        maxVol: 1000
+  - type: PointLight
+    enabled: false
+    radius: 1.5
+    color: lightblue
+  - type: SolutionRegeneration
+    solution: Welder
+    generated:
+      reagents:
+      - ReagentId: WeldingFuel
+        Quantity: 10
+  - type: Tool
+    speedModifier: 2.0
+    useSound:
+      collection: Welder
+    qualities: Welding
+  - type: GuideHelp
+    guides:
+    - Abductors
+
+- type: entity
+  name: abductor's multitool
+  parent: [BaseItem, BaseRestrictedContraband]
+  id: MultitoolAbductor
+  description: An advanced tool to copy, store, and send electrical pulses and signals through wires and machines.
+  components:
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/Items/multitool_drop.ogg
+  - type: Item
+    size: Small
+  - type: PhysicalComposition
+    materialComposition:
+      Steel: 100
+      Plastic: 100
+  - type: StaticPrice
+    price: 56
+  - type: Sprite
+    sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
+    state: abductor
+    layers:
+      - state: abductor
+  - type: Clothing
+    sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
+    quickEquip: false
+    slots:
+    - Belt
+  - type: GuideHelp
+    guides:
+    - Abductors
+  - type: UserInterface
+    interfaces:
+      enum.NetworkConfiguratorUiKey.List:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Configure:
+        type: NetworkConfiguratorBoundUserInterface
+      enum.NetworkConfiguratorUiKey.Link:
+        type: NetworkConfiguratorBoundUserInterface
+  - type: Tag
+    tags:
+      - Multitool
+      - DoorElectronicsConfigurator
+  - type: ItemSwitch
+    state: link
+    states:
+      link: !type:ItemSwitchState
+        verb: link
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
+          state: abductor
+        components:
+          - type: Tool
+            qualities:
+              - Pulsing
+          - type: NetworkConfigurator
+            showLabel: false
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5
+
+      hijack: !type:ItemSwitchState
+        verb: hijack
+        sprite:
+          sprite: _Shitmed/Objects/Specific/Abductor/multitool.rsi
+          state: override-abductor
+        components:
+        - type: LimitedCharges
+          charges: 0
+        - type: AutoRecharge
+          rechargeDuration: 15
+        - type: Emag
+          validTargets:
+            components:
+            - Airlock
+        soundStateActivate:
+          collection: sparks
+          params:
+            variation: 0.125
+            volume: -5

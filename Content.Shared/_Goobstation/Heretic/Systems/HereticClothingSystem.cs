@@ -14,10 +14,15 @@ public sealed class HereticClothingSystem : EntitySystem
 
     private void OnEquipAttempt(Entity<HereticClothingComponent> ent, ref BeingEquippedAttemptEvent args)
     {
-        if (HasComp<HereticComponent>(args.EquipTarget))
+        if (IsTargetValid(args.EquipTarget) && (args.EquipTarget == args.Equipee || IsTargetValid(args.Equipee)))
             return;
 
         args.Cancel();
         args.Reason = Loc.GetString("heretic-clothing-component-fail");
+    }
+
+    private bool IsTargetValid(EntityUid target)
+    {
+        return HasComp<HereticComponent>(target) || HasComp<GhoulComponent>(target);
     }
 }
