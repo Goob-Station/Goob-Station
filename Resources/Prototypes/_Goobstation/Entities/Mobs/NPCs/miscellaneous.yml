@@ -374,3 +374,26 @@
   - type: Grammar
     attributes:
       gender: female
+
+- type: entity
+  name: Jay Eazy
+  description: I was never book smart I'm money smart
+  id: MobJayEazy
+  parent: MobSportacus
+  components:
+  - type: Sprite
+    scale: 0.256, 0.256
+    drawdepth: Mobs
+    sprite: _Goobstation/Mobs/Demons/jayeazy.rsi
+    layers:
+      - map: ["enum.DamageStateVisualLayers.Base"]
+        state: alive
+  - type: AmbientSound
+    volume: 0
+    range: 10
+    enabled: true
+    sound:
+      path: /Audio/StationEvents/jay_eazy.ogg
+  - type: Grammar
+    attributes:
+      gender: male
