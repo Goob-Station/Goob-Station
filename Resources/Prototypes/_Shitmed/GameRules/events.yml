@@ -29,7 +29,10 @@
         sound: /Audio/_Shitmed/Misc/abductor.ogg
       components:
       - type: Abductor
-      - type: GlorpAccent #Gloob - Glorpfix
+      - type: AlieneseAccent # ShibaStation - Intelligently incomprehensible alienese
+      - type: RandomMetadata
+        nameSegments:
+        - names_abductor
       - type: AbductorScientist
       - type: SurgeryIgnoreClothing
       - type: SurgerySpeedModifier

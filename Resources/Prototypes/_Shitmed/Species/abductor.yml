@@ -8,6 +8,11 @@
   dollPrototype: MobAbductorDummy
   skinColoration: HumanToned
   defaultSkinTone: "#BFC2C7"
+  maleFirstNames: names_abductor
+  femaleFirstNames: names_abductor
+  naming: First
+  sexes:
+  - Unsexed
 
 - type: speciesBaseSprites
   id: MobAbductorSprites

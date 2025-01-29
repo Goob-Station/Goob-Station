@@ -1,5 +1,5 @@
 - type: entity
-  name: lone abductor
+  name: abductor
   parent: BaseMobAbductor
   id: MobAbductor
   components:
@@ -33,6 +33,9 @@
   - type: Loadout
     prototypes:
       - LoneAbductorGear
+  - type: RandomMetadata
+    nameSegments:
+    - names_abductor
 
 - type: startingGear
   id: LoneAbductorGear
