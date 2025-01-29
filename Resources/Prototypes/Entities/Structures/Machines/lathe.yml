@@ -208,6 +208,7 @@
       - ClothingHeadHatCone
       - FreezerElectronics
       - ToolboxMechanical # Goobstation - Recycle update
+      - Pen # Goobstation - Allow pen printing
   - type: EmagLatheRecipes
     emagStaticRecipes:
       - BoxLethalshot
