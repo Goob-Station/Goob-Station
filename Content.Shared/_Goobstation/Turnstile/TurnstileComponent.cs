@@ -1,8 +1,5 @@
 using System.Numerics;
-using Robust.Client.Animations;
 using Robust.Shared.Audio;
-using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._Goobstation.Turnstile;
@@ -31,9 +28,6 @@ public sealed partial class TurnstileComponent : Component
     public SoundSpecifier? DenySound;
 
     [DataField]
-    public TurnstileVisualState State = TurnstileVisualState.Base;
-
-    [DataField]
     public string OpeningSpriteState = "operate";
 
     [DataField]
@@ -41,6 +35,9 @@ public sealed partial class TurnstileComponent : Component
 
     [DataField]
     public float AnimationTime = 1f;
+
+    [DataField]
+    public EntityUid? PassingThrough;
 }
 
 [Serializable,NetSerializable]

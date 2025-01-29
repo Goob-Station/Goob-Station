@@ -17,6 +17,7 @@ using Content.Shared.Coordinates;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Security.Components;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.CriminalRecords.Systems;
 
@@ -296,7 +297,9 @@ public sealed class CriminalRecordsConsoleSystem : SharedCriminalRecordsConsoleS
                 ("fullName", name),
                 ("jobSuffix", ""));
 
-        var id = Spawn("PrisonerID",uid.ToCoordinates());
+        EntProtoId prisonerId = "PrisonerID";
+
+        var id = Spawn(prisonerId,Transform(uid).Coordinates);
         if (args.Time is not {})
             return;
         int.TryParse(args.Time.Split(' ')[0], out var minutes);

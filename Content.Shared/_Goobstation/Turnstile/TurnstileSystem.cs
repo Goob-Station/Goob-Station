@@ -33,21 +33,30 @@ public sealed class TurnstileSystem : EntitySystem
     {
         base.Initialize();
         SubscribeLocalEvent<TurnstileComponent, StartCollideEvent>(OnStartCollide);
-        //SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
+        SubscribeLocalEvent<TurnstileComponent, PreventCollideEvent>(OnPreventCollide);
         SubscribeLocalEvent<TurnstileComponent, ComponentStartup>(OnComponentStartup);
 
     }
 
-    private void OnPreventCollide(EntityUid uid, TurnstileComponent component, ref PreventCollideEvent args)
+    //really need to think about this
+    private void OnPreventCollide(EntityUid uid, TurnstileComponent comp, ref PreventCollideEvent args)
     {
-        var user = args.OtherEntity;
+        if (comp.PassingThrough == null)
+        {
+            comp.PassingThrough = args.OtherEntity;
+            args.Cancelled = false; // Allow collision
+        }
 
+        if (comp.PassingThrough != args.OtherEntity)
+            args.Cancelled = true;
+
+        args.Cancelled = false;
     }
 
-    private void OnComponentStartup(EntityUid uid, TurnstileComponent component, ref ComponentStartup args)
+    private void OnComponentStartup(EntityUid uid, TurnstileComponent comp, ref ComponentStartup args)
     {
         var directionVector = GetStructureDirectionVector(uid);
-        component.AllowedDirection = directionVector;
+        comp.AllowedDirection = directionVector;
     }
 
 
@@ -99,12 +108,14 @@ public sealed class TurnstileSystem : EntitySystem
         _appearanceSystem.SetData(uid, TurnstileVisuals.State, TurnstileVisualState.Allow);
 
         // Allowed passage
+        comp.PassingThrough = otherEntity;
         _physicsSystem.SetCanCollide(uid, false);
-        Timer.Spawn(500,
+        Timer.Spawn(1000,
             () =>
             {
                 StartPrisonerTime(otherEntity, comp);
                 _physicsSystem.SetCanCollide(uid, true);
+                comp.PassingThrough = null;
             });
     }
 

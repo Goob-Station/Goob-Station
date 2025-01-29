@@ -1,6 +1,7 @@
 using Content.Shared._Goobstation.Turnstile;
 using Robust.Client.GameObjects;
 using Robust.Client.Animations;
+using Robust.Shared.Timing;
 
 namespace Content.Client._Goobstation.Turnstile;
 
@@ -51,6 +52,8 @@ public sealed class TurnstileVisualizer : EntitySystem
                             },
                         },
                         "turnstileOperate");
+
+                    resetSprite(uid);
                     break;
                 case TurnstileVisualState.Deny:
                     _player.Play(uid,
@@ -71,10 +74,19 @@ public sealed class TurnstileVisualizer : EntitySystem
                             },
                         },
                         "turnstileDeny");
+                    resetSprite(uid);
                     break;
             }
         }
+    }
 
-
+    private void resetSprite(EntityUid uid)
+    {
+        Timer.Spawn(1000, () =>
+        {
+            if(!TryComp<SpriteComponent>(uid, out var spriteComponent))
+                return;
+            spriteComponent.LayerSetState(0,"turnstile");
+        });
     }
 }
