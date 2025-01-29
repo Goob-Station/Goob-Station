@@ -13,10 +13,10 @@ public sealed partial class HandPlaceholderComponent : Component
     /// <summary>
     /// A whitelist to match entities that this should accept.
     /// </summary>
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public EntityWhitelist? Whitelist;
 
-    [DataField, AutoNetworkedField]
-    public EntProtoId Prototype;
+    [ViewVariables, AutoNetworkedField]
+    public EntProtoId? Prototype;
 }
 

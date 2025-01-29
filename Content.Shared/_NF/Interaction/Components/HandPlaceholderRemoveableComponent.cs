@@ -13,5 +13,5 @@ public sealed partial class HandPlaceholderRemoveableComponent : Component
     public EntityWhitelist? Whitelist;
 
     [DataField]
-    public EntProtoId Prototype;
+    public EntProtoId? Prototype;
 }
