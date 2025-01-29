@@ -40,7 +40,7 @@
       Durathread: 50
 
 - type: entity
-  parent: [ ClothingOuterWinterCoat, ClothingOuterBaseToggleable ]
+  parent: [ ClothingOuterStorageToggleableBase, ClothingOuterWinterCoat ]
   id: ClothingOuterWinterCoatToggleable
   name: winter coat with hood
   categories: [ HideSpawnMenu ]
