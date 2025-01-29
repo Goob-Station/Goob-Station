@@ -13,7 +13,6 @@ public sealed partial class TurnstileComponent : Component
     /// <summary>
     /// Direction that's allowed for entity passthrough.
     /// </summary>
-    [DataField("turnstileDirection")]
     public Vector2 AllowedDirection = new Vector2(0, 1); // North
 
     /// <summary>
