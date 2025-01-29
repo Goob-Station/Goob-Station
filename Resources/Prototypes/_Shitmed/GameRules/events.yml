@@ -3,9 +3,9 @@
   id: LoneAbductorSpawn
   components:
   - type: StationEvent
-    earliestStart: 25
-    weight: 4 # ShibaStation - make them a little less common but probably still common enough
-    minimumPlayers: 18 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
+    earliestStart: 35
+    weight: 1.5 # ShibaStation - make them way less common
+    minimumPlayers: 20 # ShibaStation - increased pop requirement. it's fun to have them around and they aren't a *threat* but they can seriously disrupt a low pop station in a negative way (unintentionally, it's just a symptom of low pop)
     duration: 1
     maxOccurrences: 1 # can only happen once per round
   - type: RuleGrids
