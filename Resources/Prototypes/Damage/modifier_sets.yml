@@ -214,8 +214,8 @@
   id: Skeleton
   coefficients:
     Blunt: 1.1 
-    Slash: 0.9 # Goobstation - Skeleton Mald PR
-    Piercing: 0.8 # Goobstation - Skeleton Mald PR
+    Slash: 0.9 # Goobstation - Skeleton Stat Nerfs
+    Piercing: 0.8 # Goobstation - Skeleton Stat Nerfs
     Cold: 0.0
     Poison: 0.0
     Radiation: 0.0
