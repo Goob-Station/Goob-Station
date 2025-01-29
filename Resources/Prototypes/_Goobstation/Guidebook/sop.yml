@@ -275,6 +275,11 @@
   name: guide-entry-sop-searches
   text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/SearchesSOP.xml"
 
+- type: guideEntry
+  id: Contraband SOP
+  name: guide-entry-sop-contraband
+  text: "/ServerInfo/_Goobstation/Guidebook/SoP/Legal/ContrabandSOP.xml"
+
 # Cargo SOP Entries
 - type: guideEntry
   id: CargoTech SOP
