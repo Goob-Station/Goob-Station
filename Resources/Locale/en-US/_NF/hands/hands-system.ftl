@@ -1,3 +1,1 @@
-hands-system-blocked-by = Slot for
-
-hand-placeholder-name = Cyborg slot ({$item})
+hand-placeholder-name = Module slot for

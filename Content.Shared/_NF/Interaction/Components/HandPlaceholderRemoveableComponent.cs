@@ -14,7 +14,4 @@ public sealed partial class HandPlaceholderRemoveableComponent : Component
 
     [DataField]
     public EntProtoId Prototype;
-
-    [DataField]
-    public EntityUid DisplayEntity;
 }

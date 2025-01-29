@@ -34,7 +34,7 @@ public sealed partial class ItemBorgModuleComponent : Component
     /// The entities from <see cref="Items"/> that were spawned.
     /// </summary>
     [DataField("droppableProvidedItems")]
-    public SortedDictionary<string, (EntityUid, DroppableBorgItemInstance)> DroppableProvidedItems = new();
+    public SortedDictionary<string, (EntityUid, DroppableBorgItem)> DroppableProvidedItems = new();
 
     /// <summary>
     /// A counter that ensures a unique
@@ -71,17 +71,4 @@ public sealed partial class DroppableBorgItem
 
     [DataField]
     public EntityWhitelist Whitelist;
-}
-
-[DataDefinition]
-public sealed partial class DroppableBorgItemInstance
-{
-    [IdDataField]
-    public EntProtoId ID;
-
-    [DataField]
-    public EntityWhitelist Whitelist;
-
-    [DataField]
-    public EntityUid DisplayEntity;
 }

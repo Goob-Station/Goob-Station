@@ -236,6 +236,8 @@ public sealed partial class BorgSystem
                 item = Spawn(itemProto.ID, xform.Coordinates);
                 var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(item);
                 placeComp.Whitelist = itemProto.Whitelist;
+                placeComp.Prototype = itemProto.ID;
+                Dirty(item, placeComp);
             }
             else
             {
@@ -254,6 +256,8 @@ public sealed partial class BorgSystem
                 {
                     var placeComp = EnsureComp<HandPlaceholderRemoveableComponent>(item);
                     placeComp.Whitelist = itemProto.Whitelist;
+                    placeComp.Prototype = itemProto.ID;
+                    Dirty(item, placeComp);
                 }
             }
 

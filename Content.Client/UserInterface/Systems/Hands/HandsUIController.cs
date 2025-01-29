@@ -139,13 +139,13 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
                 handButton.SetEntity(virt.BlockingEntity);
                 handButton.Blocked = true;
             }
-            // Frontier - TODO: spawn HandPlaceholder nullspace entity for icon?
-            else if (_entities.TryGetComponent(hand.HeldEntity, out HandPlaceholderComponent? placeholder))
+            // Frontier - borg hand placeholder
+            else if (_entities.TryGetComponent(hand.HeldEntity, out HandPlaceholderVisualsComponent? placeholder))
             {
-                handButton.SetEntity(hand.HeldEntity);
+                handButton.SetEntity(placeholder.Dummy);
                 handButton.Blocked = true;
             }
-            // End Frontier
+            // End Frontier - borg hand placeholder
             else
             {
                 handButton.SetEntity(hand.HeldEntity);
@@ -197,13 +197,13 @@ public sealed class HandsUIController : UIController, IOnStateEntered<GameplaySt
             hand.SetEntity(virt.BlockingEntity);
             hand.Blocked = true;
         }
-        // Frontier
-        if (_entities.TryGetComponent(entity, out HandPlaceholderComponent? virt))
+        // Frontier: borg hand placeholders
+        else if (_entities.TryGetComponent(entity, out HandPlaceholderVisualsComponent? placeholder))
         {
-            hand.SetEntity(virt.BlockingEntity);
+            hand.SetEntity(placeholder.Dummy);
             hand.Blocked = true;
         }
-        // End Frontier
+        // End Frontier: borg hand placeholders
         else
         {
             hand.SetEntity(entity);
